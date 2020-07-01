@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300576"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565513"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
 W tym przewodniku szybki start opisano, jak uruchomić próbkę Unity, która zdalnie renderuje wbudowany model przy użyciu usługi renderowania zdalnego (ARR) platformy Azure.
 
-Nie będziemy szczegółowo podawać samego interfejsu API ARR ani jak skonfigurować nowy projekt środowiska Unity. Te tematy zostały omówione w [samouczku: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md).
+Nie będziemy szczegółowo podawać samego interfejsu API ARR ani jak skonfigurować nowy projekt środowiska Unity. Te tematy zostały omówione w [samouczku: wyświetlanie zdalnie renderowane modele](../tutorials/unity/view-remote-models/view-remote-models.md).
 
 W tym przewodniku szybki start dowiesz się, jak:
 > [!div class="checklist"]

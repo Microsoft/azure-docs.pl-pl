@@ -112,6 +112,10 @@
           href: concepts-data-in-replication.md
         - name: Repliki do odczytu
           href: concepts-read-replicas.md
+    - name: Przenoszenie między regionami
+      items:
+        - name: Azure Portal
+          href: howto-move-regions-portal.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie serwerem

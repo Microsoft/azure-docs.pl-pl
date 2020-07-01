@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 36e85ccf4c145b6881670cb95f5e84ec177ce2a5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262926"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560620"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB interfejs API tabel
 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB interfejs API tabel. W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Zadanie | Opis |
 |---|---|
 | [Tworzenie konta i tabeli platformy Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy konto Azure Cosmos DB i tabelę dla interfejs API tabel. |
 | [Zmień przepływność](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Zaktualizuj RU/s w tabeli.|

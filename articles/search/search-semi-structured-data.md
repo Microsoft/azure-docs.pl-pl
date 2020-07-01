@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 64cb864b50f44f70bb9ceccc9983641970116cc7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261447"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559021"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
 
@@ -112,13 +112,13 @@ W obszarze nagłówki ustaw wartość "Content-Type" na wartość `application/j
 
   ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
 
-Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2019-05-06` .
+Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2020-06-30` .
 
 ## <a name="3---create-a-data-source"></a>3 — Tworzenie źródła danych
 
 [Interfejs API tworzenia źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) tworzy obiekt wyszukiwanie poznawcze platformy Azure, który określa, jakie dane mają być indeksowane.
 
-1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/datasources?api-version=2019-05-06` . Zastąp element `[service name]` nazwą usługi wyszukiwania. 
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/datasources?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania. 
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -161,7 +161,7 @@ Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie 
     
 Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index), tworzenie indeksu wyszukiwanie poznawcze platformy Azure, w którym są przechowywane wszystkie dane z możliwością wyszukiwania. Indeks określa wszystkie parametry i ich atrybuty.
 
-1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2019-05-06` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -236,7 +236,7 @@ Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.c
 
 Indeksator nawiązuje połączenie ze źródłem danych, importuje dane do docelowego indeksu wyszukiwania i opcjonalnie udostępnia harmonogram do automatyzowania odświeżania danych. Interfejs API REST służy do [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexers?api-version=2019-05-06` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexers?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -281,7 +281,7 @@ Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
 
 1. Zmień zlecenie, aby **uzyskać**.
 
-1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Wyślij żądanie. Jest to nieokreślone zapytanie wyszukiwania pełnotekstowego, które zwraca wszystkie pola oznaczone jako możliwy do pobierania w indeksie oraz liczbę dokumentów. Odpowiedź powinna wyglądać następująco:
 
@@ -313,7 +313,7 @@ Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
             . . . 
     ```
 
-1. Dodaj `$select` parametr zapytania, aby ograniczyć wyniki do mniejszej liczby pól: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true` .  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
+1. Dodaj `$select` parametr zapytania, aby ograniczyć wyniki do mniejszej liczby pól: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
 
    ![Zapytanie sparametryzowane](media/search-semi-structured-data/lastquery.png "Paramterized zapytanie")
 
@@ -333,12 +333,12 @@ W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem
 Możesz użyć portalu, aby usunąć indeksy, indeksatory i źródła danych. Lub Użyj **Usuń** i podaj adresy URL do każdego obiektu. Następujące polecenie usuwa indeksator.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 W przypadku pomyślnego usunięcia jest zwracany kod stanu 204.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

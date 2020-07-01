@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84687926"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563008"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -29,7 +29,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Łączenie witryny sieci VPN z centrum
 > * Łączenie sieci wirtualnej z koncentratorem
 > * Pobierz plik konfiguracji
-> * Wyświetlanie wirtualnej sieci WAN
+> * Konfigurowanie bramy sieci VPN
 
 > [!NOTE]
 > Jeśli masz wiele lokacji, skorzystaj z usług [partnera usługi Virtual WAN](https://aka.ms/virtualwan) w celu utworzenia tej konfiguracji. Możesz też utworzyć tę konfigurację samodzielnie, jeśli masz wiedzę z zakresu sieci i doświadczenie w konfigurowaniu urządzeń sieci VPN.
@@ -251,11 +251,20 @@ Jeśli chcesz wiedzieć, jak skonfigurować urządzenie, możesz skorzystać z i
 * Nowa wirtualna sieć WAN może obsługiwać zarówno protokół IKEv1, jak i IKEv2.
 * Wirtualna sieć WAN może używać zarówno urządzeń sieci VPN opartych na zasadach, jak i opartych na trasach.
 
-## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Wyświetlanie wirtualnej sieci WAN
+## <a name="configure-your-vpn-gateway"></a><a name="gateway-config"></a>Konfigurowanie bramy sieci VPN
 
-1. Przejdź do wirtualnej sieci WAN.
-2. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum. Umieść kursor nad dowolnym punktem, aby wyświetlić podsumowanie kondycji centrum, stan połączenia oraz liczbę bajtów w i wykroczeniu.
-3. W sekcji centra i połączenia można wyświetlić stan centrum, witryny sieci VPN itp. Możesz kliknąć określoną nazwę centrum i przejść do witryny sieci VPN, aby uzyskać dodatkowe informacje.
+Ustawienia bramy sieci VPN można wyświetlać i konfigurować w dowolnym momencie, wybierając pozycję **Wyświetl/Skonfiguruj**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawienia:
+
+* VPN Gateway publiczny adres IP (przypisany przez platformę Azure)
+* VPN Gateway prywatny adres IP (przypisany przez platformę Azure)
+* VPN Gateway domyślny adres IP protokołu BGP (przypisany przez platformę Azure)
+* Opcja konfiguracji dla niestandardowego adresu IP protokołu BGP: to pole jest zarezerwowane dla funkcji APIPA (automatyczne prywatne adresy IP). Platforma Azure obsługuje adres IP BGP w zakresach 169.254.21. * i 169.254.22. *
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

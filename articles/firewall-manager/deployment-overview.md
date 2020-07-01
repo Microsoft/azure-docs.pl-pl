@@ -1,24 +1,22 @@
 ---
-title: Omówienie wdrożenia programu Azure firewall Manager w wersji zapoznawczej
-description: Informacje o krokach wdrożenia wysokiego poziomu wymaganych przez usługę Azure firewall Manager w wersji zapoznawczej
+title: Omówienie wdrażania Menedżera zapory platformy Azure
+description: Informacje o krokach wdrożenia wysokiego poziomu wymaganych przez Menedżera zapory platformy Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77443129"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565801"
 ---
-# <a name="azure-firewall-manager-preview-deployment-overview"></a>Omówienie wdrożenia programu Azure firewall Manager w wersji zapoznawczej
+# <a name="azure-firewall-manager-deployment-overview"></a>Omówienie wdrażania Menedżera zapory platformy Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Istnieje więcej niż jeden sposób wdrożenia wersji zapoznawczej Menedżera zapory platformy Azure, ale zalecany jest następujący proces ogólny.
+Istnieje więcej niż jeden sposób wdrożenia Menedżera zapory platformy Azure, ale zalecany jest następujący proces ogólny.
 
 ## <a name="general-deployment-process"></a>Ogólny proces wdrażania
 
@@ -27,19 +25,19 @@ Istnieje więcej niż jeden sposób wdrożenia wersji zapoznawczej Menedżera za
 1.  Tworzenie zasad zapory
 
     - Tworzenie nowych zasad
-<br>*oraz*<br>
+<br>*lub*<br>
     - Tworzenie podstawowych zasad i dostosowywanie zasad lokalnych
-<br>*oraz*<br>
+<br>*lub*<br>
     - Importuj reguły z istniejącej zapory platformy Azure. Pamiętaj o usunięciu reguł translatora adresów sieciowych z zasad, które powinny być stosowane przez wiele zapór
 1. Tworzenie architektury gwiazdy i szprych
    - Tworzenie centrum Virtual Network przy użyciu Menedżera zapory platformy Azure i sieci wirtualnych równorzędnych z siecią wirtualną za pomocą komunikacji równorzędnej sieci wirtualnych
-<br>*oraz*<br>
+<br>*lub*<br>
     - Tworzenie sieci wirtualnej i Dodawanie połączeń sieci wirtualnych i sieci wirtualnych równorzędnych usługi peer Network przy użyciu komunikacji równorzędnej sieci wirtualnej
 
 3. Wybierz pozycję dostawcy zabezpieczeń i skojarz zasady zapory. Obecnie obsługiwane są tylko zapory platformy Azure.
 
    - Jest to wykonywane podczas tworzenia Virtual Network centrum
-<br>*oraz*<br>
+<br>*lub*<br>
     - Przekonwertuj istniejącą sieć wirtualną na Virtual Network centrum. Istnieje również możliwość konwersji wielu sieci wirtualnych.
 
 4. Skonfiguruj trasy definiowane przez użytkownika w celu kierowania ruchu do centrum Virtual Network zapory.
@@ -49,11 +47,11 @@ Istnieje więcej niż jeden sposób wdrożenia wersji zapoznawczej Menedżera za
 
 1. Tworzenie architektury gwiazdy i szprych
 
-   - Utwórz zabezpieczone centrum wirtualne przy użyciu Menedżera zapory platformy Azure i Dodaj połączenia sieci wirtualnej.<br>*oraz*<br>
+   - Utwórz zabezpieczone centrum wirtualne przy użyciu Menedżera zapory platformy Azure i Dodaj połączenia sieci wirtualnej.<br>*lub*<br>
    - Tworzenie wirtualnego centrum sieci WAN i Dodawanie połączeń sieci wirtualnej.
 2. Wybierz dostawców zabezpieczeń
 
-   - Gotowe podczas tworzenia bezpiecznego koncentratora wirtualnego.<br>*oraz*<br>
+   - Gotowe podczas tworzenia bezpiecznego koncentratora wirtualnego.<br>*lub*<br>
    - Przekonwertuj istniejące wirtualne koncentrator sieci WAN na zabezpieczenie koncentratora wirtualnego.
 3. Tworzenie zasad zapory i kojarzenie ich z centrum
 
@@ -70,4 +68,4 @@ Istnieje więcej niż jeden sposób wdrożenia wersji zapoznawczej Menedżera za
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Zabezpieczanie sieci w chmurze za pomocą usługi Azure firewall Manager w wersji zapoznawczej przy użyciu Azure Portal](secure-cloud-network.md)
+- [Samouczek: Zabezpieczanie sieci w chmurze za pomocą Menedżera zapory platformy Azure przy użyciu Azure Portal](secure-cloud-network.md)

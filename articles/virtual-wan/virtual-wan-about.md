@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: de939f2bfe55541dca9d93f6778e4b098d067daa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657012"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565980"
 ---
 # <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
 
@@ -64,7 +64,7 @@ Aby skonfigurować kompleksową wirtualną sieć WAN, należy utworzyć następu
 
 **Dodatkowe zasoby wirtualnej sieci WAN**
 
-  * **Lokacja:** Ten zasób jest używany tylko w przypadku połączeń lokacja-lokacja. Zasób lokacji to **vpnsite**. Reprezentuje lokalne urządzenie sieci VPN i jego ustawienia. Dzięki współpracy z partnerem usługi Virtual WAN otrzymasz wbudowane rozwiązanie do automatycznego eksportowania tych informacji na platformę Azure.
+* **Lokacja:** Ten zasób jest używany tylko w przypadku połączeń lokacja-lokacja. Zasób lokacji to **vpnsite**. Reprezentuje lokalne urządzenie sieci VPN i jego ustawienia. Dzięki współpracy z partnerem usługi Virtual WAN otrzymasz wbudowane rozwiązanie do automatycznego eksportowania tych informacji na platformę Azure.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>Typy łączności
 
@@ -72,21 +72,9 @@ Wirtualna sieć WAN umożliwia łączenie następujących typów: sieci VPN typu
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Połączenia sieci VPN typu lokacja-lokacja
 
-![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwan.png)
+Możesz połączyć się z zasobami na platformie Azure za pośrednictwem połączenia typu lokacja-lokacja IPsec/IKE (IKEv2). Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia typu lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md). 
 
-Podczas tworzenia połączenia sieci VPN typu lokacja-lokacja można korzystać z dostępnego partnera. Jeśli nie chcesz korzystać z partnera, możesz skonfigurować połączenie ręcznie. Aby uzyskać więcej informacji, zobacz [Tworzenie połączenia typu lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md).
-
-#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Przepływ pracy wirtualnego partnera sieci WAN
-
-Podczas pracy z partnerem wirtualnego sieci WAN przepływ pracy to:
-
-1. Kontroler urządzenia w oddziale (VPN/SDWAN) jest uwierzytelniany w celu wyeksportowania informacji z lokacji na platformę Azure za pomocą [jednostki usługi platformy Azure](../active-directory/develop/howto-create-service-principal-portal.md).
-2. Kontroler urządzenia w oddziale (VPN/SDWAN) uzyskuje konfigurację łączności z platformy Azure i aktualizuje urządzenie lokalne. To umożliwia zautomatyzowanie pobierania, edytowania i aktualizowania konfiguracji lokalnego urządzenia sieci VPN.
-3. Gdy urządzenie jest prawidłowo skonfigurowane pod kątem platformy Azure, tworzone jest połączenie typu lokacja-lokacja (dwa aktywne tunele) z siecią WAN platformy Azure. Platforma Azure obsługuje zarówno protokół IKEv1, jak i IKEv2. Protokół BGP jest opcjonalny.
-
-#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Partnerzy dla połączeń wirtualnych sieci WAN między lokacjami
-
-Listę dostępnych partnerów i lokalizacji można znaleźć w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
+Ten typ połączenia wymaga urządzenia sieci VPN lub wirtualnego urządzenia partnerskiego sieci WAN. Wirtualne partnerzy sieci WAN zapewniają automatyzację łączności, która umożliwia eksportowanie informacji o urządzeniu do platformy Azure, pobieranie konfiguracji platformy Azure i nawiązywanie połączenia z wirtualnym koncentratorem sieci WAN platformy Azure. Listę dostępnych partnerów i lokalizacji można znaleźć w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . Jeśli dostawca urządzeń sieci VPN/SD-WAN nie jest wymieniony w wymienionym łączu, można uprościć korzystanie z instrukcji krok po kroku [Tworzenie połączenia typu lokacja-lokacja przy użyciu wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md) w celu skonfigurowania połączenia.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Połączenia sieci VPN użytkownika (punkt-lokacja)
 
@@ -95,9 +83,50 @@ Możesz połączyć się z zasobami na platformie Azure za pośrednictwem protok
 ### <a name="expressroute-connections"></a><a name="er"></a>Połączenia ExpressRoute
 ExpressRoute umożliwia łączenie sieci lokalnej z platformą Azure za pośrednictwem połączenia prywatnego. Aby utworzyć połączenie, zobacz [Tworzenie połączenia usługi ExpressRoute przy użyciu wirtualnej sieci WAN](virtual-wan-expressroute-portal.md).
 
+### <a name="hub-to-vnet-connections"></a><a name="hub"></a>Połączenia między sieciami wirtualnymi
+
+Możesz połączyć sieć wirtualną platformy Azure z koncentratorem wirtualnym. Aby uzyskać więcej informacji, zobacz [łączenie sieci wirtualnej z centrum](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit-connectivity"></a><a name="transit"></a>Łączność tranzytowa
+
+#### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>Komunikacja tranzytowa między sieci wirtualnych
+
+Wirtualna sieć WAN umożliwia przesyłanie połączeń między sieci wirtualnych. Sieci wirtualnych nawiązuje połączenie z koncentratorem wirtualnym za pośrednictwem połączenia sieci wirtualnej. Komunikacja tranzytowa między sieci wirtualnych w **standardowej wirtualnej sieci WAN** jest włączona z powodu obecności routera w każdym koncentratorze wirtualnym. Ten router jest inicjowany podczas pierwszego tworzenia koncentratora wirtualnego.
+
+Router może mieć cztery Stany routingu: zainicjowane, Inicjowanie obsługi administracyjnej, Niepowodzenie lub brak. **Stan routingu** znajduje się w Azure Portal, przechodząc do strony centrum wirtualne.
+
+* Stan **Brak** oznacza, że koncentrator nie udostępnił routera. Taka sytuacja może wystąpić, Jeśli wirtualna sieć WAN jest typu *Basic*lub jeśli koncentrator wirtualny został wdrożony przed udostępnieniem usługi.
+* Stan **niepowodzenia wskazuje** , że wystąpił błąd podczas tworzenia wystąpienia. W celu utworzenia wystąpienia lub zresetowania routera można zlokalizować opcję **Reset routera** , przechodząc do strony omówienia koncentratora wirtualnego w Azure Portal.
+
+Każdy router koncentratora wirtualnego obsługuje zagregowaną przepływność do 50 GB/s. Łączność między połączeniami sieci wirtualnej zakłada, że liczba 2000 obciążeń maszyny wirtualnej w ramach wszystkich sieci wirtualnych w wirtualnej sieci WAN.
+
+#### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Transport łączności między sieciami VPN i ExpressRoute
+
+Wirtualna sieć WAN umożliwia przesyłanie połączeń między sieciami VPN i ExpressRoute. Oznacza to, że witryny połączone z siecią VPN lub Użytkownicy zdalni mogą komunikować się z witrynami połączonymi z ExpressRoute. Istnieje również niejawne założenie, że **Flaga odgałęzienie do gałęzi** jest włączona. Ta flaga może znajdować się w ustawieniach sieci wirtualnej platformy Azure w Azure Portal. Wszystkie Zarządzanie trasami jest dostarczane przez router koncentratora wirtualnego, co umożliwia także łączność między sieciami wirtualnymi.
+
+### <a name="custom-routing"></a><a name="routing"></a>Routing niestandardowy
+
+Wirtualna sieć WAN zapewnia zaawansowane ulepszenia routingu. Możliwość konfigurowania niestandardowych tabel tras, optymalizowania routingu sieci wirtualnych za pomocą kojarzenia tras i propagacji, logiczne grupowanie tabel tras z etykietami i upraszczanie wielu wirtualnych urządzeń sieciowych lub scenariuszy routingu usług udostępnionych.
+
+### <a name="global-vnet-peering"></a><a name="global"></a>Globalna komunikacja równorzędna sieci wirtualnych
+
+Globalna komunikacja równorzędna sieci wirtualnych zapewnia mechanizm łączenia dwóch sieci wirtualnych w różnych regionach. W obszarze wirtualna sieć WAN połączenia sieci wirtualnej łączą sieci wirtualnych z koncentratorami wirtualnymi. Użytkownik nie musi jawnie konfigurować globalnej komunikacji równorzędnej sieci wirtualnej. Sieci wirtualnych podłączony do koncentratora wirtualnego to ten sam region, w którym naliczane są opłaty za komunikację równorzędną sieci wirtualnej Sieci wirtualnych połączone z koncentratorem wirtualnym w innym regionie wiążą się z opłatami za globalne wirtualne sieci równorzędne.
+
+### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Szyfrowanie ruchu ExpressRoute
+
+Wirtualna sieć WAN platformy Azure zapewnia możliwość szyfrowania ruchu ExpressRoute. Technika zawiera zaszyfrowane przedziały między sieciami lokalnymi i sieciami wirtualnymi platformy Azure za pośrednictwem usługi ExpressRoute, bez przechodzenia przez publiczny Internet ani publicznych adresów IP. Aby uzyskać więcej informacji, zobacz [IPSec over ExpressRoute dla wirtualnej sieci WAN](vpn-over-expressroute.md).
+
 ## <a name="locations"></a><a name="locations"></a>Lokalizacje
 
 Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
+
+## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Kierowanie tabel w warstwach Podstawowa i Standardowa wirtualne sieci WAN
+
+Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela tras jest tabelą tras, która nie ma tych funkcji. Jeśli masz już istniejącą tabelę tras, weź pod uwagę następujące kwestie:
+
+* **Standardowi wirtualne sieci WAN ze wstępnie istniejącymi tabelami tras**: Aby korzystać z nowych możliwości tabeli tras, Usuń wszystkie istniejące wcześniej tabele tras i Utwórz nowe.
+
+* **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi tabelami tras**: Aby korzystać z nowych funkcji tabeli tras, Usuń wszystkie istniejące wcześniej tabele tras, a następnie **Uaktualnij** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 

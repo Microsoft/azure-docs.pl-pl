@@ -13,6 +13,7 @@
     - name: Tworzenie maszyny wirtualnej w portalu
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
     - name: Tworzenie pulpitu nawigacyjnego — szablon usługi ARM
+      displayName: Resource Manager
       href: quick-create-template.md
 - name: Pojęcia
   items:

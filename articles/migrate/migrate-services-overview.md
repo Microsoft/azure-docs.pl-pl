@@ -4,12 +4,12 @@ description: Dowiedz się więcej o usłudze Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d90c40447dc4928a34332685aea728b13c3775b1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771261"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564120"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -20,7 +20,7 @@ Azure Migrate udostępnia scentralizowany centrum do oceny i migracji do lokalny
 - **Ujednolicona platforma migracji**: pojedynczy Portal do uruchamiania, uruchamiania i śledzenia migracji do platformy Azure.
 - **Zakres narzędzi**: szereg narzędzi do oceny i migracji. Narzędzia Azure Migrate obejmują ocenę serwera i Azure Migrate: Migracja serwera. Azure Migrate integruje się także z innymi usługami i narzędziami platformy Azure oraz ofertami niezależnych dostawców oprogramowania (ISV).
 - **Ocena i migracja**: w centrum Azure Migrate można ocenić i zmigrować:
-    - **Serwery**: ocenianie serwerów lokalnych i migrowanie ich do usługi Azure Virtual Machines.
+    - **Serwery**: ocenianie serwerów lokalnych i migrowanie ich do usługi Azure Virtual Machines lub Azure VMware Solution (wersja zapoznawcza).
     - **Bazy danych**: ocenianie lokalnych baz danych i migrowanie ich do Azure SQL Database lub do wystąpienia zarządzanego SQL.
     - **Aplikacje sieci Web**: ocenianie lokalnych aplikacji sieci Web i migrowanie ich do Azure App Service przy użyciu Asystent migracji Azure App Service.
     - **Pulpity wirtualne**: Oceń lokalną infrastrukturę pulpitu wirtualnego (VDI) i Migruj ją do pulpitu wirtualnego systemu Windows na platformie Azure.
@@ -60,12 +60,12 @@ Azure Migrate integruje się z kilkoma ofertami niezależnych dostawców oprogra
 
 ## <a name="azure-migrate-server-assessment-tool"></a>Azure Migrate: Narzędzie do oceny serwera
 
-Azure Migrate: Narzędzie do oceny serwera wykrywa i ocenia lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne do migracji na platformę Azure.
+Azure Migrate: Narzędzie do oceny serwera wykrywa i ocenia lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne do migracji na platformę Azure. 
 
 Oto co to jest narzędzie:
 
 - **Gotowość platformy Azure**: ocenia, czy maszyny lokalne są gotowe do migracji na platformę Azure.
-- **Ustalanie rozmiaru platformy Azure**: szacuje rozmiar maszyn wirtualnych platformy Azure po migracji.
+- **Ustalanie rozmiaru platformy Azure**: szacuje rozmiar maszyn wirtualnych platformy Azure lub liczbę węzłów VMware platformy Azure po migracji.
 - **Oszacowanie kosztów platformy Azure**: szacuje koszty uruchamiania serwerów lokalnych na platformie Azure.
 - **Analiza zależności**: określa zależności między serwerami i strategie optymalizacji do przenoszenia serwerów zależnych na platformę Azure. Więcej informacji o ocenie serwera z [analizą zależności](concepts-dependency-visualization.md).
 
@@ -80,7 +80,7 @@ Ocena serwera korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appli
 
 Azure Migrate: Narzędzie do migracji serwera ułatwia Migrowanie do platformy Azure:
 
-**Migrate (Migracja)** | **Szczegóły**
+**Migrate** | **Szczegóły**
 --- | ---
 Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa urządzenia Azure Migrate, które jest wdrażane lokalnie. Jest to ten sam typ urządzenia, którego używasz do oceny serwera.<br/><br/> W przypadku migracji na podstawie agenta Ocena serwera korzysta z urządzenia replikacji.
 Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Funkcja oceny serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.

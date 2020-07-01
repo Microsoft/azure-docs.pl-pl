@@ -2,15 +2,15 @@
 title: Wdróż szablon — Azure Portal
 description: Dowiedz się, jak utworzyć i wdrożyć swój pierwszy szablon usługi Azure Resource Manager przy użyciu witryny Azure Portal.
 author: mumian
-ms.date: 06/12/2019
+ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: dd3d9caa8184b8637b509fc3318851751b211405
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80131870"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557283"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ Wielu doświadczonych deweloperów szablonów używa tej metody do generowania s
 
     ![Menu wybierz pozycję Utwórz zasób z Azure Portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Wybierz pozycję**konto magazynu** **magazynu** > .
+1. Wybierz **Storage**pozycję  >  **konto magazynu**magazynu.
 
     ![Tworzenie konta usługi Azure Storage](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 1. Wprowadź następujące informacje.
@@ -41,7 +41,7 @@ Wielu doświadczonych deweloperów szablonów używa tej metody do generowania s
     |Nazwa|Wartość|
     |----|----|
     |**Grupa zasobów**|Wybierz pozycję **Utwórz nową** i podaj wybraną nazwę grupy zasobów. Na zrzucie ekranu nazwa grupy zasobów to *mystorage1016rg*. Grupa zasobów jest kontenerem zasobów platformy Azure. Grupa zasobów ułatwia zarządzanie zasobami platformy Azure. |
-    |**Nazwa**|nadaj unikatową nazwę kontu magazynu. Nazwa konta magazynu musi być unikatowa we wszystkich wersjach systemu Azure i zawierać tylko małe litery i cyfry. Nazwa musi mieć długość od 3 do 24 znaków. Jeśli zostanie wyświetlony komunikat o błędzie informujący o tym, że "nazwa konta magazynu" mystorage1016 "jest już zajęta, spróbuj użyć ** &lt;swojej nazwy>magazynu&lt;dzisiejszego w MMDD>**, na przykład **johndolestorage1016**. Aby uzyskać więcej informacji, zobacz [reguły nazewnictwa i ograniczenia](/azure/architecture/best-practices/resource-naming).|
+    |**Nazwa**|nadaj unikatową nazwę kontu magazynu. Nazwa konta magazynu musi być unikatowa we wszystkich wersjach systemu Azure i zawierać tylko małe litery i cyfry. Nazwa musi mieć długość od 3 do 24 znaków. Jeśli zostanie wyświetlony komunikat o błędzie informujący o tym, że "nazwa konta magazynu" mystorage1016 "jest już zajęta, spróbuj użyć ** &lt; swojej nazwy>magazynu &lt; dzisiejszego w MMDD>**, na przykład **johndolestorage1016**. Aby uzyskać więcej informacji, zobacz [reguły nazewnictwa i ograniczenia](/azure/architecture/best-practices/resource-naming).|
 
     Dla pozostałych właściwości możesz użyć wartości domyślnych.
 
@@ -57,11 +57,11 @@ Wielu doświadczonych deweloperów szablonów używa tej metody do generowania s
 
     W okienku głównym wyświetlany jest szablon. Jest to plik JSON z sześcioma elementami najwyższego poziomu — `schema`, `contentVersion`, `parameters`, `variables`, `resources` i `output`. Aby uzyskać więcej informacji, zobacz [Omówienie struktury i składni szablonów ARM](./template-syntax.md)
 
-    Istnieje sześć zdefiniowanych parametrów. Jeden z nich jest nazywany **storageAccountName**. Druga wyróżniona część na poprzednim zrzucie ekranu pokazuje, jak odwoływać się do tego parametru w szablonie. W następnej sekcji będziesz edytować szablon w celu użycia wygenerowanej nazwy konta magazynu.
+    Zdefiniowano osiem parametrów. Jeden z nich jest nazywany **storageAccountName**. Druga wyróżniona część na poprzednim zrzucie ekranu pokazuje, jak odwoływać się do tego parametru w szablonie. W następnej sekcji będziesz edytować szablon w celu użycia wygenerowanej nazwy konta magazynu.
 
-    W szablonie zdefiniowany jest jeden zasób platformy Azure. Typ to `Microsoft.Storage/storageAccounts`. Zapoznaj się z definicją zasobu i strukturą definicji.
+    W szablonie zdefiniowany jest jeden zasób platformy Azure. Typ to `Microsoft.Storage/storageAccounts` . Zapoznaj się z definicją zasobu i strukturą definicji.
 1. Wybierz pozycję **Pobierz** w górnej części ekranu.
-1. Otwórz pobrany plik zip, a następnie Zapisz **szablon Template. JSON** na komputerze. W następnej sekcji użyjesz narzędzia do wdrażania szablonu do edycji szablonu.
+1. Otwórz pobrany plik zip, a następnie Zapisz **template.jsna** komputerze. W następnej sekcji użyjesz narzędzia do wdrażania szablonu do edycji szablonu.
 1. Wybierz kartę **Parametr**, aby zobaczyć wartości podane dla parametrów. Zapisz te wartości, ponieważ będą potrzebne w następnej sekcji podczas wdrażania szablonu.
 
     ![Generowanie szablonu z poziomu witryny Azure Portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
@@ -77,13 +77,11 @@ Witryna Azure Portal może służyć do wykonywania niektórych podstawowych czy
 
 Platforma Azure wymaga, aby każda usługa miała unikatową nazwę. Wdrożenie może zakończyć się niepowodzeniem, jeśli zostanie wprowadzona już istniejąca nazwa konta magazynu. W celu uniknięcia tego problemu zmodyfikuj szablon, aby użyć wywołania funkcji szablonu `uniquestring()` do wygenerowania unikatowej nazwy konta magazynu.
 
-1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Przeszukaj witrynę Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **ENTER**.
-1. Wybierz pozycję **Wdrożenie szablonu**.
+1. W menu Azure Portal w polu wyszukiwania wpisz polecenie **Deploy**, a następnie wybierz pozycję **Wdróż szablon niestandardowy**.
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-1. Wybierz przycisk **Utwórz**.
-1. Wybierz pozycję **Utwórz własny szablon w edytorze**.
+
+1. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 1. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować plik template.json pobrany w poprzedniej sekcji.
 1. Wprowadź następujące trzy zmiany w szablonie:
 
@@ -107,66 +105,75 @@ Platforma Azure wymaga, aby każda usługa miała unikatową nazwę. Wdrożenie 
 
      ```json
      {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
-           "location": {
-               "type": "string"
-           },
-           "accountType": {
-               "type": "string"
-           },
-           "kind": {
-               "type": "string"
-           },
-           "accessTier": {
-               "type": "string"
-           },
-           "supportsHttpsTrafficOnly": {
-               "type": "bool"
-           }
+         "location": {
+           "type": "string"
+         },
+         "accountType": {
+           "type": "string"
+         },
+         "kind": {
+           "type": "string"
+         },
+         "accessTier": {
+           "type": "string"
+         },
+         "minimumTlsVersion": {
+           "type": "string"
+         },
+         "supportsHttpsTrafficOnly": {
+          "type": "bool"
+         },
+         "allowBlobPublicAccess": {
+           "type": "bool"
+         }
        },
        "variables": {
-           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
        },
        "resources": [
-           {
-               "name": "[variables('storageAccountName')]",
-               "type": "Microsoft.Storage/storageAccounts",
-               "apiVersion": "2018-07-01",
-               "location": "[parameters('location')]",
-               "properties": {
-                   "accessTier": "[parameters('accessTier')]",
-                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-               },
-               "dependsOn": [],
-               "sku": {
-                   "name": "[parameters('accountType')]"
-               },
-               "kind": "[parameters('kind')]"
-           }
+         {
+           "name": "[variables('storageAccountName')]",
+           "type": "Microsoft.Storage/storageAccounts",
+           "apiVersion": "2019-06-01",
+           "location": "[parameters('location')]",
+           "properties": {
+             "accessTier": "[parameters('accessTier')]",
+             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
+           },
+           "dependsOn": [],
+           "sku": {
+             "name": "[parameters('accountType')]"
+           },
+           "kind": "[parameters('kind')]",
+           "tags": {}
+         }
        ],
        "outputs": {}
      }
      ```
+
 1. Wybierz pozycję **Zapisz**.
 1. Wprowadź następujące wartości:
 
     |Nazwa|Wartość|
     |----|----|
     |**Grupa zasobów**|Wybierz nazwę grupy zasobów utworzoną w ostatniej sekcji. |
+    |**Okolicy**|Wybierz lokalizację dla grupy zasobów. Na przykład **Środkowe stany USA**. |
     |**Lokalizacja**|Wybierz lokalizację dla konta magazynu. Na przykład **Środkowe stany USA**. |
     |**Typ konta**|wprowadź wartość **Standard_LRS** na potrzeby tego przewodnika Szybki start. |
-    |**Natur**|wprowadź wartość **StorageV2** na potrzeby tego przewodnika Szybki start. |
+    |**Rodzaj**|wprowadź wartość **StorageV2** na potrzeby tego przewodnika Szybki start. |
     |**Warstwa dostępu**|wprowadź wartość **Gorąca** na potrzeby tego przewodnika Szybki start. |
-    |**Ruch https jest włączony tylko**| Wybierz wartość **true** na potrzeby tego przewodnika Szybki start. |
-    |**Wyrażam zgodę na powyższe warunki i postanowienia**|zaznaczenia|
+    |**Minimalna wersja protokołu TLS**|Wprowadź **TLS1_0**. |
+    |**Obsługuje tylko ruch https**| Wybierz wartość **true** na potrzeby tego przewodnika Szybki start. |
+    |**Zezwalaj na dostęp publiczny do obiektów BLOB**| Wybierz wartość **false** na potrzeby tego przewodnika Szybki start. |
 
-    Poniżej przedstawiono zrzut ekranu przedstawiający przykładowe wdrożenie:
-
-    ![Wdrażanie szablonów usługi Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
-
-1. Wybierz pozycję **Kup**.
+1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Wybierz ikonę dzwonka (powiadomienia) w górnej części ekranu, aby wyświetlić stan wdrożenia. Powinien zostać wyświetlony komunikat **Wdrożenie jest w toku**. Poczekaj na zakończenie wdrożenia.
 
     ![Powiadomienie dotyczące wdrażania szablonów usługi Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

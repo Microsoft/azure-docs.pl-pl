@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659923"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557057"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki Start: wdrażanie przykładu aparatu Unity na pulpicie
 
@@ -38,7 +38,7 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 1. Wybierz **odtwarzacz** po lewej stronie.
 1. Wybierz kartę **ustawienia platforma uniwersalna systemu Windows** .
 1. Rozwiń **Ustawienia XR**.
-1. Wyłącz **obsługiwany stan wirtualnej**.
+1. Wyłączono funkcję **wirtualnej rzeczywistości obsługiwanej**. \
     ![ustawienia odtwarzacza](./media/unity-disable-xr.png)
 1. W obszarze *Ustawienia XR*rozwiń pozycję **Ustawienia publikowania**.
 1. Upewnij się, że w obszarze **obsługiwane rodziny urządzeń**jest zaznaczone pole wyboru **pulpit** .
@@ -49,13 +49,13 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 1. Zmień *platformę* na **platforma uniwersalna systemu Windows** (**autonomiczny komputer** jest również obsługiwany, ale nie jest tutaj używany, zobacz [ograniczenia dotyczące platformy](../reference/limits.md#platform-limitations)).
 1. Ustaw *urządzenie docelowe* na **komputer**.
 1. Ustaw *architekturę* na **x86**.
-1. Ustaw *typ kompilacji* na **projekt D3D**.
+1. Ustaw *typ kompilacji* na **projekt D3D**. \
   ![Ustawienia kompilacji](./media/unity-build-settings-pc.png)
 1. Wybierz pozycję **Przełącz na platformę**.
 1. Podczas naciskania **kompilacji** (lub kompilowania i uruchamiania) zostanie wyświetlony monit o wybranie folderu, w którym ma być przechowywane rozwiązanie.
 1. Otwórz wygenerowanego **przewodnika Szybki Start** dla programu Visual Studio.
 1. Zmień konfigurację na **wydanie** i **x86**.
-1. Przełącz tryb debugera na **maszynę lokalną**.
+1. Przełącz tryb debugera na **komputer lokalny**. \
   ![Konfiguracja rozwiązania](./media/unity-deploy-config-pc.png)
 1. Kompiluj rozwiązanie (F7).
 

@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: dołączanie na platformie Azure — wskaźnik'
-description: Dowiedz się, jak zbierać dane na platformie Azure — zgodnie z tym dokumentem szybkiego startu.
+description: W tym przewodniku szybki start dowiesz się, jak przejść na platformę Azure, a następnie, a następnie połączyć źródła danych.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367091"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564546"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
@@ -41,7 +41,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
  
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik<a name="enable"></a>
 
-1. Zaloguj się do Portalu Azure. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się do witryny Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 

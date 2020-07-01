@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d9300d3bbc5e6432e16f7656c7b4764df9b759cb
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342650"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558576"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
 
@@ -32,7 +32,7 @@ Należy pamiętać o następujących kwestiach:
 - Informacje o serwerze można przekazać do oceny serwera wiele razy przy użyciu woluminu CSV.
 - Zbieranie informacji o aplikacji jest przydatne w ocenie środowiska lokalnego do migracji. Jednak Ocena serwera nie przeprowadza obecnie oceny poziomu aplikacji ani nie uwzględnia aplikacji podczas tworzenia oceny.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
 > * Wypełnij plik CSV informacjami o serwerze.
@@ -73,7 +73,7 @@ Aby skonfigurować nowy projekt Azure Migrate:
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz opcję **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
@@ -105,11 +105,11 @@ Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
 **Nazwa pola** | **Obowiązkowy** | **Szczegóły**
 --- | --- | ---
-**Nazwa serwera** | Yes | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
+**Nazwa serwera** | Tak | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
-**Rdzenie** | Yes | Liczba rdzeni procesora przypisanych do serwera.
-**Memory (Pamięć)** | Yes | Całkowita ilość pamięci RAM w MB przypisana do serwera.
-**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
+**Rdzenie** | Tak | Liczba rdzeni procesora przypisanych do serwera.
+**Memory (Pamięć)** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
+**Nazwa systemu operacyjnego** | Tak | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
 **Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowa lub 64-bitowy
 **Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegółowe szczegóły dysku.
@@ -179,10 +179,21 @@ Aby sprawdzić, czy serwery są wyświetlane w Azure Portal po przeprowadzeniu o
 
 Za pomocą oceny serwera można utworzyć dwa typy ocen.
 
-**Typ oceny** | **Szczegóły** | **Dane**
+
+**Typ oceny** | **Szczegóły**
+--- | --- 
+**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. (concepts-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### <a name="sizing-criteria"></a>Kryteria ustalania wielkości
+
+Ocena serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
+
+**Kryteria ustalania wielkości** | **Szczegóły** | **Dane**
 --- | --- | ---
-**Oparta na wydajności** | Oceny na podstawie określonych wartości danych wydajności. | **Zalecany rozmiar maszyny wirtualnej**: na podstawie danych użycia procesora CPU i pamięci.<br/><br/> **Zalecany typ dysku (dysk zarządzany w warstwie Standardowa lub Premium)**: na podstawie danych wejściowych/wyjściowych na sekundę (IOPS) i przepływności dysków lokalnych.
-**Jako lokalne** | Oceny oparte na wymiarach lokalnych. | **Zalecany rozmiar maszyny wirtualnej**: na podstawie określonego rozmiaru serwera.<br/><br> **Zalecany typ dysku**: na podstawie ustawienia typu magazynu, które można wybrać do oceny.
+**Oparta na wydajności** | Oceny, które podejmują zalecenia na podstawie zebranych danych wydajności | **Ocena maszyny wirtualnej platformy Azure**: zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na danych użycia procesora i pamięci.<br/><br/> Zalecenia dotyczące typu dysku (standardowy dysk twardy/SSD lub dyski zarządzane w warstwie Premium) jest oparty na liczbie operacji we/wy na sekundę i przepływności dysku lokalnego.<br/><br/> **Ocena rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)**: zalecenia dotyczące synchronizacji węzłów są oparte na danych użycia procesora i pamięci.
+**Zgodnie z lokalnym** | Oceny, które nie wykorzystują danych wydajności, aby wykonać zalecenia. | **Ocena maszyny wirtualnej platformy Azure**: zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na lokalnym rozmiarze maszyny wirtualnej<br/><br> Zalecany typ dysku jest określany na podstawie tego, co zostało wybrane w ustawieniu typ magazynu dla oceny.<br/><br/> **Ocena rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)**: zalecenia dotyczące synchronizacji węzłów zależą od lokalnego rozmiaru maszyny wirtualnej.
+
 
 Aby uruchomić ocenę:
 
@@ -191,24 +202,31 @@ Aby uruchomić ocenę:
 
     ![Ocena](./media/tutorial-assess-physical/assess.png)
 
-3. W obszarze **ocenianie serwerów**Określ nazwę oceny.
+3. W obszarze **ocenianie serwerów**Określ nazwę oceny i wybierz typ **oceny** jako *maszynę wirtualną platformy Azure* , jeśli zamierzasz przeprowadzić oceny maszyn wirtualnych platformy Azure lub *rozwiązanie Azure VMware (Automatyczna synchronizacja)* , jeśli zamierzasz przeprowadzić oceny automatycznej synchronizacji.
+
+    ![Podstawowe informacje o ocenie](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. W obszarze **Źródło odnajdywania**wybierz pozycję **maszyny dodane za pośrednictwem opcji Importuj do Azure Migrate**.
+
 5. Wybierz pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
 
     ![Właściwości oceny](./media/tutorial-assess-physical/view-all.png)
 
-6. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
+6. Kliknij przycisk **dalej** , aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
 7. W obszarze **Dodawanie maszyn do grupy**wybierz serwery, które mają zostać dodane do grupy.
-8. Wybierz pozycję **Utwórz ocenę** , aby utworzyć grupę, a następnie uruchom ocenę.
+8. Kliknij przycisk **dalej** , aby **przejrzeć i utworzyć ocenę** , aby przejrzeć szczegóły oceny.
+9. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, a następnie uruchom ocenę.
 
     ![Tworzenie oceny](./media/tutorial-assess-physical/assessment-create.png)
 
 9. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
 10. Wybierz pozycję **Ocena eksportu** , aby pobrać ją jako plik programu Microsoft Excel.
 
-## <a name="review-an-assessment"></a>Przegląd oceny
+Aby dowiedzieć się więcej na temat oceny **rozwiązań VMware dla platformy Azure (Automatyczna synchronizacja)** , zobacz [tutaj](how-to-create-azure-vmware-solution-assessment.md). 
 
-Ocena zawiera opis:
+## <a name="review-an-azure-vm-assessment"></a>Przegląd oceny maszyny wirtualnej platformy Azure
+
+Informacje na temat oceny maszyn wirtualnych platformy Azure:
 
 - **Gotowość platformy Azure**: czy serwery są odpowiednie do migracji na platformę Azure.
 - **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty obliczeń i magazynowania na potrzeby uruchamiania serwerów na platformie Azure.
@@ -394,9 +412,9 @@ Nazwy systemu operacyjnego podane w woluminie CSV muszą być zgodne lub zawiera
    :::column-end:::
    :::column span="":::
       Windows Server 2008<br/>
-      Windows Server 2008 R2<br/>
+      Windows Server 2008 z dodatkiem R2<br/>
       Windows Server 2012<br/>
-      Windows Server 2012 R2<br/>
+      Windows Server 2012 z dodatkiem R2<br/>
       Windows Server 2016<br/>
       Windows Server 2019<br/>
       Próg systemu Windows Server<br/>

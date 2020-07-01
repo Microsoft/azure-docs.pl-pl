@@ -161,6 +161,10 @@
               href: concepts-read-replicas.md
             - name: Dekodowanie logiczne
               href: concepts-logical.md
+        - name: Przenoszenie między regionami
+          items:
+            - name: Azure Portal
+              href: howto-move-regions-portal.md
     - name: Hiperskala (Citus)
       items:
         - name: Węzły

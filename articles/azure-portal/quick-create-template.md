@@ -7,20 +7,27 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: bd68778eb3f0ca9c2af456cdb88cdcc9fe5862dc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85393876"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560504"
 ---
-# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-azure-resource-manager-template"></a>Szybki Start: tworzenie pulpitu nawigacyjnego w Azure Portal przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Szybki Start: tworzenie pulpitu nawigacyjnego w Azure Portal przy użyciu szablonu ARM
 
-Pulpit nawigacyjny w Azure Portal to skoncentrowany i zorganizowany widok zasobów w chmurze. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Menedżer zasobów w celu utworzenia pulpitu nawigacyjnego. Pulpit nawigacyjny pokazuje wydajność maszyny wirtualnej, a także pewne informacje i linki statyczne.
+Pulpit nawigacyjny w Azure Portal to skoncentrowany i zorganizowany widok zasobów w chmurze. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Azure Resource Manager (szablon ARM) w celu utworzenia pulpitu nawigacyjnego. Pulpit nawigacyjny pokazuje wydajność maszyny wirtualnej, a także pewne informacje i linki statyczne.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Istniejąca maszyna wirtualna.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -63,9 +70,9 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 1. Wybierz lub wprowadź następujące wartości, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
-    ![Szablon Menedżer zasobów, tworzenie pulpitu nawigacyjnego, wdrażanie portalu](media/quick-create-template/create-dashboard-using-template-portal.png)
+    ![Szablon ARM, tworzenie pulpitu nawigacyjnego, wdrażanie portalu](media/quick-create-template/create-dashboard-using-template-portal.png)
 
-    Jeśli nie jest określony, użyj wartości domyślnych, aby utworzyć pulpit nawigacyjny.
+    O ile nie zostanie on określony, użyj wartości domyślnych, aby utworzyć pulpit nawigacyjny.
 
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
     * **Grupa zasobów**: wybierz pozycję **SimpleWinVmResourceGroup**.
@@ -75,7 +82,7 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 1. Wybierz pozycję **Utwórz** lub **Kup**. Po pomyślnym wdrożeniu pulpitu nawigacyjnego otrzymujesz powiadomienie:
 
-    ![Szablon Menedżer zasobów, tworzenie pulpitu nawigacyjnego, powiadomienie dotyczące wdrażania portalu](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Szablon ARM, tworzenie pulpitu nawigacyjnego, powiadomienie dotyczące wdrażania portalu](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 Azure Portal został użyty do wdrożenia szablonu. Oprócz witryny Azure Portal do wdrażania szablonów można również użyć programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure oraz interfejsu API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
 

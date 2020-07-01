@@ -13,6 +13,7 @@
     - name: Tworzenie profilu i punktu końcowego
       href: cdn-create-new-endpoint.md
     - name: Tworzenie profilu i punktu końcowego — szablon usługi ARM
+      displayName: Resource Manager
       href: create-profile-endpoint-template.md
 - name: Samouczki
   items:

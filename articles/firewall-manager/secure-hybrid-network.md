@@ -1,26 +1,24 @@
 ---
-title: 'Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure'
+title: 'Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure'
 description: W tym samouczku dowiesz się, jak zabezpieczyć sieć wirtualną za pomocą Menedżera zapory platformy Azure przy użyciu Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77459957"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563644"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure
 
 W przypadku łączenia sieci lokalnej z siecią wirtualną platformy Azure w celu utworzenia sieci hybrydowej ważną częścią ogólnego planu zabezpieczeń jest możliwość kontrolowania dostępu do zasobów sieciowych platformy Azure.
 
-Korzystając z wersji zapoznawczej Menedżera zapory platformy Azure, można utworzyć sieć wirtualną centrum w celu zabezpieczenia hybrydowego ruchu sieciowego przeznaczonego dla prywatnych adresów IP, platformy Azure PaaS i Internetu. Za pomocą Menedżera zapory platformy Azure można kontrolować dostęp do sieci w sieci hybrydowej przy użyciu zasad, które definiują dozwolony i zabroniony ruch sieciowy.
+Korzystając z Menedżera zapory platformy Azure, można utworzyć sieć wirtualną centrum w celu zabezpieczenia hybrydowego ruchu sieciowego przeznaczonego dla prywatnych adresów IP, platformy Azure PaaS i Internetu. Za pomocą Menedżera zapory platformy Azure można kontrolować dostęp do sieci w sieci hybrydowej przy użyciu zasad, które definiują dozwolony i zabroniony ruch sieciowy.
 
 Menedżer zapory obsługuje również bezpieczną architekturę koncentratora wirtualnego. Aby zapoznać się z porównaniem bezpiecznych typów architektury sieci wirtualnych i koncentratorów wirtualnych, zobacz [co to są opcje architektury usługi Azure firewall Manager?](vhubs-and-vnets.md)
 
@@ -67,7 +65,7 @@ Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, ab
 >[!NOTE]
 >Ruch między wirtualnymi sieciami równorzędnymi połączonymi bezpośrednio jest kierowany bezpośrednio nawet wtedy, gdy trasa zdefiniowana przez użytkownika wskazuje usługę Azure Firewall jako bramę domyślną. Aby w tym scenariuszu wysyłać ruch między podsieciami do zapory, trasa zdefiniowana przez użytkownika musi jawnie zawierać prefiks podsieci docelowej w obu podsieciach.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-firewall-policy"></a>Tworzenie zasad zapory
 
@@ -354,7 +352,7 @@ Tworzenie maszyny wirtualnej w sieci wirtualnej szprych, uruchamianie usług IIS
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
     - **Grupa zasobów** — wybierz opcję **PD-hybrydowy-test**.
     - **Nazwa maszyny wirtualnej**: *VM-szprych-01*.
-    - **Region** - *(USA) Wschodnie stany USA)*.
+    - **Region**  -  *(Stany Zjednoczone) — Wschodnie stany USA)*.
     - **Nazwa użytkownika**: *azureuser*.
     - **Hasło**: wpisz hasło
 
@@ -392,8 +390,8 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 2. W obszarze **popularne**wybierz pozycję **Windows Server 2016 Datacenter**.
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
     - **Grupa zasobów** — wybierz pozycję istniejące, a następnie wybierz pozycję **PD-hybrydowy-test**.
-    - **Nazwa maszyny wirtualnej** - *VM-lokalnego*.
-    - **Region** - *(USA) Wschodnie stany USA)*.
+    - **Nazwa**  -  maszyny wirtualnej *Maszyna wirtualna — lokalnego*.
+    - **Region**  -  *(Stany Zjednoczone) — Wschodnie stany USA)*.
     - **Nazwa użytkownika**: *azureuser*.
     - **Hasło**: wpisz hasło.
 
@@ -413,9 +411,9 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Otwórz przeglądarkę internetową na maszynie wirtualnej **VM-Onprem**, a następnie przejdź do lokalizacji http://\<VM-spoke-01 private IP\>.
+3. Otwórz przeglądarkę internetową w obszarze **VM-lokalnego**, a następnie przejdź do http:// \<VM-spoke-01 private IP\> .
 
-   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![Strona sieci Web VM-szprych-01](media/secure-hybrid-network/vm-spoke-01-web.png)
+   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![ Strona sieci Web VM-szprych-01](media/secure-hybrid-network/vm-spoke-01-web.png)
 
 4. Z maszyny wirtualnej **VM-lokalnego** Otwórz pulpit zdalny do **maszyny wirtualnej-szprych-01** z prywatnym adresem IP.
 
@@ -444,4 +442,4 @@ Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie b�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Zabezpieczanie wirtualnej sieci WAN przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure](secure-cloud-network.md)
+> [Samouczek: Zabezpieczanie wirtualnej sieci WAN przy użyciu Menedżera zapory platformy Azure](secure-cloud-network.md)

@@ -7,7 +7,11 @@
 - name: Przewodniki Szybki start
   items:
     - name: Konfigurowanie alertów dla zdarzeń usługi Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+      items:
+        - name: Azure Portal
+          href: alerts-activity-log-service-notifications-portal.md
+        - name: Szablon ARM
+          href: alerts-activity-log-service-notifications-arm.md
 - name: Pojęcia
   items:
     - name: Strona stanu platformy Azure

@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589197"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560177"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
 Niektóre funkcje przetwarzanie obrazów obsługują wiele języków; wszystkie funkcje, które nie są wymienione w tym miejscu, obsługują tylko język angielski.
 
-## <a name="text-recognition"></a>Rozpoznawanie tekstu
+## <a name="text-detection-ocr"></a>Wykrywanie tekstu (OCR)
 
-Przetwarzanie obrazów może rozpoznawać tekst w wielu językach. Interfejsy API rozpoznawania i odczytu nie wymagają określenia kodu języka. Aby uzyskać więcej informacji na temat tej funkcji oraz zalety poszczególnych interfejsów API, zobacz [rozpoznawanie wydrukowanych i pisanych tekstu](concept-recognizing-text.md) .
+Przetwarzanie obrazów może wykryć tekst w wielu językach. Interfejsy API odczytu i OCR nie wymagają określenia kodu języka. Aby uzyskać więcej informacji na temat tej funkcji i zalet poszczególnych interfejsów API, zobacz artykuł [odczytywanie tekstu z obrazów i dokumentów](concept-recognizing-text.md) .
 
 |Język| Kod języka | INTERFEJS API OCR | Odczytaj interfejs API |
 |:-----|:----:|:-----:|:---:|

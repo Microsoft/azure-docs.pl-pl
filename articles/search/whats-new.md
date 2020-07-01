@@ -1,19 +1,18 @@
 ---
-title: Powiadomienia o nowych funkcjach
-titleSuffix: Azure Cognitive Search
+title: Co nowego w usłudze Azure Wyszukiwanie poznawcze
 description: Anonse nowych i ulepszonych funkcji, w tym zmiana nazwy usługi Azure Search na platformę Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/30/2020
+ms.openlocfilehash: bca6cbe2a605131083536b3e709943fe2353f38f
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515737"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565067"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,23 +22,33 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 ### <a name="june-2020"></a>Czerwiec 2020 r.
 
-Azure Machine Learning umiejętność to nowy typ umiejętności do integrowania punktu końcowego inferencing z Azure Machine Learning. Środowisko portalu obsługuje odnajdywanie i integrację punktu końcowego Azure Machine Learning w ramach Wyszukiwanie poznawcze zestawu umiejętności. Odnajdywanie wymaga, aby Wyszukiwanie poznawcze i usługi Azure ML zostały wdrożone w tej samej subskrypcji. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md).
++ [Magazyn wiedzy](knowledge-store-concept-intro.md) jest teraz ogólnie dostępny.
+
++ [Search Service API rest 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) to nowa stabilna wersja interfejsów API REST. Oprócz sklepu z bazami danych ta ogólnie dostępna wersja zawiera usprawnienia wyszukiwania dotyczące przydatności i oceniania.
+
++ Nowy algorytm klasyfikacji istotności jest teraz [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) dla każdej nowo utworzonej usługi. W przypadku istniejących usług można zrezygnować z ustawienia `similarity` właściwości dla pól indeksu. Ta właściwość jest ogólnie dostępna.
+
++ Nowy indeksator `executionEnvironment` może być jawnie ustawiony na `private` . Ta funkcja obsługuje dostęp indeksatora do danych zewnętrznych za pośrednictwem prywatnych punktów końcowych i jest ogólnie dostępna.
+
++ [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) to nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Środowisko portalu obsługuje odnajdywanie i integrację punktu końcowego Azure Machine Learning w ramach Wyszukiwanie poznawcze zestawu umiejętności. Odnajdywanie wymaga, aby Wyszukiwanie poznawcze i usługi Azure ML zostały wdrożone w tej samej subskrypcji. Ta umiejętność jest ogólnie dostępna. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 
 + Funkcja [debugowania sesji](cognitive-search-debug-session.md) jest teraz dostępna w wersji zapoznawczej. Sesje debugowania zapewniają interfejs oparty na portalu do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki utworzone w sesji debugowania można zapisać w środowisku produkcyjnym umiejętności. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-debug-sessions.md).
 
-+ Ulepszenia zabezpieczeń umożliwiają [skonfigurowanie prywatnego punktu końcowego wyszukiwania (wersja zapoznawcza)](service-create-private-endpoint.md) , który jest niedostępny w publicznej sieci Internet. Istnieje również możliwość [skonfigurowania reguł IP dla obsługi zapory w powiązaniu (wersja zapoznawcza)](service-configure-firewall.md).
++ Przełączenie punktu końcowego usługi wyszukiwania z publicznej sieci Internet przez [skonfigurowanie reguł protokołu IP dla obsługiwanej zapory](service-configure-firewall.md) lub przez wykorzystanie [prywatnego linku do prywatnego wyszukiwania punktu końcowego](service-create-private-endpoint.md). Obie funkcje są ogólnie dostępne.
 
 + Użyj [tożsamości zarządzanej przez system (wersja zapoznawcza)](search-howto-managed-identities-data-sources.md) , aby skonfigurować połączenie ze źródłem danych platformy Azure do indeksowania. Dotyczy [indeksatorów](search-indexer-overview.md) , które pobierają zawartość ze źródeł danych platformy Azure, takich jak Azure SQL Database, Azure Cosmos DB i Azure Storage.
 
-+ Zmień podstawę sposobu, w jaki wyniki wyszukiwania są obliczane, z fragmentu na wszystkie-fragmentów, przy użyciu parametrów zapytania [scoringStatistics = Global](index-similarity-and-scoring.md#scoring-statistics) i SessionID.
++ Zmień podstawę sposobu, w jaki wyniki wyszukiwania są obliczane, z fragmentu na wszystkie-fragmentów, przy użyciu [identyfikatora SessionID](index-similarity-and-scoring.md) i parametrów zapytania [globalnego scoringStatistics =](index-similarity-and-scoring.md#scoring-statistics). Te parametry są ogólnie dostępne.
+
++ Dodaj parametr zapytania [featuremode (wersja zapoznawcza)](index-similarity-and-scoring.md#featuresMode-param) , aby rozwinąć ocenę istotności w celu wyświetlenia większej liczby szczegółów: wynik podobieństwa pola, częstotliwość poszczególnych pól i dla każdego pola numer unikatowych tokenów. Te punkty danych można wykorzystać w niestandardowych algorytmach oceniania. Aby uzyskać przykład demonstrujący tę możliwość, zobacz [Dodawanie uczenia maszynowego (LearnToRank) w celu wyszukania istotności](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 
 + [Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) oznacza, że usługa Azure Blob Storage Indexer w systemie Azure wyszukiwanie poznawcze rozpoznaje obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania.
 
-+ Dostępny jest nowy, stabilny [interfejs API REST zarządzania (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) . 
++ Nowy, stabilny [interfejs API REST zarządzania (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) jest teraz ogólnie dostępny. 
 
 ### <a name="february-2020"></a>Luty 2020 r.
 
@@ -47,17 +56,15 @@ Azure Machine Learning umiejętność to nowy typ umiejętności do integrowania
 
 + [Wyszukiwanie jednostek niestandardowych (wersja zapoznawcza)](cognitive-search-skill-custom-entity-lookup.md ) wyszukuje tekst na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. 
 
-### <a name="january-2020"></a>Styczeń 2020 r.
+### <a name="january-2020"></a>Styczeń 2020 r.
 
-+ [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) są teraz ogólnie dostępne. Jeśli używasz usługi REST, możesz uzyskać dostęp do tej funkcji przy użyciu polecenia `api-version=2019-05-06` . W przypadku kodu zarządzanego prawidłowy pakiet nadal jest [zestawem SDK .NET w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , nawet jeśli ta funkcja nie jest dostępna w wersji zapoznawczej. 
++ [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) są teraz ogólnie dostępne. Jeśli używasz usługi REST, możesz uzyskać dostęp do tej funkcji przy użyciu programu `api-version=2019-05-06` lub nowszego. W przypadku kodu zarządzanego prawidłowy pakiet nadal jest [zestawem SDK .NET w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , nawet jeśli ta funkcja nie jest dostępna w wersji zapoznawczej. 
 
 + Prywatny dostęp do usługi wyszukiwania jest dostępny za pomocą dwóch mechanizmów, które są obecnie dostępne w wersji zapoznawczej:
 
   + Aby utworzyć usługę, można ograniczyć dostęp do określonych adresów IP za pomocą interfejsu API REST zarządzania `api-version=2019-10-01-Preview` . Interfejs API w wersji zapoznawczej zawiera nowe właściwości **IpRule** i **NetworkRuleSet** w [interfejsie API metodę createorupdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Ta funkcja w wersji zapoznawczej jest dostępna w wybranych regionach. Aby uzyskać więcej informacji, zobacz [jak używać interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-  + Obecnie dostępne w wersji zapoznawczej o ograniczonym dostępie, można zainicjować obsługę Azure Search usługi, która obsługuje prywatny punkt końcowy platformy Azure dla połączeń klientów w tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Tworzenie prywatnego punktu końcowego dla bezpiecznego połączenia](service-create-private-endpoint.md).
-
-### <a name="december-2019"></a>Grudzień 2019 r.
+### <a name="december-2019"></a>Grudzień 2019 r.
 
 + [Tworzenie aplikacji (wersja zapoznawcza)](search-create-app-portal.md) to nowy Kreator w portalu, który GENERUJE plik HTML do pobrania. Plik zawiera osadzony skrypt, który renderuje operacyjną aplikację sieci Web w stylu "localhost", powiązaną z indeksem w usłudze wyszukiwania. Strony można konfigurować w Kreatorze i zawierać pasek wyszukiwania, obszar wyników, nawigację paska bocznego i obsługę zapytań typeahead. Możesz zmodyfikować kod HTML w trybie offline, aby zwiększyć lub dostosować przepływ pracy lub wygląd.
 

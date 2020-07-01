@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119481"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557617"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrowanie danych na konto interfejsu API tabel w usłudze Azure Cosmos DB
 
@@ -45,26 +45,26 @@ Aby przeprowadzić migrację danych tabeli, wykonaj następujące czynności:
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
    ```
 
-Dostępne są następujące opcje polecenia:
+Obsługiwane opcje dla tego polecenia to:
 
-    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-    /OverwriteErrorLog: Optional. Overwrite error log file
-    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-    /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+* **/ErrorLog:** Obowiązkowe. Nazwa pliku CSV do przekierowania niepowodzeń transferu danych
+* **/OverwriteErrorLog:** Obowiązkowe. Zastąp plik dziennika błędów
+* **/ProgressUpdateInterval:** Opcjonalne, wartość domyślna to 00:00:01. Przedział czasu, aby odświeżyć postęp transferu danych na ekranie
+* **/ErrorDetails:** Opcjonalne, wartość domyślna to None. Określa, że należy wyświetlić szczegółowe informacje o błędzie dla następujących błędów: brak, krytyczne, wszystkie
+* **/EnableCosmosTableLog:** Obowiązkowe. Przekieruj dziennik do konta tabeli Cosmos. Jeśli ta wartość jest ustawiona, domyślnie używane są parametry połączenia z kontem docelowym, chyba że podano również/CosmosTableLogConnectionString. Jest to przydatne w przypadku jednoczesnego uruchamiania wielu wystąpień DT.
+* **/CosmosTableLogConnectionString:** Obowiązkowe. Parametry połączenia, aby skierować dziennik do zdalnego konta tabeli Cosmos.
 
 ### <a name="command-line-source-settings"></a>Ustawienia źródła w wierszu polecenia
 
 Podczas definiowania usługi Azure Table Storage lub interfejsu API tabel w wersji zapoznawczej jako źródła migracji użyj następujących opcji źródła.
 
-    /s:AzureTable: Reads data from Azure Table storage
-    /s.ConnectionString: Connection string for the table endpoint. This can be retrieved from the Azure portal
-    /s.LocationMode: Optional, default is PrimaryOnly. Specifies which location mode to use when connecting to Azure Table storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
-    /s.Table: Name of the Azure Table
-    /s.InternalFields: Set to All for table migration as RowKey and PartitionKey are required for import.
-    /s.Filter: Optional. Filter string to apply
-    /s.Projection: Optional. List of columns to select
+* **/s: Azure** : Odczytuje dane z usługi Azure Table Storage
+* **/s.ConnectionString:** Parametry połączenia dla punktu końcowego tabeli. Można go pobrać z Azure Portal
+* **/s.LocationMode:** Opcjonalne, wartość domyślna to PrimaryOnly. Określa tryb lokalizacji, który ma być używany podczas nawiązywania połączenia z usługą Azure Table Storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
+* **/s.Table:** Nazwa tabeli platformy Azure
+* **/s.InternalFields:** Ustaw wartość wszystkie dla migracji tabeli, ponieważ RowKey i PartitionKey są wymagane do zaimportowania.
+* **/s.Filter:** Obowiązkowe. Ciąg filtru do zastosowania
+* **/s.projection:** Obowiązkowe. Lista kolumn do wybrania
 
 Aby pobrać parametry połączenia źródłowego podczas importowania z usługi Azure Table Storage, Otwórz Azure Portal a następnie kliknij **Storage accounts**pozycję  >  **Account**  >  **klucze dostępu**konta konta magazynu, a następnie użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
 
@@ -82,28 +82,29 @@ Aby pobrać parametry połączenia źródłowego podczas importowania z konta Az
 
 Podczas definiowania interfejsu API tabel usługi Azure Cosmos DB jako miejsca docelowego migracji użyj następujących opcji miejsca docelowego.
 
-    /t:TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
-    /t.ConnectionString: Connection string for the table endpoint
-    /t.TableName: Specifies the name of the table to write to
-    /t.Overwrite: Optional, default is false. Specifies if existing values should be overwritten
-    /t.MaxInputBufferSize: Optional, default is 1GB. Approximate estimate of input bytes to buffer before flushing data to sink
-    /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
-    /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
+* **/t: TableAPIBulk:** Przekazuje dane do tabeli usługi Azure CosmosDB w partiach
+* **/t.ConnectionString:** Parametry połączenia dla punktu końcowego tabeli
+* **/t.TableName:** Określa nazwę tabeli do zapisu
+* **/t.Overwrite:** Opcjonalne, wartość domyślna to false. Określa, czy istniejące wartości powinny być zastępowane
+* **/t.MaxInputBufferSize:** Opcjonalne, wartość domyślna to 1 GB. Przybliżone oszacowanie bajtów wejściowych do buforu przed opróżnieniem danych do ujścia
+* **/t.Throughput:** Opcjonalne, jeśli nie zostanie określony, wartości domyślne usługi. Określa przepływność do skonfigurowania dla tabeli
+* **/t.maxBatchSize:** Opcjonalne, wartość domyślna to 2 MB. Określ rozmiar wsadu w bajtach
 
 <a id="azure-table-storage"></a>
 ### <a name="sample-command-source-is-azure-table-storage"></a>Przykładowe polecenie: źródłem jest usługa Azure Table Storage
 
 Oto przykład wiersza polecenia przedstawiający sposób importowania danych z usługi Azure Table Storage do interfejsu API tabel:
 
-```
+```bash
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
+
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Przykładowe polecenie: źródłem jest wersja zapoznawcza interfejsu API tabel usługi Azure Cosmos DB
 
 Oto przykład wiersza polecenia przedstawiający sposób importowania danych z wersji zapoznawczej interfejsu API tabel do wersji ogólnie dostępnej interfejsu API tabel:
 
-```
+```bash
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
@@ -115,7 +116,7 @@ Podczas importowania danych do usługi Azure Cosmos DB skorzystaj z poniższego 
 
 Przykładowe polecenie importu:
 
-```
+```bash
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
@@ -123,7 +124,6 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/m
 
 > [!WARNING]
 > Jeśli chcesz od razu skorzystać z możliwości, jakie dają tabele w wersji ogólnie dostępnej, przeprowadź migrację istniejących tabel w wersji zapoznawczej zgodnie z instrukcjami przedstawionymi w tej sekcji. W przeciwnym razie dla obecnych klientów korzystających z wersji zapoznawczej będzie w nadchodzących tygodniach prowadzona migracja automatyczna. Należy zwrócić uwagę, że tabele z wersji zapoznawczej po migracji automatycznej będą objęte pewnymi ograniczenia, które nie będą dotyczyć nowo utworzonych tabel.
-> 
 
 Interfejs API tabel jest teraz ogólnie dostępny. Istnieją różnice między wersją zapoznawczą a wersją ogólnie dostępną tabel, dotyczące zarówno kodu działającego w chmurze, jak i kodu działającego po stronie klienta. Dlatego nie zalecamy używania klienta SDK w wersji zapoznawczej z kontem interfejsu API tabel w wersji ogólnie dostępnej i na odwrót. Klienci korzystający z wersji zapoznawczej interfejsu API tabel, którzy chcą nadal korzystać z istniejących tabel, ale w środowisku produkcyjnym, muszą przeprowadzić migrację ze środowiska wersji zapoznawczej do środowiska ogólnie dostępnego lub zaczekać na migrację automatyczną. Jeśli zaczekasz na migrację automatyczną, otrzymasz powiadomienie na temat ograniczeń dotyczących zmigrowanych tabel. Po migracji będziesz mieć możliwość tworzenia na obecnym koncie nowych tabel bez ograniczeń (ograniczenia dotyczą tylko zmigrowanych tabel).
 

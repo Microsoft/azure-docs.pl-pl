@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 39550c3da7a5ed129e26dec3d33f19c65d76cdfa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509427"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560528"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla programu Azure Cosmos DB Core (SQL)
 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla interfejsu API Azure Cosmos DB Core (SQL). W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Przykłady interfejsu wiersza polecenia platformy Azure dla innych interfejsów API Azure Cosmos DB Zobacz, [interfejs API Cassandra](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md)i [interfejs API tabel](cli-samples-table.md). Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Zadanie | Opis |
 |---|---|
 | [Tworzenie konta, bazy danych i kontenera usługi Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy konto Azure Cosmos DB, bazę danych i kontener dla interfejsu API SQL (rdzeń). |
 | [Zmień przepływność](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Zaktualizuj RU/s w bazie danych i kontenerze.|

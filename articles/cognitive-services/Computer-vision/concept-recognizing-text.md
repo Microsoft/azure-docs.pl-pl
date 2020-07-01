@@ -11,25 +11,24 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414044"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560795"
 ---
-# <a name="read-text-from-images-and-documents"></a>Odczytaj tekst z obrazów i dokumentów
+# <a name="read-text-from-images-and-documents"></a>Odczytywanie tekstu z obrazów i dokumentów
 
 Przetwarzanie obrazów obejmuje nowe funkcje optycznego rozpoznawania znaków (OCR) oparte na głębokiej uczeniu, które wyodrębniają tekst drukowany lub odręczny z obrazów i dokumentów PDF. Przetwarzanie obrazów wyodrębnia tekst z dokumentów analogowych (obrazów, zeskanowanych dokumentów) i dokumentów z cyframi. Można wyodrębnić tekst ze obrazków dzika, takich jak zdjęcia z płyt licencyjnych lub kontenerów z numerami seryjnymi, a także dokumenty — faktury, weksle, raporty finansowe, artykuły i inne. Ta funkcja OCR jest dostępna jako część usługi zarządzanej w chmurze lub lokalnie (kontenery). Obsługuje ona także sieci wirtualne i prywatne punkty końcowe, aby zaspokoić wymagania dotyczące zgodności i prywatności klasy korporacyjnej.
 
 ## <a name="read-api"></a>Odczytaj interfejs API 
 
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR firmy Microsoft, która wyodrębnia tekst drukowany, tekst pisany ręcznie (tylko w języku angielskim), cyfry i symbole waluty z obrazów i dokumentów PDF. Optymalizacja jest zoptymalizowana pod kątem wyodrębniania tekstu z obrazów ze obrazków w postaci geograficznej, obrazów z zakłóceniami wizualnymi, dokumentów PDF, które są cyfrowe lub skanowane, oraz obrazów zawierających duże ilości tekstu. Obsługuje tekst drukowany i pisany ręcznie (angielski) oraz języki mieszane w tym samym obrazie lub dokumencie. Pełną listę obsługiwanych języków można znaleźć na stronie [Obsługa języka dla przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) strony.
-
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR firmy Microsoft, która wyodrębnia drukowany tekst (siedem języków), tekst napisany ręcznie (tylko w języku angielskim), cyfry i symbole walut z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów w formacie wieloznacznego i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje wykrywanie wydrukowanych i odpisanych tekstu (tylko w języku angielskim) w tym samym obrazie lub dokumencie. Pełną listę obsługiwanych języków można znaleźć na stronie [Obsługa języka dla przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) strony.
 
 ### <a name="how-it-works"></a>Jak to działa
 
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) jest asynchroniczny. Pierwszym krokiem jest wywołanie operacji odczytu. Operacja odczytu pobiera obraz lub dokument PDF jako dane wejściowe i zwraca identyfikator operacji. 
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) obsługuje dokumenty z dużą ilością tekstu do 2000 stron i w związku z tym wykonuje asynchronicznie. Pierwszym krokiem jest wywołanie operacji odczytu. Operacja odczytu pobiera obraz lub dokument PDF jako dane wejściowe i zwraca identyfikator operacji. 
 
 Drugim krokiem jest wywołanie operacji [Pobierz wyniki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Ta operacja przyjmuje Identyfikator operacji, który został utworzony przez operację odczytu. Następnie zwraca wyodrębnioną zawartość tekstową z obrazu lub dokumentu w postaci JSON. Odpowiedź JSON zachowuje pierwotną grupę wierszy rozpoznanych wyrazów. Zawiera wyodrębnione wiersze tekstu i ich współrzędne pola ograniczenia. Każdy wiersz tekstu zawiera wszystkie wyodrębnione wyrazy z ich współrzędnymi i wynikami pewności.
 
@@ -90,7 +89,7 @@ Funkcja Read jest również dostępna jako kontener platformy Docker (wersja zap
 
 ## <a name="ocr-api"></a>INTERFEJS API OCR
 
-[Interfejs API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) używa starszego modelu rozpoznawania. Obsługuje tylko pojedyncze obrazy, a nie pliki PDF i zwraca natychmiastową odpowiedź. Obsługuje [więcej języków](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) niż interfejs API odczytu.
+[Interfejs API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) używa starszego modelu rozpoznawania, obsługuje tylko obrazy i wykonuje synchronicznie, zwracając natychmiast z wykrytym tekstem. Obsługuje [więcej języków](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) niż interfejs API odczytu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901397"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565831"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
@@ -43,7 +43,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. [Zaloguj](http://make.powerapps.com) się do aplikacji zaawansowanych.
 
-1. Po lewej stronie rozwiń węzeł **Data** > **Łączniki niestandardowe**danych.
+1. Po lewej stronie rozwiń węzeł **Data**  >  **Łączniki niestandardowe**danych.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
 
@@ -57,7 +57,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
    * Kolor tła ikony (na przykład #007ee5)
    * Opis (na przykład "Łącznik do Wyszukiwanie poznawcze platformy Azure")
-   * Na hoście musisz wprowadzić adres URL usługi wyszukiwania (na `<yourservicename>.search.windows.net`przykład).
+   * Na hoście musisz wprowadzić adres URL usługi wyszukiwania (na przykład `<yourservicename>.search.windows.net` ).
    * W przypadku podstawowego adresu URL wystarczy wprowadzić "/"
 
     :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="Dialog informacji ogólnych" border="true":::
@@ -74,9 +74,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
    * Wybierz zlecenie`GET`
 
-   * W polu adres URL wprowadź przykładowe zapytanie dla indeksu wyszukiwania (`search=*` zwraca wszystkie dokumenty, `$select=` umożliwia wybranie pól). Wymagana jest wersja interfejsu API. W pełni określony adres URL może wyglądać następująco:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
+   * W polu adres URL wprowadź przykładowe zapytanie dla indeksu wyszukiwania ( `search=*` zwraca wszystkie dokumenty, `$select=` umożliwia wybranie pól). Wymagana jest wersja interfejsu API. W pełni określony adres URL może wyglądać następująco:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * Dla nagłówka wpisz `Content-Type`. 
+   * Dla nagłówka wpisz `Content-Type` . 
 
      **Aplikacje zaawansowane** będą używać składni do wyodrębniania parametrów z zapytania. Zwróć uwagę, że pole wyszukiwania zostało jawnie zdefiniowane. 
 
@@ -86,19 +86,19 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importuj z przykładowego dialogu" border="true":::
 
-1. Dla *wyszukiwania*: Ustaw `*` **wartość domyślną** **, Ustaw jako** *Fałsz* i ustaw **widoczność** na *none*. 
+1. Dla *wyszukiwania*: Ustaw `*` **wartość domyślną**, Ustaw jako *Fałsz* i ustaw **widoczność** na *none*. **required** 
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Metadane parametrów wyszukiwania" border="true":::
 
-1. Dla *opcji Select*: `HotelName,Description,Address/City` Ustaw jako **wartość domyślną**, ustaw **parametr Required** na *wartość false*i ustaw **widoczność** na *none*.  
+1. Dla *opcji Select*: `HotelName,Description,Address/City` Ustaw jako **wartość domyślną**, ustaw parametr **Required** na *wartość false*i ustaw **widoczność** na *none*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadane parametru wersji" border="true":::
 
-1. W przypadku *interfejsu API-Version*: Ustaw `2019-05-06` **wartość domyślną**, ustaw **wymaganą** *wartość true*i ustaw **widoczność** jako *wewnętrzną*.  
+1. W przypadku *interfejsu API-Version*: Ustaw `2020-06-30` **wartość domyślną**, ustaw **wymaganą** *wartość true*i ustaw **widoczność** jako *wewnętrzną*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Metadane parametru wersji" border="true":::
 
-1. Dla *typu zawartości*: Ustaw wartość `application/json`.
+1. Dla *typu zawartości*: Ustaw wartość `application/json` .
 
 1. Po wprowadzeniu tych zmian Przełącz się do widoku **edytora Swagger** . W sekcji Parameters powinna zostać wyświetlona następująca konfiguracja:
 
@@ -106,14 +106,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+      - {name: api-version, in: query, required: true, type: string, default: '2020-06-30',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
 1. Wróć do **3. Zażądaj** kroku i przewiń w dół do sekcji odpowiedź. Kliknij pozycję **"Dodaj odpowiedź domyślną"**. Jest to ważne, ponieważ ułatwia aplikacjom poznanie schematu odpowiedzi. 
 
-1. Wklej przykładową odpowiedź. Prostą metodą przechwytywania przykładowej odpowiedzi jest użycie Eksploratora wyszukiwania w Azure Portal. W Eksploratorze wyszukiwania należy wprowadzić to samo zapytanie jak dla żądania, ale dodać **$Top = 2** , aby ograniczyć wyniki do zaledwie dwóch dokumentów:: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
+1. Wklej przykładową odpowiedź. Prostą metodą przechwytywania przykładowej odpowiedzi jest użycie Eksploratora wyszukiwania w Azure Portal. W Eksploratorze wyszukiwania należy wprowadzić to samo zapytanie jak dla żądania, ale dodać **$Top = 2** , aby ograniczyć wyniki do zaledwie dwóch dokumentów:: `search=*&$select=HotelName,Description,Address/City&$top=2` . 
 
    Aplikacje zaawansowane wymagają tylko kilku wyników, aby wykryć schemat.
 
@@ -176,7 +176,7 @@ Dla tego zadania potrzebny będzie [klucz interfejsu API zapytania](search-secur
 
 W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wyszukiwania i obszaru wyświetlania dla wyników. Aplikacja energetyczna będzie łączyć się z ostatnio utworzonym łącznikiem niestandardowym w celu pobrania danych z Azure Search.
 
-1. Po lewej stronie rozwiń pozycję **aplikacje** > **i Nowa** > **Kanwa**aplikacji.
+1. Po lewej stronie rozwiń pozycję **aplikacje**  >  **i Nowa**  >  **Kanwa**aplikacji.
 
     :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Tworzenie aplikacji kanwy" border="true":::
 

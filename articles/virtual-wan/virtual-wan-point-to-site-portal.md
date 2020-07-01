@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 06/29/2020
 ms.author: alzam
-ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c93ad0357011008c45b2898260a655509b02dc2
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482128"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560691"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
@@ -22,12 +22,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 > [!div class="checklist"]
 > * Tworzenie sieci WAN
-> * Tworzenie koncentratora
 > * Tworzenie konfiguracji P2S
+> * Tworzenie koncentratora
+> * Określ serwery DNS
 > * Pobieranie profilu klienta VPN
-> * Stosowanie konfiguracji P2S do koncentratora
-> * Łączenie sieci wirtualnej z koncentratorem
-> * Pobieranie i stosowanie konfiguracji klienta sieci VPN
 > * Wyświetlanie wirtualnej sieci WAN
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
@@ -48,135 +46,111 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 Przejdź w przeglądarce do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
-1. Przejdź do strony wirtualna sieć WAN. W portalu kliknij pozycję **+Utwórz zasób**. W polu wyszukiwania wpisz **wirtualną sieć WAN** i wybierz pozycję Wprowadź.
-2. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN kliknij przycisk **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
-3. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
+1. Przejdź do strony wirtualna sieć WAN. W portalu wybierz pozycję **+ Utwórz zasób**. W polu wyszukiwania wpisz **wirtualną sieć WAN** i wybierz pozycję **wprowadź**.
+1. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN wybierz pozycję **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
+1. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
 
-   ![Wirtualna sieć WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
+   ![Virtual WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
 
    * **Subskrypcja** — wybierz subskrypcję, która ma być używana.
    * **Grupa zasobów** — Utwórz nową lub Użyj istniejącej.
    * **Lokalizacja grupy zasobów** — wybierz lokalizację zasobu z listy rozwijanej. Sieć WAN to zasób globalny i nie znajduje się w konkretnym regionie. Konieczne jest jednak wybranie regionu, aby łatwiej zarządzać utworzonym zasobem sieci WAN i go lokalizować.
    * **Nazwa** — wpisz nazwę, która ma zostać wywołana w sieci WAN.
    * **Typ:** Standardowa. W przypadku tworzenia podstawowej sieci WAN można utworzyć tylko podstawowe centrum. Centra podstawowe obsługują tylko połączenia sieci VPN typu lokacja-lokacja.
-4. Po zakończeniu wypełniania pól wybierz pozycję **Przegląd + Utwórz**.
-5. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć wirtualną sieć WAN.
-
-## <a name="create-an-empty-virtual-hub"></a><a name="hub"></a>Tworzenie pustego koncentratora wirtualnego
-
-1. W obszarze wirtualnej sieci WAN wybierz pozycję centra i kliknij pozycję **+ nowe centrum** .
-
-   ![nowa lokacja](media/virtual-wan-point-to-site-portal/hub1.jpg)
-2. Na stronie Tworzenie wirtualnego centrum Wypełnij poniższe pola.
-
-   **Region** — wybierz region, w którym chcesz wdrożyć koncentrator wirtualny.
-
-   **Nazwa** — wprowadź nazwę, która ma być wywoływana z koncentratorem wirtualnym.
-
-   **Prywatna przestrzeń adresowa centrum** — zakres adresów centrum w notacji CIDR.
-
-   ![nowa lokacja](media/virtual-wan-point-to-site-portal/hub2.jpg)  
-3. Kliknij przycisk **Przegląd + Utwórz**
-4. Na stronie **Walidacja została przeniesiona** kliknij pozycję **Utwórz** .
+1. Po zakończeniu wypełniania pól wybierz pozycję **Przegląd + Utwórz**.
+1. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć wirtualną sieć WAN.
 
 ## <a name="create-a-p2s-configuration"></a><a name="p2sconfig"></a>Tworzenie konfiguracji P2S
 
 Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalnymi.
 
 1. Przejdź do pozycji **Wszystkie zasoby**.
-2. Kliknij utworzoną wirtualną sieć WAN.
-3. Kliknij pozycję **+ Utwórz konfigurację sieci VPN użytkownika** w górnej części strony, aby otworzyć stronę **Konfiguracja sieci VPN tworzenia nowego użytkownika** .
+1. Wybierz utworzoną wirtualną sieć WAN.
+1. Wybierz pozycję **+ Utwórz konfigurację sieci VPN użytkownika** w górnej części strony, aby otworzyć stronę **Konfiguracja sieci VPN tworzenia nowego użytkownika** .
 
-   ![nowa lokacja](media/virtual-wan-point-to-site-portal/p2s1.jpg)
-4. Na stronie **Utwórz nową konfigurację sieci VPN użytkownika** wypełnij następujące pola:
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/p2s1.jpg" alt-text="Konfiguracje sieci VPN użytkownika":::
 
-   **Nazwa konfiguracji** — jest to nazwa używana w celu odwoływania się do konfiguracji.
+1. Na stronie **Utwórz nową konfigurację sieci VPN użytkownika** wypełnij następujące pola:
 
-   **Typ tunelu** — protokół używany w przypadku tunelu.
-
-   **Nazwa certyfikatu głównego** — opisowa nazwa certyfikatu.
-
-   **Dane certyfikatu publicznego** -Base-64 zakodowane dane certyfikatu X. 509.
+   * **Nazwa konfiguracji** — jest to nazwa używana w celu odwoływania się do konfiguracji.
+   * **Typ tunelu** — protokół używany w przypadku tunelu.
+   * **Nazwa certyfikatu głównego** — opisowa nazwa certyfikatu.
+   * **Dane certyfikatu publicznego** -Base-64 zakodowane dane certyfikatu X. 509.
   
-5. Kliknij przycisk **Utwórz**, aby utworzyć konfigurację.
+1. Wybierz pozycję **Utwórz** , aby utworzyć konfigurację.
 
-## <a name="edit-hub-assignment"></a><a name="edit"></a>Edytowanie przypisania koncentratora
+## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>Tworzenie centrum z bramą punkt-lokacja
 
-1. Przejdź do bloku **centra** w wirtualnej sieci WAN
-2. Wybierz centrum, do którego chcesz skojarzyć konfigurację serwera sieci VPN, a następnie kliknij przycisk **...**
+1. W obszarze wirtualne sieci WAN wybierz pozycję centra i wybierz pozycję **+ nowe centrum**.
 
-   ![nowa lokacja](media/virtual-wan-point-to-site-portal/p2s4.jpg)
-3. Kliknij pozycję **Edytuj koncentrator wirtualny**.
-4. Zaznacz pole wyboru **Uwzględnij bramę punkt-lokacja** i wybierz żądaną **jednostkę skalowania bramy** .
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub1.jpg" alt-text="nowe centrum":::
 
-   ![nowa lokacja](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+1. Na stronie Tworzenie wirtualnego centrum Wypełnij poniższe pola.
 
-W poniższej tabeli przedstawiono szczegółowe informacje o dostępnych **jednostkach skalowania**
+   * **Region** — wybierz region, w którym chcesz wdrożyć koncentrator wirtualny.
+   * **Nazwa** — wprowadź nazwę, która ma być wywoływana z koncentratorem wirtualnym.
+   * **Prywatna przestrzeń adresowa centrum** — zakres adresów centrum w notacji CIDR.
 
-| **Jednostka skalowania** | **Przepływność** | **Połączenia P2S** |
-| --- | --- | --- |
-| 1| 500 Mb/s | 500 |
-| 2| 1 Gb/s | 500 |
-| 3| 1,5 GB/s | 500 |
-| 4| 2 Gb/s | 1000 |
-| 5| 2,5 GB/s | 1000 |
-| 6| 3 GB/s | 1000 |
-| 7| 3,5 GB/s | 5000 |
-| 8| 4 GB/s | 5000 |
-| 9| 4,5 GB/s | 5000 |
-| 10| 5 Gb/s | 5000 |
-| 11| 5,5 GB/s | 5000 |
-| 12| 6 GB/s | 5000 |
-| 13| 6,5 GB/s | 10 000 |
-| 14| 7 GB/s | 10 000 |
-| 15| 7,5 GB/s | 10 000 |
-| 16| 8 GB/s | 10 000 |
-| 17| 8,5 GB/s | 10 000 |
-| 18| 9 GB/s | 10 000 |
-| 19| 9,5 GB/s | 10 000 |
-| 20| 10 Gb/s | 10 000 |
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub2.jpg" alt-text="Tworzenie koncentratora wirtualnego":::
 
-5. Wprowadź **pulę adresów** , z której będą przypisywane adresy IP klientów sieci VPN.
-6. Kliknij przycisk **Potwierdź**
-7. Wykonanie operacji może potrwać do 30 minut.
+1. Na karcie punkt-lokacja wykonaj następujące pola:
+
+   * **Jednostki skalowania bramy** , które reprezentują zagregowaną pojemność bramy sieci VPN użytkownika.
+   * **Wskaż konfigurację lokacji** , która została utworzona w poprzednim kroku.
+   * **Pula adresów klienta** — dla użytkowników zdalnych.
+   * **Niestandardowy adres IP serwera DNS**.
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/hub-with-p2s.png" alt-text="centrum z punktem do lokacji":::
+
+1. Wybierz pozycję **Przegląd + utwórz**.
+1. Na stronie **Walidacja została przeniesiona** wybierz pozycję **Utwórz**.
+
+## <a name="specify-dns-server"></a><a name="dns"></a>Określ serwer DNS
+
+Wirtualne bramy sieci VPN użytkownika sieci WAN umożliwiają określanie maksymalnie 5 serwerów DNS. Można to skonfigurować w trakcie procesu tworzenia centrum lub zmodyfikować go w późniejszym czasie. Aby to zrobić, zlokalizuj koncentrator wirtualny. W obszarze **Sieć VPN użytkownika (wskaż lokację)** kliknij pozycję Konfiguruj i wprowadź adresy IP serwera DNS w polu tekstowym **niestandardowe serwery DNS** .
+
+   :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="niestandardowy serwer DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
 ## <a name="download-vpn-profile"></a><a name="download"></a>Pobieranie profilu sieci VPN
 
 Użyj profilu sieci VPN, aby skonfigurować klientów.
 
-1. Na stronie wirtualnej sieci WAN kliknij pozycję **konfiguracje sieci VPN użytkownika**.
-2. W górnej części strony kliknij pozycję **Pobierz konfigurację sieci VPN użytkownika**.
-3. Po zakończeniu tworzenia pliku możesz kliknąć link, aby go pobrać.
-4. Użyj pliku profilu, aby skonfigurować klientów sieci VPN.
+1. Na stronie wirtualnej sieci WAN wybierz pozycję **konfiguracje sieci VPN użytkownika**.
+2. W górnej części strony wybierz pozycję **Pobierz konfigurację sieci VPN użytkownika**. Pobieranie konfiguracji na poziomie sieci WAN zapewnia wbudowany profil sieci VPN oparty na Traffic Manager. Aby uzyskać więcej informacji na temat profilów globalnych lub profilów opartych na centrum, zobacz te [Profile centrum](https://docs.microsoft.com/azure/virtual-wan/global-hub-profile).   Scenariusze trybu failover są uproszczone przy użyciu profilu globalnego.
+
+   Jeśli z jakiegoś powodu centrum jest niedostępne, wbudowane zarządzanie ruchem udostępnianym przez usługę zapewnia łączność za pośrednictwem innego centrum z zasobami platformy Azure dla użytkowników typu punkt-lokacja. Można zawsze pobrać konfigurację sieci VPN specyficzną dla centrum, przechodząc do określonego centrum. W obszarze **Sieć VPN użytkownika (wskaż lokację)** Pobierz profil **sieci VPN użytkownika** koncentratora wirtualnego.
+
+1. Po zakończeniu tworzenia pliku możesz wybrać łącze, aby je pobrać.
+1. Użyj pliku profilu, aby skonfigurować klientów sieci VPN.
 
 ### <a name="configure-user-vpn-clients"></a>Konfigurowanie klientów VPN użytkowników
+
 Użyj pobranego profilu, aby skonfigurować klientów zdalnego dostępu. Procedury dla każdego systemu operacyjnego są różne, postępuj zgodnie z poniższymi instrukcjami:
 
 #### <a name="microsoft-windows"></a>Microsoft Windows
 ##### <a name="openvpn"></a>OpenVPN
 
 1. Pobierz i zainstaluj klienta OpenVPN z oficjalnej witryny internetowej.
-2. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracje sieci VPN użytkownika w Azure Portal lub polecenie New-AzureRmVpnClientConfiguration w programie PowerShell.
-3. Rozpakuj profil. Otwórz plik konfiguracji vpnconfig.ovpn z folderu OpenVPN w programie Notatnik.
-4. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Aby uzyskać instrukcje, zobacz [Eksportowanie certyfikatu w celu uzyskania zakodowanego klucza publicznego.](certificates-point-to-site.md)
-5. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Aby uzyskać instrukcje, zobacz [Jak wyodrębnić klucz prywatny.](howto-openvpn-clients.md#windows)
-6. Nie zmieniaj innych pól. Użyj konfiguracji wprowadzonej w danych wejściowych klienta, aby nawiązać połączenie z siecią VPN.
-7. Skopiuj plik vpnconfig.ovpn do folderu C:\Program Files\OpenVPN\config.
-8. Kliknij prawym przyciskiem myszy ikonę OpenVPN na pasku zadań i kliknij przycisk Połącz.
+1. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracje sieci VPN użytkownika w Azure Portal lub polecenie New-AzureRmVpnClientConfiguration w programie PowerShell.
+1. Rozpakuj profil. Otwórz plik konfiguracji vpnconfig.ovpn z folderu OpenVPN w programie Notatnik.
+1. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W przypadku certyfikatu w formacie PEM można po prostu otworzyć plik cer i skopiować klucz w formacie base64 znajdujący się pomiędzy nagłówkami certyfikatów. Aby uzyskać instrukcje, zobacz [Eksportowanie certyfikatu w celu uzyskania zakodowanego klucza publicznego.](certificates-point-to-site.md)
+1. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Aby uzyskać instrukcje, zobacz [Jak wyodrębnić klucz prywatny.](howto-openvpn-clients.md#windows)
+1. Nie zmieniaj innych pól. Użyj konfiguracji wprowadzonej w danych wejściowych klienta, aby nawiązać połączenie z siecią VPN.
+1. Skopiuj plik vpnconfig.ovpn do folderu C:\Program Files\OpenVPN\config.
+1. Kliknij prawym przyciskiem myszy ikonę OpenVPN na pasku zadań i wybierz pozycję **Połącz**.
 
 ##### <a name="ikev2"></a>IKEv2
 
 1. Wybierz pliki konfiguracji klienta sieci VPN, które odpowiadają architekturze komputera z systemem Windows. W przypadku 64-bitowej architektury procesora wybierz pakiet instalatora „VpnClientSetupAmd64”. W przypadku 32-bitowej architektury procesora wybierz pakiet instalatora „VpnClientSetupX86”.
-2. Kliknij dwukrotnie pakiet, aby go zainstalować. Jeśli zostanie wyświetlone okno podręczne SmartScreen, kliknij pozycję Więcej informacji, a następnie pozycję Uruchom mimo to.
-3. Na komputerze klienckim przejdź do obszaru Ustawienia sieci i kliknij pozycję Sieć VPN. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie.
-4. Zanim spróbujesz nawiązać połączenie, sprawdź, czy zainstalowano certyfikat klienta na komputerze klienckim. Certyfikat klienta jest wymagany w celu uwierzytelniania podczas korzystania z natywnego typu certyfikatu uwierzytelniania platformy Azure. Więcej informacji o generowaniu certyfikatów znajduje się w temacie [Generate Certificates](certificates-point-to-site.md). Informacje o sposobie instalowania certyfikatu klienta znajdują się w temacie [Install a Client Certificate (Instalowanie certyfikatu klienta](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md)).
+1. Kliknij dwukrotnie pakiet, aby go zainstalować. Jeśli zobaczysz okno podręczne SmartScreen, wybierz pozycję **więcej informacji**, a następnie **Uruchom mimo wszystko**.
+1. Na komputerze klienckim przejdź do **ustawień sieci** i wybierz pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie.
+1. Zanim spróbujesz nawiązać połączenie, sprawdź, czy zainstalowano certyfikat klienta na komputerze klienckim. Certyfikat klienta jest wymagany w celu uwierzytelniania podczas korzystania z natywnego typu certyfikatu uwierzytelniania platformy Azure. Więcej informacji o generowaniu certyfikatów znajduje się w temacie [Generate Certificates](certificates-point-to-site.md). Informacje o sposobie instalowania certyfikatu klienta znajdują się w temacie [Install a Client Certificate (Instalowanie certyfikatu klienta](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md)).
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Wyświetlanie wirtualnej sieci WAN
 
 1. Przejdź do wirtualnej sieci WAN.
-2. Na stronie Przegląd każdy punkt na mapie przedstawia koncentrator.
-3. W sekcji dotyczącej koncentratorów i połączeń możesz wyświetlić stan koncentratora, lokację, region, stan połączenia sieci VPN oraz bajty przychodzące i wychodzące.
-
+1. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum.
+1. W sekcji **centra i połączenia** można wyświetlić stan centrum, lokację, region, stan połączenia sieci VPN oraz liczbę bajtów do i wychodzące.
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
 

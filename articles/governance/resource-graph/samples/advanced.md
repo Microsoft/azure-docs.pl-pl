@@ -3,12 +3,12 @@ title: Przykłady zapytań zaawansowanych
 description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne zaawansowane zapytania, w tym pracę z kolumnami, używane Tagi list i zgodne zasoby z wyrażeniami regularnymi.
 ms.date: 06/18/2020
 ms.topic: sample
-ms.openlocfilehash: 454692ab650752738700e5303e9092b23489514b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: ce949eb9f718f8526ef189993d7004db152d5e22
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323031"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565631"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -375,7 +375,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Wyświetl listę wszystkich rozszerzeń zainstalowanych na maszynie wirtualnej
 
 Najpierw to zapytanie używa `extend` typu zasobu maszyny wirtualne w celu uzyskania identyfikatora w postaci wielkich liter ( `toupper()` ) identyfikatora, pobrania nazwy i typu systemu operacyjnego i pobrania rozmiaru maszyny wirtualnej.
-Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize`jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Według defualt, `order by` jest malejąco.
+Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize`jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Domyślnie `order by` jest to malejące.
 
 ```kusto
 Resources

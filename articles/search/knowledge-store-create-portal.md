@@ -1,24 +1,21 @@
 ---
-title: Utwórz magazyn wiedzy (wersja zapoznawcza) w Azure Portal
+title: Utwórz magazyn wiedzy w Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Za pomocą Kreatora importu danych można utworzyć magazyn wiedzy używany do utrwalania wzbogaconej zawartości. Nawiąż połączenie z magazynem wiedzy na potrzeby analizy z innych aplikacji lub Wyślij ulepszoną zawartość do procesów podrzędnych. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
+description: Za pomocą Kreatora importu danych można utworzyć magazyn wiedzy używany do utrwalania wzbogaconej zawartości. Nawiąż połączenie z magazynem wiedzy na potrzeby analizy z innych aplikacji lub Wyślij ulepszoną zawartość do procesów podrzędnych.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 06ddb50173299bbb99518921d1589d2f15b0aa88
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/30/2020
+ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488685"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565301"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Szybki Start: Tworzenie sklepu z bazami danych Azure Wyszukiwanie poznawcze w Azure Portal
-
-> [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Magazyn wiedzy to funkcja Wyszukiwanie poznawcze platformy Azure, która utrzymuje dane wyjściowe potoku przetwarzania zawartości dla kolejnych analiz lub przetwarzania podrzędnego. 
 
@@ -43,7 +40,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Storage do przechowywania plików zawartości heterogenicznej.
 
-1. [Pobierz plik HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Te dane to dane z przeglądu hotelu zapisane w pliku CSV (pochodzące z Kaggle.com) i zawierają 19 opinii klientów na temat pojedynczego hotelu. 
+1. [Pobierz HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Te dane to dane z przeglądu hotelu zapisane w pliku CSV (pochodzące z Kaggle.com) i zawierają 19 opinii klientów na temat pojedynczego hotelu. 
 
 1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) w ramach bieżącej subskrypcji. Będziesz używać usługi Azure Storage do importowania nieprzetworzonej zawartości oraz magazynu wiedzy, który jest wynikiem końcowym.
 
@@ -55,7 +52,7 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
     ![Przekaż dane](media/knowledge-store-create-portal/upload-command-bar.png "Przekaż przeglądy hotelu")
 
-1. Wybierz plik **HotelReviews-Free. csv** , który został pobrany w pierwszym kroku.
+1. Wybierz plik **HotelReviews-Free.csv** pobrany w pierwszym kroku.
 
     ![Tworzenie kontenera obiektów blob platformy Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Tworzenie kontenera obiektów blob platformy Azure")
 
@@ -93,7 +90,7 @@ Teraz można przystąpić do przenoszenia kreatora **importu danych** .
 
 W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętności poznawczych. Dane źródłowe składają się z przeglądów klienta w kilku językach. Umiejętności, które są istotne dla tego zestawu danych, obejmują wyodrębnianie kluczowych fraz i wykrywanie tonacji oraz tłumaczenie tekstu. W późniejszym kroku te wzbogacania będą "zorganizowane" w sklepie z bazami danych jako tabele platformy Azure.
 
-1. Rozwiń węzeł **Attach Cognitive Services**. Wartość **bezpłatna (ograniczone wzbogacania)** jest domyślnie zaznaczona. Możesz użyć tego zasobu, ponieważ liczba rekordów w HotelReviews-Free. CSV to 19, a ten bezpłatny zasób umożliwia maksymalnie 20 transakcji dziennie.
+1. Rozwiń węzeł **Attach Cognitive Services**. Wartość **bezpłatna (ograniczone wzbogacania)** jest domyślnie zaznaczona. Możesz użyć tego zasobu, ponieważ liczba rekordów w HotelReviews-Free.csv to 19, a ten bezpłatny zasób umożliwia maksymalnie 20 transakcji dziennie.
 
 1. Rozwiń pozycję **Dodaj wzbogacania**.
 

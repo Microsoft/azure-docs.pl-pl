@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561635"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85564197"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Aprowizowanie urządzenia wirtualnego w programie VMware
 > * Uruchamianie urządzenia wirtualnego i uzyskiwanie adresu IP
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -145,7 +145,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
     Na tej samej stronie kliknij pozycję **Add hard disk** (Dodaj dysk twardy), a następnie wybierz pozycję **Existing hard disk** (Istniejący dysk twardy). Wybierz plik VMDK w magazynie danych. Spowoduje to dodanie dysku systemu operacyjnego. 
 
-     ! Dostosuj stronę ustawień[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Dostosuj stronę ustawień](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Przewiń w dół, aż zobaczysz **nowy dysk twardy** i rozwiń go, aby wyświetlić ustawienia. Ustaw opcję **Virtual Device Node** (Węzeł urządzenia wirtualnego) na wartość **IDE controller 0** (Kontroler IDE 0).
 
@@ -157,8 +157,8 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
 18. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. Sprawdź, czy ustawienie procesora CPU ma wartość 4, pamięci — 8192 MB, a interfejsu sieciowego — 1 oraz czy dysk twardy 2 ma wybrany kontroler IDE 0. Kliknij przycisk **Zakończ**.
    
-    ![Gotowe do ukończenia strony](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![gotowej do ukończenia](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Gotowe do ukończenia strony ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+     ![ gotowej do ukończenia](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Maszyna wirtualna jest teraz aprowizowana. Zostanie wyświetlone odpowiednie powiadomienie, a nowa maszyna wirtualna zostanie dodana do listy maszyn wirtualnych.
 

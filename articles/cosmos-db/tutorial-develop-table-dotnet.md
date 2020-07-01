@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 6e1dc5f0016c27d987361aa52e59682806a31c95
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: d85176ee092011d7c697856921f911da6a5e235a
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118920"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561688"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB oraz usługą Azure Table Storage przy użyciu zestawu SDK platformy .NET
 
@@ -255,7 +255,7 @@ Kliknij prawym przyciskiem myszy projekt **CosmosTableSamples**. Wybierz pozycj�
  }
 ```
 
-### <a name="get-an-entity-from-a-partition"></a>Pobieranie jednostki z partycji
+## <a name="get-an-entity-from-a-partition"></a>Pobieranie jednostki z partycji
 
 Jednostkę można pobrać z partycji za pomocą metody get w klasie [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) . Poniższy przykład kodu Pobiera klucz wiersza klucza partycji, adres e-mail i numer telefonu jednostki klienta. Ten przykład drukuje również jednostki żądań zużyte do zapytania dla jednostki. Aby wykonać zapytanie dotyczące jednostki, Dołącz następujący kod do pliku **SamplesUtils.cs** : 
 

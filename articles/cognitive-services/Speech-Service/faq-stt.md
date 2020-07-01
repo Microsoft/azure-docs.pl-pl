@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c572c03936a809ce2f5ccb0071352d6c84c2ee90
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168460"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85561564"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -100,7 +100,7 @@ Aby zwiększyć współbieżność ***modelu niestandardowego***, potrzebne są 
   - Zaloguj się (w razie potrzeby),
   - Wybierz projekt i wdrożenie,
   - Wybierz punkt końcowy, dla którego chcesz zwiększyć współbieżność,
-  - Skopiuj `Endpoint ID`.
+  - Skopiuj `Endpoint ID` .
 
 Aby zwiększyć współbieżność ***modelu podstawowego***, potrzebne są następujące informacje:
 
@@ -117,7 +117,10 @@ lub
   - Wybierz `Cognitive Services` w polu wyszukiwania
   - z wyświetlanych usług wybierz usługę mowy, dla której chcesz zwiększyć współbieżność,
   - Wyświetl `Properties` dla tej usługi,
-  - Skopiuj komplet `Resource ID`.
+  - Skopiuj komplet `Resource ID` .
+  
+>[!NOTE]
+>[Kontenery](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) nie wymagają zwiększenia ograniczeń współbieżności, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
 
 ## <a name="importing-data"></a>Importowanie danych
 

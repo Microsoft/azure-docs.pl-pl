@@ -1,24 +1,21 @@
 ---
-title: Tworzenie sklepu merytorycznego (wersja zapoznawcza) przy użyciu usługi REST
+title: Tworzenie sklepu z bazami danych przy użyciu usługi REST
 titleSuffix: Azure Cognitive Search
-description: Użyj interfejsu API REST i programu Poster, aby utworzyć magazyn wiedzy platformy Azure Wyszukiwanie poznawcze na potrzeby utrwalania wzbogacania z potoku wzbogacania AI. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.
+description: Użyj interfejsu API REST i programu Poster, aby utworzyć magazyn wiedzy platformy Azure Wyszukiwanie poznawcze na potrzeby utrwalania wzbogacania z potoku wzbogacania AI.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: f030fc81ab33ecd0531040662346e1ed44f5d17c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.date: 06/30/2020
+ms.openlocfilehash: f496413cf1a5175cee65bce46a2f7f6260d5451d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263028"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565215"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Tworzenie sklepu z bazami danych przy użyciu REST i programu Poster
-
-> [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
 
 Magazyn wiedzy zawiera dane wyjściowe z potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure na potrzeby późniejszej analizy lub innego przetwarzania podrzędnego. Potok wzbogacony AI akceptuje pliki obrazów lub pliki tekstowe bez struktury, indeksuje je za pomocą usługi Azure Wyszukiwanie poznawcze, stosuje wzbogacenia AI z Cognitive Services (takich jak analiza obrazów i przetwarzanie języka naturalnego), a następnie zapisuje wyniki w sklepie z bazami danych w usłudze Azure Storage. Aby eksplorować informacje o sklepie z bazami danych, można użyć narzędzi takich jak Power BI lub Eksplorator usługi Storage w Azure Portal.
 
@@ -81,7 +78,7 @@ Aby uzyskać wartość dla `admin-key` , przejdź do usługi Azure wyszukiwanie 
 | Zmienna    | Skąd uzyskać |
 |-------------|-----------------|
 | `admin-key` | Na stronie **klucze** usługi Azure wyszukiwanie poznawcze.  |
-| `api-version` | Pozostaw jako **2019-05-06 — wersja zapoznawcza**. |
+| `api-version` | Pozostaw jako **2020-06-30**. |
 | `datasource-name` | Pozostaw jako **Hotel-Recenzje — ds**. | 
 | `indexer-name` | Pozostaw jako **Hotel-Recenzje — IXR**. | 
 | `index-name` | Pozostaw jako **Hotel-Recenzje-IX**. | 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5d947c9f3f5aedd419662936c7007fc45a57b087
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 751fa9daabaaef05abb5df8229e84975b87cffc1
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262994"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563832"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---table-api"></a>Przykłady Azure PowerShell dla Azure Cosmos DB interfejs API tabel
 
@@ -20,7 +20,7 @@ Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla 
 > [!NOTE]
 > Przykłady używają poleceń cmdlet [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) Management. Sprawdź `Az.CosmosDB` regularnie aktualizacje.
 
-| | |
+|Zadanie | Opis |
 |---|---|
 |[Tworzenie konta i tabeli](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto i tabelę platformy Azure Cosmos. |
 |[Wyświetlanie listy lub Pobieranie tabel](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetl listę lub Pobierz tabele. |

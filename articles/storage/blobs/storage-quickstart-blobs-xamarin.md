@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: e0845e7cdc2ce6dc57ed5a18d263f117f0c2005c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006244"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563493"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
 
@@ -26,7 +26,7 @@ Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, ab
 * Pobieranie obiektu BLOB do urządzenia
 * Usuwanie kontenera
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Przykład](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart) pakietu[Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | Source[(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | biblioteki dokumentacji interfejsu API
+[Dokumentacja](/dotnet/api/azure.storage.blobs)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Przykład](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -150,8 +150,8 @@ protected async override void OnAppearing()
 
 Następujący fragment kodu:
 
-1. `MemoryStream` Tworzy tekst.
-1. Przekazuje tekst do obiektu BLOB, wywołując funkcję [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) klasy [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) , przekazując ją zarówno do nazwy pliku zdefiniowanej przez zmienną na poziomie klasy, jak i `MemoryStream` tekstu. Jeśli obiekt blob nie istnieje, zostanie utworzony przez metodę. W przeciwnym razie zostanie zastąpiony.
+1. Tworzy `MemoryStream` tekst.
+1. Przekazuje tekst do obiektu BLOB, wywołując funkcję [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) klasy [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) , przekazując ją zarówno do nazwy pliku, jak i `MemoryStream` tekstu. Jeśli obiekt blob nie istnieje, zostanie utworzony przez metodę. W przeciwnym razie zostanie zastąpiony.
 
 Dodaj ten kod do pliku *MainPage.XAML.cs* :
 
@@ -190,7 +190,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Pobieranie obiektów blob
 
-Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) . Przykładowy kod kopiuje `Stream` reprezentację obiektu BLOB najpierw do `MemoryStream` a, a następnie do, `StreamReader` aby można było wyświetlić tekst.
+Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) . Przykładowy kod kopiuje `Stream` reprezentację obiektu BLOB najpierw do `MemoryStream` a, a następnie do, `StreamReader` Aby można było wyświetlić tekst.
 
 Dodaj ten kod do pliku *MainPage.XAML.cs* :
 
