@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: 265c4087dbb93bc429cf61ebbeab13dc18c83353
-  ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+  ms.openlocfilehash: e740fd08dc3e616b0768c6c15fd4191cb58e261a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/16/2020
-  ms.locfileid: "84808929"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565422"
 landingContent:
 - title: Azure Remote Rendering — informacje
   linkLists:
@@ -60,11 +60,19 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 'Unity: Konfigurowanie projektu od podstaw'
-      url: tutorials/unity/project-setup.md
-    - text: 'Unity: Praca z jednostkami zdalnymi'
-      url: tutorials/unity/working-with-remote-entities.md
-    - text: 'Unity: Zmiana środowiska i materiałów'
-      url: tutorials/unity/changing-environment-and-materials.md
+    - text: Omówienie
+      url: tutorials/unity/tutorial-landing.md
+    - text: Wyświetlanie zdalnie renderowanego modelu
+      url: tutorials/unity/view-remote-models/view-remote-models.md
+    - text: Ładowanie modeli niestandardowych
+      url: tutorials/unity/custom-models/custom-models.md
+    - text: Manipulowanie modelami
+      url: tutorials/unity/manipulate-models/manipulate-models.md
+    - text: Poprawianie materiałów, oświetlenia i efektów
+      url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+    - text: Zabezpieczanie usługi Azure Remote Rendering i magazynu modeli
+      url: tutorials/unity/security/security.md
+    - text: Tworzenie komercyjnej aplikacji usługi Azure Remote Rendering
+      url: tutorials/unity/commercial-ready/commercial-ready.md
     - text: Natywny język C++ Integrowanie usługi Remote Rendering z aplikacją HoloLens Holographic
       url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md

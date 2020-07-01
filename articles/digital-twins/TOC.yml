@@ -86,6 +86,14 @@
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
+            - name: Zestaw SDK Java
+              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Zestaw SDK dla języka Java — źródło
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
+            - name: Zestaw SDK dla języka JavaScript
+              href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
+            - name: Zestaw SDK dla języka JavaScript — źródło
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins'
             - name: Zestaw SDK dla języka Python
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: Zestaw SDK dla języka Python — źródło

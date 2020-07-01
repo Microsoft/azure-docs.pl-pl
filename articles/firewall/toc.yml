@@ -58,6 +58,8 @@
       href: central-management.md
     - name: Obsługa pracy zdalnej
       href: remote-work-support.md
+    - name: Nazwa FQDN w regułach sieci
+      href: fqdn-filtering-network-rules.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie przy użyciu programu Azure PowerShell
@@ -80,6 +82,10 @@
       href: create-ip-group.md
     - name: Ochrona usługi Windows Virtual Desktop
       href: protect-windows-virtual-desktop.md
+    - name: Ochrona usługi Azure Kubernetes Service (AKS)
+      href: protect-azure-kubernetes-service.md
+    - name: Ustawienia DNS
+      href: dns-settings.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

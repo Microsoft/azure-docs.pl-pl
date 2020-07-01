@@ -855,6 +855,8 @@
           href: incremental-snapshots.md
         - name: Migracja i konwersja
           items:
+            - name: Konwertowanie na szyfrowanie po stronie serwera
+              href: disks-ade-sse-conversion-powershell.md
             - name: Konwertowanie dysku między warstwami Standardowa i Premium
               href: convert-disk-storage.md
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery

@@ -3,20 +3,14 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to jest zarządzanie aplikacjami w chmurze i logowanie jednokrotne?
+    - name: Co to jest zarządzanie aplikacjami?
       href: what-is-application-management.md
-    - name: Co to jest serwer proxy aplikacji dla aplikacji lokalnych?
-      href: what-is-application-proxy.md
-    - name: Typowe scenariusze zarządzania aplikacjami
-      href: common-scenarios.md
-    - name: Co to jest aprowizowanie aplikacji?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Przewodniki Szybki start
   items:
-    - name: Dodawanie aplikacji w chmurze z galerii
-      href: add-application-portal.md
     - name: Wyświetlanie aplikacji dla przedsiębiorstw
       href: view-applications-portal.md
+    - name: Dodawanie aplikacji w chmurze z galerii
+      href: add-application-portal.md
 - name: Samouczki
   items:
     - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +26,8 @@
   items:
     - name: Najlepsze rozwiązania dotyczące zarządzania aplikacjami
       href: application-management-fundamentals.md
+    - name: Typowe scenariusze zarządzania aplikacjami
+      href: common-scenarios.md
     - name: Aplikacje w chmurze i logowanie jednokrotne
       items:
         - name: Planowanie integracji aplikacji w chmurze
@@ -80,6 +76,8 @@
       items:
         - name: Serwer proxy aplikacji
           href: application-proxy.md
+        - name: Co to jest serwer proxy aplikacji dla aplikacji lokalnych?
+          href: what-is-application-proxy.md
         - name: Planowanie wdrożenia serwera proxy aplikacji
           href: application-proxy-deployment-plan.md
         - name: Łączniki

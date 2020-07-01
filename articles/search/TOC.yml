@@ -1,13 +1,13 @@
 - name: Dokumentacja wyszukiwania poznawczego na platformie Azure
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Co to jest wyszukiwanie poznawcze na platformie Azure?
       href: search-what-is-azure-search.md
     - name: Co nowego
       href: whats-new.md
 - name: Przewodniki Szybki start
-  expanded: true
   items:
     - name: Portal
       items:
@@ -85,7 +85,7 @@
     - name: Przykłady w języku Python
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Przykłady dla interfejsu REST
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
@@ -388,10 +388,10 @@
           href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: REST
       items:
-        - name: Wyszukiwanie 2019-05-06
+        - name: Wyszukiwanie 2020-06-30
           href: /rest/api/searchservice
-        - name: Wyszukiwanie 2019-05-06 — wersja zapoznawcza
-          href: /rest/api/searchservice/index-2019-05-06-preview
+        - name: Wyszukiwanie 2020-06-30-Preview
+          href: /rest/api/searchservice/index-preview
         - name: Zarządzanie 2020-03-13
           href: /rest/api/searchmanagement
         - name: Zarządzanie 2019-10-01-Preview

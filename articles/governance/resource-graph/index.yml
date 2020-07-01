@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
-  ms.openlocfilehash: e61131dbcfb9865ff5c91f13e4d3f587b465d851
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.date: 06/29/2020
+  ms.openlocfilehash: b5b3caea00fc4d0f172da1f1ec843ddbdd6470e2
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85321907"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85565655"
 landingContent:
 - title: Informacje o usłudze Azure Resource Graph
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Pierwsze zapytanie (Azure Portal)
+    - text: Pierwsze zapytanie (portal)
       url: ./first-query-portal.md
     - text: Pierwsze zapytanie (interfejs wiersza polecenia platformy Azure)
       url: ./first-query-azurecli.md

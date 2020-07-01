@@ -117,6 +117,8 @@
       items:
         - name: Dodawanie obsługi dla typu danych long
           href: time-series-insights-long-data-type.md
+        - name: Zmiany dotyczące spłaszczania i przechowywania danych JSON
+          href: ingestion-rules-update.md
 - name: Dokumentacja
   items:
     - name: Time Series Insights

@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 10/10/2019
-  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bf7474f1519fbd94be3de8daa15a43775a6a6a0a
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73508673"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85561436"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Firewall Manager
   linkLists:
@@ -31,15 +31,15 @@ landingContent:
     links:
     - text: Co to jest bezpieczny koncentrator wirtualny?
       url: secured-virtual-hub.md
-- title: Zaufani partnerzy w zakresie zabezpieczeń
+- title: Dostawcy partnerów w zakresie zabezpieczeń
   linkLists:
   - linkListType: concept
     links:
-    - text: Co to są zaufani partnerzy w zakresie zabezpieczeń (wersja zapoznawcza)?
+    - text: Kim są dostawcy partnerów w zakresie zabezpieczeń?
       url: trusted-security-partners.md
   - linkListType: how-to-guide
     links:
-    - text: Wdrażanie zaufanego partnera w zakresie zabezpieczeń (wersja zapoznawcza)
+    - text: Wdrażanie dostawcy partnera w zakresie zabezpieczeń
       url: deploy-trusted-security-partner.md
 - title: Zabezpieczanie sieci w chmurze na platformie Azure
   linkLists:

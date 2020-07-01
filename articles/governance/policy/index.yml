@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
-  ms.openlocfilehash: d3a25af9f7d8e16fbb008fd84aff6e29c57680da
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.date: 06/29/2020
+  ms.openlocfilehash: c066c3a7cc5b8208a61962ce4f51f7eef4be192b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85321955"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549933"
 landingContent:
 - title: Informacje o usłudze Azure Policy
   linkLists:
@@ -39,11 +39,11 @@ landingContent:
     links:
     - text: Przypisywanie zasad (portal)
       url: ./assign-policy-portal.md
-    - text: Przypisywanie zasad (PowerShell)
-      url: ./assign-policy-powershell.md
     - text: Przypisywanie zasad (interfejs wiersza polecenia platformy Azure)
       url: ./assign-policy-azurecli.md
-    - text: Przypisywanie zasad (szablon)
+    - text: Przypisywanie zasad (Azure PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Przypisywanie zasad (szablon usługi ARM)
       url: ./assign-policy-template.md
   - linkListType: tutorial
     links:

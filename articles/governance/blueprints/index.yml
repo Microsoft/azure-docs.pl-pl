@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/01/2019
-  ms.openlocfilehash: 525d09dcd12c19ded3e13b38a56290f7816a26a7
-  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+  ms.date: 06/29/2020
+  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84609067"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85550217"
 landingContent:
 - title: Informacje o usłudze Azure Blueprints
   linkLists:
@@ -37,11 +37,11 @@ landingContent:
     links:
     - text: Tworzenie nowej strategii (portal)
       url: ./create-blueprint-portal.md
-    - text: Tworzenie nowej strategii (PowerShell)
-      url: ./create-blueprint-powershell.md
     - text: Tworzenie nowej strategii (interfejs wiersza polecenia platformy Azure)
       url: ./create-blueprint-azurecli.md
-    - text: Tworzenie nowej strategii (interfejs API REST)
+    - text: Tworzenie strategii — Azure PowerShell
+      url: ./create-blueprint-powershell.md
+    - text: Tworzenie nowej strategii (REST)
       url: ./create-blueprint-rest-api.md
   - linkListType: tutorial
     links:
@@ -99,9 +99,11 @@ landingContent:
       url: ./reference/blueprint-functions.md
     - text: Moduł programu PowerShell (PSGallery)
       url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: /cli/azure/ext/blueprint/blueprint
     - text: Azure PowerShell
       url: /powershell/module/az.blueprint/#blueprint
-    - text: Interfejs API REST
-      url: /rest/api/blueprints/
-    - text: .NET
+    - text: Zestaw Azure SDK dla platformy .NET
       url: /dotnet/api/overview/azure/blueprints/management
+    - text: REST
+      url: /rest/api/blueprints/

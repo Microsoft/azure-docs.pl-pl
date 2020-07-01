@@ -8,7 +8,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Uruchamianie pierwszego zapytania — witryna Azure Portal
+    - name: Uruchamianie pierwszego zapytania — portal
       displayName: 'portal, resource, graph, explorer'
       href: ./first-query-portal.md
     - name: Uruchamianie pierwszego zapytania — interfejs wiersza polecenia platformy Azure
@@ -26,6 +26,9 @@
     - name: Uruchamianie pierwszego zapytania — język Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Tworzenie udostępnionego zapytania — interfejs wiersza polecenia platformy Azure
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
       displayName: 'resource manager, queries'
       href: ./shared-query-template.md

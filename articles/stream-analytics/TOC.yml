@@ -30,7 +30,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 — Wdrażanie za pomocą ciągłej integracji/ciągłego wdrażania w usłudze Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 — Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#'
+    - name: 4 — Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 — Tworzenie niestandardowego deserializatora platformy .NET
       href: custom-deserializer.md
@@ -82,10 +82,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: JavaScript — UDA
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'Funkcja zdefiniowana przez użytkownika w języku C#'
+        - name: Funkcja zdefiniowana przez użytkownika w języku C#
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: Funkcja zdefiniowana przez użytkownika dla uczenia maszynowego
           href: machine-learning-udf.md
+        - name: Debugowanie funkcji zdefiniowanej przez użytkownika i aktualizacji
+          href: debug-user-defined-functions.md
     - name: Optymalizowanie zadania usługi Stream Analytics
       items:
         - name: Opis i dostosowywanie jednostek przesyłania strumieniowego
@@ -228,6 +230,8 @@
           href: visual-studio-code-local-run.md
         - name: Testowanie lokalne przy użyciu rzeczywistych danych
           href: visual-studio-code-local-run-live-input.md
+        - name: Debugowanie zapytań za pomocą diagramu zadań
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: Konfigurowanie potoku ciągłej integracji/ciągłego dostarczania
           href: setup-cicd-vs-code.md
         - name: Eksplorowanie zadań

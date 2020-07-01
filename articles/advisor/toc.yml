@@ -4,6 +4,14 @@
   items:
     - name: Co to jest usługa Azure Advisor?
       href: advisor-overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Konfigurowanie alertów dla nowych rekomendacji
+      items:
+        - name: Azure Portal
+          href: advisor-alerts-portal.md
+        - name: Szablon ARM
+          href: advisor-alerts-arm.md
 - name: Samouczki
   items:
     - name: Wprowadzenie do usługi Advisor
@@ -25,7 +33,7 @@
     - name: Uprawnienia i zablokowane akcje
       href: permissions.md
     - name: Konfigurowanie alertów dla rekomendacji
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Korygowanie zbiorcze dla zaleceń
       href: advisor-quick-fix.md
     - name: Dane usługi Advisor w usłudze Azure Resource Graph

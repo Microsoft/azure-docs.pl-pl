@@ -103,6 +103,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad zabezpieczeń
           href: unresponsive-vm-apply-security-policy.md
+        - name: Błąd zatrzymania systemu Windows — stan braku pamięci
+          href: troubleshoot-windows-stop-error.md
 - name: Nie można nawiązać połączenia z maszyną wirtualną
   items:
     - name: RDP
