@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 085bfd51ae6eabfc26201897a124a6272e0221fa
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943874"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603591"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
 
@@ -30,15 +30,16 @@ Ta przykładowa aplikacja może wykonywać następujące czynności:
 > * Zarządzanie kluczami subskrypcji
 > * Obsługa błędów
 
-Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z interfejsami API wyszukiwania Bing. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api), aby uzyskać klucz subskrypcji.
+Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z interfejsami API wyszukiwania Bing.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Składniki wymagane do uruchomienia aplikacji:
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+
 * Środowisko Node.js 8 lub nowsze
-* Klucz subskrypcji dla interfejsu API Wyszukiwanie Bing. Jeśli go nie masz, [Utwórz zasób wyszukiwanie Bing wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## <a name="get-the-source-code-and-install-dependencies"></a>Pobranie kodu źródłowego oraz instalowanie zależności
 
 Pierwszą czynnością jest sklonowanie repozytorium z kodem źródłowym przykładowej aplikacji.
 
@@ -127,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. Ten formularz używa pola wyboru, które ma dwa stany: `strict` lub `moderate`.
+Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. Ten formularz używa pola wyboru, które ma dwa stany: `strict` lub `moderate` .
 
 Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom**, parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
 > [!NOTE]

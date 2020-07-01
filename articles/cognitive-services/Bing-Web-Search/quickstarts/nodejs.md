@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wykonywanie wyszukiwania w sieci Web za pomocą środowiska Node. js — wyszukiwanie w sieci Web Bing interfejsu API REST'
+title: 'Szybki Start: Przeprowadź wyszukiwanie w sieci Web za pomocą interfejsu API REST Node.js-wyszukiwanie w sieci Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania do interfejsu API wyszukiwania w sieci Web Bing przy użyciu środowiska Node.js i otrzymywać odpowiedzi w formacie JSON.
 services: cognitive-services
@@ -11,29 +11,29 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 872a90a0b4f5b348e45b04998067f9e97a3ae987
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873960"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611326"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Szybki Start: przeszukiwanie sieci Web przy użyciu interfejsu API REST wyszukiwanie w sieci Web Bing i środowiska Node. js
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Szybki Start: przeszukiwanie sieci Web przy użyciu interfejsu API REST wyszukiwanie w sieci Web Bing i Node.js
 
-Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node.js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szybki start:
 
-* [Node. js 6](https://nodejs.org/en/download/) lub nowszy
+* [Node.js 6](https://nodejs.org/en/download/) lub nowszy
 * Klucz subskrypcji
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Tworzenie projektu i deklarowanie wymaganych modułów
 
-Utwórz nowy projekt Node.js w ulubionym środowisku IDE lub edytorze. Następnie skopiuj Poniższy fragment kodu do projektu w pliku o nazwie Search. js:
+Utwórz nowy projekt Node.js w ulubionym środowisku IDE lub edytorze. Następnie skopiuj Poniższy fragment kodu do projektu w pliku o nazwie search.js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -43,7 +43,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Ustawianie klucza subskrypcji
 
-W tym fragmencie kodu `AZURE_SUBSCRIPTION_KEY` jest stosowana zmienna środowiskowa do przechowywania klucza subskrypcji, co jest dobrym sposobem na uniknięcie przypadkowego narażenia kluczy podczas wdrażania kodu. Aby wyszukać klucz subskrypcji, zobacz [interfejsy API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+W tym fragmencie kodu `AZURE_SUBSCRIPTION_KEY` jest stosowana zmienna środowiskowa do przechowywania klucza subskrypcji, co jest dobrym sposobem na uniknięcie przypadkowego narażenia kluczy podczas wdrażania kodu.
 
 Jeśli nie masz doświadczenia w korzystaniu ze zmiennych środowiskowych lub chcesz uruchomić tę aplikację tak szybko, jak to możliwe, Zastąp `process.env['AZURE_SUBSCRIPTION_KEY']` ustawieniem klucz subskrypcji ustawionym jako ciąg.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d50eafd8464a315cb4e619a0c34b6a173d6ca638
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 5aac12f4da6304e8e14f0b4f1e33ef6257f50c11
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362197"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602792"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Samouczek: Tworzenie jednostronicowej aplikacji sieci Web
 
@@ -43,8 +43,10 @@ Strona samouczka jest całkowicie niezależna. Nie używa żadnych zewnętrznych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać czynności opisane w samouczku, należy dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing. Jeśli ich nie masz, możesz użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) i [podstawowego klucza mapy usługi Bing](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Aby wykonać czynności opisane w samouczku, należy dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing. Jeśli ich nie masz, musisz je utworzyć:
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="app-components"></a>Składniki aplikacji
 Podobnie jak każda inna aplikacja internetowa, aplikacja w tym samouczku zawiera trzy części:

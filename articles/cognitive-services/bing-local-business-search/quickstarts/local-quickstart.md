@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: da7d210140bf348e734f16cef2aaa01caf7e4f8b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 812061bf161a33e4151b7b23265196895e039414
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873129"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611241"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Szybki Start: wysyłanie zapytania do lokalnego interfejsu API wyszukiwania biznesowego Bing w języku C #
 
@@ -25,9 +25,10 @@ Ta przykładowa aplikacja pobiera dane lokalnego odpowiedzi z interfejsu API dla
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Dowolna wersja programu [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
-* [Konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z interfejsy API wyszukiwania Bing. W tym przewodniku szybki start wystarcza [bezpłatna wersja próbna](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) . Zapisz klucz interfejsu API, który jest dostarczany podczas aktywacji bezpłatnej wersji próbnej. Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — wyszukiwanie Bing API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="create-the-request"></a>Utwórz żądanie 
 
@@ -209,5 +210,5 @@ namespace localSearch
 
 ## <a name="next-steps"></a>Następne kroki
 - [Lokalne wyszukiwanie biznesowe w języku Java — Szybki Start](local-search-java-quickstart.md)
-- [Lokalne wyszukiwanie biznesowe Node. js — Szybki Start](local-search-node-quickstart.md)
+- [Lokalne wyszukiwanie biznesowe Node.js Szybki Start](local-search-node-quickstart.md)
 - [Lokalne wyszukiwanie biznesowe w języku Python — Szybki Start](local-search-python-quickstart.md)

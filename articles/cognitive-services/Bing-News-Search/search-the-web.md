@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448441"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85602758"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Co to jest interfejs API wyszukiwania wiadomości Bing?
 
@@ -28,7 +28,7 @@ Należy pamiętać, że interfejs API wyszukiwania wiadomości Bing udostępnia 
 
 O ile interfejs API wyszukiwania wiadomości Bing umożliwia przede wszystkim wyszukiwanie artykułów z wiadomościami i zwraca je, to udostępnia także kilka funkcji inteligentnego i ukierunkowanego pobierania wiadomości w Internecie.
 
-|Funkcja  |Opis  |
+|Cecha  |Opis  |
 |---------|---------|
 |[Sugerowanie i używanie terminów wyszukiwania](concepts/search-for-news.md#suggest-and-use-search-terms)     | Ulepsz środowisko wyszukiwania przy użyciu [interfejsu API automatycznego sugerowania Bing](../bing-autosuggest/get-suggested-search-terms.md), aby wyświetlać sugerowane terminy wyszukiwania w miarę ich wpisywania.         |
 |[Uzyskiwanie wiadomości ogólnych](concepts/search-for-news.md#get-general-news)     | Wyszukiwanie wiadomości przez wysłanie zapytania wyszukiwania do interfejsu API wyszukiwania wiadomości Bing i pobieranie w odpowiedzi listy odpowiadających artykułów z wiadomościami.           |
@@ -40,10 +40,8 @@ O ile interfejs API wyszukiwania wiadomości Bing umożliwia przede wszystkim wy
 
 Interfejs API wyszukiwania wiadomości Bing jest usługą internetową RESTful łatwą do wywołania z dowolnego języka programowania, który może wysyłać żądania HTTP i analizować kod JSON. Możesz użyć tej usługi za pomocą interfejsu API REST lub zestawu SDK.
 
-1. Utwórz konto interfejsu API usług Cognitive Services z dostępem do interfejsów API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [bezpłatnie utworzyć konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
-
+1. Utwórz [konto interfejsu API usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z dostępem do interfejsów API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć konto](https://azure.microsoft.com/free/cognitive-services/) bezpłatnie.
 2. Wyślij żądanie do interfejsu API przy użyciu prawidłowego zapytania wyszukiwania.
-
 3. Przetwórz odpowiedź interfejsu API, analizując zwrócony komunikat JSON.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -52,7 +50,7 @@ Najpierw wypróbuj [interaktywną demonstrację](https://azure.microsoft.com/ser
 
 Aby szybko rozpocząć pracę z pierwszym żądaniem interfejsu API, wypróbuj przewodnik Szybki start dla [interfejsu API REST](quickstart.md) lub jednego z [zestawów SDK](sdk.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Sekcja dokumentacji [interfejsu API wyszukiwania wiadomości Bing w wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) zawiera definicje i informacje dotyczące punktów końcowych, nagłówków, odpowiedzi interfejsu API i parametrów zapytania, których możesz użyć do żądania wyników wyszukiwania na podstawie obrazu.
 * [Wymagania dotyczące użycia i wyświetlania Bing](./useanddisplayrequirements.md) określają dopuszczalne zastosowania zawartości i informacji uzyskanych za pośrednictwem interfejsów API wyszukiwania Bing.

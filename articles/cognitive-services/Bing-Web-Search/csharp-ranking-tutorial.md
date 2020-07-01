@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382331"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85609439"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Tworzenie klienta wyszukiwania aplikacji konsoli w języku C #
 
@@ -31,8 +31,9 @@ W tym samouczku pokazano, jak:
 
 Aby wykonać czynności opisane w samouczku, musisz:
 
-- Program Visual Studio. Jeśli go nie masz, [Pobierz i zainstaluj bezpłatnie program Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- Klucz subskrypcji dla interfejs API wyszukiwania w sieci Web Bing. Jeśli jej nie masz, utwórz konto [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* [Środowisko IDE programu Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Utwórz nowy projekt aplikacji konsoli
 
@@ -47,13 +48,13 @@ Nadaj aplikacji nazwę **MyConsoleSearchApp**, a następnie kliknij przycisk **O
 JSON.net umożliwia działanie z odpowiedziami JSON zwracanymi przez interfejs API. Dodaj swój pakiet NuGet do projektu:
 
 - W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet..**..
-- Na karcie **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json`. Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
+- Na karcie **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json` . Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
 - Kliknij przycisk **OK** w oknie **Przegląd zmian** .
 - Zamknij kartę programu Visual Studio zatytułowaną **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Dodawanie odwołania do elementu System. Web
 
-Ten samouczek opiera się `System.Web` na zestawie. Dodaj odwołanie do tego zestawu do projektu:
+Ten samouczek opiera się na `System.Web` zestawie. Dodaj odwołanie do tego zestawu do projektu:
 
 - W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **odwołania** i wybierz polecenie **Dodaj odwołanie...**
 - Wybierz pozycję **zestawy > Framework**, a następnie przewiń w dół i sprawdź **System. Web**
@@ -137,8 +138,8 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 Ta metoda:
 
-- Tworzy zapytanie `HttpClient` do interfejsu API wyszukiwanie w sieci Web
-- Ustawia nagłówek `Ocp-Apim-Subscription-Key` http, który będzie używany przez usługę Bing do uwierzytelniania żądania
+- Tworzy `HttpClient` zapytanie do interfejsu API wyszukiwanie w sieci Web
+- Ustawia `Ocp-Apim-Subscription-Key` nagłówek HTTP, który będzie używany przez usługę Bing do uwierzytelniania żądania
 - Wykonuje żądanie i używa JSON.net do deserializacji wyników
 - Wywołania `DisplayAllRankedResults(responseObjects)` , aby wyświetlić wszystkie wyniki w kolejności uporządkowanej
 
@@ -221,7 +222,7 @@ Przed wyświetleniem sposobu wyświetlania wyników w kolejności uporządkowane
 }
 ```
 
-Obiekt `rankingResponse` JSON ([Dokumentacja](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) zawiera opis odpowiedniej kolejności wyświetlania wyników wyszukiwania. Zawiera co najmniej jedną z następujących grup z priorytetem:
+`rankingResponse`Obiekt JSON ([Dokumentacja](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) zawiera opis odpowiedniej kolejności wyświetlania wyników wyszukiwania. Zawiera co najmniej jedną z następujących grup z priorytetem:
 
 - `pole`: Wyniki wyszukiwania, aby uzyskać najbardziej widoczne traktowanie (na przykład wyświetlane nad linii głównej i paskiem bocznym).
 - `mainline`: Wyniki wyszukiwania do wyświetlenia w linii głównej.

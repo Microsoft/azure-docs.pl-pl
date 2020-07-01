@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 6032478dfc45d3d4ca1488913356718ab188e057
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a41a448a344325c2e3820a891017a078ae1532c5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872036"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603421"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Szybki Start: Wyszukiwanie obrazów przy użyciu interfejs API wyszukiwania obrazów Bing i języka Java 
 
@@ -162,8 +162,7 @@ Odpowiedzi z interfejsu API wyszukiwania obrazów Bing są zwracane w formacie J
 ## <a name="see-also"></a>Zobacz też
 
 * [Co to jest interfejs API wyszukiwania obrazów Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Wypróbuj interaktywną wersję demonstracyjną online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [Szczegóły cennika interfejsy API wyszukiwania Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-* [Pobierz bezpłatny klucz dostępu Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
-* [Odwołanie interfejs API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Wypróbuj interaktywny pokaz online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Szczegóły cennika interfejsy API wyszukiwania Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Dokumentacja usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Dokumentacja interfejsu API wyszukiwania obrazów Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

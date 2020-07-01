@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd85042d30be0bb37de590fe9b011948b9acf0db
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361374"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605036"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu zabezpieczeń fizycznych kisi
 
@@ -102,11 +102,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Oprócz powyższych kisi fizyczna aplikacja zabezpieczeń oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
     
-    | Nazwa |  |  Atrybut źródłowy|
-    | ---------------| --------------- | --------- |
-    | FirstName | | user.givenname |
-    | LastName | | user.surname |
-    | E-mail | | user.userprincipalname |
+    | Nazwa | Atrybut źródłowy|
+    | ---------------| --------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | E-mail | user.userprincipalname |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -156,7 +156,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka zabezpieczenia fizyczne kisi w panelu dostępu należy automatycznie zalogować się do zabezpieczeń fizycznych kisi, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

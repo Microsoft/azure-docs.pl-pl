@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 588751c178205ceb21617f8d9271bfa9ed76193d
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943908"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603353"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Samouczek: tworzenie strony internetowej z funkcją wyszukiwania niestandardowego
 
-Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wyszukiwania dla interesujących Cię tematów. Jeśli na przykład masz witrynę internetową poświęconą sztukom walki, w której znajduje się funkcja wyszukiwania, możesz określić domeny, witryny podrzędne i strony internetowe, które będą przeszukiwane przez usługę Bing. Użytkownicy zobaczą wyniki dostosowane do zawartości, która ich interesuje, zamiast przewijać strony ogólnych wyników wyszukiwania, które mogą zawierać nieistotną zawartość. 
+Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wyszukiwania dla interesujących Cię tematów. Na przykład, jeśli jesteś członkiem witryny sieci Web Martial sztuk, która udostępnia środowisko wyszukiwania, możesz określić domeny, podwitryny i Webpages, które przeszukują usługi Bing. Użytkownicy zobaczą wyniki dostosowane do zawartości, która ich interesuje, zamiast przewijać strony ogólnych wyników wyszukiwania, które mogą zawierać nieistotną zawartość. 
 
 W tym samouczku opisano, jak skonfigurować wystąpienie wyszukiwania niestandardowego i zintegrować je ze stroną internetową.
 
@@ -34,7 +34,7 @@ Wykonane zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API wyszukiwania niestandardowego Bing.  Aby uzyskać klucz, [Utwórz zasób wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) w Azure Portal. Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services).
+- Aby skorzystać z samouczka, potrzebny jest klucz subskrypcji interfejsu API wyszukiwania niestandardowego Bing.  Aby uzyskać klucz, [Utwórz zasób wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) w Azure Portal.
 - Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017 lub nowszego, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Tworzenie wystąpienia wyszukiwania niestandardowego
@@ -79,7 +79,7 @@ Aby wykluczyć wyniki z określonych witryn internetowych lub adresów URL, doda
 
 ## <a name="add-pinned-entries"></a>Dodawanie wpisów przypiętych
 
-Aby przypiąć określoną stronę sieci Web na początku wyników wyszukiwania, Dodaj stronę sieci Web i termin zapytania do **przypiętej** karty. **Przypięta** karta zawiera listę par terminów na stronie sieci Web i zapytań, które określają stronę sieci Web wyświetlaną jako górny wynik konkretnego zapytania. Strona sieci Web jest przypięta tylko wtedy, gdy ciąg zapytania użytkownika pasuje do ciągu zapytania kodu PIN na podstawie warunku dopasowania numeru PIN. W wyszukiwaniach będą wyświetlane tylko indeksowane strony internetowe. Aby uzyskać więcej informacji, zobacz [Define your custom view (Definiowanie widoku niestandardowego)](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Aby przypiąć określoną stronę sieci Web na początku wyników wyszukiwania, Dodaj stronę sieci Web i termin zapytania do **przypiętej** karty. **Przypięta** karta zawiera listę par terminów na stronie sieci Web i zapytań, które określają stronę sieci Web wyświetlaną jako górny wynik konkretnego zapytania. Strona sieci Web jest przypięta tylko wtedy, gdy ciąg zapytania użytkownika pasuje do ciągu zapytania kodu PIN na podstawie warunku dopasowania numeru PIN. W wyszukiwaniach będą wyświetlane tylko indeksowane strony internetowe. Aby uzyskać więcej informacji, zobacz [Definiowanie niestandardowego widoku](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Na stronie **Configuration** (Konfiguracja) kliknij kartę **Pinned** (Przypięte) i wprowadź stronę internetową oraz termin zapytania strony internetowej, które mają być zwracane jako najlepszy wynik.  
   
@@ -116,7 +116,7 @@ Wyszukiwanie niestandardowe zapewnia hostowany interfejs użytkownika do rendero
 
    ![Zrzut ekranu przedstawiający krok wybierania zaawansowanych opcji konfiguracji hostowanego interfejsu użytkownika](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Wybierz klucze subskrypcji z list rozwijanych. Alternatywnie możesz ręcznie wprowadzić klucz subskrypcji. Więcej informacji na temat uzyskiwania kluczy można znaleźć na stronie [Możliwość wypróbowania usług Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Wybierz klucze subskrypcji z list rozwijanych. Alternatywnie możesz ręcznie wprowadzić klucz subskrypcji.
   
    ![Zrzut ekranu przedstawiający krok wybierania dodatkowych opcji konfiguracji hostowanego interfejsu użytkownika](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -130,7 +130,7 @@ Istnieją dwa sposoby korzystania z hostowanego interfejsu użytkownika.
 - Opcja 1. Zintegrowanie dostarczonego fragmentu kodu JavaScript z aplikacją.
 - Opcja 2. Użycie dostarczonego punktu końcowego HTML.
 
-W dalszej części tego samouczka przedstawiono **opcję 1 — fragment kodu Javascript**.  
+W pozostałej części tego samouczka przedstawiono **opcję 1: fragment kodu JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurowanie rozwiązania programu Visual Studio
 

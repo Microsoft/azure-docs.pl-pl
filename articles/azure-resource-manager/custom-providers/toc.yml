@@ -48,6 +48,8 @@
       href: reference-custom-providers-csharp-endpoint.md
     - name: REST
       href: /rest/api/customproviders/
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/custom-providers/custom-providers/
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

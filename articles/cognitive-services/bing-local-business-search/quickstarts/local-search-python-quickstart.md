@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: fcd3ab3cce74aa0ef021427904077c364de1f493
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c821df0e7cb00c73899a2694dd0b2eb6823b1d9e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606279"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611200"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Szybki Start: wysyłanie zapytania do lokalnego interfejsu API wyszukiwania biznesowego Bing w języku Python
 
@@ -26,8 +26,9 @@ Ta przykładowa aplikacja pobiera dane lokalnego odpowiedzi z interfejsu API dla
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Język [Python](https://www.python.org/) 2. x lub 3. x.
-* [Konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z interfejsy API wyszukiwania Bing. W tym przewodniku szybki start wystarcza [bezpłatna wersja próbna](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) . Zapisz klucz interfejsu API, który jest dostarczany podczas aktywacji bezpłatnej wersji próbnej. Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — wyszukiwanie Bing API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="run-the-complete-application"></a>Uruchom kompletną aplikację
 
@@ -70,4 +71,4 @@ print (json.dumps(json.loads(result), indent=4))
 ## <a name="next-steps"></a>Następne kroki
 - [Lokalne wyszukiwanie biznesowe w języku Java — Szybki Start](local-search-java-quickstart.md)
 - [Lokalne wyszukiwanie biznesowe — Przewodnik Szybki Start](local-quickstart.md)
-- [Lokalne wyszukiwanie biznesowe Node. js — Szybki Start](local-search-node-quickstart.md)
+- [Lokalne wyszukiwanie biznesowe Node.js Szybki Start](local-search-node-quickstart.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: b0a26b4d3f0f59f8e05c5990bbc64ee55f12f124
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307739"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604696"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Debuguj błędy podczas tworzenia niestandardowej aplikacji poleceń
 
@@ -26,7 +26,7 @@ Polecenia niestandardowe tworzą również aplikację w [Luis](https://www.luis.
 
 [Luis ogranicza 500 aplikacji na zasób autorstwa](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Tworzenie aplikacji LUIS może zakończyć się niepowodzeniem, jeśli używasz zasobu tworzenia, który ma już 500 aplikacji. 
 
-Upewnij się, że wybrany zasób LUIS Authoring ma mniej niż 500. Jeśli nie, możesz użyć nowego zasobu LUIS, przełączyć się do innego, lub spróbować oczyścić aplikacje LUIS.  
+Upewnij się, że wybrany zasób LUIS Authoring ma mniej niż 500 aplikacji. Jeśli nie, możesz utworzyć nowy zasób tworzenia LUIS, przełączyć się do innego lub spróbować wyczyścić aplikacje LUIS.  
 
 ## <a name="errors-when-deleting-an-application"></a>Błędy podczas usuwania aplikacji
 ### <a name="cant-delete-luis-application"></a>Nie można usunąć aplikacji LUIS
@@ -48,8 +48,8 @@ Nie można usunąć parametru, gdy jest on używany. Usuń wszystkie odwołania 
 Nie można usunąć punktu końcowego sieci Web, gdy jest on używany. Usuń wszystkie akcje **internetowego punktu końcowego wywołania** , które korzystają z tego punktu końcowego sieci Web przed usunięciem punktu końcowego sieci Web.
 
 ## <a name="errors-when-training-an-application"></a>Błędy podczas uczenia aplikacji
-### <a name="build-in-intents"></a>Kompiluj w intencjach
-LUIS ma zabudowane opcje tak/nie. Gdy przykładowe zdania mają tylko wartość "yes", wartość "No" spowoduje niepowodzenie szkolenia. 
+### <a name="built-in-intents"></a>Wbudowane intencje
+LUIS ma wbudowane opcje tak/nie. Gdy przykładowe zdania mają tylko wartość "yes", wartość "No" spowoduje niepowodzenie szkolenia. 
 
 | Słowo kluczowe | Warianty | 
 | ------- | --------- | 
