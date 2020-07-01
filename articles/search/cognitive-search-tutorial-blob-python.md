@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2f650681742b2d91396ad41aeb69505c703cd3ac
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 0cb266f512875f588c5bf95e31b207b9c49e4e96
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753040"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85552612"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -153,7 +153,7 @@ endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
 headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>'}
 params = {
-    'api-version': '2019-05-06'
+    'api-version': '2020-06-30'
 }
 ```
 
@@ -543,7 +543,7 @@ Wprowadzono [wbudowane umiejętności](cognitive-search-predefined-skills.md) , 
 
 Wreszcie zawiesz się, jak przetestować wyniki i zresetować system pod kątem dalszych iteracji. Omówiono proces, w ramach którego odpytanie indeksu powoduje zwrócenie danych wyjściowych utworzonych przez wzbogacony potok indeksowania. W tej wersji jest dostępny mechanizm wyświetlania wewnętrznych konstrukcji (wzbogaconych dokumentów utworzonych przez system). Zawarto również informacje na temat sprawdzania stanu indeksatora oraz obiektów, które należy usunąć przed ponownym uruchomieniem potoku.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

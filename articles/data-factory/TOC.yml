@@ -26,7 +26,7 @@
     - name: Tworzenie fabryki danych — szablon usługi Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
     - name: Zabezpieczenia — włączanie szyfrowania kluczy zarządzanego przez klienta
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
     - name: Tworzenie przepływu danych
       href: data-flow-create.md
 - name: Samouczki
@@ -576,7 +576,7 @@
         - name: Tożsamość zarządzana dla usługi Data Factory
           href: data-factory-service-identity.md
         - name: Szyfrowanie klucza zarządzanego przez klienta
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Monitorowanie wizualne

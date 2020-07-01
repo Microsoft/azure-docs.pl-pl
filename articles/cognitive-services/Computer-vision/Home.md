@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 90c2068021f1e9a173f37bdf1098edda10ab3d8d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: cfd8dd7474cf7926ef2230e6be53a967a97645db
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413471"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554393"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -48,11 +48,9 @@ Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. 
 |**[Generowanie miniatur](concept-generating-thumbnails.md)**|Analizowanie zawartości obrazu w celu wygenerowania dla niego odpowiedniej miniatury. Usługa przetwarzania obrazów najpierw generuje wysokiej jakości miniaturę, po czym analizuje obiekty na obrazie, aby określić *obszar zainteresowania*. Następnie przetwarzanie obrazów przycina obraz zgodnie z wymaganiami obszaru zainteresowania. W zależności od potrzeb wygenerowana miniatura może mieć współczynnik proporcji inny od współczynnika proporcji oryginalnego obrazu.|
 |**[Określanie obszaru zainteresowania](concept-generating-thumbnails.md#area-of-interest)**|Przeanalizuj zawartość obrazu w celu zwrócenia współrzędnych *obszaru zainteresowania*. Zamiast przycinania obrazu i generowania miniatur, przetwarzanie obrazów zwraca współrzędne pola ograniczenia regionu, dzięki czemu aplikacja wywołująca może zmodyfikować oryginalny obraz zgodnie z potrzebami.|
 
-## <a name="extract-text-from-images"></a>Wyodrębnianie tekstu z obrazów
+## <a name="detect-text-from-images"></a>Wykryj tekst z obrazów
 
-Za pomocą interfejsu API [odczytu](concept-recognizing-text.md#read-api) przetwarzanie obrazów można wyodrębnić wydrukowany i odręczny tekst z obrazów do strumienia znaków, który można odczytać. Interfejs API odczytu korzysta z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle, takich jak paragony, plakaty, karty biznesowe, litery i tablice. Obecnie działa on w przypadku siedmiu różnych języków (zobacz [Obsługa języka](./language-support.md)).
-
-Możesz również użyć interfejsu API [rozpoznawania znaków optycznych (OCR)](concept-recognizing-text.md) do wyodrębniania tekstu drukowanego w kilku językach. Jeśli to konieczne, funkcja optycznego rozpoznawania znaków poprawia kąt obrotu i podaje współrzędne ramki każdego wyrazu. Funkcja optycznego rozpoznawania znaków obsługuje 25 języków i automatycznie wykrywa język rozpoznanego tekstu.
+Za pomocą interfejsu API funkcji [rozpoznawania tekstu](concept-recognizing-text.md) przetwarzanie obrazów można wyodrębnić wydrukowany i odręczny tekst z obrazów do strumienia znaków z możliwością odczytu maszynowego. Interfejs API odczytu korzysta z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle, takich jak paragony, plakaty, karty biznesowe, litery i tablice. Interfejsy API wykrywania dwóch tekstów obsługują wyodrębnianie wydrukowanych tekstu w [kilku językach](./language-support.md).
 
 ## <a name="moderate-content-in-images"></a>Moderowanie zawartości na obrazach
 

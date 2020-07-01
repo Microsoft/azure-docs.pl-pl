@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 94ef9b9754527bbb36ef1028f80e957da8c631dd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688402"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85549585"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -144,7 +144,7 @@ Virtual Network translator adresów sieciowych i zasób bramy NAT są dostępne 
 
 Translator adresów sieciowych jest obsługiwany za pomocą zwykłych kanałów pomocy technicznej.
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
 Chcemy wiedzieć, jak możemy ulepszyć usługę. Zaproponuj i zagłosuj na to, co będziemy kompilować dalej w usłudze [UserVoice dla translatora adresów sieciowych](https://aka.ms/natuservoice).
 

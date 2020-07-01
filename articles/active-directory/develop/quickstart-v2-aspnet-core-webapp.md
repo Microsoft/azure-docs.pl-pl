@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 50b6244e5db6f812d1f9e3d23ea5fa88ea3bebea
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456814"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554132"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET Core może się zalogować na kontach osobistych (hotmail.com, outlook.com, inne) i służbowych z dowolnego wystąpienia Azure Active Directory (Azure AD). (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -145,7 +145,7 @@ Metoda `AddAuthentication` konfiguruje usługę do dodawania uwierzytelniania op
 
 W wierszu zawierającym `.AddAzureAd` Dodano uwierzytelnianie platformy tożsamości firmy Microsoft do aplikacji. Następnie jest on konfigurowany do logowania za pomocą punktu końcowego platformy tożsamości firmy Microsoft.
 
-> |Lokalizacja  |  |
+> |Lokalizacja | Opis |
 > |---------|---------|
 > | ClientId  | Identyfikator aplikacji (klient) z aplikacji zarejestrowanej w witrynie Azure Portal. |
 > | Urząd | Punkt końcowy usługi STS na potrzeby uwierzytelnienia użytkownika. Zazwyczaj jest to adres <https://login.microsoftonline.com/{tenant}/v2.0> dla chmury publicznej, gdzie parametr {tenant} jest nazwą dzierżawy, identyfikatorem dzierżawy lub ma wartość *common* na potrzeby odwołania do wspólnego punktu końcowego (używany dla aplikacji z wieloma dzierżawami) |

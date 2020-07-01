@@ -10,12 +10,13 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.custom: contperfq4
+ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099128"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551745"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
@@ -23,7 +24,7 @@ Dzięki usłudze Azure Active Directory (Azure AD) samoobsługowego resetowania 
 
 Funkcję zapisywania zwrotnego haseł można użyć do synchronizowania zmian haseł w usłudze Azure AD z powrotem do środowiska lokalnego AD DS. Azure AD Connect zapewnia bezpieczny mechanizm wysyłania tych haseł z powrotem do istniejącego katalogu lokalnego z usługi Azure AD.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj wymagane uprawnienia do zapisywania zwrotnego haseł
@@ -123,11 +124,11 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, wybierz pozycję **Resetowanie hasła**, a następnie wybierz pozycję **integracja lokalna**.
 1. Ustawić opcję **zapisu haseł wstecz do katalogu lokalnego?** do *nie*.
 1. Ustaw opcję **Zezwalaj użytkownikom na odblokowywanie kont bez resetowania ich hasła?** do *nie*.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 90954ea2754fd77f1612bd616acb7d3c88e50816
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8fab1449c72dc3e1a27506e97272e322c0e8c6e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558655"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553890"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji
 
@@ -92,7 +92,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >
 > 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples**.
 > 1. Przejdź do podfolderu **1-Call-MsGraph-WithSecret "**.
-> 1. Edytuj **parametry. JSON** i Zastąp wartości pól, `authority` `client_id` i `secret` następującym fragmentem kodu:
+> 1. Edytuj **parameters.jsna** i Zastąp wartości pól `authority` `client_id` oraz `secret` następującym fragmentem kodu:
 >
 >    ```json
 >    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
@@ -189,7 +189,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Gdzie: ||
+> | Gdzie: |Opis |
 > |---------|---------|
 > | `config["secret"]` | Klucz tajny klienta utworzony dla aplikacji w witrynie Azure Portal. |
 > | `config["client_id"]` | Jest **identyfikatorem aplikacji (klienta)** dla aplikacji zarejestrowanej w witrynie Azure Portal. Tę wartość można znaleźć na stronie **Przegląd** aplikacji w witrynie Azure Portal. |
@@ -210,7 +210,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Gdzie:| |
+> |Gdzie:| Opis |
 > |---------|---------|
 > | `config["scope"]` | Zawiera żądane zakresy. W przypadku klientów poufnych format powinien być podobny do `{Application ID URI}/.default`, aby wskazać, że żądane zakresy są zdefiniowane statycznie w obiekcie aplikacji ustawionym w witrynie Azure Portal (w przypadku programu Microsoft Graph element `{Application ID URI}` wskazuje na adres `https://graph.microsoft.com`). W przypadku niestandardowych interfejsów API sieci Web `{Application ID URI}` jest zdefiniowany w sekcji **UWIDACZNIANIE interfejsu API** w rejestracji aplikacji w witrynie Azure Portal (wersja zapoznawcza). |
 

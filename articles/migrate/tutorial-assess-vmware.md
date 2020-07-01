@@ -4,19 +4,19 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych VMware na potrze
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 7fcfa698b0a7e96a117b9d9663869bbec0e0079e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771312"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85550870"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Ocenianie maszyn wirtualnych programu VMware przy użyciu narzędzia do oceny serwera
 
 W tym artykule opisano sposób oceny lokalnych maszyn wirtualnych VMware przy użyciu [Azure Migrate: narzędzia do oceny serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
 > * Skonfiguruj urządzenie Azure Migrate uruchamiane lokalnie w celu oceny maszyn wirtualnych.
@@ -42,25 +42,25 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Skonfiguruj nowy projekt Azure Migrate w następujący sposób:
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
-1. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
-1. W obszarze **Przegląd**w obszarze **odnajdywanie, ocenianie i Migrowanie serwerów**wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
+2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
+3. W obszarze **Przegląd**w obszarze **odnajdywanie, ocenianie i Migrowanie serwerów**wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
 
    ![Przycisk umożliwiający ocenę i migrację serwerów](./media/tutorial-assess-vmware/assess-migrate.png)
 
-1. W obszarze **wprowadzenie**wybierz pozycję **Dodaj narzędzia**.
-1. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.     
-1. W obszarze **szczegóły projektu**Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+4. W obszarze **wprowadzenie**wybierz pozycję **Dodaj narzędzia**.
+5. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.     
+6. W obszarze **szczegóły projektu**Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Pola nazwy i regionu projektu](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Wybierz przycisk **Dalej**.
-1. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
+7. Wybierz pozycję **Dalej**.
+8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
    ![Wybór dla narzędzia do oceny serwera](./media/tutorial-assess-vmware/assessment-tool.png)
 
-1. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Pomiń na razie dodawanie narzędzia migracji** > **Dalej**.
-1. W oknie **Recenzja + Dodawanie narzędzi**przejrzyj ustawienia, a następnie wybierz pozycję **Dodaj narzędzia**.
-1. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony. Nastąpi przekierowanie do strony projektu. Jeśli nie widzisz projektu, możesz uzyskać do niego dostęp z obszaru **Serwery** na pulpicie nawigacyjnym usługi Azure Migrate.
+9. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Pomiń na razie dodawanie narzędzia migracji** > **Dalej**.
+10. W oknie **Recenzja + Dodawanie narzędzi**przejrzyj ustawienia, a następnie wybierz pozycję **Dodaj narzędzia**.
+11. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony. Nastąpi przekierowanie do strony projektu. Jeśli nie widzisz projektu, możesz uzyskać do niego dostęp z obszaru **Serwery** na pulpicie nawigacyjnym usługi Azure Migrate.
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurowanie urządzenia Azure Migrate
 
@@ -75,8 +75,8 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 ### <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
 
 1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
-1. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
-1. Wybierz pozycję **Pobierz** , aby pobrać plik szablonu komórki jajowe.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+3. Wybierz pozycję **Pobierz** , aby pobrać plik szablonu komórki jajowe.
 
    ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -95,13 +95,13 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
 
     - W przypadku chmury publicznej platformy Azure:
     
-        **Algorytm** | **Pobierz** | **SHA256**
+        **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
         VMware (10,9 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
     - Dla Azure Government:
     
-        **Algorytm** | **Pobierz** | **SHA256**
+        **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
         VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
 
@@ -114,13 +114,13 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną:
 
    ![Polecenie menu do wdrażania szablonu OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-1. W Kreatorze wdrażania szablonu OVF > **Źródło**Określ lokalizację pliku komórek jajowych.
-1. W polu **Nazwa** i **Lokalizacja**Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
-1. W obszarze **host/klaster**Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
-1. W obszarze **Magazyn**określ miejsce docelowe magazynu dla maszyny wirtualnej.
-1. W obszarze **Disk Format** (Format dysku) określ typ i rozmiar dysku.
-1. W polu **mapowanie sieci**Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem w celu wysyłania metadanych do oceny serwera Azure Migrate.
-1. Przejrzyj i Potwierdź ustawienia, a następnie wybierz pozycję **Zakończ**.
+2. W Kreatorze wdrażania szablonu OVF > **Źródło**Określ lokalizację pliku komórek jajowych.
+3. W polu **Nazwa** i **Lokalizacja**Określ przyjazną nazwę maszyny wirtualnej. Wybierz obiekt spisu, w którym będzie hostowana maszyna wirtualna.
+4. W obszarze **host/klaster**Określ hosta lub klaster, na którym będzie URUCHAMIANA maszyna wirtualna.
+5. W obszarze **Magazyn**określ miejsce docelowe magazynu dla maszyny wirtualnej.
+6. W obszarze **Disk Format** (Format dysku) określ typ i rozmiar dysku.
+7. W polu **mapowanie sieci**Określ sieć, z którą zostanie nawiązane połączenie z maszyną wirtualną. Sieć wymaga łączności z Internetem w celu wysyłania metadanych do oceny serwera Azure Migrate.
+8. Przejrzyj i Potwierdź ustawienia, a następnie wybierz pozycję **Zakończ**.
 
 ## <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
@@ -134,8 +134,8 @@ Skonfiguruj urządzenie po raz pierwszy.
 > Jeśli urządzenie zostanie skonfigurowane przy użyciu [skryptu programu PowerShell](deploy-appliance-script.md) zamiast pobranych komórek jajowych, pierwsze dwa kroki tej procedury nie są istotne.
 
 1. W konsoli klienta vSphere kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie wybierz polecenie **Otwórz konsolę**.
-1. Podaj język, strefę czasową i hasło dla urządzenia.
-1. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
+2. Podaj język, strefę czasową i hasło dla urządzenia.
+3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
 
    Możesz też otworzyć aplikację na pulpicie urządzenia, wybierając skrót do aplikacji.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
@@ -153,13 +153,13 @@ Skonfiguruj urządzenie po raz pierwszy.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
 
 1. Wybierz pozycję **Zaloguj**. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
-1. Na nowej karcie Zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
+2. Na nowej karcie Zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
    
    Logowanie przy użyciu numeru PIN nie jest obsługiwane.
-1. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
-1. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate, a następnie wybierz projekt.
-1. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-1. Wybierz pozycję **Zarejestruj**.
+3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
+4. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate, a następnie wybierz projekt.
+5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+6. Wybierz pozycję **Zarejestruj**.
 
 
 ## <a name="start-continuous-discovery"></a>Uruchom odnajdywanie ciągłe
@@ -191,39 +191,53 @@ Odnajdywanie działa w następujący sposób:
 Po przeprowadzeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są wyświetlane w Azure Portal:
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-1. W **Azure Migrate serwery**  >  **Azure Migrate: Ocena serwera**, wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate serwery**  >  **Azure Migrate: Ocena serwera**, wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurowanie oceny
 
 Za pomocą oceny serwera Azure Migrate można utworzyć dwa typy ocen:
 
-**Stopnia** | **Szczegóły** | **Dane**
+**Typ oceny** | **Szczegóły**
+--- | --- 
+**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+
+Ocena serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
+
+**Kryteria ustalania wielkości** | **Szczegóły** | **Dane**
 --- | --- | ---
-**Oparta na wydajności** | Oceny oparte na zebranych danych wydajności | **Zalecany rozmiar maszyny wirtualnej**: na podstawie danych użycia procesora CPU i pamięci.<br/><br/> **Zalecany typ dysku (dysk zarządzany w warstwie Standardowa lub Premium)**: w zależności od liczby operacji we/wy na sekundę i przepływności dysków lokalnych.
-**Jako lokalne** | Oceny oparte na wymiarach lokalnych | **Zalecany rozmiar maszyny wirtualnej**: na podstawie rozmiaru lokalnej maszyny wirtualnej.<br/><br> **Zalecany typ dysku**: na podstawie ustawienia typu magazynu, które wybrano do oceny.
+**Oparta na wydajności** | Oceny, które podejmują zalecenia na podstawie zebranych danych wydajności | **Ocena maszyny wirtualnej platformy Azure**: zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na danych użycia procesora i pamięci.<br/><br/> Zalecenia dotyczące typu dysku (standardowy dysk twardy/SSD lub dyski zarządzane w warstwie Premium) jest oparty na liczbie operacji we/wy na sekundę i przepływności dysku lokalnego.<br/><br/> **Ocena rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)**: zalecenia dotyczące synchronizacji węzłów są oparte na danych użycia procesora i pamięci.
+**Zgodnie z lokalnym** | Oceny, które nie wykorzystują danych wydajności, aby wykonać zalecenia. | **Ocena maszyny wirtualnej platformy Azure**: zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na lokalnym rozmiarze maszyny wirtualnej<br/><br> Zalecany typ dysku jest określany na podstawie tego, co zostało wybrane w ustawieniu typ magazynu dla oceny.<br/><br/> **Ocena rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)**: zalecenia dotyczące synchronizacji węzłów zależą od lokalnego rozmiaru maszyny wirtualnej.
 
 ## <a name="run-an-assessment"></a>Uruchamianie oceny
 
-Uruchom ocenę w następujący sposób:
+Wykonaj *ocenę maszyny wirtualnej platformy Azure* w następujący sposób:
 
 1. Zapoznaj się z [najlepszymi rozwiązaniami](best-practices-assessment.md) dotyczącymi tworzenia ocen.
-1. Na karcie **serwery** w kafelku **Azure Migrate: Ocena serwera** wybierz pozycję **Oceń**.
+2. Na karcie **serwery** w kafelku **Azure Migrate: Ocena serwera** wybierz pozycję **Oceń**.
 
    ![Lokalizacja przycisku oceny](./media/tutorial-assess-vmware/assess.png)
 
-1. W obszarze **ocenianie serwerów**Określ nazwę oceny.
-1. Wybierz pozycję **Wyświetl wszystko**, a następnie przejrzyj właściwości oceny.
+3. W obszarze **ocenianie serwerów**wybierz typ oceny jako "maszyna wirtualna platformy Azure", wybierz źródło odnajdywania i określ nazwę oceny.
+
+    ![Podstawowe informacje o ocenie](./media/tutorial-assess-vmware/assess-servers-azurevm.png)
+ 
+4. Wybierz pozycję **Wyświetl wszystko**, a następnie przejrzyj właściwości oceny.
 
    ![Właściwości oceny](./media/tutorial-assess-vmware/view-all.png)
 
-1. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
-1. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
-1. Wybierz pozycję **Utwórz ocenę** , aby utworzyć grupę i uruchomić ocenę.
+5. Kliknij przycisk **dalej** , aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
+6. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
+7. Kliknij przycisk **dalej** , aby **przejrzeć i utworzyć ocenę** , aby przejrzeć szczegóły oceny.
+8. Wybierz pozycję **Utwórz ocenę** , aby utworzyć grupę i uruchomić ocenę.
 
    ![Ocenianie serwerów](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
-1. Wybierz pozycję **Ocena eksportu** , aby pobrać ją jako plik programu Excel.
+8. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
+9. Wybierz pozycję **Ocena eksportu** , aby pobrać ją jako plik programu Excel.
+
+Jeśli chcesz uruchomić **ocenę rozwiązania Azure VMware (Automatyczna synchronizacja)**, wykonaj kroki opisane [tutaj](how-to-create-azure-vmware-solution-assessment.md).
+
 
 ## <a name="review-an-assessment"></a>Przegląd oceny
 
@@ -236,20 +250,20 @@ Ocena zawiera opis:
 Aby wyświetlić ocenę:
 
 1. W obszarze serwery **celów migracji**  >  **Servers**wybierz pozycję **oceny** w **Azure Migrate: Ocena serwera**.
-1. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć.
+2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć.
 
    ![Podsumowanie oceny](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Przegląd gotowości platformy Azure
 
 1. W obszarze **gotowość platformy Azure**Sprawdź, czy maszyny wirtualne są gotowe do migracji na platformę Azure.
-1. Sprawdź stan maszyny wirtualnej:
+2. Sprawdź stan maszyny wirtualnej:
     - **Gotowe do użycia na platformie Azure**: używane, gdy Azure Migrate zaleca rozmiar maszyny wirtualnej i oszacowania kosztów dla maszyn wirtualnych w ocenie.
     - **Gotowe warunki**: pokazuje problemy i sugerowane korygowanie.
     - **Nie gotowy na platformę Azure**: zawiera problemy i sugerowane korygowanie.
     - **Nieznane gotowość**: używany, gdy Azure Migrate nie może ocenić gotowości z powodu problemów z dostępnością danych.
 
-1. Wybierz stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych. Możesz również przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
+3. Wybierz stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych. Możesz również przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
 
 ### <a name="review-cost-details"></a>Przejrzyj szczegóły kosztów
 

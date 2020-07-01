@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b89ab7e44bc71fa442f332cbba35af450f7d5155
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 4ddf754bb48bf588451f2eea595e8d1036d20b3e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760664"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85555283"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Szybki start: dodawanie aplikacji do dzierżawy usługi Azure Active Directory
 
@@ -97,7 +97,7 @@ Aby edytować właściwości aplikacji:
 
    - Zachowanie w przypadku użytkowników **przypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników przypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników przypisanych | Środowisko użytkowników przypisanych |
        |---|---|---|---|---|
        | Włączono dla użytkowników w celu logowania się? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | tak | tak  |
@@ -111,7 +111,7 @@ Aby edytować właściwości aplikacji:
 
    - Zachowanie w przypadku użytkowników **nieprzypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników nieprzypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników nieprzypisanych | Środowisko użytkowników nieprzypisanych |
        |---|---|---|---|---|
        | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy nieprzypisani użytkownicy mogą się logować? | Czy nieprzypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | nie  | nie   |

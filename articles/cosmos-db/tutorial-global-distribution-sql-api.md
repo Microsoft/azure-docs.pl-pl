@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: d50217bed3850f0e9021dda4bf1b577d006839d1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 52a76e685a9db58870c9a18b419ef725f559a969
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674486"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85552992"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Samouczek: Konfigurowanie globalnej dystrybucji Azure Cosmos DB przy użyciu interfejsu API SQL
 
@@ -104,7 +104,6 @@ const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLoc
 Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomocą zestawu SDK języka Python:
 
 ```python
-
 connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
 client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
@@ -121,7 +120,7 @@ Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomoc�
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
 
-# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) — interfejs API synchronizacji
 
@@ -130,14 +129,13 @@ Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomoc�
 --- 
 
 ## <a name="rest"></a>REST
-Gdy konto bazy danych zostało udostępnione w wielu regionach, klienci mogą wysyłać zapytania o jego dostępność, wykonując żądanie GET względem poniższego identyfikatora URI.
-
-    https://{databaseaccount}.documents.azure.com/
+Po udostępnieniu konta bazy danych w wielu regionach klienci mogą wysyłać zapytania o swoją dostępność, wykonując żądanie GET dla tego identyfikatora URI`https://{databaseaccount}.documents.azure.com/`
 
 Usługa zwraca listę regionów i odpowiadające im identyfikatory URI punktów końcowych usługi Azure Cosmos DB dla replik. W odpowiedzi jest wskazywany bieżący region zapisu. Klient może następnie wybrać odpowiedni punkt końcowy dla wszystkich kolejnych żądań interfejsu API REST w pokazany poniżej sposób.
 
 Przykładowa odpowiedź
 
+```json
     {
         "_dbs": "//dbs/",
         "media": "//media/",
@@ -167,7 +165,7 @@ Przykładowa odpowiedź
         "_ts": 0,
         "_etag": null
     }
-
+```
 
 * Wszystkie żądania PUT, POST i DELETE muszą być przekazywane do wskazanego identyfikatora URI zapisu
 * Wszystkie odbierane i inne żądania tylko do odczytu (na przykład zapytania) mogą przejść do dowolnego punktu końcowego wyboru klienta

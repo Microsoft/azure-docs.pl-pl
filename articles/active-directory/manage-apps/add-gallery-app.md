@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2002414836dcb77a09f633f30ec0fcbb7981de
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 77b1794f5dde4d7e346e45c2da5d24195d69b50e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760528"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85555191"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Dodawanie aplikacji galerii do organizacji usługi Azure AD
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) zawiera galerię zawierającą tysiące wstęp
 
       Zachowanie w przypadku użytkowników **przypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników przypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników przypisanych | Środowisko użytkowników przypisanych |
        |---|---|---|---|---|
        | Włączono dla użytkowników w celu logowania się? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | tak | tak  |

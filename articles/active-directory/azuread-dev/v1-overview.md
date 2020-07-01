@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5489c65a0e955183b034e173706b6decfa6df9d5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387494"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551582"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory dla deweloperów (v 1.0) — Omówienie
 
@@ -29,11 +29,8 @@ Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmu
 > [!NOTE]
 > Większość zawartości na tej stronie koncentruje się na punkcie końcowym i platformie v 1.0, który obsługuje tylko konta służbowe firmy Microsoft. Jeśli chcesz zalogować się do użytkowników lub osobistych kont Microsoft, zapoznaj się z informacjami w [punkcie końcowym i platformie v 2.0](../develop/v2-overview.md). Punkt końcowy v 2.0 oferuje ujednolicone środowisko programistyczne dla aplikacji, które chcą zalogować się do wszystkich tożsamości firmy Microsoft.
 
-| | |
-| --- | --- |
-|[Podstawowe informacje o uwierzytelnianiu](v1-authentication-scenarios.md) | Wprowadzenie do uwierzytelniania za pomocą usługi Azure AD. |
-|[Typy aplikacji](app-types.md) | Przegląd scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD. |
-| | |
+- [Podstawowe informacje o uwierzytelnianiu](v1-authentication-scenarios.md) Wprowadzenie do uwierzytelniania za pomocą usługi Azure AD.
+- [Typy aplikacji](app-types.md) Omówienie scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -47,12 +44,9 @@ Zapoznaj się z przewodnikami instruktażowymi dotyczącymi **wersji 1.0** , aby
 
 Następujące artykuły zawierają szczegółowe informacje o interfejsach API, komunikatach protokołów i terminach używanych w usłudze Azure AD.
 
-|                                                                                   | |
-| ----------------------------------------------------------------------------------| --- |
-| [Biblioteki uwierzytelniania (ADAL)](active-directory-authentication-libraries.md)   | Omówienie bibliotek i zestawów SDK dostarczanych przez usługę Azure AD. |
-| [Przykłady kodu](sample-v1-code.md)                                  | Lista wszystkich przykładów kodu usługi Azure AD. |
-| [Słownik](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | Terminologia i definicje słów używanych w tej dokumentacji. |
-|  |  |
+- [Biblioteki uwierzytelniania (ADAL)](active-directory-authentication-libraries.md) Omówienie bibliotek i zestawów SDK dostarczanych przez usługę Azure AD.
+- [Przykłady kodu](sample-v1-code.md) Lista wszystkich przykładów kodu usługi Azure AD.
+- [Słownik](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologia i definicje słów używanych w tej dokumentacji.
 
 ## <a name="videos"></a>Filmy wideo
 

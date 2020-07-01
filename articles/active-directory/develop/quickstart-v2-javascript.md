@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322825"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554021"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -73,10 +73,10 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
 
 > [!div renderon="docs"]
-> Aby uruchomić projekt z serwerem sieci Web przy użyciu środowiska Node. js, [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
+> Aby uruchomić projekt z serwerem sieci Web przy użyciu Node.js, [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
 > [!div renderon="portal"]
-> Uruchamianie projektu z serwerem sieci Web przy użyciu środowiska Node. js
+> Uruchom projekt z serwerem sieci Web za pomocą Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
@@ -84,7 +84,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Krok 3. Konfigurowanie aplikacji JavaScript
 >
-> W folderze *JavaScriptSPA* Edytuj *authConfig. js*, a następnie ustaw `clientID` `authority` `redirectUri` wartości i `msalConfig` .
+> W folderze *JavaScriptSPA* Edytuj *authConfig.js*i ustaw `clientID` `authority` wartości, i `redirectUri` `msalConfig` .
 >
 > ```javascript
 >
@@ -126,7 +126,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 
 > [!div renderon="docs"]
 >
-> Następnie w tym samym folderze Edytuj plik *graphConfig. js* , aby ustawić `graphMeEndpoint` i `graphMeEndpoint` dla tego `apiConfig` obiektu.
+> Następnie w tym samym folderze Edytuj plik *graphConfig.js* , aby ustawić `graphMeEndpoint` i `graphMeEndpoint` dla tego `apiConfig` obiektu.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
@@ -148,7 +148,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >
 > #### <a name="step-4-run-the-project"></a>Krok 4. uruchamianie projektu
 
-Uruchom projekt z serwerem sieci Web przy użyciu środowiska [Node. js](https://nodejs.org/en/download/):
+Uruchom projekt z serwerem sieci Web przy użyciu [Node.js](https://nodejs.org/en/download/):
 
 1. Aby uruchomić serwer, uruchom następujące polecenie w katalogu projektu:
     ```batch
@@ -167,17 +167,17 @@ Po załadowaniu przez przeglądarkę aplikacji wybierz pozycję **Zaloguj**. Gdy
 
 ![Sposób działania przykładowego SPA skryptu JavaScript: 1. SPA inicjuje logowanie. 2. SPA uzyskuje token identyfikatora z platformy tożsamości firmy Microsoft. 3. Uwierzytelnianie SPA wywołuje token pozyskiwania. 4. Platforma tożsamości firmy Microsoft zwraca token dostępu do SPA. 5. SPA wysyła żądanie i HTTP GET z tokenem ACE do interfejsu API Microsoft Graph. 6. Interfejs API programu Graph zwraca odpowiedź HTTP na SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
-### <a name="msaljs"></a>msal. js
+### <a name="msaljs"></a>msal.js
 
-Biblioteka MSAL rejestruje użytkowników i żąda tokenów, które są używane w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Plik *index. html* szybkiego startu zawiera odwołanie do biblioteki:
+Biblioteka MSAL rejestruje użytkowników i żąda tokenów, które są używane w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Plik szybkiego startu *index.html* zawiera odwołanie do biblioteki:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
 ```
 > [!TIP]
-> Można zastąpić poprzednią wersję najnowszą wersją wydaną w ramach wersji [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+> Można zastąpić poprzednią wersję najnowszą wersją wydaną w obszarze [MSAL.js wersje](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Alternatywnie, jeśli masz zainstalowany program Node. js, możesz pobrać najnowszą wersję za pomocą Menedżera pakietów Node. js (npm):
+Alternatywnie, jeśli zainstalowano Node.js, możesz pobrać najnowszą wersję za pomocą Menedżera pakietów Node.js (npm):
 
 ```batch
 npm install msal
@@ -204,7 +204,7 @@ Kod szybkiego startu pokazuje również, jak zainicjować bibliotekę MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Lokalizacja  |  |
+> |Lokalizacja  | Opis |
 > |---------|---------|
 > |`clientId`     | Identyfikator aplikacji, która jest zarejestrowana w Azure Portal.|
 > |`authority`    | Obowiązkowe Adres URL urzędu obsługujący typy kont, zgodnie z opisem wcześniej w sekcji konfiguracji. Domyślny urząd to `https://login.microsoftonline.com/common` . |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Lokalizacja  |  |
+> |Lokalizacja  | Opis |
 > |---------|---------|
 > | `scopes`   | Obowiązkowe Zawiera zakresy, które są wymagane do wyrażania zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ). |
 
@@ -262,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Lokalizacja  |  |
+> |Lokalizacja  | Opis |
 > |---------|---------|
 > | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ).|
 
@@ -305,4 +305,4 @@ Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzeni
 Aby przejrzeć repozytorium MSAL w celu uzyskania dokumentacji, często zadawane pytania i problemów, zobacz:
 
 > [!div class="nextstepaction"]
-> [Repozytorium GitHub MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js repozytorium GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
