@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd021b9547048e9f5218ce4f2b8b110b15d05963
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 151ec17308a593bd9361bff6ad6340cccd82edd5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048556"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Samouczek: integracja Azure Active Directory z zastępcą
 
@@ -108,43 +108,43 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Deputy, w
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-    |  |
-    | ----|
-    | `https://<subdomain>.<region>.au.deputy.com` |
-    | `https://<subdomain>.<region>.ent-au.deputy.com` |
-    | `https://<subdomain>.<region>.na.deputy.com`|
-    | `https://<subdomain>.<region>.ent-na.deputy.com`|
-    | `https://<subdomain>.<region>.eu.deputy.com` |
-    | `https://<subdomain>.<region>.ent-eu.deputy.com` |
-    | `https://<subdomain>.<region>.as.deputy.com` |
-    | `https://<subdomain>.<region>.ent-as.deputy.com` |
-    | `https://<subdomain>.<region>.la.deputy.com` |
-    | `https://<subdomain>.<region>.ent-la.deputy.com` |
-    | `https://<subdomain>.<region>.af.deputy.com` |
-    | `https://<subdomain>.<region>.ent-af.deputy.com` |
-    | `https://<subdomain>.<region>.an.deputy.com` |
-    | `https://<subdomain>.<region>.ent-an.deputy.com` |
-    | `https://<subdomain>.<region>.deputy.com` |
+        ```https
+        https://<subdomain>.<region>.au.deputy.com
+        https://<subdomain>.<region>.ent-au.deputy.com
+        https://<subdomain>.<region>.na.deputy.com
+        https://<subdomain>.<region>.ent-na.deputy.com
+        https://<subdomain>.<region>.eu.deputy.com
+        https://<subdomain>.<region>.ent-eu.deputy.com
+        https://<subdomain>.<region>.as.deputy.com
+        https://<subdomain>.<region>.ent-as.deputy.com
+        https://<subdomain>.<region>.la.deputy.com
+        https://<subdomain>.<region>.ent-la.deputy.com
+        https://<subdomain>.<region>.af.deputy.com
+        https://<subdomain>.<region>.ent-af.deputy.com
+        https://<subdomain>.<region>.an.deputy.com
+        https://<subdomain>.<region>.ent-an.deputy.com
+        https://<subdomain>.<region>.deputy.com
+        ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-    | |
-    |----|
-    | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.` |
-    | `https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
-    | `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
+        ```https
+        https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+        https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+        https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+        ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -174,7 +174,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Deputy, w
 
 ### <a name="configure-deputy-single-sign-on"></a>Konfigurowanie logowania jednokrotnego aplikacji Deputy
 
-1. Przejdź do następującego adresu URL:`https://(your-subdomain).deputy.com/exec/config/system_config`. Przejdź do pozycji **Security Settings (Ustawienia zabezpieczeń)** i kliknij przycisk **Edit (Edytuj)**.
+1. Przejdź do następującego adresu URL: `https://(your-subdomain).deputy.com/exec/config/system_config` . Przejdź do pozycji **Security Settings (Ustawienia zabezpieczeń)** i kliknij przycisk **Edit (Edytuj)**.
    
     ![Konfigurowanie logowania jednokrotnego](./media/deputy-tutorial/tutorial_deputy_004.png)
 
@@ -212,12 +212,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -287,5 +287,5 @@ Po kliknięciu kafelka Deputy w panelu dostępu powinno nastąpić automatyczne 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

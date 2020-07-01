@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733946"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85601704"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Aby komunikować się z domeną zarządzaną Azure Active Directory Domain Servi
 
 W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS
@@ -230,7 +230,7 @@ Mając bezpieczny dostęp do protokołu LDAP włączony przez Internet, zaktuali
 
 ![Wyświetl zewnętrzny adres IP protokołu LDAP dla domeny zarządzanej w Azure Portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Skonfiguruj zewnętrzny dostawca DNS, aby utworzyć rekord hosta, taki jak *LDAPS*, aby rozwiązać ten zewnętrzny adres IP. Aby najpierw przetestować lokalnie na swojej maszynie, możesz utworzyć wpis w pliku hosts systemu Windows. Aby pomyślnie edytować plik Hosts na komputerze lokalnym, Otwórz program *Notepad* jako administrator, a następnie otwórz plik *C:\Windows\System32\drivers\etc*
+Skonfiguruj zewnętrzny dostawca DNS, aby utworzyć rekord hosta, taki jak *LDAPS*, aby rozwiązać ten zewnętrzny adres IP. Aby najpierw przetestować lokalnie na swojej maszynie, możesz utworzyć wpis w pliku hosts systemu Windows. Aby pomyślnie edytować plik Hosts na komputerze lokalnym, Otwórz program *Notepad* jako administrator, a następnie otwórz plik *C:\Windows\System32\drivers\etc\hosts*
 
 Poniższy przykładowy wpis DNS, z zewnętrznym dostawcą DNS lub w lokalnym pliku hosts, rozwiązuje ruch *LDAPS.aaddscontoso.com* do zewnętrznego adresu IP *168.62.205.103*:
 
@@ -264,7 +264,7 @@ Aby wyświetlić obiekty przechowywane w domenie zarządzanej:
 
 Aby bezpośrednio wysyłać zapytania do określonego kontenera, w menu **drzewa widoku >** można określić **BaseDN** , taki jak *OU = AADDC users, DC = AADDSCONTOSO, DC = com* lub *OU = AADDC komputery, DC = AADDSCONTOSO, DC = com*. Aby uzyskać więcej informacji na temat formatowania i tworzenia zapytań, zobacz [podstawowe informacje dotyczące zapytań LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania łączności dla tego samouczka, Usuń ten wpis i Dodaj formalny rekord do strefy DNS. Aby usunąć wpis z lokalnego pliku hosts, wykonaj następujące czynności:
 

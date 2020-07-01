@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9bb3d260b808e61f15ec85752c299bfeb3ab6fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb7778ce25fd1ff01cfd7d2e1af7991bb38b1f47
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67588553"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85605622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Samouczek: integracja Azure Active Directory z usługą infor CloudSuite
 
@@ -109,23 +109,21 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą infor Cloud
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-    | | |
-    |-|-|
-    | `http://mingle-sso.inforcloudsuite.com`|
-    | `http://mingle-sso.se1.inforcloudsuite.com`|
-    | `http://mingle-sso.eu1.inforcloudsuite.com`|
-    | `http://mingle-sso.se2.inforcloudsuite.com`|
-    | |
+        ```https
+        http://mingle-sso.inforcloudsuite.com
+        http://mingle-sso.se1.inforcloudsuite.com
+        http://mingle-sso.eu1.inforcloudsuite.com
+        http://mingle-sso.se2.inforcloudsuite.com
+        ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-    | | |
-    |-|-|
-    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
-    | |
+        ```https
+        https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+        https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+        ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -133,12 +131,12 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą infor Cloud
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
-    | | |
-    |-|-|
-    | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`|
+        ```https
+        https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+        https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+        ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta infor CloudSuite](mailto:support@infor.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -179,11 +177,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -227,4 +225,4 @@ Po kliknięciu kafelka infor CloudSuite w panelu dostępu należy automatycznie 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

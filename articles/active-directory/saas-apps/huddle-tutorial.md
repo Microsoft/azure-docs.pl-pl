@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1faf1c1fcdefb0c93d36c195f0cf44626a555f44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439a904c4e70a6e7e9633757c6d89fd3ce0a3a90
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158992"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Samouczek: integracja Azure Active Directory z usługą Huddle
 
@@ -111,20 +111,18 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Huddle, w
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL:
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net`|
-    | `https://login.huddle.com`|
-    | |
+        ```https
+        https://login.huddle.net
+        https://login.huddle.com
+        ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: 
 
-    | | |
-    |--|--|
-    | `https://login.huddle.net/saml/browser-sso`|
-    | `https://login.huddle.com/saml/browser-sso`|
-    | `https://login.huddle.com/saml/idp-initiated-sso`|
-    | |
+        ```https
+        https://login.huddle.net/saml/browser-sso
+        https://login.huddle.com/saml/browser-sso
+        https://login.huddle.com/saml/idp-initiated-sso
+        ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -132,11 +130,10 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Huddle, w
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
-    | | |
-    |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
-    | |
+        ```https
+        https://<customsubdomain>.huddle.com
+        https://us.huddle.com
+        ```
 
     > [!NOTE]
     > Wartość adresu URL logowania nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Aby uzyskać tę wartość, skontaktuj się z [zespołem pomocy technicznej i obsługi klienta aplikacji Huddle](https://huddle.zendesk.com).
@@ -180,12 +177,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -255,5 +252,5 @@ Po kliknięciu kafelka Huddle w panelu dostępu powinno nastąpić automatyczne 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

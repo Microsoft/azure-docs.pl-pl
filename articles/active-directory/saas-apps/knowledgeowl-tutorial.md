@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7d481b757a76ba65e0c78a93bde1bc58ace7cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc5ae5532acdd66e091891c55e3cebb79cb3d227
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72791632"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608622"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą KnowledgeOwl
 
@@ -86,41 +86,41 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
-    | | |
-    |-|-|
-    | `https://app.knowledgeowl.com/sp`|
-    | `https://app.knowledgeowl.com/sp/id/<unique ID>`|
+        ```https
+        https://app.knowledgeowl.com/sp        
+        https://app.knowledgeowl.com/sp/id/<unique ID>
+        ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+        ```https
+        https://subdomain.knowledgeowl.com/help/saml-login
+        https://subdomain.knowledgeowl.com/docs/saml-login
+        https://subdomain.knowledgeowl.com/home/saml-login
+        https://privatedomain.com/help/saml-login
+        https://privatedomain.com/docs/saml-login
+        https://privatedomain.com/home/saml-login
+        ```
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
     
-    | | |
-    |-|-|
-    | `https://subdomain.knowledgeowl.com/help/saml-login`|
-    | `https://subdomain.knowledgeowl.com/docs/saml-login`|
-    | `https://subdomain.knowledgeowl.com/home/saml-login`|
-    | `https://privatedomain.com/help/saml-login`|
-    | `https://privatedomain.com/docs/saml-login`|
-    | `https://privatedomain.com/home/saml-login`|
+        ```https
+        https://subdomain.knowledgeowl.com/help/saml-login
+        https://subdomain.knowledgeowl.com/docs/saml-login
+        https://subdomain.knowledgeowl.com/home/saml-login
+        https://privatedomain.com/help/saml-login
+        https://privatedomain.com/docs/saml-login
+        https://privatedomain.com/home/saml-login
+        ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Musisz zaktualizować te wartości z rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania, co zostało wyjaśnione w dalszej części tego samouczka.
 
 1. Aplikacja KnowledgeOwl oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja KnowledgeOwl oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
@@ -144,9 +144,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -197,9 +197,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     ![Konfiguracja KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
 
     * Wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` do pola tekstowego **identyfikatora logowania jednokrotnego**
-    * Wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` tekst w polu tekstowym **username/email** .
-    * Wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` tekst w polu tekstowym **imię i nazwisko** .
-    * Wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` tekst w polu tekstowym **nazwisko** .
+    * Wprowadź tekst `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` w polu tekstowym **username/email** .
+    * Wprowadź tekst `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` w polu tekstowym **imię i nazwisko** .
+    * Wprowadź tekst `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` w polu tekstowym **nazwisko** .
     * Kliknij przycisk **Zapisz**
 
     i. Kliknij przycisk **Zapisz** w dolnej części strony.
@@ -225,6 +225,6 @@ Po kliknięciu kafelka KnowledgeOwl w panelu dostępu należy automatycznie zalo
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj KnowledgeOwl z usługą Azure AD](https://aad.portal.azure.com/)

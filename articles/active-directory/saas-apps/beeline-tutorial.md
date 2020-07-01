@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64ed7f5d73b4e5a0eb4e7ff4ed6c0ce0788880fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f0e41b9578beb68f497c1a0fa7968064b6b91cee
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73157731"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85607994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Samouczek: integracja Azure Active Directory z usługą Z usługi Beeline
 
@@ -109,18 +109,18 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z rozwiązaniem BeeLin
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://projects.beeline.net/<instancename>`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
-    
-    | |
-    |--|
-    | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
-    | `https://projects.beeline.net/<companyname>/SSO_External.ashx` |
+
+    ```https
+    https://projects.beeline.net/<instancename>/SSO_External.ashx
+    https://projects.beeline.net/<companyname>/SSO_External.ashx
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta rozwiązania BeeLine](https://www.beeline.com/contact-us/), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Aplikacja BeeLine oczekuje asercji SAML w określonym formacie. Najpierw we współpracy z [zespołem pomocy technicznej rozwiązania BeeLine](https://www.beeline.com/contact-us/) ustal właściwy identyfikator użytkownika, który zostanie zamapowany do aplikacji. Uzyskaj też od [zespołu pomocy technicznej rozwiązania BeeLine](https://www.beeline.com/contact-us/) wskazówki dotyczące atrybutu, którego ten zespół chce użyć w tym mapowaniu. Możesz zarządzać wartością tego atrybutu na karcie **Atrybuty użytkownika** w aplikacji. Poniższy zrzut ekranu przedstawia przykład tego działania. Zamapowano tutaj oświadczenie **Identyfikator użytkownika** na atrybut **userprincipalname**, który zapewnia unikatowy identyfikator użytkownika wysyłany do aplikacji BeeLine w każdej pomyślnej odpowiedzi SAML.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -158,12 +158,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -207,4 +207,4 @@ Po kliknięciu kafelka BeeLine w panelu dostępu powinno nastąpić automatyczne
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

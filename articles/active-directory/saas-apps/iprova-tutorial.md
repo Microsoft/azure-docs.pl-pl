@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98458f8be162d0903f5ea0d1f7d4651d46f78e8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d7092ea68f2b7f35e372013a94108e43a83c8777
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048430"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608649"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iprova"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą iProva
 
@@ -78,11 +78,10 @@ W tej sekcji pobierzesz informacje z aplikacji iProva w celu skonfigurowania log
 
 1. Otwórz przeglądarkę internetową i przejdź do **strony z informacjami o formacie SAML2** w aplikacji iProva przy użyciu następującego wzorca adresu URL:
 
-    | | |
-    |-|-|
-    | `https://SUBDOMAIN.iprova.nl/saml2info`|
-    | `https://SUBDOMAIN.iprova.be/saml2info`|
-    | | |
+    ```https
+    https://SUBDOMAIN.iprova.nl/saml2info
+    https://SUBDOMAIN.iprova.be/saml2info
+    ```
 
     ![Wyświetlanie strony z informacjami o formacie SAML2 w aplikacji iProva](media/iprova-tutorial/iprova-saml2-info.png)
 
@@ -108,7 +107,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja iProva oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja iProva oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
@@ -128,9 +127,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ## <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -162,13 +161,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5. Wybierz pozycję **Dodaj**.
 
-6. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika, na przykład `B.Simon@contoso.com`.
+6. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika, na przykład `B.Simon@contoso.com` .
 
 7. W polu **pełna nazwa** wprowadź pełną nazwę użytkownika, na przykład **B. Simon**.
 
 8. Wybierz opcję **Bez hasła (użyj logowania jednokrotnego)**.
 
-9. W polu **adres e-mail** wprowadź adres e-mail użytkownika, np `B.Simon@contoso.com`.
+9. W polu **adres e-mail** wprowadź adres e-mail użytkownika, np `B.Simon@contoso.com` .
 
 10. Przewiń w dół do końca strony, a następnie wybierz pozycję **Finish** (Zakończ).
 
@@ -182,7 +181,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Wybierz pozycję **General** (Ogólne) na panelu **System settings** (Ustawienia systemowe).
 
-5. Wybierz pozycję **Edit** (Edytuj).
+5. Wybierz pozycję **Edytuj**.
 
 6. Przewiń w dół do pozycji **Kontrola dostępu**.
 
@@ -190,7 +189,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 7. Znajdź ustawienie **Użytkownicy są automatycznie logowani za pomocą kont sieci** i zmień je na **Tak, uwierzytelniaj za pomocą protokołu SAML**. Pojawią się dodatkowe opcje.
 
-8. Wybierz pozycję **Set up** (Konfiguracja).
+8. Wybierz pozycję **Skonfiguruj**.
 
 9. Wybierz pozycję **Dalej**.
 
@@ -226,7 +225,7 @@ Po kliknięciu kafelka iProva w panelu dostępu powinno nastąpić automatyczne 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj iProva z usługą Azure AD](https://aad.portal.azure.com/)
 

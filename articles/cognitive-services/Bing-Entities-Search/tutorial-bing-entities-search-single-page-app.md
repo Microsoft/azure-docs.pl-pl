@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 33c5cbd47213d021d374f52c1dadaf20d508ae37
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943132"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608572"
 ---
 # <a name="tutorial-single-page-web-app"></a>Samouczek: jednostronicowa aplikacja internetowa
 
@@ -58,7 +58,12 @@ W tym samouczku omówimy tylko wybrane części kodu źródłowego. Pełny kod �
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w samouczku, musisz dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing i interfejsu API Maps usługi Bing. Jeśli ich nie masz, możesz użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) i [podstawowego klucza mapy usługi Bing](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Aby wykonać kroki opisane w samouczku, musisz dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing i interfejsu API Maps usługi Bing. 
+
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Utwórz zasób Wyszukiwanie Bing "  target="_blank"> Utwórz zasób wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Przetwarzanie obrazów Utwórz zasób usługi "  target="_blank"> mapy Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="app-components"></a>Składniki aplikacji
 
@@ -86,7 +91,7 @@ Kod HTML zawiera także podziały (tagi `<div>`) tam, gdzie są wyświetlane wyn
 ## <a name="managing-subscription-keys"></a>Zarządzanie kluczami subskrypcji
 
 > [!NOTE]
-> Ta aplikacja wymaga kluczy subskrypcji dla interfejsu API wyszukiwania Bing oraz interfejsu API usługi Mapy Bing. Możesz użyć [klucza wersji próbnej usługi wyszukiwania Bing](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) oraz [podstawowego klucza usługi Mapy Bing](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Ta aplikacja wymaga kluczy subskrypcji dla interfejsu API wyszukiwania Bing oraz interfejsu API usługi Mapy Bing.
 
 Aby uniknąć konieczności umieszczania kluczy subskrypcji interfejsu API wyszukiwania Bing oraz interfejsu API usługi Mapy Bing w kodzie, używamy magazynu trwałego przeglądarki do przechowywania klucza. Jeśli żaden klucz nie został zapisany, wyświetlamy monit o jego wprowadzenie i zapisujemy go do późniejszego użycia. W przypadku późniejszego odrzucenia klucza przez interfejs API unieważniamy przechowywany klucz, aby użytkownikowi został ponownie wyświetlony monit podczas następnego wyszukiwania.
 
@@ -394,7 +399,7 @@ Błędy są obsługiwane przez wywołanie funkcji `renderErrorMessage()` z wszys
 
 ## <a name="displaying-search-results"></a>Wyświetlanie wyników wyszukiwania
 
-Interfejs API wyszukiwania jednostek Bing [wymaga wyświetlania wyników w określonej kolejności](use-display-requirements.md). Interfejs API może zwrócić dwa różne rodzaje odpowiedzi, dlatego nie wystarczy wykonać iteracji na kolekcji najwyższego poziomu `Entities` lub `Places` w odpowiedzi JSON i wyświetlić te wyniki. (Aby uzyskać tylko jeden typ wyniku, należy użyć parametru zapytania `responseFilter`).
+Interfejs API wyszukiwania jednostek Bing [wymaga wyświetlania wyników w określonej kolejności](use-display-requirements.md). Ponieważ interfejs API może zwracać dwa różne rodzaje odpowiedzi, nie wystarczy wykonać iteracji przez najwyższy poziom `Entities` lub `Places` kolekcję w odpowiedzi JSON i wyświetlić te wyniki. (Aby uzyskać tylko jeden typ wyniku, należy użyć parametru zapytania `responseFilter`).
 
 Zamiast tego używamy kolekcji `rankingResponse` w wynikach wyszukiwania, aby uporządkować wyniki do wyświetlenia. Ten obiekt odwołuje się do elementów w kolekcjach `Entitiess` i/lub `Places`.
 
@@ -520,7 +525,7 @@ Nasza funkcja renderująca jednostki:
 
 Odpowiedzi z interfejsów API wyszukiwania Bing mogą zawierać nagłówek `X-MSEdge-ClientID`, który powinien być wysyłany z powrotem do interfejsu API z kolejnymi żądaniami. Jeśli jest używanych wiele interfejsów API wyszukiwania Bing, dla każdego z nich powinien być stosowany ten sam identyfikator klienta, jeśli jest to możliwe.
 
-Podanie nagłówka `X-MSEdge-ClientID` umożliwia interfejsom API usługi Bing skojarzenie wszystkich wyszukiwań użytkownika, co ma dwie ważne korzyści.
+Udostępnienie `X-MSEdge-ClientID` nagłówka pozwala interfejsom API Bing skojarzyć wszystkie wyszukiwania użytkownika, które mają dwie ważne zalety.
 
 Po pierwsze umożliwia aparatowi wyszukiwania Bing zastosowanie do wyszukiwań wcześniejszego kontekstu, co pozwala znaleźć bardziej satysfakcjonujące użytkownika wyniki. Jeśli na przykład użytkownik wcześniej wyszukiwał terminy związane z żeglowaniem, późniejsze wyszukiwanie terminu „doki” może preferencyjnie zwrócić informacje na temat miejsc dokowania łodzi.
 
@@ -531,7 +536,7 @@ Zasady zabezpieczeń przeglądarki (CORS) mogą powodować, że nagłówek `X-MS
 > [!NOTE]
 > W aplikacji internetowej w środowisku produkcyjnym należy mimo to wykonać to żądanie po stronie serwera. W przeciwnym razie należy dołączyć klucz interfejsu API wyszukiwania Bing do strony internetowej, aby był on dostępny dla każdego, kto wyświetli źródło. Płacisz za wszystkie użycia związane z Twoim kluczem subskrypcji interfejsu API, nawet za żądania wykonane przez osoby nieupoważnione, zatem ważne jest, aby nie ujawniać swojego klucza.
 
-W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z tego serwera proxy zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+W celach programistycznych możesz wykonywać żądania interfejsu API wyszukiwania w sieci Web Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który zezwala na listy nagłówków odpowiedzi i udostępnia je dla języka JavaScript.
 
 Zainstalowanie serwera proxy CORS w celu zezwolenia naszej aplikacji samouczka na dostęp do nagłówka identyfikatora klienta jest łatwe. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Następnie wykonaj następujące polecenie w oknie polecenia:
 

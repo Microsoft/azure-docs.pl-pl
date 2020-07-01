@@ -30,10 +30,8 @@
       href: concepts-identity.md
     - name: Uaktualnienia chmur prywatnych
       href: concepts-upgrades.md
-    - name: Integracja w topologii piasty i szprych
-      href: concepts-avs-hub-and-spoke-integration.md
-    - name: API Management
-      href: concepts-api-management.md
+    - name: Kontrola dostępu oparta na rolach
+      href: concepts-rbac.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie platformy HCX

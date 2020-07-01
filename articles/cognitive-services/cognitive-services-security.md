@@ -3,19 +3,19 @@ title: Zabezpieczenia
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się więcej na temat różnych zagadnień związanych z zabezpieczeniami Cognitive Services.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 06/30/2020
+ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608455"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611411"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -205,7 +205,7 @@ Skrytka klienta jest dostępna dla tej usługi poznawczej:
 
 W przypadku Language Understanding inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w jednostce SKU E0. Aby zażądać możliwości korzystania z jednostki SKU E0, Wypełnij i prześlij [formularz żądania obsługi Luis](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z jednostki SKU E0 z LUIS należy utworzyć nowy zasób Language Understanding z Azure Portal i wybrać E0 jako warstwę cenową. Użytkownicy nie będą mogli przeprowadzić uaktualnienia z F0 do nowej jednostki SKU E0.
 
-Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak być przechowywane przy użyciu BYOS, co pozwala na uzyskanie podobnych kontroli danych do [skrytka klienta](../security/fundamentals/customer-lockbox-overview.md). Należy pamiętać, że dane usługi mowy pozostają i są przetwarzane w regionie, w którym został utworzony zasób mowy. Dotyczy to danych przechowywanych w czasie spoczynku i przesyłania danych. W przypadku korzystania z funkcji dostosowywania, takich jak Custom Speech i Niestandardowa obsługa głosu, wszystkie dane klienta są przesyłane, przechowywane i przetwarzane w tym samym regionie, w którym znajduje się zasób usługi BYOS (jeśli jest używany) i usługa Speech.
+Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak być przechowywane przy użyciu BYOS ("Dołączanie własnych magazynów"), co pozwala osiągnąć podobne kontrolki danych do [skrytka klienta](../security/fundamentals/customer-lockbox-overview.md). Należy pamiętać, że dane usługi mowy pozostają i są przetwarzane w regionie, w którym został utworzony zasób mowy. Dotyczy to danych przechowywanych w czasie spoczynku i przesyłania danych. W przypadku korzystania z funkcji dostosowywania, takich jak Custom Speech i Niestandardowa obsługa głosu, wszystkie dane klienta są przesyłane, przechowywane i przetwarzane w tym samym regionie, w którym znajduje się zasób usługi BYOS (jeśli jest używany) i usługa Speech.
 
 > [!IMPORTANT]
 > Firma Microsoft **nie** używa danych klienta w celu ulepszania modeli mowy. Ponadto jeśli rejestrowanie punktów końcowych jest wyłączone i nie są używane żadne dostosowania, dane klienta nie są przechowywane. 

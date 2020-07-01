@@ -3,12 +3,12 @@ title: Przykład wypowiedź jednostki etykiety
 description: Dowiedz się, jak dodać etykietę do jednostki uczenia maszynowego za pomocą podjednostek w przykładowej wypowiedź na stronie szczegółów obiektu w portalu LUIS.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722647"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610493"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etykieta jednostki uczenia maszynowego w przykładzie wypowiedź
 
@@ -16,7 +16,7 @@ Etykietowanie jednostki w przykładzie wypowiedź daje LUIS przykład obiektu i 
 
 Można oznaczyć jednostki i podjednostki, które są poznanie maszynowe.
 
-Ponieważ nie można etykietować wyrażeń regularnych, list ani wstępnie skompilowanych jednostek, należy utworzyć jednostkę lub podjednostkę, a następnie dodać te jednostki, jeśli ma to zastosowanie, do jednostki lub podjednostki.
+Ponieważ nie można oznaczyć wyrażenia regularnego, listy lub wstępnie skompilowanych jednostek, utworzyć jednostkę lub podjednostkę, a następnie dodać te jednostki jako funkcje, jeśli ma to zastosowanie, do jednostki lub podjednostki.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etykieta przykład wyrażenia długości na stronie szczegółów zamiaru
 
