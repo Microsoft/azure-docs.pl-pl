@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 2e2e11e1dc16fd99a82bc2fbdc7b72399bc6ae97
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cb8b3b58f1029a722121f491d202e245300d1aee
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871929"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801016"
 ---
 # <a name="azure-load-balancer-concepts"></a>Koncepcje Azure Load Balancer
 
@@ -57,13 +57,13 @@ Moduł równoważenia obciążenia nie współdziała bezpośrednio z protokołe
 ## <a name="load-balancer-terminology"></a>Terminologia Load Balancer
 | Pojęcie | Co to oznacza? | Dokument szczegółowy |
 | ---------- | ---------- | ----------|
-Połączenia wychodzące | Przepływy z puli zaplecza do publicznych adresów IP są mapowane na fronton. Platforma Azure tłumaczy połączenia wychodzące z publicznego adresu IP frontonu za pośrednictwem reguły ruchu wychodzącego równoważenia obciążenia. Ta konfiguracja ma następujące zalety. Łatwe uaktualnienie i odzyskiwanie po awarii usług, ponieważ fronton może być dynamicznie mapowany do innego wystąpienia usługi. Łatwiejsze zarządzanie listami kontroli dostępu (ACL). Listy ACL wyrażone jako adresy IP frontonu nie zmieniają się jako usługi skalowanie w górę lub w dół lub do ponownego wdrożenia. Tłumaczenie połączeń wychodzących na mniejszą liczbę adresów IP niż maszyny zmniejsza obciążenie związane z wdrażaniem bezpiecznych list adresatów.| Aby dowiedzieć się więcej o translatorze adresów sieciowych (Resources) i Azure Load Balancer, zobacz podadresy [i Azure Load Balancer](load-balancer-outbound-connections.md#snat).
+Połączenia wychodzące | Przepływy z puli zaplecza do publicznych adresów IP są mapowane na fronton. Platforma Azure tłumaczy połączenia wychodzące z publicznego adresu IP frontonu za pośrednictwem reguły ruchu wychodzącego równoważenia obciążenia. Ta konfiguracja ma następujące zalety. Łatwe uaktualnienie i odzyskiwanie po awarii usług, ponieważ fronton może być dynamicznie mapowany do innego wystąpienia usługi. Łatwiejsze zarządzanie listami kontroli dostępu (ACL). Listy ACL wyrażone jako adresy IP frontonu nie zmieniają się jako usługi skalowanie w górę lub w dół lub do ponownego wdrożenia. Tłumaczenie połączeń wychodzących na mniejszą liczbę adresów IP niż maszyny zmniejsza obciążenie związane z wdrażaniem bezpiecznych list adresatów.| Aby dowiedzieć się więcej o translatorze adresów sieciowych (Resources) i Azure Load Balancer, zobacz podadresy [i Azure Load Balancer](load-balancer-outbound-connections.md).
 Strefy dostępności | Usługa równoważenia obciążenia w warstwie Standardowa obsługuje dodatkowe możliwości w regionach, w których Strefy dostępności są dostępne. Te funkcje są przyrostowo przeznaczone dla wszystkich dostępnych standardowych modułów równoważenia obciążenia.  Konfiguracje Strefy dostępności są dostępne dla obu typów usługi równoważenia obciążenia w warstwie Standardowa; publiczna i wewnętrzna. Strefowo nadmiarowy fronton przeżyje awarię strefy przy użyciu dedykowanej infrastruktury we wszystkich strefach jednocześnie. Ponadto możesz zagwarantowanie frontonu dla określonej strefy. Strefa frontonu jest obsługiwana przez dedykowaną infrastrukturę w jednej strefie. Równoważenie obciążenia między strefami jest dostępne dla puli zaplecza. Każdy zasób maszyny wirtualnej w sieci wirtualnej może być częścią puli zaplecza. Podstawowa usługa równoważenia obciążenia nie obsługuje stref.| Przejrzyj [szczegółowe omówienie strefy dostępności związanych z nimi możliwości](load-balancer-standard-availability-zones.md) i [strefy dostępności omówienia](../availability-zones/az-overview.md) , aby uzyskać więcej informacji.
 | Porty wysokiej dostępności | Można skonfigurować reguły równoważenia obciążenia portów HA, aby umożliwić skalowanie aplikacji i być wysoce niezawodny. Równoważenie obciążenia na przepływ na krótkoterminowych portach adresu IP frontonu wewnętrznego modułu równoważenia obciążenia jest obsługiwane przez te reguły. Ta funkcja jest przydatna, gdy nie ma praktycznego lub niepożądanego określania poszczególnych portów. Reguła portów HA umożliwia tworzenie scenariuszy w trybie aktywny-pasywny lub aktywny-aktywny. Te scenariusze są przeznaczone dla sieciowych urządzeń wirtualnych i wszystkich aplikacji, które wymagają dużych zakresów portów przychodzących. Sondy kondycji można użyć do określenia, które zaplecza powinny otrzymywać Nowe przepływy.  Do emulowania scenariusza zakresu portów można użyć sieciowej grupy zabezpieczeń. Podstawowa usługa równoważenia obciążenia nie obsługuje portów HA. | Przejrzyj [szczegółowe omówienie portów ha](load-balancer-ha-ports-overview.md)
 | Wiele frontonów | Moduł równoważenia obciążenia obsługuje wiele reguł z wieloma frontonami.  Usługa Load Balancer w warstwie Standardowa rozszerza tę możliwość na scenariusze wychodzące. Reguły ruchu wychodzącego są odwrotnością reguły ruchu przychodzącego. Reguła ruchu wychodzącego tworzy skojarzenie dla połączeń wychodzących. W ramach usługi równoważenia obciążenia w warstwie Standardowa są wykorzystywane wszystkie frontony skojarzone z zasobem maszyny wirtualnej. Ponadto parametr reguły równoważenia obciążenia pozwala pominąć regułę równoważenia obciążenia na potrzeby łączności wychodzącej, co pozwala na wybór konkretnych frontonów, w tym braku. W przypadku porównania podstawowa usługa równoważenia obciążenia wybiera losowo jedną fronton. Nie istnieje możliwość kontrolowania, który fronton został wybrany.|
 
 
-## <a name="limitations"></a><a name = "limitations"></a>Ograniczenia
+## <a name="limitations"></a><a name = "limitations"></a>Limity
 
 - Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1792f158ac59e2b80a037621be2c2ce2556e1097
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77426194"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799789"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Przewodnik po interfejsie użytkownika usługi Azure IoT Central
 
@@ -103,7 +103,7 @@ Górne menu jest wyświetlane na każdej stronie:
 * Aby wyszukać szablony urządzeń i urządzenia, wprowadź wartość **wyszukiwania** .
 * Aby zmienić język lub motyw interfejsu użytkownika, wybierz ikonę **Ustawienia** . Dowiedz się więcej o [zarządzaniu preferencjami aplikacji](howto-manage-preferences.md)
 * Aby wylogować się z aplikacji, wybierz ikonę **konta** .
-* Aby uzyskać pomoc i pomoc techniczną, wybierz pozycję rozwijaną **Pomoc**, aby uzyskać listę zasobów. W aplikacji w ramach bezpłatnego planu cenowego zasoby pomocy technicznej obejmują dostęp do [rozmowy na żywo](howto-show-hide-chat.md).
+* Aby uzyskać pomoc i pomoc techniczną, wybierz pozycję rozwijaną **Pomoc**, aby uzyskać listę zasobów. Możesz [uzyskać informacje o aplikacji](./howto-get-app-info.md) z linku **Informacje o aplikacji** . W aplikacji w ramach bezpłatnego planu cenowego zasoby pomocy technicznej obejmują dostęp do [rozmowy na żywo](howto-show-hide-chat.md).
 
 Możesz wybrać jasny lub ciemny motyw interfejsu użytkownika:
 

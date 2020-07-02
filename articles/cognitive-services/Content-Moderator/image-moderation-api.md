@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684070"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800999"
 ---
 # <a name="learn-image-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem obrazu
 
@@ -25,14 +25,16 @@ Za pomocą [Narzędzia do oceny](Review-Tool-User-Guide/human-in-the-loop.md) i 
 
 Operacja **szacowania** zwraca wynik zaufania z przedziału od 0 do 1. Zwraca również dane logiczne o wartości true lub false. Te wartości przewidują, czy obraz zawiera potencjalną zawartość dla dorosłych lub erotycznej. Po wywołaniu interfejsu API za pomocą obrazu (pliku lub adresu URL) zwrócona odpowiedź zawiera następujące informacje:
 
-    "ImageModeration": {
-      .............
-      "adultClassificationScore": 0.019196987152099609,
-      "isImageAdultClassified": false,
-      "racyClassificationScore": 0.032390203326940536,
-      "isImageRacyClassified": false,
-      ............
-      ],
+```json
+"ImageModeration": {
+    .............
+    "adultClassificationScore": 0.019196987152099609,
+    "isImageAdultClassified": false,
+    "racyClassificationScore": 0.032390203326940536,
+    "isImageRacyClassified": false,
+    ............
+    ],
+```
 
 > [!NOTE]
 > 
@@ -51,18 +53,19 @@ Odpowiedź zawiera następujące informacje:
 
 Przykładowe wyodrębnienie:
 
-    "TextDetection": {
-      "status": {
+```json
+"TextDetection": {
+    "status": {
         "code": 3000.0,
         "description": "OK",
         "exception": null
-      },
-      .........
-      "language": "eng",
-      "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-      "candidates": []
     },
-
+    .........
+    "language": "eng",
+    "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+    "candidates": []
+},
+```
 
 ## <a name="detecting-faces"></a>Wykrywanie twarzy
 
@@ -75,29 +78,30 @@ Odpowiedź obejmuje następujące informacje:
 
 Przykładowe wyodrębnienie:
 
-
-    "FaceDetection": {
-       ......
-      "result": true,
-      "count": 2,
-      "advancedInfo": [
-      .....
-      ],
-      "faces": [
+```json
+"FaceDetection": {
+    ......
+    "result": true,
+    "count": 2,
+    "advancedInfo": [
+        .....
+    ],
+    "faces": [
         {
-          "bottom": 598,
-          "left": 44,
-          "right": 268,
-          "top": 374
+            "bottom": 598,
+            "left": 44,
+            "right": 268,
+            "top": 374
         },
         {
-          "bottom": 620,
-          "left": 308,
-          "right": 532,
-          "top": 396
+            "bottom": 620,
+            "left": 308,
+            "right": 532,
+            "top": 396
         }
-      ]
-    }
+    ]
+}
+```
 
 ## <a name="creating-and-managing-custom-lists"></a>Tworzenie list niestandardowych i zarządzanie nimi
 
@@ -124,7 +128,8 @@ W przypadku znalezienia dopasowania operacja zwraca identyfikator i Tagi moderow
 
 Przykładowe wyodrębnienie:
 
-    {
+```json
+{
     ..............,
     "IsMatch": true,
     "Matches": [
@@ -137,7 +142,8 @@ Przykładowe wyodrębnienie:
         }
     ],
     ....
-    }
+}
+```
 
 ## <a name="review-tool"></a>Narzędzie do przeglądu
 

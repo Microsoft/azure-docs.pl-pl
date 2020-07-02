@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881698"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800027"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Często zadawane pytania dotyczące interfejs API wyszukiwania obrazów Bing
 
@@ -39,15 +39,18 @@ Aby uzyskać dostęp do nagłówków, można wykonać żądanie interfejs API wy
 
 Można łatwo zainstalować serwer proxy CORS, aby umożliwić naszej [aplikacji samouczka](tutorial-bing-image-search-single-page-app.md) dostęp do opcjonalnych nagłówków klienta. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Potem wprowadź poniższe polecenie w wierszu polecenia.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Następnie Zmień punkt końcowy interfejs API wyszukiwania obrazów Bing w pliku HTML na:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Następnie zmień interfejs API wyszukiwania obrazów Bing punkt końcowy w pliku HTML na: \
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Na koniec uruchom serwer proxy CORS za pomocą następującego polecenia:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Podczas korzystania z aplikacji samouczka pozostaw okno polecenia otwarte, ponieważ jego zamknięcie spowoduje zatrzymanie serwera proxy. W rozwijanej sekcji nagłówków HTML poniżej wyników wyszukiwania można teraz zobaczyć nagłówek `X-MSEdge-ClientID` (pomiędzy innymi) i sprawdzić, czy jest on taki sam dla każdego żądania.
 
