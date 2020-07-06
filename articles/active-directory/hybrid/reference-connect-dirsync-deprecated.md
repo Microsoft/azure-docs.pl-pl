@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60381182"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade Windows Azure Active Directory Sync and Azure Active Directory Sync (Uaktualnianie programów Windows Azure Active Directory Sync i Azure Active Directory Sync)
@@ -35,7 +35,7 @@ Ostatnia wersja narzędzia DirSync została wydana w lipcu 2014, a Ostatnia wers
 Azure AD Connect jest następnikiem narzędzia DirSync i Azure AD Sync. Łączy wszystkie scenariusze obsługiwane przez te dwa. Więcej informacji na ten temat można znaleźć w temacie [integrowanie tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="deprecation-schedule"></a>Harmonogram wycofania
-| Date | Komentarz |
+| Data | Komentarz |
 | --- | --- |
 | 13 kwietnia 2016 |Synchronizacja Azure Active Directory systemu Windows ("DirSync") i synchronizacja Microsoft Azure Active Directory ("Azure AD Sync") są anonsowane jako przestarzałe. |
 | 13 kwietnia 2017 |Obsługa zakończona. Klienci nie będą już mogli otworzyć zgłoszenia do pomocy technicznej bez wcześniejszego uaktualnienia do Azure AD Connect. |
@@ -57,7 +57,7 @@ Jeśli chcesz dowiedzieć się, jak wykonać uaktualnienie w miejscu z narzędzi
 
 ## <a name="faq"></a>Często zadawane pytania
 **Pytanie: otrzymałem powiadomienie e-mail z zespołu platformy Azure i/lub komunikat z centrum wiadomości pakietu Office 365, ale używam funkcji Connect.**  
-Powiadomienie zostało również wysłane do klientów przy użyciu Azure AD Connect z numerem kompilacji 1,0. \*0 (przy użyciu wersji sprzed 1,1). Firma Microsoft zaleca klientom bieżące korzystanie z wersji Azure AD Connect. Funkcja [uaktualniania automatycznego](how-to-connect-install-automatic-upgrade.md) wprowadzona w programie 1,1 ułatwia zawsze zainstalowanie najnowszej wersji Azure AD Connect.
+Powiadomienie zostało również wysłane do klientów przy użyciu Azure AD Connect z numerem kompilacji 1,0. \* .. 0 (użycie wersji pre-1,1). Firma Microsoft zaleca klientom bieżące korzystanie z wersji Azure AD Connect. Funkcja [uaktualniania automatycznego](how-to-connect-install-automatic-upgrade.md) wprowadzona w programie 1,1 ułatwia zawsze zainstalowanie najnowszej wersji Azure AD Connect.
 
 **P: czy narzędzie DirSync/Azure AD Sync przestanie działać od 13 kwietnia 2017?**  
 Narzędzie DirSync/Azure AD Sync będzie nadal działało w dniu 13 kwietnia 2017.  Jednak usługa Azure AD nie może już akceptować komunikacji z narzędzia DirSync/Azure AD Sync po 31 grudnia 2017.

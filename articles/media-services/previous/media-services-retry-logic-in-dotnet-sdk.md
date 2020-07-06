@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61094659"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logika ponawiania w zestawie Media Services SDK dla platformy .NET  
@@ -37,7 +37,7 @@ Podczas pracy z usługami Microsoft Azureymi mogą wystąpić błędy przejścio
 ## <a name="exception-types"></a>Typy wyjątków
 W poniższej tabeli opisano wyjątki, które są obsługiwane przez zestaw Media Services SDK dla platformy .NET lub nie są obsługiwane w przypadku niektórych operacji, które mogą spowodować błędy przejściowe.  
 
-| Wyjątek | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
+| Wyjątek | Żądanie sieci Web | Storage | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Aby uzyskać więcej informacji, zobacz sekcję [kody stanu WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) . |Tak |Tak |Tak |Tak |
 | DataServiceClientException<br/> Aby uzyskać więcej informacji, zobacz [kody stanu błędów HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nie |Tak |Tak |Tak |
@@ -46,13 +46,13 @@ W poniższej tabeli opisano wyjątki, które są obsługiwane przez zestaw Media
 | DataServiceTransportException |Nie |Nie |Tak |Tak |
 | TimeoutException |Tak |Tak |Tak |Nie |
 | SocketException |Tak |Tak |Tak |Tak |
-| Storageexception |Nie |Tak |Nie |Nie |
-| IOException |Nie |Tak |Nie |Nie |
+| Storageexception |Nie |Yes |Nie |Nie |
+| IOException |Nie |Yes |Nie |Nie |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Kody stanu wyjątków WebException
 W poniższej tabeli przedstawiono kody błędów usługi WebException, których logika ponawiania jest zaimplementowana. Wyliczenie [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definiuje kody stanu.  
 
-| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
+| Stan | Żądanie sieci Web | Storage | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Tak |Tak |Tak |Tak |
 | NameResolutionFailure |Tak |Tak |Tak |Tak |
@@ -70,10 +70,10 @@ W poniższej tabeli przedstawiono kody błędów usługi WebException, których 
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>Kody stanu błędu HTTP
 Gdy zapytania i metody SaveChanges operacji zwracają DataServiceClientException, DataServiceQueryException lub DataServiceQueryException, kod stanu błędu HTTP jest zwracany we właściwości StatusCode.  W poniższej tabeli przedstawiono, w których kodach błędów jest implementowana logika ponowień.  
 
-| Stan | Żądanie sieci Web | Magazyn | Zapytanie | Metody SaveChanges |
+| Stan | Żądanie sieci Web | Storage | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Nie |Tak |Nie |Nie |
-| 403 |Nie |Tak<br/>Obsługa ponawiania prób z dłuższymi czekami. |Nie |Nie |
+| 401 |Nie |Yes |Nie |Nie |
+| 403 |Nie |Yes<br/>Obsługa ponawiania prób z dłuższymi czekami. |Nie |Nie |
 | 408 |Tak |Tak |Tak |Tak |
 | 429 |Tak |Tak |Tak |Tak |
 | 500 |Tak |Tak |Tak |Nie |
@@ -86,6 +86,6 @@ Jeśli chcesz zapoznać się z rzeczywistą implementacją logiki usługi Media 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

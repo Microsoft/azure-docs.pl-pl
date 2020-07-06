@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60199236"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Korzystanie z edytora Azure Cloud Shell
@@ -37,7 +37,7 @@ Aby otworzyć edytor za pomocą przycisku, kliknij ikonę edytora `{}` na pasku 
 
 ## <a name="closing-the-editor"></a>Zamykanie edytora
 
-Aby zamknąć Edytor, Otwórz panel `...` akcji w prawym górnym rogu edytora i wybierz opcję. `Close editor`
+Aby zamknąć Edytor, Otwórz `...` panel akcji w prawym górnym rogu edytora i wybierz opcję `Close editor` .
 
 ![Zamknij Edytor](media/using-cloud-shell-editor/close-editor.png)
 
@@ -52,5 +52,5 @@ Aby uruchomić paletę poleceń, użyj `F1` klawisza, gdy fokus jest ustawiony w
 Obsługa wyróżniania języka w edytorze Cloud Shell jest obsługiwana za pomocą funkcji nadrzędnych w [Edytorze Monako](https://github.com/Microsoft/monaco-editor)użycie definicji składni Monarch. Aby dowiedzieć się, jak utworzyć wkłady, Przeczytaj [Przewodnik współautora w Monako](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Następne kroki
-[Wypróbuj Przewodnik Szybki Start dla usługi Bash w Cloud Shell](quickstart.md)
-[Wyświetl pełną listę zintegrowanych narzędzi Cloud Shell](features.md)
+[Wypróbuj Przewodnik Szybki Start dla usługi Bash w Cloud Shell](quickstart.md) 
+ [Zapoznaj się z pełną listą zintegrowanych narzędzi Cloud Shell](features.md)

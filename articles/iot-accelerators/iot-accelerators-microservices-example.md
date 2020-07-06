@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61447628"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Dostosowywanie i ponowne wdrażanie mikrousługi
@@ -44,7 +44,7 @@ W tej części należy wywołać domyślny interfejs API mikrousługi programu I
 
 1. Upewnij się, że rozwiązanie do monitorowania zdalnego działa lokalnie na komputerze.
 2. Znajdź lokalizację, w której pobrano program Poster, i otwórz go.
-3. W programie Poster wprowadź następujące polecenie w temacie GET: `http://localhost:8080/iothubmanager/v1/status`.
+3. W programie Poster wprowadź następujące polecenie w temacie GET: `http://localhost:8080/iothubmanager/v1/status` .
 4. Wyświetl zwrot, a zobaczysz "status": "OK: Alive i dobrze".
 
     ![Komunikat dotyczący aktywności i ogłoszenia](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,11 +144,11 @@ Uzupełnij przez ponowne wdrożenie lokalnego wystąpienia rozwiązania do zdaln
     ```
 
 3. Znajdź lokalizację, w której pobrano program Poster, i otwórz go.
-4. W programie Poster wprowadź następujące żądanie w temacie GET: `http://localhost:8080/iothubmanager/v1/status`. Teraz należy zobaczyć "status": "OK: nowe zmiany wprowadzone w tym miejscu!".
+4. W programie Poster wprowadź następujące żądanie w temacie GET: `http://localhost:8080/iothubmanager/v1/status` . Teraz należy zobaczyć "status": "OK: nowe zmiany wprowadzone w tym miejscu!".
 
 ![Nowe zmiany wprowadzone w tym miejscu](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Usunąć
 
 Jeśli występują problemy, spróbuj usunąć obrazy platformy Docker i kontenery na komputerze lokalnym.
 

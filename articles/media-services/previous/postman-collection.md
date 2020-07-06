@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 37fd131e570fa9f50df2479503b35407d67410cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60637539"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żądanie 

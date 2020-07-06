@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61464950"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurowanie telemetrii Azure Media Services przy użyciu platformy .NET 
@@ -69,7 +69,7 @@ Informacje o korzystaniu z informacji telemetrycznych znajdują się w [tym](med
 
 1. Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
 
-2. Dodaj następujący element do **AppSettings** zdefiniowanego w pliku App. config:
+2. Dodaj następujący element do **AppSettings** zdefiniowanego w pliku app.config:
 
     ```xml
         <add key="StorageAccountName" value="storage_name" />
@@ -230,6 +230,6 @@ namespace AMSMetrics
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61465664"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Instrukcje: dostarczanie elementu zawartości przez pobranie  
@@ -27,7 +27,7 @@ W tym artykule omówiono opcje dostarczania zawartości multimedialnej przekazan
 Ten przykład przedstawia sposób pobierania zasobów multimedialnych z Media Services na komputer lokalny. Kod wysyła zapytania do zadań skojarzonych z kontem Media Services według identyfikatora zadania i uzyskuje dostęp do swojej kolekcji **OutputMediaAssets** (czyli zestawu co najmniej jednego wyjściowego zasobu multimedialnego, który wynika z uruchamiania zadania). Ten przykład pokazuje, jak pobrać wyjściowe zasoby multimedialne z zadania, ale można zastosować takie samo podejście do pobierania innych zasobów.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni/uprawnień dostępu, na przykład zasad dla lokalizatorów, które mają być nadal wykonywane przez długi czas (zasady bez przekazywania). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni/uprawnień dostępu, na przykład zasad dla lokalizatorów, które mają być nadal wykonywane przez długi czas (zasady bez przekazywania). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) artykuł.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -84,7 +84,7 @@ Ten przykład przedstawia sposób pobierania zasobów multimedialnych z Media Se
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

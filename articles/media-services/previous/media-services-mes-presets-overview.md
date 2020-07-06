@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61463407"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Przykładowe ustawienia wstępne dla Media Encoder Standard (MES)
@@ -29,7 +29,7 @@ ms.locfileid: "61463407"
 Media Services w pełni obsługuje Dostosowywanie wszystkich wartości w ustawieniach wstępnych w celu spełnienia określonych wymagań w zakresie kodowania. Jeśli musisz dostosować ustawienie wstępne kodowania, należy zacząć od jednego z poniższych ustawień wstępnych systemu, które są podane w tej sekcji jako szablonu konfiguracji niestandardowej. Aby dowiedzieć się, co oznacza każdy element w tych ustawieniach wstępnych, i prawidłowe wartości dla każdego elementu, zobacz temat [schemat Media Encoder Standard](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać typ jednostki `S3` zarezerwowanej. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać `S3` Typ jednostki zarezerwowanej. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Domyślne ustawienie rotacji wideo w ustawieniach wstępnych:
 Podczas pracy z Media Encoder Standard obrót wideo jest domyślnie włączony. Jeśli film wideo został zarejestrowany na urządzeniu przenośnym w trybie pionowym, te ustawienia wstępne spowodują obrócenie ich do trybu poziomego przed kodowaniem.

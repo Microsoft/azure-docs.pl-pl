@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245490"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect Sync: zrozumienie użytkowników, grup i kontaktów
@@ -47,13 +47,13 @@ Ważne kwestie, o których należy pamiętać podczas synchronizowania grup z Ac
 
     * Jeśli atrybut *ProxyAddress* grupy jest pusty, jego atrybut *mail* musi mieć wartość
 
-    * Jeśli atrybut *ProxyAddress* grupy nie jest pusty, musi zawierać co najmniej jedną wartość adresu serwera proxy SMTP. Oto kilka przykładów:
+    * Jeśli atrybut *ProxyAddress* grupy nie jest pusty, musi zawierać co najmniej jedną wartość adresu serwera proxy SMTP. Poniżej przedstawiono kilka przykładów:
     
       * Grupa Active Directory, której atrybut proxyAddress ma wartość *{"X500:/0 = contoso. com/OU = users/CN = test grupy"}* nie będzie włączona w usłudze Azure AD. Nie ma adresu SMTP.
       
-      * Grupa Active Directory, której atrybut proxyAddress ma wartości *{"X500:/0 = contoso. com/OU = users/CN = test grupy", "SMTP: jankowalski\@contoso.com"},* będzie dostępna w usłudze Azure AD.
+      * Grupa Active Directory, której atrybut proxyAddress ma wartości *{"X500:/0 = contoso. com/OU = users/CN = test grupy", "SMTP: jankowalski \@ contoso.com"},* będzie dostępna w usłudze Azure AD.
       
-      * Grupa Active Directory, której atrybut proxyAddress ma wartości *{"X500:/0 = contoso. com/OU = users/CN = test grupy", "SMTP: jankowalski\@contoso.com"}* , będzie również dostępna w usłudze Azure AD.
+      * Grupa Active Directory, której atrybut proxyAddress ma wartości *{"X500:/0 = contoso. com/OU = users/CN = test grupy", "SMTP: jankowalski \@ contoso.com"}* , będzie również dostępna w usłudze Azure AD.
 
 ## <a name="contacts"></a>Kontakty
 Kontakty reprezentujące użytkownika w innym lesie są wspólne po &ie przez scalanie, gdzie rozwiązanie GALSync ma mostkowanie co najmniej dwóch lasów programu Exchange. Obiekt Contact jest zawsze łączący się z przestrzeni łącznika do Metaverse przy użyciu atrybutu mail. Jeśli istnieje już obiekt Contact lub obiekt użytkownika o tym samym adresie pocztowym, obiekty są sprzężone ze sobą. Ta konfiguracja jest skonfigurowana w ramach reguły **z usługi AD — Dołącz do kontaktów**. Istnieje również reguła o nazwie **z usługi AD — kontakt wspólny** z przepływem atrybutu do atrybutu Metaverse **sourceObjectType** za pomocą stałej **osoby kontaktowej**. Ta reguła ma bardzo niski priorytet, dlatego jeśli dowolny obiekt użytkownika jest przyłączony do tego samego obiektu metaverse, a następnie reguła **z usługi AD — wspólne przez użytkownika** będzie współtworzyć użytkownika wartości dla tego atrybutu. W przypadku tej reguły ten atrybut będzie miał wartość kontakt, jeśli nie został dołączony żaden użytkownik i użytkownik wartości, jeśli zostanie znaleziony co najmniej jeden użytkownik.

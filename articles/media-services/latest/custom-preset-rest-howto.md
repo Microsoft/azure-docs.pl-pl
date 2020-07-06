@@ -13,17 +13,17 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65761792"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-rest.md#create-a-transform) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
@@ -39,7 +39,7 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 
 W poniższym przykładzie zdefiniowano treść żądania nowej transformacji. Definiujemy zestaw danych wyjściowych, które mają być generowane, gdy zostanie użyte to przekształcenie. 
 
-W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano na 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć makra `{Label}` lub `{Bitrate}` , jak pokazano w przykładzie.
+W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano na 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć `{Label}` makra lub, jak `{Bitrate}` pokazano w przykładzie.
 
 ```json
 {
@@ -135,7 +135,7 @@ W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóc
 
 W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia transformacji należy najpierw użyć opcji [Get](https://docs.microsoft.com/rest/api/media/transforms/get) do sprawdzenia, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. 
 
-W pobranej kolekcji programu Poster wybierz pozycję **transformacje i zadania**->**Utwórz lub zaktualizuj transformację**.
+W pobranej kolekcji programu Poster wybierz pozycję **transformacje i zadania** -> **Utwórz lub zaktualizuj transformację**.
 
 Metoda **Put** żądania HTTP jest podobna do:
 
@@ -145,7 +145,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 Wybierz kartę **treść** i Zamień treść na [wcześniej zdefiniowany](#define-a-custom-preset)kod JSON. Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji.
 
-Wybierz pozycję **Wyślij**. 
+Wybierz pozycję **Send** (Wyślij). 
 
 Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Aby zapoznać się z kompletnym przykładem, który pokazuje, jak przesłać zadanie w ramach przekształcenia, zobacz [Samouczek: przesyłanie strumieniowe plików wideo — REST](stream-files-tutorial-with-rest.md).
 

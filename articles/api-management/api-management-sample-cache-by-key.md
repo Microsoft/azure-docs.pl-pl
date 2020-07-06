@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60780825"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Buforowanie niestandardowe w usłudze Azure API Management
@@ -43,7 +43,7 @@ Weź pod uwagę następującą odpowiedź JSON z interfejsu API zaplecza.
 }  
 ```
 
-I zasób `/userprofile/{userid}` pomocniczy wygląda jak,
+I zasób pomocniczy `/userprofile/{userid}` wygląda jak,
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
@@ -65,7 +65,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Jeśli w pamięci podręcznej nie ma wpisu odpowiadającego wartości klucza, nie `userprofile` zostanie utworzona zmienna kontekstowa. API Management sprawdza powodzenie wyszukiwania przy użyciu zasad przepływu `choose` sterowania.
+Jeśli w pamięci podręcznej nie ma wpisu odpowiadającego wartości klucza, nie `userprofile` zostanie utworzona zmienna kontekstowa. API Management sprawdza powodzenie wyszukiwania przy użyciu `choose` zasad przepływu sterowania.
 
 ```xml
 <choose>
@@ -75,7 +75,7 @@ Jeśli w pamięci podręcznej nie ma wpisu odpowiadającego wartości klucza, ni
 </choose>
 ```
 
-Jeśli zmienna `userprofile` kontekstowa nie istnieje, API Management powinien wykonać żądanie HTTP, aby je pobrać.
+Jeśli `userprofile` zmienna kontekstowa nie istnieje, API Management powinien wykonać żądanie HTTP, aby je pobrać.
 
 ```xml
 <send-request
@@ -92,7 +92,7 @@ Jeśli zmienna `userprofile` kontekstowa nie istnieje, API Management powinien w
 </send-request>
 ```
 
-API Management używa `enduserid` do KONSTRUOWANIA adresu URL do zasobu profilu użytkownika. Gdy API Management ma odpowiedź, pobiera tekst treści z odpowiedzi i zapisuje ją z powrotem w zmiennej kontekstowej.
+API Management używa `enduserid` do konstruowania adresu URL do zasobu profilu użytkownika. Gdy API Management ma odpowiedź, pobiera tekst treści z odpowiedzi i zapisuje ją z powrotem w zmiennej kontekstowej.
 
 ```xml
 <set-variable
@@ -184,7 +184,7 @@ Ten sam rodzaj buforowania fragmentów można również wykonać na serwerach si
 ## <a name="transparent-versioning"></a>Przezroczyste przechowywanie wersji
 Powszechną zaletą jest wiele różnych wersji implementacji interfejsu API, które mają być obsługiwane w dowolnym momencie. Na przykład w celu obsługi różnych środowisk (deweloperskich, testowych, produkcyjnych itp.) lub do obsługi starszych wersji interfejsu API, aby umożliwić klientom interfejsu API Migrowanie do nowszych wersji. 
 
-Jednym z metod obsługi tego, zamiast wymagać od deweloperów programu klienckiego zmiany adresów URL `/v1/customers` z `/v2/customers` programu do programu, jest przechowywanie w danych profilu użytkownika, których wersji interfejsu API aktualnie chcą używać, i wywoływanie odpowiedniego adresu URL zaplecza. Aby określić prawidłowy adres URL zaplecza do wywołania dla określonego klienta, konieczne jest zbadanie niektórych danych konfiguracyjnych. Dzięki buforowaniu tych danych konfiguracji API Management może zminimalizować spadek wydajności operacji wyszukiwania.
+Jednym z metod obsługi tego, zamiast wymagać od deweloperów programu klienckiego zmiany adresów URL z `/v1/customers` programu do programu, `/v2/customers` jest przechowywanie w danych profilu użytkownika, których wersji interfejsu API aktualnie chcą używać, i wywoływanie odpowiedniego adresu URL zaplecza. Aby określić prawidłowy adres URL zaplecza do wywołania dla określonego klienta, konieczne jest zbadanie niektórych danych konfiguracyjnych. Dzięki buforowaniu tych danych konfiguracji API Management może zminimalizować spadek wydajności operacji wyszukiwania.
 
 Pierwszym krokiem jest określenie identyfikatora używanego do skonfigurowania odpowiedniej wersji. W tym przykładzie wybrano opcję skojarzenia wersji z kluczem subskrypcji produktu. 
 

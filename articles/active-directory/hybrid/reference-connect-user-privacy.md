@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60455788"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Prywatność użytkowników i Azure AD Connect 
@@ -48,10 +48,10 @@ W przypadku usuwania danych użytkownika Azure AD Connect klienci powinni przest
 Dane dotyczące osoby są automatycznie usuwane z bazy danych Azure AD Connect, gdy dane tej osoby zostaną usunięte z systemu źródłowego, z którego pochodzą. Żadna konkretna akcja od administratorów nie musi być zgodna z Rodo.  Jednak wymaga to, aby dane Azure AD Connect były synchronizowane ze źródłem danych co najmniej co dwa dni.
 
 ## <a name="delete-the-azure-ad-connect-installation-log-file-folder-contents"></a>Usuń zawartość folderu pliku dziennika instalacji Azure AD Connect
-Regularnie sprawdzaj i usuwaj zawartość folderu **c:\programdata\aadconnect** — z wyjątkiem pliku **PersistedState. XML** . Ten plik przechowuje stan poprzedniej instalacji usługi Azure A Connect i jest używany podczas instalacji uaktualnienia. Ten plik nie zawiera żadnych danych dotyczących osoby i nie należy go usuwać.
+Regularnie sprawdzaj i usuwaj zawartość folderu **c:\programdata\aadconnect** — z wyjątkiem pliku **PersistedState.Xml** . Ten plik przechowuje stan poprzedniej instalacji usługi Azure A Connect i jest używany podczas instalacji uaktualnienia. Ten plik nie zawiera żadnych danych dotyczących osoby i nie należy go usuwać.
 
 >[!IMPORTANT]
->Nie usuwaj pliku PersistedState. XML.  Ten plik nie zawiera informacji o użytkowniku i utrzymuje stan poprzedniej instalacji.
+>Nie usuwaj pliku PersistedState.xml.  Ten plik nie zawiera informacji o użytkowniku i utrzymuje stan poprzedniej instalacji.
 
 Możesz przejrzeć i usunąć te pliki przy użyciu Eksploratora Windows lub użyć skryptu, takiego jak następujące, aby wykonać niezbędne czynności:
 

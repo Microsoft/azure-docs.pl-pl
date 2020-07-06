@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61244348"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Używanie tras komunikatów i niestandardowych punktów końcowych dla komunikatów z urządzenia do chmury
@@ -26,7 +26,7 @@ IoT Hub [Routing komunikatów](iot-hub-devguide-routing-query-syntax.md) umożli
 | **Nazwa**      | Unikatowa nazwa identyfikująca zapytanie. |
 | **Element źródłowy**    | Pochodzenie strumienia danych, z którym ma zostać podjęta próba. Na przykład dane telemetryczne urządzenia. |
 | **Warunek** | Wyrażenie zapytania dla kwerendy routingu, która jest uruchamiana względem właściwości aplikacji komunikatów, właściwości systemu, treści wiadomości, tagów sznurów urządzenia i właściwości sznurów urządzenia, aby określić, czy jest to dopasowanie do punktu końcowego. Aby uzyskać więcej informacji na temat konstruowania zapytania, zobacz [Składnia zapytania dotyczącego routingu komunikatów](iot-hub-devguide-routing-query-syntax.md) |
-| **Punktu końcowego**  | Nazwa punktu końcowego, w którym IoT Hub wysyła wiadomości pasujące do zapytania. Zalecamy wybranie punktu końcowego w tym samym regionie, w którym znajduje się centrum IoT. |
+| **Punkt końcowy**  | Nazwa punktu końcowego, w którym IoT Hub wysyła wiadomości pasujące do zapytania. Zalecamy wybranie punktu końcowego w tym samym regionie, w którym znajduje się centrum IoT. |
 
 Pojedynczy komunikat może być zgodny z warunkiem na wielu zapytaniach routingu, A w takim przypadku IoT Hub dostarcza komunikat do punktu końcowego skojarzonego z każdym dopasowanym zapytaniem. IoT Hub również automatycznie deduplikowania dostarczania komunikatów, dlatego jeśli komunikat jest zgodny z wieloma zapytaniami, które mają takie same miejsce docelowe, jest zapisywana tylko raz w tym miejscu docelowym.
 
