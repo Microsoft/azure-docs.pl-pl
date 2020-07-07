@@ -11,7 +11,6 @@ ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
-ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85955101"

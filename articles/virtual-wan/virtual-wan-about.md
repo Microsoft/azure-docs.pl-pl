@@ -8,12 +8,11 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 92b88c84650227e43755e6e34d09cc26003457dc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
-ms.translationtype: MT
+ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800583"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027209"
 ---
 # <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
 
@@ -124,9 +123,9 @@ Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lok
 
 Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela tras jest tabelą tras, która nie ma tych funkcji. Jeśli masz już istniejące trasy w usłudze Routing centralny i chcesz korzystać z nowych funkcji, weź pod uwagę następujące kwestie:
 
-* **Standardowi wirtualne sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, Usuń wszystkie istniejące trasy z sekcji Routing z centrum w Azure Portal a następnie spróbuj utworzyć nowe tabele tras w sekcji dotyczącej tabel tras dla centrum.
+* **Standardowi wirtualne sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj na zakończenie tygodnia od trzeciej sierpnia dla wdrożenia na platformie Azure. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie próbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal).
 
-* **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby skorzystać z nowej funkcji tabeli tras, Usuń wszystkie istniejące trasy z sekcji Routing z usługi Hub w witrynie Azure Portal, a następnie **Uaktualnij** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
+* **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj na zakończenie tygodnia od trzeciej sierpnia dla wdrożenia na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 

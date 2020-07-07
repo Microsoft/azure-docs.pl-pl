@@ -4,12 +4,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ed9e60eccf5d5c44f89ec72895ccb98b1d304faa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: af65ae6b71b12b55745951895f424e7c5fd0c950
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85838876"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035638"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +40,7 @@ Utwórz w folderze nowy plik o nazwie `index.html`, a następnie otwórz ten pli
 W przypadku, gdy chcesz udostępnić stronę internetową na serwerze internetowym, możesz opcjonalnie podać źródło tokenu dla swojej aplikacji pokazowej.
 W ten sposób Twój klucz subskrypcji nigdy nie opuści serwera, ale jednocześnie umożliwi użytkownikom korzystanie z możliwości funkcji rozpoznawania mowy bez wprowadzania przez nich kodu autoryzacji.
 
-Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer internetowy obsługuje język skryptów PHP. Wprowadź następujący kod:
+Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer sieci Web obsługuje język skryptów PHP z włączonym zwinięciem. Wprowadź następujący kod:
 
 ```php
 <?php

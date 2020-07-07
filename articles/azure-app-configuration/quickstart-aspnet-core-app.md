@@ -8,12 +8,11 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245778"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027719"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -31,7 +30,7 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Eksplorator** > konfiguracji**Utwórz** > **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+6. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -56,14 +55,14 @@ dotnet new mvc --no-https
 
 ## <a name="add-secret-manager"></a>Dodawanie narzędzia Secret Manager
 
-Aby użyć Menedżera wpisów tajnych, `UserSecretsId` Dodaj element do pliku *. csproj* .
+Aby użyć Menedżera wpisów tajnych, Dodaj `UserSecretsId` element do pliku *. csproj* .
 
 1. Otwórz plik *. csproj* .
 
 1.  Dodaj `UserSecretsId` element, jak pokazano tutaj. Możesz użyć tego samego identyfikatora GUID lub można zastąpić tę wartość własną.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .net Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
     
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
     
@@ -106,7 +105,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Dodaj odwołanie do pakietu `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet, uruchamiając następujące polecenie:
+1. Dodaj odwołanie do `Microsoft.Azure.AppConfiguration.AspNetCore` pakietu NuGet, uruchamiając następujące polecenie:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -144,7 +143,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 1. Zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration()` metody.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .net Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -175,7 +174,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
     ---
 
-1. Przejdź do * <app root>/views/Home* i Otwórz *index. cshtml*. Zastąp jego zawartość następującym kodem:
+1. Przejdź do * <app root> /views/Home* i Otwórz *index. cshtml*. Zastąp jego zawartość następującym kodem:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -187,14 +186,14 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-1. Przejdź do * <app root>/views/Shared* i Otwórz *_Layout. cshtml*. Zastąp jego zawartość następującym kodem:
+1. Przejdź do * <app root> /views/Shared* i Otwórz *_Layout. cshtml*. Zastąp jego zawartość następującym kodem:
 
     ```HTML
     <!DOCTYPE html>
@@ -235,7 +234,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     dotnet run
     ```
 
-1. Jeśli pracujesz na komputerze lokalnym, użyj przeglądarki, aby przejść do `http://localhost:5000`. Jest to domyślny adres URL aplikacji sieci Web hostowanej lokalnie.  
+1. Jeśli pracujesz na komputerze lokalnym, użyj przeglądarki, aby przejść do `http://localhost:5000` . Jest to domyślny adres URL aplikacji sieci Web hostowanej lokalnie.  
 
 Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk *Podgląd sieci Web* , a następnie pozycję *Konfiguruj*.  
 
@@ -243,7 +242,7 @@ Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk *Podgląd sieci Web* , a 
 
 Po wyświetleniu monitu o skonfigurowanie portu dla wersji zapoznawczej wprowadź wartość "5000", a następnie wybierz pozycję *Otwórz i Przeglądaj*.  Na stronie sieci Web zostanie odczytana wartość "dane z konfiguracji aplikacji platformy Azure".
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

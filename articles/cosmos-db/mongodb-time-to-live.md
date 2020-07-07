@@ -7,12 +7,11 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.openlocfilehash: 0fe0c9e41a5787a963920d300cd99ecaf8803019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 74c140f2fa08fb49235c0503ea5812e047185f8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262773"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023503"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Wygasanie danych za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -74,7 +73,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 Funkcję czasu wygaśnięcia poszczególnych dokumentów można aktywować za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
-![Zrzut ekranu aktywacji funkcji czasu wygaśnięcia dla dokumentu w portalu](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Zrzut ekranu aktywacji funkcji czasu wygaśnięcia dla dokumentu w portalu":::
 
 ## <a name="next-steps"></a>Następne kroki
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md) (Automatyczne wygasanie danych w usłudze Azure Cosmos DB przy użyciu czasu wygaśnięcia)
