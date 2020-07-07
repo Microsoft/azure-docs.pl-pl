@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: bcacd5d2ed9e325383ec7ae75002ae0a6213111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429761"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpieczne Zapisywanie ustawień tajnych aplikacji dla aplikacji sieci Web
@@ -22,7 +22,7 @@ ms.locfileid: "81429761"
 ## <a name="overview"></a>Omówienie
 W tym artykule opisano sposób bezpiecznego zapisywania ustawień konfiguracji tajnych aplikacji dla aplikacji platformy Azure.
 
-Tradycyjnie wszystkie ustawienia konfiguracji aplikacji sieci Web są zapisywane w plikach konfiguracji, takich jak Web. config. To rozwiązanie prowadzi do sprawdzania ustawień tajnych, takich jak poświadczenia w chmurze, do publicznych systemów kontroli źródła, takich jak GitHub. W tym czasie może być trudne przestrzeganie najlepszych rozwiązań w zakresie zabezpieczeń z powodu obciążenia wymaganego do zmiany kodu źródłowego i ponownego skonfigurowania ustawień deweloperskich.
+Tradycyjnie wszystkie ustawienia konfiguracji aplikacji sieci Web są zapisywane w plikach konfiguracji, takich jak Web.config. To rozwiązanie prowadzi do sprawdzania ustawień tajnych, takich jak poświadczenia w chmurze, do publicznych systemów kontroli źródła, takich jak GitHub. W tym czasie może być trudne przestrzeganie najlepszych rozwiązań w zakresie zabezpieczeń z powodu obciążenia wymaganego do zmiany kodu źródłowego i ponownego skonfigurowania ustawień deweloperskich.
 
 Aby upewnić się, że proces tworzenia jest bezpieczny, biblioteki narzędzi i struktur struktury są tworzone w celu bezpiecznego zapisywania ustawień tajnych aplikacji z minimalnym lub niezmienionym kodem źródłowym.
 
@@ -87,7 +87,7 @@ Jeśli masz już utworzoną aplikację sieci Web, przyznaj aplikacji sieci Web d
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Dodaj adres URL Key Vault do pliku profilu launchsettings. JSON. Nazwa zmiennej środowiskowej *KEYVAULT_ENDPOINT* jest zdefiniowana w kodzie, który został dodany w kroku 6.
+6. Dodaj adres URL Key Vault do launchsettings.jsna pliku. Nazwa zmiennej środowiskowej *KEYVAULT_ENDPOINT* jest zdefiniowana w kodzie, który został dodany w kroku 6.
 
     ![Dodaj adres URL Key Vault jako zmienną środowiskową projektu](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
@@ -117,7 +117,7 @@ Jeśli piszesz krótki prototyp i nie chcesz udostępniać zasobów platformy Az
     </root>
     ```
 
-3. Zdefiniuj plik tajny jako konstruktora konfiguracji w pliku Web. config. Umieść tę sekcję przed sekcją *AppSettings* .
+3. Zdefiniuj plik tajny jako konstruktora konfiguracji w pliku Web.config. Umieść tę sekcję przed sekcją *AppSettings* .
 
     ```xml
     <configBuilders>
@@ -151,7 +151,7 @@ Postępuj zgodnie z instrukcjami w sekcji ASP.NET Core, aby skonfigurować Key V
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Zdefiniuj konstruktora konfiguracji Key Vault w pliku Web. config. Umieść tę sekcję przed sekcją *AppSettings* . Zastąp wartość Nazwa *magazynu* nazwą Key Vault, jeśli key Vault znajduje się na publicznej platformie Azure, lub pełny identyfikator URI w przypadku korzystania z chmury suwerennej.
+2. Zdefiniuj Key Vault konstruktora konfiguracji w Web.config. Umieść tę sekcję przed sekcją *AppSettings* . Zastąp wartość Nazwa *magazynu* nazwą Key Vault, jeśli key Vault znajduje się na publicznej platformie Azure, lub pełny identyfikator URI w przypadku korzystania z chmury suwerennej.
 
     ```xml
     <configSections>

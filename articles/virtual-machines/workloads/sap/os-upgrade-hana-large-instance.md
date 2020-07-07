@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192420"
 ---
 # <a name="operating-system-upgrade"></a>Uaktualnienie systemu operacyjnego
@@ -96,7 +96,7 @@ Usługa SAP w dużych wystąpieniach platformy Azure Hana (typ I) może być w s
 
 *   Wykonaj `multipath -ll` polecenie.
 *   Pobierz identyfikator LUN o rozmiarze około 50G lub użyj polecenia:`fdisk -l | grep mapper`
-*   Aktualizuj `/etc/default/grub_installdevice` plik z wierszem `/dev/mapper/<LUN ID>`. Przykład:/dev/mapper/3600a09803830372f483f495242534a56
+*   Aktualizuj `/etc/default/grub_installdevice` plik z wierszem `/dev/mapper/<LUN ID>` . Przykład:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >Identyfikator LUN różni się od serwera do serwera.
 
@@ -119,7 +119,7 @@ Aby zmiany zostały wprowadzone, wymagany jest ponowny rozruch. Wykonaj `lsmod` 
 
 
 ### <a name="kernel-parameters"></a>Parametry jądra
-   Upewnij się, że są stosowane `transparent_hugepage`poprawne `numa_balancing`ustawienia `processor.max_cstate`dla `ignore_ce` , `intel_idle.max_cstate` , i.
+   Upewnij się, że są stosowane poprawne ustawienia dla `transparent_hugepage` ,, `numa_balancing` `processor.max_cstate` `ignore_ce` i `intel_idle.max_cstate` .
 
 * intel_idle. max_cstate = 1
 * procesor. max_cstate = 1

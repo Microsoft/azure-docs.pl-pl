@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bc7dfcef45917081ec9ea1e97f4c36e4348dd9e7
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448119"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985279"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST rozpoznawania atramentu i języka Java
 
@@ -31,7 +31,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Zestaw Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszy.
+- [Zestaw Java &trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszy.
 
 - Zaimportuj te biblioteki z repozytorium Maven
     - [Kod JSON w pakiecie java](https://mvnrepository.com/artifact/org.json/json)
@@ -57,21 +57,21 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 1. Utwórz nową funkcję o nazwie `sendRequest()` , która przyjmuje zmienne utworzone powyżej. Następnie wykonaj poniższe czynności.
 
-2. Utwórz `CloseableHttpClient` obiekt, który może wysyłać żądania do interfejsu API. Wyślij żądanie do obiektu `HttpPut` żądania, łącząc punkt końcowy i adres URL aparatu rozpoznawania atramentu.
+2. Utwórz `CloseableHttpClient` obiekt, który może wysyłać żądania do interfejsu API. Wyślij żądanie do `HttpPut` obiektu żądania, łącząc punkt końcowy i adres URL aparatu rozpoznawania atramentu.
 
-3. Użyj `setHeader()` funkcji żądania, aby ustawić `Content-Type` nagłówek na `application/json`, i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
+3. Użyj `setHeader()` funkcji żądania, aby ustawić `Content-Type` nagłówek na `application/json` , i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
 
 4. Użyj `setEntity()` funkcji żądania do wysyłanych danych.   
 
 5. Użyj `execute()` funkcji klienta, aby wysłać żądanie i zapisać ją w `CloseableHttpResponse` obiekcie. 
 
-6. Utwórz `HttpEntity` obiekt do przechowywania zawartości odpowiedzi. Pobierz zawartość za pomocą `getEntity()`programu. Jeśli odpowiedź nie jest pusta, zwróć ją.
+6. Utwórz `HttpEntity` obiekt do przechowywania zawartości odpowiedzi. Pobierz zawartość za pomocą programu `getEntity()` . Jeśli odpowiedź nie jest pusta, zwróć ją.
     
     [!code-java[send a request](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
 
 ## <a name="send-an-ink-recognition-request"></a>Wyślij żądanie rozpoznawania pisma odręcznego
 
-Utwórz metodę o nazwie `recognizeInk()` , aby rozpoznać dane pociągnięcia odręcznego. Wywołaj `sendRequest()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. Pobierz wynik i wydrukuj go w konsoli programu.
+Utwórz metodę o nazwie, `recognizeInk()` Aby rozpoznać dane pociągnięcia odręcznego. Wywołaj `sendRequest()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. Pobierz wynik i wydrukuj go w konsoli programu.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 

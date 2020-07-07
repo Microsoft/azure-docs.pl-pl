@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461671"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu Azure App Service
@@ -41,7 +41,7 @@ Nie ma znaczenia, jak dobre zabezpieczenia to utrata kluczy subskrypcji. Usługa
 ## <a name="restrict-incoming-source-ip-addresses"></a>Ogranicz przychodzące źródłowe adresy IP
 [Środowiska App Service](../../app-service/environment/intro.md) zawierają funkcję integracji sieci wirtualnej, która pomaga ograniczyć przychodzące źródłowe adresy IP za pomocą sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Jeśli nie znasz usługi Azure Virtual Networks (sieci wirtualnych), jest to funkcja, która umożliwia umieszczanie wielu zasobów platformy Azure w nieinternetowej, rutowanej sieci, do której można kontrolować dostęp. Aby dowiedzieć się więcej, zobacz [Integrowanie aplikacji z usługą Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).
 
-Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując plik Web. config. Aby uzyskać więcej informacji, zobacz [dynamiczne zabezpieczenia adresów IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując web.config. Aby uzyskać więcej informacji, zobacz [dynamiczne zabezpieczenia adresów IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## <a name="next-steps"></a>Następne kroki

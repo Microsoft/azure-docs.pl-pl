@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975e345f4d11ba16b5a74c44645f110110ca8d43
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05a5c405095a3c045a3bf1dd7c62486ffda73825
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607263"
+ms.locfileid: "85798949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Samouczek: integracja Azure Active Directory z usługą Fieldglass
 
@@ -110,10 +110,10 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Fieldglass
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://www.fieldglass.net/<company name>
-        https://<company name>.fgvms.com/<company name>
-        ```
+    ```http
+    https://www.fieldglass.net/<company name>
+    https://<company name>.fgvms.com/<company name>
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Fieldglass](https://www.fieldglass.com/customer-support). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

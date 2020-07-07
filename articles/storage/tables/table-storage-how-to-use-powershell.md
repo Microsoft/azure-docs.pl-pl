@@ -8,10 +8,10 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545949"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Table Storage za pomocą Azure PowerShell 
@@ -31,7 +31,7 @@ W tym artykule opisano typowe operacje usługi Azure Table Storage. Omawiane kwe
 
 W tym artykule opisano sposób tworzenia nowego konta usługi Azure Storage w nowej grupie zasobów, dzięki czemu można łatwo usunąć go po zakończeniu. Jeśli wolisz korzystać z istniejącego konta magazynu, możesz to zrobić.
 
-Przykłady wymagają AZ PowerShell modules `Az.Storage (1.1.0 or greater)` i `Az.Resources (1.2.0 or greater)`. W oknie programu PowerShell uruchom `Get-Module -ListAvailable Az*` polecenie, aby znaleźć wersję. Jeśli nic nie jest wyświetlane lub musisz przeprowadzić uaktualnienie, zobacz [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+Przykłady wymagają AZ PowerShell modules `Az.Storage (1.1.0 or greater)` i `Az.Resources (1.2.0 or greater)` . W oknie programu PowerShell uruchom polecenie, `Get-Module -ListAvailable Az*` Aby znaleźć wersję. Jeśli nic nie jest wyświetlane lub musisz przeprowadzić uaktualnienie, zobacz [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Korzystanie z tej funkcji platformy Azure z poziomu programu PowerShell wymaga `Az` zainstalowania modułu. Bieżąca wersja programu `AzTable` nie jest zgodna ze starszym modułem AzureRM.
@@ -91,7 +91,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Utwórz nową tabelę
 
-Aby utworzyć tabelę, użyj polecenia cmdlet [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) . W tym przykładzie tabela jest wywoływana `pshtesttable`.
+Aby utworzyć tabelę, użyj polecenia cmdlet [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) . W tym przykładzie tabela jest wywoływana `pshtesttable` .
 
 ```powershell
 $tableName = "pshtesttable"
@@ -138,7 +138,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli utworzono nową grupę zasobów i konto magazynu na początku tej procedury, możesz usunąć wszystkie zasoby utworzone w tym ćwiczeniu, usuwając grupę zasobów. To polecenie usuwa wszystkie zasoby zawarte w grupie, a także samą grupę zasobów.
 

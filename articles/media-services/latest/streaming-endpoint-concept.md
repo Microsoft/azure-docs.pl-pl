@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582725"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
@@ -34,24 +34,24 @@ Upewnij się również, że zapoznaj się z tematem [dynamiczne pakowanie](dynam
 
 ## <a name="naming-convention"></a>Konwencja nazewnictwa
 
-Format nazwy hosta adresu URL przesyłania strumieniowego to: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, gdzie `servicename` = nazwa punktu końcowego przesyłania strumieniowego lub nazwa zdarzenia na żywo.
+Format nazwy hosta adresu URL przesyłania strumieniowego to: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` , gdzie `servicename` = Nazwa punktu końcowego przesyłania strumieniowego lub nazwa zdarzenia na żywo.
 
-W przypadku korzystania z domyślnego punktu końcowego `servicename` przesyłania strumieniowego jest pomijany, więc `{accountname}-{regionname}.streaming.azure.net`adres URL:.
+W przypadku korzystania z domyślnego punktu końcowego przesyłania strumieniowego `servicename` jest pomijany, więc adres URL: `{accountname}-{regionname}.streaming.azure.net` .
 
 ### <a name="limitations"></a>Ograniczenia
 
 * Nazwa punktu końcowego przesyłania strumieniowego ma maksymalną wartość 24 znaków.
-* Nazwa powinna być zgodna z tym wzorcem `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) :.
+* Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
-Istnieją dwa typy **punktów końcowych przesyłania strumieniowego** : **standardowa** (wersja zapoznawcza) i **Premium**. Typ jest definiowany przez liczbę jednostek skalowania (`scaleUnits`) przydzielonego dla punktu końcowego przesyłania strumieniowego.
+Istnieją dwa typy **punktów końcowych przesyłania strumieniowego** : **standardowa** (wersja zapoznawcza) i **Premium**. Typ jest definiowany przez liczbę jednostek skalowania ( `scaleUnits` ) przydzielonego dla punktu końcowego przesyłania strumieniowego.
 
 Tabela zawiera opis typów:
 
 |Typ|Jednostki skalowania|Opis|
 |--------|--------|--------|  
-|**Standardowa**|0|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** — można go zmienić na typ Premium przez dostosowanie `scaleUnits`.|
+|**Standardowa (Standard)**|0|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** — można go zmienić na typ Premium przez dostosowanie `scaleUnits` .|
 |**Premium**|>0|Wersja **Premium** Punkty końcowe przesyłania strumieniowego są odpowiednie dla zaawansowanych obciążeń i zapewniają dedykowaną i skalowalną przepustowość. Przechodzenie do typu **Premium** przez dostosowanie `scaleUnits` (jednostki przesyłania strumieniowego). `scaleUnits`Zapewnij dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. W przypadku korzystania z typu **Premium** każda włączona jednostka zapewnia dodatkową przepustowość dla aplikacji. |
 
 > [!NOTE]
@@ -61,11 +61,11 @@ Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.
 
 ## <a name="comparing-streaming-types"></a>Porównywanie typów przesyłania strumieniowego
 
-Funkcja|Standardowa|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
-Opłaty są naliczane proporcjonalnie| Dzienna|Dzienna
+Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
 Szyfrowanie dynamiczne|Tak|Tak
 Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe usługi SUs
@@ -79,23 +79,23 @@ Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania str
 
 Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości punktu końcowego przesyłania strumieniowego. Przykłady tworzenia nowego punktu końcowego przesyłania strumieniowego i opisy wszystkich właściwości można znaleźć w temacie [punkt końcowy przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
-- `accessControl`: Służy do konfigurowania następujących ustawień zabezpieczeń dla tego punktu końcowego przesyłania strumieniowego: klucze uwierzytelniania nagłówka sygnatury Akamai i adresy IP, które mogą łączyć się z tym punktem końcowym. Tę właściwość można ustawić tylko wtedy, `cdnEnabled` gdy ustawiono wartość false.
+- `accessControl`: Służy do konfigurowania następujących ustawień zabezpieczeń dla tego punktu końcowego przesyłania strumieniowego: klucze uwierzytelniania nagłówka sygnatury Akamai i adresy IP, które mogą łączyć się z tym punktem końcowym. Tę właściwość można ustawić tylko wtedy, gdy ustawiono `cdnEnabled` wartość false.
 
-- `cdnEnabled`: Wskazuje, czy Azure CDN integracji dla tego punktu końcowego przesyłania strumieniowego jest włączona (domyślnie wyłączona). W przypadku wybrania `cdnEnabled` wartości true następujące konfiguracje zostaną wyłączone: `customHostNames` i. `accessControl`
+- `cdnEnabled`: Wskazuje, czy Azure CDN integracji dla tego punktu końcowego przesyłania strumieniowego jest włączona (domyślnie wyłączona). W przypadku wybrania `cdnEnabled` wartości true następujące konfiguracje zostaną wyłączone: `customHostNames` i `accessControl` .
 
     Nie wszystkie centra danych obsługują integrację Azure CDN. Aby sprawdzić, czy centrum danych ma dostęp do integracji Azure CDN, wykonaj następujące czynności:
 
-  - Spróbuj ustawić wartość `cdnEnabled` na true.
+  - Spróbuj ustawić `cdnEnabled` wartość na true.
   - Sprawdź zwrócony wynik dla `HTTP Error Code 412` (PreconditionFailed) z komunikatem "przesyłanie strumieniowe CdnEnabled właściwości nie można ustawić na wartość true, ponieważ funkcja sieci CDN nie jest dostępna w bieżącym regionie".
 
     Jeśli zostanie wyświetlony ten błąd, centrum danych nie będzie go obsługiwać. Wypróbuj inne centrum danych.
 
-- `cdnProfile`: Gdy `cdnEnabled` ma wartość true, można również przekazać `cdnProfile` wartości. `cdnProfile`jest nazwą profilu CDN, w którym zostanie utworzony punkt końcowy usługi CDN. Możesz podać istniejący cdnProfile lub użyć nowego. Jeśli wartość jest RÓWNa `cdnEnabled` null i ma wartość true, zostanie użyta wartość domyślna "AzureMediaStreamingPlatformCdnProfile". Jeśli podane `cdnProfile` już istnieje, jest w nim tworzony punkt końcowy. Jeśli profil nie istnieje, zostanie automatycznie utworzony nowy profil.
+- `cdnProfile`: Gdy `cdnEnabled` ma wartość true, można również przekazać `cdnProfile` wartości. `cdnProfile`jest nazwą profilu CDN, w którym zostanie utworzony punkt końcowy usługi CDN. Możesz podać istniejący cdnProfile lub użyć nowego. Jeśli wartość jest RÓWNa NULL i `cdnEnabled` ma wartość true, zostanie użyta wartość domyślna "AzureMediaStreamingPlatformCdnProfile". Jeśli podane `cdnProfile` już istnieje, jest w nim tworzony punkt końcowy. Jeśli profil nie istnieje, zostanie automatycznie utworzony nowy profil.
 - `cdnProvider`: Gdy Usługa CDN jest włączona, można również przekazać `cdnProvider` wartości. `cdnProvider`kontroluje, który dostawca będzie używany. Obecnie obsługiwane są trzy wartości: "StandardVerizon", "PremiumVerizon" i "StandardAkamai". Jeśli nie podano wartości i `cdnEnabled` ma wartość true, używana jest wartość "StandardVerizon" (to jest domyślna).
 - `crossSiteAccessPolicies`: Służy do określania zasad dostępu między lokacjami dla różnych klientów. Aby uzyskać więcej informacji, zobacz [specyfikację plików zasad między domenami](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) i [udostępnianie usługi w granicach domen](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Ustawienia dotyczą tylko Smooth Streaming.
-- `customHostNames`: Służy do konfigurowania punktu końcowego przesyłania strumieniowego w celu akceptowania ruchu kierowanego do niestandardowej nazwy hosta. Ta właściwość jest prawidłowa dla punktów końcowych przesyłania strumieniowego w warstwie Standardowa i `cdnEnabled`Premium i można ją ustawić w przypadku: false.
+- `customHostNames`: Służy do konfigurowania punktu końcowego przesyłania strumieniowego w celu akceptowania ruchu kierowanego do niestandardowej nazwy hosta. Ta właściwość jest prawidłowa dla punktów końcowych przesyłania strumieniowego w warstwie Standardowa i Premium i można ją ustawić w przypadku `cdnEnabled` : false.
 
-    Własność nazwy domeny musi zostać potwierdzona przez Media Services. Media Services weryfikuje własność nazwy domeny, wymagając `CName` rekordu zawierającego identyfikator konta Media Services jako składnika, który ma zostać dodany do domeny w użyciu. Przykładowo dla elementu "sports.contoso.com", który ma być używany jako niestandardowa nazwa hosta dla punktu końcowego przesyłania strumieniowego `<accountId>.contoso.com` , rekord dla programu musi być skonfigurowany tak, aby wskazywał jedną z nazw hostów weryfikacyjnych Media Services. Nazwa hosta weryfikacji składa się z verifydns. \<MediaServices — dns strefy>.
+    Własność nazwy domeny musi zostać potwierdzona przez Media Services. Media Services weryfikuje własność nazwy domeny, wymagając `CName` rekordu zawierającego identyfikator konta Media Services jako składnika, który ma zostać dodany do domeny w użyciu. Przykładowo dla elementu "sports.contoso.com", który ma być używany jako niestandardowa nazwa hosta dla punktu końcowego przesyłania strumieniowego, rekord dla programu `<accountId>.contoso.com` musi być skonfigurowany tak, aby wskazywał jedną z nazw hostów weryfikacyjnych Media Services. Nazwa hosta weryfikacji składa się z verifydns. \<mediaservices-dns-zone> .
 
     Poniżej znajdują się oczekiwane strefy DNS, które mają być używane w zweryfikowanym rekordzie dla różnych regionów świadczenia usługi Azure.
   
@@ -109,11 +109,11 @@ Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
 
-    Na przykład `CName` rekord, który mapuje "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" na "verifydns.Media.Azure.NET", udowadnia, że identyfikator Media Services 945a4c4e-28ea-45cd-8ccb-a519f6b700ad ma własność domeny contoso.com, co umożliwia użycie dowolnej nazwy w obszarze contoso.com jako niestandardowej nazwy hosta dla punktu końcowego przesyłania strumieniowego w ramach tego konta. Aby znaleźć wartość identyfikatora usługi multimediów, przejdź do [Azure Portal](https://portal.azure.com/) i wybierz swoje konto usługi multimediów. **Identyfikator konta** jest wyświetlany w prawym górnym rogu strony.
+    Na przykład rekord, `CName` który mapuje "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" na "verifydns.Media.Azure.NET", udowadnia, że identyfikator Media Services 945a4c4e-28ea-45cd-8ccb-a519f6b700ad ma własność domeny contoso.com, co umożliwia użycie dowolnej nazwy w obszarze contoso.com jako niestandardowej nazwy hosta dla punktu końcowego przesyłania strumieniowego w ramach tego konta. Aby znaleźć wartość identyfikatora usługi multimediów, przejdź do [Azure Portal](https://portal.azure.com/) i wybierz swoje konto usługi multimediów. **Identyfikator konta** jest wyświetlany w prawym górnym rogu strony.
 
     Jeśli podjęto próbę ustawienia niestandardowej nazwy hosta bez właściwej weryfikacji `CName` rekordu, odpowiedź DNS zakończy się niepowodzeniem, a następnie będzie buforowana przez jakiś czas. Po wprowadzeniu prawidłowego rekordu może upłynąć trochę czasu, dopóki buforowana odpowiedź nie zostanie ponownie sprawdzona. W zależności od dostawcy DNS dla domeny niestandardowej trwa to kilka minut, aby ponownie sprawdzić poprawność rekordu.
 
-    Oprócz `CName` mapowania `<accountId>.<parent domain>` do `verifydns.<mediaservices-dns-zone>`programu należy utworzyć inny `CName` , który mapuje niestandardową nazwę hosta (na przykład `sports.contoso.com`) na nazwę hosta punktu końcowego Media Services streaming (na przykład `amstest-usea.streaming.media.azure.net`).
+    Oprócz `CName` mapowania `<accountId>.<parent domain>` do programu `verifydns.<mediaservices-dns-zone>` należy utworzyć inny, `CName` który mapuje niestandardową nazwę hosta (na przykład `sports.contoso.com` ) na nazwę hosta punktu końcowego Media Services streaming (na przykład `amstest-usea.streaming.media.azure.net` ).
 
     > [!NOTE]
     > Punkty końcowe przesyłania strumieniowego znajdujące się w tym samym centrum danych nie mogą współużytkować tej samej nazwy hosta niestandardowego.
@@ -130,7 +130,7 @@ Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości
     - Zatrzymywanie: przechodzi do stanu zatrzymania
     - Usuwanie: jest usuwane
 
-- `scaleUnits`: Zapewniają dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. Jeśli musisz przejść do typu **Premium** , Dostosuj `scaleUnits`.
+- `scaleUnits`: Zapewniają dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. Jeśli musisz przejść do typu **Premium** , Dostosuj `scaleUnits` .
 
 ## <a name="why-use-multiple-streaming-endpoints"></a>Dlaczego warto używać wielu punktów końcowych przesyłania strumieniowego?
 

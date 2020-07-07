@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233214"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter
@@ -32,12 +32,12 @@ Wykonasz następujące zadania:
 > * Konfigurowanie usługi Azure DevOps i subskrypcji platformy Azure 
 > * Zatwierdzanie zmian w usłudze GitHub i automatyczne wdrażanie ich na platformie Azure
 > * Badanie potoku ciągłej integracji/ciągłego wdrażania usługi Azure Pipelines
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Możesz uzyskać ją bezpłatnie za pośrednictwem programu [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-* Dostęp do usługi GitHub lub zewnętrznego repozytorium git, które zawiera .NET, Java, PHP, Node. js, Python lub statyczny kod internetowy.
+* Dostęp do usługi GitHub lub zewnętrznego repozytorium git, które zawiera .NET, Java, PHP, Node.js, Python lub static Web Code.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -97,7 +97,7 @@ Usługa Azure DevOps Starter automatycznie konfiguruje potok ciągłej integracj
 
    ![Strona kompilacje Azure Pipelines](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Wybierz pozycję **Edit** (Edytuj).
+1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Wybierz pozycję **Edytuj**.
 
 1. Kompilacja wykonuje różne zadania, takie jak pobieranie źródeł z repozytorium, przywracanie zależności i publikowanie danych wyjściowych dla wdrożeń. Po prawej stronie w polu **Nazwa**Zmień nazwę potoku kompilacji na coś bardziej opisowego. Wybierz pozycję **zapisz & kolejkę**, a następnie wybierz pozycję **Zapisz**. Wprowadź komentarz, a następnie wybierz pozycję **Zapisz** ponownie.
 
@@ -107,7 +107,7 @@ Usługa Azure DevOps Starter automatycznie konfiguruje potok ciągłej integracj
 
 1. Wybierz kartę **wyzwalacze** . Azure DevOps projects automatycznie tworzy wyzwalacz elementu konfiguracji z niektórymi ustawieniami domyślnymi. Można ustawić wyzwalacze, takie jak **włączenie ciągłej integracji** , aby uruchamiać kompilację za każdym razem, gdy zatwierdzisz zmianę kodu. Możesz również ustawić wyzwalacze, aby zaplanować uruchamianie kompilacji o określonych godzinach.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Azure App Service i powiązane zasoby, które zostały utworzone w tym samouczku, nie są już potrzebne, można je usunąć. Użyj funkcji **Usuń** na pulpicie nawigacyjnym usługi DevOps Projects.
 

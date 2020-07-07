@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335759"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interakcja przez człowieka w przykładowej weryfikacji Durable Functions-telefonie
@@ -40,16 +40,16 @@ W tym artykule przedstawiono następujące funkcje w przykładowej aplikacji:
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification funkcja programu Orchestrator
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `CurrentUtcDateTime` właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się `winner` , że te same wyniki z `Task.WhenAny`każdego Powtórzonego wywołania do.
+> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `CurrentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funkcja **E4_SmsPhoneVerification** używa standardowego pliku *Function. JSON* dla funkcji programu Orchestrator.
+Funkcja **E4_SmsPhoneVerification** używa standardowego *function.jsna* potrzeby funkcji programu Orchestrator.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
@@ -58,7 +58,7 @@ Oto kod implementujący funkcję:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `currentUtcDateTime` właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się `winner` , że te same wyniki z `context.df.Task.any`każdego Powtórzonego wywołania do.
+> Może nie być oczywisty w pierwszej kolejności, ale ta funkcja programu Orchestrator jest całkowicie deterministyczna. Jest to deterministyczne, ponieważ `currentUtcDateTime` Właściwość jest używana do obliczania czasu wygaśnięcia czasomierza i zwraca tę samą wartość w każdym odwrocie w tym momencie w kodzie programu Orchestrator. Takie zachowanie jest ważne, aby upewnić się, że te same `winner` wyniki z każdego Powtórzonego wywołania do `context.df.Task.any` .
 
 ---
 
@@ -78,16 +78,16 @@ Użytkownik otrzymuje wiadomość SMS z kodem zawierającym cztery cyfry. Mają 
 
 Funkcja **E4_SendSmsChallenge** używa powiązania Twilio do wysyłania wiadomości SMS z kodem czterocyfrowym do użytkownika końcowego.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> Musisz zainstalować pakiet NuGet, `Microsoft.Azure.WebJobs.Extensions.Twilio` aby uruchomić przykładowy kod.
+> Musisz zainstalować `Microsoft.Azure.WebJobs.Extensions.Twilio` pakiet NuGet, aby uruchomić przykładowy kod.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Funkcja. JSON* jest definiowana w następujący sposób:
+*function.json* został zdefiniowany w następujący sposób:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
 
@@ -118,9 +118,9 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-Funkcja Orchestrator odbiera dostarczony numer telefonu i natychmiast wysyła wiadomość SMS z losowo wygenerowanym 4-cyfrowym kodem &mdash; weryfikacyjnym na przykład *2168*. Funkcja następnie czeka 90 sekund na odpowiedź.
+Funkcja Orchestrator odbiera dostarczony numer telefonu i natychmiast wysyła wiadomość SMS z losowo wygenerowanym 4-cyfrowym kodem weryfikacyjnym &mdash; na przykład *2168*. Funkcja następnie czeka 90 sekund na odpowiedź.
 
-Aby odpowiedzieć na kod, możesz użyć [ `RaiseEventAsync` (.NET) `raiseEvent` lub (JavaScript)](durable-functions-instance-management.md) wewnątrz innej funkcji lub wywołać element webhook **sendEventUrl** http, do którego odwołuje się powyżej odpowiedzi 202 powyżej, `{eventName}` zastępując nazwę zdarzenia `SmsChallengeResponse`:
+Aby odpowiedzieć na kod, możesz użyć [ `RaiseEventAsync` (.NET) lub `raiseEvent` (JavaScript)](durable-functions-instance-management.md) wewnątrz innej funkcji lub wywołać element webhook **sendEventUrl** http, do którego odwołuje się powyżej odpowiedzi 202 powyżej, zastępując `{eventName}` nazwę zdarzenia `SmsChallengeResponse` :
 
 ```
 POST http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -130,7 +130,7 @@ Content-Type: application/json
 2168
 ```
 
-Jeśli wyślesz ten element przed wygaśnięciem czasomierza, aranżacja zostanie zakończona `output` , a pole zostanie `true`ustawione na, co wskazuje na pomyślne zweryfikowanie.
+Jeśli wyślesz ten element przed wygaśnięciem czasomierza, aranżacja zostanie zakończona, a `output` pole zostanie ustawione na `true` , co wskazuje na pomyślne zweryfikowanie.
 
 ```
 GET http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -144,7 +144,7 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":true,"createdTime":"2017-06-29T19:10:49Z","lastUpdatedTime":"2017-06-29T19:12:23Z"}
 ```
 
-Jeśli wygaśniesz czasomierz lub wprowadzisz błędny kod cztery razy, możesz wykonać zapytanie o stan i zobaczyć dane wyjściowe funkcji `false` aranżacji, wskazując, że weryfikacja telefonu nie powiodła się.
+Jeśli wygaśniesz czasomierz lub wprowadzisz błędny kod cztery razy, możesz wykonać zapytanie o stan i zobaczyć `false` dane wyjściowe funkcji aranżacji, wskazując, że weryfikacja telefonu nie powiodła się.
 
 ```
 HTTP/1.1 200 OK
@@ -156,7 +156,7 @@ Content-Length: 145
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten przykład przedstawia niektóre zaawansowane możliwości Durable Functions, w szczególności `WaitForExternalEvent` i `CreateTimer` interfejsów API. Dowiesz się, jak można je połączyć z `Task.WaitAny` programem w celu zaimplementowania niezawodnego limitu czasu, który jest często przydatny do współpracy z rzeczywistymi osobami. Więcej informacji na temat korzystania z Durable Functions można uzyskać, odczytując serie artykułów, które oferują szczegółowe pokrycie określonych tematów.
+Ten przykład przedstawia niektóre zaawansowane możliwości Durable Functions, w szczególności `WaitForExternalEvent` i `CreateTimer` interfejsów API. Dowiesz się, jak można je połączyć z programem `Task.WaitAny` w celu zaimplementowania niezawodnego limitu czasu, który jest często przydatny do współpracy z rzeczywistymi osobami. Więcej informacji na temat korzystania z Durable Functions można uzyskać, odczytując serie artykułów, które oferują szczegółowe pokrycie określonych tematów.
 
 > [!div class="nextstepaction"]
 > [Przejdź do pierwszego artykułu z serii](durable-functions-bindings.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af40becf09468dba25ad7090a6a7c2829884ab61
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 7681a60bc5da8d3cae53642096fd2290e63b8f76
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609201"
+ms.locfileid: "85799118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Samouczek: integracja Azure Active Directory z usługą Accredible
 
@@ -108,10 +108,10 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Accredible,
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://api.accredible.com/sp/admin/accredible
-        https://api.accredible.com/sp/user/accredible
-        ```
+    ```http
+    https://api.accredible.com/sp/admin/accredible
+    https://api.accredible.com/sp/user/accredible
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
 

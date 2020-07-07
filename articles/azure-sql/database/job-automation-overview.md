@@ -2,7 +2,8 @@
 title: Automatyzacja zadań
 description: Używanie automatyzacji zadań do uruchamiania skryptów Transact-SQL (T-SQL) w zestawie co najmniej jednej bazy danych
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220566"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984663"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatyzowanie zadań zarządzania za pomocą zadań bazy danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ Warto zwrócić uwagę na kilka różnic między programem SQL Agent (dostępnym
 
 | |Zadania elastyczne |Agent SQL |
 |---------|---------|---------|
-|Zakres | Dowolna liczba baz danych w Azure SQL Database i/lub magazynów danych w tej samej chmurze platformy Azure jako Agent zadania. Elementy docelowe mogą znajdować się na różnych serwerach, subskrypcjach i/lub regionach. <br><br>Grupy docelowe mogą składać się z pojedynczych baz danych lub hurtowni danych albo wszystkich baz danych na serwerze, w puli lub w mapie fragmentów (wyliczanych dynamicznie w czasie wykonywania zadania). | Każda pojedyncza baza danych w tym samym wystąpieniu co program SQL Agent. |
-|Obsługiwane interfejsy API i narzędzia | Witryna Azure Portal, program PowerShell, język T-SQL, usługa Azure Resource Manager | Język T-SQL, program SQL Server Management Studio (SSMS) |
+|**Zakres** | Dowolna liczba baz danych w Azure SQL Database i/lub magazynów danych w tej samej chmurze platformy Azure jako Agent zadania. Elementy docelowe mogą znajdować się na różnych serwerach, subskrypcjach i/lub regionach. <br><br>Grupy docelowe mogą składać się z pojedynczych baz danych lub hurtowni danych albo wszystkich baz danych na serwerze, w puli lub w mapie fragmentów (wyliczanych dynamicznie w czasie wykonywania zadania). | Każda pojedyncza baza danych w tym samym wystąpieniu co program SQL Agent. |
+|**Obsługiwane interfejsy API i narzędzia** | Witryna Azure Portal, program PowerShell, język T-SQL, usługa Azure Resource Manager | Język T-SQL, program SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Zadania agenta SQL
 

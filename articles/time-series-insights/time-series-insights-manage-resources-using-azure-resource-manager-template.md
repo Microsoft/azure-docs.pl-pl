@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536322"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów Time Series Insights przy użyciu szablonów Azure Resource Manager
@@ -64,8 +64,8 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
      | eventHubNamespaceName | Przestrzeń nazw źródłowego centrum zdarzeń. |
      | eventHubName | Nazwa źródłowego centrum zdarzeń. |
      | consumerGroupName | Nazwa grupy odbiorców, która będzie używana przez usługę Time Series Insights do odczytywania danych z centrum zdarzeń. **Uwaga:** Aby uniknąć rywalizacji o zasoby, ta grupa odbiorców musi być przeznaczona dla usługi Time Series Insights i nie może być udostępniana innym czytelnikom. |
-     | environmentName | Nazwa środowiska. Nazwa nie może zawierać znaków `<`: `>`, `%`, `&`, `:`, `\\`, `?`, `/`,, i żadnego znaku kontrolnego. Wszystkie inne znaki są dozwolone.|
-     | eventSourcename | Nazwa zasobu podrzędnego źródła zdarzeń. Nazwa nie może zawierać znaków `<`: `>`, `%`, `&`, `:`, `\\`, `?`, `/`,, i żadnego znaku kontrolnego. Wszystkie inne znaki są dozwolone. |
+     | environmentName | Nazwa środowiska. Nazwa nie może zawierać `<` znaków:, `>` ,,, `%` ,,,, `&` `:` `\\` `?` `/` i żadnego znaku kontrolnego. Wszystkie inne znaki są dozwolone.|
+     | eventSourcename | Nazwa zasobu podrzędnego źródła zdarzeń. Nazwa nie może zawierać `<` znaków:, `>` ,,, `%` ,,,, `&` `:` `\\` `?` `/` i żadnego znaku kontrolnego. Wszystkie inne znaki są dozwolone. |
 
     <div id="optional-parameters"></div>
 
@@ -77,7 +77,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
      | environmentDisplayName | Opcjonalna przyjazna nazwa wyświetlana w narzędziach lub interfejsach użytkownika zamiast nazwy środowiska. |
      | environmentSkuName | Nazwa jednostki SKU. Aby uzyskać więcej informacji, zapoznaj się ze [stroną cennika Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | Pojemność jednostki SKU. Aby uzyskać więcej informacji, zapoznaj się ze [stroną cennika Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | Minimalny przedział czasu, w którym zdarzenia środowiska będą dostępne dla zapytania. Wartość musi być określona w formacie ISO 8601, na przykład `P30D` w przypadku zasad przechowywania wynoszących 30 dni. |
+     | environmentDataRetentionTime | Minimalny przedział czasu, w którym zdarzenia środowiska będą dostępne dla zapytania. Wartość musi być określona w formacie ISO 8601, na przykład w `P30D` przypadku zasad przechowywania wynoszących 30 dni. |
      | eventSourceDisplayName | Opcjonalna przyjazna nazwa wyświetlana w narzędziach lub interfejsach użytkownika zamiast nazwy źródła zdarzenia. |
      | eventSourceTimestampPropertyName | Właściwość zdarzenia, która będzie używana jako sygnatura czasowa źródła zdarzeń. Jeśli wartość nie jest określona dla timestampPropertyName lub określono wartość null lub pusty ciąg, zostanie użyty czas tworzenia zdarzenia. |
      | eventSourceKeyName | Nazwa klucza dostępu współdzielonego, który będzie używany przez usługę Time Series Insights do łączenia się z centrum zdarzeń. |
@@ -140,7 +140,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
       Get-AzSubscription
       ```
 
-    * To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję bieżącej sesji, uruchamiając następujące polecenie. Zamień `<YourSubscriptionId>` na identyfikator GUID subskrypcji platformy Azure, której chcesz użyć:
+    * To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję bieżącej sesji, uruchamiając następujące polecenie. Zamień na `<YourSubscriptionId>` Identyfikator GUID subskrypcji platformy Azure, której chcesz użyć:
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,7 +148,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
 
 1. Utwórz nową grupę zasobów, jeśli taka nie istnieje.
 
-   * Jeśli nie masz istniejącej grupy zasobów, Utwórz nową grupę zasobów za pomocą polecenia **New-AzResourceGroup** . Podaj nazwę grupy zasobów i lokalizacji, której chcesz użyć. Przykład:
+   * Jeśli nie masz istniejącej grupy zasobów, Utwórz nową grupę zasobów za pomocą polecenia **New-AzResourceGroup** . Podaj nazwę grupy zasobów i lokalizacji, której chcesz użyć. Na przykład:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -166,7 +166,7 @@ Poniższa procedura opisuje sposób użycia programu PowerShell do wdrożenia sz
 
 1. Przetestuj wdrożenie.
 
-   * Sprawdź poprawność wdrożenia, `Test-AzResourceGroupDeployment` uruchamiając polecenie cmdlet. Podczas testowania wdrożenia podaj parametry dokładnie tak, jak podczas wykonywania wdrożenia.
+   * Sprawdź poprawność wdrożenia, uruchamiając `Test-AzResourceGroupDeployment` polecenie cmdlet. Podczas testowania wdrożenia podaj parametry dokładnie tak, jak podczas wykonywania wdrożenia.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json

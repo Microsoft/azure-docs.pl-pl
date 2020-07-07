@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418239"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Kopiowanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
@@ -42,9 +42,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Azure Wyszukiwanie poznawcze są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **AzureSearch** | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureSearch** | Tak |
 | url | Adres URL usługi wyszukiwania. | Tak |
 | key | Klucz administratora dla usługi wyszukiwania. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
@@ -80,9 +80,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane do usługi Azure Wyszukiwanie poznawcze, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **AzureSearchIndex** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AzureSearchIndex** | Tak |
 | indexName | Nazwa indeksu wyszukiwania. Data Factory nie tworzy indeksu. Indeks musi istnieć na platformie Azure Wyszukiwanie poznawcze. | Tak |
 
 **Przykład:**
@@ -112,9 +112,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane do usługi Azure Wyszukiwanie poznawcze, ustaw typ źródła w działaniu Copy na **AzureSearchIndexSink**. W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AzureSearchIndexSink** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AzureSearchIndexSink** | Tak |
 | writeBehavior | Określa, czy należy scalić lub zamienić, gdy dokument już istnieje w indeksie. Zobacz [Właściwość WriteBehavior](#writebehavior-property).<br/><br/>Dozwolone wartości to: **Scal** (wartość domyślna) i **Przekaż**. | Nie |
 | writeBatchSize | Przekazuje dane do indeksu wyszukiwania, gdy rozmiar buforu osiągnie writeBatchSize. Aby uzyskać szczegółowe informacje, zobacz [Właściwość WriteBatchSize](#writebatchsize-property) .<br/><br/>Dozwolone wartości to: integer od 1 do 1 000; wartość domyślna to 1000. | Nie |
 
@@ -177,8 +177,8 @@ W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy 
 | Double | Tak |
 | Boolean | Tak |
 | DataTimeOffset | Tak |
-| Tablica ciągów | Nie |
-| GeographyPoint względem | Nie |
+| Tablica ciągów | N |
+| GeographyPoint względem | N |
 
 Obecnie inne typy danych (np. ComplexType) nie są obsługiwane. Aby uzyskać pełną listę obsługiwanych typów danych Wyszukiwanie poznawcze platformy Azure, zobacz [obsługiwane typy danych (Azure wyszukiwanie poznawcze)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
