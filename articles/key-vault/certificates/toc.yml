@@ -20,6 +20,8 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    - name: Przykłady kodu dla usługi Key Vault
+      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: Samouczki
   items:
     - name: Importowanie certyfikatu
@@ -36,10 +38,6 @@
       href: create-certificate.md
     - name: Tworzenie żądania podpisania certyfikatu
       href: create-certificate-signing-request.md
-- name: Samples
-  items:
-    - name: Przykłady kodu dla usługi Key Vault
-      href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
 - name: Przewodniki z instrukcjami
   items:
     - name: Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert

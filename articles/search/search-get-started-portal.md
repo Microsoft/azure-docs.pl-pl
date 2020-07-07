@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 2829f451b90a20c5ad399796b0485c6e533bbb23
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 28eb88a40139352b475851003a1092954a97ef64
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562281"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954319"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 > [!div class="op_single_selector"]
@@ -262,7 +262,7 @@ Przy użyciu **Eksploratora wyszukiwania** w witrynie Azure Portal przedstawiono
 
 Przedstawiono również sposób znajdowania indeksów, indeksatorów i źródeł danych w portalu. Dla dowolnego nowego źródła danych możesz przy użyciu portalu szybko sprawdzić jego definicje lub kolekcje pól przy minimalnym nakładzie pracy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
@@ -275,4 +275,4 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 Użyj Kreatora portalu do wygenerowania gotowej do użycia aplikacji sieci Web, która działa w przeglądarce. Możesz wypróbować ten kreator na utworzonym małym indeksie lub użyć jednego z wbudowanych zestawów danych przykładowych, aby skorzystać z bardziej zaawansowanego wyszukiwania.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji wyszukiwania w portalu](search-create-app-portal.md)
+> [Tworzenie aplikacji demonstracyjnej w portalu](search-create-app-portal.md)

@@ -103,6 +103,8 @@
           displayName: ARM
     - name: Konfigurowanie wewnętrznego modułu równoważenia obciążenia
       items:
+        - name: Azure Portal
+          href: tutorial-load-balancer-standard-internal-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
@@ -121,8 +123,6 @@
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: Konfigurowanie portów wysokiej dostępności dla wewnętrznego modułu równoważenia obciążenia
-      href: load-balancer-configure-ha-ports.md
     - name: Przechodzenie między regionami
       items:
         - name: Zewnętrzne równoważenie obciążenia — portal

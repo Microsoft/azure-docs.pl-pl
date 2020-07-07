@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75780381"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920847"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Samouczek: Równoważenie obciążenia ruchu wewnętrznego przy użyciu standardowego modułu równoważenia obciążenia w Azure Portal
 
 Równoważenie obciążenia zapewnia większą dostępność i możliwości skalowania dzięki rozdzielaniu żądań przychodzących między maszyny wirtualne. Za pomocą Azure Portal można utworzyć standardowy moduł równoważenia obciążenia i zrównoważyć ruch wewnętrzny między maszynami wirtualnymi. W tym samouczku przedstawiono sposób tworzenia i konfigurowania wewnętrznego modułu równoważenia obciążenia, serwerów zaplecza i zasobów sieciowych w warstwie cenowej standardowa.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 Jeśli wolisz, możesz wykonać te kroki przy użyciu [interfejsu wiersza polecenia platformy Azure](load-balancer-get-started-ilb-arm-cli.md) lub [programu Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md), zamiast korzystać z portalu.
 
-Aby wykonać kroki opisane w tym samouczku, zaloguj się do Azure Portal pod [https://portal.azure.com](https://portal.azure.com)adresem.
+Aby wykonać kroki opisane w tym samouczku, zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>Tworzenie sieci wirtualnej, serwerów zaplecza i testowej maszyny wirtualnej
 
@@ -38,26 +38,26 @@ Najpierw utwórz sieć wirtualną. W sieci wirtualnej Utwórz dwie maszyny wirtu
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej**.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
    
 1. W okienku **Tworzenie sieci wirtualnej** wpisz lub wybierz następujące wartości:
    
    - **Nazwa**: wpisz **MyVNet**.
    - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź nazwę **MyResourceGroupLB** i wybierz przycisk **OK**. 
-   - **Subnet** > **Nazwa**podsieci: wpisz **MyBackendSubnet**.
+   - **Podsieć**  >  **Nazwa**: wpisz **MyBackendSubnet**.
    
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie sieci wirtualnej](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **systemu Windows Server 2016 Datacenter**. 
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2016 Datacenter**. 
    
 1. W obszarze **Tworzenie maszyny wirtualnej** wpisz lub wybierz następujące wartości na karcie **Podstawowe**:
-   - **Subscription** > **Grupa zasobów**subskrypcji: Lista rozwijana i wybierz pozycję **MyResourceGroupLB**.
-   - **Szczegóły** > wystąpienia**Nazwa maszyny wirtualnej**: wpisz **MyVM1**.
-   - **Instance Details** > **Region**szczegółów wystąpienia: wybierz pozycję **Wschodnie stany USA 2**.
+   - **Subskrypcja**  >  **Grupa zasobów**: Lista rozwijana i wybierz pozycję **MyResourceGroupLB**.
+   - **Szczegóły wystąpienia**  >  **Nazwa maszyny wirtualnej**: wpisz **MyVM1**.
+   - **Szczegóły wystąpienia**  >  **Region**: wybierz pozycję **Wschodnie stany USA 2**.
   
    
 1. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**. 
@@ -88,7 +88,7 @@ Najpierw utwórz sieć wirtualną. W sieci wirtualnej Utwórz dwie maszyny wirtu
 
 Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia przy użyciu portalu. Utworzona przez Ciebie nazwa i adres IP są automatycznie konfigurowane jako fronton modułu równoważenia obciążenia.
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
    
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
@@ -180,6 +180,8 @@ Reguła modułu równoważenia obciążenia o nazwie **MyLoadBalancerRule** nas�
    - **Pula zaplecza**: wybierz pozycję **MyBackendPool**.
    - **Sonda kondycji**: wybierz pozycję **MyHealthProbe**. 
    
+Aby skonfigurować [porty o wysokiej dostępności](load-balancer-ha-ports-overview.md) przy użyciu Azure Portal, zaznacz pole wyboru **porty ha** . W przypadku wybrania tej konfiguracji pokrewny port i protokół są wypełniane automatycznie. 
+
 1. Wybierz przycisk **OK**.
    
    ![Dodawanie reguły modułu równoważenia obciążenia](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
@@ -252,7 +254,7 @@ Na każdym serwerze zaplecza należy użyć programu PowerShell do zainstalowani
 
    ![Nowa domyślna strona usług IIS](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
    
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć moduł równoważenia obciążenia i wszystkie powiązane z nim zasoby, kiedy nie będą już potrzebne, otwórz grupę zasobów **MyResourceGroupLB** i wybierz pozycję **Usuń grupę zasobów**.
 

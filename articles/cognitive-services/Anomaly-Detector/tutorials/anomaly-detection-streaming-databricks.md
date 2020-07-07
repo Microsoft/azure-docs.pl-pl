@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918933"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Samouczek: wykrywanie anomalii na danych przesyłanych strumieniowo przy użyciu Azure Databricks
 
@@ -61,7 +61,7 @@ Aby uzyskać informacje na temat tworzenia przestrzeni nazw i centrum zdarzeń, 
 
 W tej sekcji utworzysz obszar roboczy Azure Databricks przy użyciu [Azure Portal](https://portal.azure.com/).
 
-1. W Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Azure Databricks**analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
 
     ![Datakostki na Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -72,11 +72,11 @@ W tej sekcji utworzysz obszar roboczy Azure Databricks przy użyciu [Azure Porta
     |---------|---------|
     |**Nazwa obszaru roboczego**     | Podaj nazwę obszaru roboczego usługi Databricks.        |
     |**Subskrypcja**     | Z listy rozwijanej wybierz subskrypcję platformy Azure.        |
-    |**Grupa zasobów**     | Określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej grupy. Grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../../../azure-resource-manager/management/overview.md). |
+    |**Grupa zasobów**     | Określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej grupy. Grupa zasobów to kontener zawierający powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../../../azure-resource-manager/management/overview.md). |
     |**Lokalizacja**     | Wybierz pozycję **Wschodnie stany USA 2** lub jeden z innych dostępnych regionów. Dostępność regionów można znaleźć w temacie [usługi platformy Azure dostępne według regionów](https://azure.microsoft.com/regions/services/) .        |
     |**Warstwa cenowa**     |  Wybierz warstwę **Standardowa** lub **Premium**. NIE wybieraj **wersji próbnej**. Aby uzyskać więcej informacji o tych warstwach, zobacz [stronę usługi Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Wybierz przycisk **Utwórz**.
+    Wybierz pozycję **Utwórz**.
 
 4. Tworzenie obszaru roboczego trwa kilka minut. 
 
@@ -96,7 +96,7 @@ W tej sekcji utworzysz obszar roboczy Azure Databricks przy użyciu [Azure Porta
 
    * Wprowadź nazwę klastra.
    * W tym artykule należy utworzyć klaster ze środowiskiem uruchomieniowym **5,2** . NIE wybieraj środowiska uruchomieniowego **5,3** .
-   * Upewnij się, że pole wyboru **Zakończ \_ \_ po minutach braku aktywności** jest zaznaczone. Określ czas trwania (w minutach) działania klastra, Jeśli klaster nie jest używany.
+   * Upewnij się, że pole wyboru **Zakończ po \_ \_ minutach braku aktywności** jest zaznaczone. Określ czas trwania (w minutach) działania klastra, Jeśli klaster nie jest używany.
 
      Wybierz pozycję **Utwórz klaster**. 
 4. Tworzenie klastra trwa kilka minut. Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
@@ -123,7 +123,7 @@ Zapisz wartości dotyczące aplikacji usługi Twitter. Będą one potrzebne w da
 
 W tym samouczku tweety są wysyłane do usługi Event Hubs za pomocą interfejsów API usługi Twitter. Ponadto dane są odczytywane i zapisywane w usłudze Azure Event Hubs za pomocą [łącznika Event Hubs platformy Apache Spark](https://github.com/Azure/azure-event-hubs-spark). Aby korzystać z tych interfejsów API w ramach klastra, dodaj je jako biblioteki do usługi Azure Databricks, a następnie je skojarz z klastrem Spark. Poniższe instrukcje pokazują, jak dodać biblioteki do folderu **udostępnionego** w obszarze roboczym.
 
-1. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Obszar roboczy**, a następnie kliknij prawym przyciskiem myszy pozycję **Udostępnione**. Z menu kontekstowego wybierz polecenie **Utwórz** > **bibliotekę**.
+1. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Obszar roboczy**, a następnie kliknij prawym przyciskiem myszy pozycję **Udostępnione**. Z menu kontekstowego wybierz polecenie **Utwórz**  >  **bibliotekę**.
 
    ![Okno dialogowe Dodawanie biblioteki](../media/tutorials/databricks-add-library-option.png "Okno dialogowe Dodawanie biblioteki")
 
@@ -134,7 +134,7 @@ W tym samouczku tweety są wysyłane do usługi Event Hubs za pomocą interfejs�
 
      ![Podaj współrzędne Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Podaj współrzędne Maven")
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
 4. Wybierz folder, do którego dodano bibliotekę, a następnie wybierz nazwę biblioteki.
 
@@ -155,7 +155,7 @@ W tym samouczku użyjesz [interfejsów API wykrywania anomalii w usłudze Azure 
 
 2. Wybierz pozycję **+ Utwórz zasób**.
 
-3. W obszarze Azure Marketplace wybierz pozycję **AI + Machine Learning** > **Zobacz wszystko** > **Cognitive Services-więcej** > **wykrywania anomalii**. Można też użyć [tego linku](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) , aby przejść bezpośrednio do okna dialogowego **Tworzenie** .
+3. W obszarze Azure Marketplace wybierz pozycję **AI + Machine Learning**  >  **Zobacz wszystko**  >  **Cognitive Services-więcej**  >  **wykrywania anomalii**. Można też użyć [tego linku](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) , aby przejść bezpośrednio do okna dialogowego **Tworzenie** .
 
     ![Utwórz zasób wykrywania anomalii](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Utwórz zasób wykrywania anomalii")
 
@@ -170,7 +170,7 @@ W tym samouczku użyjesz [interfejsów API wykrywania anomalii w usłudze Azure 
     |Grupa zasobów     | Określ, czy chcesz utworzyć nową grupę zasobów, czy wybrać istniejącą grupę.        |
 
 
-     Wybierz przycisk **Utwórz**.
+     Wybierz pozycję **Utwórz**.
 
 5. Po utworzeniu zasobu na karcie **Przegląd** skopiuj i Zapisz adres URL **punktu końcowego** , jak pokazano na zrzucie ekranu. Następnie wybierz pozycję **Pokaż klucze dostępu**.
 
@@ -195,7 +195,7 @@ W tej sekcji w obszarze roboczym usługi Databricks zostaną utworzone dwa notes
 
     ![Tworzenie notesu w kostkach](../media/tutorials/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz przycisk **Utwórz**.
+    Wybierz pozycję **Utwórz**.
 
 3. Powtórz te kroki, aby utworzyć notes **AnalyzeTweetsFromEventHub**.
 
@@ -300,6 +300,7 @@ pool.shutdown()
 
 Aby uruchomić notes, naciśnij klawisze **SHIFT + ENTER**. Powinny pojawić się dane wyjściowe podobne do następującego fragmentu kodu. Każde zdarzenie w danych wyjściowych jest kombinacją sygnatury czasowej i liczby "podobne" do Event Hubs.
 
+```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
     Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
@@ -318,6 +319,7 @@ Aby uruchomić notes, naciśnij klawisze **SHIFT + ENTER**. Powinny pojawić si�
 
     ...
     ...
+```
 
 ## <a name="read-tweets-from-event-hubs"></a>Odczytywanie tweetów z usługi Event Hubs
 
@@ -423,16 +425,18 @@ object AnomalyDetector extends Serializable {
 
 Aby uruchomić notes, naciśnij klawisze **SHIFT + ENTER**. Powinny pojawić się dane wyjściowe podobne do następującego fragmentu kodu.
 
-    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
-    import java.net.URL
-    import java.sql.Timestamp
-    import com.google.gson.{Gson, GsonBuilder, JsonParser}
-    import javax.net.ssl.HttpsURLConnection
-    defined class Point
-    defined class Series
-    defined class AnomalySingleResponse
-    defined class AnomalyBatchResponse
-    defined object AnomalyDetector
+```scala
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
+defined class Point
+defined class Series
+defined class AnomalySingleResponse
+defined class AnomalyBatchResponse
+defined object AnomalyDetector
+```
 
 Następnie przygotuj funkcję agregacji do użycia w przyszłości.
 ```scala
@@ -495,11 +499,13 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 Aby uruchomić notes, naciśnij klawisze **SHIFT + ENTER**. Powinny pojawić się dane wyjściowe podobne do następującego fragmentu kodu.
 
-    import org.apache.spark.sql.Row
-    import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
-    import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-    import scala.collection.immutable.ListMap
-    defined class AnomalyDetectorAggregationFunction
+```scala
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
+defined class AnomalyDetectorAggregationFunction
+```
 
 Następnie Załaduj dane z centrum zdarzeń na potrzeby wykrywania anomalii. Zastąp symbol zastępczy wartościami utworzonego wcześniej Event Hubs platformy Azure.
 
@@ -674,7 +680,7 @@ Wynik w następujący sposób:
 Gotowe. Korzystając z Azure Databricks, dane przesyłane strumieniowo do usługi Azure Event Hubs zostały pomyślnie przesłane przy użyciu łącznika Event Hubs, a następnie uruchamiane jest wykrywanie anomalii na danych przesyłanych strumieniowo w czasie niemal rzeczywistym.
 Chociaż w tym samouczku stopień szczegółowości jest co godzinę, zawsze można zmienić stopień szczegółowości, aby sprostać potrzebom. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu tego samouczka możesz zakończyć działanie klastra. Aby to zrobić, w obszarze roboczym Azure Databricks wybierz pozycję **klastry** w okienku po lewej stronie. W przypadku klastra, który chcesz zakończyć, przesuń kursor na wielokropek w kolumnie **Akcje** , a następnie wybierz ikonę **zakończenia** , a następnie wybierz pozycję **Potwierdź**.
 

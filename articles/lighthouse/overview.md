@@ -3,12 +3,12 @@ title: Co to jest Azure Lighthouse?
 description: Usługa Azure Lighthouse umożliwia dostawcom usług dostarczanie usług zarządzanych klientom o większej wydajności i skalowalności.
 ms.date: 05/28/2020
 ms.topic: overview
-ms.openlocfilehash: 27f99cb398294d570b2d91131fcf40dd0648e981
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d4eea306341c690d5dea040d5ae3b20ef8d83084
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919094"
 ---
 # <a name="what-is-azure-lighthouse"></a>Co to jest Azure Lighthouse?
 
@@ -16,13 +16,13 @@ Usługa Azure Lighthouse oferuje dostawcom usług jedną płaszczyznę kontroli 
 
 ![Diagram omówienia usługi Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 Usługa Azure Lighthouse pozwala na opłacalną i wydajną kompilację i dostarczanie usług zarządzanych klientom. Korzyści:
 
 - **Zarządzanie na dużą skalę**: zaangażowanie klientów i operacje związane z cyklem życia w celu zarządzania zasobami klientów są łatwiejsze i bardziej skalowalne. Istniejące interfejsy API, narzędzia do zarządzania i przepływy pracy mogą być używane z delegowanymi zasobami klientów, niezależnie od regionów, w których się znajdują.
 - **Większa widoczność i precyzja dla klientów**: klienci będą mieli lepszy wgląd w swoje działania i precyzyjną kontrolę nad zakresem delegowanym do zarządzania, w tym możliwość całkowitego usuwania dostępu, gdy adres IP jest zachowywany.
-- **Kompleksowe i ujednolicone narzędzia platformy**: nasze środowisko ułatwiające korzystanie z kluczowych scenariuszy dostawców usług, w tym wielu modeli licencjonowania, takich jak EA, CSP i płatność zgodnie z rzeczywistym użyciem. Nowe możliwości działają z istniejącymi narzędziami i interfejsami API, modelami licencjonowania i programami partnerskimi, takimi jak [program Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview). Usługę Azure Lighthouse można zintegrować z istniejącymi przepływami pracy i aplikacjami. możesz śledzić wpływ na zaangażowanie klientów, [ŁĄCZĄC identyfikator partnera](../billing/billing-partner-admin-link-started.md).
+- **Kompleksowe i ujednolicone narzędzia platformy**: nasze środowisko ułatwiające korzystanie z kluczowych scenariuszy dostawców usług, w tym wielu modeli licencjonowania, takich jak EA, CSP i płatność zgodnie z rzeczywistym użyciem. Nowe możliwości działają z istniejącymi narzędziami i interfejsami API, modelami licencjonowania i programami partnerskimi, takimi jak [program Cloud Solution Provider (CSP)](/partner-center/csp-overview). Usługę Azure Lighthouse można zintegrować z istniejącymi przepływami pracy i aplikacjami. możesz śledzić wpływ na zaangażowanie klientów, [ŁĄCZĄC identyfikator partnera](../billing/billing-partner-admin-link-started.md).
 
 Nie ma dodatkowych kosztów związanych z usługą Azure Lighthouse do zarządzania zasobami platformy Azure dla klientów. Wszyscy klienci lub partnerzy platformy Azure mogą korzystać z usługi Azure Lighthouse.
 

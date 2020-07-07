@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f5d0e9a851c41fa88461ed790ad3fe4e89d0fa21
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563247"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957143"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -53,22 +53,24 @@ Aparat rozpoznawania formularzy zawiera również model służący do odczytywan
 
 Aparat rozpoznawania formularzy może również wyodrębnić strukturę tekstu i tabeli (numery wierszy i kolumn skojarzonych z tekstem) za pomocą optycznego rozpoznawania znaków (OCR) o wysokiej rozdzielczości.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
 
-* Niestandardowa — uczenie modelu do formularzy
-  * Uczenie bez etykiet
-    * [Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST z zwinięciem](quickstarts/curl-train-extract.md)
-    * [Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python](quickstarts/python-train-extract.md)
-  * Uczenie z etykietami
-    * [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](quickstarts/label-tool.md)
-    * [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python](quickstarts/python-labeled-data.md)
-* Wstępnie utworzone potwierdzenia — Wyodrębnij dane z przyjęć sprzedaży w USA
-  * [Szybki Start: wyodrębnianie danych przyjęcia przy użyciu zwinięcia](quickstarts/curl-receipts.md)
-  * [Szybki Start: wyodrębnianie danych przyjęcia przy użyciu języka Python](quickstarts/python-receipts.md)
-* Układ — Wyodrębnij strukturę tekstu i tabeli z formularzy
-  * [Szybki Start: wyodrębnianie danych układu przy użyciu języka Python](quickstarts/python-layout.md)
+* [Biblioteka kliencka — szybki start](./quickstarts/client-library.md) (wszystkie języki, wiele scenariuszy)
+* Przewodnik Szybki Start dotyczący interfejsu użytkownika sieci Web
+  * [Szkolenie z etykietami — przykładowe narzędzie do etykietowania](quickstarts/label-tool.md)
+* Przewodniki Szybki Start
+  * Uczenie modeli niestandardowych i wyodrębnianie danych formularza
+    * [Uczenie bez etykiet — zwinięcie](quickstarts/curl-train-extract.md)
+    * [Uczenie bez etykiet — Python](quickstarts/python-train-extract.md)
+    * [Uczenie z etykietami — Python](quickstarts/python-labeled-data.md)
+  * Wyodrębnij dane z przyjęć sprzedaży w USA
+    * [Wyodrębnij dane przyjęcia — zwinięcie](quickstarts/curl-receipts.md)
+    * [Wyodrębnij dane przyjęcia — Python](quickstarts/python-receipts.md)
+  * Wyodrębnij strukturę tekstu i tabeli z formularzy
+    * [Wyodrębnij dane układu — Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Przeglądanie interfejsów API REST
 
