@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058201"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Rozwiązywanie problemów ze zmianami nazw urządzeń maszyny wirtualnej z systemem Linux
@@ -67,7 +67,7 @@ Aplikacje używają jednostek LUN do znajdowania wszystkich dołączonych dyskó
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3
 
-Informacje o numerze LUN z konta gościa systemu Linux `lsscsi` są pobierane za pomocą programu lub podobnego narzędzia:
+Informacje o numerze LUN z konta gościa systemu Linux są pobierane za pomocą programu `lsscsi` lub podobnego narzędzia:
 
       $ sudo lsscsi
 
@@ -113,7 +113,7 @@ Informacje o jednostce LUN gościa są używane w metadanych subskrypcji platfor
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>Odnajdź Identyfikatory UUID systemu plików przy użyciu blkid
 
-Aplikacje i skrypty odczytują dane wyjściowe `blkid`lub podobne źródła informacji, aby skonstruować linki symboliczne w ścieżce/dev. Dane wyjściowe pokazują Identyfikatory UUID wszystkich dysków dołączonych do maszyny wirtualnej i ich skojarzony plik urządzenia:
+Aplikacje i skrypty odczytują dane wyjściowe `blkid` lub podobne źródła informacji, aby skonstruować linki symboliczne w ścieżce/dev. Dane wyjściowe pokazują Identyfikatory UUID wszystkich dysków dołączonych do maszyny wirtualnej i ich skojarzony plik urządzenia:
 
     $ sudo blkid -s UUID
 
@@ -150,7 +150,7 @@ Aby uzyskać najnowsze zasady usługi Azure Storage, uruchom następujące polec
 
 ## <a name="see-also"></a>Zobacz także
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Ubuntu: używanie identyfikatora UUID](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: trwałe nazewnictwo](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)

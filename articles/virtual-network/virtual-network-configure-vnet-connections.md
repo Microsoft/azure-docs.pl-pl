@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71099056"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN
@@ -252,13 +252,13 @@ Włącz protokół BGP w bramie sieci wirtualnej przez utworzenie dla niego syst
 
 Sprawdzenie jednostki SKU spowoduje przestoje od 20 do 30 minut. Gdy tylko brama ma poprawną jednostkę SKU, można dodać liczbę AS przy użyciu polecenia [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) programu PowerShell polecenia cmdlet. Po skonfigurowaniu numeru AS adres IP elementu równorzędnego protokołu BGP dla bramy zostanie udostępniony automatycznie.
 
-Należy ręcznie podać `LocalNetworkGateway` numer AS i adres równorzędny protokołu BGP. Wartości `ASN` i `-BgpPeeringAddress` można ustawić przy użyciu polecenia [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) lub [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) programu PowerShell polecenia cmdlet. Niektóre z nich są zarezerwowane na platformę Azure i nie można ich używać zgodnie [z opisem w temacie Informacje o protokole BGP z platformą azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
+Należy ręcznie podać `LocalNetworkGateway` numer AS i adres równorzędny protokołu BGP. Wartości i można ustawić `ASN` przy `-BgpPeeringAddress` użyciu polecenia [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) lub [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) programu PowerShell polecenia cmdlet. Niektóre z nich są zarezerwowane na platformę Azure i nie można ich używać zgodnie [z opisem w temacie Informacje o protokole BGP z platformą azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
 
-Obiekt połączenia musi mieć włączony protokół BGP. `-EnableBGP` Wartość można ustawić na `$True` za pomocą opcji [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) lub [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
+Obiekt połączenia musi mieć włączony protokół BGP. Wartość można ustawić `-EnableBGP` na `$True` za pomocą opcji [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) lub [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
 
 ### <a name="validate-the-bgp-configuration"></a>Weryfikowanie konfiguracji protokołu BGP
 
-Aby sprawdzić, czy protokół BGP jest skonfigurowany prawidłowo, można uruchomić `get-AzureRmVirtualNetworkGateway` i `get-AzureRmLocalNetworkGateway` polecenia cmdlet. Następnie zobaczysz dane wyjściowe powiązane z protokołem BGP `BgpSettingsText` w części. Przykład:
+Aby sprawdzić, czy protokół BGP jest skonfigurowany prawidłowo, można uruchomić `get-AzureRmVirtualNetworkGateway` i `get-AzureRmLocalNetworkGateway` polecenia cmdlet. Następnie zobaczysz dane wyjściowe powiązane z protokołem BGP w `BgpSettingsText` części. Na przykład:
 
 ```
 {

@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71203655"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Zarządzanie usługą certyfikatów magazynu OPC
@@ -25,11 +25,11 @@ Po wdrożeniu magazynu OPC należy utworzyć certyfikat głównego urzędu certy
 > [!IMPORTANT]
 > Rola Administrator jest wymagana do utworzenia lub odnowienia certyfikatu urzędu certyfikacji wystawcy.
 
-1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net`i zaloguj się.
+1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net` i zaloguj się.
 2. Przejdź do pozycji **grupy certyfikatów**.
-3. Na liście znajduje się jedna domyślna grupa certyfikatów. Wybierz pozycję **Edit** (Edytuj).
+3. Na liście znajduje się jedna domyślna grupa certyfikatów. Wybierz pozycję **Edytuj**.
 4. W obszarze **Edytuj szczegóły grupy certyfikatów**możesz zmodyfikować nazwę podmiotu i okres istnienia urzędu certyfikacji i certyfikatów aplikacji. Temat i okresy istnienia powinny być ustawiane tylko raz przed wystawieniem pierwszego certyfikatu urzędu certyfikacji. Zmiany okresu istnienia podczas operacji mogą spowodować niespójne okresy istnienia wystawionych certyfikatów i list CRL.
-5. Wprowadź prawidłowy temat (na przykład `CN=My CA Root, O=MyCompany, OU=MyDepartment`).<br>
+5. Wprowadź prawidłowy temat (na przykład `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
    > W przypadku zmiany tematu należy odnowić certyfikat wystawcy lub usługa nie będzie mogła podpisać certyfikatów aplikacji. Podmiot konfiguracji jest sprawdzany pod względem tematu aktywnego certyfikatu wystawcy. Jeśli tematy nie są zgodne, odmówiono podpisania certyfikatu.
 6. Wybierz pozycję **Zapisz**.
@@ -51,7 +51,7 @@ W poniższym przepływie pracy wszystkie żądania certyfikatów w usuniętych S
 > [!IMPORTANT]
 > Aby odnowić listę CRL wystawcy, wymagana jest rola administratora.
 
-1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup.azurewebsites.net`i zaloguj się.
+1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup.azurewebsites.net` i zaloguj się.
 2. Przejdź do strony **grupy certyfikatów** .
 3. Wybierz pozycję **szczegóły**. Powinno to spowodować wyświetlenie bieżącego certyfikatu i informacji o liście CRL.
 4. Wybierz pozycję **Aktualizuj listę odwołania certyfikatów (CRL)** , aby wystawić zaktualizowaną listę CRL dla wszystkich aktywnych certyfikatów wystawcy w magazynie magazynu OPC.
@@ -66,8 +66,8 @@ Domyślnie uwierzytelniony użytkownik w dzierżawie może zalogować się w us�
 ### <a name="add-user"></a>Dodawanie użytkownika
 
 1. Otwórz witrynę Azure Portal.
-2. Przejdź do pozycji **Azure Active Directory** > **aplikacje dla przedsiębiorstw**.
-3. Wybierz pozycję Rejestracja mikrousługi magazynu OPC (domyślnie `resourceGroupName-service`).
+2. Przejdź do pozycji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
+3. Wybierz pozycję Rejestracja mikrousługi magazynu OPC (domyślnie `resourceGroupName-service` ).
 4. Przejdź do pozycji **Użytkownicy i grupy**.
 5. Wybierz pozycję **Dodaj użytkownika**.
 6. Wybierz lub Zaproś użytkownika o przypisanie do określonej roli.
@@ -78,8 +78,8 @@ Domyślnie uwierzytelniony użytkownik w dzierżawie może zalogować się w us�
 ### <a name="remove-user"></a>Usuwanie użytkownika
 
 1. Otwórz witrynę Azure Portal.
-2. Przejdź do pozycji **Azure Active Directory** > **aplikacje dla przedsiębiorstw**.
-3. Wybierz pozycję Rejestracja mikrousługi magazynu OPC (domyślnie `resourceGroupName-service`).
+2. Przejdź do pozycji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
+3. Wybierz pozycję Rejestracja mikrousługi magazynu OPC (domyślnie `resourceGroupName-service` ).
 4. Przejdź do pozycji **Użytkownicy i grupy**.
 5. Wybierz użytkownika z rolą do usunięcia, a następnie wybierz pozycję **Usuń**.
 6. Aby usunąć użytkowników z roli administrator lub osoba zatwierdzająca, usuń je również z zasad Azure Key Vault.
@@ -93,8 +93,8 @@ Domyślnie tożsamość usługi ma tylko ograniczone uprawnienia dostępu Key Va
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>W przypadku roli osoby zatwierdzającej należy dodać do Key Vault następujące uprawnienia
 
 1. Otwórz witrynę Azure Portal.
-2. Przejdź do magazynu `resourceGroupName`OPC, który jest używany podczas wdrażania.
-3. Przejdź do Key Vault `resourceGroupName-xxxxx`.
+2. Przejdź do magazynu OPC, który jest `resourceGroupName` używany podczas wdrażania.
+3. Przejdź do Key Vault `resourceGroupName-xxxxx` .
 4. Przejdź do pozycji **zasady dostępu**.
 5. Wybierz pozycję **Dodaj nowy**.
 6. Pomiń szablon. Nie istnieje szablon, który spełnia wymagania.
@@ -107,8 +107,8 @@ Domyślnie tożsamość usługi ma tylko ograniczone uprawnienia dostępu Key Va
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>W przypadku roli administratora należy dodać do Key Vault następujące uprawnienia
 
 1. Otwórz witrynę Azure Portal.
-2. Przejdź do magazynu `resourceGroupName`OPC, który jest używany podczas wdrażania.
-3. Przejdź do Key Vault `resourceGroupName-xxxxx`.
+2. Przejdź do magazynu OPC, który jest `resourceGroupName` używany podczas wdrażania.
+3. Przejdź do Key Vault `resourceGroupName-xxxxx` .
 4. Przejdź do pozycji **zasady dostępu**.
 5. Wybierz pozycję **Dodaj nowy**.
 6. Pomiń szablon. Nie istnieje szablon, który spełnia wymagania.
@@ -121,8 +121,8 @@ Domyślnie tożsamość usługi ma tylko ograniczone uprawnienia dostępu Key Va
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Usuń zasady dostępu użytkowników z Azure Key Vault
 
 1. Otwórz witrynę Azure Portal.
-2. Przejdź do magazynu `resourceGroupName`OPC, który jest używany podczas wdrażania.
-3. Przejdź do Key Vault `resourceGroupName-xxxxx`.
+2. Przejdź do magazynu OPC, który jest `resourceGroupName` używany podczas wdrażania.
+3. Przejdź do Key Vault `resourceGroupName-xxxxx` .
 4. Przejdź do pozycji **zasady dostępu**.
 5. Znajdź użytkownika do usunięcia, a następnie wybierz pozycję **Usuń**.
 

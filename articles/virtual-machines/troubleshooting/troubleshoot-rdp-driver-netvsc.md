@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z netvsc. sys podczas zdalnego nawiązywania połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure | Microsoft Docs
-description: Dowiedz się, jak rozwiązywać problemy z protokołem RDP związanym z Netsvc. sys w przypadku nawiązywania połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure.
+title: Rozwiązywanie problemów z netvsc.sys podczas zdalnego nawiązywania połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać problemy z połączeniem RDP związanym z netsvc.sys w przypadku nawiązywania połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057982"
 ---
-# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Nie można nawiązać zdalnego połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure z powodu netvsc. sys
+# <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Nie można nawiązać zdalnego połączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 na platformie Azure z powodu netvsc.sys
 
 W tym artykule wyjaśniono, jak rozwiązać problem polegający na tym, że podczas łączenia z maszyną wirtualną z systemem Windows 10 lub Windows Server 2016 (VM) na hoście funkcji Hyper-V Server 2016 nie ma połączenia sieciowego.
 
@@ -31,7 +31,7 @@ Zazwyczaj ten problem występuje w [kompilacjach](https://support.microsoft.com/
 
 ## <a name="cause"></a>Przyczyna
 
-Ten problem może wystąpić, jeśli wersja zainstalowanego pliku systemowego netvsc. sys to **10.0.14393.594** lub **10.0.15063.0**. Te wersje netvsc. sys mogą uniemożliwić współdziałanie systemu z platformą Azure.
+Ten problem może wystąpić, jeśli wersja zainstalowanego netvsc.sys pliku systemowego to **10.0.14393.594** lub **10.0.15063.0**. Te wersje netvsc.sys mogą uniemożliwić współdziałanie systemu z platformą Azure.
 
 
 ## <a name="solution"></a>Rozwiązanie
@@ -54,7 +54,7 @@ Połącz się z [konsolą szeregową, Otwórz wystąpienie programu PowerShell](
 
 2. Pobierz odpowiednią aktualizację do nowego lub istniejącego dysku z danymi, który jest dołączony do działającej maszyny wirtualnej z tego samego regionu:
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) lub nowsza
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)   lub nowsza
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) lub nowsza
 
 3. Odłącz dysk narzędzia z działającej maszyny wirtualnej, a następnie dołącz go do uszkodzonej maszyny wirtualnej.
@@ -77,9 +77,9 @@ Połącz się z [konsolą szeregową, Otwórz wystąpienie programu PowerShell](
 
 4. Utwórz kopię folderu **\Windows\System32\config** w przypadku konieczności wycofania zmian.
 
-5. Na maszynie z systemem ratowniczym Uruchom Edytor rejestru (regedit. exe).
+5. Na maszynie ratowniczej Uruchom Edytor rejestru (regedit.exe).
 
-6. Wybierz klucz **HKEY_LOCAL_MACHINE** , a następnie wybierz pozycję **plik** > **Załaduj gałąź** z menu.
+6. Wybierz klucz **HKEY_LOCAL_MACHINE** , a następnie wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
 
 7. Zlokalizuj plik SYSTEMowy w folderze **\Windows\System32\config** .
 
@@ -97,7 +97,7 @@ Połącz się z [konsolą szeregową, Otwórz wystąpienie programu PowerShell](
 
 12. Pobierz odpowiednią aktualizację:
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) lub nowsza
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)   lub nowsza
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) lub nowsza
 
 13. Dołącz dysk systemowy jako dysk danych na maszynie wirtualnej, na której można pobrać aktualizację.

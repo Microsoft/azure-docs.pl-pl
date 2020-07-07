@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70914100"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalacja narzędzi Data Lake Tools for Visual Studio
@@ -27,7 +27,7 @@ Dowiedz się, jak tworzyć konta Azure Data Lake Analytics przy użyciu programu
   * Visual Studio 2019
   * Visual Studio 2017
   * Visual Studio 2015
-  * Program Visual Studio 2013
+  * Visual Studio 2013
 
 * **Zestaw Microsoft Azure SDK dla platformy .NET** w wersji 2.7.1 lub nowszej. Można go zainstalować przy użyciu [Instalatora platformy internetowej](https://www.microsoft.com/web/downloads/platform.aspx).
 * Konto usługi **Data Lake Analytics**. Aby utworzyć konto, zobacz artykuł [Wprowadzenie do pracy z usługą Azure Data Lake Analytics za pomocą witryny Azure Portal](data-lake-analytics-get-started-portal.md).
@@ -48,7 +48,7 @@ Włącz obciążenie **Programowanie na platformie Azure** , jak pokazano:
 
 Pobierz i zainstaluj [narzędzia Microsoft Azure Data Lake i Stream Analytics Tools for Visual Studio ](https://aka.ms/adltoolsvs). Po zakończeniu instalacji program Visual Studio ma następujące zmiany:
 
-* Węzeł **Eksplorator serwera** > **platformy Azure** zawiera węzeł **Data Lake Analytics** .
+* Węzeł **Eksplorator serwera**  >  **platformy Azure** zawiera węzeł **Data Lake Analytics** .
 * Menu **Narzędzia** zawiera element **Data Lake**.
 
 ## <a name="next-steps"></a>Następne kroki

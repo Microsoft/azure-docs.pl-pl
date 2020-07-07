@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71672894"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planowanie zadań U-SQL przy użyciu SQL Server Integration Services (SSIS)
@@ -77,11 +77,11 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
 
 2. Ustaw **folder** pod grupą **Konfiguracja modułu wyliczającego** do folderu tymczasowego zawierającego pobrane skrypty U-SQL.
 
-3. Ustaw **pliki** w obszarze **Konfiguracja modułu wyliczającego** na `*.usql` tak, aby kontener pętli przechwytywał tylko `.usql`pliki kończące się na.
+3. Ustaw **pliki** w obszarze **Konfiguracja modułu wyliczającego** na `*.usql` tak, aby kontener pętli przechwytywał tylko pliki kończące się na `.usql` .
 
     ![Konfigurowanie kontenera pętli Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
-4. Na stronie **mapowania zmiennych** Dodaj zmienną zdefiniowaną przez użytkownika w celu pobrania nazwy pliku dla każdego pliku U-SQL. Ustaw **indeks** na wartość 0, aby uzyskać nazwę pliku. W tym przykładzie Zdefiniuj zmienną o nazwie `User::FileName`. Ta zmienna zostanie użyta do dynamicznego pobrania połączenia pliku skryptu U-SQL i ustawienia nazwy zadania U-SQL w Azure Data Lake Analytics zadania.
+4. Na stronie **mapowania zmiennych** Dodaj zmienną zdefiniowaną przez użytkownika w celu pobrania nazwy pliku dla każdego pliku U-SQL. Ustaw **indeks** na wartość 0, aby uzyskać nazwę pliku. W tym przykładzie Zdefiniuj zmienną o nazwie `User::FileName` . Ta zmienna zostanie użyta do dynamicznego pobrania połączenia pliku skryptu U-SQL i ustawienia nazwy zadania U-SQL w Azure Data Lake Analytics zadania.
 
     ![Skonfiguruj kontener pętli Foreach, aby uzyskać nazwę pliku](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-variable-mapping.png)
 
@@ -93,14 +93,14 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
     
     Aby utworzyć to połączenie z plikiem:
 
-   1. Wybierz pozycję ** \<nowe połączenie... >** w ustawieniu FileConnection.
+   1. Wybierz **\<New Connection...>** ustawienie w FileConnection.
    2. Ustaw **Typ użycia** na **istniejący plik**i ustaw **plik** na ścieżkę pliku istniejącego pliku.
 
        ![Konfigurowanie kontenera pętli Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. W widoku **menedżerów połączeń** kliknij prawym przyciskiem myszy utworzone połączenie plików, a następnie wybierz polecenie **Właściwości**.
 
-   4. W oknie **Właściwości** rozwiń pozycję **wyrażenia**, a następnie ustaw parametr **ConnectionString** na zmiennej zdefiniowanej w kontenerze pętli Foreach, na `@[User::FileName]`przykład.
+   4. W oknie **Właściwości** rozwiń pozycję **wyrażenia**, a następnie ustaw parametr **ConnectionString** na zmiennej zdefiniowanej w kontenerze pętli Foreach, na przykład `@[User::FileName]` .
 
        ![Konfigurowanie kontenera pętli Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
@@ -111,7 +111,7 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
 5. Użyj **wyrażeń** do dynamicznego ustawiania nazwy zadania U-SQL:
 
     1. Na stronie **wyrażenia** Dodaj nową parę klucz-wartość wyrażenia dla **JobName**.
-    2. Ustaw wartość JobName na zmienną zdefiniowaną w kontenerze pętli Foreach, na przykład `@[User::FileName]`.
+    2. Ustaw wartość JobName na zmienną zdefiniowaną w kontenerze pętli Foreach, na przykład `@[User::FileName]` .
     
         ![Skonfiguruj wyrażenie SSIS dla nazwy zadania U-SQL](./media/data-lake-analytics-schedule-jobs-ssis/configure-expression-for-u-sql-job-name.png)
 

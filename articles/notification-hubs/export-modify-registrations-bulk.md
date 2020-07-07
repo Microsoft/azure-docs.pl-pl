@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212404"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Zbiorcze eksportowanie i importowanie rejestracji Notification Hubs platformy Azure
@@ -29,7 +29,7 @@ W tym artykule wyjaśniono, jak wykonać dużą liczbę operacji w centrum powia
 ## <a name="high-level-flow"></a>Przepływ wysokiego poziomu
 Wsparcie wsadowe jest przeznaczone do obsługi długotrwałych zadań obejmujących miliony rejestracji. Aby osiągnąć tę skalę, obsługa usługi Batch używa magazynu Azure do przechowywania informacji o zadaniu i danych wyjściowych. W przypadku operacji aktualizacji zbiorczej użytkownik musi utworzyć plik w kontenerze obiektów blob, którego zawartość jest listą operacji aktualizacji rejestracji. Podczas uruchamiania zadania użytkownik udostępnia adres URL wejściowego obiektu BLOB wraz z adresem URL do katalogu wyjściowego (również w kontenerze obiektów BLOB). Po rozpoczęciu zadania użytkownik może sprawdzić stan, badając lokalizację adresu URL podaną podczas uruchamiania zadania. Określone zadanie może wykonywać tylko operacje o określonym rodzaju (tworzenie, aktualizacje lub usuwanie). Operacje eksportowania są wykonywane analogicznie.
 
-## <a name="import"></a>Import
+## <a name="import"></a>Importuj
 
 ### <a name="set-up"></a>Konfiguruj
 W tej sekcji założono, że masz następujące jednostki:
@@ -128,7 +128,7 @@ Po zakończeniu zadania można sprawdzić wyniki, przeglądając następujące p
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Te pliki zawierają listę operacji zakończonych powodzeniem i zakończonych niepowodzeniem z usługi Batch. Format pliku to `.cvs`, w którym każdy wiersz ma numer wiersza oryginalnego pliku wejściowego i dane wyjściowe operacji (zazwyczaj utworzony lub zaktualizowany opis rejestracji).
+Te pliki zawierają listę operacji zakończonych powodzeniem i zakończonych niepowodzeniem z usługi Batch. Format pliku to `.cvs` , w którym każdy wiersz ma numer wiersza oryginalnego pliku wejściowego i dane wyjściowe operacji (zazwyczaj utworzony lub zaktualizowany opis rejestracji).
 
 ### <a name="full-sample-code"></a>Pełny przykładowy kod
 Następujący przykładowy kod importuje rejestracje do centrum powiadomień.

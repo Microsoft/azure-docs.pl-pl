@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792032"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Przestarzałe umiejętności poznawcze na platformie Azure Wyszukiwanie poznawcze
@@ -43,11 +43,11 @@ Aby przeprowadzić migrację do [umiejętności rozpoznawania jednostek](cogniti
 > [!NOTE]
 > Obecnie wynik zaufania nie jest obsługiwany. Ten `minimumPrecision` parametr istnieje `EntityRecognitionSkill` do użytku w przyszłości i w celu zapewnienia zgodności z poprzednimi wersjami.
 
-1. *(Wymagane)* Zmień wartość `@odata.type` z `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` na `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
+1. *(Wymagane)* Zmień wartość `@odata.type` z `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` na `"#Microsoft.Skills.Text.EntityRecognitionSkill"` .
 
-2. *(Opcjonalnie)* Jeśli używasz `entities` danych wyjściowych, użyj `namedEntities` złożonego danych wyjściowych kolekcji z `EntityRecognitionSkill` zamiast tego. Można użyć `targetName` w definicji umiejętności, aby zamapować ją na adnotację o nazwie `entities`.
+2. *(Opcjonalnie)* Jeśli używasz `entities` danych wyjściowych, użyj `namedEntities` złożonego danych wyjściowych kolekcji z `EntityRecognitionSkill` zamiast tego. Można użyć `targetName` w definicji umiejętności, aby zamapować ją na adnotację o nazwie `entities` .
 
-3. *(Opcjonalnie)* Jeśli nie określisz jawnie `categories`, `EntityRecognitionSkill` może zwracać różne typy kategorii poza tymi, które były obsługiwane przez. `NamedEntityRecognitionSkill` Jeśli takie zachowanie jest niepożądane, upewnij się, że `categories` parametr został jawnie ustawiony `["Person", "Location", "Organization"]`na.
+3. *(Opcjonalnie)* Jeśli nie określisz jawnie `categories` , `EntityRecognitionSkill` może zwracać różne typy kategorii poza tymi, które były obsługiwane przez `NamedEntityRecognitionSkill` . Jeśli takie zachowanie jest niepożądane, upewnij się, że parametr został jawnie ustawiony `categories` na `["Person", "Location", "Organization"]` .
 
     _Przykładowe definicje migracji_
 

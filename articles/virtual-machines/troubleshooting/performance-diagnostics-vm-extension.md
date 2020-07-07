@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71057547"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
@@ -70,7 +70,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnosty
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Wersja interfejsu API.
 |publisher|Microsoft. Azure. Performance. Diagnostics|Przestrzeń nazw wydawcy dla rozszerzenia.
-|type|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny wirtualnej.
+|typ|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny wirtualnej.
 |typeHandlerVersion|1.0|Wersja procedury obsługi rozszerzenia.
 |performanceScenario|prosty|Scenariusz wydajności, dla którego mają zostać przechwycone dane. Prawidłowe wartości to: **Basic**, **vmslow**, **migracji pamięci**i **Custom**.
 |traceDurationInSeconds|300|Czas trwania śledzenia, jeśli wybrano dowolną z opcji śledzenia.
@@ -209,9 +209,9 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 ```
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
-Za `Set-AzVMExtension` pomocą polecenia można WDROŻYĆ rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla istniejącej maszyny wirtualnej.
+Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla istniejącej maszyny wirtualnej.
 
-PowerShell
+Program PowerShell
 
 ```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
@@ -233,18 +233,18 @@ Narzędzie że program perfinsights zbiera różne dzienniki, konfigurację i da
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 
-Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename*_saslink. txt w **folderze\\\<C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics Version>**. Każdy, kto ma ten link, może pobrać plik zip.
+Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename*_saslink.txt w **folderze \\ \<version> C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Każdy, kto ma ten link, może pobrać plik zip.
 
 Aby pomóc inżynierowi pomocy technicznej w pracy nad biletem pomocy technicznej, firma Microsoft może używać tego linku SAS do pobierania danych diagnostycznych.
 
-Aby wyświetlić raport, Wyodrębnij plik zip i Otwórz plik **że program perfinsights raportu. html** .
+Aby wyświetlić raport, Wyodrębnij plik zip i Otwórz plik **że program perfinsights Report.html** .
 
 Należy również pobrać plik zip bezpośrednio z portalu, wybierając rozszerzenie.
 
 ![Zrzut ekranu przedstawiający szczegółowy stan diagnostyki wydajności](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Link sygnatury dostępu współdzielonego wyświetlany w portalu może nie funkcjonować czasami. Przyczyną może być nieprawidłowo sformułowany adres URL podczas operacji kodowania i dekodowania. Zamiast tego możesz uzyskać link bezpośrednio z pliku * _saslink. txt z maszyny wirtualnej.
+> Link sygnatury dostępu współdzielonego wyświetlany w portalu może nie funkcjonować czasami. Przyczyną może być nieprawidłowo sformułowany adres URL podczas operacji kodowania i dekodowania. Zamiast tego możesz uzyskać link bezpośrednio z pliku * _saslink.txt z maszyny wirtualnej.
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 

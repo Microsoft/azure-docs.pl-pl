@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992550"
 ---
 # <a name="event-grid-concepts"></a>Event Grid — pojęcia
@@ -50,7 +50,7 @@ Zobacz [dokumentację interfejsu API REST](api.md) na temat zarządzania subskry
 
 ## <a name="event-handlers"></a>Procedury obsługi zdarzeń
 
-W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje dalsze czynności, aby przetworzyć zdarzenie. Event Grid obsługuje kilka typów obsługi. Do obsługi programu można użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. Jeśli program obsługi zdarzeń docelowych jest punktem zaczepienia sieci Web HTTP, zdarzenie jest ponawiane, gdy program obsługi zwróci kod stanu `200 – OK`. W przypadku centrum brzegowego, jeśli zdarzenie jest dostarczane bez żadnego wyjątku, zostanie uznane za pomyślne.
+W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje dalsze czynności, aby przetworzyć zdarzenie. Event Grid obsługuje kilka typów obsługi. Do obsługi programu można użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. Jeśli program obsługi zdarzeń docelowych jest punktem zaczepienia sieci Web HTTP, zdarzenie jest ponawiane, gdy program obsługi zwróci kod stanu `200 – OK` . W przypadku centrum brzegowego, jeśli zdarzenie jest dostarczane bez żadnego wyjątku, zostanie uznane za pomyślne.
 
 ## <a name="security"></a>Zabezpieczenia
 

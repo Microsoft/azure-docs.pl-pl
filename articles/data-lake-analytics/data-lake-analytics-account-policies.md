@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72966439"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie Azure Data Lake Analytics przy użyciu zasad konta
@@ -32,7 +32,7 @@ Aby zmienić liczbę jednostek dla konta Data Lake Analytics:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Maksymalna**wartość pola wyboru przesuń suwak, aby wybrać wartości, lub wprowadź wartość w polu tekstowym. 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Jeśli potrzebujesz więcej niż domyślnego (250), w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę elementów dostępnych w Twoim koncie Data Lake Analytics.
@@ -46,7 +46,7 @@ Aby zmienić liczbę zadań, które mogą być uruchamiane jednocześnie:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Maksymalna liczba uruchomionych zadań**przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym. 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Jeśli potrzebujesz więcej niż domyślnej (20) liczby zadań, w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę zadań, które mogą być uruchamiane jednocześnie na koncie Data Lake Analytics.
@@ -60,7 +60,7 @@ Aby zmienić czas przechowywania metadanych i zasobów zadania:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **dni, aby zachować zapytania dotyczące zadań**, przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym.  
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ## <a name="job-level-policies"></a>Zasady na poziomie zadania
 
@@ -96,7 +96,7 @@ Na każdym koncie są ustawione zasady domyślne. Zasady domyślne dotyczą wszy
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Limity wysyłania zadań**Znajdź zasady, które chcesz edytować.
-4.  Aby wyświetlić opcje **usuwania** i **edycji** , w kolumnie po prawej stronie tabeli kliknij pozycję `...`.
+4.  Aby wyświetlić opcje **usuwania** i **edycji** , w kolumnie po prawej stronie tabeli kliknij pozycję `...` .
 
 ## <a name="additional-resources-for-job-policies"></a>Dodatkowe zasoby dotyczące zasad dotyczących zadań
 * [Wpis w blogu przegląd zasad](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
