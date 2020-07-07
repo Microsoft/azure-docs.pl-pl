@@ -1,9 +1,8 @@
 ---
-title: Szablony usługi Azure Resource Manager
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Szablony Azure Resource Manager — Azure SQL Database & wystąpienie zarządzane SQL
 description: Za pomocą szablonów Azure Resource Manager Utwórz i skonfiguruj Azure SQL Database i wystąpienie zarządzane usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718805"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983643"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Szablony Azure Resource Manager dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Szablony Azure Resource Manager umożliwiają definiowanie infrastruktury jako kodu i wdrażanie rozwiązań w chmurze platformy Azure dla Azure SQL Database i wystąpienia zarządzanego Azure SQL.
+Szablony usługi Azure Resource Manager pozwalają zdefiniować Twoją infrastrukturę jako kod, a następnie wdrożyć Twoje rozwiązania w chmurze platformy Azure dla usługi Azure SQL Database i usługi Azure SQL Managed Instance.
 
 ## <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
 Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla usługi Azure SQL Database.
 
-| |  |
+|Link |Opis|
 |---|---|
 | [SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Ten Azure Resource Manager szablonu służy do tworzenia pojedynczej bazy danych w programie Azure SQL Database i konfigurowania reguł zapory adresów IP na poziomie serwera. |
 | [Serwer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Ten Azure Resource Manager szablon tworzy serwer dla Azure SQL Database. |
@@ -47,7 +46,7 @@ Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla 
 
 Poniższa tabela zawiera linki do Azure Resource Manager szablonów dla wystąpienia zarządzanego usługi Azure SQL.
 
-| |  |
+|Link|Opis|
 |---|---|
 | [Wystąpienie zarządzane SQL w nowej sieci wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Ten Azure Resource Manager szablonu służy do tworzenia nowej skonfigurowanej sieci wirtualnej platformy Azure i wystąpienia zarządzanego w sieci wirtualnej. |
 | [Środowisko sieciowe dla wystąpienia zarządzanego SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | To wdrożenie spowoduje utworzenie skonfigurowanej sieci wirtualnej platformy Azure z dwiema podsieciami, które będą przeznaczone dla wystąpień zarządzanych, oraz inne miejsca, w których można umieścić inne zasoby (na przykład maszyny wirtualne, środowiska App Service itd.). Ten szablon spowoduje utworzenie prawidłowo skonfigurowanego środowiska sieciowego, w którym można wdrożyć wystąpienia zarządzane. |

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81455465"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Rozwiązanie Azure Key Vault Analytics w Azure Monitor
@@ -132,10 +132,10 @@ Aby użyć zaktualizowanego rozwiązania:
 2. Włącz rozwiązanie Azure Key Vault przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md)
 3. Zaktualizuj wszystkie zapisane zapytania, pulpity nawigacyjne lub alerty, aby użyć nowego typu danych
    + Typ jest zmieniany z: magazyny kluczy do AzureDiagnostics. Do filtrowania dzienników Key Vault można użyć elementu ResourceType.
-   + Zamiast: `KeyVaults`, użyj`AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Zamiast: `KeyVaults` , użyj`AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Pola: (nazwy pól są rozróżniane wielkości liter)
-   + Dla każdego pola, które ma sufiks \_s, \_d lub \_g w nazwie, Zmień pierwszy znak na małe litery
-   + Dla każdego pola, które ma sufiks o \_wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól. Na przykład nazwa UPN obiektu wywołującego jest przechowywana w polu`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Dla każdego pola, które ma sufiks \_ s, \_ d lub \_ g w nazwie, Zmień pierwszy znak na małe litery
+   + Dla każdego pola, które ma sufiks \_ o wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól. Na przykład nazwa UPN obiektu wywołującego jest przechowywana w polu`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Zmieniono CallerIpAddress pola na CallerIPAddress
    + Pole RemoteIPCountry nie jest już obecne
 4. Usuń rozwiązanie *Key Vault Analytics (przestarzałe)* . Jeśli używasz programu PowerShell, użyj polecenia`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`

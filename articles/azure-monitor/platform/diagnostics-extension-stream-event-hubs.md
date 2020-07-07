@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233469"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Wyślij dane z rozszerzenia Diagnostyka systemu Windows Azure do usługi Azure Event Hubs
@@ -39,7 +39,7 @@ Diagnostyka Azure zawsze wysyła dzienniki i metryki do konta usługi Azure Stor
 | Właściwość | Opis |
 |:---|:---|
 | Nazwa | Nazwa opisowa ujścia. Używane w konfiguracji, aby określić źródła danych do wysłania do ujścia. |
-| Url  | Adres URL \<centrum zdarzeń w postaci Event-Hubs-namespace\>. ServiceBus.Windows.NET/\<Event-Hub-Name.\>          |
+| Url  | Adres URL centrum zdarzeń w postaci \<event-hubs-namespace\> . ServiceBus.Windows.NET/ \<event-hub-name\> .          |
 | SharedAccessKeyName | Nazwa zasad dostępu współdzielonego centrum zdarzeń, które ma co najmniej urząd **wysyłania** . |
 | SharedAccessKey     | Klucz podstawowy lub pomocniczy z zasad dostępu współdzielonego dla centrum zdarzeń. |
 

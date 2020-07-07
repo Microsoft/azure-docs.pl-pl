@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205068"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie lokalnych metryk i dzienników dla usługi Azure API Management Brama samoobsługowa
@@ -136,7 +136,7 @@ NAME                                   READY   STATUS    RESTARTS   AGE
 sputnik-metrics-f6d97548f-4xnb7        2/2     Running   0          1m
 ```
 
-Uruchom poniższe polecenie, aby sprawdzić, czy usługi są uruchomione. Zanotuj usługę `CLUSTER-IP` i `PORT` usługi z statystyką, która będzie potrzebna później. Pulpit nawigacyjny Prometheus można odwiedzić przy użyciu `EXTERNAL-IP` funkcji `PORT`i.
+Uruchom poniższe polecenie, aby sprawdzić, czy usługi są uruchomione. Zanotuj `CLUSTER-IP` usługę i usługi z `PORT` statystyką, która będzie potrzebna później. Pulpit nawigacyjny Prometheus można odwiedzić przy użyciu funkcji `EXTERNAL-IP` i `PORT` .
 
 ```console
 kubectl get services
@@ -147,14 +147,14 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 ### <a name="configure-the-self-hosted-gateway-to-emit-metrics"></a>Konfigurowanie bramy samoobsługowej do emisji metryk
 
-Teraz, gdy wdrożono zarówno statystyki, jak i Prometheus, możemy zaktualizować konfiguracje bramy samohostowanej, aby rozpocząć emitowanie metryk przy użyciu statystyk. Funkcję można włączać lub wyłączać przy `telemetry.metrics.local` użyciu klucza w ConfigMap wdrożenia bramy samohostowanej z dodatkowymi opcjami. Poniżej znajduje się podział dostępnych opcji:
+Teraz, gdy wdrożono zarówno statystyki, jak i Prometheus, możemy zaktualizować konfiguracje bramy samohostowanej, aby rozpocząć emitowanie metryk przy użyciu statystyk. Funkcję można włączać lub wyłączać przy użyciu `telemetry.metrics.local` klucza w ConfigMap wdrożenia bramy samohostowanej z dodatkowymi opcjami. Poniżej znajduje się podział dostępnych opcji:
 
-| Pole  | Domyślny | Opis |
+| Pole  | Domyślne | Opis |
 | ------------- | ------------- | ------------- |
-| Telemetria. Metrics. Local  | `none` | Włącza rejestrowanie z uwzględnieniem statystyk. Wartość może być `none`, `statsd`. |
-| Telemetria. Metrics. local. re\fieldd. Endpoint  | n/d | Określa punkt końcowy z statystyką. |
-| Telemetria. Metrics. local. re\fieldd. — próbkowanie  | n/d | Określa częstotliwość próbkowania metryk. Wartość może zawierać się w przedziale od 0 do 1. np.,`0.5`|
-| dane telemetryczne. Metrics. local. invisiond. tag-format  | n/d | [Format tagowania](https://github.com/prometheus/statsd_exporter#tagging-extensions)eksportu statystycznego. Wartość może być `none`, `librato`, `dogStatsD`, `influxDB`. |
+| Telemetria. Metrics. Local  | `none` | Włącza rejestrowanie z uwzględnieniem statystyk. Wartość może być `none` , `statsd` . |
+| Telemetria. Metrics. local. re\fieldd. Endpoint  | nie dotyczy | Określa punkt końcowy z statystyką. |
+| Telemetria. Metrics. local. re\fieldd. — próbkowanie  | nie dotyczy | Określa częstotliwość próbkowania metryk. Wartość może zawierać się w przedziale od 0 do 1. np.,`0.5`|
+| dane telemetryczne. Metrics. local. invisiond. tag-format  | nie dotyczy | [Format tagowania](https://github.com/prometheus/statsd_exporter#tagging-extensions)eksportu statystycznego. Wartość może być `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Oto Przykładowa konfiguracja:
 
@@ -185,11 +185,11 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>Wyświetl metryki
 
-Teraz wszystko zostało wdrożone i skonfigurowane, Brama samoobsługowa powinna raportować metryki za pomocą statystyk. Prometheus pobierze metryki z statystyki. Przejdź do pulpitu nawigacyjnego Prometheus za `EXTERNAL-IP` pomocą `PORT` i usługi Prometheus. 
+Teraz wszystko zostało wdrożone i skonfigurowane, Brama samoobsługowa powinna raportować metryki za pomocą statystyk. Prometheus pobierze metryki z statystyki. Przejdź do pulpitu nawigacyjnego Prometheus za pomocą `EXTERNAL-IP` i `PORT` usługi Prometheus. 
 
 Wykonaj pewne wywołania interfejsu API za pomocą bramy samohostowanej, jeśli wszystko jest prawidłowo skonfigurowane, powinno być możliwe wyświetlenie poniższych metryk:
 
-| Metryka  | Opis |
+| Metric  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | DurationInMS | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |
@@ -204,19 +204,19 @@ Brama samoobsługowa domyślnie wyprowadza dzienniki do `stdout` i `stderr` . Dz
 kubectl logs <pod-name>
 ```
 
-Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) do zbierania i `stdout` `stderr` pobierania obciążeń oraz wyświetlać dzienniki w log Analytics. 
+Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) do zbierania `stdout` i pobierania `stderr` obciążeń oraz wyświetlać dzienniki w log Analytics. 
 
-Brama samoobsługowa obsługuje również wiele protokołów, w tym `localsyslog`, `rfc5424`i. `journal` Poniższa tabela podsumowuje wszystkie obsługiwane opcje. 
+Brama samoobsługowa obsługuje również wiele protokołów `localsyslog` , w tym, `rfc5424` i `journal` . Poniższa tabela podsumowuje wszystkie obsługiwane opcje. 
 
-| Pole  | Domyślny | Opis |
+| Pole  | Domyślne | Opis |
 | ------------- | ------------- | ------------- |
-| Telemetria. logs. std  | `text` | Włącza rejestrowanie do strumieni standardowych. Wartość może być `none`, `text`,`json` |
-| dane telemetryczne. logs. Local  | `none` | Włącza rejestrowanie lokalne. Wartość może być `none`, `auto`, `localsyslog` `rfc5424`,,`journal`  |
-| Telemetria. logs. local. localsyslog. Endpoint  | n/d | Określa punkt końcowy localsyslog.  |
-| Telemetria. logs. local. localsyslog.  | n/d | Określa [kod funkcji](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. np.,`7` 
-| Telemetria. logs. local. RFC5424. Endpoint  | n/d | Określa punkt końcowy RFC5424.  |
-| Telemetria. logs. local. RFC5424.  | n/d | Określa kod instrumentu na [RFC5424](https://tools.ietf.org/html/rfc5424). np.,`7`  |
-| Telemetria. logs. local. Journal. Endpoint  | n/d | Określa punkt końcowy dziennika.  |
+| Telemetria. logs. std  | `text` | Włącza rejestrowanie do strumieni standardowych. Wartość może być `none` , `text` ,`json` |
+| dane telemetryczne. logs. Local  | `none` | Włącza rejestrowanie lokalne. Wartość może być `none` , `auto` , `localsyslog` , `rfc5424` ,`journal`  |
+| Telemetria. logs. local. localsyslog. Endpoint  | nie dotyczy | Określa punkt końcowy localsyslog.  |
+| Telemetria. logs. local. localsyslog.  | nie dotyczy | Określa [kod funkcji](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. np.,`7` 
+| Telemetria. logs. local. RFC5424. Endpoint  | nie dotyczy | Określa punkt końcowy RFC5424.  |
+| Telemetria. logs. local. RFC5424.  | nie dotyczy | Określa kod instrumentu na [RFC5424](https://tools.ietf.org/html/rfc5424). np.,`7`  |
+| Telemetria. logs. local. Journal. Endpoint  | nie dotyczy | Określa punkt końcowy dziennika.  |
 
 Poniżej przedstawiono przykładową konfigurację rejestrowania lokalnego:
 

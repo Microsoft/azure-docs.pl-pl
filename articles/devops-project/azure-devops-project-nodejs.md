@@ -14,13 +14,13 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
 ms.openlocfilehash: 7db4fa2a780a3a1f53ecd73a40c247583cb6a79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233866"
 ---
-# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla środowiska Node. js przy użyciu usługi Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla Node.js za pomocą usługi Azure DevOps Starter
 
 W tym przewodniku szybki start utworzysz NodeJS progresywną aplikację sieci Web (PWA) przy użyciu [GatsbyJS](https://www.gatsbyjs.org/) i uproszczonego środowiska tworzenia usługi Azure DevOps Starter. Po zakończeniu masz potok ciągłej integracji (CI) i ciągłe dostarczanie (CD) dla programu PWA w Azure Pipelines. Usługa Azure DevOps Starter konfiguruje, co jest potrzebne do tworzenia, wdrażania i monitorowania.
 
@@ -45,11 +45,11 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz przykładową aplikację środowiska Node.js.   
 
-    ![Wybieranie przykładu Node. js](_img/azure-devops-project-nodejs/select-nodejs.png) 
+    ![Wybierz przykład Node.js](_img/azure-devops-project-nodejs/select-nodejs.png) 
 
-1. Domyślną platformą przykładową jest **Express. js**. Zmień zaznaczenie na **prostą aplikację Node. js** , a następnie wybierz przycisk **dalej**. 
+1. Domyślną strukturą przykładu jest **Express.js**. Zmień zaznaczenie na **prostą aplikację Node.js** , a następnie wybierz przycisk **dalej**. 
 
-    ![Wybierz prostą aplikację Node. js](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
+    ![Wybierz prostą aplikację Node.js](_img/azure-devops-project-nodejs/select-nodejs-framework.png) 
 
 1. Cele wdrożenia dostępne w tym kroku są podyktowane przez strukturę aplikacji wybraną w kroku 2. W tym przykładzie **aplikacja sieci Web systemu Windows** jest domyślnym miejscem docelowym wdrożenia. Pozostaw zestaw **Web App for Containers** i wybierz pozycję **dalej**.
 
@@ -108,7 +108,7 @@ DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Ten przykład u
     rmdir Application
     ```
 
-1. Użyj interfejsu wiersza polecenia Gatsby, aby wygenerować przykład PWA. Uruchom `gatsby new` polecenie w terminalu, aby rozpocząć pracę z kreatorem `gatsby-starter-blog` programu PWA i wybrać dla początkowego szablonu. Powinien wyglądać podobnie do tego przykładu:
+1. Użyj interfejsu wiersza polecenia Gatsby, aby wygenerować przykład PWA. Uruchom `gatsby new` polecenie w terminalu, aby rozpocząć pracę z kreatorem programu PWA i wybrać `gatsby-starter-blog` dla początkowego szablonu. Powinien wyglądać podobnie do tego przykładu:
 
     ```powershell
     c:\myproject> gatsby new
@@ -120,16 +120,16 @@ DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Ten przykład u
         (Use a different starter)
     ```
     
-1. Masz teraz folder o nazwie `my-gatsby-project`. Zmień jego nazwę `Application` na i skopiuj `Dockerfile` do niego.
+1. Masz teraz folder o nazwie `my-gatsby-project` . Zmień jego nazwę na `Application` i skopiuj do `Dockerfile` niego.
     
     ```powershell
     mv my-gatsby-project Application
     mv Dockerfile Application
     ```
     
-1. W ulubionym edytorze Otwórz pliku dockerfile i Zmień pierwszy wiersz z `FROM node:8` na. `FROM node:12` Ta zmiana gwarantuje, że kontener używa środowiska Node. js w wersji 12. x zamiast wersji 8. x. GatsbyJS wymaga więcej nowoczesnych wersji środowiska Node. js.
+1. W ulubionym edytorze Otwórz pliku dockerfile i Zmień pierwszy wiersz z `FROM node:8` na `FROM node:12` . Ta zmiana gwarantuje, że kontener używa Node.js wersja 12. x zamiast wersji 8. x. GatsbyJS wymaga więcej nowoczesnych wersji Node.js.
 
-1. Następnie otwórz plik Package. JSON w folderze Application i edytuj [pole skrypty](https://docs.npmjs.com/files/package.json#scripts) , aby upewnić się, że serwery deweloperskie i produkcyjne nasłuchują wszystkich dostępnych interfejsów sieciowych (na przykład 0.0.0.0) i portu 80. Bez tych ustawień usługa App Service nie może kierować ruchu do aplikacji node. js działającej w kontenerze. Pole `scripts` powinno wyglądać podobnie do poniższego. W tym `develop`celu należy zmienić wartości domyślne, `serve`, i `start` .
+1. Następnie otwórz package.jsw pliku w folderze aplikacji i edytuj [pole skrypty](https://docs.npmjs.com/files/package.json#scripts) , aby upewnić się, że serwery deweloperskie i produkcyjne nasłuchują wszystkich dostępnych interfejsów sieciowych (na przykład 0.0.0.0) i port 80. Bez tych ustawień usługa App Service nie może kierować ruchu do aplikacji Node.js działającej w kontenerze. `scripts`Pole powinno wyglądać podobnie do poniższego. W tym celu należy zmienić `develop` `serve` wartości domyślne,, i `start` .
 
     ```json
       "scripts": {
@@ -145,9 +145,9 @@ DevOps Starter tworzy repozytorium Git w Azure Repos lub GitHub. Ten przykład u
     
 ## <a name="edit-your-cicd-pipelines"></a>Edytowanie potoków ciągłej integracji/ciągłego wdrażania
 
-1. Przed zatwierdzeniem kodu w poprzedniej sekcji wprowadź pewne zmiany w kompilacjach i potokach wydań. Edytuj "potok kompilacji" i zaktualizuj zadanie węzła, aby użyć środowiska Node. js w wersji 12. x. W polu **wersja zadania** ustaw wartość 1. x i pole **wersja** na 12. x.
+1. Przed zatwierdzeniem kodu w poprzedniej sekcji wprowadź pewne zmiany w kompilacjach i potokach wydań. Edytuj "potok kompilacji" i zaktualizuj zadanie węzła, aby używało Node.js w wersji 12. x. W polu **wersja zadania** ustaw wartość 1. x i pole **wersja** na 12. x.
 
-    ![Aktualizowanie środowiska Node. js do 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+    ![Aktualizacja Node.js do 12. x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
 
 1. W tym przewodniku Szybki Start nie są tworzone testy jednostkowe i wyłączamy te kroki w naszym potoku kompilacji. Podczas pisania testów można ponownie włączyć te kroki. Kliknij prawym przyciskiem myszy, aby wybrać zadania z etykietą **Zainstaluj zależności testów** i **uruchomić testy jednostkowe** i wyłączyć je.
 
@@ -186,7 +186,7 @@ W poprzednich dwóch krokach dodano Gatsby wygenerowany PWA do repozytorium git 
 
 3. Po kilku minutach kompilacje i potoki wydań powinny zostać zakończone, a Twoje PWA należy wdrożyć do kontenera. Kliknij link do **punktu końcowego aplikacji** z poziomu pulpitu nawigacyjnego powyżej i powinien zostać wyświetlony projekt Gatsby Start dla blogów.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Można usuwać Azure App Service i inne powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne zasoby. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 

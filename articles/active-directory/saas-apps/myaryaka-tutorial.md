@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe7ccf4afea1c7ee359f31660914f21e2ab4e90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c103cfff2593aa4a40f9370d65a1a2f1c38ba5c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74536302"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798192"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myaryaka"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą MyAryaka
 
@@ -84,10 +84,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **adres URL logowania** Użyj jednego z następujących wzorców:
 
-    | |
-    |-|
-    | `https://my.aryaka.com/`|
-    | `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`|
+    ```https
+    https://my.aryaka.com/
+    https://kso.aryaka.com/auth/realms/<CUSTOMERID>
+    ```
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://kso.aryaka.com/auth/realms/<CUSTOMERID>`
 
@@ -106,9 +106,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,6 +148,6 @@ Po kliknięciu kafelka MyAryaka w panelu dostępu należy automatycznie zalogowa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj MyAryaka z usługą Azure AD](https://aad.portal.azure.com/)

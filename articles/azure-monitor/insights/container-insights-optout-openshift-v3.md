@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: e1d3200af62ad185fa942fa2c8f7f3b4e6bfd89b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82196194"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure
@@ -22,7 +22,7 @@ Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Aby zidentyfikować swoją wersję, uruchom `az --version`polecenie. Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Tworzenie szablonu
 
@@ -65,7 +65,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
     }
     ```
 
-2. Zapisz ten plik jako **OptOutTemplate. JSON** w folderze lokalnym.
+2. Zapisz ten plik jako **OptOutTemplate.jsw** folderze lokalnym.
 
 3. Wklej następującą składnię JSON do pliku:
 
@@ -88,7 +88,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
     ![Strona właściwości kontenera](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Zapisz ten plik jako **OptOutParam. JSON** w folderze lokalnym.
+5. Zapisz ten plik jako **OptOutParam.jsw** folderze lokalnym.
 
 6. Wszystko jest teraz gotowe do wdrożenia tego szablonu.
 

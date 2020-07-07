@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9abcca8d5b02b58bd5d4550dcb100a90853f7f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505974"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983153"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
@@ -79,6 +79,7 @@ Gdy użytkownicy muszą odblokować swoje konto lub zresetować swoje hasło, s�
     * *Poczta e-mail*
     * *Telefon komórkowy*
     * *Telefon biurowy*
+    * *Pytania zabezpieczające*
 
 1. Aby zastosować metody uwierzytelniania, wybierz pozycję **Zapisz**.
 
@@ -126,7 +127,7 @@ Po włączeniu i skonfigurowaniu SSPR Przetestuj proces SSPR przy użyciu użytk
 
 1. Wykonaj kroki weryfikacji, aby zresetować hasło. Po zakończeniu powinna zostać odebrana wiadomość e-mail z powiadomieniem, że hasło zostało zresetowane.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poniższym samouczku w tej serii można skonfigurować funkcję zapisywania zwrotnego haseł. Ta funkcja zapisuje zmiany haseł z usługi Azure AD SSPR z powrotem do lokalnego środowiska usługi AD. Jeśli chcesz kontynuować pracę z tą serią samouczków, aby skonfigurować funkcję zapisywania zwrotnego haseł, nie należy wyłączać SSPR teraz.
 

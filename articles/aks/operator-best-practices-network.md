@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208061"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
@@ -71,7 +71,7 @@ Moduł równoważenia obciążenia platformy Azure może dystrybuować ruch klie
  * *Zasób*transferu danych przychodzących i
  * *Kontroler* transferu danych przychodzących
 
-Zasób transferu danych przychodzących to YAML manifest, `kind: Ingress` który definiuje host, certyfikaty i reguły do kierowania ruchu do usług uruchomionych w klastrze AKS. Poniższy przykład manifestu YAML dystrybuuje ruch dla *MyApp.com* do jednej z dwóch usług, *blogservice* lub *storeservice*. Klient jest kierowany do jednej usługi lub innej w zależności od adresu URL, do którego uzyskuje dostęp.
+Zasób transferu danych przychodzących to YAML manifest, `kind: Ingress` który definiuje host, certyfikaty i reguły do kierowania ruchu do usług uruchomionych w KLASTRZE AKS. Poniższy przykład manifestu YAML dystrybuuje ruch dla *MyApp.com* do jednej z dwóch usług, *blogservice* lub *storeservice*. Klient jest kierowany do jednej usługi lub innej w zależności od adresu URL, do którego uzyskuje dostęp.
 
 ```yaml
 kind: Ingress

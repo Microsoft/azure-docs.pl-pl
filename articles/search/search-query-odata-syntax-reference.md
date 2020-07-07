@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72793237"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze
 
-Usługa Azure Wyszukiwanie poznawcze używa [wyrażeń OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) jako parametrów w całym interfejsie API. Najczęściej wyrażenia OData są używane dla parametrów `$orderby` i. `$filter` Wyrażenia te mogą być złożone, zawierające wiele klauzul, funkcje i operatory. Jednak nawet proste wyrażenia OData, takie jak ścieżki właściwości, są używane w wielu częściach interfejsu API REST usługi Azure Wyszukiwanie poznawcze. Na przykład wyrażenia ścieżki są używane do odwoływania się do podpól złożonych pól wszędzie w interfejsie API, takich jak podczas tworzenia listy podpól w [sugestii](index-add-suggesters.md), [funkcji oceniania](index-add-scoring-profiles.md), `$select` parametru lub nawet [wyszukiwania w zapytań Lucene](query-lucene-syntax.md).
+Usługa Azure Wyszukiwanie poznawcze używa [wyrażeń OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) jako parametrów w całym interfejsie API. Najczęściej wyrażenia OData są używane dla `$orderby` `$filter` parametrów i. Wyrażenia te mogą być złożone, zawierające wiele klauzul, funkcje i operatory. Jednak nawet proste wyrażenia OData, takie jak ścieżki właściwości, są używane w wielu częściach interfejsu API REST usługi Azure Wyszukiwanie poznawcze. Na przykład wyrażenia ścieżki są używane do odwoływania się do podpól złożonych pól wszędzie w interfejsie API, takich jak podczas tworzenia listy podpól w [sugestii](index-add-suggesters.md), [funkcji oceniania](index-add-scoring-profiles.md), `$select` parametru lub nawet [wyszukiwania w zapytań Lucene](query-lucene-syntax.md).
 
 W tym artykule opisano wszystkie te formy wyrażeń OData przy użyciu formalnej gramatyki. Istnieje również [interaktywny diagram](#syntax-diagram) ułatwiający wizualne Eksplorowanie gramatyki.
 
@@ -214,7 +214,7 @@ Aby wizualnie zbadać gramatykę języka OData obsługiwaną przez usługę Azur
 > [!div class="nextstepaction"]
 > [Diagram składni OData dla Wyszukiwanie poznawcze platformy Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Zobacz też  
+## <a name="see-also"></a>Zobacz także  
 
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

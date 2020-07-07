@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c180b303fc1437f9f0f1763406760545d808c7a5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 91c48772ae50fd34e822c947687c0366e1d179cc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605717"
+ms.locfileid: "85798786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Samouczek: integracja Azure Active Directory z programem infor retails — zarządzanie informacjami
 
@@ -108,10 +108,10 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://<company name>.mingle.infor.com
-        http://<company name>.mingledev.infor.com
-        ```
+    ```http
+    https://<company name>.mingle.infor.com
+    http://<company name>.mingledev.infor.com
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
 

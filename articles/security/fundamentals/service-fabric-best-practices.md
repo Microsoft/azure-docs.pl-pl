@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461654"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric
@@ -87,7 +87,7 @@ Aby określić [certyfikat klastra](../../service-fabric/service-fabric-windows-
 
 Ponadto należy przestrzegać następujących praktyk:
 -   Utwórz certyfikaty dla klastrów produkcyjnych przy użyciu poprawnie skonfigurowanej usługi certyfikatów systemu Windows Server. Można również uzyskać certyfikaty z zatwierdzonego urzędu certyfikacji.
--   Nie należy używać certyfikatu tymczasowego lub testowego dla klastrów produkcyjnych, jeśli certyfikat został utworzony przy użyciu MakeCert. exe lub podobnego narzędzia.
+-   Nie należy używać certyfikatu tymczasowego lub testowego dla klastrów produkcyjnych, jeśli certyfikat został utworzony przy użyciu MakeCert.exe lub podobnego narzędzia.
 -   Użyj certyfikatu z podpisem własnym dla klastrów testowych, ale nie dla klastrów produkcyjnych.
 
 Jeśli klaster jest niezabezpieczony, każdy może połączyć się z klastrem anonimowo i wykonać operacje zarządzania. Z tego powodu zawsze zabezpieczaj klastry produkcyjne przy użyciu certyfikatów X. 509 lub zabezpieczeń systemu Windows.
@@ -99,7 +99,7 @@ Service Fabric również zabezpiecza zasoby używane przez aplikacje. Zasoby, ta
 
 -   Użyj Active Directory grupy lub użytkownika domeny: Uruchom usługę w ramach poświadczeń dla konta użytkownika lub grupy Active Directory. Upewnij się, że Active Directory lokalnie w domenie, a nie Azure Active Directory. Uzyskaj dostęp do innych zasobów w domenie, którym udzielono uprawnień przy użyciu użytkownika domeny lub grupy. Na przykład zasoby, takie jak udziały plików.
 
--   Przypisz zasady dostępu zabezpieczeń dla punktów końcowych HTTP i HTTPS: Określ właściwość **SecurityAccessPolicy** , aby zastosować zasady **runas** do usługi, gdy manifest usługi deklaruje zasoby punktów końcowych przy użyciu protokołu HTTP. Porty przyłączone do punktów końcowych HTTP są prawidłowo dostępne dla konta użytkownika RunAs, w ramach którego działa usługa. Gdy zasady nie są ustawione, http. sys nie ma dostępu do usługi i można uzyskać błędy z wywołaniami z klienta.
+-   Przypisz zasady dostępu zabezpieczeń dla punktów końcowych HTTP i HTTPS: Określ właściwość **SecurityAccessPolicy** , aby zastosować zasady **runas** do usługi, gdy manifest usługi deklaruje zasoby punktów końcowych przy użyciu protokołu HTTP. Porty przyłączone do punktów końcowych HTTP są prawidłowo dostępne dla konta użytkownika RunAs, w ramach którego działa usługa. Gdy zasady nie są ustawione, http.sys nie ma dostępu do usługi i można uzyskać błędy z wywołaniami z klienta.
 
 Aby dowiedzieć się, jak używać zasad zabezpieczeń w klastrze Service Fabric, zobacz [Konfigurowanie zasad zabezpieczeń aplikacji](../../service-fabric/service-fabric-application-runas-security.md).
 

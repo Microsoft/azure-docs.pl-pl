@@ -3,16 +3,16 @@ title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu wiersza polece
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613668"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969672"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Znajomość sposobu tworzenia i przypisywania strategii umożliwia definiowanie typowych wzorców tworzenia konfiguracji wielokrotnego użytku, które można szybko wdrażać, w oparciu o szablony usługi Resource Manager, zasady, zabezpieczenia itd. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
+Informacje na temat tworzenia i przypisywania planów umożliwiają definiowanie wspólnych wzorców w celu opracowania wielokrotnego i szybkiego wdrożenia konfiguracji na podstawie szablonów Azure Resource Manager (szablony ARM), zasad, zabezpieczeń i innych. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,14 +46,14 @@ To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platfor
 
 ## <a name="create-a-blueprint"></a>Tworzenie strategii
 
-Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon usługi Resource Manager i przypisanie roli w grupie zasobów.
+Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon ARM i przypisanie roli do grupy zasobów.
 
 > [!NOTE]
 > W przypadku korzystania z interfejsu wiersza polecenia platformy Azure najpierw tworzony jest obiekt _Plan_ . Dla każdego _artefaktu_ zawierającego parametry, który ma zostać dodany, parametry _strategii_ początkowej muszą zostać zdefiniowane wcześniej.
 
 1. Utwórz obiekt _strategii_ początkowej. Parametr **Parameters** przyjmuje plik JSON, który zawiera wszystkie parametry poziomu planu. Parametry są określane podczas przypisywania i używane przez artefakty dodane w kolejnych krokach.
 
-   - Plik JSON — blueprintparms. JSON
+   - Plik JSON — blueprintparms.json
 
      ```json
      {
@@ -115,7 +115,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > Podczas importowania definicji planu Użyj pliku nazwapliku _. JSON_ .
+     > Użyj nazwy pliku _blueprint.js_ podczas importowania definicji planu.
      > Ta nazwa pliku jest używana podczas wywoływania [AZ planu import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
 
      Obiekt planu jest domyślnie tworzony w domyślnej subskrypcji. Aby określić grupę zarządzania, należy użyć grupy **zarządzania**parametrami. Aby określić subskrypcję, użyj **subskrypcji**parametru.
@@ -193,9 +193,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Dodaj szablon w grupie zasobów. Parametr **szablonu** szablonu Menedżer zasobów zawiera normalne składniki JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą **parametrów** parametru i w formacie JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
+1. Dodaj szablon w grupie zasobów. Parametr **szablonu** dla szablonu ARM zawiera normalne składniki JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą **parametrów** parametru i w formacie JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
 
-   - Plik szablonu Azure Resource Manager JSON — artifacts\templateStorage.json
+   - Plik szablonu ARM JSON — artifacts\templateStorage.json
 
      ```json
      {
@@ -249,7 +249,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      }
      ```
 
-   - Plik parametru szablonu Azure Resource Manager JSON — artifacts\templateStorageParams.json
+   - Plik parametru szablonu ARM w formacie JSON — artifacts\templateStorageParams.json
 
      ```json
      {
@@ -303,7 +303,7 @@ Po opublikowaniu planu przy użyciu interfejsu wiersza polecenia platformy Azure
 
 1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ parametry **współautorów** i **właścicieli** wymagają tablicy obiektów objectid, aby otrzymać przypisanie roli, użyj [Azure Active Directory interfejs API programu Graph](../../active-directory/develop/active-directory-graph-api.md) do zbierania obiektów objectid do użycia w **parametrach** dla własnych użytkowników, grup lub jednostek usługi.
 
-   - Plik JSON — blueprintAssignment. JSON
+   - Plik JSON — blueprintAssignment.json
 
      ```json
      {
@@ -361,7 +361,7 @@ Po opublikowaniu planu przy użyciu interfejsu wiersza polecenia platformy Azure
      > [!IMPORTANT]
      > Plany platformy Azure nie zarządzają tożsamości zarządzanej przypisanej przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="unassign-a-blueprint"></a>Cofanie przypisania strategii
 

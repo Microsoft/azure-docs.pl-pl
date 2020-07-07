@@ -4,10 +4,10 @@ description: Jak uzyskać dostęp do usług platformy Azure za pomocą zarządza
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461569"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak korzystać z zarządzanej tożsamości aplikacji Service Fabric w celu uzyskiwania dostępu do usług platformy Azure
@@ -52,8 +52,8 @@ gdzie:
 | ------- | ----------- |
 | `GET` | Czasownik HTTP wskazujący, że chcesz pobrać dane z punktu końcowego. W tym przypadku token dostępu OAuth. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | Zarządzany punkt końcowy tożsamości dla aplikacji Service Fabric udostępniany za pośrednictwem zmiennej środowiskowej IDENTITY_ENDPOINT. |
-| `api-version` | Parametr ciągu zapytania, określający wersję interfejsu API usługi zarządzanego tokenu tożsamości; obecnie jedyną akceptowaną wartością jest `2019-07-01-preview`i może ulec zmiana. |
-| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Zostanie to odzwierciedlone jako `aud` zbiór odbiorców dla wystawionego tokenu. Ten przykład żąda tokenu, aby uzyskać dostęp do Azure Key Vault, którego identyfikator URI aplikacji to https\/:/Vault.Azure.NET/. |
+| `api-version` | Parametr ciągu zapytania, określający wersję interfejsu API usługi zarządzanego tokenu tożsamości; obecnie jedyną akceptowaną wartością jest `2019-07-01-preview` i może ulec zmiana. |
+| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Zostanie to odzwierciedlone jako zbiór `aud` odbiorców dla wystawionego tokenu. Ten przykład żąda tokenu, aby uzyskać dostęp do Azure Key Vault, którego identyfikator URI aplikacji to https: \/ /Vault.Azure.NET/. |
 | `Secret` | Pole nagłówka żądania HTTP wymagane przez usługę Service Fabric zarządzanym tokenem tożsamości dla usług Service Fabric do uwierzytelniania obiektu wywołującego. Ta wartość jest dostarczana przez środowisko uruchomieniowe SF za pośrednictwem zmiennej środowiskowej IDENTITY_HEADER. |
 
 
@@ -73,9 +73,9 @@ gdzie:
 | Element | Opis |
 | ------- | ----------- |
 | `token_type` | Typ tokenu; w tym przypadku token dostępu "Bearer", który oznacza, że prezenter ("Bearer") tego tokenu jest zamierzonym tematem tokenu. |
-| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w polu nagłówka `Authorization` żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
+| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w `Authorization` polu nagłówka żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
 | `expires_on` | Sygnatura czasowa wygaśnięcia tokenu dostępu; reprezentowane jako liczba sekund od "1970-01-01T0:0: 0Z UTC" i odpowiada na `exp` żądania tokenu. W tym przypadku token wygasa w dniu 2019-08-08T06:10:11 + 00:00 (w dokumencie RFC 3339)|
-| `resource` | Zasób, dla którego został wystawiony token dostępu, określony za `resource` pomocą parametru ciągu zapytania żądania; odnosi się do roszczeń "AUD" tokenu. |
+| `resource` | Zasób, dla którego został wystawiony token dostępu, określony za pomocą `resource` parametru ciągu zapytania żądania; odnosi się do roszczeń "AUD" tokenu. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Uzyskiwanie tokenu dostępu przy użyciu języka C #
@@ -345,7 +345,7 @@ Błąd próbki:
 
 Poniżej znajduje się lista typowych błędów Service Fabric związanych z tożsamościami zarządzanymi:
 
-| Code | Komunikat | Opis | 
+| Kod | Komunikat | Opis | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Nie znaleziono wpisu tajnego w nagłówkach żądania. | Kod uwierzytelniania nie został dostarczony wraz z żądaniem. | 
 | ManagedIdentityNotFound | Nie znaleziono tożsamości zarządzanej dla określonego hosta aplikacji. | Aplikacja nie ma tożsamości lub kod uwierzytelniania jest nieznany. |

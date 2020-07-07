@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792044"
 ---
 # <a name="conditional-cognitive-skill"></a>Warunkowa umiejętność
@@ -72,7 +72,7 @@ Następujące elementy są prawidłowymi wartościami wyrażenia:
         "= !true"
     ```
 
--   Wyrażenia wykorzystujące Operatory liczbowe (+,-, \*,/,%) <br/>
+-   Wyrażenia wykorzystujące Operatory liczbowe (+,-, \* ,/,%) <br/>
     Przykłady: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -87,9 +87,9 @@ W danych wejściowych jest rozróżniana wielkość liter.
 
 | Dane wejściowe   | Opis |
 |-------------|-------------|
-| rozgrzewa   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje warunek do oceny. Ten warunek powinien być wartością logiczną (*true* lub *false*).   <br/>  Przykłady: <br/> "= true" <br/> "= $ (/Document/Language) = =" fr "" <br/> "= $ (/Document/Pages/\*/Language) = = $ (/Document/expectedLanguage)" <br/> |
-| whenTrue    | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek ma *wartość true*. Stałe ciągi powinny być zwracane w pojedynczym cudzysłowie ("i"). <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/> |
-| whenFalse   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek zostanie obliczony na *wartość false*. <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/\*)" <br/>
+| rozgrzewa   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje warunek do oceny. Ten warunek powinien być wartością logiczną (*true* lub *false*).   <br/>  Przykłady: <br/> "= true" <br/> "= $ (/Document/Language) = =" fr "" <br/> "= $ (/Document/Pages/ \* /Language) = = $ (/Document/expectedLanguage)" <br/> |
+| whenTrue    | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek ma *wartość true*. Stałe ciągi powinny być zwracane w pojedynczym cudzysłowie ("i"). <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/> |
+| whenFalse   | To dane wejściowe to [oceniane pole](#evaluated-fields) , które reprezentuje wartość zwracaną, jeśli warunek zostanie obliczony na *wartość false*. <br/>Przykładowe wartości: <br/> "=" kontrakt ""<br/>"= $ (/document/contractType)" <br/> "= $ (/Document/Entities/ \* )" <br/>
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 Istnieje jedno wyjście o nazwie "output". Zwraca wartość *whenFalse* , jeśli warunek ma wartość false lub *whenTrue* , jeśli warunek ma wartość true.

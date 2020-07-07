@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535710"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kupowanie niestandardowej nazwy domeny dla usługi Azure App Service
@@ -91,7 +91,7 @@ Na stronie **domeny niestandardowe** kliknij pozycję **Kup domenę**.
 
 ### <a name="configure-the-domain-purchase"></a>Konfigurowanie zakupu domeny
 
-Na stronie **domena App Service** w polu **Wyszukaj domenę** wpisz nazwę domeny, którą chcesz kupić i wpisz `Enter`. Sugerowane dostępne domeny są wyświetlane tuż poniżej pola tekstowego. Wybierz co najmniej jedną domenę, którą chcesz kupić.
+Na stronie **domena App Service** w polu **Wyszukaj domenę** wpisz nazwę domeny, którą chcesz kupić i wpisz `Enter` . Sugerowane dostępne domeny są wyświetlane tuż poniżej pola tekstowego. Wybierz co najmniej jedną domenę, którą chcesz kupić.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
@@ -108,7 +108,7 @@ Następnie wybierz odpowiednie opcje dla domeny. Zapoznaj się z poniższymi tab
 
 | Ustawienie | Sugerowana wartość | Opis |
 |-|-|-|
-|Ochrona prywatności | Włączanie | Zezwól na "ochronę prywatności", która jest oferowana _bezpłatnie_w cenie zakupu. Niektóre domeny najwyższego poziomu są zarządzane przez rejestratory, które nie obsługują ochrony prywatności i są wyświetlane na stronie **Ochrona prywatności** . |
+|Ochrona prywatności | Włączenie | Zezwól na "ochronę prywatności", która jest oferowana _bezpłatnie_w cenie zakupu. Niektóre domeny najwyższego poziomu są zarządzane przez rejestratory, które nie obsługują ochrony prywatności i są wyświetlane na stronie **Ochrona prywatności** . |
 | Przypisywanie domyślnych nazw hostów | **www** i**\@** | Wybierz żądane powiązania nazwy hosta, jeśli jest to wymagane. Po zakończeniu operacji zakupu domeny dostęp do aplikacji można uzyskać na wybranych nazwach hostów. Jeśli aplikacja jest za [Traffic managerem platformy Azure](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcji przypisywania domeny głównej (@), ponieważ Traffic Manager nie obsługuje rekordów. Po zakończeniu zakupu domeny możesz wprowadzić zmiany w przypisaniach do nazwy hosta. |
 
 ### <a name="accept-terms-and-purchase"></a>Zaakceptuj warunki i zakup
@@ -140,7 +140,7 @@ Na stronie niestandardowe **nazwy** hostów **widoczne są także** wybrane nazw
 > Etykieta **niezabezpieczona** dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby skonfigurować powiązanie protokołu TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
 >
 
-Aby przetestować nazwy hostów, przejdź do listy nazw hostów w przeglądarce. W przykładzie na poprzednim zrzucie ekranu spróbuj przejść do _kontoso.NET_ i _www\.kontoso.NET_.
+Aby przetestować nazwy hostów, przejdź do listy nazw hostów w przeglądarce. W przykładzie na poprzednim zrzucie ekranu spróbuj przejść do _kontoso.NET_ i _www \. kontoso.NET_.
 
 ## <a name="assign-hostnames-to-app"></a>Przypisywanie nazw hostów do aplikacji
 
@@ -168,10 +168,10 @@ Upewnij się, że zakupiona domena znajduje się na liście w sekcji **domeny Ap
 Wybierz przycisk **Dodaj nazwę hosta**.
 
 ### <a name="configure-hostname"></a>Konfigurowanie nazwy hosta
-W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Przykład:
+W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Na przykład:
 
 - kontoso.net
-- kontoso.net\.www
+- \.kontoso.NET www
 - abc.kontoso.net
 
 Po zakończeniu wybierz pozycję **Weryfikuj**. Typ rekordu nazwy hosta jest automatycznie wybierany.
@@ -235,7 +235,7 @@ Na platformie Azure rekordy DNS dla domeny App Service są zarządzane przy uży
 
 ### <a name="open-app-service-domain"></a>Otwórz domenę App Service
 
-W Azure Portal z menu po lewej stronie wybierz pozycję **wszystkie usługi** > **App Service domeny**.
+W Azure Portal z menu po lewej stronie wybierz pozycję **wszystkie usługi**  >  **App Service domeny**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ Po zakupieniu domeny App Service masz pięć dni, aby anulować zakup w celu uzy
 
 ### <a name="open-app-service-domain"></a>Otwórz domenę App Service
 
-W Azure Portal z menu po lewej stronie wybierz pozycję **wszystkie usługi** > **App Service domeny**.
+W Azure Portal z menu po lewej stronie wybierz pozycję **wszystkie usługi**  >  **App Service domeny**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -287,4 +287,4 @@ Po zakończeniu operacji domena zostanie wydzielona z subskrypcji i będzie dost
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Kierowanie domyślnego adresu URL do katalogu niestandardowego
 
-Domyślnie usługa App Service kieruje żądania internetowe do katalogu głównego w kodzie aplikacji. Aby skierować je do podkatalogu, na przykład `public`, zobacz [bezpośredni domyślny adres URL do katalogu niestandardowego](app-service-web-tutorial-custom-domain.md#virtualdir).
+Domyślnie usługa App Service kieruje żądania internetowe do katalogu głównego w kodzie aplikacji. Aby skierować je do podkatalogu, na przykład `public` , zobacz [bezpośredni domyślny adres URL do katalogu niestandardowego](app-service-web-tutorial-custom-domain.md#virtualdir).

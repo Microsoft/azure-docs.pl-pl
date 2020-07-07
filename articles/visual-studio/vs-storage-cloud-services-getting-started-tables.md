@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72299992"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Wprowadzenie do usługi Azure Table Storage i usług połączonych programu Visual Studio (projekty usług Cloud Services)
@@ -28,7 +28,7 @@ W tym artykule opisano, jak rozpocząć korzystanie z usługi Azure Table Storag
 
 Usługa Azure Table Storage umożliwia przechowywanie dużych ilości danych strukturalnych. Usługa to magazyn danych NoSQL, który akceptuje uwierzytelnione wywołania z chmury platformy Azure i poza nią. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.
 
-Aby rozpocząć, musisz najpierw utworzyć tabelę na koncie magazynu. Pokażemy Ci, jak utworzyć tabelę platformy Azure w kodzie, a także jak wykonywać podstawowe operacje tabeli i jednostek, takie jak dodawanie, modyfikowanie, odczytywanie i odczytywanie jednostek tabeli. Przykłady są zapisywane w kodzie języka\# C i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Aby rozpocząć, musisz najpierw utworzyć tabelę na koncie magazynu. Pokażemy Ci, jak utworzyć tabelę platformy Azure w kodzie, a także jak wykonywać podstawowe operacje tabeli i jednostek, takie jak dodawanie, modyfikowanie, odczytywanie i odczytywanie jednostek tabeli. Przykłady są zapisywane w kodzie języka C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 **Uwaga:** Niektóre interfejsy API, które wykonują wywołania do usługi Azure Storage, są asynchroniczne. Aby uzyskać więcej informacji [, zobacz Programowanie asynchroniczne z Async i await](https://msdn.microsoft.com/library/hh191443.aspx) . W poniższym kodzie przyjęto, że są używane asynchroniczne metody programowania.
 
@@ -89,7 +89,7 @@ Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje wła
         public string PhoneNumber { get; set; }
     }
 
-Operacje tabeli obejmujące jednostki są wykonywane przy użyciu obiektu w postaci **chmury** , który został utworzony wcześniej w "tabele dostępu w kodzie". Obiekt **TableOperation** reprezentuje operację, która ma zostać wykonana. Poniższy przykład kodu pokazuje, jak utworzyć obiekt w **chmurze** i obiekt **CustomerEntity** . Aby przygotować operację, tworzony jest **TableOperation** , aby wstawić jednostkę klienta do tabeli. Na koniec operacja jest wykonywana przez wywołanie metody **Cloud. wywoływanie ExecuteAsync**.
+Operacje tabeli obejmujące jednostki są wykonywane przy użyciu obiektu w postaci **chmury** , który został utworzony wcześniej w "tabele dostępu w kodzie". Obiekt **TableOperation** reprezentuje operację, która ma zostać wykonana. Poniższy przykład kodu pokazuje, jak utworzyć obiekt w **chmurze** i obiekt **CustomerEntity** . Aby przygotować operację, tworzony jest **TableOperation** , aby wstawić jednostkę klienta do tabeli. Na koniec operacja jest wykonywana przez wywołanie **CloudTable.ExecuteAsync**.
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -104,7 +104,7 @@ Operacje tabeli obejmujące jednostki są wykonywane przy użyciu obiektu w post
 
 
 ## <a name="insert-a-batch-of-entities"></a>Zbiorcze wstawianie jednostek
-Można wstawić wiele jednostek do tabeli w jednej operacji zapisu. Poniższy przykład kodu tworzy dwa obiekty jednostki ("Jan Kowalski" i "Ben Kowalski"), dodaje je do obiektu **obiektu tablebatchoperation** przy użyciu metody INSERT, a następnie uruchamia operację, wywołując element **Cloud. ExecuteBatchAsync**.
+Można wstawić wiele jednostek do tabeli w jednej operacji zapisu. Poniższy przykład kodu tworzy dwa obiekty jednostki ("Jan Kowalski" i "Ben Kowalski"), dodaje je do obiektu **obiektu tablebatchoperation** przy użyciu metody INSERT, a następnie uruchamia operację, wywołując **CloudTable.ExecuteBatchAsync**.
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();

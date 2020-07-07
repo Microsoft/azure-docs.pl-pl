@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 80a590ff97cc6595f2da6d1e573820324a46c2d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82231518"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET na maszynach wirtualnych platformy Azure przy użyciu usługi Azure DevOps Starter
@@ -34,7 +34,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -82,7 +82,7 @@ DevOps Starter automatycznie skonfigurował potok ciągłej integracji/ciągłeg
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 
@@ -169,7 +169,7 @@ Usługa Azure Application Insights umożliwia łatwe monitorowanie wydajności i
 
 1. Wprowadź nazwę testu, a następnie wybierz pozycję **Utwórz**. Zostanie utworzony prosty test ping w celu sprawdzania dostępności aplikacji. Po kilku minutach wyniki testów będą dostępne, a na pulpicie nawigacyjnym usługi Application Insights zostanie wyświetlony stan dostępności.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy maszyna wirtualna platformy Azure i powiązane zasoby utworzone w tym samouczku nie będą już potrzebne, możesz je usunąć. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter. 
 
@@ -193,7 +193,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
 > * Konfigurowanie monitorowania usługi Azure Application Insights
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 

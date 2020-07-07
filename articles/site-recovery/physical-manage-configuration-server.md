@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478968"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii serwera fizycznego
@@ -31,7 +31,7 @@ Tabela zawiera podsumowanie wymagań wstępnych dotyczących wdrażania lokalneg
 | Liczba dysków | 3, w tym dysk systemu operacyjnego, dysk pamięci podręcznej serwera przetwarzania i dysk przechowywania na potrzeby powrotu po awarii |
 | Wolne miejsce na dysku (pamięć podręczna serwera przetwarzania) | 600 GB
 | Wolne miejsce na dysku (dysk przechowywania) | 600 GB|
-| System operacyjny  | Windows Server 2012 R2 <br> Windows Server 2016 |
+| System operacyjny  | Windows Server 2012 z dodatkiem R2 <br> Windows Server 2016 |
 | Ustawienia regionalne systemu operacyjnego | Angielski (Stany Zjednoczone)|
 | Wersja programu VMware vSphere PowerCLI | Niewymagane|
 | Role systemu Windows Server | Nie należy włączać tych ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
@@ -47,7 +47,7 @@ Tabela zawiera podsumowanie wymagań wstępnych dotyczących wdrażania lokalneg
 Najnowsza wersja pliku instalacyjnego serwera konfiguracji jest dostępna w portalu Site Recovery. Ponadto można je pobrać bezpośrednio z [Centrum pobierania Microsoft](https://aka.ms/unifiedsetup).
 
 1. Zaloguj się do Azure Portal i przejdź do swojego magazynu Recovery Services.
-2. Przejdź do **Site Recovery** > **serwerów konfiguracji** infrastruktury (w obszarze dla maszyn fizycznych VMware &).
+2. Przejdź do **Site Recovery**  >  **serwerów konfiguracji** infrastruktury (w obszarze dla maszyn fizycznych VMware &).
 3. Kliknij przycisk **+ serwery** .
 4. Na stronie **Dodawanie serwera** kliknij przycisk Pobierz, aby pobrać klucz rejestracji. Ten klucz jest potrzebny podczas instalacji serwera konfiguracji w celu zarejestrowania go w usłudze Azure Site Recovery.
 5. Kliknij link **pobierz Microsoft Azure Site Recovery Unified Setup** , aby pobrać najnowszą wersję serwera konfiguracji.
@@ -87,7 +87,7 @@ Najnowsza wersja pliku instalacyjnego serwera konfiguracji jest dostępna w port
 11. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj**. Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu.
 
 
-Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **serwery** w magazynie.
+Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia**  >  **serwery** w magazynie.
 
 
 ## <a name="install-from-the-command-line"></a>Instalowanie z wiersza polecenia
@@ -110,20 +110,20 @@ Uruchom plik instalacyjny w następujący sposób:
 
 |Nazwa parametru| Typ | Opis| Wartości|
 |-|-|-|-|
-| /ServerMode|Wymagany|Określa, czy mają zostać zainstalowane oba serwery, konfiguracji i przetwarzania, czy tylko serwer przetwarzania|CS<br>PS|
-|/InstallLocation|Wymagany|Folder, w którym są instalowane składniki| Dowolny folder na komputerze|
-|/MySQLCredsFilePath|Wymagany|Ścieżka pliku, w której są przechowywane poświadczenia serwera MySQL|Plik powinien mieć format określony poniżej|
-|/VaultCredsFilePath|Wymagany|Ścieżka pliku poświadczeń magazynu|Prawidłowa ścieżka pliku|
-|/EnvType|Wymagany|Typ środowiska, który ma być chroniony |VMware<br>NonVMware|
-|/PSIP|Wymagany|Adres IP karty sieciowej do użytku podczas przesyłania danych replikacji| Dowolny prawidłowy adres IP|
-|/CSIP|Wymagany|Adres IP karty sieciowej, na której nasłuchuje serwer konfiguracji| Dowolny prawidłowy adres IP|
-|/PassphraseFilePath|Wymagany|Pełna ścieżka do lokalizacji pliku hasła|Prawidłowa ścieżka pliku|
-|/BypassProxy|Optional|Określa, że serwer konfiguracji łączy się z platformą Azure bez serwera proxy|Należy uzyskać tę wartość z Venu|
-|/ProxySettingsFilePath|Optional|Ustawienia serwera proxy (domyślny serwer proxy wymaga uwierzytelniania lub niestandardowy serwer proxy)|Plik powinien mieć format określony poniżej|
-|DataTransferSecurePort|Optional|Numer portu dla protokołu PSIP do użytku z danymi replikacji| Prawidłowy numer portu (wartość domyślna to 9433)|
-|/SkipSpaceCheck|Optional|Pomiń sprawdzanie miejsca dla dysku pamięci podręcznej| |
-|/AcceptThirdpartyEULA|Wymagany|Flaga implikuje akceptację umowy licencyjnej innego producenta| |
-|/ShowThirdpartyEULA|Optional|Wyświetla umowę licencyjną innej firmy. Jeśli zostanie podany w danych wejściowych, wszystkie inne parametry są ignorowane| |
+| /ServerMode|Wymagane|Określa, czy mają zostać zainstalowane oba serwery, konfiguracji i przetwarzania, czy tylko serwer przetwarzania|CS<br>PS|
+|/InstallLocation|Wymagane|Folder, w którym są instalowane składniki| Dowolny folder na komputerze|
+|/MySQLCredsFilePath|Wymagane|Ścieżka pliku, w której są przechowywane poświadczenia serwera MySQL|Plik powinien mieć format określony poniżej|
+|/VaultCredsFilePath|Wymagane|Ścieżka pliku poświadczeń magazynu|Prawidłowa ścieżka pliku|
+|/EnvType|Wymagane|Typ środowiska, który ma być chroniony |VMware<br>NonVMware|
+|/PSIP|Wymagane|Adres IP karty sieciowej do użytku podczas przesyłania danych replikacji| Dowolny prawidłowy adres IP|
+|/CSIP|Wymagane|Adres IP karty sieciowej, na której nasłuchuje serwer konfiguracji| Dowolny prawidłowy adres IP|
+|/PassphraseFilePath|Wymagane|Pełna ścieżka do lokalizacji pliku hasła|Prawidłowa ścieżka pliku|
+|/BypassProxy|Opcjonalne|Określa, że serwer konfiguracji łączy się z platformą Azure bez serwera proxy|Należy uzyskać tę wartość z Venu|
+|/ProxySettingsFilePath|Opcjonalne|Ustawienia serwera proxy (domyślny serwer proxy wymaga uwierzytelniania lub niestandardowy serwer proxy)|Plik powinien mieć format określony poniżej|
+|DataTransferSecurePort|Opcjonalne|Numer portu dla protokołu PSIP do użytku z danymi replikacji| Prawidłowy numer portu (wartość domyślna to 9433)|
+|/SkipSpaceCheck|Opcjonalne|Pomiń sprawdzanie miejsca dla dysku pamięci podręcznej| |
+|/AcceptThirdpartyEULA|Wymagane|Flaga implikuje akceptację umowy licencyjnej innego producenta| |
+|/ShowThirdpartyEULA|Opcjonalne|Wyświetla umowę licencyjną innej firmy. Jeśli zostanie podany w danych wejściowych, wszystkie inne parametry są ignorowane| |
 
 
 
@@ -151,7 +151,7 @@ ProxyPassword="Password"
 Ustawienia serwera proxy dla komputera serwera konfiguracji można modyfikować w następujący sposób:
 
 1. Zaloguj się do serwera konfiguracji.
-2. Uruchom cspsconfigtool. exe przy użyciu skrótu na pulpicie.
+2. Uruchom cspsconfigtool.exe przy użyciu skrótu na pulpicie.
 3. Kliknij kartę **rejestracja w magazynie** .
 4. Pobierz nowy plik rejestracji magazynu z portalu i podaj go jako dane wejściowe do narzędzia.
 
@@ -172,7 +172,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można modyfikować 
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Ponowne rejestrowanie serwera konfiguracji z tym samym magazynem
 1. Zaloguj się do serwera konfiguracji.
-2. Uruchom cspsconfigtool. exe przy użyciu skrótu na pulpicie.
+2. Uruchom cspsconfigtool.exe przy użyciu skrótu na pulpicie.
 3. Kliknij kartę **rejestracja w magazynie** .
 4. Pobierz nowy plik rejestracji z portalu i podaj go jako dane wejściowe do narzędzia.
       ![Rejestr-konfiguracja-serwer](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
@@ -202,7 +202,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można modyfikować 
     reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
     net stop dra
     ```
-3. Uruchom cspsconfigtool. exe przy użyciu skrótu na pulpicie.
+3. Uruchom cspsconfigtool.exe przy użyciu skrótu na pulpicie.
 4. Kliknij kartę **rejestracja w magazynie** .
 5. Pobierz nowy plik rejestracji z portalu i podaj go jako dane wejściowe do narzędzia.
 6. Podaj szczegóły serwera proxy, a następnie kliknij przycisk **zarejestruj** .  
@@ -217,7 +217,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można modyfikować 
 
 ## <a name="upgrade-a-configuration-server"></a>Uaktualnianie serwera konfiguracji
 
-Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Przykład:
+Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Na przykład:
 
 - Jeśli korzystasz z 9,7, 9,8, 9,9 lub 9,10, możesz przeprowadzić uaktualnienie bezpośrednio do wersji 9,11.
 - Jeśli korzystasz z systemu 9,6 lub starszego, a chcesz uaktualnić do wersji 9,11, musisz najpierw przeprowadzić uaktualnienie do programu wersja 9,7. przed 9,11.
@@ -242,7 +242,7 @@ Uaktualnij serwer w następujący sposób:
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Usuń serwer konfiguracji z Azure Portal
-1. W Azure Portal przejdź do **Site Recovery** > **serwery konfiguracji** infrastruktury z menu magazyn.
+1. W Azure Portal przejdź do **Site Recovery**  >  **serwery konfiguracji** infrastruktury z menu magazyn.
 2. Kliknij serwer konfiguracji, który chcesz zlikwidować.
 3. Na stronie Szczegóły serwera konfiguracji kliknij przycisk **Usuń** .
 4. Kliknij przycisk **tak** , aby potwierdzić usunięcie serwera.
@@ -303,7 +303,7 @@ W przypadku wdrożeń serwera konfiguracji przed 2016 maja wartość wygaśnięc
 
 ### <a name="renew-the-certificate"></a>Odnów certyfikat
 
-1. W magazynie Otwórz **Site Recovery** > **serwer konfiguracji**infrastruktury i kliknij wymagany serwer konfiguracji.
+1. W magazynie Otwórz **Site Recovery**  >  **serwer konfiguracji**infrastruktury i kliknij wymagany serwer konfiguracji.
 2. Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji**
 3. Kliknij pozycję **Odnów certyfikaty**. 
 

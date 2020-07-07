@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437011"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrowanie obciążeń Apache Kafka do usługi Azure HDInsight 4,0

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72965370"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Dodawanie urządzenia IoT Edge do akceleratora rozwiązania do monitorowania zdalnego

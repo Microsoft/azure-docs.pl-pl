@@ -8,22 +8,22 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454241"
 ---
 # <a name="manage-server-administrators"></a>Zarządzanie administratorami serwerów
 
 Administratorzy serwera muszą być prawidłowymi użytkownikami lub grupami zabezpieczeń w Azure Active Directory (Azure AD) dla dzierżawy, w której znajduje się serwer. Do zarządzania administratorami serwera można używać administratorów **Analysis Services** serwera w Azure Portal, właściwości serwera w programie SSMS, PowerShell lub interfejsie API REST. 
 
-Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid`.
+Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Aby dodać administratorów serwera przy użyciu Azure Portal
 
 1. W portalu dla serwera kliknij pozycję **administratorzy Analysis Services**.
-2. W polu ** \<nazwa_serwera>-Analysis Services Administratorzy**kliknij przycisk **Dodaj**.
+2. ** \<servername> Administratorzy w Analysis Services**kliknij przycisk **Dodaj**.
 3. W obszarze **Dodaj administratorów serwera**wybierz pozycję konta użytkowników z usługi Azure AD lub Zaproś użytkowników zewnętrznych według adresu e-mail.
 
     ![Administratorzy serwera w Azure Portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -36,7 +36,7 @@ Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid`.
    
     ![Dodawanie administratorów serwera w programie SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
