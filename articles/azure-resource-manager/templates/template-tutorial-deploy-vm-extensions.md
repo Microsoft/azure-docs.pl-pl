@@ -5,12 +5,11 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: d44fb593cda60c8cc556ffeb5cb3b36163c6bcc3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184966"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057895"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
@@ -53,7 +52,7 @@ W przypadku wybrania opcji opublikowania pliku we własnej lokalizacji należy z
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 1. W polu **Nazwa pliku** wklej następujący adres URL: 
 
     ```url
@@ -102,7 +101,7 @@ Dodaj zasób rozszerzenia maszyny wirtualnej do istniejącego szablonu o następ
 }
 ```
 
-Zobacz [informacje szczegółowe o rozszerzeniu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions), jeśli potrzebujesz więcej informacji na temat tej definicji zasobu. Poniżej przedstawiono niektóre ważne elementy:
+Zobacz [informacje szczegółowe o rozszerzeniu](/azure/templates/microsoft.compute/virtualmachines/extensions), jeśli potrzebujesz więcej informacji na temat tej definicji zasobu. Poniżej przedstawiono niektóre ważne elementy:
 
 * **name**: ponieważ zasób rozszerzenia jest zasobem podrzędnym obiektu maszyny wirtualnej, nazwa musi mieć prefiks nazwy maszyny wirtualnej. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md).
 * **dependsOn**: Utwórz zasób rozszerzenia po utworzeniu maszyny wirtualnej.
@@ -115,7 +114,7 @@ Aby użyć skryptu wbudowanego, Usuń **fileUris**i zaktualizuj **sekcji command
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-Ten skrypt wbudowany aktualizuje również zawartość plik iisstart. html.
+Ten skrypt wbudowany aktualizuje również zawartość iisstart.html.
 
 Należy również otworzyć port HTTP, aby umożliwić dostęp do serwera sieci Web.
 
@@ -152,7 +151,7 @@ Wklej adres IP do przeglądarki sieci Web. Zostanie otwarta domyślna strona pow
 
 ![Strona powitalna usług Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów platformy Azure wdrożonych przez Ciebie, wyczyść je, usuwając grupę zasobów.
 

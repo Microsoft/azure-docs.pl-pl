@@ -5,12 +5,11 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 765c73a3ab8d5fa8939abe597d0141b24b59ac52
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76152481"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058031"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
 
@@ -31,11 +30,11 @@ Ten samouczek obejmuje następujące zadania:
 > * Weryfikowanie wdrożenia wdrażania
 > * Wdrażanie wdrożenia ze stanem kondycji
 > * Weryfikowanie wdrożenia wdrażania
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Dodatkowe zasoby:
 
-* [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](/rest/api/deploymentmanager/).
 * [Przykład Menedżer wdrażania platformy Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
@@ -52,18 +51,18 @@ Pobierz [Szablony i artefakty](https://github.com/Azure/azure-docs-json-samples/
 
 Utwórz kopię adresu URL z tokenem SAS. Ten adres URL jest potrzebny do wypełnienia pola w dwóch plikach parametrów, pliku parametrów topologii oraz pliku parametrów wprowadzania.
 
-Otwórz plik CreateADMServiceTopology. Parameters. JSON, a następnie zaktualizuj wartości **projectName** i **artifactSourceSASLocation**.
+Otwórz CreateADMServiceTopology.Parameters.jsna i zaktualizuj wartości **projectName** i **artifactSourceSASLocation**.
 
-Otwórz plik CreateADMRollout. Parameters. JSON, a następnie zaktualizuj wartości **projectName** i **artifactSourceSASLocation**.
+Otwórz CreateADMRollout.Parameters.jsna i zaktualizuj wartości **projectName** i **artifactSourceSASLocation**.
 
 ## <a name="create-a-health-check-service-simulator"></a>Tworzenie symulatora usługi sprawdzania kondycji
 
-W środowisku produkcyjnym zwykle używany jest jeden lub więcej dostawców monitorowania. Aby zapewnić integrację z kondycją tak jak to możliwe, firma Microsoft współpracuje z niektórymi firmami monitorowania kondycji usług w celu zapewnienia prostego rozwiązania do kopiowania/wklejania w celu zintegrowania kontroli kondycji z wdrożeniami. Aby zapoznać się z listą tych firm, zobacz [dostawcy monitorowania kondycji](./deployment-manager-health-check.md#health-monitoring-providers). Na potrzeby tego samouczka utworzysz [funkcję platformy Azure](/azure/azure-functions/) w celu symulowania usługi monitorowania kondycji. Ta funkcja przyjmuje kod stanu i zwraca ten sam kod. Szablon Menedżer wdrażania platformy Azure używa kodu stanu, aby określić, jak kontynuować wdrażanie.
+W środowisku produkcyjnym zwykle używany jest jeden lub więcej dostawców monitorowania. Aby zapewnić integrację z kondycją tak jak to możliwe, firma Microsoft współpracuje z niektórymi firmami monitorowania kondycji usług w celu zapewnienia prostego rozwiązania do kopiowania/wklejania w celu zintegrowania kontroli kondycji z wdrożeniami. Aby zapoznać się z listą tych firm, zobacz [dostawcy monitorowania kondycji](./deployment-manager-health-check.md#health-monitoring-providers). Na potrzeby tego samouczka utworzysz [funkcję platformy Azure](../../azure-functions/index.yml) w celu symulowania usługi monitorowania kondycji. Ta funkcja przyjmuje kod stanu i zwraca ten sam kod. Szablon Menedżer wdrażania platformy Azure używa kodu stanu, aby określić, jak kontynuować wdrażanie.
 
 Poniższe dwa pliki są używane do wdrażania funkcji platformy Azure. Nie musisz pobierać tych plików, aby przejść przez samouczek.
 
-* Szablon Menedżer zasobów znajdujący się [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json)pod adresem. Ten szablon zostanie wdrożony w celu utworzenia funkcji platformy Azure.
-* Plik zip kodu źródłowego usługi Azure Functions [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Ten plik zip jest wywoływany przez szablon Menedżer zasobów.
+* Szablon Menedżer zasobów znajdujący się pod adresem [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json) . Ten szablon zostanie wdrożony w celu utworzenia funkcji platformy Azure.
+* Plik zip kodu źródłowego usługi Azure Functions [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip) . Ten plik zip jest wywoływany przez szablon Menedżer zasobów.
 
 Aby wdrożyć funkcję platformy Azure, wybierz **ją** , aby otworzyć usługę Azure Cloud Shell, a następnie wklej następujący skrypt do okna powłoki.  Aby wkleić kod, kliknij prawym przyciskiem myszy okno powłoki, a następnie wybierz polecenie **Wklej**.
 
@@ -80,7 +79,7 @@ Aby sprawdzić i przetestować funkcję platformy Azure:
 
     ![Azure Menedżer wdrażania Health Check — funkcja Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. Wybierz ** &lt;/> uzyskać adres URL funkcji**.
+1. Wybierz ** &lt; /> uzyskać adres URL funkcji**.
 1. Wybierz pozycję **Kopiuj** , aby skopiować adres URL do Schowka.  Adres URL jest podobny do:
 
     ```url
@@ -106,7 +105,7 @@ Aby sprawdzić i przetestować funkcję platformy Azure:
 
 Ta sekcja zawiera informacje na temat sposobu dołączania kroku sprawdzania kondycji do szablonu wdrożenia.
 
-1. Otwórz plik **CreateADMRollout. JSON** , który został utworzony przy [użyciu usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md). Ten plik JSON jest częścią pobierania.  Zobacz [Wymagania wstępne](#prerequisites).
+1. Otwórz **CreateADMRollout.jsw** programie, który został utworzony za [pomocą usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md). Ten plik JSON jest częścią pobierania.  Zobacz [Wymagania wstępne](#prerequisites).
 1. Dodaj dwa dodatkowe parametry:
 
     ```json
@@ -230,7 +229,7 @@ Ta sekcja zawiera informacje na temat sposobu dołączania kroku sprawdzania kon
 
 ## <a name="deploy-the-topology"></a>Wdrażanie topologii
 
-Uruchom Poniższy skrypt programu PowerShell, aby wdrożyć topologię. Potrzebne są te same **CreateADMServiceTopology. JSON** i **CreateADMServiceTopology. Parameters. JSON** , które były używane w [usłudze Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
+Uruchom Poniższy skrypt programu PowerShell, aby wdrożyć topologię. Te same **CreateADMServiceTopology.js** i **CreateADMServiceTopology.Parameters.jsna** tym, które były używane w [usłudze Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +247,7 @@ Opcja **Pokaż ukryte typy** musi być zaznaczona, aby wyświetlić zasoby.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Wdróż wdrożenie ze stanem złej kondycji
 
-Użyj adresu URL stanu złej kondycji utworzonego w temacie [Tworzenie symulatora usługi sprawdzania kondycji](#create-a-health-check-service-simulator). Potrzebujesz poprawionego pliku **CreateADMServiceTopology. JSON** oraz tego samego pliku **CreateADMServiceTopology. Parameters. JSON** , który został użyty w [systemie Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
+Użyj adresu URL stanu złej kondycji utworzonego w temacie [Tworzenie symulatora usługi sprawdzania kondycji](#create-a-health-check-service-simulator). W przypadku [korzystania z usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md)należy skorygować **CreateADMServiceTopology.js** i tę samą **CreateADMServiceTopology.Parameters.jsę** .
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -265,7 +264,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment`jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby zweryfikować wdrożenie, użyj `Get-AZDeploymentManagerRollout`programu.  Zobacz następną procedurę.
+> `New-AzResourceGroupDeployment`jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby zweryfikować wdrożenie, użyj programu `Get-AZDeploymentManagerRollout` .  Zobacz następną procedurę.
 
 Aby sprawdzić postęp wdrażania przy użyciu następującego skryptu programu PowerShell:
 
@@ -352,16 +351,16 @@ Powtórz tę sekcję, aby ponownie wdrożyć wdrożenie przy użyciu adresu URL 
 2. Przejdź do nowo utworzonych aplikacji internetowych w obrębie nowych grup zasobów utworzonych przez wdrożenie wprowadzania.
 3. Otwórz aplikację internetową w przeglądarce internetowej. Sprawdź lokalizację i wersję w pliku index.html.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
 1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Użyj pola **Filtruj według nazwy**, aby zawęzić listę grup zasobów utworzonych w tym samouczku. Powinny istnieć 3–4 grupy:
 
-    * projectName>RG: zawiera zasoby Menedżer wdrażania. ** &lt;**
-    * projectName>ServiceWUSrg: zawiera zasoby zdefiniowane przez ServiceWUS. ** &lt;**
-    * projectName>ServiceEUSrg: zawiera zasoby zdefiniowane przez ServiceEUS. ** &lt;**
+    * ** &lt; projectName>RG**: zawiera zasoby Menedżer wdrażania.
+    * ** &lt; ProjectName>ServiceWUSrg**: zawiera zasoby zdefiniowane przez ServiceWUS.
+    * ** &lt; ProjectName>ServiceEUSrg**: zawiera zasoby zdefiniowane przez ServiceEUS.
     * Grupa zasobów dla tożsamości zarządzanej zdefiniowanej przez użytkownika.
 3. Wybierz nazwę grupy zasobów.
 4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
@@ -369,4 +368,4 @@ Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób korzystania z funkcji sprawdzania kondycji w usłudze Azure Menedżer wdrażania. Aby dowiedzieć się więcej, zobacz [dokumentację usługi Azure Resource Manager](/azure/azure-resource-manager/).
+W tym samouczku przedstawiono sposób korzystania z funkcji sprawdzania kondycji w usłudze Azure Menedżer wdrażania. Aby dowiedzieć się więcej, zobacz [dokumentację usługi Azure Resource Manager](../index.yml).
