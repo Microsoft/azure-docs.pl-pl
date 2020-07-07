@@ -9,10 +9,10 @@ ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 195caa6f8d7c00c741741fbf80a77bd7fe5579b0
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465050"
 ---
 Następujące polecenie interfejsu wiersza polecenia będzie odrzucać cały ruch do publicznego punktu końcowego konta magazynu. Należy pamiętać, że to polecenie ma `-bypass` parametr ustawiony na `AzureServices` . Pozwoli to na dostęp do konta magazynu przez publiczny punkt końcowy, takich jak Azure File Sync.

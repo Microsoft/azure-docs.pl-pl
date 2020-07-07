@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202400"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integracja Azure Active Directory z programem E Sales Manager Remix
@@ -65,7 +65,7 @@ Aby skonfigurować integrację usługi Azure AD z programem E Sales Manager remi
 
     ![Przycisk Azure Active Directory][1]
 
-1. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Okno "aplikacje przedsiębiorstwa"][2]
     
@@ -101,9 +101,9 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     ![E Sales Manager Remix informacje logowania jednokrotnego w domenie i adresach URL](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. W polu **adres URL logowania** wpisz adres URL w następującym formacie: *https://\<Server-based-URL>/\<sub-Domain>/eSales-PC*.
+    a. W polu **adres URL logowania** wpisz adres URL w następującym formacie: *https:// \<Server-Based-URL> / \<sub-domain> /eSales-PC*.
 
-    b. W polu **Identyfikator** wpisz adres URL w następującym formacie: *\<https://Server-based-URL>/\<sub-Domain>/*.
+    b. W polu **Identyfikator** wpisz adres URL w następującym formacie: *https:// \<Server-Based-URL> / \<sub-domain> / *.
 
     c. Zanotuj wartość **identyfikatora** do późniejszego użycia w tym samouczku.
     
@@ -120,7 +120,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     Zostanie otwarte okno **Edytowanie atrybutu** .
 
-1. Skopiuj wartości **przestrzeni nazw** i **nazwy** . Wygeneruj wartość w * \<obszarze nazw wzorców>/\<Name>* i Zapisz ją do późniejszego użycia w tym samouczku.
+1. Skopiuj wartości **przestrzeni nazw** i **nazwy** . Wygeneruj wartość we wzorcu *\<Namespace>/\<Name>* i Zapisz ją do późniejszego użycia w tym samouczku.
 
     ![Edytowanie okna atrybutów](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -142,7 +142,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     ![Polecenie "do menu administratora"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. W okienku po lewej stronie wybierz pozycję **Ustawienia** > systemowe**współpraca z systemem zewnętrznym**.
+1. W okienku po lewej stronie wybierz pozycję **Ustawienia systemowe**  >  **współpraca z systemem zewnętrznym**.
 
     ![Linki "Ustawienia systemowe" i "Współpraca z systemem zewnętrznym"](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -158,7 +158,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
     
     b. Z listy rozwijanej w sekcji **element współpracy** wybierz pozycję **poczta e-mail**.
 
-    c. W polu **element współpracy** wklej wartość pola, która została skopiowana wcześniej z Azure Portal (czyli **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
+    c. W polu **element współpracy** wklej wartość pola, która została skopiowana wcześniej z Azure Portal (czyli **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** ).
 
     d. W polu **wystawca (identyfikator jednostki)** wklej wartość identyfikatora, która została skopiowana wcześniej z sekcji **Remix i adresy URL programu E Sales Manager** w Azure Portal.
 
@@ -166,12 +166,12 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
     f. W polu **adres URL logowania dostawcy** , wklej adres URL usługi logowania jednokrotnego protokołu SAML, który został skopiowany wcześniej w Azure Portal.
 
-    g. W polu **adres URL wylogowania dostawcy tożsamości** wklej wartość adresu URL wylogowania, która została skopiowana wcześniej w Azure Portal.
+    przykład W polu **adres URL wylogowania dostawcy tożsamości** wklej wartość adresu URL wylogowania, która została skopiowana wcześniej w Azure Portal.
 
     h. Wybierz pozycję **ustawienie ukończone**.
 
 > [!TIP]
-> Podczas konfigurowania aplikacji można odczytać zwięzłą wersję powyższych instrukcji przedstawionych w [Azure Portal](https://portal.azure.com). Po dodaniu aplikacji w sekcji **Active Directory** > **aplikacje dla przedsiębiorstw** wybierz kartę **Logowanie** jednokrotne, a następnie dostęp do osadzonej dokumentacji w sekcji **Konfiguracja** u dołu. Aby uzyskać więcej informacji na temat funkcji osadzonej dokumentacji, zobacz [dokumentację usługi Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Podczas konfigurowania aplikacji można odczytać zwięzłą wersję powyższych instrukcji przedstawionych w [Azure Portal](https://portal.azure.com). Po dodaniu aplikacji w sekcji **Active Directory**  >  **aplikacje dla przedsiębiorstw** wybierz kartę **Logowanie** jednokrotne, a następnie dostęp do osadzonej dokumentacji w sekcji **Konfiguracja** u dołu. Aby uzyskać więcej informacji na temat funkcji osadzonej dokumentacji, zobacz [dokumentację usługi Azure AD Embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
@@ -184,7 +184,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
 
     ![Link Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Aby wyświetlić listę bieżących użytkowników, wybierz pozycję **Użytkownicy i grupy** > **Wszyscy użytkownicy**.
+1. Aby wyświetlić listę bieżących użytkowników, wybierz pozycję **Użytkownicy i grupy**  >  **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -204,7 +204,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
 
     c. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Utwórz użytkownika testowego programu E Sales Manager Remix
 
@@ -214,7 +214,7 @@ W tej sekcji utworzysz użytkownika testowego Britta Simon w Azure Portal, wykon
 
     ![Remix konfiguracja programu E Sales Manager](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Wybierz **Ustawienia** > firmy**konserwacja działów i pracowników**, a następnie wybierz pozycję **pracownicy zarejestrowani**.
+1. Wybierz **Ustawienia firmy**  >  **konserwacja działów i pracowników**, a następnie wybierz pozycję **pracownicy zarejestrowani**.
 
     ![Karta "pracownicy zarejestrowani"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -240,7 +240,7 @@ W tej sekcji włączasz Britta użytkownika do korzystania z logowania jednokrot
 
 ![Przypisywanie roli użytkownika][200] 
 
-1. W Azure Portal Otwórz widok **aplikacje** , przejdź do widoku **katalogu** , a następnie wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. W Azure Portal Otwórz widok **aplikacje** , przejdź do widoku **katalogu** , a następnie wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Linki "aplikacje dla przedsiębiorstw" i "wszystkie aplikacje"][201] 
 

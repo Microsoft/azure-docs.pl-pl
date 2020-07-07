@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
 ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80396625"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Przykładowe zapytania z nowymi polami w schemacie Analiza ruchu (aktualizacja schematu z sierpnia 2019)
@@ -107,7 +107,7 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 Ponieważ nie zbieramy danych w sieciowej grupy zabezpieczeń, **FlowCount_d** jest po prostu:
 
-**AllowedInFlows_d** + **DeniedInFlows_d**DeniedInFlows_d + **AllowedOutFlows_d**AllowedOutFlows_d + **DeniedOutFlows_d**
+**AllowedInFlows_d**  +  **DeniedInFlows_d**  +  **AllowedOutFlows_d**  +  **DeniedOutFlows_d**
 
 Tylko jeden z czterech pól będzie różny od zera. Pozostałe trzy pola będą mieć wartość zero. Pola wypełniają, aby wskazać stan i liczbę na karcie sieciowej, w której został przechwycony przepływ.
 

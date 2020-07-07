@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80398477"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Niestandardowe dostawcy zasobów platformy Azure — omówienie
@@ -53,7 +53,7 @@ Przykładowy punkt końcowy:
 }
 ```
 
-Właściwość | Wymagany | Opis
+Właściwość | Wymagane | Opis
 ---|---|---
 name | *opcję* | Nazwa definicji punktu końcowego. Platforma Azure udostępni tę nazwę za pomocą interfejsu API w obszarze "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/"<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
 routingtype | *znaleziono* | Określa typ kontraktu z **punktem końcowym**. Jeśli nie zostanie określony, domyślna wartość to "proxy".
@@ -118,7 +118,7 @@ POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>do
 
 ## <a name="looking-for-help"></a>Szukasz pomocy
 
-Jeśli masz pytania dotyczące opracowywania niestandardowego dostawcy zasobów platformy Azure, spróbuj zadać [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Podobne pytanie mogło zostać już zgłoszone i nie udzielono odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag ```azure-custom-providers``` , aby uzyskać szybką odpowiedź!
+Jeśli masz pytania dotyczące opracowywania niestandardowego dostawcy zasobów platformy Azure, spróbuj zadać [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Podobne pytanie mogło zostać już zgłoszone i nie udzielono odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag, ```azure-custom-providers``` Aby uzyskać szybką odpowiedź!
 
 ## <a name="next-steps"></a>Następne kroki
 

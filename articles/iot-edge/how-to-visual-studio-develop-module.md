@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 9722c7dec3a066d8f776424cb599be0d463416d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80384861"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
@@ -98,7 +98,7 @@ Szablon projektu Azure IoT Edge w programie Visual Studio tworzy projekt, który
 
    ![Tworzenie nowego projektu](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. W oknie **dodawanie IoT Edge aplikacji i modułu** wybierz pozycję **moduł C#** lub **moduł C** , a następnie określ nazwę modułu i repozytorium obrazu modułu. Program Visual Studio automatycznie wypełnia nazwę modułu nazwą **localhost: 5000/<nazwą\>modułu**. Zastąp go własnymi informacjami rejestru. Jeśli do testowania używasz lokalnego rejestru platformy Docker, **hosty localhost** jest w prawidłowym zakresie. Jeśli używasz Azure Container Registry, Użyj serwera logowania z ustawień rejestru. Serwer logowania wygląda jak ** _ \<nazwa\>rejestru_. azurecr.IO**. Zastąp tylko część **localhost: 5000** ciągu, aby wynik końcowy wyglądał jak ** \< *Nazwa*\>rejestru. azurecr.IO/_\<\>nazwę modułu_**. Domyślna nazwa modułu to **IotEdgeModule1**
+1. W oknie **dodawanie IoT Edge aplikacji i modułu** wybierz pozycję **moduł C#** lub **moduł C** , a następnie określ nazwę modułu i repozytorium obrazu modułu. Program Visual Studio automatycznie wypełnia nazwę modułu nazwą **localhost: 5000/<nazwą \> modułu**. Zastąp go własnymi informacjami rejestru. Jeśli do testowania używasz lokalnego rejestru platformy Docker, **hosty localhost** jest w prawidłowym zakresie. Jeśli używasz Azure Container Registry, Użyj serwera logowania z ustawień rejestru. Serwer logowania wygląda jak ** _\<registry name\>_ . azurecr.IO**. Zastąp tylko część **localhost: 5000** ciągu, aby wynik końcowy wyglądał jak ** \<*registry name*\> . azurecr.IO/ _\<your module name\>_ **. Domyślna nazwa modułu to **IotEdgeModule1**
 
    ![Dodaj aplikację i moduł](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
@@ -108,11 +108,11 @@ Teraz masz projekt **AzureIoTEdgeApp1. Linux. amd64** lub projekt **AzureIoTEdge
 
 Aby zobaczyć, jak działa symulowany czujnik temperatury, Wyświetl [kod źródłowy SimulatedTemperatureSensor. csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
-Projekt **IotEdgeModule1** jest aplikacją konsolową programu .net Core 2,1, jeśli jest to moduł języka C#. Zawiera wymagane pliki platformy Docker, które są potrzebne w przypadku urządzenia IoT Edge działającego z kontenerem kontenera systemu Windows lub Linux. `module.json` Plik opisuje metadane modułu. Rzeczywisty kod modułu, który pobiera zestaw SDK urządzenia usługi Azure IoT jako zależność, znajduje się w pliku `Program.cs` lub `main.c` .
+Projekt **IotEdgeModule1** jest aplikacją konsolową programu .net Core 2,1, jeśli jest to moduł języka C#. Zawiera wymagane pliki platformy Docker, które są potrzebne w przypadku urządzenia IoT Edge działającego z kontenerem kontenera systemu Windows lub Linux. `module.json`Plik opisuje metadane modułu. Rzeczywisty kod modułu, który pobiera zestaw SDK urządzenia usługi Azure IoT jako zależność, znajduje się w `Program.cs` pliku lub `main.c` .
 
 ## <a name="develop-your-module"></a>Opracowywanie modułu
 
-Domyślny kod modułu, który jest dostarczany z rozwiązaniem, znajduje się w lokalizacji **IotEdgeModule1** > **program.cs** (dla języka C#) lub **Main. c** (c). Moduł i `deployment.template.json` plik są skonfigurowane tak, aby można było skompilować rozwiązanie, wypchnąć je do rejestru kontenerów i wdrożyć je na urządzeniu w celu uruchomienia testowania bez dotykania kodu. Moduł jest zbudowany z myślą o wejściu ze źródła (w tym przypadku modułu **SimulatedTemperatureSensor** , który symuluje dane) i potoku do IoT Hub platformy Azure.
+Domyślny kod modułu, który jest dostarczany z rozwiązaniem, znajduje się w lokalizacji **IotEdgeModule1**  >  **program.cs** (dla języka C#) lub **Main. c** (c). Moduł i `deployment.template.json` plik są skonfigurowane tak, aby można było skompilować rozwiązanie, wypchnąć je do rejestru kontenerów i wdrożyć je na urządzeniu w celu uruchomienia testowania bez dotykania kodu. Moduł jest zbudowany z myślą o wejściu ze źródła (w tym przypadku modułu **SimulatedTemperatureSensor** , który symuluje dane) i potoku do IoT Hub platformy Azure.
 
 Gdy wszystko jest gotowe do dostosowania szablonu modułu przy użyciu własnego kodu, użyj [zestawów sdk IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md) do kompilowania modułów, które zaspokoją kluczowe potrzeby rozwiązań IoT, takich jak zabezpieczenia, zarządzanie urządzeniami i niezawodność.
 
@@ -122,7 +122,7 @@ Gdy wszystko jest gotowe do dostosowania szablonu modułu przy użyciu własnego
 
    ![Kopiuj parametry połączenia urządzenia brzegowego](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. W menu **Narzędzia** wybierz kolejno opcje **Azure IoT Edge narzędzia** > **Konfiguracja IoT Edge symulator**, wklej parametry połączenia i kliknij przycisk **OK**.
+1. W menu **Narzędzia** wybierz kolejno opcje **Azure IoT Edge narzędzia**  >  **Konfiguracja IoT Edge symulator**, wklej parametry połączenia i kliknij przycisk **OK**.
 
    ![Otwórz okno Określanie parametrów połączenia Edge](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
@@ -139,7 +139,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
 
    ![Ustaw projekt startowy](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
-1. Naciśnij klawisz **F5** lub kliknij poniższy przycisk, aby uruchomić moduł; po raz pierwszy może&ndash;upłynąć 10 sekund.
+1. Naciśnij klawisz **F5** lub kliknij poniższy przycisk, aby uruchomić moduł; po raz pierwszy może upłynąć 10 &ndash; sekund.
 
    ![Uruchom moduł](./media/how-to-visual-studio-develop-csharp-module/run-module.png)
 
@@ -147,7 +147,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
 
    ![Uruchomiono moduł](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. W przypadku programowania w języku C# Ustaw punkt przerwania `PipeMessage()` w funkcji w **program.cs**; Jeśli używany jest język C, ustaw punkt przerwania w `InputQueue1Callback()` funkcji w **Main. C**. Następnie można go przetestować, wysyłając komunikat, uruchamiając następujące polecenie w powłoce **git bash** lub **WSL bash** . (Nie można uruchomić `curl` polecenia z programu PowerShell lub wiersza polecenia).
+1. W przypadku programowania w języku C# Ustaw punkt przerwania w `PipeMessage()` funkcji w **program.cs**; Jeśli używasz C, ustaw punkt przerwania w `InputQueue1Callback()` funkcji w **Main. C**. Następnie można go przetestować, wysyłając komunikat, uruchamiając następujące polecenie w powłoce **git bash** lub **WSL bash** . (Nie można uruchomić `curl` polecenia z programu PowerShell lub wiersza polecenia).
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
@@ -158,7 +158,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
     Punkt przerwania powinien zostać wyzwolony. Możesz obejrzeć zmienne w oknie zmiennych **lokalnych** programu Visual Studio.
 
    > [!TIP]
-   > Możesz również użyć narzędzia do [publikowania](https://www.getpostman.com/) lub innych narzędzi API do wysyłania wiadomości zamiast `curl`.
+   > Możesz również użyć narzędzia do [publikowania](https://www.getpostman.com/) lub innych narzędzi API do wysyłania wiadomości zamiast `curl` .
 
 1. Naciśnij **klawisze CTRL + F5** lub kliknij przycisk Zatrzymaj, aby zatrzymać debugowanie.
 
@@ -166,7 +166,7 @@ Zazwyczaj należy przetestować i debugować każdy moduł przed uruchomieniem g
 
 Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debugować całe rozwiązanie z wieloma modułami.
 
-1. W **Eksplorator rozwiązań**Dodaj drugi moduł do rozwiązania, klikając prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierając pozycję **Dodaj** > **Nowy moduł IoT Edge**. Domyślną nazwą drugiego modułu jest **IotEdgeModule2** i będzie działać jako inny moduł potoku.
+1. W **Eksplorator rozwiązań**Dodaj drugi moduł do rozwiązania, klikając prawym przyciskiem myszy pozycję **AzureIoTEdgeApp1** i wybierając pozycję **Dodaj**  >  **Nowy moduł IoT Edge**. Domyślną nazwą drugiego modułu jest **IotEdgeModule2** i będzie działać jako inny moduł potoku.
 
 1. Otwórz plik `deployment.template.json` i zobaczysz, że w sekcji **modułów** został dodany **IotEdgeModule2** . Zastąp sekcję **Routes** poniższymi. Jeśli dostosowano nazwy modułów, upewnij się, że te nazwy zostały zaktualizowane tak, aby były zgodne.
 
@@ -200,7 +200,7 @@ Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debug
     docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
 
-1. Jeśli używasz prywatnego rejestru, takiego jak Azure Container Registry, musisz dodać informacje o logowaniu do rejestru w ustawieniach środowiska uruchomieniowego, które znajdują się `deployment.template.json`w pliku. Zastąp symbole zastępcze rzeczywistą nazwą użytkownika administratora ACR, hasło i nazwę rejestru.
+1. Jeśli używasz prywatnego rejestru, takiego jak Azure Container Registry, musisz dodać informacje o logowaniu do rejestru w ustawieniach środowiska uruchomieniowego, które znajdują się w pliku `deployment.template.json` . Zastąp symbole zastępcze rzeczywistą nazwą użytkownika administratora ACR, hasło i nazwę rejestru.
 
     ```json
           "settings": {
@@ -222,11 +222,11 @@ Po zakończeniu opracowywania jednego modułu możesz chcieć uruchomić i debug
 
 W artykule Szybki start, który był używany do skonfigurowania urządzenia usługi IoT Edge, wdrożono moduł za pomocą witryny Azure Portal. Moduły można także wdrażać za pomocą programu Cloud Explorer dla programu Visual Studio. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, `deployment.json` plik i wszystko, co należy zrobić, to wybierz urządzenie, które ma zostać odebrane.
 
-1. Otwórz program **Cloud Explorer** , klikając pozycję **Wyświetl** > program**Cloud Explorer**. Upewnij się, że zalogowano się do programu Visual Studio 2019.
+1. Otwórz program **Cloud Explorer** , klikając pozycję **Wyświetl**program  >  **Cloud Explorer**. Upewnij się, że zalogowano się do programu Visual Studio 2019.
 
 1. W programie **Cloud Explorer**Rozwiń swoją subskrypcję, Znajdź IoT Hub platformy Azure i urządzenie Azure IoT Edge, które chcesz wdrożyć.
 
-1. Kliknij prawym przyciskiem myszy urządzenie IoT Edge, aby utworzyć dla niego wdrożenie. Przejdź do manifestu wdrożenia skonfigurowanego dla Twojej platformy znajdującej się w folderze **konfiguracyjnym** w rozwiązaniu programu Visual Studio `deployment.arm32v7.json`, na przykład.
+1. Kliknij prawym przyciskiem myszy urządzenie IoT Edge, aby utworzyć dla niego wdrożenie. Przejdź do manifestu wdrożenia skonfigurowanego dla Twojej platformy znajdującej się w folderze **konfiguracyjnym** w rozwiązaniu programu Visual Studio, na przykład `deployment.arm32v7.json` .
 
 1. Kliknij przycisk Odśwież, aby zobaczyć nowe moduły z uruchomionym modułem **SimulatedTemperatureSensor** oraz **$edgeAgent** i **$edgeHub**.
 

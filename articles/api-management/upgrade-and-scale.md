@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203572"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
@@ -74,7 +74,7 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 1. Przejdź do usługi API Management w [Azure Portal](https://portal.azure.com/).
 2. Kliknij **warstwę cenową** w menu.
 3. Wybierz żądaną warstwę usług z listy rozwijanej. Użyj suwaka, aby określić skalę usługi API Management po zmianie.
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Przestoje podczas skalowania w górę i w dół
 W przypadku skalowania z lub do warstwy dewelopera wygaśnie Przestój. W przeciwnym razie nie ma przestojów. 

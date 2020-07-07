@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418005"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działanie Lookup w Azure Data Factory
@@ -70,7 +70,7 @@ firstRowOnly | Wskazuje, czy zwrócić tylko pierwszy wiersz, czy wszystkie wier
 
 Wynik wyszukiwania jest zwracany w `output` sekcji wyniku uruchomienia działania.
 
-* **Gdy `firstRowOnly` jest ustawiona na `true` (domyślnie)**, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. Wynik wyszukiwania jest pod stałym `firstRow` kluczem. Aby użyć wyniku w kolejnych działaniach, użyj wzorca `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Gdy `firstRowOnly` jest ustawiona na `true` (domyślnie)**, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. Wynik wyszukiwania jest pod stałym `firstRow` kluczem. Aby użyć wyniku w kolejnych działaniach, użyj wzorca `@{activity('MyLookupActivity').output.firstRow.TableName}` .
 
     ```json
     {
@@ -82,7 +82,7 @@ Wynik wyszukiwania jest zwracany w `output` sekcji wyniku uruchomienia działani
     }
     ```
 
-* **Gdy `firstRowOnly` jest ustawiona na `false` **, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. Pole `count` wskazuje liczbę rekordów, które są zwracane. Szczegółowe wartości są wyświetlane pod stałą `value` tablicą. W takim przypadku działanie Lookup jest [wykonywane przez działanie foreach](control-flow-for-each-activity.md). Można przekazać `value` tablicę do pola działania `items` foreach przy użyciu wzorca. `@activity('MyLookupActivity').output.value` Aby uzyskać dostęp do elementów `value` w tablicy, użyj następującej składni: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Może to być na przykład `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Gdy `firstRowOnly` jest ustawiona na `false` **, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. `count`Pole wskazuje liczbę rekordów, które są zwracane. Szczegółowe wartości są wyświetlane pod stałą `value` tablicą. W takim przypadku działanie Lookup jest [wykonywane przez działanie foreach](control-flow-for-each-activity.md). Można przekazać `value` tablicę do pola działania ForEach przy `items` użyciu wzorca `@activity('MyLookupActivity').output.value` . Aby uzyskać dostęp do elementów w `value` tablicy, użyj następującej składni: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Może to być na przykład `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -166,7 +166,7 @@ Ten potok zawiera dwie działania: Lookup i Copy.
 ```
 
 ### <a name="lookup-dataset"></a>Zestaw danych wyszukiwania
-Zestaw danych **wyszukiwania** jest plikiem **sources. JSON** w folderze wyszukiwania usługi Azure Storage określonym przez typ **AzureStorageLinkedService** . 
+Zestaw danych **wyszukiwania** to **sourcetable.jsw** pliku w folderze wyszukiwania usługi Azure Storage określonym przez typ **AzureStorageLinkedService** . 
 
 ```json
 {
@@ -209,7 +209,7 @@ Zestaw danych **wyszukiwania** jest plikiem **sources. JSON** w folderze wyszuki
 ```
 
 ### <a name="sink-dataset-for-copy-activity"></a>Zestaw danych **ujścia** dla działania kopiowania
-Działanie kopiowania kopiuje dane z tabeli SQL do pliku **filebylookup. csv** znajdującego się w folderze **CSV** w usłudze Azure Storage. Plik jest określany przez właściwość **AzureStorageLinkedService** . 
+Działanie kopiowania kopiuje dane z tabeli SQL do pliku **filebylookup.csv** znajdującego się w folderze **CSV** w usłudze Azure Storage. Plik jest określany przez właściwość **AzureStorageLinkedService** . 
 
 ```json
 {
@@ -262,7 +262,7 @@ To wystąpienie Azure SQL Database zawiera dane, które mają zostać skopiowane
 }
 ```
 
-### <a name="sourcetablejson"></a>sources. JSON
+### <a name="sourcetablejson"></a>sourcetable.jsna
 
 #### <a name="set-of-objects"></a>Zestaw obiektów
 
@@ -296,7 +296,7 @@ To wystąpienie Azure SQL Database zawiera dane, które mają zostać skopiowane
 
 Poniżej przedstawiono niektóre ograniczenia działania wyszukiwania i sugerowanych obejść.
 
-| Ograniczenia | Obejście |
+| Ograniczenie | Obejście |
 |---|---|
 | Działanie Lookup ma maksymalnie 5 000 wierszy i ma maksymalny rozmiar wynoszący 2 MB. | Zaprojektuj potok dwupoziomowy, w którym potok zewnętrzny iteruje za pośrednictwem wewnętrznego potoku, który pobiera dane, które nie przekraczają maksymalnej liczby wierszy lub rozmiaru. |
 | | |

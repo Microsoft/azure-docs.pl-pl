@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189287"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight
@@ -108,7 +108,7 @@ Dane o podróży z NYC taksówkami dotyczą około 20 GB skompresowanych plików
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Pobrano 0,1% próbek tych plików i dołączono\_pliki CVS opłaty za przejazd i\_podróż do jednego zestawu danych, który będzie używany jako zestaw danych wejściowych dla tego przewodnika. Unikatowy klucz do przyłączenia\_danych podróży i\_opłaty za podróż są złożone z pól: Medallion,\_licencja na hakera i Data i godzina pobrania\_. Każdy rekord zestawu danych zawiera następujące atrybuty reprezentujące podróż NYCą z taksówką:
+Pobrano 0,1% próbek tych plików i dołączono \_ \_ Pliki CVS opłaty za przejazd i podróż do jednego zestawu danych, który będzie używany jako zestaw danych wejściowych dla tego przewodnika. Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z pól: Medallion, \_ licencja na hakera i \_ Data i godzina pobrania. Każdy rekord zestawu danych zawiera następujące atrybuty reprezentujące podróż NYCą z taksówką:
 
 | Pole | Krótki opis |
 | --- | --- |
@@ -141,11 +141,11 @@ Pobrano 0,1% próbek tych plików i dołączono\_pliki CVS opłaty za przejazd i
 | tip_class |Klasa TIP (0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Wykonywanie kodu z notesu Jupyter w klastrze Spark
-Jupyter Notebook można uruchomić z Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym i kliknij go, aby wprowadzić stronę zarządzania dla klastra. Aby otworzyć Notes skojarzony z klastrem Spark, kliknij pozycję **pulpity nawigacyjne** -> klastra**Jupyter Notebook**.
+Jupyter Notebook można uruchomić z Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym i kliknij go, aby wprowadzić stronę zarządzania dla klastra. Aby otworzyć Notes skojarzony z klastrem Spark, kliknij pozycję **pulpity nawigacyjne klastra**  ->  **Jupyter Notebook**.
 
 ![Pulpity nawigacyjne klastra](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Możesz również przejść do okna ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** , aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
+Możesz również przejść do ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** okna, aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
 
 ![Przeglądaj notesy Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
@@ -164,7 +164,7 @@ Co możesz teraz zrobić:
 
 * Zobacz kod, klikając Notes.
 * Wykonaj każdą komórkę, naciskając **klawisze SHIFT-ENTER**.
-* Uruchom cały Notes, klikając pozycję przebieg **komórki** -> **Run**.
+* Uruchom cały Notes, klikając pozycję przebieg **komórki**  ->  **Run**.
 * Użyj automatycznej wizualizacji zapytań.
 
 > [!TIP]

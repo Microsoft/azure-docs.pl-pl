@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193398"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
@@ -48,7 +48,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     
     >[!NOTE]
     >
-    >Zaleca się zmodyfikowanie demona bezpośrednio w Docker, ponieważ lokalizacja pliku demo. JSON może się różnić od maszyny do komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Zaleca się modyfikowanie demona bezpośrednio w programie Docker, ponieważ lokalizacja daemon.jsw pliku może się różnić od maszyny do komputera. Przykład: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -101,7 +101,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję `http://localhost:19080`klastrów:
+5. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów `http://localhost:19080` :
 
     ```bash 
     docker logs sftestcluster
@@ -194,7 +194,7 @@ Zainstaluj [zestaw .NET Core 2.0 SDK dla komputerów Mac](https://www.microsoft.
 
 Usługa Azure Service Fabric udostępnia wtyczkę środowiska Eclipse Neon (lub nowszą) dla środowiska IDE Java. Wtyczka upraszcza proces tworzenia, kompilowania i wdrażania usług Java. Aby zainstalować wtyczkę usługi Service Fabric dla środowiska Eclipse lub zaktualizować ją do najnowszej wersji, wykonaj [te czynności](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Możesz też wykonać inne procedury przedstawione w [dokumentacji usługi Service Fabric dla środowiska Eclipse](service-fabric-get-started-eclipse.md): kompilowanie aplikacji, dodawanie usługi do aplikacji, odinstalowywanie aplikacji itp.
 
-Ostatnim krokiem jest utworzenie wystąpienia kontenera ze ścieżką współużytkowaną z hostem. Wtyczka wymaga tego typu wystąpienia na potrzeby pracy z kontenerem platformy Docker na komputerze Mac. Przykład:
+Ostatnim krokiem jest utworzenie wystąpienia kontenera ze ścieżką współużytkowaną z hostem. Wtyczka wymaga tego typu wystąpienia na potrzeby pracy z kontenerem platformy Docker na komputerze Mac. Na przykład:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest

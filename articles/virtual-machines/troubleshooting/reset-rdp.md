@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058440"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Resetowanie Usługi pulpitu zdalnego lub jego hasła administratora na maszynie wirtualnej z systemem Windows
@@ -59,7 +59,7 @@ Najpierw upewnij się, że masz [zainstalowany i skonfigurowany najnowszy moduł
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Zresetuj hasło do konta administratora lokalnego**
 
-- Zresetuj hasło administratora lub nazwę użytkownika przy użyciu polecenia cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. `typeHandlerVersion` Ustawienie musi mieć wartość 2,0 lub większą, ponieważ wersja 1 jest przestarzała. 
+- Zresetuj hasło administratora lub nazwę użytkownika przy użyciu polecenia cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. `typeHandlerVersion`Ustawienie musi mieć wartość 2,0 lub większą, ponieważ wersja 1 jest przestarzała. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -77,14 +77,14 @@ Najpierw upewnij się, że masz [zainstalowany i skonfigurowany najnowszy moduł
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Zresetuj konfigurację Usługi pulpitu zdalnego**
 
-1. Zresetuj dostęp zdalny do maszyny wirtualnej za pomocą polecenia cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. Poniższy przykład resetuje rozszerzenie dostępu o nazwie `myVMAccess` w maszynie wirtualnej o nazwie `myVM` w grupie `myResourceGroup` zasobów:
+1. Zresetuj dostęp zdalny do maszyny wirtualnej za pomocą polecenia cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. Poniższy przykład resetuje rozszerzenie dostępu o nazwie w `myVMAccess` maszynie wirtualnej o nazwie `myVM` w `myResourceGroup` grupie zasobów:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]
-    > W dowolnym momencie maszyna wirtualna może mieć tylko jednego agenta dostępu do maszyny wirtualnej. Aby ustawić właściwości agenta dostępu do maszyny wirtualnej, użyj `-ForceRerun` opcji. Jeśli używasz `-ForceRerun`programu, upewnij się, że używasz tej samej nazwy dla agenta dostępu do maszyny wirtualnej, który może zostać użyty w poprzednich poleceniach.
+    > W dowolnym momencie maszyna wirtualna może mieć tylko jednego agenta dostępu do maszyny wirtualnej. Aby ustawić właściwości agenta dostępu do maszyny wirtualnej, użyj `-ForceRerun` opcji. Jeśli używasz `-ForceRerun` programu, upewnij się, że używasz tej samej nazwy dla agenta dostępu do maszyny wirtualnej, który może zostać użyty w poprzednich poleceniach.
 
 1. Jeśli nadal nie można połączyć się zdalnie z maszyną wirtualną, zobacz [Rozwiązywanie problemów pulpit zdalny połączenia z maszyną wirtualną platformy Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)z systemem Windows. Jeśli nastąpi utrata połączenia z kontrolerem domeny systemu Windows, musisz przywrócić go z kopii zapasowej kontrolera domeny.
 

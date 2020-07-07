@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418018"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Przełącz działanie w Azure Data Factory
@@ -67,11 +67,11 @@ Działanie Switch zapewnia te same funkcje, które instrukcja SWITCH zawiera w j
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 name | Nazwa działania Switch. | String | Tak
-type | Musi być ustawiona na wartość *Switch** | String | Tak
-wyrażenie | Wyrażenie, które musi obliczyć wartość ciągu | Wyrażenie z ciągiem typu wynikowego | Tak
+typ | Musi być ustawiona na wartość *Switch** | String | Tak
+expression | Wyrażenie, które musi obliczyć wartość ciągu | Wyrażenie z ciągiem typu wynikowego | Tak
 padkach | Zestaw przypadków, które zawierają wartość i zestaw działań do wykonania, gdy wartość jest zgodna z oceną wyrażenia. Należy podać co najmniej jeden przypadek. Obowiązuje maksymalnie 25 przypadków. | Tablica obiektów Case | Tak
 defaultActivities | Zestaw działań, które są wykonywane, gdy szacowanie wyrażenia nie jest spełnione. | Tablica działań | Tak
 
@@ -82,7 +82,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 > [!NOTE]
 > Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell umożliwiające uruchomienie potoku. Aby zapoznać się z instrukcjami krok po kroku dotyczącymi tworzenia potoku Data Factory przy użyciu definicji Azure PowerShell i JSON, zobacz [Samouczek: Tworzenie fabryki danych przy użyciu Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem Switch (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem Switch (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -230,7 +230,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService.jswłączona)
 
 ```json
 {
@@ -244,7 +244,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset.json)
 
 Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** parametru potoku. 
 
@@ -272,7 +272,7 @@ Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** pa
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters.json)
 
 ```json
 {

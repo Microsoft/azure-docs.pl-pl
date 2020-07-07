@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188297"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: problemy z połączeniem punkt-lokacja platformy Azure
@@ -44,7 +44,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki:
     | AzureClient. pfx  | Bieżący User\Personal\Certificates |
     | AzureRoot. cer    | Główne urzędy certyfikacji Computer\Trusted lokalnego|
 
-3. Przejdź do pozycji\<C:\Users username>\<identyfikator GUID \appdata\roaming\microsoft\network\connections\cm>, ręcznie Zainstaluj certyfikat (plik *. cer) w sklepie użytkownika i komputera.
+3. Przejdź do \<UserName> \AppData\Roaming\Microsoft\Network\Connections\Cm C:\Users \<GUID> , ręcznie Zainstaluj certyfikat (plik *. cer) w sklepie użytkownika i komputera.
 
 Więcej informacji o sposobie instalowania certyfikatu klienta znajduje się w temacie [generowanie i eksportowanie certyfikatów dla połączeń punkt-lokacja](vpn-gateway-certificates-point-to-site.md).
 
@@ -71,7 +71,7 @@ Aby przygotowywać system Windows 10 lub Server 2016 pod kątem protokołu IKEv2
 
 1. Zainstaluj aktualizację.
 
-   | Wersja systemu operacyjnego | Date | Numer/link |
+   | Wersja systemu operacyjnego | Data | Numer/link |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 w wersji 1607 | 17 stycznia 2018 r. | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 w wersji 1703 | 17 stycznia 2018 r. | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -165,10 +165,10 @@ Do zaufania bramy sieci VPN dla sieci wirtualnej jest wymagany dodatkowy certyfi
 
 Wyodrębnij pakiet konfiguracji klienta sieci VPN i Znajdź plik. cer. Aby zainstalować certyfikat, wykonaj następujące kroki:
 
-1. Otwórz program MMC. exe.
+1. Otwórz mmc.exe.
 2. Dodaj przystawkę **Certyfikaty** .
 3. Wybierz konto **komputera** dla komputera lokalnego.
-4. Kliknij prawym przyciskiem myszy węzeł **Zaufane główne** urzędy certyfikacji. Kliknij pozycję **wszystko —** > **Importuj**zadanie i przejdź do pliku CER wyodrębnionego z pakietu konfiguracji klienta sieci VPN.
+4. Kliknij prawym przyciskiem myszy węzeł **Zaufane główne** urzędy certyfikacji. Kliknij pozycję **wszystko —**  >  **Importuj**zadanie i przejdź do pliku CER wyodrębnionego z pakietu konfiguracji klienta sieci VPN.
 5. Uruchom ponownie komputer. 
 6. Spróbuj zainstalować klienta sieci VPN.
 
@@ -178,7 +178,7 @@ Wyodrębnij pakiet konfiguracji klienta sieci VPN i Znajdź plik. cer. Aby zains
 
 Podczas próby zapisania zmian dla bramy sieci VPN w Azure Portal zostanie wyświetlony następujący komunikat o błędzie:
 
-**Nie można zapisać &lt; *nazwy*&gt;bramy bramy sieci wirtualnej. Dane &lt; *identyfikatora* &gt; certyfikatu certyfikatu są nieprawidłowe.**
+**Nie można zapisać &lt; *nazwy bramy*bramy sieci wirtualnej &gt; . Dane &lt; *identyfikatora certyfikatu* certyfikatu &gt; są nieprawidłowe.**
 
 ### <a name="cause"></a>Przyczyna 
 
@@ -213,7 +213,7 @@ Upewnij się, że dane w certyfikacie nie zawierają nieprawidłowych znaków, t
 
 Podczas próby zapisania zmian dla bramy sieci VPN w Azure Portal zostanie wyświetlony następujący komunikat o błędzie: 
 
-**Nie można zapisać &lt; *nazwy*&gt;bramy bramy sieci wirtualnej. *Nazwa certyfikatu nazwy zasobu, którą próbujesz przekazać* &gt; , jest nieprawidłowa. &lt;**
+**Nie można zapisać &lt; *nazwy bramy*bramy sieci wirtualnej &gt; . &lt; *Nazwa certyfikatu nazwy zasobu, którą próbujesz przekazać,* &gt; jest nieprawidłowa**.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -272,7 +272,7 @@ Należy usunąć połączenie sieci VPN punkt-lokacja, a następnie ponownie zai
 
 ### <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, usuń stare pliki konfiguracji klienta VPN z **\<C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections VirtualNetworkId>**, a następnie ponownie uruchom Instalatora klienta sieci VPN.
+Aby rozwiązać ten problem, usuń stare pliki konfiguracji klienta sieci VPN z **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **, a następnie ponownie uruchom Instalatora klienta sieci VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Klient sieci VPN typu punkt-lokacja nie może rozpoznać nazwy FQDN zasobów w domenie lokalnej
 
@@ -301,11 +301,11 @@ Aby rozwiązać ten problem, [Zresetuj usługę Azure VPN Gateway](vpn-gateway-r
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Błąd: "funkcja odwoływania nie mogła sprawdzić odwołania, ponieważ serwer odwołań był w trybie offline. (Błąd 0x80092013) "
 
 ### <a name="causes"></a>Przyczyny
-Ten komunikat o błędzie występuje, gdy klient nie http://crl3.digicert.com/ssca-sha2-g1.crl może http://crl4.digicert.com/ssca-sha2-g1.crluzyskać dostępu do programu i.  Sprawdzanie odwołania wymaga dostępu do tych dwóch lokacji.  Ten problem zwykle występuje na kliencie, na którym skonfigurowano serwer proxy. W niektórych środowiskach, jeśli żądania nie przechodzą przez serwer proxy, nastąpi odmowa w zaporze brzegowej.
+Ten komunikat o błędzie występuje, gdy klient nie może uzyskać dostępu do programu http://crl3.digicert.com/ssca-sha2-g1.crl i http://crl4.digicert.com/ssca-sha2-g1.crl .  Sprawdzanie odwołania wymaga dostępu do tych dwóch lokacji.  Ten problem zwykle występuje na kliencie, na którym skonfigurowano serwer proxy. W niektórych środowiskach, jeśli żądania nie przechodzą przez serwer proxy, nastąpi odmowa w zaporze brzegowej.
 
 ### <a name="solution"></a>Rozwiązanie
 
-Sprawdź ustawienia serwera proxy, upewnij się, że klient ma dostęp http://crl3.digicert.com/ssca-sha2-g1.crl i. http://crl4.digicert.com/ssca-sha2-g1.crl
+Sprawdź ustawienia serwera proxy, upewnij się, że klient ma dostęp http://crl3.digicert.com/ssca-sha2-g1.crl i http://crl4.digicert.com/ssca-sha2-g1.crl .
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Błąd klienta sieci VPN: połączenie zostało uniemożliwione z powodu zasad skonfigurowanych na serwerze RAS/VPN. (Błąd 812)
 
@@ -339,9 +339,9 @@ Aktualizowanie sterownika karty sieciowej:
 4.  Jeśli system Windows nie znajduje nowego sterownika, możesz spróbować znaleźć go w witrynie internetowej producenta urządzenia i wykonać podane w niej instrukcje.
 5. Uruchom ponownie komputer i spróbuj ponownie nawiązać połączenie.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Błąd klienta sieci VPN: Nawiązywanie połączenia <VPN Connection Name>sieci VPN, stan = platforma sieci VPN nie wyzwolił połączenia
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Błąd klienta sieci VPN: Nawiązywanie połączenia sieci VPN <VPN Connection Name> , stan = platforma sieci VPN nie wyzwolił połączenia
 
-W Podgląd zdarzeń z RasClient może zostać wyświetlony następujący błąd: "użytkownik <User> wybiera połączenie o nazwie <VPN Connection Name> , które nie powiodło się. Kod błędu zwrócony w przypadku niepowodzenia to 1460. "
+W Podgląd zdarzeń z RasClient może zostać wyświetlony następujący błąd: "użytkownik <User> wybiera połączenie o nazwie, <VPN Connection Name> które nie powiodło się. Kod błędu zwrócony w przypadku niepowodzenia to 1460. "
 
 ### <a name="cause"></a>Przyczyna
 
@@ -370,7 +370,7 @@ Ten problem może być spowodowany przez poprzednie instalacje klienta sieci VPN
 
 ### <a name="solution"></a>Rozwiązanie
 
-Usuń stare pliki konfiguracji klienta VPN z **\<C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections VirtualNetworkId>** i ponownie uruchom Instalatora klienta sieci VPN. 
+Usuń stare pliki konfiguracji klienta VPN z usługi **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** i ponownie uruchom Instalatora klienta sieci VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Klient sieci VPN jest w stanie hibernacji lub uśpienia po pewnym czasie
 

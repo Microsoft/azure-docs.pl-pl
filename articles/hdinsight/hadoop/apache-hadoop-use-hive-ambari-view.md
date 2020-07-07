@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 832caaed0816e3dd7d177f634209dea42e5312c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192684"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Korzystanie z widoku programu Hive narzędzia Apache Ambari z usługą Apache Hadoop w usłudze HDInsight
@@ -29,7 +29,7 @@ Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usłu
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster.  Instrukcje można znaleźć w temacie Wyświetlanie [i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters) . Klaster zostanie otwarty w nowym widoku portalu.
 
-1. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję **widoki Ambari**. Po wyświetleniu monitu o uwierzytelnienie Użyj nazwy konta `admin`i hasła klastra, które zostały podane podczas tworzenia klastra. Możesz również przejść do `https://CLUSTERNAME.azurehdinsight.net/#/main/views` okna przeglądarki, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję **widoki Ambari**. Po wyświetleniu monitu o uwierzytelnienie Użyj `admin` nazwy konta i hasła klastra, które zostały podane podczas tworzenia klastra. Możesz również przejść do `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` okna przeglądarki, gdzie jest nazwą klastra.
 
 1. Z listy widoki wybierz pozycję __Widok Hive__.
 
@@ -115,7 +115,7 @@ Na karcie **zapytanie** można opcjonalnie zapisywać zapytania. Po zapisaniu za
 ![Karta Zapisane zapytania w widokach Apache Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
-> Zapisane zapytania są przechowywane w domyślnym magazynie klastra. Zapisane zapytania można znaleźć pod ścieżką `/user/<username>/hive/scripts`. Są one przechowywane jako pliki w postaci `.hql` zwykłego tekstu.
+> Zapisane zapytania są przechowywane w domyślnym magazynie klastra. Zapisane zapytania można znaleźć pod ścieżką `/user/<username>/hive/scripts` . Są one przechowywane jako pliki w postaci zwykłego tekstu `.hql` .
 >
 > Jeśli usuniesz klaster, ale zachowasz magazyn, możesz pobrać zapytania za pomocą narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) lub Data Lake Storage Explorer (z witryny [Azure Portal](https://portal.azure.com)).
 

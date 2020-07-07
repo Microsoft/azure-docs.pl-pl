@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80384079"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie powiększenia automatycznej aprowizacji użytkowników
@@ -105,7 +105,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://api.zoom.us/scim` wartość w polu **adres URL dzierżawy**. Wprowadź wartość **tokenu JWT** pobranego wcześniej w **tokenie tajnym**. Kliknij przycisk **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto powiększenia ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź wartość `https://api.zoom.us/scim` w polu **adres URL dzierżawy**. Wprowadź wartość **tokenu JWT** pobranego wcześniej w **tokenie tajnym**. Kliknij przycisk **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto powiększenia ma uprawnienia administratora i spróbuj ponownie.
 
     ![Powiększ powiększanie](./media/zoom-provisioning-tutorial/provisioning.png)
 

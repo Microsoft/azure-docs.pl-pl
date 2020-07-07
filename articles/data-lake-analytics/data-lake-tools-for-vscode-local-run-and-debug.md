@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72030036"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Uruchom skrypt U-SQL i Debuguj lokalnie w Visual Studio Code
@@ -32,11 +32,11 @@ Tylko instalacje systemu Windows Azure Data Lake Tools for Visual Studio obsług
 
    ![Lokalizowanie pakietów zależności](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
-   2,1 Aby zainstalować **BuildTools**, kliknij visualcppbuildtools_full. exe w folderze LocalRunDependency, a następnie postępuj zgodnie z instrukcjami kreatora.   
+   2,1 Aby zainstalować **BuildTools**, kliknij przycisk visualcppbuildtools_full.exe w folderze LocalRunDependency, a następnie postępuj zgodnie z instrukcjami kreatora.   
 
     ![Zainstaluj BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-   2,2 Aby zainstalować **Win10SDK 10240**, kliknij sdksetup. exe w folderze LocalRunDependency/Win10SDK_10.0.10240 _2, a następnie postępuj zgodnie z instrukcjami kreatora.  
+   2,2 Aby zainstalować **Win10SDK 10240**, kliknij sdksetup.exe w folderze LocalRunDependency/Win10SDK_10.0.10240 _2, a następnie postępuj zgodnie z instrukcjami kreatora.  
 
     ![Zainstaluj program Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
@@ -59,8 +59,8 @@ W przypadku użytkownika pierwszego czasu Użyj **ADL: Pobierz pakiet Run Local*
    ![Data Lake narzędzia dla Visual Studio Code wybierz pozycję lokalne](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. Po przesłaniu zadania można wyświetlić szczegóły dotyczące przesyłania. Aby wyświetlić szczegóły dotyczące przesłania, wybierz pozycję **jobUrl** w oknie **danych wyjściowych** . Możesz również wyświetlić stan przesłania zadania z konsoli cmd. Wprowadź **7** w konsoli cmd, aby poznać więcej szczegółów zadań.
 
-   ![Data Lake narzędzia dla Visual Studio Code lokalnego uruchamiania](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
-   ![Data Lake narzędzi dla Visual Studio Code lokalnego uruchomienia cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
+   ![Data Lake narzędzia dla Visual Studio Code lokalnego uruchamiania ](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
+    ![ Data Lake narzędzi dla Visual Studio Code lokalnego uruchomienia cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
 
 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Rozpocznij debugowanie lokalne dla zadania U-SQL  

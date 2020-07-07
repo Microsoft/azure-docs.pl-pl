@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190688"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z systemem HDFS usługi Apache Hadoop za pomocą usługi Azure HDInsight
@@ -25,7 +25,7 @@ Poznaj najważniejsze problemy i rozwiązania podczas pracy z usługą Hadoop ro
 
 Dostęp do lokalnego systemu plików HDFS z poziomu wiersza polecenia i kodu aplikacji zamiast programu przy użyciu magazynu obiektów blob platformy Azure lub Azure Data Lake Storage z klastra usługi HDInsight.
 
-### <a name="resolution-steps"></a>Kroki rozwiązywania problemów
+### <a name="resolution-steps"></a>Kroki rozwiązania
 
 1. W wierszu polecenia Użyj `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` dosłownie, jak w poniższym poleceniu:
 
@@ -62,7 +62,7 @@ Dostęp do lokalnego systemu plików HDFS z poziomu wiersza polecenia i kodu apl
     }
     ```
 
-3. Uruchom skompilowany plik JAR (na przykład plik o nazwie `java-unit-tests-1.0.jar`) w klastrze usługi HDInsight przy użyciu następującego polecenia:
+3. Uruchom skompilowany plik JAR (na przykład plik o nazwie `java-unit-tests-1.0.jar` ) w klastrze usługi HDInsight przy użyciu następującego polecenia:
 
     ```apache
     hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -76,7 +76,7 @@ Dostęp do lokalnego systemu plików HDFS z poziomu wiersza polecenia i kodu apl
 
 ### <a name="issue"></a>Problem
 
-W przypadku używania `hadoop` poleceń `hdfs dfs` lub do zapisywania plików, które są ~ 12 GB lub większe w klastrze HBase, może wystąpić następujący błąd:
+W przypadku używania `hadoop` `hdfs dfs` poleceń lub do zapisywania plików, które są ~ 12 GB lub większe w klastrze HBase, może wystąpić następujący błąd:
 
 ```error
 ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -102,7 +102,7 @@ Caused by: com.microsoft.azure.storage.StorageException: The request body is too
 
 ### <a name="cause"></a>Przyczyna
 
-HBase w klastrach usługi HDInsight domyślnie ma rozmiar bloku 256 KB podczas zapisywania w usłudze Azure Storage. Chociaż działa w przypadku interfejsów API HBase lub interfejsów API REST, powoduje to błąd podczas korzystania z `hadoop` narzędzi `hdfs dfs` wiersza polecenia lub.
+HBase w klastrach usługi HDInsight domyślnie ma rozmiar bloku 256 KB podczas zapisywania w usłudze Azure Storage. Chociaż działa w przypadku interfejsów API HBase lub interfejsów API REST, powoduje to błąd podczas korzystania z `hadoop` `hdfs dfs` narzędzi wiersza polecenia lub.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -114,9 +114,9 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Możesz również zwiększyć wartość `fs.azure.write.request.size` globalnie za pomocą platformy Apache Ambari. Poniższe kroki umożliwiają zmianę wartości w interfejsie użytkownika sieci Web Ambari:
 
-1. W przeglądarce przejdź do interfejsu użytkownika sieci Web Ambari dla klastra. Adres URL to `https://CLUSTERNAME.azurehdinsight.net`, gdzie `CLUSTERNAME` jest nazwą klastra. Po wyświetleniu monitu wprowadź nazwę i hasło administratora klastra.
+1. W przeglądarce przejdź do interfejsu użytkownika sieci Web Ambari dla klastra. Adres URL to `https://CLUSTERNAME.azurehdinsight.net` , gdzie `CLUSTERNAME` jest nazwą klastra. Po wyświetleniu monitu wprowadź nazwę i hasło administratora klastra.
 2. Z lewej strony ekranu wybierz pozycję **HDFS**, a następnie **Wybierz kartę konfiguracje** .
-3. W polu **Filtr...** wprowadź `fs.azure.write.request.size`wartość.
+3. W polu **Filtr...** wprowadź wartość `fs.azure.write.request.size` .
 4. Zmień wartość z 262144 (256 KB) na nową wartość. Na przykład 4194304 (4 MB).
 
     ![Obraz zmiany wartości za pomocą interfejsu użytkownika sieci Web Ambari](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
@@ -125,10 +125,10 @@ Aby uzyskać więcej informacji na temat korzystania z programu Ambari, zobacz [
 
 ## <a name="du"></a>du
 
-[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) Polecenie wyświetla rozmiary plików i katalogów znajdujących się w danym katalogu lub długość pliku w przypadku, gdy jest tylko plikiem.
+[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du)Polecenie wyświetla rozmiary plików i katalogów znajdujących się w danym katalogu lub długość pliku w przypadku, gdy jest tylko plikiem.
 
-`-s` Opcja generuje zagregowane podsumowanie długości plików, które są wyświetlane.  
-`-h` Opcja formatuje rozmiary plików.
+`-s`Opcja generuje zagregowane podsumowanie długości plików, które są wyświetlane.  
+`-h`Opcja formatuje rozmiary plików.
 
 Przykład:
 
@@ -153,6 +153,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

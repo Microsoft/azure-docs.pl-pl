@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3820b34a9c79f3b514327fa45a05eebaf8a2a1ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193177"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie niestandardowego okna wysuwanego do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
@@ -47,11 +47,11 @@ Aby dodać okno wysuwania do interfejsu użytkownika sieci Web, należy dodać p
 
 Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/pageWithFlyout/menu wysuwane/exampleFlyout** zawiera pliki, które definiują menu wysuwane:
 
-**exampleFlyout. Container. js**
+**exampleFlyout.container.js**
 
 [!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
-**exampleFlyout. js**
+**exampleFlyout.js**
 
 [!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
@@ -59,7 +59,7 @@ Skopiuj folder **src/Przewodnik/Components/Pages/pageWithFlyout/menu** podfolder
 
 ### <a name="add-the-flyout-to-the-page"></a>Dodawanie menu wysuwanego do strony
 
-Zmodyfikuj element **src/Components/Pages/example/od basicpage. js** , aby dodać menu wysuwane.
+Zmodyfikuj element **src/Components/Pages/example/basicPage.js** , aby dodać menu wysuwane.
 
 Dodaj **BTN** do importów z **komponentów/udostępnionych** i Dodaj Importy dla **svgs** i **ExampleFlyoutContainer**:
 
@@ -133,7 +133,7 @@ Jeśli interfejs użytkownika sieci Web nie jest jeszcze uruchomiony lokalnie, u
 npm start
 ```
 
-Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard`. Przejdź do strony **przykład** , a następnie kliknij pozycję **Otwórz okno wysuwane**.
+Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard` . Przejdź do strony **przykład** , a następnie kliknij pozycję **Otwórz okno wysuwane**.
 
 ## <a name="next-steps"></a>Następne kroki
 

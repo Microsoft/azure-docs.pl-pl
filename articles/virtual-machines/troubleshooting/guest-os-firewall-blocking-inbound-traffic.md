@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422554"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Zapora systemu operacyjnego gościa maszyny wirtualnej platformy Azure blokuje ruch przychodzący
@@ -53,7 +53,7 @@ Połącz się z [konsolą szeregową, a następnie otwórz wystąpienie programu
 
 #### <a name="mitigation-1"></a>Środki zaradcze 1
 
-1.  Jeśli Agent platformy Azure jest zainstalowany i działa poprawnie na maszynie wirtualnej, można użyć opcji "Resetuj tylko konfigurację" w obszarze **Obsługa i rozwiązywanie problemów** > **resetowania hasła** w menu maszyny wirtualnej.
+1.  Jeśli Agent platformy Azure jest zainstalowany i działa poprawnie na maszynie wirtualnej, można użyć opcji "Resetuj tylko konfigurację" w obszarze **Obsługa i rozwiązywanie problemów**  >  **resetowania hasła** w menu maszyny wirtualnej.
 
 2.  Uruchomienie tej opcji odzyskiwania wykonuje następujące czynności:
 

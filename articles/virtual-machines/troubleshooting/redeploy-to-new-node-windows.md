@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058641"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Ponowne wdrażanie maszyny wirtualnej z systemem Windows w nowym węźle platformy Azure
@@ -30,7 +30,7 @@ Jeśli nastąpiło problemy związane z rozwiązywaniem problemów Pulpit zdalny
 ## <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 Upewnij się, że na maszynie zainstalowano najnowszą wersję Azure PowerShell 1. x. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-W poniższym przykładzie wdrożono maszynę wirtualną `myVM` o nazwie w grupie zasobów `myResourceGroup`o nazwie:
+W poniższym przykładzie wdrożono maszynę wirtualną o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` :
 
 ```powershell
 Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"

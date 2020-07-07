@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82193330"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurowanie klastra Service Fabric z systemem Linux na komputerze dewelopera systemu Windows
@@ -95,7 +95,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić na nim klaster
     docker logs sftestcluster
     ```
 
-6. Po pomyślnym ukończeniu kroku 5 możesz przejść do okna ``http://localhost:19080`` z systemem Windows, aby zobaczyć Eksploratora Service Fabric. W tym momencie można nawiązać połączenie z tym klastrem za pomocą dowolnych narzędzi z komputera dewelopera systemu Windows i wdrożyć aplikacje przeznaczone dla klastrów Service Fabric Linux. 
+6. Po pomyślnym ukończeniu kroku 5 możesz przejść do ``http://localhost:19080`` okna z systemem Windows, aby zobaczyć eksploratora Service Fabric. W tym momencie można nawiązać połączenie z tym klastrem za pomocą dowolnych narzędzi z komputera dewelopera systemu Windows i wdrożyć aplikacje przeznaczone dla klastrów Service Fabric Linux. 
 
     > [!NOTE]
     > Wtyczka Eclipse obecnie nie jest obsługiwana w systemie Windows. 

@@ -12,16 +12,16 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419021"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Przekształcanie danych przez uruchamianie notesu datakostks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie notesu Azure Databricks w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia Notes datacegły w obszarze roboczym Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md), który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
+Działanie notesu Azure Databricks w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia Notes datacegły w obszarze roboczym Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md)   , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definicja działania notesu dla elementów datacegłs
 
@@ -57,15 +57,15 @@ Poniżej znajduje się przykładowa definicja JSON działania notesu datakostky:
 
 W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 
-|Właściwość|Opis|Wymagany|
+|Właściwość|Opis|Wymagane|
 |---|---|---|
 |name|Nazwa działania w potoku.|Tak|
 |description|Tekst opisujący działanie działania.|Nie|
-|type|W przypadku działania notesu datacegły typem działania jest DatabricksNotebook.|Tak|
-|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa Notes datakostki. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący  [połączonych usług obliczeniowych](compute-linked-services.md).|Tak|
+|typ|W przypadku działania notesu datacegły typem działania jest DatabricksNotebook.|Tak|
+|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa Notes datakostki. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md)   .|Tak|
 |notebookPath|Ścieżka bezwzględna notesu do uruchomienia w obszarze roboczym datakostki. Ta ścieżka musi zaczynać się od ukośnika.|Tak|
 |baseParameters|Tablica par klucz-wartość. Parametry podstawowe mogą być używane dla każdego uruchomienia działania. Jeśli Notes przyjmuje parametr, który nie jest określony, zostanie użyta wartość domyślna z notesu. Więcej informacji na temat parametrów w [notesach datakostks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nie|
-|biblioteki|Lista bibliotek do zainstalowania w klastrze, w którym będą wykonywane zadania. Może to być tablica \<ciągu,> obiektu.|Nie|
+|biblioteki|Lista bibliotek do zainstalowania w klastrze, w którym będą wykonywane zadania. Może to być tablica \<string, object> .|Nie|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Biblioteki obsługiwane dla działań datakostek
@@ -120,7 +120,7 @@ W niektórych przypadkach może być konieczne przekazanie z powrotem określony
 
 1. W Twoim notesie można wywołać metodę [. Notes. Exit ("ReturnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) i odpowiadający jej "ReturnValue" zostaną zwrócone do fabryki danych.
 
-2. Możesz użyć danych wyjściowych w usłudze Data Factory przy użyciu wyrażeń takich `'@activity('databricks notebook activity name').output.runOutput'`jak. 
+2. Możesz użyć danych wyjściowych w usłudze Data Factory przy użyciu wyrażeń takich jak `'@activity('databricks notebook activity name').output.runOutput'` . 
 
    > [!IMPORTANT]
    > W przypadku przekazywania obiektu JSON można pobrać wartości poprzez dołączenie nazw właściwości. Przykład: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`

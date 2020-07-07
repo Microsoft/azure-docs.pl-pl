@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418069"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
@@ -54,7 +54,7 @@ Aby użyć tego łącznika SAP Business Warehouse, należy wykonać następując
 
 >[!TIP]
 >Aby rozwiązać problem z łącznością SAP BW, upewnij się, że:
->- Wszystkie biblioteki zależności wyodrębnione z zestawu SDK NetWeaver RFC znajdują się w folderze%Windir%\System32. Zwykle jest to plik icudt34. dll, icuin34. dll, icuuc34. dll, libicudecnumber. dll, librfc32. dll, libsapucum. dll, sapcrypto. dll, sapcryto_old. dll, sapnwrfc. dll.
+>- Wszystkie biblioteki zależności wyodrębnione z zestawu SDK NetWeaver RFC znajdują się w folderze%Windir%\System32. Zwykle ma icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
 >- Porty używane do nawiązania połączenia z serwerem SAP są włączane na samoobsługowym komputerze IR, który zwykle jest port 3300 i 3201.
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -67,9 +67,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane dla połączonej usługi SAP Business Warehouse (BW):
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SAPBW** | Tak |
+| typ | Właściwość Type musi mieć wartość: **SAPBW** | Tak |
 | serwer | Nazwa serwera, na którym znajduje się wystąpienie SAP BW. | Tak |
 | systemNumber | Numer systemu SAP BW.<br/>Dozwolona wartość: dwucyfrowa liczba dziesiętna reprezentowana jako ciąg. | Tak |
 | clientId | Identyfikator klienta klienta w systemie SAP w.<br/>Dozwolona wartość: 3-cyfrowa liczba dziesiętna reprezentowana jako ciąg. | Tak |
@@ -135,9 +135,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z SAP BW, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapBwSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapBwSource** | Tak |
 | query | Określa zapytanie MDX do odczytu danych z wystąpienia SAP BW. | Tak |
 
 **Przykład:**

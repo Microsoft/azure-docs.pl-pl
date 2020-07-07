@@ -9,10 +9,10 @@ ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3af8ecb049717da789df96f7dcc4e46668938ff8
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465160"
 ---
 Aby ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych sieci wirtualnych za pomocą punktów końcowych usługi, najpierw musimy zebrać informacje o koncie magazynu i sieci wirtualnej. Wypełnij pola `<storage-account-resource-group>` , `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i, `<subnet-name>` Aby zebrać te informacje.
