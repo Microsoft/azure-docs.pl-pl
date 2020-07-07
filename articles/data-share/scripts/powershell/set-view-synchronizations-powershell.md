@@ -10,10 +10,9 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: b8d01a383e816bfc73413d21e9cc8d51d326ab14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70307178"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Monitorowanie użycia wysłanego udziału danych przy użyciu programu PowerShell
