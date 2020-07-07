@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582221"
 ---
 # <a name="media-services-job-error-codes"></a>Kody błędów zadań Media Services
@@ -34,7 +34,7 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 
 ## <a name="see-also"></a>Zobacz także
 
-- [Kody błędów punktu końcowego przesyłania strumieniowego](streaming-endpoint-error-codes.md)
+- [Kody błędów punktów końcowych przesyłania strumieniowego](streaming-endpoint-error-codes.md)
 - [Koncepcje Azure Media Services](concepts-overview.md)
 - [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
 

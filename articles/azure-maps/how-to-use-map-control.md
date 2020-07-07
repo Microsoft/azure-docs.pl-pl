@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 6becb504671c1fa380207fda9d7d553fca8ceddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335249"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Korzystanie z kontrolki mapy Azure Maps
+# <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 
 Biblioteka JavaScript po stronie klienta kontrolka mapy umożliwia renderowanie map i osadzonych funkcji Azure Maps w aplikacji sieci Web lub mobilnej.
 
@@ -75,7 +75,7 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
     </body>
    ```
 
-5. Aby zainicjować formant mapy, Zdefiniuj nowy tag skryptu w treści HTML. `id` `<div>` Przekaż do mapy `HTMLElement` lub (na przykład `document.getElementById('myMap')`) jako pierwszy parametr podczas tworzenia wystąpienia `Map` klasy. Użyj własnego klucza konta Azure Maps lub poświadczeń usługi Azure Active Directory (AAD), aby uwierzytelnić mapę przy użyciu [opcji uwierzytelniania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+5. Aby zainicjować formant mapy, Zdefiniuj nowy tag skryptu w treści HTML. Przekaż do `id` mapy `<div>` lub `HTMLElement` (na przykład `document.getElementById('myMap')` ) jako pierwszy parametr podczas tworzenia wystąpienia `Map` klasy. Użyj własnego klucza konta Azure Maps lub poświadczeń usługi Azure Active Directory (AAD), aby uwierzytelnić mapę przy użyciu [opcji uwierzytelniania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
    Jeśli musisz utworzyć konto lub znaleźć klucz, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
@@ -233,7 +233,7 @@ W przypadku korzystania z modułu usługi domena dla usług musi być ustawiona 
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Jeśli bezpośredni dostęp do usług REST Azure Maps, Zmień domenę adresu URL na `atlas.azure.us`. Na przykład jeśli korzystasz z usługi interfejsu API wyszukiwania, Zmień domenę adresu URL `https://atlas.microsoft.com/search/` z `https://atlas.azure.us/search/`na.
+Jeśli bezpośredni dostęp do usług REST Azure Maps, Zmień domenę adresu URL na `atlas.azure.us` . Na przykład jeśli korzystasz z usługi interfejsu API wyszukiwania, Zmień domenę adresu URL z `https://atlas.microsoft.com/search/` na `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Następne kroki
 

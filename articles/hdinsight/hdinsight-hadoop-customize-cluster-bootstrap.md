@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80529345"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Dostosowywanie klastrów usługi HDInsight przy użyciu narzędzia Bootstrap
@@ -27,21 +27,21 @@ Istnieją trzy podejścia do ustawiania ustawień pliku konfiguracji podczas two
 
 Na przykład przy użyciu tych metod programistycznych można skonfigurować opcje w następujących plikach:
 
-* clusterIdentity. XML
-* pliku Core-site. XML
-* Gateway. XML
-* HBase-ENV. XML
-* HBase-site. XML
-* HDFS-site. XML
-* Hive-ENV. XML
-* Hive-site. XML
+* clusterIdentity.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred — lokacja
-* Oozie-site. XML
-* Oozie-ENV. XML
-* Storm-site. XML
-* tez-site. XML
-* webhcat-site. XML
-* Yarn-site. XML
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 * Server. Properties (Konfiguracja Kafka-Broker)
 
 Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrze usługi HDInsight podczas tworzenia, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
@@ -55,7 +55,7 @@ Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrz
 Poniższy kod programu PowerShell dostosowuje konfigurację [Apache Hive](https://hive.apache.org/) :
 
 > [!IMPORTANT]  
-> Może być `Spark2Defaults` konieczne użycie parametru [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Można przekazać wartości puste do parametru, jak pokazano w poniższym przykładzie kodu.
+> `Spark2Defaults`Może być konieczne użycie parametru [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Można przekazać wartości puste do parametru, jak pokazano w poniższym przykładzie kodu.
 
 ```powershell
 # hive-site.xml configuration
@@ -86,7 +86,7 @@ Pełny działający skrypt programu PowerShell znajduje się w [dodatku](#append
 **Aby sprawdzić zmianę:**
 
 1. Przejdź do `https://CLUSTERNAME.azurehdinsight.net/` lokalizacji `CLUSTERNAME` , gdzie jest nazwą klastra.
-1. W menu po lewej stronie przejdź do **Hive** > **Konfiguracja** > usługi Hive**Advanced**.
+1. W menu po lewej stronie przejdź do konfiguracja usługi **Hive**  >  **Configs**  >  **Advanced**.
 1. Rozwiń węzeł **zaawansowana gałąź — lokacja**.
 1. Zlokalizuj **gałąź Hive. metadanych. Client. Socket. Timeout** i Potwierdź, że wartość to **latach 90**.
 
@@ -147,7 +147,7 @@ Przykładowy fragment szablonu Menedżer zasobów, aby przełączyć konfiguracj
 
 ## <a name="appendix-powershell-sample"></a>Dodatek: Przykładowy program PowerShell
 
-Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje ustawienie Hive. Pamiętaj, aby wprowadzić wartości dla `$nameToken`, `$httpPassword`i `$sshPassword`.
+Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje ustawienie Hive. Pamiętaj, aby wprowadzić wartości dla `$nameToken` , `$httpPassword` i `$sshPassword` .
 
 ```powershell
 ####################################

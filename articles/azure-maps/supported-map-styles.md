@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334035"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps obsługiwane style mapy
@@ -34,7 +34,7 @@ Mapa **drogowa** to standardowa mapa, która wyświetla drogi, naturalne i sztuc
 Style " **puste** " i " **blank_accessible** map" zawierają pustą kanwę, na której można wizualizować dane. Styl **blank_accessible** będzie nadal udostępniać aktualizacje czytnika ekranu ze szczegółami lokalizacji mapy, nawet jeśli mapa podstawowa nie jest wyświetlana.
 
 > [!Note]
-> W zestawie SDK sieci Web można zmienić kolor tła mapy poprzez ustawienie stylu CSS `background-color` elementu map DIV.
+> W zestawie SDK sieci Web można zmienić kolor tła mapy poprzez ustawienie `background-color` stylu CSS elementu map DIV.
 
 **Odpowiednie interfejsy API:**
 * Kontrolka mapy zestawu SDK sieci Web

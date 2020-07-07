@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80293470"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Frontony i pule zaplecza na platformie Azure — drzwi
@@ -43,7 +43,7 @@ Tylne punkty końcowe odnoszą się do nazwy hosta lub publicznego adresu IP apl
 
 Żądania przekazywane przez tylne drzwi do zaplecza zawierają pole nagłówka hosta używane przez zaplecze do pobrania zasobu dostosowanego. Wartość tego pola zazwyczaj pochodzi z identyfikatora URI zaplecza i ma hosta i port.
 
-Na przykład żądanie wykonane dla elementu `www.contoso.com` będzie miało nagłówek hosta www.contoso.com. Jeśli do skonfigurowania zaplecza używasz Azure Portal, wartością domyślną tego pola jest nazwa hosta zaplecza. Jeśli zaplecze to contoso-westus.azurewebsites.net, w Azure Portal wartość autowypełniana dla nagłówka hosta zaplecza będzie contoso-westus.azurewebsites.net. Jeśli jednak użyjesz szablonów Azure Resource Manager lub innej metody bez jawnego ustawienia tego pola, drzwi z przodu wyślą nazwę hosta przychodzącego jako wartość dla nagłówka hosta. Jeśli żądanie dotyczyło contoso.com www\., a zaplecze jest contoso-westus.azurewebsites.NET, który ma puste pole nagłówka, drzwiczki z przodu spowodują ustawienie nagłówka hosta jako contoso.com\.www.
+Na przykład żądanie wykonane dla elementu `www.contoso.com` będzie miało nagłówek hosta www.contoso.com. Jeśli do skonfigurowania zaplecza używasz Azure Portal, wartością domyślną tego pola jest nazwa hosta zaplecza. Jeśli zaplecze to contoso-westus.azurewebsites.net, w Azure Portal wartość autowypełniana dla nagłówka hosta zaplecza będzie contoso-westus.azurewebsites.net. Jeśli jednak użyjesz szablonów Azure Resource Manager lub innej metody bez jawnego ustawienia tego pola, drzwi z przodu wyślą nazwę hosta przychodzącego jako wartość dla nagłówka hosta. Jeśli żądanie dotyczyło \. contoso.com www, a zaplecze jest contoso-westus.azurewebsites.NET, który ma puste pole nagłówka, drzwiczki z przodu spowodują ustawienie nagłówka hosta jako \. contoso.com www.
 
 Większość zapleców aplikacji (Azure Web Apps, BLOB Storage i Cloud Services) wymaga, aby nagłówek hosta był zgodny z domeną zaplecza. Jednak Host frontonu, który jest przesyłany do zaplecza, będzie używać innej nazwy hosta, takiej jak www.contoso.net.
 
@@ -67,7 +67,7 @@ Pula zaplecza definiuje, w jaki sposób różne zaplecza powinny być oceniane p
 ### <a name="health-probes"></a>Sondy kondycji
 Drzwi z przodu wysyłają okresowe żądania sondowania HTTP/HTTPS do każdego ze skonfigurowanych frontonów. Żądania sondowania określają bliskość i kondycję każdego zaplecza do równoważenia obciążenia żądaniami użytkowników końcowych. Ustawienia sondowania kondycji dla puli zaplecza definiują, w jaki sposób sondować stan kondycji zapleczy aplikacji. Dla konfiguracji równoważenia obciążenia dostępne są następujące ustawienia:
 
-- **Path**: adres URL używany do żądania sondowania dla wszystkich zaplecza w puli wewnętrznej bazy danych. Na przykład jeśli jeden z zacontoso-westus.azurewebsites.netów jest ustawiony na wartość/Probe/test.aspx, a następnie w środowiskach czołowych, przy założeniu, że protokół jest ustawiony na HTTP, program wyśle żądania sondowania kondycji do protokołu HTTP\://contoso-westus.azurewebsites.NET/Probe/test.aspx.
+- **Path**: adres URL używany do żądania sondowania dla wszystkich zaplecza w puli wewnętrznej bazy danych. Na przykład jeśli jeden z zacontoso-westus.azurewebsites.netów jest ustawiony na wartość/Probe/test.aspx, a następnie w środowiskach czołowych, przy założeniu, że protokół jest ustawiony na HTTP, program wyśle żądania sondowania kondycji do protokołu HTTP \: //contoso-westus.azurewebsites.NET/Probe/test.aspx.
 
 - **Protokół**: określa, czy wysyłać żądania sondy kondycji z czołowych drzwi do frontonu przy użyciu protokołu HTTP lub https.
 

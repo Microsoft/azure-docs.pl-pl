@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80545626"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Learn how to deploy modules and establish routes in IoT Edge (Dowiedz się, jak wdrażać moduły i ustanawiać trasy w usłudze IoT Edge).
@@ -36,7 +36,7 @@ W samouczkach Azure IoT Edge tworzysz manifest wdrożenia, przechodząc przez kr
 
 Na wysokim poziomie manifest wdrożenia jest listą bliźniaczych reprezentacji modułów, które są skonfigurowane przy użyciu odpowiednich właściwości. Manifest wdrożenia informuje urządzenie IoT Edge (lub grupę urządzeń), które moduły zainstalować i jak je skonfigurować. Manifesty wdrożenia obejmują *odpowiednie właściwości* dla każdego sznurka modułu. IoT Edge urządzeń raportuje z powrotem *raportowane właściwości* dla każdego modułu.
 
-W każdym manifeście wdrożenia są wymagane dwa moduły: `$edgeAgent`, i `$edgeHub`. Te moduły są częścią środowiska uruchomieniowego IoT Edge, które zarządza urządzeniem IoT Edge i uruchomionymi na nim modułami. Aby uzyskać więcej informacji o tych modułach, zobacz [Omówienie środowiska uruchomieniowego IoT Edge i jego architektury](iot-edge-runtime.md).
+W każdym manifeście wdrożenia są wymagane dwa moduły: `$edgeAgent` , i `$edgeHub` . Te moduły są częścią środowiska uruchomieniowego IoT Edge, które zarządza urządzeniem IoT Edge i uruchomionymi na nim modułami. Aby uzyskać więcej informacji o tych modułach, zobacz [Omówienie środowiska uruchomieniowego IoT Edge i jego architektury](iot-edge-runtime.md).
 
 Oprócz dwóch modułów środowiska uruchomieniowego można dodać do 20 modułów do uruchomienia na urządzeniu IoT Edge.
 

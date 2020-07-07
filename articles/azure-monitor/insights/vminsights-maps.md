@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80283858"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Użyj funkcji map Azure Monitor dla maszyn wirtualnych, aby zrozumieć składniki aplikacji
@@ -114,7 +114,7 @@ Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są z
 ![Omówienie mapy maszyn wirtualnych Direct](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Możesz również uzyskać dostęp do mapy dla określonego wystąpienia z widoku **wystąpień** dla zestawu skalowania maszyn wirtualnych. W sekcji **Ustawienia** przejdź do pozycji**informacje**o **wystąpieniach** > .
+>Możesz również uzyskać dostęp do mapy dla określonego wystąpienia z widoku **wystąpień** dla zestawu skalowania maszyn wirtualnych. W sekcji **Ustawienia** przejdź do pozycji informacje o **wystąpieniach**  >  **Insights**.
 
 ## <a name="view-a-map-from-azure-monitor"></a>Wyświetl mapę z Azure Monitor
 

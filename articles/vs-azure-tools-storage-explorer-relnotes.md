@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80351059"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage
@@ -37,17 +37,17 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
    * Obiekty blob
       * Otwórz do edycji i przekazywania
       * Przekaż, w tym przeciągnij & upuść
-      * Pliki do pobrania
+      * Pobierz
       * Kopiuj & wklej #1249
-      * Usuwanie
+      * Usuń
    * ADLS Gen2 obiektów BLOB
       * Przekaż, w tym przeciągnij & upuść
-      * Pliki do pobrania
+      * Pobierz
       * Kopiuj & wklej
       * Usuń, łącznie z usunięciem folderu
    * Dyski zarządzane
       * Upload
-      * Pliki do pobrania
+      * Pobierz
       * Kopiuj & wklej
 
    Ponadto do zintegrowanego środowiska AzCopy dodano kilka często pożądanych funkcji:
@@ -161,14 +161,14 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 
 ### <a name="new"></a>Nowa
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-  * motyw
+  * Motyw
   * Serwer proxy
   * Wyloguj się #6 zakończenia
   * Włącz logowanie przy użyciu przepływu kodu urządzenia
   * #1526 AutoRefresh
   * Włącz AzCopy
   * AzCopy czas trwania SAS Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) z opisem ustawienia, które chcesz zobaczyć.
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
   * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
   * Pobieranie dysku
   * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -233,7 +233,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="new"></a>Nowa
 
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-    * motyw
+    * Motyw
     * Serwer proxy
     * Wyloguj się [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) zakończenia
     * Włącz logowanie przy użyciu przepływu kodu urządzenia
@@ -242,7 +242,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Czas trwania AzCopy SAS
 
     Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub z opisem ustawienia, które chcesz zobaczyć](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
     * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
     * Pobieranie dysku
     * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -810,7 +810,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -866,7 +866,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -921,7 +921,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -981,7 +981,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -1201,7 +1201,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Rozszerzone uwierzytelnianie, które umożliwia Eksplorator usługi Storage korzystania z tego samego magazynu kont co program Visual Studio 2017. Aby użyć tej funkcji, należy ponownie zalogować się do kont i ponownie ustawić odfiltrowane subskrypcje.
 * W przypadku kont Azure Stack, które są obsługiwane przez usługi AAD, Eksplorator usługi Storage będzie teraz pobierać Azure Stack subskrypcje, gdy zostanie włączony element "Target Azure Stack". Nie trzeba już tworzyć niestandardowego środowiska logowania.
 * Dodano kilka skrótów, które umożliwiają szybszą nawigację. Obejmują one przełączanie różnych paneli i przechodzenie między edytorami. Aby uzyskać szczegółowe informacje, zobacz menu Widok.
-* Eksplorator usługi Storage Opinie teraz w serwisie GitHub. Aby uzyskać dostęp do strony problemów, kliknij przycisk opinii w lewym dolnym rogu lub przejdź do [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Możesz korzystać z sugestii, zgłaszać problemy, zadawać pytania lub pozostawać dowolną inną formę opinii.
+* Eksplorator usługi Storage Opinie teraz w serwisie GitHub. Aby uzyskać dostęp do strony problemów, kliknij przycisk opinii w lewym dolnym rogu lub przejdź do [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Możesz korzystać z sugestii, zgłaszać problemy, zadawać pytania lub pozostawać dowolną inną formę opinii.
 * Jeśli używasz programu do problemów z certyfikatem TLS/SSL i nie można znaleźć poprawnego certyfikatu, możesz teraz uruchomić Eksplorator usługi Storage z wiersza polecenia z `--ignore-certificate-errors` flagą. Po uruchomieniu z tą flagą Eksplorator usługi Storage zignoruje błędy certyfikatu TLS/SSL.
 * W menu kontekstowym dla elementów BLOB i plików istnieje teraz opcja "Download".
 * Ulepszona obsługa ułatwień dostępu i czytnika ekranu. Jeśli korzystasz z funkcji ułatwień dostępu, zapoznaj się z [dokumentacją ułatwień dostępu](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) , aby uzyskać więcej informacji.
@@ -1627,7 +1627,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Teraz możesz logować się do kont Azure Stack opartych na usłudze Azure Active Directory (AAD).
 * Teraz można przekazywać pliki archiwalne za pośrednictwem 32MB do kont magazynu w warstwie Premium
 * Ulepszona obsługa ułatwień dostępu
-* Możesz teraz dodawać zaufane certyfikaty protokołu TLS (X. 509) z kodowaniem Base-64, przechodząc&gt; do edycji certyfikaty&gt; SSL — importowanie certyfikatów
+* Możesz teraz dodawać zaufane certyfikaty protokołu TLS (X. 509) z kodowaniem Base-64, przechodząc do edycji &gt; Certyfikaty SSL — &gt; Importowanie certyfikatów
 
 #### <a name="fixes"></a>Poprawki
 
@@ -1730,7 +1730,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Firma Microsoft ponownie wprowadziła przeszukiwany zakres przy użyciu nowego, ulepszonego wyszukiwania podciągów, dzięki czemu masz teraz dwie opcje wyszukiwania:
     * Wyszukiwanie globalne — po prostu wprowadź termin wyszukiwania do pola tekstowego wyszukiwania
     * Wyszukiwanie w zakresie — kliknij ikonę lupy obok węzła, a następnie Dodaj termin wyszukiwania na końcu ścieżki lub kliknij prawym przyciskiem myszy i wybierz polecenie "Wyszukaj z tego miejsca"
-* Dodaliśmy różne motywy: jasne (domyślne), ciemne, duży kontrast czarne i duży kontrast białe. Przejdź do pozycji Edytuj&gt; motywy, aby zmienić preferencję z motywami
+* Dodaliśmy różne motywy: jasne (domyślne), ciemne, duży kontrast czarne i duży kontrast białe. Przejdź do pozycji Edytuj &gt; motywy, aby zmienić preferencję z motywami
 * Można modyfikować właściwości obiektów blob i plików
 * Obsługujemy teraz zakodowane (base64) i niezaszyfrowane komunikaty w kolejce
 * W systemie Linux wymagany jest 64-bitowy system operacyjny. W tej wersji obsługujemy tylko 64-bitowe Ubuntu 16.04.1 LTS
@@ -1889,7 +1889,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 #### <a name="known-issues"></a>Znane problemy
 
-* Tabele: Dodawanie, edytowanie lub importowanie jednostki, która ma właściwość z niejednoznaczną wartością liczbową, taką jak "1" lub "1,0", a użytkownik próbuje wysłać ją jako `Edm.String`, wartość zostanie przywrócona za pomocą interfejsu API klienta jako modelu EDM. Double
+* Tabele: Dodawanie, edytowanie lub importowanie jednostki, która ma właściwość z niejednoznaczną wartością liczbową, taką jak "1" lub "1,0", a użytkownik próbuje wysłać ją jako `Edm.String` , wartość zostanie przywrócona za pomocą interfejsu API klienta jako modelu EDM. Double
 
 03/31/2016
 
@@ -1912,11 +1912,11 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 
 * Ulepszenia wydajności i niezawodności
 
-### <a name="known-issues-amp-mitigations"></a>Znane problemy &amp; — ograniczenia
+### <a name="known-issues-amp-mitigations"></a>Znane problemy — &amp; ograniczenia
 
 * Pobieranie dużych plików obiektów BLOB nie działa prawidłowo — zalecamy korzystanie z AzCopy podczas rozwiązywania tego problemu
 * Poświadczenia konta nie zostaną pobrane ani w pamięci podręcznej, jeśli nie można odnaleźć folderu macierzystego lub nie można zapisać w nim
-* Jeśli dodajesz, edytujesz lub importujesz jednostkę, która ma właściwość z niejednoznaczną wartością liczbową, taką jak "1" lub "1,0", a użytkownik spróbuje ją wysłać jako `Edm.String`, wartość zostanie przywrócona za pomocą interfejsu API klienta jako modelu EDM. Double
+* Jeśli dodajesz, edytujesz lub importujesz jednostkę, która ma właściwość z niejednoznaczną wartością liczbową, taką jak "1" lub "1,0", a użytkownik spróbuje ją wysłać jako `Edm.String` , wartość zostanie przywrócona za pomocą interfejsu API klienta jako modelu EDM. Double
 * Podczas importowania plików CSV z rekordami wielowierszowymi dane mogą zostać zniekształcone lub zaszyfrowane
 
 02/03/2016

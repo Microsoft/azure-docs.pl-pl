@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422602"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* Polecenie musi być uruchamiane na komputerze znajdującym się w tej samej sieci wirtualnej.
->* Aby zastąpić \<> komputera, można użyć adresu DIP lub nazwy hosta.
+>* Aby zastąpić, można użyć adresu DIP lub nazwy hosta \<computer> .
 >* Parametr-s sprawdza, czy polecenie jest wywoływane przy użyciu konta systemowego (uprawnienia administratora).
 >* PsExec używa portów TCP 135 i 445. W związku z tym dwa porty muszą być otwarte na zaporze.
 
@@ -212,9 +212,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >W przypadku maszyn wirtualnych frontonu reddog trzeba mieć punkt końcowy z portem prywatnym 5986 i portem publicznym. Należy również otworzyć ten port publiczny na sieciowej grupy zabezpieczeń.
 
-1. Z poziomu innej maszyny wirtualnej w tej samej sieci wirtualnej, Otwórz Edytor rejestru (regedit. exe).
+1. Z poziomu innej maszyny wirtualnej w tej samej sieci wirtualnej, Otwórz Edytor rejestru (regedit.exe).
 
-2. Wybierz pozycję **plik** > **Połącz rejestr sieciowy**.
+2. Wybierz pozycję **plik**  >  **Połącz rejestr sieciowy**.
 
    ![Edytor rejestru](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 

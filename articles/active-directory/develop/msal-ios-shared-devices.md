@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550255"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
@@ -45,7 +45,7 @@ Aby utworzyć aplikację trybu udostępnionego urządzenia, deweloperzy i Admini
 
 1. [**Wymagane w publicznej wersji zapoznawczej**] Użytkownik z rolą [administratora urządzenia w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) musi uruchomić [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) i dołączyć swoje urządzenie do organizacji.
 
-    Aby skonfigurować członkostwo ról organizacyjnych w Azure Portal: **Azure Active Directory** > **role i Administratorzy** > **administrator urządzeń w chmurze**
+    Aby skonfigurować członkostwo ról organizacyjnych w Azure Portal: **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**
 
 Poniższe sekcje ułatwiają aktualizację aplikacji do obsługi trybu udostępnionego urządzenia.
 
@@ -90,7 +90,7 @@ Po zmianie użytkownika należy upewnić się, że zarówno dane poprzedniego u�
 
 Wykrywanie trybu udostępnionego urządzenia jest ważne dla aplikacji. W przypadku korzystania z aplikacji na udostępnionym urządzeniu wiele aplikacji będzie wymagało zmiany środowiska użytkownika. Na przykład aplikacja może mieć funkcję "Rejestracja", która nie jest odpowiednia dla procesu roboczego Firstline, ponieważ prawdopodobnie ma już konto. Możesz również chcieć dodać dodatkowe zabezpieczenia do obsługi danych aplikacji, jeśli jest ona w trybie udostępniania.
 
-Użyj `getDeviceInformationWithParameters:completionBlock:` interfejsu API w programie `MSALPublicClientApplication` , aby określić, czy aplikacja jest uruchomiona na urządzeniu w trybie udostępnionego urządzenia.
+Użyj `getDeviceInformationWithParameters:completionBlock:` interfejsu API w programie, `MSALPublicClientApplication` Aby określić, czy aplikacja jest uruchomiona na urządzeniu w trybie udostępnionego urządzenia.
 
 Poniższe fragmenty kodu pokazują przykłady użycia `getDeviceInformationWithParameters:completionBlock:` interfejsu API.
 
@@ -108,7 +108,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 [application getDeviceInformationWithParameters:nil
@@ -143,7 +143,7 @@ application.getCurrentAccount(with: msalParameters, completionBlock: { (currentA
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALParameters *parameters = [MSALParameters new];
@@ -161,7 +161,7 @@ parameters.completionBlockQueue = dispatch_get_main_queue();
 
 Gdy urządzenie jest skonfigurowane jako urządzenie udostępnione, aplikacja może wywołać `acquireTokenWithParameters:completionBlock:` interfejs API w celu zalogowania się do konta. Konto będzie dostępne globalnie dla wszystkich kwalifikujących się aplikacji na urządzeniu po napisaniu pierwszej aplikacji na koncie.
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"api://myapi/scope"] webviewParameters:[self msalTestWebViewParameters]];
@@ -180,7 +180,7 @@ Poniższy kod usuwa konto zalogowane i czyści buforowane tokeny spoza aplikacji
 > [!NOTE]
 > Poniższy krok jest wymagany tylko w przypadku publicznej wersji zapoznawczej.
 
-W tej publicznej wersji zapoznawczej [Wtyczka usługi logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń Apple](apple-sso-plugin.md) czyści stan tylko dla aplikacji. Stan nie jest czyszczony w przeglądarce Safari. Zalecamy ręczne czyszczenie sesji przeglądarki, aby upewnić się, że żadne ślady stanu użytkownika nie zostały pozostawione. Możesz użyć opcjonalnej `signoutFromBrowser` właściwości pokazanej poniżej, aby wyczyścić wszystkie pliki cookie. Spowoduje to, że przeglądarka zostanie krótko uruchomiona na urządzeniu.
+W tej publicznej wersji zapoznawczej [Wtyczka usługi logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń Apple](apple-sso-plugin.md) czyści stan tylko dla aplikacji. Stan nie jest czyszczony w przeglądarce Safari. Zalecamy ręczne czyszczenie sesji przeglądarki, aby upewnić się, że żadne ślady stanu użytkownika nie zostały pozostawione. Możesz użyć opcjonalnej `signoutFromBrowser` Właściwości pokazanej poniżej, aby wyczyścić wszystkie pliki cookie. Spowoduje to, że przeglądarka zostanie krótko uruchomiona na urządzeniu.
 
 #### <a name="swift"></a>Swift
 
@@ -201,7 +201,7 @@ application.signout(with: account, signoutParameters: signoutParameters, complet
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALAccount *account = ... /* account retrieved above */;

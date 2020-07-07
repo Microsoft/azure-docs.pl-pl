@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80388903"
 ---
 # <a name="about-migration"></a>Informacje o migracji
@@ -40,7 +40,7 @@ Oprócz korzystania z Site Recovery na potrzeby odzyskiwania po awarii lokalnych
 - W przypadku migracji maszyny lokalne są replikowane na platformę Azure lub maszyny wirtualne platformy Azure do regionu pomocniczego. Następnie można przenieść maszynę wirtualną w tryb failover z lokacji głównej do pomocniczej i ukończyć proces migracji. Nie ma powrotu po awarii.  
 
 
-## <a name="migration-scenarios"></a> Scenariusze migracji
+## <a name="migration-scenarios"></a>Scenariusze migracji
 
 **Scenariusz** | **Szczegóły**
 --- | ---
@@ -50,6 +50,6 @@ Oprócz korzystania z Site Recovery na potrzeby odzyskiwania po awarii lokalnych
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Migrowanie maszyn lokalnych do platformy Azure](migrate-tutorial-on-premises-azure.md)
+- [Migrowanie maszyn lokalnych na platformę Azure](migrate-tutorial-on-premises-azure.md)
 - [Migrowanie maszyn wirtualnych między regionami świadczenia usługi Azure](azure-to-azure-tutorial-migrate.md)
 - [Migracja usługi AWS na platformę Azure](migrate-tutorial-aws-azure.md)

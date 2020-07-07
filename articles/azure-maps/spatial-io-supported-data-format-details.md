@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334081"
 ---
 # <a name="supported-data-format-details"></a>Szczegóły obsługiwanego formatu danych
@@ -52,9 +52,9 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `atom:author`        | tak     | tak     |                                                                                                                            |
 | `atom:link`          | tak     | tak     |                                                                                                                            |
 | `atom:name`          | tak     | tak     |                                                                                                                            |
-| `BalloonStyle`       | partial | partial | `displayMode`nie jest obsługiwana. Konwertowany na `PopupTemplate`. Aby napisać, Dodaj `popupTemplate` właściwość jako właściwość funkcji, dla której chcesz ją zapisać. |
+| `BalloonStyle`       | partial | partial | `displayMode`nie jest obsługiwana. Konwertowany na `PopupTemplate` . Aby napisać, Dodaj `popupTemplate` Właściwość jako właściwość funkcji, dla której chcesz ją zapisać. |
 | `begin`              | tak     | tak     |                                                                                                                            |
-| `color`              | tak     | tak     | Obejmuje `#AABBGGRR` i `#BBGGRR`. Przeanalizowane w ciągu koloru CSS                                                           |
+| `color`              | tak     | tak     | Obejmuje `#AABBGGRR` i `#BBGGRR` . Przeanalizowane w ciągu koloru CSS                                                           |
 | `colorMode`          | tak     | nie      |                                                                                                                            |
 | `coordinates`        | tak     | tak     |                                                                                                                            |
 | `Data`               | tak     | tak     |                                                                                                                            |
@@ -64,16 +64,16 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `drawOrder`          | partial | nie      | Odczytaj dla nakładki naziemnej i posortuj je. 
 | `east`               | tak     | tak     |                                                                                                                            |
 | `end`                | tak     | tak     |                                                                                                                            |
-| `ExtendedData`       | tak     | tak     | Obsługuje zamiany w `Data`postaci `SimpleData` `Schema` `$[dataName]`niewpisanej, lub i elementów.                      |
+| `ExtendedData`       | tak     | tak     | Obsługuje zamiany w postaci niewpisanej `Data` , `SimpleData` lub `Schema` i elementów `$[dataName]` .                      |
 | `extrude`            | partial | partial | Obsługiwane tylko dla wielokątów. Wielogeometria, która ma wielokąty o różnej wysokości, zostanie podzielona na poszczególne funkcje. Style linii nie są obsługiwane. Wielokąty o wysokości 0 będą renderowane jako płaski wielokąt. Podczas odczytywania Wysokość pierwszej współrzędnej w pierścieniu zewnętrznym zostanie dodana jako właściwość Height wielokąta. Następnie Wysokość pierwszej współrzędnej zostanie użyta do renderowania wielokąta na mapie. |
 | `fill`               | tak     | tak     |                                                                                                                            |
 | `Folder`             | tak     | tak     |                                                                                                                            |
 | `GroundOverlay`      | tak     | tak     | `color`nie jest obsługiwana                                                                                                   |
-| `heading`            | partial | nie      | Przeanalizowane, ale nie renderowane `SimpleDataLayer`przez. Tylko zapisy, jeśli dane są przechowywane we właściwości kształtu.                 |
+| `heading`            | partial | nie      | Przeanalizowane, ale nie renderowane przez `SimpleDataLayer` . Tylko zapisy, jeśli dane są przechowywane we właściwości kształtu.                 |
 | `hotSpot`            | tak     | partial | Tylko zapisy, jeśli dane są przechowywane we właściwości kształtu. Jednostki są zwracane tylko jako "piksele".                         |
 | `href`               | tak     | tak     |                                                                                                                            |
-| `Icon`               | partial | partial | Przeanalizowane, ale nie renderowane `SimpleDataLayer`przez. Zapisuje tylko Właściwość Icon kształtu, jeśli zawiera on dane identyfikatora URI. Obsługiwane `href` są tylko. |
-| `IconStyle`          | partial | partial | `icon`, `heading`, `colorMode`, i `hotspots` wartości są analizowane, ale nie są renderowane przez`SimpleDataLayer`         |
+| `Icon`               | partial | partial | Przeanalizowane, ale nie renderowane przez `SimpleDataLayer` . Zapisuje tylko Właściwość Icon kształtu, jeśli zawiera on dane identyfikatora URI. `href`Obsługiwane są tylko. |
+| `IconStyle`          | partial | partial | `icon`, `heading` , `colorMode` , i `hotspots` wartości są analizowane, ale nie są renderowane przez`SimpleDataLayer`         |
 | `innerBoundaryIs`    | tak     | tak     |                                                                                                                            |
 | `kml`                | tak     | tak     |                                                                                                                            |
 | `LabelStyle`         | nie      | nie      |                                                                                                                            |
@@ -82,7 +82,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `LinearRing`         | tak     | tak     |                                                                                                                            |
 | `LineString`         | tak     | tak     |                                                                                                                            |
 | `LineStyle`          | tak     | tak     | `colorMode`nie jest obsługiwana.                                                                                         |
-| `Link`               | tak     | nie      | Tylko `href` właściwość jest obsługiwana w przypadku linków sieciowych.                                                                   |
+| `Link`               | tak     | nie      | Tylko `href` Właściwość jest obsługiwana w przypadku linków sieciowych.                                                                   |
 | `MultiGeometry`      | partial | partial | Może zostać rozbite do poszczególnych funkcji podczas odczytu.                                                                     |
 | `name`               | tak     | tak     |                                                                                                                            |
 | `NetworkLink`        | tak     | nie      | Linki muszą znajdować się w tej samej domenie co dokument.                                                                  |
@@ -92,7 +92,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `outerBoundaryIs`    | tak     | tak     |                                                                                                                            |
 | `outline`            | tak     | tak     |                                                                                                                            |
 | `overlayXY`          | nie      | nie      |                                                                                                                            |
-| `Pair`               | partial | nie      | Obsługiwany `StyleMap` jest `normal` tylko styl w elemencie. `highlight`nie jest obsługiwana.                                   |
+| `Pair`               | partial | nie      | `normal`Obsługiwany jest tylko styl w elemencie `StyleMap` . `highlight`nie jest obsługiwana.                                   |
 | `phoneNumber`        | tak     | tak     |                                                                                                                            |
 | `PhotoOverlay`       | nie      | nie      |                                                                                                                            |
 | `Placemark`          | tak     | tak     |                                                                                                                            |
@@ -114,14 +114,14 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `Snippet`            | partial | partial | `maxLines`atrybut jest ignorowany.                                                                                  |
 | `south`              | tak     | tak     |                                                                                                                            |
 | `Style`              | tak     | tak     |                                                                                                                            |
-| `StyleMap`           | partial | nie      | Obsługiwany `StyleMap` jest tylko styl Normalny w elemencie.                                                                        |
+| `StyleMap`           | partial | nie      | Obsługiwany jest tylko styl Normalny w elemencie `StyleMap` .                                                                        |
 | `styleUrl`           | partial | tak     | Adresy URL w stylu zewnętrznym nie są obsługiwane.                                                                         |
 | `text`               | tak     | tak     | Zastąpienie elementu `$[geDirections]` nie jest obsługiwane                                                                          |
 | `textColor`          | tak     | tak     |                                                                                                                            |
 | `TimeSpan`           | tak     | tak     |                                                                                                                            |
 | `TimeStamp`          | tak     | tak     |                                                                                                                            |
 | `value`              | tak     | tak     |                                                                                                                            |
-| `viewRefreshMode`    | partial | nie      |  W przypadku wskazania do usługi WMS są obsługiwane tylko `onStop` dla nakładki naziemnej. Dołączy `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` do adresu URL i aktualizuje się w miarę przenoszenia mapy.  |
+| `viewRefreshMode`    | partial | nie      |  W przypadku wskazania do usługi WMS `onStop` są obsługiwane tylko dla nakładki naziemnej. Dołączy `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` do adresu URL i aktualizuje się w miarę przenoszenia mapy.  |
 | `visibility`         | tak     | tak     |                                                                                                                            |
 | `west`               | tak     | tak     |                                                                                                                            |
 | `when`               | tak     | tak     |                                                                                                                            |
@@ -153,9 +153,9 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GeoRSS.
 | `atom:title`             | tak     | tak   |                                                                                                |
 | `atom:updated`           | tak     | tak   |                                                                                                |
 | `atom:uri`               | tak     | tak   |                                                                                                |
-| `geo:lat`                | tak     | nie    | Zapisany jako `georss:point`.                                                                   |
-| `geo:lon`                | tak     | nie    | Zapisany jako `georss:point`.                                                                   |
-| `geo:long`               | tak     | nie    | Zapisany jako `georss:point`.                                                                   |
+| `geo:lat`                | tak     | nie    | Zapisany jako `georss:point` .                                                                   |
+| `geo:lon`                | tak     | nie    | Zapisany jako `georss:point` .                                                                   |
+| `geo:long`               | tak     | nie    | Zapisany jako `georss:point` .                                                                   |
 | `georss:box`             | tak     | nie    | Odczytaj jako Wielokąt i nadana `subType` Właściwość "Rectangle"                                |
 | `georss:circle`          | tak     | tak   |                                                                                                |
 | `georss:elev`            | tak     | tak   |                                                                                                |
@@ -168,34 +168,34 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GeoRSS.
 | `georss:radius`          | tak     | tak   |                                                                                                |
 | `georss:relationshiptag` | tak     | tak   |                                                                                                |
 | `georss:where`           | tak     | tak   |                                                                                                |
-| `geourl:latitude`        | tak     | nie    | Zapisany jako `georss:point`.                                                                   |
-| `geourl:longitude`       | tak     | nie    | Zapisany jako `georss:point`.                                                                   |
+| `geourl:latitude`        | tak     | nie    | Zapisany jako `georss:point` .                                                                   |
+| `geourl:longitude`       | tak     | nie    | Zapisany jako `georss:point` .                                                                   |
 | `position`               | tak     | nie    | Niektóre źródła XML będą otaczać GML za pomocą znacznika położenia zamiast otaczania go `georss:where` tagiem. Odczytaje ten tag, ale pisze przy użyciu `georss:where` znacznika. |
 | `rss`                    | tak     | nie    | GeoRSS zapisywana w formacie ATOM.                                                                 |
-| `rss:author`             | tak     | partial | Zapisany jako `atom:author`.                                                                 |
-| `rss:category`           | tak     | partial | Zapisany jako `atom:category`.                                                               |
+| `rss:author`             | tak     | partial | Zapisany jako `atom:author` .                                                                 |
+| `rss:category`           | tak     | partial | Zapisany jako `atom:category` .                                                               |
 | `rss:channel`            | tak     | nie    |                                                                                                |
 | `rss:cloud`              | tak     | nie    |                                                                                                |
 | `rss:comments`           | tak     | nie    |                                                                                                |
-| `rss:copyright`          | tak     | partial | Zapisany jako kształt `atom:rights` If nie ma `rights` `properties` już właściwości.       |
-| `rss:description`        | tak     | partial | Zapisany jako kształt `atom:content` If nie ma `content` `properties` już właściwości.      |
+| `rss:copyright`          | tak     | partial | Zapisany jako `atom:rights` kształt If nie ma `rights` `properties` już właściwości.       |
+| `rss:description`        | tak     | partial | Zapisany jako `atom:content` kształt If nie ma `content` `properties` już właściwości.      |
 | `rss:docs`               | tak     | nie    |                                                                                                |
 | `rss:enclosure`          | tak     | nie    |                                                                                                |
 | `rss:generator`          | tak     | nie    |                                                                                                |
-| `rss:guid`               | tak     | partial | Zapisany jako kształt `atom:id` If nie ma `id` `properties` już właściwości.         |
-| `rss:image`              | tak     | partial | Zapisany jako kształt `atom:logo` If nie ma `logo` `properties` już właściwości.      |
-| `rss:item`               | tak     | partial | Zapisany jako `atom:entry`.                                                                  |
+| `rss:guid`               | tak     | partial | Zapisany jako `atom:id` kształt If nie ma `id` `properties` już właściwości.         |
+| `rss:image`              | tak     | partial | Zapisany jako `atom:logo` kształt If nie ma `logo` `properties` już właściwości.      |
+| `rss:item`               | tak     | partial | Zapisany jako `atom:entry` .                                                                  |
 | `rss:language`           | tak     | nie    |                                                                                                |
-| `rss:lastBuildDate`      | tak     | partial | Zapisany jako kształt `atom:updated` If nie ma `updated` `properties` już właściwości.     |
-| `rss:link`               | tak     | partial | Zapisany jako `atom:link`.                                                                   |
-| `rss:managingEditor`     | tak     | partial | Zapisany jako `atom:contributor`.                                                            |
-| `rss:pubDate`            | tak     | partial | Zapisany jako kształt `atom:published` If nie ma `published` `properties` już właściwości.  |
+| `rss:lastBuildDate`      | tak     | partial | Zapisany jako `atom:updated` kształt If nie ma `updated` `properties` już właściwości.     |
+| `rss:link`               | tak     | partial | Zapisany jako `atom:link` .                                                                   |
+| `rss:managingEditor`     | tak     | partial | Zapisany jako `atom:contributor` .                                                            |
+| `rss:pubDate`            | tak     | partial | Zapisany jako `atom:published` kształt If nie ma `published` `properties` już właściwości.  |
 | `rss:rating`             | tak     | nie    |                                                                                                |
 | `rss:skipDays`           | tak     | nie    |                                                                                                |
 | `rss:skipHours`          | tak     | nie    |                                                                                                |
-| `rss:source`             | tak     | partial | Zapisany jako `atom:source` zawierający `atom:link`.                                       |
+| `rss:source`             | tak     | partial | Zapisany jako `atom:source` zawierający `atom:link` .                                       |
 | `rss:textInput`          | tak     | nie    |                                                                                                |
-| `rss:title`              | tak     | partial | Zapisany jako `atom:title`.                                                                  |
+| `rss:title`              | tak     | partial | Zapisany jako `atom:title` .                                                                  |
 | `rss:ttl`                | tak     | nie    |                                                                                                |
 | `rss:webMaster`          | tak     | nie    |                                                                                                |
 
@@ -205,10 +205,10 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GML.
 
 | Nazwa elementu            | Odczyt | Zapisywanie | Uwagi                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
-| `gml:coordinates`       | tak  | nie    | Zapisany jako `gml:posList`.                                                              |
+| `gml:coordinates`       | tak  | nie    | Zapisany jako `gml:posList` .                                                              |
 | `gml:curveMember`       | tak  | nie    |                                                                                        |
 | `gml:curveMembers`      | tak  | nie    |                                                                                        |
-| `gml:Box`               | tak  | nie    | Zapisany jako `gml:Envelope`.                                                             |
+| `gml:Box`               | tak  | nie    | Zapisany jako `gml:Envelope` .                                                             |
 | `gml:description`       | tak  | tak   |                                                                                        |
 | `gml:Envelope`          | tak  | tak   |                                                                                        |
 | `gml:exterior`          | tak  | tak   |                                                                                        |
@@ -219,7 +219,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GML.
 | `gml:geometryMember`    | tak  | tak   |                                                                                        |
 | `gml:geometryMembers`   | tak  | tak   |                                                                                        |
 | `gml:identifier`        | tak  | tak   |                                                                                        |
-| `gml:innerBoundaryIs`   | tak  | nie    | Zapisano przy `gml.interior`użyciu.                                                          |
+| `gml:innerBoundaryIs`   | tak  | nie    | Zapisano przy użyciu `gml.interior` .                                                          |
 | `gml:interior`          | tak  | tak   |                                                                                        |
 | `gml:LinearRing`        | tak  | tak   |                                                                                        |
 | `gml:LineString`        | tak  | tak   |                                                                                        |
@@ -232,7 +232,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GML.
 | `gml:MultiPolygon`      | tak  | tak   |                                                                                        |
 | `gml:MultiSurface`      | tak  | nie    | Tylko odczytuje `gml:Polygon` członków. Zapisany jako`gml.MultiPolygon`                        |
 | `gml:name`              | tak  | tak   |                                                                                        |
-| `gml:outerBoundaryIs`   | tak  | nie    | Zapisano przy `gml.exterior`użyciu.                                                          |
+| `gml:outerBoundaryIs`   | tak  | nie    | Zapisano przy użyciu `gml.exterior` .                                                          |
 | `gml:Point`             | tak  | tak   |                                                                                        |
 | `gml:pointMember`       | tak  | tak   |                                                                                        |
 | `gml:pointMembers`      | tak  | nie    |                                                                                        |
@@ -287,13 +287,13 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GPX.
 | `gpx:vdop`               | tak     | tak     |                                                                                             |
 | `gpx:wpt`                | tak     | tak     |                                                                                             |
 | `gpx_style:color`        | tak     | tak     |                                                                                             |
-| `gpx_style:line`         | partial | partial | `color`, `opacity`, `width`, `lineCap` są obsługiwane.                                           |
+| `gpx_style:line`         | partial | partial | `color`, `opacity` , `width` , `lineCap` są obsługiwane.                                           |
 | `gpx_style:opacity`      | tak     | tak     |                                                                                             |
 | `gpx_style:width`        | tak     | tak     |                                                                                             |
 | `gpxx:DisplayColor`      | tak     | nie      | Służy do określania koloru kształtu. Podczas pisania `gpx_style:line` kolor zostanie użyty.  |
-| `gpxx:RouteExtension`    | partial | nie      | Wszystkie właściwości są odczytywane `properties`. Tylko `DisplayColor` jest używany.                     |
-| `gpxx:TrackExtension`    | partial | nie      | Wszystkie właściwości są odczytywane `properties`. Tylko `DisplayColor` jest używany.                     |
-| `gpxx:WaypointExtension` | partial | nie      | Wszystkie właściwości są odczytywane `properties`. Tylko `DisplayColor` jest używany.                     |
+| `gpxx:RouteExtension`    | partial | nie      | Wszystkie właściwości są odczytywane `properties` . Tylko `DisplayColor` jest używany.                     |
+| `gpxx:TrackExtension`    | partial | nie      | Wszystkie właściwości są odczytywane `properties` . Tylko `DisplayColor` jest używany.                     |
+| `gpxx:WaypointExtension` | partial | nie      | Wszystkie właściwości są odczytywane `properties` . Tylko `DisplayColor` jest używany.                     |
 | `gpx:keywords`           | tak     | tak     |                                                                                             |
 | `gpx:fix`                | tak     | tak     |                                                                                             |
 
@@ -337,9 +337,9 @@ Podczas pisania;
 | GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> | 
 | GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x | 
 
-\[1\] tylko parametr Z i jest przechwytywany i dodawany jako trzecia wartość w wartości pozycji.
+\[1 \] tylko parametr Z i jest przechwytywany i dodawany jako trzecia wartość w wartości pozycji.
 
-\[2\] M parametr nie jest przechwytywany.
+\[2 \] M parametr nie jest przechwytywany.
 
 ## <a name="delimited-spatial-data-support"></a>Ograniczanie obsługi danych przestrzennych
 
@@ -399,7 +399,7 @@ Podczas skanowania wiersza nagłówka wszystkie informacje o typie, które są w
 - EDM. Double
 - float
 - double
-- numer
+- liczba
 
 #### <a name="booleans"></a>Wartości logicznych
 
@@ -432,4 +432,4 @@ Jeśli nie można wyodrębnić informacji o typie z nagłówka, a dynamiczna opc
 Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
 > [!div class="nextstepaction"]
-> [Odczytuj i zapisuj dane przestrzenne](spatial-io-read-write-spatial-data.md)
+> [Odczytywanie i zapisywanie danych przestrzennych](spatial-io-read-write-spatial-data.md)

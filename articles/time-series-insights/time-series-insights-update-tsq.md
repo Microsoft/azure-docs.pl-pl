@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: 23094ec71dac5780def10e16b90de0b818ef3c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80284895"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Wykonywanie zapytań o dane w podglądzie Azure Time Series Insights
@@ -38,7 +38,7 @@ Obsługiwane są następujące podstawowe interfejsy API.
 ## <a name="environment-apis"></a>Interfejsy API środowiska
 
 * [Interfejs API środowiska Get](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get)environments: zwraca listę środowisk, do których obiekt wywołujący ma autoryzację dostęp.
-* [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową `$ts`zdarzenia. Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
+* [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową zdarzenia `$ts` . Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
 * [Pobierz interfejs API schematu zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): zwraca metadane schematu zdarzenia dla danego zakresu wyszukiwania. Ten interfejs API pomaga pobrać wszystkie metadane i właściwości dostępne w schemacie dla danego przedziału wyszukiwania.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>Model szeregów czasowych — interfejsy API zapytań (TSM-Q)

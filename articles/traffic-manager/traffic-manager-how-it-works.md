@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
 ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294868"
 ---
 # <a name="how-traffic-manager-works"></a>Jak działa Traffic Manager
@@ -34,7 +34,7 @@ Klient, który próbuje nawiązać połączenie z usługą, musi najpierw przeks
 
 ## <a name="traffic-manager-example"></a>Przykład Traffic Manager
 
-Firma Contoso Corp opracowała nowy portal dla partnerów. Adres URL dla tego portalu to `https://partners.contoso.com/login.aspx`. Aplikacja jest hostowana w trzech regionach platformy Azure. Aby zwiększyć dostępność i zmaksymalizować wydajność globalną, wykorzystuje Traffic Manager do dystrybucji ruchu klientów do najbliższego dostępnego punktu końcowego.
+Firma Contoso Corp opracowała nowy portal dla partnerów. Adres URL dla tego portalu to `https://partners.contoso.com/login.aspx` . Aplikacja jest hostowana w trzech regionach platformy Azure. Aby zwiększyć dostępność i zmaksymalizować wydajność globalną, wykorzystuje Traffic Manager do dystrybucji ruchu klientów do najbliższego dostępnego punktu końcowego.
 
 Aby osiągnąć tę konfigurację, wykonaj następujące czynności:
 
@@ -49,7 +49,7 @@ Aby osiągnąć tę konfigurację, wykonaj następujące czynności:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Jak klienci łączą się za pomocą Traffic Manager
 
-Kontynuując z poprzedniego przykładu, gdy klient zażąda strony `https://partners.contoso.com/login.aspx`, klient wykona następujące czynności w celu rozpoznania nazwy DNS i ustanowienia połączenia:
+Kontynuując z poprzedniego przykładu, gdy klient zażąda strony `https://partners.contoso.com/login.aspx` , klient wykona następujące czynności w celu rozpoznania nazwy DNS i ustanowienia połączenia:
 
 ![Ustanawianie połączenia przy użyciu Traffic Manager][2]
 

@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80396419"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
@@ -68,7 +68,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwerze programu DPM, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
 
    > [!NOTE]
-   > Aby użyć tej opcji, należy skopiować pliki Ese. dll i Eseutil. exe do katalogu C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin na serwerze DPM. W przeciwnym razie zostanie wyzwolony następujący błąd:  
+   > Aby użyć tej opcji, należy skopiować pliki Ese.dll i Eseutil.exe do katalogu C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin na serwerze DPM. W przeciwnym razie zostanie wyzwolony następujący błąd:  
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -83,10 +83,10 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 11. Sprawdź ilość dostępnego miejsca na dysku, a następnie kliknij przycisk **dalej**.
 12. Wybierz czas, w którym serwer programu DPM utworzy replikację początkową, a następnie kliknij przycisk **dalej**.
 13. Wybierz opcje sprawdzania spójności, a następnie kliknij przycisk **dalej**.
-14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Przykład:
+14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Przykład:
+15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

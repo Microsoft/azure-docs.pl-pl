@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80347109"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpieczać usługi zaplecza przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze Azure API Management
@@ -46,7 +46,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat kli
 3. Kliknij przycisk **+ Dodaj**.
     ![Dodawanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Przeglądaj w poszukiwaniu certyfikatu, podaj jego identyfikator i hasło.
-5. Kliknij przycisk **Utwórz**.
+5. Kliknij pozycję **Utwórz**.
 
 > [!NOTE]
 > Certyfikat musi być w formacie **PFX** . Certyfikaty z podpisem własnym są dozwolone.
@@ -75,7 +75,7 @@ Jeśli certyfikat jest używany przez interfejs API, zostanie wyświetlony ekran
 3. Zmień **poświadczenia bramy** na **certyfikat klienta** i wybierz certyfikat z listy rozwijanej.
     ![Włączanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 > [!WARNING]
 > Ta zmiana obowiązuje natychmiast, a wywołania operacji tego interfejsu API będą używać certyfikatu do uwierzytelniania na serwerze zaplecza.
@@ -86,7 +86,7 @@ Jeśli certyfikat jest używany przez interfejs API, zostanie wyświetlony ekran
 
 ## <a name="self-signed-certificates"></a>Certyfikaty z podpisem własnym
 
-W przypadku korzystania z certyfikatów z podpisem własnym należy wyłączyć weryfikację łańcucha certyfikatów, aby program API Management mógł komunikować się z systemem zaplecza. W przeciwnym razie zwróci kod błędu 500. Aby skonfigurować tę opcję [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) , można użyć (dla nowego zaplecza) lub [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustawić `-SkipCertificateChainValidation` parametr na. `True`
+W przypadku korzystania z certyfikatów z podpisem własnym należy wyłączyć weryfikację łańcucha certyfikatów, aby program API Management mógł komunikować się z systemem zaplecza. W przeciwnym razie zwróci kod błędu 500. Aby skonfigurować tę opcję, można użyć [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (dla nowego zaplecza) lub [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustawić `-SkipCertificateChainValidation` parametr na `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

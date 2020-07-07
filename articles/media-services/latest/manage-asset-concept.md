@@ -14,10 +14,10 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582194"
 ---
 # <a name="manage-assets"></a>Zarządzanie elementami zawartości
@@ -32,7 +32,7 @@ W Azure Media Services [zasób](https://docs.microsoft.com/rest/api/media/assets
 
 Ten temat zawiera omówienie sposobu przekazywania plików do zasobu i wykonywania innych typowych operacji. Zawiera również linki do przykładów kodu i powiązanych tematów.
 
-## <a name="prerequisite"></a>Wymagania wstępne 
+## <a name="prerequisite"></a>Wymaganie wstępne 
 
 Przed rozpoczęciem opracowywania, przejrzyj:
 
@@ -43,9 +43,9 @@ Przed rozpoczęciem opracowywania, przejrzyj:
 
 Po przekazaniu plików cyfrowych do magazynu i skojarzeniu ich z elementem zawartości można używać ich w Media Services kodowania, przesyłania strumieniowego i analizowania przepływów danych. Jednym z typowych przepływów pracy Media Services jest przekazywanie, kodowanie i przesyłanie strumieniowe pliku. Ta sekcja zawiera opis ogólnych kroków.
 
-1. Użyj interfejsu API usługi Media Services w wersji 3, aby utworzyć nowy element zawartości typu „input”. Ta operacja polega na utworzeniu kontenera na koncie magazynu skojarzonym z kontem usługi Media Services. Interfejs API zwraca nazwę kontenera (na przykład `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Użyj interfejsu API usługi Media Services w wersji 3, aby utworzyć nowy element zawartości typu „input”. Ta operacja polega na utworzeniu kontenera na koncie magazynu skojarzonym z kontem usługi Media Services. Interfejs API zwraca nazwę kontenera (na przykład `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"` ).
 
-    Jeśli masz już kontener obiektów blob, który chcesz skojarzyć z elementem zawartości, możesz określić nazwę kontenera podczas tworzenia elementu zawartości. Usługa Media Services aktualnie obsługuje tylko obiekty blob w katalogu głównym kontenera, a nie w obrębie ścieżek w nazwie pliku. W związku z tym kontener z nazwą pliku „input.mp4” będzie działać. Jednak kontener z nazwą pliku "wideo/dane wejściowe/Input. mp4" nie będzie działał.
+    Jeśli masz już kontener obiektów blob, który chcesz skojarzyć z elementem zawartości, możesz określić nazwę kontenera podczas tworzenia elementu zawartości. Usługa Media Services aktualnie obsługuje tylko obiekty blob w katalogu głównym kontenera, a nie w obrębie ścieżek w nazwie pliku. W związku z tym kontener z nazwą pliku „input.mp4” będzie działać. Jednak kontener z nazwą pliku "Video/Inputs/input.mp4" nie będzie działał.
 
     Za pomocą wiersza polecenia platformy Azure można przekazywać pliki bezpośrednio do dowolnego konta magazynu i kontenera, do których masz uprawnienia w subskrypcji.
 
@@ -58,7 +58,7 @@ Po przekazaniu plików cyfrowych do magazynu i skojarzeniu ich z elementem zawar
 
     W celu [utworzenia listy adresów URL kontenerów elementów zawartości](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) można użyć interfejsu API usługi Media Services.
 
-    **AssetContainerSas. listContainerSas** przyjmuje parametr [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) , który został ustawiony `expiryTime`. Czas powinien być ustawiony na < 24 godziny.
+    **AssetContainerSas. listContainerSas** przyjmuje parametr [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) , który został ustawiony `expiryTime` . Czas powinien być ustawiony na < 24 godziny.
 
     [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) zwraca wiele adresów URL sygnatury dostępu współdzielonego, ponieważ istnieją dwa klucze konta magazynu dla każdego konta magazynu. Konto magazynu ma dwa klucze, ponieważ ułatwia pracę w trybie failover i bezproblemowe rotację kluczy konta magazynu. Pierwszy adres URL sygnatury dostępu współdzielonego reprezentuje pierwszy klucz konta magazynu, a drugi adres URL sygnatury dostępu współdzielonego reprezentuje drugi klucz.
 3. Użyj interfejsów API usługi Azure Storage lub zestawów SDK (na przykład [interfejsu API REST magazynu](../../storage/common/storage-rest-api-auth.md) lub [zestawu SDK platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) do przekazywania plików do kontenera zasobów.

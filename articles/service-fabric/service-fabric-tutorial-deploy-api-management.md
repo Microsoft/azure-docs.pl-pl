@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80292141"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integracja API Management z Service Fabric na platformie Azure
@@ -134,7 +134,7 @@ Szablon [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apiman
 
 * Pole **displayName** może zawierać dowolną nazwę interfejsu API. W tym artykule Użyj "Service Fabric App".
 * Pole **name** zawiera unikatową i opisową nazwę interfejsu API, taką jak „service-fabric-app”. Jest ona wyświetlana w portalach dewelopera i wydawcy.
-* Pole **serviceUrl** zawiera odwołanie do usługi HTTP implementującej interfejs API. Usługa API Management przekazuje żądania na ten adres. W przypadku zapleczy usługi Service Fabric ta wartość adresu URL nie jest używana. Można tu wpisać dowolną wartość. W tym artykule, na przykład "http:\//servicefabric".
+* Pole **serviceUrl** zawiera odwołanie do usługi HTTP implementującej interfejs API. Usługa API Management przekazuje żądania na ten adres. W przypadku zapleczy usługi Service Fabric ta wartość adresu URL nie jest używana. Można tu wpisać dowolną wartość. W tym artykule, na przykład "http: \/ /servicefabric".
 * Wartość pola **path** jest dołączana do podstawowego adresu URL usługi API Management. Podstawowy adres URL jest wspólny dla wszystkich interfejsów API hostowanych przez wystąpienie usługi API Management. W usłudze API Management interfejsy API są rozróżniane na podstawie sufiksów, dlatego sufiksy poszczególnych interfejsów API dla danego wydawcy muszą być unikatowe.
 * Pole **protocols** określa, których protokołów można używać w celu uzyskania dostępu do interfejsu API. W tym artykule wymieniono **protokoły http** i **https**.
 * Pole **path** jest sufiksem interfejsu API. W tym artykule należy użyć "MojaApl".
@@ -147,7 +147,7 @@ Aby dodać operację interfejsu API frontonu, podaj następujące wartości:
 
 * Pola **displayName** i **description** opisują operację. Na potrzeby tego artykułu Użyj "wartości".
 * Pole **method** określa polecenie HTTP.  W tym artykule określ polecenie **Get**.
-* Wartość pola **urlTemplate** jest dołączana do podstawowego adresu URL interfejsu API i określa pojedynczą operację HTTP.  W tym artykule należy użyć `/api/values` , jeśli dodano usługę zaplecza platformy .NET `getMessage` lub dodano usługę zaplecza Java.  Określona tutaj ścieżka URL jest domyślnie wysyłana do usługi Service Fabric zaplecza. W przypadku podania ścieżki URL używanej przez usługę, takiej jak „/api/values”, operacja działa bez dodatkowych modyfikacji. Można również podać ścieżkę URL, która różni się od ścieżki URL używanej przez usługę Service Fabric zaplecza. W takim przypadku należy później określić nadpisanie ścieżki w zasadach operacji.
+* Wartość pola **urlTemplate** jest dołączana do podstawowego adresu URL interfejsu API i określa pojedynczą operację HTTP.  W tym artykule należy użyć, `/api/values` Jeśli dodano usługę zaplecza platformy .NET lub `getMessage` Dodano usługę zaplecza Java.  Określona tutaj ścieżka URL jest domyślnie wysyłana do usługi Service Fabric zaplecza. W przypadku podania ścieżki URL używanej przez usługę, takiej jak „/api/values”, operacja działa bez dodatkowych modyfikacji. Można również podać ścieżkę URL, która różni się od ścieżki URL używanej przez usługę Service Fabric zaplecza. W takim przypadku należy później określić nadpisanie ścieżki w zasadach operacji.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -273,7 +273,7 @@ Teraz możesz wysłać żądanie do usługi zaplecza Service Fabric za pośredni
     ["value1", "value2"]
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów.
 
@@ -303,7 +303,7 @@ Dowiedz się więcej o korzystaniu z [API Management](/azure/api-management/impo
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-Vice-Fabric-scripts-and-Templates/BLOB/Master/templates/Service-Integration/Network-APIM. Parameters. JSONn
+Sieć szkieletowa — skrypty i szablony/obiekty blob/Master/templates/Service-Integration/network-apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

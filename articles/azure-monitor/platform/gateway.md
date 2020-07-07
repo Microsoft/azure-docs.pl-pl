@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80298334"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
@@ -68,18 +68,18 @@ Komputery wyznaczeni do uruchomienia bramy Log Analytics muszą mieć następuj�
 
 Brama Log Analytics jest dostępna w następujących językach:
 
-- Chiński uproszczony
+- Chiński (uproszczony)
 - Chiński (tradycyjny)
 - Czeski
 - Niderlandzki
 - Angielski
 - Francuski
-- niemiecki
-- węgierski
+- Niemiecki
+- Węgierski
 - Włoski
-- japoński
+- Japoński
 - koreański
-- Polski
+- polski
 - portugalski (Brazylia)
 - Portugalski (Portugalia)
 - Rosyjski
@@ -117,13 +117,13 @@ Aby uzyskać bramę Log Analytics z Azure Portal, wykonaj następujące kroki:
 lub 
 
 1. W bloku obszaru roboczego w obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane**.
-1. Przejdź do pozycji **połączone źródła** > **serwery z systemem Windows** i wybierz pozycję **Pobierz log Analytics bramę**.
+1. Przejdź do pozycji **połączone źródła**  >  **serwery z systemem Windows** i wybierz pozycję **Pobierz log Analytics bramę**.
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Zainstaluj bramę Log Analytics przy użyciu Kreatora instalacji
 
 Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące kroki. 
 
-1. W folderze docelowym kliknij dwukrotnie pozycję **log Analytics Gateway. msi**.
+1. W folderze docelowym kliknij dwukrotnie pozycję **Log Analytics gateway.msi**.
 1. Na **stronie powitalnej** wybierz pozycję **Dalej**.
 
    ![Zrzut ekranu przedstawiający stronę powitalną w Kreatorze instalacji bramy](./media/gateway/gateway-wizard01.png)
@@ -134,7 +134,7 @@ Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące
    a. Wprowadź numer portu TCP, który ma być używany przez bramę. Instalator używa tego numeru portu w celu skonfigurowania reguły ruchu przychodzącego w zaporze systemu Windows.  Wartość domyślna to 8080.
       Prawidłowy zakres numeru portu to od 1 do 65535. Jeśli dane wejściowe nie należą do tego zakresu, zostanie wyświetlony komunikat o błędzie.
 
-   b. Jeśli serwer, na którym zainstalowano bramę, musi komunikować się za pomocą serwera proxy, wprowadź adres serwera proxy, pod którym Brama musi nawiązać połączenie. Na przykład wprowadź wartość `http://myorgname.corp.contoso.com:80`.  Jeśli to pole pozostanie puste, Brama będzie podejmować próby nawiązania bezpośredniego połączenia z Internetem.  Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź nazwę użytkownika i hasło.
+   b. Jeśli serwer, na którym zainstalowano bramę, musi komunikować się za pomocą serwera proxy, wprowadź adres serwera proxy, pod którym Brama musi nawiązać połączenie. Na przykład wprowadź `http://myorgname.corp.contoso.com:80`.  Jeśli to pole pozostanie puste, Brama będzie podejmować próby nawiązania bezpośredniego połączenia z Internetem.  Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź nazwę użytkownika i hasło.
 
    c. Wybierz pozycję **Dalej**.
 
@@ -260,13 +260,13 @@ Aby skonfigurować integrację, zaktualizuj konfigurację serwera proxy systemu 
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-Po zakończeniu integracji z Log Analytics Usuń zmiany, uruchamiając `netsh winhttp reset proxy`polecenie. Następnie w konsoli operacje Użyj opcji **Konfiguruj serwer proxy** , aby określić serwer bramy log Analytics. 
+Po zakończeniu integracji z Log Analytics Usuń zmiany, uruchamiając polecenie `netsh winhttp reset proxy` . Następnie w konsoli operacje Użyj opcji **Konfiguruj serwer proxy** , aby określić serwer bramy log Analytics. 
 
 1. W konsoli Operations Manager w obszarze **Pakiet Operations Management Suite**wybierz pozycję **połączenie**, a następnie wybierz pozycję **Konfiguruj serwer proxy**.
 
    ![Zrzut ekranu przedstawiający Operations Manager, pokazując wybór opcji Konfiguruj serwer proxy](./media/gateway/scom01.png)
 
-1. Wybierz opcję **Użyj serwera proxy, aby uzyskać dostęp do pakietu Operations Management Suite** , a następnie wprowadź adres IP serwera bramy log Analytics lub wirtualnego adresu IP modułu równoważenia obciążenia. Ostrożnie Rozpocznij od prefiksu `http://`.
+1. Wybierz opcję **Użyj serwera proxy, aby uzyskać dostęp do pakietu Operations Management Suite** , a następnie wprowadź adres IP serwera bramy log Analytics lub wirtualnego adresu IP modułu równoważenia obciążenia. Ostrożnie Rozpocznij od prefiksu `http://` .
 
    ![Zrzut ekranu przedstawiający Operations Manager, pokazujący adres serwera proxy](./media/gateway/scom02.png)
 
@@ -288,7 +288,7 @@ Aby skonfigurować określone serwery lub grupy do korzystania z serwera bramy L
 1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Wybierz przycisk **OK**.  
 1. Wyszukaj **regułę ustawień serwera proxy usługi Advisor**. 
 1. Na pasku narzędzi Operations Manager wybierz pozycję **zastąpienia** , a następnie wskaż polecenie **Przesłoń Rule\For określony obiekt klasy: usługa kondycji** i wybierz obiekt z listy.  Lub Utwórz grupę niestandardową zawierającą obiekt usługi kondycji serwerów, do których chcesz zastosować to zastąpienie. Następnie Zastosuj zastąpienie do grupy niestandardowej.
-1. W oknie dialogowym **Właściwości przesłonięcia** Dodaj znacznik wyboru w kolumnie **Przesłoń** obok parametru **WebProxyAddress** .  W polu **wartość zastąpienia** wprowadź adres URL serwera bramy log Analytics. Ostrożnie Rozpocznij od prefiksu `http://`.  
+1. W oknie dialogowym **Właściwości przesłonięcia** Dodaj znacznik wyboru w kolumnie **Przesłoń** obok parametru **WebProxyAddress** .  W polu **wartość zastąpienia** wprowadź adres URL serwera bramy log Analytics. Ostrożnie Rozpocznij od prefiksu `http://` .  
 
     >[!NOTE]
     > Nie musisz włączać reguły. Jest już ona zarządzana automatycznie przy użyciu zastąpienia w pakiecie administracyjnym "Zastąp" programu Microsoft System Center Advisor, który jest przeznaczony dla grupy programu Microsoft System Center Advisor Monitoring Server.
@@ -327,9 +327,9 @@ Za pomocą poleceń cmdlet można wykonać zadania w celu zaktualizowania ustawi
 
 Błąd w kroku 3 oznacza, że moduł nie został zaimportowany. Ten błąd może wystąpić, gdy program PowerShell nie może odnaleźć modułu. Moduł można znaleźć w ścieżce instalacji usługi OMS Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
-| **Polecenie cmdlet** | **Parametry** | **Opis** | **Przyklad** |
+| **Polecenie cmdlet** | **Parametry** | **Opis** | **Przykład** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Key |Pobiera konfigurację usługi |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Klucz |Pobiera konfigurację usługi |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Klucz (wymagany) <br> Wartość |Zmienia konfigurację usługi |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Pobiera adres serwera proxy przekazywania (nadrzędnego) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Adres<br> Nazwa użytkownika<br> Hasło (bezpieczny ciąg) |Ustawia adres (i poświadczenia) serwera proxy przekazywania (nadrzędnego) |1. Ustaw serwer proxy przekaźnika i poświadczenie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ustaw serwer proxy przekaźnika, który nie wymaga uwierzytelniania:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Wyczyść ustawienie serwera proxy przekazywania:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  

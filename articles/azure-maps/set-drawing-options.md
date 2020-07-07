@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334308"
 ---
 # <a name="use-the-drawing-tools-module"></a>Korzystanie z modułu narzędzi do rysowania
@@ -61,7 +61,7 @@ Poniższy kod stanowi kompletny przykład sposobu ustawiania trybu rysowania Men
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Rysowanie wielokątu" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz pióro <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>narysuj Wielokąt</a> o Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz pióro <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>narysuj Wielokąt</a> o Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -73,7 +73,7 @@ Menedżer rysowania obsługuje trzy różne sposoby współpracy z mapą do ryso
 * `freehand `-Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie przeciągnięte na mapie. 
 * `hybrid`-Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie kliknięte lub przeciągnięte.
 
-Poniższy kod włącza tryb rysowania Wielokąt i ustawia typ interakcji do rysowania, z którymi powinien być `freehand`zgodny Menedżer rysowania. 
+Poniższy kod włącza tryb rysowania Wielokąt i ustawia typ interakcji do rysowania, z którymi powinien być zgodny Menedżer rysowania `freehand` . 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -88,7 +88,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Rysowanie swobodne" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>rysunek bezpłatny</a> pióro według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) w witrynie <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>rysunek bezpłatny</a> pióro według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -98,7 +98,7 @@ Poprzednie przykłady pokazują, jak dostosować opcje rysowania podczas tworzen
 
 <br/>
 
-<iframe height="685" title="Dostosuj Menedżera rysowania" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Pobierz dane kształtu</a> według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="685" title="Dostosuj Menedżera rysowania" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Pobierz dane kształtu</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -121,7 +121,7 @@ Dowiedz się, jak używać dodatkowych funkcji modułu narzędzi do rysowania:
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Zmapować](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Menedżer rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)

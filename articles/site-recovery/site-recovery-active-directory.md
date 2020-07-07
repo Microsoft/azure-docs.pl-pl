@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546515"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurowanie odzyskiwania po awarii dla Active Directory i systemu DNS
@@ -108,7 +108,7 @@ Po zresetowaniu **maszyny wirtualnej GenerationId** jest również resetowana wa
 
 Przełączenie w tryb failover do platformy Azure może spowodować zresetowanie **maszyny wirtualnej GenerationId** . Resetowanie **maszyny wirtualnej — GenerationId** wyzwala dodatkowe zabezpieczenia w przypadku uruchamiania maszyny wirtualnej kontrolera domeny na platformie Azure. Może to spowodować znaczne opóźnienie w możliwości zalogowania się do maszyny wirtualnej kontrolera domeny.
 
-Ponieważ ten kontroler domeny jest używany tylko w testowaniu pracy w trybie failover, zabezpieczenia wirtualizacji nie są konieczne. Aby upewnić się, że wartość **GenerationId** maszyny wirtualnej kontrolera domeny nie ulega zmianie, można zmienić wartość następujących `DWORD` elementów na **4** na lokalnym kontrolerze domeny:
+Ponieważ ten kontroler domeny jest używany tylko w testowaniu pracy w trybie failover, zabezpieczenia wirtualizacji nie są konieczne. Aby upewnić się, że wartość **GenerationId** maszyny wirtualnej kontrolera domeny nie ulega zmianie, można zmienić wartość następujących elementów `DWORD` na **4** na lokalnym kontrolerze domeny:
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
@@ -181,7 +181,7 @@ Jeśli powyższe warunki są spełnione, prawdopodobnie kontroler domeny działa
 
 Jeśli na tej samej maszynie wirtualnej jest uruchomiony kontroler domeny i system DNs, można pominąć tę procedurę.
 
-Jeśli usługa DNS nie znajduje się na tej samej maszynie wirtualnej, co kontroler domeny, należy utworzyć maszynę wirtualną DNS dla testu pracy w trybie failover. Możesz użyć nowego serwera DNS i utworzyć wszystkie wymagane strefy. Na przykład jeśli Twoja domena Active Directory to `contoso.com`, możesz utworzyć strefę DNS o nazwie. `contoso.com` Wpisy, które odpowiadają Active Directory muszą zostać zaktualizowane w systemie DNS w następujący sposób:
+Jeśli usługa DNS nie znajduje się na tej samej maszynie wirtualnej, co kontroler domeny, należy utworzyć maszynę wirtualną DNS dla testu pracy w trybie failover. Możesz użyć nowego serwera DNS i utworzyć wszystkie wymagane strefy. Na przykład jeśli Twoja domena Active Directory to `contoso.com` , możesz utworzyć strefę DNS o nazwie `contoso.com` . Wpisy, które odpowiadają Active Directory muszą zostać zaktualizowane w systemie DNS w następujący sposób:
 
 1. Upewnij się, że te ustawienia są stosowane przed rozpoczęciem jakiejkolwiek innej maszyny wirtualnej w planie odzyskiwania:
 

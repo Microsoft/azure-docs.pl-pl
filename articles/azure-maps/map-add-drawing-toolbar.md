@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334500"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Dodawanie paska narzędzi narzędzi do rysowania do mapy
@@ -38,7 +38,7 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany w powyższych funkc
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Dodawanie paska narzędzi rysowania" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Dodawanie paska narzędzi Rysowanie</a> przez Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Dodawanie paska narzędzi Rysowanie</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -62,13 +62,13 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany w powyższych funkc
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Dodawanie narzędzia do rysowania wielokątów" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz pióro <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Dodaj narzędzie do rysowania wielokątów</a> , Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() w <a href='https://codepen.io'>CodePen</a>.
+Zobacz pióro <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Dodaj narzędzie do rysowania wielokątów</a> , Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="change-drawing-rendering-style"></a>Zmień styl renderowania rysowania
 
-Styl rysowanych kształtów można dostosować przez pobranie podstawowych warstw Menedżera rysowania przy użyciu `drawingManager.getLayers()` funkcji, a następnie ustawienie opcji na poszczególnych warstwach. Uchwyty przeciągania, które pojawiają się dla współrzędnych podczas edytowania kształtu, są znacznikami HTML. Styl uchwytów przeciągania można dostosować, przekazując opcje znacznika HTML do opcji `dragHandleStyle` i `secondaryDragHandleStyle` w Menedżerze rysowania.  
+Styl rysowanych kształtów można dostosować przez pobranie podstawowych warstw Menedżera rysowania przy użyciu `drawingManager.getLayers()` funkcji, a następnie ustawienie opcji na poszczególnych warstwach. Uchwyty przeciągania, które pojawiają się dla współrzędnych podczas edytowania kształtu, są znacznikami HTML. Styl uchwytów przeciągania można dostosować, przekazując opcje znacznika HTML do `dragHandleStyle` opcji i w `secondaryDragHandleStyle` Menedżerze rysowania.  
 
 Poniższy kod pobiera warstwy renderowania z Menedżera rysowania i modyfikuje ich opcje, aby zmienić styl renderowania dla rysowania. W takim przypadku punkty będą renderowane z niebieską ikoną znacznika. Linie będą czerwone i cztery piksele. Wielokąty mają zielony kolor wypełnienia i pomarańczowy konspekt. Następnie zmienia style uchwytów przeciąganych na ikony kwadratowe. 
 
@@ -122,7 +122,7 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany w powyższych funkc
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Zmień styl renderowania rysowania" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz styl renderowania dla pióra <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>zmiana rysowania</a> według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
+Zobacz styl renderowania dla pióra <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>zmiana rysowania</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -142,7 +142,7 @@ Dowiedz się, jak używać dodatkowych funkcji modułu narzędzi do rysowania:
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Zmapować](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Rysowanie paska narzędzi](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

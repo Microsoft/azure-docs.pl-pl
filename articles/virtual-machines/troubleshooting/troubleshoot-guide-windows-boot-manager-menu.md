@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373351"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Maszyna wirtualna z systemem Windows nie może zostać uruchomiona z powodu Menedżera rozruchu systemu Windows

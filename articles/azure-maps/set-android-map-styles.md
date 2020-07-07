@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334357"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Ustawianie stylu mapy przy użyciu Azure Maps Android SDK
@@ -27,7 +27,7 @@ Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android 
 
 ## <a name="set-map-style-in-the-layout"></a>Ustawianie stylu mapy w układzie
 
-Styl mapy można ustawić w pliku układu dla klasy Activity. Edytuj **> układ zasobów > activity_main. XML**, tak aby wyglądał wyglądać następująco:
+Styl mapy można ustawić w pliku układu dla klasy Activity. Edytuj **> activity_main.xmlukładu > zasobów **, aby wyglądać następująco:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Styl mapy można ustawić w pliku układu dla klasy Activity. Edytuj **> układ 
 </FrameLayout>
 ```
 
-Powyższy `mapcontrol_style` atrybut ustawia styl mapy do **grayscale_dark**. 
+`mapcontrol_style`Powyższy atrybut ustawia styl mapy do **grayscale_dark**. 
 
 <center>
 

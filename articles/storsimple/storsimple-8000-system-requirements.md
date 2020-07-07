@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80297705"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie StorSimple 8000 Series, wysoka dostępność i wymagania dotyczące sieci
@@ -63,7 +63,7 @@ Poniższe wymagania dotyczące oprogramowania dotyczą opcjonalnych składników
 
 Urządzenie StorSimple jest urządzeniem zablokowanym. Należy jednak otworzyć porty w zaporze, aby umożliwić obsługę ruchu iSCSI, chmury i zarządzania. Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze. W tej tabeli *w* lub *przychodzący* odnosi się do kierunku, w którym przychodzące żądania klienta uzyskują dostęp do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym Urządzenie StorSimple wysyła dane zewnętrznie, poza wdrożeniem: na przykład, ruch wychodzący do Internetu.
 
-| Numer portu<sup>1, 2</sup> | Do lub do zewnątrz | Zakres portów | Wymagany | Uwagi |
+| Numer portu<sup>1, 2</sup> | Do lub do zewnątrz | Zakres portów | Wymagane | Uwagi |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Out |Sieć WAN |Nie |<ul><li>Port wychodzący jest używany na potrzeby dostępu do Internetu w celu pobierania aktualizacji.</li><li>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.</li><li>Aby zezwolić na aktualizacje systemu, ten port musi być również otwarty dla stałych adresów IP kontrolera.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Out |Sieć WAN |Tak |<ul><li>Port wychodzący służy do uzyskiwania dostępu do danych w chmurze.</li><li>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.</li><li>Aby zezwolić na aktualizacje systemu, ten port musi być również otwarty dla stałych adresów IP kontrolera.</li><li>Ten port jest również używany na kontrolerach do wyrzucania elementów bezużytecznych.</li></ul> |
@@ -233,7 +233,7 @@ Model urządzenia StorSimple 8600 zawiera rozszerzoną część obudowy dysków 
 * Upewnij się, że zarówno moduły EBOD, jak i wszystkie stacje dysków twardych są zainstalowane przez cały czas.
 * Jeśli moduł kontrolera obudów EBOD nie powiedzie się, zażądaj natychmiastowego zastępowania.
 * Jeśli moduł kontrolera obudów EBOD kończy się niepowodzeniem, upewnij się, że inny moduł kontrolera jest aktywny przed zastąpieniem modułu, który się nie powiódł. Aby sprawdzić, czy kontroler jest aktywny, przejdź do pozycji [Identyfikowanie aktywnego kontrolera na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Podczas zastępowania modułu kontrolera EBOD w sposób ciągły monitoruje stan składnika w usłudze StorSimple Menedżer urządzeń, uzyskując dostęp do **monitorowania** > **kondycji sprzętu**.
+* Podczas zastępowania modułu kontrolera EBOD w sposób ciągły monitoruje stan składnika w usłudze StorSimple Menedżer urządzeń, uzyskując dostęp do **monitorowania**  >  **kondycji sprzętu**.
 * Jeśli kabel SAS ulegnie awarii lub wymaga zastąpienia (pomoc techniczna firmy Microsoft powinien zostać użyty do dokonania takiego ustalenia), pamiętaj, aby usunąć tylko kabel SAS wymagający zamiany.
 * Nie usuwaj równocześnie obu kabli SAS z systemu w dowolnym momencie.
 

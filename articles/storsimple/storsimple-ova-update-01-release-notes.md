@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80397880"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0,2 i 0,1 — informacje o wersji
@@ -37,7 +37,7 @@ Aktualizacja 0,2 jest zgodna z wersją oprogramowania **10.0.10280.0**; Aktualiz
 ## <a name="issues-fixed-in-the-update-02"></a>Problemy rozwiązane w aktualizacji 0,2
 Aktualizacja 0,2 obejmuje wszystkie zmiany z aktualizacji 0,1 oprócz poprawki opisanej w poniższej tabeli:
 
-| Funkcja | Problem |
+| Cecha | Problem |
 | --- | --- |
 | Aktualizacje |W ostatniej wersji aktualizacje nie zostały wykryte automatycznie w klasycznym portalu Azure, dlatego należy użyć lokalnego interfejsu użytkownika sieci Web do zainstalowania aktualizacji. Ten problem został rozwiązany w tej wersji. Po zainstalowaniu aktualizacji 0,2 można zainstalować przyszłe aktualizacje przy użyciu klasycznego portalu Azure. |
 
@@ -54,7 +54,7 @@ Aktualizacja 0,1 zawiera następujące poprawki błędów i ulepszenia.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemy rozwiązane w aktualizacji 0,1
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Funkcja | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
 | 1 |VMDK |W niektórych wersjach programu VMware dysk systemu operacyjnego był traktowany jako rozrzedzony powodujący alerty i zakłócanie normalnych operacji. Ten problem został rozwiązany w tej wersji. |
 | 2 |serwer iSCSI |W ostatniej wersji użytkownik musiał określić bramę dla każdego włączonego interfejsu sieciowego urządzenia wirtualnego StorSimple. To zachowanie jest zmieniane w tej wersji, dzięki czemu użytkownik musi skonfigurować co najmniej jedną bramę dla wszystkich włączonych interfejsów sieciowych. |
@@ -65,7 +65,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 ## <a name="known-issues-in-the-update-01"></a>Znane problemy z aktualizacją 0,1
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji. **Wydanie problemów zanotowane w tej wersji jest oznaczone gwiazdką. Prawie wszystkie problemy na tej liście przeprowadzono w porównaniu z wersją StorSimple macierzy wirtualnej.**
 
-| Nie. | Funkcja | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku z danymi określonego rozmiaru i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania tej czynności spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |

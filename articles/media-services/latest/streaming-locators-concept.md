@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582673"
 ---
 # <a name="streaming-locators"></a>Lokalizatory przesyłania strumieniowego
@@ -32,7 +32,7 @@ Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić
 
 Możesz również określić godzinę rozpoczęcia i zakończenia w usłudze przesyłania strumieniowego, która będzie umożliwiać użytkownikowi odtwarzanie zawartości między tymi godzinami (na przykład od 5/1/2019 do 5/5/2019).  
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 * **Lokalizatory przesyłania strumieniowego** nie są aktualizowalne. 
 * Właściwości **lokalizatorów przesyłania strumieniowego** , które są typu DateTime, są zawsze w formacie UTC.

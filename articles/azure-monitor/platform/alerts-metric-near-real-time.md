@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
 ms.openlocfilehash: c036fa3708d718d6199d27989e60b11015a1227e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585852"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
@@ -30,31 +30,31 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 
 |Typ zasobu  |Obsługiwane wymiary |Alerty dotyczące obsługi zasobów| Dostępne metryki|
 |---------|---------|-----|----------|
-|Microsoft.ApiManagement/service | Tak| Nie | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
-|Microsoft. AppPlatform/Sprężyna |Nie| Tak|
-|Microsoft. Automation/automationAccounts | Tak| Nie | [Konta automatyzacji](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
-|Microsoft. Batch/batchAccounts | Nie dotyczy| Nie | [Konta usługi Batch](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
-|Microsoft. cache/Redis|Tak| Nie |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
-|Microsoft. ClassicStorage/storageAccounts/mmxclassic|Nie|Tak|
-|Microsoft. ClassicStorage/storageAccounts/mmxclassic/blobServices|Nie|Tak|
-|Microsoft. ClassicStorage/storageAccounts/mmxclassic/fileServices|Nie|Tak|
-|Microsoft. ClassicStorage/storageAccounts/mmxclassic/queueServices|Nie|Tak|
-|Microsoft. ClassicStorage/storageAccounts/mmxclassic/tableServices|Nie|Tak| |
+|Microsoft.ApiManagement/service | Yes| Nie | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
+|Microsoft. AppPlatform/Sprężyna |Nie| Yes|
+|Microsoft. Automation/automationAccounts | Yes| Nie | [Konta automatyzacji](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | Nie dotyczy| Nie | [Konta usługi Batch](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
+|Microsoft. cache/Redis|Yes| Nie |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
+|Microsoft. ClassicStorage/storageAccounts/mmxclassic|Nie|Yes|
+|Microsoft. ClassicStorage/storageAccounts/mmxclassic/blobServices|Nie|Yes|
+|Microsoft. ClassicStorage/storageAccounts/mmxclassic/fileServices|Nie|Yes|
+|Microsoft. ClassicStorage/storageAccounts/mmxclassic/queueServices|Nie|Yes|
+|Microsoft. ClassicStorage/storageAccounts/mmxclassic/tableServices|Nie|Yes| |
 |Microsoft. CognitiveServices/konta| Nie dotyczy | Nie | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.Compute/virtualMachines |Tak | Tak | [Maszyny wirtualne](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachines |Tak | Tak | [Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets |Nie dotyczy | Tak |[Zestawy skalowania maszyn wirtualnych](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
-|Microsoft. ContainerInstance/containerGroups | Tak| Nie | [Grupy kontenerów](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
-|Microsoft. ContainerService/managedClusters | Tak | Nie | [Zarządzane klastry](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
+|Microsoft. ContainerInstance/containerGroups | Yes| Nie | [Grupy kontenerów](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft. ContainerService/managedClusters | Yes | Nie | [Zarządzane klastry](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft. DataBoxEdge/dataBoxEdgeDevices | Tak | Tak | |
-|Microsoft. DataFactory/datafactors| Tak| Nie | [Fabryki danych v1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
-|Microsoft. DataFactory/fabryki |Tak | Nie |[Fabryki danych v2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
-|Microsoft. dataudział/konta |Nie| Tak|
+|Microsoft. DataFactory/datafactors| Yes| Nie | [Fabryki danych v1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
+|Microsoft. DataFactory/fabryki |Yes | Nie |[Fabryki danych v2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
+|Microsoft. dataudział/konta |Nie| Yes|
 |Microsoft. DBforMySQL/serwery |Nie dotyczy| Nie |[Baza danych dla programu MySQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft. DBforPostgreSQL/serwery |Nie dotyczy | Nie | [Baza danych dla PostgreSQL](../../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft. Devices/IotHubs | Nie dotyczy | Nie |[Metryki usługi IoT Hub](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs)|
 |Microsoft. Devices/provisioningServices| Tak | Nie |[Metryki DPS](../../azure-monitor/platform/metrics-supported.md#microsoftdevicesprovisioningservices)|
 |Microsoft. EventGrid/domeny|Nie|Tak| |
-|Microsoft. EventGrid/tematy |Tak | Nie |[Tematy Event Grid](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
+|Microsoft. EventGrid/tematy |Tak | Nie |[Tematy usługi Event Grid](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
 |Microsoft. EventHub/klastry |Tak| Nie |[Klastry Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
 |Microsoft. EventHub/przestrzenie nazw |Tak| Nie |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft./magazyny kluczy| Nie |Nie |[Magazyny](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|

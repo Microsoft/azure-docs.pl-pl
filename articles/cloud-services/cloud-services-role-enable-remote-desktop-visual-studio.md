@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80294383"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services przy użyciu programu Visual Studio
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Narzędzia](cloud-services-role-enable-remote-desktop-powershell.md)
-> * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
+> * [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Program Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 Pulpit zdalny umożliwia dostęp do pulpitu roli działającej na platformie Azure. Połączenia Pulpit zdalny można użyć do rozwiązywania problemów i diagnozowania problemów z aplikacją, gdy jest ona uruchomiona.
 
@@ -47,7 +47,7 @@ W przypadku korzystania z programu Visual Studio 2017 w wersji 15,4 lub starszej
    > [!Note]
    > Certyfikaty, które są potrzebne dla połączenia pulpitu zdalnego, różnią się od certyfikatów używanych dla innych operacji platformy Azure. Certyfikat dostępu zdalnego musi mieć klucz prywatny.
 
-5. Wybierz certyfikat z listy lub wybierz pozycję ** &lt;Utwórz... &gt;**. W przypadku tworzenia nowego certyfikatu podaj przyjazną nazwę dla nowego certyfikatu po wyświetleniu monitu, a następnie wybierz **przycisk OK**. Nowy certyfikat pojawi się w polu listy rozwijanej.
+5. Wybierz certyfikat z listy lub wybierz pozycję ** &lt; Utwórz... &gt; **. W przypadku tworzenia nowego certyfikatu podaj przyjazną nazwę dla nowego certyfikatu po wyświetleniu monitu, a następnie wybierz **przycisk OK**. Nowy certyfikat pojawi się w polu listy rozwijanej.
 
 6. Podaj nazwę użytkownika i hasło. Nie można użyć istniejącego konta. Nie używaj "administratora" jako nazwy użytkownika dla nowego konta.
 
@@ -86,7 +86,7 @@ Projekt usługi w chmurze można wdrożyć na serwerze kompilacji (na przykład 
 
 Aby użyć rozszerzenia RDP z Azure DevOps Services, należy uwzględnić następujące szczegóły w potoku kompilacji:
 
-1. Dołącz `/p:ForceRDPExtensionOverPlugin=true` do argumentów programu MSBuild, aby upewnić się, że wdrożenie współpracuje z rozszerzeniem RDP, a nie z wtyczką RDP. Przykład:
+1. Dołącz `/p:ForceRDPExtensionOverPlugin=true` do argumentów programu MSBuild, aby upewnić się, że wdrożenie współpracuje z rozszerzeniem RDP, a nie z wtyczką RDP. Na przykład:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

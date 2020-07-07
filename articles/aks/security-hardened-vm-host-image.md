@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420899"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS

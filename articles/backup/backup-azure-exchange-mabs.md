@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80421346"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Tworzenie kopii zapasowej serwera programu Exchange na platformie Azure za pomocą Azure Backup Server
@@ -53,7 +53,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwera usługi MAB, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
 
    > [!NOTE]
-   > Aby użyć tej opcji, należy skopiować pliki Ese. dll i Eseutil. exe do katalogu C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin na serwerze serwera usługi MAB. W przeciwnym razie zostanie wyzwolony następujący błąd:  
+   > Aby użyć tej opcji, należy skopiować pliki Ese.dll i Eseutil.exe do katalogu C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin na serwerze serwera usługi MAB. W przeciwnym razie zostanie wyzwolony następujący błąd:  
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -68,10 +68,10 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
 11. Sprawdź ilość dostępnego miejsca na dysku, a następnie kliknij przycisk **dalej**.
 12. Wybierz czas, w którym serwer serwera usługi MAB utworzy replikację początkową, a następnie kliknij przycisk **dalej**.
 13. Wybierz opcje sprawdzania spójności, a następnie kliknij przycisk **dalej**.
-14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Przykład:
+14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Przykład:
+15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

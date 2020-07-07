@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80583218"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Wycofanie funkcji Security Center (lipiec 2019)
@@ -53,7 +53,7 @@ Wycofano pulpit nawigacyjny zdarzeń, który pojawił się po wybraniu obszaru r
 
 Zachęcamy do korzystania z natywnych możliwości platformy Azure Log Analytics do wyświetlania istotnych zdarzeń w obszarach roboczych.
 
-Jeśli utworzono niestandardowe zdarzenia w Security Center, będą one dostępne. W obszarze log Analytics przejdź do pozycji **Wybierz obszary robocze** > **zapisane wyszukiwania**. Twoje dane nie zostaną utracone ani zmodyfikowane. Natywne istotne zdarzenia są również dostępne z tego samego ekranu w Log Analytics.
+Jeśli utworzono niestandardowe zdarzenia w Security Center, będą one dostępne. W obszarze log Analytics przejdź do pozycji **Wybierz obszary robocze**  >  **zapisane wyszukiwania**. Twoje dane nie zostaną utracone ani zmodyfikowane. Natywne istotne zdarzenia są również dostępne z tego samego ekranu w Log Analytics.
 
 ![Wyszukiwania zapisane w obszarze roboczym][3]
 
