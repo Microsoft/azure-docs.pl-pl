@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144068"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory uwierzytelniania opartego na certyfikatach w systemie iOS
@@ -73,7 +73,7 @@ Aby uzyskać więcej informacji, zobacz [Dostosowywanie strony logowania AD FS](
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Używanie nowoczesnego uwierzytelniania z aplikacjami pakietu Office
 
-Niektóre aplikacje pakietu Office z nowoczesnym uwierzytelnianiem umożliwiały wysyłanie `prompt=login` do usługi Azure AD w ich żądaniu. Domyślnie usługa Azure AD tłumaczy `prompt=login` żądanie na usługi AD FS jako ( `wauth=usernamepassworduri` pyta, czy uwierzytelnianie U/P `wfresh=0` zostanie wykonane, a także poprosi ADFS o zignorowanie stanu logowania jednokrotnego i przeprowadzenie nowego uwierzytelniania). Jeśli chcesz włączyć uwierzytelnianie oparte na certyfikacie dla tych aplikacji, zmodyfikuj domyślne zachowanie usługi Azure AD.
+Niektóre aplikacje pakietu Office z nowoczesnym uwierzytelnianiem umożliwiały wysyłanie `prompt=login` do usługi Azure AD w ich żądaniu. Domyślnie usługa Azure AD tłumaczy `prompt=login` żądanie na usługi AD FS jako (pyta, czy uwierzytelnianie `wauth=usernamepassworduri` U/P zostanie wykonane, a także `wfresh=0` poprosi ADFS o zignorowanie stanu logowania jednokrotnego i przeprowadzenie nowego uwierzytelniania). Jeśli chcesz włączyć uwierzytelnianie oparte na certyfikacie dla tych aplikacji, zmodyfikuj domyślne zachowanie usługi Azure AD.
 
 Aby zaktualizować zachowanie domyślne, ustaw wartość "*PromptLoginBehavior*" w ustawieniach domeny federacyjnej na *wyłączone*. Aby wykonać to zadanie, można użyć polecenia cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) , jak pokazano w następującym przykładzie:
 

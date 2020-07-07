@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186445"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
@@ -52,7 +52,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 
     ![Omówienie agenta telegraficznego rozmiaru maszyny wirtualnej](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Na stronie **Ustawienia** **w** > **grupie** > zabezpieczeń sieci**Wybierz pozycję publiczne porty przychodzące**, wybierz pozycję **http** i **SSH (22)**. Pozostaw resztę ustawień domyślnych, a następnie wybierz pozycję **OK**. 
+1. Na stronie **Ustawienia** **w**  >  **grupie zabezpieczeń sieci**  >  **Wybierz pozycję publiczne porty przychodzące**, wybierz pozycję **http** i **SSH (22)**. Pozostaw resztę ustawień domyślnych, a następnie wybierz pozycję **OK**. 
 
 1. Na stronie podsumowania wybierz pozycję **Utwórz**, aby rozpocząć wdrażanie maszyny wirtualnej. 
 
@@ -131,7 +131,7 @@ Powyższy przewodnik zawiera informacje dotyczące sposobu konfigurowania agenta
 
 Ponadto w tym instruktażu Agent telegraf był używany do emitowania metryk dotyczących maszyny wirtualnej, na której jest wdrożony Agent. Agenta telegraf można także użyć jako modułu zbierającego i usługi przesyłania dalej metryk dla innych zasobów. Aby dowiedzieć się, jak skonfigurować agenta do emisji metryk dla innych zasobów platformy Azure, zobacz [Azure monitor niestandardowe dane wyjściowe metryki dla telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 
 Gdy nie są już potrzebne, możesz usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby. W tym celu wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Następnie Potwierdź nazwę grupy zasobów do usunięcia. 
 

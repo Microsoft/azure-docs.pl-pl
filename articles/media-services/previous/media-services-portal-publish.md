@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: abdb926825abcac4485cb11b71bdc82597391727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176825"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publikowanie zawartości w Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [CZĘŚĆ](media-services-rest-deliver-streaming-content.md)
 > 
 > 
 
@@ -70,7 +70,7 @@ Aby zaktualizować datę wygaśnięcia lokalizatora, użyj [interfejsu API REST]
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Aby opublikować element zawartości za pomocą portalu
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz pozycję **Ustawienia** > **zasoby**. Wybierz element zawartości, który chcesz opublikować.
+2. Wybierz pozycję **Ustawienia**  >  **zasoby**. Wybierz element zawartości, który chcesz opublikować.
 3. Wybierz przycisk **Publikuj**.
 4. Wybierz typ lokalizatora.
 5. Wybierz pozycję **Dodaj**.
@@ -92,7 +92,7 @@ Zagadnienia do rozważenia:
 * Odtwarzacz multimedialny w witrynie Azure Portal odtwarza zawartość z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć zawartość z punktu końcowego przesyłania strumieniowego innego niż domyślny, zaznacz i skopiuj adres URL, a następnie wklej go do innego odtwarzacza. Na przykład swoje wideo możesz przetestować w usłudze [Azure Media Player](https://aka.ms/azuremediaplayer).
 * Punkt końcowy przesyłania strumieniowego, z którego są przesyłane strumieniowo, musi być uruchomiony.  
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

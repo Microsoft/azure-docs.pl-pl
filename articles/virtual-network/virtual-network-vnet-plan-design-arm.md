@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186020"
 ---
 # <a name="plan-virtual-networks"></a>Planowanie sieci wirtualnych
@@ -35,7 +35,7 @@ Wszystkie zasoby platformy Azure są tworzone w regionie i w ramach subskrypcji 
 - Czy masz dane dotyczące miejsca zamieszkania, suwerenności, zgodności lub odporności? W takim przypadku wybranie regionu, który jest wyrównany do wymagań ma krytyczne znaczenie. Aby uzyskać więcej informacji, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/).
 - Czy potrzebujesz odporności między Strefy dostępności platformy Azureami w ramach tego samego regionu świadczenia usługi Azure w ramach wdrażanych zasobów? Zasoby, takie jak maszyny wirtualne (VM), można wdrażać w różnych strefach dostępności w ramach tej samej sieci wirtualnej. Nie wszystkie regiony platformy Azure obsługują jednak strefy dostępności. Aby dowiedzieć się więcej o strefach dostępności i regionach, które je obsługują, zobacz [strefy dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Subscriptions
+## <a name="subscriptions"></a>Subskrypcje
 
 W ramach każdej subskrypcji można wdrożyć dowolną liczbę sieci wirtualnych, która jest wymagana do [limitu](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Niektóre organizacje mają różne subskrypcje dla różnych działów, na przykład. Aby uzyskać więcej informacji i zagadnień dotyczących subskrypcji, zobacz temat [Zarządzanie subskrypcjami](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 

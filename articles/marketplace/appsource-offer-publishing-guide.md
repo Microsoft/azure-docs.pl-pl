@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186190"
 ---
 # <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Oferowany Przewodnik publikowania dla pakietu Office 365, Dynamics 365, aplikacji zaawansowanych i Power BI
@@ -24,7 +24,7 @@ AppSource zapłacili oferty, lista i wersje próbne, z wywołaniami akcji *Uzysk
 
 Linki do publikowania procesów i wytycznych dla każdego typu oferty znajdują się w poniższej tabeli:
 
-| Product (Produkt)    | Wskazówki dotyczące publikowania  |
+| Produkt    | Wskazówki dotyczące publikowania  |
 | :------------------- | :-------------------|
 | Office 365 | Przejrzyj [proces publikowania i wskazówki](/office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | Aby opublikować ofertę w centrum partnerskim, zobacz temat [Tworzenie nowej oferty Dynamics 365 Business Central](./partner-center-portal/create-new-business-central-offer.md). |

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82185697"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Używanie Application Gateway platformy Azure z maszynami wirtualnymi VMware w środowisku chmury prywatnej CloudSimple
@@ -71,7 +71,7 @@ Szczegółowe instrukcje dla tego programu są dostępne w temacie [Tworzenie br
 
 1. Utwórz sieć wirtualną w ramach subskrypcji i grupy zasobów.
 2. Utwórz podsieć (do użycia jako dedykowana podsieć) w ramach sieci wirtualnej.
-3. Utwórz standardową Application Gateway (opcjonalnie Włącz WAF): na stronie głównej Azure Portal kliknij pozycję **zasoby** > **sieciowe** > **Application Gateway** w lewym górnym rogu strony. Wybierz standardową jednostkę SKU i rozmiar oraz podaj subskrypcję platformy Azure, grupę zasobów i informacje o lokalizacji. W razie potrzeby utwórz nowy publiczny adres IP dla tej bramy aplikacji i podaj szczegóły dotyczące sieci wirtualnej oraz dedykowanej podsieci bramy aplikacji.
+3. Utwórz standardową Application Gateway (opcjonalnie Włącz WAF): na stronie głównej Azure Portal kliknij pozycję **zasoby**  >  **sieciowe**  >  **Application Gateway** w lewym górnym rogu strony. Wybierz standardową jednostkę SKU i rozmiar oraz podaj subskrypcję platformy Azure, grupę zasobów i informacje o lokalizacji. W razie potrzeby utwórz nowy publiczny adres IP dla tej bramy aplikacji i podaj szczegóły dotyczące sieci wirtualnej oraz dedykowanej podsieci bramy aplikacji.
 4. Dodaj pulę zaplecza z maszynami wirtualnymi i Dodaj ją do bramy aplikacji.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. Utwórz i skonfiguruj pulę maszyn wirtualnych serwera sieci Web w chmurze prywatnej

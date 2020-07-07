@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187249"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>Przegląd Azure Data Lake Storage Gen1 w usłudze HDInsight
@@ -57,7 +57,7 @@ Data Lake Storage Gen1 używa Azure Active Directory do uwierzytelniania i używ
 
 | **Funkcja** | **Opis** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 integruje się z usługą Azure Active Directory (Azure AD) na potrzeby zarządzania tożsamościami i dostępem dla wszystkich danych przechowywanych w Data Lake Storage Gen1. Ze względu na integrację Data Lake Storage Gen1 korzyści ze wszystkich funkcji usługi Azure AD. Do tych funkcji należą: uwierzytelnianie wieloskładnikowe, dostęp warunkowy i kontrola dostępu oparta na rolach. Ponadto monitorowanie użycia aplikacji, monitorowanie zabezpieczeń i alerty itd. Data Lake Storage Gen1 obsługuje uwierzytelnianie przy użyciu protokołu OAuth 2,0 w ramach interfejsu REST. Zobacz [uwierzytelnianie w ramach Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Uwierzytelnianie |Data Lake Storage Gen1 integruje się z usługą Azure Active Directory (Azure AD) na potrzeby zarządzania tożsamościami i dostępem dla wszystkich danych przechowywanych w Data Lake Storage Gen1. Ze względu na integrację Data Lake Storage Gen1 korzyści ze wszystkich funkcji usługi Azure AD. Do tych funkcji należą: uwierzytelnianie wieloskładnikowe, dostęp warunkowy i kontrola dostępu oparta na rolach. Ponadto monitorowanie użycia aplikacji, monitorowanie zabezpieczeń i alerty itd. Data Lake Storage Gen1 obsługuje uwierzytelnianie przy użyciu protokołu OAuth 2,0 w ramach interfejsu REST. Zobacz [uwierzytelnianie w ramach Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Kontrola dostępu |Data Lake Storage Gen1 zapewnia kontrolę dostępu przez obsługę uprawnień w stylu POSIX, które są udostępniane przez protokół WebHDFS. Listy kontroli dostępu można włączyć dla folderu głównego, podfolderów i poszczególnych plików. Aby uzyskać więcej informacji na temat działania list ACL w kontekście Data Lake Storage Gen1, zobacz [Kontrola dostępu w Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Szyfrowanie |Data Lake Storage Gen1 również zapewnia szyfrowanie danych przechowywanych na koncie. Podczas tworzenia konta Data Lake Storage Gen1 należy określić ustawienia szyfrowania. Możesz zdecydować się na zaszyfrowanie danych lub rezygnację z szyfrowania. Aby uzyskać więcej informacji, zobacz [szyfrowanie w Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Aby uzyskać instrukcje dotyczące sposobu zapewnienia konfiguracji związanej z szyfrowaniem, zobacz Wprowadzenie do [Azure Data Lake Storage Gen1 przy użyciu Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). |
 
@@ -73,7 +73,7 @@ Data Lake Storage Gen1 jest zgodny z większością składników Open Source w �
 
 ## <a name="data-lake-storage-gen1-file-system-adl"></a>System plików Data Lake Storage Gen1 (adl://)
 
-W środowiskach Hadoop można uzyskać dostęp do Data Lake Storage Gen1 za pomocą nowego systemu plików, AzureDataLakeFilesystem (adl://). Wydajność aplikacji i usług, które są używane `adl://` , można zoptymalizować w sposób, który nie jest obecnie dostępny w WebHDFS. Dzięki temu można uzyskać elastyczność, aby uzyskać najlepszą wydajność przy użyciu zalecanych adl://. Lub Zachowaj istniejący kod, kontynuując bezpośrednie używanie interfejsu API WebHDFS. Usługa Azure HDInsight w pełni wykorzystuje AzureDataLakeFilesystem, aby zapewnić najlepszą wydajność na Data Lake Storage Gen1.
+W środowiskach Hadoop można uzyskać dostęp do Data Lake Storage Gen1 za pomocą nowego systemu plików, AzureDataLakeFilesystem (adl://). Wydajność aplikacji i usług, które są używane, `adl://` można zoptymalizować w sposób, który nie jest obecnie dostępny w WebHDFS. Dzięki temu można uzyskać elastyczność, aby uzyskać najlepszą wydajność przy użyciu zalecanych adl://. Lub Zachowaj istniejący kod, kontynuując bezpośrednie używanie interfejsu API WebHDFS. Usługa Azure HDInsight w pełni wykorzystuje AzureDataLakeFilesystem, aby zapewnić najlepszą wydajność na Data Lake Storage Gen1.
 
 Uzyskaj dostęp do danych w Data Lake Storage Gen1 przy użyciu następującego identyfikatora URI:
 

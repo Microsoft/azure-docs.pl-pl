@@ -7,13 +7,13 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: 7022c4587b425168fc5bd2182ed65c281633aabf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82177083"
 ---
-# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja chmur Azure z rozwiązaniami do równoważenia obciążenia Azure
+# <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
 
 Chmura sprężynowa platformy Azure obsługuje mikrousługi na platformie Azure.  Zwiększenie firmy może wymagać wielu centrów danych z zarządzaniem wieloma wystąpieniami chmury wiosennej platformy Azure.
 
@@ -40,7 +40,7 @@ Dodawanie punktów końcowych w usłudze Traffic Manager:
 1.  Wprowadź w pełni kwalifikowaną nazwę domeny (FQDN) każdego publicznego punktu końcowego chmury platformy Azure.
 1. Kliknij przycisk **OK**.
 
-    ![Traffic Manager 1](media/spring-cloud-load-balancers/traffic-manager-1.png) ![Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
+    ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 
 ### <a name="configure-custom-domain"></a>Konfiguruj domenę niestandardową
 Aby zakończyć konfigurację:

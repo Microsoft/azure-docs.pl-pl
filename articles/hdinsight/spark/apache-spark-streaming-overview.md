@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 0ccb87017f962650f099d506e1d200ab408316d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195149"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Omówienie Apache Spark przesyłania strumieniowego
 
-[Apache Spark](https://spark.apache.org/) Przesyłanie strumieniowe zapewnia przetwarzanie strumieni danych w klastrach usługi HDInsight Spark. Z gwarancją, że każde zdarzenie wejściowe jest przetwarzane dokładnie jeden raz, nawet jeśli wystąpi awaria węzła. Strumień Spark to długotrwałe zadanie, które odbiera dane wejściowe z wielu różnych źródeł, w tym Event Hubs platformy Azure. Ponadto: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`, RAW TCP Sockets lub z monitorowania Apache Hadoop systemów plików przędzy. W przeciwieństwie do samego procesu sterowanego zdarzeniami, Strumień Spark przetwarza dane wejściowe w oknach czasu. Na przykład 2-sekundowy wycinek, a następnie przekształca każdą partię danych przy użyciu funkcji map, zmniejszania, przyłączania i wyodrębniania. Strumień Spark zapisuje następnie przekształcone dane do systemów plików, baz danych, pulpitów nawigacyjnych i konsoli programu.
+[Apache Spark](https://spark.apache.org/) Przesyłanie strumieniowe zapewnia przetwarzanie strumieni danych w klastrach usługi HDInsight Spark. Z gwarancją, że każde zdarzenie wejściowe jest przetwarzane dokładnie jeden raz, nawet jeśli wystąpi awaria węzła. Strumień Spark to długotrwałe zadanie, które odbiera dane wejściowe z wielu różnych źródeł, w tym Event Hubs platformy Azure. Ponadto: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` , RAW TCP Sockets lub z monitorowania Apache Hadoop systemów plików przędzy. W przeciwieństwie do samego procesu sterowanego zdarzeniami, Strumień Spark przetwarza dane wejściowe w oknach czasu. Na przykład 2-sekundowy wycinek, a następnie przekształca każdą partię danych przy użyciu funkcji map, zmniejszania, przyłączania i wyodrębniania. Strumień Spark zapisuje następnie przekształcone dane do systemów plików, baz danych, pulpitów nawigacyjnych i konsoli programu.
 
 ![Przetwarzanie strumieni z użyciem usługi HDInsight i usługi przesyłania strumieniowego Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 Wynikowe wyniki wyglądają podobnie jak następujące dane wyjściowe:
 
-| value | time |
+| wartość | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +222,7 @@ ssc.start()
 
 Po pierwszej minucie istnieją 12 wpisów — sześć wpisów z każdej z dwóch partii zebranych w oknie.
 
-| value | time |
+| wartość | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

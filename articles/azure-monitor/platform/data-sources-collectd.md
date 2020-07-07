@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186428"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Zbieraj dane z zebranych w agencie systemu Linux w Azure Monitor
@@ -45,12 +45,12 @@ Ponadto w przypadku korzystania z wersji zebranych przed 5,5 Użyj poniższej ko
        </URL>
     </Plugin>
 
-Zebrana konfiguracja używa domyślnej`write_http` wtyczki do wysyłania danych metryk wydajności przez port 26000 do agenta log Analytics dla systemu Linux. 
+Zebrana konfiguracja używa domyślnej `write_http` wtyczki do wysyłania danych metryk wydajności przez port 26000 do agenta log Analytics dla systemu Linux. 
 
 > [!NOTE]
 > Ten port można skonfigurować do niestandardowego portu zdefiniowanego w razie potrzeby.
 
-Agent Log Analytics dla systemu Linux nasłuchuje również na porcie 26000 dla zebranych metryk, a następnie konwertuje je na metryki schematu Azure Monitor. Poniżej przedstawiono konfigurację `collectd.conf`agenta log Analytics dla systemu Linux.
+Agent Log Analytics dla systemu Linux nasłuchuje również na porcie 26000 dla zebranych metryk, a następnie konwertuje je na metryki schematu Azure Monitor. Poniżej przedstawiono konfigurację agenta Log Analytics dla systemu Linux `collectd.conf` .
 
     <source>
       type http
@@ -79,7 +79,7 @@ Poniżej przedstawiono podstawowe kroki konfigurowania kolekcji zbieranych danyc
 
 ### <a name="configure-collectd-to-forward-data"></a>Konfigurowanie zebranych danych do przesyłania dalej 
 
-1. Aby skierować dane zebrane do agenta Log Analytics dla systemu Linux, `oms.conf` należy dodać je do katalogu konfiguracji zebranych. Miejsce docelowe tego pliku zależy od dystrybucji komputera z systemem Linux.
+1. Aby skierować dane zebrane do agenta Log Analytics dla systemu Linux, należy `oms.conf` dodać je do katalogu konfiguracji zebranych. Miejsce docelowe tego pliku zależy od dystrybucji komputera z systemem Linux.
 
     Jeśli zebrany katalog konfiguracji znajduje się w/etc/collectd.d/:
 

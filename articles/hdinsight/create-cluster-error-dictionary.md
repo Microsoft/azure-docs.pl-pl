@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186638"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Błędy tworzenia klastra
@@ -24,9 +24,9 @@ W tym artykule opisano rozwiązania błędów, które mogą występować podczas
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Nie można uzyskać dostępu do lokalizacji akcji skryptu\<URI: adres\>URL akcji skryptu"
+"Nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT ACTION URL\> "
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
@@ -46,13 +46,13 @@ Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podane
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Nie można uzyskać dostępu do lokalizacji akcji skryptu \<URI\>: SCRIPT_ACTION_URL"
+"Nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT_ACTION_URL\> "
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
-"Podany identyfikator URI \<skryptu SCRIPT_URI\> jest w ADLS, ale ten klaster nie ma podmiotu zabezpieczeń Data Lake Storage"
+"Podany identyfikator URI skryptu \<SCRIPT_URI\> jest w ADLS, ale ten klaster nie ma podmiotu zabezpieczeń Data Lake Storage"
 
 ### <a name="cause"></a>Przyczyna
 
@@ -66,9 +66,9 @@ Dodaj odpowiednie konto Azure Data Lake Storage Gen 1 do klastra. Należy równi
 
 ## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Rozmiar maszyny wirtualnej\<"\>CUSTOMER_SPECIFIED_VM_SIZE "podany w żądaniu jest nieprawidłowy lub nie jest obsługiwany dla\<roli"\>rola ". Prawidłowe wartości to: \<VALID_VM_SIZE_FOR_ROLE\>".
+"Rozmiar maszyny wirtualnej" \<CUSTOMER_SPECIFIED_VM_SIZE\> "podany w żądaniu jest nieprawidłowy lub nie jest obsługiwany dla roli" \<ROLE\> ". Prawidłowe wartości to: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
 ### <a name="cause"></a>Przyczyna
 
@@ -82,9 +82,9 @@ Komunikat o błędzie zawiera listę prawidłowych wartości dla rozmiaru maszyn
 
 ## <a name="error-codeinvalidvirtualnetworkid"></a>Kod błędu: InvalidVirtualNetworkId  
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"VirtualNetworkId jest nieprawidłowy. VirtualNetworkId "\<USER_VIRTUALNETWORKID\>" * "
+"VirtualNetworkId jest nieprawidłowy. VirtualNetworkId " \<USER_VIRTUALNETWORKID\> " * "
 
 ### <a name="cause"></a>Przyczyna
 
@@ -106,13 +106,13 @@ Oto przykład identyfikatora sieci wirtualnej:
 
 ## <a name="error-code-customizationfailederrorcode"></a>Kod błędu: CustomizationFailedErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Wdrożenie klastra nie powiodło się z powodu błędu w akcji skryptu niestandardowego. Akcje zakończone \<niepowodzeniem\>: SCRIPT_NAME, przejdź do interfejsu użytkownika Ambari, aby kontynuować debugowanie błędu ".
+"Wdrożenie klastra nie powiodło się z powodu błędu w akcji skryptu niestandardowego. Akcje zakończone niepowodzeniem: \<SCRIPT_NAME\> Przejdź do interfejsu użytkownika Ambari, aby kontynuować debugowanie błędu ".
 
 ### <a name="cause"></a>Przyczyna
 
-Skrypt niestandardowy dostarczony podczas żądania utworzenia klastra jest wykonywany po pomyślnym wdrożeniu klastra. Ten kod błędu wskazuje, że wystąpił błąd podczas wykonywania niestandardowego skryptu o nazwie \<SCRIPT_NAME\>.
+Skrypt niestandardowy dostarczony podczas żądania utworzenia klastra jest wykonywany po pomyślnym wdrożeniu klastra. Ten kod błędu wskazuje, że wystąpił błąd podczas wykonywania niestandardowego skryptu o nazwie \<SCRIPT_NAME\> .
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -122,9 +122,9 @@ Skrypt jest skryptem niestandardowym, dlatego zalecamy rozwiązanie problemu i p
 
 ## <a name="error-codeinvaliddocumenterrorcode"></a>Kod błędu: InvalidDocumentErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-\<"\> META_STORE_TYPE wersji \<schematu magazynu metadanych METASTORE_MAJOR_VERSION\> w database_name \<\> bazy danych jest niezgodna z wersją \<klastra\>CLUSTER_VERSION"
+" \<META_STORE_TYPE\> Wersja schematu magazynu metadanych \<METASTORE_MAJOR_VERSION\> w bazie danych \<DATABASE_NAME\> jest niezgodna z wersją klastra \<CLUSTER_VERSION\> "
 
 ### <a name="cause"></a>Przyczyna
 
@@ -138,7 +138,7 @@ Używaj tylko wersji magazynu metadanych obsługiwanej przez wersję klastra us�
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Kod błędu: FailedToConnectWithClusterErrorCode 
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 "Nie można nawiązać połączenia z punktem końcowym zarządzania klastrem w celu wykonania operacji skalowania. Sprawdź, czy reguły zabezpieczeń sieci nie blokują dostępu zewnętrznego do klastra i czy można pomyślnie uzyskać dostęp do interfejsu użytkownika Menedżera klastra (Ambari).
 
@@ -159,9 +159,9 @@ Jeśli planujesz użyć grup zabezpieczeń sieci do kontrolowania ruchu sieciowe
 
 ## <a name="error-code-storagepermissionsblockedformsi"></a>Kod błędu: StoragePermissionsBlockedForMsi
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Zarządzana tożsamość nie ma uprawnień na koncie magazynu. Sprawdź, czy rola "właściciel danych obiektów blob magazynu" jest przypisana do zarządzanej tożsamości dla konta magazynu. Magazyn: identyfikator \<\> subskrypcji/subscriptions//ResourceGroups/\< \> nazwa grupy zasobów/Providers/Microsoft.Storage/storageAccounts/ \<,\>nazwa konta magazynu, tożsamość zarządzana \<:/subscriptions/\> Identyfikator subskrypcji\< /resourceGroups//nazwa\> grupy \<zasobów/Providers/Microsoft.ManagedIdentity/userAssignedIdentities/nazwa\>tożsamości zarządzanej przez użytkownika "
+"Zarządzana tożsamość nie ma uprawnień na koncie magazynu. Sprawdź, czy rola "właściciel danych obiektów blob magazynu" jest przypisana do zarządzanej tożsamości dla konta magazynu. Storage:/subscriptions/ \<Subscription ID\> /ResourceGroups/ \< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\> , tożsamość zarządzana:/subscriptions/ \<Subscription ID\> /resourceGroups// \< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>
 
 ### <a name="cause"></a>Przyczyna
 
@@ -180,9 +180,9 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień dla tożsamo�
 
 ## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Kod błędu: InvalidNetworkSecurityGroupSecurityRules
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
-"Reguły zabezpieczeń w sieciowej grupie zabezpieczeń/subscriptions/\<Identyfikator subskrypcji\>/ResourceGroups/<nazwa grupy zasobów\> domyślne/dostawcy/Microsoft. Network/networkSecurityGroups/\<Network Security Group\> skonfigurowany z podsiecią/subscriptions/\<identyfikator\>subskrypcji\</ResourceGroups/nazwa grupy\> zasobów RG-westeurope-VNET-TomTom-default/Providers/Microsoft. Network/\<virtualNetworks/\>Virtual Network\<Name/Subnets/\> nazwa podsieci nie zezwala na wymaganą łączność przychodzącą i/lub wychodzącą. Aby uzyskać więcej informacji, odwiedź stronę [Planowanie sieci wirtualnej dla usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)lub skontaktuj się z pomocą techniczną.
+"Reguły zabezpieczeń w sieciowej grupie zabezpieczeń/subscriptions/ \<SubscriptionID\> /resourceGroups/<nazwa grupy zasobów \> default/Providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> skonfigurowane z podsiecią/subscriptions/ \<SubscriptionID\> /resourceGroups/RG-westeurope-VNET-TomTom-default \<Resource Group name\> /providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /Subnets/nie \<Subnet Name\> zezwala na wymagane połączenia przychodzące i/lub wychodzące. Aby uzyskać więcej informacji, odwiedź stronę [Planowanie sieci wirtualnej dla usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)lub skontaktuj się z pomocą techniczną.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -200,7 +200,7 @@ Jeśli planujesz użyć grup zabezpieczeń sieci do kontrolowania ruchu sieciowe
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Kod błędu: Instalator klastra nie może zainstalować składników na jednym lub większej liczbie hostów
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 "Instalator klastra nie może zainstalować składników na co najmniej jednym hoście. Spróbuj ponownie wykonać żądanie. "
 
@@ -216,7 +216,7 @@ Sprawdź na stronie [stanu platformy Azure](https://status.azure.com) ewentualne
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Kod błędu: FailedToConnectWithClusterErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 Nie można nawiązać połączenia z punktem końcowym zarządzania klastrem. Spróbuj ponownie później.
 
@@ -230,7 +230,7 @@ Jeśli używasz niestandardowej grupy zabezpieczeń sieci wirtualnej (sieciowych
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: wdrożenia nie powiodły się z powodu naruszenia zasad: "<Resource URI>zasób" "jest niedozwolony przez zasady. Identyfikatory zasad: "[{" policyAssignment ": {" name ":"<Policy Name> "," ID ":"/Providers/Microsoft.Management/managementGroups/<Management Group Name> Providers/Microsoft. Authorization/policyAssignments<Policy Name>/"}," policyDefinition ":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: wdrożenia nie powiodły się z powodu naruszenia zasad: "zasób" <Resource URI> "jest niedozwolony przez zasady. Identyfikatory zasad: "[{" policyAssignment ": {" name ":" <Policy Name> "," ID ":"/Providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}," policyDefinition ":<Policy Definition>
 
 ### <a name="cause"></a>Przyczyna
 

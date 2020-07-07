@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186173"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MariaDB
@@ -118,7 +118,7 @@ Jak skonfigurować zaawansowaną ochronę przed zagrożeniami dla Azure Database
 **Wskazówki**: dla zasobów, które wymagają dostępu do wystąpień Azure Database for MariaDB, użyj tagów usługi sieci wirtualnej, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. SQL. Zachodnie) w odpowiednim polu źródłowym lub docelowym reguły można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 Uwaga: Azure Database for MariaDB używa znacznika usługi "Microsoft. SQL".
 
-Aby uzyskać więcej informacji na temat używania tagów https://docs.microsoft.com/azure/virtual-network/service-tags-overview usługi: Opis użycia tagu usługi dla Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
+Aby uzyskać więcej informacji na temat używania tagów usługi: https://docs.microsoft.com/azure/virtual-network/service-tags-overview Opis użycia tagu usługi dla Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
 
 
 
@@ -190,7 +190,7 @@ Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure: ht
 **Wskazówki**: Włączanie ustawień diagnostycznych i dzienników serwera i dzienników pozyskiwania w celu agregowania danych zabezpieczeń wygenerowanych przez wystąpienia Azure Database for MariaDB. W Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 Jak skonfigurować i uzyskać dostęp do dzienników serwera dla Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Jak skonfigurować i uzyskać dostęp do dzienników inspekcji dla Azure Database for MariaDB https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal : jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak skonfigurować i uzyskać dostęp do dzienników inspekcji dla Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
 
@@ -202,7 +202,7 @@ Jak skonfigurować i uzyskać dostęp do dzienników inspekcji dla Azure Databas
 
 **Wskazówki**: Włączanie ustawień diagnostycznych w wystąpieniach Azure Database for MariaDB, aby uzyskać dostęp do dzienników inspekcji, zabezpieczeń i diagnostyki. Upewnij się, że został jawnie włączony dziennik inspekcji MariaDB. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy. Możesz również włączyć ustawienia diagnostyczne dziennika aktywności platformy Azure i wysłać dzienniki do tego samego obszaru roboczego Log Analytics lub konta magazynu.
 
-Jak skonfigurować i uzyskać dostęp do dzienników serwera dla Azure Database for MariaDB https://docs.microsoft.com/azure/mariadb/concepts-server-logs : jak skonfigurować i uzyskać dostęp do dzienników inspekcji dla https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal Azure Database for MariaDB: jak skonfigurować ustawienia diagnostyczne dla dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Jak skonfigurować i uzyskać dostęp do dzienników serwera dla Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs jak skonfigurować i uzyskać dostęp do dzienników inspekcji dla Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal jak skonfigurować ustawienia diagnostyczne dla dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 
 
@@ -896,7 +896,7 @@ Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:
 
 W przypadku usługi Azure Virtual Machines lub aplikacji sieci Web działających na Azure App Service używanym do uzyskiwania dostępu do serwera Azure Database for MariaDB należy użyć tożsamość usługi zarządzanej w połączeniu z Azure Key Vault do przechowywania i pobierania poświadczeń dla serwera Azure Database for MariaDB.  Upewnij się, że Key Vault usuwanie trwałe jest włączone.
 
-Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie. Jak skonfigurować tożsamości zarządzane: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity.
+Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie. Jak skonfigurować tożsamości zarządzane: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm . Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity .
 
 
 

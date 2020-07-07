@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82515471"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Weryfikowanie szyfrowania danych dla Azure Database for PostgreSQL
@@ -23,7 +23,7 @@ Ten artykuł pomaga sprawdzić, czy szyfrowanie danych przy użyciu klucza zarz�
 
 1. Jeśli chcesz sprawdzić, czy klucz klienta jest używany do szyfrowania, wykonaj następujące czynności:
 
-    * W Azure Portal przejdź do**kluczy** **Azure Key Vault** -> 
+    * W Azure Portal przejdź do **Azure Key Vault**  ->  **kluczy** Azure Key Vault
     * Wybierz klucz używany do szyfrowania serwera.
     * Ustaw stan klucza z **włączony** na wartość **nie**.
   

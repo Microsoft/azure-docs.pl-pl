@@ -9,10 +9,10 @@ ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176706"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)
@@ -69,7 +69,7 @@ Przyspieszenie zapytań jest również przeznaczone dla aplikacji do przetwarzan
 
 Aby zapoznać się z przykładem, jak aplikacja może zintegrować przyspieszenie zapytań, zobacz [filtrowanie danych za pomocą Azure Data Lake Storage przyspieszania zapytań](data-lake-storage-query-acceleration-how-to.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Ze względu na zwiększone obciążenie obliczeniowe w ramach usługi Azure Data Lake Storage Model cenowy dla użycia przyspieszania zapytań różni się od normalnego Azure Data Lake Storage modelu transakcji. Przyspieszenie zapytań obciąża koszt ilości skanowanych danych, a także koszt ilości danych zwracanych do obiektu wywołującego. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 

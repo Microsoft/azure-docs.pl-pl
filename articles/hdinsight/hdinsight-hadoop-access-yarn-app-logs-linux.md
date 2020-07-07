@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192505"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w usłudze HDInsight opartej na systemie Linux
@@ -48,7 +48,7 @@ Funkcja agregacji dzienników ułatwia uzyskiwanie dostępu do dzienników aplik
 /app-logs/<user>/logs/<applicationId>
 ```
 
-W ścieżce `user` jest nazwą użytkownika, który uruchomił aplikację. `applicationId` Jest unikatowym identyfikatorem przypisanym do aplikacji przez przydzieloną RM.
+W ścieżce `user` jest nazwą użytkownika, który uruchomił aplikację. `applicationId`Jest unikatowym identyfikatorem przypisanym do aplikacji przez przydzieloną RM.
 
 Zagregowane dzienniki nie są odczytywane bezpośrednio, ponieważ są zapisywane w TFile formacie binarnym indeksowanym przez kontener. Użyj dzienników PRZĘDZy `ResourceManager` lub narzędzi interfejsu wiersza polecenia, aby wyświetlić te dzienniki jako zwykły tekst dla aplikacji lub kontenerów zainteresowania.
 
@@ -56,9 +56,9 @@ Zagregowane dzienniki nie są odczytywane bezpośrednio, ponieważ są zapisywan
 
 Dwie konfiguracje należy dodać do niestandardowej `mapred-site` w Ambari.
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. W interfejsie użytkownika Ambari przejdź do lokalizacji **MapReduce2** > **config** > **Advanced** > **Custom mapred-site**.
+1. W interfejsie użytkownika Ambari przejdź do lokalizacji **MapReduce2**  >  **config**  >  **Advanced**  >  **Custom mapred-site**.
 
 1. Dodaj *jeden* z następujących zestawów właściwości:
 
@@ -91,7 +91,7 @@ Dwie konfiguracje należy dodać do niestandardowej `mapred-site` w Ambari.
     yarn top
     ```
 
-    Zanotuj identyfikator aplikacji z kolumny `APPLICATIONID` , której dzienniki mają zostać pobrane.
+    Zanotuj identyfikator aplikacji z `APPLICATIONID` kolumny, której dzienniki mają zostać pobrane.
 
     ```output
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -113,7 +113,7 @@ Dwie konfiguracje należy dodać do niestandardowej `mapred-site` w Ambari.
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
     ```
 
-    &lt;Określ> identyfikatora aplikacji, &lt;User-WHO-the-application>, &lt;containerId>, a &lt;proces roboczy-Node-Address> informacje podczas uruchamiania tych poleceń.
+    Określ &lt;> identyfikatora aplikacji, &lt; User-WHO-The-Application>, &lt; containerId>, a &lt; proces roboczy-Node-Address> informacje podczas uruchamiania tych poleceń.
 
 ### <a name="other-sample-commands"></a>Inne przykładowe polecenia
 
@@ -147,17 +147,17 @@ Dwie konfiguracje należy dodać do niestandardowej `mapred-site` w Ambari.
     yarn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-## <a name="yarn-resourcemanager-ui"></a>Interfejs `ResourceManager` użytkownika przędzy
+## <a name="yarn-resourcemanager-ui"></a>`ResourceManager`interfejs użytkownika przędzy
 
-Interfejs użytkownika `ResourceManager` przędzy jest uruchamiany w klastrze węzła głównego. Dostęp do niego odbywa się za pomocą interfejsu użytkownika sieci Web Ambari. Aby wyświetlić dzienniki PRZĘDZy, wykonaj następujące kroki:
+`ResourceManager`Interfejs użytkownika przędzy jest uruchamiany w klastrze węzła głównego. Dostęp do niego odbywa się za pomocą interfejsu użytkownika sieci Web Ambari. Aby wyświetlić dzienniki PRZĘDZy, wykonaj następujące kroki:
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`. Zastąp CLUSTERNAME nazwą klastra usługi HDInsight:
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` . Zastąp CLUSTERNAME nazwą klastra usługi HDInsight:
 
 2. Z listy usług po lewej stronie wybierz pozycję **przędza**.
 
     ![Wybrano usługę Apache Ambari przędzę](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. Z listy rozwijanej **szybkie linki** wybierz jeden z węzłów głównych klastra, a następnie wybierz **`ResourceManager Log`** opcję.
+3. Z listy rozwijanej **szybkie linki** wybierz jeden z węzłów głównych klastra, a następnie wybierz opcję **`ResourceManager Log`** .
 
     ![Szybkie linki do przędzy w usłudze Apache Ambari](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 

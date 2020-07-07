@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176632"
 ---
 # <a name="manage-storage-account-access-keys"></a>Zarządzanie kluczami dostępu do konta magazynu
@@ -38,11 +38,11 @@ Aby wyświetlić i skopiować klucze dostępu do konta magazynu lub parametry po
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania kluczy dostępu w Azure Portal":::
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby pobrać klucze dostępu do konta za pomocą programu PowerShell, wywołaj polecenie [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) .
 
-Poniższy przykład pobiera pierwszy klucz. Aby pobrać drugi klucz, użyj `Value[1]` zamiast. `Value[0]` Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
+Poniższy przykład pobiera pierwszy klucz. Aby pobrać drugi klucz, użyj `Value[1]` zamiast `Value[0]` . Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
 
 ```powershell
 $storageAccountKey = `
@@ -94,7 +94,7 @@ Aby obrócić klucze dostępu do konta magazynu w Azure Portal:
 1. Zaktualizuj parametry połączenia w kodzie, wprowadzając odwołanie do nowego podstawowego klucza dostępu.
 1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby obrócić klucze dostępu do konta magazynu za pomocą programu PowerShell:
 
@@ -108,7 +108,7 @@ Aby obrócić klucze dostępu do konta magazynu za pomocą programu PowerShell:
     ```
 
 1. Zaktualizuj parametry połączenia w kodzie, wprowadzając odwołanie do nowego podstawowego klucza dostępu.
-1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu. Aby ponownie wygenerować klucz pomocniczy, użyj `key2` jako nazwy klucza zamiast `key1`.
+1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu. Aby ponownie wygenerować klucz pomocniczy, użyj `key2` jako nazwy klucza zamiast `key1` .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ Aby obrócić klucze dostępu do konta magazynu za pomocą interfejsu wiersza po
     ```
 
 1. Zaktualizuj parametry połączenia w kodzie, wprowadzając odwołanie do nowego podstawowego klucza dostępu.
-1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu. Aby ponownie wygenerować klucz pomocniczy, użyj `key2` jako nazwy klucza zamiast `key1`.
+1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu. Aby ponownie wygenerować klucz pomocniczy, użyj `key2` jako nazwy klucza zamiast `key1` .
 
 ---
 

@@ -4,16 +4,16 @@ description: W tym artykule omówiono środowisko wdrażania aplikacji Service F
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195888"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
-> * [Narzędzia](service-fabric-application-upgrade-tutorial-powershell.md)
-> * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
@@ -40,9 +40,9 @@ Teraz można użyć Service Fabric Explorer, [Aby wyświetlić klaster i aplikac
 ## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2. Aktualizacja przykładu obiektów wizualnych
 Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie są obracane. Uaktualnimy tę aplikację do jednego miejsca, w którym obiekty wizualne również są obracane.
 
-Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik StatefulVisualObjectActor.cs. W tym pliku przejdź do metody `MoveObject`, Skomentuj i Usuń `this.State.Move()`komentarz. `this.State.Move(true)` Ta zmiana powoduje obrócenie obiektów po uaktualnieniu usługi.
+Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik StatefulVisualObjectActor.cs. W tym pliku przejdź do metody `MoveObject` , Skomentuj `this.State.Move()` i Usuń komentarz `this.State.Move(true)` . Ta zmiana powoduje obrócenie obiektów po uaktualnieniu usługi.
 
-Należy również zaktualizować plik *servicemanifest. XML* (w obszarze PackageRoot) projektu **VisualObjects. ActorService**. Zaktualizuj *CodePackage* i wersję usługi do 2,0 oraz odpowiadające im wiersze w pliku *servicemanifest. XML* .
+Należy również zaktualizować plik *ServiceManifest.xml* (w obszarze PackageRoot) projektu **VisualObjects. ActorService**. Zaktualizuj *CodePackage* i wersję usługi do 2,0 oraz odpowiadające im wiersze w pliku *ServiceManifest.xml* .
 Możesz użyć opcji *Edytuj pliki manifestu* programu Visual Studio po kliknięciu prawym przyciskiem myszy rozwiązania, aby zmienić plik manifestu.
 
 Po wprowadzeniu zmian manifest powinien wyglądać podobnie do następującego (wyróżnione fragmenty pokazują zmiany):
@@ -53,7 +53,7 @@ Po wprowadzeniu zmian manifest powinien wyglądać podobnie do następującego (
 <CodePackageName="Code" Version="2.0">
 ```
 
-Teraz plik *ApplicationManifest. XML* (znajdujący się w projekcie **VisualObjects** w ramach rozwiązania **VisualObjects** ) został zaktualizowany do wersji 2,0 projektu **VisualObjects. ActorService** . Ponadto wersja aplikacji jest aktualizowana pod kątem 2.0.0.0 z 1.0.0.0. *ApplicationManifest. XML* powinien wyglądać podobnie do następującego fragmentu kodu:
+Teraz plik *ApplicationManifest.xml* (znaleziony w ramach projektu **VisualObjects** w ramach rozwiązania **VisualObjects** ) został zaktualizowany do wersji 2,0 projektu **VisualObjects. ActorService** . Ponadto wersja aplikacji jest aktualizowana pod kątem 2.0.0.0 z 1.0.0.0. *ApplicationManifest.xml* powinien wyglądać podobnie do następującego fragmentu kodu:
 
 ```xml
 <ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -83,7 +83,7 @@ Teraz aplikacja została skompilowana i gotowa do uaktualnienia. Jeśli otworzys
 
 Pakiet aplikacji jest przechowywany w następującej ścieżce względnej, w której został odkompresowany Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Folder "Package" powinien znajdować się w tym katalogu, w którym jest przechowywany pakiet aplikacji. Sprawdź sygnatury czasowe, aby upewnić się, że jest to najnowsza kompilacja (może zajść potrzeba zmodyfikowania odpowiednich ścieżek).
 
-Teraz Skopiuj zaktualizowany pakiet aplikacji do Service Fabric magazynu ImageStore (gdzie pakiety aplikacji są przechowywane przez Service Fabric). Parametr *ApplicationPackagePathInImageStore* Service Fabric informuje, gdzie można znaleźć pakiet aplikacji. Zaktualizowana aplikacja została umieszczona w "VisualObjects\_v2" przy użyciu następującego polecenia (konieczne może być odpowiednie zmodyfikowanie ścieżek).
+Teraz Skopiuj zaktualizowany pakiet aplikacji do Service Fabric magazynu ImageStore (gdzie pakiety aplikacji są przechowywane przez Service Fabric). Parametr *ApplicationPackagePathInImageStore* Service Fabric informuje, gdzie można znaleźć pakiet aplikacji. Zaktualizowana aplikacja została umieszczona w "VisualObjects \_ v2" przy użyciu następującego polecenia (konieczne może być odpowiednie zmodyfikowanie ścieżek).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
@@ -111,7 +111,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 ```
 
 
-Nazwa aplikacji jest taka sama, jak została opisana w pliku *ApplicationManifest. XML* . Service Fabric używa tej nazwy do identyfikowania aplikacji, która ma zostać uaktualniona. Jeśli limit czasu jest za krótki, może wystąpić komunikat o błędzie informujący o problemie. Zapoznaj się z sekcją Rozwiązywanie problemów lub Zwiększ limit czasu.
+Nazwa aplikacji jest taka sama, jak została opisana w pliku *ApplicationManifest.xml* . Service Fabric używa tej nazwy do identyfikowania aplikacji, która ma zostać uaktualniona. Jeśli limit czasu jest za krótki, może wystąpić komunikat o błędzie informujący o problemie. Zapoznaj się z sekcją Rozwiązywanie problemów lub Zwiększ limit czasu.
 
 Teraz, gdy Uaktualnianie aplikacji jest realizowane, można monitorować je za pomocą Service Fabric Explorer lub przy użyciu polecenia programu PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) : 
 

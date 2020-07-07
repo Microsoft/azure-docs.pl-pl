@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82184150"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Wprowadzenie do Reliable Services w języku Java
@@ -40,7 +40,7 @@ Zacznij od utworzenia aplikacji Service Fabric. Zestaw Service Fabric SDK dla sy
 $ yo azuresfjava
 ```
 
-Postępuj zgodnie z instrukcjami, aby utworzyć **niezawodną usługę bezstanową**. W tym samouczku Nazwij aplikację "HelloWorldApplication" i usługę "HelloWorld". Wynik zawiera katalogi dla `HelloWorldApplication` i. `HelloWorld`
+Postępuj zgodnie z instrukcjami, aby utworzyć **niezawodną usługę bezstanową**. W tym samouczku Nazwij aplikację "HelloWorldApplication" i usługę "HelloWorld". Wynik zawiera katalogi dla `HelloWorldApplication` i `HelloWorld` .
 
 ```bash
 HelloWorldApplication/
@@ -67,7 +67,7 @@ HelloWorldApplication/
 └── uninstall.sh
 ```
 ### <a name="service-registration"></a>Rejestracja usługi
-Typy usług muszą być zarejestrowane w środowisku uruchomieniowym Service Fabric. Typ usługi jest zdefiniowany w klasie `ServiceManifest.xml` i klasy usługi implementującej. `StatelessService` Rejestracja usługi jest przeprowadzana w głównym punkcie wejścia procesu. W tym przykładzie głównym punktem wejścia procesu jest `HelloWorldServiceHost.java`:
+Typy usług muszą być zarejestrowane w środowisku uruchomieniowym Service Fabric. Typ usługi jest zdefiniowany w `ServiceManifest.xml` klasie i klasy usługi implementującej `StatelessService` . Rejestracja usługi jest przeprowadzana w głównym punkcie wejścia procesu. W tym przykładzie głównym punktem wejścia procesu jest `HelloWorldServiceHost.java` :
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -87,7 +87,7 @@ public static void main(String[] args) throws Exception {
 
 Otwórz plik **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService. Java**. Ta klasa definiuje typ usługi i może uruchamiać dowolny kod. Interfejs API usługi udostępnia dwa punkty wejścia dla kodu:
 
-* Metoda punktu wejścia Open-zakończony, wywoływana `runAsync()`, gdzie można rozpocząć wykonywanie obciążeń, w tym długotrwałe obciążenia obliczeniowe.
+* Metoda punktu wejścia Open-zakończony, wywoływana `runAsync()` , gdzie można rozpocząć wykonywanie obciążeń, w tym długotrwałe obciążenia obliczeniowe.
 
 ```java
 @Override
@@ -105,7 +105,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Ten samouczek koncentruje się `runAsync()` na metodzie punktu wejścia. Jest to miejsce, w którym można od razu rozpocząć uruchamianie kodu.
+Ten samouczek koncentruje się na `runAsync()` metodzie punktu wejścia. Jest to miejsce, w którym można od razu rozpocząć uruchamianie kodu.
 
 ### <a name="runasync"></a>RunAsync
 Platforma wywołuje tę metodę, gdy wystąpienie usługi jest umieszczane i gotowe do wykonania. W przypadku usługi bezstanowej oznacza to, że jest otwierane wystąpienie usługi. Token anulowania jest dostarczany w celu koordynowania, gdy wystąpienie usługi musi zostać zamknięte. W Service Fabric ten cykl otwierania/zamykania wystąpienia usługi może wystąpić wiele razy w okresie istnienia usługi jako całości. Może się to zdarzyć z różnych powodów, takich jak:
@@ -183,7 +183,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()`. To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
+`RunAsync()`działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()` . To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Niezawodne kolekcje i Menedżer niezawodnego stanu
 ```java

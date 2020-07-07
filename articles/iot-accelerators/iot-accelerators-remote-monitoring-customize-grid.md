@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186292"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodaj niestandardową siatkę do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
@@ -46,11 +46,11 @@ Aby dodać siatkę do interfejsu użytkownika sieci Web, należy dodać pliki ź
 
 Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/pageWithGrid/exampleGrid** zawiera pliki, które definiują siatkę:
 
-**exampleGrid. js**
+**exampleGrid.js**
 
 [!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
-**exampleGridConfig. js**
+**exampleGridConfig.js**
 
 [!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
@@ -58,7 +58,7 @@ Skopiuj folder **src/Instruktaż/Components/Pages/pageWithGrid/exampleGrid** do 
 
 ### <a name="add-the-grid-to-the-page"></a>Dodaj siatkę do strony
 
-Zmodyfikuj element **src/Components/Pages/przyklad/od basicpage. Container. js** w następujący sposób, aby zaimportować definicje usługi:
+Zmodyfikuj **elementy src/Components/Pages/example/basicPage.container.js** w następujący sposób, aby zaimportować definicje usługi:
 
 ```js
 import { connect } from 'react-redux';
@@ -89,7 +89,7 @@ const mapDispatchToProps = dispatch => ({
 export const BasicPageContainer = translate()(connect(mapStateToProps, mapDispatchToProps)(BasicPage));
 ```
 
-Zmodyfikuj element **src/Components/Pages/example/od basicpage. js** w następujący sposób, aby dodać siatkę:
+Zmodyfikuj element **src/Components/Pages/example/basicPage.js** w następujący sposób, aby dodać siatkę:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -144,7 +144,7 @@ export class BasicPage extends Component {
 }
 ```
 
-Zmodyfikuj **src/Components/Pages/przyklad/od basicpage. test. js** w następujący sposób, aby zaktualizować testy:
+Zmodyfikuj element **src/Components/Pages/example/basicPage.test.js** w następujący sposób, aby zaktualizować testy:
 
 ```js
 // Copyright (c) Microsoft. All rights reserved.
@@ -182,7 +182,7 @@ Jeśli interfejs użytkownika sieci Web nie jest jeszcze uruchomiony lokalnie, u
 npm start
 ```
 
-Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard`. Przejdź do **przykładowej** strony, aby wyświetlić dane z usługi Grid.
+Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard` . Przejdź do **przykładowej** strony, aby wyświetlić dane z usługi Grid.
 
 ## <a name="select-rows"></a>Zaznacz wiersze
 
@@ -247,7 +247,7 @@ Jeśli użytkownik musi działać na wielu wierszach w tym samym czasie, Użyj p
 
 Jeśli użytkownik musi działać tylko na jednym wierszu, skonfiguruj link niezależny dla jednej lub kilku kolumn w **columnDefs**.
 
-1. W **exampleGridConfig. js**Dodaj **SoftSelectLinkRenderer** jako **cellRendererFramework** dla **columnDef**.
+1. W **exampleGridConfig.js**Dodaj **SoftSelectLinkRenderer** jako **cellRendererFramework** dla **columnDef**.
 
     ```js
     export const exampleColumnDefs = {

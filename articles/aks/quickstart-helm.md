@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82169572"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Szybki Start: Programowanie w usłudze Azure Kubernetes Service (AKS) przy użyciu usługi Helm
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
-Ten przewodnik Szybki Start używa [przykładowej aplikacji node. js z repozytorium Azure dev Spaces przykładowe][example-nodejs]. Sklonuj aplikację z witryny GitHub i przejdź do `dev-spaces/samples/nodejs/getting-started/webfrontend` katalogu.
+Ten przewodnik Szybki Start używa [przykładowej aplikacji Node.js z repozytorium przykładowego Azure dev Spaces][example-nodejs]. Sklonuj aplikację z witryny GitHub i przejdź do `dev-spaces/samples/nodejs/getting-started/webfrontend` katalogu.
 
 ```console
 git clone https://github.com/Azure/dev-spaces
@@ -149,7 +149,7 @@ Wprowadź następujące aktualizacje do *webfrontonu/Values. YAML*:
 * Zmień `image.repository` na`<acrLoginServer>/webfrontend`
 * Zmień `service.type` na`LoadBalancer`
 
-Przykład:
+Na przykład:
 
 ```yml
 # Default values for webfrontend.
@@ -168,7 +168,7 @@ service:
 ...
 ```
 
-Aktualizacja `appVersion` do `v1` programu w *webfrontonie/Chart. YAML*. Na przykład:
+Aktualizacja `appVersion` do `v1` programu w *webfrontonie/Chart. YAML*. Na przykład
 
 ```yml
 apiVersion: v2
@@ -181,7 +181,7 @@ appVersion: v1
 
 ## <a name="run-your-helm-chart"></a>Uruchamianie wykresu Helm
 
-Użyj polecenia `helm install` , aby zainstalować aplikację przy użyciu wykresu Helm.
+Użyj `helm install` polecenia, aby zainstalować aplikację przy użyciu wykresu Helm.
 
 ```console
 helm install webfrontend webfrontend/
@@ -198,7 +198,7 @@ webfrontend         LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 webfrontend         LoadBalancer  10.0.141.72   <EXTERNAL-IP> 80:32150/TCP   7m
 ```
 
-Przejdź do modułu równoważenia obciążenia aplikacji w przeglądarce za pomocą polecenia, `<EXTERNAL-IP>` aby zobaczyć przykładową aplikację.
+Przejdź do modułu równoważenia obciążenia aplikacji w przeglądarce za pomocą polecenia, `<EXTERNAL-IP>` Aby zobaczyć przykładową aplikację.
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

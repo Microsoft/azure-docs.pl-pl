@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: cf251d63645efc70ee93e84827db47ae3055ae33
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161519"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatyzowanie niestandardowych raportów za pomocą usługi Azure Application Insights Data
@@ -91,11 +91,11 @@ availabilityResults
 
    ![Zrzut ekranu ustawień funkcji](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Wybierz > **konfigurację****funkcji platformy** **aplikacja funkcji** > .
+6. Wybierz konfigurację **Function App**  >  **funkcji platformy**aplikacja funkcji  >  **Configuration**.
 
     ![Zrzut ekranu ustawień aplikacji funkcji platformy Azure](./media/automate-custom-reports/config.png)
 
-7. Utwórz trzy nowe ustawienia aplikacji z odpowiednimi odpowiednimi wartościami ``AI_APP_ID``, ``AI_APP_KEY``i ``SendGridAPI``. Wybierz pozycję **Zapisz**.
+7. Utwórz trzy nowe ustawienia aplikacji z odpowiednimi odpowiednimi wartościami ``AI_APP_ID`` , ``AI_APP_KEY`` i ``SendGridAPI`` . Wybierz pozycję **Zapisz**.
 
      ![Zrzut ekranu interfejsu integracji funkcji](./media/automate-custom-reports/app-settings.png)
     
@@ -136,7 +136,7 @@ Te kroki mają zastosowanie tylko wtedy, gdy nie masz jeszcze skonfigurowanego k
 
      ![Zrzut ekranu klucza interfejsu API ustawień](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. Spowoduje to uruchomienie witryny SendGrid. Wybierz pozycję **Ustawienia** > **klucze interfejsu API**.
+3. Spowoduje to uruchomienie witryny SendGrid. Wybierz pozycję **Ustawienia**  >  **klucze interfejsu API**.
 
      ![Tworzenie i Wyświetlanie zrzutu ekranu aplikacji klucza interfejsu API](./media/automate-custom-reports/function-app-15.png)
 

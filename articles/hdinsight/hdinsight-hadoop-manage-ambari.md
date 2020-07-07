@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232857"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
@@ -29,7 +29,7 @@ Platforma [Apache Ambari](https://ambari.apache.org) upraszcza zarządzanie Hado
 
 ## <a name="connectivity"></a>Łączność
 
-Interfejs użytkownika sieci Web Ambari jest dostępny w klastrze usługi HDInsight `https://CLUSTERNAME.azurehdinsight.net`w lokalizacji `CLUSTERNAME` , gdzie jest nazwą klastra.
+Interfejs użytkownika sieci Web Ambari jest dostępny w klastrze usługi HDInsight w lokalizacji `https://CLUSTERNAME.azurehdinsight.net` , gdzie `CLUSTERNAME` jest nazwą klastra.
 
 > [!IMPORTANT]  
 > Połączenie z usługą Ambari w usłudze HDInsight wymaga protokołu HTTPS. Po wyświetleniu monitu o uwierzytelnienie Użyj nazwy konta administratora i hasła podanego podczas tworzenia klastra. Jeśli nie zostanie wyświetlony monit o podanie poświadczeń, sprawdź ustawienia sieci, aby upewnić się, że nie występuje problem z łącznością między klientem i klastrami usługi Azure HDInsight.
@@ -68,9 +68,9 @@ Gdy zostanie otwarta strona, zanotuj pasek u góry. Ten pasek zawiera następuj�
 Poniższa lista zawiera typowe Stany alertów używane przez Ambari:
 
 * **OK**
-* **Wyświetlania**
+* **Ostrzeżenie**
 * **NAJISTOTNIEJSZ**
-* **ZNANA**
+* **UNKNOWN**
 
 Alerty inne niż **OK** powodują wyświetlenie liczby alertów w pozycji **# alerty** w górnej części strony. Wybranie tej pozycji spowoduje wyświetlenie alertów i ich stanu.
 
@@ -161,8 +161,8 @@ Na stronie **hosty** są wyświetlane wszystkie hosty w klastrze. Aby zarządza�
     |Włącz tryb konserwacji|Pomija alerty dla hosta. Ten tryb należy włączyć, jeśli wykonujesz akcje generujące alerty. Na przykład zatrzymywanie i uruchamianie usługi.|
     |Wyłącz tryb konserwacji|Zwraca hosta do normalnego alertu.|
     |Stop|Powoduje zatrzymanie elementu datanode lub NodeManagers na hoście.|
-    |Uruchamianie|Uruchamia element datanode lub NodeManagers na hoście.|
-    |Ponowne uruchamianie|Kończy i uruchamia węzeł datanode lub NodeManagers na hoście.|
+    |Rozpocznij|Uruchamia element datanode lub NodeManagers na hoście.|
+    |Uruchom ponownie|Kończy i uruchamia węzeł datanode lub NodeManagers na hoście.|
     |Zlikwidować|Usuwa hosta z klastra. **Nie należy używać tej akcji w klastrach usługi HDInsight.**|
     |Recommission|Dodaje wcześniej zlikwidowanego hosta do klastra. **Nie należy używać tej akcji w klastrach usługi HDInsight.**|
 

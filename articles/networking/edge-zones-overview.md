@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
 ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82146943"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informacje o strefie Edge platformy Azure w wersji zapoznawczej
@@ -30,13 +30,13 @@ Typowe scenariusze przypadków użycia dla stref brzegowych obejmują:
 
 Istnieją trzy typy stref brzegowych platformy Azure:
 
-- Strefy brzegowe platformy Azure
+- Strefy usługi Azure Edge Zone
 - Strefy brzegowe platformy Azure z przewoźnikiem
 - Prywatne strefy brzegowe platformy Azure
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Strefy brzegowe platformy Azure
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Strefy usługi Azure Edge Zone
 
-![Strefy brzegowe platformy Azure](./media/edge-zones-overview/edge-zones.png "Strefy brzegowe platformy Azure")
+![Strefy usługi Azure Edge Zone](./media/edge-zones-overview/edge-zones.png "Strefy usługi Azure Edge Zone")
 
 Strefy na platformie Azure są małymi rozszerzeniami systemu Azure umieszczonymi w centrach ludności, które są daleko od regionów świadczenia usługi Azure. Strefy usługi Azure Edge obsługują maszyny wirtualne, kontenery i wybrany zestaw usług platformy Azure, dzięki którym można uruchamiać aplikacje korzystające z opóźnienia i intensywność przepływności w pobliżu użytkowników końcowych. Strefy usługi Azure Edge są częścią sieci globalnej firmy Microsoft. Zapewniają bezpieczną, niezawodną łączność o wysokiej przepustowości między aplikacjami, które działają w strefie brzegowej blisko użytkownika. Oferują one pełen zestaw usług platformy Azure działających w regionach platformy Azure. Strefy usługi Azure Edge są własnością firmy Microsoft i są przez nią obsługiwane. Aby zarządzać usługami i wdrażać je w strefach brzegowych, można użyć tego samego zestawu narzędzi platformy Azure i tego samego portalu.
 

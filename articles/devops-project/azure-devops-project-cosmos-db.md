@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: wdrażanie aplikacji node. js opartych na Azure Cosmos DB za pomocą usługi Azure DevOps Starter'
-description: Usługa Azure DevOps Starter ułatwia rozpoczęcie pracy z platformą Azure. Dzięki DevOps Starter możesz wdrożyć aplikację Node. js, która jest oparta na Azure Cosmos DB do aplikacji sieci Web systemu Windows w kilku prostych krokach.
+title: 'Samouczek: wdrażanie aplikacji Node.js obsługiwanych przez Azure Cosmos DB za pomocą usługi Azure DevOps Starter'
+description: Usługa Azure DevOps Starter ułatwia rozpoczęcie pracy z platformą Azure. Dzięki DevOps Starter możesz wdrożyć aplikację Node.js, która jest oparta na Azure Cosmos DB do aplikacji sieci Web systemu Windows w kilku prostych krokach.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233265"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż aplikacje Node. js obsługiwane przez Azure Cosmos DB za pomocą DevOps Starter
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż Node.js aplikacje obsługiwane przez Azure Cosmos DB z DevOps Starter
 
 Usługa Azure DevOps Starter oferuje usprawnione środowisko, w którym można utworzyć potok ciągłej integracji i ciągłego wdrażania (CD) na platformie Azure. Można to zrobić przy użyciu istniejącego kodu i repozytorium git (repozytorium) lub wybierając przykładową aplikację.
 
@@ -28,7 +28,7 @@ DevOps Starter również:
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> * Użyj DevOps Starter do wdrożenia aplikacji node. js obsługiwanej przez Azure Cosmos DB
+> * Użyj DevOps Starter do wdrożenia aplikacji Node.js obsługiwanej przez Azure Cosmos DB
 > * Konfigurowanie usługi Azure DevOps i subskrypcji platformy Azure
 > * Sprawdzanie Azure Cosmos DB
 > * Badanie potoku ciągłej integracji
@@ -40,7 +40,7 @@ W tym samouczku wykonasz następujące czynności:
 
 Potrzebna jest subskrypcja platformy Azure, za pomocą której możesz bezpłatnie uzyskać dostęp [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) .
 
-## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Używanie narzędzia DevOps Starter do wdrażania aplikacji node. js
+## <a name="use-devops-starter-to-deploy-nodejs-app"></a>Wdrażanie aplikacji Node.js przy użyciu programu DevOps Starter
 
 DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Starter tworzy również zasoby platformy Azure, takie jak Azure Cosmos DB, Application Insights, App Service i plany App Service, w wybranej subskrypcji platformy Azure.
 
@@ -50,13 +50,13 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     ![Pulpit nawigacyjny DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Wybierz pozycję **Node. js** jako środowisko uruchomieniowe, a następnie wybierz przycisk **dalej**. W obszarze **Wybierz platformę aplikacji**wybierz pozycję **Express. js**.
+1. Wybierz **Node.js** jako środowisko uruchomieniowe, a następnie wybierz przycisk **dalej**. W obszarze **Wybierz platformę aplikacji**wybierz pozycję **Express.js**.
 
 1. Włącz sekcję **Dodawanie bazy danych** dla **Cosmos DB**, a następnie wybierz pozycję **dalej**.
 
     ![Dodawanie bazy danych](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Usługa Azure DevOps Starter obsługuje różne struktury aplikacji, takie jak **Express. js**, **Przykładowa aplikacja Node. js**i **. js**. W tym samouczku użyjemy języka **Express. js**.
+    Usługa Azure DevOps Starter obsługuje różne struktury aplikacji, takie jak **Express.js**, **przykładowa aplikacja Node.js**i **Sail.js**. W tym samouczku użyjemy **Express.js**.
 
 1. Wybierz usługę platformy Azure, aby wdrożyć aplikację, a następnie wybierz pozycję **dalej**. Dostępne opcje to: Web App, Azure Kubernetes Service i Azure Web App for Containers. W tym samouczku używamy **aplikacji sieci Web systemu Windows**.
 
@@ -72,7 +72,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Opuść obszar konfiguracji platformy Azure i wybierz pozycję **Gotowe**.
 
-1. Proces kończy się po kilku minutach. Przykładowa aplikacja Node. js jest skonfigurowana w repozytorium Git w organizacji usługi Azure DevOps. Następnie tworzone są Azure Cosmos DB, App Service, plan App Service i zasoby Application Insights, a także potok ciągłej integracji/ciągłego wdrażania. Aplikacja zostanie następnie wdrożona na platformie Azure.
+1. Proces kończy się po kilku minutach. Przykładowa aplikacja Node.js została skonfigurowana w repozytorium Git w organizacji usługi Azure DevOps. Następnie tworzone są Azure Cosmos DB, App Service, plan App Service i zasoby Application Insights, a także potok ciągłej integracji/ciągłego wdrażania. Aplikacja zostanie następnie wdrożona na platformie Azure.
 
    Po zakończeniu wszystkich tych procesów pulpit nawigacyjny Azure DevOps Starter zostanie wyświetlony w Azure Portal. Możesz również przejść do pulpitu nawigacyjnego DevOps Starter bezpośrednio ze **wszystkich zasobów** w Azure Portal.
 
@@ -100,7 +100,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Okienko kompilacji](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Wybierz pozycję **Edit** (Edytuj). W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Możesz dołączać lub wykluczać gałęzie z procesu CI elementu konfiguracji.
 
@@ -118,7 +118,7 @@ DevOps Starter automatycznie tworzy i konfiguruje kroki niezbędne do wdrożenia
 
 1. Przejdź do pozycji **potoki** i wybierz pozycję **wersje**.
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. W obszarze **Artefakty** wybierz polecenie **Porzuć**. Potok kompilacji przedstawiony w poprzednich krokach generuje dane wyjściowe używane na potrzeby artefaktu.
 
@@ -149,7 +149,7 @@ Teraz możesz przystąpić do współpracy z zespołem w aplikacji przy użyciu 
 
      Po kilku sekundach kompilacja rozpocznie się w usłudze Azure DevOps i zostanie wykonana wersja w celu wdrożenia zmian. Monitoruj stan kompilacji na pulpicie nawigacyjnym DevOps Starter lub w przeglądarce za pomocą swojej organizacji usługi Azure DevOps.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
@@ -158,13 +158,13 @@ Usuń powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne. 
 Możesz zmodyfikować potoki kompilacji i wydania, aby dopasować je do potrzeb swojego zespołu. Możesz także użyć wzorca ciągłej integracji/ciągłego wdrażania jako szablonu podczas pracy z innymi potokami. W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Użyj DevOps Starter do wdrożenia aplikacji node. js obsługiwanej przez Azure Cosmos DB
+> * Użyj DevOps Starter do wdrożenia aplikacji Node.js obsługiwanej przez Azure Cosmos DB
 > * Konfigurowanie usługi Azure DevOps i subskrypcji platformy Azure 
 > * Sprawdzanie Azure Cosmos DB
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) i następnych kroków.
 

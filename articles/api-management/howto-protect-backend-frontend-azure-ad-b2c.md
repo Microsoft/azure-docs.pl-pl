@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202880"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Ochrona zaplecza SPA przy użyciu protokołu OAuth 2,0 Azure Active Directory B2C i platformy Azure API Management
@@ -68,7 +68,7 @@ Otwórz blok Azure AD B2C w portalu i wykonaj następujące czynności.
    * Obowiązkowe Portal dla deweloperów API Management (o ile nie korzystasz z platformy Azure API Management w warstwie zużycia więcej informacji w tym scenariuszu).
 1. Ustaw WebApp/Web API dla wszystkich 3 aplikacji i ustaw opcję "Zezwalaj na niejawny przepływ" na wartość tak tylko dla klienta frontonu.
 1. Teraz ustaw identyfikator URI aplikacji, wybierz unikatową i istotną dla tworzonej usługi.
-1. Użyj symboli zastępczych dla adresów URL odpowiedzi dla teraz, https://localhosttakich jak, zaktualizujemy te adresy URL później.
+1. Użyj symboli zastępczych dla adresów URL odpowiedzi dla teraz, takich jak https://localhost , zaktualizujemy te adresy URL później.
 1. Kliknij przycisk Utwórz, a następnie powtórz kroki 2-5 dla każdej z trzech aplikacji powyżej, rejestrując identyfikator URI AppID, nazwę i identyfikator aplikacji do późniejszego użycia dla wszystkich trzech aplikacji.
 1. Otwórz aplikację Portal dla deweloperów API Management z listy aplikacji i wybierz kartę *klucze* (w obszarze Ogólne), a następnie kliknij pozycję Generuj klucz, aby wygenerować klucz uwierzytelniania.
 1. Po kliknięciu przycisku Zapisz Zarejestruj klucz w bezpiecznym miejscu do późniejszego użycia — Pamiętaj, że w tym miejscu można wyświetlić i skopiować ten klucz.
@@ -148,12 +148,12 @@ Otwórz blok Azure AD B2C w portalu i wykonaj następujące czynności.
 5. Przełącz się z powrotem na kartę HttpTrigger1, kliknij przycisk "Pobierz adres URL funkcji", a następnie skopiuj wyświetlony adres URL.
 
    > [!NOTE]
-   > Utworzone powiązania po prostu informują funkcje, które odpowiadają za anonimowe żądania HTTP GET do właśnie skopiowanego adresu URL. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Teraz mamy skalowalny interfejs API protokołu HTTPS bezserwerowy, który może zwrócić bardzo prosty ładunek.
+   > Utworzone powiązania po prostu informują funkcje, które odpowiadają za anonimowe żądania HTTP GET do właśnie skopiowanego adresu URL. ( `https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey` ) Teraz mamy skalowalny interfejs API protokołu HTTPS bezserwerowy, który może zwrócić bardzo prosty ładunek.
    > Teraz można testować wywoływanie tego interfejsu API z przeglądarki sieci Web przy użyciu adresu URL powyżej, można także rozdzielić część? Code = Secret w adresie URL i udowodnić, że Azure Functions zwróci błąd 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Konfigurowanie i zabezpieczanie interfejsu API funkcji
 1. Należy skonfigurować dwa dodatkowe obszary w aplikacji funkcji (ograniczenia uwierzytelniania i sieci).
-1. Po pierwsze Skonfiguruj uwierzytelnianie/autoryzację, a następnie kliknij nazwę aplikacji funkcji (obok ikony funkcji &lt;z&gt; ), aby wyświetlić stronę przegląd.
+1. Po pierwsze Skonfiguruj uwierzytelnianie/autoryzację, a następnie kliknij nazwę aplikacji funkcji (obok &lt; &gt; ikony funkcji z), aby wyświetlić stronę przegląd.
 1. Następnie wybierz kartę "funkcje platformy" i wybierz pozycję "uwierzytelnianie/autoryzacja".
 1. Włącz funkcję uwierzytelniania App Service.
 1. W obszarze "dostawcy uwierzytelniania" Wybierz pozycję "Azure Active Directory" i wybierz pozycję "Zaawansowane" z przełącznika trybu zarządzania.
@@ -257,12 +257,12 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
 1. Otwórz blok Azure AD B2C i przejdź do rejestracji aplikacji w portalu dla deweloperów
 1. Ustaw wpis "adres URL" odpowiedzi na taki, który został zanotowany podczas konfigurowania redirect_uri przyznawania kodu uwierzytelniania w API Management wcześniej.
 
-   Teraz, gdy autoryzacja użytkownika OAuth 2,0 jest włączona w `Echo API`programie, Konsola dewelopera uzyskuje token dostępu dla użytkownika przed WYWOŁANIEM interfejsu API.
+   Teraz, gdy autoryzacja użytkownika OAuth 2,0 jest włączona w programie `Echo API` , Konsola dewelopera uzyskuje token dostępu dla użytkownika przed wywołaniem interfejsu API.
 
 1. Przejdź do dowolnej operacji `Echo API` w portalu dla deweloperów, a następnie wybierz pozycję **Wypróbuj** , aby przejść do konsoli dewelopera.
 1. Zanotuj nowy element w sekcji **autoryzacja** odpowiadający serwerowi autoryzacji, który właśnie został dodany.
 1. Z listy rozwijanej autoryzacja wybierz pozycję **kod autoryzacji** , a zostanie wyświetlony monit o zalogowanie się do dzierżawy usługi Azure AD. Jeśli użytkownik jest już zalogowany przy użyciu konta, może nie zostać wyświetlony monit.
-1. Po pomyślnym zalogowaniu do `Authorization: Bearer` żądania zostanie dodany nagłówek z tokenem dostępu Azure AD B2C zakodowanym w formacie base64. 
+1. Po pomyślnym zalogowaniu `Authorization: Bearer` do żądania zostanie dodany nagłówek z tokenem dostępu Azure AD B2C zakodowanym w formacie base64. 
 1. Wybierz pozycję **Wyślij** , aby pomyślnie wywołać interfejs API.
 
    > [!NOTE]
@@ -283,7 +283,7 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
 ## <a name="build-the-javascript-spa-to-consume-the-api"></a>Kompilowanie SPA JavaScript w celu korzystania z interfejsu API
 1. Otwórz blok konta magazynu w Azure Portal 
 1. Wybierz utworzone konto i wybierz blok "statyczna witryna sieci Web" z sekcji Ustawienia (jeśli nie widzisz opcji "statyczna witryna sieci Web", sprawdź, czy utworzono konto w wersji 2).
-1. Ustaw statyczną funkcję hostingu sieci Web na wartość "Enabled" i Ustaw nazwę dokumentu indeksu na "index. html", a następnie kliknij pozycję "Zapisz".
+1. Ustaw statyczną funkcję hostingu sieci Web na wartość "Enabled" i Ustaw nazwę dokumentu indeksu na "index.html", a następnie kliknij pozycję "Zapisz".
 1. Zanotuj zawartość podstawowego punktu końcowego, ponieważ jest to lokalizacja, w której będzie hostowana witryna frontonu. 
 
    > [!NOTE]
@@ -291,7 +291,7 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
 
 ## <a name="upload-the-js-spa-sample"></a>Przekaż przykład SPA na stronie JS
 1. W bloku konto magazynu wybierz blok "obiekty blob" z sekcji usługa BLOB, a następnie kliknij kontener $web, który pojawia się w okienku po prawej stronie.
-1. Zapisz Poniższy kod do pliku lokalnego na komputerze jako index. html, a następnie Przekaż plik index. html do kontenera $web.
+1. Zapisz Poniższy kod do pliku lokalnego na komputerze jako index.html, a następnie Przekaż plik index.html do kontenera $web.
 
    ```html
    <!doctype html>
@@ -415,7 +415,7 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Skonfiguruj uwierzytelnianie SPA w programie JS dla Azure AD B2C
 1. Teraz wiemy, gdzie wszystko jest: można skonfigurować SPA przy użyciu odpowiedniego adresu interfejsu API API Management i poprawnych Azure AD B2C identyfikatorów aplikacji/klientów
-1. Wróć do bloku Azure Portal Storage, a następnie kliknij pozycję index. html, a następnie wybierz pozycję "Edytuj obiekt BLOB". 
+1. Wróć do bloku Azure Portal Storage, kliknij pozycję index.html, a następnie wybierz pozycję "Edytuj obiekt BLOB". 
 1. Zaktualizuj szczegóły uwierzytelniania, aby odpowiadały aplikacji frontonu, która została wcześniej zarejestrowana w usłudze B2C, zwracając uwagę, że wartości "b2cScopes" są przeznaczone dla zaplecza interfejsu API.
 1. Klucz webApi i adres URL interfejsu API można znaleźć w okienku test API Management dla operacji interfejsu API.
 1. Utwórz klucz subskrypcji APIM po nagłówku w API Management z powrotem do bloku API Management, wybierając pozycję "subskrypcje" i klikając pozycję "Dodaj subskrypcję", a następnie zapisując rekord. Kliknięcie wielokropka (...) obok utworzonego wiersza umożliwi wyświetlenie kluczy, aby można było skopiować klucz podstawowy.

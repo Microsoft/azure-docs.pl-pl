@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208078"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)
@@ -37,7 +37,7 @@ W klastrze AKS węzły Kubernetes są uruchamiane jako maszyny wirtualne platfor
 
 Niektóre aktualizacje zabezpieczeń, takie jak aktualizacje jądra, wymagają ponownego uruchomienia węzła w celu sfinalizowania procesu. Węzeł systemu Linux wymagający ponownego uruchomienia tworzy plik o nazwie */var/run/reboot-Required*. Ten proces ponownego uruchamiania nie odbywa się automatycznie.
 
-Możesz użyć własnych przepływów pracy i procesów do obsługi ponownych uruchomień węzłów lub użyć `kured` , aby zorganizować proces. W `kured`programie wdrożono [elementu daemonset][DaemonSet] , który działa pod względem każdego węzła systemu Linux w klastrze. Te zasobniki w elementu daemonset zaobserwują obecność pliku */var/run/reboot-Required* , a następnie inicjują proces ponownego uruchamiania węzłów.
+Możesz użyć własnych przepływów pracy i procesów do obsługi ponownych uruchomień węzłów lub użyć, `kured` Aby zorganizować proces. W programie `kured` wdrożono [elementu daemonset][DaemonSet] , który działa pod względem każdego węzła systemu Linux w klastrze. Te zasobniki w elementu daemonset zaobserwują obecność pliku */var/run/reboot-Required* , a następnie inicjują proces ponownego uruchamiania węzłów.
 
 ### <a name="node-upgrades"></a>Uaktualnienia węzłów
 
@@ -52,7 +52,7 @@ Nie można pozostawać w tej samej wersji Kubernetes podczas zdarzenia uaktualni
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Wdrażanie kured w klastrze AKS
 
-Aby wdrożyć `kured` elementu daemonset, zainstaluj Poniższy oficjalny wykres Kured Helm. Spowoduje to utworzenie roli i roli klastra, powiązań i konta usługi, a następnie wdrożenie elementu daemonset przy użyciu `kured`programu.
+Aby wdrożyć `kured` elementu daemonset, zainstaluj Poniższy oficjalny wykres Kured Helm. Spowoduje to utworzenie roli i roli klastra, powiązań i konta usługi, a następnie wdrożenie elementu daemonset przy użyciu programu `kured` .
 
 ```console
 # Add the stable Helm repository
@@ -68,7 +68,7 @@ kubectl create namespace kured
 helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Możesz również skonfigurować dodatkowe parametry dla `kured`, takie jak integracja z Prometheus lub zapasem czasu. Aby uzyskać więcej informacji na temat dodatkowych parametrów konfiguracyjnych, zobacz [Wykres Kured Helm][kured-install].
+Możesz również skonfigurować dodatkowe parametry dla `kured` , takie jak integracja z Prometheus lub zapasem czasu. Aby uzyskać więcej informacji na temat dodatkowych parametrów konfiguracyjnych, zobacz [Wykres Kured Helm][kured-install].
 
 ## <a name="update-cluster-nodes"></a>Aktualizowanie węzłów klastra
 
@@ -101,7 +101,7 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule szczegółowo opisano `kured` sposób automatycznego ponownego uruchamiania węzłów systemu Linux w ramach procesu aktualizacji zabezpieczeń. Aby uaktualnić do najnowszej wersji programu Kubernetes, można [uaktualnić klaster AKS][aks-upgrade].
+W tym artykule szczegółowo opisano sposób `kured` automatycznego ponownego uruchamiania węzłów systemu Linux w ramach procesu aktualizacji zabezpieczeń. Aby uaktualnić do najnowszej wersji programu Kubernetes, można [uaktualnić klaster AKS][aks-upgrade].
 
 W przypadku klastrów AKS korzystających z węzłów systemu Windows Server zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 

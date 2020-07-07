@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144338"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Wysyłanie, odbieranie i przetwarzanie wsadowe komunikatów w Azure Logic Apps
@@ -64,7 +64,7 @@ Przed wysłaniem wiadomości do partii, ta partia musi znajdować się jako miej
    | **Kryteria wydania** | Stosuje się tylko do **wbudowanego** trybu wsadowego i wybiera kryteria do spełnienia przed przetworzeniem każdej partii: <p>- **Liczba komunikatów na podstawie**: Zwolnij partię na podstawie liczby komunikatów zebranych przez partię. <br>- **Na podstawie rozmiaru**: Zwolnij partię na podstawie łącznego rozmiaru w bajtach dla wszystkich komunikatów zbieranych przez tę partię. <br>- **Harmonogram**: Zwolnij partię na podstawie harmonogramu cyklu, który określa interwał i częstotliwość. W opcjach zaawansowanych można także wybrać strefę czasową i podać datę i godzinę rozpoczęcia. <br>- **Zaznacz wszystko**: Użyj wszystkich określonych kryteriów. | 
    | **Liczba komunikatów** | Liczba komunikatów do zebrania w partii, na przykład 10 komunikatów. Limit partii to 8 000 komunikatów. | 
    | **Rozmiar wsadu** | Łączny rozmiar w bajtach do zebrania w partii, na przykład 10 MB. Limit rozmiaru partii wynosi 80 MB. | 
-   | **Harmonogram** | Interwał i częstotliwość między wersjami usługi Batch, na przykład 10 minut. Cykl minimalny wynosi 60 sekund lub 1 minutę. Minuty ułamkowe są efektywnie zaokrąglane do 1 minuty. Aby określić strefę czasową lub datę i godzinę rozpoczęcia, wybierz pozycję **Pokaż opcje zaawansowane**. | 
+   | **Zaplanuj** | Interwał i częstotliwość między wersjami usługi Batch, na przykład 10 minut. Cykl minimalny wynosi 60 sekund lub 1 minutę. Minuty ułamkowe są efektywnie zaokrąglane do 1 minuty. Aby określić strefę czasową lub datę i godzinę rozpoczęcia, wybierz pozycję **Pokaż opcje zaawansowane**. | 
    ||| 
 
    > [!NOTE]
@@ -85,11 +85,11 @@ Przed wysłaniem wiadomości do partii, ta partia musi znajdować się jako miej
    2. W polu wyszukiwania wprowadź „wyślij wiadomość e-mail” jako filtr.
    Na podstawie dostawcy poczty e-mail wybierz łącznik poczty e-mail.
 
-      Jeśli na przykład masz konto osobiste, takie jak @outlook.com lub @hotmail.com, wybierz łącznik Outlook.com. W tym przykładzie jest wykorzystywany łącznik Office 365 Outlook.
+      Jeśli na przykład masz konto osobiste, takie jak @outlook.com lub @hotmail.com , wybierz łącznik Outlook.com. W tym przykładzie jest wykorzystywany łącznik Office 365 Outlook.
 
-   3. Wybierz tę akcję: **Wyślij wiadomość e-mail —> <*dostawcy poczty e-mail* **
+   3. Wybierz tę akcję: **Wyślij wiadomość e-mail — > <*dostawcy poczty e-mail* **
 
-      Przykład:
+      Na przykład:
 
       ![Wybierz akcję "Wyślij wiadomość e-mail" dla dostawcy poczty e-mail](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -180,7 +180,7 @@ Teraz należy utworzyć co najmniej jedną aplikację logiki nadawcy partii, kt�
 
    2. Gdy zostanie wyświetlona lista zawartości dynamicznej, wybierz pozycję **wyrażenie**. 
 
-   3. Wprowadź wyrażenie `utcnow()`, a następnie wybierz **OK**. 
+   3. Wprowadź wyrażenie `utcnow()` , a następnie wybierz **OK**. 
 
       ![W obszarze "zawartość wiadomości" Wybierz pozycję "wyrażenie", wpisz "UtcNow ()", a następnie wybierz pozycję "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -198,7 +198,7 @@ Teraz należy utworzyć co najmniej jedną aplikację logiki nadawcy partii, kt�
 
    2. Na liście zawartości dynamicznej wybierz pozycję **Wyrażenie**.
    
-   3. Wprowadź wyrażenie `rand(1,6)`, a następnie wybierz **OK**.
+   3. Wprowadź wyrażenie `rand(1,6)` , a następnie wybierz **OK**.
 
       ![Konfigurowanie partycji dla docelowej partii](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 

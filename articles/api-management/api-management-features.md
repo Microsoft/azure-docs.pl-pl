@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
 ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203172"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Porównanie warstw API Management platformy Azure oparte na funkcjach
@@ -26,24 +26,24 @@ Każda [warstwa cenowa](https://aka.ms/apimpricing) API Management oferuje odrę
 > [!IMPORTANT]
 > Zwróć uwagę na to, że warstwa dewelopera dotyczy nieprodukcyjnych przypadków użycia i ocen. Nie oferuje umowy SLA.
 
-| Funkcja                                                                                      | Zużycie | Deweloper | Podstawowy | Standardowa | Premium |
+| Cecha                                                                                      | Zużycie | Deweloper | Podstawowa | Standardowa (Standard) | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Integracja z usługą Azure AD<sup>1</sup>                                                             | Nie          | Tak       | Nie    | Tak      | Tak     |
-| Obsługa Virtual Network (VNet)                                                               | Nie          | Tak       | Nie    | Nie       | Tak     |
-| Wdrażanie w wielu regionach                                                                      | Nie          | Nie        | Nie    | Nie       | Tak     |
-| Wiele niestandardowych nazw domen                                                                 | Nie          | Nie        | Nie    | Nie       | Tak     |
+| Integracja z usługą Azure AD<sup>1</sup>                                                             | Nie          | Yes       | Nie    | Tak      | Tak     |
+| Obsługa Virtual Network (VNet)                                                               | Nie          | Yes       | Nie    | Nie       | Yes     |
+| Wdrażanie w wielu regionach                                                                      | Nie          | Nie        | Nie    | Nie       | Yes     |
+| Wiele niestandardowych nazw domen                                                                 | Nie          | Nie        | Nie    | Nie       | Yes     |
 | Portal dla deweloperów<sup>2</sup>                                                                 | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Wbudowana pamięć podręczna                                                                               | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Wbudowana analiza                                                                           | Nie          | Tak       | Tak   | Tak      | Tak     |
-| [Samodzielna Brama](self-hosted-gateway-overview.md)<sup>3</sup>                           | Nie          | Tak       | Nie    | Nie       | Tak     |
+| [Samodzielna Brama](self-hosted-gateway-overview.md)<sup>3</sup>                           | Nie          | Yes       | Nie    | Nie       | Yes     |
 | [Ustawienia protokołu TLS](api-management-howto-manage-protocols-ciphers.md)                             | Tak         | Tak       | Tak   | Tak      | Tak     |
 | [Zewnętrzna pamięć podręczna](https://aka.ms/apimbyoc)                                                    | Tak         | Tak       | Tak   | Tak      | Tak     |
 | [Uwierzytelnianie certyfikatu klienta](api-management-howto-mutual-certificates-for-clients.md) | Tak         | Tak       | Tak   | Tak      | Tak     |
 | [Tworzenie kopii zapasowej i przywracanie](api-management-howto-disaster-recovery-backup-restore.md)               | Nie          | Tak       | Tak   | Tak      | Tak     |
 | [Zarządzanie za pośrednictwem usługi git](api-management-configuration-repository-git.md)                        | Nie          | Tak       | Tak   | Tak      | Tak     |
 | Interfejs API zarządzania bezpośredniego                                                                        | Nie          | Tak       | Tak   | Tak      | Tak     |
-| Azure Monitor dzienników i metryk                                                               | Nie          | Tak       | Tak   | Tak      | Tak     |
-| Statyczny adres IP                                                                                    | Nie          | Tak       | Tak   | Tak      | Tak     |
+| Azure Monitor dzienników i metryk                                                               | Nie          | Yes       | Tak   | Tak      | Tak     |
+| Statyczny adres IP                                                                                    | Nie          | Yes       | Tak   | Tak      | Tak     |
 
 <sup>1</sup> umożliwia korzystanie z usługi Azure AD (i Azure AD B2C) jako dostawcy tożsamości na potrzeby logowania użytkownika w portalu dla deweloperów.<br/>
 <sup>2</sup> w tym powiązane funkcje, takie jak użytkownicy, grupy, problemy, aplikacje i szablony wiadomości e-mail i powiadomienia.<br/>

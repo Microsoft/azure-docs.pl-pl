@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160226"
 ---
 # <a name="azure-media-services-concepts"></a>Koncepcje Azure Media Services 
@@ -86,12 +86,12 @@ Media Services obsługuje dwa typy lokalizatorów: OnDemandOrigin Locators, uży
 ### <a name="storage-account"></a>Konto magazynu
 Cały dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Konto usługi multimediów może być skojarzone z co najmniej jednym kontem magazynu. Konto może zawierać nieograniczoną liczbę kontenerów, pod warunkiem, że ich łączny rozmiar jest objęty 500 TB na konto magazynu.  Media Services udostępnia narzędzia poziomu zestawu SDK umożliwiające zarządzanie wieloma kontami magazynu i równoważenie obciążenia dystrybucji zasobów podczas przekazywania ich do tych kont na podstawie metryk lub dystrybucji losowej. Aby uzyskać więcej informacji, zobacz Praca z [usługą Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
-## <a name="jobs-and-tasks"></a>Zadania i zadania
+## <a name="jobs-and-tasks"></a>Zadania
 [Zadanie](https://docs.microsoft.com/rest/api/media/operations/job) jest zwykle używane do przetwarzania (na przykład indeksowania lub kodowania) jednej prezentacji audio/wideo. Jeśli przetwarzasz wiele filmów wideo, Utwórz zadanie dla każdego wideo, które ma zostać zakodowane.
 
 Zadanie zawiera metadane dotyczące przetwarzania, które ma zostać wykonane. Każde zadanie zawiera co najmniej jedno [zadanie](https://docs.microsoft.com/rest/api/media/operations/task)s określające zadanie przetwarzania niepodzielnego, jego zasoby wejściowe, zasoby wyjściowe, procesor multimediów i powiązane z nim ustawienia. Zadania w ramach zadania mogą być łańcucha ze sobą, gdzie element zawartości wyjściowej jednego zadania jest podawany jako zasób wejściowy do następnego zadania. W ten sposób jedno zadanie może zawierać wszystkie procesy wymagane do prezentacji multimedialnej.
 
-## <a name="encoding"></a><a id="encoding"></a>Kodowanie
+## <a name="encoding"></a><a id="encoding"></a>Encoding
 Azure Media Services udostępnia wiele opcji kodowania multimediów w chmurze.
 
 Podczas rozpoczynania pracy z Media Services należy zrozumieć różnicę między koderami-dekodermi i formatami plików.
@@ -114,7 +114,7 @@ W Azure Media Services kanał reprezentuje potok służący do przetwarzania zaw
 * Lokalny koder na żywo wysyła do kanału protokół RTMP o dużej szybkości transmisji bitów lub Smooth Streaming (pofragmentowany plik MP4). Można użyć następujących koderów na żywo, które wychodzące z wieloszybkościowej transmisji bitów Smooth Streaming: MediaExcel, ATEME, Wyobraź Communications, Envivio, Cisco i element. Następujące kodery na żywo wyprowadzają RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, kodery Haivision. Pozyskiwane strumienie przechodzą przez kanały bez dalszego transkodowania i kodowania. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 * Strumień o pojedynczej szybkości transmisji bitów (w jednym z następujących formatów: RTMP lub Smooth Streaming (fragmentacja MP4)) jest wysyłany do kanału, w którym włączono obsługę kodowania na żywo z Media Services. Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
-### <a name="channel"></a>Channel
+### <a name="channel"></a>Kanał
 W Media Services [kanał](https://docs.microsoft.com/rest/api/media/operations/channel)s jest odpowiedzialny za przetwarzanie zawartości przesyłania strumieniowego na żywo. Kanał udostępnia wejściowy punkt końcowy (adres URL pozyskiwania), który następnie można przekazać do transkodera na żywo. Kanał odbiera strumienie danych wejściowych na żywo z transkodera dynamicznego i udostępnia je do przesyłania strumieniowego za pośrednictwem co najmniej jednego StreamingEndpointsu. Kanały udostępniają również punkt końcowy (wersja zapoznawcza) służący do wyświetlania podglądu i weryfikowania strumienia przed dalszem przetwarzaniem i dostarczaniem.
 
 Podczas tworzenia kanału można uzyskać adres URL pozyskiwania i adres URL wersji zapoznawczej. Aby uzyskać te adresy URL, kanał nie musi znajdować się w stanie uruchomienia. Gdy wszystko będzie gotowe do rozpoczęcia wypychania danych z transkodera na żywo do kanału, należy uruchomić kanał. Gdy transkoder na żywo zacznie pozyskiwanie danych, można wyświetlić podgląd strumienia.
@@ -154,7 +154,7 @@ Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń 
 
 Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacyjny, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacyjny zawiera klucz, z którym token został podpisany, wystawca to usługa Secure Tokens, która wystawia token. Odbiorcy (czasami nazywane zakresem) opisują zamiar tokenu lub zasobu, do którego token autoryzuje dostęp. Usługa dostarczania kluczy Media Services sprawdza, czy te wartości w tokenie pasują do wartości w szablonie.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Omówienie ochrony zawartości](media-services-content-protection-overview.md)
 - [Ochrona za pomocą algorytmu AES-128](media-services-protect-with-aes128.md)
 - [Ochrona za pomocą oprogramowania PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
@@ -190,7 +190,7 @@ Pobieranie stopniowe pozwala rozpocząć odtwarzanie multimediów przed pobranie
 >[!NOTE]
 >Należy odszyfrować zaszyfrowane zasoby, jeśli chcesz, aby były dostępne do pobrania progresywnego.
 
-Aby zapewnić użytkownikom adresy URL pobierania progresywnego, należy najpierw utworzyć lokalizator OnDemandOrigin. Utworzenie lokalizatora zapewnia podstawową ścieżkę do elementu zawartości. Następnie należy dołączyć nazwę pliku MP4. Przykład:
+Aby zapewnić użytkownikom adresy URL pobierania progresywnego, należy najpierw utworzyć lokalizator OnDemandOrigin. Utworzenie lokalizatora zapewnia podstawową ścieżkę do elementu zawartości. Następnie należy dołączyć nazwę pliku MP4. Na przykład:
 
 `http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -208,25 +208,25 @@ Na poniższej liście opisano różne formaty przesyłania strumieniowego i prze
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest
 
-http:\//testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
+http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 * MPEG DASH
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = MPD-czas-CSF)
+http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = MPD-czas-CSF)
 
 * Apple HTTP Live Streaming (HLS) v4
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
+http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL)
 
 * Apple HTTP Live Streaming (HLS) v3
 
 {Nazwa punktu końcowego przesyłania strumieniowego — nazwa konta usługi Media Services}. Streaming. MediaServices. Windows. NET/{Locator ID}/{Nazwa pliku (format = M3U8-AAPL-v3)
 
-http:\//testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
+http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = M3U8-AAPL-v3)
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
@@ -235,6 +235,6 @@ http:\//testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-46
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188450"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Rozwiązywanie problemów z akcjami skryptu w usłudze Azure HDInsight
@@ -25,13 +25,13 @@ Za pomocą interfejsu użytkownika sieci Web Apache Ambari można wyświetlać i
 
 ### <a name="apache-ambari-web-ui"></a>Interfejs użytkownika sieci Web Apache Ambari
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
 1. Na pasku w górnej części strony wybierz wpis **Ops** . Na liście są wyświetlane bieżące i poprzednie operacje wykonywane w klastrze za pomocą Ambari.
 
     ![Pasek interfejsu użytkownika sieci Web Ambari z wybranym elementem Ops](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
 
-1. Znajdź w kolumnie **operacje** wpisy **z\_uruchomioną customscriptactioną** . Te wpisy są tworzone po uruchomieniu akcji skryptu.
+1. Znajdź w kolumnie **operacje** wpisy z **uruchomioną \_ customscriptactioną** . Te wpisy są tworzone po uruchomieniu akcji skryptu.
 
     ![Operacje akcji skryptu Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
 
@@ -41,7 +41,7 @@ Za pomocą interfejsu użytkownika sieci Web Apache Ambari można wyświetlać i
 
 Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu, dzienniki są przechowywane na koncie magazynu klastra.
 
-* Dzienniki magazynu są dostępne pod adresem `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
+* Dzienniki magazynu są dostępne pod adresem `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` .
 
     ![Dzienniki akcji skryptu](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
@@ -53,7 +53,7 @@ Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu
 
     * **Węzeł dozorcy**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
-* Wszystkie **stdout** i **stderr** odpowiedniego hosta są przekazywane do konta magazynu. Istnieje jedno **wyjście-\*. txt** i **Błędy-\*. txt** dla każdej akcji skryptu. Plik **Output-*. txt** zawiera informacje o identyfikatorze URI skryptu, który został uruchomiony na hoście. Poniżej przedstawiono przykład tych informacji:
+* Wszystkie **stdout** i **stderr** odpowiedniego hosta są przekazywane do konta magazynu. Istnieje jedno **wyjście- \* . txt** i **Błędy- \* . txt** dla każdej akcji skryptu. Plik **Output-*. txt** zawiera informacje o identyfikatorze URI skryptu, który został uruchomiony na hoście. Poniżej przedstawiono przykład tych informacji:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -84,7 +84,7 @@ ImportError: cannot import name BlobService
 
 __Przyczyna__. Ten błąd występuje w przypadku uaktualniania klienta usługi Azure Storage w języku Python, który jest dołączony do klastra HDInsight. Usługa HDInsight oczekuje 0.20.0 klienta usługi Azure Storage.
 
-__Rozwiązanie__. Aby rozwiązać ten problem, należy ręcznie połączyć się z każdym węzłem `ssh`klastra przy użyciu polecenia. Uruchom następujące polecenie, aby ponownie zainstalować poprawną wersję klienta magazynu:
+__Rozwiązanie__. Aby rozwiązać ten problem, należy ręcznie połączyć się z każdym węzłem klastra przy użyciu polecenia `ssh` . Uruchom następujące polecenie, aby ponownie zainstalować poprawną wersję klienta magazynu:
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -112,6 +112,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 388f59f5090be43469acfde5197a658942e817f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82182450"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Łączenie programu Excel z usługą Apache Hadoop w usłudze Azure HDInsight przy użyciu sterownika Microsoft Hive ODBC
@@ -82,7 +82,7 @@ Poniższe kroki opisują sposób importowania danych z tabeli Hive do skoroszytu
 
 1. Otwórz nowy lub istniejący skoroszyt w programie Excel.
 
-2. Na karcie **dane** przejdź do **pobierania danych** > **z innych źródeł** > **z ODBC** , aby uruchomić z okna **ODBC** .
+2. Na karcie **dane** przejdź do **pobierania danych**  >  **z innych źródeł**  >  **z ODBC** , aby uruchomić z okna **ODBC** .
 
     ![Otwórz Kreatora połączenia danych programu Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Otwórz Kreatora połączenia danych programu Excel")
 
@@ -90,7 +90,7 @@ Poniższe kroki opisują sposób importowania danych z tabeli Hive do skoroszytu
 
 4. Do pierwszego użycia zostanie otwarte okno dialogowe **sterownika ODBC** . Z menu po lewej stronie wybierz pozycję **Windows** . Następnie wybierz pozycję **Połącz** , aby otworzyć okno **Nawigator** .
 
-5. Z poziomu **nawigatora**przejdź do**hivesampletable****domyślnych** >  **gałęzi** > , a następnie wybierz pozycję **Załaduj**. Importowanie danych do programu Excel trwa kilka chwil.
+5. Z poziomu **nawigatora**przejdź **HIVE**do  >  **default**  >  **hivesampletable**domyślnych gałęzi, a następnie wybierz pozycję **Załaduj**. Importowanie danych do programu Excel trwa kilka chwil.
 
     ![Usługa HDInsight Excel Hive ODBC — Nawigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Usługa HDInsight Excel Hive ODBC — Nawigator")
 

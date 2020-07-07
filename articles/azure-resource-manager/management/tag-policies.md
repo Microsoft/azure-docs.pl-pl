@@ -4,10 +4,10 @@ description: Opisuje zasady platformy Azure, które można przypisać w celu zap
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82147864"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Przypisywanie zasad zgodności tagów

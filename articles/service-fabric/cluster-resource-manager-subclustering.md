@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
 ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183124"
 ---
 # <a name="balancing-of-subclustered-metrics"></a>Równoważenie metryk klastrowanych
@@ -103,7 +103,7 @@ Zachowanie Menedżer zasobów informacji o podklastrach można zmodyfikować, mo
 * SubclusteringEnabled — określa, czy podczas równoważenia obciążenia usługa Menedżer zasobów będzie uwzględniać klastrowanie. Jeśli ten parametr jest wyłączony, Menedżer zasobów zignoruje klaster i podejmie próbę osiągnięcia optymalnego salda na poziomie globalnym. Wartość domyślna tego parametru to false.
 * SubclusteringReportingPolicy — określa, w jaki sposób Menedżer zasobów będzie emitować raporty dotyczące kondycji w przypadku klastrowania hierarchicznego i częściowego nakładania się. Wartość zerowa oznacza, że raporty kondycji dotyczące klastrów są wyłączone. wartość "1" oznacza, że raporty kondycji ostrzegawczej zostaną wygenerowane w przypadku nieoptymalnych sytuacji klastra, a wartością "2" będzie generowanie raportów kondycji "OK". Wartość domyślna tego parametru to "1".
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -112,7 +112,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [

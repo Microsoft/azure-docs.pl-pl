@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181736"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji
@@ -45,9 +45,9 @@ public class HomeController : Controller
 }
 ```
 
-`ITokenAcquisition` Usługa jest wstrzykiwana przez ASP.NET przy użyciu iniekcji zależności.
+`ITokenAcquisition`Usługa jest wstrzykiwana przez ASP.NET przy użyciu iniekcji zależności.
 
-Oto uproszczony kod dla akcji `HomeController`, który pobiera token do wywołania Microsoft Graph:
+Oto uproszczony kod dla akcji `HomeController` , który pobiera token do wywołania Microsoft Graph:
 
 ```csharp
 public async Task<IActionResult> Profile()
@@ -76,7 +76,7 @@ Te zaawansowane kroki przedstawiono w rozdziale 3 samouczka [3-webapp-wiele inte
 
 Kod dla ASP.NET jest podobny do kodu pokazanego dla ASP.NET Core:
 
-- Akcja kontrolera, chroniona przez atrybut [autoryzuje], wyodrębnia identyfikator dzierżawy i identyfikator użytkownika `ClaimsPrincipal` elementu członkowskiego kontrolera. (ASP.NET używa `HttpContext.User`.)
+- Akcja kontrolera, chroniona przez atrybut [autoryzuje], wyodrębnia identyfikator dzierżawy i identyfikator użytkownika `ClaimsPrincipal` elementu członkowskiego kontrolera. (ASP.NET używa `HttpContext.User` .)
 - Z tego miejsca kompiluje obiekt MSAL.NET `IConfidentialClientApplication` .
 - Na koniec wywołuje `AcquireTokenSilent` metodę poufnej aplikacji klienckiej.
 
@@ -84,7 +84,7 @@ Kod dla ASP.NET jest podobny do kodu pokazanego dla ASP.NET Core:
 
 W przykładzie Java kod wywołujący interfejs API jest w metodzie getUsersFromGraph w [AuthPageController. Java # L62](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthPageController.java#L62).
 
-Metoda próbuje wywołać `getAuthResultBySilentFlow`. Jeśli użytkownik musi wyrazić zgodę na więcej zakresów, kod przetwarza `MsalInteractionRequiredException` obiekt, aby zakwestionować użytkownika.
+Metoda próbuje wywołać `getAuthResultBySilentFlow` . Jeśli użytkownik musi wyrazić zgodę na więcej zakresów, kod przetwarza `MsalInteractionRequiredException` obiekt, aby zakwestionować użytkownika.
 
 ```java
 @RequestMapping("/msal4jsample/graph/me")

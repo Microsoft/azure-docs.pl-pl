@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82181787"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Omówienie biblioteki uwierzytelniania firmy Microsoft (MSAL)
@@ -51,7 +51,7 @@ MSAL można używać w wielu scenariuszach aplikacji, w tym następujących:
 | Biblioteka | Obsługiwane platformy i struktury|
 | --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, platforma uniwersalna systemu Windows|
-| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Struktury języka JavaScript/TypeScript, takie jak AngularJS, wpływ. js lub Durandal. js|
+| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Struktury języka JavaScript/TypeScript, takie jak AngularJS, Ember.js lub Durandal.js|
 | [MSAL dla systemu Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [Biblioteka MSAL dla systemów iOS i macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS i macOS|
 | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
@@ -61,4 +61,4 @@ MSAL można używać w wielu scenariuszach aplikacji, w tym następujących:
 
 Active Directory Authentication Library (ADAL) integruje się z punktem końcowym usługi Azure AD dla deweloperów (v 1.0), gdzie MSAL integruje się z punktem końcowym Microsoft Identity platform (v 2.0). Punkt końcowy v 1.0 obsługuje konta służbowe, ale nie konta osobiste. Punkt końcowy v 2.0 to nieujednolicenie kont osobistych i kont służbowych firmy Microsoft w ramach jednego systemu uwierzytelniania. Ponadto w przypadku usługi MSAL można również uzyskać uwierzytelnianie dla Azure AD B2C.
 
-Aby uzyskać bardziej szczegółowe informacje, Przeczytaj o [migracji do MSAL.NET z ADAL.NET](msal-net-migration.md) i [migracji do MSAL. js z biblioteki ADAL. js](msal-compare-msal-js-and-adal-js.md).
+Aby uzyskać bardziej szczegółowe informacje, Przeczytaj o [migracji do MSAL.NET z ADAL.NET](msal-net-migration.md) i [migracji do MSAL.js z ADAL.js](msal-compare-msal-js-and-adal-js.md).
