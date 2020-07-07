@@ -7,23 +7,23 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 02ce6b00b6555f849d162b9f3b381c0ab358d712
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79532845"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Omówienie tworzenia aplikacji dla Azure Database for MySQL 
 W tym artykule omówiono zagadnienia związane z projektowaniem, które deweloper powinien wykonać, gdy piszesz kod aplikacji w celu nawiązania połączenia z Azure Database for MySQL. 
 
 > [!TIP]
-> Aby zapoznać się z samouczkiem dotyczącym tworzenia serwera, tworzenia zapory opartej na serwerze, wyświetlania właściwości serwera, tworzenia bazy danych oraz łączenia i wykonywania zapytań przy użyciu Workbench i MySQL. exe, zobacz artykuł [projektowanie pierwszej bazy danych Azure Database for MySQL](tutorial-design-database-using-portal.md)
+> Aby zapoznać się z samouczkiem dotyczącym tworzenia serwera, tworzenia zapory opartej na serwerze, wyświetlania właściwości serwera, tworzenia bazy danych oraz łączenia i wykonywania zapytań przy użyciu Workbench i mysql.exe, zobacz [projektowanie pierwszej Azure Database for MySQL bazy danych](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Język i platforma
 Dostępne są przykłady kodu dla różnych języków programowania i platform programistycznych. Linki do przykładów kodu można znaleźć pod adresem: [biblioteki połączeń używane do łączenia](concepts-connection-libraries.md) się z Azure Database for MySQL
 
-## <a name="tools"></a>Narzędzia
-Azure Database for MySQL używa wersji społeczności MySQL zgodnej z typowymi narzędziami do zarządzania MySQL, takimi jak Workbench lub MySQL Utilities, takimi jak MySQL. exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)i inne. Korzystając z Azure Portal, interfejsu wiersza polecenia platformy Azure i interfejsów API REST, można również korzystać z usługi bazy danych.
+## <a name="tools"></a>narzędzia
+Azure Database for MySQL używa wersji społeczności MySQL zgodnej z typowymi narzędziami do zarządzania MySQL, takimi jak Workbench lub MySQL Utilities, takimi jak mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)i inne. Korzystając z Azure Portal, interfejsu wiersza polecenia platformy Azure i interfejsów API REST, można również korzystać z usługi bazy danych.
 
 ## <a name="resource-limitations"></a>Ograniczenia zasobów
 Azure Database for MySQL zarządza zasobami dostępnymi dla serwera przy użyciu dwóch różnych mechanizmów: 

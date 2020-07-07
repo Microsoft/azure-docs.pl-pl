@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie konfiguracji, procesu i głównych 
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: cd5ded18d1a8f1f5fd96212d37725bb5db13002f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062087"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informacje o składnikach Site Recovery (Konfiguracja, proces, główny cel)
@@ -21,7 +21,7 @@ W przypadku odzyskiwania po awarii lokalnych maszyn wirtualnych programu VMware 
 **Ustawienie** | **Szczegóły** | **Linki**
 --- | --- | ---
 **Składniki**  | Na komputerze serwera konfiguracji są uruchamiane wszystkie lokalne składniki Site Recovery, takie jak serwer konfiguracji, serwer przetwarzania oraz główny serwer docelowy.<br/><br/> Po skonfigurowaniu serwera konfiguracji wszystkie składniki są instalowane automatycznie. | [Przeczytaj](vmware-azure-common-questions.md#configuration-server) często zadawane pytania dotyczące serwera konfiguracji.
-**Rola** | Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych. | Dowiedz się więcej o architekturze odzyskiwania po awarii dla oprogramowania [VMware](vmware-azure-architecture.md) i [serwera fizycznego](physical-azure-architecture.md) na platformie Azure.
+**Role** | Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych. | Dowiedz się więcej o architekturze odzyskiwania po awarii dla oprogramowania [VMware](vmware-azure-architecture.md) i [serwera fizycznego](physical-azure-architecture.md) na platformie Azure.
 **Wymagania dotyczące oprogramowania VMware** | W przypadku odzyskiwania po awarii lokalnych maszyn wirtualnych programu VMware należy zainstalować i uruchomić serwer konfiguracji jako lokalną maszynę wirtualną VMware o wysokiej dostępności. | [Dowiedz się więcej o](vmware-azure-deploy-configuration-server.md#prerequisites) wymaganiach wstępnych.
 **Wdrożenie VMware** | Zalecamy wdrożenie serwera konfiguracji przy użyciu pobranego szablonu komórki jajowe. Ta metoda zapewnia prosty sposób konfigurowania serwera konfiguracji, który jest zgodny ze wszystkimi wymaganiami i wymaganiami wstępnymi.<br/><br/> Jeśli z jakiegoś powodu nie można wdrożyć maszyny wirtualnej VMware przy użyciu szablonu komórki jajowe, można ręcznie skonfigurować maszyny z serwerem konfiguracji, zgodnie z poniższym opisem w przypadku odzyskiwania po awarii maszyny fizycznej. | [Wdróż](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) z szablonem komórki jajowe.
 **Wymagania dotyczące serwera fizycznego** | W przypadku odzyskiwania po awarii na lokalnych serwerach fizycznych należy ręcznie wdrożyć serwer konfiguracji. | [Dowiedz się więcej o](physical-azure-set-up-source.md#prerequisites) wymaganiach wstępnych.

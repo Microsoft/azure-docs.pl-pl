@@ -4,10 +4,10 @@ description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry z
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80051920"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
@@ -44,7 +44,7 @@ Do zaimportowania obrazu do usługi Azure Container Registry tożsamość musi m
 
 ### <a name="import-from-docker-hub"></a>Importuj z usługi Docker Hub
 
-Na przykład użyj polecenia [AZ ACR import][az-acr-import] w celu zaimportowania obrazu wieloarchitekturowego `hello-world:latest` z usługi Docker Hub do rejestru o nazwie Moje *Rejestr*. Ponieważ `hello-world` jest oficjalnym obrazem z usługi Docker Hub, ten obraz znajduje się `library` w domyślnym repozytorium. Dołącz nazwę repozytorium i opcjonalnie tag w wartości parametru `--source` obrazu. (Opcjonalnie można zidentyfikować obraz według jego skrótu manifestu zamiast znacznika, który gwarantuje określoną wersję obrazu).
+Na przykład użyj polecenia [AZ ACR import][az-acr-import] w celu zaimportowania obrazu wieloarchitekturowego `hello-world:latest` z usługi Docker Hub do rejestru o nazwie Moje *Rejestr*. Ponieważ `hello-world` jest oficjalnym obrazem z usługi Docker Hub, ten obraz znajduje się w domyślnym `library` repozytorium. Dołącz nazwę repozytorium i opcjonalnie tag w wartości `--source` parametru obrazu. (Opcjonalnie można zidentyfikować obraz według jego skrótu manifestu zamiast znacznika, który gwarantuje określoną wersję obrazu).
  
 ```azurecli
 az acr import \
@@ -100,7 +100,7 @@ az acr import \
   --image aci-helloworld:latest
 ```
 
-Poniższy przykład importuje obraz przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...`), a nie przez tag:
+Poniższy przykład importuje obraz przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...` ), a nie przez tag:
 
 ```azurecli
 az acr import \
@@ -110,7 +110,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>Importuj z rejestru w innej subskrypcji
 
-W poniższym przykładzie *mysourceregistry* znajduje się w innej subskrypcji z *rejestru* w tej samej dzierżawie Active Directory. Podaj identyfikator zasobu rejestru źródłowego z `--registry` parametrem. Należy zauważyć, `--source` że parametr określa tylko repozytorium źródłowe i tag, a nie nazwę serwera logowania rejestru.
+W poniższym przykładzie *mysourceregistry* znajduje się w innej subskrypcji z *rejestru* w tej samej dzierżawie Active Directory. Podaj identyfikator zasobu rejestru źródłowego z `--registry` parametrem. Należy zauważyć, że `--source` parametr określa tylko repozytorium źródłowe i tag, a nie nazwę serwera logowania rejestru.
 
 ```azurecli
 az acr import \

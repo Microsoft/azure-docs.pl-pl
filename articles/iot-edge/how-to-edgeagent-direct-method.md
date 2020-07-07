@@ -10,10 +10,10 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240341"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Komunikacja z edgeAgent za pomocą wbudowanych metod bezpośrednich
@@ -28,13 +28,13 @@ Nazwy tych metod bezpośrednich są obsługiwane bez uwzględniania wielkości l
 
 Metoda **ping** jest przydatna do sprawdzania, czy IoT Edge jest uruchomiona na urządzeniu, czy też ma otwarte połączenie z IoT Hub. Użyj tej metody bezpośredniej, aby wysłać polecenie ping do agenta IoT Edge i uzyskać jego stan. Pomyślne polecenie ping zwraca pusty ładunek i **"status": 200**.
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'ping' -n <hub name> -d <device name> -m '$edgeAgent'
 ```
 
-W Azure Portal Wywołaj metodę z nazwą `ping` metody i pustym ładunkiem `{}`json.
+W Azure Portal Wywołaj metodę z nazwą metody `ping` i pustym ŁADUNKIEM JSON `{}` .
 
 ![Wywołaj metodę Direct "ping" w Azure Portal](./media/how-to-edgeagent-direct-method/ping-direct-method.png)
 
@@ -46,7 +46,7 @@ Metoda RestartModule jest dostępna w IoT Edge w wersji 1.0.9 i nowszych.
 
 Metody RestartModule Direct można użyć dla dowolnego modułu uruchomionego na urządzeniu IoT Edge, w tym do modułu edgeAgent. Jeśli jednak używasz tej metody bezpośredniej do zamykania edgeAgent, nie otrzymasz wyniku sukcesu, ponieważ połączenie zostanie przerwane, gdy moduł zostanie uruchomiony ponownie.
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <device name> -m '$edgeAgent' --method-payload \
@@ -58,7 +58,7 @@ az iot hub invoke-module-method --method-name 'RestartModule' -n <hub name> -d <
 '
 ```
 
-W Azure Portal Wywołaj metodę z nazwą `RestartModule` metody i następującym ładunkiem JSON:
+W Azure Portal Wywołaj metodę z nazwą metody `RestartModule` i następującym ŁADUNKIEM JSON:
 
 ```json
 {

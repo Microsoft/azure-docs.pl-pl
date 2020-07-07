@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128066"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
@@ -33,9 +33,9 @@ Przy podejmowaniu decyzji o tym, czy włączyć usługę CDN w [punkcie końcowy
 
 W tym temacie omówiono Włączanie integracji z siecią [CDN](#enable-azure-cdn-integration). Opisano w nim również wstępne pobieranie (aktywne buforowanie) i koncepcję z [wyprzedzeniem](#origin-assist-cdn-prefetch) dotyczącej usługi CDN.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
-* `hostname` [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
+* [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) `hostname` i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
 * Jeśli potrzebujesz możliwości testowania zawartości z użyciem usługi CDN lub bez niej, Utwórz inny punkt końcowy przesyłania strumieniowego, który nie jest włączony w sieci CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Włącz integrację Azure CDN
@@ -58,7 +58,7 @@ Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN 
 
 ## <a name="determine-if-a-dns-change-was-made"></a>Ustal, czy wprowadzono zmianę w systemie DNS
 
-Można określić, czy zmiana DNS została wprowadzona w punkcie końcowym przesyłania strumieniowego (ruch jest kierowany do Azure CDN) za pomocą <https://www.digwebinterface.com>programu. Jeśli w wynikach pojawią się azureedge.net nazwy domen, ruch jest teraz wskazywany do sieci CDN.
+Można określić, czy zmiana DNS została wprowadzona w punkcie końcowym przesyłania strumieniowego (ruch jest kierowany do Azure CDN) za pomocą programu <https://www.digwebinterface.com> . Jeśli w wynikach pojawią się azureedge.net nazwy domen, ruch jest teraz wskazywany do sieci CDN.
 
 ## <a name="origin-assist-cdn-prefetch"></a>Pochodzenie — pomoc w sieci CDN — pobieranie z wyprzedzeniem
 
@@ -71,7 +71,7 @@ Aby osiągnąć ten cel, punkt końcowy przesyłania strumieniowego (Źródło) 
 - Pochodzenie Media Services musi mieć "inteligencję" (Źródło), aby poinformować sieć CDN o następnym obiekcie do pobrania z wyprzedzeniem.
 - Usługa CDN umożliwia pobieranie z wyprzedzeniem i buforowanie (część usługi CDN — pobieranie z wyprzedzeniem). Usługa CDN musi również mieć "inteligencję", aby poinformować źródło o tym, czy jest to pobieranie z wyprzedzeniem czy regularne pobieranie, obsługiwać odpowiedzi 404 i sposób unikania nieskończonej pętli pobierania z wyprzedzeniem.
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 Zalety funkcji pobierania z *wyprzedzeniem usługi CDN* to:
 
@@ -84,7 +84,7 @@ Zalety funkcji pobierania z *wyprzedzeniem usługi CDN* to:
 
 ### <a name="how-it-works"></a>Jak to działa
 
-Obsługa sieci CDN dla `Origin-Assist CDN-Prefetch` nagłówków (zarówno w przypadku przesyłania strumieniowego na żywo, jak i wideo na żądanie) jest dostępna dla klientów z bezpośrednią umową z usługą Akamai CDN. Funkcja obejmuje następujące wymiany nagłówka HTTP między Akamai CDN i pochodzeniem Media Services:
+Obsługa sieci CDN dla `Origin-Assist CDN-Prefetch` nagłówków (zarówno w przypadku przesyłania strumieniowego na żywo, jak i wideo na żądanie) jest dostępna dla klientów z bezpośrednią umową z usługą AKAMAI CDN. Funkcja obejmuje następujące wymiany nagłówka HTTP między Akamai CDN i pochodzeniem Media Services:
 
 |Nagłówek HTTP|Wartości|Nadawca|Odbiornik|Przeznaczenie|
 | ---- | ---- | ---- | ---- | ----- |
@@ -94,12 +94,12 @@ Obsługa sieci CDN dla `Origin-Assist CDN-Prefetch` nagłówków (zarówno w prz
 
 Aby wyświetlić część działania wymiany nagłówka, możesz spróbować wykonać następujące czynności:
 
-1. Użyj programu Poster lub Zwinięciea, aby wydać żądanie do pochodzenie Media Services dla segmentu audio lub wideo lub fragmentu. Upewnij się, że w żądaniu `CDN-Origin-Assist-Prefetch-Enabled: 1` dodano nagłówek.
+1. Użyj programu Poster lub Zwinięciea, aby wydać żądanie do pochodzenie Media Services dla segmentu audio lub wideo lub fragmentu. Upewnij się, że `CDN-Origin-Assist-Prefetch-Enabled: 1` w żądaniu dodano nagłówek.
 2. W odpowiedzi powinien zostać wyświetlony nagłówek `CDN-Origin-Assist-Prefetch-Path` z ścieżką względną jako wartość.
 
 ### <a name="supported-streaming-protocols"></a>Obsługiwane protokoły przesyłania strumieniowego
 
-`Origin-Assist CDN-Prefetch` Funkcja obsługuje następujące protokoły przesyłania strumieniowego do przesyłania strumieniowego na żywo i na żądanie:
+`Origin-Assist CDN-Prefetch`Funkcja obsługuje następujące protokoły przesyłania strumieniowego do przesyłania strumieniowego na żywo i na żądanie:
 
 * HLS v3
 * HLS v4

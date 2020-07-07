@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80235273"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemy z migracją w trybie online & ograniczenia dotyczące usługi Azure DB dla programu MySQL z Azure Database Migration Service
@@ -33,9 +33,9 @@ Znane problemy i ograniczenia związane z migracją w trybie online z programu M
   - MySQL Community Edition
   - Aparat InnoDB
 - Migracja tej samej wersji. Migrowanie MySQL 5,6 do Azure Database for MySQL 5,7 nie jest obsługiwane.
-- Włącz logowanie binarne w pliku my. ini (Windows) lub My. cnf (UNIX)
+- Włączanie rejestrowania binarnego w my.ini (Windows) lub My. cnf (UNIX)
   - Ustaw wartość Server_id na wartość większą lub równą 1, na przykład Server_id = 1 (tylko w przypadku programu MySQL 5,6)
-  - Ustaw wartość log-bin \<= Path> (tylko dla programu MySQL 5,6)
+  - Set log-bin = \<path> (tylko dla MySQL 5,6)
   - Ustaw binlog_format = wiersz
   - Expire_logs_days = 5 (zalecane-tylko dla MySQL 5,6)
 - Użytkownik musi mieć rolę ReplicationAdmin.
@@ -93,7 +93,7 @@ Kolumny dużego obiektu (LOB) są kolumnami, które mogą mieć duży rozmiar. W
 
 Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure Database for MySQL mogą wystąpić następujące błędy.
 
-- **Błąd:** Baza danych{0}"" ma klucze obce w miejscu docelowym. Napraw miejsce docelowe i uruchom nowe działanie migracji danych. Wykonaj Poniższy skrypt w celu, aby wyświetlić listę kluczy obcych
+- **Błąd:** Baza danych " {0} " ma klucze obce w miejscu docelowym. Napraw miejsce docelowe i uruchom nowe działanie migracji danych. Wykonaj Poniższy skrypt w celu, aby wyświetlić listę kluczy obcych
 
   **Ograniczenie**: Jeśli w schemacie są klucze obce, początkowe ładowanie i ciągła synchronizacja migracji zakończy się niepowodzeniem.
   **Obejście**: wykonaj następujący skrypt w programie MySQL Workbench, aby wyodrębnić skrypt klucza obcego i dodać skrypt klucza obcego:
@@ -102,7 +102,7 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **Błąd:** Baza danych{0}"" nie istnieje na serwerze. Podany serwer źródłowy MySQL uwzględnia wielkość liter. Sprawdź nazwę bazy danych.
+- **Błąd:** Baza danych " {0} " nie istnieje na serwerze. Podany serwer źródłowy MySQL uwzględnia wielkość liter. Sprawdź nazwę bazy danych.
 
   **Ograniczenie**: Podczas migrowania bazy danych MySQL na platformę Azure przy użyciu interfejsu wiersza polecenia (CLI), użytkownicy mogą napotkać ten błąd. Usługa nie może zlokalizować bazy danych na serwerze źródłowym, co może być spowodowane podaną nieprawidłową nazwą bazy danych lub baza danych nie istnieje na wymienionym serwerze. Uwaga w nazwach baz danych jest rozróżniana wielkość liter.
 

@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062310"
 ---
 # <a name="routing-and-tag-expressions"></a>Routing i wyrażenia tagów
@@ -39,7 +39,7 @@ Jedynym sposobem na kierowanie określonych rejestracji powiadomień jest skojar
 
 ## <a name="tags"></a>Tagi
 
-Tag może być dowolnym ciągiem, do 120 znaków, zawierający alfanumeryczne i następujące znaki inne niż alfanumeryczne:`_`"", "`@`", "`#`",`.``:`"", "",`-`"". W poniższym przykładzie przedstawiono aplikację, z której można otrzymywać wyskakujące powiadomienia dotyczące określonych grup utworów muzycznych. W tym scenariuszu prostym sposobem na kierowanie powiadomień jest etykietowanie rejestracji ze znacznikami reprezentującymi różne grupy, jak na poniższej ilustracji:
+Tag może być dowolnym ciągiem, do 120 znaków, zawierający alfanumeryczne i następujące znaki inne niż alfanumeryczne: " `_` ", "", " `@` `#` ", " `.` `:` ", `-` "", "". W poniższym przykładzie przedstawiono aplikację, z której można otrzymywać wyskakujące powiadomienia dotyczące określonych grup utworów muzycznych. W tym scenariuszu prostym sposobem na kierowanie powiadomień jest etykietowanie rejestracji ze znacznikami reprezentującymi różne grupy, jak na poniższej ilustracji:
 
 ![Przegląd tagów](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -47,7 +47,7 @@ Na rysunku komunikat oznaczony za pomocą **Beatles** osiągnie tylko tablet zar
 
 Aby uzyskać więcej informacji o tworzeniu rejestracji dla tagów, zobacz [Zarządzanie rejestracją](notification-hubs-push-notification-registration-management.md).
 
-Powiadomienia można wysyłać do tagów przy użyciu metod wysyłania powiadomień `Microsoft.Azure.NotificationHubs.NotificationHubClient` klasy w zestawie SDK [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) . Można również używać interfejsów API REST powiadomień wypychanych.  Oto przykład użycia zestawu SDK.
+Powiadomienia można wysyłać do tagów przy użyciu metod wysyłania powiadomień `Microsoft.Azure.NotificationHubs.NotificationHubClient` klasy w zestawie SDK [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) . Można również użyć Node.js lub interfejsów API REST powiadomień wypychanych.  Oto przykład użycia zestawu SDK.
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
@@ -69,7 +69,7 @@ Nie można wstępnie zainicjować obsługi tagów i można odwoływać się do w
 
 W tym przykładzie Alicja jest zainteresowana aktualizacjami Beatles, a Robert interesuje aktualizacje dla Wailers. Robert jest również zainteresowany komentarzami Charlie, a Charlie interesuje Wailers. Po wysłaniu powiadomienia dla komentarza Charlie na Beatles, Notification Hubs wysyła je do Alicja i Roberta.
 
-Chociaż można kodować wiele obaw w tagach (na przykład `band_Beatles` lub `follows_Charlie`), Tagi są prostymi ciągami i nie są właściwościami z wartościami. Rejestracja pasuje tylko do obecności lub braku określonego tagu.
+Chociaż można kodować wiele obaw w tagach (na przykład `band_Beatles` lub `follows_Charlie` ), Tagi są prostymi ciągami i nie są właściwościami z wartościami. Rejestracja pasuje tylko do obecności lub braku określonego tagu.
 
 Aby uzyskać pełny samouczek krok po kroku dotyczący sposobu używania tagów do wysyłania do grup zainteresowań, zobacz artykuł dotyczący [najświeższych wiadomości](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -82,7 +82,7 @@ Innym sposobem używania tagów jest zidentyfikowanie wszystkich urządzeń skoj
 
 ![Użytkownicy tagów](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Na rysunku komunikat otagowany `user_Alice` osiągnie wszystkie urządzenia oznaczone przy użyciu. `user_Alice`
+Na rysunku komunikat otagowany `user_Alice` osiągnie wszystkie urządzenia oznaczone przy użyciu `user_Alice` .
 
 ## <a name="tag-expressions"></a>Wyrażenia tagów
 
@@ -96,7 +96,7 @@ Rozważmy aplikację sportową, która wysyła do wszystkich użytkowników w Bo
 
 ![Wyrażenia tagów](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Wyrażenia tagów obsługują Typowe operatory logiczne, takie `AND` jak`&&`() `OR` ,`||`() i `NOT` (`!`); mogą również zawierać nawiasy. Wyrażenia tagów wykorzystujące `OR` tylko operatory mogą odwoływać się do 20 tagów; wyrażenie z `AND` operatorami, `OR` ale żadne operatory nie mogą odwoływać się do 10 tagów; w przeciwnym razie wyrażenia tagów są ograniczone do 6 tagów.
+Wyrażenia tagów obsługują Typowe operatory logiczne, takie jak `AND` ( `&&` ), `OR` ( `||` ) i `NOT` ( `!` ); mogą również zawierać nawiasy. Wyrażenia tagów używające tylko `OR` operatorów mogą odwoływać się do 20 tagów; wyrażenia z `AND` operatorami, ale nie `OR` mogą odwoływać się do 10 tagów; w przeciwnym razie wyrażenia tagów są ograniczone do 6 tagów.
 
 Oto przykład wysyłania powiadomień z wyrażeniami tagów przy użyciu zestawu SDK:
 

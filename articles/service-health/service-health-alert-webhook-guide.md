@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062852"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Używanie elementu webhook do konfigurowania powiadomień o kondycji dla systemów zarządzania problemami
@@ -33,7 +33,7 @@ Aby skonfigurować własną niestandardową integrację elementów webhook, nale
 
 Zobacz [przykładowy](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` ładunek elementu webhook.
 
-Możesz potwierdzić, że jest to alert kondycji usługi, sprawdzając `context.eventSource == "ServiceHealth"`. Najbardziej odpowiednie właściwości są następujące:
+Możesz potwierdzić, że jest to alert kondycji usługi, sprawdzając `context.eventSource == "ServiceHealth"` . Najbardziej odpowiednie właściwości są następujące:
 - **Data. Context. activityLog. status**
 - **Data. Context. activityLog. Level**
 - **Data. Context. activityLog. Identyfikator subskrypcji**
@@ -46,19 +46,19 @@ Możesz potwierdzić, że jest to alert kondycji usługi, sprawdzając `context.
 ## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Tworzenie linku do pulpitu nawigacyjnego Service Health dla zdarzenia
 Możesz utworzyć bezpośredni link do pulpitu nawigacyjnego Service Health na pulpicie lub urządzeniu przenośnym, generując wyspecjalizowany adres URL. Użyj *trackingId* oraz pierwszych trzech i ostatnich trzech cyfr identyfikatora *subskrypcji* w tym formacie:
 
-https<i></i>://App.Azure.com/h/*&lt;trackingId&gt;*/*pierwsze trzy i ostatnie trzy cyfry identyfikatora subskrypcji&gt; &lt;*
+https <i></i> ://App.Azure.com/h/* &lt; trackingId &gt; * / * &lt; pierwsze trzy i ostatnie trzy cyfry identyfikatora subskrypcji &gt; *
 
 Na przykład jeśli identyfikator *subskrypcji* to bba14129-e895-429b-8809-278e836ecdb3, a *trackingId* to 0DET-URB, adres URL Service Health to:
 
-https<i></i>://App.Azure.com/h/0DET-URB/bbadb3
+https <i></i> ://App.Azure.com/h/0DET-URB/bbadb3
 
 ## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Użyj poziomu, aby wykryć ważność problemu
 Od najmniejszej do najwyższej wagi Właściwość **Level** w ładunku może mieć wartość *informacyjną*, *Ostrzeżenie*, *błąd*lub *krytyczne*.
 
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analizowanie usług, których dotyczy problem, w celu określenia zakresu incydentu
-Alerty Service Health mogą informować o problemach w wielu regionach i usługach. Aby uzyskać szczegółowe informacje, należy przeanalizować wartość `impactedServices`.
+Alerty Service Health mogą informować o problemach w wielu regionach i usługach. Aby uzyskać szczegółowe informacje, należy przeanalizować wartość `impactedServices` .
 
-Zawartość znajdująca się wewnątrz to zmieniony ciąg [JSON](https://json.org/) , który w przypadku braku ucieczki zawiera inny obiekt JSON, który można regularnie analizować. Przykład:
+Zawartość znajdująca się wewnątrz to zmieniony ciąg [JSON](https://json.org/) , który w przypadku braku ucieczki zawiera inny obiekt JSON, który można regularnie analizować. Na przykład:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

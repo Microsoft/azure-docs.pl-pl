@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066851"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
@@ -90,7 +90,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure są uruchamiane na istniejących
 
 Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej maszyny wirtualnej.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
 
@@ -137,7 +137,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzVMExtension` Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+`Set-AzVMExtension`Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -355,7 +355,7 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 1. Aby sprawdzić dziennik agenta gościa systemu Windows, zapoznaj się z działaniem w przypadku aprowizacji rozszerzenia w *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w *C:\WindowsAzure\Logs\Plugins\<ExtensionName>*
+2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w *C:\WindowsAzure\Logs\Plugins \<extensionName> *
 
 3. Sprawdź sekcje dotyczące rozwiązywania problemów z dokumentacją dotyczącą kodów błędów, znanych problemów itp.
 

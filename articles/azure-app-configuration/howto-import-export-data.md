@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056864"
 ---
 # <a name="import-or-export-configuration-data"></a>Importowanie lub eksportowanie danych konfiguracji
@@ -28,7 +28,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
 1. Przejdź do magazynu konfiguracji aplikacji, a następnie wybierz pozycję **Importuj/Eksportuj** z menu **operacje** .
 
-1. Na karcie **Importowanie** wybierz pozycję > **plik konfiguracji** **usługi źródłowej**.
+1. Na karcie **Importowanie** wybierz pozycję plik **konfiguracji usługi źródłowej**  >  **Configuration File**.
 
 1. Wybierz pozycję **Język** i wybierz żądany typ danych wejściowych.
 
@@ -44,7 +44,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
     ![Zakończono Importowanie pliku](./media/import-file-complete.png)
 
-## <a name="export-data"></a>Eksportowanie danych
+## <a name="export-data"></a>Eksportuj dane
 
 Eksportuj dane konfiguracji zapisu przechowywane w konfiguracji aplikacji do innego miejsca docelowego. Użyj funkcji eksportu, na przykład, aby zapisać dane w magazynie konfiguracji aplikacji do pliku, który jest osadzony w kodzie aplikacji podczas wdrażania.
 
@@ -52,11 +52,11 @@ Eksportuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interf
 
 1. Przejdź do magazynu konfiguracji aplikacji, a następnie wybierz pozycję **Importuj/Eksportuj**.
 
-1. Na karcie **eksport** wybierz pozycję **docelowy** > **plik konfiguracji**usługi.
+1. Na karcie **eksport** wybierz pozycję **docelowy**  >  **plik konfiguracji**usługi.
 
 1. Opcjonalnie wprowadź **prefiks** i wybierz **etykietę** oraz punkt w czasie, który mają zostać wyeksportowane.
 
-1. Wybierz separator **typu** > **Separator**pliku.
+1. Wybierz separator **typu pliku**  >  **Separator**.
 
 1. Wybierz pozycję **Zastosuj** , aby zakończyć eksport.
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050819"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
@@ -54,7 +54,7 @@ Organizacja może chcieć dodać użytkowników współpracy B2B, udostępnić a
 Tak. Obiekty gościa nie są domyślnie widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Zobacz [, czy obiekty gościa są widoczne na globalnej liście adresów?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Czy mogę utworzyć użytkownika-gościa z ograniczonym administratorem?
-Naturalnie. Aby uzyskać więcej informacji, zobacz [Dodawanie użytkowników-Gości do roli](add-guest-to-role.md).
+Oczywiście. Aby uzyskać więcej informacji, zobacz [Dodawanie użytkowników-Gości do roli](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Czy współpraca B2B w usłudze Azure AD umożliwia użytkownikom B2B dostęp do Azure Portal?
 Jeśli użytkownik nie ma przypisanej roli administratora z ograniczonym dostępem, użytkownicy współpracy B2B nie będą potrzebowali dostępu do Azure Portal. Jednak użytkownicy współpracy B2B, którzy mają przypisaną rolę ograniczonego administratora, mogą uzyskać dostęp do portalu. Ponadto, jeśli użytkownik-Gość, który nie ma przypisanej jednej z tych ról administratora, uzyskuje dostęp do portalu, może uzyskać dostęp do niektórych części tego środowiska. Rola użytkownika-Gość ma pewne uprawnienia w katalogu.
@@ -64,7 +64,7 @@ Jeśli użytkownik nie ma przypisanej roli administratora z ograniczonym dostęp
 Tak! Można utworzyć zasady dostępu warunkowego, które blokują dostęp do Azure Portal wszystkim Gościom i użytkownikom zewnętrznym. Podczas konfigurowania tych zasad należy zachować ostrożność, aby zapobiec przypadkowemu zablokowaniu dostępu do członków i administratorów.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator zabezpieczeń lub administrator dostępu warunkowego.
-2. W witrynie Azure Portal wybierz pozycję **Azure Active Directory**. 
+2. W Azure Portal wybierz pozycję **Azure Active Directory**. 
 3. W obszarze **Zarządzaj**wybierz pozycję **zabezpieczenia**.
 4. W obszarze **Ochrona**wybierz pozycję **dostęp warunkowy**. Wybierz pozycję **nowe zasady**.
 5. Na **nowej** stronie, w polu tekstowym **Nazwa** wprowadź nazwę zasad (na przykład "Blokuj Gościom dostęp do portalu").
@@ -82,8 +82,8 @@ Tak. Usługa Azure AD B2B obsługuje funkcje uwierzytelniania wieloskładnikoweg
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Czy jest obsługiwane resetowanie haseł dla użytkowników współpracy B2B usługi Azure AD?
 Jeśli Twoja dzierżawa usługi Azure AD jest katalogiem macierzystym dla użytkownika, możesz [zresetować hasło użytkownika](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) z Azure Portal. Ale nie można bezpośrednio zresetować hasła dla użytkownika-gościa, który loguje się przy użyciu konta, które jest zarządzane przez innego katalogu usługi Azure AD lub zewnętrzny dostawca tożsamości. Hasło może zresetować tylko użytkownik-Gość lub administrator w katalogu macierzystym użytkownika. Poniżej przedstawiono kilka przykładów działania resetowania haseł dla użytkowników-Gości:
  
-* Użytkownicy-Goście, którzy logują się za pomocą konto Microsoft guestuser@live.com(na przykład) mogą zresetować swoje hasła przy użyciu funkcji konto Microsoft samoobsługowego resetowania hasła (SSPR). Zobacz [jak zresetować hasło konto Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
-* Użytkownicy-Goście, którzy logują się za pomocą konta Google lub innego dostawcy tożsamości zewnętrznych, mogą resetować swoje hasła przy użyciu metody SSPR dostawcy tożsamości. Na przykład użytkownik-Gość z kontem guestuser@gmail.com Google może zresetować swoje hasło, postępując zgodnie z instrukcjami w temacie [zmiana lub Resetowanie hasła](https://support.google.com/accounts/answer/41078).
+* Użytkownicy-Goście, którzy logują się za pomocą konto Microsoft (na przykład guestuser@live.com ) mogą zresetować swoje hasła przy użyciu funkcji konto Microsoft samoobsługowego resetowania hasła (SSPR). Zobacz [jak zresetować hasło konto Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
+* Użytkownicy-Goście, którzy logują się za pomocą konta Google lub innego dostawcy tożsamości zewnętrznych, mogą resetować swoje hasła przy użyciu metody SSPR dostawcy tożsamości. Na przykład użytkownik-Gość z kontem Google guestuser@gmail.com może zresetować swoje hasło, postępując zgodnie z instrukcjami w temacie [zmiana lub Resetowanie hasła](https://support.google.com/accounts/answer/41078).
 * Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.
 
 * Jeśli katalog macierzysty użytkownika gościa jest dzierżawą usługi Azure AD, możesz zresetować hasło użytkownika. Można na przykład utworzyć użytkownika lub zsynchronizować użytkownika z lokalnej Active Directory i ustawić dla nich wartość UserType na gość. Ponieważ ten użytkownik znajduje się w katalogu, możesz zresetować swoje hasło z Azure Portal.

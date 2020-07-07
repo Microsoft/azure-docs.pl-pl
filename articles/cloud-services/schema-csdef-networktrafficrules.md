@@ -14,19 +14,19 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79534732"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schemat NetworkTrafficRules definicji Cloud Services platformy Azure
-`NetworkTrafficRules` Węzeł jest opcjonalnym elementem w pliku definicji usługi, który określa, jak role komunikują się ze sobą. Ogranicza role, które mogą uzyskiwać dostęp do wewnętrznych punktów końcowych określonej roli. Nie `NetworkTrafficRules` jest elementem autonomicznym; jest on połączony z co najmniej dwiema rolami w pliku definicji usługi.
+`NetworkTrafficRules`Węzeł jest opcjonalnym elementem w pliku definicji usługi, który określa, jak role komunikują się ze sobą. Ogranicza role, które mogą uzyskiwać dostęp do wewnętrznych punktów końcowych określonej roli. `NetworkTrafficRules`Nie jest elementem autonomicznym; jest on połączony z co najmniej dwiema rolami w pliku definicji usługi.
 
 Domyślnym rozszerzeniem dla pliku definicji usługi jest. csdef.
 
 > [!NOTE]
->  `NetworkTrafficRules` Węzeł jest dostępny tylko przy użyciu zestawu Azure SDK w wersji 1,3 lub nowszej.
+>  `NetworkTrafficRules`Węzeł jest dostępny tylko przy użyciu zestawu Azure SDK w wersji 1,3 lub nowszej.
 
 ## <a name="basic-service-definition-schema-for-the-network-traffic-rules"></a>Podstawowy schemat definicji usługi dla reguł ruchu sieciowego
 Poniżej przedstawiono podstawowy format pliku definicji usługi zawierającego definicje ruchu sieciowego.
@@ -48,7 +48,7 @@ Poniżej przedstawiono podstawowy format pliku definicji usługi zawierającego 
 ```
 
 ## <a name="schema-elements"></a>Elementy schematu
-`NetworkTrafficRules` Węzeł pliku definicji usługi zawiera te elementy, które opisano szczegółowo w kolejnych sekcjach w tym temacie:
+`NetworkTrafficRules`Węzeł pliku definicji usługi zawiera te elementy, które opisano szczegółowo w kolejnych sekcjach w tym temacie:
 
 [NetworkTrafficRules, element](#NetworkTrafficRules)
 
@@ -65,16 +65,16 @@ AllowAllTraffic, element
 [FromRole, element](#FromRole)
 
 ##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules, element
-`NetworkTrafficRules` Element określa, które role mogą komunikować się z punktem końcowym w innej roli. Usługa może zawierać jedną `NetworkTrafficRules` definicję.
+`NetworkTrafficRules`Element określa, które role mogą komunikować się z punktem końcowym w innej roli. Usługa może zawierać jedną `NetworkTrafficRules` definicję.
 
 ##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>OnlyAllowTrafficTo, element
-`OnlyAllowTrafficTo` Element opisuje zbiór docelowych punktów końcowych i role, które mogą się z nimi komunikować. Można określić wiele `OnlyAllowTrafficTo` węzłów.
+`OnlyAllowTrafficTo`Element opisuje zbiór docelowych punktów końcowych i role, które mogą się z nimi komunikować. Można określić wiele `OnlyAllowTrafficTo` węzłów.
 
 ##  <a name="destinations-element"></a><a name="Destinations"></a>Element Destinations
-`Destinations` Element zawiera opis kolekcji RoleEndpoints niż może być przekazywany za pomocą.
+`Destinations`Element zawiera opis kolekcji RoleEndpoints niż może być przekazywany za pomocą.
 
 ##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RoleEndpoint, element
-`RoleEndpoint` Element opisuje punkt końcowy roli, aby zezwalać na komunikację z usługą. Można określić wiele `RoleEndpoint` elementów, jeśli w danej roli istnieje więcej niż jeden punkt końcowy.
+`RoleEndpoint`Element opisuje punkt końcowy roli, aby zezwalać na komunikację z usługą. Można określić wiele `RoleEndpoint` elementów, jeśli w danej roli istnieje więcej niż jeden punkt końcowy.
 
 | Atrybut      | Typ     | Opis |
 | -------------- | -------- | ----------- |
@@ -82,17 +82,17 @@ AllowAllTraffic, element
 | `roleName`     | `string` | Wymagany. Nazwa roli sieci Web, w której ma być dozwolona komunikacja.|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic, element
-`AllowAllTraffic` Element jest regułą, która umożliwia wszystkim rolom komunikowanie się z punktami końcowymi `Destinations` zdefiniowanymi w węźle.
+`AllowAllTraffic`Element jest regułą, która umożliwia wszystkim rolom komunikowanie się z punktami końcowymi zdefiniowanymi w `Destinations` węźle.
 
 ##  <a name="whensource-element"></a><a name="WhenSource"></a>WhenSource, element
-`WhenSource` Element opisuje zbiór ról niż może komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle.
+`WhenSource`Element opisuje zbiór ról niż może komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle.
 
 | Atrybut | Typ     | Opis |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Wymagany. Określa regułę, która ma zostać zastosowana podczas zezwalania na komunikację. Jedyną prawidłową wartością jest obecnie `AnyRule`.|
+| `matches` | `string` | Wymagany. Określa regułę, która ma zostać zastosowana podczas zezwalania na komunikację. Jedyną prawidłową wartością jest obecnie `AnyRule` .|
   
 ##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole, element
-`FromRole` Element określa role, które mogą komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle. Można określić wiele `FromRole` elementów, jeśli istnieje więcej niż jedna rola, która może komunikować się z punktami końcowymi.
+`FromRole`Element określa role, które mogą komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle. Można określić wiele `FromRole` elementów, jeśli istnieje więcej niż jedna rola, która może komunikować się z punktami końcowymi.
 
 | Atrybut  | Typ     | Opis |
 | ---------- | -------- | ----------- |

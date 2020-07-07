@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154478"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0
@@ -102,7 +102,7 @@ Przy uzyskiwaniu dostępu do niezbędnych zasobów lub interfejsów API aplikacj
   - `Permission`odnosi się do akcji, którą użytkownik może wykonać w przypadku tych danych
   - `Modifier`jest używany opcjonalnie do opisywania specjalizacji innego uprawnienia
     
-    Przykład:
+    Na przykład:
   - Mail.Read — umożliwia użytkownikom odczytywanie wiadomości e-mail.
   - Mail.ReadWrite — umożliwia użytkownikom odczytywanie i pisanie wiadomości e-mail.
   - Mail.ReadWrite.All — umożliwia administratorowi lub użytkownikom dostęp do wszystkich wiadomości w organizacji.

@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące szczegółowej konfigura
 ms.topic: conceptual
 ms.date: 12/01/2019
 ms.openlocfilehash: 99ea6e96f5a8a486784cb3d633a6e031b60eaad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055697"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Przewodnik konfigurowania monitora kondycji kontenerów Azure Monitor
@@ -26,7 +26,7 @@ Ogólna kondycja konkretnego obiektu jest określana na podstawie kondycji każd
 
 ## <a name="types-of-monitors"></a>Typy monitorów
 
-|Monitorowanie | Opis | 
+|Monitor | Opis | 
 |--------|-------------|
 | Monitor jednostkowy |Monitor jednostkowy mierzy część zasobu lub aplikacji. Może to spowodować sprawdzenie licznika wydajności w celu określenia wydajności zasobu lub jego dostępności. |
 |Monitor zagregowany | Zagregowane monitory grupują wiele monitorów, aby zapewnić zagregowany stan kondycji o pojedynczej kondycji. Monitory jednostkowe są zwykle konfigurowane pod określonym monitorem agregującym. Na przykład monitor zagregowany węzła zbiera informacje o stanie użycia procesora CPU w węzłach, wykorzystaniu pamięci i stanie węzła.
@@ -54,7 +54,7 @@ Azure Monitor kontenerów zawiera kilka kluczowych scenariuszy monitorowania, kt
 
 ### <a name="unit-monitors"></a>Monitory jednostkowe
 
-|**Nazwa monitora** | Typ monitora | **Opis** | **Konstruktora** | **Wartościami** |
+|**Nazwa monitora** | Typ monitora | **Opis** | **Parametr** | **Wartość** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Użycie pamięci przez węzeł |Monitor jednostkowy |Ten monitor szacuje użycie pamięci przez węzeł co minutę przy użyciu danych raportowanych przez cadvisor. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |Użycie procesora CPU przez węzeł |Monitor jednostkowy |Ten monitor sprawdza użycie procesora CPU przez węzeł co minutę przy użyciu danych raportowanych przez cadvisor. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
@@ -69,7 +69,7 @@ Azure Monitor kontenerów zawiera kilka kluczowych scenariuszy monitorowania, kt
 |**Nazwa monitora** | **Opis** | **Algorytm** |
 |-----------------|-----------------|---------------|
 |Węzeł |Ten monitor jest zagregowany ze wszystkich monitorów węzłów. Jest on zgodny ze stanem monitora podrzędnego o najgorszym stanie kondycji:<br> Użycie procesora CPU przez węzeł<br> Użycie pamięci przez węzeł<br> Stan węzła | Najgorszy z|
-|Pula węzłów |Ten monitor zgłasza stan połączonej kondycji wszystkich węzłów w puli węzłów *nieznanej obiektu agentpool*. Jest to trójstanowy Monitor stanu, którego stan jest oparty na najgorszym stanie 80% węzłów w puli węzłów, posortowanych w kolejności malejącej ważności Stanów węzłów (to jest, krytyczne, ostrzeżenie, w dobrej kondycji).|Procentowe |
+|Pula węzłów |Ten monitor zgłasza stan połączonej kondycji wszystkich węzłów w puli węzłów *nieznanej obiektu agentpool*. Jest to trójstanowy Monitor stanu, którego stan jest oparty na najgorszym stanie 80% węzłów w puli węzłów, posortowanych w kolejności malejącej ważności Stanów węzłów (to jest, krytyczne, ostrzeżenie, w dobrej kondycji).|Procent |
 |Węzły (element nadrzędny puli węzłów) |Jest to zagregowany monitor wszystkich pul węzłów. Jego stan jest oparty na najgorszym stanie jego monitorów podrzędnych (czyli pul węzłów znajdujących się w klastrze). |Najgorszy z |
 |Klaster (element nadrzędny węzłów/<br> Infrastruktura Kubernetes) |Jest to monitor nadrzędny, który jest zgodny ze stanem monitora podrzędnego o najgorszym stanie kondycji, który jest Kubernetes infrastrukturą i węzłami. |Najgorszy z |
 |Infrastruktura Kubernetes |Ten monitor zgłasza łączny stan kondycji składników infrastruktury zarządzanej w klastrze. jego stan jest obliczany jako wartość "najgorszy" Stanów monitora podrzędnego, np. obciążeń systemu polecenia i stanu serwera interfejsu API. |Najgorszy z|

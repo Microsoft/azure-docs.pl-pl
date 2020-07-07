@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
 ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79536993"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
@@ -68,7 +68,7 @@ Zanotuj wartości `DefaultListenSharedAccessSignature` i `DefaultFullSharedAcces
 
 2. Wprowadź wartość w polu Application Name (Nazwa aplikacji) i upewnij się, że w polu Minimum Required SDK (Minimalna wymagana wersja zestawu SDK) jest ustawiona wersja API 16: Android 4.1. **Upewnij się, że nazwa pakietu (应用包名) jest taka sama jak w Portalu powiadomień wypychanych w chmurze Baidu**
 
-    ![Azure Notification Hubs — Baidu min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![Azure Notification Hubs — Baidu min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Azure Notification Hubs — Baidu min SDK1 ](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![ Azure Notification Hubs — BAIDU min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
 3. Kliknij przycisk Next (Dalej) i postępuj zgodnie z instrukcjami w kreatorze do momentu wyświetlenia okna Create Activity (Tworzenie działania). Upewnij się, że wybrano pozycję Empty Activity (Puste działanie), a następnie wybierz polecenie Finish (Zakończ), aby utworzyć nową aplikację dla systemu Android.
 

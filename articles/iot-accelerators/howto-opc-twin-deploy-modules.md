@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241057"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Wdróż moduł OPC i zależności od podstaw
@@ -113,7 +113,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
 
 1. Wdróż [zależności](howto-opc-twin-deploy-dependencies.md) OPC i uzyskać powstały `.env` plik. Zanotuj wdrożoną `hub name` `PCS_IOTHUBREACT_HUB_NAME` zmienną w `.env` pliku.
 
-2. Zarejestruj i uruchom bramę IoT Edge [systemu](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) `device id` [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) lub Windows i zanotuj jej.
+2. Zarejestruj i uruchom bramę IoT Edge [systemu](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) lub Windows i zanotuj jej `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Wdrażanie na urządzeniu brzegowym
 

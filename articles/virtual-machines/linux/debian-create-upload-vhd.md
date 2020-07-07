@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
 ms.openlocfilehash: d54f7a11d929c31fee29a788eb3a2ae2cc8f2703
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066710"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Przygotowywanie wirtualnego dysku twardego Debian dla platformy Azure
@@ -42,7 +42,7 @@ Dostępne są narzędzia do generowania wirtualnych dysków twardych Debian dla 
 ## <a name="manually-prepare-a-debian-vhd"></a>Ręczne przygotowanie wirtualnego dysku twardego Debian
 1. W Menedżerze funkcji Hyper-V wybierz maszynę wirtualną.
 2. Kliknij przycisk **Połącz** , aby otworzyć okno konsoli dla maszyny wirtualnej.
-3. Jeśli system operacyjny został zainstalowany przy użyciu obrazu ISO, należy dodać komentarz do dowolnego wiersza odnoszącego się do "`deb cdrom`" w `/etc/apt/source.list`.
+3. Jeśli system operacyjny został zainstalowany przy użyciu obrazu ISO, należy dodać komentarz do dowolnego wiersza odnoszącego się do " `deb cdrom` " w `/etc/apt/source.list` .
 
 4. Edytuj `/etc/default/grub` plik i zmodyfikuj parametr **GRUB_CMDLINE_LINUX** w następujący sposób, aby uwzględnić dodatkowe parametry jądra dla platformy Azure.
    

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79535786"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
@@ -172,7 +172,7 @@ W przypadku wypełniania nadmiaru jest nadal ważne, aby co najmniej czasowo zar
 |Scenariusze  |Uruchom ponownie tylko teraz  |Uruchom ponownie od czasu ostatniego zatrzymania |Uruchom ponownie od teraz i wypełnianie z zarchiwizowanymi zdarzeniami|
 |---------|---------|---------|---------|
 |**Pulpit nawigacyjny**   |Tworzy przerwy    |OK dla krótkiej awarii    |Użyj do długotrwałej przestoju |
-|**Generowanie alertów**   |Zadowalające |OK dla krótkiej awarii    |Niepotrzebne |
+|**Alerty**   |Zadowalające |OK dla krótkiej awarii    |Niepotrzebne |
 |**Aplikacja do pozyskiwania zdarzeń** |Zadowalające |OK dla krótkiej awarii    |Użyj do długotrwałej przestoju |
 |**Magazynowanie danych**   |Utrata danych  |Zadowalające |Niepotrzebne |
 |**Analiza w trybie offline**  |Utrata danych  |Zadowalające |Niepotrzebne|

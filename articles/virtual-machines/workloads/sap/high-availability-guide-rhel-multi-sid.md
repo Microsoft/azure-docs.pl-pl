@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4f1bfd58e27f0cd677980ff9351d32d91a68e3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80247439"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux for SAP — Przewodnik dotyczący wiele identyfikatorów SID
@@ -128,17 +128,17 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW3:10.3.1.54
 
 * Porty sondy
-  * Port 620<strong>&lt;nr&gt;</strong>, dlatego dla portów sondy NW1, NW2 i NW3 620**00**, 620**10** i 620**20**
+  * Port 620<strong> &lt; Nr &gt; </strong>, dlatego dla portów sondy NW1, NW2 i NW3 620**00**, 620**10** i 620**20**
 * Reguły równoważenia obciążenia — Utwórz jedną dla każdego wystąpienia, czyli NW1/ASCS, NW2/ASCS i NW3/ASCS.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
   * W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; Nr &gt; </strong> TCP
+    * 36<strong> &lt; Nr &gt; </strong> TCP
+    * 39<strong> &lt; Nr &gt; </strong> TCP
+    * 81<strong> &lt; Nr &gt; </strong> TCP
+    * 5<strong> &lt; Nr &gt; </strong>13 TCP
+    * 5<strong> &lt; Nr &gt; </strong>14 TCP
+    * 5<strong> &lt; Nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>Wykres WYWOŁUJĄCYCH
 
@@ -148,15 +148,15 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW3 10.3.1.55
 
 * Port sondy
-  * Port 621<strong>&lt;nr&gt;</strong>, dlatego dla portów sondy NW1, NW2 i N3 621**02**, 621**12** i 621**22**
+  * Port 621<strong> &lt; Nr &gt; </strong>, dlatego dla portów sondy NW1, NW2 i N3 621**02**, 621**12** i 621**22**
 * Reguły równoważenia obciążenia — Utwórz jedną dla każdego wystąpienia, czyli NW1/wykres WYWOŁUJĄCYCH, NW2/wykres WYWOŁUJĄCYCH i NW3/wykres WYWOŁUJĄCYCH.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
   * W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; Nr &gt; </strong> TCP
+    * 33<strong> &lt; Nr &gt; </strong> TCP
+    * 5<strong> &lt; Nr &gt; </strong>13 TCP
+    * 5<strong> &lt; Nr &gt; </strong>14 TCP
+    * 5<strong> &lt; Nr &gt; </strong>16 TCP
 
 * Konfiguracja zaplecza
   * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH
@@ -206,7 +206,7 @@ W tej dokumentacji przyjęto założenie, że:
 
 1. Dodaj konfigurację nowo wdrożonego systemu (czyli **NW2**, **NW3**) do istniejącego Azure Load Balancer, postępując zgodnie z instrukcjami [Wdróż Azure Load Balancer ręcznie za pośrednictwem Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files#deploy-linux-manually-via-azure-portal). Dostosuj adresy IP, porty sondowania kondycji, reguły równoważenia obciążenia dla konfiguracji.  
 
-2. **[A]** rozpoznawanie nazw Instalatora dla dodatkowych systemów SAP. Możesz użyć serwera DNS lub zmodyfikować `/etc/hosts` wszystkie węzły. Ten przykład pokazuje, `/etc/hosts` jak używać pliku.  Dostosuj adresy IP i nazwy hostów do środowiska. 
+2. **[A]** rozpoznawanie nazw Instalatora dla dodatkowych systemów SAP. Możesz użyć serwera DNS lub zmodyfikować `/etc/hosts` wszystkie węzły. Ten przykład pokazuje, jak używać `/etc/hosts` pliku.  Dostosuj adresy IP i nazwy hostów do środowiska. 
 
     ```
     sudo vi /etc/hosts
@@ -326,7 +326,7 @@ W tej dokumentacji przyjęto założenie, że:
 
    Upewnij się, że stan klastra to OK i że wszystkie zasoby są uruchomione.  
 
-   Następnie upewnij się, że zasoby nowo utworzonej grupy wykres WYWOŁUJĄCYCH są uruchomione w węźle klastra, w przeciwieństwie do węzła klastra, w którym zainstalowano wystąpienie ASCS dla tego samego systemu SAP.  Na przykład jeśli zainstalowano NW2 ASCS `rhelmsscl1`, upewnij się, że grupa NW2 wykres wywołujących jest uruchomiona. `rhelmsscl2`  Można migrować grupę NW2 wykres WYWOŁUJĄCYCH do `rhelmsscl2` programu, uruchamiając następujące polecenie dla jednego z zasobów klastra w grupie: 
+   Następnie upewnij się, że zasoby nowo utworzonej grupy wykres WYWOŁUJĄCYCH są uruchomione w węźle klastra, w przeciwieństwie do węzła klastra, w którym zainstalowano wystąpienie ASCS dla tego samego systemu SAP.  Na przykład jeśli zainstalowano NW2 ASCS `rhelmsscl1` , upewnij się, że grupa NW2 wykres wywołujących jest uruchomiona `rhelmsscl2` .  Można migrować grupę NW2 wykres WYWOŁUJĄCYCH do programu `rhelmsscl2` , uruchamiając następujące polecenie dla jednego z zasobów klastra w grupie: 
 
     ```
       pcs resource move fs_NW2_AERS rhelmsscl2
@@ -612,7 +612,7 @@ Ukończ instalację oprogramowania SAP, wykonując następujące czynności:
 Poniższe testy są podzbiorem przypadków testowych w przewodnikach z najlepszymi rozwiązaniami firmy Red Hat. Są one dostępne dla wygody użytkownika. Aby zapoznać się z pełną listą testów klastra, zanotuj następujące informacje:
 
 * W przypadku korzystania z Azure NetApp Files woluminów NFS postępuj zgodnie [z wysoką dostępnością maszyn wirtualnych platformy Azure dla oprogramowania SAP NetWeaver na RHEL z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* Jeśli używasz wysokiej dostępności `GlusterFS`, postępuj zgodnie z [wysoką dostępnością maszyn wirtualnych platformy Azure dla oprogramowania SAP NetWeaver na RHEL dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).  
+* Jeśli używasz wysokiej `GlusterFS` dostępności, postępuj zgodnie z [wysoką dostępnością maszyn wirtualnych platformy Azure dla oprogramowania SAP NETWEAVER na RHEL dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).  
 
 Zawsze Odczytuj przewodniki dotyczące najlepszych rozwiązań w zakresie rozwiązań Red Hat i wykonaj wszystkie dodatkowe testy, które mogły zostać dodane.  
 Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele identyfikatorów SID z zainstalowanymi trzema systemami SAP.  
@@ -752,7 +752,7 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
    ```
 
-   Uruchom następujące polecenie jako element główny w węźle, w którym jest uruchomione co najmniej jedno wystąpienie ASCS. W tym przykładzie wykonamy polecenie w lokalizacji, `rhelmsscl1`w której są uruchomione wystąpienia ASCS dla NW1, NW2 i NW3.  
+   Uruchom następujące polecenie jako element główny w węźle, w którym jest uruchomione co najmniej jedno wystąpienie ASCS. W tym przykładzie wykonamy polecenie w `rhelmsscl1` lokalizacji, w której są uruchomione wystąpienia ASCS dla NW1, NW2 i NW3.  
 
    ```
    echo c > /proc/sysrq-trigger
@@ -796,7 +796,7 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
         rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl1
    ```
 
-   Jeśli istnieją komunikaty dotyczące niezakończonych zasobów, wyczyść stan zasobów zakończonych niepowodzeniem. Przykład:
+   Jeśli istnieją komunikaty dotyczące niezakończonych zasobów, wyczyść stan zasobów zakończonych niepowodzeniem. Na przykład:
 
    ```
    pcs resource cleanup rsc_sap_NW1_ERS02

@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055685"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Rozwiązanie Network Performance Monitor: monitorowanie wydajności
@@ -94,7 +94,7 @@ Przed wybraniem protokołu należy wziąć pod uwagę następujące informacje:
 
 Jeśli podczas wdrażania wybrano opcję użycia protokołu ICMP, można w dowolnym momencie przełączyć się do protokołu TCP, edytując domyślną regułę monitorowania.
 
-1. Przejdź kolejno do pozycji **monitor** > **wydajności** >sieci **Konfiguracja** > **monitora**. Następnie wybierz pozycję **domyślna reguła**. 
+1. Przejdź kolejno do pozycji Monitor **wydajności sieci**   >  **Monitor**   >  **Konfiguracja**   >  **monitora**. Następnie wybierz pozycję **domyślna reguła**. 
 2. Przewiń do sekcji **Protokół** i wybierz protokół, który ma być używany. 
 3. Wybierz pozycję **Zapisz** , aby zastosować ustawienie. 
 

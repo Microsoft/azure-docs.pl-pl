@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154801"
 ---
 # <a name="native-apps"></a>Aplikacje natywne
@@ -48,7 +48,7 @@ W przypadku korzystania z bibliotek uwierzytelniania usługi AD większość szc
 
 Zapoznaj się z przykładami kodu dotyczącymi scenariuszy interfejsów API sieci Web aplikacji natywnych. I często sprawdzaj, czy nowe przykłady są często dodawane. [Natywna aplikacja do interfejsu API sieci Web](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 Aby zarejestrować aplikację w punkcie końcowym usługi Azure AD v 1.0, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

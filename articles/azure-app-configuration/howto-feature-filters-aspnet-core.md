@@ -8,10 +8,10 @@ ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80057000"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
@@ -20,7 +20,7 @@ Flagi funkcji umożliwiają aktywowanie lub dezaktywowanie funkcji w aplikacji. 
 
 W przeciwieństwie _Flaga funkcji warunkowej_ pozwala na dynamiczne Włączanie lub wyłączanie flagi funkcji. Aplikacja może zachowywać się inaczej, w zależności od kryteriów flagi funkcji. Załóżmy, że chcesz najpierw pokazać swoją nową funkcję w małym podzbiorze użytkowników. Flaga funkcji warunkowej umożliwia włączenie flagi funkcji dla niektórych użytkowników podczas jej wyłączania dla innych osób. _Filtry funkcji_ określają stan flagi funkcji zawsze wtedy, gdy jest ona szacowana.
 
-`Microsoft.FeatureManagement` Biblioteka zawiera dwa filtry funkcji:
+`Microsoft.FeatureManagement`Biblioteka zawiera dwa filtry funkcji:
 
 - `PercentageFilter`Włącza flagę funkcji na podstawie wartości procentowej.
 - `TimeWindowFilter`Włącza flagę funkcji w określonym przedziale czasu.
@@ -29,7 +29,7 @@ Możesz również utworzyć własny filtr funkcji, który implementuje [interfej
 
 ## <a name="registering-a-feature-filter"></a>Rejestrowanie filtru funkcji
 
-Filtr funkcji można zarejestrować, wywołując `AddFeatureFilter` metodę, określając nazwę filtru funkcji. Na przykład następujące rejestry `PercentageFilter`kodu:
+Filtr funkcji można zarejestrować `AddFeatureFilter` , wywołując metodę, określając nazwę filtru funkcji. Na przykład następujące rejestry kodu `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Niektóre filtry funkcji mają dodatkowe ustawienia. Na przykład `PercentageFilter` uaktywnia funkcję na podstawie wartości procentowej. Ma ustawienie definiujące wartość procentową do użycia.
 
-Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze Konfiguracja aplikacji platformy Azure. Na przykład wykonaj następujące kroki `PercentageFilter` , aby włączyć flagę funkcji dla 50% żądań do aplikacji sieci Web:
+Te ustawienia można skonfigurować dla flag funkcji zdefiniowanych w obszarze Konfiguracja aplikacji platformy Azure. Na przykład wykonaj następujące kroki, aby `PercentageFilter` włączyć flagę funkcji dla 50% żądań do aplikacji sieci Web:
 
 1. Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Dodawanie flag funkcji do aplikacji ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) , aby utworzyć aplikację sieci Web przy użyciu flagi funkcji.
 

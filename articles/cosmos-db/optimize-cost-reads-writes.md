@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 725876594a7e7c5f3b3a02802f487dc5fdfb64dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79535939"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optymalizuj operacje odczytu i zapisu w Azure Cosmos DB
@@ -34,7 +34,7 @@ Odczytywanie elementu o rozmiarze 1 KB jest kosztem jednego RU. Pisanie elementu
 
 Podczas wykonywania operacji zapisu należy zapewnić wystarczającą pojemność, aby obsługiwać liczbę operacji zapisu na sekundę. Można zwiększyć przepływność przy użyciu zestawu SDK, portalu, interfejsu wiersza polecenia przed wykonaniem operacji zapisu, a następnie zmniejszyć przepływność po zakończeniu zapisywania. Przepustowość dla okresu zapisu to minimalna przepływność wymagana dla danych oraz przepływność wymagana do wstawiania obciążeń przy założeniu, że żadne inne obciążenia nie są uruchomione. 
 
-Jeśli używasz innych obciążeń współbieżnie, na przykład zapytania/odczytu/aktualizacji/usuwania, należy dodać dodatkowe jednostki żądania wymagane dla tych operacji. Jeśli operacje zapisu są ograniczone proporcjonalnie, można dostosować zasady ponawiania/wycofywania przy użyciu zestawów SDK Azure Cosmos DB. Na przykład można zwiększyć obciążenie do momentu, aż mała częstotliwość żądań uzyska wartość rate-Limited. W przypadku wystąpienia limitu współczynnika aplikacja kliencka powinna wycofać się z żądań ograniczenia szybkości dla określonego interwału ponowień. Przed ponowną próbą zapisu należy mieć minimalny odstęp czasu między ponownymi próbami. Obsługa zasad ponownych prób jest uwzględniana w zestawach SDK programu SQL .NET, Java, Node. js i Python oraz we wszystkich obsługiwanych wersjach zestawów SDK platformy .NET Core. 
+Jeśli używasz innych obciążeń współbieżnie, na przykład zapytania/odczytu/aktualizacji/usuwania, należy dodać dodatkowe jednostki żądania wymagane dla tych operacji. Jeśli operacje zapisu są ograniczone proporcjonalnie, można dostosować zasady ponawiania/wycofywania przy użyciu zestawów SDK Azure Cosmos DB. Na przykład można zwiększyć obciążenie do momentu, aż mała częstotliwość żądań uzyska wartość rate-Limited. W przypadku wystąpienia limitu współczynnika aplikacja kliencka powinna wycofać się z żądań ograniczenia szybkości dla określonego interwału ponowień. Przed ponowną próbą zapisu należy mieć minimalny odstęp czasu między ponownymi próbami. Obsługa zasad ponawiania jest uwzględniana w zestawach SDK programu SQL .NET, Java, Node.js i Python oraz we wszystkich obsługiwanych wersjach zestawów SDK platformy .NET Core. 
 
 Można również zbiorczo wstawiać dane do Azure Cosmos DB lub kopiować dane ze wszystkich obsługiwanych źródłowych magazynów danych do Azure Cosmos DB przy użyciu [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Azure Data Factory natywnie integruje się z Azure Cosmos DB zbiorczej interfejsu API w celu zapewnienia najlepszej wydajności podczas zapisywania danych.
 

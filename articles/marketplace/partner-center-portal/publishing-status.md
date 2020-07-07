@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80275683"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Sprawdź stan publikowania oferty komercyjnej witryny Marketplace
@@ -25,7 +25,7 @@ Dla każdej oferty należy wyświetlić jeden z następujących wskaźników sta
 | **Wersja robocza** | Oferta została utworzona, ale nie jest publikowana. |
 | **Publikowanie w toku** | Oferta/plan działa w sposób w ramach kroków procesu publikowania. |
 | **Wymagana Uwaga** | Wykryto problem krytyczny podczas certyfikacji przez firmę Microsoft lub dowolny z kroków publikacji. |
-| **Przeglądania** | Oferta została certyfikowana przez firmę Microsoft i teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz pozycję Przejdź na żywo, aby utworzyć ofertę na żywo. |
+| **Wersja zapoznawcza** | Oferta została certyfikowana przez firmę Microsoft i teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz pozycję Przejdź na żywo, aby utworzyć ofertę na żywo. |
 | **Na żywo** | Oferta jest aktywna w portalu Marketplace i może być widoczna i nabywana przez klientów. |
 | **Oczekiwanie na zaprzestanie sprzedawania** | Wydawca zaznaczył opcję "Zatrzymaj sprzedaż" w ofercie lub planie, ale akcja nie została jeszcze ukończona. |
 | **Niedostępne w portalu Marketplace** | Wcześniej opublikowana oferta/plan w portalu Marketplace został usunięty. |

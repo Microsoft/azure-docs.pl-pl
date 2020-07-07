@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80056835"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integracja z usługą tożsamości zarządzanych platformy Azure
@@ -60,7 +60,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 
 1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **wszystkie zasoby** i wybierz magazyn konfiguracji aplikacji utworzony w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Kontrola dostępu (IAM)**.
+1. Wybierz pozycję **Kontrola dostępu (IAM)** .
 
 1. Na karcie **sprawdzanie dostępu** wybierz pozycję **Dodaj** w interfejsie użytkownika karty **Dodaj rolę** .
 
@@ -84,7 +84,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 
 1. Znajdź punkt końcowy w magazynie konfiguracji aplikacji. Ten adres URL jest wyświetlany na karcie **klucze dostępu** dla sklepu w Azure Portal.
 
-1. Otwórz plik *appSettings. JSON*i Dodaj następujący skrypt. Zastąp * \<service_endpoint>*, w tym nawiasów, adresem URL Twojego magazynu konfiguracji aplikacji. 
+1. Otwórz *appsettings.jsna*i Dodaj następujący skrypt. Zamień *\<service_endpoint>* , łącznie z nawiasami, adres URL magazynu konfiguracji aplikacji. 
 
     ```json
     "AppConfig": {
@@ -92,7 +92,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
     }
     ```
 
-1. Otwórz *program.cs*i Dodaj odwołanie do przestrzeni nazw `Azure.Identity` i: `Microsoft.Azure.Services.AppAuthentication`
+1. Otwórz *program.cs*i Dodaj odwołanie do `Azure.Identity` `Microsoft.Azure.Services.AppAuthentication` przestrzeni nazw i:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -101,7 +101,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 1. Jeśli chcesz uzyskać dostęp tylko do wartości przechowywanych bezpośrednio w konfiguracji aplikacji, zaktualizuj `CreateWebHostBuilder` metodę, zastępując `config.AddAzureAppConfiguration()` metodę.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .net Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -202,7 +202,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Aby włączyć lokalne wdrożenie narzędzia Git dla aplikacji przy użyciu serwera kompilacji kudu, uruchom [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) polecenie w Cloud Shell.
+Aby włączyć lokalne wdrożenie narzędzia Git dla aplikacji przy użyciu serwera kompilacji kudu, uruchom polecenie [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) w Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -218,7 +218,7 @@ To polecenie daje coś podobnego do następującego:
 
 ### <a name="deploy-your-project"></a>Wdrażanie projektu
 
-W _oknie terminalu lokalnego_Dodaj zdalne Azure do lokalnego repozytorium git. Zastąp _ \<adres URL>_ adresem URL zdalnego systemu Git, który pochodzi z [włączenia lokalnego narzędzia Git z kudu](#enable-local-git-with-kudu).
+W _oknie terminalu lokalnego_Dodaj zdalne Azure do lokalnego repozytorium git. Zastąp ciąg _\<url>_ adresem URL zdalnego systemu Git, który pochodzi z [włączenia lokalnego narzędzia Git przy użyciu usługi kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -230,7 +230,7 @@ Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji za pomocą nast
 git push azure master
 ```
 
-W danych wyjściowych można zobaczyć automatyzację specyficzną dla środowiska uruchomieniowego, na przykład `npm install` MSBuild for ASP.NET, dla środowiska `pip install` Node. js i języka Python.
+W danych wyjściowych można zobaczyć automatyzację specyficzną dla środowiska uruchomieniowego, na przykład MSBuild for ASP.NET, `npm install` dla Node.js i `pip install` dla języka Python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Przechodzenie do aplikacji internetowej platformy Azure
 
@@ -244,7 +244,7 @@ http://<app_name>.azurewebsites.net
 
 Dostawcy usługi App Configuration dla programu .NET Framework i Java Spring również mają wbudowaną obsługę tożsamości zarządzanej. Po skonfigurowaniu jednego z tych dostawców można użyć punktu końcowego adresu URL sklepu zamiast jego pełnych parametrów połączenia. 
 
-Można na przykład zaktualizować aplikację konsolową .NET Framework utworzoną w przewodniku Szybki Start, aby określić następujące ustawienia w pliku *App. config* :
+Można na przykład zaktualizować aplikację konsolową .NET Framework utworzoną w przewodniku Szybki Start, aby określić następujące ustawienia w pliku *App.config* :
 
 ```xml
     <configSections>
@@ -264,7 +264,7 @@ Można na przykład zaktualizować aplikację konsolową .NET Framework utworzon
     </appSettings>
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

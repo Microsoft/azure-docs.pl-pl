@@ -8,10 +8,10 @@ ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80257414"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
@@ -25,7 +25,7 @@ Obsługa wielu witryn umożliwia skonfigurowanie więcej niż jednej aplikacji s
 
 Żądania dotyczące adresu `http://contoso.com` są kierowane do puli ContosoServerPool, a żądania dotyczące adresu `http://fabrikam.com` — do puli FabrikamServerPool.
 
-Analogicznie, można hostować wiele poddomen w tej samej domenie nadrzędnej w ramach tego samego wdrożenia bramy aplikacji. Można na przykład hostować i `http://blog.contoso.com` `http://app.contoso.com` obsługiwać pojedyncze wdrożenie bramy aplikacji.
+Analogicznie, można hostować wiele poddomen w tej samej domenie nadrzędnej w ramach tego samego wdrożenia bramy aplikacji. Można na przykład hostować `http://blog.contoso.com` i obsługiwać `http://app.contoso.com` pojedyncze wdrożenie bramy aplikacji.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 

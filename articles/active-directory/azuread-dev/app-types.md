@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154954"
 ---
 # <a name="application-types-in-v10"></a>Typy aplikacji w wersji 1.0
@@ -47,7 +47,7 @@ Można opracowywać dowolne aplikacje i scenariusze opisane w tym miejscu przy u
 
 Ponadto, jeśli aplikacja wymaga określonego fragmentu lub segmentu kompleksowego scenariusza, w większości przypadków można dodać funkcje niezależnie. Na przykład jeśli masz natywną aplikację, która wywołuje interfejs API sieci Web, możesz łatwo dodać aplikację sieci Web, która również wywołuje internetowy interfejs API.
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Rejestrowanie aplikacji korzystającej z punktu końcowego usługi Azure AD v 1.0
 
@@ -72,7 +72,7 @@ Inicjowanie obsługi stanie się wyraźniejsze, gdy zrozumiesz, że istnieją dw
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Dodatkowe zagadnienia dotyczące tworzenia aplikacji z pojedynczym dzierżawcą lub wieloma dzierżawcami
 
-Podczas tworzenia aplikacji wielodostępnej zamiast pojedynczej aplikacji dzierżawy powstają pewne dodatkowe zagadnienia. Na przykład jeśli udostępnisz aplikację użytkownikom w wielu katalogach, potrzebujesz mechanizmu, aby określić dzierżawcę, w którym się znajdują. Aplikacja pojedynczej dzierżawy musi tylko sprawdzić w swoim własnym katalogu dla użytkownika, podczas gdy aplikacja wielodostępna musi identyfikować określonego użytkownika ze wszystkich katalogów w usłudze Azure AD. Aby wykonać to zadanie, usługa Azure AD udostępnia wspólny punkt końcowy uwierzytelniania, w którym dowolna aplikacja wielodostępna może kierować żądania logowania, zamiast punktu końcowego określonego dla dzierżawy. Ten punkt końcowy `https://login.microsoftonline.com/common` jest przeznaczony dla wszystkich katalogów w usłudze Azure AD, podczas gdy może to być `https://login.microsoftonline.com/contoso.onmicrosoft.com`punkt końcowy specyficzny dla dzierżawy. Typowy punkt końcowy jest szczególnie istotny do uwzględnienia podczas tworzenia aplikacji, ponieważ będzie potrzebna logika niezbędna do obsługi wielu dzierżawców podczas logowania, wylogowywania i weryfikacji tokenu.
+Podczas tworzenia aplikacji wielodostępnej zamiast pojedynczej aplikacji dzierżawy powstają pewne dodatkowe zagadnienia. Na przykład jeśli udostępnisz aplikację użytkownikom w wielu katalogach, potrzebujesz mechanizmu, aby określić dzierżawcę, w którym się znajdują. Aplikacja pojedynczej dzierżawy musi tylko sprawdzić w swoim własnym katalogu dla użytkownika, podczas gdy aplikacja wielodostępna musi identyfikować określonego użytkownika ze wszystkich katalogów w usłudze Azure AD. Aby wykonać to zadanie, usługa Azure AD udostępnia wspólny punkt końcowy uwierzytelniania, w którym dowolna aplikacja wielodostępna może kierować żądania logowania, zamiast punktu końcowego określonego dla dzierżawy. Ten punkt końcowy jest `https://login.microsoftonline.com/common` przeznaczony dla wszystkich katalogów w usłudze Azure AD, podczas gdy może to być punkt końcowy specyficzny dla dzierżawy `https://login.microsoftonline.com/contoso.onmicrosoft.com` . Typowy punkt końcowy jest szczególnie istotny do uwzględnienia podczas tworzenia aplikacji, ponieważ będzie potrzebna logika niezbędna do obsługi wielu dzierżawców podczas logowania, wylogowywania i weryfikacji tokenu.
 
 Jeśli obecnie tworzysz aplikację z jedną dzierżawą, ale chcesz ją udostępnić dla wielu organizacji, możesz łatwo wprowadzić zmiany w aplikacji i jej konfiguracji w usłudze Azure AD, aby umożliwić obsługę wielu dzierżawców. Ponadto usługa Azure AD używa tego samego klucza podpisywania dla wszystkich tokenów we wszystkich katalogach, niezależnie od tego, czy jest to uwierzytelnianie w ramach jednej dzierżawy czy aplikacji wielodostępnych.
 

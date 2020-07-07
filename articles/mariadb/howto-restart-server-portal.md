@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ed95304807a1a03880cc824c1a58f010203d418d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79534715"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Uruchom ponownie serwer Azure Database for MariaDB przy użyciu Azure Portal

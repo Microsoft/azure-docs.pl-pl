@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127887"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Dostosowywanie modelu osoby za pomocą interfejsu API Video Indexer
@@ -75,7 +75,7 @@ Odpowiedź zawiera listę wszystkich modeli osób w Twoim koncie (w tym domyśln
 ]
 ```
 
-Można wybrać model, który ma być używany do wideo, przy `id` użyciu wartości modelu osoby dla `personModelId` parametru podczas [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub ponownego [indeksowania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Można wybrać model, który ma być używany do wideo, przy użyciu `id` wartości modelu osoby dla `personModelId` parametru podczas [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) lub ponownego [indeksowania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
 ## <a name="update-a-face"></a>Aktualizowanie kroju
 
@@ -87,7 +87,7 @@ Możesz zaktualizować miarę, która Video Indexer rozpoznawana jako osobistoś
 
 Aby zaktualizować tę funkcję, użyj aktualizacji interfejsu API [rozpoznawania wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) .
 
-Nazwy są unikatowe dla modeli osób, dlatego w przypadku udostępnienia dwóch różnych twarzy w tym samym modelu osoby te `name` same wartości parametrów Video Indexer wyświetlenia twarzy jako ta sama osoba i nastąpi ich zbieżność po ponownym przeprowadzeniu indeksowania wideo.
+Nazwy są unikatowe dla modeli osób, dlatego w przypadku udostępnienia dwóch różnych twarzy w tym samym modelu osoby te same `name` wartości parametrów Video Indexer wyświetlenia twarzy jako ta sama osoba i nastąpi ich zbieżność po ponownym przeprowadzeniu indeksowania wideo.
 
 ## <a name="next-steps"></a>Następne kroki
 

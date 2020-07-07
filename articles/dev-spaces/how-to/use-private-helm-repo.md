@@ -9,10 +9,10 @@ description: Używaj prywatnego repozytorium Helm w obszarze dev platformy Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery, Helm
 manager: gwallace
 ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80240468"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Korzystanie z prywatnego repozytorium Helm w Azure Dev Spaces
@@ -30,14 +30,14 @@ helm repo update
 
 ## <a name="add-the-chart-to-your-application"></a>Dodawanie wykresu do aplikacji
 
-Przejdź do katalogu projektu i uruchom `azds prep`.
+Przejdź do katalogu projektu i uruchom `azds prep` .
 
 ```cmd
 azds prep --enable-ingress
 ```
 
 > [!TIP]
-> `prep` Polecenie próbuje wygenerować [Wykres pliku dockerfile i Helm](../how-dev-spaces-works-prep.md#prepare-your-code) dla projektu. Azure Dev Spaces używa tych plików do kompilowania i uruchamiania kodu, ale te pliki można modyfikować, jeśli chcesz zmienić sposób kompilowania i wykonywania projektu.
+> `prep`Polecenie próbuje wygenerować [Wykres pliku dockerfile i Helm](../how-dev-spaces-works-prep.md#prepare-your-code) dla projektu. Azure Dev Spaces używa tych plików do kompilowania i uruchamiania kodu, ale te pliki można modyfikować, jeśli chcesz zmienić sposób kompilowania i wykonywania projektu.
 
 Utwórz plik [Requirements. YAML][helm-requirements] z wykresem w katalogu wykresów aplikacji. Na przykład jeśli aplikacja ma nazwę *APP1*, utworzysz *wykresy/APP1/Requirements. YAML*.
 
@@ -60,7 +60,7 @@ Wykres z prywatnego repozytorium Helm został pobrany i dodany do projektu. Usu�
 
 ## <a name="run-your-application"></a>Uruchamianie aplikacji
 
-Przejdź do katalogu głównego projektu i uruchom `azds up` , aby sprawdzić, czy aplikacja została pomyślnie uruchomiona w obszarze dev.
+Przejdź do katalogu głównego projektu i Uruchom, `azds up` Aby sprawdzić, czy aplikacja została pomyślnie uruchomiona w obszarze dev.
 
 ```cmd
 $ azds up

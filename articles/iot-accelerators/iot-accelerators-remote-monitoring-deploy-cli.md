@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80258298"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Wdróż Akcelerator rozwiązania do monitorowania zdalnego przy użyciu interfejsu wiersza polecenia
@@ -25,7 +25,7 @@ Do wdrożenia akceleratora rozwiązania do monitorowania zdalnego potrzebna jest
 
 Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Aby uruchomić interfejs wiersza polecenia, na komputerze lokalnym musi być zainstalowany program [Node. js](https://nodejs.org/) .
+Aby uruchomić interfejs wiersza polecenia, musisz [Node.js](https://nodejs.org/) zainstalowany na komputerze lokalnym.
 
 ## <a name="install-the-cli"></a>Instalowanie interfejsu wiersza polecenia
 
@@ -72,16 +72,16 @@ Podstawowe wdrożenie powoduje utworzenie następujących usług w ramach subskr
 |-------|--------------------------------|--------------|----------|
 | 1     | [Maszyna wirtualna z systemem Linux](https://azure.microsoft.com/services/virtual-machines/) | Standardowa D1 v2  | Obsługa mikrousług |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 — warstwa standardowa | Zarządzanie urządzeniami i komunikacja |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standardowa        | Przechowywanie danych konfiguracji, zasad, alertów i innych chłodnych magazynów |  
-| 1     | [Konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standardowa        | Magazynowanie maszyn wirtualnych i punktów kontrolnych przesyłania strumieniowego |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standardowa (Standard)        | Przechowywanie danych konfiguracji, zasad, alertów i innych chłodnych magazynów |  
+| 1     | [Konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standardowa (Standard)        | Magazynowanie maszyn wirtualnych i punktów kontrolnych przesyłania strumieniowego |
 | 1     | [Aplikacja sieci Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting aplikacji sieci Web frontonu |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Zarządzanie tożsamościami i zabezpieczeniami użytkowników |
-| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standardowa                | Wyświetlanie lokalizacji zasobów |
-| 1     | [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 jednostki              | Włączanie analizy w czasie rzeczywistym |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standardowa (Standard)                | Wyświetlanie lokalizacji zasobów |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 jednostki              | Włączanie analizy w czasie rzeczywistym |
 | 1     | [Usługa Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inicjowanie obsługi administracyjnej urządzeń |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 — 1 jednostka              | Magazyn dla danych komunikatów i umożliwia analizę szczegółowe telemetrii |
 
-### <a name="standard"></a>Standardowa
+### <a name="standard"></a>Standardowa (Standard)
 
 Wdrożenie standardowe można wykonać tylko przy użyciu interfejsu wiersza polecenia.
 
@@ -93,17 +93,17 @@ Wdrożenie standardowe tworzy następujące usługi w ramach subskrypcji platfor
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Użyj w pełni zarządzanej usługi aranżacji kontenerów Kubernetes — domyślnie to 3 agenci|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 — warstwa standardowa | Zarządzanie urządzeniami, polecenie i kontrola |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standardowa        | Przechowywanie danych konfiguracyjnych, jak reguł, alertów i komunikatów telemetrycznych urządzeń |
-| 5     | [Konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standardowa        | 4 dla magazynu maszyn wirtualnych i 1 dla punktów kontrolnych przesyłania strumieniowego |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standardowa (Standard)        | Przechowywanie danych konfiguracyjnych, jak reguł, alertów i komunikatów telemetrycznych urządzeń |
+| 5     | [Konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standardowa (Standard)        | 4 dla magazynu maszyn wirtualnych i 1 dla punktów kontrolnych przesyłania strumieniowego |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | Standardowa S1     | Brama aplikacji przez protokół TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Zarządzanie tożsamościami i zabezpieczeniami użytkowników |
-| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standardowa                | Wyświetlanie lokalizacji zasobów |
-| 1     | [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 jednostki              | Włączanie analizy w czasie rzeczywistym |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standardowa (Standard)                | Wyświetlanie lokalizacji zasobów |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 jednostki              | Włączanie analizy w czasie rzeczywistym |
 | 1     | [Usługa Azure Device Provisioning](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inicjowanie obsługi administracyjnej urządzeń |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 — 1 jednostka              | Magazyn dla danych komunikatów i umożliwia analizę szczegółowe telemetrii |
 
 > [!NOTE]
-> Informacje o cenach dla tych usług można znaleźć pod [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing)adresem. Szczegóły dotyczące użycia i rozliczeń dla subskrypcji można znaleźć w [witrynie Azure Portal](https://portal.azure.com/).
+> Informacje o cenach dla tych usług można znaleźć pod adresem [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing) . Szczegóły dotyczące użycia i rozliczeń dla subskrypcji można znaleźć w [witrynie Azure Portal](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Wdrażanie akceleratora rozwiązań
 
@@ -134,7 +134,7 @@ Po uruchomieniu `pcs` polecenia w celu wdrożenia rozwiązania zostanie wyświet
 - Lokalizacja.
 - Poświadczenia dla maszyn wirtualnych, które obsługują mikrousługi. Przy użyciu tych poświadczeń można uzyskać dostęp do maszyn wirtualnych w celu rozwiązywania problemów.
 
-Po zakończeniu `pcs` wykonywania polecenia zostanie wyświetlony adres URL nowego akceleratora rozwiązania. `pcs` Polecenie tworzy również plik `{deployment-name}-output.json` , który zawiera informacje, takie jak nazwa utworzonego IoT Hub.
+Po `pcs` zakończeniu wykonywania polecenia zostanie wyświetlony adres URL nowego akceleratora rozwiązania. `pcs`Polecenie tworzy również plik `{deployment-name}-output.json` , który zawiera informacje, takie jak nazwa utworzonego IoT Hub.
 
 Aby uzyskać więcej informacji na temat parametrów wiersza polecenia, uruchom polecenie:
 

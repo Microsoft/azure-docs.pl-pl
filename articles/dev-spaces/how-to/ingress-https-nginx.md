@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niestandardowego kontrolera NGINXal i skonfigurować protokół HTTPS za pomocą tego kontrolera
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.openlocfilehash: 0fe9fec263b72ac06839b58fdc5b0142a724718c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80155451"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera NGINX Ingres i Konfigurowanie protokołu HTTPS
@@ -47,7 +47,7 @@ Dodaj [oficjalne, stabilne repozytorium Helm][helm-stable-repo], w którym znajd
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Utwórz przestrzeń nazw Kubernetes dla kontrolera NGINX transferu danych przychodzących i zainstaluj ją za pomocą `helm`polecenia.
+Utwórz przestrzeń nazw Kubernetes dla kontrolera NGINX transferu danych przychodzących i zainstaluj ją za pomocą polecenia `helm` .
 
 ```console
 kubectl create ns nginx
@@ -55,7 +55,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera transferu danych przychodzących. Jeśli zamiast tego chcesz użyć prywatnego punktu końcowego dla kontrolera transferu danych przychodzących, Dodaj *element--set Controller. Service. Annotations. Service\\. beta\\. Kubernetes\\. IO/Azure-load-module-Internal "= true"* do polecenia *instalacji Helm* . Przykład:
+> Powyższy przykład tworzy publiczny punkt końcowy dla kontrolera transferu danych przychodzących. Jeśli zamiast tego chcesz użyć prywatnego punktu końcowego dla kontrolera transferu danych przychodzących, Dodaj *element--set Controller. Service. Annotations. Service \\ . beta \\ . Kubernetes \\ . IO/Azure-load-module-Internal "= true"* do polecenia *instalacji Helm* . Na przykład:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -123,13 +123,13 @@ gateway:
 
 Zapisz zmiany i zamknij plik.
 
-Utwórz miejsce *deweloperskie* za pomocą przykładowej aplikacji `azds space select`.
+Utwórz miejsce *deweloperskie* za pomocą przykładowej aplikacji `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-Wdróż przykładową aplikację przy `helm install`użyciu polecenia.
+Wdróż przykładową aplikację przy użyciu polecenia `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
@@ -137,13 +137,13 @@ helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 
 Powyższy przykład służy do wdrażania przykładowej aplikacji w przestrzeni nazw *dev* .
 
-Wyświetlenie adresów URL w celu uzyskania dostępu do `azds list-uris`przykładowej aplikacji przy użyciu programu.
+Wyświetlenie adresów URL w celu uzyskania dostępu do przykładowej aplikacji przy użyciu programu `azds list-uris` .
 
 ```console
 azds list-uris
 ```
 
-Poniższe dane wyjściowe pokazują przykładowe adresy URL z `azds list-uris`.
+Poniższe dane wyjściowe pokazują przykładowe adresy URL z `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -152,19 +152,19 @@ http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL z `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL z `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
 
 > [!NOTE]
 > Jeśli zamiast usługi *bikesharingweb* zostanie wyświetlona strona błędu, sprawdź, czy w pliku *Values. YAML* zaktualizowano **zarówno** adnotację *Kubernetes.IO/Ingress.class* , jak i hosta.
 
-Użyj polecenia `azds space select` , aby utworzyć przestrzeń podrzędną w obszarze *dev* i wyświetlić listę adresów URL, aby uzyskać dostęp do podrzędnego obszaru dev.
+Użyj `azds space select` polecenia, aby utworzyć przestrzeń podrzędną w obszarze *dev* i wyświetlić listę adresów URL, aby uzyskać dostęp do podrzędnego obszaru dev.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-Poniższe dane wyjściowe przedstawiają przykładowe adresy URL `azds list-uris` z programu, aby uzyskać dostęp do przykładowej aplikacji w miejscu dev *azureuser1* .
+Poniższe dane wyjściowe przedstawiają przykładowe adresy URL z programu `azds list-uris` , aby uzyskać dostęp do przykładowej aplikacji w miejscu dev *azureuser1* .
 
 ```console
 Uri                                                  Status
@@ -173,7 +173,7 @@ http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* w podrzędnym obszarze deweloperskim *azureuser1* , otwierając publiczny adres URL za pomocą `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL dla usługi *bikesharingweb* w *azureuser1* podrzędnym jest `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
+Przejdź do usługi *bikesharingweb* w podrzędnym obszarze deweloperskim *azureuser1* , otwierając publiczny adres URL za pomocą `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL dla usługi *bikesharingweb* w *azureuser1* podrzędnym jest `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
 
 ## <a name="configure-the-nginx-ingress-controller-to-use-https"></a>Konfigurowanie kontrolera NGINX Ingress do korzystania z protokołu HTTPS
 
@@ -209,7 +209,7 @@ spec:
 > [!NOTE]
 > W przypadku testowania istnieje również [serwer przejściowy][letsencrypt-staging-issuer] , którego można użyć do *ClusterIssuer*.
 
-Użyj `kubectl` , aby `letsencrypt-clusterissuer.yaml`zastosować.
+Użyj `kubectl` , aby zastosować `letsencrypt-clusterissuer.yaml` .
 
 ```console
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace nginx
@@ -246,13 +246,13 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Uaktualnij przykładową aplikację `helm`przy użyciu:
+Uaktualnij przykładową aplikację przy użyciu `helm` :
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Przejdź do przykładowej aplikacji w obszarze podrzędnym *dev/azureuser1* i zwróć uwagę na to, że nastąpi przekierowanie do korzystania z protokołu HTTPS. Zauważ również, że strona jest ładowana, ale w przeglądarce są wyświetlane pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd dotyczący strony HTTPS próbującej załadować zasoby HTTP. Przykład:
+Przejdź do przykładowej aplikacji w obszarze podrzędnym *dev/azureuser1* i zwróć uwagę na to, że nastąpi przekierowanie do korzystania z protokołu HTTPS. Zauważ również, że strona jest ładowana, ale w przeglądarce są wyświetlane pewne błędy. Otwarcie konsoli przeglądarki pokazuje błąd dotyczący strony HTTPS próbującej załadować zasoby HTTP. Na przykład:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -276,7 +276,7 @@ Aby naprawić ten błąd, zaktualizuj [BikeSharingWeb/azds. YAML][azds-yaml] pod
 ...
 ```
 
-Zaktualizuj plik [BikeSharingWeb/Package. JSON][package-json] z zależnością dla pakietu *URL* .
+Zaktualizuj [BikeSharingWeb/package.jsw][package-json] zależności od pakietu *URL* .
 
 ```json
 {
@@ -288,7 +288,7 @@ Zaktualizuj plik [BikeSharingWeb/Package. JSON][package-json] z zależnością d
 ...
 ```
 
-Zaktualizuj metodę *getApiHostAsync* w [BikeSharingWeb/lib/pomocniks. js][helpers-js] , aby używać protokołu https:
+Zaktualizuj metodę *getApiHostAsync* w [BikeSharingWeb/lib/helpers.js][helpers-js] , aby używać protokołu https:
 
 ```javascript
 ...
@@ -305,7 +305,7 @@ Zaktualizuj metodę *getApiHostAsync* w [BikeSharingWeb/lib/pomocniks. js][helpe
 ...
 ```
 
-Przejdź do `BikeSharingWeb` katalogu i Użyj `azds up` , aby uruchomić zaktualizowaną usługę *BikeSharingWeb* .
+Przejdź do `BikeSharingWeb` katalogu i Użyj, `azds up` Aby uruchomić zaktualizowaną usługę *BikeSharingWeb* .
 
 ```console
 cd ../BikeSharingWeb/

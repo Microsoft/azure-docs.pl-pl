@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239921"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure
@@ -24,13 +24,13 @@ Dowiedz się, jak utworzyć klaster usługi HDInsight przy użyciu szablonu Azur
 Interfejs API REST platformy Azure umożliwia wykonywanie operacji zarządzania usługami hostowanymi na platformie Azure, w tym tworzeniem nowych zasobów, takich jak klastry usługi HDInsight.
 
 > [!NOTE]  
-> Kroki opisane w tym dokumencie wykorzystują [zwinięcie (https://curl.haxx.se/) ](https://curl.haxx.se/) narzędzie do komunikacji z interfejsem API REST platformy Azure.
+> Kroki opisane w tym dokumencie wykorzystują [zwinięcie ( https://curl.haxx.se/) ](https://curl.haxx.se/) narzędzie do komunikacji z interfejsem API REST platformy Azure.
 
 ## <a name="create-a-template"></a>Tworzenie szablonu
 
 Szablony Azure Resource Manager są dokumentami JSON opisującymi **grupę zasobów** i wszystkie znajdujące się w niej zasoby (takie jak HDInsight). Takie podejście oparte na szablonach umożliwia definiowanie zasobów potrzebnych dla usługi HDInsight w jednym szablonie.
 
-Następujący dokument JSON jest połączeniem z plikami szablonu i parametrów z [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)programu, który tworzy klaster oparty na systemie Linux przy użyciu hasła do zabezpieczenia konta użytkownika ssh.
+Następujący dokument JSON jest połączeniem z plikami szablonu i parametrów z programu [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) , który tworzy klaster oparty na systemie Linux przy użyciu hasła do zabezpieczenia konta użytkownika ssh.
 
    ```json
    {
@@ -214,7 +214,7 @@ Ten przykład jest używany w procedurach przedstawionych w tym dokumencie. Zast
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Zaloguj się do subskrypcji platformy Azure
 
-Wykonaj kroki opisane w `az login` temacie [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) i nawiąż połączenie z subskrypcją za pomocą poleceniu.
+Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) i nawiąż połączenie z subskrypcją za pomocą `az login` poleceniu.
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
@@ -235,10 +235,10 @@ Wykonaj kroki opisane w `az login` temacie [Rozpoczynanie pracy z interfejsem wi
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Zastąp wartości dla `--display-name`, `--homepage`i `--identifier-uris` własnymi wartościami. Podaj hasło dla nowego wpisu Active Directory.
+    Zastąp wartości dla `--display-name` , `--homepage` i `--identifier-uris` własnymi wartościami. Podaj hasło dla nowego wpisu Active Directory.
 
    > [!NOTE]  
-   > Wartości `--home-page` i `--identifier-uris` nie muszą odwoływać się do rzeczywistej strony sieci Web hostowanej w Internecie. Muszą to być unikatowe identyfikatory URI.
+   > `--home-page`Wartości i `--identifier-uris` nie muszą odwoływać się do rzeczywistej strony sieci Web hostowanej w Internecie. Muszą to być unikatowe identyfikatory URI.
 
    Wartością zwracaną z tego polecenia jest __Identyfikator aplikacji__ dla nowej aplikacji. Zapisz tę wartość.
 
@@ -270,7 +270,7 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Ustaw `$TENANTID`, `$APPID`i `$PASSWORD` do wartości uzyskanych lub użytych wcześniej.
+Ustaw `$TENANTID` , `$APPID` i `$PASSWORD` do wartości uzyskanych lub użytych wcześniej.
 
 Jeśli to żądanie powiedzie się, otrzymasz odpowiedź serii 200, a treść odpowiedzi zawiera dokument JSON.
 
@@ -292,7 +292,7 @@ Aby utworzyć grupę zasobów, należy wykonać następujące czynności.
 
 * Ustaw `$SUBSCRIPTIONID` Identyfikator subskrypcji otrzymany podczas tworzenia nazwy głównej usługi.
 * Ustaw `$ACCESSTOKEN` na token dostępu otrzymany w poprzednim kroku.
-* Zamień `DATACENTERLOCATION` na centrum danych, w którym chcesz utworzyć grupę zasobów i zasoby. Na przykład "Południowo-środkowe stany USA".
+* Zamień na `DATACENTERLOCATION` centrum danych, w którym chcesz utworzyć grupę zasobów i zasoby. Na przykład "Południowo-środkowe stany USA".
 * Ustaw `$RESOURCEGROUPNAME` na nazwę, która ma być używana dla tej grupy:
 
 ```bash
@@ -304,7 +304,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Jeśli to żądanie powiedzie się, otrzymasz odpowiedź serii 200, a treść odpowiedzi zawiera dokument JSON zawierający informacje o grupie. `"provisioningState"` Element zawiera wartość `"Succeeded"`.
+Jeśli to żądanie powiedzie się, otrzymasz odpowiedź serii 200, a treść odpowiedzi zawiera dokument JSON zawierający informacje o grupie. `"provisioningState"`Element zawiera wartość `"Succeeded"` .
 
 ## <a name="create-a-deployment"></a>Tworzenie wdrożenia
 
@@ -320,7 +320,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 ```
 
 > [!NOTE]  
-> Jeśli szablon został zapisany w pliku, można użyć następującego polecenia zamiast `-d "{ template and parameters}"`:
+> Jeśli szablon został zapisany w pliku, można użyć następującego polecenia zamiast `-d "{ template and parameters}"` :
 >
 > `--data-binary "@/path/to/file.json"`
 
@@ -339,7 +339,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-To polecenie zwraca dokument JSON zawierający informacje o operacji wdrażania. `"provisioningState"` Element zawiera stan wdrożenia. Jeśli ten element zawiera wartość `"Succeeded"`, wdrożenie zakończyło się pomyślnie.
+To polecenie zwraca dokument JSON zawierający informacje o operacji wdrażania. `"provisioningState"`Element zawiera stan wdrożenia. Jeśli ten element zawiera wartość `"Succeeded"` , wdrożenie zakończyło się pomyślnie.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 

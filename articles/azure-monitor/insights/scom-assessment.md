@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055408"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizowanie środowiska za pomocą rozwiązania System Center Operations Manager Health Check (wersja zapoznawcza)
@@ -82,7 +82,7 @@ Przed kontynuowaniem konto Uruchom jako musi spełniać następujące wymagania:
 4. Na stronie **Właściwości ogólne** wybierz pozycję **Windows** na liście **Typ konta Uruchom jako** .
 5. Wpisz nazwę wyświetlaną w polu tekstowym **Nazwa wyświetlana** i opcjonalnie wpisz opis w polu **Opis** , a następnie kliknij przycisk **dalej**.
 6. Na stronie **zabezpieczenia dystrybucji** **Wybierz pozycję bezpieczniejsze.**
-7. Kliknij przycisk **Utwórz**.  
+7. Kliknij pozycję **Utwórz**.  
 
 Teraz, gdy tworzone jest konto Uruchom jako, musi ono być docelowe serwery zarządzania w grupie zarządzania i skojarzone ze wstępnie zdefiniowanym profilem Uruchom jako, aby przepływy pracy były uruchamiane przy użyciu poświadczeń.  
 
@@ -147,13 +147,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 Pakiet administracyjny rozwiązania System Center Operations Manager Health Check zawiera regułę o nazwie *Uruchom test kondycji programu Microsoft System Center Operations Manager*. Ta reguła jest odpowiedzialna za uruchamianie kontroli kondycji. Aby włączyć regułę i skonfigurować częstotliwość, Użyj poniższych procedur.
 
-Domyślnie reguła sprawdzania kondycji programu Microsoft System Center Operations Manager jest wyłączona. Aby uruchomić kontrolę kondycji, należy włączyć regułę na serwerze zarządzania programu. Wykonaj następujące kroki.
+Domyślnie reguła sprawdzania kondycji programu Microsoft System Center Operations Manager jest wyłączona. Aby uruchomić kontrolę kondycji, należy włączyć regułę na serwerze zarządzania programu. Wykonaj następujące czynności.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Włączanie reguły dla określonego serwera zarządzania
 
 1. W obszarze roboczym **Tworzenie** w konsoli operacje Operations Manager w okienku **reguły** Wyszukaj regułę *Sprawdzanie kondycji uruchamiania w programie Microsoft System Center Operations Manager* .
 2. W wynikach wyszukiwania wybierz ten, który zawiera *Typ tekstu: serwer zarządzania*.
-3. Kliknij prawym przyciskiem myszy regułę, a następnie kliknij pozycję **zastąpienia** > **dla określonego obiektu klasy: serwer zarządzania**.
+3. Kliknij prawym przyciskiem myszy regułę, a następnie kliknij pozycję **zastąpienia**  >  **dla określonego obiektu klasy: serwer zarządzania**.
 4.  Na liście dostępne serwery zarządzania wybierz serwer zarządzania, na którym ma zostać uruchomiona reguła.  Powinien to być ten sam serwer zarządzania, który został wcześniej skonfigurowany do skojarzenia konta Uruchom jako z.
 5.  Upewnij się, że dla wartości parametru **Enabled** została zmieniona wartość override na **true** .<br><br> ![parametr override](./media/scom-assessment/rule.png)
 
@@ -165,7 +165,7 @@ Ocena jest konfigurowana do uruchamiania co 10 080 minut (lub siedem dni). Możn
 
 1. W obszarze roboczym **Tworzenie** w konsoli programu Operations Manager Wyszukaj regułę *Sprawdzanie kondycji uruchamiania reguły w programie Microsoft System Center Operations Manager* w sekcji **reguły** .
 2. W wynikach wyszukiwania wybierz ten, który zawiera *Typ tekstu: serwer zarządzania*.
-3. Kliknij prawym przyciskiem myszy regułę, a następnie kliknij pozycję **Zastąp regułę** > **dla wszystkich obiektów klasy: serwer zarządzania**.
+3. Kliknij prawym przyciskiem myszy regułę, a następnie kliknij pozycję **Zastąp regułę**  >  **dla wszystkich obiektów klasy: serwer zarządzania**.
 4. Zmień wartość parametru **Interval** na żądaną wartość interwału. W poniższym przykładzie wartość jest ustawiona na 1440 minut (jeden dzień).<br><br> ![parametr interwału](./media/scom-assessment/interval.png)<br>  
 
     Jeśli wartość jest równa mniej niż 1440 minut, reguła jest uruchamiana w przedziale jeden dzień. W tym przykładzie reguła ignoruje wartość interwału i jest uruchamiana z częstotliwością jeden dzień.
@@ -208,7 +208,7 @@ Aby móc korzystać z rozwiązania sprawdzania kondycji w Log Analytics, musisz 
 Wyświetl podsumowanie ocen zgodności dla infrastruktury, a następnie zapoznaj się z zaleceniami.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dotyczące obszaru koncentracji uwagi i podjąć działania naprawcze
-1. Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+1. Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje Log Analytics wybierz obszar roboczy, a następnie kliknij element menu **podsumowania obszaru roboczego** .  
 4. Na stronie **Przegląd** kliknij kafelek **System Center Operations Manager Health Check** .
@@ -237,9 +237,9 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 3. Wybierz zalecenia, które chcesz zignorować. W następnej procedurze użyjesz wartości dla RecommendationId.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations. txt i korzystać z niego
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations.txt i używać go
 
-1. Utwórz plik o nazwie IgnoreRecommendations. txt.
+1. Utwórz plik o nazwie IgnoreRecommendations.txt.
 2. Wklej lub wpisz każdą RecommendationId każdego zalecenia, które Log Analytics mają być ignorowane w osobnym wierszu, a następnie Zapisz i zamknij plik.
 3. Umieść plik w następującym folderze na każdym komputerze, na którym ma Log Analytics ignorowanie zaleceń.
 4. Na serwerze zarządzania Operations Manager- *dysk_systemowy*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server.
@@ -258,7 +258,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-3. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszystkie pliki IgnoreRecommendations. txt lub Usuń z nich RecommendationIDs.
+3. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszelkie IgnoreRecommendations.txt pliki lub Usuń z nich RecommendationIDs.
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Rozwiązanie System Center Operations Manager Health Check — często zadawane pytania
 
@@ -272,9 +272,9 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 *Jeśli po dodaniu rozwiązania System Center Operations Manager Health Check zostanie odnaleziony inny serwer, zostanie on sprawdzony?* Tak, po przeprowadzeniu odnajdywania jest ono domyślnie zaznaczone co siedem dni.
 
-*Jaka jest nazwa procesu, który wykonuje zbieranie danych?* AdvisorAssessment. exe
+*Jaka jest nazwa procesu, który wykonuje zbieranie danych?* AdvisorAssessment.exe
 
-*Gdzie działa proces AdvisorAssessment. exe?* AdvisorAssessment. exe jest uruchamiany w ramach procesu HealthService serwera zarządzania, na którym włączono regułę sprawdzania kondycji. Korzystając z tego procesu, odnajdywanie całego środowiska jest realizowane za pośrednictwem zdalnego zbierania danych.
+*Gdzie działa proces AdvisorAssessment.exe?* AdvisorAssessment.exe jest uruchamiany w ramach procesu HealthService serwera zarządzania, na którym włączono regułę sprawdzania kondycji. Korzystając z tego procesu, odnajdywanie całego środowiska jest realizowane za pośrednictwem zdalnego zbierania danych.
 
 *Jak długo trwa zbieranie danych?* Zbieranie danych na serwerze trwa około jednej godziny. Może to trwać dłużej w środowiskach, które mają wiele wystąpień Operations Manager lub baz danych.
 
@@ -282,7 +282,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 *Jak sprawdzić, czy występują błędy wymagań wstępnych?* Jeśli sprawdzanie kondycji zostało uruchomione i nie widzisz wyników, prawdopodobnie niektóre z wymagań wstępnych dla sprawdzenia nie powiodły się. Możesz wykonywać zapytania: `Operation Solution=SCOMAssessment` i `SCOMAssessmentRecommendation FocusArea=Prerequisites` w przeszukiwaniu dzienników, aby zobaczyć wymagania wstępne dotyczące niepowodzenia.
 
-*Występuje `Failed to connect to the SQL Instance (….).` komunikat z błędami wymagań wstępnych. Jaki jest problem?* AdvisorAssessment. exe, proces służący do zbierania danych, jest uruchamiany w ramach procesu HealthService na serwerze zarządzania. W ramach kontroli kondycji proces próbuje nawiązać połączenie z SQL Server, w którym znajduje się Operations Manager baza danych. Ten błąd może wystąpić, gdy reguły zapory blokują połączenie z wystąpieniem SQL Server.
+*Występuje `Failed to connect to the SQL Instance (….).` komunikat z błędami wymagań wstępnych. Jaki jest problem?* AdvisorAssessment.exe, proces służący do zbierania danych, jest uruchamiany w ramach procesu HealthService na serwerze zarządzania. W ramach kontroli kondycji proces próbuje nawiązać połączenie z SQL Server, w którym znajduje się Operations Manager baza danych. Ten błąd może wystąpić, gdy reguły zapory blokują połączenie z wystąpieniem SQL Server.
 
 *Jakiego typu dane są zbierane?* Zbierane są następujące typy danych: — dane usługi WMI — dane rejestru — dane dziennika zdarzeń Operations Manager dane za pomocą programu Windows PowerShell, zapytań SQL i modułu zbierającego informacje o plikach.
 

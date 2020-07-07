@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
 ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80289604"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak utworzyć alerty z Azure Monitor dla maszyn wirtualnych

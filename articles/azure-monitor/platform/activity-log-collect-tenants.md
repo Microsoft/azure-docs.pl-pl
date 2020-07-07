@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
 ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055736"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Zbieranie dzienników aktywności platformy Azure w Azure Monitor między dzierżawami Azure Active Directory (starsza wersja)
@@ -51,7 +51,7 @@ Poniżej przedstawiono wymagania dla zasobów platformy Azure używanych w tym s
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób** > **Internet rzeczy** > **Event Hubs**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Event Hubs**.
 
    ![Nowe centrum zdarzeń Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -78,7 +78,7 @@ Aby włączyć strumieniowe przesyłanie dzienników aktywności, możesz wybra�
 
 Możesz użyć przestrzeni nazw centrum zdarzeń, która nie znajduje się w tej samej subskrypcji, co dzienniki emitowane subskrypcji, jednak subskrypcje muszą znajdować się w tej samej usłudze Azure Active Directory. Użytkownik, który konfiguruje ustawienie, musi mieć odpowiednią rolę RBAC, aby uzyskać dostęp do obu subskrypcji. 
 
-1. W Azure Portal wybierz pozycję **Monitoruj** > **Dziennik aktywności**.
+1. W Azure Portal wybierz pozycję **Monitoruj**  >  **Dziennik aktywności**.
 3. Kliknij przycisk **Eksportuj** u góry strony.
 
    ![obraz monitora platformy Azure w nawigacji](media/collect-activity-logs-subscriptions/activity-log-blade.png)
@@ -116,7 +116,7 @@ Aby uzyskać nazwę centrum zdarzeń i parametry połączenia, wykonaj kroki opi
 
 ### <a name="create-a-new-blank-logic-app"></a>Tworzenie nowej pustej aplikacji logiki
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób** > **integracja dla przedsiębiorstw** > **aplikację logiki**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **integracja dla przedsiębiorstw**  >  **aplikację logiki**.
 
     ![Nowa aplikacja logiki na platformie Marketplace](media/collect-activity-logs-subscriptions/marketplace-new-logic-app.png)
 
@@ -133,7 +133,7 @@ Aby uzyskać nazwę centrum zdarzeń i parametry połączenia, wykonaj kroki opi
    | Log Analytics  | Wybierz, czy chcesz rejestrować stan każdego przebiegu aplikacji logiki w obszarze roboczym Log Analytics.  |
 
     
-3. Wybierz przycisk **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
+3. Wybierz pozycję **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
 
 4. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**. 
 
@@ -147,7 +147,7 @@ Projektant aplikacji logiki wyświetla teraz dostępne łączniki i ich wyzwalac
 
    ![obraz dodawania wyzwalacza centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz przycisk **Utwórz**.
+2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz pozycję **Utwórz**.
 
    ![obraz dodawania połączenia centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -163,7 +163,7 @@ Projektant aplikacji logiki wyświetla teraz dostępne łączniki i ich wyzwalac
 
 Dane wyjściowe z centrum zdarzeń zawierają ładunek JSON z tablicą rekordów. Akcja [Przeanalizuj dane JSON](../../logic-apps/logic-apps-content-type.md) służy do wyodrębniania tylko tablicy rekordów do wysłania do obszaru roboczego log Analytics.
 
-1. Kliknij kolejno pozycje **nowy krok** > **Dodaj akcję**
+1. Kliknij kolejno pozycje **nowy krok**  >  **Dodaj akcję**
 2. W polu wyszukiwania wpisz *przeanalizuj dane json* jako filtr. Wybierz akcję **Operacje danych — przeanalizuj dane JSON**.
 
    ![Dodawanie akcji analizy danych json w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
@@ -275,7 +275,7 @@ Dane wyjściowe z centrum zdarzeń zawierają ładunek JSON z tablicą rekordów
 ### <a name="add-compose-action"></a>Dodawanie akcji redagowania
 Akcja [Redaguj](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) pobiera dane wyjściowe JSON i tworzy obiekt, który może być użyty przez akcję usługi Log Analytics.
 
-1. Kliknij kolejno pozycje **nowy krok** > **Dodaj akcję**
+1. Kliknij kolejno pozycje **nowy krok**  >  **Dodaj akcję**
 2. Wpisz *redaguj* jako filtr, a następnie wybierz akcję **Operacje danych — redaguj**.
 
     ![Dodawanie akcji redagowania](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
@@ -286,12 +286,12 @@ Akcja [Redaguj](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose
 ### <a name="add-log-analytics-send-data-action"></a>Dodawanie akcji wysyłania danych usługi Log Analytics
 Akcja [modułu zbierającego dane log Analytics platformy Azure](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) przyjmuje obiekt z akcji redagowania i wysyła go do log Analytics obszaru roboczego.
 
-1. Kliknij kolejno pozycje **nowy krok** > **Dodaj akcję**
+1. Kliknij kolejno pozycje **nowy krok**  >  **Dodaj akcję**
 2. Wpisz *log analytics* jako filtr, a następnie wybierz akcję **Moduł zbierający dane usługi Azure Log Analytics — wyślij dane**.
 
    ![Dodawanie akcji wysyłania danych analizy dzienników w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
-3. Wprowadź nazwę połączenia i wklej **identyfikator obszaru roboczego** oraz **klucz obszaru roboczego** dla obszaru roboczego usługi Log Analytics.  Kliknij przycisk **Utwórz**.
+3. Wprowadź nazwę połączenia i wklej **identyfikator obszaru roboczego** oraz **klucz obszaru roboczego** dla obszaru roboczego usługi Log Analytics.  Kliknij pozycję **Utwórz**.
 
    ![Dodawanie połączenia analizy dzienników w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 

@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80154750"
 ---
 # <a name="single-page-applications"></a>Aplikacje jednostronicowe
@@ -26,7 +26,7 @@ ms.locfileid: "80154750"
 
 Aplikacje jednostronicowe (aplikacji jednostronicowych) są zwykle uporządkowane jako warstwa prezentacji JavaScript (fronton) uruchamianej w przeglądarce oraz zaplecza interfejsu API sieci Web, który działa na serwerze i implementuje logikę biznesową aplikacji. Aby dowiedzieć się więcej o niejawnym przyznaniu autoryzacji i pomóc w ustaleniu, czy jest to odpowiednie dla scenariusza aplikacji, zobacz [Opis niejawnego przepływu OAuth2 w Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-W tym scenariuszu, gdy użytkownik się zaloguje, fronton języka JavaScript używa [Active Directory Authentication Library języka JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) i niejawne zezwolenie na uzyskanie tokenu identyfikatora (id_token) z usługi Azure AD. Token jest buforowany i klient dołącza go do żądania jako token okaziciela podczas wykonywania wywołań do zaplecza interfejsu API sieci Web, który jest zabezpieczony przy użyciu oprogramowania pośredniczącego OWIN.
+W tym scenariuszu, gdy użytkownik się zaloguje, fronton języka JavaScript używa [Active Directory Authentication Library do języka JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) i niejawnego upoważnienia do uzyskania tokenu identyfikatora (id_token) z usługi Azure AD. Token jest buforowany i klient dołącza go do żądania jako token okaziciela podczas wykonywania wywołań do zaplecza interfejsu API sieci Web, który jest zabezpieczony przy użyciu oprogramowania pośredniczącego OWIN.
 
 ## <a name="diagram"></a>Diagram
 
@@ -47,7 +47,7 @@ W tym scenariuszu, gdy użytkownik się zaloguje, fronton języka JavaScript uż
 
 Zobacz [przykłady kodu dla scenariuszy aplikacji jednostronicowych](sample-v1-code.md#single-page-applications). Pamiętaj o częstym sprawdzaniu, czy często dodawane są nowe przykłady.
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 * Pojedyncze dzierżawy — Jeśli tworzysz aplikację tylko dla organizacji, musi ona być zarejestrowana w katalogu firmy przy użyciu Azure Portal.
 * Wiele dzierżawców — w przypadku kompilowania aplikacji, która może być używana przez użytkowników spoza organizacji, musi być ona zarejestrowana w katalogu firmy, ale również musi być zarejestrowana w katalogu każdej organizacji, który będzie używać aplikacji. Aby udostępnić aplikację w swoim katalogu, możesz dołączyć proces rejestracji dla klientów, który umożliwia im zgodę na korzystanie z aplikacji. Po zarejestrowaniu się w aplikacji zostanie wyświetlone okno dialogowe, w którym są wyświetlane uprawnienia wymagane przez aplikację, a następnie opcja wyrażania zgody. W zależności od wymaganych uprawnień administrator w innej organizacji może być zobowiązany do udzielenia zgody. Gdy użytkownik lub administrator wyraził zgodę, aplikacja zostanie zarejestrowana w swoim katalogu.
@@ -56,12 +56,12 @@ Po zarejestrowaniu aplikacji należy ją skonfigurować tak, aby korzystała z n
 
 ## <a name="token-expiration"></a>Wygaśnięcie tokenu
 
-Korzystanie z biblioteki ADAL. js ułatwia:
+Korzystanie z ADAL.js ułatwia:
 
 * Odświeżanie wygasłego tokenu
 * Żądanie tokenu dostępu w celu wywołania zasobu internetowego interfejsu API
 
-Po pomyślnym uwierzytelnieniu usługa Azure AD zapisuje plik cookie w przeglądarce użytkownika w celu ustanowienia sesji. Zwróć uwagę na to, że sesja istnieje między użytkownikiem a usługą Azure AD (nie między użytkownikiem a aplikacją sieci Web). Po wygaśnięciu tokenu ADAL. js używa tej sesji w celu dyskretnego uzyskania innego tokenu. Biblioteka ADAL. js używa ukrytego elementu iFrame do wysyłania i odbierania żądania przy użyciu niejawnego protokołu uwierzytelniania OAuth. Biblioteka ADAL. js może również używać tego samego mechanizmu, aby w trybie dyskretnym uzyskać tokeny dostępu dla innych zasobów interfejsu API sieci Web, w przypadku których te zasoby obsługują udostępnianie zasobów między źródłami (CORS), są rejestrowane w katalogu użytkownika i wszystkie wymagane zgody zostały podane przez użytkownika podczas logowania.
+Po pomyślnym uwierzytelnieniu usługa Azure AD zapisuje plik cookie w przeglądarce użytkownika w celu ustanowienia sesji. Zwróć uwagę na to, że sesja istnieje między użytkownikiem a usługą Azure AD (nie między użytkownikiem a aplikacją sieci Web). Gdy token wygaśnie, ADAL.js używa tej sesji w celu dyskretnego uzyskania innego tokenu. ADAL.js używa ukrytego elementu iFrame do wysyłania i odbierania żądania przy użyciu niejawnego protokołu uwierzytelniania OAuth. ADAL.js może także używać tego samego mechanizmu do dyskretnego uzyskiwania tokenów dostępu dla innych zasobów internetowego interfejsu API, gdy aplikacja będzie obsługiwać udostępnianie zasobów między źródłami (CORS, cross-Origin Resource Sharing), które są rejestrowane w katalogu użytkownika i wszystkie wymagane zgody zostały podane przez użytkownika podczas logowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
