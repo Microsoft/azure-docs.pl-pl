@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: b53fecad3655048a7b9d799134926b2730b16dae
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 585731212fa31be2757d5b5d4c4e0a2ef1212ca8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239108"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980224"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i języka C # 
 
@@ -30,21 +30,22 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/),
-- Klucz wykrywania anomalii i punkt końcowy
-- Struktura [Json.NET](https://www.newtonsoft.com/json) dostępna jako pakiet NuGet. Aby zainstalować plik Newtonsoft. JSON jako pakiet NuGet w programie Visual Studio:
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
+    - Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+- Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/)
+- Struktura [Json.NET](https://www.newtonsoft.com/json) dostępna jako pakiet NuGet. Aby zainstalować Newtonsoft.Jsna jako pakiet NuGet w programie Visual Studio:
     
     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
     2. Wybierz pozycję **Zarządzaj pakietami NuGet**.
-    3. Wyszukaj plik *Newtonsoft. JSON* i zainstaluj pakiet.
+    3. Wyszukaj *Newtonsoft.Js* i zainstaluj pakiet.
 
 - Jeśli używasz systemu Linux/MacOS, ta aplikacja może być uruchamiana przy użyciu narzędzia [mono](https://www.mono-project.com/).
 
 - Plik JSON zawierający punkty danych szeregów czasowych. Przykładowe dane dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## <a name="create-a-new-application"></a>Tworzenie nowej aplikacji
 
@@ -64,30 +65,30 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="create-a-function-to-send-requests"></a>Utwórz funkcję do wysyłania żądań
 
-1. Utwórz nową funkcję asynchroniczną o `Request` nazwie, która przyjmuje utworzone powyżej zmienne.
+1. Utwórz nową funkcję asynchroniczną o nazwie `Request` , która przyjmuje utworzone powyżej zmienne.
 
-2. Ustaw informacje o protokole i nagłówku zabezpieczeń klienta przy `HttpClient` użyciu obiektu. Pamiętaj, aby dodać klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka. Następnie Utwórz `StringContent` obiekt dla żądania.
+2. Ustaw informacje o protokole i nagłówku zabezpieczeń klienta przy użyciu `HttpClient` obiektu. Pamiętaj, aby dodać klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka. Następnie Utwórz `StringContent` obiekt dla żądania.
 
-3. Wyślij żądanie `PostAsync()`, a następnie Zwróć odpowiedź.
+3. Wyślij żądanie `PostAsync()` , a następnie Zwróć odpowiedź.
 
     [!code-csharp[Request method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=requestMethod)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Wykryj anomalie jako partię
 
-1. Utwórz nową funkcję o nazwie `detectAnomaliesBatch()`. Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL na potrzeby wykrywania anomalii partii oraz danymi szeregów czasowych.
+1. Utwórz nową funkcję o nazwie `detectAnomaliesBatch()` . Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL na potrzeby wykrywania anomalii partii oraz danymi szeregów czasowych.
 
 2. Deserializacji obiektu JSON i Zapisz go w konsoli.
 
 3. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie. 
 
-4. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly` Pole odpowiedzi zawiera tablicę wartości logicznych, z których każdy wskazuje, czy punkt danych jest anomalią. Przekonwertuj ten element na tablicę ciągów z `ToObject<bool[]>()` funkcją obiektu Response. Wykonaj iterację tablicy i wydrukuj indeks wszelkich `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
+4. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly`Pole odpowiedzi zawiera tablicę wartości logicznych, z których każdy wskazuje, czy punkt danych jest anomalią. Przekonwertuj ten element na tablicę ciągów z funkcją obiektu Response `ToObject<bool[]>()` . Wykonaj iterację tablicy i wydrukuj indeks wszelkich `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
 
     [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesBatch)]
 
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Wykrywanie stanu anomalii najnowszego punktu danych
 
-1. Utwórz nową funkcję o nazwie `detectAnomaliesLatest()`. Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL dla ostatniego wykrywania anomalii w punkcie i danymi szeregów czasowych.
+1. Utwórz nową funkcję o nazwie `detectAnomaliesLatest()` . Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL dla ostatniego wykrywania anomalii w punkcie i danymi szeregów czasowych.
 
 2. Deserializacji obiektu JSON i Zapisz go w konsoli.
 
@@ -95,9 +96,9 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
  
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Załaduj dane szeregów czasowych i Wyślij żądanie
 
-1. W głównej metodzie aplikacji Załaduj dane z szeregów czasowych JSON przy `File.ReadAllText()`użyciu programu. 
+1. W głównej metodzie aplikacji Załaduj dane z szeregów czasowych JSON przy użyciu programu `File.ReadAllText()` . 
 
-2. Wywołaj utworzone powyżej funkcje wykrywania anomalii. Użyj `System.Console.ReadKey()` , aby zachować otwarte okno konsoli po uruchomieniu aplikacji.
+2. Wywołaj utworzone powyżej funkcje wykrywania anomalii. Użyj, `System.Console.ReadKey()` Aby zachować otwarte okno konsoli po uruchomieniu aplikacji.
 
     [!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=main)]
 

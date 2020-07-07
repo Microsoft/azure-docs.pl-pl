@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418256"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
@@ -57,9 +57,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Amazon RedShift są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **AmazonRedshift** | Tak |
+| typ | Właściwość Type musi mieć wartość: **AmazonRedshift** | Tak |
 | serwer |Adres IP lub nazwa hosta serwera Amazon RedShift. |Tak |
 | port |Numer portu TCP używanego przez serwer Amazon RedShift do nasłuchiwania połączeń klientów. |Nie, wartość domyślna to 5439 |
 | database |Nazwa bazy danych Amazon RedShift. |Tak |
@@ -99,14 +99,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
 | schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -134,9 +134,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Amazon RedShift, ustaw typ źródła w działaniu Copy na **AmazonRedshiftSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AmazonRedshiftSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AmazonRedshiftSource** | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Na przykład: select * from MyTable. |Nie (Jeśli określono "TableName" w zestawie danych) |
 | redshiftUnloadSettings | Grupa właściwości podczas korzystania z narzędzia Amazon RedShift UNLOAD. | Nie |
 | s3LinkedServiceName | Odwołuje się do usługi Amazon S3, która ma być używana jako magazyn tymczasowy, określając nazwę połączonej usług typu "AmazonS3". | Tak, jeśli używasz opcji UNLOAD |
@@ -227,7 +227,7 @@ Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są 
 | DOKŁADNOŚCI |Wartość dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
-| LICZBA RZECZYWISTA |Single |
+| LICZBA RZECZYWISTA |Pojedyncze |
 | SMALLINT |Int16 |
 | TEKST |String |
 | ZNACZNIK czasu |DateTime |

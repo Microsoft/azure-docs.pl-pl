@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996469"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964383"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Szybki start: Tworzenie, wdrażanie i używanie niestandardowego modelu tłumaczenia
 
@@ -24,13 +24,13 @@ Ten artykuł zawiera szczegółowe instrukcje tworzenia systemu tłumaczenia za 
 
 1. Aby używać portalu [Custom Translator](https://portal.customtranslator.azure.ai), musisz zalogować się na [konto Microsoft](https://signup.live.com) lub [konto usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (konto organizacji hostowane na platformie Azure).
 
-2. Subskrypcja translatora za pośrednictwem Azure Portal. Klucz subskrypcji usługi Translator będzie potrzebny do skojarzenia z obszarem roboczym w usłudze translator niestandardowym. Zobacz [, jak zarejestrować się w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Subskrypcja usługi Translator za pośrednictwem Azure Portal. Do skojarzenia z obszarem roboczym w usłudze translator niestandardowy potrzebny będzie klucz subskrypcji usługi Translator. Zobacz [, jak zarejestrować się w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Jeśli masz oba powyższe funkcje, zaloguj się do portalu usługi [Custom translator](https://portal.customtranslator.azure.ai) , aby utworzyć obszary robocze, projekty, przekazać pliki i utworzyć/wdrożyć modele.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki korzystania z usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją usługi Translator.
+Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki użytkowania usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją usługi Translator.
 
 ![Utwórz obszar roboczy Tworzenie obszaru roboczego Tworzenie obszaru roboczego Tworzenie obszaru roboczego Utwórz obszar roboczy ](media/quickstart/terms-of-service.png)
  ![ ](media/quickstart/create-workspace-1.png)
@@ -83,7 +83,7 @@ Gdy wszystko jest gotowe do wdrożenia przeszkolonego modelu, kliknij przycisk �
 
 ## <a name="use-a-deployed-model"></a>Korzystanie z wdrożonego modelu
 
-Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Więcej informacji na temat translatora można znaleźć na stronie sieci Web [odwołań API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Do wdrożonych modeli można uzyskać dostęp za pośrednictwem translatora, określając IDKategorii] ( https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) . Więcej informacji o usłudze translator można znaleźć na stronie sieci Web [odwołań API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
 ## <a name="next-steps"></a>Następne kroki
 

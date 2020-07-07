@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371441"
 ---
 # <a name="core-io-operations"></a>Podstawowe operacje we/wy
 
 Oprócz udostępniania narzędzi do odczytywania plików danych przestrzennych, w module we/wy przestrzennym są udostępniane podstawowe biblioteki podstawowe umożliwiające szybkie i wydajne odczytywanie i zapisywanie danych XML oraz ograniczanie ich.
 
-`atlas.io.core` Przestrzeń nazw zawiera dwie klasy niskiego poziomu, które mogą szybko odczytywać i zapisywać dane CSV i XML. Te klasy bazowe zużywają czytelników i moduły zapisujące danych przestrzennych w module we/wy. Korzystaj z nich, aby dodać dodatkową obsługę odczytu i zapisu dla plików CSV lub XML.
+`atlas.io.core`Przestrzeń nazw zawiera dwie klasy niskiego poziomu, które mogą szybko odczytywać i zapisywać dane CSV i XML. Te klasy bazowe zużywają czytelników i moduły zapisujące danych przestrzennych w module we/wy. Korzystaj z nich, aby dodać dodatkową obsługę odczytu i zapisu dla plików CSV lub XML.
  
 ## <a name="read-delimited-files"></a>Odczytuj Pliki rozdzielane
 
-`atlas.io.core.CsvReader` Klasa odczytuje ciągi zawierające rozdzielane zestawy danych. Ta klasa udostępnia dwie metody odczytu danych:
+`atlas.io.core.CsvReader`Klasa odczytuje ciągi zawierające rozdzielane zestawy danych. Ta klasa udostępnia dwie metody odczytu danych:
 
-- `read` Funkcja odczytaje pełny zestaw danych i zwróci dwuwymiarową tablicę ciągów reprezentujących wszystkie komórki rozdzielonego zestawu danych.
-- `getNextRow` Funkcja odczytuje każdy wiersz tekstu w rozdzielonym zestawie danych i zwraca tablicę zawierającą ciąg reprezentujący wszystkie komórki w tym wierszu zestawu danych. Użytkownik może przetwarzać wiersz i usunąć niepotrzebną pamięć z tego wiersza przed przetworzeniem następnego wiersza. Dlatego funkcja ma więcej wydajnej pamięci.
+- `read`Funkcja odczytaje pełny zestaw danych i zwróci dwuwymiarową tablicę ciągów reprezentujących wszystkie komórki rozdzielonego zestawu danych.
+- `getNextRow`Funkcja odczytuje każdy wiersz tekstu w rozdzielonym zestawie danych i zwraca tablicę zawierającą ciąg reprezentujący wszystkie komórki w tym wierszu zestawu danych. Użytkownik może przetwarzać wiersz i usunąć niepotrzebną pamięć z tego wiersza przed przetworzeniem następnego wiersza. Dlatego funkcja ma więcej wydajnej pamięci.
 
-Domyślnie czytnik będzie używał znaku przecinka jako ogranicznika. Ogranicznik można jednak zmienić na dowolny pojedynczy znak lub ustawić na `'auto'`. Po ustawieniu na `'auto'`, czytnik będzie analizować pierwszy wiersz tekstu w ciągu. Następnie wybierze najbardziej typowy znak z poniższej tabeli, aby użyć jako ogranicznika.
+Domyślnie czytnik będzie używał znaku przecinka jako ogranicznika. Ogranicznik można jednak zmienić na dowolny pojedynczy znak lub ustawić na `'auto'` . Po ustawieniu na `'auto'` , czytnik będzie analizować pierwszy wiersz tekstu w ciągu. Następnie wybierze najbardziej typowy znak z poniższej tabeli, aby użyć jako ogranicznika.
 
 | | |
 | :-- | :-- |
@@ -36,25 +36,25 @@ Domyślnie czytnik będzie używał znaku przecinka jako ogranicznika. Ograniczn
 | Tab | `\t` |
 | Wodzie | `|` |
 
-Ten czytnik obsługuje również kwalifikatory tekstu, które są używane do obsługi komórek zawierających znak ogranicznika. Znak cudzysłowu`'"'`() jest domyślnym kwalifikatorem tekstu, ale można go zmienić na pojedynczy znak.
+Ten czytnik obsługuje również kwalifikatory tekstu, które są używane do obsługi komórek zawierających znak ogranicznika. Znak cudzysłowu ( `'"'` ) jest domyślnym kwalifikatorem tekstu, ale można go zmienić na pojedynczy znak.
 
 ## <a name="write-delimited-files"></a>Pliki rozdzielane zapisem
 
-`atlas.io.core.CsvWriter` Zapisuje tablicę obiektów jako ciąg rozdzielany. Dowolny pojedynczy znak może być używany jako ogranicznik lub kwalifikator tekstu. Domyślny ogranicznik jest przecinkiem (`','`), a domyślny kwalifikator tekstu jest znakiem cudzysłowu (`'"'`).
+`atlas.io.core.CsvWriter`Zapisuje tablicę obiektów jako ciąg rozdzielany. Dowolny pojedynczy znak może być używany jako ogranicznik lub kwalifikator tekstu. Domyślny ogranicznik jest przecinkiem ( `','` ), a domyślny kwalifikator tekstu jest znakiem cudzysłowu ( `'"'` ).
 
 Aby użyć tej klasy, wykonaj następujące czynności:
 
 - Utwórz wystąpienie klasy i opcjonalnie Ustaw ogranicznik niestandardowy lub kwalifikator tekstu.
 - Zapisz dane w klasie przy użyciu `write` funkcji lub `writeRow` funkcji. Dla `write` funkcji Przekaż dwuwymiarową tablicę obiektów reprezentujących wiele wierszy i komórek. Aby użyć `writeRow` funkcji, należy przekazać tablicę obiektów reprezentujących wiersz danych z wieloma kolumnami.
 - Wywołaj `toString` funkcję, aby pobrać rozdzielany ciąg. 
-- Opcjonalnie Wywołaj `clear` metodę, aby umożliwić ponowne użycie modułu zapisywania i zmniejszyć jego alokację zasobów, lub wywołaj metodę, `delete` aby usunąć wystąpienie składnika zapisywania.
+- Opcjonalnie Wywołaj `clear` metodę, aby umożliwić ponowne użycie modułu zapisywania i zmniejszyć jego alokację zasobów, lub wywołaj `delete` metodę, aby usunąć wystąpienie składnika zapisywania.
 
 > [!Note]
 > Liczba zapisanych kolumn zostanie ograniczona do liczby komórek w pierwszym wierszu danych przesłanych do składnika zapisywania.
 
 ## <a name="read-xml-files"></a>Odczytywanie plików XML
 
-`atlas.io.core.SimpleXmlReader` Klasa jest szybsza podczas analizowania plików XML niż `DOMParser`. Jednak `atlas.io.core.SimpleXmlReader` Klasa wymaga dobrze sformatowania plików XML. Pliki XML, które nie są poprawnie sformatowane, na przykład brakujące tagi zamykające prawdopodobnie spowodują wystąpienie błędu.
+`atlas.io.core.SimpleXmlReader`Klasa jest szybsza podczas analizowania plików XML niż `DOMParser` . Jednak `atlas.io.core.SimpleXmlReader` Klasa wymaga dobrze sformatowania plików XML. Pliki XML, które nie są poprawnie sformatowane, na przykład brakujące tagi zamykające prawdopodobnie spowodują wystąpienie błędu.
 
 Poniższy kod ilustruje sposób użycia `SimpleXmlReader` klasy do analizy ciągu XML w obiekcie JSON i serializacji go w żądanym formacie.
 
@@ -80,7 +80,7 @@ if (xmlDoc && xmlDoc.root && xmlDoc.root.tagName && xmlDoc.root.tagName === '<Yo
 
 ## <a name="write-xml-files"></a>Zapisz pliki XML
 
-`atlas.io.core.SimpleXmlWriter` Klasa zapisuje poprawnie SFORMATOWANE dane XML w wydajny sposób pamięci.
+`atlas.io.core.SimpleXmlWriter`Klasa zapisuje poprawnie sformatowane dane XML w wydajny sposób pamięci.
 
 Poniższy kod ilustruje sposób użycia `SimpleXmlWriter` klasy w celu wygenerowania dobrze sformatowanego ciągu XML.
 

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71058116"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Rozwiązywanie problemów z łącznością aplikacji na maszynach wirtualnych platformy Azure
@@ -140,7 +140,7 @@ Jeśli masz dostęp do aplikacji, upewnij się, że urządzenie z internetową g
 
 Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 [Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure z systemem Windows](troubleshoot-rdp-connection.md)
 
 [Rozwiązywanie problemów z połączeniami Secure Shell (SSH) z maszyną wirtualną platformy Azure opartą na systemie Linux](troubleshoot-ssh-connection.md)

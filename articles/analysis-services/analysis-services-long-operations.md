@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81428110"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Najlepsze rozwiązania dotyczące długotrwałych operacji
@@ -18,7 +18,7 @@ ms.locfileid: "81428110"
 W Azure Analysis Services *węzeł* reprezentuje maszynę wirtualną hosta, w której jest uruchomiony zasób serwera. Niektóre operacje, takie jak długotrwałe wykonywanie zapytań, operacje odświeżania i synchronizacja skalowalna w poziomie zapytań mogą zakończyć się niepowodzeniem, jeśli zasób serwera przejdzie do innego węzła. Typowe komunikaty o błędach w tym scenariuszu obejmują:
 
 - "Wystąpił błąd podczas próby zlokalizowania długotrwałego żądania XMLA. Żądanie mogło zostać przerwane przez uaktualnienie usługi lub ponowne uruchomienie serwera ".
-- "Zadanie o IDENTYFIKATORze<guid>" dla modelu<database>"" zostało anulowane z powodu błędu usługi (nieaktywności) z komunikatem "Anulowanie żądania odświeżania, ponieważ było ono zablokowane bez żadnych aktualizacji. Jest to wewnętrzny problem z usługą. Prześlij ponownie zadanie lub zapoznaj się z biletem, aby uzyskać pomoc, jeśli ten problem wystąpi wielokrotnie. "
+- "Zadanie o IDENTYFIKATORze" <guid> dla modelu " <database> " zostało anulowane z powodu błędu usługi (nieaktywności) z komunikatem "Anulowanie żądania odświeżania, ponieważ było ono zablokowane bez żadnych aktualizacji. Jest to wewnętrzny problem z usługą. Prześlij ponownie zadanie lub zapoznaj się z biletem, aby uzyskać pomoc, jeśli ten problem wystąpi wielokrotnie. "
 
 Istnieje wiele powodów, dla których długotrwałe operacje mogą zostać zakłócone. Na przykład aktualizacje na platformie Azure, takie jak: 
 - Poprawki systemu operacyjnego 

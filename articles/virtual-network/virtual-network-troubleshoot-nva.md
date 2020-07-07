@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71056833"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemy z sieciowym urządzeniem wirtualnym na platformie Azure
@@ -127,7 +127,7 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
 1. Aby przechwycić jednoczesne śledzenie sieci, uruchom następujące polecenie:
 
-   **W przypadku systemu Windows**
+   **Dla systemu Windows**
 
    polecenie netsh Trace Rozpocznij przechwytywanie = Yes TraceFile = c:\ server_IP. etl scenariusz = NetConnection
 
@@ -135,8 +135,8 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
    sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 
-2. Użyj **PsPing** lub **Nmap** ze źródłowej maszyny wirtualnej na docelowej maszynie wirtualnej (na przykład `PsPing 10.0.0.4:80` : `Nmap -p 80 10.0.0.4`lub).
-3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://www.microsoft.com/download/details.aspx?id=4865) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na `IPv4.address==10.0.0.4 (Windows netmon)` przykład `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` lub (Linux).
+2. Użyj **PsPing** lub **Nmap** ze źródłowej maszyny wirtualnej na docelowej maszynie wirtualnej (na przykład: `PsPing 10.0.0.4:80` lub `Nmap -p 80 10.0.0.4` ).
+3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://www.microsoft.com/download/details.aspx?id=4865) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na przykład `IPv4.address==10.0.0.4 (Windows netmon)` lub `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analizowanie śladów
 

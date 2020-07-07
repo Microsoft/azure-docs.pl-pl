@@ -3,24 +3,24 @@ title: 'Wzorzec: wdrażanie zasobów przy użyciu definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład sposobu wdrażania zasobów przy użyciu definicji zasad.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172674"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970862"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Wzorzec Azure Policy: wdrażanie zasobów
 
-Efekt [deployIfNotExists](../concepts/effects.md#deployifnotexists) umożliwia wdrożenie [szablonu Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) podczas tworzenia lub aktualizowania zasobu, który nie jest zgodny. Takie podejście może być preferowane przy użyciu efektu [Odmów](../concepts/effects.md#deny) , ponieważ pozwala na dalsze tworzenie zasobów, ale gwarantuje, że zmiany są zgodne.
+Efekt [deployIfNotExists](../concepts/effects.md#deployifnotexists) umożliwia wdrożenie [szablonu Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) (szablon ARM) podczas tworzenia lub aktualizowania zasobu, który nie jest zgodny. Takie podejście może być preferowane przy użyciu efektu [Odmów](../concepts/effects.md#deny) , ponieważ pozwala na dalsze tworzenie zasobów, ale gwarantuje, że zmiany są zgodne.
 
 ## <a name="sample-policy-definition"></a>Przykładowa definicja zasad
 
-Ta definicja zasad używa operatora **pola** do oszacowania `type` utworzonego lub zaktualizowanego zasobu. Gdy ten zasób jest obiektem _Microsoft. Network/virtualNetworks_, zasady szuka obserwatora sieci w lokalizacji nowego lub zaktualizowanego zasobu. Jeśli nie zlokalizowano zgodnego obserwatora sieciowego, szablon Menedżer zasobów zostanie wdrożony w celu utworzenia brakującego zasobu.
+Ta definicja zasad używa operatora **pola** do oszacowania `type` utworzonego lub zaktualizowanego zasobu. Gdy ten zasób jest obiektem _Microsoft. Network/virtualNetworks_, zasady szuka obserwatora sieci w lokalizacji nowego lub zaktualizowanego zasobu. Jeśli nie znajduje się pasujący obserwator sieciowy, szablon ARM zostanie wdrożony w celu utworzenia brakującego zasobu.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
-### <a name="explanation"></a>Wyjaśnienie
+### <a name="explanation"></a>Objaśnienie
 
 #### <a name="existencecondition"></a>existenceCondition
 
@@ -44,7 +44,7 @@ Część **wdrożenia** definicji zasad ma blok **Właściwości** , który defi
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **Parametry** — ta właściwość definiuje parametry, które są dostarczane do **szablonu**. Nazwy parametrów muszą być zgodne z definicjami w **szablonie**. W tym przykładzie parametr ma nazwę **Lokalizacja** do dopasowania. Wartość **lokalizacji** ponownie używa `field()` funkcji, aby uzyskać wartość ocenianego zasobu, który jest siecią wirtualną w bloku **Klasa policyrule. if** .
+- **Parametry** — ta właściwość definiuje parametry, które są dostarczane do **szablonu**. Nazwy parametrów muszą być zgodne z definicjami w **szablonie**. W tym przykładzie parametr ma nazwę **Lokalizacja** do dopasowania. Wartość **lokalizacji** `field()` ponownie używa funkcji, aby uzyskać wartość ocenianego zasobu, który jest siecią wirtualną w bloku **Klasa policyrule. if** .
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 

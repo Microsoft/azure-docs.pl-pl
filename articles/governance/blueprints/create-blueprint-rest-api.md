@@ -3,16 +3,16 @@ title: 'Szybki Start: Tworzenie strategii przy użyciu interfejsu API REST'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu interfejsu API REST.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: 51fe927f1ee60f18cff7907e9e641c89acd751e2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563310"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971202"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu interfejsu API REST
 
-Znajomość sposobu tworzenia i przypisywania strategii umożliwia definiowanie typowych wzorców tworzenia konfiguracji wielokrotnego użytku, które można szybko wdrażać, w oparciu o szablony usługi Resource Manager, zasady, zabezpieczenia itd. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
+Informacje na temat tworzenia i przypisywania planów umożliwiają definiowanie wspólnych wzorców w celu opracowania wielokrotnego i szybkiego wdrożenia konfiguracji na podstawie szablonów Azure Resource Manager (szablony ARM), zasad, zabezpieczeń i innych. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,7 +52,7 @@ Zastąp parametr `{subscriptionId}` w zmiennej **$restUri** powyżej, aby uzyska
 
 ## <a name="create-a-blueprint"></a>Tworzenie strategii
 
-Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon usługi Resource Manager i przypisanie roli w grupie zasobów.
+Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon ARM i przypisanie roli do grupy zasobów.
 
 > [!NOTE]
 > Gdy używasz interfejsu API REST, w pierwszej kolejności jest tworzony obiekt _strategii_. Dla każdego _artefaktu_ zawierającego parametry, który ma zostać dodany, parametry _strategii_ początkowej muszą zostać zdefiniowane wcześniej.
@@ -200,7 +200,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
      }
      ```
 
-1. Dodaj szablon w grupie zasobów. **Treść żądania** dla szablonu usługi Resource Manager zawiera normalny składnik JSON szablonu i definiuje docelową grupę zasobów za pomocą wartości **properties.resourceGroup**. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry strategii są udostępniane w szablonie dzięki zdefiniowaniu wartości **properties.parameters**, a w pliku JSON szablonu ta para klucz-wartość służy do iniekcji wartości. Nazwy parametrów strategii i szablonu mogą być takie same, ale wprowadziliśmy inne, aby lepiej zilustrować sposób ich przekazywania ze strategii do artefaktu szablonu.
+1. Dodaj szablon w grupie zasobów. **Treść żądania** dla szablonu ARM zawiera normalny składnik JSON szablonu i definiuje docelową grupę zasobów z **właściwościami.** Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry strategii są udostępniane w szablonie dzięki zdefiniowaniu wartości **properties.parameters**, a w pliku JSON szablonu ta para klucz-wartość służy do iniekcji wartości. Nazwy parametrów strategii i szablonu mogą być takie same, ale wprowadziliśmy inne, aby lepiej zilustrować sposób ich przekazywania ze strategii do artefaktu szablonu.
 
    - Identyfikator URI interfejsu API REST
 
@@ -408,7 +408,7 @@ Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które mu
      > [!IMPORTANT]
      > Plany platformy Azure nie zarządzają tożsamości zarządzanej przypisanej przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="unassign-a-blueprint"></a>Cofanie przypisania strategii
 

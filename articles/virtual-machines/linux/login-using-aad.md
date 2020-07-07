@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80366484"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
@@ -69,10 +69,10 @@ Aby włączyć uwierzytelnianie usługi Azure AD dla maszyn wirtualnych z system
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//Device.Login.microsoftonline.com
-* https:\//pas.Windows.NET
+* https: \/ /Device.Login.microsoftonline.com
+* https: \/ /pas.Windows.NET
 * https:\//management.azure.com
-* https:\//Packages.Microsoft.com
+* https: \/ /Packages.Microsoft.com
 
 > [!NOTE]
 > Obecnie nie można skonfigurować grup zabezpieczeń sieci platformy Azure dla maszyn wirtualnych z włączoną funkcją uwierzytelniania usługi Azure AD.
@@ -148,13 +148,13 @@ Najpierw Wyświetl publiczny adres IP maszyny wirtualnej za pomocą [AZ VM show]
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Zaloguj się do maszyny wirtualnej platformy Azure z systemem Linux przy użyciu poświadczeń usługi Azure AD. `-l` Parametr umożliwia określenie własnego adresu konta usługi Azure AD. Zastąp przykładowe konto własnym. Adresy kont należy wprowadzać w postaci tylko małych liter. Zastąp przykładowy adres IP publicznym adresem IP maszyny wirtualnej z poprzedniego polecenia.
+Zaloguj się do maszyny wirtualnej platformy Azure z systemem Linux przy użyciu poświadczeń usługi Azure AD. `-l`Parametr umożliwia określenie własnego adresu konta usługi Azure AD. Zastąp przykładowe konto własnym. Adresy kont należy wprowadzać w postaci tylko małych liter. Zastąp przykładowy adres IP publicznym adresem IP maszyny wirtualnej z poprzedniego polecenia.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Zostanie wyświetlony monit o zalogowanie się do usługi Azure AD za pomocą jednorazowego kodu w [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)usłudze. Skopiuj i wklej kod jednorazowego użycia na stronie logowania do urządzenia.
+Zostanie wyświetlony monit o zalogowanie się do usługi Azure AD za pomocą jednorazowego kodu w usłudze [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) . Skopiuj i wklej kod jednorazowego użycia na stronie logowania do urządzenia.
 
 Po wyświetleniu monitu wprowadź poświadczenia logowania usługi Azure AD na stronie logowania. 
 
@@ -166,7 +166,7 @@ Użytkownik jest zalogowany do maszyny wirtualnej platformy Azure z systemem Lin
 
 ## <a name="sudo-and-aad-login"></a>Sudo i logowanie do usługi AAD
 
-Przy pierwszym uruchomieniu sudo zostanie wyświetlony monit o uwierzytelnienie w drugim czasie. Jeśli nie chcesz ponownie uwierzytelniać się w celu uruchomienia programu sudo, możesz edytować plik `/etc/sudoers.d/aad_admins` sudo i zastąpić ten wiersz:
+Przy pierwszym uruchomieniu sudo zostanie wyświetlony monit o uwierzytelnienie w drugim czasie. Jeśli nie chcesz ponownie uwierzytelniać się w celu uruchomienia programu sudo, możesz edytować plik sudo `/etc/sudoers.d/aad_admins` i zastąpić ten wiersz:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
@@ -200,9 +200,9 @@ Access denied
 
 Jeśli krok uwierzytelniania został pomyślnie ukończony w przeglądarce sieci Web, może zostać wyświetlony monit o ponowne zalogowanie się przy użyciu nowego kodu. Ten błąd jest zwykle spowodowany niezgodnością między nazwą logowania określoną w monicie SSH i kontem, z którego zalogowano się w usłudze Azure AD. Aby rozwiązać ten problem:
 
-- Sprawdź, czy nazwa logowania określona w monicie SSH jest poprawna. Literówka w nazwie logowania może spowodować niezgodność między nazwą logowania określoną w monicie SSH i kontem, które zostało zalogowane do usługi Azure AD. Na przykład wpisano *azuresuer\@contoso.onmicrosoft.com* zamiast *azureuser\@contoso.onmicrosoft.com*.
+- Sprawdź, czy nazwa logowania określona w monicie SSH jest poprawna. Literówka w nazwie logowania może spowodować niezgodność między nazwą logowania określoną w monicie SSH i kontem, które zostało zalogowane do usługi Azure AD. Na przykład wpisano *azuresuer \@ contoso.onmicrosoft.com* zamiast *azureuser \@ contoso.onmicrosoft.com*.
 - Jeśli masz wiele kont użytkowników, upewnij się, że w oknie przeglądarki nie jest dostępne inne konto użytkownika podczas logowania się do usługi Azure AD.
-- Linux to system operacyjny z uwzględnieniem wielkości liter. Istnieje różnica między elementami "Azureuser@contoso.onmicrosoft.com" i "azureuser@contoso.onmicrosoft.com", co może spowodować niezgodność. Upewnij się, że nazwa UPN ma poprawną wielkość liter w wierszu polecenia SSH.
+- Linux to system operacyjny z uwzględnieniem wielkości liter. Istnieje różnica między elementami " Azureuser@contoso.onmicrosoft.com " i " azureuser@contoso.onmicrosoft.com ", co może spowodować niezgodność. Upewnij się, że nazwa UPN ma poprawną wielkość liter w wierszu polecenia SSH.
 
 ### <a name="other-limitations"></a>Inne ograniczenia
 

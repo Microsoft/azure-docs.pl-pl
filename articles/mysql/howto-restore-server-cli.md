@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: a2a9efceed84c4c57d1ad2cae47dd4440fd4eb42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80373011"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -25,7 +25,7 @@ Aby ukończyć ten przewodnik, musisz:
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz `az --version`polecenie. Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Ustawianie konfiguracji kopii zapasowej
 
@@ -35,9 +35,9 @@ Wybór między konfiguracją serwera na potrzeby lokalnie nadmiarowych kopii zap
 > Po utworzeniu serwera, jego rodzaju nadmiarowości, czyli geograficznie nadmiarowej a lokalnie nadmiarowy, nie można przełączyć.
 >
 
-Podczas tworzenia serwera za pomocą `az mysql server create` polecenia parametr decyduje `--geo-redundant-backup` o opcji nadmiarowości kopii zapasowej. Jeśli `Enabled`są tworzone geograficznie nadmiarowe kopie zapasowe. Lub jeśli `Disabled` są tworzone lokalnie nadmiarowe kopie zapasowe. 
+Podczas tworzenia serwera za pomocą `az mysql server create` polecenia `--geo-redundant-backup` parametr decyduje o opcji nadmiarowości kopii zapasowej. Jeśli `Enabled` są tworzone geograficznie nadmiarowe kopie zapasowe. Lub jeśli `Disabled` są tworzone lokalnie nadmiarowe kopie zapasowe. 
 
-Okres przechowywania kopii zapasowych jest ustawiany przez parametr `--backup-retention`. 
+Okres przechowywania kopii zapasowych jest ustawiany przez parametr `--backup-retention` . 
 
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Przewodnik Szybki Start dotyczący interfejsu wiersza polecenia Azure Database for MySQL Server](quickstart-create-mysql-server-database-using-azure-cli.md).
 
@@ -64,13 +64,13 @@ Aby przywrócić serwer, w wierszu polecenia platformy Azure wpisz następujące
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
-`az mysql server restore` Polecenie wymaga następujących parametrów:
+`az mysql server restore`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
 | name | mydemoserver-restored | Nazwa nowego serwera utworzonego za pomocą polecenie przywracania. |
-| restore-point-in-time | 2018 R-03-13T13:59:00Z | Wybierz punkt w czasie, do którego chcesz przywrócić. Ta data i godzina musi przypadać w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu daty i godziny ISO8601. Na przykład możesz użyć własnej lokalnej strefy czasowej, takiej jak `2018-03-13T05:59:00-08:00`. Można również użyć formatu UTC Zulu, na przykład `2018-03-13T13:59:00Z`. |
+| restore-point-in-time | 2018 R-03-13T13:59:00Z | Wybierz punkt w czasie, do którego chcesz przywrócić. Ta data i godzina musi przypadać w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu daty i godziny ISO8601. Na przykład możesz użyć własnej lokalnej strefy czasowej, takiej jak `2018-03-13T05:59:00-08:00` . Można również użyć formatu UTC Zulu, na przykład `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | Nazwa lub identyfikator serwera źródłowego, z którego ma zostać przeprowadzone przywrócenie. |
 
 Po przywróceniu serwera do wcześniejszego punktu w czasie zostanie utworzony nowy serwer. Oryginalny serwer i jego bazy danych z określonego punktu w czasie są kopiowane na nowy serwer.
@@ -84,7 +84,7 @@ Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi si
 ## <a name="geo-restore"></a>Przywracanie geograficzne
 Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie nadmiarowych, można utworzyć nowy serwer z kopii zapasowej istniejącego serwera. Ten nowy serwer można utworzyć w dowolnym regionie, który Azure Database for MySQL jest dostępny.  
 
-Aby utworzyć serwer przy użyciu geograficznie nadmiarowej kopii zapasowej, `az mysql server georestore` Użyj polecenia platformy Azure.
+Aby utworzyć serwer przy użyciu geograficznie nadmiarowej kopii zapasowej, użyj polecenia platformy Azure `az mysql server georestore` .
 
 > [!NOTE]
 > Gdy serwer jest tworzony po raz pierwszy, może nie być od razu dostępny do przywracania geograficznego. Wypełnienie wymaganych metadanych może potrwać kilka godzin.
@@ -104,7 +104,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 ```
 
-`az mysql server georestore` Polecenie wymaga następujących parametrów:
+`az mysql server georestore`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |

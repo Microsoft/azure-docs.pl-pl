@@ -1,5 +1,5 @@
 ---
-title: Integrowanie Key Vault z urzędem certyfikacji DigiCert
+title: Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 description: Jak zintegrować Key Vault z urzędem certyfikacji DigiCert
 services: key-vault
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d6cb8d386efbcdaf053f0740d955b249c0e636b4
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84908234"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964502"
 ---
-# <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie Key Vault z urzędem certyfikacji DigiCert
+# <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
 Azure Key Vault umożliwia łatwe inicjowanie obsługi i wdrażanie certyfikatów cyfrowych dla sieci oraz zarządzanie nimi oraz zapewnia bezpieczną komunikację dla aplikacji. Certyfikat cyfrowy to elektroniczne poświadczenie umożliwiające potwierdzenie tożsamości w transakcji elektronicznej. 
 
@@ -57,7 +57,7 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
  ![Właściwości certyfikatu](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Na ekranie **Tworzenie urzędu certyfikacji** wybierz następujące wartości:
     -   **Nazwa**: Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
-    -   **Podaj**: wybierz pozycję DigiCert z menu.
+    -   **Dostawca**: wybierz z menu pozycję DigiCert.
     -   **Identyfikator konta**: Wprowadź identyfikator konta DigiCert CertCentral
     -   **Hasło konta**: Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
     -   **Identyfikator organizacji**: wprowadź OrgID zebrane z konta DigiCert CertCentral 

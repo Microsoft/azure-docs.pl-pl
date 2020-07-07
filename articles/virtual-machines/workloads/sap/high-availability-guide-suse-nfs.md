@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348870"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
@@ -120,7 +120,7 @@ Możesz użyć jednego z szablonów szybkiego startu w usłudze GitHub, aby wdro
    4. Nazwa użytkownika administratora i hasło administratora  
       Zostanie utworzony nowy użytkownik, którego można użyć do zalogowania się na komputerze.
    5. Identyfikator podsieci  
-      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak**&lt;&gt;Identyfikator subskrypcji**/subscriptions//resourceGroups/**&lt;nazwa grupy&gt;zasobów**/Providers/Microsoft.Network/virtualNetworks/**&lt;nazwa sieci&gt;wirtualnej**/Subnets/**&lt;nazwa&gt; podsieci**
+      Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda tak, jak** &lt; Identyfikator &gt; subskrypcji**/subscriptions//ResourceGroups/nazwa** &lt; grupy &gt; zasobów**/Providers/Microsoft.Network/virtualNetworks/nazwa** &lt; sieci &gt; wirtualnej**/Subnets/** &lt; nazwa &gt; podsieci**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
@@ -571,7 +571,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   `crossmnt` Opcja w zasobach `exportfs` klastra znajduje się w naszej dokumentacji w celu zapewnienia zgodności z poprzednimi wersjami przy użyciu starszych wersji programu SLES.  
+   `crossmnt`Opcja w `exportfs` zasobach klastra znajduje się w naszej dokumentacji w celu zapewnienia zgodności z poprzednimi wersjami przy użyciu starszych wersji programu SLES.  
 
 1. **[1]** Wyłącz tryb konserwacji
    

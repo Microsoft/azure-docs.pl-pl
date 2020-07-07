@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117084"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964808"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Samouczek: renderowanie sceny programu Blender przy użyciu narzędzia Batch Explorer
 
@@ -27,9 +27,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Aby korzystać z aplikacji renderujących w usłudze Batch z opłatami za użycie, potrzebujesz subskrypcji z płatnością zgodnie z rzeczywistym użyciem lub innej opcji zakupu platformy Azure. Licencjonowanie na zasadzie płatności za użycie nie jest obsługiwane, jeśli korzystasz z bezpłatnej oferty platformy Azure, w ramach której otrzymujesz środki pieniężne.
 
-Potrzebujesz konta usługi Azure Batch ze skojarzonym kontem magazynu.  Zobacz dowolny z artykułów przewodników Szybki start usługi Batch, na przykład [artykuł dotyczący interfejsu wiersza polecenia](https://docs.microsoft.com/azure/batch/quick-create-cli), aby utworzyć konto usługi Batch.
+Potrzebujesz konta usługi Azure Batch ze skojarzonym kontem magazynu.  Zobacz dowolny z artykułów przewodników Szybki start usługi Batch, na przykład [artykuł dotyczący interfejsu wiersza polecenia](./quick-create-cli.md), aby utworzyć konto usługi Batch.
 
-Dla rozmiaru maszyny wirtualnej i liczby maszyn wirtualnych określonych w tym samouczku wymagany jest limit przydziału rdzeni o niskim priorytecie wynoszący co najmniej 50 rdzeni. Można użyć domyślnego limitu przydziału, ale wymaga to użycia mniejszego rozmiaru maszyny wirtualnej, co oznacza, że renderowanie obrazów będzie trwało dłużej. Proces żądania zwiększonego limitu przydziału rdzeni został szczegółowo opisany w [tym artykule](https://docs.microsoft.com/azure/batch/batch-quota-limit).
+Dla rozmiaru maszyny wirtualnej i liczby maszyn wirtualnych określonych w tym samouczku wymagany jest limit przydziału rdzeni o niskim priorytecie wynoszący co najmniej 50 rdzeni. Można użyć domyślnego limitu przydziału, ale wymaga to użycia mniejszego rozmiaru maszyny wirtualnej, co oznacza, że renderowanie obrazów będzie trwało dłużej. Proces żądania zwiększonego limitu przydziału rdzeni został szczegółowo opisany w [tym artykule](./batch-quota-limit.md).
 
 Na koniec wymagane jest zainstalowanie narzędzia [Batch Explorer](https://azure.github.io/BatchExplorer/) (jest ono dostępne dla systemów Windows, OS x i Linux). Program [Blender](https://www.blender.org/download/) jest opcjonalny, ale jeśli jest zainstalowany, można wyświetlić przykładowy plik modelu.
 
@@ -127,7 +127,7 @@ Szablon zlecenia określa również, że pliki wyjściowe ramki i dziennika są 
 
 Po zakończeniu wszystkich zadań zlecenie zostanie oznaczone jako ukończone: ![Zlecenie i wszystkie zadania ukończone](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!WARNING]
 > Pula musi zostać usunięta (można również zmienić jej rozmiar na zero węzłów), aby zatrzymać naliczanie opłat za maszyny wirtualne dla subskrypcji platformy Azure.
@@ -139,4 +139,4 @@ Po zakończeniu wszystkich zadań zlecenie zostanie oznaczone jako ukończone: !
 ## <a name="next-steps"></a>Następne kroki
 * W sekcji „Gallery” (Galeria) zapoznaj się z aplikacjami renderującymi dostępnymi za pomocą narzędzia Batch Explorer.
 * Dla każdej aplikacji istnieje kilka dostępnych szablonów, które z czasem zostaną rozwinięte.  Na przykład dla programu Blender istnieją szablony, które dzielą pojedynczy obraz na kafelki, dzięki czemu części obrazu mogą być renderowane równolegle.
-* Aby uzyskać kompleksowy opis możliwości renderowania, zobacz zbiór artykułów [tutaj](https://docs.microsoft.com/azure/batch/batch-rendering-service).
+* Aby uzyskać kompleksowy opis możliwości renderowania, zobacz zbiór artykułów [tutaj](./batch-rendering-service.md).
