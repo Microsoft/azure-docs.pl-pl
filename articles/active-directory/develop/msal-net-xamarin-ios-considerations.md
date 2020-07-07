@@ -14,16 +14,16 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652657"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Zagadnienia dotyczące korzystania z platformy Xamarin iOS z MSAL.NET
 W przypadku korzystania z biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET) w systemie Xamarin iOS należy: 
 
-- Zastąp i zaimplementuj `OpenUrl` funkcję `AppDelegate`w.
+- Zastąp i zaimplementuj `OpenUrl` funkcję w `AppDelegate` .
 - Włącz grupy pęku kluczy.
 - Włącz udostępnianie pamięci podręcznej tokenu.
 - Włącz dostęp do łańcucha kluczy.
@@ -31,7 +31,7 @@ W przypadku korzystania z biblioteki uwierzytelniania firmy Microsoft dla platfo
 
 ## <a name="implement-openurl"></a>Implementuj OpenUrl
 
-Zastąp `OpenUrl` metodę klasy `FormsApplicationDelegate` pochodnej i wywołanie `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Przykład:
+Zastąp `OpenUrl` metodę `FormsApplicationDelegate` klasy pochodnej i wywołanie `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Przykład:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -61,7 +61,7 @@ var builder = PublicClientApplicationBuilder
      .Build();
 ```
 
-Włącz również dostęp do łańcucha kluczy `Entitlements.plist` w pliku. Użyj jednej z następujących grup dostępu lub własnej grupy dostępu.
+Włącz również dostęp do łańcucha kluczy w `Entitlements.plist` pliku. Użyj jednej z następujących grup dostępu lub własnej grupy dostępu.
 
 ```xml
 <dict>
@@ -72,7 +72,7 @@ Włącz również dostęp do łańcucha kluczy `Entitlements.plist` w pliku. Uż
 </dict>
 ```
 
-W przypadku korzystania z `WithIosKeychainSecurityGroup()` interfejsu API program MSAL automatycznie dołącza grupę zabezpieczeń na końcu *identyfikatora zespołu* aplikacji (`AppIdentifierPrefix`). MSAL dodaje grupę zabezpieczeń, ponieważ w przypadku kompilowania aplikacji w Xcode zostanie ona taka sama. Dlatego uprawnienia w `Entitlements.plist` pliku muszą być dołączone `$(AppIdentifierPrefix)` przed grupą dostępu pęku kluczy.
+W przypadku korzystania z `WithIosKeychainSecurityGroup()` interfejsu API program MSAL automatycznie dołącza grupę zabezpieczeń na końcu *identyfikatora zespołu* aplikacji ( `AppIdentifierPrefix` ). MSAL dodaje grupę zabezpieczeń, ponieważ w przypadku kompilowania aplikacji w Xcode zostanie ona taka sama. Dlatego uprawnienia w `Entitlements.plist` pliku muszą być dołączone `$(AppIdentifierPrefix)` przed grupą dostępu pęku kluczy.
 
 Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą uprawnień systemu iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
 
@@ -82,16 +82,16 @@ Począwszy od MSAL 2. x, można określić grupę dostępu łańcucha kluczy, ab
 
 Udostępniając pamięć podręczną tokenów, można zezwolić na logowanie jednokrotne między wszystkimi aplikacjami, które korzystają z tej samej grupy dostępu pęku kluczy.
 
-Aby włączyć udostępnianie pamięci podręcznej, `WithIosKeychainSecurityGroup()` Użyj metody w celu ustawienia grupy dostępu pęku kluczy na taką samą wartość we wszystkich aplikacjach, które współużytkują tę samą pamięć podręczną. Pierwszy przykład kodu w tym artykule pokazuje, jak używać metody.
+Aby włączyć udostępnianie pamięci podręcznej, użyj `WithIosKeychainSecurityGroup()` metody w celu ustawienia grupy dostępu pęku kluczy na taką samą wartość we wszystkich aplikacjach, które współużytkują tę samą pamięć podręczną. Pierwszy przykład kodu w tym artykule pokazuje, jak używać metody.
 
-Wcześniej w tym artykule przedstawiono, że MSAL dodaje `$(AppIdentifierPrefix)` się za każdym razem, gdy `WithIosKeychainSecurityGroup()` korzystasz z interfejsu API. MSAL dodaje ten element, ponieważ identyfikator `AppIdentifierPrefix` zespołu zapewnia, że tylko aplikacje utworzone przez tego samego wydawcę mogą udostępniać dostęp do łańcucha kluczy.
+Wcześniej w tym artykule przedstawiono, że MSAL dodaje się `$(AppIdentifierPrefix)` za każdym razem, gdy korzystasz z `WithIosKeychainSecurityGroup()` interfejsu API. MSAL dodaje ten element, ponieważ identyfikator zespołu `AppIdentifierPrefix` zapewnia, że tylko aplikacje utworzone przez tego samego wydawcę mogą udostępniać dostęp do łańcucha kluczy.
 
 > [!NOTE]
-> `KeychainSecurityGroup` Właściwość jest przestarzała.
+> `KeychainSecurityGroup`Właściwość jest przestarzała.
 > 
-> Począwszy od MSAL 2. x, deweloperzy zostali zmuszeni do uwzględnienia `TeamId` prefiksu, gdy używają `KeychainSecurityGroup` właściwości. Ale począwszy od MSAL 2.7. x, podczas korzystania z nowej `iOSKeychainSecurityGroup` właściwości MSAL rozpoznaje `TeamId` prefiks w czasie wykonywania. Gdy używasz tej właściwości, nie dołączaj `TeamId` prefiksu do wartości. Prefiks nie jest wymagany.
+> Począwszy od MSAL 2. x, deweloperzy zostali zmuszeni do uwzględnienia `TeamId` prefiksu, gdy używają `KeychainSecurityGroup` właściwości. Ale począwszy od MSAL 2.7. x, podczas korzystania z nowej `iOSKeychainSecurityGroup` Właściwości MSAL rozpoznaje `TeamId` prefiks w czasie wykonywania. Gdy używasz tej właściwości, nie dołączaj `TeamId` prefiksu do wartości. Prefiks nie jest wymagany.
 >
-> Ponieważ `KeychainSecurityGroup` właściwość jest przestarzała, użyj `iOSKeychainSecurityGroup` właściwości.
+> Ponieważ `KeychainSecurityGroup` Właściwość jest przestarzała, użyj `iOSKeychainSecurityGroup` właściwości.
 
 ### <a name="use-microsoft-authenticator"></a>Użyj Microsoft Authenticator
 

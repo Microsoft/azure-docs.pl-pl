@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82779046"
 ---
 # <a name="localization"></a>Lokalizacja #
@@ -26,21 +26,21 @@ Obsługa wielu języków umożliwia użytkownikom w językach innych niż angiel
 
 Azure Media Player obecnie obsługuje następujące języki z odpowiednimi kodami języka:
 
-| Język            | Code | Język                | Code   | Język                | Code         |
+| Język            | Kod | Język                | Kod   | Język                | Kod         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
-| Angielski {domyślnie}   | pl   | Chorwacki                | Kadry     | Rumuński                | ro           |
-| Arabski              | ty   | węgierski               | Węgry     | Słowacki                  | SK           |
-| Bułgarski           | BG   | Indonezyjski              | id     | Języka                 | SL           |
-| Kataloński             | urzędu certyfikacji   | Islandzki               | is     | Serbski — Cyrylica      | Wirtualizacja SR-Cyrl-CS   |
-| Czeski               | Rejestr   | Włoski                 | it     | Serbski (łaciński)         | sr-latn-rs   |
-| duński              | da   | japoński                | ja     | Rosyjski                 | ru           |
-| niemiecki              | de   | Kazachski                  | kk     | szwedzki                 | sv           |
-| grecki               | Colon   | koreański                  | Ko     | Tajski                    | th           |
+| Angielski {domyślnie}   | pl   | Chorwacki                | godz.     | Rumuński                | ro           |
+| Arabski              | ty   | Węgierski               | Węgry     | Słowacki                  | SK           |
+| Bułgarski           | BG   | Indonezyjski              | identyfikator     | Języka                 | SL           |
+| Kataloński             | urzędu certyfikacji   | Islandzki               | is     | Serbski – cyrylica      | Wirtualizacja SR-Cyrl-CS   |
+| Czeski               | Rejestr   | Włoski                 | it     | Serbski – łaciński         | sr-latn-rs   |
+| Duński              | da   | Japoński                | ja     | Rosyjski                 | ru           |
+| Niemiecki              | de   | Kazachski                  | kk     | Szwedzki                 | sv           |
+| Grecki               | Colon   | Koreański                  | Ko     | Tajlandzki                    | th           |
 | Hiszpański             | Tak   | Litewski              | lt     | Tagalski                 | Przełącznik           |
 | Estoński            | staw   | Łotewski                 | LV     | Turecki                 | zdawczy           |
 | Baskijski              | Europejska   | Malezji               | Arial     | Ukraiński               | Południowe Zjednoczone Królestwo           |
 | Perski               | FA   | Norweski — BokmÃ ¥ l     | sesja     | Urdu                    | publikacj           |
-| fiński             | fi   | Niderlandzki                   | nl     | Wietnamski              | VI           |
+| Fiński             | fi   | Niderlandzki                   | nl     | Wietnamski              | VI           |
 | Francuski              | fr   | Norweski — nynorsk     | nn     | Chiński (uproszczony)    | zh-Hans      |
 | Galicyjski            | GL   | Polski                  | zysków     | Chiński (tradycyjny)   | zh-Hant      |
 | Hebrajski              | Przewodniczący   | Portugalski (Brazylia)     | pt-br  |                         |              |

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80065206"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Zarządzanie danymi Gateway — wysoka dostępność i skalowalność (wersja zapoznawcza)
@@ -238,15 +238,15 @@ Gdy dostępna pamięć i procesor CPU nie są używane prawidłowo, ale bezczynn
 
 ## <a name="known-issuesbreaking-changes"></a>Znane problemy/krytyczne zmiany
 
-- Obecnie dla jednej bramy logicznej można mieć maksymalnie cztery węzły bramy fizycznej. Jeśli potrzebujesz więcej niż czterech węzłów ze względu na wydajność, Wyślij wiadomość e-mail [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)na adres.
+- Obecnie dla jednej bramy logicznej można mieć maksymalnie cztery węzły bramy fizycznej. Jeśli potrzebujesz więcej niż czterech węzłów ze względu na wydajność, Wyślij wiadomość e-mail na adres [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com) .
 - Nie można ponownie zarejestrować węzła bramy przy użyciu klucza uwierzytelniania z innej bramy logicznej w celu przełączenia z bieżącej bramy logicznej. Aby przeprowadzić ponowną rejestrację, Odinstaluj bramę z węzła, zainstaluj ponownie bramę i zarejestruj ją z kluczem uwierzytelniania dla drugiej bramy logicznej. 
-- Jeśli serwer proxy HTTP jest wymagany dla wszystkich węzłów bramy, Ustaw serwer proxy w diahost. exe. config i diawp. exe. config, a następnie użyj Menedżera serwera, aby upewnić się, że wszystkie węzły mają te same diahost. exe. config i diawip. exe. config. Aby uzyskać szczegółowe informacje, zobacz sekcję [Konfigurowanie ustawień serwera proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) . 
+- Jeśli serwer proxy HTTP jest wymagany dla wszystkich węzłów bramy, Ustaw serwer proxy w diahost.exe.config i diawp.exe.config i użyj Menedżera serwera, aby upewnić się, że wszystkie węzły mają te same diahost.exe.config i diawip.exe.config. Aby uzyskać szczegółowe informacje, zobacz sekcję [Konfigurowanie ustawień serwera proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) . 
 - Aby zmienić tryb szyfrowania dla komunikacji między węzłami w bramie Configuration Manager, Usuń wszystkie węzły w portalu, z wyjątkiem jednego. Następnie dodaj węzły ponownie po zmianie trybu szyfrowania.
 - Jeśli zdecydujesz się na szyfrowanie kanału komunikacji między węzłami, użyj oficjalnego certyfikatu protokołu TLS. Certyfikat z podpisem własnym może powodować problemy z łącznością, ponieważ ten sam certyfikat może nie być zaufany na liście urzędów certyfikacji na innych komputerach. 
 - Nie można zarejestrować węzła bramy w bramie logicznej, gdy wersja węzła jest starsza niż wersja bramy logicznej. Usuń wszystkie węzły bramy logicznej z portalu, aby można było zarejestrować dolny węzeł wersji (starsza wersja). W przypadku usunięcia wszystkich węzłów bramy logicznej ręcznie zainstaluj i Zarejestruj nowe węzły w tej bramie logicznej. W tym przypadku Instalacja ekspresowa nie jest obsługiwana.
 - Programu Express Setup nie można użyć do zainstalowania węzłów w istniejącej bramie logicznej, która nadal używa poświadczeń w chmurze. Możesz sprawdzić, gdzie są przechowywane poświadczenia z bramy Configuration Manager na karcie Ustawienia.
 - Programu Express Setup nie można użyć do zainstalowania węzłów w istniejącej bramie logicznej, w której włączono szyfrowanie między węzłami. Ponieważ ustawienie trybu szyfrowania obejmuje Ręczne dodawanie certyfikatów, Instalacja ekspresowa nie jest już opcją. 
-- W przypadku kopiowania plików ze środowiska lokalnego nie należy używać \\hosta lokalnego ani C:\files, ponieważ nie jest on dostępny za pośrednictwem wszystkich węzłów. Zamiast tego należy \\użyć ServerName\files do określenia lokalizacji plików.
+- W przypadku kopiowania plików ze środowiska lokalnego nie należy używać \\ hosta lokalnego ani C:\files, ponieważ nie jest on dostępny za pośrednictwem wszystkich węzłów. Zamiast tego należy użyć \\ ServerName\files do określenia lokalizacji plików.
 
 
 ## <a name="rolling-back-from-the-preview"></a>Wycofywanie z wersji zapoznawczej 

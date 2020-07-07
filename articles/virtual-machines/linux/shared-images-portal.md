@@ -11,10 +11,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 28cdc96020d085c6f44c8b6818aa76dd7eb29891
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82789003"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Tworzenie galerii udostępnionych obrazów platformy Azure przy użyciu portalu
@@ -55,7 +55,7 @@ Teraz można utworzyć co najmniej jedną nową maszynę wirtualną. Ten przykł
 1. W polu **Nazwa maszyny wirtualnej**wpisz *myVM*.
 1. W **obszarze region**wybierz pozycję *Wschodnie stany USA*.
 1. W przypadku **opcji dostępności**pozostaw wartość domyślną *Brak wymaganej nadmiarowości infrastruktury*.
-1. Wartość **obrazu** jest automatycznie wypełniana przy użyciu wersji `latest` obrazu, jeśli rozpoczęto od strony dla definicji obrazu.
+1. Wartość **obrazu** jest automatycznie wypełniana przy użyciu `latest` wersji obrazu, jeśli rozpoczęto od strony dla definicji obrazu.
 1. W polu **rozmiar**wybierz rozmiar maszyny wirtualnej z listy Dostępne rozmiary, a następnie wybierz **pozycję Wybierz**.
 1. W obszarze **konto administratora**, jeśli źródłowa maszyna wirtualna została uogólniona, wprowadź **nazwę użytkownika** i **klucz publiczny SSH**. Jeśli źródłowa maszyna wirtualna była wyspecjalizowana, Opcje te zostaną wyszarzone, ponieważ są używane informacje ze źródłowej maszyny wirtualnej.
 1. Jeśli chcesz zezwolić na dostęp zdalny do maszyny wirtualnej w obszarze **publiczne porty przychodzące**, wybierz opcję **Zezwalaj na wybrane porty** , a następnie wybierz pozycję **SSH (22)** z listy rozwijanej. Jeśli nie chcesz zezwalać na dostęp zdalny do maszyny wirtualnej, pozostaw **nie** wybrane dla **publicznych portów przychodzących**.
@@ -63,7 +63,7 @@ Teraz można utworzyć co najmniej jedną nową maszynę wirtualną. Ten przykł
 1. Po zakończeniu walidacji maszyny wirtualnej wybierz pozycję **Utwórz** w dolnej części strony, aby rozpocząć wdrażanie.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz opcję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

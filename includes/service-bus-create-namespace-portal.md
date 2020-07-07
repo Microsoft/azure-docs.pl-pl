@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75928231"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Tworzenie przestrzeni nazw w witrynie Azure Portal
@@ -33,7 +33,7 @@ Aby utworzyć przestrzeń nazw:
     4. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
     5. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
     6. W polu **Lokalizacja** wybierz region, w którym powinna być hostowana przestrzeń nazw.
-    7. Wybierz przycisk **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
+    7. Wybierz pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
    
         ![Create namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Upewnij się, że przestrzeń nazw usługi Service Bus została pomyślnie wdrożona. Aby wyświetlić powiadomienia, wybierz **ikonę dzwonka (Alerty)** na pasku narzędzi. Wybierz **nazwę grupy zasobów** w powiadomieniu, jak pokazano na ilustracji. Zostanie wyświetlona grupa zasobów, która zawiera przestrzeń nazw usługi Service Bus.

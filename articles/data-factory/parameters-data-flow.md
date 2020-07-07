@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780400"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametryzacja przepływów mapowania danych
@@ -64,23 +64,23 @@ Podczas przypisywania parametru wyrażenia potoku typu String, domyślnie dodawa
 
 ![Ustawianie parametru przepływu danych](media/data-flow/string-parameter.png "Ustawianie parametru przepływu danych")
 
-Jeśli parametr `stringParam` przepływu danych odwołuje się do parametru potoku o wartości `upper(column1)`. 
+Jeśli parametr przepływu danych `stringParam` odwołuje się do parametru potoku o wartości `upper(column1)` . 
 
-- Jeśli wyrażenie jest zaznaczone, `$stringParam` program oblicza wartość Kolumna1 wszystkie wielkie litery.
-- Jeśli wyrażenie nie jest zaznaczone (zachowanie domyślne), `$stringParam` program oblicza wartość`'upper(column1)'`
+- Jeśli wyrażenie jest zaznaczone, program `$stringParam` oblicza wartość Kolumna1 wszystkie wielkie litery.
+- Jeśli wyrażenie nie jest zaznaczone (zachowanie domyślne), program `$stringParam` oblicza wartość`'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Przekazywanie w sygnaturach czasowych
 
-W języku wyrażeń potoku, zmienne systemowe, takie `pipeline().TriggerTime` jak `utcNow()` zwracają sygnatury czasowe, jako ciągi w formacie "rrrr-mm-\'DD\'T hh: mm: SS. SSSSSSZ'. Aby przekonwertować je na parametry przepływu danych typu sygnatura czasowa, należy użyć interpolacji ciągu, aby uwzględnić odpowiednią `toTimestamp()` sygnaturę czasową w funkcji. Na przykład, aby skonwertować czas wyzwalacza potoku do parametru przepływu danych, można użyć `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`. 
+W języku wyrażeń potoku, zmienne systemowe, takie jak `pipeline().TriggerTime` `utcNow()` zwracają sygnatury czasowe, jako ciągi w formacie "rrrr-mm-dd \' T \' hh: mm: SS. SSSSSSZ'. Aby przekonwertować je na parametry przepływu danych typu sygnatura czasowa, należy użyć interpolacji ciągu, aby uwzględnić odpowiednią sygnaturę czasową w `toTimestamp()` funkcji. Na przykład, aby skonwertować czas wyzwalacza potoku do parametru przepływu danych, można użyć `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-timestamp.png "Ustawianie parametru przepływu danych")
 
 > [!NOTE]
-> Przepływy danych obsługują tylko do 3 milisekund. Funkcja `left()` jest używana do obcinania dodatkowych cyfr.
+> Przepływy danych obsługują tylko do 3 milisekund. `left()`Funkcja jest używana do obcinania dodatkowych cyfr.
 
 #### <a name="pipeline-parameter-example"></a>Przykład parametru potoku
 
-Załóżmy, `intParam` `@pipeline.parameters.pipelineParam`że masz parametr liczby całkowitej, który odwołuje się do parametru potoku typu String. 
+Załóżmy, że masz parametr liczby całkowitej `intParam` , który odwołuje się do parametru potoku typu String `@pipeline.parameters.pipelineParam` . 
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-pipeline-2.png "Ustawianie parametru przepływu danych")
 
@@ -88,7 +88,7 @@ Załóżmy, `intParam` `@pipeline.parameters.pipelineParam`że masz parametr lic
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-pipeline-4.png "Ustawianie parametru przepływu danych")
 
-Gdy `$intParam` jest przywoływany w wyrażeniu, takim jak kolumna pochodna, `abs(1)` obliczy Return `1`. 
+Gdy `$intParam` jest przywoływany w wyrażeniu, takim jak kolumna pochodna, obliczy `abs(1)` Return `1` . 
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-pipeline-3.png "Ustawianie parametru przepływu danych")
 
@@ -102,9 +102,9 @@ Wybranie **wyrażenia przepływu danych** spowoduje otwarcie konstruktora wyraż
 
 ### <a name="passing-in-a-column-name-as-a-parameter"></a>Przekazywanie nazwy kolumny jako parametru
 
-Typowym wzorcem jest przekazywanie nazwy kolumny jako wartości parametru. Jeśli kolumna jest zdefiniowana w schemacie przepływu danych, można odwołać się do niej bezpośrednio jako wyrażenie ciągu. Jeśli kolumna nie jest zdefiniowana w schemacie, użyj `byName()` funkcji. Należy pamiętać, aby rzutować kolumnę na odpowiedni typ z funkcją rzutowania taką `toString()`jak.
+Typowym wzorcem jest przekazywanie nazwy kolumny jako wartości parametru. Jeśli kolumna jest zdefiniowana w schemacie przepływu danych, można odwołać się do niej bezpośrednio jako wyrażenie ciągu. Jeśli kolumna nie jest zdefiniowana w schemacie, użyj `byName()` funkcji. Należy pamiętać, aby rzutować kolumnę na odpowiedni typ z funkcją rzutowania taką jak `toString()` .
 
-Na przykład jeśli chcesz zmapować kolumnę ciągu opartą na parametrze `columnName`, można dodać pochodną transformację kolumny równą. `toString(byName($columnName))`
+Na przykład jeśli chcesz zmapować kolumnę ciągu opartą na parametrze `columnName` , można dodać pochodną transformację kolumny równą `toString(byName($columnName))` .
 
 ![Przekazywanie nazwy kolumny jako parametru](media/data-flow/parameterize-column-name.png "Przekazywanie nazwy kolumny jako parametru")
 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: lighthouse
 author: JnHs
 ms.service: lighthouse
@@ -9,10 +9,10 @@ ms.date: 12/19/2019
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76846033"
 ---
 > [!NOTE]

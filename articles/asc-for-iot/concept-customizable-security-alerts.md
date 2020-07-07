@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311634"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center for IoT security alerts (Alerty zabezpieczeń usługi Azure Security Center dla IoT)
@@ -33,20 +33,20 @@ Poniższa lista Azure Security Center dla alertów IoT jest definiowanych przez 
 
 | Ważność | Nazwa alertu | Źródło danych | Opis | Sugerowane korygowanie|
 |---|---|---|---|---|
-| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole AMQP jest poza dozwolonym zakresem          | Usługa IoT Hub     | Liczba komunikatów z chmury do urządzeń (protokół AMQP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
-| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole AMQP jest poza dozwolonym zakresem | Usługa IoT Hub     | Liczba komunikatów z chmury do urządzeń (protokół AMQP) odrzuconych przez urządzenie w określonym przedziale czasu poza aktualnie skonfigurowanym i dozwolonym zakresem.||
-| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole AMQP jest poza dozwolonym zakresem      | Usługa IoT Hub     | Ilość urządzenia do komunikatów w chmurze (protokół AMQP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|   |
-| Małe      | Alert niestandardowy — liczba wywoływanych metod bezpośrednich jest poza dozwolonym zakresem | Usługa IoT Hub     | Liczba metod bezpośrednich wywoływanych w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
-| Małe      | Alert niestandardowy — liczba operacji przekazywania plików jest poza dozwolonym zakresem | Usługa IoT Hub     | Ilość przekazywania plików w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.| |
-| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole HTTP jest poza dozwolonym zakresem | Usługa IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół HTTP) w przedziale czasu nie jest w skonfigurowanym dozwolonym zakresie                                  |
-| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole HTTP nie jest w dozwolonym zakresie | Usługa IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół HTTP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem. |
-| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole HTTP jest poza dozwolonym zakresem | Usługa IoT Hub| Ilość urządzenia do komunikatów w chmurze (protokół HTTP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|    |
-| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole MQTT jest poza dozwolonym zakresem | Usługa IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół MQTT) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|   |
-| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole MQTT jest poza dozwolonym zakresem | Usługa IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół MQTT) odrzuconych przez urządzenie w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem. |
-| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole MQTT jest poza dozwolonym zakresem          | Usługa IoT Hub     | Ilość urządzenia do komunikatów w chmurze (protokół MQTT) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
-| Małe      | Alert niestandardowy — liczba przeczyszczania kolejki poleceń jest poza dozwolonym zakresem                               | Usługa IoT Hub     | Ilość przeczyszczania kolejki poleceń w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
-| Małe      | Alert niestandardowy — liczba aktualizacji bliźniaczych modułu jest poza dozwolonym zakresem                                       | Usługa IoT Hub     | Liczba aktualizacji sieci dwuosiowych modułu w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
-| Małe      | Alert niestandardowy — liczba niedozwolonych operacji jest poza dozwolonym zakresem  | Usługa IoT Hub     | Ilość niedozwolonych operacji w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
+| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole AMQP jest poza dozwolonym zakresem          | IoT Hub     | Liczba komunikatów z chmury do urządzeń (protokół AMQP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
+| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole AMQP jest poza dozwolonym zakresem | IoT Hub     | Liczba komunikatów z chmury do urządzeń (protokół AMQP) odrzuconych przez urządzenie w określonym przedziale czasu poza aktualnie skonfigurowanym i dozwolonym zakresem.||
+| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole AMQP jest poza dozwolonym zakresem      | IoT Hub     | Ilość urządzenia do komunikatów w chmurze (protokół AMQP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|   |
+| Małe      | Alert niestandardowy — liczba wywoływanych metod bezpośrednich jest poza dozwolonym zakresem | IoT Hub     | Liczba metod bezpośrednich wywoływanych w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
+| Małe      | Alert niestandardowy — liczba operacji przekazywania plików jest poza dozwolonym zakresem | IoT Hub     | Ilość przekazywania plików w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.| |
+| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole HTTP jest poza dozwolonym zakresem | IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół HTTP) w przedziale czasu nie jest w skonfigurowanym dozwolonym zakresie                                  |
+| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole HTTP nie jest w dozwolonym zakresie | IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół HTTP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem. |
+| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole HTTP jest poza dozwolonym zakresem | IoT Hub| Ilość urządzenia do komunikatów w chmurze (protokół HTTP) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|    |
+| Małe      | Alert niestandardowy — liczba komunikatów z chmury do urządzeń w protokole MQTT jest poza dozwolonym zakresem | IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół MQTT) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|   |
+| Małe      | Alert niestandardowy — Liczba odrzuconych chmur do komunikatów urządzenia w protokole MQTT jest poza dozwolonym zakresem | IoT Hub     | Ilość komunikatów z chmury do urządzeń (protokół MQTT) odrzuconych przez urządzenie w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem. |
+| Małe      | Alert niestandardowy — liczba urządzeń z komunikatami w chmurze w protokole MQTT jest poza dozwolonym zakresem          | IoT Hub     | Ilość urządzenia do komunikatów w chmurze (protokół MQTT) w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
+| Małe      | Alert niestandardowy — liczba przeczyszczania kolejki poleceń jest poza dozwolonym zakresem                               | IoT Hub     | Ilość przeczyszczania kolejki poleceń w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.||
+| Małe      | Alert niestandardowy — liczba aktualizacji bliźniaczych modułu jest poza dozwolonym zakresem                                       | IoT Hub     | Liczba aktualizacji sieci dwuosiowych modułu w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
+| Małe      | Alert niestandardowy — liczba niedozwolonych operacji jest poza dozwolonym zakresem  | IoT Hub     | Ilość niedozwolonych operacji w określonym przedziale czasu jest poza aktualnie skonfigurowanym i dozwolonym zakresem.|
 |
 
 ## <a name="agent-alerts-available-for-customization"></a>Alerty agentów dostępne do dostosowania

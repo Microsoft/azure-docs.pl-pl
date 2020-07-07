@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131306"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
@@ -100,7 +100,7 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provision
 
    * **Wybierz centra IoT, do których można przypisać to urządzenie**: Wybierz połączone centrum IoT Hub, z którym chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Przykład:
+   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Na przykład:
 
       ```json
       {
@@ -185,7 +185,7 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provision
 
    * **Wybierz centra IoT, do których można przypisać to urządzenie**: Wybierz połączone centrum IoT Hub, z którym chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Przykład:
+   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Na przykład:
 
       ```json
       {
@@ -221,7 +221,7 @@ Użyj poniższego linku, aby zainstalować środowisko uruchomieniowe Azure IoT 
 
 [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
 
-Po dodaniu informacji o certyfikacie X. 509 i kluczu do pliku config. YAML ścieżki powinny być podawane jako identyfikatory URI plików. Przykład:
+Po dodaniu informacji o certyfikacie X. 509 i kluczu do pliku config. YAML ścieżki powinny być podawane jako identyfikatory URI plików. Na przykład:
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
@@ -241,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Zastąp wartości symboli `scope_id`zastępczych `identity_cert`, `identity_pk` , z identyfikatorem zakresu z wystąpienia usługi DPS, oraz identyfikatorów URI do łańcucha certyfikatów i lokalizacji plików kluczy na urządzeniu. W razie `registration_id` potrzeby podaj dla urządzenia urządzenie lub pozostaw ten wiersz komentarzem, aby zarejestrować urządzenie przy użyciu nazwy pospolitej certyfikatu tożsamości.
+Zastąp wartości symboli zastępczych `scope_id` , `identity_cert` , `identity_pk` z identyfikatorem zakresu z wystąpienia usługi DPS, oraz identyfikatorów URI do łańcucha certyfikatów i lokalizacji plików kluczy na urządzeniu. W razie potrzeby podaj `registration_id` dla urządzenia urządzenie lub pozostaw ten wiersz komentarzem, aby zarejestrować urządzenie przy użyciu nazwy pospolitej certyfikatu tożsamości.
 
 Zawsze należy ponownie uruchomić demona zabezpieczeń po zaktualizowaniu pliku config. YAML.
 
@@ -266,9 +266,9 @@ Aby uzyskać bardziej szczegółowe informacje na temat instalowania IoT Edge w 
 
 1. W tym momencie urządzenia IoT Core mogą zostać automatycznie uruchomione ponownie. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
 
-1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi, chyba że używana jest `-Dps` flaga do korzystania z automatycznej aprowizacji.
+1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi, chyba że używana jest `-Dps` Flaga do korzystania z automatycznej aprowizacji.
 
-   Zastąp wartości symboli `{scope_id}`zastępczych `{identity cert chain path}`dla, `{identity key path}` i z odpowiednimi wartościami z wystąpienia usługi DPS i ścieżkami plików na urządzeniu. Jeśli chcesz określić identyfikator rejestracji, Uwzględnij `-RegistrationId {registration_id}` również symbol zastępczy odpowiednio do potrzeb.
+   Zastąp wartości symboli zastępczych dla `{scope_id}` , `{identity cert chain path}` i `{identity key path}` z odpowiednimi wartościami z wystąpienia usługi DPS i ścieżkami plików na urządzeniu. Jeśli chcesz określić identyfikator rejestracji, Uwzględnij `-RegistrationId {registration_id}` również symbol zastępczy odpowiednio do potrzeb.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

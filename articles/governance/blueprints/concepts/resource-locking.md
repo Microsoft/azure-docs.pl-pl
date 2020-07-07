@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat opcji blokowania w planach platformy 
 ms.date: 03/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383587"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
@@ -85,7 +85,7 @@ Treść żądania przypisania strategii wygląda następująco:
 }
 ```
 
-Kluczową różnicą w tej treści żądania i jedną przypisaną do subskrypcji jest `properties.scope` właściwość. Ta wymagana właściwość musi być ustawiona na subskrypcję, do której ma zastosowanie przypisanie planu. Subskrypcja musi być bezpośrednim elementem podrzędnym hierarchii grupy zarządzania, w której jest przechowywane przypisanie planu.
+Kluczową różnicą w tej treści żądania i jedną przypisaną do subskrypcji jest `properties.scope` Właściwość. Ta wymagana właściwość musi być ustawiona na subskrypcję, do której ma zastosowanie przypisanie planu. Subskrypcja musi być bezpośrednim elementem podrzędnym hierarchii grupy zarządzania, w której jest przechowywane przypisanie planu.
 
 > [!NOTE]
 > Plan przypisany do zakresu grupy zarządzania nadal działa jako przypisanie strategii na poziomie subskrypcji. Jedyną różnicą jest to, że przypisanie strategii jest przechowywane, aby uniemożliwić właścicielom subskrypcji usuwanie przypisania i skojarzonych blokad.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067090"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Wykonywanie analizy tonacji z użyciem Azure Stream Analytics i Azure Machine Learning Studio (klasyczny)
@@ -55,19 +55,19 @@ Na wysokim poziomie, aby wykonać zadania przedstawione w tym artykule, wykonaj 
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Tworzenie kontenera magazynu i przekazywanie pliku wejściowego CSV
 W tym kroku można użyć dowolnego pliku CSV, takiego jak ten, który jest dostępny w witrynie GitHub.
 
-1. W Azure Portal kliknij pozycję **Utwórz zasób** > **Storage** > magazyn**konto magazynu**.
+1. W Azure Portal kliknij pozycję **Utwórz zasób**  >  **Magazyn**  >  **konto magazynu**.
 
-2. Podaj nazwę (`samldemo` w tym przykładzie). Nazwa może zawierać tylko małe litery i cyfry i musi być unikatowa na platformie Azure. 
+2. Podaj nazwę ( `samldemo` w tym przykładzie). Nazwa może zawierać tylko małe litery i cyfry i musi być unikatowa na platformie Azure. 
 
 3. Określ istniejącą grupę zasobów i określ lokalizację. W przypadku lokalizacji zalecamy, aby wszystkie zasoby utworzone w tym samouczku używały tej samej lokalizacji.
 
     ![Podaj szczegóły konta magazynu](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. W Azure Portal wybierz konto magazynu. W bloku konto magazynu kliknij pozycję **kontenery** , a następnie kliknij pozycję ** + &nbsp;kontener** , aby utworzyć magazyn obiektów BLOB.
+4. W Azure Portal wybierz konto magazynu. W bloku konto magazynu kliknij pozycję **kontenery** , a następnie kliknij pozycję ** + &nbsp; kontener** , aby utworzyć magazyn obiektów BLOB.
 
     ![Utwórz kontener usługi BLOB Storage na potrzeby danych wejściowych](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. Podaj nazwę kontenera (`azuresamldemoblob` w tym przykładzie) i sprawdź, czy **Typ dostępu** jest ustawiony na wartość **BLOB**. Gdy skończysz, kliknij przycisk **OK**.
+5. Podaj nazwę kontenera ( `azuresamldemoblob` w tym przykładzie) i sprawdź, czy **Typ dostępu** jest ustawiony na wartość **BLOB**. Gdy skończysz, kliknij przycisk **OK**.
 
     ![Określ szczegóły kontenera obiektów BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
@@ -77,7 +77,7 @@ W tym kroku można użyć dowolnego pliku CSV, takiego jak ten, który jest dost
 
     ![Przycisk "Przekaż" dla kontenera](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. W bloku **przekazywanie obiektu BLOB** Przekaż pobrany wcześniej plik **sampleinput. csv** . W **polu Typ obiektu BLOB**wybierz pozycję **Blokuj obiekt BLOB** i ustaw rozmiar bloku na 4 MB, co jest wystarczające dla tego samouczka.
+8. W bloku **przekazywanie obiektu BLOB** Przekaż pobrany wcześniej plik **sampleinput.csv** . W **polu Typ obiektu BLOB**wybierz pozycję **Blokuj obiekt BLOB** i ustaw rozmiar bloku na 4 MB, co jest wystarczające dla tego samouczka.
 
 9. Kliknij przycisk **Przekaż** w dolnej części bloku.
 
@@ -122,9 +122,9 @@ Teraz można utworzyć zadanie Stream Analytics, które odczytuje przykładowe t
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).  
 
-2. Kliknij pozycję **Utwórz zasób** > **Internet rzeczy** > **Stream Analytics zadanie**. 
+2. Kliknij pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Stream Analytics zadanie**. 
 
-3. Nazwij zadanie `azure-sa-ml-demo`, określ subskrypcję, określ istniejącą grupę zasobów lub Utwórz nową, a następnie wybierz lokalizację dla tego zadania.
+3. Nazwij zadanie `azure-sa-ml-demo` , określ subskrypcję, określ istniejącą grupę zasobów lub Utwórz nową, a następnie wybierz lokalizację dla tego zadania.
 
    ![Określ ustawienia dla nowego zadania Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
@@ -134,7 +134,7 @@ Zadanie pobiera dane wejściowe z pliku CSV, który został wcześniej przekazan
 
 1. Po utworzeniu zadania w obszarze **topologia zadania** w bloku zadania kliknij opcję **dane wejściowe** .    
 
-2. W bloku **dane** wejściowe kliknij pozycję **Dodaj strumień wejściowy** >**BLOB Storage**
+2. W bloku **dane** wejściowe kliknij pozycję **Dodaj strumień wejściowy**  > **BLOB Storage**
 
 3. Wypełnij blok **BLOB Storage** następującymi wartościami:
 
@@ -143,19 +143,19 @@ Zadanie pobiera dane wejściowe z pliku CSV, który został wcześniej przekazan
    |---------|---------|
    |**Alias wejściowy** | Użyj nazwy `datainput` i wybierz **pozycję Wybierz magazyn obiektów blob z subskrypcji**       |
    |**Konto magazynu**  |  Wybierz konto usługi magazynu utworzone wcześniej.  |
-   |**Kontener**  | Wybierz utworzony wcześniej kontener (`azuresamldemoblob`)        |
+   |**Kontener**  | Wybierz utworzony wcześniej kontener ( `azuresamldemoblob` )        |
    |**Format serializacji zdarzeń**  |  Wybierz plik **CSV**       |
 
    ![Ustawienia dla nowych danych wejściowych zadania Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-the-job-output"></a>Konfigurowanie danych wyjściowych zadania
 Zadanie wysyła wyniki do tego samego magazynu obiektów blob, w którym pobiera dane wejściowe. 
 
 1. W obszarze **topologia zadania** w bloku zadanie kliknij opcję dane **wyjściowe** .  
 
-2. W bloku dane **wyjściowe** kliknij pozycję **Dodaj** >**Magazyn obiektów BLOB**, a następnie Dodaj dane wyjściowe z aliasem `datamloutput`. 
+2. W bloku dane **wyjściowe** kliknij pozycję **Dodaj**  > **Magazyn obiektów BLOB**, a następnie Dodaj dane wyjściowe z aliasem `datamloutput` . 
 
 3. Wypełnij blok **BLOB Storage** następującymi wartościami:
 
@@ -163,22 +163,22 @@ Zadanie wysyła wyniki do tego samego magazynu obiektów blob, w którym pobiera
    |---------|---------|
    |**Alias wyjściowy** | Użyj nazwy `datamloutput` i wybierz **pozycję Wybierz magazyn obiektów blob z subskrypcji**       |
    |**Konto magazynu**  |  Wybierz konto usługi magazynu utworzone wcześniej.  |
-   |**Kontener**  | Wybierz utworzony wcześniej kontener (`azuresamldemoblob`)        |
+   |**Kontener**  | Wybierz utworzony wcześniej kontener ( `azuresamldemoblob` )        |
    |**Format serializacji zdarzeń**  |  Wybierz plik **CSV**       |
 
    ![Ustawienia dla nowych danych wyjściowych zadania Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. Kliknij przycisk **Zapisz**.   
+4. Kliknij pozycję **Zapisz**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Dodaj funkcję Machine Learning 
-Wcześniej opublikowano model Machine Learning w usłudze sieci Web. W tym scenariuszu, gdy zadanie analizy strumienia zostanie uruchomione, wysyła każdy przykładowy Tweet z danych wejściowych do usługi sieci Web na potrzeby analizy tonacji. Usługa sieci Web Machine Learning zwraca tonacji (`positive`, `neutral`, lub `negative`) i prawdopodobieństwo, że Tweet jest dodatni. 
+Wcześniej opublikowano model Machine Learning w usłudze sieci Web. W tym scenariuszu, gdy zadanie analizy strumienia zostanie uruchomione, wysyła każdy przykładowy Tweet z danych wejściowych do usługi sieci Web na potrzeby analizy tonacji. Usługa sieci Web Machine Learning zwraca tonacji ( `positive` , `neutral` , lub `negative` ) i prawdopodobieństwo, że Tweet jest dodatni. 
 
 W tej części samouczka zdefiniujesz funkcję w zadaniu analizy strumienia. Funkcja może zostać wywołana w celu wysłania tweetu do usługi sieci Web i odwracania odpowiedzi. 
 
 1. Upewnij się, że masz adres URL usługi sieci Web i klucz interfejsu API pobrane wcześniej w skoroszycie programu Excel.
 
-2. Przejdź do bloku zadania > **funkcje** > **+ Dodaj** > usługę**Azure**
+2. Przejdź do bloku zadania > **funkcje**  >  **+ Dodaj**usługę  >  **Azure**
 
 3. Wypełnij blok **Azure Machine Learning funkcji** następującymi wartościami:
 
@@ -186,11 +186,11 @@ W tej części samouczka zdefiniujesz funkcję w zadaniu analizy strumienia. Fun
    |---------|---------|
    | **Alias funkcji** | Użyj nazwy `sentiment` i wybierz opcję **Podaj Azure Machine Learning ustawienia funkcji ręcznie** , co daje możliwość wprowadzenia adresu URL i klucza.      |
    | **Adres URL**| Wklej adres URL usługi sieci Web.|
-   |**Key** | Wklej klucz interfejsu API. |
+   |**Klucz** | Wklej klucz interfejsu API. |
   
    ![Ustawienia umożliwiające dodanie funkcji Machine Learning do zadania Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Tworzenie zapytania do przekształcania danych
 
@@ -213,7 +213,7 @@ Stream Analytics używa deklaratywnego zapytania opartego na języku SQL, aby zb
     FROM sentiment  
     ```    
 
-    Zapytanie wywołuje funkcję utworzoną wcześniej (`sentiment`) w celu przeprowadzenia analizy tonacji dla każdego tweetu w danych wejściowych. 
+    Zapytanie wywołuje funkcję utworzoną wcześniej ( `sentiment` ) w celu przeprowadzenia analizy tonacji dla każdego tweetu w danych wejściowych. 
 
 4. Kliknij przycisk **Zapisz**, aby zapisać zapytanie.
 
@@ -235,7 +235,7 @@ Teraz możesz uruchomić zadanie Stream Analytics.
 
 2. Jeśli masz narzędzie, którego zwykle używasz do badania zawartości magazynu obiektów blob, użyj tego narzędzia do sprawdzenia `azuresamldemoblob` kontenera. Alternatywnie wykonaj następujące czynności w Azure Portal:
 
-    1. Znajdź w portalu konto `samldemo` magazynu i w ramach konta Znajdź `azuresamldemoblob` kontener. W kontenerze widoczne są dwa pliki: plik zawierający przykładowe tweety i plik CSV wygenerowany przez zadanie Stream Analytics.
+    1. Znajdź w portalu `samldemo` konto magazynu i w ramach konta Znajdź `azuresamldemoblob` kontener. W kontenerze widoczne są dwa pliki: plik zawierający przykładowe tweety i plik CSV wygenerowany przez zadanie Stream Analytics.
     2. Kliknij prawym przyciskiem myszy wygenerowany plik, a następnie wybierz polecenie **Pobierz**. 
 
    ![Pobieranie danych wyjściowych zadania CSV z magazynu obiektów BLOB](./media/stream-analytics-machine-learning-integration-tutorial/download-output-csv-file.png)  

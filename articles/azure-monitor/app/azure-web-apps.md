@@ -4,10 +4,10 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733468"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
@@ -15,7 +15,7 @@ ms.locfileid: "82733468"
 Włączenie monitorowania na ASP.NET i opartych na ASP.NET Core aplikacjach sieci Web działających na [platformie Azure App Services](https://docs.microsoft.com/azure/app-service/) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Wcześniej trzeba było ręcznie zainstalować rozszerzenie witryny, dlatego najnowsze rozszerzenie/Agent jest teraz domyślnie wbudowane w obraz usługi App Service. W tym artykule opisano Włączanie monitorowania Application Insights oraz zamieszczono wstępne wskazówki dotyczące automatyzowania procesu wdrażania na dużą skalę.
 
 > [!NOTE]
-> Ręczne dodawanie rozszerzenia witryny Application Insights za pomocą > **rozszerzeń** **narzędzi programistycznych**jest przestarzałe. Ta metoda instalacji rozszerzenia była zależna od aktualizacji ręcznych dla każdej nowej wersji. Najnowsza stabilna wersja rozszerzenia jest teraz [wstępnie zainstalowana](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) jako część obrazu App Service. Pliki znajdują się w `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` systemie i są automatycznie aktualizowane z każdą stabilną wersją. W przypadku korzystania z instrukcji opartych na agencie w celu włączenia monitorowania poniżej zostanie automatycznie usunięte przestarzałe rozszerzenie.
+> Ręczne dodawanie rozszerzenia witryny Application Insights za pomocą **rozszerzeń narzędzi programistycznych**  >  **Extensions** jest przestarzałe. Ta metoda instalacji rozszerzenia była zależna od aktualizacji ręcznych dla każdej nowej wersji. Najnowsza stabilna wersja rozszerzenia jest teraz [wstępnie zainstalowana](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) jako część obrazu App Service. Pliki znajdują się w `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` systemie i są automatycznie aktualizowane z każdą stabilną wersją. W przypadku korzystania z instrukcji opartych na agencie w celu włączenia monitorowania poniżej zostanie automatycznie usunięte przestarzałe rozszerzenie.
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 
@@ -66,9 +66,9 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 | Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Tak |Tak |
 | Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM o pojedynczym wystąpieniu) |Tak |
 
-3. Aby skonfigurować ustawienia, takie jak próbkowanie, które można wcześniej kontrolować za pomocą pliku ApplicationInsights. config, można teraz współdziałać z tymi samymi ustawieniami za pośrednictwem ustawień aplikacji z odpowiednim prefiksem. 
+3. Aby skonfigurować ustawienia, takie jak próbkowanie, które można wcześniej kontrolować za pomocą pliku applicationinsights.config, można teraz współdziałać z tymi samymi ustawieniami za pośrednictwem ustawień aplikacji z odpowiednim prefiksem. 
 
-    * Na przykład aby zmienić procent początkowej próbki, można utworzyć ustawienie aplikacji: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` i wartość. `100`
+    * Na przykład aby zmienić procent początkowej próbki, można utworzyć ustawienie aplikacji: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` i wartość `100` .
 
     * Aby zapoznać się z listą obsługiwanych ustawień procesora telemetrii do próbkowania, możesz zajrzeć do [kodu](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) i [powiązanej dokumentacji](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
@@ -95,7 +95,7 @@ Kierowanie całego środowiska z platformy .NET Core, samodzielnego wdrażania i
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Z poziomu aplikacji internetowej App Service w obszarze **Ustawienia** > **Wybierz pozycję Application Insights** > **Włącz**. Monitorowanie oparte na agentach Node. js jest obecnie dostępne w wersji zapoznawczej.
+Z poziomu aplikacji internetowej App Service w obszarze **Ustawienia**  >  **Wybierz pozycję Application Insights**  >  **Włącz**. Monitorowanie oparte na agencie Node.js jest obecnie dostępne w wersji zapoznawczej.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -132,7 +132,7 @@ Monitorowanie po stronie klienta jest **domyślnie włączone** w przypadku apli
 
 Jeśli z jakiegoś powodu chcesz wyłączyć monitorowanie po stronie klienta:
 
-* Wybierz pozycję **Ustawienia** > ustawienia**aplikacji**
+* Wybierz pozycję **Ustawienia**ustawienia  >  **aplikacji**
    * W obszarze Ustawienia aplikacji Dodaj nową nazwę i **wartość** **Ustawienia aplikacji** :
 
      Nazwij`APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -145,7 +145,7 @@ Jeśli z jakiegoś powodu chcesz wyłączyć monitorowanie po stronie klienta:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Aby włączyć monitorowanie po stronie klienta dla aplikacji node. js, należy [ręcznie dodać do aplikacji zestaw SDK JavaScript po stronie klienta](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+Aby włączyć monitorowanie po stronie klienta dla aplikacji Node.js, musisz [ręcznie dodać zestaw JavaScript SDK po stronie klienta do swojej aplikacji](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -169,8 +169,8 @@ Aby można było włączyć zbieranie danych telemetrycznych z Application Insig
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Główne rozszerzenie, które kontroluje monitorowanie środowiska uruchomieniowego. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  W trybie domyślnym tylko funkcje podstawowe są włączane w celu zapewnienia optymalnej wydajności. | `default` lub `recommended`. |
-|InstrumentationEngine_EXTENSION_VERSION | Kontroluje, czy aparat `InstrumentationEngine` zapisywania binarnego zostanie włączony. To ustawienie ma wpływ na wydajność i wpływa na zimny czas uruchamiania/uruchamiania. | `~1` |
-|XDT_MicrosoftApplicationInsights_BaseExtensions | Określa, czy tekst tabeli programu SQL & Azure zostanie przechwycony wraz z wywołaniami zależności. Ostrzeżenie o wydajności: wpłynie to na zimny czas uruchamiania aplikacji. To ustawienie wymaga `InstrumentationEngine`. | `~1` |
+|InstrumentationEngine_EXTENSION_VERSION | Kontroluje, czy aparat zapisywania binarnego `InstrumentationEngine` zostanie włączony. To ustawienie ma wpływ na wydajność i wpływa na zimny czas uruchamiania/uruchamiania. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Określa, czy tekst tabeli programu SQL & Azure zostanie przechwycony wraz z wywołaniami zależności. Ostrzeżenie o wydajności: wpłynie to na zimny czas uruchamiania aplikacji. To ustawienie wymaga `InstrumentationEngine` . | `~1` |
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service ustawienia aplikacji z Azure Resource Manager
 
@@ -212,7 +212,7 @@ Ta opcja generuje najnowszy szablon Azure Resource Manager ze skonfigurowanymi w
 
   ![Szablon aplikacji sieci Web App Service](./media/azure-web-apps/arm-template.png)
 
-Poniżej znajduje się przykład, Zamień wszystkie wystąpienia `AppMonitoredSite` z nazwą swojej witryny:
+Poniżej znajduje się przykład, Zamień wszystkie wystąpienia z `AppMonitoredSite` nazwą swojej witryny:
 
 ```json
 {
@@ -355,35 +355,35 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 > [!NOTE]
 > Aplikacje Java są obsługiwane tylko na platformie Azure App Services za pośrednictwem ręcznie Instrumentacji opartej na zestawie SDK i dlatego poniższe kroki nie mają zastosowania do tych scenariuszy.
 
-1. Sprawdź, czy aplikacja jest monitorowana `ApplicationInsightsAgent`za pośrednictwem programu.
-    * Sprawdź, `ApplicationInsightsAgent_EXTENSION_VERSION` czy ustawienie aplikacji ma ustawioną wartość "~ 2".
+1. Sprawdź, czy aplikacja jest monitorowana za pośrednictwem programu `ApplicationInsightsAgent` .
+    * Sprawdź, czy `ApplicationInsightsAgent_EXTENSION_VERSION` ustawienie aplikacji ma ustawioną wartość "~ 2".
 2. Upewnij się, że aplikacja spełnia wymagania, które mają być monitorowane.
     * Przejdź na stronę `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-    ![Zrzut ekranu https://yoursitename.scm.azurewebsites/applicationinsights przedstawiający stronę wyników](./media/azure-web-apps/app-insights-sdk-status.png)
+    ![Zrzut ekranu przedstawiający https://yoursitename.scm.azurewebsites/applicationinsights stronę wyników](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Upewnij się, `Application Insights Extension Status` że jest`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+    * Upewnij się, że `Application Insights Extension Status` jest`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
         * Jeśli nie jest uruchomiona, postępuj zgodnie z [instrukcjami dotyczącymi włączania monitorowania Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
 
     * Upewnij się, że źródło stanu istnieje i wygląda następująco:`Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Jeśli podobna wartość nie jest obecna, oznacza to, że aplikacja nie jest aktualnie uruchomiona lub nie jest obsługiwana. Aby upewnić się, że aplikacja jest uruchomiona, spróbuj ręcznie odwiedzać adresy URL i punkty końcowe aplikacji, co umożliwi udostępnienie informacji o środowisku uruchomieniowym.
 
-    * Potwierdź, `IKeyExists` że jest`true`
-        * Jeśli tak jest `false`, Dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` identyfikator `APPLICATIONINSIGHTS_CONNECTION_STRING` GUID iKey i skontaktuj się z nim w ustawieniach aplikacji.
+    * Potwierdź, że `IKeyExists` jest`true`
+        * Jeśli tak jest `false` , Dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` Identyfikator GUID iKey i skontaktuj się z nim w ustawieniach aplikacji.
 
-    * Upewnij się, że nie ma żadnych `AppAlreadyInstrumented`wpisów `AppContainsDiagnosticSourceAssembly`dla, `AppContainsAspNetTelemetryCorrelationAssembly`i.
-        * Jeśli którykolwiek z tych wpisów istnieje, Usuń następujące pakiety z aplikacji: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, i. `Microsoft.AspNet.TelemetryCorrelation`
+    * Upewnij się, że nie ma żadnych wpisów dla `AppAlreadyInstrumented` , `AppContainsDiagnosticSourceAssembly` i `AppContainsAspNetTelemetryCorrelationAssembly` .
+        * Jeśli którykolwiek z tych wpisów istnieje, Usuń następujące pakiety z aplikacji: `Microsoft.ApplicationInsights` , `System.Diagnostics.DiagnosticSource` , i `Microsoft.AspNet.TelemetryCorrelation` .
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
-|Wartość problemu|Wyjaśnienie|Poprawka
+|Wartość problemu|Objaśnienie|Poprawka
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource`, lub `Microsoft.AspNet.TelemetryCorrelation``Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do `Microsoft.ApplicationInsights`programu.
+| `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` lub`Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|
 |`AppAlreadyInstrumented:true` | Ta wartość może być również spowodowana obecnością powyższych bibliotek DLL w folderze aplikacji z poprzedniego wdrożenia. | Wyczyść folder aplikacji, aby upewnić się, że te biblioteki DLL zostały usunięte. Sprawdź katalog bin aplikacji lokalnej oraz katalog wwwroot w App Service. (Aby sprawdzić katalog wwwroot aplikacji internetowej App Service: Narzędzia zaawansowane (kudu) > konsoli debugowania > CMD > home\site\wwwroot).
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | Ta wartość wskazuje, że rozszerzenie wykryło `Microsoft.AspNet.TelemetryCorrelation` odwołania do w aplikacji i zostanie wycofana. | Usuń odwołanie.
-|`AppContainsDiagnosticSourceAssembly**:true`|Ta wartość wskazuje, że rozszerzenie wykryło `System.Diagnostics.DiagnosticSource` odwołania do w aplikacji i zostanie wycofana.| Usuń odwołanie.
-|`IKeyExists:false`|Ta wartość wskazuje, że klucz instrumentacji nie występuje w element appSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Możliwe przyczyny: te wartości mogły zostać przypadkowo usunięte, nie można ustawić wartości w skrypcie automatyzacji itd. | Upewnij się, że ustawienie jest obecne w ustawieniach aplikacji App Service.
+|`AppContainsAspNetTelemetryCorrelationAssembly: true` | Ta wartość wskazuje, że rozszerzenie wykryło odwołania do `Microsoft.AspNet.TelemetryCorrelation` w aplikacji i zostanie wycofana. | Usuń odwołanie.
+|`AppContainsDiagnosticSourceAssembly**:true`|Ta wartość wskazuje, że rozszerzenie wykryło odwołania do `System.Diagnostics.DiagnosticSource` w aplikacji i zostanie wycofana.| Usuń odwołanie.
+|`IKeyExists:false`|Ta wartość wskazuje, że klucz instrumentacji nie występuje w element appSetting, `APPINSIGHTS_INSTRUMENTATIONKEY` . Możliwe przyczyny: te wartości mogły zostać przypadkowo usunięte, nie można ustawić wartości w skrypcie automatyzacji itd. | Upewnij się, że ustawienie jest obecne w ustawieniach aplikacji App Service.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED i urlCompression nie są obsługiwane
 

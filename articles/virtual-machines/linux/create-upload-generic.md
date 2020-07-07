@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: guybo
 ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066757"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informacje dotyczące dystrybucji niepotwierdzonych
@@ -24,11 +24,11 @@ Wszystkie dystrybucje działające na platformie Azure mają kilka wymagań wst�
 
 Zalecamy rozpoczęcie od jednego z systemów Linux w ramach wykorzystanych [dystrybucji na platformie Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). W poniższych artykułach pokazano, jak przygotować różne, zatwierdzone dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
 
-* **[Dystrybucje oparte na CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[dystrybucje oparte na systemie CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES i openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Ten artykuł koncentruje się na ogólnych wskazówkach dotyczących uruchamiania dystrybucji systemu Linux na platformie Azure.
@@ -39,14 +39,14 @@ Ten artykuł koncentruje się na ogólnych wskazówkach dotyczących uruchamiani
 * Maksymalny dozwolony rozmiar dysku VHD to 1 023 GB.
 * W przypadku instalowania systemu Linux zaleca się używanie partycji standardowych zamiast Menedżera woluminów logicznych (LVM), który jest wartością domyślną dla wielu instalacji. Użycie partycji standardowych spowoduje uniknięcie konfliktów nazw LVM z sklonowanymi maszynami wirtualnymi, szczególnie jeśli dysk systemu operacyjnego jest kiedykolwiek podłączony do innej identycznej maszyny wirtualnej w celu rozwiązywania problemów. Na dyskach danych można używać [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * Konieczna jest obsługa jądra do instalowania systemów plików UDF. Podczas pierwszego rozruchu na platformie Azure konfiguracja aprowizacji jest przesyłana do maszyny wirtualnej z systemem Linux przy użyciu nośnika sformatowanego w formacie UDF, który jest dołączony do gościa. Aby można było odczytać konfigurację i zainicjować obsługę administracyjną maszyny wirtualnej, Agent systemu Azure Linux musi zainstalować system plików UDF.
-* Wersje jądra systemu Linux starsze niż 2.6.37 nie obsługują architektury NUMA w funkcji Hyper-V o większych rozmiarach maszyn wirtualnych. Ten problem ma głównie wpływ na starsze dystrybucje przy użyciu wbudowanego jądra Red Hat 2.6.32 i został ustalony w Red Hat Enterprise Linux (RHEL) 6,6 (jądro-2.6.32-504). Systemy z uruchomionymi niestandardowymi jądrami starszymi niż 2.6.37 lub jądrem opartym na RHEL starszym niż 2.6.32- `numa=off` 504 muszą ustawić parametr rozruchu w wierszu polecenia jądra w grub. conf. Aby uzyskać więcej informacji, zobacz [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+* Wersje jądra systemu Linux starsze niż 2.6.37 nie obsługują architektury NUMA w funkcji Hyper-V o większych rozmiarach maszyn wirtualnych. Ten problem ma głównie wpływ na starsze dystrybucje przy użyciu wbudowanego jądra Red Hat 2.6.32 i został ustalony w Red Hat Enterprise Linux (RHEL) 6,6 (jądro-2.6.32-504). Systemy z uruchomionymi niestandardowymi jądrami starszymi niż 2.6.37 lub jądrem opartym na RHEL starszym niż 2.6.32-504 muszą ustawić parametr rozruchu w `numa=off` wierszu polecenia jądra w grub. conf. Aby uzyskać więcej informacji, zobacz [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agenta systemu Linux można skonfigurować tak, aby utworzył plik wymiany na tymczasowym dysku zasobów, zgodnie z opisem w poniższych krokach.
 * Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją, zgodnie z opisem w poniższych krokach.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Instalowanie modułów jądra bez funkcji Hyper-V
 System Azure działa na funkcji hypervisor funkcji Hyper-V, więc system Linux wymaga, aby niektóre moduły jądra działały na platformie Azure. Jeśli masz maszynę wirtualną, która została utworzona poza funkcją Hyper-V, instalatorzy systemu Linux mogą nie zawierać sterowników dla funkcji Hyper-V w początkowym systemie Ramdisk (oryginalnych initrd lub initramfs), chyba że maszyna wirtualna wykryje, że jest uruchomiona w środowisku funkcji Hyper-V. W przypadku korzystania z innego systemu wirtualizacji (takiego jak VirtualBox, KVM itd.) w celu przygotowania obrazu systemu Linux może być konieczne odbudowanie oryginalnych initrd, tak aby co najmniej hv_vmbus i hv_storvsc moduły jądra były dostępne w początkowym systemie Ramdisk.  Ten znany problem dotyczy systemów opartych na nadrzędnym systemie Red Hat i prawdopodobnie innych.
 
-Mechanizm odbudowy obrazu oryginalnych initrd lub initramfs może się różnić w zależności od rozkładu. Zapoznaj się z dokumentacją dystrybucji lub pomocą techniczną w celu uzyskania odpowiedniej procedury.  Oto przykład odbudowy oryginalnych initrd za pomocą `mkinitrd` narzędzia:
+Mechanizm odbudowy obrazu oryginalnych initrd lub initramfs może się różnić w zależności od rozkładu. Zapoznaj się z dokumentacją dystrybucji lub pomocą techniczną w celu uzyskania odpowiedniej procedury.  Oto przykład odbudowy oryginalnych initrd za pomocą `mkinitrd` Narzędzia:
 
 1. Wykonaj kopię zapasową istniejącego obrazu oryginalnych initrd:
 
@@ -64,7 +64,7 @@ Mechanizm odbudowy obrazu oryginalnych initrd lub initramfs może się różnić
 ### <a name="resizing-vhds"></a>Zmienianie rozmiarów dysków VHD
 Obrazy VHD na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB.  Zwykle dyski VHD utworzone przy użyciu funkcji Hyper-V są prawidłowo wyrównane.  Jeśli wirtualny dysk twardy nie jest prawidłowo wyrównany, podczas próby utworzenia obrazu z wirtualnego dysku twardego może pojawić się komunikat o błędzie podobny do poniższego.
 
-* Plik VHD http:\//\<mojekontomagazynu>. blob.Core.Windows.NET/VHDs/MyLinuxVM.VHD ma nieobsługiwany rozmiar wirtualny wynoszący 21475270656 bajtów. Rozmiar musi być liczbą całkowitą (w MB).
+* Dysk VHD http: \/ / \<mystorageaccount> . blob.Core.Windows.NET/VHDs/MyLinuxVM.VHD ma nieobsługiwany rozmiar wirtualny wynoszący 21475270656 bajtów. Rozmiar musi być liczbą całkowitą (w MB).
 
 W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konsoli Menedżera funkcji Hyper-V lub polecenia cmdlet programu PowerShell [Zmień rozmiar dysku VHD](https://technet.microsoft.com/library/hh848535.aspx) .  Jeśli nie Pracujesz w środowisku systemu Windows, zalecamy użycie `qemu-img` programu do konwersji (w razie potrzeby) i zmiany rozmiaru dysku VHD.
 
@@ -72,7 +72,7 @@ W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konso
 > [W wersjach QEMU-IMG występuje znany błąd](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zalecamy użycie `qemu-img` 2.2.0 lub niższych lub 2,6 lub wyższych.
 > 
 
-1. Zmianę rozmiarów wirtualnego dysku twardego bezpośrednio przy użyciu narzędzi `qemu-img` takich `vbox-manage` jak lub może spowodować nierozruchowy dysk VHD.  Zalecamy najpierw przekonwertowanie dysku VHD na obraz RAW.  Jeśli obraz maszyny wirtualnej został utworzony jako obraz dysku RAW (domyślnie dla niektórych funkcji hypervisor, takich jak KVM), można pominąć ten krok.
+1. Zmianę rozmiarów wirtualnego dysku twardego bezpośrednio przy użyciu narzędzi takich jak `qemu-img` lub `vbox-manage` może spowodować nierozruchowy dysk VHD.  Zalecamy najpierw przekonwertowanie dysku VHD na obraz RAW.  Jeśli obraz maszyny wirtualnej został utworzony jako obraz dysku RAW (domyślnie dla niektórych funkcji hypervisor, takich jak KVM), można pominąć ten krok.
  
     ```
     qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
@@ -93,7 +93,7 @@ W takim przypadku należy zmienić rozmiar maszyny wirtualnej przy użyciu konso
     echo "Rounded Size = $rounded_size"
     ```
 
-3. Zmień rozmiar dysku nieprzetworzonego, używając `$rounded_size` zgodnie z powyższym zestawem.
+3. Zmień rozmiar dysku nieprzetworzonego `$rounded_size` , używając zgodnie z powyższym zestawem.
 
     ```bash
     qemu-img resize MyLinuxVM.raw $rounded_size
@@ -142,7 +142,7 @@ W jądrze muszą być zawarte następujące poprawki. Nie można ukończyć tej 
 * [scsi_sysfs: Chroń przed podwójnym wykonaniem __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Agent platformy Azure dla systemu Linux
-`waagent` [Agent platformy Azure dla systemu Linux](../extensions/agent-linux.md) inicjuje maszynę wirtualną z systemem Linux na platformie Azure. Możesz uzyskać najnowszą wersję, problemy z plikami lub przesłać żądania ściągnięcia w [repozytorium GitHub agenta systemu Linux](https://github.com/Azure/WALinuxAgent).
+[Agent platformy Azure dla systemu Linux](../extensions/agent-linux.md) `waagent` inicjuje maszynę wirtualną z systemem Linux na platformie Azure. Możesz uzyskać najnowszą wersję, problemy z plikami lub przesłać żądania ściągnięcia w [repozytorium GitHub agenta systemu Linux](https://github.com/Azure/WALinuxAgent).
 
 * Agent systemu Linux jest wydawany w ramach licencji Apache 2,0. Wiele dystrybucji udostępnia już pakiety RPM lub deb dla agenta. te pakiety można łatwo instalować i aktualizować.
 * Agent platformy Azure dla systemu Linux wymaga języka Python v 2.6 lub nowszego.
@@ -160,7 +160,7 @@ W jądrze muszą być zawarte następujące poprawki. Nie można ukończyć tej 
     ```  
     rhgb quiet crashkernel=auto
     ```
-    Rozruch graficzny i cichy nie jest przydatny w środowisku chmury, gdzie wszystkie dzienniki są wysyłane do portu szeregowego. `crashkernel` Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej przez co najmniej 128 MB, co może powodować problemy w przypadku mniejszych rozmiarów maszyn wirtualnych.
+    Rozruch graficzny i cichy nie jest przydatny w środowisku chmury, gdzie wszystkie dzienniki są wysyłane do portu szeregowego. `crashkernel`Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej przez co najmniej 128 MB, co może powodować problemy w przypadku mniejszych rozmiarów maszyn wirtualnych.
 
 1. Zainstaluj agenta platformy Azure dla systemu Linux.
   
@@ -186,7 +186,7 @@ W jądrze muszą być zawarte następujące poprawki. Nie można ukończyć tej 
      logout
      ```  
    > [!NOTE]
-   > Na VirtualBox może zostać wyświetlony następujący błąd po uruchomieniu `waagent -force -deprovision` `[Errno 5] Input/output error`. Ten komunikat o błędzie nie jest krytyczny i można go zignorować.
+   > Na VirtualBox może zostać wyświetlony następujący błąd po uruchomieniu `waagent -force -deprovision` `[Errno 5] Input/output error` . Ten komunikat o błędzie nie jest krytyczny i można go zignorować.
 
 * Zamknij maszynę wirtualną i przekaż dysk VHD na platformę Azure.
 

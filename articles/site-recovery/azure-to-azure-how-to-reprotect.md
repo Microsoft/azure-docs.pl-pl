@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82738069"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Ponowne włączanie ochrony maszyn wirtualnych platformy Azure zakończonych niepowodzeniem w regionie podstawowym
@@ -29,7 +29,7 @@ Po przełączeniu maszyn wirtualnych platformy Azure w [tryb failover](site-reco
 
 ## <a name="reprotect-a-vm"></a>Ponowne włączanie ochrony maszyny wirtualnej
 
-1. W obszarze**zreplikowane elementy** **magazynu** > kliknij prawym przyciskiem myszy maszynę wirtualną w trybie failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Kierunek ochrony powinien być pokazywany z poziomu pomocniczego do podstawowego.
+1. W **Vault**obszarze  >  **zreplikowane elementy**magazynu kliknij prawym przyciskiem myszy maszynę wirtualną w trybie failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Kierunek ochrony powinien być pokazywany z poziomu pomocniczego do podstawowego.
 
    ![Ponowne włączanie ochrony](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -58,21 +58,21 @@ Podczas ponownej ochrony można dostosować następujące właściwości docelow
 Domyślnie są wykonywane następujące czynności:
 
 1. Konto magazynu pamięci podręcznej jest tworzone w regionie, w którym działa maszyna wirtualna w trybie failover.
-1. Jeśli docelowe konto magazynu (oryginalne konto magazynu w regionie podstawowym) nie istnieje, zostanie utworzony nowy. Nazwa przypisanego konta magazynu to nazwa konta magazynu używanego przez pomocniczą maszynę wirtualną z `asr`sufiksem.
+1. Jeśli docelowe konto magazynu (oryginalne konto magazynu w regionie podstawowym) nie istnieje, zostanie utworzony nowy. Nazwa przypisanego konta magazynu to nazwa konta magazynu używanego przez pomocniczą maszynę wirtualną z sufiksem `asr` .
 1. Jeśli maszyna wirtualna korzysta z dysków zarządzanych, dyski zarządzane repliki są tworzone w regionie podstawowym w celu przechowywania danych replikowanych z dysków pomocniczej maszyny wirtualnej.
 1. Jeśli docelowy zestaw dostępności nie istnieje, w razie potrzeby zostanie utworzony nowy program w ramach zadania ponownego włączania ochrony. Jeśli ustawienia ponownej ochrony zostały dostosowane, wybrany zestaw jest używany.
 
 Gdy Wyzwalasz zadanie ponownego włączania ochrony i istnieje docelowa maszyna wirtualna, występują następujące sytuacje:
 
 1. Maszyna wirtualna po stronie docelowej jest wyłączona, jeśli jest uruchomiona.
-1. Jeśli maszyna wirtualna korzysta z dysków zarządzanych, kopia oryginalnego dysku zostanie utworzona z `-ASRReplica` sufiksem. Oryginalne dyski zostaną usunięte. `-ASRReplica` Kopie są używane na potrzeby replikacji.
+1. Jeśli maszyna wirtualna korzysta z dysków zarządzanych, kopia oryginalnego dysku zostanie utworzona z `-ASRReplica` sufiksem. Oryginalne dyski zostaną usunięte. `-ASRReplica`Kopie są używane na potrzeby replikacji.
 1. Jeśli maszyna wirtualna używa dysków niezarządzanych, docelowe dyski danych maszyny wirtualnej są odłączone i używane do replikacji. Kopia dysku systemu operacyjnego jest tworzona i dołączona do maszyny wirtualnej. Oryginalny dysk systemu operacyjnego zostanie odłączony i użyty do replikacji.
 1. Synchronizowane są tylko zmiany między dyskiem źródłowym a dyskiem docelowym. Różnice są obliczane przez porównanie dysków, a następnie przetransferowane. Sprawdź poniżej, aby znaleźć szacowany czas na zakończenie ochrony.
 1. Po zakończeniu synchronizacji rozpocznie się replikacja różnicowa, a punkt odzyskiwania zostanie utworzony w wierszu z zasadami replikacji.
 
 Gdy Wyzwalasz zadanie ponownego włączania ochrony, a docelowa maszyna wirtualna i dyski nie istnieją:
 
-1. Jeśli maszyna wirtualna korzysta z dysków zarządzanych, dyski repliki są tworzone z `-ASRReplica` sufiksem. `-ASRReplica` Kopie są używane na potrzeby replikacji.
+1. Jeśli maszyna wirtualna korzysta z dysków zarządzanych, dyski repliki są tworzone z `-ASRReplica` sufiksem. `-ASRReplica`Kopie są używane na potrzeby replikacji.
 1. Jeśli maszyna wirtualna korzysta z dysków niezarządzanych, na docelowym koncie magazynu są tworzone dyski replik.
 1. Wszystkie dyski są kopiowane z obszaru przełączenia w tryb failover do nowego regionu docelowego.
 1. Po zakończeniu synchronizacji rozpocznie się replikacja różnicowa, a punkt odzyskiwania zostanie utworzony w wierszu z zasadami replikacji.

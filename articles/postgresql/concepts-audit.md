@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131239"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Rejestrowanie inspekcji w Azure Database for PostgreSQL — pojedynczy serwer
@@ -53,7 +53,7 @@ Przy użyciu [Azure Portal](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Jeśli zobaczysz błąd, upewnij się, że serwer został ponownie uruchomiony po zapisaniu `shared_preload_libraries`.
+> Jeśli zobaczysz błąd, upewnij się, że serwer został ponownie uruchomiony po zapisaniu `shared_preload_libraries` .
 
 ## <a name="pgaudit-settings"></a>Ustawienia pgAudit
 
@@ -65,25 +65,25 @@ pgAudit umożliwia skonfigurowanie rejestrowania inspekcji sesji lub obiektu. [R
 Po [zainstalowaniu pgAudit](#installing-pgaudit)można skonfigurować jego parametry, aby rozpocząć rejestrowanie. [Dokumentacja pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) zawiera definicje każdego z parametrów. Najpierw Przetestuj parametry i upewnij się, że otrzymujesz oczekiwane zachowanie.
 
 > [!NOTE]
-> Ustawienie `pgaudit.log_client` na włączone spowoduje przekierowanie dzienników do procesu klienta (na przykład PSQL) zamiast zapisywania do pliku. To ustawienie powinno być zwykle wyłączone. <br> <br>
-> `pgaudit.log_level`jest włączona tylko wtedy `pgaudit.log_client` , gdy jest włączona.
+> Ustawienie na `pgaudit.log_client` włączone spowoduje przekierowanie dzienników do procesu klienta (na przykład PSQL) zamiast zapisywania do pliku. To ustawienie powinno być zwykle wyłączone. <br> <br>
+> `pgaudit.log_level`jest włączona tylko wtedy, gdy `pgaudit.log_client` jest włączona.
 
 > [!NOTE]
-> W Azure Database for PostgreSQL `pgaudit.log` nie można ustawić za pomocą skrótu `-` podpisywania (minus), zgodnie z opisem w dokumentacji pgAudit. Wszystkie wymagane klasy instrukcji (READ, WRITE itp.) powinny zostać określone indywidualnie.
+> W Azure Database for PostgreSQL `pgaudit.log` nie można ustawić za pomocą `-` skrótu podpisywania (minus), zgodnie z opisem w dokumentacji pgAudit. Wszystkie wymagane klasy instrukcji (READ, WRITE itp.) powinny zostać określone indywidualnie.
 
 ### <a name="audit-log-format"></a>Format dziennika inspekcji
-Każdy wpis inspekcji jest wskazywany `AUDIT:` przez blisko początku wiersza dziennika. Format reszty wpisu jest szczegółowo opisany w [dokumentacji pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
+Każdy wpis inspekcji jest wskazywany przez `AUDIT:` blisko początku wiersza dziennika. Format reszty wpisu jest szczegółowo opisany w [dokumentacji pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Jeśli potrzebujesz innych pól do spełnienia wymagań dotyczących inspekcji, użyj parametru `log_line_prefix`Postgres. `log_line_prefix`jest ciągiem, który jest wyprowadzany na początku każdego wiersza dziennika Postgres. Na przykład następujące `log_line_prefix` ustawienie zawiera sygnaturę czasową, nazwę użytkownika, nazwa bazy danych i identyfikator procesu:
+Jeśli potrzebujesz innych pól do spełnienia wymagań dotyczących inspekcji, użyj parametru Postgres `log_line_prefix` . `log_line_prefix`jest ciągiem, który jest wyprowadzany na początku każdego wiersza dziennika Postgres. Na przykład następujące `log_line_prefix` ustawienie zawiera sygnaturę czasową, nazwę użytkownika, nazwa bazy danych i identyfikator procesu:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
 ```
 
-Aby dowiedzieć się `log_line_prefix`więcej, odwiedź [dokumentację PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
+Aby dowiedzieć się więcej `log_line_prefix` , odwiedź [dokumentację PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
 ### <a name="getting-started"></a>Wprowadzenie
-Aby szybko rozpocząć pracę, ustaw `pgaudit.log` na `WRITE`, a następnie otwórz dzienniki, aby przejrzeć dane wyjściowe. 
+Aby szybko rozpocząć pracę, ustaw `pgaudit.log` na `WRITE` , a następnie otwórz dzienniki, aby przejrzeć dane wyjściowe. 
 
 ## <a name="viewing-audit-logs"></a>Wyświetlanie dzienników inspekcji
 Jeśli używasz plików. log, dzienniki inspekcji zostaną uwzględnione w tym samym pliku, w którym znajdują się dzienniki błędów PostgreSQL. Pliki dzienników można pobrać z witryny Azure [Portal](howto-configure-server-logs-in-portal.md) lub [interfejsu wiersza polecenia](howto-configure-server-logs-using-cli.md). 
