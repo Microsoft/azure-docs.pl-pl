@@ -10,10 +10,10 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133915"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Wdróż moduły Azure IoT Edge z Azure Portal
@@ -43,7 +43,7 @@ Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia m
 1. W sekcji **IoT Edge modułów** na stronie wybierz pozycję **Dodaj**.
 1. Przyjrzyj się typom modułów z menu rozwijanego:
 
-   * **Moduł IoT Edge** — Podaj nazwę modułu i identyfikator URI obrazu kontenera. Na przykład identyfikator URI obrazu dla przykładowego modułu SimulatedTemperatureSensor to `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. Jeśli obraz modułu jest przechowywany w rejestrze kontenera prywatnego, Dodaj poświadczenia na tej stronie, aby uzyskać dostęp do tego obrazu.
+   * **Moduł IoT Edge** — Podaj nazwę modułu i identyfikator URI obrazu kontenera. Na przykład identyfikator URI obrazu dla przykładowego modułu SimulatedTemperatureSensor to `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Jeśli obraz modułu jest przechowywany w rejestrze kontenera prywatnego, Dodaj poświadczenia na tej stronie, aby uzyskać dostęp do tego obrazu.
    * Moduły **portalu Marketplace** hostowane w witrynie Azure Marketplace. Niektóre moduły portalu Marketplace wymagają dodatkowej konfiguracji, dlatego Przejrzyj szczegóły modułu na liście [modułów IoT Edge portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * Moduły modułów **Azure Stream Analytics** wygenerowane na podstawie obciążenia Azure Stream Analyticsowego.
 
@@ -53,7 +53,7 @@ Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia m
 
 ### <a name="specify-routes"></a>Określ trasy
 
-Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Domyślnie trasa jest nazywana **trasą** i zdefiniowana jako **od/messages/\* do $upstream**, co oznacza, że wszystkie komunikaty przesyłane przez moduły są wysyłane do centrum IoT Hub.  
+Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Domyślnie trasa jest nazywana **trasą** i zdefiniowana jako **od/messages/ \* do $upstream**, co oznacza, że wszystkie komunikaty przesyłane przez moduły są wysyłane do centrum IoT Hub.  
 
 Dodaj lub zaktualizuj trasy z informacjami z [deklaracji trasy](module-composition.md#declare-routes), a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku kreatora.
 

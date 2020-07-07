@@ -1,23 +1,25 @@
 ---
-title: Tworzenie aplikacji wyszukiwania w Azure Portal
+title: Tworzenie aplikacji demonstracyjnej w Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Uruchom Kreatora tworzenia aplikacji (wersja zapoznawcza), aby wygenerować strony HTML i skrypt dla działającej aplikacji sieci Web. Strona zawiera pasek wyszukiwania, obszar wyników, pasek boczny i pomoc techniczną typeahead.
+description: Uruchom Kreatora tworzenia aplikacji demonstracyjnej (wersja zapoznawcza), aby wygenerować strony HTML i skrypt dla działającej aplikacji sieci Web. Strona zawiera pasek wyszukiwania, obszar wyników, pasek boczny i pomoc techniczną typeahead.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488175"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955696"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji wyszukiwania w portalu (Azure Wyszukiwanie poznawcze)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
 
-Użyj kreatora **tworzenia aplikacji wyszukiwania** Azure Portal, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z połączeniem na żywo z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
+Użyj kreatora **tworzenia aplikacji demonstracyjnej** Azure Portal, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z aktywnym połączeniem tylko do odczytu z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
+
+Aplikacja demonstracyjna może ułatwić wizualizację sposobu działania indeksu w aplikacji klienckiej, ale nie jest przeznaczona do scenariuszy produkcyjnych. Aplikacje klienckie powinny obejmować zabezpieczenia, obsługę błędów i logikę hostingu, które nie są dostępne w wygenerowanej stronie HTML. Gdy wszystko będzie gotowe do utworzenia aplikacji klienckiej, zobacz [Tworzenie pierwszej aplikacji do wyszukiwania przy użyciu zestawu .NET SDK](tutorial-csharp-create-first-app.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +47,7 @@ Gdy indeks jest gotowy do użycia, przejdź do następnego kroku.
 
 1. Wybierz pozycję *realestate-US-Sample-index* z listy istniejących indeksów.
 
-1. Na stronie indeks w górnej części wybierz pozycję **Utwórz aplikację wyszukiwania (wersja zapoznawcza)** , aby uruchomić kreatora.
+1. Na stronie indeks w górnej części wybierz pozycję **Utwórz aplikację demonstracyjną (wersja zapoznawcza)** , aby uruchomić kreatora.
 
 1. Na pierwszej stronie kreatora wybierz pozycję **Włącz udostępnianie zasobów między źródłami (CORS)** , aby dodać obsługę mechanizmu CORS do definicji indeksu. Ten krok jest opcjonalny, ale Lokalna aplikacja internetowa nie będzie łączyć się ze zdalnym indeksem bez tego.
 
@@ -85,7 +87,7 @@ Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną 
 
 ## <a name="create-download-and-execute"></a>Tworzenie, pobieranie i wykonywanie
 
-1. Wybierz pozycję **Utwórz aplikację wyszukiwania** , aby wygenerować plik HTML.
+1. Wybierz pozycję **Utwórz aplikację demonstracyjną** , aby wygenerować plik HTML.
 
 1. Po wyświetleniu monitu wybierz pozycję **Pobierz aplikację** , aby pobrać plik.
 
@@ -96,7 +98,7 @@ Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zosta
 ![Uruchomienie aplikacji](media/search-create-app-portal/run-app.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

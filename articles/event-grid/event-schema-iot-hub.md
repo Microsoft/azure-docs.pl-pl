@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393325"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>IoT Hub platformy Azure jako źródło Event Grid
@@ -148,12 +148,12 @@ Wszystkie zdarzenia zawierają te same dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| dane | obiekt | IoT Hub dane zdarzenia.  |
+| dane | object | IoT Hub dane zdarzenia.  |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -162,7 +162,7 @@ Dla wszystkich zdarzeń IoT Hub obiekt danych zawiera następujące właściwoś
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | hubName | ciąg | Nazwa IoT Hub, w którym urządzenie zostało utworzone lub usunięte. |
-| deviceId | ciąg | Unikatowy identyfikator urządzenia. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId | ciąg | Unikatowy identyfikator urządzenia. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 
 Zawartość obiektu danych różni się w zależności od wydawcy zdarzeń. 
 
@@ -170,8 +170,8 @@ W przypadku **urządzeń podłączonych** i **odłączonych** IoT Hub zdarzeń o
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| moduleId | ciąg | Unikatowy identyfikator modułu. To pole jest wyprowadzane tylko dla urządzeń modułowych. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| deviceConnectionStateEventInfo | obiekt | Informacje o zdarzeniu stanu połączenia urządzenia
+| moduleId | ciąg | Unikatowy identyfikator modułu. To pole jest wyprowadzane tylko dla urządzeń modułowych. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
+| deviceConnectionStateEventInfo | object | Informacje o zdarzeniu stanu połączenia urządzenia
 | sequenceNumber | ciąg | Liczba, która pomaga wskazać kolejność zdarzeń podłączonych do urządzenia lub odłączonych do urządzenia. Najnowsze zdarzenie będzie miało numer sekwencyjny większy niż poprzednie zdarzenie. Ta liczba może ulec zmianie o więcej niż 1, ale jest ściśle większa. Zobacz [, jak używać numeru sekwencyjnego](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 W przypadku IoT Hub zdarzeń **telemetrii urządzenia** obiekt danych zawiera komunikat z urządzenia do chmury w [formacie komunikatu usługi IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) i ma następujące właściwości:
@@ -186,7 +186,7 @@ W przypadku urządzeń, które zostały **utworzone** i zostały **usunięte** I
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| splot | obiekt | Informacje o bliźniaczych urządzeniach, które są reprezentacją metadanych urządzeń aplikacji w chmurze. | 
+| splot | object | Informacje o bliźniaczych urządzeniach, które są reprezentacją metadanych urządzeń aplikacji w chmurze. | 
 | Identyfikator | ciąg | Unikatowy identyfikator sznurka urządzenia. | 
 | element ETag | ciąg | Moduł sprawdzania poprawności służący do zapewnienia spójności aktualizacji dla sznurka urządzenia. Każdy element ETag jest gwarantowany jako unikatowy dla poszczególnych sznurów urządzeń. |  
 | deviceEtag| ciąg | Moduł sprawdzania poprawności służący do zapewnienia spójności aktualizacji rejestru urządzeń. Każdy deviceEtag ma być unikatowy dla każdego rejestru urządzenia. |
@@ -195,13 +195,13 @@ W przypadku urządzeń, które zostały **utworzone** i zostały **usunięte** I
 | connectionState | ciąg | Czy urządzenie jest połączone czy odłączone. | 
 | lastActivityTime | ciąg | Sygnatura czasowa ISO8601 ostatniego działania. | 
 | cloudToDeviceMessageCount | liczba całkowita | Liczba komunikatów z chmury do urządzeń wysyłanych do tego urządzenia. | 
-| authenticationType | ciąg | Typ uwierzytelniania używany dla tego urządzenia: `SAS`, `SelfSigned`lub. `CertificateAuthority` |
+| authenticationType | ciąg | Typ uwierzytelniania używany dla tego urządzenia: `SAS` , `SelfSigned` lub `CertificateAuthority` . |
 | x509Thumbprint | ciąg | Odcisk palca to unikatowa wartość certyfikatu x509, często używana do znajdowania określonego certyfikatu w magazynie certyfikatów. Odcisk palca jest generowany dynamicznie przy użyciu algorytmu SHA1 i nie istnieje fizycznie w certyfikacie. | 
 | primaryThumbprint | ciąg | Podstawowy odcisk palca certyfikatu x509. |
 | secondaryThumbprint | ciąg | Pomocniczy odcisk palca certyfikatu x509. | 
-| Wersja | liczba całkowita | Liczba całkowita, która jest zwiększana o jeden po każdej aktualizacji sznurka urządzenia. |
-| inny | obiekt | Część właściwości, które mogą być zapisywane tylko przez zaplecze aplikacji i odczytywane przez urządzenie. | 
-| przedstawiony | obiekt | Część właściwości, które mogą być zapisywane tylko przez urządzenie i odczytywana przez zaplecze aplikacji. |
+| version | liczba całkowita | Liczba całkowita, która jest zwiększana o jeden po każdej aktualizacji sznurka urządzenia. |
+| inny | object | Część właściwości, które mogą być zapisywane tylko przez zaplecze aplikacji i odczytywane przez urządzenie. | 
+| przedstawiony | object | Część właściwości, które mogą być zapisywane tylko przez urządzenie i odczytywana przez zaplecze aplikacji. |
 | lastUpdated | ciąg | Sygnatura czasowa ISO8601 ostatniej aktualizacji właściwości sznurka urządzenia. | 
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki

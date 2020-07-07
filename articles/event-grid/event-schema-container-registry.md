@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393358"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry jako źródło Event Grid
@@ -163,8 +163,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia magazynu obiektów BLOB. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Dane zdarzenia magazynu obiektów BLOB. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -172,11 +172,11 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| id | ciąg | Identyfikator zdarzenia. |
+| identyfikator | ciąg | Identyfikator zdarzenia. |
 | sygnatura czasowa | ciąg | Godzina wystąpienia zdarzenia. |
 | action | ciąg | Akcja obejmująca podane zdarzenie. |
-| obiektów | obiekt | Obiekt docelowy zdarzenia. |
-| żądając | obiekt | Żądanie, które spowodowało wygenerowanie zdarzenia. |
+| obiektów | object | Obiekt docelowy zdarzenia. |
+| żądając | object | Żądanie, które spowodowało wygenerowanie zdarzenia. |
 
 Obiekt docelowy ma następujące właściwości:
 
@@ -189,13 +189,13 @@ Obiekt docelowy ma następujące właściwości:
 | repozytorium | ciąg | Nazwa repozytorium. |
 | tag | ciąg | Nazwa tagu. |
 | name | ciąg | Nazwa wykresu. |
-| Wersja | ciąg | Wersja wykresu. |
+| version | ciąg | Wersja wykresu. |
 
 Obiekt żądania ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| id | ciąg | Identyfikator żądania, który zainicjował zdarzenie. |
+| identyfikator | ciąg | Identyfikator żądania, który zainicjował zdarzenie. |
 | adresowe | ciąg | Adres IP lub nazwa hosta oraz prawdopodobnie port połączenia klienta, który zainicjował zdarzenie. Ta wartość jest RemoteAddr z standardowego żądania HTTP. |
 | host | ciąg | Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących. |
 | method | ciąg | Metoda żądania, która wygenerowała zdarzenie. |

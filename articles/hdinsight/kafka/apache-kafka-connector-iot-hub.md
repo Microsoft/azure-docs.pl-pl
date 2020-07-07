@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: 48a72b5ba3819712b9e1d2536ae2dd3a06eaf3f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80238814"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub
@@ -27,7 +27,7 @@ Na poniższym diagramie przedstawiono przepływ danych między usługą Azure Io
 
 ![Obraz przedstawiający dane przepływające z IoT Hub do Kafka za pośrednictwem łącznika](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
 
-Aby uzyskać więcej informacji na temat interfejsu API Connect [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect), zobacz.
+Aby uzyskać więcej informacji na temat interfejsu API Connect, zobacz [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat interfejsu API Connect [https://kafka.a
 
 ## <a name="install-the-connector"></a>Instalowanie łącznika
 
-1. Przekaż plik jar do węzła brzegowego Kafka w klastrze usługi HDInsight. Edytuj poniższe polecenie, zastępując `CLUSTERNAME` ją rzeczywistą nazwą klastra. Poniżej są używane domyślne wartości konta użytkownika SSH i nazwy [węzła krawędzi](../hdinsight-apps-use-edge-node.md#access-an-edge-node) .
+1. Przekaż plik jar do węzła brzegowego Kafka w klastrze usługi HDInsight. Edytuj poniższe polecenie, zastępując ją `CLUSTERNAME` rzeczywistą nazwą klastra. Poniżej są używane domyślne wartości konta użytkownika SSH i nazwy [węzła krawędzi](../hdinsight-apps-use-edge-node.md#access-an-edge-node) .
 
     ```cmd
     scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net:
@@ -67,7 +67,7 @@ Aby uzyskać więcej informacji na temat interfejsu API Connect [https://kafka.a
     ssh sshuser@new-edgenode.CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby zainstalować łącznik w katalogu Kafka `libs` , użyj następującego polecenia:
+1. Aby zainstalować łącznik w `libs` katalogu Kafka, użyj następującego polecenia:
 
     ```bash
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
@@ -104,7 +104,7 @@ Z poziomu połączenia SSH z węzłem brzegowym wykonaj następujące kroki, aby
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-1. Pobierz adres węzłów Apache dozorcy. W klastrze istnieje kilka węzłów dozorcy, ale należy tylko jeden lub dwa. Użyj następującego polecenia, aby przechowywać adresy w zmiennej `KAFKAZKHOSTS`:
+1. Pobierz adres węzłów Apache dozorcy. W klastrze istnieje kilka węzłów dozorcy, ale należy tylko jeden lub dwa. Użyj następującego polecenia, aby przechowywać adresy w zmiennej `KAFKAZKHOSTS` :
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -121,9 +121,9 @@ Z poziomu połączenia SSH z węzłem brzegowym wykonaj następujące kroki, aby
     |Bieżąca wartość |Nowa wartość | Komentarz |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Zastąp `localhost:9092` wartość hostami brokera z poprzedniego kroku|Konfiguruje konfigurację autonomiczną dla węzła brzegowego, aby znaleźć brokerów Kafka.|
-    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Ta zmiana umożliwia przetestowanie za pomocą producenta konsoli dołączonego do usługi Kafka. Mogą być potrzebne inne konwertery dla innych producentów i klientów. Aby uzyskać informacje na temat używania innych wartości konwertera, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Ta zmiana umożliwia przetestowanie za pomocą producenta konsoli dołączonego do usługi Kafka. Mogą być potrzebne inne konwertery dla innych producentów i klientów. Aby uzyskać informacje na temat używania innych wartości konwertera, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Tak samo jak powyżej.|
-    |Nie dotyczy|`consumer.max.poll.records=10`|Dodaj do końca pliku. Ta zmiana polega na uniknięciu limitów czasu w łączniku ujścia przez ograniczenie go do 10 rekordów jednocześnie. Aby uzyskać więcej informacji, [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)Zobacz.|
+    |Nie dotyczy|`consumer.max.poll.records=10`|Dodaj do końca pliku. Ta zmiana polega na uniknięciu limitów czasu w łączniku ujścia przez ograniczenie go do 10 rekordów jednocześnie. Aby uzyskać więcej informacji, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, __Y__, a następnie klawisz __Enter__.
 
@@ -135,13 +135,13 @@ Z poziomu połączenia SSH z węzłem brzegowym wykonaj następujące kroki, aby
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic iotout --zookeeper $KAFKAZKHOSTS
     ```
 
-    Aby sprawdzić, czy `iotin` tematy `iotout` i istnieją, użyj następującego polecenia:
+    Aby sprawdzić, czy `iotin` `iotout` Tematy i istnieją, użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
     ```
 
-    `iotin` Temat służy do odbierania komunikatów z IoT Hub. `iotout` Temat służy do wysyłania komunikatów do IoT Hub.
+    `iotin`Temat służy do odbierania komunikatów z IoT Hub. `iotout`Temat służy do wysyłania komunikatów do IoT Hub.
 
 ## <a name="get-iot-hub-connection-information"></a>Pobierz informacje o połączeniu IoT Hub
 
@@ -160,7 +160,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
          * __Partycje__
 
         > [!IMPORTANT]  
-        > Wartość punktu końcowego z portalu może zawierać dodatkowy tekst, który nie jest wymagany w tym przykładzie. Wyodrębnij tekst pasujący do tego `sb://<randomnamespace>.servicebus.windows.net/`wzorca.
+        > Wartość punktu końcowego z portalu może zawierać dodatkowy tekst, który nie jest wymagany w tym przykładzie. Wyodrębnij tekst pasujący do tego wzorca `sb://<randomnamespace>.servicebus.windows.net/` .
 
    * W __ [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
 
@@ -192,7 +192,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
             az iot hub policy show --hub-name myhubname --name service --query "primaryKey"
             ```
 
-            Zamień `myhubname` na nazwę Centrum IoT. Odpowiedź jest kluczem podstawowym dla `service` zasad tego centrum.
+            Zamień `myhubname` na nazwę Centrum IoT. Odpowiedź jest kluczem podstawowym `service` dla zasad tego centrum.
 
         2. Aby uzyskać parametry połączenia dla `service` zasad, użyj następującego polecenia:
 
@@ -223,19 +223,19 @@ Aby skonfigurować źródło do pracy z IoT Hub, wykonaj następujące czynnośc
     |Bieżąca wartość |Edytuj|
     |---|---|
     |`Kafka.Topic=PLACEHOLDER`|Zastąp element `PLACEHOLDER` pytaniem `iotin`. Komunikaty odebrane z usługi IoT Hub są umieszczane w `iotin` temacie.|
-    |`IotHub.EventHubCompatibleName=PLACEHOLDER`|Zamień `PLACEHOLDER` na nazwę zgodną z centrum zdarzeń.|
-    |`IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`|Zamień `PLACEHOLDER` na punkt końcowy zgodny z centrum zdarzeń.|
+    |`IotHub.EventHubCompatibleName=PLACEHOLDER`|Zamień na `PLACEHOLDER` nazwę zgodną z centrum zdarzeń.|
+    |`IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`|Zamień na `PLACEHOLDER` punkt końcowy zgodny z centrum zdarzeń.|
     |`IotHub.AccessKeyName=PLACEHOLDER`|Zastąp element `PLACEHOLDER` pytaniem `service`.|
-    |`IotHub.AccessKeyValue=PLACEHOLDER`|Zamień `PLACEHOLDER` na klucz podstawowy `service` zasad.|
+    |`IotHub.AccessKeyValue=PLACEHOLDER`|Zamień na `PLACEHOLDER` klucz podstawowy `service` zasad.|
     |`IotHub.Partitions=PLACEHOLDER`|Zamień `PLACEHOLDER` na liczbę partycji z poprzednich kroków.|
-    |`IotHub.StartTime=PLACEHOLDER`|Zamień `PLACEHOLDER` na datę UTC. Ta data jest momentu, gdy łącznik rozpocznie sprawdzanie pod kątem komunikatów. Format daty to `yyyy-mm-ddThh:mm:ssZ`.|
+    |`IotHub.StartTime=PLACEHOLDER`|Zamień `PLACEHOLDER` na datę UTC. Ta data jest momentu, gdy łącznik rozpocznie sprawdzanie pod kątem komunikatów. Format daty to `yyyy-mm-ddThh:mm:ssZ` .|
     |`BatchSize=100`|Zastąp element `100` pytaniem `5`. Ta zmiana powoduje, że łącznik odczytuje wiadomości do Kafka po pięciu nowych komunikatach w usłudze IoT Hub.|
 
     Aby zapoznać się z przykładową konfiguracją, zobacz [Łącznik Kafka Connect Source for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
 1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__, __Y__, a następnie __Enter__.
 
-Aby uzyskać więcej informacji na temat konfigurowania źródła łącznika [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md), zobacz.
+Aby uzyskać więcej informacji na temat konfigurowania źródła łącznika, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
 ## <a name="configure-the-sink-connection"></a>Konfigurowanie połączenia ujścia
 
@@ -258,13 +258,13 @@ Aby skonfigurować połączenie ujścia do pracy z IoT Hub, wykonaj następując
     |Bieżąca wartość |Edytuj|
     |---|---|
     |`topics=PLACEHOLDER`|Zastąp element `PLACEHOLDER` pytaniem `iotout`. Komunikaty zapisywane w `iotout` temacie są przekazywane do centrum IoT Hub.|
-    |`IotHub.ConnectionString=PLACEHOLDER`|Zamień `PLACEHOLDER` na parametry połączenia dla `service` zasad.|
+    |`IotHub.ConnectionString=PLACEHOLDER`|Zamień na `PLACEHOLDER` Parametry połączenia dla `service` zasad.|
 
     Aby zapoznać się z przykładową konfiguracją, zobacz [Łącznik Kafka Connect sink for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__, __Y__, a następnie __Enter__.
 
-Aby uzyskać więcej informacji na temat konfigurowania ujścia łącznika [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md), zobacz.
+Aby uzyskać więcej informacji na temat konfigurowania ujścia łącznika, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
 ## <a name="start-the-source-connector"></a>Uruchom łącznik źródłowy
 
@@ -333,16 +333,16 @@ Aby wysyłać komunikaty za pomocą łącznika, wykonaj następujące czynności
 
     To polecenie nie zwraca użytkownika do normalnego monitu bash. Zamiast tego wysyła dane wejściowe z klawiatury do `iotout` tematu.
 
-1. Aby wysłać komunikat do urządzenia, wklej dokument JSON w sesji SSH dla `kafka-console-producer`.
+1. Aby wysłać komunikat do urządzenia, wklej dokument JSON w sesji SSH dla `kafka-console-producer` .
 
     > [!IMPORTANT]  
-    > Należy ustawić wartość `"deviceId"` wpisu na identyfikator urządzenia. W poniższym przykładzie urządzenie ma nazwę `myDeviceId`:
+    > Należy ustawić wartość `"deviceId"` wpisu na identyfikator urządzenia. W poniższym przykładzie urządzenie ma nazwę `myDeviceId` :
 
     ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"myDeviceId"}
     ```
 
-    Schemat tego dokumentu JSON został opisany bardziej szczegółowo w temacie [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+    Schemat tego dokumentu JSON został opisany bardziej szczegółowo w temacie [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
     Jeśli używasz symulowanego urządzenia Raspberry Pi i jest ono uruchomione, na urządzeniu jest rejestrowany następujący komunikat:
 
@@ -352,7 +352,7 @@ Aby wysyłać komunikaty za pomocą łącznika, wykonaj następujące czynności
 
     Wyślij ponownie dokument JSON, ale Zmień wartość `"message"` wpisu. Nowa wartość jest rejestrowana przez urządzenie.
 
-Aby uzyskać więcej informacji na temat używania łącznika ujścia [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md), zobacz.
+Aby uzyskać więcej informacji na temat używania łącznika ujścia, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

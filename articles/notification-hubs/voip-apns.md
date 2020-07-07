@@ -7,27 +7,27 @@ ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80146890"
 ---
 # <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Korzystanie z VOIP usługi APNS za pomocą Notification Hubs (nie jest oficjalnie obsługiwane)
 
 Można używać powiadomień VOIP usługi APNS za pomocą platformy Azure Notification Hubs; nie ma jednak oficjalnego wsparcia dla tego scenariusza.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Jeśli nadal chcesz wysyłać powiadomienia VOIP usługi APNS za pomocą Notification Hubs, pamiętaj o następujących ograniczeniach:
 
-- Wysyłanie powiadomienia VOIP wymaga, aby `apns-topic` nagłówek miał ustawioną identyfikator pakietu aplikacji + `.voip` sufiks. Przykładowo dla przykładowej aplikacji z IDENTYFIKATORem `com.microsoft.nhubsample`pakietu `apns-topic` nagłówek powinien być ustawiony na`com.microsoft.nhubsample.voip.`
+- Wysyłanie powiadomienia VOIP wymaga, `apns-topic` Aby nagłówek miał ustawioną identyfikator pakietu aplikacji + `.voip` sufiks. Przykładowo dla przykładowej aplikacji z IDENTYFIKATORem pakietu `com.microsoft.nhubsample` `apns-topic` nagłówek powinien być ustawiony na`com.microsoft.nhubsample.voip.`
 
-   Ta metoda nie działa poprawnie z usługą Azure Notification Hubs, ponieważ identyfikator pakietu aplikacji musi być skonfigurowany jako część poświadczeń APNS centrum i nie można zmienić wartości. Ponadto Notification Hubs nie zezwala na przesłanianie wartości `apns-topic` nagłówka w czasie wykonywania.
+   Ta metoda nie działa poprawnie z usługą Azure Notification Hubs, ponieważ identyfikator pakietu aplikacji musi być skonfigurowany jako część poświadczeń APNS centrum i nie można zmienić wartości. Ponadto Notification Hubs nie zezwala na `apns-topic` przesłanianie wartości nagłówka w czasie wykonywania.
 
-   Aby wysyłać powiadomienia VOIP, należy skonfigurować osobne centrum powiadomień z IDENTYFIKATORem `.voip` pakietu aplikacji.
+   Aby wysyłać powiadomienia VOIP, należy skonfigurować osobne centrum powiadomień z `.voip` identyfikatorem pakietu aplikacji.
 
-- Wysyłanie powiadomienia VOIP wymaga, `apns-push-type` aby nagłówek miał ustawioną wartość. `voip`
+- Wysyłanie powiadomienia VOIP wymaga, `apns-push-type` Aby nagłówek miał ustawioną wartość `voip` .
 
    Aby ułatwić klientom przejście do systemu iOS 13, Notification Hubs próbuje wnioskować o poprawność wartości `apns-push-type` nagłówka. Logika wnioskowania jest celowo prosta, co pozwala uniknąć przerywania standardowych powiadomień. Niestety, ta metoda powoduje problemy z powiadomieniami VOIP, ponieważ firma Apple traktuje powiadomienia VOIP jako przypadek specjalny, który nie jest zgodny z tymi samymi regułami co standardowe powiadomienia.
 

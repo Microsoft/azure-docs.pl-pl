@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127990"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Dostosowywanie modelu marek przy użyciu interfejsu API Video Indexer
@@ -34,8 +34,8 @@ Interfejs API [tworzenia marki](https://api-portal.videoindexer.ai/docs/services
 
 Inne parametry, które można ustawić w treści:
 
-* `referenceUrl` Wartość może być dowolnymi witrynami referencyjnymi dla marki, takimi jak link do strony Wikipedia.
-* `tags` Wartość jest listą tagów dla marki. Ten tag jest wyświetlany w polu *Kategoria* marki w witrynie sieci Web Video Indexer. Na przykład znak "Azure" może być oznaczony jako "Chmura" lub skategoryzowany.
+* `referenceUrl`Wartość może być dowolnymi witrynami referencyjnymi dla marki, takimi jak link do strony Wikipedia.
+* `tags`Wartość jest listą tagów dla marki. Ten tag jest wyświetlany w polu *Kategoria* marki w witrynie sieci Web Video Indexer. Na przykład znak "Azure" może być oznaczony jako "Chmura" lub skategoryzowany.
 
 ### <a name="response"></a>Odpowiedź
 
@@ -94,7 +94,7 @@ Odpowiedź zawiera informacje na temat wyszukiwanego znaku towarowego (przy uży
 ```
 
 > [!NOTE]
-> `enabled`jest ustawiana `true` na wartość oznacza, że marka znajduje się na liście *dołączania* Video Indexer do wykrycia, a `enabled` wartość false oznacza, że marka znajduje się na liście *wykluczeń* , Video Indexer więc nie zostanie wykryta.
+> `enabled`jest ustawiana na wartość `true` oznacza, że marka znajduje się na liście *dołączania* Video Indexer do wykrycia, a `enabled` wartość false oznacza, że marka znajduje się na liście *wykluczeń* , Video Indexer więc nie zostanie wykryta.
 
 ## <a name="update-a-specific-brand"></a>Zaktualizuj konkretną markę
 
@@ -178,13 +178,13 @@ Odpowiedź wskazuje, czy marki Bing są włączone, zgodnie z poniższym formate
 ```
 
 > [!NOTE]
-> `useBuiltIn`ustawienie wartości true oznacza, że są włączone marki Bing. Jeśli `useBuiltin` ma wartość false, marki Bing są wyłączone. Wartość `state` można zignorować, ponieważ była przestarzała.
+> `useBuiltIn`ustawienie wartości true oznacza, że są włączone marki Bing. Jeśli `useBuiltin` ma wartość false, marki Bing są wyłączone. `state`Wartość można zignorować, ponieważ była przestarzała.
 
 ## <a name="update-brands-model-settings"></a>Zaktualizuj ustawienia modelu marek
 
 Interfejs API [aktualizacji marek](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) aktualizuje ustawienia modelu marek na określonym koncie. Ustawienia modelu marek przedstawiają, czy wykrywanie z bazy danych marek Bing jest włączone. Jeśli marki Bing nie są włączone, Video Indexer będzie wykrywać tylko marki z modelu niestandardowych marek określonego konta.
 
-`useBuiltIn` Flaga ustawiona na wartość true oznacza, że marki Bing są włączone. Jeśli `useBuiltin` ma wartość false, marki Bing są wyłączone.
+`useBuiltIn`Flaga ustawiona na wartość true oznacza, że marki Bing są włączone. Jeśli `useBuiltin` ma wartość false, marki Bing są wyłączone.
 
 ### <a name="response"></a>Odpowiedź
 

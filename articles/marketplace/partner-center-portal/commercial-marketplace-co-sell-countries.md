@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80277060"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Kody krajów i regionów współpracujących
@@ -166,7 +166,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Martynika                          | MQ        |
 | Mauretania                          | MR        |
 | Mauritius                           | MU        |
-| Majotta                             | YT        |
+| Wyspa Majotta                             | YT        |
 | Meksyk                              | MX        |
 | Mikronezja                          | FM        |
 | Mołdawia                             | MD        |
@@ -250,7 +250,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Togo                                | TG        |
 | Tokelau                             | TK        |
 | Tonga                               | DO        |
-| Trynidad i Tobago                 | TT        |
+| Trinidad i Tobago                 | TT        |
 | Tunezja                             | TN        |
 | Turcja                              | TR        |
 | Turkmenistan                        | TM        |
@@ -259,10 +259,10 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Uganda                              | UG        |
 | Ukraina                             | UA        |
 | Zjednoczone Emiraty Arabskie                | AE        |
-| Wielka Brytania                      | GB        |
+| Zjednoczone Królestwo                      | GB        |
 | Stany Zjednoczone                       | USA        |
 | Urugwaj                             | UY        |
-| Odległe wyspy Stanów Zjednoczonych               | UM        |
+| Stany Zjednoczone — Dalekie Wyspy Mniejsze               | UM        |
 | Wyspy Dziewicze Stanów Zjednoczonych                 | VI        |
 | Uzbekistan                          | UZ        |
 | Vanuatu                             | VU        |

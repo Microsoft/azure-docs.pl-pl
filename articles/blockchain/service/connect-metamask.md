@@ -4,12 +4,12 @@ description: Nawiązywanie połączenia z siecią usługi Azure łańcucha blok�
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79205108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920587"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Szybki Start: używanie maskowania do łączenia i wdrażania kontraktu inteligentnego
 
@@ -59,7 +59,7 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 1. W przeglądarce przejdź do `https://remix.ethereum.org`.
 1. Wybierz pozycję **nowy plik** na karcie **Narzędzia główne** w obszarze **plik**.
 
-    Nazwij nowy plik `simple.sol`.
+    Nazwij nowy plik `simple.sol` .
 
     ![Utwórz plik](./media/connect-metamask/create-file.png)
 
@@ -97,7 +97,7 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 
 1. Wybierz **prosty** kontrakt, a następnie **Wdróż**.
 
-    ![Wdrażanie](./media/connect-metamask/deploy.png)
+    ![Wdróż](./media/connect-metamask/deploy.png)
 
 
 1. Powiadomienie o niewystarczającej masce pozwala wykonać transakcję.
@@ -128,9 +128,9 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 
 Okienko debugowanie Remix zawiera szczegółowe informacje o transakcjach w łańcucha bloków:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Historia debugowania](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+Możesz zobaczyć **proste** tworzenie kontraktu, transakcję dla **prostego. Dodaj**i Wywołaj metodę **Simple. Get**.
 
 Aby wyświetlić historię transakcji w ramach klasy dbmasking, Otwórz rozszerzenie przeglądarki z maską i zapoznaj się z sekcją **historia** dziennika wdrożonego kontraktu i transakcji.
 

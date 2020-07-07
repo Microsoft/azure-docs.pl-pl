@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80152664"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska w wersji zapoznawczej
@@ -92,9 +92,9 @@ Wybierz źródła zdarzeń, z których zostało zatrzymane pozyskiwanie, wklej n
 Upewnij się, że nazwa i wartość są zgodne z następującymi regułami:
 
 * W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter.
-* Wartość właściwości timestamp, która pochodzi ze źródła zdarzenia jako ciąg JSON, ma format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Przykładem takiego ciągu jest `“2008-04-12T12:53Z”`.
+* Wartość właściwości timestamp, która pochodzi ze źródła zdarzenia jako ciąg JSON, ma format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Przykładem takiego ciągu jest `“2008-04-12T12:53Z”` .
 
-Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Time Series Insights w wersji zapoznawczej. W Eksploratorze Time Series Insights w wersji zapoznawczej Użyj wykresu, aby wybrać okres czasu po podaniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz opcję **Eksploruj zdarzenia** . Pierwszy nagłówek kolumny jest nazwą właściwości znacznika czasu. Powinien zawierać `($ts)` obok wyrazu `Timestamp`, a nie:
+Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Time Series Insights w wersji zapoznawczej. W Eksploratorze Time Series Insights w wersji zapoznawczej Użyj wykresu, aby wybrać okres czasu po podaniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz opcję **Eksploruj zdarzenia** . Pierwszy nagłówek kolumny jest nazwą właściwości znacznika czasu. Powinien zawierać `($ts)` obok wyrazu `Timestamp` , a nie:
 
 * `(abc)`, co oznacza, że Time Series Insights odczytuje wartości danych jako ciągi.
 * Ikona **kalendarza** , która wskazuje, że Time Series Insights odczytuje wartość danych jako datę i godzinę.

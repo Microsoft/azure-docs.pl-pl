@@ -6,10 +6,10 @@ ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82787137"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Typy węzłów usługi Azure Service Fabric i zestawy skalowania maszyn wirtualnych
@@ -30,7 +30,7 @@ Podczas skalowania w poziomie zestawu skalowania jest tworzone nowe wystąpienie
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Moduły równoważenia obciążenia zestawu skalowania mapy z typami węzłów i zestawami skalowania
 
-Jeśli klaster został wdrożony w Azure Portal lub użyto przykładowego szablonu Azure Resource Manager, zostanie wyświetlona lista wszystkich zasobów w grupie zasobów. Moduły równoważenia obciążenia są widoczne dla każdego zestawu skalowania lub typu węzła. Nazwa usługi równoważenia obciążenia używa następującego formatu: **nazwa&lt;&gt;typu węzła lb**. Przykładem jest LB-sfcluster4doc-0, jak pokazano na poniższym rysunku:
+Jeśli klaster został wdrożony w Azure Portal lub użyto przykładowego szablonu Azure Resource Manager, zostanie wyświetlona lista wszystkich zasobów w grupie zasobów. Moduły równoważenia obciążenia są widoczne dla każdego zestawu skalowania lub typu węzła. Nazwa usługi równoważenia obciążenia używa następującego formatu: ** &lt; &gt; Nazwa typu węzła lb**. Przykładem jest LB-sfcluster4doc-0, jak pokazano na poniższym rysunku:
 
 ![Zasoby][Resources]
 
@@ -75,7 +75,7 @@ Poniżej przedstawiono opisy właściwości:
 | **Nazwa** | **Dozwolone wartości** | **Wskazówki lub Krótki opis** |
 | --- | --- | --- | --- |
 | name | ciąg | Unikatowa nazwa rozszerzenia |
-| type | "ServiceFabricLinuxNode" lub "ServiceFabricWindowsNode" | Identyfikuje Service Fabric systemu operacyjnego |
+| typ | "ServiceFabricLinuxNode" lub "ServiceFabricWindowsNode" | Identyfikuje Service Fabric systemu operacyjnego |
 | Włączoną flagą autoupgrademinorversion | true lub false | Włącz autouaktualnienie wersji pomocniczych w środowisku uruchomieniowym SF |
 | publisher | Microsoft. Azure. servicefabric | Nazwa wydawcy rozszerzenia Service Fabric |
 | clusterEndpont | ciąg | URI: PORT do punktu końcowego zarządzania |

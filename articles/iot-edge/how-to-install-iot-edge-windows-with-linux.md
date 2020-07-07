@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80133157"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Używanie IoT Edge w systemie Windows do uruchamiania kontenerów systemu Linux
@@ -53,7 +53,7 @@ Skrypt programu PowerShell pobiera i instaluje demona Security Azure IoT Edge. N
 
 W przypadku instalowania środowiska uruchomieniowego IoT Edge po raz pierwszy na urządzeniu należy zainicjować obsługę administracyjną urządzenia z tożsamością usługi IoT Hub. Pojedyncze urządzenie IoT Edge może być inicjowane ręcznie przy użyciu parametrów połączenia urządzenia dostarczonych przez Centrum IoT Hub. Można też użyć usługi Device Provisioning, aby automatycznie zainicjować obsługę administracyjną urządzeń, co jest przydatne, gdy istnieje wiele urządzeń do skonfigurowania.
 
-Więcej informacji na temat różnych opcji instalacji i parametrów można znaleźć w artykule [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md). Po zainstalowaniu i skonfigurowaniu programu Docker Desktop dla kontenerów systemu Linux główna różnica instalacji deklaruje system Linux z parametrem **-ContainerOs** . Przykład:
+Więcej informacji na temat różnych opcji instalacji i parametrów można znaleźć w artykule [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md). Po zainstalowaniu i skonfigurowaniu programu Docker Desktop dla kontenerów systemu Linux główna różnica instalacji deklaruje system Linux z parametrem **-ContainerOs** . Na przykład:
 
 1. Jeśli jeszcze tego nie zrobiono, Zarejestruj nowe urządzenie IoT Edge i Pobierz parametry połączenia urządzenia. Skopiuj parametry połączenia, aby użyć ich w dalszej części tej sekcji. Ten krok można wykonać przy użyciu następujących narzędzi:
 

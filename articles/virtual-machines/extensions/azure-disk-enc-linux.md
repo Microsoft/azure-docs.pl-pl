@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066913"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption dla systemu Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
@@ -41,7 +41,7 @@ Istnieją dwie wersje schematu rozszerzeń dla Azure Disk Encryption (ADE):
 - v 1.1 — nowszy zalecany schemat, który nie korzysta z właściwości Azure Active Directory (AAD).
 - v 0,1 — starszy schemat, który wymaga właściwości Azure Active Directory (AAD). 
 
-Aby wybrać schemat docelowy, należy ustawić `typeHandlerVersion` Właściwość równą wersji schematu, którego chcesz użyć.
+Aby wybrać schemat docelowy, `typeHandlerVersion` należy ustawić właściwość równą wersji schematu, którego chcesz użyć.
 
 ### <a name="schema-v11-no-aad-recommended"></a>Schemat v 1.1: Brak usługi AAD (zalecane)
 
@@ -76,9 +76,9 @@ Schemat v 1.1 jest zalecany i nie wymaga właściwości Azure Active Directory (
 
 ### <a name="schema-v01-with-aad"></a>Schemat v 0,1: z usługą AAD 
 
-Schemat 0,1 wymaga `AADClientID` i albo `AADClientSecret` `AADClientCertificate`.
+Schemat 0,1 wymaga `AADClientID` i albo `AADClientSecret` `AADClientCertificate` .
 
-Przy `AADClientSecret`użyciu:
+Przy użyciu `AADClientSecret` :
 
 ```json
 {
@@ -108,7 +108,7 @@ Przy `AADClientSecret`użyciu:
 }
 ```
 
-Przy `AADClientCertificate`użyciu:
+Przy użyciu `AADClientCertificate` :
 
 ```json
 {
@@ -145,7 +145,7 @@ Przy `AADClientCertificate`użyciu:
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft. Azure. Security | ciąg |
-| type | AzureDiskEncryptionForLinux | ciąg |
+| typ | AzureDiskEncryptionForLinux | ciąg |
 | typeHandlerVersion | 1,1, 0,1 | int |
 | (schemat 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (schemat 0,1) AADClientSecret | hasło | ciąg |

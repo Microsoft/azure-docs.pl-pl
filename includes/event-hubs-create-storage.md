@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75692552"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Tworzenie konta magazynu dla hosta procesora zdarzeń
@@ -22,7 +22,7 @@ Host procesora zdarzeń to inteligentny agent, który upraszcza odbieranie zdarz
 
     ![Utwórz element menu zasobu, Microsoft Azure Portal](./media/event-hubs-create-storage/create-resource.png)
 
-2. Wybierz pozycję**konto magazynu** **magazynu** > .
+2. Wybierz **Storage**pozycję  >  **konto magazynu**magazynu.
    
     ![Wybierz pozycję konto magazynu, Microsoft Azure Portal](./media/event-hubs-create-storage/select-storage-account.png)
 

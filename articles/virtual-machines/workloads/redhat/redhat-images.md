@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239875"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
@@ -71,7 +71,7 @@ To porównanie wersji obrazu jest wykonywane przez porównanie wartości jako ob
 
 W przypadku obrazów RHEL 6. x typy obrazów przedstawiono w poniższej tabeli.
 
-|Wydawca | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
+|Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | Wersja pomocnicza (na przykład 6,9) | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 6.9.2018010506) | Wszystkie obrazy standardowego RHEL 6. x są zgodne z tą konwencją.
 |RedHat | RHEL — BYOS | RHEL — raw69 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 6.9.20181023) | Ten obraz jest obrazem RHEL 6,9 BYOS.
@@ -80,12 +80,12 @@ W przypadku obrazów RHEL 6. x typy obrazów przedstawiono w poniższej tabeli.
 
 ## <a name="rhel-7-image-types"></a>RHEL 7 — typy obrazów
 
-W przypadku obrazów RHEL 7. x istnieje kilka różnych typów obrazów. W poniższej tabeli przedstawiono różne zestawy oferowanych przez nas obrazów. Aby wyświetlić pełną listę, użyj interfejsu wiersza polecenia `az vm image list --publisher redhat --all`platformy Azure.
+W przypadku obrazów RHEL 7. x istnieje kilka różnych typów obrazów. W poniższej tabeli przedstawiono różne zestawy oferowanych przez nas obrazów. Aby wyświetlić pełną listę, użyj interfejsu wiersza polecenia platformy Azure `az vm image list --publisher redhat --all` .
 
 >[!NOTE]
 > O ile nie wskazano inaczej, wszystkie obrazy są LVM partycjonowane i łączą się z regularnymi repozytoriami RHEL. Oznacza to, że repozytoria nie są rozszerzoną obsługą aktualizacji (EUS) i nie są usługami Update Services dla oprogramowania SAP (E4S). Przechodząc do przodu, przeniesiemy do publikowania tylko obrazów z LVMą, ale są otwarte do przesyłania opinii na temat tej decyzji. Aby uzyskać więcej informacji na temat rozszerzonej obsługi aktualizacji i usług aktualizacji dla oprogramowania SAP, zobacz [Red Hat Enterprise Linux cyklu życia](https://access.redhat.com/support/policy/updates/errata).
 
-|Wydawca | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
+|Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | Wersja pomocnicza (na przykład 7,6) | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 7.6.2019102813) | Obrazy opublikowane przed 2019 kwietnia są dołączone do standardowych repozytoriów RHEL. Obrazy opublikowane po 2019 kwietnia są dołączone do repozytoriów EUS firmy Red Hat w celu umożliwienia blokowania wersji określonej wersji pomocniczej. Klienci, którzy chcą regularnie repozytoriów, powinni używać obrazów zawierających 7-LVM lub 7-RAW w wartości SKU (szczegóły poniżej). Obrazy RHEL 7,7 i nowsze są LVM podzielone na partycje. Wszystkie inne obrazy w tej kategorii są niesformatowane.
 |RedHat | RHEL | 7 — NIEPRZETWORZONY | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 7.6.2019102813) | Obrazy te są nieprzetworzone na partycje (na przykład żadne woluminy logiczne nie zostały dodane).
@@ -102,7 +102,7 @@ W przypadku obrazów RHEL 7. x istnieje kilka różnych typów obrazów. W poni�
 
 Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 
-|Wydawca | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
+|Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191023) | Są to obrazy z RHEL 8 LVM na partycje połączone z standardowymi repozytoriami Red Hat.
 |RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).

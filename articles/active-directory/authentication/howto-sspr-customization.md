@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54a45602b80db965e3cc79d188dd40034a320b79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394256"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Dostosuj środowisko użytkownika Azure Active Directory samoobsługowego resetowania hasła
@@ -56,8 +56,8 @@ Aby dowiedzieć się więcej o różnych rolach administratorów i sposobach ich
 
 Jeśli organizacja nie chce powiadamiać administratorów o żądaniach resetowania haseł, można użyć następujących opcji konfiguracji:
 
-* Dostosuj link do pomocy technicznej, aby podać internetowy adres URL lub mailto: adres, za pomocą którego użytkownicy mogą uzyskać pomoc. Ta opcja jest w obszarze**Dostosowywanie** >  **resetowania** > hasła**adres e-mail lub adres URL**.
-* Włącz Samoobsługowe resetowanie haseł dla wszystkich użytkowników. Ta opcja jest w obszarze > **Właściwości** **resetowania hasła**. Jeśli nie chcesz, aby użytkownicy zresetują swoje hasła, możesz ograniczyć dostęp do pustej grupy. *Nie zalecamy tej opcji.*
+* Dostosuj link do pomocy technicznej, aby podać internetowy adres URL lub mailto: adres, za pomocą którego użytkownicy mogą uzyskać pomoc. Ta opcja jest w obszarze Dostosowywanie **resetowania hasła**  >  **Customization**  >  **adres e-mail lub adres URL**.
+* Włącz Samoobsługowe resetowanie haseł dla wszystkich użytkowników. Ta opcja jest w obszarze właściwości **resetowania hasła**  >  **Properties**. Jeśli nie chcesz, aby użytkownicy zresetują swoje hasła, możesz ograniczyć dostęp do pustej grupy. *Nie zalecamy tej opcji.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Dostosowywanie strony logowania i panelu dostępu
 
@@ -72,7 +72,7 @@ Wybrane grafiki są wyświetlane w następujących okolicznościach:
 
 ### <a name="directory-name"></a>Nazwa katalogu
 
-Aby elementy wyglądały lepiej przyjazny dla użytkownika, możesz zmienić nazwę organizacji w portalu i w zautomatyzowanym komunikacie. Aby zmienić atrybut nazwy katalogu w Azure Portal, przejdź do **Azure Active Directory** > **Właściwości**. Ta przyjazna nazwa organizacji jest najbardziej widoczna w zautomatyzowanych wiadomościach e-mail, jak w następujących przykładach:
+Aby elementy wyglądały lepiej przyjazny dla użytkownika, możesz zmienić nazwę organizacji w portalu i w zautomatyzowanym komunikacie. Aby zmienić atrybut nazwy katalogu w Azure Portal, przejdź do **Azure Active Directory**  >  **Właściwości**. Ta przyjazna nazwa organizacji jest najbardziej widoczna w zautomatyzowanych wiadomościach e-mail, jak w następujących przykładach:
 
 * Przyjazna nazwa w wiadomości e-mail, na przykład "*firma Microsoft w imieniu firmy Contoso demonstracyjna*"
 * Wiersz tematu w wiadomości e-mail, na przykład "*kod weryfikacyjny e-mail konta demonstracji contoso*"
@@ -81,7 +81,7 @@ Aby elementy wyglądały lepiej przyjazny dla użytkownika, możesz zmienić naz
 
 Jeśli używasz Active Directory Federation Services (AD FS) dla zdarzeń logowania użytkowników, możesz dodać link do strony logowania, korzystając ze wskazówek zawartych w artykule, aby [dodać opis strony logowania](/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Podaj użytkownikom link do strony, aby wprowadzić przepływ pracy SSPR, taki jak *https://passwordreset.microsoftonline.com*. Aby dodać łącze do strony logowania AD FS, użyj następującego polecenia na serwerze AD FS:
+Podaj użytkownikom link do strony, aby wprowadzić przepływ pracy SSPR, taki jak *https://passwordreset.microsoftonline.com* . Aby dodać łącze do strony logowania AD FS, użyj następującego polecenia na serwerze AD FS:
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"

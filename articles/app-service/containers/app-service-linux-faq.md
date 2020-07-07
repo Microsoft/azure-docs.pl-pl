@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80245824"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux FAQ (Usługa Azure App Service w systemie Linux — często zadawane pytania)
@@ -32,8 +32,8 @@ Wszystkie pliki platformy Docker można znaleźć w witrynie [GitHub](https://gi
 
 | Stos           | Oczekiwana wartość                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | polecenie uruchamiania aplikacji JAR (na przykład `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat          | Lokalizacja skryptu do wykonania wszelkich niezbędnych konfiguracji (na przykład `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | polecenie uruchamiania aplikacji JAR (na przykład `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
+| Tomcat          | Lokalizacja skryptu do wykonania wszelkich niezbędnych konfiguracji (na przykład `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | plik konfiguracji PM2 lub plik skryptu                                |
 | .NET Core       | Nazwa skompilowanej biblioteki DLL jako`dotnet <myapp>.dll`                                 |
 | Ruby            | skrypt Ruby, z którym chcesz zainicjować aplikację                     |
@@ -84,13 +84,13 @@ Jeśli wdrożenie narzędzia Git nie powiedzie się w aplikacji sieci Web system
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Jeśli zostanie wyświetlony komunikat o błędzie, `curl` że nie można znaleźć polecenia, upewnij się, że zainstalowano za pomocą `apt-get install curl` przed uruchomieniem poprzedniego `curl` polecenia.
+   Jeśli zostanie wyświetlony komunikat o błędzie, że `curl` nie można znaleźć polecenia, upewnij się, że zainstalowano za pomocą `apt-get install curl` przed uruchomieniem poprzedniego `curl` polecenia.
 
 ## <a name="language-support"></a>Obsługa języków
 
-**Chcę używać gniazd sieci Web w aplikacji node. js, dowolnych ustawień specjalnych lub konfiguracji do ustawienia?**
+**Chcę używać gniazd sieci Web w aplikacji Node.js, dowolnych ustawień specjalnych lub konfiguracji do ustawienia?**
 
-Tak, wyłącz `perMessageDeflate` w kodzie Node. js po stronie serwera. Na przykład jeśli używasz socket.io, użyj następującego kodu:
+Tak, wyłącz `perMessageDeflate` w kodzie Node.js po stronie serwera. Na przykład jeśli używasz socket.io, użyj następującego kodu:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -114,15 +114,15 @@ Jeśli `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie jest **nieokreślone** l
 
 **Nie można rozpocząć pracy z kontenerem niestandardowym, a platforma ponownie uruchomi kontener przed jego rozpoczęciem.**
 
-Można skonfigurować czas oczekiwania platformy przed ponownym uruchomieniem kontenera. W tym celu należy określić wartość `WEBSITES_CONTAINER_START_TIME_LIMIT` ustawienia aplikacji. Wartość domyślna to 230 sekund, a maksymalna wartość to 1800 sekund.
+Można skonfigurować czas oczekiwania platformy przed ponownym uruchomieniem kontenera. W tym celu należy określić `WEBSITES_CONTAINER_START_TIME_LIMIT` wartość ustawienia aplikacji. Wartość domyślna to 230 sekund, a maksymalna wartość to 1800 sekund.
 
 **Jaki jest format adresu URL serwera rejestru prywatnego?**
 
-Podaj pełny adres URL rejestru, włącznie `http://` z `https://`lub.
+Podaj pełny adres URL rejestru, włącznie z `http://` lub `https://` .
 
 **Jaki jest format nazwy obrazu w opcji rejestru prywatnego?**
 
-Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name`, użyj [ `az` narzędzia wiersza polecenia](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name` , użyj [ `az` narzędzia wiersza polecenia](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Czy mogę uwidocznić więcej niż jeden port w obrazie niestandardowego kontenera?**
 
@@ -153,7 +153,7 @@ Aby można było używać ACR z obsługą wiele kontenerów, **wszystkie obrazy 
 Utwórz następujące ustawienia aplikacji:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (pełny adres URL, np `https://<server-name>.azurecr.io`.)
+- DOCKER_REGISTRY_SERVER_URL (pełny adres URL, np. `https://<server-name>.azurecr.io` )
 - DOCKER_REGISTRY_SERVER_PASSWORD (Włącz dostęp administratora w ustawieniach ACR)
 
 W pliku konfiguracji odwołuje się do obrazu ACR, tak jak w poniższym przykładzie:
@@ -169,7 +169,7 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 Poniżej przedstawiono reguły określania, który kontener jest dostępny — w kolejności pierwszeństwa:
 
-- Ustawienie `WEBSITES_WEB_CONTAINER_NAME` aplikacji ustawione na nazwę kontenera
+- Ustawienie aplikacji `WEBSITES_WEB_CONTAINER_NAME` ustawione na nazwę kontenera
 - Pierwszy kontener do zdefiniowania portu 80 lub 8080
 - Jeśli żaden z powyższych wartości nie jest spełniony, pierwszy kontener zdefiniowany w pliku będzie dostępny (uwidoczniony)
 

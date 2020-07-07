@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4b6331977cc2237801b84647e4edeb5d789cb9e8
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: c251b70d1988be82821f1e133151dae1ac6d1bc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921303"
 ---
-# <a name="accessing-external-storage-in-synapse-sql"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w Synapse SQL
+# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
-W tym dokumencie opisano, jak użytkownik może odczytywać dane z plików przechowywanych w usłudze Azure Storage w programie Synapse SQL (na żądanie i w puli). Użytkownicy mają następujące opcje dostępu do magazynu:
+W tym dokumencie opisano, jak użytkownik może odczytywać dane z plików przechowywanych w usłudze Azure Storage w programie Synapse SQL (na żądanie). Użytkownicy mają następujące opcje dostępu do magazynu:
 
 - Funkcja [OPENROWSET](develop-openrowset.md) , która umożliwia wykonywanie zapytań ad hoc w plikach w usłudze Azure Storage.
 - [Zewnętrzna tabela](develop-tables-external-tables.md) , która jest wstępnie zdefiniowaną strukturą danych utworzoną na podstawie zestawu plików zewnętrznych.
@@ -65,9 +65,9 @@ Funkcja OPENROWSET umożliwia użytkownikowi wykonywanie zapytań dotyczących p
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 Użytkownik zaawansowany z KONTROLKą bazy danych musi utworzyć poświadczenie o zakresie bazy danych, które będzie używane w celu uzyskania dostępu do magazynu i zewnętrznego źródła danych, które określa adres URL źródła danych i poświadczenia, które powinny być używane:
@@ -142,8 +142,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Obiekt wywołujący musi mieć następujące uprawnienia do odczytu danych:
-- Wybieranie uprawnienia do tabeli zewnętrznej
-- Odwołuje się do uprawnienia do poświadczeń w zakresie bazy danych, jeśli źródło danych ma poświadczenia
+- `SELECT`uprawnienie do tabeli zewnętrznej
+- `REFERENCES DATABASE SCOPED CREDENTIAL`uprawnienie, jeśli `DATA SOURCE` ma`CREDENTIAL`
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -151,13 +151,13 @@ Poniższa tabela zawiera listę wymaganych uprawnień do operacji wymienionych p
 
 | Zapytanie | Wymagane uprawnienia|
 | --- | --- |
-| OPENROWSET (BULK) bez źródła danych | ADMINISTROWANie logowaniem administratora ZBIORCZego SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
-| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | ADMINISTRUJ ADMINISTRATOREM ZBIORCZYM |
-| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | ADMINISTRUJ ADMINISTRATOREM ZBIORCZYM ODWOŁUJE SIĘ DO BAZY DANYCH POŚWIADCZEŃ W ZAKRESIE |
-| UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH | ZMIANA DOWOLNEGO ZEWNĘTRZNEGO ŹRÓDŁA DANYCH ODWOŁUJE SIĘ DO BAZY DANYCH POŚWIADCZENIE O OKREŚLONYM ZAKRESIE |
-| TWORZENIE TABELI ZEWNĘTRZNEJ | CREATE TABLE, ZMIANA DOWOLNEGO SCHEMATU, ZMIANA DOWOLNEGO FORMATU PLIKU ZEWNĘTRZNEGO, ZMIANA DOWOLNEGO ZEWNĘTRZNEGO ŹRÓDŁA DANYCH |
-| WYBIERZ Z TABELI ZEWNĘTRZNEJ | WYBIERZ TABELĘ |
-| CETAS | Aby utworzyć tabelę-CREATE TABLE zmienić wszystkie schematy zmień dowolne źródło danych + Zmień dowolny FORMAT pliku zewnętrznego. Aby odczytać dane: administracyjne operacje ZBIORCZe i odwołania do poświadczeń lub wybierz tabelę dla każdej tabeli/widoku/funkcji w programie Query + R/W, uprawnienie do magazynu |
+| OPENROWSET (BULK) bez źródła danych | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub logowanie SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
+| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK ADMIN`lub `ADMINISTER DATABASE BULK ADMIN` , |
+| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH | `ALTER ANY EXTERNAL DATA SOURCE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| TWORZENIE TABELI ZEWNĘTRZNEJ | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` i`ALTER ANY EXTERNAL DATA SOURCE` |
+| WYBIERZ Z TABELI ZEWNĘTRZNEJ | `SELECT TABLE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | Aby utworzyć tabelę, `CREATE TABLE` , `ALTER ANY SCHEMA` , `ALTER ANY DATA SOURCE` i `ALTER ANY EXTERNAL FILE FORMAT` . Aby odczytywać dane: `ADMIN BULK OPERATIONS` lub `REFERENCES CREDENTIAL` lub `SELECT TABLE` dla każdej tabeli/widoku/funkcji w programie Query + R/w pozwoleniu na magazyn |
 
 ## <a name="next-steps"></a>Następne kroki
 

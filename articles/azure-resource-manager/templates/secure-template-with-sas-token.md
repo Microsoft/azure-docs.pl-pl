@@ -4,10 +4,10 @@ description: Wdróż zasoby na platformie Azure przy użyciu szablonu Azure Reso
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80156399"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Wdróż prywatny szablon ARM z tokenem SAS
@@ -18,7 +18,7 @@ Gdy szablon Azure Resource Manager (ARM) znajduje się na koncie magazynu, może
 
 Poniższy skrypt tworzy konto magazynu i kontener z wyłączonym dostępem publicznym.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -65,7 +65,7 @@ az storage container create \
 
 Teraz możesz przystąpić do przekazywania szablonu do konta magazynu. Podaj ścieżkę do szablonu, którego chcesz użyć.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -93,7 +93,7 @@ Aby wdrożyć szablon prywatny na koncie magazynu, wygeneruj token sygnatury dos
 > Obiekt BLOB zawierający szablon jest dostępny tylko dla właściciela konta. Jednak podczas tworzenia tokenu sygnatury dostępu współdzielonego dla obiektu BLOB obiekt BLOB jest dostępny dla wszystkich użytkowników o tym identyfikatorze URI. Jeśli inny użytkownik przechwytuje identyfikator URI, ten użytkownik będzie mógł uzyskać dostęp do szablonu. Token SAS to dobry sposób ograniczania dostępu do szablonów, ale nie należy uwzględniać poufnych danych, takich jak hasła bezpośrednio w szablonie.
 >
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token

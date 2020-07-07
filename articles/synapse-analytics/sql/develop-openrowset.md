@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 786f277c1a46213b43f81b5cfa563303b3d7ddf9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85200583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921313"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
@@ -115,9 +115,11 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Blob Storage         | https  | \<storage_account>. blob.core.windows.net/path/file   |
+| Azure Blob Storage         | wasb   | \<container>@\<storage_account>. blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | https  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<storage_account>. dfs.core.windows.net              |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>. dfs.core.windows.net/Path/File   |
+| Azure Data Lake Store Gen2 | abfss  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
