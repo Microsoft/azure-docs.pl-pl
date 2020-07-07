@@ -10,12 +10,11 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5d064b0953d8d6e9089dcfa765ff29bb97088f34
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801114"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025679"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Samouczek: Wdrażanie modelu klasyfikacji obrazów w Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,7 +127,7 @@ Szacowany czas do ukończenia: **około 2-5 minut**
 
 Skonfiguruj i wdróż obraz. Poniższy kod wykonuje następujące kroki:
 
-1. Utwórz obiekt środowiska zawierający zależności wymagane przez model przy użyciu środowiska (`tutorial-env`) zapisanego podczas szkolenia.
+1. Utwórz obiekt środowiska zawierający zależności wymagane przez model przy użyciu środowiska ( `tutorial-env` ) zapisanego podczas szkolenia.
 1. Utwórz konfigurację wnioskowania, która jest niezbędna do wdrożenia modelu jako usługi sieci Web przy użyciu:
    * Plik oceniania (`score.py`)
    * Obiekt środowiska utworzony w poprzednim kroku
@@ -235,18 +234,19 @@ print('Overall accuracy:', np.average(y_hat == y_test))
 
 Dane wyjściowe przedstawiają macierz pomyłek:
 
-    [[ 960    0    1    2    1    5    6    3    1    1]
-     [   0 1112    3    1    0    1    5    1   12    0]
-     [   9    8  920   20   10    4   10   11   37    3]
-     [   4    0   17  921    2   21    4   12   20    9]
-     [   1    2    5    3  915    0   10    2    6   38]
-     [  10    2    0   41   10  770   17    7   28    7]
-     [   9    3    7    2    6   20  907    1    3    0]
-     [   2    7   22    5    8    1    1  950    5   27]
-     [  10   15    5   21   15   27    7   11  851   12]
-     [   7    8    2   13   32   13    0   24   12  898]]
-    Overall accuracy: 0.9204
-   
+```output
+[[ 960    0    1    2    1    5    6    3    1    1]
+ [   0 1112    3    1    0    1    5    1   12    0]
+ [   9    8  920   20   10    4   10   11   37    3]
+ [   4    0   17  921    2   21    4   12   20    9]
+ [   1    2    5    3  915    0   10    2    6   38]
+ [  10    2    0   41   10  770   17    7   28    7]
+ [   9    3    7    2    6   20  907    1    3    0]
+ [   2    7   22    5    8    1    1  950    5   27]
+ [  10   15    5   21   15   27    7   11  851   12]
+ [   7    8    2   13   32   13    0   24   12  898]]
+Overall accuracy: 0.9204
+```
 
 Użyj polecenia `matplotlib`, aby wyświetlić macierz pomyłek w postaci wykresu. Na tym wykresie oś X reprezentuje wartości rzeczywiste, a oś Y — przewidywane. Kolor w każdej siatce oznacza współczynnik błędów. Im jaśniejszy kolor, tym wyższy współczynnik błędów. Na przykład wiele wartości 5 zostało błędnie sklasyfikowanych jako 3. Tak więc zobaczysz jasne siatki pod adresem (5, 3).
 
@@ -342,7 +342,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby pozostawić grupę zasobów i obszar roboczy na potrzeby innych samouczków i eksploracji, możesz usunąć tylko wdrożenie usługi Container Instances, używając następującego wywołania interfejsu API:
 

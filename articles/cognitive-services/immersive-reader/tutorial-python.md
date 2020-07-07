@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz aplikację w języku Python, która uruchamia czytnik immersyjny.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: tracking-python
-ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.openlocfilehash: ea9e6e1f06bacd28a4e9894039de824c3a5b4af4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609135"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044944"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Samouczek: uruchamianie czytnika immersyjny przy użyciu przykładowego projektu języka Python
 
@@ -217,7 +216,7 @@ sudo nano /etc/paths
 - Przejdź do dolnej części pliku, a następnie wprowadź ścieżkę, którą chcesz dodać jako ostatni element listy, np. `PATH=$PATH:/usr/local/bin` .
 - Naciśnij klawisz Control — x, aby zakończyć.
 - Wprowadź `Y` , aby zapisać zmodyfikowany bufor.
-- To wszystko. Aby go przetestować, w nowym oknie terminalu wpisz: `echo $PATH` .
+- Gotowe. Aby go przetestować, w nowym oknie terminalu wpisz: `echo $PATH` .
 
 Zainstaluj kolbę.
 

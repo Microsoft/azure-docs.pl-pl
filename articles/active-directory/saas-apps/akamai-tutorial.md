@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fef2d7e3afb0cdda3c3c3e2506b39ba542e0760
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
-ms.translationtype: MT
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956886"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026835"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -79,7 +78,7 @@ Aplikacja Akamai EAA jest skonfigurowana indywidualnie w portalu usługi Azure A
 
 • Możesz definiować poszczególne zasady urzędu certyfikacji
 
-• Wszystkie aplikacje są reprezentowane w panelu 0365 Gofr i myApps.microsoft.com.
+• Wszystkie aplikacje są reprezentowane w panelu usługi O365 Gofr i myApps.microsoft.com.
 
 **Wady**:
 
@@ -280,7 +279,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 1. Wybierz kartę **uwierzytelnianie** .
 
@@ -344,7 +343,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usługi**.
 
@@ -406,7 +405,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     e. Określ lokalizację łącznika i wybierz łącznik.
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usług**.
 
@@ -594,7 +593,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

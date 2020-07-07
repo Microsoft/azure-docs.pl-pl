@@ -7,14 +7,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733708"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024693"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Samouczek: Włączanie synchronizacji haseł w Azure Active Directory Domain Services dla środowisk hybrydowych
 
@@ -30,7 +29,7 @@ W ramach tego samouczka nauczysz się:
 > * Dlaczego są wymagana starsze skróty NTLM i hasła protokołu Kerberos
 > * Jak skonfigurować starszą synchronizację skrótów haseł dla Azure AD Connect
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

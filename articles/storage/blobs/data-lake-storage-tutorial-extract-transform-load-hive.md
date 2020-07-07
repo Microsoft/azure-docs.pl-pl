@@ -8,23 +8,22 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014914"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045301"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight
 
-W ramach tego samouczka wykonasz operację ETL: wyodrębnianie, przekształcanie i ładowanie danych. Pobierzesz plik danych pierwotnych w formacie CSV, zaimportujesz te dane do klastra usługi Azure HDInsight, przekształcisz je przy użyciu technologii Apache Hive i załadujesz do bazy danych Azure SQL Database za pomocą narzędzia Apache Sqoop.
+W ramach tego samouczka wykonasz operację ETL: wyodrębnianie, przekształcanie i ładowanie danych. Należy wykonać pierwotny plik danych CSV, zaimportować go do klastra usługi Azure HDInsight, przekształcić go w Apache Hive i załadować go do Azure SQL Database za pomocą platformy Apache Sqoop.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyodrębnianie danych i przekazywanie ich do klastra usługi HDInsight.
 > * Przekształcanie danych przy użyciu technologii Apache Hive.
-> * Ładowanie danych do bazy danych Azure SQL Database za pomocą narzędzia Sqoop.
+> * Załaduj dane do Azure SQL Database przy użyciu Sqoop.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -38,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
     Zobacz [Szybki Start: wprowadzenie do Apache Hadoop i Apache Hive w usłudze Azure HDInsight przy użyciu Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: usługa Azure SQL Database jest używana jako docelowy magazyn danych. Jeśli nie masz bazy danych SQL, zobacz [Tworzenie bazy danych Azure SQL Database w witrynie Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: używasz Azure SQL Database jako docelowego magazynu danych. Jeśli nie masz bazy danych w SQL Database, zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../../sql-database/sql-database-get-started.md).
 
 * **Interfejs wiersza polecenia platformy Azure**: Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +223,7 @@ W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hiv
 
 ## <a name="create-a-sql-database-table"></a>Tworzenie tabeli bazy danych SQL
 
-Aby wykonać tę operację, musisz dysponować nazwą serwera bazy danych SQL Database. Wykonaj następujące kroki, aby znaleźć nazwę serwera.
+Do wykonania tej operacji potrzebna jest nazwa serwera SQL Database. Wykonaj następujące kroki, aby znaleźć nazwę serwera.
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 
@@ -300,7 +299,7 @@ Aby wykonać tę operację, musisz dysponować nazwą serwera bazy danych SQL Da
 
 ## <a name="export-and-load-the-data"></a>Eksportowanie i ładowanie danych
 
-W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. W tej sekcji użyjesz narzędzia Sqoop, aby wyeksportować dane z lokalizacji `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` do tabeli utworzonej w bazie danych Azure SQL Database.
+W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. W tej sekcji użyto Sqoop do wyeksportowania danych z `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` do tabeli utworzonej w Azure SQL Database.
 
 1. Aby sprawdzić, czy baza danych SQL jest widoczna w narzędziu Sqoop, użyj następującego polecenia:
 

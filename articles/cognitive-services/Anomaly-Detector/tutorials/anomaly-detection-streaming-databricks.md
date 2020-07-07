@@ -11,12 +11,11 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: d3f3842265e0c8a36c7eb4b14abca771bd3d38f2
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918933"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027847"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Samouczek: wykrywanie anomalii na danych przesyłanych strumieniowo przy użyciu Azure Databricks
 
@@ -41,7 +40,7 @@ Ten samouczek obejmuje następujące zadania:
 
 > [!Note]
 > * W tym samouczku przedstawiono podejście do wdrożenia zalecanej [architektury rozwiązania](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) dla interfejsu API wykrywania anomalii.
-> * W tym samouczku nie można wykonać bezpłatnej wersji próbnej interfejsu API wykrywania anomalii lub Azure Databricks. 
+> * Nie można ukończyć tego samouczka z subskrypcją warstwy Bezpłatna ( `F0` ) dla interfejsu API wykrywania anomalii lub Azure Databricks. 
 
 Utwórz [subskrypcję platformy Azure](https://azure.microsoft.com/free/) , jeśli jej nie masz.
 

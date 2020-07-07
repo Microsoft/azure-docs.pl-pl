@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i uruchamiać projekty etykietowania w c
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0870f389e366a9249e98d60a51aa7fdd40238ea0
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374512"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025186"
 ---
 # <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Tworzenie projektu etykietowania danych (wersja zapoznawcza) i eksportowanie etykiet 
 

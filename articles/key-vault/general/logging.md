@@ -10,12 +10,11 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2ac68f1cab6958c0fc79fa6518c61417e75c0a70
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
-ms.translationtype: MT
+ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480613"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043006"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -105,15 +104,17 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 Dane wyjściowe wyglądają następująco:
 
-    StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
-    ServiceBusRuleId   :
-    StorageAccountName :
-        Logs
-        Enabled           : True
-        Category          : AuditEvent
-        RetentionPolicy
-        Enabled : False
-        Days    : 0
+```output
+StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccountContosoKeyVaultLogs
+ServiceBusRuleId   :
+StorageAccountName :
+    Logs
+    Enabled           : True
+    Category          : AuditEvent
+    RetentionPolicy
+    Enabled : False
+    Days    : 0
+```
 
 Dane wyjściowe potwierdzają, że rejestrowanie jest teraz włączone dla magazynu kluczy i będzie zapisywać informacje na koncie magazynu.
 
@@ -188,7 +189,7 @@ Wartości daty i godziny używają czasu UTC.
 
 Ponieważ do zbierania dzienników dla wielu zasobów można użyć tego samego konta magazynu, pełny identyfikator zasobu w nazwie obiektu BLOB jest przydatny do uzyskiwania dostępu do obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob.
 
-Utwórz folder, aby pobrać obiekty blob. Na przykład:
+Utwórz folder, aby pobrać obiekty blob. Przykład:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -208,7 +209,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 Po uruchomieniu drugiego polecenia **/** ogranicznik w nazwach obiektów BLOB tworzy pełną strukturę folderów w folderze docelowym. Ta struktura będzie używana do pobierania i przechowywania obiektów BLOB jako plików.
 
-Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
+Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
 
@@ -279,7 +280,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
 | **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet**), zawiera również identyfikator URI klucza (as "ID"), identyfikator URI magazynu lub tajny identyfikator URI. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
+Wartości pola **OperationName** są w formacie *ObjectVerb* . Przykład:
 
 * Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
 * Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .
@@ -317,7 +318,7 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **SecretList** |[Utwórz listę kluczy tajnych w magazynie](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Utwórz listę wersji klucza tajnego](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Korzystanie z dzienników usługi Azure Monitor
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Korzystanie z dzienników Azure Monitor
 
 Możesz użyć rozwiązania Key Vault w dziennikach Azure Monitor do Key Vault przeglądania dzienników **AuditEvent** . W dziennikach Azure Monitor są używane zapytania dzienników do analizowania danych i uzyskiwania potrzebnych informacji. 
 

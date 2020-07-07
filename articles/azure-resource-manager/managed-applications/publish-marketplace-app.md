@@ -5,12 +5,11 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79473000"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054495"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace
 
@@ -44,7 +43,7 @@ Oferta aplikacji zarządzanej odpowiada klasie produktu oferowanego przez wydawc
 
 1. Zaloguj się do [portalu Cloud Partner](https://cloudpartner.azure.com/).
 
-1. W okienku nawigacji po lewej stronie wybierz pozycję **+ Nowy oferty** > **aplikacje platformy Azure**.
+1. W okienku nawigacji po lewej stronie wybierz pozycję **+ Nowy oferty**  >  **aplikacje platformy Azure**.
 
 1. W widoku **Edytor** zobaczysz wymagane formularze. Każdy formularz został opisany w dalszej części tego artykułu.
 
@@ -70,7 +69,7 @@ Jednostka SKU to najmniejsza możliwa do kupienia jednostka oferty. Przy użyciu
 
 Jednostka SKU jest widoczna poniżej oferty nadrzędnej w witrynie Marketplace. Jest ona wyświetlana jako oddzielny, możliwy do kupienia element w witrynie Azure Portal.
 
-1. Wybierz pozycję **SKU** > **Nowa jednostka SKU**.
+1. Wybierz pozycję **SKU**  >  **Nowa jednostka SKU**.
 
 1. Wprowadź wartość w polu **Identyfikator jednostki SKU**. Identyfikator jednostki SKU to unikatowy identyfikator dla danej jednostki SKU w obrębie oferty. Jest on widoczny w adresach URL produktu, szablonach usługi Resource Manager i raportach rozliczeń. Może składać się tylko z małych znaków alfanumerycznych i łączników (-). Identyfikator nie może kończyć się łącznikiem i może zawierać maksymalnie 50 znaków. Po aktywowaniu oferty to pole jest zablokowane. W obrębie oferty możesz mieć wiele jednostek SKU. Każdy obraz, który planujesz opublikować, musi mieć własną jednostkę SKU.
 
@@ -96,7 +95,7 @@ Jednostka SKU jest widoczna poniżej oferty nadrzędnej w witrynie Marketplace. 
    * **Dostosuj dozwolone akcje klienta?**: wybierz opcję **tak** , aby określić, które akcje mogą wykonywać użytkownicy w zarządzanych zasobach.
    * **Dozwolone akcje klienta**: w przypadku wybrania opcji **tak** dla poprzedniego ustawienia można określić, które akcje są dozwolone dla odbiorców, używając [przypisań Odmów dla zasobów platformy Azure](../../role-based-access-control/deny-assignments.md).
 
-     Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, `Microsoft.Compute/virtualMachines/restart/action` Dodaj do dozwolonych akcji. `*/read` Akcja jest automatycznie dozwolona, więc nie trzeba dołączać tego ustawienia.
+     Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji. `*/read`Akcja jest automatycznie dozwolona, więc nie trzeba dołączać tego ustawienia.
    * **PrincipalId**: Ta właściwość jest identyfikatorem usługi Azure Active Directory (Azure AD) użytkownika, grupy użytkowników lub aplikacji, której udzielono uprawnień dostępu do zasobów w subskrypcji klienta. Uprawnienia są opisywane za pomocą definicji roli.
    * **Definicja roli**: Ta właściwość jest listą wszystkich wbudowanych kontroli dostępu na podstawie ról (RBAC, Role-Based Access Control) zapewnianych przez usługę Azure AD. Możesz wybrać rolę, która najbardziej nadaje się do zarządzania zasobami w imieniu klienta.
    * **Ustawienia zasad**: zastosuj [zasady Azure Policy](../../governance/policy/overview.md) do aplikacji zarządzanej, aby określić wymagania dotyczące zgodności dla wdrożonych rozwiązań. Z dostępnych opcji wybierz zasady do zastosowania. W polu **Parametry zasad** podaj ciąg JSON z wartościami parametrów. Definicje zasad i format wartości parametrów podano w artykule [Przykłady dla usługi Azure Policy](../../governance/policy/samples/index.md).
@@ -172,6 +171,6 @@ Po wypełnieniu wszystkich sekcji wybierz pozycję **Opublikuj**, aby rozpoczą�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje o tym, co się stanie po kliknięciu przycisku **Publikuj**, zobacz temat [Publikowanie oferty aplikacji platformy Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* Aby uzyskać informacje o tym, co się stanie po kliknięciu przycisku **Publikuj**, zobacz temat [Publikowanie oferty aplikacji platformy Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * Zobacz artykuł [Omówienie aplikacji zarządzanych](overview.md) zawierający wprowadzenie do aplikacji zarządzanych.
 * Aby dowiedzieć się, jak opublikować aplikację zarządzaną w katalogu usług, zobacz [Tworzenie i publikowanie aplikacji zarządzanej katalogu usług](publish-service-catalog-app.md).

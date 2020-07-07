@@ -6,12 +6,11 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800549"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028237"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -64,9 +63,11 @@ Emulator Azure Cosmos można pobrać i zainstalować z [Centrum pobierania Micro
 
 Aby uruchomić emulator Azure Cosmos, wybierz przycisk Start lub naciśnij klawisz systemu Windows. Zacznij wpisywać tekst **emulatora usługi Azure Cosmos**i wybierz emulator z listy aplikacji.
 
-![Wybierz przycisk Start lub naciśnij klawisz systemu Windows, Rozpocznij pisanie * * Azure Cosmos emulator * * i wybierz emulator z listy aplikacji](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Wybierz przycisk Start lub naciśnij klawisz systemu Windows, zacznij wpisywać tekst emulatora usługi Azure Cosmos i wybierz emulator z listy aplikacji":::
 
-Po uruchomieniu emulatora pojawi się ikona w obszarze powiadomień paska zadań systemu Windows. ![Powiadomienie na pasku zadań Azure Cosmos DB lokalnego emulatora](./media/local-emulator/database-local-emulator-taskbar.png)
+Po uruchomieniu emulatora pojawi się ikona w obszarze powiadomień paska zadań systemu Windows. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Powiadomienie na pasku zadań Azure Cosmos DB lokalnego emulatora":::
 
 Emulator usługi Azure Cosmos jest domyślnie uruchamiany na maszynie lokalnej ("localhost"), który nasłuchuje na porcie 8081.
 
@@ -222,7 +223,7 @@ Do nawiązywania bezpiecznego połączenia z lokalnym emulatorem usługi Azure C
 
 Aby uzyskać certyfikat do użycia z językami i środowiskami uruchomieniowymi, które nie zapewniają integracji z magazynem certyfikatów systemu Windows, trzeba wyeksportować ten certyfikat przy użyciu menedżera certyfikatów systemu Windows. Można uruchomić go, uruchamiając certlm. msc lub postępując zgodnie z instrukcjami krok po kroku w temacie [Eksportowanie certyfikatów emulatora usługi Azure Cosmos](./local-emulator-export-ssl-certificates.md). Po uruchomieniu menedżera certyfikatów otwórz sekcję certyfikatów osobistych, jak pokazano poniżej, i wyeksportuj certyfikat o przyjaznej nazwie „DocumentDBEmulatorCertificate” jako plik Certyfikat X.509 szyfrowany algorytmem Base-64 (CER).
 
-![Azure Cosmos DB certyfikat TLS/SSL lokalnego emulatora](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Azure Cosmos DB certyfikat TLS/SSL lokalnego emulatora":::
 
 Aby zaimportować certyfikat X.509 do magazynu certyfikatów Java, postępuj zgodnie z instrukcjami zawartymi w artykule [Adding a Certificate to the Java CA Certificates Store (Dodawanie certyfikatu do magazynu certyfikatów Java CA)](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Po zaimportowaniu certyfikatu do magazynu certyfikatów klienci programu SQL i interfejsu API Azure Cosmos DB dla MongoDB będą mogli nawiązywać połączenia z emulatorem usługi Azure Cosmos.
 
@@ -470,7 +471,7 @@ Jeśli pracujesz w systemie Linux, .NET przekazuje na OpenSSL w celu sprawdzenia
    update-ca-certificates
    ```
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
 Jeśli pracujesz na komputerze Mac, wykonaj następujące czynności:
 

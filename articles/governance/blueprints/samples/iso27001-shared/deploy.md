@@ -3,12 +3,11 @@ title: Przykład wdrażania planu wspólnych usług ISO 27001
 description: Wdróż kroki dla przykładu planu usług udostępnionych ISO 27001, w tym szczegóły parametru artefaktu strategii.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75920691"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044706"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Wdróż przykład strategii usług udostępnionych ISO 27001
 
@@ -19,7 +18,7 @@ Aby wdrożyć przykład strategii usług udostępnionych ISO 27001 dla planów p
 > - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
 > - Przypisz swoją kopię planu do istniejącej subskrypcji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-blueprint-from-sample"></a>Utwórz plan z przykładu
 
@@ -62,7 +61,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Podstawy
+   - Informacje podstawowe
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -103,20 +102,20 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
 |Dozwolone typy zasobów|Przypisywanie zasad|Dozwolone typy zasobów|Lista typów zasobów, które mogą zostać wdrożone. Ta lista składa się ze wszystkich typów zasobów wdrożonych w usługach udostępnionych.|
 |Dozwolone jednostki SKU konta magazynu|Przypisywanie zasad|Dozwolone jednostki SKU magazynu|Lista dzienników diagnostycznych — dozwolone jednostki SKU konta magazynu. Wartość domyślna to _["Standard_LRS"]_.|
 |Dozwolone jednostki SKU maszyny wirtualnej|Przypisywanie zasad|Lista jednostek SKU maszyn wirtualnych, które mogą zostać wdrożone. Wartość domyślna to _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Inicjatywa strategii dla ISO 27001|Przypisywanie zasad|Typy zasobów do inspekcji dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-sharedsvsc-log-rg` , aby uczynić grupę zasobów unikatową.|
+|Inicjatywa strategii dla ISO 27001|Przypisywanie zasad|Typy zasobów do inspekcji dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvsc-log-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Log Analytics|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Warstwa usług|Ustawia warstwę obszaru roboczego Log Analytics. Wartość domyślna to _PerNode_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Lokalizacja|Region używany do tworzenia obszaru roboczego Log Analytics. Wartość domyślna to _zachodnie stany USA 2_.|
-|Grupa zasobów sieciowych|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-sharedsvcs-net-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów sieciowych|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvcs-net-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów sieciowych|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon zapory platformy Azure|Szablon usługi Resource Manager|Prywatny adres IP zapory platformy Azure|Konfiguruje prywatny adres IP [zapory platformy Azure](../../../../firewall/overview.md). Ta wartość jest również używana jako domyślna tabela tras w podsieci usług udostępnionych. Musi być częścią notacji CIDR zdefiniowanej w **prefiksie adresu podsieci zapory platformy Azure**. Wartość domyślna to _10.0.4.4_.|
 |Szablon zapory platformy Azure|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
@@ -128,7 +127,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Prefiks adresu podsieci Application Gateway|Notacja CIDR dla podsieci usługi Application Gateway. Wartość domyślna to _10.0.2.0/24_.|
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Prefiks adresu podsieci bramy Virtual Network|Notacja CIDR dla podsieci bramy sieci wirtualnej. Wartość domyślna to _10.0.3.0/24_.|
 |Szablon tabeli Virtual Network i trasy|Szablon usługi Resource Manager|Prefiks adresu podsieci zapory platformy Azure|Notacja CIDR dla podsieci [zapory platformy Azure](../../../../firewall/overview.md) . Powinien zawierać parametr **prywatnego adresu IP zapory platformy Azure** .|
-|Grupa zasobów Key Vault|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-sharedsvcs-kv-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów Key Vault|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvcs-kv-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Key Vault|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Nazwa użytkownika administratora serwera przesiadkowego|Nazwa użytkownika dla serwera przesiadkowego. Musi być zgodna z tą samą wartością właściwości w **szablonie serwera przesiadkowego**. Wartość domyślna to _JB-admin-User_.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Serwera przesiadkowego administratora klucza SSH lub hasła|Klucz lub hasło dla konta w serwera przesiadkowego. Musi być zgodna z tą samą wartością właściwości w **szablonie serwera przesiadkowego**. Brak wartości domyślnej i nie można jej pozostawić pustej.|
@@ -137,16 +136,16 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Szablon Key Vault|Szablon usługi Resource Manager|Identyfikator obiektu usługi AAD|Identyfikator obiektu usługi AAD konta, które wymaga dostępu do wystąpienia Key Vault. Brak wartości domyślnej i nie można jej pozostawić pustej. Aby zlokalizować tę wartość z Azure Portal, Wyszukaj i wybierz pozycję "Użytkownicy" w obszarze _usługi_. Użyj pola _Nazwa_ , aby odfiltrować nazwę konta, a następnie wybierz to konto. Na stronie _profil użytkownika_ wybierz ikonę "kliknij, aby skopiować" obok _identyfikatora obiektu_.  |
 |Szablon Key Vault|Szablon usługi Resource Manager|Przechowywanie dzienników w dniach|Przechowywanie danych w dniach. Wartość domyślna to _365_.|
 |Szablon Key Vault|Szablon usługi Resource Manager|Jednostka SKU Key Vault|Określa jednostkę SKU utworzonego Key Vault. Wartość domyślna to _Premium_.|
-|Grupa zasobów serwera przesiadkowego|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-sharedsvcs-jb-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów serwera przesiadkowego|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvcs-jb-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów serwera przesiadkowego|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon serwera przesiadkowego|Szablon usługi Resource Manager|Nazwa użytkownika administratora serwera przesiadkowego|Nazwa użytkownika używana do uzyskiwania dostępu do maszyn wirtualnych serwera przesiadkowego. Musi być zgodna z tą samą wartością właściwości w **szablonie Key Vault**. Wartość domyślna to _JB-admin-User_.|
-|Szablon serwera przesiadkowego|Szablon usługi Resource Manager|Hasło administratora serwera przesiadkowego (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" i Zastąp `{subscriptionId}` ciąg identyfikatorem subskrypcji `{orgName}` i parametrem " **Nazwa organizacji** ".|
+|Szablon serwera przesiadkowego|Szablon usługi Resource Manager|Hasło administratora serwera przesiadkowego (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" i Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{orgName}` parametrem " **Nazwa organizacji** ".|
 |Szablon serwera przesiadkowego|Szablon usługi Resource Manager|Hasło administratora serwera przesiadkowego (Key Vault nazwa klucza tajnego)|Nazwa użytkownika administratora serwera przesiadkowego. Musi być zgodna wartość właściwości **szablonu Key Vault** **serwera przesiadkowego nazwa użytkownika administratora**.|
 |Szablon serwera przesiadkowego|Szablon usługi Resource Manager|System operacyjny serwera przesiadkowego|Określa system operacyjny maszyny wirtualnej serwera przesiadkowego. Wartość domyślna to _Windows_.|
-|Grupa zasobów Active Directory Domain Services|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z `-sharedsvcs-adds-rg` , aby uczynić grupę zasobów unikatową.|
+|Grupa zasobów Active Directory Domain Services|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvcs-adds-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Active Directory Domain Services|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Nazwa użytkownika administratora domeny|Nazwa użytkownika dla dodaje serwera przesiadkowego. Musi być zgodna z tą samą wartością właściwości w **szablonie Key Vault**. Wartość domyślna to _Dodawanie-administratora-użytkownika_.|
-|Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Hasło administratora domeny (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" i Zastąp `{subscriptionId}` ciąg identyfikatorem subskrypcji `{orgName}` i parametrem " **Nazwa organizacji** ".|
+|Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Hasło administratora domeny (identyfikator zasobu Key Vault)|Identyfikator zasobu Key Vault. Użyj "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" i Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{orgName}` parametrem " **Nazwa organizacji** ".|
 |Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Hasło administratora domeny (Key Vault nazwa klucza tajnego)|Nazwa użytkownika administratora domeny. Musi być zgodna wartość właściwości **szablonu Key Vault** **Nazwa użytkownika Administrator domeny**.|
 |Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Nazwa domeny|Nazwa Active Directory utworzonego przez przykład. Wartość domyślna to _contoso.com_.|
 |Szablon Active Directory Domain Services|Szablon usługi Resource Manager|Administrator domeny|Nazwa użytkownika dla konta administratora i do dołączania urządzeń do domeny usługi AD. Musi być zgodna z wartością właściwości **Nazwa użytkownika administratora usługi AD** w **szablonie Key Vault**. Wartość domyślna to _domena-administrator-użytkownik_.|
@@ -157,8 +156,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 Po przejrzeniu kroków w celu wdrożenia przykładowej usługi wspólnych informacji ISO 27001 zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o architekturze i mapowaniu formantów:
 
 > [!div class="nextstepaction"]
-> [ISO 27001 współużytkowanych usług plan — Omówienie](./index.md)
-> [ISO 27001 usługi udostępnione — mapowanie](./control-mapping.md)
+> [Plan usług udostępnionych ISO 27001 — Omówienie](./index.md) 
+>  [Mapowanie kontroli dla usług udostępnionych ISO 27001](./control-mapping.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

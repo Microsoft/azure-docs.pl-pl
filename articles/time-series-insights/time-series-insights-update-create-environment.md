@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 08649a537ac8f9de5f444ca3e4fe5ed509910294
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618381"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045845"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights w wersji zapoznawczej
 
@@ -106,7 +105,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights w 
 
    | Parametr | Akcja |
    | --- | --- |
-   | **Utworzyć źródło zdarzenia?** | Wybierz pozycję **tak**.|
+   | **Utworzyć źródło zdarzenia?** | Wybierz pozycję **Tak**.|
    | **Nazwa** | Wprowadź unikatową wartość dla nazwy źródła zdarzenia. |
    | **Typ źródła** | Wybierz **IoT Hub**. |
    | **Wybierz centrum** | Wybierz **pozycję Wybierz istniejące**. |
@@ -120,7 +119,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights w 
 
    [![Skonfiguruj utworzone Centrum IoT Hub jako źródło zdarzenia.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     [![Przejrzyj i Utwórz stronę przy użyciu przycisku Utwórz.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -204,7 +203,7 @@ W tej sekcji przeprowadzimy podstawową analizę danych szeregów czasowych przy
 
 ## <a name="define-and-apply-a-model"></a>Definiowanie i stosowanie modelu
 
-W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu potrzebne są definicje typów, hierarchii i wystąpień. Aby dowiedzieć się więcej na temat modelowania danych, zobacz [model szeregów czasowych](./time-series-insights-update-tsm.md).
+W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu potrzebne są definicje typów, hierarchii i wystąpień. Aby dowiedzieć się więcej na temat modelowania danych, zobacz [model szeregów czasowych](./concepts-model-overview.md).
 
 1. W eksploratorze wybierz kartę **Model**:
 
@@ -226,8 +225,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | Parametr | Akcja |
     | --- | --- |
     | **Nazwa** | Wpisz **Avg Temperature** (Temperatura średnia). |
-    | **Natur** | Wybierz wartość **numeryczną** |
-    | **Wartościami** | Wybierz jedną z ustawień predefiniowanych: wybierz pozycję **temperatura (Podwójna precyzja)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
+    | **Rodzaj** | Wybierz wartość **numeryczną** |
+    | **Wartość** | Wybierz jedną z ustawień predefiniowanych: wybierz pozycję **temperatura (Podwójna precyzja)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
     | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
     Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości:
@@ -235,8 +234,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | Parametr | Akcja |
     | --- | --- |
     | **Nazwa** | Wprowadź **średnie wibracje**. |
-    | **Natur** | Wybierz wartość **numeryczną** |
-    | **Wartościami** | Wybierz spośród ustawień predefiniowanych: wybierz pozycję **drgania (Double)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
+    | **Rodzaj** | Wybierz wartość **numeryczną** |
+    | **Wartość** | Wybierz spośród ustawień predefiniowanych: wybierz pozycję **drgania (Double)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
     | **Operacja agregacji** | Rozwiń **Opcje zaawansowane**. <br /> Wybierz opcję **AVG** (średnia). |
 
     Wybierz przycisk **Zastosuj**. Następnie ponownie **Dodaj zmienną** i ustaw następujące wartości dla zmiennej trzeciej i końcowej:
@@ -244,9 +243,9 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | Parametr | Akcja |
     | --- | --- |
     | **Nazwa** | Wprowadź **piętro**. |
-    | **Natur** | Wybierz **kategorii** |
-    | **Wartościami** | Wybierz z ustawień predefiniowanych: wybierz pozycję **piętro (Double)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
-    | **Kategorie** | <span style="text-decoration: underline">Label </span>   -  <span style="text-decoration: underline">Wartości</span> etykiet <br /> Niższy: 1, 2, 3, 4 <br /> Środek: 5, 6, 7, 8, 9 <br /> Upper: 10, 11, 12, 13, 14, 15 |
+    | **Rodzaj** | Wybierz **kategorii** |
+    | **Wartość** | Wybierz z ustawień predefiniowanych: wybierz pozycję **piętro (Double)**. <br /> Uwaga: Ta **wartość** może potrwać kilka minut, jeśli funkcja Azure Time Series Insights Preview zacznie otrzymywać zdarzenia.|
+    | **Kategorie** | <span style="text-decoration: underline">Etykieta</span>   -  <span style="text-decoration: underline">Wartości</span> <br /> Niższy: 1, 2, 3, 4 <br /> Środek: 5, 6, 7, 8, 9 <br /> Upper: 10, 11, 12, 13, 14, 15 |
     | **Kategoria domyślna** | Wprowadź **nieznany** |
 
     [![Dodaj zmienne typu.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
@@ -283,7 +282,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | Parametr | Akcja |
     | --- | --- |
     | **Hierarchies** | Wybierz **hierarchię lokalizacji** |
-    | **Country** | Wprowadź **Stan USA** |
+    | **Kraj** | Wprowadź **Stan USA** |
     | **—** | Wprowadź **Seattle** |
     | **Building** | Wprowadź **wskazówkę miejsca** |
 
@@ -299,7 +298,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 2**|
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchies** | Wybierz **hierarchię lokalizacji** |
-    | **Country** | Wprowadź **Stan USA** |
+    | **Kraj** | Wprowadź **Stan USA** |
     | **—** | Wprowadź **Seattle** |
     | **Building** | Wprowadź **centrum nauki Pacyfiku** |
 
@@ -311,7 +310,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 3**|
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchies** | Wybierz **hierarchię lokalizacji** |
-    | **Country** | Wprowadź **Stan USA** |
+    | **Kraj** | Wprowadź **Stan USA** |
     | **—** | Wprowadź **Nowy Jork** |
     | **Building** | Wprowadź **kompilację stanu Empire** |
 
@@ -329,7 +328,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
 
     [![Wizualizuje windę 2 z hierarchią i danymi.](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu samouczka Wyczyść utworzone zasoby:
 
@@ -349,15 +348,15 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wiesz już, jak utworzyć własne środowisko wersji zapoznawczej usługi Azure Time Series Insights. Teraz możesz dowiedzieć się więcej na temat kluczowych pojęć związanych z usługą Azure Time Series Insights.
 
-Zapoznaj się z konfiguracją magazynu usługi Azure Time Series Insights:
+Przeczytaj o Azure Time Series Insights pozyskiwania:
 
 > [!div class="nextstepaction"]
-> [Magazyn i ruch przychodzący usługi Azure Time Series Insights w wersji zapoznawczej](./time-series-insights-update-storage-ingress.md)
+> [Przegląd pozyskiwania danych Azure Time Series Insights](./concepts-ingestion-overview.md)
 
 Dowiedz się więcej o modelach szeregów czasowych:
 
 > [!div class="nextstepaction"]
-> [Modelowanie danych w usłudze Azure Time Series Insights w wersji zapoznawczej](./time-series-insights-update-tsm.md)
+> [Modelowanie danych w usłudze Azure Time Series Insights w wersji zapoznawczej](./concepts-model-overview.md)
 
 Dowiedz się więcej o łączeniu środowiska z Power BI
 

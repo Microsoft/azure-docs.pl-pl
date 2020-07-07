@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: c2972d13b25d167c2144c4f66e36822e85e29690
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321002"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045454"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
@@ -242,7 +241,7 @@ Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła danych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
@@ -253,4 +252,4 @@ Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie 
 Teraz, gdy znasz już podstawy indeksowania SQL Database, przyjrzyjmy się bliżej konfiguracji indeksatora.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie indeksatora bazy danych SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurowanie indeksatora SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -5,12 +5,11 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e17bad915fd913f6e3894ed386e914e65aa46c01
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 2bc160418df7cb2d68f474da541f8f81ebb819fc
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250336"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054767"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
 
@@ -112,8 +111,8 @@ Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://
 
     Istnieją dwa zasoby zdefiniowane w szablonie:
 
-   * `Microsoft.Sql/servers`. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Zobacz [dokumentację szablonu](/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL.servers/databases`. Zobacz [dokumentację szablonu](/azure/templates/microsoft.sql/servers/databases).
 
         Warto uzyskać podstawową wiedzę na temat szablonu przed rozpoczęciem jego dostosowywania.
 1. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie *azuredeploy.jsna*.
@@ -194,7 +193,7 @@ Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://
 
         ![Szablon z rozszerzeniem SQL Database](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-        Aby poznać definicję zasobu, zapoznaj się z [dokumentacją rozszerzenia usługi SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Poniżej przedstawiono niektóre ważne elementy:
+        Aby poznać definicję zasobu, zapoznaj się z [dokumentacją rozszerzenia usługi SQL Database](/azure/templates/microsoft.sql/servers/databases/extensions). Poniżej przedstawiono niektóre ważne elementy:
 
         * **dependsOn**: po utworzeniu bazy danych należy utworzyć zasób rozszerzenia.
         * **storageKeyType**: Określ typ klucza magazynu, który ma być używany. Wartością może być `StorageAccessKey` lub `SharedAccessKey`. Użyj `StorageAccessKey` w tym samouczku.

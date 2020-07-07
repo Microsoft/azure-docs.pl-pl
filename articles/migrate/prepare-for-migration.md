@@ -4,12 +4,11 @@ description: Dowiedz się, jak przygotować maszyny lokalne do migracji za pomoc
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341322"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044162"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -59,7 +58,7 @@ Sprawdź Obsługiwane systemy operacyjne na potrzeby migracji:
 
 Sprawdź, które adresy URL i porty są dostępne podczas migracji.
 
-**Scenariusz** | **Szczegóły** |  **Adresy URL** | **Porty**
+**Scenariusz** | **Szczegóły** |  **Adresy URL** | **Np**
 --- | --- | --- | ---
 **Migracja bez agenta VMware** | Program używa [urządzenia Azure Migrate](migrate-appliance-architecture.md) do migracji. Nic nie jest zainstalowane na maszynach wirtualnych VMware. | Przejrzyj publiczną i służbową [adresy URL](migrate-appliance.md#url-access) do odnajdowania, oceny i migracji z urządzeniem. | [Przejrzyj](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) wymagania dotyczące portów dla migracji bez agentów.
 **Migracja oparta na agencie VMware** | Używa [urządzenia replikacji](migrate-replication-appliance.md) do migracji. Agent usługi mobilności jest instalowany na maszynach wirtualnych. | Przejrzyj [chmurę publiczną](migrate-replication-appliance.md#url-access) i adresy URL [Azure Government](migrate-replication-appliance.md#azure-government-url-access) , do których urządzenie replikacji musi uzyskać dostęp. | [Przejrzyj](migrate-replication-appliance.md#port-access) porty używane podczas migracji opartej na agencie.
@@ -94,7 +93,7 @@ Domyślnie maszyny wirtualne platformy Azure są przypisane do dysku D, który m
 
 - To przypisanie dysku powoduje, że wszystkie pozostałe przydziały przyłączone do dysku magazynu są zwiększane o jedną literę.
 - Na przykład jeśli instalacja lokalna używa dysku z danymi, który jest przypisany do dysku D dla instalacji aplikacji, przypisanie dla tego dysku jest zwiększane do dysku E po przeprowadzeniu migracji maszyny wirtualnej na platformę Azure. 
-- Aby zapobiec automatycznemu przypisaniu i upewnić się, że platforma Azure przypisze kolejną literę dysku do woluminu tymczasowego, ustaw zasady sieci magazynowania (SAN) na * * OnlineAll:
+- Aby zapobiec automatycznemu przypisaniu i upewnić się, że system Azure przypisuje kolejną literę wolnego dysku do jego woluminu tymczasowego, ustaw zasady sieci magazynowania (SAN) na **OnlineAll**:
 
 Skonfiguruj to ustawienie ręcznie w następujący sposób:
 

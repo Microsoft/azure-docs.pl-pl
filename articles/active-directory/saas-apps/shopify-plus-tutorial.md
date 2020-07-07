@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126322"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027651"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Shopify Plus
 
@@ -139,11 +138,31 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-shopify-plus-sso"></a>Konfigurowanie Shopify Plus Logowanie jednokrotne
 
-Aby skonfigurować Logowanie jednokrotne na **Shopify Plus** , musisz wysłać **adres URL metadanych federacji aplikacji** do [Shopify i zespołu pomocy technicznej](mailto:plus-user-management@shopify.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby wyświetlić pełne kroki, zobacz [dokumentację programu Shopify na temat konfigurowania integracji protokołu SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Aby skonfigurować Logowanie jednokrotne na stronie **Shopify Plus** , skopiuj **adres URL metadanych federacji aplikacji** z Azure Active Directory. Następnie zaloguj się do [administratora organizacji](https://shopify.plus) i przejdź do pozycji **Użytkownicy**  >  **zabezpieczenia**. Wybierz pozycję **Skonfiguruj konfigurację**, a następnie wklej adres URL metadanych federacji aplikacji w sekcji **adres URL metadanych dostawcy tożsamości** . Wybierz pozycję **Dodaj** , aby ukończyć ten krok.
 
 ### <a name="create-shopify-plus-test-user"></a>Utwórz użytkownika testowego Shopify Plus
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Shopify Plus. Współpracuj z [zespołem pomocy technicznej Shopify Plus](mailto:plus-user-management@shopify.com) , aby dodać użytkowników na platformie Shopify Plus. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Shopify Plus. Wróć do sekcji **Użytkownicy** i Dodaj użytkownika, wprowadzając ich pocztę e-mail i uprawnienia. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+
+### <a name="enforce-saml-authentication"></a>Wymuś uwierzytelnianie SAML
+
+> [!NOTE]
+> Zalecamy przetestowanie integracji przy użyciu poszczególnych użytkowników przed ich zastosowaniem.
+
+Indywidualni użytkownicy:
+1. Przejdź do strony pojedynczego użytkownika w Shopify Plus z domeną poczty e-mail, która jest zarządzana przez usługę Azure AD i zweryfikowaną w Shopify Plus.
+1. W sekcji uwierzytelnianie SAML wybierz pozycję **Edytuj**, wybierz pozycję **wymagane**, a następnie wybierz pozycję **Zapisz**.
+1. Sprawdź, czy ten użytkownik może pomyślnie zalogować się za pomocą przepływów inicjowanych przez dostawcy tożsamości i zainicjowanych przez program SP.
+
+Dla wszystkich użytkowników w domenie poczty e-mail:
+1. Wróć do strony **zabezpieczenia** .
+1. Wybierz opcję **wymagane** dla ustawienia uwierzytelniania SAML. Wymusza to użycie protokołu SAML dla wszystkich użytkowników z tą domeną poczty e-mail w Shopify Plus.
+1. Wybierz pozycję **Zapisz**.
+
+> [!IMPORTANT]
+> Włączenie protokołu SAML dla wszystkich użytkowników w domenie poczty e-mail ma wpływ na wszystkich użytkowników korzystających z tej aplikacji. Użytkownicy nie będą mogli się zalogować przy użyciu zwykłej strony logowania. Będą oni mogli uzyskiwać dostęp tylko do aplikacji za pomocą Azure Active Directory. Shopify nie udostępnia adresu URL logowania do kopii zapasowej, w którym użytkownicy mogą się logować przy użyciu swojej zwykłej nazwy użytkownika i hasła. W razie potrzeby można skontaktować się z pomocą techniczną Shopify.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -153,9 +172,9 @@ Po kliknięciu kafelka Shopify Plus w panelu dostępu należy automatycznie zalo
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

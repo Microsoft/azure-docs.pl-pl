@@ -11,12 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667106"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025152"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Samouczek: uczenie swojego pierwszego modelu ML
 
@@ -176,8 +175,10 @@ print("Best run_id: " + minimum_rmse_runid)
 print("Best run_id rmse: " + str(minimum_rmse))
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
+```
 
 Użyj najlepszego identyfikatora przebiegu, aby pobrać pojedynczy przebieg przy użyciu `Run` konstruktora wraz z obiektem eksperymentu. Następnie Wywołaj `get_file_names()` , aby zobaczyć wszystkie pliki dostępne do pobrania z tego przebiegu. W takim przypadku przekazano tylko jeden plik dla każdego przebiegu podczas szkolenia.
 
@@ -187,7 +188,9 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
 Wywołaj `download()` obiekt Run, określając nazwę pliku modelu do pobrania. Domyślnie ta funkcja jest pobierana do bieżącego katalogu.
 

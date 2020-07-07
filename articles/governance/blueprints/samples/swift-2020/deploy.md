@@ -3,12 +3,11 @@ title: Wdrażanie SWIFT dostawcy CSP — przykład strategii CSCF V2020
 description: Wdróż kroki dla przykładowej strategii SWIFT CSP-CSCF V2020, w tym szczegóły parametru artefaktu.
 ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 971b69dcc5c64d7e51e9237e09ee8474551ac43a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 84d219f47df99e5bb87bab13b9ff43b79484117f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657051"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044264"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Wdróż przykład SWIFT programu CSP — CSCF V2020 plan
 
@@ -62,7 +61,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Podstawy
+   - Informacje podstawowe
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -93,7 +92,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Identyfikatory połączonych obszarów roboczych|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Nazwa domeny (FQDN)|W pełni kwalifikowana nazwa domeny (FQDN), do której należy dołączyć maszyny wirtualne z systemem Windows|

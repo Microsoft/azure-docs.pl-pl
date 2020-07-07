@@ -6,12 +6,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 346ea59209bc2f74970e708c947f5caa158a0338
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 0c2fc3dc4e76f295dff94ebda71d54bad425b621
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650065"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056127"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Wdrażanie aplikacji zarządzanej do obsługi katalogu usług za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -33,10 +32,10 @@ Ten skrypt używa następującego polecenia do wdrożenia aplikacji zarządzanej
 
 | Polecenie | Uwagi |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
+| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z wprowadzeniem do aplikacji zarządzanych, zobacz [Azure Managed Application overview](../overview.md) (Omówienie aplikacji zarządzanych platformy Azure).
-* Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+* Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).

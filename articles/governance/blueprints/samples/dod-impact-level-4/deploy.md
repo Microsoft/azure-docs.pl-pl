@@ -3,12 +3,11 @@ title: Przykład planu wpływu na poziom 4
 description: Wdróż kroki dla przykładowego poziomu wpływu na wartość DoD 4, w tym szczegóły parametru artefaktu strategii.
 ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 2dc6c4ae70ce18a75f277495665ed5afdce2713c
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
-ms.translationtype: MT
+ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800413"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044978"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Wdrażanie przykładu planu wpływu na poziom DoD 4
 
@@ -109,7 +108,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Wdrażanie agenta Log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Członkowie do uwzględnienia w lokalnej grupie administratorów|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Elementy członkowskie, które powinny być wykluczone w grupie lokalnej Administratorzy|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne|To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne.|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Długoterminowa geograficznie nadmiarowa kopia zapasowa powinna być włączona dla baz danych Azure SQL Database|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
@@ -128,7 +127,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Należy zainstalować aktualizacje systemu dla zestawów skalowania maszyn wirtualnych|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
-|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji|Informacje dotyczące efektów zasad można znaleźć pod adresem [zrozumienie Azure Policy efekty] (... /.. /.. /policy/concepts/effects.
+|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisywanie zasad|Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
 
 ## <a name="next-steps"></a>Następne kroki
 

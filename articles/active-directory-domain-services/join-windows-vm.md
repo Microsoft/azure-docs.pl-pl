@@ -7,20 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ac7af2f4500f6702dcacad546b0985e41159dc6e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 8123608cbf2c1a4cbe0dc51d81d42b288bf2a91d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734677"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024931"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: dołączanie maszyny wirtualnej z systemem Windows Server do domeny zarządzanej Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP, uwierzytelnianie Kerberos/NTLM, które jest w pełni zgodne z systemem Windows Server Active Directory. Korzystając z domeny zarządzanej AD DS platformy Azure, możesz zapewnić funkcje przyłączania do domeny i zarządzanie maszynami wirtualnymi na platformie Azure. W tym samouczku pokazano, jak utworzyć maszynę wirtualną z systemem Windows Server, a następnie przyłączyć ją do domeny zarządzanej.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej z systemem Windows Server
@@ -72,7 +71,7 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
     | Nazwa użytkownika             | Wprowadź nazwę użytkownika dla konta administratora lokalnego, które ma zostać utworzone na maszynie wirtualnej, na przykład *azureuser* |
     | Hasło             | Wprowadź wartość, a następnie potwierdź hasło do konta administratora lokalnego na maszynie wirtualnej. Nie określaj poświadczeń konta użytkownika domeny. |
 
-1. Domyślnie maszyny wirtualne utworzone na platformie Azure są dostępne z Internetu przy użyciu protokołu RDP. Po włączeniu protokołu RDP mogą wystąpić automatyczne ataki, które mogą wyłączyć konta z nazwami wspólnymi, takimi jak *administrator* czy *administrator* , z powodu wielokrotnych nieudanych prób logowania.
+1. Domyślnie maszyny wirtualne utworzone na platformie Azure są dostępne z Internetu przy użyciu protokołu RDP. Po włączeniu protokołu RDP mogą wystąpić automatyczne ataki logowania, które mogą wyłączyć konta z nazwami wspólnymi, takimi jak *administrator* czy *administrator* , z powodu wielu nieudanych prób logowania.
 
     Protokół RDP powinien być włączony tylko w razie potrzeby i ograniczony do zestawu autoryzowanych zakresów adresów IP. Ta konfiguracja pozwala ulepszyć zabezpieczenia maszyny wirtualnej i zmniejsza obszar pod kątem potencjalnego ataku. Możesz również utworzyć hosta usługi Azure bastionu i użyć Azure Portal go, który umożliwia dostęp tylko za pośrednictwem protokołu TLS. W następnym kroku tego samouczka użyjesz hosta usługi Azure bastionu, aby bezpiecznie połączyć się z maszyną wirtualną.
 
@@ -110,7 +109,7 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
 
 1. Utworzenie podsieci trwa kilka sekund. Po jego utworzeniu wybierz pozycję *X* , aby zamknąć okno podsieć.
 1. Wróć do okienka **Sieć** , aby utworzyć maszynę wirtualną, wybierz podsieć utworzoną z menu rozwijanego, na przykład *Zarządzanie*. Upewnij się, że wybrano poprawną podsieć i nie Wdróż maszyny wirtualnej w tej samej podsieci, w której znajduje się domena zarządzana.
-1. W przypadku **publicznego adresu IP**wybierz pozycję *Brak* z menu rozwijanego, ponieważ korzystasz z usługi Azure bastionu do nawiązywania połączenia z zarządzaniem i nie potrzebujesz przypisanego publicznego adresu IP.
+1. W polu **publiczny adres IP**wybierz pozycję *Brak* z menu rozwijanego. Gdy korzystasz z usługi Azure bastionu w tym samouczku, aby nawiązać połączenie z zarządzaniem, nie potrzebujesz publicznego adresu IP przypisanego do maszyny wirtualnej.
 1. Pozostaw wartości domyślne innych opcji, a następnie wybierz pozycję **Zarządzanie**.
 1. Ustaw wartość ustawienia **Diagnostyka rozruchu** *.* Pozostaw wartości domyślne innych opcji, a następnie wybierz pozycję **Przegląd + Utwórz**.
 1. Przejrzyj ustawienia maszyny wirtualnej, a następnie wybierz pozycję **Utwórz**.
@@ -121,7 +120,7 @@ Utworzenie maszyny wirtualnej może potrwać kilka minut. Azure Portal pokazuje 
 
 ## <a name="connect-to-the-windows-server-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server
 
-Aby bezpiecznie połączyć się z maszynami wirtualnymi, użyj hosta usługi Azure bastionu. W przypadku usługi Azure bastionu Host zarządzany jest wdrażany w sieci wirtualnej i zapewnia połączenia protokołu RDP lub SSH opartego na sieci Web z maszynami wirtualnymi. Dla maszyn wirtualnych nie są wymagane żadne publiczne adresy IP i nie trzeba otwierać reguł sieciowej grupy zabezpieczeń dla zewnętrznego ruchu zdalnego. Możesz połączyć się z maszynami wirtualnymi przy użyciu Azure Portal z przeglądarki sieci Web.
+Aby bezpiecznie połączyć się z maszynami wirtualnymi, użyj hosta usługi Azure bastionu. W przypadku usługi Azure bastionu Host zarządzany jest wdrażany w sieci wirtualnej i zapewnia połączenia protokołu RDP lub SSH opartego na sieci Web z maszynami wirtualnymi. Dla maszyn wirtualnych nie są wymagane żadne publiczne adresy IP i nie trzeba otwierać reguł sieciowej grupy zabezpieczeń dla zewnętrznego ruchu zdalnego. Możesz połączyć się z maszynami wirtualnymi przy użyciu Azure Portal z przeglądarki sieci Web. W razie konieczności [Utwórz hosta usługi Azure bastionu][azure-bastion].
 
 Aby użyć hosta bastionu do nawiązania połączenia z maszyną wirtualną, wykonaj następujące czynności:
 
@@ -152,7 +151,9 @@ Po utworzeniu maszyny wirtualnej i połączeniu RDP opartym na sieci Web przy u�
 
     ![Określ domenę zarządzaną do przyłączenia](./media/join-windows-vm/join-domain.png)
 
-1. Wprowadź poświadczenia domeny w celu przyłączenia do domeny. Użyj poświadczeń dla użytkownika, który jest częścią domeny zarządzanej. Konto musi być częścią domeny zarządzanej lub dzierżawy usługi Azure AD z zewnętrznych katalogów skojarzonych z dzierżawą usługi Azure AD nie może być prawidłowo uwierzytelniane podczas procesu przyłączania do domeny. Poświadczenia konta można określić w jeden z następujących sposobów:
+1. Wprowadź poświadczenia domeny w celu przyłączenia do domeny. Podaj poświadczenia dla użytkownika, który jest częścią domeny zarządzanej. Konto musi być częścią domeny zarządzanej lub dzierżawy usługi Azure AD z zewnętrznych katalogów skojarzonych z dzierżawą usługi Azure AD nie może być prawidłowo uwierzytelniane podczas procesu przyłączania do domeny.
+
+    Poświadczenia konta można określić w jeden z następujących sposobów:
 
     * **Format nazwy UPN** (zalecane) — wprowadź sufiks głównej nazwy użytkownika (UPN) dla konta użytkownika, zgodnie z konfiguracją w usłudze Azure AD. Na przykład sufiks nazwy UPN użytkownika *contosoadmin* `contosoadmin@aaddscontoso.onmicrosoft.com` . Istnieje kilka typowych przypadków użycia, w których format nazwy UPN może być niezawodnie używany do logowania się do domeny, a nie do formatu *sAMAccountName* :
         * Jeśli prefiks nazwy UPN użytkownika jest długi, taki jak *deehasareallylongname* *, może to* być automatycznie generowane.
@@ -174,13 +175,13 @@ Po utworzeniu maszyny wirtualnej i połączeniu RDP opartym na sieci Web przy u�
 >
 > Aby przyłączyć do domeny maszynę wirtualną bez nawiązywania z nią połączenia i ręcznie skonfigurować połączenie, można użyć polecenia cmdlet [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
-Po ponownym uruchomieniu maszyny wirtualnej z systemem Windows Server wszystkie zasady zastosowane w domenie zarządzanej zostaną wypchnięte do maszyny wirtualnej. Teraz możesz także zalogować się do maszyny wirtualnej z systemem Windows Server przy użyciu odpowiednich poświadczeń domeny.
+Po ponownym uruchomieniu maszyny wirtualnej z systemem Windows Server wszystkie zasady zastosowane w domenie zarządzanej są wypychane do maszyny wirtualnej. Teraz możesz także zalogować się do maszyny wirtualnej z systemem Windows Server przy użyciu odpowiednich poświadczeń domeny.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W następnym samouczku użyjesz tej maszyny wirtualnej systemu Windows Server, aby zainstalować narzędzia do zarządzania, które umożliwiają administrowanie domeną zarządzaną. Jeśli nie chcesz kontynuować korzystania z tej serii samouczków, przejrzyj następujące kroki czyszczenia, aby [usunąć maszynę wirtualną](#delete-the-vm). W przeciwnym razie [Przejdź do następnego samouczka](#next-steps).
 
-### <a name="un-join-the-vm-from-the-managed-domain"></a>Odłączanie maszyny wirtualnej od domeny zarządzanej
+### <a name="unjoin-the-vm-from-the-managed-domain"></a>Odłączanie maszyny wirtualnej od domeny zarządzanej
 
 Aby usunąć maszynę wirtualną z domeny zarządzanej, wykonaj kroki ponownie, aby [dołączyć maszynę wirtualną do domeny](#join-the-vm-to-the-managed-domain). Zamiast przyłączać się do domeny zarządzanej, wybierz opcję dołączenia do grupy roboczej, takiej jak domyślna *Grupa robocza*. Po ponownym uruchomieniu maszyny wirtualnej obiekt komputera zostanie usunięty z domeny zarządzanej.
 
@@ -220,7 +221,7 @@ Po wykonaniu każdego z tych kroków rozwiązywania problemów spróbuj ponownie
 * Upewnij się, że określone konto użytkownika należy do domeny zarządzanej.
 * Upewnij się, że konto jest częścią domeny zarządzanej lub dzierżawy usługi Azure AD. Konta z zewnętrznych katalogów skojarzonych z dzierżawą usługi Azure AD nie mogą być prawidłowo uwierzytelniane podczas procesu przyłączania do domeny.
 * Spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `contosoadmin@aaddscontoso.onmicrosoft.com` . Jeśli istnieje wielu użytkowników z tym samym prefiksem nazwy UPN w dzierżawie lub jeśli prefiks nazwy UPN jest zbyt długi, zostanie automatycznie wygenerowany *sAMAccountName* dla Twojego konta. W takich przypadkach format *sAMAccountName* dla konta może być inny niż oczekiwany lub używany w domenie lokalnej.
-* Sprawdź, czy [włączono synchronizację haseł][password-sync] z domeną zarządzaną. Bez tego kroku konfiguracji wymagane skróty haseł nie będą obecne w domenie zarządzanej w celu poprawnego uwierzytelnienia próby logowania.
+* Sprawdź, czy [włączono synchronizację haseł][password-sync] z domeną zarządzaną. Bez tego kroku konfiguracji wymagane skróty haseł nie będą obecne w domenie zarządzanej, aby poprawnie uwierzytelnić próbę logowania.
 * Poczekaj na zakończenie synchronizacji haseł. Po zmianie hasła konta użytkownika automatyczna synchronizacja w tle z usługi Azure AD aktualizuje hasło w usłudze Azure AD DS. Udostępnienie hasła przez przyłączenie do domeny wymaga pewnego czasu.
 
 ## <a name="next-steps"></a>Następne kroki

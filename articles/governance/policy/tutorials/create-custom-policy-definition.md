@@ -3,12 +3,11 @@ title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
 description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
-ms.translationtype: MT
+ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970828"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044621"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
@@ -66,7 +65,7 @@ Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omó
 
 ### <a name="arm-templates"></a>Szablony usługi ARM
 
-[Szablon usługi Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) zawierający szukaną właściwość w celu zarządzania nią można sprawdzić na kilka sposobów.
+[Szablon usługi Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) zawierający szukaną właściwość w celu zarządzania nią można sprawdzić na kilka sposobów.
 
 #### <a name="existing-resource-in-the-portal"></a>Istniejący zasób w portalu
 

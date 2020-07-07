@@ -7,14 +7,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2333ace1b1e9116acf85964fb180f44e0f66e6e7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733494"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024727"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services
 
@@ -22,7 +21,7 @@ Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządza
 
 Można utworzyć domenę zarządzaną przy użyciu opcji konfiguracji domyślnej sieci i synchronizacji lub [ręcznie zdefiniować te ustawienia][tutorial-create-instance-advanced]. W tym samouczku pokazano, jak za pomocą opcji domyślnych utworzyć i skonfigurować domenę zarządzaną AD DS platformy Azure przy użyciu Azure Portal.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Informacje o wymaganiach dotyczących systemu DNS dla domeny zarządzanej
@@ -87,16 +86,19 @@ Obowiązują również następujące ograniczenia nazw DNS:
 Wypełnij pola w oknie *podstawy* Azure Portal, aby utworzyć domenę zarządzaną:
 
 1. Wprowadź **nazwę domeny DNS** dla domeny zarządzanej, biorąc pod uwagę poprzednie punkty.
-1. Wybierz **lokalizację** platformy Azure, w której ma zostać utworzona domena zarządzana. W przypadku wybrania regionu, który obsługuje Strefy dostępności, zasoby AD DS platformy Azure są dystrybuowane między strefami w celu zapewnienia dodatkowej nadmiarowości.
+1. Wybierz **lokalizację** platformy Azure, w której ma zostać utworzona domena zarządzana. W przypadku wybrania regionu, który obsługuje Strefy dostępności platformy Azure, zasoby AD DS platformy Azure są dystrybuowane między strefami w celu zapewnienia dodatkowej nadmiarowości.
 
-    Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach.
-
-    Nie ma niczego do skonfigurowania na potrzeby dystrybuowania AD DS platformy Azure między strefami. Platforma Azure automatycznie obsługuje dystrybucję zasobów. Aby uzyskać więcej informacji i sprawdzić dostępność regionów, zobacz [co to są strefy dostępności na platformie Azure?][availability-zones]
+    > [!TIP]
+    > Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach.
+    >
+    > Nie ma niczego do skonfigurowania na potrzeby dystrybuowania AD DS platformy Azure między strefami. Platforma Azure automatycznie obsługuje dystrybucję zasobów. Aby uzyskać więcej informacji i sprawdzić dostępność regionów, zobacz [co to są strefy dostępności na platformie Azure?][availability-zones]
 
 1. **Jednostka SKU** określa wydajność, częstotliwość tworzenia kopii zapasowych i maksymalną liczbę relacji zaufania lasów, które można utworzyć. Jednostkę SKU można zmienić po utworzeniu domeny zarządzanej, jeśli Twoje wymagania biznesowe lub zmiany zostały zmienione. Aby uzyskać więcej informacji, zobacz [pojęcia związane z usługą Azure AD DS SKU][concepts-sku].
 
     Na potrzeby tego samouczka wybierz *standardową* jednostkę SKU.
-1. *Las* to konstrukcja logiczna używana przez Active Directory Domain Services do grupowania jednej lub wielu domen. Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].
+1. *Las* to konstrukcja logiczna używana przez Active Directory Domain Services do grupowania jednej lub wielu domen. Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS.
+
+    Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].
 
     Na potrzeby tego samouczka wybierz opcję utworzenia lasu *użytkownika* .
 
@@ -112,7 +114,7 @@ Wybierz pozycję **Przegląd + Utwórz** , aby zaakceptować te domyślne opcje 
 
 ## <a name="deploy-the-managed-domain"></a>Wdróż domenę zarządzaną
 
-Na stronie **Podsumowanie** kreatora przejrzyj ustawienia konfiguracji dla domeny zarządzanej. Możesz wrócić do dowolnego kroku kreatora, aby wprowadzić zmiany. Aby ponownie wdrożyć domenę zarządzaną w innej dzierżawie usługi Azure AD w spójny sposób przy użyciu tych opcji konfiguracji, można również **pobrać szablon do automatyzacji**.
+Na stronie **Podsumowanie** kreatora przejrzyj ustawienia konfiguracji domeny zarządzanej. Możesz wrócić do dowolnego kroku kreatora, aby wprowadzić zmiany. Aby ponownie wdrożyć domenę zarządzaną w innej dzierżawie usługi Azure AD w spójny sposób przy użyciu tych opcji konfiguracji, można również **pobrać szablon do automatyzacji**.
 
 1. Aby utworzyć domenę zarządzaną, wybierz pozycję **Utwórz**. Zostanie wyświetlona informacja o tym, że nie można zmienić pewnych opcji konfiguracji, takich jak nazwa DNS lub Sieć wirtualna, gdy zarządzana AD DS platformy Azure została utworzona. Aby kontynuować, wybierz **przycisk OK**.
 1. Proces aprowizacji domeny zarządzanej może potrwać do godziny. W portalu zostanie wyświetlone powiadomienie pokazujące postęp wdrożenia usługi Azure AD DS. Wybierz powiadomienie, aby zobaczyć szczegółowy postęp wdrażania.
@@ -128,11 +130,12 @@ Na stronie **Podsumowanie** kreatora przejrzyj ustawienia konfiguracji dla domen
 
     ![Stan usług domenowych po pomyślnym zainicjowaniu obsługi administracyjnej](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Domena zarządzana jest skojarzona z dzierżawą usługi Azure AD. Podczas procesu aprowizacji usługa Azure AD DS tworzy dwie aplikacje dla przedsiębiorstw o nazwie *usługi kontrolera domeny* i *AzureActiveDirectoryDomainControllerServices* w dzierżawie usługi Azure AD. Te aplikacje przedsiębiorstwa są konieczne do obsługi domeny zarządzanej. Nie usuwaj tych aplikacji.
+> [!IMPORTANT]
+> Domena zarządzana jest skojarzona z dzierżawą usługi Azure AD. Podczas procesu aprowizacji usługa Azure AD DS tworzy dwie aplikacje dla przedsiębiorstw o nazwie *usługi kontrolera domeny* i *AzureActiveDirectoryDomainControllerServices* w dzierżawie usługi Azure AD. Te aplikacje przedsiębiorstwa są konieczne do obsługi domeny zarządzanej. Nie usuwaj tych aplikacji.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Aktualizowanie ustawień DNS dla sieci wirtualnej platformy Azure
 
-Pomyślnie wdrożono usługę Azure AD DS, teraz skonfigurujesz sieć wirtualną tak, aby zezwalała na inne połączone maszyny wirtualne i aplikacje do korzystania z domeny zarządzanej. Aby zapewnić tę łączność, zaktualizuj ustawienia serwera DNS dla sieci wirtualnej w taki sposób, aby wskazywały dwa adresy IP, na których wdrożono platformę Azure AD DS.
+Pomyślnie wdrożono usługę Azure AD DS, teraz skonfigurujesz sieć wirtualną tak, aby zezwalała na inne połączone maszyny wirtualne i aplikacje do korzystania z domeny zarządzanej. Aby zapewnić tę łączność, zaktualizuj ustawienia serwera DNS dla sieci wirtualnej w taki sposób, aby wskazywały dwa adresy IP, na których wdrożono domenę zarządzaną.
 
 1. Karta **Przegląd** dla domeny zarządzanej zawiera kilka **wymaganych czynności konfiguracyjnych**. Pierwszym krokiem konfiguracji jest aktualizacja ustawień serwera DNS dla sieci wirtualnej. Po poprawnym skonfigurowaniu ustawień DNS ten krok nie jest już pokazywany.
 
@@ -150,9 +153,17 @@ Pomyślnie wdrożono usługę Azure AD DS, teraz skonfigurujesz sieć wirtualną
 Aby można było uwierzytelniać użytkowników w domenie zarządzanej, usługa Azure AD DS musi używać skrótów haseł w formacie, który jest odpowiedni dla protokołu NT LAN Manager (NTLM) i uwierzytelniania Kerberos. Usługa Azure AD nie generuje ani nie przechowuje skrótów haseł w formacie wymaganym do uwierzytelniania NTLM lub Kerberos, dopóki nie zostanie włączona usługa Azure AD DS dla dzierżawy. Ze względów bezpieczeństwa usługa Azure AD nie przechowuje również żadnych poświadczeń hasła w postaci zwykłego tekstu. W związku z tym usługa Azure AD nie może automatycznie generować tych skrótów uwierzytelniania NTLM lub Kerberos w oparciu o istniejące poświadczenia użytkownika.
 
 > [!NOTE]
-> Po odpowiednim skonfigurowaniu skróty do przydatnych haseł są przechowywane w domenie zarządzanej. Jeśli usuniesz domenę zarządzaną, wszystkie skróty haseł przechowywane w tym punkcie również zostaną usunięte. Nie można ponownie użyć synchronizowanych informacji poświadczeń w usłudze Azure AD, jeśli później utworzysz domenę zarządzaną — musisz ponownie skonfigurować synchronizację skrótów haseł w celu ponownego przechowywania skrótów haseł. Wcześniej przyłączone do domeny maszyny wirtualne lub użytkownicy nie będą mogli od razu przeprowadzić uwierzytelniania — usługa Azure AD musi generować i przechowywać skróty haseł w nowej domenie zarządzanej. Aby uzyskać więcej informacji, zobacz [proces synchronizacji skrótów haseł dla platformy Azure AD DS i Azure AD Connect][password-hash-sync-process].
+> Po odpowiednim skonfigurowaniu skróty do przydatnych haseł są przechowywane w domenie zarządzanej. Jeśli usuniesz domenę zarządzaną, wszystkie skróty haseł przechowywane w tym punkcie również zostaną usunięte.
+>
+> Nie można ponownie użyć synchronizowanych informacji poświadczeń w usłudze Azure AD, jeśli później utworzysz domenę zarządzaną — musisz ponownie skonfigurować synchronizację skrótów haseł w celu ponownego przechowywania skrótów haseł. Wcześniej przyłączone do domeny maszyny wirtualne lub użytkownicy nie będą mogli od razu przeprowadzić uwierzytelniania — usługa Azure AD musi generować i przechowywać skróty haseł w nowej domenie zarządzanej.
+>
+> Aby uzyskać więcej informacji, zobacz [proces synchronizacji skrótów haseł dla platformy Azure AD DS i Azure AD Connect][password-hash-sync-process].
 
-Instrukcje generowania i przechowywania tych skrótów haseł są różne dla kont użytkowników tylko w chmurze utworzonych w usłudze Azure AD, a konta użytkowników, które są synchronizowane z katalogu lokalnego przy użyciu Azure AD Connect. Konto użytkownika tylko w chmurze to konto, które zostało utworzone w katalogu usługi Azure AD przy użyciu witryny Azure Portal lub poleceń cmdlet programu Azure AD PowerShell. Te konta użytkowników nie są synchronizowane z katalogu lokalnego. W tym samouczku Przyjrzyjmy się podstawowemu kontu użytkownika tylko w chmurze. Aby uzyskać więcej informacji na temat dodatkowych kroków wymaganych do użycia Azure AD Connect, zobacz [Synchronize hash haseł dla kont użytkowników synchronizowanych z lokalnej usługi AD do domeny zarządzanej][on-prem-sync].
+Instrukcje generowania i przechowywania tych skrótów haseł są różne dla kont użytkowników tylko w chmurze utworzonych w usłudze Azure AD, a konta użytkowników, które są synchronizowane z katalogu lokalnego przy użyciu Azure AD Connect.
+
+Konto użytkownika tylko w chmurze to konto, które zostało utworzone w katalogu usługi Azure AD przy użyciu witryny Azure Portal lub poleceń cmdlet programu Azure AD PowerShell. Te konta użytkowników nie są synchronizowane z katalogu lokalnego.
+
+> W tym samouczku Przyjrzyjmy się podstawowemu kontu użytkownika tylko w chmurze. Aby uzyskać więcej informacji na temat dodatkowych kroków wymaganych do użycia Azure AD Connect, zobacz [Synchronize hash haseł dla kont użytkowników synchronizowanych z lokalnej usługi AD do domeny zarządzanej][on-prem-sync].
 
 > [!TIP]
 > Jeśli dzierżawa usługi Azure AD ma kombinację użytkowników tylko w chmurze i użytkowników z lokalnej usługi AD, należy wykonać oba zestawy kroków.
@@ -197,7 +208,7 @@ Przed przyłączeniem do domeny maszyn wirtualnych i wdrożeniem aplikacji, któ
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md

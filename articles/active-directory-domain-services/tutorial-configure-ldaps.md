@@ -7,18 +7,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 60248d1326d872734a49a93a689625cf2603f929
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
-ms.translationtype: MT
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601704"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024863"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
-Aby komunikować się z domeną zarządzaną Azure Active Directory Domain Services (Azure AD DS), używany jest protokół LDAP (Lightweight Directory Access Protocol). Domyślnie ruch związany z protokołem LDAP nie jest szyfrowany, co stanowi problem z zabezpieczeniami w wielu środowiskach. Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki sposób, aby korzystała z protokołu LDAPs (Secure Lightweight Directory Access Protocol). W przypadku korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znana jako LDAP over SSL (SSL) lub Transport Layer Security (TLS).
+Aby komunikować się z domeną zarządzaną Azure Active Directory Domain Services (Azure AD DS), używany jest protokół LDAP (Lightweight Directory Access Protocol). Domyślnie ruch związany z protokołem LDAP nie jest szyfrowany, co stanowi problem z zabezpieczeniami w wielu środowiskach.
+
+Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki sposób, aby korzystała z protokołu LDAPs (Secure Lightweight Directory Access Protocol). W przypadku korzystania z bezpiecznego protokołu LDAP ruch jest szyfrowany. Secure LDAP jest również znana jako LDAP over SSL (SSL) lub Transport Layer Security (TLS).
 
 W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
@@ -68,7 +69,11 @@ Certyfikat, którego żądanie lub utworzenie, musi spełniać poniższe wymagan
 * **Użycie klucza** — certyfikat musi być skonfigurowany pod kątem *podpisów cyfrowych* i *szyfrowania kluczy*.
 * **Cel certyfikatu** — certyfikat musi być prawidłowy na potrzeby uwierzytelniania serwera TLS.
 
-Dostępnych jest kilka narzędzi do tworzenia certyfikatów z podpisem własnym, takich jak OpenSSL, narzędzie, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet itp. W tym samouczku utworzymy certyfikat z podpisem własnym dla bezpiecznego protokołu LDAP przy użyciu polecenia cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] . Otwórz okno programu PowerShell jako **administrator** i uruchom następujące polecenia. Zastąp zmienną *$dnsname* nazwą DNS używaną przez własną domenę zarządzaną, taką jak *aaddscontoso.com*:
+Dostępnych jest kilka narzędzi do tworzenia certyfikatów z podpisem własnym, takich jak OpenSSL, narzędzie, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet itp.
+
+W tym samouczku utworzymy certyfikat z podpisem własnym dla bezpiecznego protokołu LDAP przy użyciu polecenia cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] .
+
+Otwórz okno programu PowerShell jako **administrator** i uruchom następujące polecenia. Zastąp zmienną *$dnsname* nazwą DNS używaną przez własną domenę zarządzaną, taką jak *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +113,9 @@ Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy uży
     * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
     * Certyfikaty bez klucza prywatnego korzystają z programu *. *Format pliku CER.
 
-Te dwa klucze, *prywatne* i *publiczne* klucze, należy upewnić się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, zostanie wystawiony certyfikat zawierający klucz prywatny i można go zastosować do domeny zarządzanej. Klucz publiczny powinien już być znany i zaufany przez komputery klienckie. W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, dlatego należy wyeksportować odpowiednie składniki prywatne i publiczne.
+Te dwa klucze, *prywatne* i *publiczne* klucze, należy upewnić się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, zostanie wystawiony certyfikat zawierający klucz prywatny i można go zastosować do domeny zarządzanej. Klucz publiczny powinien już być znany i zaufany przez komputery klienckie.
+
+W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, dlatego należy wyeksportować odpowiednie składniki prywatne i publiczne.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Eksportowanie certyfikatu dla AD DS platformy Azure
 
@@ -148,7 +155,9 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
 ### <a name="export-a-certificate-for-client-computers"></a>Eksportowanie certyfikatu dla komputerów klienckich
 
-Komputery klienckie muszą ufać wystawcy certyfikatu bezpiecznego protokołu LDAP, aby można było pomyślnie nawiązać połączenie z domeną zarządzaną przy użyciu protokołu LDAPs. Komputery klienckie muszą mieć certyfikat, aby pomyślnie szyfrować dane, które są odszyfrowywane przez usługę Azure AD DS. Jeśli używasz publicznego urzędu certyfikacji, komputer powinien automatycznie ufać tym wystawcom certyfikatów i mieć odpowiedni certyfikat. W tym samouczku zostanie użyty certyfikat z podpisem własnym i Wygenerowano certyfikat zawierający klucz prywatny w poprzednim kroku. Teraz wyeksportuj i Zainstaluj certyfikat z podpisem własnym w zaufanym magazynie certyfikatów na komputerze klienckim:
+Komputery klienckie muszą ufać wystawcy certyfikatu bezpiecznego protokołu LDAP, aby można było pomyślnie nawiązać połączenie z domeną zarządzaną przy użyciu protokołu LDAPs. Komputery klienckie muszą mieć certyfikat, aby pomyślnie szyfrować dane, które są odszyfrowywane przez usługę Azure AD DS. Jeśli używasz publicznego urzędu certyfikacji, komputer powinien automatycznie ufać tym wystawcom certyfikatów i mieć odpowiedni certyfikat.
+
+W tym samouczku zostanie użyty certyfikat z podpisem własnym i Wygenerowano certyfikat zawierający klucz prywatny w poprzednim kroku. Teraz wyeksportuj i Zainstaluj certyfikat z podpisem własnym w zaufanym magazynie certyfikatów na komputerze klienckim:
 
 1. Wróć do programu MMC dla *certyfikatów (komputer lokalny) > magazynu certyfikatów > osobistych* . Pokazany jest certyfikat z podpisem własnym utworzony w poprzednim kroku, taki jak *aaddscontoso.com*. Wybierz pozycję Ten certyfikat prawym przyciskiem myszy, a następnie wybierz pozycję **wszystkie zadania > Eksportuj...**
 1. W **Kreatorze eksportu certyfikatów**wybierz pozycję **dalej**.
@@ -186,7 +195,10 @@ Przy użyciu certyfikatu cyfrowego utworzonego i wyeksportowanego, który zawier
 
 1. Wybierz ikonę folderu obok **. Plik PFX z bezpiecznym certyfikatem LDAP**. Przejdź do ścieżki *. Plik PFX* , a następnie wybierz certyfikat utworzony w poprzednim kroku, który zawiera klucz prywatny.
 
-    Zgodnie z poprzednią sekcją wymagań dotyczących certyfikatów nie można używać certyfikatu z publicznego urzędu certyfikacji z domyślną domeną *. onmicrosoft.com* . Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc publiczny urząd certyfikacji nie wystawia certyfikatu. Upewnij się, że certyfikat ma odpowiedni format. Jeśli tak nie jest, platforma Azure generuje błędy walidacji certyfikatu po włączeniu bezpiecznego protokołu LDAP.
+    > [!IMPORTANT]
+    > Zgodnie z poprzednią sekcją wymagań dotyczących certyfikatów nie można używać certyfikatu z publicznego urzędu certyfikacji z domyślną domeną *. onmicrosoft.com* . Firma Microsoft jest właścicielem domeny *. onmicrosoft.com* , więc publiczny urząd certyfikacji nie wystawia certyfikatu.
+    >
+    > Upewnij się, że certyfikat ma odpowiedni format. Jeśli tak nie jest, platforma Azure generuje błędy walidacji certyfikatu po włączeniu bezpiecznego protokołu LDAP.
 
 1. Wprowadź **hasło do odszyfrowania. Plik PFX** został ustawiony w poprzednim kroku, gdy certyfikat został wyeksportowany do programu *. Plik PFX* .
 1. Wybierz pozycję **Zapisz** , aby włączyć bezpieczny protokół LDAP.
@@ -195,7 +207,9 @@ Przy użyciu certyfikatu cyfrowego utworzonego i wyeksportowanego, który zawier
 
 Zostanie wyświetlone powiadomienie, że dla domeny zarządzanej jest konfigurowany bezpieczny protokół LDAP. Nie można modyfikować innych ustawień dla domeny zarządzanej, dopóki ta operacja nie zostanie ukończona.
 
-Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się. Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
+Włączenie bezpiecznego protokołu LDAP dla domeny zarządzanej może potrwać kilka minut. Jeśli certyfikat bezpiecznego protokołu LDAP, który nie jest zgodny z wymaganymi kryteriami, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
+
+Niektóre typowe przyczyny niepowodzenia to jeśli nazwa domeny jest nieprawidłowa lub certyfikat wygaśnie wkrótce lub już wygasł. Możesz ponownie utworzyć certyfikat z prawidłowymi parametrami, a następnie włączyć bezpieczny protokół LDAP przy użyciu tego zaktualizowanego certyfikatu.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Zablokuj bezpieczny dostęp do protokołu LDAP za pośrednictwem Internetu
 
@@ -204,7 +218,7 @@ Po włączeniu bezpiecznego dostępu do protokołu LDAP za pośrednictwem Intern
 Utwórz regułę zezwalającą na dostęp przychodzący do bezpiecznego protokołu LDAP za pośrednictwem portu TCP 636 z określonego zestawu adresów IP. Domyślna reguła *DenyAll* z niższym priorytetem ma zastosowanie do całego ruchu przychodzącego z Internetu, więc tylko podane adresy mogą dotrzeć do domeny zarządzanej przy użyciu protokołu Secure LDAP.
 
 1. W Azure Portal wybierz pozycję *grupy zasobów* po lewej stronie nawigacyjnej.
-1. Wybierz grupę zasobów, *na przykład grupa zasobów, a*następnie wybierz grupę zabezpieczeń sieci, na przykład *aaads-sieciowej grupy zabezpieczeń*.
+1. Wybierz grupę zasobów, na przykład grupa *zasobów*, a następnie wybierz grupę zabezpieczeń sieci, na przykład *aaads-sieciowej grupy zabezpieczeń*.
 1. Zostanie wyświetlona lista istniejących reguł zabezpieczeń dla ruchu przychodzącego i wychodzącego. Po lewej stronie okien sieciowych grup zabezpieczeń wybierz pozycję **ustawienia > reguły zabezpieczeń dla ruchu przychodzącego**.
 1. Wybierz pozycję **Dodaj**, a następnie utwórz regułę zezwalającą na port *TCP* *636*. Aby zwiększyć bezpieczeństwo, wybierz źródło jako *adresy IP* , a następnie określ własny prawidłowy adres IP lub zakres dla swojej organizacji.
 
@@ -264,12 +278,12 @@ Aby wyświetlić obiekty przechowywane w domenie zarządzanej:
 
 Aby bezpośrednio wysyłać zapytania do określonego kontenera, w menu **drzewa widoku >** można określić **BaseDN** , taki jak *OU = AADDC users, DC = AADDSCONTOSO, DC = com* lub *OU = AADDC komputery, DC = AADDSCONTOSO, DC = com*. Aby uzyskać więcej informacji na temat formatowania i tworzenia zapytań, zobacz [podstawowe informacje dotyczące zapytań LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania łączności dla tego samouczka, Usuń ten wpis i Dodaj formalny rekord do strefy DNS. Aby usunąć wpis z lokalnego pliku hosts, wykonaj następujące czynności:
 
 1. Na komputerze lokalnym Otwórz *Notatnik* jako administrator
-1. Przeglądaj i Otwórz plik *C:\Windows\System32\drivers\etc*
+1. Przeglądaj i Otwórz plik *C:\Windows\System32\drivers\etc\hosts*
 1. Usuń wiersz dla dodanego rekordu, taki jak`168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Następne kroki

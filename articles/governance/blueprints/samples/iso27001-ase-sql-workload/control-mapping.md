@@ -3,12 +3,11 @@ title: Przykłady planów obciążeń ISO 27001 ASE/SQL
 description: Sterowanie mapowaniem przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database do Azure Policy i RBAC.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 6311d5090c884c70bded7fcf754bc968a5b47b32
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 518c6b86ac658273d428a328b433b35d667d7056
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918602"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044757"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Sterowanie mapowaniem przykładowego planu obciążeń ISO 27001 ASE/SQL
 
@@ -28,7 +27,7 @@ Posiadanie tylko jednego właściciela subskrypcji platformy Azure nie pozwala n
 
 ## <a name="a821-classification-of-information"></a>A. 8.2.1 — Klasyfikacja informacji
 
-[Usługa oceny luk w zabezpieczeniach](/azure/sql-database/sql-vulnerability-assessment) w systemie Azure może ułatwić odnajdywanie poufnych danych przechowywanych w bazach danych i zawiera zalecenia dotyczące klasyfikowania tych danych. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , aby przeprowadzić inspekcję luk w zabezpieczeniach podczas skanowania za pośrednictwem programu SQL Server.
+[Usługa oceny luk w zabezpieczeniach](../../../../azure-sql/database/sql-vulnerability-assessment.md) w systemie Azure może ułatwić odnajdywanie poufnych danych przechowywanych w bazach danych i zawiera zalecenia dotyczące klasyfikowania tych danych. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , aby przeprowadzić inspekcję luk w zabezpieczeniach podczas skanowania za pośrednictwem programu SQL Server.
 
 - \[Wersja zapoznawcza \] : monitoruj wyniki oceny luk w zabezpieczeniach SQL w Azure Security Center
 

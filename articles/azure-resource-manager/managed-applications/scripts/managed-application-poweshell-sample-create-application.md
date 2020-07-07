@@ -6,12 +6,11 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: a2687e9c943df8454ff42a17f44866dcdb7f4730
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650170"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055889"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Wdrażanie aplikacji zarządzanej do obsługi katalogu usług za pomocą programu PowerShell
 
@@ -33,10 +32,10 @@ Ten skrypt używa następującego polecenia do wdrożenia aplikacji zarządzanej
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
+| [New-AzManagedApplication](/powershell/module/az.resources/new-azmanagedapplication) | Tworzy aplikację zarządzaną. Należy podać identyfikator definicji i parametry szablonu. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z wprowadzeniem do aplikacji zarządzanych, zobacz [Azure Managed Application overview](../overview.md) (Omówienie aplikacji zarządzanych platformy Azure).
-* Aby uzyskać więcej informacji na temat programu PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Aby uzyskać więcej informacji na temat programu PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/get-started-azureps).

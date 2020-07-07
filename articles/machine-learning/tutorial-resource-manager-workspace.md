@@ -9,29 +9,31 @@ ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.openlocfilehash: 76f37beb22e28c0232efd0d62e82c8d3b60c78dc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 098d82e6521a4a355ac31809937b589f984816f2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345091"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027175"
 ---
-# <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-a-resource-manager-template"></a>Samouczek: wdrażanie obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu Menedżer zasobów
+# <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-an-arm-template"></a>Samouczek: wdrażanie obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu ARM
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku przedstawiono sposób tworzenia obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu Azure Resource Manager. Obszary robocze usługi Azure Machine Learning organizują wszystkie zasoby usługi Machine Learning z bazowych zestawów danych do wdrożonych modeli. Obszary robocze to pojedyncze miejsce do współpracy z współpracownikami nad tworzeniem, uruchamianiem i przeglądaniem eksperymentów, zarządzaniem szkoleniami i inferencing zasobów obliczeniowych oraz monitorowaniem i wdrożonymi wersjami modeli.
+W tym samouczku przedstawiono sposób tworzenia obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu Azure Resource Manager (szablon ARM). Obszary robocze usługi Azure Machine Learning organizują wszystkie zasoby usługi Machine Learning z bazowych zestawów danych do wdrożonych modeli. Obszary robocze to pojedyncze miejsce do współpracy z współpracownikami nad tworzeniem, uruchamianiem i przeglądaniem eksperymentów, zarządzaniem szkoleniami i inferencing zasobów obliczeniowych oraz monitorowaniem i wdrożonymi wersjami modeli.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-machine-learning-create%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://aka.ms/AMLFree)
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/services/machine-learning/).
 
-* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-workspace"></a>Utwórz obszar roboczy
-
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
@@ -41,9 +43,9 @@ Następujące zasoby są zdefiniowane w szablonie:
 
 * [Microsoft. MachineLearningServices/obszary robocze](/azure/templates/microsoft.machinelearningservices/workspaces): Tworzenie obszaru roboczego usługi Azure ml. W tym szablonie lokalizacja i nazwa są parametrami, które użytkownik może przekazać lub interaktywnie wprowadzić.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu 
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Aby użyć szablonu w interfejsie wiersza polecenia platformy Azure, zaloguj się i wybierz swoją subskrypcję (zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)). Następnie uruchom polecenie:
+Aby użyć szablonu w interfejsie wiersza polecenia platformy Azure, zaloguj się i wybierz swoją subskrypcję (zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)). Następnie uruchom polecenie:
 
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -52,33 +54,33 @@ templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/
 resourceGroupName="${projectName}rg" &&
 workspaceName="${projectName}ws" &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters workspaceName=$workspaceName location=$location && 
+az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters workspaceName=$workspaceName location=$location &&
 echo "Press [ENTER] to continue ..." &&
 read
 ```
 
 Po uruchomieniu powyższego polecenia wpisz:
 
-1. Nazwa projektu, która będzie stanowić podstawę nazw utworzonej grupy zasobów i obszaru roboczego usługi Azure ML
-1. Lokalizacja platformy Azure, w której ma zostać wdrożone wdrożenie
+1. Nazwa projektu, która będzie stanowić podstawę nazw utworzonej grupy zasobów i obszaru roboczego usługi Azure ML.
+1. Lokalizacja platformy Azure, w której ma zostać wdrożone wdrożenie.
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
 Aby wyświetlić obszar roboczy usługi Azure ML:
 
-1. Przejdź do strony https://portal.azure.com 
-1. Zaloguj 
-1. Wybierz właśnie utworzony obszar roboczy
+1. Przejdź do witryny https://portal.azure.com.
+1. Zaloguj się.
+1. Wybierz właśnie utworzony obszar roboczy.
 
-Zobaczysz stronę główną Azure Machine Learning: 
+Zobaczysz stronę główną Azure Machine Learning:
 
 :::image type="content" source="media/tutorial-resource-manager-workspace/workspace-home.png" alt-text="Zrzut ekranu przedstawiający obszar roboczy usługi Azure ML":::
 
 Aby wyświetlić wszystkie zasoby skojarzone z wdrożeniem, kliknij link w lewym górnym rogu z nazwą obszaru roboczego (na zrzucie ekranu `my_templated_ws` ). Ten link spowoduje przejście do grupy zasobów w Azure Portal. Nazwa grupy zasobów to `{projectName}rg` i obszar roboczy o nazwie `{projectName}ws` .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz używać tego obszaru roboczego, usuń go. Ponieważ obszar roboczy jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie chcesz usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk "Usuń" i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu: 
+Jeśli nie chcesz używać tego obszaru roboczego, usuń go. Ponieważ obszar roboczy jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie chcesz usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk **Usuń** i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -89,7 +91,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzysz obszar roboczy Azure Machine Learning z szablonu Azure Resource Manager. Jeśli chcesz eksplorować Azure Machine Learning, Kontynuuj pracę z samouczkiem. 
+W tym samouczku utworzysz obszar roboczy Azure Machine Learning z szablonu ARM. Jeśli chcesz eksplorować Azure Machine Learning, Kontynuuj pracę z samouczkiem.
 
 > [!div class="nextstepaction"]
 > [Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu z użyciem zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md)

@@ -3,12 +3,11 @@ title: Omówienie przykładu strategii NIST SP 800-53 R4
 description: Omówienie przykładu strategii NIST SP 800-53 R4. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli NIST SP 800-53 R4.
 ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: e7ad29904b87a20f59d2867d277d806331614461
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740349"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042666"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Przykładowy plan NIST SP 800-53 R4
 
@@ -18,7 +17,7 @@ Przykład strategii NIST SP 800-53 R4 udostępnia wytyczne dotyczące ładu w us
 
 [Mapowanie formantów Azure Policy](../../policy/samples/nist-sp-800-53-r4.md) zawiera szczegółowe informacje o definicjach zasad uwzględnionych w ramach tego planu oraz o tym, jak te definicje zasad są mapowane do **domen zgodności** i **kontroli** w ramach NIST SP 800-53 R4. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wdrożyć usługę Azure Plans NIST SP 800-53 R4, należy wykonać następujące czynności:
 
@@ -70,7 +69,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Podstawy
+   - Informacje podstawowe
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -102,7 +101,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
 |\[Wersja zapoznawcza \] : Inspekcja NIST SP 800-53 R4 kontroluje i wdraża konkretne rozszerzenia maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne|To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne.|
-|\[Wersja zapoznawcza \] : Inspekcja NIST SP 800-53 R4 kontroluje i wdraża konkretne rozszerzenia maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Wersja zapoznawcza \] : Inspekcja NIST SP 800-53 R4 kontroluje i wdraża konkretne rozszerzenia maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |\[Wersja zapoznawcza \] : Inspekcja NIST SP 800-53 R4 kontroluje i wdraża konkretne rozszerzenia maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista użytkowników, którzy powinni być wykluczeni z grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : Inspekcja NIST SP 800-53 R4 kontroluje i wdraża konkretne rozszerzenia maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Linux (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|

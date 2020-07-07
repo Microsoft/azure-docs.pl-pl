@@ -7,12 +7,11 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bf200a8c7da6910f9d844c9b72e926e8103df6bc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391795"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027893"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -285,6 +284,7 @@ Dodaj nową `using` instrukcję u góry, ponieważ będzie potrzebny wbudowany s
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Następnie Dodaj następujący kod na końcu `Main` metody, aby utworzyć i zainicjować trzy bliźniaczych reprezentacji cyfrowe w oparciu o ten model.
@@ -315,7 +315,7 @@ Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych rep
 
 Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 
-Aby można było utworzyć relacje, Dodaj `using` instrukcję dla typu podstawowego relacji w zestawie SDK:
+Aby można było utworzyć relacje, Dodaj `using` instrukcję dla typu podstawowego relacji w zestawie SDK: Pomiń ten element, jeśli został już dodany.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -528,7 +528,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
  
 Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
  
