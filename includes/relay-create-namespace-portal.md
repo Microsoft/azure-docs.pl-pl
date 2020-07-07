@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76021183"
 ---
 1. Zaloguj się w witrynie [Azure Portal][Azure portal].
-1. Wybierz pozycję **Utwórz zasób**. Następnie wybierz pozycję **Integration** > **Relay**. Jeśli nie widzisz pozycji **Relay** na liście, wybierz pozycję **Zobacz wszystko** w prawym górnym rogu.
+1. Wybierz pozycję **Utwórz zasób**. Następnie wybierz pozycję **Integration**  >  **Relay**. Jeśli nie widzisz pozycji **Relay** na liście, wybierz pozycję **Zobacz wszystko** w prawym górnym rogu.
 1. Wybierz pozycję **Utwórz**, a następnie wprowadź nazwę przestrzeni nazw w polu **Nazwa** . Azure Portal sprawdza, czy nazwa jest dostępna.
 1. Wybierz subskrypcję platformy Azure, w której chcesz utworzyć przestrzeń nazw.
 1. W obszarze [Grupa zasobów](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)wybierz istniejącą grupę zasobów, w której ma zostać umieszczona przestrzeń nazw, lub Utwórz nową.  
@@ -20,7 +20,7 @@ ms.locfileid: "76021183"
 
     ![Create namespace][create-namespace]
 
-1. Wybierz przycisk **Utwórz**. Azure Portal tworzy przestrzeń nazw i włącza ją. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
+1. Wybierz pozycję **Utwórz**. Azure Portal tworzy przestrzeń nazw i włącza ją. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
 
 ### <a name="get-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
 

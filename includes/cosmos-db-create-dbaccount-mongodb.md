@@ -1,13 +1,13 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cosmos-db
 ms.custom: include file
 ms.openlocfilehash: ecf45a692f83689ed56c03bec13f291781508474
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061718"
 ---
 1. W nowym oknie przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
@@ -16,7 +16,7 @@ ms.locfileid: "77061718"
    
    ![Utwórz zasób w Azure Portal](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-0.png)
    
-3. Na stronie **Nowy** wybierz pozycję **bazy danych** > **Azure Cosmos DB**.
+3. Na stronie **Nowy** wybierz pozycję **bazy danych**  >  **Azure Cosmos DB**.
    
    ![Okienko Bazy danych w witrynie Azure Portal](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
    
