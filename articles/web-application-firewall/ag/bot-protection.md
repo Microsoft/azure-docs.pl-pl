@@ -8,10 +8,9 @@ ms.service: web-application-firewall
 ms.date: 10/31/2019
 ms.author: victorh
 ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73516866"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Konfigurowanie ochrony bot dla zapory aplikacji sieci Web w usłudze Azure Application Gateway (wersja zapoznawcza)
@@ -21,7 +20,7 @@ W tym artykule opisano sposób konfigurowania reguły ochrony bot w zaporze apli
 Możesz włączyć zarządzaną regułę ochrony bot dla WAF, aby blokować lub rejestrować żądania ze znanych złośliwych adresów IP. Adresy IP pochodzą ze źródła analizy zagrożeń firmy Microsoft. Intelligent Security Graph zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.
 
 > [!NOTE]
-> Zestaw reguł ochrony bot jest obecnie w publicznej wersji zapoznawczej i jest dostarczany z umową dotyczącą poziomu usług w wersji zapoznawczej. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać szczegółowe informacje, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure. 
+> Zestaw reguł ochrony bot jest obecnie w publicznej wersji zapoznawczej i jest dostarczany z umową dotyczącą poziomu usług w wersji zapoznawczej. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać szczegółowe informacje, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure   .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +30,7 @@ Utwórz podstawowe zasady WAF dla Application Gateway, postępując zgodnie z in
 
 1. Na stronie zasady **podstawowe** , która została wcześniej utworzona, w obszarze **Ustawienia**wybierz pozycję **reguły**.  
 
-2. Na stronie Szczegóły, w sekcji **Zarządzanie regułami** , w menu rozwijanym zaznacz pole wyboru dla reguły ochrony bot, a następnie wybierz pozycję **Zapisz**.
+2. Na stronie Szczegóły, w sekcji **Zarządzanie regułami**   , w menu rozwijanym zaznacz pole wyboru dla reguły ochrony bot, a następnie wybierz pozycję **Zapisz**.
 
 > [!div class="mx-imgBorder"]
 > ![Ochrona przed botami](../media/bot-protection/bot-protection.png)

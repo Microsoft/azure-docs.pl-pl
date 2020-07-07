@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082665"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z funkcji Hyper-V do platformy Azure
@@ -49,7 +48,7 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 **Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Należy zainstalować dostawcę Site Recovery na serwerze programu VMM, aby zorganizować replikację z Site Recovery i zarejestrować serwer w magazynie Recovery Services.
 **Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Agenta Recovery Services należy zainstalować na każdym hoście funkcji Hyper-V lub w węźle klastra.
 **Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
-**Networking** | Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci VMNETWORK są mapowane na sieci wirtualne platformy Azure. Gdy maszyny wirtualne platformy Azure są tworzone po przejściu w tryb failover, zostaną dodane do sieci platformy Azure zamapowanej do sieci maszyn wirtualnych.
+**Sieć** | Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci VMNETWORK są mapowane na sieci wirtualne platformy Azure. Gdy maszyny wirtualne platformy Azure są tworzone po przejściu w tryb failover, zostaną dodane do sieci platformy Azure zamapowanej do sieci maszyn wirtualnych.
 
 **Architektura funkcji Hyper-V do platformy Azure (z programem VMM)**
 
@@ -69,7 +68,7 @@ W poniższej tabeli i grafice przedstawiono ogólny widok składników służąc
 1. Po włączeniu ochrony dla maszyny wirtualnej funkcji Hyper-V, w witrynie Azure Portal lub środowisku lokalnym, zostanie uruchomione zadanie **Włącz ochronę**.
 2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
 3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
-4. Zadanie można monitorować na karcie **zadania** .      ![](media/hyper-v-azure-architecture/image1.png) Lista ![zadań Włącz przechodzenie do szczegółów](media/hyper-v-azure-architecture/image2.png)
+4. Zadanie można monitorować na karcie **zadania** .      ![ ](media/hyper-v-azure-architecture/image1.png) Lista ![ zadań Włącz przechodzenie do szczegółów ochrony](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Początkowa replikacja danych

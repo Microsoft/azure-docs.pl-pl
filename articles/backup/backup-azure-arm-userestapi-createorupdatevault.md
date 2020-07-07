@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74173412"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Tworzenie magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
@@ -23,7 +22,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Utwórz żądanie
 
-Aby można było utworzyć żądanie *Put* , `{subscription-id}` parametr jest wymagany. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Należy zdefiniować `{resourceGroupName}` i `{vaultName}` dla zasobów wraz z `api-version` parametrem. W tym artykule `api-version=2016-06-01`.
+Aby można było utworzyć żądanie *Put* , `{subscription-id}` parametr jest wymagany. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Należy zdefiniować `{resourceGroupName}` i `{vaultName}` dla zasobów wraz z `api-version` parametrem. W tym artykule `api-version=2016-06-01` .
 
 Wymagane są następujące nagłówki:
 
@@ -40,8 +39,8 @@ Następujące typowe definicje są używane do kompilowania treści żądania:
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   Ciąg      |  Opcjonalny element eTag       |
-|location     |  true       |Ciąg         |   Lokalizacja zasobu      |
+|Element ETag     |         |   String      |  Opcjonalny element eTag       |
+|location     |  true       |String         |   Lokalizacja zasobu      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |sku     |         |  [Magazyn](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identyfikuje unikatowy identyfikator systemowy dla poszczególnych zasobów platformy Azure     |
 |tags     |         | Obiekt        |     Tagi zasobów    |

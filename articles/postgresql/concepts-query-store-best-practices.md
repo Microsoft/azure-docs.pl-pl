@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70764231"
 ---
 # <a name="best-practices-for-query-store"></a>Najlepsze rozwiązania dotyczące magazynu zapytań
@@ -24,8 +23,8 @@ Pozwól, aby Magazyn zapytań przechwytł dane.
 
 |**pg_qs. query_capture_mode** | **Scenariusz**|
 |---|---|
-|_Wszystkie_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
-|_Do góry_  |Należy skoncentrować się na najważniejszych zapytaniach — tych, które są wystawiane przez klientów.
+|_Wszystko_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
+|_Pierwsze_  |Należy skoncentrować się na najważniejszych zapytaniach — tych, które są wystawiane przez klientów.
 |_Brak_ |Przechwycono już zestaw zapytań i przedział czasu, które chcesz zbadać, i chcesz wyeliminować rozpraszanie, które mogą zostać wprowadzone przez inne zapytania. _Żadna nie_ jest odpowiednia do testowania i oznaczania na kanapie. _Nie_ należy stosować z zachowaniem ostrożności, ponieważ możesz pominąć szansę śledzenia i optymalizacji ważnych nowych zapytań. Nie można odzyskać danych w oknach, które przeszły czas. |
 
 Magazyn zapytań zawiera również magazyn do statystyk oczekiwania. Istnieje dodatkowe zapytanie w trybie przechwytywania, które zarządza statystyką oczekiwania: **pgms_wait_sampling. query_capture_mode** można ustawić na _none_ lub _All_. 

@@ -9,17 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113872"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Jak odwoływać się do adnotacji w usłudze Azure Wyszukiwanie poznawcze zestawu umiejętności
 
 W tym artykule dowiesz się, jak odwoływać się do adnotacji w definicjach umiejętności, używając przykładów do zilustrowania różnych scenariuszy. Zawartość dokumentu jest przepływa przez zestaw umiejętności, ale jest wzbogacana z adnotacjami. Adnotacje mogą być używane jako dane wejściowe do dalszej wzbogacenia lub zamapowane do pola danych wyjściowych w indeksie. 
  
-Przykłady w tym artykule są oparte na polu *zawartości* wygenerowanej automatycznie przez [indeksatory obiektów blob platformy Azure](search-howto-indexing-azure-blob-storage.md) jako część fazy tworzenia dokumentu. W przypadku odwoływania się do dokumentów z kontenera obiektów BLOB Użyj formatu, `"/document/content"`takiego jak, gdzie pole *Content* jest częścią *dokumentu*. 
+Przykłady w tym artykule są oparte na polu *zawartości* wygenerowanej automatycznie przez [indeksatory obiektów blob platformy Azure](search-howto-indexing-azure-blob-storage.md) jako część fazy tworzenia dokumentu. W przypadku odwoływania się do dokumentów z kontenera obiektów BLOB Użyj formatu, takiego jak `"/document/content"` , gdzie pole *Content* jest częścią *dokumentu*. 
 
 ## <a name="background-concepts"></a>Koncepcje w tle
 
@@ -35,7 +34,7 @@ Przed przejrzeniem składni należy ponownie odwiedzić kilka ważnych koncepcji
 
 Załóżmy, że w usłudze Azure Blob Storage istnieje wiele plików zawierających odwołania do nazw osób, które mają zostać wyodrębnione przy użyciu funkcji rozpoznawania jednostek. W poniższej definicji umiejętności `"/document/content"` jest tekstową reprezentacją całego dokumentu, a "osoby" to wyodrębnianie pełnych nazw dla jednostek zidentyfikowanych jako osoby.
 
-Ze względu na to `"/document"`, że domyślny kontekst to, lista osób może teraz `"/document/people"`być przywoływana jako. W tym konkretnym `"/document/people"` przypadku jest adnotacją, która została teraz zamapowana na pole w indeksie lub użyte w innej umiejętności w tym samym zestawu umiejętności.
+Ze względu na to, że domyślny kontekst to `"/document"` , lista osób może teraz być przywoływana jako `"/document/people"` . W tym konkretnym przypadku `"/document/people"` jest adnotacją, która została teraz zamapowana na pole w indeksie lub użyte w innej umiejętności w tym samym zestawu umiejętności.
 
 ```json
   {
@@ -63,7 +62,7 @@ Ze względu na to `"/document"`, że domyślny kontekst to, lista osób może te
 
 Ten przykład kompiluje na poprzednim, pokazujący, jak wywołać krok wzbogacania wielokrotnie w tym samym dokumencie. Założono, że poprzedni przykład wygenerował tablicę ciągów z 10 nazwami osób z jednego dokumentu. Rozsądny następny krok może stanowić drugie wzbogacanie, które wyodrębnia nazwisko z pełnej nazwy. Ponieważ istnieją 10 nazw, ten krok ma zostać wywołany 10 razy w tym dokumencie raz dla każdej osoby. 
 
-Aby wywoływać właściwą liczbę iteracji, ustaw dla kontekstu jako `"/document/people/*"`, gdzie gwiazdka (`"*"`) reprezentuje wszystkie węzły w wzbogaconym dokumencie jako elementy podrzędne. `"/document/people"` Chociaż ta umiejętność jest definiowana tylko raz w tablicy umiejętności, jest wywoływana dla każdego elementu członkowskiego w dokumencie do momentu przetworzenia wszystkich członków.
+Aby wywoływać właściwą liczbę iteracji, ustaw dla kontekstu jako `"/document/people/*"` , gdzie gwiazdka ( `"*"` ) reprezentuje wszystkie węzły w wzbogaconym dokumencie jako elementy podrzędne `"/document/people"` . Chociaż ta umiejętność jest definiowana tylko raz w tablicy umiejętności, jest wywoływana dla każdego elementu członkowskiego w dokumencie do momentu przetworzenia wszystkich członków.
 
 ```json
   {
@@ -87,13 +86,13 @@ Aby wywoływać właściwą liczbę iteracji, ustaw dla kontekstu jako `"/docume
   }
 ```
 
-Gdy adnotacje są tablicami lub kolekcjami ciągów, możesz chcieć wskazać konkretne elementy członkowskie zamiast tablicy jako całości. Powyższy przykład generuje adnotację o `"last"` nazwie w każdym węźle reprezentowanego przez kontekst. Jeśli chcesz odwołać się do tej rodziny adnotacji, możesz użyć składni `"/document/people/*/last"`. Jeśli chcesz odwołać się do konkretnej adnotacji, możesz użyć jawnego indeksu: `"/document/people/1/last`", aby odwołać się do nazwiska pierwszej osoby wskazanej w dokumencie. Zwróć uwagę, że w tej tablicy składni są "0 indeksowane".
+Gdy adnotacje są tablicami lub kolekcjami ciągów, możesz chcieć wskazać konkretne elementy członkowskie zamiast tablicy jako całości. Powyższy przykład generuje adnotację o nazwie `"last"` w każdym węźle reprezentowanego przez kontekst. Jeśli chcesz odwołać się do tej rodziny adnotacji, możesz użyć składni `"/document/people/*/last"` . Jeśli chcesz odwołać się do konkretnej adnotacji, możesz użyć jawnego indeksu: `"/document/people/1/last` ", aby odwołać się do nazwiska pierwszej osoby wskazanej w dokumencie. Zwróć uwagę, że w tej tablicy składni są "0 indeksowane".
 
 <a name="example-3"></a>
 
 ## <a name="example-3-reference-members-within-an-array"></a>Przykład 3: składowe odwołań wewnątrz tablicy
 
-Czasami trzeba zgrupować wszystkie adnotacje danego typu, aby przekazać je do określonej umiejętności. Rozważmy hipotetyczną niestandardową umiejętność, która identyfikuje najbardziej typowe nazwisko ze wszystkich ostatnich nazw wyodrębnionych w przykładzie 2. Aby podać tylko ostatnie nazwy niestandardowej umiejętności, Określ kontekst jako `"/document"` i dane wejściowe jako. `"/document/people/*/lastname"`
+Czasami trzeba zgrupować wszystkie adnotacje danego typu, aby przekazać je do określonej umiejętności. Rozważmy hipotetyczną niestandardową umiejętność, która identyfikuje najbardziej typowe nazwisko ze wszystkich ostatnich nazw wyodrębnionych w przykładzie 2. Aby podać tylko ostatnie nazwy niestandardowej umiejętności, Określ kontekst jako `"/document"` i dane wejściowe jako `"/document/people/*/lastname"` .
 
 Zauważ, że Kardynalność `"/document/people/*/lastname"` jest większa niż wartość dokumentu. Może istnieć 10 węzłów LastName, gdy istnieje tylko jeden węzeł dokumentu dla tego dokumentu. W takim przypadku system automatycznie utworzy tablicę `"/document/people/*/lastname"` zawierającą wszystkie elementy w dokumencie.
 

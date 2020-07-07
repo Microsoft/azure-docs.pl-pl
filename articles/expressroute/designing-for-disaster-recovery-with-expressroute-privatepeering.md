@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74076700"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
@@ -64,7 +63,7 @@ Możesz mieć wpływ na platformę Azure, aby preferować jeden obwód ExpressRo
 
 Poniższy diagram ilustruje wpływ na wybór ścieżki ExpressRoute przy użyciu bardziej konkretnego anonsu trasy. W zilustrowanym przykładzie zakres adresów IP firmy Contoso w środowisku lokalnym/24 jest anonsowany jako dwa/25 zakresy adresowe za pośrednictwem preferowanej ścieżki (ExpressRoute 1) i jako/24 za pośrednictwem ścieżki pośredniej (ExpressRoute 2).
 
-[![dwóch]][2]
+[![2]][2]
 
 Ponieważ/25 jest bardziej szczegółowy, w porównaniu z/24, platforma Azure wyśle ruch do 10.1.11.0/24 za pośrednictwem ExpressRoute 1 w normalnym stanie. Jeśli oba połączenia ExpressRoute 1 przechodzą w dół, Sieć wirtualna zobaczy anons trasy 10.1.11.0/24 tylko za pośrednictwem ExpressRoute 2; w związku z tym w tym stanie awarii jest używany obwód gotowości.
 
@@ -72,11 +71,11 @@ Ponieważ/25 jest bardziej szczegółowy, w porównaniu z/24, platforma Azure wy
 
 Poniższy zrzut ekranu ilustruje konfigurację wagi połączenia ExpressRoute za pośrednictwem Azure Portal.
 
-[![r.3]][3]
+[![3]][3]
 
 Na poniższym diagramie przedstawiono wpływ wybierania ścieżki ExpressRoute przy użyciu wagi połączeń. Domyślna waga połączenia to 0. W poniższym przykładzie waga połączenia dla ExpressRoute 1 jest skonfigurowana jako 100. Gdy sieć wirtualna odbiera prefiks trasy anonsowany za pośrednictwem więcej niż jednego obwodu usługi ExpressRoute, Sieć wirtualna będzie preferować połączenie o najwyższej wadze.
 
-[![czwart]][4]
+[![4]][4]
 
 Jeśli oba połączenia ExpressRoute 1 przechodzą w dół, Sieć wirtualna zobaczy anons trasy 10.1.11.0/24 tylko za pośrednictwem ExpressRoute 2; w związku z tym w tym stanie awarii jest używany obwód gotowości.
 
@@ -114,7 +113,7 @@ Scenariusz 1 przedstawiono na poniższym diagramie. Na diagramie zielone linie w
 
 Możesz zaprojektować scenariusz przy użyciu wagi połączeń, aby mieć wpływ na sieci wirtualnych w celu nawiązania połączenia z lokalną lokalizacją komunikacji równorzędnej ExpressRoute dla ruchu w sieci lokalnej. Aby ukończyć rozwiązanie, należy zapewnić symetryczny przepływ ruchu odwrotnego. Możesz użyć preferencji lokalnych w sesji iBGP między routerami BGP (na których obwody ExpressRoute kończą się po stronie lokalnej), aby preferować obwód ExpressRoute. Rozwiązanie jest zilustrowane na poniższym diagramie. 
 
-[![0,8]][8]
+[![8]][8]
 
 ### <a name="scenario-2"></a>Scenariusz 2
 
@@ -124,7 +123,7 @@ Scenariusz 2 przedstawiono na poniższym diagramie. Na diagramie zielone linie w
 
 Rozwiązanie jest zilustrowane na poniższym diagramie. Jak widać, można zaprojektować scenariusz przy użyciu bardziej określonej trasy (opcja 1) lub ścieżki (opcja 2) w celu wpływu na wybór ścieżki sieci wirtualnej. Aby mieć wpływ na wybór trasy sieci lokalnej dla ruchu związanego z platformą Azure, należy skonfigurować połączenie między lokalizacją lokalną i bardziej preferowaną. Howe Konfigurowanie linku połączenia, zgodnie z preferowaną zależnością, zależy od protokołu routingu używanego w sieci lokalnej. Możesz użyć preferencji lokalnego z iBGP lub metryką z IGP (OSPF lub IS-IS).
 
-[![dziesięć]][10]
+[![10]][10]
 
 
 ## <a name="next-steps"></a>Następne kroki

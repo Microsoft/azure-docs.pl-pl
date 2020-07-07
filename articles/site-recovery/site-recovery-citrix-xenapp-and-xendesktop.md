@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74084551"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia Citrix XenApp i XenDesktop
@@ -106,7 +105,7 @@ Po włączeniu ochrony maszyn (stan jest wyświetlany jako "chroniony" w obszarz
 We właściwościach obliczeniowych obliczeniowych i > sieciowych można określić nazwę i docelowy rozmiar maszyny wirtualnej platformy Azure.
 Zmodyfikuj nazwę, aby była zgodna z wymaganiami platformy Azure, jeśli zachodzi taka potrzeba. Możesz również wyświetlić i dodać informacje o sieci docelowej, podsieci i adresie IP, które zostaną przypisane do maszyny wirtualnej platformy Azure.
 
-Pamiętaj o następujących kwestiach:
+. Weź pod uwagę następujące kwestie:
 
 * Możesz ustawić docelowy adres IP. Jeśli nie podasz adresu, maszyna w trybie failover będzie używać protokołu DHCP. Jeśli ustawisz adres, który nie jest dostępny w trybie failover, przełączenie w tryb failover nie będzie możliwe. Ten sam docelowy adres IP może być użyty do testowania trybu failover, jeśli adres jest dostępny w testowej sieci trybu failover.
 

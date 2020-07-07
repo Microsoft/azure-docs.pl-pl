@@ -20,10 +20,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113102"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Składnia $select OData na platformie Azure Wyszukiwanie poznawcze
@@ -52,16 +51,16 @@ Dostępny jest również interaktywny diagram składni:
 
 **$SELECT** parametr znajduje się w dwóch formach:
 
-1. Pojedyncza gwiazdka`*`(), wskazująca, że wszystkie pola do pobierania powinny być zwracane.
+1. Pojedyncza gwiazdka ( `*` ), wskazująca, że wszystkie pola do pobierania powinny być zwracane.
 1. Rozdzielana przecinkami lista ścieżek pól, które identyfikują pola, które powinny być zwracane.
 
 W przypadku korzystania z drugiego formularza można określić tylko na liście pola do pobierania.
 
-Jeśli lista zawiera pole złożone bez określania jego pól podrzędnych, wszystkie możliwe do pobierania pola podrzędne zostaną uwzględnione w zestawie wyników zapytania. Załóżmy na przykład, że indeks `Address` zawiera pola `Street`, `City`i `Country` pola podrzędne, które są do pobierania. W przypadku określenia `Address` w **$SELECT**wyniki zapytania będą zawierać wszystkie trzy pola podrzędne.
+Jeśli lista zawiera pole złożone bez określania jego pól podrzędnych, wszystkie możliwe do pobierania pola podrzędne zostaną uwzględnione w zestawie wyników zapytania. Załóżmy na przykład, że indeks zawiera `Address` pola `Street` , `City` i `Country` pola podrzędne, które są do pobierania. W przypadku określenia `Address` w **$SELECT**wyniki zapytania będą zawierać wszystkie trzy pola podrzędne.
 
 ## <a name="examples"></a>Przykłady
 
-Uwzględnij `HotelId`pola `HotelName`, i `Rating` najwyższego poziomu w wynikach, a także pola `City` podrzędne `Address`:
+Uwzględnij `HotelId` `HotelName` pola, i `Rating` najwyższego poziomu w wynikach, a także `City` pola podrzędne `Address` :
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +77,7 @@ Przykładowy wynik może wyglądać następująco:
 }
 ```
 
-Uwzględnij `HotelName` `Address`pole najwyższego poziomu w wynikach, a także wszystkie pola podrzędne i `Type` i `BaseRate` podrzędne pola dla każdego obiektu w `Rooms` kolekcji:
+Uwzględnij `HotelName` pole najwyższego poziomu w wynikach, a także wszystkie pola podrzędne i `Address` `Type` i `BaseRate` podrzędne pola dla każdego obiektu w `Rooms` kolekcji:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 

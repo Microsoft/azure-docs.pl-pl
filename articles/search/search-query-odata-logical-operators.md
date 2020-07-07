@@ -20,21 +20,20 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113186"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatory logiczne OData w usłudze Azure Wyszukiwanie poznawcze `and`— `or`,,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatory logiczne OData w usłudze Azure Wyszukiwanie poznawcze —, `and` `or` ,`not`
 
-[Wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) na platformie Azure wyszukiwanie poznawcze są wyrażeniami logicznymi `true` , `false`które są szacowane do lub. Filtr złożony można napisać, pisząc szereg [prostszych filtrów](search-query-odata-comparison-operators.md) i tworząc je przy użyciu operatorów logicznych z [algebry logicznego](https://en.wikipedia.org/wiki/Boolean_algebra):
+[Wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) na platformie Azure wyszukiwanie poznawcze są wyrażeniami logicznymi, które są szacowane do `true` lub `false` . Filtr złożony można napisać, pisząc szereg [prostszych filtrów](search-query-odata-comparison-operators.md) i tworząc je przy użyciu operatorów logicznych z [algebry logicznego](https://en.wikipedia.org/wiki/Boolean_algebra):
 
-- `and`: Operator binarny, który jest obliczany w `true` przypadku, gdy oba wyrażenia podrzędne i po prawej `true`stronie są oceniane na.
-- `or`: Operator binarny, który jest obliczany w `true` przypadku, gdy jeden z jego lewy lub prawy Podwyrażenie ma `true`wartość.
-- `not`: Jednoargumentowy operator, który jest `true` obliczany w przypadku, gdy jego Podwyrażenie ma wartość, i na `false`odwrót.
+- `and`: Operator binarny, który jest obliczany w `true` przypadku, gdy oba wyrażenia podrzędne i po prawej stronie są oceniane na `true` .
+- `or`: Operator binarny, który jest obliczany w `true` przypadku, gdy jeden z jego lewy lub prawy Podwyrażenie ma wartość `true` .
+- `not`: Jednoargumentowy operator, który jest obliczany w `true` przypadku, gdy jego Podwyrażenie ma wartość `false` , i na odwrót.
 
-Te, razem z [operatorami `any` kolekcji i `all` ](search-query-odata-collection-operators.md), umożliwiają konstruowanie filtrów, które mogą wyrażać bardzo złożone kryteria wyszukiwania.
+Te, razem z [operatorami kolekcji `any` i `all` ](search-query-odata-collection-operators.md), umożliwiają konstruowanie filtrów, które mogą wyrażać bardzo złożone kryteria wyszukiwania.
 
 ## <a name="syntax"></a>Składnia
 
@@ -56,21 +55,21 @@ Dostępny jest również interaktywny diagram składni:
 > [!NOTE]
 > Zapoznaj się z informacjami o [składni wyrażenia OData dla usługi Azure wyszukiwanie poznawcze](search-query-odata-syntax-reference.md) , aby uzyskać pełną EBNF.
 
-Istnieją dwie formy wyrażeń logicznych`and`/`or`: binary (), gdzie istnieją dwa wyrażenia podrzędne i jednoargumentowy (`not`), gdzie istnieje tylko jeden. Wyrażenia podrzędne mogą być wyrażeniami logicznymi dowolnego rodzaju:
+Istnieją dwie formy wyrażeń logicznych: binary ( `and` / `or` ), gdzie istnieją dwa wyrażenia podrzędne i jednoargumentowy ( `not` ), gdzie istnieje tylko jeden. Wyrażenia podrzędne mogą być wyrażeniami logicznymi dowolnego rodzaju:
 
 - Pola lub zmienne zakresu typu`Edm.Boolean`
-- Funkcje, które zwracają wartości typu `Edm.Boolean`, takie jak `geo.intersects` lub`search.ismatch`
+- Funkcje, które zwracają wartości typu `Edm.Boolean` , takie jak `geo.intersects` lub`search.ismatch`
 - [Wyrażenia porównania](search-query-odata-comparison-operators.md), takie jak`rating gt 4`
 - [Wyrażenia kolekcji](search-query-odata-collection-operators.md), takie jak`Rooms/any(room: room/Type eq 'Deluxe Room')`
-- Literały logiczne `true` lub `false`.
-- Inne wyrażenia logiczne konstruowane przy `and`użyciu `or`,, `not`i.
+- Literały logiczne `true` lub `false` .
+- Inne wyrażenia logiczne konstruowane przy użyciu `and` , `or` , i `not` .
 
 > [!IMPORTANT]
-> Istnieją sytuacje, w których nie można używać wszystkich rodzajów wyrażeń podrzędnych z `and` / `or`, szczególnie w wyrażeniach lambda. Aby uzyskać szczegółowe informacje, zobacz [Operatory kolekcji OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-collection-operators.md#limitations) .
+> Istnieją sytuacje, w których nie można używać wszystkich rodzajów wyrażeń podrzędnych z `and` / `or` , szczególnie w wyrażeniach lambda. Aby uzyskać szczegółowe informacje, zobacz [Operatory kolekcji OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-collection-operators.md#limitations) .
 
 ### <a name="logical-operators-and-null"></a>Operatory logiczne i`null`
 
-Większość wyrażeń logicznych, takich jak Functions i porównania `null` , nie może generować wartości, a operatory logiczne nie mogą `null` być stosowane do literału bezpośrednio `x and null` (na przykład nie jest to dozwolone). Jednak pola logiczne mogą `null`być, dlatego należy wiedzieć, jak operatory `and`, `or`i `not` działają w obecności wartości null. Jest to podsumowanie w poniższej tabeli, gdzie `b` to pole typu: `Edm.Boolean`
+Większość wyrażeń logicznych, takich jak Functions i porównania, nie może generować `null` wartości, a operatory logiczne nie mogą być stosowane do `null` literału bezpośrednio (na przykład `x and null` nie jest to dozwolone). Jednak pola logiczne mogą być `null` , dlatego należy wiedzieć, jak `and` `or` operatory, i `not` działają w obecności wartości null. Jest to podsumowanie w poniższej tabeli, gdzie `b` to pole typu `Edm.Boolean` :
 
 | Wyrażenie | Wynik gdy `b` jest`null` |
 | --- | --- |
@@ -87,19 +86,19 @@ Większość wyrażeń logicznych, takich jak Functions i porównania `null` , n
 | `b or true` | `true` |
 | `b or false` | `false` |
 
-`b` Gdy pole `b eq true`logiczne jest wyświetlane przez siebie w wyrażeniu filtru, zachowuje się tak, jakby zostało zapisaniu, więc jeśli `b` jest `null`, wyrażenie daje w wyniku. `false` Podobnie, `not b` zachowuje się jak `not (b eq true)`, dlatego jest oceniane `true`. W ten sposób `null` pola zachowują się tak samo `false`jak. Jest to zgodne z zachowaniem ich w połączeniu z innymi wyrażeniami `and` przy `or`użyciu i, jak pokazano w powyższej tabeli. Pomimo tego, bezpośrednie porównanie z `false` (`b eq false`) będzie nadal oceniane. `false` Innymi słowy, `null` nie jest równe `false`, chociaż zachowuje się tak jak w wyrażeniach logicznych.
+Gdy pole logiczne `b` jest wyświetlane przez siebie w wyrażeniu filtru, zachowuje się tak, jakby zostało zapisaniu `b eq true` , więc jeśli `b` jest `null` , wyrażenie daje `false` w wyniku. Podobnie, `not b` zachowuje się jak `not (b eq true)` , dlatego jest oceniane `true` . W ten sposób `null` pola zachowują się tak samo jak `false` . Jest to zgodne z zachowaniem ich w połączeniu z innymi wyrażeniami przy użyciu `and` i `or` , jak pokazano w powyższej tabeli. Pomimo tego, bezpośrednie porównanie z `false` ( `b eq false` ) będzie nadal oceniane `false` . Innymi słowy, `null` nie jest równe, chociaż `false` zachowuje się tak jak w wyrażeniach logicznych.
 
 ## <a name="examples"></a>Przykłady
 
-Dopasowuje dokumenty, `rating` gdy pole jest z zakresu od 3 do 5 włącznie:
+Dopasowuje dokumenty `rating` , gdy pole jest z zakresu od 3 do 5 włącznie:
 
     rating ge 3 and rating le 5
 
-Dopasowuje dokumenty, w których wszystkie `ratings` elementy pola są mniejsze niż 3 lub większe niż 5:
+Dopasowuje dokumenty, w których wszystkie elementy `ratings` pola są mniejsze niż 3 lub większe niż 5:
 
     ratings/all(r: r lt 3 or r gt 5)
 
-Dopasowuje dokumenty, `location` w których pole znajduje się w danym wielokąta, a dokument nie zawiera terminu "Public".
+Dopasowuje dokumenty `location` , w których pole znajduje się w danym wielokąta, a dokument nie zawiera terminu "Public".
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
 

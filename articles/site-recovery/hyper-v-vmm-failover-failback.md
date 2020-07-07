@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74082600"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Przełączenie w tryb failover i powrót po awarii maszyn wirtualnych funkcji Hyper-V replikowanych do pomocniczej lokacji lokalnej
@@ -52,7 +51,7 @@ Na maszynach wirtualnych funkcji Hyper-V można uruchamiać regularne lub planow
   W tej procedurze opisano sposób uruchamiania regularnego trybu failover.
 
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy** kliknij maszynę wirtualną > **tryb failover**.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy** kliknij maszynę wirtualną > **tryb failover**.
 1. Wybierz opcję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover** , jeśli chcesz, aby Site Recovery próbuje wykonać zamknięcie źródłowych maszyn wirtualnych przed wyzwoleniem trybu failover. Site Recovery również spróbuje zsynchronizować dane lokalne, które nie zostały jeszcze wysłane do lokacji dodatkowej przed wyzwoleniem trybu failover. Należy pamiętać, że tryb failover kontynuuje działanie nawet w przypadku niepowodzenia wyłączenia. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 2. Teraz będzie można zobaczyć maszynę wirtualną w pomocniczej chmurze programu VMM.
 3. Po sprawdzeniu maszyny wirtualnej **Zatwierdź** tryb failover. To działanie usuwa wszystkie dostępne punkty odzyskiwania.

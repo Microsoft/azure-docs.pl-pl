@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953178"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Korzystanie z Eksploratora chmury dla programu Visual Studio dla usługi Azure IoT Hub zarządzanie urządzeniami
@@ -59,7 +58,7 @@ Składnik Cloud Explorer Instalator programu Visual Studio dla programu Visual S
 
 ## <a name="sign-in-to-access-your-hub"></a>Zaloguj się, aby uzyskać dostęp do centrum
 
-1. W programie Visual Studio wybierz pozycję **Wyświetl** > program**Cloud Explorer** , aby otworzyć Eksploratora chmury.
+1. W programie Visual Studio wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby otworzyć Eksploratora chmury.
 
 1. Wybierz ikonę Zarządzanie kontem, aby wyświetlić subskrypcje.
 
@@ -89,9 +88,9 @@ Aby edytować sznurki urządzenia, wykonaj następujące czynności:
 
 1. Kliknij prawym przyciskiem myszy urządzenie, a następnie wybierz pozycję **Edytuj sznurek urządzeń**.
 
-   Plik **usługi Azure-IoT-Device-splot. JSON** zostanie otwarty z zawartością sznurka urządzenia.
+   Zostanie otwarty **azure-iot-device-twin.js** pliku z zawartością sznurka urządzenia.
 
-1. Edytuj **Tagi** lub **właściwości. odpowiednie** pola w pliku **Azure-IoT-Device-splot. JSON** .
+1. Wprowadź edycję **tagów** lub **właściwości. żądane** pola do **azure-iot-device-twin.jsna** pliku.
 
 1. Naciśnij **kombinację klawiszy Ctrl + S** , aby zaktualizować sznurki urządzenia.
 

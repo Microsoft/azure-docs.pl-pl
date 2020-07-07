@@ -4,10 +4,9 @@ description: Dowiedz się więcej o kontrolkach zabezpieczeń używanych w usłu
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 0e3f5ce942ea8aef9bf5eb98883ae1e72a7ab239
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172136"
 ---
 # <a name="security-controls-for-azure-backup"></a>Kontrolki zabezpieczeń dla Azure Backup
@@ -37,7 +36,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Backup.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi| | Dokumentacja
 |---|---|--|
-| Uwierzytelnianie| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |  |
+| Authentication| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |  |
 | Autoryzacja| Tak | Są używane wbudowane role RBAC klienta. Aby uzyskać więcej informacji, zobacz [używanie Access Control opartej na rolach w celu zarządzania Azure Backup punktów odzyskiwania](/azure/backup/backup-rbac-rs-vault). |  |
 
 ## <a name="data-protection"></a>Ochrona danych

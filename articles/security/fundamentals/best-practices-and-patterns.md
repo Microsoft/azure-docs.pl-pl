@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889853"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure
@@ -31,13 +30,13 @@ Najlepsze rozwiązania są przeznaczone dla informatyków. Może to obejmować p
 * [Najlepsze rozwiązania dotyczące zabezpieczeń granicznych platformy Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń bazy danych na platformie Azure](database-best-practices.md)
 * [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](data-encryption-best-practices.md)
-* [Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu](identity-management-best-practices.md)
+* [Najlepsze rozwiązania dotyczące zabezpieczeń kontroli dostępu i zarządzania tożsamościami na platformie Azure](identity-management-best-practices.md)
 * [Najlepsze rozwiązania z zakresu zabezpieczeń sieci platformy Azure](network-best-practices.md)
 * [Najlepsze rozwiązania dotyczące bezpieczeństwa działania na platformie Azure](operational-best-practices.md)
 * [Najlepsze rozwiązania dotyczące usługi Azure PaaS](paas-deployments.md)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric](service-fabric-best-practices.md)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń maszyny wirtualnej platformy Azure](iaas.md)
-* [Implementowanie bezpiecznej architektury sieci hybrydowej na platformie Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
+* [Implementowanie bezpiecznej hybrydowej architektury sieci na platformie Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń Internetu rzeczy](iot-best-practices.md)
 * [Zabezpieczanie baz danych PaaS na platformie Azure](paas-applications-using-sql.md)
 * [Zabezpieczanie internetowych i mobilnych aplikacji PaaS przy użyciu usługi Azure App Service](paas-applications-using-app-services.md)

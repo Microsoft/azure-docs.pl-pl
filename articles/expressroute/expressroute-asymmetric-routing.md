@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74072143"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asymetryczny z wieloma ścieżkami sieciowymi

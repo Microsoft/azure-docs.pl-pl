@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73749641"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Uruchamianie maszyny wirtualnej jest zablokowane na "Trwa przygotowywanie systemu Windows. Nie wyłączaj komputera "na platformie Azure
@@ -61,7 +60,7 @@ Jeśli nie możesz znaleźć pliku zrzutu, przejdź do następnego kroku, aby w�
 Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący skrypt.
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator).
-2. Uruchom następujący skrypt:
+2. Uruchom poniższy skrypt:
 
     W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F.  Zastąp ją odpowiednią wartością na maszynie wirtualnej.
 

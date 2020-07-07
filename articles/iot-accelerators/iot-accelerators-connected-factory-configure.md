@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820130"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Skonfiguruj Akcelerator rozwiązania połączonej fabryki
@@ -29,7 +28,7 @@ Każda fabryka firmy Contoso ma linie produkcyjne, które składają się z trze
 * Stacja testowa
 * Stacja pakowania
 
-Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Obejmuje to następujące działania:
+Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Obejmuje on:
 
 * Bieżący stan operacyjny, na przykład bieżące zużycie mocy.
 * Informacje o produkcji, takie jak liczba produkowanych produktów.
@@ -61,11 +60,11 @@ Każdy węzeł w topologii ma wspólny zestaw właściwości, które definiują:
 
 ## <a name="topology-configuration-file"></a>Plik konfiguracji topologii
 
-Aby skonfigurować właściwości wymienione w poprzedniej sekcji, rozwiązanie połączonej fabryki używa pliku konfiguracji o nazwie [ContosoTopologyDescription. JSON](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Aby skonfigurować właściwości wymienione w poprzedniej sekcji, rozwiązanie połączonej fabryki używa pliku konfiguracji o nazwie [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 Ten plik można znaleźć w kodzie źródłowym rozwiązania w `WebApp/Contoso/Topology` folderze.
 
-Poniższy fragment kodu przedstawia konspekt pliku `ContosoTopologyDescription.json` konfiguracji:
+Poniższy fragment kodu przedstawia konspekt `ContosoTopologyDescription.json` pliku konfiguracji:
 
 ```json
 {
@@ -85,7 +84,7 @@ Poniższy fragment kodu przedstawia konspekt pliku `ContosoTopologyDescription.j
 }
 ```
 
-Typowe właściwości `<global_configuration>`, `<factory_configuration>` `<production_line_configuration>`, i `<station_configuration>` są:
+Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<production_line_configuration>` i `<station_configuration>` są:
 
 * **Nazwa** (ciąg typu)
 
@@ -99,11 +98,11 @@ Typowe właściwości `<global_configuration>`, `<factory_configuration>` `<pro
 
   Ścieżka do obrazu w rozwiązaniu WebApp, aby pokazać, kiedy informacje o węźle topologii są wyświetlane na pulpicie nawigacyjnym.
 
-* **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (typ `<performance_definition>`)
+* **OeeOverall**, **OeePerformance**, **OeeAvailability**, **OeeQuality**, **Kpi1**, **Kpi2** (typ `<performance_definition>` )
 
   Te właściwości definiują minimalne, docelowe i maksymalne wartości na rysunku operacyjnym używanym do generowania alertów. Te właściwości definiują także akcje do wykonania w przypadku wykrycia alertu.
 
-Elementy `<factory_configuration>` i `<production_line_configuration>` mają właściwość:
+`<factory_configuration>`Elementy i `<production_line_configuration>` mają właściwość:
 
 * **Identyfikator GUID** (ciąg typu)
 
@@ -111,7 +110,7 @@ Elementy `<factory_configuration>` i `<production_line_configuration>` mają wł
 
 `<factory_configuration>`ma właściwość:
 
-* **Lokalizacja** (typ `<location_definition>`)
+* **Lokalizacja** (typ `<location_definition>` )
 
   Określa miejsce, w którym znajduje się fabryka.
 
@@ -122,7 +121,7 @@ Elementy `<factory_configuration>` i `<production_line_configuration>` mają wł
   Ta właściwość musi być ustawiona na identyfikator URI aplikacji OPC UA serwera OPC UA.
   Ponieważ musi być globalnie unikatowa przez specyfikację OPC UA, ta właściwość jest używana do identyfikowania węzła topologii stacji.
 
-* **OpcNodes**, które są tablicą węzłów OPC UA (typ `<opc_node_description>`)
+* **OpcNodes**, które są tablicą węzłów OPC UA (typ `<opc_node_description>` )
 
 `<location_definition>`ma właściwości:
 
@@ -156,11 +155,11 @@ Elementy `<factory_configuration>` i `<production_line_configuration>` mają wł
 
   Górny próg, do którego może dotrzeć wartość. Jeśli bieżąca wartość przekracza ten próg, generowany jest alert.
 
-* **MinimumAlertActions** (typ `<alert_action>`)
+* **MinimumAlertActions** (typ `<alert_action>` )
 
   Definiuje zestaw akcji, które można wykonać jako odpowiedź na minimalny alert.
 
-* **MaximumAlertActions** (typ `<alert_action>`)
+* **MaximumAlertActions** (typ `<alert_action>` )
 
   Definiuje zestaw akcji, które można wykonać jako odpowiedź na maksymalny alert.
 
@@ -246,11 +245,11 @@ Elementy `<factory_configuration>` i `<production_line_configuration>` mają wł
 
   Jeśli bieżąca wartość zwiększa się powyżej tej wartości, generowany jest maksymalny alert.
 
-* **MinimumAlertActions** (typ `<alert_action>`)
+* **MinimumAlertActions** (typ `<alert_action>` )
 
   Definiuje zestaw akcji, które można wykonać jako odpowiedź na minimalny alert.
 
-* **MaximumAlertActions** (typ `<alert_action>`)
+* **MaximumAlertActions** (typ `<alert_action>` )
 
   Definiuje zestaw akcji, które można wykonać jako odpowiedź na maksymalny alert.
 
@@ -262,13 +261,13 @@ Wszystkie właściwości używane w pliku konfiguracji można grupować w różn
 
 ### <a name="visual-appearance"></a>Wygląd wizualizacji
 
-Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady:
+Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady obejmują:
 
 * Nazwa
 * Opis
 * Obraz
 * Lokalizacja
-* Jednostki
+* Lekcji
 * Widoczne
 
 ### <a name="internal-topology-tree-addressing"></a>Adresowanie drzewa topologii wewnętrznej
@@ -282,7 +281,7 @@ Wartości OEE/KPI dla symulacji połączonej fabryki są sparametryzowane przez:
 * Wartości węzła OPC UA do uwzględnienia w obliczeniu.
 * Sposób obliczania rysunku z wartości telemetrycznych.
 
-Połączona fabryka używa formuł OEE jako opublikowanych przez [http://www.oeefoundation.org](http://www.oeefoundation.org).
+Połączona fabryka używa formuł OEE jako opublikowanych przez [http://www.oeefoundation.org](http://www.oeefoundation.org) .
 
 Obiekty węzłów OPC UA na stacjach umożliwiają znakowanie użycia w obliczeniach OEE/KPI. Właściwość **istotność** wskazuje, dla którego rysunku OEE/KPI należy użyć wartości węzła OPC UA. Właściwość **opcode** definiuje, w jaki sposób wartość jest uwzględniona w obliczeniach.
 
@@ -313,7 +312,7 @@ Zobacz, [co to jest Wydawca OPC](overview-opc-publisher.md) , aby uzyskać więc
 
 Konfiguracja w `ContosoTopologyDescription.json` pliku kontroluje sposób obliczania wartości OEE/KPI. Poniższy przykład pokazuje, jak właściwości w tym pliku kontrolują obliczenia KPI1.
 
-W połączonej fabryce KPI1 służy do mierzenia liczby pomyślnie wyprodukowanych produktów w ciągu ostatniej godziny. Każda stacja (OPC UA Server) w symulacji połączonej fabryki udostępnia węzeł OPC UA (`NodeId: "ns=2;i=385"`), który udostępnia dane telemetryczne do obliczenia tego wskaźnika KPI.
+W połączonej fabryce KPI1 służy do mierzenia liczby pomyślnie wyprodukowanych produktów w ciągu ostatniej godziny. Każda stacja (OPC UA Server) w symulacji połączonej fabryki udostępnia węzeł OPC UA ( `NodeId: "ns=2;i=385"` ), który udostępnia dane telemetryczne do obliczenia tego wskaźnika KPI.
 
 Konfiguracja tego węzła OPC UA wygląda podobnie do następującego fragmentu kodu:
 

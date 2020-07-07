@@ -10,10 +10,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73682203"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Wybieranie odpowiedniego rozmiaru maszyny wirtualnej dla klastra usługi Azure HDInsight
@@ -55,10 +54,10 @@ W poniższej tabeli opisano typy klastrów i typy węzłów, które można tworz
 
 | Typ klastra | Wersja | Węzeł procesu roboczego | Węzeł główny | Węzeł dozorcy |
 |---|---|---|---|---|
-| platforma Spark | Wszystkie | F4 i nowsze | nie | nie |
-| Hadoop | Wszystkie | F4 i nowsze | nie | nie |
-| Kafka | Wszystkie | F4 i nowsze | nie | nie |
-| HBase | Wszystkie | F4 i nowsze | nie | nie |
+| platforma Spark | Wszystko | F4 i nowsze | nie | nie |
+| Hadoop | Wszystko | F4 i nowsze | nie | nie |
+| Kafka | Wszystko | F4 i nowsze | nie | nie |
+| HBase | Wszystko | F4 i nowsze | nie | nie |
 | LLAP | wyłączone | nie | nie | nie |
 | Storm | wyłączone | nie | nie | nie |
 | Usługa ML | TYLKO HDI 3,6 | F4 i nowsze | nie | nie |

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73827411"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Omówienie akceleratora rozwiązania do konserwacji predykcyjnej
@@ -73,11 +72,11 @@ Usługa IoT Hub udostępnia potwierdzenia poleceń wysyłanych do urządzeń.
 ## <a name="machine-learning"></a>Usługa Machine Learning
 Składnik Machine Learning wykorzystuje model opracowany na podstawie danych zebranych z rzeczywistych silników samolotów. Możesz przejść do obszaru roboczego Machine Learning z kafelka rozwiązania na stronie [azureiotsolutions.com][lnk-azureiotsolutions] . Kafelek jest dostępny, gdy rozwiązanie jest w stanie **Gotowe**.
 
-Model Machine Learning jest dostępny jako szablon, który pokazuje, jak korzystać z danych telemetrycznych zebranych za pomocą usługi IoT Solution Accelerator. Firma Microsoft utworzyła [model regresji][lnk_regression_model] silnika samolotu na podstawie publicznie dostępnych danych<sup>\[1\]</sup>i wskazówki krok po kroku dotyczące korzystania z modelu.
+Model Machine Learning jest dostępny jako szablon, który pokazuje, jak korzystać z danych telemetrycznych zebranych za pomocą usługi IoT Solution Accelerator. Firma Microsoft utworzyła [model regresji][lnk_regression_model] silnika samolotu na podstawie publicznie dostępnych danych<sup> \[ 1 \] </sup>i wskazówki krok po kroku dotyczące korzystania z modelu.
 
 Akcelerator rozwiązania Azure IoT do konserwacji predykcyjnej używa modelu regresji utworzonego na podstawie tego szablonu. Model jest wdrażany w ramach subskrypcji platformy Azure i udostępniany za pomocą automatycznie wygenerowanego interfejsu API. Rozwiązanie obejmuje podzestaw danych testowych dla silników 4 (z 100 łącznie) i 4 (z 21 całkowitych) strumieni danych czujnika. Te dane wystarczają do uzyskania dokładnego wyniku za pomocą nauczonego modelu.
 
-*\[1\] a. Saxena i K. Goebel (2008). "Zestaw danych symulacji obniżenia wydajności aparatu TurboFan", NASA Ames dotyczących dane repozytorium (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field pole, CA*
+*\[1 \] a. Saxena i K. Goebel (2008). "Zestaw danych symulacji obniżenia wydajności aparatu TurboFan", NASA Ames dotyczących dane repozytorium ( https://c3.nasa.gov/dashlink/resources/139/) , NASA Ames Research Center, Moffett Field pole, CA*
 
 ## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu się z kluczowymi składnikami akceleratora rozwiązania do konserwacji predykcyjnej możesz je dostosować.

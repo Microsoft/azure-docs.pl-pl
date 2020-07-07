@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 08/30/2019
 ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70913958"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Przetestuj kod Azure Data Lake Analytics
@@ -45,17 +44,17 @@ Po wywołaniu `Initialize()` interfejsu w zestawie SDK testów U-SQL w katalogu 
 
 ### <a name="manage-the-database-environment-for-testing"></a>Zarządzanie środowiskiem bazy danych na potrzeby testowania
 
-Jeśli skrypty U-SQL używają lub zapytania z obiektami bazy danych U-SQL, musisz zainicjować środowisko bazy danych przed uruchomieniem przypadków testowych U-SQL. Takie podejście może być konieczne podczas wywoływania procedur składowanych. `Initialize()` Interfejs zestawu SDK testów u-SQL ułatwia wdrażanie wszystkich baz danych, do których odwołuje się projekt u-SQL, do tymczasowego folderu głównego danych lokalnych w katalogu roboczym projektu testowego.
+Jeśli skrypty U-SQL używają lub zapytania z obiektami bazy danych U-SQL, musisz zainicjować środowisko bazy danych przed uruchomieniem przypadków testowych U-SQL. Takie podejście może być konieczne podczas wywoływania procedur składowanych. `Initialize()`Interfejs zestawu SDK testów u-SQL ułatwia wdrażanie wszystkich baz danych, do których odwołuje się projekt u-SQL, do tymczasowego folderu głównego danych lokalnych w katalogu roboczym projektu testowego.
 
 Aby uzyskać więcej informacji o sposobach zarządzania odwołaniami projektu bazy danych U-SQL dla projektu U-SQL, zobacz [odwołanie do projektu bazy danych u-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 
 ### <a name="verify-test-results"></a>Weryfikuj wyniki testu
 
-`Run()` Interfejs zwraca wynik wykonania zadania. *0* oznacza sukces, a *1* oznacza błąd. Możesz również użyć funkcji potwierdzenia języka C# do zweryfikowania danych wyjściowych.
+`Run()`Interfejs zwraca wynik wykonania zadania. *0* oznacza sukces, a *1* oznacza błąd. Możesz również użyć funkcji potwierdzenia języka C# do zweryfikowania danych wyjściowych.
 
 ### <a name="run-test-cases-in-visual-studio"></a>Uruchamianie przypadków testowych w programie Visual Studio
 
-Projekt testu skryptu U-SQL jest oparty na strukturze testów jednostkowych języka C#. Po skompilowaniu projektu wybierz pozycję **Testuj** > **Eksplorator testów****systemu Windows** > . Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
+Projekt testu skryptu U-SQL jest oparty na strukturze testów jednostkowych języka C#. Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów**systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
 
 ## <a name="test-c-udos"></a>Testowanie udo C#
 
@@ -108,7 +107,7 @@ Po wywołaniu funkcji UDO można sprawdzić wyniki za pomocą weryfikacji warto�
 
 ### <a name="run-test-cases-in-visual-studio"></a>Uruchamianie przypadków testowych w programie Visual Studio
 
-Po skompilowaniu projektu wybierz pozycję **Testuj** > **Eksplorator testów****systemu Windows** > . Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
+Po skompilowaniu projektu wybierz pozycję **Testuj**  >  **Windows**  >  **Eksplorator testów**systemu Windows. Można uruchamiać przypadki testowe z **Eksploratora testów**. Alternatywnie kliknij prawym przyciskiem myszy plik CS w teście jednostkowym i wybierz polecenie **Uruchom testy**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Uruchom przypadki testowe w Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
@@ -116,7 +115,7 @@ Zarówno **projekty testowe skryptów U-SQL** , jak i **projekty testowe udo ję
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>Uruchom przypadki testowe U-SQL w Azure Pipelines
 
-W przypadku testu U-SQL upewnij się, że załadowano `CPPSDK` na komputerze kompilacji, a następnie Przekaż `CPPSDK` ścieżkę do `USqlScriptTestRunner(cppSdkFolderFullPath: @"")`programu.
+W przypadku testu U-SQL upewnij się, że załadowano `CPPSDK` na komputerze kompilacji, a następnie Przekaż `CPPSDK` ścieżkę do programu `USqlScriptTestRunner(cppSdkFolderFullPath: @"")` .
 
 #### <a name="what-is-cppsdk"></a>Co to jest CPPSDK?
 

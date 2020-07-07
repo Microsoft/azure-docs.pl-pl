@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74079926"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Kontrolki zabezpieczeń dla usługi Azure ExpressRoute
@@ -41,7 +40,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak | Konto usługi dla bramy dla firmy Microsoft (GWM) (kontroler); Dostęp just in Time (JIT) do deweloperów i operacji. |
+| Authentication| Tak | Konto usługi dla bramy dla firmy Microsoft (GWM) (kontroler); Dostęp just in Time (JIT) do deweloperów i operacji. |
 | Autoryzacja|  Tak |Konto usługi dla bramy dla firmy Microsoft (GWM) (kontroler); Dostęp just in Time (JIT) do deweloperów i operacji. |
 
 ## <a name="data-protection"></a>Ochrona danych

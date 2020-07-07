@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73663174"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Wyniki testu dla replikacji funkcji Hyper-V do lokacji dodatkowej
@@ -175,10 +174,10 @@ Tabela zawiera podsumowanie metryk wydajności i liczników, które były mierzo
 | Procesor CPU |\Processor(_Total)\% Processor Time |
 | Dostępna pamięć |\Memory\Available (MB) |
 | Liczba operacji we/wy na sekundę |\PhysicalDisk (_Total) \Bajty transfery/s |
-| Operacje odczytu maszyny wirtualnej (IOPS)/s |\Hyper-V wirtualne urządzenie magazynujące (\<VHD>) \Read operacje/s |
-| Operacje zapisu maszyny wirtualnej (IOPS)/s |\Hyper-V wirtualne urządzenie magazynujące (\<VHD>) \Write operacje/S |
-| Przepływność odczytu maszyny wirtualnej |\Hyper-V wirtualne urządzenie magazynujące (\<VHD>) \Read bajty/s |
-| Przepływność zapisu maszyny wirtualnej |\Hyper-V wirtualne urządzenie magazynujące (\<VHD>) \Write bajty/s |
+| Operacje odczytu maszyny wirtualnej (IOPS)/s |\Hyper-V wirtualne urządzenie magazynujące ( \<VHD> ) \Read operacje/s |
+| Operacje zapisu maszyny wirtualnej (IOPS)/s |\Hyper-V wirtualne urządzenie magazynujące ( \<VHD> ) \Write operacje/S |
+| Przepływność odczytu maszyny wirtualnej |\Hyper-V wirtualne urządzenie magazynujące ( \<VHD> ) \Read bajty/s |
+| Przepływność zapisu maszyny wirtualnej |\Hyper-V wirtualne urządzenie magazynujące ( \<VHD> ) \Write bajty/s |
 
 ## <a name="next-steps"></a>Następne kroki
 

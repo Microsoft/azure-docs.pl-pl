@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73936041"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planowanie pojemności na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V 
@@ -47,7 +46,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
 2. W polu listy **Wybierz typ planisty** wybierz pozycję **Quick Planner**.
 
-   ![Wprowadzenie](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Rozpoczęcie pracy](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. W arkuszu **planista wydajności** wprowadź wymagane informacje. Wypełnij wszystkie pola wyróżnione czerwonymi na poniższym zrzucie ekranu:
 
@@ -101,7 +100,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
    f. W obszarze **wykorzystanie pojemności dysku (%)** Określ średnie użycie.
 
-   g. W **dziennym współczynniku zmian danych (%)** Określ dzienny współczynnik zmian danych serwera źródłowego.
+   przykład W **dziennym współczynniku zmian danych (%)** Określ dzienny współczynnik zmian danych serwera źródłowego.
 
    h. W obszarze **Mapowanie rozmiaru maszyny wirtualnej platformy Azure**wprowadź rozmiar maszyny wirtualnej platformy Azure, która ma zostać zmapowana. Jeśli nie chcesz tego robić ręcznie, wybierz pozycję **obliczenia IaaS maszyny wirtualne**. Jeśli wprowadzasz ustawienia ręczne, a następnie wybierzesz pozycję **COMPUTE IaaS maszyny wirtualne**, ustawienie ręczne może zostać nadpisane. Proces obliczeń automatycznie identyfikuje najlepsze dopasowanie rozmiaru maszyny wirtualnej platformy Azure.
 

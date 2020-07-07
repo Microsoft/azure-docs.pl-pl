@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73953281"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Uruchamianie Planista wdrażania na potrzeby odzyskiwania po awarii oprogramowania VMware
@@ -95,7 +94,7 @@ Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu 
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia Planista wdrażania usługi Azure Site Recovery, jeden z plikiem vmlist1. txt i inne z plikiem vmlist2. txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu.
+Aby przeprowadzić profilowanie, powiedzmy, 1500 maszyn wirtualnych przy ustawieniach domyślnych, utwórz dwa pliki VMList.txt. Jeden zawierający listę 1000 maszyn wirtualnych i drugi zawierający listę 500 maszyn wirtualnych. Uruchom dwa wystąpienia Planista wdrażania usługi Azure Site Recovery, jeden z VMList1.txt i inne z VMList2.txt. Do przechowywania danych profilowanych maszyn wirtualnych z obu plików VMList możesz używać tej samej ścieżki katalogu.
 
 Zauważyliśmy, że w zależności od konfiguracji sprzętu, a szczególnie rozmiaru pamięci RAM serwera, z którego jest uruchamiane narzędzie do generowania raportu, operacja może zakończyć się niepowodzeniem z powodu zbyt małej ilości pamięci. Jeśli masz dobry sprzęt, możesz zwiększyć wartość klucza MaxVMsSupported.  
 

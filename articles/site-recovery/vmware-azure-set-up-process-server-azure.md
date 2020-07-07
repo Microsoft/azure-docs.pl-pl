@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083948"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurowanie serwera przetwarzania na platformie Azure na potrzeby powrotu po awarii
@@ -28,7 +27,7 @@ Dowiedz się więcej o procesie ponownego [zabezpieczania](vmware-azure-reprotec
 
 ## <a name="deploy-a-process-server-in-azure"></a>Wdrażanie serwera przetwarzania na platformie Azure
 
-1. W obszarze magazyn > **Site Recovery infrastruktura**> **Zarządzanie** > **serwerami konfiguracji**wybierz serwer konfiguracji.
+1. W obszarze magazyn > **Site Recovery infrastruktura** >  **Zarządzanie**  >  **serwerami konfiguracji**wybierz serwer konfiguracji.
 2. Na stronie serwer kliknij pozycję **+ serwer przetwarzania**
 3. Na stronie **Dodawanie serwera przetwarzania** i wybierz opcję wdrożenia serwera przetwarzania na platformie Azure.
 4. Określ ustawienia platformy Azure, w tym subskrypcję używaną w trybie failover, grupę zasobów, region platformy Azure używany do pracy w trybie failover oraz sieć wirtualną, w której znajdują się maszyny wirtualne platformy Azure. Jeśli używasz wielu sieci platformy Azure, musisz mieć serwer przetwarzania w każdym z nich.

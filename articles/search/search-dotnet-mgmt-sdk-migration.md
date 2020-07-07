@@ -10,10 +10,9 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73847535"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uaktualnianie wersji Azure Search .NET Management SDK
@@ -33,16 +32,16 @@ Wersja 2 zestawu SDK zarządzania programu Azure Search .NET jest przeznaczona d
 
 * `Services.CreateOrUpdate`i jego wersje asynchroniczne teraz automatycznie sonduje Inicjowanie obsługi `SearchService` i nie zwracają do momentu ukończenia aprowizacji usługi. Dzięki temu możesz samodzielnie napisać ten kod sondowania.
 * Jeśli nadal chcesz przeprowadzić sondowanie aprowizacji usługi ręcznie, możesz użyć nowej `Services.BeginCreateOrUpdate` metody lub jednej z jej wersji asynchronicznych.
-* Do zestawu `Services.Update` SDK dodano nowe metody i jego wersje asynchroniczne. Metody te używają poprawki HTTP do obsługi przyrostowej aktualizacji usługi. Można na przykład skalować usługę przez przekazanie `SearchService` wystąpienia do tych metod, które zawierają tylko żądane `partitionCount` i `replicaCount` właściwości. Stary sposób wywoływania `Services.Get`, modyfikowania zwracanych `SearchService`i przekazywania go do `Services.CreateOrUpdate` jest nadal obsługiwany, ale nie jest już potrzebny. 
+* `Services.Update`Do zestawu SDK dodano nowe metody i jego wersje asynchroniczne. Metody te używają poprawki HTTP do obsługi przyrostowej aktualizacji usługi. Można na przykład skalować usługę przez przekazanie `SearchService` wystąpienia do tych metod, które zawierają tylko żądane `partitionCount` i `replicaCount` właściwości. Stary sposób wywoływania `Services.Get` , modyfikowania zwracanych `SearchService` i przekazywania go do `Services.CreateOrUpdate` jest nadal obsługiwany, ale nie jest już potrzebny. 
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Kroki do uaktualnienia
-Najpierw zaktualizuj odwołanie do `Microsoft.Azure.Management.Search` programu NuGet przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
+Najpierw zaktualizuj odwołanie do programu NuGet `Microsoft.Azure.Management.Search` przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
 Po pobraniu przez program NuGet nowych pakietów i ich zależności, należy ponownie skompilować projekt. W zależności od tego, jak kod jest strukturalny, może zostać pomyślnie ponownie odbudowany. Jeśli tak, wszystko jest gotowe!
 
-Jeśli kompilacja nie powiedzie się, może to oznaczać, że wdrożono niektóre interfejsy zestawu SDK (na przykład na potrzeby testowania jednostek), które uległy zmianie. Aby rozwiązać ten problem, należy zaimplementować nowe metody, takie jak `BeginCreateOrUpdateWithHttpMessagesAsync`.
+Jeśli kompilacja nie powiedzie się, może to oznaczać, że wdrożono niektóre interfejsy zestawu SDK (na przykład na potrzeby testowania jednostek), które uległy zmianie. Aby rozwiązać ten problem, należy zaimplementować nowe metody, takie jak `BeginCreateOrUpdateWithHttpMessagesAsync` .
 
 Po naprawieniu błędów kompilacji możesz wprowadzić zmiany w aplikacji, aby korzystać z nowych funkcji. Nowe funkcje zestawu SDK są szczegółowo opisane w temacie [co nowego w wersji 2](#WhatsNew).
 

@@ -13,10 +13,9 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68841394"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1
@@ -83,7 +82,7 @@ Teraz, gdy masz pakiety, musisz przekazać je na maszynę wirtualną na platform
 6. Zainicjuj przekazywanie do utworzonego katalogu maszyn wirtualnych platformy Azure, który stanowi magazyn obrazów dla zD&T.
 
     > [!NOTE]
-    > Upewnij się, że **ADCDTOOLS. KOD XML** znajduje się w przekazaniu do katalogu **macierzystego/webuserid/ZDT/adcd/nov2017** . Będzie potrzebny później.
+    > Upewnij się, że **ADCDTOOLS.XML** znajduje się w przekazaniu do katalogu macierzystego/mój **UserID/ZDT/adcd/nov2017** . Będzie potrzebny później.
 
 7. Poczekaj na przekazanie plików, co może zająć trochę czasu w zależności od połączenia z platformą Azure.
 
@@ -105,7 +104,7 @@ Następnym krokiem jest skonfigurowanie zD&T w celu używania przekazanych pakie
         /opt/ibm/zDT/bin/startServer
     ```
 2. Zwróć uwagę na adres URL danych wyjściowych przez polecenie i Użyj tego adresu URL w celu uzyskania dostępu do serwera sieci Web. Wygląda podobnie do:
-     > https://(nazwa lub adres IP maszyny wirtualnej): 9443/ZDTMC/index. html
+     > https://(nazwa lub adres IP maszyny wirtualnej): 9443/ZDTMC/index.html
      >
      > Pamiętaj, że dostęp do sieci Web jest używany przez port 9443. Użyj tego, aby zalogować się do serwera sieci Web. Identyfikator użytkownika dla ZD&T jest **zdtadmin** , a hasło to **hasło**.
 
@@ -186,7 +185,7 @@ Obraz można teraz wdrożyć i będzie gotowy do zainstalowania przez emulator t
 
 Gratulacje! Teraz działa środowisko mainframe firmy IBM na platformie Azure.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Migracja komputera mainframe: mitów i fakty](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

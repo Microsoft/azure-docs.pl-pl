@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73748971"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Przekaż poświadczenia do procedury obsługi usługi Azure DSCExtension
@@ -83,7 +82,7 @@ $vm | Update-AzVM
 
 Uruchomienie tego kodu powoduje wpisanie prośby o poświadczenie. Po podaniu poświadczeń zostanie ono krótko zapisane w pamięci. Po opublikowaniu poświadczenia za pomocą polecenia cmdlet **Set-AzVMDscExtension** poświadczenia są przesyłane za pośrednictwem protokołu HTTPS do maszyny wirtualnej. Na maszynie wirtualnej platforma Azure przechowuje poświadczenia zaszyfrowane na dysku przy użyciu lokalnego certyfikatu maszyny wirtualnej. Poświadczenie jest z chwilą odszyfrowywane w pamięci, a następnie ponownie szyfrowane w celu przekazania go do DSC.
 
-Ten proces różni się od [używania bezpiecznych konfiguracji bez obsługi rozszerzenia](/powershell/scripting/dsc/pull-server/securemof). Środowisko platformy Azure umożliwia bezpieczne przesyłanie danych konfiguracji za pośrednictwem certyfikatów. W przypadku korzystania z programu obsługi rozszerzeń DSC nie trzeba podawać **$CertificatePath** ani **$CertificateID**/ **$Thumbprint** wpisów w **ConfigurationData**.
+Ten proces różni się od [używania bezpiecznych konfiguracji bez obsługi rozszerzenia](/powershell/scripting/dsc/pull-server/securemof). Środowisko platformy Azure umożliwia bezpieczne przesyłanie danych konfiguracji za pośrednictwem certyfikatów. W przypadku korzystania z programu obsługi rozszerzeń DSC nie trzeba podawać **$CertificatePath** ani **$CertificateID** /  **$Thumbprint** wpisów w **ConfigurationData**.
 
 ## <a name="next-steps"></a>Następne kroki
 

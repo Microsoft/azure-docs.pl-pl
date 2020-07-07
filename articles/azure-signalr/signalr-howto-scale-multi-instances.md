@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158157"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Jak skalować usługę sygnalizującą z wieloma wystąpieniami?
@@ -22,7 +21,7 @@ Najnowsza wersja zestawu SDK usługi sygnalizującej obsługuje wiele punktów k
 
 Konfiguracja z kluczem `Azure:SignalR:ConnectionString` lub `Azure:SignalR:ConnectionString:` dla parametrów połączenia usługi sygnalizującego.
 
-Jeśli klucz zaczyna się od `Azure:SignalR:ConnectionString:` `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, powinien być w formacie, gdzie `Name` i `EndpointType` są właściwościami `ServiceEndpoint` obiektu i jest dostępny z kodu.
+Jeśli klucz zaczyna się od `Azure:SignalR:ConnectionString:` , powinien być w formacie `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` , gdzie `Name` i `EndpointType` są właściwościami `ServiceEndpoint` obiektu i jest dostępny z kodu.
 
 Można dodać wiele parametrów połączenia wystąpienia przy użyciu następujących `dotnet` poleceń:
 
@@ -34,7 +33,7 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Jak dodać wiele punktów końcowych z kodu?
 
-`ServicEndpoint` Klasa jest wprowadzana do opisywania właściwości punktu końcowego usługi Azure Signal Service.
+`ServicEndpoint`Klasa jest wprowadzana do opisywania właściwości punktu końcowego usługi Azure Signal Service.
 Można skonfigurować wiele punktów końcowych wystąpienia podczas korzystania z zestawu SDK usługi Azure Signal:
 ```cs
 services.AddSignalR()
@@ -69,7 +68,7 @@ Domyślnie zestaw SDK używa [DefaultEndpointRouter](https://github.com/Azure/az
 #### <a name="customize-routing-algorithm"></a>Dostosuj algorytm routingu
 Możesz utworzyć własny router, gdy masz specjalną wiedzę, aby określić punkty końcowe, do których powinny przejść komunikaty.
 
-Poniżej określono router niestandardowy, gdy grupy rozpoczynające się `east-` zawsze przejdą do punktu końcowego o nazwie: `east`
+Poniżej określono router niestandardowy, gdy grupy rozpoczynające się `east-` zawsze przejdą do punktu końcowego o nazwie `east` :
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -133,9 +132,9 @@ services.AddSignalR()
 
 Konfiguracja z kluczem `Azure:SignalR:ConnectionString` lub `Azure:SignalR:ConnectionString:` dla parametrów połączenia usługi sygnalizującego.
 
-Jeśli klucz zaczyna się od `Azure:SignalR:ConnectionString:` `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, powinien być w formacie, gdzie `Name` i `EndpointType` są właściwościami `ServiceEndpoint` obiektu i jest dostępny z kodu.
+Jeśli klucz zaczyna się od `Azure:SignalR:ConnectionString:` , powinien być w formacie `Azure:SignalR:ConnectionString:{Name}:{EndpointType}` , gdzie `Name` i `EndpointType` są właściwościami `ServiceEndpoint` obiektu i jest dostępny z kodu.
 
-Do programu `web.config`można dodać wiele parametrów połączenia wystąpienia:
+Do programu można dodać wiele parametrów połączenia wystąpienia `web.config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -152,7 +151,7 @@ Do programu `web.config`można dodać wiele parametrów połączenia wystąpieni
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Jak dodać wiele punktów końcowych z kodu?
 
-`ServicEndpoint` Klasa jest wprowadzana do opisywania właściwości punktu końcowego usługi Azure Signal Service.
+`ServicEndpoint`Klasa jest wprowadzana do opisywania właściwości punktu końcowego usługi Azure Signal Service.
 Można skonfigurować wiele punktów końcowych wystąpienia podczas korzystania z zestawu SDK usługi Azure Signal:
 
 ```cs
@@ -173,7 +172,7 @@ app.MapAzureSignalR(
 
 ### <a name="how-to-customize-router"></a>Jak dostosować router?
 
-Jedyną różnicą między sygnalizującym ASP.NET i ASP.NET Core sygnalizującym jest typ kontekstu HTTP dla `GetNegotiateEndpoint`. Dla sygnalizującego ASP.NET, jest typu [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) .
+Jedyną różnicą między sygnalizującym ASP.NET i ASP.NET Core sygnalizującym jest typ kontekstu HTTP dla `GetNegotiateEndpoint` . Dla sygnalizującego ASP.NET, jest typu [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) .
 
 Poniżej znajduje się przykład niestandardowego negocjowania dla ASP.NET sygnalizującego:
 
@@ -215,23 +214,23 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 ## <a name="configuration-in-cross-region-scenarios"></a>Konfiguracja w scenariuszach obejmujących wiele regionów
 
-`ServiceEndpoint` Obiekt `EndpointType` ma właściwość o wartości `primary` lub `secondary`.
+`ServiceEndpoint`Obiekt ma `EndpointType` Właściwość o wartości `primary` lub `secondary` .
 
-`primary`punkty końcowe są preferowanymi punktami końcowymi do odbierania ruchu klienta i są uważane za mające bardziej niezawodne połączenia sieciowe; `secondary` punkty końcowe są uważane za mające mniej niezawodne połączenia sieciowe i są używane tylko do przesyłania ruchu z serwera do klienta, na przykład rozgłaszania komunikatów, a nie do pobierania ruchu z serwera do klientów.
+`primary`punkty końcowe są preferowanymi punktami końcowymi do odbierania ruchu klienta i są uważane za mające bardziej niezawodne połączenia sieciowe; `secondary`punkty końcowe są uważane za mające mniej niezawodne połączenia sieciowe i są używane tylko do przesyłania ruchu z serwera do klienta, na przykład rozgłaszania komunikatów, a nie do pobierania ruchu z serwera do klientów.
 
-W przypadku różnych regionów, Sieć może być niestabilna. W przypadku jednego serwera aplikacji znajdującego się w regionie *Wschodnie stany USA*punkt końcowy usługi sygnalizującej znajdujący się w tym samym regionach `primary` *Wschodnie stany USA* można skonfigurować jako i `secondary`punkty końcowe w innych regionach oznaczonych jako. W tej konfiguracji punkty końcowe usługi w innych regionach mogą **odbierać** komunikaty z tego serwera aplikacji *Wschodnie stany USA* , **ale nie będzie** on kierowany do tego serwera aplikacji. Architektura jest pokazana na poniższym diagramie:
+W przypadku różnych regionów, Sieć może być niestabilna. W przypadku jednego serwera aplikacji znajdującego się w regionie *Wschodnie stany USA*punkt końcowy usługi sygnalizującej znajdujący się w tym samym regionach *Wschodnie stany USA* można skonfigurować jako `primary` i punkty końcowe w innych regionach oznaczonych jako `secondary` . W tej konfiguracji punkty końcowe usługi w innych regionach mogą **odbierać** komunikaty z tego serwera aplikacji *Wschodnie stany USA* , **ale nie będzie** on kierowany do tego serwera aplikacji. Architektura jest pokazana na poniższym diagramie:
 
 ![Infrastruktura geograficzna](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Gdy klient próbuje `/negotiate` korzystać z serwera aplikacji, przy użyciu domyślnego routera zestaw SDK **losowo wybiera** jeden punkt końcowy z zestawu dostępnych `primary` punktów końcowych. Gdy podstawowy punkt końcowy nie jest dostępny, zestaw SDK **losowo wybiera** ze wszystkich dostępnych `secondary` punktów końcowych. Punkt końcowy jest oznaczony jako **dostępny** , gdy połączenie między serwerem a punktem końcowym usługi jest aktywne.
+Gdy klient próbuje korzystać `/negotiate` z serwera aplikacji, przy użyciu domyślnego routera zestaw SDK **losowo wybiera** jeden punkt końcowy z zestawu dostępnych `primary` punktów końcowych. Gdy podstawowy punkt końcowy nie jest dostępny, zestaw SDK **losowo wybiera** ze wszystkich dostępnych `secondary` punktów końcowych. Punkt końcowy jest oznaczony jako **dostępny** , gdy połączenie między serwerem a punktem końcowym usługi jest aktywne.
 
-W scenariuszu obejmującym wiele regionów, gdy klient `/negotiate` próbuje użyć serwera aplikacji hostowanego w regionie *Wschodnie stany USA*, domyślnie zawsze `primary` zwraca punkt końcowy znajdujący się w tym samym regionie. Gdy wszystkie punkty końcowe *Wschodnie stany USA* nie są dostępne, klient zostanie przekierowany do punktów końcowych w innych regionach. W poniższej sekcji poniżej opisano szczegółowo scenariusz.
+W scenariuszu obejmującym wiele regionów, gdy klient próbuje użyć `/negotiate` serwera aplikacji hostowanego w regionie *Wschodnie stany USA*, domyślnie zawsze zwraca `primary` punkt końcowy znajdujący się w tym samym regionie. Gdy wszystkie punkty końcowe *Wschodnie stany USA* nie są dostępne, klient zostanie przekierowany do punktów końcowych w innych regionach. W poniższej sekcji poniżej opisano szczegółowo scenariusz.
 
 ![Normalne negocjowanie](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
 ## <a name="fail-over"></a>Tryb failover
 
-Gdy wszystkie `primary` punkty końcowe nie są dostępne, klient `/negotiate` wybiera z dostępnych `secondary` punktów końcowych. Ten mechanizm pracy awaryjnej wymaga, aby każdy punkt końcowy obsługiwał `primary` jako punkt końcowy co najmniej jeden serwer aplikacji.
+Gdy wszystkie `primary` punkty końcowe nie są dostępne, klient `/negotiate` wybiera z dostępnych `secondary` punktów końcowych. Ten mechanizm pracy awaryjnej wymaga, aby każdy punkt końcowy obsługiwał jako `primary` punkt końcowy co najmniej jeden serwer aplikacji.
 
 ![Tryb failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 

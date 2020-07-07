@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 12/10/2018
 ms.author: allensu
 ms.openlocfilehash: 4311c1dca2ad299ac8b064769db5eb928e6a4513
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74048707"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Przykłady Azure PowerShell dla Load Balancer

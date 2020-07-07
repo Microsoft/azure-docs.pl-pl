@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74076679"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute
@@ -51,7 +50,7 @@ Alternatywnie, uruchamianie podstawowych i pomocniczych połączeń obwodu usłu
 
 Komunikacja równorzędna firmy Microsoft jest przeznaczona do komunikacji między publicznymi punktami końcowymi. Często lokalne, prywatne punkty końcowe to adresy sieci tłumaczone (z identyfikatorem firmy) z publicznym adresem IP w sieci klienta lub partnera, zanim będą komunikować się za pośrednictwem komunikacji równorzędnej firmy Microsoft. Zakładając, że używane są zarówno podstawowe, jak i pomocnicze połączenia w trybie aktywny-aktywny, gdzie i w jaki sposób translator adresów sieciowych ma wpływ na sposób szybkiego odzyskiwania po awarii w jednym z połączeń ExpressRoute. Dwie różne opcje NAT przedstawiono na poniższej ilustracji:
 
-[![r.3]][3]
+[![3]][3]
 
 W opcji 1 jest stosowane translator adresów sieciowych po rozdzieleniu ruchu między podstawowymi i pomocniczymi połączeniami ExpressRoute. Aby spełnić wymagania stanowe dotyczące translatora adresów sieciowych, na urządzeniach podstawowych i pomocniczych są używane niezależne pule NAT, dzięki czemu ruch powrotny dociera do tego samego urządzenia brzegowego, za pomocą którego przepływ egressed.
 

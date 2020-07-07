@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74196362"
 ---
 # <a name="scale-migration-of-vms"></a>Skalowanie migracji maszyn wirtualnych 
@@ -54,15 +53,15 @@ Gdy wolumin CSV jest gotowy, możesz wykonać następujące kroki, aby przeprowa
 
 **Czynności #** | **Nazwa skryptu** | **Opis**
 --- | --- | ---
-1 | asr_startmigration. ps1 | Włącz replikację dla wszystkich maszyn wirtualnych wymienionych w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
-2 | asr_replicationstatus. ps1 | Sprawdź stan replikacji, skrypt tworzy wolumin CSV ze stanem dla każdej maszyny wirtualnej
-3 | asr_updateproperties. ps1 | Po replikacji/zabezpieczeniu maszyn wirtualnych Użyj tego skryptu, aby zaktualizować właściwości docelowe maszyny wirtualnej (właściwości obliczeniowe i sieciowe).
-4 | asr_propertiescheck. ps1 | Sprawdź, czy właściwości zostały odpowiednio zaktualizowane
-5 | asr_testmigration. ps1 |  Rozpocznij Test pracy w trybie failover maszyn wirtualnych znajdujących się w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
-6 | asr_cleanuptestmigration. ps1 | Po ręcznym zweryfikowaniu maszyn wirtualnych, które przeprowadzono test zakończony niepowodzeniem, można użyć tego skryptu do oczyszczenia maszyn wirtualnych z testem pracy w trybie failover
-7 | asr_migration. ps1 | Wykonaj niezaplanowaną pracę w trybie failover dla maszyn wirtualnych wymienionych w woluminie CSV skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej. Skrypt nie wyłącza lokalnych maszyn wirtualnych przed wyzwoleniem trybu failover w celu zapewnienia spójności aplikacji zaleca się ręczne wyłączenie maszyn wirtualnych przed wykonaniem skryptu.
-8 | asr_completemigration. ps1 | Wykonywanie operacji zatwierdzania na maszynach wirtualnych i usuwanie Azure Site Recovery jednostek
-9 | asr_postmigration. ps1 | Jeśli planujesz przypisywać sieciowe grupy zabezpieczeń do kart sieciowych po przejściu w tryb failover, możesz to zrobić za pomocą tego skryptu. Przypisuje sieciowej grupy zabezpieczeń do dowolnej karty sieciowej na docelowej maszynie wirtualnej.
+1 | asr_startmigration.ps1 | Włącz replikację dla wszystkich maszyn wirtualnych wymienionych w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
+2 | asr_replicationstatus.ps1 | Sprawdź stan replikacji, skrypt tworzy wolumin CSV ze stanem dla każdej maszyny wirtualnej
+3 | asr_updateproperties.ps1 | Po replikacji/zabezpieczeniu maszyn wirtualnych Użyj tego skryptu, aby zaktualizować właściwości docelowe maszyny wirtualnej (właściwości obliczeniowe i sieciowe).
+4 | asr_propertiescheck.ps1 | Sprawdź, czy właściwości zostały odpowiednio zaktualizowane
+5 | asr_testmigration.ps1 |  Rozpocznij Test pracy w trybie failover maszyn wirtualnych znajdujących się w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
+6 | asr_cleanuptestmigration.ps1 | Po ręcznym zweryfikowaniu maszyn wirtualnych, które przeprowadzono test zakończony niepowodzeniem, można użyć tego skryptu do oczyszczenia maszyn wirtualnych z testem pracy w trybie failover
+7 | asr_migration.ps1 | Wykonaj niezaplanowaną pracę w trybie failover dla maszyn wirtualnych wymienionych w woluminie CSV skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej. Skrypt nie wyłącza lokalnych maszyn wirtualnych przed wyzwoleniem trybu failover w celu zapewnienia spójności aplikacji zaleca się ręczne wyłączenie maszyn wirtualnych przed wykonaniem skryptu.
+8 | asr_completemigration.ps1 | Wykonywanie operacji zatwierdzania na maszynach wirtualnych i usuwanie Azure Site Recovery jednostek
+9 | asr_postmigration.ps1 | Jeśli planujesz przypisywać sieciowe grupy zabezpieczeń do kart sieciowych po przejściu w tryb failover, możesz to zrobić za pomocą tego skryptu. Przypisuje sieciowej grupy zabezpieczeń do dowolnej karty sieciowej na docelowej maszynie wirtualnej.
 
 ## <a name="how-to-migrate-to-managed-disks"></a>Jak przeprowadzić migrację do dysków zarządzanych?
 Skrypt domyślnie migruje maszyny wirtualne do dysków zarządzanych na platformie Azure. Jeśli podane konto magazynu jest kontem magazynu w warstwie Premium, dyski zarządzane w warstwie Premium są tworzone po migracji. Konto magazynu pamięci podręcznej nadal może być kontem standardowym. Jeśli docelowe konto magazynu jest kontem magazynu w warstwie Standardowa, dyski standardowe są tworzone po migracji. 

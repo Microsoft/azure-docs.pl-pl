@@ -15,10 +15,9 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74034011"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Włącz Transparent Data Encryption (TDE) dla Stretch Database na platformie Azure

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083987"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Omówienie obsługi wielu dzierżawców na potrzeby odzyskiwania po awarii oprogramowania VMware na platformie Azure przy użyciu dostawcy usług kryptograficznych
@@ -120,7 +119,7 @@ Aby ograniczyć liczbę operacji odzyskiwania po awarii do trybu failover tylko 
 
 1. W Azure Portal w utworzonym wcześniej magazynie zarejestruj serwer vCenter na serwerze konfiguracji przy użyciu utworzonego konta programu vCenter.
 2. Zakończ proces "Przygotuj infrastrukturę" dla Site Recovery na zwykły proces.
-3. Maszyny wirtualne są teraz gotowe do replikacji. Sprawdź, czy w obszarze **replikacja** > są wyświetlane tylko**maszyny wirtualne dzierżawy.**
+3. Maszyny wirtualne są teraz gotowe do replikacji. Sprawdź, czy w obszarze **replikacja**są wyświetlane tylko maszyny wirtualne dzierżawy  >  **Select virtual machines**.
 
 ## <a name="dedicated-hosting-solution"></a>Dedykowane rozwiązanie hostingu
 

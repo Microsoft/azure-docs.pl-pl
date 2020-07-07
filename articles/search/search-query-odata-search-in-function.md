@@ -20,15 +20,14 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113126"
 ---
-# <a name="odata-searchin-function-in-azure-cognitive-search"></a>Funkcja `search.in` OData na platformie Azure wyszukiwanie poznawcze
+# <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funkcja OData na platformie Azure wyszukiwanie poznawcze
 
-Typowy scenariusz w [wyrażeniach filtru OData](query-odata-filter-orderby-syntax.md) polega na sprawdzeniu, czy pojedyncze pole w każdym dokumencie jest równe jednej z wielu możliwych wartości. Na przykład jest to sposób, w jaki niektóre aplikacje implementują [przycinanie zabezpieczeń](search-security-trimming-for-azure-search.md) — sprawdzając pole zawierające co najmniej jeden identyfikator podmiotu w oparciu o listę identyfikatorów głównych reprezentujących użytkownika wystawiającego zapytanie. Jednym ze sposobów pisania zapytania w tym celu jest użycie operatorów [`eq`](search-query-odata-comparison-operators.md) i: [`or`](search-query-odata-logical-operators.md)
+Typowy scenariusz w [wyrażeniach filtru OData](query-odata-filter-orderby-syntax.md) polega na sprawdzeniu, czy pojedyncze pole w każdym dokumencie jest równe jednej z wielu możliwych wartości. Na przykład jest to sposób, w jaki niektóre aplikacje implementują [przycinanie zabezpieczeń](search-security-trimming-for-azure-search.md) — sprawdzając pole zawierające co najmniej jeden identyfikator podmiotu w oparciu o listę identyfikatorów głównych reprezentujących użytkownika wystawiającego zapytanie. Jednym ze sposobów pisania zapytania w tym celu jest użycie [`eq`](search-query-odata-comparison-operators.md) [`or`](search-query-odata-logical-operators.md) operatorów i:
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
@@ -37,7 +36,7 @@ Istnieje jednak krótszy sposób zapisania tego elementu przy użyciu `search.in
     group_ids/any(g: search.in(g, '123, 456, 789'))
 
 > [!IMPORTANT]
-> Poza krótszym i łatwiejszym do odczytu, `search.in` użycie także zapewnia [korzyści z wydajności](#bkmk_performance) i pozwala uniknąć pewnych [ograniczeń rozmiaru filtrów](search-query-odata-filter.md#bkmk_limits) , gdy istnieją setki lub nawet tysiące wartości do uwzględnienia w filtrze. Z tego powodu zdecydowanie zalecamy użycie `search.in` zamiast bardziej złożonego rozłączenia wyrażeń równości.
+> Poza krótszym i łatwiejszym do odczytu, użycie `search.in` także zapewnia [korzyści z wydajności](#bkmk_performance) i pozwala uniknąć pewnych [ograniczeń rozmiaru filtrów](search-query-odata-filter.md#bkmk_limits) , gdy istnieją setki lub nawet tysiące wartości do uwzględnienia w filtrze. Z tego powodu zdecydowanie zalecamy użycie `search.in` zamiast bardziej złożonego rozłączenia wyrażeń równości.
 
 > [!NOTE]
 > Wersja 4,01 standardu OData ostatnio wprowadziła [ `in` operator](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), który ma podobne zachowanie jak `search.in` funkcja w usłudze Azure wyszukiwanie poznawcze. Jednak usługa Azure Wyszukiwanie poznawcze nie obsługuje tego operatora, dlatego należy zamiast tego użyć `search.in` funkcji.
@@ -61,7 +60,7 @@ Dostępny jest również interaktywny diagram składni:
 > [!NOTE]
 > Zapoznaj się z informacjami o [składni wyrażenia OData dla usługi Azure wyszukiwanie poznawcze](search-query-odata-syntax-reference.md) , aby uzyskać pełną EBNF.
 
-Funkcja `search.in` sprawdza, czy dane pole ciągu lub zmienna zakresu są równe jednej z podanej listy wartości. Równość między zmienną a każdą wartością na liście jest określana w sposób uwzględniający wielkość liter, tak samo jak w przypadku `eq` operatora. W związku z tym `search.in(myfield, 'a, b, c')` wyrażenie takie jak `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`jest równoważne z `search.in` , z tą różnicą, że daje znacznie lepszą wydajność.
+`search.in`Funkcja sprawdza, czy dane pole ciągu lub zmienna zakresu są równe jednej z podanej listy wartości. Równość między zmienną a każdą wartością na liście jest określana w sposób uwzględniający wielkość liter, tak samo jak w przypadku `eq` operatora. W związku z tym wyrażenie takie jak `search.in(myfield, 'a, b, c')` jest równoważne z `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'` , z tą różnicą, że `search.in` daje znacznie lepszą wydajność.
 
 Istnieją dwa przeciążenia `search.in` funkcji:
 
@@ -72,15 +71,15 @@ Parametry są zdefiniowane w poniższej tabeli:
 
 | Nazwa parametru | Typ | Opis |
 | --- | --- | --- |
-| `variable` | `Edm.String` | Odwołanie do pola ciągu (lub zmienna zakresu w polu kolekcji ciągów w przypadku, gdzie `search.in` jest używana wewnątrz wyrażenia `any` or `all` ). |
+| `variable` | `Edm.String` | Odwołanie do pola ciągu (lub zmienna zakresu w polu kolekcji ciągów w przypadku, gdzie `search.in` jest używana wewnątrz `any` `all` wyrażenia OR). |
 | `valueList` | `Edm.String` | Ciąg zawierający rozdzielaną listę wartości, które mają być zgodne z `variable` parametrem. Jeśli `delimiters` parametr nie jest określony, domyślne ograniczniki są spacjami i przecinkami. |
-| `delimiters` | `Edm.String` | Ciąg, w którym każdy znak jest traktowany jako separator podczas analizowania `valueList` parametru. Wartość domyślna tego parametru `' ,'` to oznacza, że wszystkie wartości zawierające spacje i/lub przecinki między nimi są rozdzielone. Jeśli musisz użyć separatorów innych niż spacje i przecinki, ponieważ wartości te zawierają te znaki, możesz określić alternatywne ograniczniki, takie jak `'|'` w tym parametrze. |
+| `delimiters` | `Edm.String` | Ciąg, w którym każdy znak jest traktowany jako separator podczas analizowania `valueList` parametru. Wartość domyślna tego parametru to `' ,'` oznacza, że wszystkie wartości zawierające spacje i/lub przecinki między nimi są rozdzielone. Jeśli musisz użyć separatorów innych niż spacje i przecinki, ponieważ wartości te zawierają te znaki, możesz określić alternatywne ograniczniki, takie jak `'|'` w tym parametrze. |
 
 <a name="bkmk_performance"></a>
 
 ### <a name="performance-of-searchin"></a>Wydajność`search.in`
 
-Jeśli używasz `search.in`, możesz oczekiwać, że czas odpowiedzi podsekundu, gdy drugi parametr zawiera listę setek lub tysięcy wartości. Nie ma żadnego jawnego limitu liczby elementów `search.in`, które można przekazać, chociaż nadal ograniczono limit rozmiaru maksymalnego żądania. Opóźnienie zostanie jednak powiększone w miarę zwiększania się liczby wartości.
+Jeśli używasz `search.in` , możesz oczekiwać, że czas odpowiedzi podsekundu, gdy drugi parametr zawiera listę setek lub tysięcy wartości. Nie ma żadnego jawnego limitu liczby elementów, które można przekazać `search.in` , chociaż nadal ograniczono limit rozmiaru maksymalnego żądania. Opóźnienie zostanie jednak powiększone w miarę zwiększania się liczby wartości.
 
 ## <a name="examples"></a>Przykłady
 

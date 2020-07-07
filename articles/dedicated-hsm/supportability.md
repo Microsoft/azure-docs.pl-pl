@@ -13,10 +13,9 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881006"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Dedykowana obsługa modułu HSM platformy Azure
@@ -39,7 +38,7 @@ W konfiguracji urządzeń HSM używane są różne składniki oprogramowania:
 
 * Oprogramowanie klienckie
 * SDK
-* Narzędzia
+* narzędzia
 
 ### <a name="guidance"></a>Wskazówki
 
@@ -96,5 +95,5 @@ Zaleca się, aby kluczowe koncepcje, takie jak wysoka dostępność i zabezpiecz
 * [Architektura wdrożenia](deployment-architecture.md)
 * [Wysoka dostępność](high-availability.md)
 * [Zabezpieczenia fizyczne](physical-security.md)
-* [Networking](networking.md)
+* [Sieć](networking.md)
 

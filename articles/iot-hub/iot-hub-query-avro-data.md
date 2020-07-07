@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73605614"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Wykonywanie zapytań dotyczących danych Avro przy użyciu Azure Data Lake Analytics
@@ -56,7 +55,7 @@ Ta sekcja zawiera kwerendy dotyczące Avro danych i eksportowania ich do pliku C
 
 6. W programie Visual Studio Utwórz projekt U-SQL.
 
-   ! Tworzenie projektu U-SQL] (./Media/IoT-Hub-Query-Avro-Data/Query-Avro-Data-6.png)
+   ! Tworzenie projektu U-SQL] (./Media/IoT-Hub-Query-Avro-Data/query-avro-data-6.png)
 
 7. Wklej zawartość następującego skryptu do nowo utworzonego pliku. Zmodyfikuj trzy wyróżnione sekcje: konto Data Lake Analytics, skojarzone ścieżki pliku DLL i poprawna ścieżka do konta magazynu.
 
@@ -163,7 +162,7 @@ Ta sekcja zawiera kwerendy dotyczące Avro danych i eksportowania ich do pliku C
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-    W danych wyjściowych zostanie wyświetlona kolumna dla `SELECT` każdego elementu w poleceniu.
+    W danych wyjściowych zostanie wyświetlona kolumna dla każdego elementu w `SELECT` poleceniu.
 
     ![Dane wyjściowe pokazujące kolumnę dla każdego elementu](./media/iot-hub-query-avro-data/query-avro-data-8.png)
 

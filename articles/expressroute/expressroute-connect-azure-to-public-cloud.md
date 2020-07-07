@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
 ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73889625"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Łączenie platformy Azure z chmurami publicznymi
