@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.openlocfilehash: 001d408eaa7ce637bd7cc1f1183dd8748cddf539
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189526"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10  

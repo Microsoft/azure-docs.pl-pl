@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392191"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Śledzenie sygnałów dźwiękowych
@@ -48,7 +48,7 @@ Poniższa funkcja wykonuje następujące akcje:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Jeśli musisz przekazać nazwę utworzonego elementu zawartości wejściowej do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateInputAssetAsync`, na przykład inputAsset.Name. 
+Jeśli musisz przekazać nazwę utworzonego elementu zawartości wejściowej do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateInputAssetAsync` , na przykład inputAsset.Name. 
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Utwórz zasób wyjściowy do przechowywania wyniku zadania kodowania
 
@@ -56,9 +56,9 @@ Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/asset
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Jeśli musisz przekazać nazwę utworzonego elementu wyjściowego do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateIOutputAssetAsync`, na przykład outputAsset.Name. 
+Jeśli musisz przekazać nazwę utworzonego elementu wyjściowego do innych metod, upewnij się, że używasz `Name` właściwości obiektu zasobu zwróconego z `CreateIOutputAssetAsync` , na przykład outputAsset.Name. 
 
-W przypadku tego artykułu Przekaż `outputAsset.Name` wartość do funkcji `SubmitJobAsync` i. `UploadAudioIntoOutputAsset`
+W przypadku tego artykułu Przekaż `outputAsset.Name` wartość do `SubmitJobAsync` `UploadAudioIntoOutputAsset` funkcji i.
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Tworzenie transformacji i zadania, które kodują przekazany plik
 
@@ -233,7 +233,7 @@ W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Playe
 > [!NOTE]
 > Jeśli odtwarzacz jest hostowany w witrynie korzystającej z protokołu HTTPS, zmień adres URL tak, aby zawierał ciąg „https”.
 
-1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. W polu **adres URL:** wklej jeden z wartości adresu URL przesyłania strumieniowego uzyskanych z aplikacji. 
  
      Adres URL możesz wkleić w formacie HLS, Dash, lub Smooth, a usługa Azure Media Player przełączy się na odpowiedni protokół przesyłania strumieniowego w celu automatycznego odtworzenia na urządzeniu.

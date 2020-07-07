@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
 ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82204104"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Podaj szczegóły kontaktu zabezpieczeń w Azure Security Center

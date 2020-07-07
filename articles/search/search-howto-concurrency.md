@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792214"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Jak zarządzać współbieżnością w usłudze Azure Wyszukiwanie poznawcze
@@ -20,7 +20,7 @@ ms.locfileid: "72792214"
 Podczas zarządzania zasobami Wyszukiwanie poznawcze platformy Azure, takimi jak indeksy i źródła danych, ważne jest, aby bezpiecznie aktualizować zasoby, szczególnie w przypadku, gdy dostęp do zasobów odbywa się współbieżnie przez różne składniki aplikacji. Gdy dwaj klienci jednocześnie aktualizują zasób bez koordynacji, możliwe są sytuacje wyścigu. Aby tego uniknąć, usługa Azure Wyszukiwanie poznawcze oferuje *optymistyczny model współbieżności*. Nie ma blokad dla zasobu. Zamiast tego istnieje element ETag dla każdego zasobu, który identyfikuje wersję zasobu, aby można było tworzyć jednostki żądań, które unikają przypadkowego nadpisywania.
 
 > [!Tip]
-> Kod koncepcyjny w [przykładowym rozwiązaniu C#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) wyjaśnia, jak działa kontrola współbieżności w usłudze Azure wyszukiwanie poznawcze. Kod tworzy warunki, które wywołują kontrolę współbieżności. Odczytywanie [poniższego fragmentu kodu](#samplecode) jest prawdopodobnie wystarczające dla większości deweloperów, ale jeśli chcesz go uruchomić, edytuj plik appSettings. JSON, aby dodać nazwę usługi i klucz API-Key administratora. Podano adres URL usługi `http://myservice.search.windows.net`, nazwa usługi `myservice`.
+> Kod koncepcyjny w [przykładowym rozwiązaniu C#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) wyjaśnia, jak działa kontrola współbieżności w usłudze Azure wyszukiwanie poznawcze. Kod tworzy warunki, które wywołują kontrolę współbieżności. Odczytywanie [poniższego fragmentu kodu](#samplecode) jest prawdopodobnie wystarczające dla większości deweloperów, ale jeśli chcesz go uruchomić, Edytuj appsettings.jsna, aby dodać nazwę usługi i klucz API-Key administratora. Podano adres URL usługi `http://myservice.search.windows.net` , nazwa usługi `myservice` .
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -31,7 +31,7 @@ Wszystkie zasoby mają [*tag jednostki (ETag)*](https://en.wikipedia.org/wiki/HT
 + Interfejs API REST używa elementu [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w nagłówku żądania.
 + Zestaw SDK platformy .NET ustawia element ETag za pomocą obiektu accessCondition, ustawiając opcję [if-Match | Nagłówek if-Match-none](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w zasobie. Każdy obiekt dziedziczenia z [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) ma obiekt accessCondition.
 
-Za każdym razem, gdy aktualizujesz zasób, jego element ETag zmienia się automatycznie. W przypadku zaimplementowania zarządzania współbieżnością wszystkie wykonywane czynności są wykonywane w ramach żądania aktualizacji, które wymaga, aby zasób zdalny miał ten sam element ETag, jak kopia zasobu zmodyfikowanego na kliencie. Jeśli zasób zdalny został już zmieniony przez proces współbieżny, element ETag nie będzie zgodny z warunkiem wstępnym, a żądanie zakończy się niepowodzeniem z użyciem protokołu HTTP 412. Jeśli używasz zestawu SDK platformy .NET, te manifesty jako `CloudException` lokalizacji, w której `IsAccessConditionFailed()` Metoda rozszerzania zwraca wartość true.
+Za każdym razem, gdy aktualizujesz zasób, jego element ETag zmienia się automatycznie. W przypadku zaimplementowania zarządzania współbieżnością wszystkie wykonywane czynności są wykonywane w ramach żądania aktualizacji, które wymaga, aby zasób zdalny miał ten sam element ETag, jak kopia zasobu zmodyfikowanego na kliencie. Jeśli zasób zdalny został już zmieniony przez proces współbieżny, element ETag nie będzie zgodny z warunkiem wstępnym, a żądanie zakończy się niepowodzeniem z użyciem protokołu HTTP 412. Jeśli używasz zestawu SDK platformy .NET, te manifesty jako lokalizacji, w `CloudException` której `IsAccessConditionFailed()` Metoda rozszerzania zwraca wartość true.
 
 > [!Note]
 > Istnieje tylko jeden mechanizm współbieżności. Jest on zawsze używany niezależnie od tego, który interfejs API jest używany do aktualizacji zasobów.
@@ -216,6 +216,6 @@ Spróbuj zmodyfikować jeden z poniższych przykładów, aby dołączyć element
 
 ## <a name="see-also"></a>Zobacz także
 
-[Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-Operacje indeksu
-[kodów stanu HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)typowych żądań HTTP i odpowiedzi[(interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Typowe nagłówki](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ żądań i odpowiedzi http [Kody](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
+ stanu http [Operacje indeksu (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

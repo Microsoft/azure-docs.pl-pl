@@ -7,10 +7,10 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72750421"
 ---
 # <a name="legal-notices"></a>Uwagi prawne
@@ -19,7 +19,7 @@ Firma Microsoft i wszyscy Współautorzy udzielają użytkownikowi licencji na d
 
 Microsoft, Windows, Microsoft Azure i (lub) inne produkty lub usługi firmy Microsoft, do których odwołuje się dokumentacja, mogą być znakami towarowymi lub zastrzeżonymi znakami towarowymi firmy Microsoft w Stanach Zjednoczonych i (lub) innych krajach.
 Licencje związane z tym projektem nie powodują udzielenia praw do żadnych nazw, znaków logo ani znaków towarowych firmy Microsoft.
-Ogólne wytyczne dotyczące znaków towarowych firmy Microsoft można [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)znaleźć pod adresem.
+Ogólne wytyczne dotyczące znaków towarowych firmy Microsoft można znaleźć pod adresem [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
 Informacje o ochronie prywatności można znaleźć pod adresem[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

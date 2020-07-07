@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
 ms.openlocfilehash: bf05ede858c86fa82e199c800ea42747745c9c19
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871917"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurowanie kontroli RBAC platformy Azure dla usługi FHIR 

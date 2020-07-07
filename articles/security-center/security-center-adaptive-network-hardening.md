@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80385082"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptacyjne Zabezpieczanie sieci w Azure Security Center
@@ -39,7 +39,7 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Wyświetl alerty i reguły ograniczania przepustowości sieci
 
-1. W Security Center wybierz pozycję **Sieć** -> **adaptacyjne Zabezpieczanie sieci**. Sieci maszyn wirtualnych są wymienione na trzech oddzielnych kartach:
+1. W Security Center wybierz pozycję **Sieć**  ->  **adaptacyjne Zabezpieczanie sieci**. Sieci maszyn wirtualnych są wymienione na trzech oddzielnych kartach:
    * **Zasoby w złej kondycji**: maszyny wirtualne, które aktualnie mają zalecenia i alerty, które zostały wyzwolone przez uruchomienie adaptacyjnego algorytmu ograniczania przepustowości sieci. 
    * **Dobra kondycja**: maszyny wirtualne bez alertów i zaleceń.
    * **Niezeskanowane zasoby**: maszyny wirtualne, na których algorytm ograniczania funkcjonalności sieci nie może zostać uruchomiony z jednego z następujących powodów:
@@ -119,7 +119,7 @@ Można dodać regułę "Zezwalaj", która nie jest zalecana przez Security Cente
 
 1. Kliknij pozycję **Dodaj regułę** (znajdującą się w lewym górnym rogu).
 
-   ![Dodaj regułę](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
+   ![dodawanie reguły](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
 1. W oknie **Nowa reguła** wprowadź szczegóły, a następnie kliknij przycisk **Dodaj**.
 

@@ -9,10 +9,10 @@ ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205315"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (Portal)
@@ -24,7 +24,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 Utwórz **adres URL wywołania zwrotnego protokołu OAuth** klastra i zanotuj go. Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
 
 > [!NOTE]
-> `AAD` Sekcja w adresie URL wywołania zwrotnego OAuth powinna być zgodna z nazwą dostawcy tożsamości OAuth, który zostanie później skonfigurowany.
+> `AAD`Sekcja w adresie URL wywołania zwrotnego OAuth powinna być zgodna z nazwą dostawcy tożsamości OAuth, który zostanie później skonfigurowany.
 
 ```azurecli-interactive
 domain=$(az aro show -g aro-rg -n aro-cluster --query clusterProfile.domain -o tsv)
@@ -58,7 +58,7 @@ Opcjonalne oświadczenia można używać do:
 * Zmień zachowanie niektórych oświadczeń zwracanych przez usługę Azure AD w tokenach.
 * Dodawanie niestandardowych oświadczeń do aplikacji i uzyskiwanie do nich dostępu.
 
-Skonfigurujemy OpenShift do korzystania z tego `email` żądania i wrócisz `upn` do ustawienia preferowanej nazwy użytkownika, dodając `upn` jako część tokenu identyfikatora zwróconego przez Azure Active Directory.
+Skonfigurujemy OpenShift do korzystania z tego `email` żądania i wrócisz do `upn` Ustawienia preferowanej nazwy użytkownika, dodając `upn` jako część tokenu identyfikatora zwróconego przez Azure Active Directory.
 
 Przejdź do obszaru **Konfiguracja tokenu (wersja zapoznawcza)** i kliknij pozycję **Dodaj opcjonalne**pole. Wybierz pozycję **Identyfikator** , a następnie sprawdź oświadczenia **adresu e-mail** i **nazwy UPN** .
 
@@ -80,7 +80,7 @@ az aro list-credentials \
   --resource-group aro-rg
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword`.
+Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword` .
 
 ```json
 {
@@ -98,14 +98,14 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
     --query "consoleProfile.url" -o tsv
 ```
 
-Uruchom w przeglądarce adres URL konsoli i zaloguj się `kubeadmin` przy użyciu poświadczeń.
+Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
 Przejdź do opcji **Administracja**, kliknij pozycję **Ustawienia klastra**, a następnie wybierz kartę **Konfiguracja globalna** . Przewiń, aby wybrać opcję **OAuth**.
 
 Przewiń w dół do pozycji **Dodaj** w obszarze **dostawcy tożsamości** i wybierz pozycję **OpenID Connect Connect (Połącz**).
 ![Wybierz pozycję OpenID Connect Połącz z listy rozwijanej dostawcy tożsamości](media/aro4-oauth-idpdrop.png)
 
-Podaj nazwę usługi **AAD**, **Identyfikator klienta** jako **Identyfikator aplikacji** i **klucz tajny klienta**. **Adres URL wystawcy** jest sformatowany w `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`taki sposób:. Zastąp symbol zastępczy wcześniej pobranym IDENTYFIKATORem dzierżawy.
+Podaj nazwę usługi **AAD**, **Identyfikator klienta** jako **Identyfikator aplikacji** i **klucz tajny klienta**. **Adres URL wystawcy** jest sformatowany w taki sposób: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Zastąp symbol zastępczy wcześniej pobranym IDENTYFIKATORem dzierżawy.
 
 ![Wypełnij szczegóły protokołu OAuth](media/aro4-oauth-idp-1.png)
 

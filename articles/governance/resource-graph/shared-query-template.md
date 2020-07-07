@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie zapytania udostępnionego z szablonami'
-description: W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby utworzyć zapytanie udostępnione grafu zasobów, które zlicza maszyny wirtualne według systemu operacyjnego.
-ms.date: 04/28/2020
+description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do utworzenia zapytania udostępnionego grafu zasobów, które zlicza maszyny wirtualne według systemu operacyjnego.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 050cf26da2054883fceaa08b11f94c6af4c85a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234332"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969810"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-a-resource-manager-template"></a>Szybki Start: Tworzenie zapytania udostępnionego przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie zapytania udostępnionego przy użyciu szablonu Azure Resource Manager
 
-Zapytania dotyczące wykresów zasobów można zapisać jako _zapytanie prywatne_ lub _udostępnione zapytanie_. Zapytanie prywatne jest zapisywane w profilu portalu użytkowników i nie jest widoczne dla innych użytkowników. Udostępnione zapytanie jest obiektem Menedżer zasobów, który może być współużytkowany przez uprawnienia i dostęp oparty na rolach. Udostępnione zapytanie zapewnia wspólne i spójne wykonywanie odnajdywania zasobów. Ten przewodnik Szybki Start używa szablonu Menedżer zasobów do utworzenia zapytania udostępnionego.
+Zapytania dotyczące wykresów zasobów można zapisać jako _zapytanie prywatne_ lub _udostępnione zapytanie_. Zapytanie prywatne jest zapisywane w profilu portalu użytkowników i nie jest widoczne dla innych użytkowników. Udostępnione zapytanie jest obiektem Menedżer zasobów, który może być współużytkowany przez uprawnienia i dostęp oparty na rolach. Udostępnione zapytanie zapewnia wspólne i spójne wykonywanie odnajdywania zasobów. Ten przewodnik Szybki Start używa szablonu Azure Resource Manager (szablon ARM) do utworzenia zapytania udostępnionego.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -25,9 +25,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 W tym przewodniku szybki start utworzysz zapytanie udostępnione o nazwie _Liczba maszyn wirtualnych według systemu operacyjnego_. Aby wypróbować to zapytanie w zestawie SDK lub w portalu z Eksploratorem grafów zasobów, zobacz [przykłady — liczba maszyn wirtualnych według typu systemu operacyjnego](./samples/starter.md#count-os).
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -42,7 +42,7 @@ Zasób zdefiniowany w szablonie to:
 
 1. Wybierz następujący obraz, aby zalogować się do witryny Azure Portal i otworzyć szablon:
 
-   [![Wdrażanie szablonu zasad na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż szablon ARM na potrzeby tworzenia zapytania udostępnionego na platformie Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Wybierz lub wprowadź następujące wartości:
 
@@ -62,7 +62,7 @@ Dodatkowe zasoby:
 
 - Aby znaleźć więcej przykładów szablonów, zobacz [szablon szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Aby wyświetlić odwołanie do szablonu, przejdź do pozycji [Dokumentacja szablonu platformy Azure](/azure/templates/microsoft.resourcegraph/allversions).
-- Aby dowiedzieć się, jak opracowywać szablony Menedżer zasobów, zobacz [dokumentację dotyczącą Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Aby dowiedzieć się, jak opracowywać szablony ARM, zobacz [dokumentację Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Aby uzyskać informacje na temat wdrażania na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
@@ -83,7 +83,7 @@ Alternatywnie można otworzyć udostępnione zapytanie z Eksploratora grafu zaso
 
 1. Po załadowaniu zapytania wybierz przycisk **Uruchom zapytanie** . Wyniki są wyświetlane na karcie **wyniki** poniżej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone zapytanie udostępnione, wykonaj następujące kroki:
 

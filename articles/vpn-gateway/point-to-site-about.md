@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80410500"
 ---
 # <a name="about-point-to-site-vpn"></a>Informacje o sieci VPN typu punkt-lokacja

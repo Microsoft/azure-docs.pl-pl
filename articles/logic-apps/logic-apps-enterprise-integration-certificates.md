@@ -9,13 +9,13 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450144"
 ---
-# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększ bezpieczeństwo komunikatów B2B przy użyciu certyfikatów
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększanie bezpieczeństwa wiadomości B2B przy użyciu certyfikatów
 
 W przypadku konieczności zachowania poufności komunikacji B2B można zwiększyć bezpieczeństwo komunikacji B2B w aplikacjach integracji przedsiębiorstwa, a w odniesieniu do aplikacji logiki, dodając certyfikaty do konta integracji. Certyfikaty to dokumenty cyfrowe, które sprawdzają tożsamość uczestników w komunikacji elektronicznej i pomagają w zabezpieczaniu komunikacji w następujący sposób:
 

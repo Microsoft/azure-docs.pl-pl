@@ -14,17 +14,17 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72298796"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Rozpoczynanie pracy z usługą Azure Blob Storage i usługami połączonymi programu Visual Studio (projekty usług Cloud Services)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano sposób rozpoczynania pracy z usługą Azure Blob Storage po utworzeniu konta usługi Azure Storage lub przywoływaniu go za pomocą okna dialogowego **Dodawanie usług połączonych** programu Visual Studio w projekcie usług w chmurze programu Pokażemy Ci, jak uzyskać dostęp do kontenerów obiektów blob oraz jak wykonywać typowe zadania, takie jak przekazywanie, tworzenie list i pobieranie obiektów BLOB. Przykłady są zapisywane w języku C\# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+W tym artykule opisano sposób rozpoczynania pracy z usługą Azure Blob Storage po utworzeniu konta usługi Azure Storage lub przywoływaniu go za pomocą okna dialogowego **Dodawanie usług połączonych** programu Visual Studio w projekcie usług w chmurze programu Pokażemy Ci, jak uzyskać dostęp do kontenerów obiektów blob oraz jak wykonywać typowe zadania, takie jak przekazywanie, tworzenie list i pobieranie obiektów BLOB. Przykłady są zapisywane w języku C \# i używają [Microsoft Azure Storage biblioteki klienckiej dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Azure Blob Storage to usługa do przechowywania dużych ilości danych bez struktury, do których można uzyskiwać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Pojedynczy obiekt BLOB może być dowolnym rozmiarem. Obiekty blob mogą być takie jak obrazy, pliki audio i wideo, dane pierwotne i pliki dokumentów.
 

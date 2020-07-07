@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 28eeb446e55213f1ffa0a638878f6432fd15a05a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72392243"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Korzystanie z programu Apache Zeppelin do uruchamiania zapytań Apache Phoenix w usłudze Apache HBase w usłudze Azure HDInsight
@@ -29,7 +29,7 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
 
 ## <a name="create-an-apache-zeppelin-note"></a>Tworzenie notatki Apache Zeppelin
 
-1. Zamień `CLUSTERNAME` na nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Następnie wprowadź adres URL w przeglądarce sieci Web. Wprowadź nazwę użytkownika i hasło logowania do klastra.
+1. Zamień na `CLUSTERNAME` nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Następnie wprowadź adres URL w przeglądarce sieci Web. Wprowadź nazwę użytkownika i hasło logowania do klastra.
 
 1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę**.
 

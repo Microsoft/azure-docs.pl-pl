@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 6ca71bce726f16eeacc96e10eb654bb3e21c5924
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744089"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Mierzenie niestandardowych punktów końcowych do oceny w testach analizatora internetowego 

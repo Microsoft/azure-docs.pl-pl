@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82207160"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z węzłami klastra usługi Azure Kubernetes Service w celu konserwacji lub rozwiązywania problemów
@@ -138,7 +138,7 @@ aks-nodepool1-79590246-0  10.240.0.4
 
 Aby utworzyć połączenie SSH z węzłem AKS, należy uruchomić pomocnika w klastrze AKS. Ten pomocnik w systemie zapewnia dostęp SSH do klastra, a następnie dodatkowy dostęp do węzła SSH. Aby utworzyć i korzystać z tego pomocnika, wykonaj następujące czynności:
 
-1. Uruchom obraz `debian` kontenera i Dołącz do niego sesję terminalu. Tego kontenera można użyć do utworzenia sesji SSH z dowolnym węzłem w klastrze AKS:
+1. Uruchom `debian` obraz kontenera i Dołącz do niego sesję terminalu. Tego kontenera można użyć do utworzenia sesji SSH z dowolnym węzłem w klastrze AKS:
 
     ```console
     kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
@@ -149,7 +149,7 @@ Aby utworzyć połączenie SSH z węzłem AKS, należy uruchomić pomocnika w kl
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. Po powiązaniu sesji terminalu z kontenerem Zainstaluj klienta SSH przy użyciu polecenia `apt-get`:
+1. Po powiązaniu sesji terminalu z kontenerem Zainstaluj klienta SSH przy użyciu polecenia `apt-get` :
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -194,7 +194,7 @@ Aby utworzyć połączenie SSH z węzłem AKS, należy uruchomić pomocnika w kl
 
 ## <a name="remove-ssh-access"></a>Usuń dostęp SSH
 
-Po zakończeniu sesja `exit` SSH, a następnie `exit` interaktywna sesja kontenera. Po zamknięciu tej sesji kontenera używany na potrzeby dostępu SSH z klastra AKS zostaje usunięty.
+Po zakończeniu `exit` sesja SSH, a następnie `exit` interaktywna sesja kontenera. Po zamknięciu tej sesji kontenera używany na potrzeby dostępu SSH z klastra AKS zostaje usunięty.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,20 +3,20 @@ title: 'Szybki Start: Tworzenie strategii przy użyciu programu PowerShell'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu programu PowerShell.
 ms.date: 05/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 79feafa48d5d180949b8a23163f2ee9b686e6076
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b881731dfdcaf9e9e016d1437e51dbd5c1a7488a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864117"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970505"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu programu PowerShell
 
-Znajomość sposobu tworzenia i przypisywania strategii umożliwia definiowanie typowych wzorców tworzenia konfiguracji wielokrotnego użytku, które można szybko wdrażać, w oparciu o szablony usługi Resource Manager, zasady, zabezpieczenia itd. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
+Informacje na temat tworzenia i przypisywania planów umożliwiają definiowanie wspólnych wzorców w celu opracowania wielokrotnego i szybkiego wdrożenia konfiguracji na podstawie szablonów Azure Resource Manager (szablony ARM), zasad, zabezpieczeń i innych. Z tego samouczka dowiesz się, jak za pomocą usługi Azure Blueprints wykonywać niektóre typowe zadania związane z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji, takie jak:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 Jeśli nie jest jeszcze zainstalowana, postępuj zgodnie z instrukcjami w temacie [Dodawanie modułu AZ. plan](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) w celu zainstalowania i sprawdzenia poprawności modułu **AZ. plan** z poziomu Galeria programu PowerShell.
 
@@ -24,14 +24,14 @@ Jeśli nie jest jeszcze zainstalowana, postępuj zgodnie z instrukcjami w temaci
 
 ## <a name="create-a-blueprint"></a>Tworzenie strategii
 
-Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon usługi Resource Manager i przypisanie roli w grupie zasobów.
+Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utworzenie strategii z dostępnych zasobów. Utworzymy strategię o nazwie „MyBlueprint” służącą do konfigurowania przypisań ról i zasad dla subskrypcji. Następnie dodamy grupę zasobów, szablon ARM i przypisanie roli do grupy zasobów.
 
 > [!NOTE]
 > W przypadku _korzystania z programu PowerShell, obiekt planu_ jest tworzony jako pierwszy. Dla każdego _artefaktu_ zawierającego parametry, który ma zostać dodany, parametry _strategii_ początkowej muszą zostać zdefiniowane wcześniej.
 
 1. Utwórz obiekt _strategii_ początkowej. Parametr **BlueprintFile** pobiera plik JSON, który zawiera właściwości strategii, wszystkie grupy zasobów do utworzenia i wszystkie parametry poziomu planu. Parametry są określane podczas przypisywania i używane przez artefakty dodane w kolejnych krokach.
 
-   - Plik JSON — plan. JSON
+   - Plik JSON — blueprint.json
 
      ```json
      {
@@ -101,7 +101,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      ```
 
      > [!NOTE]
-     > Podczas programistycznego tworzenia definicji planów Użyj pliku nazwapliku _. JSON_ .
+     > Użyj _blueprint.js_ nazwy pliku podczas programistycznego tworzenia definicji planu.
      > Ta nazwa pliku jest używana podczas wywoływania metody [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
      Obiekt planu jest domyślnie tworzony w domyślnej subskrypcji. Aby określić grupę zarządzania, należy użyć parametru **ManagementGroupId**. Aby określić subskrypcję, użyj parametru identyfikator **subskrypcji**.
@@ -187,9 +187,9 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Dodaj szablon w grupie zasobów. **TemplateFile** szablonu Menedżer zasobów zawiera normalny składnik JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą parametru **TemplateParameterFile** i wewnątrz kodu JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
+1. Dodaj szablon w grupie zasobów. **TemplateFile** dla szablonu ARM zawiera normalny składnik JSON szablonu. Szablon używa również wielokrotnie parametrów strategii **storageAccountType**, **tagName** i **tagValue**, przekazując każdy z nich do szablonu. Parametry planu są dostępne dla szablonu za pomocą parametru **TemplateParameterFile** i wewnątrz kodu JSON szablonu, którego para klucz-wartość służy do iniekcji wartości. Nazwy planów i parametrów szablonu mogą być takie same.
 
-   - Plik szablonu Azure Resource Manager JSON — \artifacts\templateStorage.json
+   - Plik szablonu ARM JSON — \artifacts\templateStorage.json
 
      ```json
      {
@@ -243,7 +243,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
      }
      ```
 
-   - Plik parametru szablonu Azure Resource Manager JSON — \artifacts\templateStorageParams.json
+   - Plik parametru szablonu ARM w formacie JSON — \artifacts\templateStorageParams.json
 
      ```json
      {
@@ -309,7 +309,7 @@ Po opublikowaniu planu przy użyciu programu PowerShell można go przypisać do 
 
 1. Uruchom wdrażanie strategii, przypisując ją do subskrypcji. Ponieważ parametry **współautorów** i **właścicieli** wymagają tablicy obiektów objectid, aby otrzymać przypisanie roli, użyj [Azure Active Directory interfejs API programu Graph](../../active-directory/develop/active-directory-graph-api.md) do zbierania obiektów objectid do użycia w **AssignmentFile** dla własnych użytkowników, grup lub jednostek usługi.
 
-   - Plik JSON — blueprintAssignment. JSON
+   - Plik JSON — blueprintAssignment.json
 
      ```json
      {
@@ -362,7 +362,7 @@ Po opublikowaniu planu przy użyciu programu PowerShell można go przypisać do 
    - Tożsamość zarządzana przypisana przez użytkownika
 
      W przypisaniu strategii można również użyć [tożsamości zarządzanej przypisanej przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md).
-     W takim przypadku części **Identity** pliku przypisania JSON zmienia się w następujący sposób. `{tenantId}`Zastąp `{subscriptionId}`wartości `{yourRG}`,, `{userIdentity}` i tenantId, Identyfikator subskrypcji, nazwę grupy zasobów i nazwę tożsamości zarządzanej przypisanej przez użytkownika odpowiednio.
+     W takim przypadku części **Identity** pliku przypisania JSON zmienia się w następujący sposób. Zastąp wartości `{tenantId}` ,, `{subscriptionId}` `{yourRG}` i `{userIdentity}` tenantId, Identyfikator subskrypcji, nazwę grupy zasobów i nazwę tożsamości zarządzanej przypisanej przez użytkownika odpowiednio.
 
      ```json
      "identity": {
@@ -379,7 +379,7 @@ Po opublikowaniu planu przy użyciu programu PowerShell można go przypisać do 
      > [!IMPORTANT]
      > Plany platformy Azure nie zarządzają tożsamości zarządzanej przypisanej przez użytkownika. Użytkownicy są odpowiedzialni za przypisywanie wystarczających ról i uprawnień — w przeciwnym razie przypisanie strategii kończy się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="unassign-a-blueprint"></a>Cofanie przypisania strategii
 

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431035"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maksymalizowanie jakości grupy wierszy dla magazynu kolumn
@@ -80,8 +80,8 @@ Trim_reason_desc informuje o tym, czy grupy wierszy został przycięty (trim_rea
 Maksymalna wymagana ilość pamięci do skompresowania jednego grupy wierszy jest około
 
 - 72 MB +
-- \#wiersze \* \#kolumn \* 8 bajtów +
-- \#wiersze \* \#krótkie-String — kolumny \* 32 bajtów +
+- \#wiersze \* \# kolumn \* 8 bajtów +
+- \#wiersze \* \# krótkie-String — kolumny \* 32 bajtów +
 - \#długi ciąg — kolumny \* 16 MB dla słownika kompresji
 
 gdzie kolumny krótkie-String używają typów danych typu String <= 32 bajtów i kolumn długich-String, należy użyć ciągów o typach danych > 32 bajtów.

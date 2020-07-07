@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 75f8c1f77a372d3b9b9e9a5582927f24b99fe9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82190218"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Debugowanie zadań platformy Apache Spark uruchomionych w usłudze Azure HDInsight
 
 W tym artykule dowiesz się, jak śledzić i debugować zadania Apache Spark uruchomione w klastrach usługi HDInsight. Debuguj przy użyciu interfejsu użytkownika Apache Hadoop PRZĘDZy, interfejsu użytkownika Spark i serwera historii platformy Spark. Rozpoczęcie zadania platformy Spark przy użyciu notesu dostępnego z klastrem Spark, **Uczenie maszynowe: analizy predykcyjnej danych inspekcji żywności przy użyciu MLLib**. Wykonaj następujące kroki, aby śledzić aplikację, która została przesłana przy użyciu innego podejścia, a na przykład do **przesyłania danych z platformy Spark**.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     ![Azure Portal uruchamiania interfejsu użytkownika PRZĘDZy](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
 
    > [!TIP]  
-   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, wybierz pozycję **Ambari Home** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari **Przejdź do okna** > **szybkie linki** do > aktywnego Menedżer zasobów > **Menedżer zasobów interfejsie użytkownika**.
+   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, wybierz pozycję **Ambari Home** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari **Przejdź do**  >  okna**szybkie linki** do > aktywnego Menedżer zasobów > **Menedżer zasobów interfejsie użytkownika**.
 
 2. Ponieważ uruchomiono zadanie Spark przy użyciu notesów Jupyter, aplikacja ma nazwę **remotesparkmagics** (nazwa wszystkich aplikacji uruchamianych z notesów). Wybierz identyfikator aplikacji dla nazwy aplikacji, aby uzyskać więcej informacji o zadaniu. Ta akcja powoduje uruchomienie widoku aplikacji.
 
@@ -98,13 +98,13 @@ Po zakończeniu zadania informacje o zadaniu są utrwalane na serwerze historii 
     ![Azure Portal uruchomić serwer historii platformy Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Uruchom historię platformy Spark serwer1")
 
    > [!TIP]  
-   > Alternatywnie można również uruchomić interfejs użytkownika serwera historii platformy Spark z poziomu interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, w bloku przegląd wybierz pozycję **Strona główna Ambari** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari przejdź do strony **Spark2** > **szybkie linki** > **Spark2 interfejs użytkownika serwera historii**.
+   > Alternatywnie można również uruchomić interfejs użytkownika serwera historii platformy Spark z poziomu interfejsu użytkownika Ambari. Aby uruchomić interfejs użytkownika Ambari, w bloku przegląd wybierz pozycję **Strona główna Ambari** w obszarze **pulpity nawigacyjne klastra**. W interfejsie użytkownika Ambari przejdź do strony **Spark2**  >  **szybkie linki**  >  **Spark2 interfejs użytkownika serwera historii**.
 
 2. Zobaczysz wszystkie ukończone aplikacje wymienione na liście. Wybierz identyfikator aplikacji, aby przejść do aplikacji w celu uzyskania dodatkowych informacji.
 
     ![Zakończone aplikacje serwera historii platformy Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Uruchom historię platformy Spark Serwer2")
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight](apache-spark-resource-manager.md)
 * [Debugowanie Apache Spark zadań przy użyciu rozszerzonego serwera historii platformy Spark](apache-azure-spark-history-server.md)

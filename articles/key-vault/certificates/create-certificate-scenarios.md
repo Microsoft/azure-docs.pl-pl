@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430970"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorowanie tworzenia certyfikatów i zarządzanie tym procesem
@@ -42,7 +42,7 @@ Scenariusze/operacje opisane w tym artykule są następujące:
 
 Poniższe przykłady wymagają, aby obiekt o nazwie "mydigicert" był już dostępny w magazynie kluczy z dostawcą wystawcy jako DigiCert. Wystawca certyfikatu jest jednostką reprezentowaną w Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do przekazywania informacji o źródle certyfikatu KV; Nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ```json
 {
@@ -83,7 +83,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 Pobierz`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -113,7 +113,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ## <a name="get-pending-request---request-status-is-complete"></a>Pobieranie oczekujących żądań — stan żądania to "ukończone"
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
@@ -145,7 +145,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Pobieranie oczekujących żądań oczekujących na żądanie ma stan "anulowane" lub "Niepowodzenie"
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 |Metoda|Identyfikator URI żądania|
 |------------|-----------------|
@@ -189,7 +189,7 @@ Obiekt oczekujący może zostać usunięty lub zastąpiony przez operację tworz
 |------------|-----------------|
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 Pobierz`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -227,7 +227,7 @@ Aby rozwiązać konflikt:
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ```json
 {
@@ -264,7 +264,7 @@ Jeśli żądanie utworzenia certyfikatu x509 zakończy się niepowodzeniem lub z
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ```json
 {
@@ -293,7 +293,7 @@ Można żądać anulowania tylko. Żądanie może lub nie może być anulowane. 
 |------------|-----------------|
 |WYSŁANA|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 WYSŁANA`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -333,7 +333,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 |------------|-----------------|
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 USUNIĘTY`“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
 LUB
@@ -363,7 +363,7 @@ W procesie tworzenia ręcznego można utworzyć certyfikat wystawiony z wybranym
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ```json
 {
@@ -403,7 +403,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
 ```json
 {
@@ -414,7 +414,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nazwa elementu|Wymagany|Typ|Wersja|Opis|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Tak|tablica|\<Wprowadzenie do wersji>|Łańcuch certyfikatu x509 jako podstawową tablicę ciągów 64.|
+|x5c|Tak|tablica|\<introducing version>|Łańcuch certyfikatu x509 jako podstawową tablicę ciągów 64.|
 
 ### <a name="response"></a>Odpowiedź
 
