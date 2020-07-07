@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417176"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
@@ -24,7 +24,7 @@ ms.locfileid: "81417176"
 Działanie ForEach definiuje powtarzający się przepływ sterowania w potoku. To działanie służy do wykonywania iteracji po kolekcji i wykonuje określone działania w pętli. Implementacja pętli tego działania przypomina strukturę pętli Foreach w językach programowania.
 
 ## <a name="syntax"></a>Składnia
-Właściwości są opisane w dalszej części tego artykułu. Właściwość Items jest kolekcją, a każdy element w kolekcji jest określany za pomocą instrukcji `@item()` , jak pokazano w następującej składni:  
+Właściwości są opisane w dalszej części tego artykułu. Właściwość Items jest kolekcją, a każdy element w kolekcji jest określany za pomocą instrukcji, `@item()` jak pokazano w następującej składni:  
 
 ```json
 {  
@@ -70,13 +70,13 @@ Właściwości są opisane w dalszej części tego artykułu. Właściwość Ite
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 name | Nazwa działania for-each. | String | Tak
-type | Musi być ustawiona na wartość **foreach** | String | Tak
+typ | Musi być ustawiona na wartość **foreach** | String | Tak
 issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Boolean | Nie. Wartość domyślna to false.
 batchCount | Liczba partii do użycia w celu kontrolowania liczby równoległych wykonań (gdy właściwość issekwencyjne ma wartość false). Jest to górny limit współbieżności, ale działanie for-each nie będzie zawsze wykonywane na tym numerze | Integer (maksimum 50) | Nie. Wartość domyślna to 20.
-Items | Wyrażenie zwracające tablicę JSON do iteracji. | Wyrażenie (które zwraca tablicę JSON) | Tak
+Elementy | Wyrażenie zwracające tablicę JSON do iteracji. | Wyrażenie (które zwraca tablicę JSON) | Tak
 Działania | Działania do wykonania. | Lista działań | Tak
 
 ## <a name="parallel-execution"></a>Wykonywanie równoległe
@@ -483,7 +483,7 @@ Najpierw Zadeklaruj `array` _zmienną_ w potoku. Następnie Wywołaj działanie 
 
 Poniżej przedstawiono niektóre ograniczenia działania ForEach i sugerowane obejścia.
 
-| Ograniczenia | Obejście |
+| Ograniczenie | Obejście |
 |---|---|
 | Nie można zagnieżdżać pętli ForEach wewnątrz innej pętli ForEach (lub pętli "until"). | Zaprojektuj potok dwupoziomowy, w którym zewnętrzny potok z zewnętrzną pętlą ForEach powtarza się za pośrednictwem wewnętrznego potoku z zagnieżdżoną pętlą. |
 | Działanie ForEach ma maksymalnie `batchCount` 50 do przetwarzania równoległego i maksymalnie 100 000 elementów. | Zaprojektuj potok dwupoziomowy, w którym zewnętrzny potok z działaniem ForEach iteruje za pośrednictwem wewnętrznego potoku. |

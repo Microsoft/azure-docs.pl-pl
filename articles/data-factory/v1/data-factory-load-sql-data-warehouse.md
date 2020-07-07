@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419310"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Załaduj 1 TB do Azure SQL Data Warehouse poniżej 15 minut z Data Factory
@@ -46,7 +46,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeniesienia danych do
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Azure Blob Storage: ten eksperyment używa platformy Azure Blob Storage (GRS) do przechowywania zestawu danych testów TPC-H.  Jeśli nie masz konta usługi Azure Storage, Dowiedz się, [jak utworzyć konto magazynu](../../storage/common/storage-account-create.md).
-* Dane [TPC-h](http://www.tpc.org/tpch/) : będziemy używać TPC-h jako zestawu danych testowych.  Aby to zrobić, należy użyć `dbgen` narzędzia TPC-H Toolkit, które pomaga wygenerować zestaw danych.  Możesz pobrać kod źródłowy `dbgen` z [narzędzi TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) i skompilować go samodzielnie lub pobrać skompilowany plik binarny z usługi [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Uruchom program dbgen. exe z poniższymi poleceniami, aby wygenerować plik prosty `lineitem` o pojemności 1 TB na potrzeby rozproszonej tabeli w 10 plikach:
+* Dane [TPC-h](http://www.tpc.org/tpch/) : będziemy używać TPC-h jako zestawu danych testowych.  Aby to zrobić, należy użyć narzędzia `dbgen` TPC-H Toolkit, które pomaga wygenerować zestaw danych.  Możesz pobrać kod źródłowy `dbgen` z [narzędzi TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) i skompilować go samodzielnie lub pobrać skompilowany plik binarny z usługi [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Uruchom dbgen.exe z poniższymi poleceniami, aby wygenerować plik prosty o pojemności 1 TB na potrzeby `lineitem` rozmieszczenia tabel w 10 plikach:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -77,9 +77,9 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeniesienia danych do
 
     ![Okno dialogowe skalowania](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    Ten eksperyment ładuje dane do Azure SQL Data Warehouse przy `xlargerc` użyciu klasy zasobów.
+    Ten eksperyment ładuje dane do Azure SQL Data Warehouse przy użyciu `xlargerc` klasy zasobów.
 
-    Aby osiągnąć najlepszą możliwą przepustowość, należy wykonać kopię przy użyciu SQL Data Warehouse użytkownika należącego `xlargerc` do klasy zasobów.  Dowiedz się, jak to zrobić, wykonując następujące czynności: [Zmień przykład klasy zasobów użytkownika](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    Aby osiągnąć najlepszą możliwą przepustowość, należy wykonać kopię przy użyciu SQL Data Warehouse użytkownika należącego do `xlargerc` klasy zasobów.  Dowiedz się, jak to zrobić, wykonując następujące czynności: [Zmień przykład klasy zasobów użytkownika](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
 * Utwórz schemat tabeli docelowej w bazie danych Azure SQL Data Warehouse, uruchamiając następującą instrukcję języka DDL:
 
     ```SQL  
@@ -123,7 +123,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeniesienia danych do
       2. Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.
    4. Wybierz **lokalizację** fabryki danych.
    5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.  
-   6. Kliknij przycisk **Utwórz**.
+   6. Kliknij pozycję **Utwórz**.
 4. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -192,7 +192,7 @@ Opcja **Zezwalaj na bazę wielobazową** jest domyślnie zaznaczona.  Kliknij pr
 
     ![Kreator kopiowania — strona podsumowania](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. Po zakończeniu wdrażania kliknij `Click here to monitor copy pipeline` , aby monitorować postęp przebiegu kopiowania. Wybierz potok kopiowania utworzony na liście **okna działania** .
+2. Po zakończeniu wdrażania kliknij, `Click here to monitor copy pipeline` Aby monitorować postęp przebiegu kopiowania. Wybierz potok kopiowania utworzony na liście **okna działania** .
 
     ![Kreator kopiowania — strona podsumowania](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 

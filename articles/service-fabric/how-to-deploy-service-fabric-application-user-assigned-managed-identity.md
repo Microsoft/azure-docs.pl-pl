@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób wdrażania aplikacji Service Fabric 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415641"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
@@ -18,7 +18,7 @@ Aby wdrożyć aplikację Service Fabric z tożsamością zarządzaną, aplikacja
 > 
 > Aplikacje, które nie są wdrożone jako zasób platformy Azure, **nie mogą** mieć tożsamości zarządzanych. 
 >
-> Wdrożenie aplikacji Service Fabric z tożsamością zarządzaną jest obsługiwane w `"2019-06-01-preview"`wersji interfejsu API. Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi.
+> Wdrożenie aplikacji Service Fabric z tożsamością zarządzaną jest obsługiwane w wersji interfejsu API `"2019-06-01-preview"` . Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi.
 >
 
 ## <a name="user-assigned-identity"></a>Tożsamość przypisana przez użytkownika
@@ -62,7 +62,7 @@ W powyższym przykładzie nazwa zasobu tożsamości przypisanej do użytkownika 
 
 ### <a name="application-package"></a>Pakiet aplikacji
 
-1. Dla każdej tożsamości zdefiniowanej w `managedIdentities` sekcji w szablonie Azure Resource Manager Dodaj `<ManagedIdentity>` tag w manifeście aplikacji w sekcji **podmioty zabezpieczeń** . `Name` Atrybut musi pasować do `name` właściwości zdefiniowanej w `managedIdentities` sekcji.
+1. Dla każdej tożsamości zdefiniowanej w `managedIdentities` sekcji w szablonie Azure Resource Manager Dodaj `<ManagedIdentity>` tag w manifeście aplikacji w sekcji **podmioty zabezpieczeń** . `Name`Atrybut musi pasować do `name` właściwości zdefiniowanej w `managedIdentities` sekcji.
 
     **ApplicationManifest.xml**
 
@@ -86,7 +86,7 @@ W powyższym przykładzie nazwa zasobu tożsamości przypisanej do użytkownika 
       </ServiceManifestImport>
     ```
 
-3. Zaktualizuj manifest usługi, aby dodać **ManagedIdentity** w sekcji **resources** o nazwie zgodnej z `ServiceIdentityRef` elementem w `IdentityBindingPolicy` manifeście aplikacji:
+3. Zaktualizuj manifest usługi, aby dodać **ManagedIdentity** w sekcji **resources** o nazwie zgodnej z elementem `ServiceIdentityRef` w `IdentityBindingPolicy` manifeście aplikacji:
 
     **ServiceManifest.xml**
 

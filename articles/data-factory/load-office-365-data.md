@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415811"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Ładowanie danych z pakietu Office 365 przy użyciu Azure Data Factory
@@ -26,7 +26,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Z menu po lewej stronie wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów: 
+1. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów: 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -40,7 +40,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
     * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
    
    ![Strona główna fabryki danych](./media/load-office-365-data/data-factory-home-page.png)
@@ -79,7 +79,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
     ![Konfiguracja tabeli zestawu danych pakietu Office 365](./media/load-office-365-data/edit-dataset.png)
 
-8. Teraz wróć do**karty Źródło** **potoku** > , aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) .
+8. Teraz wróć do karty Źródło **potoku**,  >  **Source tab** aby kontynuować konfigurowanie dodatkowych właściwości wyodrębniania danych pakietu Office 365.  Zakres użytkownika i filtr zakresu użytkownika to opcjonalne predykaty, które można zdefiniować, aby ograniczyć dane, które mają zostać wyodrębnione z pakietu Office 365. Aby skonfigurować te ustawienia, zobacz sekcję [Właściwości zestawu danych pakietu Office 365](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) .
 
 9. Wymagane jest wybranie jednego z filtrów daty i podanie wartości czasu rozpoczęcia i czasu zakończenia.
 
@@ -132,8 +132,8 @@ Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybie
 
 Jeśli żądanie danych dla tego kontekstu jest wykonywane po raz pierwszy (połączenie z tabelą danych jest dostępne, do której należy dane konto docelowe, i które tożsamość użytkownika tworzy żądanie dostępu do danych), zobaczysz stan działania kopiowania jako **w toku**i tylko po kliknięciu linku "Szczegóły" w obszarze Akcje zobaczysz stan jako **RequesetingConsent**.  Członek grupy osoby zatwierdzającej dostęp do danych musi zatwierdzić żądanie w Privileged Access Management zanim będzie możliwe kontynuowanie wyodrębniania danych.
 
-_Stan z prośbą o zgodę:_
-![szczegóły wykonania działania — zgoda na żądanie](./media/load-office-365-data/activity-details-request-consent.png) 
+_Stan jako żądanie zgody:_ 
+ ![ Szczegóły wykonania działania — zgoda na żądanie](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Stan jako dane wyodrębniania:_
 

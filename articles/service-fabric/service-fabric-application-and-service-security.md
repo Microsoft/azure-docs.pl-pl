@@ -4,10 +4,10 @@ description: Omówienie sposobu bezpiecznego uruchamiania aplikacji mikrousług 
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461433"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric zabezpieczenia aplikacji i usługi
@@ -42,7 +42,7 @@ API Management integruje się bezpośrednio z Service Fabric, co pozwala na publ
 ## <a name="manage-application-secrets"></a>Zarządzanie wpisami tajnymi aplikacji
 Wpisy tajne mogą być dowolnymi informacjami poufnymi, takimi jak parametry połączenia magazynu, hasła lub inne wartości, które nie powinny być obsługiwane w postaci zwykłego tekstu. W tym artykule jest używane Azure Key Vault do zarządzania kluczami i wpisami tajnymi. Jednak *Używanie* wpisów tajnych w aplikacji to Cloud Platform-niezależny od, aby umożliwić wdrażanie aplikacji w klastrze hostowanym w dowolnym miejscu.
 
-Zalecaną metodą zarządzania ustawieniami konfiguracji usługi jest użycie [pakietów konfiguracji usługi][config-package]. Pakiety konfiguracyjne są obsługiwane i aktualizowalne przez zarządzane uaktualnienia stopniowe z weryfikacją kondycji i autowycofywanie. Jest to preferowana konfiguracja globalna, ponieważ zmniejsza to szanse na awarię usługi globalnej. Zaszyfrowane klucze tajne nie są wyjątkiem. Service Fabric ma wbudowane funkcje szyfrowania i odszyfrowywania wartości w pliku XML ustawień pakietu konfiguracji przy użyciu szyfrowania certyfikatów.
+Zalecaną metodą zarządzania ustawieniami konfiguracji usługi jest użycie [pakietów konfiguracji usługi][config-package]. Pakiety konfiguracyjne są obsługiwane i aktualizowalne przez zarządzane uaktualnienia stopniowe z weryfikacją kondycji i autowycofywanie. Jest to preferowana konfiguracja globalna, ponieważ zmniejsza to szanse na awarię usługi globalnej. Zaszyfrowane klucze tajne nie są wyjątkiem. Service Fabric ma wbudowane funkcje szyfrowania i odszyfrowywania wartości w pakiecie konfiguracyjnym Settings.xml pliku przy użyciu szyfrowania certyfikatów.
 
 Na poniższym diagramie przedstawiono podstawowy przepływ dla zarządzania kluczami tajnymi w aplikacji Service Fabric:
 
@@ -52,8 +52,8 @@ W tym przepływie istnieją cztery główne kroki:
 
 1. Uzyskaj certyfikat szyfrowania danych.
 2. Zainstaluj certyfikat w klastrze.
-3. Szyfruj wartości tajne podczas wdrażania aplikacji z certyfikatem i wstrzyknąć je do pliku konfiguracyjnego XML ustawień usługi.
-4. Odczytaj zaszyfrowane wartości z pliku Settings. xml przez odszyfrowanie przy użyciu tego samego certyfikatu szyfrowania. 
+3. Szyfruj wartości tajne podczas wdrażania aplikacji z certyfikatem i wstrzyknąć je do pliku konfiguracji Settings.xml usługi.
+4. Odczytaj zaszyfrowane wartości z Settings.xml przez odszyfrowanie przy użyciu tego samego certyfikatu szyfrowania. 
 
 [Azure Key Vault][key-vault-get-started] jest używany w tym miejscu jako bezpieczna lokalizacja magazynu dla certyfikatów i jako sposób uzyskiwania certyfikatów zainstalowanych w klastrach Service Fabric na platformie Azure. Jeśli nie planujesz wdrożenia na platformie Azure, nie musisz używać Key Vault do zarządzania wpisami tajnymi w aplikacjach Service Fabric.
 
@@ -66,7 +66,7 @@ Manifest aplikacji deklaruje podmioty zabezpieczeń (Użytkownicy i grupy) wymag
 
 W przypadku deklarowania podmiotów zabezpieczeń można także zdefiniować i utworzyć grupy użytkowników, aby co najmniej jeden użytkownik może zostać dodany do każdej grupy, która ma być zarządzana wspólnie. Jest to przydatne, jeśli istnieje wielu użytkowników dla różnych punktów wejścia usługi i że muszą mieć pewne typowe uprawnienia, które są dostępne na poziomie grupy.
 
-Domyślnie aplikacje Service Fabric są uruchamiane w ramach konta, w ramach którego działa proces Fabric. exe. Service Fabric oferuje również możliwość uruchamiania aplikacji na koncie użytkownika lokalnego lub na lokalnym koncie systemowym określonym w manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [Uruchamianie usługi jako konta użytkownika lokalnego lub konta System lokalny](service-fabric-application-runas-security.md).  Możesz również [uruchomić skrypt uruchamiania usługi jako konto użytkownika lokalnego lub systemu](service-fabric-run-script-at-service-startup.md).
+Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach którego działa proces Fabric.exe. Service Fabric oferuje również możliwość uruchamiania aplikacji na koncie użytkownika lokalnego lub na lokalnym koncie systemowym określonym w manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [Uruchamianie usługi jako konta użytkownika lokalnego lub konta System lokalny](service-fabric-application-runas-security.md).  Możesz również [uruchomić skrypt uruchamiania usługi jako konto użytkownika lokalnego lub systemu](service-fabric-run-script-at-service-startup.md).
 
 W przypadku uruchamiania Service Fabric w klastrze autonomicznym systemu Windows można uruchomić usługę w obszarze [Active Directory konta domeny](service-fabric-run-service-as-ad-user-or-group.md) lub [konta usług zarządzane przez grupę](service-fabric-run-service-as-gmsa.md).
 

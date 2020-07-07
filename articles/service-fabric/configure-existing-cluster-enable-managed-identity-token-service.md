@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415687"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Konfigurowanie obsługi tożsamości zarządzanej w istniejącym klastrze Service Fabric
@@ -55,7 +55,7 @@ Aby zmiany zaczęły obowiązywać, należy również zmienić zasady uaktualnia
 ```
 
 > [!NOTE]
-> Po pomyślnym zakończeniu uaktualniania nie zapomnij wycofać tego `forceRestart` ustawienia, aby zminimalizować wpływ kolejnych uaktualnień. 
+> Po pomyślnym zakończeniu uaktualniania nie zapomnij wycofać tego `forceRestart` Ustawienia, aby zminimalizować wpływ kolejnych uaktualnień. 
 
 ## <a name="errors-and-troubleshooting"></a>Błędy i rozwiązywanie problemów
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81430632"
 ---
 # <a name="initializer-codepackages"></a>Pakiety CodePackage inicjatora
@@ -21,7 +21,7 @@ Przed przejściem do tego artykułu zalecamy zapoznanie się z [modelem aplikacj
 > [!NOTE]
 > Inicjatory CodePackages nie są obecnie obsługiwane w przypadku usług pisanych przy użyciu modelu programowania [Reliable Services][reliable-services-link] .
  
-## <a name="semantics"></a>Semantyki
+## <a name="semantics"></a>Semantyka
 
 Oczekiwany jest CodePackage inicjatora do **pomyślnego ukończenia (kod zakończenia 0)**. CodePackage inicjatora nie powiodło się, dopóki nie zakończy się pomyślnie. Wiele CodePackages inicjatorów jest dozwolonych i jest wykonywanych w celu **pomyślnego zakończenia**, **sekwencyjne** **w określonej kolejności** , zanim inne CodePackages w servicepackage zakończą wykonywanie.
 
@@ -52,7 +52,7 @@ Spójrzmy na kompletny przykład przy użyciu inicjatora CodePackages.
 >
 > Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Następujący plik servicemanifest. XML kompiluje się w opisany wcześniej fragmencie kodu servicemanifest. *InitCodePackage0*, *InitCodePackage1* i *WorkloadCodePackage* są CodePackages, które reprezentują kontenery. Po aktywacji *InitCodePackage0* jest wykonywane najpierw. Rejestruje on komunikat do pliku i kończy pracę. Następnie jest wykonywana *InitCodePackage1* , która również rejestruje komunikat w pliku i kończy pracę. Na koniec *WorkloadCodePackage* rozpoczyna wykonywanie. Rejestruje także komunikat do pliku, wyprowadza zawartość pliku do **stdout** , a następnie wysyła polecenie ping do nieograniczonego.
+Poniższy ServiceManifest.xml kompiluje się w opisany wcześniej fragmencie kodu servicemanifest. *InitCodePackage0*, *InitCodePackage1* i *WorkloadCodePackage* są CodePackages, które reprezentują kontenery. Po aktywacji *InitCodePackage0* jest wykonywane najpierw. Rejestruje on komunikat do pliku i kończy pracę. Następnie jest wykonywana *InitCodePackage1* , która również rejestruje komunikat w pliku i kończy pracę. Na koniec *WorkloadCodePackage* rozpoczyna wykonywanie. Rejestruje także komunikat do pliku, wyprowadza zawartość pliku do **stdout** , a następnie wysyła polecenie ping do nieograniczonego.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,7 +93,7 @@ Następujący plik servicemanifest. XML kompiluje się w opisany wcześniej frag
 </ServiceManifest>
 ```
 
-Poniższy ApplicationManifest. XML opisuje aplikację opartą na pliku servicemanifest. XML opisanym powyżej. Należy pamiętać, że ta sama instalacja **woluminu** jest taka sama dla wszystkich kontenerów, tj. **C:\WorkspaceOnHost** jest instalowana w **C:\WorkspaceOnContainer** we wszystkich trzech kontenerach. Efektem netto jest to, że wszystkie kontenery są zapisywane w tym samym pliku dziennika w kolejności, w której zostały aktywowane.
+W poniższym ApplicationManifest.xml opisano aplikację opartą na ServiceManifest.xml opisanej powyżej. Należy pamiętać, że ta sama instalacja **woluminu** jest taka sama dla wszystkich kontenerów, tj. **C:\WorkspaceOnHost** jest instalowana w **C:\WorkspaceOnContainer** we wszystkich trzech kontenerach. Efektem netto jest to, że wszystkie kontenery są zapisywane w tym samym pliku dziennika w kolejności, w której zostały aktywowane.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

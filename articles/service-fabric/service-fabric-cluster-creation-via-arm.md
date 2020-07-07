@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81458304"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Tworzenie klastra Service Fabric przy użyciu Azure Resource Manager 
@@ -63,7 +63,7 @@ Używany szablon jest dostępny w [przykładach szablonów Service Fabric platfo
 Następujące polecenie może utworzyć klastry z systemem Windows lub Linux, aby odpowiednio określić system operacyjny. Polecenie PowerShell/interfejsu wiersza polecenia również wyprowadza certyfikat w określonym *CertificateOutputFolder*; Upewnij się jednak, że folder certyfikatu został już utworzony. Polecenie wykonuje również inne parametry, takie jak jednostka SKU maszyny wirtualnej.
 
 > [!NOTE]
-> Następujące polecenie programu PowerShell działa tylko z modułem `Az` Azure PowerShell. Aby sprawdzić bieżącą wersję programu Azure Resource Manager PowerShell w wersji, uruchom następujące polecenie programu PowerShell "Get-module AZ". Skorzystaj z [tego linku](/powershell/azure/install-Az-ps) , aby uaktualnić wersję programu Azure Resource Manager PowerShell. 
+> Następujące polecenie programu PowerShell działa tylko z `Az` modułem Azure PowerShell. Aby sprawdzić bieżącą wersję programu Azure Resource Manager PowerShell w wersji, uruchom następujące polecenie programu PowerShell "Get-module AZ". Skorzystaj z [tego linku](/powershell/azure/install-Az-ps) , aby uaktualnić wersję programu Azure Resource Manager PowerShell. 
 >
 >
 

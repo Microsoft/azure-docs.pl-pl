@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81461705"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
@@ -98,7 +98,7 @@ Użyj standardowych protokołów uwierzytelniania, takich jak OAuth2 i Kerberos.
 
 Poniższa tabela zawiera listę zagrożeń związanych z KROKami i zawiera przykładowe środki zaradcze, które korzystają z funkcji platformy Azure. Te środki zaradcze nie będą działały w każdej sytuacji.
 
-| Ważną | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
+| Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | --- | --- | --- |
 | Fałszowanie zawartości | Uwierzytelnianie | Wymagaj połączeń HTTPS. |
 | Manipulowanie | Integralność | Sprawdź poprawność certyfikatów TLS/SSL. |
@@ -155,7 +155,7 @@ W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi A
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database i Azure SQL Data Warehouse](paas-applications-using-sql.md)
-- [Usługa Azure Storage](paas-applications-using-storage.md)
+- [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
 - Zapory aplikacji sieci Web

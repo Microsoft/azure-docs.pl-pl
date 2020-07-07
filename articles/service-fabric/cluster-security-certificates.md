@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
 ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81429670"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X. 509 w klastrach Service Fabric
@@ -106,8 +106,8 @@ Pozwól nam najpierw rozważyć wyciąg z manifestu klastra exemplifying oba sty
 ```
 Deklaracje odnoszą się odpowiednio do tożsamości serwera i klastra; Należy zauważyć, że deklaracje oparte na CN mają własne sekcje w manifeście klastra, niezależnie od standardowego "zabezpieczenia". W obu deklaracjach, "name" reprezentuje wspólną nazwę podmiotu w certyfikacie, a pole "value" reprezentuje oczekiwanego wystawcy w następujący sposób:
 
-- w pierwszym przypadku deklaracja stwierdza, że element nazwy pospolitej podmiotu certyfikatu serwera powinien pasować do ciągu "Server. demonstracyjn. System. servicefabric. Azure-int"; puste pole "value" wskazuje, że katalog główny łańcucha certyfikatów jest zaufany w węźle/komputerze, na którym jest sprawdzany certyfikat serwera; w systemie Windows oznacza to, że certyfikat może być powiązany z dowolnym certyfikatem zainstalowanym w magazynie "zaufany główny urząd certyfikacji".
-- w drugim przypadku deklaracja stwierdza, że prezenter certyfikatu jest akceptowany jako węzeł równorzędny w klastrze, jeśli nazwa pospolita certyfikatu jest zgodna z ciągiem "Cluster. demonstracyjn. System. servicefabric. Azure-int" *i* odcisk palca bezpośredniego wystawcy certyfikatu jest zgodny z jednym z wpisów oddzielonych przecinkami w polu "value". (Ten typ reguły jest colloquially znany jako "nazwa pospolita z przypinaniem wystawcy".)
+- w pierwszym przypadku deklaracja stwierdza, że element nazwa pospolita podmiotu certyfikatu serwera powinien pasować do ciągu "server.demo.system. servicefabric. Azure-int"; puste pole "value" wskazuje, że katalog główny łańcucha certyfikatów jest zaufany w węźle/komputerze, na którym jest sprawdzany certyfikat serwera; w systemie Windows oznacza to, że certyfikat może być powiązany z dowolnym certyfikatem zainstalowanym w magazynie "zaufany główny urząd certyfikacji".
+- w drugim przypadku deklaracja stwierdza, że prezenter certyfikatu jest akceptowany jako węzeł równorzędny w klastrze, jeśli nazwa pospolita certyfikatu jest zgodna z ciągiem "cluster.demo.system. servicefabric. Azure-int" *i* odcisk palca bezpośredniego wystawcy certyfikatu jest zgodny z jednym z wpisów oddzielonych przecinkami w polu "wartość". (Ten typ reguły jest colloquially znany jako "nazwa pospolita z przypinaniem wystawcy".)
 
 W obu przypadkach łańcuch certyfikatu jest zbudowany i oczekuje się, że jest on bez błędów; oznacza to, że błędy odwołania, łańcuch częściowy lub nieprawidłowe Błędy zaufania są uznawane za krytyczne i sprawdzanie poprawności certyfikatu zakończy się niepowodzeniem. Przypinanie wystawców spowoduje rozważenie stanu niezaufanego elementu głównego jako błędu niekrytycznego; Pomimo wyglądu jest to ściślejsza forma weryfikacji, ponieważ umożliwia właścicielowi klastra ograniczenie zestawu autoryzowanych/akceptowanych wystawców do własnej infrastruktury kluczy publicznych.
 
@@ -156,7 +156,7 @@ Rozważmy następujący fragment z manifestu klastra:
     </NodeType>
   </NodeTypes>
 ```
-Element "ClusterCertificate" demonstruje pełny schemat, w tym parametry opcjonalne ("X509FindValueSecondary") lub te z odpowiednimi wartościami domyślnymi ("X509StoreName"); inne deklaracje pokazują Skrócony formularz. Deklaracja certyfikatu klastra powyżej wskazuje, że ustawienia zabezpieczeń węzłów typu "nt1vm" są inicjowane z certyfikatem "cc71. 1984 ' jako podstawowa i "49e2... certyfikat 19d6 jako pomocniczy; oczekuje się, że oba certyfikaty znajdują się w\'magazynie certyfikatów LocalMachine my "(lub w równoważnej ścieżce systemu Linux, *var/lib/sfcerts*).
+Element "ClusterCertificate" demonstruje pełny schemat, w tym parametry opcjonalne ("X509FindValueSecondary") lub te z odpowiednimi wartościami domyślnymi ("X509StoreName"); inne deklaracje pokazują Skrócony formularz. Deklaracja certyfikatu klastra powyżej wskazuje, że ustawienia zabezpieczeń węzłów typu "nt1vm" są inicjowane z certyfikatem "cc71. 1984 ' jako podstawowa i "49e2... certyfikat 19d6 jako pomocniczy; oczekuje się, że oba certyfikaty znajdują się w \' magazynie certyfikatów LocalMachine my "(lub w równoważnej ścieżce systemu Linux, *var/lib/sfcerts*).
 
 #### <a name="common-name-based-certificate-presentation-declarations"></a>Wspólne deklaracje prezentacji certyfikatu opartego na nazwach
 Typ węzła certyfikaty można także zadeklarować według nazwy pospolitej podmiotu, jak exemplified poniżej:

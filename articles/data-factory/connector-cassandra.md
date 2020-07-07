@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417472"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiowanie danych z Cassandra za pomocą Azure Data Factory
@@ -60,9 +60,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Cassandra są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi mieć wartość: **Cassandra** |Tak |
+| typ |Właściwość Type musi mieć wartość: **Cassandra** |Tak |
 | host |Co najmniej jeden adres IP lub nazwa hosta serwerów Cassandra.<br/>Określ rozdzieloną przecinkami listę adresów IP lub nazw hostów, które mają być połączone jednocześnie ze wszystkimi serwerami. |Tak |
 | port |Port TCP, którego serwer Cassandra używa do nasłuchiwania połączeń klientów. |Nie (domyślnie 9042) |
 | authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych Cassandra.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Tak |
@@ -103,9 +103,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Cassandra, ustaw właściwość Type zestawu danych na **CassandraTable**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **CassandraTable** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **CassandraTable** | Tak |
 | przestrzeń kluczy |Nazwa przestrzeni kluczy lub schematu w bazie danych Cassandra. |Nie (Jeśli określono "Query" dla "CassandraSource") |
 | tableName |Nazwa tabeli w bazie danych Cassandra. |Nie (Jeśli określono "Query" dla "CassandraSource") |
 
@@ -138,11 +138,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Cassandra, ustaw typ źródła w działaniu Copy na **CassandraSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **CassandraSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **CassandraSource** | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Zapytanie SQL-92 zapytania lub CQL. Zobacz [CQL Reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>W przypadku korzystania z zapytania SQL określ **nazwę przestrzeni kluczy. nazwa tabeli** do reprezentowania tabeli, którą chcesz zbadać. |Nie (Jeśli określono "TableName" i "przestrzeń kluczy" w zestawie danych). |
-| consistencyLevel |Poziom spójności określa, ile replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określoną liczbę replik dla danych, aby spełnić żądanie odczytu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie spójności danych](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Dozwolone wartości to: **jeden**, **dwa**, **trzy**, **kworum**, **wszystkie**, **LOCAL_QUORUM**, **EACH_QUORUM**i **LOCAL_ONE**. |Nie (domyślnie `ONE`) |
+| consistencyLevel |Poziom spójności określa, ile replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określoną liczbę replik dla danych, aby spełnić żądanie odczytu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie spójności danych](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Dozwolone wartości to: **jeden**, **dwa**, **trzy**, **kworum**, **wszystkie**, **LOCAL_QUORUM**, **EACH_QUORUM**i **LOCAL_ONE**. |Nie (domyślnie `ONE` ) |
 
 **Przykład:**
 
@@ -188,7 +188,7 @@ Podczas kopiowania danych z Cassandra następujące mapowania są używane z typ
 | TYPU |Boolean |
 | DOKŁADNOŚCI |Wartość dziesiętna |
 | DOUBLE |Double |
-| FLOAT |Single |
+| FLOAT |Pojedyncze |
 | INET |String |
 | INT |Int32 |
 | TEKST |String |
@@ -219,7 +219,7 @@ Tabele wirtualne odwołują się do danych w rzeczywistej tabeli, umożliwiając
 
 Na przykład następująca "przykładowy" jest tabelą bazy danych Cassandra, która zawiera kolumnę klucza podstawowego Integer o nazwie "pk_int", kolumna tekstowa o nazwie Value, kolumnie listy, kolumnie mapy i kolumnie zestawu (o nazwie "StringSet").
 
-| pk_int | Wartość | List | Mapa | StringSet |
+| pk_int | Wartość | Lista | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"przykładowa wartość 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"przykładowa wartość 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

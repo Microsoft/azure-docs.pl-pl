@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416671"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Skopiuj dane z i do chmury usługi Salesforce przy użyciu Azure Data Factory
@@ -37,7 +37,7 @@ W ramach tego łącznika usługi Salesforce w chmurze obsługuje:
 - Wersje Developer, Professional, Enterprise i Unlimited usługi Salesforce.
 - Kopiowanie danych z i do środowiska produkcyjnego, piaskownicy i niestandardowej domeny usługi Salesforce.
 
-Łącznik usługi Salesforce jest oparty na interfejsie API REST/Bulk usługi Salesforce. Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. Można również jawnie ustawić wersję interfejsu API używaną do odczytu/zapisu danych za pośrednictwem [ `apiVersion` właściwości](#linked-service-properties) w połączonej usłudze.
+Łącznik usługi Salesforce jest oparty na interfejsie API REST/Bulk usługi Salesforce. Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. Można również jawnie ustawić wersję interfejsu API używaną do odczytu/zapisu danych za pośrednictwem [ `apiVersion` Właściwości](#linked-service-properties) w połączonej usłudze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,14 +62,14 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Salesforce są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi być ustawiona na wartość **SalesforceServiceCloud**. |Tak |
-| environmentUrl | Określ adres URL wystąpienia chmury usługi Salesforce. <br> -Wartość domyślna `"https://login.salesforce.com"`to. <br> -Aby skopiować dane z piaskownicy, `"https://test.salesforce.com"`Określ. <br> -Aby skopiować dane z domeny niestandardowej, określ, na przykład, `"https://[domain].my.salesforce.com"`. |Nie |
+| typ |Właściwość Type musi być ustawiona na wartość **SalesforceServiceCloud**. |Tak |
+| environmentUrl | Określ adres URL wystąpienia chmury usługi Salesforce. <br> -Wartość domyślna to `"https://login.salesforce.com"` . <br> -Aby skopiować dane z piaskownicy, określ `"https://test.salesforce.com"` . <br> -Aby skopiować dane z domeny niestandardowej, określ, na przykład, `"https://[domain].my.salesforce.com"` . |Nie |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak |
 | hasło |Określ hasło dla konta użytkownika.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | Obiektu |Określ token zabezpieczający dla konta użytkownika. <br/><br/>Aby uzyskać ogólne informacje na temat tokenów zabezpieczających, zobacz [zabezpieczenia i interfejs API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). Token zabezpieczający można pominąć tylko wtedy, gdy dodasz adres IP Integration Runtime do [listy zaufanych adresów IP](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) w usłudze Salesforce. Korzystając z Azure IR, zapoznaj się z [Azure Integration Runtime adresami IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Instrukcje dotyczące pobierania i resetowania tokenu zabezpieczającego znajdują się w temacie [Get a Security Token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Nie |
-| apiVersion | Określ wersję interfejsu API REST/Bulk usługi Salesforce, która ma zostać `48.0`użyta, np.. Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. | Nie |
+| apiVersion | Określ wersję interfejsu API REST/Bulk usługi Salesforce, która ma zostać użyta, np. `48.0` . Domyślnie łącznik używa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) do kopiowania danych z usługi Salesforce i używa [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) do kopiowania danych do usługi Salesforce. | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie dla źródła, tak dla ujścia, jeśli źródłowa usługa nie ma środowiska Integration Runtime |
 
 >[!IMPORTANT]
@@ -141,9 +141,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z i do chmury usługi Salesforce, obsługiwane są następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **SalesforceServiceCloudObject**.  | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **SalesforceServiceCloudObject**.  | Tak |
 | objectApiName | Nazwa obiektu usług Salesforce, z którego mają zostać pobrane dane. | Nie dla źródła, tak dla ujścia |
 
 > [!IMPORTANT]
@@ -170,9 +170,9 @@ Aby skopiować dane z i do chmury usługi Salesforce, obsługiwane są następuj
 }
 ```
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną**. | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość **relacyjną**. | Tak |
 | tableName | Nazwa tabeli w chmurze usługi Salesforce. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -183,9 +183,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z chmury usługi Salesforce, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceServiceCloudSource**. | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SalesforceServiceCloudSource**. | Tak |
 | query |Użyj zapytania niestandardowego do odczytywania danych. Można użyć zapytania [SOQL (Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) lub zapytania SQL-92. Zobacz więcej porad w sekcji [porady dotyczące zapytań](#query-tips) . Jeśli nie określono zapytania, zostaną pobrane wszystkie dane obiektu chmury usługi Salesforce określonego w "objectApiName" w zestawie danych. | Nie (Jeśli określono wartość "objectApiName" w zestawie danych) |
 | readBehavior | Wskazuje, czy mają być zbadane istniejące rekordy, czy też mają być poszukiwane wszystkie rekordy, w tym usunięte. Jeśli nie zostanie określony, domyślnym zachowaniem jest pierwsze. <br>Dozwolone wartości: **zapytanie** (wartość domyślna), **queryAll**.  | Nie |
 
@@ -230,9 +230,9 @@ Aby skopiować dane z chmury usługi Salesforce, w sekcji **Źródło** działan
 
 Aby skopiować dane do chmury usługi Salesforce, w sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceServiceCloudSink**. | Tak |
+| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **SalesforceServiceCloudSink**. | Tak |
 | writeBehavior | Zachowanie zapisu dla operacji.<br/>Dozwolone wartości to **INSERT** i **upsert**. | Nie (wartość domyślna to Insert) |
 | externalIdFieldName | Nazwa pola identyfikatora zewnętrznego dla operacji upsert. Określone pole musi być zdefiniowane jako "pole identyfikatora zewnętrznego" w obiekcie chmury usługi Salesforce. Nie może mieć wartości NULL w odpowiednich danych wejściowych. | Tak dla "upsert" |
 | writeBatchSize | Liczba wierszy danych zapisywana w chmurze usługi Salesforce w każdej partii. | Nie (domyślnie 5 000) |
@@ -277,11 +277,11 @@ Aby skopiować dane do chmury usługi Salesforce, w sekcji **ujścia** działani
 
 ### <a name="retrieve-data-from-a-salesforce-service-cloud-report"></a>Pobieranie danych z raportu w chmurze usługi Salesforce
 
-Dane można pobrać z raportów w chmurze usługi Salesforce, określając zapytanie jako `{call "<report name>"}`. Może to być na przykład `"query": "{call \"TestReport\"}"`.
+Dane można pobrać z raportów w chmurze usługi Salesforce, określając zapytanie jako `{call "<report name>"}` . Może to być na przykład `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-service-cloud-recycle-bin"></a>Pobieranie usuniętych rekordów z kosza chmury usługi Salesforce
 
-Aby wykonać zapytanie dotyczące usuniętych nietrwałych rekordów z Kosza usługi Salesforce w chmurze, możesz `readBehavior` określić `queryAll`jako. 
+Aby wykonać zapytanie dotyczące usuniętych nietrwałych rekordów z Kosza usługi Salesforce w chmurze, możesz określić `readBehavior` jako `queryAll` . 
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Różnica między SOQL i składnią zapytania SQL
 
@@ -292,13 +292,13 @@ Podczas kopiowania danych z chmury usługi Salesforce można użyć zapytania SO
 | Wybór kolumny | Należy wyliczyć pola, które mają być skopiowane do zapytania, np.`SELECT field1, filed2 FROM objectname` | `SELECT *`jest obsługiwana oprócz zaznaczenia kolumny. |
 | Cudzysłowy | Nazwy zgłoszonych/obiektów nie mogą być ujęte w cudzysłów. | Nazwy pól/obiektów mogą być ujęte w cudzysłów, np.`SELECT "id" FROM "Account"` |
 | Format daty i godziny |  Zapoznaj się z informacjami [tutaj](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) i przykładami w następnej sekcji. | Zapoznaj się z informacjami [tutaj](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) i przykładami w następnej sekcji. |
-| Wartości logiczne | Reprezentowane jako `False` i `True`, np. `SELECT … WHERE IsDeleted=True`. | Reprezentowane jako 0 lub 1, np. `SELECT … WHERE IsDeleted=1`. |
-| Zmiana nazwy kolumny | Nieobsługiwane. | Obsługiwane, np.: `SELECT a AS b FROM …`. |
-| Relacja | Obsługiwane, np. `Account_vod__r.nvs_Country__c`. | Nieobsługiwane. |
+| Wartości logiczne | Reprezentowane jako `False` i `True` , np. `SELECT … WHERE IsDeleted=True` . | Reprezentowane jako 0 lub 1, np. `SELECT … WHERE IsDeleted=1` . |
+| Zmiana nazwy kolumny | Nieobsługiwane. | Obsługiwane, np.: `SELECT a AS b FROM …` . |
+| Relacja | Obsługiwane, np. `Account_vod__r.nvs_Country__c` . | Nieobsługiwane. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Pobieranie danych przy użyciu klauzuli WHERE w kolumnie DateTime
 
-Po określeniu zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Przykład:
+Po określeniu zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Na przykład:
 
 * **Przykład SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Przykład SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -316,14 +316,14 @@ Podczas kopiowania danych z chmury usługi Salesforce następujące mapowania s�
 | Numer Autokorekty |String |
 | Pole wyboru |Boolean |
 | Waluta |Wartość dziesiętna |
-| Date |DateTime |
+| Data |DateTime |
 | Data/godzina |DateTime |
 | Poczta e-mail |String |
 | Identyfikator |String |
 | Relacja odnośnika |String |
 | Lista wyboru z wybórem |String |
 | Liczba |Wartość dziesiętna |
-| Wartość procentowa |Wartość dziesiętna |
+| Procent |Wartość dziesiętna |
 | Telefon |String |
 | Lista wyboru |String |
 | Tekst |String |

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417882"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
@@ -53,16 +53,16 @@ Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą k
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 **Nazwij** | Nazwa działania elementu webhook. | String | Tak |
 **Wprowadź** | Musi być ustawiona na "webhook". | String | Tak |
 **Method** | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. Obsługiwany typ to "POST". | Tak |
-**url** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
-**nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. Wymagany `Content-Type` jest następujący `"headers":{ "Content-Type":"application/json"}` nagłówek. |
+**adres URL** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
+**nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. `Content-Type` `"headers":{ "Content-Type":"application/json"}` Wymagany jest następujący nagłówek. |
 **jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) dla schematu ładunku żądania. | Tak |
 **ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
-**timeout** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | String | Nie |
+**limit czasu** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | String | Nie |
 **Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Boolean | Nie |
 
 ## <a name="authentication"></a>Uwierzytelnianie
@@ -99,7 +99,7 @@ Określ zawartość pliku PFX i hasło w formacie base64.
 
 ### <a name="managed-identity"></a>Tożsamość zarządzana
 
-Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego żądano tokenu dostępu. Aby wywołać interfejs API zarządzania zasobami platformy Azure, `https://management.azure.com/`Użyj programu. Aby uzyskać więcej informacji o tym, jak działają zarządzane tożsamości, zobacz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego żądano tokenu dostępu. Aby wywołać interfejs API zarządzania zasobami platformy Azure, użyj programu `https://management.azure.com/` . Aby uzyskać więcej informacji o tym, jak działają zarządzane tożsamości, zobacz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -121,7 +121,7 @@ W przypadku każdego wywołania interfejsu API REST klient przekracza limit czas
 
 Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri**.
 
-Treść przeniesiona z powrotem do identyfikatora URI wywołania zwrotnego musi być prawidłowym kodem JSON. Ustaw `Content-Type` nagłówek na `application/json`.
+Treść przeniesiona z powrotem do identyfikatora URI wywołania zwrotnego musi być prawidłowym kodem JSON. Ustaw `Content-Type` nagłówek na `application/json` .
 
 Korzystając ze **stanu raportu dla właściwości wywołania zwrotnego** , należy dodać następujący kod do treści podczas wywołania zwrotnego:
 

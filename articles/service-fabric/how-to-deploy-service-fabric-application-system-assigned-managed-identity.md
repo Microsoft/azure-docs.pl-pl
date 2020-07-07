@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób przypisywania tożsamości zarządza
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415655"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej przypisanej przez system
@@ -15,7 +15,7 @@ ms.locfileid: "81415655"
 Aby uzyskać dostęp do funkcji tożsamości zarządzanej dla aplikacji Service Fabric platformy Azure, należy najpierw włączyć usługę tokenu tożsamości zarządzanej w klastrze. Ta usługa jest odpowiedzialna za uwierzytelnianie aplikacji Service Fabric przy użyciu ich tożsamości zarządzanych i uzyskiwania tokenów dostępu w ich imieniu. Po włączeniu usługi zobaczysz ją w Service Fabric Explorer w sekcji **system** w okienku po lewej stronie, działając w obszarze Nazwa **sieci szkieletowej:/system/ManagedIdentityTokenService** obok innych usług systemowych.
 
 > [!NOTE] 
-> Wdrażanie aplikacji Service Fabric z tożsamościami zarządzanymi jest obsługiwane począwszy od wersji `"2019-06-01-preview"`interfejsu API. Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi. Minimalny obsługiwany Service Fabric środowiska uruchomieniowego to 6,5 ZASTOSUJESZ pakietu CU2. W programie additoin środowisko kompilacji/pakietu powinno również mieć zestaw SDK platformy w wersji ZASTOSUJESZ pakietu CU2 lub nowszej
+> Wdrażanie aplikacji Service Fabric z tożsamościami zarządzanymi jest obsługiwane począwszy od wersji interfejsu API `"2019-06-01-preview"` . Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi. Minimalny obsługiwany Service Fabric środowiska uruchomieniowego to 6,5 ZASTOSUJESZ pakietu CU2. W programie additoin środowisko kompilacji/pakietu powinno również mieć zestaw SDK platformy w wersji ZASTOSUJESZ pakietu CU2 lub nowszej
 
 ## <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez system
 
@@ -43,7 +43,7 @@ Aby włączyć aplikację przy użyciu tożsamości zarządzanej przypisanej do 
       }
     }
 ```
-Ta właściwość deklaruje (do Azure Resource Manager i dostawcy zasobów zarządzanych tożsamości i Service Fabric, że ten zasób ma niejawną (`system assigned`) tożsamość zarządzaną.
+Ta właściwość deklaruje (do Azure Resource Manager i dostawcy zasobów zarządzanych tożsamości i Service Fabric, że ten zasób ma niejawną ( `system assigned` ) tożsamość zarządzaną.
 
 ### <a name="application-and-service-package"></a>Pakiet aplikacji i usługi
 
@@ -72,9 +72,9 @@ Ta właściwość deklaruje (do Azure Resource Manager i dostawcy zasobów zarz�
         </ServiceManifestImport>
       ```
 
-    Ten element przypisuje tożsamość aplikacji do usługi; bez tego przypisania usługa nie będzie mogła uzyskać dostępu do tożsamości aplikacji. W powyższym fragmencie kodu `SystemAssigned` tożsamość (która jest zastrzeżonym słowem kluczowym) jest zamapowana na definicję usługi pod przyjazną `WebAdmin`nazwą.
+    Ten element przypisuje tożsamość aplikacji do usługi; bez tego przypisania usługa nie będzie mogła uzyskać dostępu do tożsamości aplikacji. W powyższym fragmencie kodu `SystemAssigned` tożsamość (która jest zastrzeżonym słowem kluczowym) jest zamapowana na definicję usługi pod przyjazną nazwą `WebAdmin` .
 
-3. Zaktualizuj manifest usługi, aby dodać element **ManagedIdentity** w sekcji **resources** o nazwie zgodnej z wartością `ServiceIdentityRef` ustawienia z `IdentityBindingPolicy` definicji w manifeście aplikacji:
+3. Zaktualizuj manifest usługi, aby dodać element **ManagedIdentity** w sekcji **resources** o nazwie zgodnej z wartością `ServiceIdentityRef` Ustawienia z `IdentityBindingPolicy` definicji w manifeście aplikacji:
 
     **ServiceManifest.xml**
 
@@ -86,7 +86,7 @@ Ta właściwość deklaruje (do Azure Resource Manager i dostawcy zasobów zarz�
         </ManagedIdentities>
       </Resources>
     ```
-    Jest to równoważne mapowanie tożsamości do usługi zgodnie z powyższym opisem, ale z perspektywy definicji usługi. Tożsamość jest przywoływana tutaj przez przyjazną nazwę`WebAdmin`(), zgodnie z deklaracją w manifeście aplikacji.
+    Jest to równoważne mapowanie tożsamości do usługi zgodnie z powyższym opisem, ale z perspektywy definicji usługi. Tożsamość jest przywoływana tutaj przez przyjazną nazwę ( `WebAdmin` ), zgodnie z deklaracją w manifeście aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 * Przejrzyj [obsługę tożsamości zarządzanych](./concepts-managed-identity.md) w usłudze Azure Service Fabric

@@ -4,10 +4,10 @@ description: Dowiedz się więcej o urządzeniu replikacji Azure Migrate na potr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535217"
 ---
 # <a name="replication-appliance"></a>Urządzenie replikacji
@@ -88,8 +88,8 @@ Urządzenie replikacji musi mieć dostęp do tych adresów URL w chmurze publicz
 https:\//management.azure.com | Używany do operacji zarządzania replikacją i koordynacji
 *.services.visualstudio.com | Używane na potrzeby telemetrii (jest opcjonalne)
 time.windows.com | Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.NET <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | Konfiguracja urządzenia wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory
-https:\//dev.MySQL.com/get/downloads/MySQLInstaller/MySQL-Installer-Community-5.7.20.0.msi | Aby ukończyć pobieranie bazy danych MySQL. W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również dozwolony w razie konieczności.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | Konfiguracja urządzenia wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Aby ukończyć pobieranie bazy danych MySQL. W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również dozwolony w razie konieczności.
 
 
 ## <a name="azure-government-url-access"></a>Azure Government dostęp do adresów URL
@@ -105,12 +105,12 @@ Urządzenie replikacji musi mieć dostęp do tych adresów URL w Azure Governmen
 https:\//management.usgovcloudapi.net | Używany do operacji zarządzania replikacją i koordynacji
 *.services.visualstudio.com | Używane na potrzeby telemetrii (jest opcjonalne)
 time.nist.gov | Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.Live.com <br/> https:\//Graph.Windows.NET <br/> https:\//login.windows.net <br/> https:\//www.Live.com <br/> https:\//www.Microsoft.com  | Konfiguracja urządzenia z komórkami jajowymi wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory.
-https:\//dev.MySQL.com/get/downloads/MySQLInstaller/MySQL-Installer-Community-5.7.20.0.msi | Aby ukończyć pobieranie bazy danych MySQL. W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również dozwolony w razie konieczności.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | Konfiguracja urządzenia z komórkami jajowymi wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Aby ukończyć pobieranie bazy danych MySQL. W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również dozwolony w razie konieczności.
 
 ## <a name="port-access"></a>Dostęp do portu
 
-**Urządzenie** | **Połączenia**
+**Urządzenie** | **Połączenie**
 --- | ---
 Maszyny wirtualne | Usługa mobilności działająca na maszynach wirtualnych komunikuje się z lokalnym urządzeniem replikacji (serwer konfiguracji) na porcie HTTPS 443 przychodzącego na potrzeby zarządzania replikacją.<br/><br/> Maszyny wirtualne wysyłają dane replikacji do serwera przetwarzania (uruchomionego na komputerze serwera konfiguracji) na porcie HTTPS 9443 w ruchu przychodzącym. Ten port może być modyfikowany.
 Urządzenie replikacji | Urządzenie replikacji organizuje replikację za pomocą platformy Azure przez port HTTPS 443.

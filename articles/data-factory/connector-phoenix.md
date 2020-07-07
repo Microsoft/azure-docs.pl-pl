@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d236b9f8800b644a0aa51597d01df1c1442475ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416773"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiowanie danych z usługi Phoenix przy użyciu Azure Data Factory 
@@ -48,12 +48,12 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane w przypadku usługi połączonej z Phoenix:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Phoenix** | Tak |
+| typ | Właściwość Type musi mieć wartość: **Phoenix** | Tak |
 | host | Adres IP lub nazwa hosta serwera Phoenix. (to jest, 192.168.222.160)  | Tak |
 | port | Port TCP, którego serwer Phoenix używa do nasłuchiwania połączeń klientów. Wartość domyślna to 8765. W przypadku nawiązywania połączenia z usługą Azure HDInsight określ port jako 443. | Nie |
-| httpPath | Częściowy adres URL odpowiadający serwerowi Phoenix. (czyli/Gateway/Sandbox/Phoenix/version). Określ `/hbasephoenix0` , czy jest używany klaster usługi HDInsight.  | Nie |
+| httpPath | Częściowy adres URL odpowiadający serwerowi Phoenix. (czyli/Gateway/Sandbox/Phoenix/version). Określ, `/hbasephoenix0` czy jest używany klaster usługi HDInsight.  | Nie |
 | authenticationType | Mechanizm uwierzytelniania używany do nawiązywania połączenia z serwerem Phoenix. <br/>Dozwolone wartości to: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
 | nazwa użytkownika | Nazwa użytkownika używana do nawiązywania połączenia z serwerem Phoenix.  | Nie |
 | hasło | Hasło odpowiadające nazwie użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -65,7 +65,7 @@ Następujące właściwości są obsługiwane w przypadku usługi połączonej z
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 >[!NOTE]
->Jeśli klaster nie obsługuje sesji programu Sticky Notes, np. HDInsight, jawnie Dodaj indeks węzła na końcu ustawienia ścieżki http, np. Określ `/hbasephoenix0` zamiast `/hbasephoenix`.
+>Jeśli klaster nie obsługuje sesji programu Sticky Notes, np. HDInsight, jawnie Dodaj indeks węzła na końcu ustawienia ścieżki http, np. Określ `/hbasephoenix0` zamiast `/hbasephoenix` .
 
 **Przykład:**
 
@@ -95,14 +95,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Phoenix, ustaw właściwość Type zestawu danych na **phoenixobject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **phoenixobject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **phoenixobject** | Tak |
 | schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -127,9 +127,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Phoenix, ustaw typ źródła w działaniu Copy na **PhoenixSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **PhoenixSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **PhoenixSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

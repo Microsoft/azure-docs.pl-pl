@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415445"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiowanie danych do lub z interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB za pomocą usługi Azure Data Factory
@@ -47,14 +47,14 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, który
 
 Następujące właściwości są obsługiwane dla interfejsu API Azure Cosmos DB dla połączonej usługi MongoDB:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **CosmosDbMongoDbApi**. | Tak |
-| Parametry połączenia |Określ parametry połączenia dla interfejsu API Azure Cosmos DB dla MongoDB. Można go znaleźć w Azure Portal-> Cosmos DB w bloku > podstawowego lub pomocniczego, z wzorcem `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia.Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) .|Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **CosmosDbMongoDbApi**. | Tak |
+| Parametry połączenia |Określ parametry połączenia dla interfejsu API Azure Cosmos DB dla MongoDB. Można go znaleźć w Azure Portal-> Cosmos DB w bloku > podstawowego lub pomocniczego, z wzorcem `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` . <br/><br />Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć  `password`   konfigurację z parametrów połączenia.Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md)   .|Tak |
 | database | Nazwa bazy danych, do której chcesz uzyskać dostęp. | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -77,12 +77,12 @@ Następujące właściwości są obsługiwane dla interfejsu API Azure Cosmos DB
 
 Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz [zestawy danych i połączone usługi](concepts-datasets-linked-services.md). Następujące właściwości są obsługiwane przez interfejs API Azure Cosmos DB dla zestawu danych MongoDB:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** zestawu danych musi być ustawiona na wartość **CosmosDbMongoDbApiCollection**. |Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **CosmosDbMongoDbApiCollection**. |Tak |
 | CollectionName |Nazwa kolekcji Azure Cosmos DB. |Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -111,10 +111,10 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSource**. |Tak |
-| filtr | Określa filtr wyboru przy użyciu operatorów zapytań. Aby zwrócić wszystkie dokumenty w kolekcji, Pomiń ten parametr lub Przekaż pusty dokument ({}). | Nie |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSource**. |Tak |
+| filtr | Określa filtr wyboru przy użyciu operatorów zapytań. Aby zwrócić wszystkie dokumenty w kolekcji, Pomiń ten parametr lub Przekaż pusty dokument ( {} ). | Nie |
 | cursorMethods. Project | Określa pola do zwrócenia w dokumentach dla projekcji. Aby zwrócić wszystkie pola w pasujących dokumentach, Pomiń ten parametr. | Nie |
 | cursorMethods. Sort | Określa kolejność, w której zapytanie zwraca pasujące dokumenty. Zapoznaj się z [kursorem. Sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nie |
 | cursorMethods. limit | Określa maksymalną liczbę dokumentów zwracanych przez serwer. Zapoznaj się z [kursorem. limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nie | 
@@ -124,7 +124,7 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 >[!TIP]
 >ADF obsługuje dokument BSON w **trybie Strict**. Upewnij się, że zapytanie filtru jest w trybie Strict zamiast w trybie powłoki. Więcej opisu można znaleźć w [podręczniku MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
-**Przyklad**
+**Przykład**
 
 ```json
 "activities":[
@@ -166,17 +166,17 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 
 W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSink**. |Tak |
-| writeBehavior |Opisuje sposób zapisywania danych w Azure Cosmos DB. Dozwolone wartości: **INSERT** i **upsert**.<br/><br/>Zachowanie **upsert** polega na zastępowaniu dokumentu, jeśli dokument z tym samym `_id` już istnieje; w przeciwnym razie Wstaw dokument.<br /><br />**Uwaga**: Jeśli element `_id` nie został `_id` określony w oryginalnym dokumencie lub mapowaniu kolumn, Data Factory automatycznie generuje dokument dla dokumentu. Oznacza to, że aby program **upsert** działał zgodnie z oczekiwaniami, dokument ma identyfikator. |Nie<br />(wartość domyślna to **INSERT**) |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSink**. |Tak |
+| writeBehavior |Opisuje sposób zapisywania danych w Azure Cosmos DB. Dozwolone wartości: **INSERT** i **upsert**.<br/><br/>Zachowanie **upsert** polega na zastępowaniu dokumentu, jeśli dokument o tym samym `_id` już istnieje; w przeciwnym razie Wstaw dokument.<br /><br />**Uwaga**: `_id` Jeśli element `_id` nie został określony w oryginalnym dokumencie lub mapowaniu kolumn, Data Factory automatycznie generuje dokument dla dokumentu. Oznacza to, że aby program **upsert** działał zgodnie z oczekiwaniami, dokument ma identyfikator. |Nie<br />(wartość domyślna to **INSERT**) |
 | writeBatchSize | Właściwość **writeBatchSize** określa rozmiar dokumentów do zapisu w każdej partii. Możesz spróbować zwiększyć wartość **writeBatchSize** , aby zwiększyć wydajność i zmniejszyć wartość w przypadku dużego rozmiaru dokumentu. |Nie<br />(wartość domyślna to **10 000**) |
 | writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu. Dozwolona wartość to TimeSpan. | Nie<br/>(wartość domyślna to **00:30:00** – 30 minut) |
 
 >[!TIP]
 >Aby zaimportować dokumenty JSON, należy zapoznać się z sekcją [Importowanie lub eksportowanie dokumentów JSON](#import-and-export-json-documents) . Aby skopiować dane w kształcie tabelarycznym, zapoznaj się z [mapowaniem schematu](#schema-mapping).
 
-**Przyklad**
+**Przykład**
 
 ```json
 "activities":[
@@ -225,7 +225,7 @@ Aby uzyskać kopię schematu niezależny od:
 
 Aby skopiować dane z interfejsu API Azure Cosmos DB MongoDB do tabelarycznego ujścia lub odwrotnie, zapoznaj się z [mapowaniem schematu](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-W odniesieniu do zapisu w Cosmos DB, aby upewnić się, że Cosmos DB z prawidłowym IDENTYFIKATORem obiektu z danych źródłowych, na przykład w tabeli usługi SQL Database istnieje kolumna "ID" i chcesz użyć jej jako identyfikatora dokumentu w MongoDB dla Insert/Upsert, należy ustawić odpowiednie mapowanie schematu zgodnie z definicją w trybie Strict MongoDB (`_id.$oid`) w następujący sposób:
+W odniesieniu do zapisu w Cosmos DB, aby upewnić się, że Cosmos DB z prawidłowym IDENTYFIKATORem obiektu z danych źródłowych, na przykład w tabeli usługi SQL Database istnieje kolumna "ID" i chcesz użyć jej jako identyfikatora dokumentu w MongoDB dla Insert/Upsert, należy ustawić odpowiednie mapowanie schematu zgodnie z definicją w trybie Strict MongoDB ( `_id.$oid` ) w następujący sposób:
 
 ![Identyfikator mapy w MongoDB ujścia](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
 

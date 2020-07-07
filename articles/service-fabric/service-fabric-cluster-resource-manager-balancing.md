@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416265"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Równoważenie klastra usługi Service Fabric
@@ -33,7 +33,7 @@ Każdy z tych różnych typów poprawek, Menedżer zasobów może być określon
 
 Poniżej wymieniono przykłady konfiguracji, które dotyczą tych czasomierzy:
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -44,7 +44,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [
@@ -83,7 +83,7 @@ Próg równoważenia jest głównym formantem służącym do wyzwalania ponowneg
 
 Progi równoważenia są definiowane dla poszczególnych metryk jako część definicji klastra. Aby uzyskać więcej informacji na temat metryk, zapoznaj się z [tym artykułem](service-fabric-cluster-resource-manager-metrics.md).
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ```xml
     <Section Name="MetricBalancingThresholds">
@@ -92,7 +92,7 @@ ClusterManifest. XML
     </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [
@@ -144,7 +144,7 @@ Załóżmy, że zachowamy nasz próg równoważenia dla tej metryki. Załóżmy 
 
 Podobnie jak w przypadku progów równoważenia obciążenia, progi aktywności są definiowane na poziomie metryki za pomocą definicji klastra:
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ``` xml
     <Section Name="MetricActivityThresholds">
@@ -152,7 +152,7 @@ ClusterManifest. XML
     </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [

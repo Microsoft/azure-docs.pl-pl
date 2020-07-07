@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416943"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu Azure Data Factory
@@ -66,9 +66,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, który
 
 Dla połączonej usługi HTTP są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **HttpServer**. | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **HttpServer**. | Tak |
 | url | Podstawowy adres URL serwera sieci Web. | Tak |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikację certyfikatu protokołu TLS/SSL serwera podczas łączenia się z punktem końcowym HTTP. Jeśli serwer HTTPS używa certyfikatu z podpisem własnym, ustaw dla tej właściwości **wartość false**. | Nie<br /> (wartość domyślna to **true**) |
 | authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**i **ClientCertificate**. <br><br> Zapoznaj się z sekcjami w poniższej tabeli, aby uzyskać więcej właściwości i przykładów JSON dla tych typów uwierzytelniania. | Tak |
@@ -78,12 +78,12 @@ Dla połączonej usługi HTTP są obsługiwane następujące właściwości:
 
 Ustaw właściwość **AuthenticationType** na wartość **Basic**, **Digest**lub **Windows**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | userName | Nazwa użytkownika, która ma być używana do uzyskiwania dostępu do punktu końcowego HTTP. | Tak |
 | hasło | Hasło użytkownika (wartość **username** ). Oznacz to pole jako typ **SecureString** , aby bezpiecznie przechowywać go w Data Factory. Możesz również [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -111,7 +111,7 @@ Ustaw właściwość **AuthenticationType** na wartość **Basic**, **Digest**lu
 
 Aby użyć uwierzytelniania ClientCertificate, należy ustawić właściwość **AuthenticationType** na **Kolekcja ClientCertificate**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | embeddedCertData | Dane certyfikatu zakodowane algorytmem Base64. | Określ wartość **embeddedCertData** lub **certThumbprint**. |
 | certThumbprint | Odcisk palca certyfikatu, który został zainstalowany na własnym magazynie certyfikatów maszyny Integration Runtime. Ma zastosowanie tylko wtedy, gdy w właściwości **właściwością connectvia** jest określony typ samodzielny Integration Runtime. | Określ wartość **embeddedCertData** lub **certThumbprint**. |
@@ -120,8 +120,8 @@ Aby użyć uwierzytelniania ClientCertificate, należy ustawić właściwość *
 Jeśli używasz **certThumbprint** do uwierzytelniania, a certyfikat jest instalowany w magazynie osobistym komputera lokalnego, Udziel uprawnień do odczytu Integration Runtime samoobsługowego:
 
 1. Otwórz program Microsoft Management Console (MMC). Dodaj przystawkę **Certyfikaty** , która jest przeznaczona dla **komputera lokalnego**.
-2. Rozwiń węzeł **Certyfikaty** > **osobiste**, a następnie wybierz pozycję **Certyfikaty**.
-3. Kliknij prawym przyciskiem myszy certyfikat ze sklepu osobistego, a następnie wybierz pozycję **wszystkie zadania** > **Zarządzaj kluczami prywatnymi**.
+2. Rozwiń węzeł **Certyfikaty**  >  **osobiste**, a następnie wybierz pozycję **Certyfikaty**.
+3. Kliknij prawym przyciskiem myszy certyfikat ze sklepu osobistego, a następnie wybierz pozycję **wszystkie zadania**  >  **Zarządzaj kluczami prywatnymi**.
 3. Na karcie **zabezpieczenia** Dodaj konto użytkownika, w ramach którego jest uruchomiona usługa hosta Integration Runtime (DIAHostService) z dostępem do odczytu do certyfikatu.
 
 **Przykład 1: korzystanie z certThumbprint**
@@ -174,12 +174,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Następujące właściwości są obsługiwane w przypadku protokołu HTTP `location` w obszarze Ustawienia w zestawie danych opartym na formacie:
+Następujące właściwości są obsługiwane w przypadku protokołu HTTP w obszarze `location` Ustawienia w zestawie danych opartym na formacie:
 
-| Właściwość    | Opis                                                  | Wymagany |
+| Właściwość    | Opis                                                  | Wymagane |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | Właściwość `location` Type w elemencie DataSet musi być ustawiona na wartość **HttpServerLocation**. | Tak      |
-| relativeUrl | Względny adres URL do zasobu, który zawiera dane. Łącznik HTTP kopiuje dane ze połączonego adresu URL: `[URL specified in linked service][relative URL specified in dataset]`.   | Nie       |
+| typ        | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **HttpServerLocation**. | Tak      |
+| relativeUrl | Względny adres URL do zasobu, który zawiera dane. Łącznik HTTP kopiuje dane ze połączonego adresu URL: `[URL specified in linked service][relative URL specified in dataset]` .   | Nie       |
 
 > [!NOTE]
 > Obsługiwany rozmiar ładunku żądania HTTP to około 500 KB. Jeśli rozmiar ładunku, który ma zostać przekazany do punktu końcowego sieci Web, jest większy niż 500 KB, należy rozważyć przetwarzanie wsadowe w mniejszych fragmentach.
@@ -220,11 +220,11 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Następujące właściwości są obsługiwane w przypadku protokołu HTTP `storeSettings` w obszarze Ustawienia źródła kopiowania opartego na formacie:
+Następujące właściwości są obsługiwane w przypadku protokołu HTTP w obszarze `storeSettings` Ustawienia źródła kopiowania opartego na formacie:
 
-| Właściwość                 | Opis                                                  | Wymagany |
+| Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **HttpReadSettings**. | Tak      |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **HttpReadSettings**. | Tak      |
 | requestMethod            | Metoda HTTP. <br>Dozwolone wartości to **Get** (default) i **post**. | Nie       |
 | addtionalHeaders         | Dodatkowe nagłówki żądań HTTP.                             | Nie       |
 | Elemencie requestbody              | Treść żądania HTTP.                               | Nie       |
@@ -283,9 +283,9 @@ Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (w
 
 ### <a name="legacy-dataset-model"></a>Model starszego zestawu danych
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** zestawu danych musi być ustawiona na wartość **HttpFile**. | Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **HttpFile**. | Tak |
 | relativeUrl | Względny adres URL do zasobu, który zawiera dane. Jeśli ta właściwość nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. | Nie |
 | requestMethod | Metoda HTTP. Dozwolone wartości to **Get** (default) i **post**. | Nie |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
@@ -337,12 +337,12 @@ Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (w
 
 ### <a name="legacy-copy-activity-source-model"></a>Model źródłowy starszego działania kopiowania
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **HttpSource**. | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **HttpSource**. | Tak |
 | httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Wartość domyślna to **00:01:40**.  | Nie |
 
-**Przyklad**
+**Przykład**
 
 ```json
 "activities":[

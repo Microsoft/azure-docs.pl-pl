@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 6699178e514f4d25666305f3251e8eaf9d28e6dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417453"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiowanie danych z Concur za pomocą Azure Data Factory (wersja zapoznawcza)
@@ -51,9 +51,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Concur są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Concur** | Tak |
+| typ | Właściwość Type musi mieć wartość: **Concur** | Tak |
 | clientId | Client_id aplikacji dostarczana przez Zarządzanie aplikacjami Concur.  | Tak |
 | nazwa użytkownika | Nazwa użytkownika służąca do uzyskiwania dostępu do usługi Concur.  | Tak |
 | hasło | Hasło odpowiadające nazwie użytkownika podanej w polu Nazwa użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
@@ -86,13 +86,13 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Concur, ustaw właściwość Type zestawu danych na **ConcurObject**. Brak dodatkowej właściwości specyficznej dla typu dla tego typu zestawu danych. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **ConcurObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **ConcurObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -117,9 +117,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Concur, ustaw typ źródła w działaniu Copy na **ConcurSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ConcurSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ConcurSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Opportunities where Id = xxx "`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

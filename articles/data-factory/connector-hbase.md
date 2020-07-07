@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: f2d10a6150a6e6957b303ca391c97e166342111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417252"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiowanie danych z HBase za pomocą Azure Data Factory 
@@ -48,12 +48,12 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi HBase są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **HBase** | Tak |
-| host | Adres IP lub nazwa hosta serwera HBase. co.  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Tak |
+| typ | Właściwość Type musi mieć wartość: **HBase** | Tak |
+| host | Adres IP lub nazwa hosta serwera HBase. co.  `[clustername].azurehdinsight.net`, `192.168.222.160` )  | Tak |
 | port | Port TCP, którego wystąpienie HBase używa do nasłuchiwania połączeń klientów. Wartość domyślna to 9090. W przypadku nawiązywania połączenia z usługą Azure HDInsight określ port jako 443. | Nie |
-| httpPath | Częściowy adres URL odpowiadający serwerowi HBase, na `/hbaserest0` przykład w przypadku korzystania z klastra usługi HDInsight. | Nie |
+| httpPath | Częściowy adres URL odpowiadający serwerowi HBase, na przykład w `/hbaserest0` przypadku korzystania z klastra usługi HDInsight. | Nie |
 | authenticationType | Mechanizm uwierzytelniania używany do nawiązywania połączenia z serwerem HBase. <br/>Dozwolone wartości to: **Anonymous**, **Basic** | Tak |
 | nazwa użytkownika | Nazwa użytkownika używana do nawiązywania połączenia z wystąpieniem HBase.  | Nie |
 | hasło | Hasło odpowiadające nazwie użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -64,7 +64,7 @@ Dla połączonej usługi HBase są obsługiwane następujące właściwości:
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 >[!NOTE]
->Jeśli klaster nie obsługuje sesji programu Sticky Notes, np. HDInsight, jawnie Dodaj indeks węzła na końcu ustawienia ścieżki http, np. Określ `/hbaserest0` zamiast `/hbaserest`.
+>Jeśli klaster nie obsługuje sesji programu Sticky Notes, np. HDInsight, jawnie Dodaj indeks węzła na końcu ustawienia ścieżki http, np. Określ `/hbaserest0` zamiast `/hbaserest` .
 
 **Przykład HBase usługi HDInsight:**
 
@@ -129,12 +129,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z HBase, ustaw właściwość Type zestawu danych na **HBaseObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **HBaseObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **HBaseObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -159,9 +159,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z HBase, ustaw typ źródła w działaniu Copy na **HBaseSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HBaseSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HBaseSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

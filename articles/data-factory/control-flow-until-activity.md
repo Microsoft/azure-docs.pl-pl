@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417950"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Do działania w Azure Data Factory
@@ -53,13 +53,13 @@ Działanie Until udostępnia te same funkcje, co struktura pętli do-until w ję
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 name | Nazwa `Until` działania. | String | Tak
-type | Musi być ustawiona na wartość **until**. | String | Tak
-wyrażenie | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenia.  | Tak
-timeout | Pętla do-until przekroczy limit czasu po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`oraz `hh:mm:ss`. Domyślna wartość to 7 dni. Wartość maksymalna to: 90 dni. | Nie
-Działania | Zestaw działań, które są wykonywane, dopóki wyrażenie nie zostanie `true`oszacowane. | Tablica działań. |  Tak
+typ | Musi być ustawiona na wartość **until**. | String | Tak
+expression | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenia.  | Tak
+timeout | Pętla do-until przekroczy limit czasu po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`(lub) `hh:mm:ss` . Domyślna wartość to 7 dni. Wartość maksymalna to: 90 dni. | Nie
+Działania | Zestaw działań, które są wykonywane, dopóki wyrażenie nie zostanie oszacowane `true` . | Tablica działań. |  Tak
 
 ## <a name="example-1"></a>Przykład 1
 
@@ -120,7 +120,7 @@ W tym przykładzie potok ma dwie działania: **do** **czekania i oczekiwania**. 
 ## <a name="example-2"></a>Przykład 2 
 Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjściowego w pętli. Pętla kończy się, gdy wartość parametru REPEAT jest ustawiona na false lub po jednej minucie.   
 
-### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem until (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem until (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -193,7 +193,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService.jswłączona)
 
 ```json
 {
@@ -207,7 +207,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset.json)
 Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** parametru potoku. 
 
 ```json
@@ -234,7 +234,7 @@ Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** pa
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters.json)
 
 ```json
 {

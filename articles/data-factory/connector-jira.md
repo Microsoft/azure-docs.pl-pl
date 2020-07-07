@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: ddf752fc78c8c6bb2d7e7a57178b9cf2d719b810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418205"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Kopiowanie danych z JIRA za pomocą Azure Data Factory
@@ -45,9 +45,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi JIRA są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **JIRA** | Tak |
+| typ | Właściwość Type musi mieć wartość: **JIRA** | Tak |
 | host | Adres IP lub nazwa hosta usługi JIRA. (na przykład jira.example.com)  | Tak |
 | port | Port TCP, którego serwer JIRA używa do nasłuchiwania połączeń klientów. Wartość domyślna to 443 w przypadku nawiązywania połączenia za pośrednictwem protokołu HTTPS lub 8080 w przypadku nawiązywania połączenia za pośrednictwem protokołu HTTP.  | Nie |
 | nazwa użytkownika | Nazwa użytkownika służąca do uzyskiwania dostępu do usługi JIRA.  | Tak |
@@ -82,12 +82,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z JIRA, ustaw właściwość Type zestawu danych na **JiraObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **JiraObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **JiraObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -112,9 +112,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z JIRA, ustaw typ źródła w działaniu Copy na **JiraSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **JiraSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **JiraSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

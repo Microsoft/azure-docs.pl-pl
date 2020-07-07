@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415047"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego REST przy użyciu Azure Data Factory
@@ -57,9 +57,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, który
 
 Dla połączonej usługi REST są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **RestService**. | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **RestService**. | Tak |
 | url | Podstawowy adres URL usługi REST. | Tak |
 | enableServerCertificateValidation | Czy sprawdzać poprawność certyfikatu protokołu TLS/SSL po stronie serwera podczas nawiązywania połączenia z punktem końcowym. | Nie<br /> (wartość domyślna to **true**) |
 | authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z usługą REST. Dozwolone wartości to **Anonymous**, **Basic**, **AadServicePrincipal** i **ManagedServiceIdentity**. Zapoznaj się z odpowiednimi sekcjami poniżej, aby uzyskać więcej właściwości i przykładów. | Tak |
@@ -69,12 +69,12 @@ Dla połączonej usługi REST są obsługiwane następujące właściwości:
 
 Ustaw właściwość **AuthenticationType** na wartość **podstawowa**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | userName | Nazwa użytkownika, która ma być używana w celu uzyskania dostępu do punktu końcowego REST. | Tak |
 | hasło | Hasło użytkownika (wartość **username** ). Oznacz to pole jako typ **SecureString** , aby bezpiecznie przechowywać go w Data Factory. Możesz również [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -102,14 +102,14 @@ Ustaw właściwość **AuthenticationType** na wartość **podstawowa**. Oprócz
 
 Ustaw właściwość **AuthenticationType** na wartość **AadServicePrincipal**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | servicePrincipalId | Określ identyfikator klienta aplikacji Azure Active Directory. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji Azure Active Directory. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz go, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak |
-| aadResourceId | Określ zasób usługi AAD, którego żądasz, na potrzeby autoryzacji, `https://management.core.windows.net`np..| Tak |
+| aadResourceId | Określ zasób usługi AAD, którego żądasz, na potrzeby autoryzacji, np. `https://management.core.windows.net` .| Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -139,11 +139,11 @@ Ustaw właściwość **AuthenticationType** na wartość **AadServicePrincipal**
 
 Ustaw właściwość **AuthenticationType** na wartość **ManagedServiceIdentity**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| aadResourceId | Określ zasób usługi AAD, którego żądasz, na potrzeby autoryzacji, `https://management.core.windows.net`np..| Tak |
+| aadResourceId | Określ zasób usługi AAD, którego żądasz, na potrzeby autoryzacji, np. `https://management.core.windows.net` .| Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -171,12 +171,12 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 Aby skopiować dane z usługi REST, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** zestawu danych musi być ustawiona na wartość **RestResource**. | Tak |
-| relativeUrl | Względny adres URL do zasobu, który zawiera dane. Jeśli ta właściwość nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. Łącznik HTTP kopiuje dane ze połączonego adresu URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | Nie |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **RestResource**. | Tak |
+| relativeUrl | Względny adres URL do zasobu, który zawiera dane. Jeśli ta właściwość nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. Łącznik HTTP kopiuje dane ze połączonego adresu URL: `[URL specified in linked service]/[relative URL specified in dataset]` . | Nie |
 
-Jeśli ustawienia `requestMethod`, `additionalHeaders`, `requestBody` i `paginationRules` w zestawie danych, nadal są obsługiwane jako-is, podczas gdy sugerowane jest użycie nowego modelu w źródle aktywności.
+Jeśli ustawienia `requestMethod` , `additionalHeaders` , `requestBody` i `paginationRules` w zestawie danych, nadal są obsługiwane jako-is, podczas gdy sugerowane jest użycie nowego modelu w źródle aktywności.
 
 **Przykład:**
 
@@ -207,9 +207,9 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **RestSource**. | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **RestSource**. | Tak |
 | requestMethod | Metoda HTTP. Dozwolone wartości to **Get** (default) i **post**. | Nie |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
 | Elemencie requestbody | Treść żądania HTTP. | Nie |
@@ -218,7 +218,7 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 | requestInterval | Czas oczekiwania przed wysłaniem żądania na następną stronę. Wartość domyślna to **00:00:01** |  Nie |
 
 >[!NOTE]
->Łącznik REST ignoruje wszystkie nagłówki "Accept" określone `additionalHeaders`w. Ponieważ łącznik REST obsługuje tylko odpowiedź w formacie JSON, zostanie automatycznie wygenerowany nagłówek `Accept: application/json`.
+>Łącznik REST ignoruje wszystkie nagłówki "Accept" określone w `additionalHeaders` . Ponieważ łącznik REST obsługuje tylko odpowiedź w formacie JSON, zostanie automatycznie wygenerowany nagłówek `Accept: application/json` .
 
 **Przykład 1: użycie metody get z podziałem na strony**
 
@@ -309,7 +309,7 @@ Ten ogólny łącznik REST obsługuje następujące wzorce stronicowania:
 
 **Obsługiwane klucze** w regułach dzielenia na strony:
 
-| Key | Opis |
+| Klucz | Opis |
 |:--- |:--- |
 | AbsoluteUrl | Wskazuje adres URL, na który ma zostać wystawione następne żądanie. Może to być **bezwzględny adres URL lub względny adres URL**. |
 | QueryParameters. *request_query_parameter* LUB QueryParameters ["request_query_parameter"] | "request_query_parameter" jest zdefiniowany przez użytkownika, który odwołuje się do jednej nazwy parametru zapytania w następnym adresie URL żądania HTTP. |
@@ -403,7 +403,7 @@ Szablon definiuje dwa parametry:
 3. Wybierz pozycję **Użyj tego szablonu**.
     ![Użyj tego szablonu](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Zostanie wyświetlony potok utworzony jak pokazano w następującym przykładzie: ![potok](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Zostanie wyświetlony potok utworzony jak pokazano w następującym przykładzie: ![ potok](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Wybierz aktywność **sieci Web** . W obszarze **Ustawienia**Określ odpowiedni **adres URL**, **metodę**, **nagłówki**i **treść** , aby pobrać token okaziciela OAuth z interfejsu API logowania usługi, z której chcesz skopiować dane. Symbol zastępczy w szablonie prezentuje przykład Azure Active Directory (AAD) OAuth. Uwaga uwierzytelnianie w usłudze AAD jest natywnie obsługiwane przez łącznik REST. Oto przykład dla przepływu OAuth. 
 
@@ -428,7 +428,7 @@ Szablon definiuje dwa parametry:
 7. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
    ![Uruchomienie potoku](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
-8. Po pomyślnym zakończeniu przebiegu potoku zobaczysz wynik podobny do następującego przykładu: ![wynik uruchomienia potoku](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+8. Po pomyślnym zakończeniu przebiegu potoku zobaczysz wynik podobny do następującego przykładu: ![ wynik uruchomienia potoku](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
 
 9. Kliknij ikonę "dane wyjściowe" elementu webactivity w kolumnie **Akcje** , zobaczysz access_token zwrócone przez usługę.
 

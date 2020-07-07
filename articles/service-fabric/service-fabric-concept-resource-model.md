@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682642"
 ---
 # <a name="service-fabric-application-resource-model"></a>Model zasobów aplikacji Service Fabric
@@ -50,7 +50,7 @@ Możesz użyć istniejącego konta magazynu lub utworzyć nowe konto magazynu na
 
 ### <a name="configure-your-storage-account"></a>Konfigurowanie konta magazynu
 
-Po utworzeniu konta magazynu utworzysz kontener obiektów blob, w którym można przemieszczać aplikacje. W Azure Portal przejdź do konta usługi Azure Storage, na którym chcesz przechowywać aplikacje. Wybierz pozycję **obiekty blob** > **Dodaj kontener**. 
+Po utworzeniu konta magazynu utworzysz kontener obiektów blob, w którym można przemieszczać aplikacje. W Azure Portal przejdź do konta usługi Azure Storage, na którym chcesz przechowywać aplikacje. Wybierz pozycję **obiekty blob**  >  **Dodaj kontener**. 
 
 Zasoby w klastrze mogą być zabezpieczone przez ustawienie publicznego poziomu dostępu do **prywatnego**. Dostęp można udzielić na wiele sposobów:
 
@@ -71,7 +71,7 @@ W tym samouczku używamy [przykładowej aplikacji do głosowania](https://github
 1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **głosowania** , a następnie wybierz polecenie **pakiet**.
 
    ![Aplikacja pakietu][PackageApplication]  
-1. Przejdź do katalogu *.\Service-Fabric-dotnet-quickstart\Voting\pkg\Debug* . Zawartość zip należy umieścić w pliku o nazwie *głosu. zip*. Plik *ApplicationManifest. XML* powinien znajdować się w katalogu głównym w pliku zip.
+1. Przejdź do katalogu *.\Service-Fabric-dotnet-quickstart\Voting\pkg\Debug* . Zawartość zip należy umieścić w pliku o nazwie *Voting.zip*. Plik *ApplicationManifest.xml* powinien znajdować się w katalogu głównym pliku zip.
 
    ![Aplikacja zip][ZipApplication]  
 1. Zmień nazwę pliku, aby zmienić rozszerzenie z. zip na *. sfpkg*.
@@ -84,10 +84,10 @@ Teraz aplikacja jest teraz przygotowana i można utworzyć szablon Menedżer zas
 
 ### <a name="create-the-resource-manager-template"></a>Tworzenie szablonu usługi Resource Manager
 
-Przykładowa aplikacja zawiera [szablony Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) , których można użyć do wdrożenia aplikacji. Nazwy plików szablonów to *UserApp. JSON* i *UserApp. Parameters. JSON*.
+Przykładowa aplikacja zawiera [szablony Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) , których można użyć do wdrożenia aplikacji. Nazwy plików szablonów są *UserApp.jswłączone* i *UserApp.Parameters.js*.
 
 > [!NOTE]
-> Plik *UserApp. Parameters. JSON* należy zaktualizować nazwą klastra.
+> *UserApp.Parameters.jsw* pliku należy zaktualizować nazwą klastra.
 >
 >
 
@@ -95,11 +95,11 @@ Przykładowa aplikacja zawiera [szablony Azure Resource Manager](https://github.
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nazwa klastra, na którym jest wdrażana | SF-cluster123                                                |                                                              |
 | aplikacja            | Nazwa aplikacji                 | Voting (Głosowanie)                                                       |
-| applicationTypeName    | Nazwa typu aplikacji           | VotingType                                                   | Musi być zgodny z ApplicationManifest. XML                 |
-| applicationTypeVersion | Wersja typu aplikacji         | 1.0.0                                                        | Musi być zgodny z ApplicationManifest. XML                 |
+| applicationTypeName    | Nazwa typu aplikacji           | VotingType                                                   | Muszą być zgodne ApplicationManifest.xml                 |
+| applicationTypeVersion | Wersja typu aplikacji         | 1.0.0                                                        | Muszą być zgodne ApplicationManifest.xml                 |
 | serviceName            | Nazwa usługi         | Głosowanie ~ VotingWeb                                             | Musi być w formacie ApplicationName ~ Service            |
-| Typ ServiceTypeName        | Nazwa typu usługi                | VotingWeb                                                    | Musi pasować do servicemanifest. XML                 |
-| appPackageUrl          | Adres URL magazynu obiektów BLOB aplikacji     | https:\//servicefabricapps.blob.Core.Windows.NET/Apps/Voting.sfpkg | Adres URL pakietu aplikacji w usłudze BLOB Storage (Procedura ustawiania adresu URL jest opisana w dalszej części artykułu) |
+| Typ ServiceTypeName        | Nazwa typu usługi                | VotingWeb                                                    | Muszą być zgodne ServiceManifest.xml                 |
+| appPackageUrl          | Adres URL magazynu obiektów BLOB aplikacji     | https: \/ /servicefabricapps.blob.Core.Windows.NET/Apps/Voting.sfpkg | Adres URL pakietu aplikacji w usłudze BLOB Storage (Procedura ustawiania adresu URL jest opisana w dalszej części artykułu) |
 
 ```json
 {
@@ -140,7 +140,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 Możesz uaktualnić aplikację, która została już wdrożona w klastrze Service Fabric z jednego z następujących powodów:
 
-* Nowa usługa zostanie dodana do aplikacji. Przed dodaniem usługi do aplikacji należy dodać definicję usługi do plików *Service-manifest. XML* i *Application-manifest. XML* . Aby odzwierciedlić nową wersję aplikacji, należy również zmienić wersję typu aplikacji z 1.0.0 na 1.0.1 w [UserApp. Parameters. JSON](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* Nowa usługa zostanie dodana do aplikacji. Przed dodaniem usługi do aplikacji należy dodać definicję usługi do plików *service-manifest.xml* i *application-manifest.xml* . Aby odzwierciedlić nową wersję aplikacji, należy również zmienić wersję typu aplikacji z 1.0.0 na 1.0.1 w [UserApp.Parameters.jsna](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -154,7 +154,7 @@ Możesz uaktualnić aplikację, która została już wdrożona w klastrze Servic
     }
     ```
 
-* Nowa wersja istniejącej usługi zostanie dodana do aplikacji. Przykładami mogą być zmiany kodu aplikacji i aktualizacje typu aplikacji. W przypadku tego uaktualnienia Zaktualizuj plik UserApp. Parameters. JSON podobny do tego:
+* Nowa wersja istniejącej usługi zostanie dodana do aplikacji. Przykładami mogą być zmiany kodu aplikacji i aktualizacje typu aplikacji. W przypadku tego uaktualnienia należy zaktualizować UserApp.Parameters.jsw następujący sposób:
 
     ```json
      "applicationTypeVersion": {
