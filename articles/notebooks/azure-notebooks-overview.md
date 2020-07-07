@@ -3,22 +3,22 @@ title: Przegląd Azure Notebooks wersji zapoznawczej
 description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647532"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85831407"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji. [Jupyter](https://jupyter.org/) (dawniej IPython) to projekt typu "open source", który umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, danych trwałych, grafiki i wizualizacji na pojedynczą, możliwą do współużytkowaną kanwę, nazywaną *notesem* (grzecznościowa obraz Jupyter.org):
 
 [![Przykłady notesów Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Dzięki zaawansowanemu połączeniu kodu, grafiki i opisowego tekstu notesy Jupyter znalazły wiele zastosowań, takich jak instrukcje przetwarzania danych do celów naukowych, czyszczenie i transformacje danych, symulacje numeryczne, modelowanie statystyczne oraz tworzenie modeli uczenia maszynowego.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>Bezproblemowa obsługa
 

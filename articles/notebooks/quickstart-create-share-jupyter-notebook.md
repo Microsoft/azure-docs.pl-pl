@@ -4,14 +4,16 @@ description: Szybko Twórz i uruchamiaj Notes Jupyter w wersji zapoznawczej prog
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 01d1035f794287e679b6ebc84fa9498b184b4791
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561096"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832104"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie i udostępnianie notesu w podglądzie Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 W tym przewodniku szybki start utworzysz i uruchomisz Notes Jupyter na Azure Notebooks, a następnie udostępnisz go innym osobom. Jupyter umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie możliwej do przedziału. Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji.
 
@@ -19,8 +21,6 @@ W tym przewodniku szybki start utworzysz i uruchomisz Notes Jupyter na Azure Not
 Brak.
 
 ## <a name="create-a-new-project-and-notebook"></a>Tworzenie nowego projektu i notesu
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Przejdź do [witryny Azure Notebooks ( https://notebooks.azure.com) ](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 

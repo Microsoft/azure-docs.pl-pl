@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e947864633bf66005a39c89e7d81aef0c96c93e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77083192"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85829588"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Szybki Start: używanie języka JavaScript do tworzenia pokoju rozmów z usługą Azure Functions i usługi sygnalizującej
 
@@ -23,10 +23,10 @@ Usługa Azure Signal Service umożliwia łatwe dodawanie funkcji w czasie rzeczy
 - Edytor kodu, taki jak [Visual Studio Code](https://code.visualstudio.com/)
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), wersja 2 lub nowsza. Służy do lokalnego uruchamiania aplikacji funkcji platformy Azure.
-- [Node. js](https://nodejs.org/en/download/), wersja 10. x
+- [Node.js](https://nodejs.org/en/download/), wersja 10. x
 
    > [!NOTE]
-   > Przykłady powinny współpracować z innymi wersjami środowiska Node. js, aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą wersji Azure Functions](../azure-functions/functions-versions.md#languages)
+   > Przykłady powinny współpracować z innymi wersjami Node.js, zobacz [dokumentację dotyczącą wersji środowiska uruchomieniowego Azure Functions](../azure-functions/functions-versions.md#languages) , aby uzyskać więcej informacji.
 
 > [!NOTE]
 > Czynności przedstawione w tym przewodniku Szybki start można wykonywać w systemie macOS, Windows lub Linux.
@@ -79,4 +79,4 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową w czasie rzeczywistym w VS Code. Teraz dowiedz się więcej o sposobie wdrażania usługi Azure Functions z programu VS Code.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie usługi Azure Functions za pomocą programu VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Wdrażanie usługi Azure Functions za pomocą programu VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)

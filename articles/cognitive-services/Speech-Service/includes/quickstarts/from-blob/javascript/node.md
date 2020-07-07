@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 19aa7b839b1c673451f51524a9461aba8222c0d2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: bc5c5bf6a6baf32a74413272334fe6070b0a7a5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980406"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838860"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -24,7 +24,7 @@ Przed rozpoczęciem upewnij się, że:
 
 Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w ulubionym edytorze.
 
-Wywołaj plik index. js.
+Wywołaj index.js pliku.
 
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
@@ -423,7 +423,7 @@ request.end();
 
 Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania rozpoznawania mowy przy użyciu usługi mowy.
 
-**Uruchom aplikację** Node. js.
+**Uruchom** węzeł uruchamiania aplikacji index.js.
 
 ## <a name="next-steps"></a>Następne kroki
 

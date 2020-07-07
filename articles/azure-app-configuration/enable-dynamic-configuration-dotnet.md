@@ -8,16 +8,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856503"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Framework
 
-Biblioteka klienta platformy .NET konfiguracji aplikacji obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie `IConfigurationRefresher` z opcji dla dostawcy konfiguracji, a następnie wywołując `Refresh` je w dowolnym miejscu w kodzie.
+Biblioteka klienta platformy .NET konfiguracji aplikacji obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie z `IConfigurationRefresher` opcji dla dostawcy konfiguracji, a następnie wywołując je `Refresh` w dowolnym miejscu w kodzie.
 
 Aby zachować zaktualizowane ustawienia i uniknąć zbyt wielu wywołań w magazynie konfiguracji, dla każdego ustawienia zostanie użyta pamięć podręczna. Do momentu wygaśnięcia zbuforowanej wartości ustawienia operacja odświeżania nie aktualizuje wartości, nawet jeśli wartość została zmieniona w magazynie konfiguracji. Domyślny czas wygaśnięcia dla każdego żądania wynosi 30 sekund, ale w razie potrzeby można go zastąpić.
 
@@ -38,7 +38,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz kolejno pozycje **Eksplorator** > konfiguracji **+ Utwórz** > **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+6. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -50,14 +50,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="create-a-net-framework-console-app"></a>Tworzenie aplikacji konsolowej .NET Framework
 
-1. Uruchom program Visual Studio i wybierz pozycję **plik** > **Nowy** > **projekt**.
+1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
 1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij pozycję **Utwórz**.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
-1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj pakiet NuGet *Microsoft. Extensions. Configuration. AzureAppConfiguration* do projektu. Jeśli nie możesz go znaleźć, zaznacz pole wyboru **Uwzględnij wersję wstępną** .
+1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj *Microsoft.Extensions.Configwersja. AzureAppConfiguration* pakiet NuGet do projektu. Jeśli nie możesz go znaleźć, zaznacz pole wyboru **Uwzględnij wersję wstępną** .
 
 1. Otwórz *program.cs*i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
 
@@ -119,11 +119,15 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Jeśli używasz programu Windows PowerShell, uruchom następujące polecenie:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Uruchom ponownie program Visual Studio, aby zmiany zaczęły obowiązywać. 
 
@@ -144,9 +148,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     ![Lokalne odświeżanie aplikacji](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund `SetCacheExpiration` przy użyciu metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
+    > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund przy użyciu `SetCacheExpiration` metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

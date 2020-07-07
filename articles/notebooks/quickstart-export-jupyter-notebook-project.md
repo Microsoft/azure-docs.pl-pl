@@ -3,14 +3,16 @@ title: Eksportuj projekt notesu Jupyter z wersji zapoznawczej Azure Notebooks
 description: Szybko Eksportuj projekt notesu Jupyter.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 31e32a6ebb39429078c7c6747bc6b10f177699ac
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802708"
+ms.locfileid: "85832036"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Szybki Start: Eksportowanie projektu notesu Jupyter w wersji zapoznawczej programu Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 W tym przewodniku szybki start pobierzesz projekt Azure Notebooks do użycia w innych rozwiązaniach notesu Jupyter. 
 
@@ -18,8 +20,6 @@ W tym przewodniku szybki start pobierzesz projekt Azure Notebooks do użycia w i
 Istniejący projekt Azure Notebooks.
 
 ## <a name="export-an-azure-notebooks-project"></a>Eksportowanie projektu Azure Notebooks
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -38,24 +38,14 @@ Po pobraniu plików projektu można używać ich z innymi rozwiązaniami Jupyter
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
 
-## <a name="download-the-requirements-file-used-by-azure-notebooks"></a>Pobierz plik wymagań używany przez Azure Notebooks
+## <a name="create-an-environment-for-notebooks"></a>Tworzenie środowiska dla notesów
 
-Jeśli chcesz utworzyć środowisko zgodne z wersją zapoznawczą Azure Notebooks, możesz użyć pliku **AzureNotebooksRequirements.txt** dostępnego w witrynie GitHub.
+Jeśli chcesz utworzyć środowisko zgodne z wersją zapoznawczą Azure Notebooks, możesz użyć pliku skryptu dostępnego w witrynie GitHub.
 
-1. Przejdź do repozytorium Azure Notebooks [GitHub](https://github.com/microsoft/AzureNotebooks) lub możesz [uzyskać bezpośredni dostęp do pliku](https://aka.ms/aznbrequirementstxt).
-1. Pobierz plik **AzureNotebooksRequirements.txt** zawierający zależności pakietu dla środowiska Azure Notebooks. 
-1. W wierszu polecenia przejdź do katalogu, który ma być używany dla projektów, i użyj pliku wymagań, aby zainstalować odpowiednie pakiety.
+1. Przejdź do repozytorium Azure Notebooks [GitHub](https://github.com/microsoft/AzureNotebooks) lub [bezpośrednio uzyskaj dostęp do folderu Environment](https://aka.ms/aznbrequirementstxt).
+1. W wierszu polecenia przejdź do katalogu, który ma być używany dla projektów.
+1. Pobierz zawartość folderu środowiska i postępuj zgodnie z instrukcjami w pliku Readme, aby zainstalować zależności pakietu Azure Notebooks.
 
-    > [!Note]
-    > Chociaż nie jest to wymagane, zazwyczaj warto utworzyć nowe środowisko wirtualne na potrzeby instalacji pakietów, jak pokazano poniżej.
-
-    ```bash
-    cd your-project-dir
-    python -m venv .venv
-    python -m pip install -r AzureNotebooksRequirements.txt
-    ```
-
-Aby uzyskać więcej informacji na temat plików wymagań, zobacz [dokumenty PIP]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 ## <a name="use-notebooks-in-visual-studio-code"></a>Korzystanie z notesów w Visual Studio Code
 
@@ -65,7 +55,7 @@ Aby uzyskać więcej informacji na temat plików wymagań, zobacz [dokumenty PIP
 
 Po [pobraniu](#export-an-azure-notebooks-project) plików projektu można ich używać z vs Code. Aby uzyskać wskazówki dotyczące używania VS Code z notesami Jupyter, zobacz [Praca z notesami Jupyter w programie Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) i [nauka danych w](https://code.visualstudio.com/docs/python/data-science-tutorial) samouczkach Visual Studio Code.
 
-Możesz również użyć [Azure Notebooks wymagań](#download-the-requirements-file-used-by-azure-notebooks) z Visual Studio Code, aby utworzyć środowisko zgodne z podglądem Azure Notebooks.
+Możesz również użyć [skryptu środowiska Azure Notebooks](#create-an-environment-for-notebooks) z Visual Studio Code, aby utworzyć środowisko zgodne z podglądem Azure Notebooks.
 
 ## <a name="use-notebooks-in-visual-studio-codespaces"></a>Korzystanie z notesów w programie Visual Studio Codespaces
 
@@ -107,3 +97,11 @@ GitHub oferuje bezpłatne, chronione za pomocą kontroli źródła sposób przec
 1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
 1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów. 
 1. [Dodaj pliki](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) do repozytorium.
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Dowiedz się więcej o języku Python w Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Dowiedz się więcej na temat notesów Azure Machine Learning i Jupyter](../machine-learning/how-to-run-jupyter-notebooks.md)
+- [Dowiedz się więcej o programie Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Dowiedz się więcej o Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
+- [Dowiedz się więcej o usłudze GitHub](https://help.github.com/github/getting-started-with-github/)

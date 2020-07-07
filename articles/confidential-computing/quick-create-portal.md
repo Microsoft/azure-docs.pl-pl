@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 905c76a3c5399ecae8acb2a18d35006306afcb2f
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801261"
+ms.locfileid: "85830472"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w Azure Portal
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W górnej części wybierz pozycję **Utwórz zasób**.
 
@@ -127,8 +127,7 @@ ssh azureadmin@40.55.55.555
 
 Publiczny adres IP maszyny wirtualnej można znaleźć w Azure Portal w sekcji Przegląd maszyny wirtualnej.
 
-[!div class="mx-imgBorder"]
-![Adres IP w witrynie Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
+:::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="Adres IP w witrynie Azure Portal":::
 
 Jeśli używasz systemu Windows i nie masz powłoki BASH, zainstaluj klienta SSH, takiego jak PuTTY.
 

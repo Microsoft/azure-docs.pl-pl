@@ -335,9 +335,6 @@
         - name: Używanie miejsc docelowych obliczania zdalnego
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Definiowanie zadań uczenia maszynowego
-          displayName: 'machine learning, task type, automl'
-          href: how-to-define-task-type.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md

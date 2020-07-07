@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 9772ea320ff28325ffdc8cdcb6e35947b182d1b3
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849486"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
-Azure Key Vault obsługuje tworzenie żądania podpisania certyfikatu za pomocą pary kluczy prywatnych i podpisywane przez wybrany urząd certyfikacji. Może to być wewnętrzny urząd certyfikacji przedsiębiorstwa lub zewnętrzny publiczny urząd certyfikacji. Żądanie podpisania certyfikatu (również CSR lub żądanie certyfikacji) to komunikat wysyłany przez użytkownika do urzędu certyfikacji w celu żądania wystawienia certyfikatu cyfrowego.
+Azure Key Vault obsługuje przechowywanie certyfikatu cyfrowego wystawionego przez dowolny wybrany urząd certyfikacji w magazynie kluczy. Obsługuje ona tworzenie żądania podpisania certyfikatu za pomocą pary kluczy prywatnych-publicznych, która może być podpisana przez wybrany urząd certyfikacji. Może to być wewnętrzny urząd certyfikacji przedsiębiorstwa lub zewnętrzny publiczny urząd certyfikacji. Żądanie podpisania certyfikatu (również CSR lub żądanie certyfikacji) to komunikat wysyłany przez użytkownika do urzędu certyfikacji w celu żądania wystawienia certyfikatu cyfrowego.
 
 Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
 

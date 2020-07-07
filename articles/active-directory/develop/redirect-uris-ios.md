@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: c25de9a41678af7391fc271b1dc3413c332ce8b6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479270"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830353"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Używanie identyfikatorów URI przekierowania z biblioteką uwierzytelniania firmy Microsoft dla systemów iOS i macOS
 
@@ -40,10 +40,12 @@ Identyfikatory URI przekierowania muszą być różne dla każdej aplikacji syst
 
 Uwzględniając następujące zarejestrowane aplikacje w Azure Portal:
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* Identyfikator klienta: `ABCDE-12345` (jest to pojedynczy identyfikator klienta)
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
 
-APP1 używa przekierowania `msauth.com.contoso.app1://auth` APP2 używa `msauth.com.contoso.app2://auth` APP3`msauth.com.contoso.app1://auth`
+APP1 używa przekierowania `msauth.com.contoso.app1://auth` . \
+App2 używa `msauth.com.contoso.app2://auth` . \
+APP3 używa `msauth.com.contoso.app1://auth` .
 
 ### <a name="migrating-from-adal-to-msal"></a>Migrowanie z biblioteki ADAL do MSAL
 
@@ -70,7 +72,6 @@ Podczas migrowania kodu, który używał biblioteki Azure AD Authentication Libr
         </dict>
     </array>
     ```
-    
 
 MSAL sprawdzi, czy identyfikator URI przekierowania prawidłowo rejestruje i zwróci błąd, jeśli nie jest.
     

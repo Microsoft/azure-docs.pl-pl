@@ -5,14 +5,14 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 819fdec23d00929db34942434f66a6ffa5d4a1d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559930"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833744"
 ---
-# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu Visual Studio Code
+# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
 ::: zone pivot="programming-language-csharp"  
 W tym artykule użyto Visual Studio Code do utworzenia funkcji opartej na bibliotece języka C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
@@ -50,11 +50,11 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 + Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node. js](https://nodejs.org/)wymagany przez system Windows for npm. Tylko [aktywne wersje LTS LTS i Maintenance](https://nodejs.org/about/releases/). Użyj `node --version` polecenia, aby sprawdzić wersję.
++ [Node.js](https://nodejs.org/), wymagany przez system Windows for npm. Tylko [aktywne wersje LTS LTS i Maintenance](https://nodejs.org/about/releases/). Użyj `node --version` polecenia, aby sprawdzić wersję.
     Nie jest wymagana do lokalnego programowania w systemach macOS i Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node. js](https://nodejs.org/), Active LTS i Maintenance — wersje LTS (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.
++ [Node.js](https://nodejs.org/), aktywne wersje LTS LTS i Maintenance (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
@@ -172,13 +172,15 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
 1. Wklej ten adres URL żądania HTTP na pasku adresu przeglądarki, Dodaj `name` ciąg zapytania na `?name=Functions` końcu tego adresu URL, a następnie wykonaj żądanie. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+    ```http
+    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    ```
         
     Poniższy przykład przedstawia odpowiedź w przeglądarce do zdalnego żądania GET zwróconego przez funkcję: 
 
     ![Odpowiedź funkcji wyświetlona w przeglądarce](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po przeniesieniu do następnego kroku [Dodaj powiązanie kolejki usługi Azure Storage do funkcji](functions-add-output-binding-storage-queue-vs-code.md), musisz zachować wszystkie Twoje zasoby, aby skompilować, co już zostało zrobione.
 

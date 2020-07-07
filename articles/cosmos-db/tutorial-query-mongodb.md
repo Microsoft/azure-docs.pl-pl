@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 853133297567546d2e5259aee9a24ab52a6a4614
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85552936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848949"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Wykonywanie zapytań o dane przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -71,7 +71,7 @@ db.families.find({ id: "WakefieldFamily"})
 **Wyniki**
 
 ```json
-    {
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -109,7 +109,7 @@ db.families.find({ id: "WakefieldFamily"})
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
 ```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Przykładowe zapytanie 2 
@@ -125,7 +125,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
 **Wyniki**
 
 ```json
-    {
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -145,7 +145,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
         "grade": 8
       }
     ]
-    }
+}
 ```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a> Przykładowe zapytanie 3 
@@ -175,7 +175,7 @@ db.families.find( { "isRegistered" : false })
 **Wyniki**
 
 ```json
-     {
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -224,7 +224,7 @@ db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 **Wyniki**
 
 ```json
-     {
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -273,7 +273,7 @@ db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 **Wyniki**
 
 ```json
-     {
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{

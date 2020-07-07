@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 2ac2051bd75bdad550bc93323053db2d220095a2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: 75fad463f5697ae9c8e0a1aeec16e91f1b6c05b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979463"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838948"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 

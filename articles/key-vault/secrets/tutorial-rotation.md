@@ -1,6 +1,6 @@
 ---
-title: Samouczek rotacji pojedynczego użytkownika/jednego hasła
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła.
+title: Samouczek dotyczący rotacji zasobów z jednym zestawem poświadczeń uwierzytelniania
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183215"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801448"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatyzowanie rotacji klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
 Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/managed-identity.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub wpisy tajne. Należy okresowo obracać klucze dostępu lub wpisy tajne.
 
-W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła. W tym samouczku zaprojektowano SQL Server haseł przechowywanych w Azure Key Vault przy użyciu funkcji wyzwalanej przez powiadomienie Azure Event Grid:
+W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z jednego zestawu poświadczeń uwierzytelniania. W tym samouczku zaprojektowano SQL Server haseł przechowywanych w Azure Key Vault przy użyciu funkcji wyzwalanej przez powiadomienie Azure Event Grid:
 
 ![Diagram rozwiązania rotacji](../media/rotate1.png)
 
@@ -176,7 +176,7 @@ Kompletny kod można znaleźć w witrynie [GitHub](https://github.com/jlichwa/az
 
 1. Pobierz plik zip aplikacji funkcji z usługi [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
 
-1. Przekaż plik simplerotationsample-Fn. zip do Azure Cloud Shell.
+1. Przekaż plik simplerotationsample-fn.zip, aby Azure Cloud Shell.
 
    ![Przekaż plik](../media/rotate4.png)
 1. Użyj tego polecenia platformy Azure w celu wdrożenia pliku zip w aplikacji funkcji:
@@ -191,7 +191,7 @@ Po wdrożeniu funkcji powinny zostać wyświetlone dwie funkcje w obszarze simpl
 
 ## <a name="add-an-event-subscription-for-the-secretnearexpiry-event"></a>Dodawanie subskrypcji zdarzeń dla zdarzenia SecretNearExpiry
 
-Skopiuj `eventgrid_extension` klucz aplikacji funkcji:
+Skopiuj klucz aplikacji funkcji `eventgrid_extension` :
 
    ![Wybieranie ustawień aplikacji funkcji](../media/rotate6.png)
 
@@ -222,7 +222,7 @@ Utworzenie klucza tajnego z krótką datą wygaśnięcia spowoduje natychmiastow
 ## <a name="test-and-verify"></a>Testowanie i weryfikowanie
 Po kilku minutach `sqluser` klucz tajny powinien zostać automatycznie obrócony.
 
-Aby sprawdzić, czy klucz tajny został obrócony, przejdź do **Key Vault** > wpisów**tajnych**:
+Aby sprawdzić, czy klucz tajny został obrócony, przejdź do **Key Vault**wpisów  >  **tajnych**:
 
 ![Przejdź do wpisów tajnych](../media/rotate8.png)
 
@@ -250,7 +250,7 @@ Kod źródłowy aplikacji sieci Web można znaleźć w witrynie [GitHub](https:/
 Aby wdrożyć aplikację sieci Web, wykonaj następujące kroki:
 
 1. Pobierz plik zip aplikacji funkcji z usługi [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip).
-1. Przekaż plik simplerotationsample-App. zip do Azure Cloud Shell.
+1. Przekaż plik simplerotationsample-app.zip, aby Azure Cloud Shell.
 1. Użyj tego polecenia platformy Azure w celu wdrożenia pliku zip w aplikacji funkcji:
 
    ```azurecli

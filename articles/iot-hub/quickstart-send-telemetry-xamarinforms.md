@@ -1,6 +1,6 @@
 ---
 title: Wysyłanie danych telemetrycznych do usługi Azure IoT Hub — Szybki start | Microsoft Docs
-description: W tym przewodniku szybki start uruchomisz przykładową aplikację Xamarin Forms do wysyłania symulowanych danych telemetrycznych do centrum IoT i odczytywania danych telemetrycznych z usługi IoT Hub na potrzeby przetwarzania w chmurze.
+description: W tym przewodniku szybki start uruchomisz przykładową aplikację Xamarin. Forms w celu wysyłania symulowanych danych telemetrycznych do centrum IoT i odczytywania danych telemetrycznych z usługi IoT Hub na potrzeby przetwarzania w chmurze.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -10,21 +10,21 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 05/20/2020
-ms.openlocfilehash: d2292a65ef25f6450d6810b50366daa622b92bc8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 07/01/2020
+ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802718"
+ms.locfileid: "85807824"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarin-forms"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub (Formularze platformy Xamarin)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub (Xamarin. Forms)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub to usługa platformy Azure, która umożliwia pozyskiwanie dużych ilości danych telemetrycznych z urządzeń IoT do chmury w celu magazynowania lub przetwarzania. W tym artykule opisano wysyłanie danych telemetrycznych z aplikacji urządzenia symulowanego do usługi IoT Hub, a następnie wyświetlanie tych danych z poziomu aplikacji zaplecza.
 
-W tym artykule jest stosowana wstępnie zapisywana aplikacja programu Xamarin Forms do wysyłania danych telemetrycznych i narzędzia interfejsu wiersza polecenia w celu odczytu danych telemetrycznych z IoT Hub.
+W tym artykule jest stosowana wstępnie zapisywana aplikacja Xamarin. Forms, która umożliwia wysyłanie danych telemetrycznych i narzędzi interfejsu wiersza polecenia w celu odczytu danych telemetrycznych z IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 - Pobierz przykładowy kod z [przykładów dla platformy Azure](https://github.com/Azure-Samples/azure-iot-samples-xamarin/archive/master.zip)
 
-- Najnowsza wersja programu [Visual Studio 2019](https://visualstudio.microsoft.com/) lub [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/) z zainstalowanymi narzędziami Xamarin Forms. Ten przewodnik Szybki Start został przetestowany przy użyciu programu Visual Studio 16.6.0.
+- Najnowsza wersja programu [Visual Studio 2019](https://visualstudio.microsoft.com/) lub [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/) z zainstalowanymi narzędziami Xamarin. Forms. Ten przewodnik Szybki Start został przetestowany przy użyciu programu Visual Studio 16.6.0.
 
 - Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -116,7 +116,7 @@ Poniższy zrzut ekranu przedstawia typ danych telemetrycznych wyświetlanych w o
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum z aplikacji interfejsu Xamarin Forms i odczytuje dane telemetryczne z centrum. 
+W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum z aplikacji Xamarin. Forms i odczytuje dane telemetryczne z centrum. 
 
 Aby dowiedzieć się, jak kontrolować urządzenie symulowane z poziomu aplikacji zaplecza, przejdź do następnego przewodnika Szybki start.
 

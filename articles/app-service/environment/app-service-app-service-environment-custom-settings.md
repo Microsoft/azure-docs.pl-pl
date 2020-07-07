@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 25393007a3cc878737ea5927cb65bcf7ef945313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057564"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833506"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Niestandardowe ustawienia konfiguracji dla środowisk App Service Environment
 ## <a name="overview"></a>Omówienie
@@ -24,30 +24,32 @@ Dostosowania środowiska App Service Environment można przechowywać przy użyc
 
 Poniższy skrócony fragment kodu szablonu usługi Resource Manager przedstawia atrybut **clusterSettings**:
 
-    "resources": [
-    {
-       "apiVersion": "2015-08-01",
-       "type": "Microsoft.Web/hostingEnvironments",
-       "name": ...,
-       "location": ...,
-       "properties": {
-          "clusterSettings": [
-             {
-                 "name": "nameOfCustomSetting",
-                 "value": "valueOfCustomSetting"
-             }
-          ],
-          "workerPools": [ ...],
-          etc...
-       }
+```json
+"resources": [
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": ...,
+    "location": ...,
+    "properties": {
+        "clusterSettings": [
+            {
+                "name": "nameOfCustomSetting",
+                "value": "valueOfCustomSetting"
+            }
+        ],
+        "workerPools": [ ...],
+        etc...
     }
+}
+```
 
 Atrybut **clusterSettings** można uwzględnić w szablonie usługi Resource Manager, aby zaktualizować usługę App Service Environment.
 
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Aktualizowanie usługi App Service Environment za pomocą witryny Azure Resource Explorer
 Usługę App Service Environment można również aktualizować przy użyciu witryny [Azure Resource Explorer](https://resources.azure.com).  
 
-1. W Eksplorator zasobów przejdź do węzła App Service Environment (**subskrypcje** > **resourceGroups** > **dostawcy** > **Microsoft. Web** > **hostingEnvironments**). Następnie kliknij wybrane środowisko App Service Environment, które chcesz zaktualizować.
+1. W Eksplorator zasobów przejdź do węzła App Service Environment (**subskrypcje**  >  **resourceGroups**  >  **dostawcy**  >  **Microsoft. Web**  >  **hostingEnvironments**). Następnie kliknij wybrane środowisko App Service Environment, które chcesz zaktualizować.
 2. W okienku po prawej stronie kliknij pozycję **Do odczytu/zapisu** na górnym pasku narzędzi, aby zezwolić na interakcyjne edytowanie w usłudze Resource Explorer.  
 3. Kliknij niebieski przycisk **Edytuj**, aby umożliwić edytowanie szablonu usługi Resource Manager.
 4. Przewiń okienko po prawej stronie w dół. Atrybut **clusterSettings** znajduje się na samym dole strony, gdzie można wprowadzić lub zaktualizować jego wartość.
@@ -61,13 +63,15 @@ Jeśli na przykład środowisko App Service Environment ma cztery frontony, koń
 
 App Service Environment działa jako system czarnego pudełka, w którym nie są widoczne wewnętrzne składniki lub komunikacja w systemie. Aby zapewnić większą przepływność, szyfrowanie nie jest domyślnie włączone między składnikami wewnętrznymi. System jest zabezpieczony, ponieważ ruch jest całkowicie niedostępny do monitorowania lub dostępu. Jeśli istnieje wymóg zgodności, który wymaga pełnego szyfrowania ścieżki danych od końca do końca, istnieje możliwość włączenia tego elementu przy użyciu clusterSetting.  
 
-        "clusterSettings": [
-            {
-                "name": "InternalEncryption",
-                "value": "1"
-            }
-        ],
- 
+```json
+"clusterSettings": [
+    {
+        "name": "InternalEncryption",
+        "value": "1"
+    }
+],
+```
+
 Po włączeniu InternalEncryption clusterSetting może mieć wpływ na wydajność systemu. Po wprowadzeniu zmiany w celu włączenia InternalEncryption środowisko ASE będzie w stanie niestabilnym, dopóki zmiana nie zostanie w pełni rozpropagowana. Zakończenie propagacji zmiany może potrwać kilka godzin, w zależności od liczby wystąpień w środowisku ASE. Zdecydowanie zalecamy, aby nie włączać tego na platformie ASE, gdy jest ona używana. Jeśli musisz włączyć tę funkcję w aktywnie używanym środowisku ASE, zdecydowanie zalecamy przekierowanie ruchu do środowiska kopii zapasowej do momentu zakończenia operacji. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Wyłączanie protokołów TLS 1.0 i TLS 1.1
@@ -76,29 +80,31 @@ Jeśli chcesz zarządzać ustawieniami protokołu TLS dla każdej aplikacji z os
 
 Jeśli chcesz wyłączyć całych ruch przychodzący protokołów TLS 1.0 i TLS 1.1 dla wszystkich aplikacji w środowisku ASE, możesz ustawić następujący wpis **clusterSettings**:
 
-        "clusterSettings": [
-            {
-                "name": "DisableTls1.0",
-                "value": "1"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "DisableTls1.0",
+        "value": "1"
+    }
+],
+```
 
 W nazwie ustawienia znajduje się numer wersji 1.0, ale po skonfigurowaniu wyłączane są protokoły TLS 1.0 i TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Zmienianie kolejności zestawów szyfrowania protokołu TLS
 Kolejne pytanie klientów dotyczy tego, czy mogą oni modyfikować listę szyfrów wynegocjowaną przez serwer. Ten cel można osiągnąć, modyfikując atrybut **clusterSettings**, jak pokazano poniżej. Listę dostępnych zestawów szyfrowania można pobrać z [tego artykułu MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
-        "clusterSettings": [
-            {
-                "name": "FrontEndSSLCipherSuiteOrder",
-                "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
-            }
-        ],
+```json
+"clusterSettings": [
+    {
+        "name": "FrontEndSSLCipherSuiteOrder",
+        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+    }
+],
+```
 
 > [!WARNING]
 > Jeśli dla zestawów szyfrowania zostaną skonfigurowane nieprawidłowe wartości, których nie będzie mógł rozpoznać kanał SChannel, cała komunikacja protokołu TLS z serwerem może przestać działać. W takim przypadku trzeba będzie usunąć wpis *FrontEndSSLCipherSuiteOrder* z atrybutu **clusterSettings** i przesłać zaktualizowany szablon usługi Resource Manager, aby przywrócić domyślne ustawienia zestawu szyfrowania.  Tej funkcji należy używać ostrożnie.
-> 
-> 
 
 ## <a name="get-started"></a>Wprowadzenie
 W witrynie szablonów szybkiego startu Azure Resource Manager można znaleźć szablon z podstawową definicją umożliwiającą [tworzenie środowiska App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).

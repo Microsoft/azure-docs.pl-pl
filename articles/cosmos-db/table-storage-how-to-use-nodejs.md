@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 35435bd318596ffd0a46e5d272565358c092bc03
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562690"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833151"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -71,14 +71,14 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
-Aby dodać połączenie z usługą Azure Cosmos DB, utwórz obiekt **TableService** i określ nazwę konta, klucz podstawowy oraz punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Przykład:
+Aby dodać połączenie z usługą Azure Cosmos DB, utwórz obiekt **TableService** i określ nazwę konta, klucz podstawowy oraz punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Na przykład:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+```
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
-Poniższy kod tworzy obiekt **TableService** i używa go do utworzenia nowej tabeli. 
+Poniższy kod tworzy obiekt **TableService** i używa go do utworzenia nowej tabeli.
 
 ```javascript
 var tableSvc = azure.createTableService();
@@ -197,7 +197,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Domyślnie podczas aktualizowania jednostki nie odbywa się sprawdzenie, czy aktualizowane dane zostały wcześniej zmodyfikowane przez inny proces. Aby obsługiwać równoczesne aktualizacje:
 >
 > 1. Pobierz tag ETag aktualizowanego obiektu. Ten tag jest zwracany jako część elementu `response` dla dowolnej operacji powiązanej z jednostką i można go pobrać za pośrednictwem elementu `response['.metadata'].etag`.
-> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Przykład:
+> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Na przykład:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Wykonaj operację aktualizacji. Jeśli jednostka została zmodyfikowana od czasu pobrania wartości tagu ETag, takiej jak inne wystąpienie aplikacji, element `error` jest zwracany wraz z informacją o tym, że warunek aktualizacji określony w żądaniu nie został spełniony.
@@ -364,7 +364,7 @@ dc.table.queryEntities(tableName,
 
 Jeśli sprawdzasz obiekt `continuationToken`, znajdziesz właściwości, takie jak `nextPartitionKey`, `nextRowKey` i `targetLocation`, które mogą służyć do iterowania w obrębie wszystkich wyników.
 
-Można również użyć `top` programu razem z programem, `continuationToken` Aby ustawić rozmiar strony. 
+Można również użyć `top` programu razem z programem, `continuationToken` Aby ustawić rozmiar strony.
 
 ## <a name="work-with-shared-access-signatures"></a>Praca z sygnaturami dostępu współdzielonego
 Sygnatury dostępu współdzielonego (SAS) to bezpieczny sposób zapewnienia szczegółowego dostępu do tabel bez podawania kluczy ani nazwy konta usługi Storage. Sygnatury dostępu współdzielonego są często używane do udzielania ograniczonych praw dostępu do danych, takich jak zezwalanie aplikacji mobilnej na wykonywanie zapytań dotyczących rekordów.
@@ -393,7 +393,7 @@ var host = tableSvc.host;
 
 Należy również pamiętać o podaniu informacji o hoście, ponieważ są one wymagane, gdy właściciel sygnatury dostępu współdzielonego próbuje uzyskać dostęp do tabeli.
 
-Następnie aplikacja kliencka używa sygnatury dostępu współdzielonego z elementem **TableServiceWithSAS** w celu wykonywania operacji względem tabeli. W poniższym przykładzie następuje połączenie z tabelą i wykonanie zapytania. Zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatury dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md) w formacie tableSAS. 
+Następnie aplikacja kliencka używa sygnatury dostępu współdzielonego z elementem **TableServiceWithSAS** w celu wykonywania operacji względem tabeli. W poniższym przykładzie następuje połączenie z tabelą i wykonanie zapytania. Zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatury dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md) w formacie tableSAS.
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
@@ -458,6 +458,6 @@ Więcej informacji zawierają poniższe zasoby.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * Repozytorium zestawu [Azure Storage SDK dla platformy Node.js](https://github.com/Azure/azure-storage-node) w witrynie GitHub.
-* [Platforma Azure dla deweloperów środowiska Node.js](https://docs.microsoft.com/azure/javascript/)
+* [Platforma Azure dla deweloperów środowiska Node.js](https://docs.microsoft.com/azure/developer/javascript/)
 * [Tworzenie aplikacji internetowej Node.js na platformie Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Tworzenie i wdrażanie aplikacji Node.js do usługi w chmurze Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (za pomocą programu Windows PowerShell)

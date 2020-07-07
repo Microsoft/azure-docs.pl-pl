@@ -13,6 +13,8 @@
       items:
         - name: Azure Portal
           href: stream-analytics-quick-create-portal.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: quick-create-azure-cli.md
         - name: Szablon ARM
           displayName: Resource Manager
           href: quick-create-azure-resource-manager.md

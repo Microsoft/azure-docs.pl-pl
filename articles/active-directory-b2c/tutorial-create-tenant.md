@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b445d1e795cfb34452f48bfb5ed375f6a284e1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806854"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: tworzenie dzierżawy usługi Azure Active Directory B2C
 
@@ -51,8 +51,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Na stronie **Tworzenie katalogu** wprowadź następujące elementy:
 
-   - **Nazwa organizacji** — wprowadź nazwę swojej organizacji.
-   - **Początkowa nazwa domeny** — wprowadź nazwę domeny. Domyślnie ta nazwa jest dołączana do *. onmicrosoft.com*. Można to zmienić później przez dodanie nazwy domeny używanej przez organizację, na przykład "contoso.com".
+   - **Nazwa organizacji** — wprowadź nazwę dzierżawy Azure AD B2C.
+   - **Początkowa nazwa domeny** — wprowadź nazwę domeny dla dzierżawy Azure AD B2C.
    - **Kraj lub region** — wybierz z listy swój kraj lub region. Tego wyboru nie można później zmienić.
    - **Subskrypcja** — wybierz subskrypcję z listy.
    - **Grupa zasobów** — wybierz grupę zasobów, która będzie zawierać dzierżawę. Lub wybierz pozycję **Utwórz nowy**, wprowadź **nazwę** grupy zasobów, wybierz **lokalizację grupy zasobów**, a następnie wybierz przycisk **OK**.

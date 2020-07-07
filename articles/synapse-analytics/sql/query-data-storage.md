@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 72db484814c0ecf0ab6bb70d12ab088e1ce44ef5
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: e9a90ab7100ae9757f59c80bb8f4738772482f56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85478573"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833659"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -46,7 +46,7 @@ Aby wykonać zapytanie dotyczące danych źródłowych Parquet, użyj formatu = 
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -58,7 +58,7 @@ Aby zbadać dane źródłowe Parquet, użyj formatu "CSV". Możesz określić sc
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', TYPE = 'CSV', PARSER_VERSION='2.0') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -81,7 +81,7 @@ Aby określić kolumny, które mają zostać odczytane, możesz podać opcjonaln
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (
       C1 int, 
       C2 varchar(20),
@@ -101,7 +101,7 @@ Pomijając klauzulę WITH z `OPENROWSET` instrukcji, można nakazać usłudze au
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
 Upewnij się, że [odpowiednie wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) są używane w celu uzyskania optymalnej wydajności. 
@@ -118,7 +118,7 @@ Mają zastosowanie następujące zasady:
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', TYPE = 'PARQUET' ) as rows
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
 ```
 
 Przykłady użycia znajdują się w [folderach zapytań i wielu plikach](query-folders-multiple-csv-files.md) .
@@ -219,7 +219,7 @@ Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtór
 
 Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danych przy użyciu przykładowych zapytań.
 
-### <a name="tools"></a>Narzędzia
+### <a name="tools"></a>narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
     - Azure Synapse Studio (wersja zapoznawcza)

@@ -31,6 +31,8 @@
           href: data-box-gateway-use-cases.md
     - name: Instrukcje
       items:
+        - name: Aktualizacja
+          href: data-box-gateway-apply-updates.md
         - name: Zarządzanie
           items:
             - name: Udziały
@@ -95,7 +97,7 @@
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Instrukcje
       items:
-        - name: 'Tworzenie modułu języka C#'
+        - name: Tworzenie modułu języka C#
           href: azure-stack-edge-create-iot-edge-module.md
         - name: Zarządzanie
           items:
@@ -133,7 +135,7 @@
           href: data-box-gateway-release-notes.md
 - name: Zasoby
   items:
-    - name: 'Azure Stack Edge — przykłady modułów języka C# (.NET)'
+    - name: Azure Stack Edge — przykłady modułów języka C# (.NET)
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
     - name: Produkt Azure Stack Edge/Data Box Gateway
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'

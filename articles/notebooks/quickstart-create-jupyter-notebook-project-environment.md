@@ -4,18 +4,18 @@ description: Utwórz nowy projekt w Azure Notebooks wersji zapoznawczej, który 
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559751"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832903"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie projektu za pomocą środowiska niestandardowego w programie Azure Notebooks Preview
 
-Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, dokumentacja, obrazy i tak dalej, wraz ze środowiskiem, które można skonfigurować za pomocą określonych poleceń Instalatora. Definiując środowisko przy użyciu projektu, każda osoba, która klonuje projekt do własnego konta Azure Notebooks, zawiera wszystkie informacje potrzebne do odtworzenia niezbędnego środowiska.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, dokumentacja, obrazy i tak dalej, wraz ze środowiskiem, które można skonfigurować za pomocą określonych poleceń Instalatora. Definiując środowisko przy użyciu projektu, każda osoba, która klonuje projekt do własnego konta Azure Notebooks, zawiera wszystkie informacje potrzebne do odtworzenia niezbędnego środowiska.
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 
@@ -54,7 +54,7 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
 
    | Operacja | Opis |
    | --- | --- |
-   | Requirements. txt | Projekty języka Python definiują ich zależności w pliku Requirements. txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz pozycję **Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty środowisko **ustawień projektu**  >  **Environment** i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie`pip install -r <file>` |
+   | Requirements.txt | Projekty języka Python definiują ich zależności w pliku requirements.txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz pozycję **Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty środowisko **ustawień projektu**  >  **Environment** i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie`pip install -r <file>` |
    | Skrypt powłoki | Użyj, aby wskazać skrypt powłoki bash (zazwyczaj plik z rozszerzeniem *. sh* ) zawierający wszystkie polecenia, które chcesz uruchomić w celu zainicjowania środowiska. |
    | Środowisko. yml | Projekt języka Python, który używa Conda do zarządzania środowiskiem, używa pliku Environments *. yml* do opisywania zależności. W przypadku tej opcji wybierz odpowiedni plik z listy plików projektu. |
 
@@ -73,4 +73,4 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
 > [Zarządzanie projektami i konfigurowanie ich w Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie notesu Jupyter w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)
+> [Samouczek: Tworzenie i uruchamianie notesu Jupyter w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)

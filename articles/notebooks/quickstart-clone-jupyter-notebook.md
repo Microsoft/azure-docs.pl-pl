@@ -3,14 +3,16 @@ title: Klonowanie notesu Jupyter z usługi GitHub przy użyciu wersji zapoznawcz
 description: Szybko Sklonuj Notes Jupyter z repozytorium GitHub i uruchom go na koncie Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064601"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833090"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: klonowanie notesu w programie Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Ten przewodnik Szybki Start umożliwia skopiowanie notesu Jupyter przechowywanego w usłudze GitHub na konto Azure Notebooks. 
 
@@ -22,8 +24,6 @@ Ponieważ klon Azure Notebooks znajduje się w chmurze, możesz udostępnić go 
 Brak.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Klonowanie notesów Cognitive Services platformy Azure
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -37,7 +37,7 @@ Brak.
 
 1. W wyświetlonym **repozytorium GitHub** wpisz lub ustaw następujące szczegóły, a następnie wybierz pozycję **Importuj**:
 
-   - **Repozytorium GitHub**: Microsoft/poznawcze-Services-notesy (Ta nazwa służy do klonowania notesów Jupyter dla [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)platformy Cognitive Services Azure w systemie).
+   - **Repozytorium GitHub**: Microsoft/poznawcze-Services-notesy (Ta nazwa służy do klonowania notesów Jupyter dla platformy Cognitive Services Azure w systemie [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) ).
    - **Klonuj cyklicznie**: (wyczyszczone)
    - **Nazwa projektu**: klon Cognitive Services
    - **Identyfikator projektu**: poznawcze — usługi — klonowanie
@@ -63,7 +63,7 @@ Brak.
 
     ![Uruchamianie notesu Jupyter sklonowanego z usługi GitHub](media/quickstarts/clone-notebook-result.png)
 
-1. Po zakończeniu pracy z notesem wybierz pozycję **plik** > **Zamknij i zatrzymywanie** , aby zamknąć Notes i jego okno przeglądarki.
+1. Po zakończeniu pracy z notesem wybierz pozycję **plik**  >  **Zamknij i zatrzymywanie** , aby zamknąć Notes i jego okno przeglądarki.
 
 1. Aby udostępnić poszczególne notesy w projekcie, kliknij prawym przyciskiem myszy Notes i wybierz polecenie **Kopiuj link** (skrót klawiaturowy: t):
 

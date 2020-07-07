@@ -4,20 +4,20 @@ description: Dowiedz się, jak utworzyć i uruchomić Notes Jupyter Azure Notebo
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561748"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834135"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Samouczek: Tworzenie i uruchamianie notesu Jupyter przy użyciu języka Python
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Ten samouczek przeprowadzi Cię przez proces używania Azure Notebooks w celu utworzenia kompletnego notesu Jupyter, który pokazuje prostą regresję liniową. W ramach tego samouczka zaznajomisz się z interfejsem użytkownika notesu Jupyter, który obejmuje tworzenie różnych komórek, uruchamianie komórek i prezentowanie notesu jako pokazu slajdów.
 
 Ukończony Notes można znaleźć w [przykładach Azure Notebooks GitHub](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Ten samouczek, jednak rozpoczyna się od nowego projektu i pustego notesu, aby można było go utworzyć krok po kroku.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -51,26 +51,26 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="create-the-data-file"></a>Utwórz plik danych
 
-Model regresji liniowej tworzony w notesie pobiera dane z pliku w projekcie o nazwie *cricket_chirps. csv*. Ten plik można utworzyć, kopiując go z przykładów usługi [GitHub-Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)lub wprowadzając dane bezpośrednio. W poniższych sekcjach opisano oba podejścia.
+Model regresji liniowej tworzony w notesie pobiera dane z pliku w projekcie o nazwie *cricket_chirps.csv*. Ten plik można utworzyć, kopiując go z przykładów usługi [GitHub-Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)lub wprowadzając dane bezpośrednio. W poniższych sekcjach opisano oba podejścia.
 
 ### <a name="upload-the-data-file"></a>Przekaż plik danych
 
 1. Na pulpicie nawigacyjnym projektu w Azure Notebooks wybierz pozycję **Przekaż**  >  **z adresu URL**
-1. W oknie podręcznym wprowadź następujący adres URL w polu **adres URL pliku** i *cricket_chirps. csv* w polu **Nazwa pliku**, a następnie wybierz pozycję **gotowe**.
+1. W oknie podręcznym wprowadź następujący adres URL w polu **adres URL pliku** i *cricket_chirps.csv* w polu **Nazwa pliku**, a następnie wybierz pozycję **gotowe**.
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. Plik *cricket_chirps. csv* powinien teraz pojawić się na liście plików projektu:
+1. Plik *cricket_chirps.csv* powinien teraz pojawić się na liście plików projektu:
 
     ![Nowo utworzony plik CSV wyświetlany na liście plików projektu](media/tutorial/csv-file-in-project.png)
 
 ### <a name="create-a-file-from-scratch"></a>Tworzenie pliku od podstaw
 
 1. Na pulpicie nawigacyjnym projektu w Azure Notebooks wybierz pozycję **+ Nowy**  >  **pusty plik**
-1. Pole pojawi się na liście plików projektu. Wprowadź *cricket_chirps. csv* i naciśnij klawisz ENTER.
-1. Kliknij prawym przyciskiem myszy *cricket_chirps. csv* i wybierz polecenie **Edytuj plik**.
+1. Pole pojawi się na liście plików projektu. Wprowadź *cricket_chirps.csv* i naciśnij klawisz ENTER.
+1. Kliknij prawym przyciskiem myszy *cricket_chirps.csv* i wybierz polecenie **Edytuj plik**.
 1. W wyświetlonym edytorze wprowadź następujące dane:
 
     ```csv
@@ -111,12 +111,12 @@ W notesie można zawsze używać poleceń takich jak `!pip install` w komórce k
 
 1. Na pulpicie nawigacyjnym projektu wybierz pozycję **Ustawienia projektu**.
 1. W wyświetlonym oknie podręcznym wybierz kartę **środowisko** , a następnie wybierz pozycję **+ Dodaj**.
-1. W pierwszej kontrolce listy rozwijanej (operacja) w obszarze **czynności konfiguracyjne środowiska**wybierz pozycję **Requirements. txt**.
-1. W drugiej kontrolce listy rozwijanej (nazwa pliku) wybierz pozycję *Requirements. txt* (utworzony plik).
+1. W pierwszej kontrolce listy rozwijanej (operacja) w obszarze **czynności konfiguracyjne środowiska**wybierz **Requirements.txt**.
+1. W drugiej kontrolce listy rozwijanej (nazwa pliku) wybierz *requirements.txt* (utworzony plik).
 1. W trzeciej kontrolce listy rozwijanej (wersja języka Python) Wybierz środowisko **Python w wersji 3,6**.
 1. Wybierz pozycję **Zapisz**.
 
-![Karta środowisko ustawień projektu określająca plik Requirements. txt](media/tutorial/tutorial-requirements-txt.png)
+![Karta środowisko ustawień projektu określająca plik requirements.txt](media/tutorial/tutorial-requirements-txt.png)
 
 W przypadku tego kroku instalacji każdy Notes uruchomiony w projekcie zostanie uruchomiony w środowisku, w którym są zainstalowane te pakiety.
 
@@ -127,7 +127,7 @@ W przypadku gotowości pliku danych i ustawienia środowiska projektowego możes
 1. Na pulpicie nawigacyjnym projektu wybierz pozycję **+ Nowy**  >  **Notes**.
 1. W oknie podręcznym wprowadź *przykład regresji liniowej — Cricket chirps. ipynb* dla **nazwy elementu**, wybierz opcję **Python 3,6** dla języka, a następnie wybierz pozycję **Nowy**.
 1. Po pojawieniu się nowego notesu na liście plików wybierz go, aby uruchomić Notes. Zostanie automatycznie otwarta nowa karta przeglądarki.
-1. Ponieważ plik *Requirements. txt* jest w ustawieniach środowiska, zobaczysz komunikat "Oczekiwanie na zakończenie przygotowywania kontenera". Możesz wybrać **przycisk OK** , aby zamknąć komunikat i kontynuować pracę w notesie. nie można jednak uruchomić komórek kodu, dopóki środowisko nie zostanie skonfigurowane w pełni.
+1. Ponieważ w ustawieniach środowiska istnieje plik *requirements.txt* , zostanie wyświetlony komunikat "Oczekiwanie na zakończenie przygotowywania kontenera". Możesz wybrać **przycisk OK** , aby zamknąć komunikat i kontynuować pracę w notesie. nie można jednak uruchomić komórek kodu, dopóki środowisko nie zostanie skonfigurowane w pełni.
 1. Notes zostanie otwarty w interfejsie Jupyter z pojedynczą pustą komórką kodu jako domyślną.
 
     [![Początkowy widok nowego notesu w Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)

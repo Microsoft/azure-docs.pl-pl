@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850555"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Samouczek: korzystanie z interfejsu API strumieni Apache Kafka w usłudze Azure HDInsight
 
@@ -47,7 +47,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="understand-the-code"></a>Zrozumienie kodu
 
-Przykładowa aplikacja znajduje się w [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)lokalizacji w `Streaming` podkatalogu. Aplikacja składa się z dwóch plików:
+Przykładowa aplikacja znajduje się w lokalizacji [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) w `Streaming` podkatalogu. Aplikacja składa się z dwóch plików:
 
 * `pom.xml`: w tym pliku są definiowane zależności projektu, wersja języka Java i metody pakowania.
 * `Stream.java`: ten plik implementuje logikę przesyłania strumieniowego.
@@ -153,13 +153,13 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Zainstaluj [JQ](https://stedolan.github.io/jq/), procesor JSON w wierszu polecenia. Z otwartego połączenia SSH wprowadź następujące polecenie, aby zainstalować `jq`:
+2. Zainstaluj [JQ](https://stedolan.github.io/jq/), procesor JSON w wierszu polecenia. Z otwartego połączenia SSH wprowadź następujące polecenie, aby zainstalować `jq` :
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Skonfiguruj zmienną hasła. Zamień `PASSWORD` na hasło logowania klastra, a następnie wprowadź polecenie:
+3. Skonfiguruj zmienną hasła. Zamień na `PASSWORD` hasło logowania klastra, a następnie wprowadź polecenie:
 
     ```bash
     export password='PASSWORD'
@@ -172,7 +172,7 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
     ```
 
     > [!Note]  
-    > Jeśli ten proces jest wykonywany spoza klastra, istnieje inna procedura przechowywania nazwy klastra. W mniejszej sytuacji należy uzyskać nazwę klastra z Azure Portal. Następnie zastąp nazwę klastra `<clustername>` w następującym poleceniu i wykonaj go:. `export clusterName='<clustername>'`  
+    > Jeśli ten proces jest wykonywany spoza klastra, istnieje inna procedura przechowywania nazwy klastra. W mniejszej sytuacji należy uzyskać nazwę klastra z Azure Portal. Następnie zastąp nazwę klastra `<clustername>` w następującym poleceniu i wykonaj go: `export clusterName='<clustername>'` .  
 
 5. Aby uzyskać hosty brokera platformy Kafka i hosty usługi Apache Zookeeper, użyj poniższych poleceń. Po wyświetleniu monitu wprowadź hasło dla konta logowania klastra (administratora).
 
@@ -232,19 +232,21 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
 
     Dane wyjściowe będą podobne do następującego tekstu:
 
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-   
+    ```output
+    dwarfs  13635
+    ago     13664
+    snow    13636
+    dwarfs  13636
+    ago     13665
+    a       13803
+    ago     13666
+    a       13804
+    ago     13667
+    ago     13668
+    jumped  13640
+    jumped  13641
+    ```
+
     Parametr `--from-beginning` konfiguruje odbiorcę, aby rozpoczął przetwarzanie od początku rekordów przechowywanych w temacie. Liczba wystąpień zwiększa się każdorazowo po napotkaniu wyrazu, dlatego temat zawiera wiele pozycji dla każdego wyrazu ze zwiększającą się liczbą wystąpień.
 
 4. Użyj klawiszy __Ctrl + C__, aby zakończyć działanie producenta. Podobnie użyj klawiszy __Ctrl + C__, aby zakończyć działanie aplikacji i odbiorcy.
@@ -258,7 +260,7 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra usługi HDInsight i wszystkich innych zasobów skojarzonych z tą grupą zasobów.
 

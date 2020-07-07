@@ -3,20 +3,20 @@ title: Zaloguj się do wersji zapoznawczej Azure Notebooks
 description: Szybko zaloguj się do Azure Notebooks wersja zapoznawcza i ustaw identyfikator użytkownika, który umożliwia dostęp do zapisanych projektów i udostępnianie notesów innym osobom.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75647020"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85830421"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika na potrzeby wersji zapoznawczej Azure Notebooks
 
-Mimo że zawsze możesz wyświetlać Azure Notebooks bez logowania, musisz zalogować się, aby uruchomić notesy, uzyskać dostęp do zapisanych projektów i notesów oraz udostępnić Notes innym osobom.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-## <a name="sign-in"></a>Zaloguj się
+Mimo że zawsze możesz wyświetlać Azure Notebooks bez logowania, musisz zalogować się, aby uruchomić notesy, uzyskać dostęp do zapisanych projektów i notesów oraz udostępnić Notes innym osobom.
+
+## <a name="sign-in"></a>Zaloguj
 
 1. Wybierz pozycję **Zaloguj się** w prawym górnym rogu [Notebooks.Azure.com](https://notebooks.azure.com/).
 
@@ -50,7 +50,7 @@ Mimo że zawsze możesz wyświetlać Azure Notebooks bez logowania, musisz zalog
 > [!NOTE]
 > Jeśli zobaczysz komunikat "identyfikator użytkownika jest już używany", spróbuj użyć innego identyfikatora. Identyfikatory użytkowników są unikatowe dla wszystkich kont Azure Notebooks, a Azure Notebooks również rezerwują pewne identyfikatory użytkowników, takie jak nazwy marki firmy Microsoft.
 
-## <a name="sign-out"></a>Wyloguj
+## <a name="sign-out"></a>Wyloguj się
 
 Aby się wylogować, wybierz swoją nazwę użytkownika w prawym górnym rogu strony, a następnie wybierz pozycję **Wyloguj się**:
 

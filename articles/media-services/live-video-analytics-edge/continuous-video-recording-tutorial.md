@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 95182478b75d506526cce28c0d5e446d71140eac
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 008927d607ef2a14e30e8e2090692ccd2bb1e7eb
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765067"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85808016"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -145,7 +145,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
     * Symulator RTSP (Nazwa modułu **rtspsim**)
  
-    ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Przygotowanie do monitorowania modułów 
 
@@ -162,7 +162,7 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 1. W Visual Studio Code przejdź do pozycji src/Cloud-to-Device-App/operations.json.
 1. W węźle **GraphTopologySet** Edytuj następujące elementy:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. Następnie w węzłach **GraphInstanceSet** i **GraphTopologyDelete** upewnij się, że wartość **topologyname** pasuje do wartości właściwości **name** w poprzedniej topologii grafu:
 
     `"topologyName" : "CVRToAMSAsset"`  
