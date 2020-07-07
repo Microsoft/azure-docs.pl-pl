@@ -200,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Błędy podczas usuwania klasycznych zasobów magazynu
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Wirtualny dysk twardy nie jest obsługiwany podczas tworzenia maszyny wirtualnej na platformie Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Używanie wirtualizacji zagnieżdżonej
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problemy z wydajnością maszyny wirtualnej

@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Blueprints
-summary: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Resource Manager, kontrole dostępu oparte na rolach i zasady.
+summary: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Azure Resource Manager, kontrole dostępu oparte na rolach i zasady.
 metadata:
   title: Dokumentacja usługi Azure Blueprints
-  description: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Resource Manager, kontrole dostępu oparte na rolach i zasady.
+  description: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Azure Resource Manager, kontrole dostępu oparte na rolach i zasady.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: 77959798ea5ab2369402f7e0a1ac8e7b530adc27
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-  ms.translationtype: HT
+  ms.openlocfilehash: 04c99d2428bd3c92187ce9383f51d38a9729d22a
+  ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+  ms.translationtype: 
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85550217"
+  ms.lasthandoff: 07/06/2020
+  ms.locfileid: "85969383"
 landingContent:
 - title: Informacje o usłudze Azure Blueprints
   linkLists:

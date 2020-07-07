@@ -146,6 +146,10 @@
       href: preprocess-text.md
     - name: Alokacja ukrytej zmiennej Dirichleta
       href: latent-dirichlet-allocation.md
+    - name: Ocenianie modelu Vowpal Wabbit
+      href: score-vowpal-wabbit-model.md
+    - name: Trenowanie modelu Vowpal Wabbit
+      href: train-vowpal-wabbit-model.md
 - name: Przetwarzanie obrazów
   items:
     - name: Stosowanie transformacji obrazów

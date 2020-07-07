@@ -49,7 +49,7 @@
               href: QuickStarts/node-thumb.md
             - name: Python
               href: QuickStarts/python-thumb.md
-        - name: Wyodrębnianie tekstu (przetwarzanie obrazów — interfejs API odczytu)
+        - name: Wyodrębnianie tekstu (odczyt interfejsu API)
           items:
             - name: C#
               href: QuickStarts/CSharp-hand-text.md
@@ -59,7 +59,7 @@
               href: QuickStarts/javascript-hand-text.md
             - name: Python
               href: QuickStarts/python-hand-text.md
-        - name: Wyodrębnianie tekstu drukowanego (OCR)
+        - name: Wyodrębnianie tekstu (interfejs API OCR)
           items:
             - name: C#
               href: QuickStarts/CSharp-print-text.md
@@ -105,7 +105,7 @@
       href: concept-detecting-color-schemes.md
     - name: Inteligentnie przycinane miniatury
       href: concept-generating-thumbnails.md
-    - name: Rozpoznawanie tekstu
+    - name: Optyczne rozpoznawanie znaków (OCR)
       href: concept-recognizing-text.md
     - name: Wykrywanie zawartości dla dorosłych
       href: concept-detecting-adult-content.md

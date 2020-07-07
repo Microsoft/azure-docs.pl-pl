@@ -15,7 +15,7 @@
           href: search-create-service-portal.md
         - name: Tworzenie indeksu
           href: search-get-started-portal.md
-        - name: Tworzenie aplikacji
+        - name: Tworzenie aplikacji demonstracyjnej
           href: search-create-app-portal.md
         - name: Tworzenie zestawu umiejętności
           href: cognitive-search-quickstart-blob.md

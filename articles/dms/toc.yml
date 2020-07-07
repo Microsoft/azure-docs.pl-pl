@@ -7,10 +7,14 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie usługi — portal
-      href: quickstart-create-data-migration-service-portal.md
-    - name: Tworzenie usługi w trybie hybrydowym — portal
-      href: quickstart-create-data-migration-service-hybrid-portal.md
+    - name: Tworzenie usługi
+      items:
+        - name: Portal
+          href: quickstart-create-data-migration-service-portal.md
+        - name: Szablon ARM
+          href: create-dms-resource-manager-template.md
+        - name: w trybie hybrydowym (Portal)
+          href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Pojęcia
   items:
     - name: Wymagania wstępne

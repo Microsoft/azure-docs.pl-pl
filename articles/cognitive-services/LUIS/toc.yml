@@ -60,6 +60,8 @@
           href: luis-nodejs-tutorial-bf-v4.md
 - name: Pojęcia
   items:
+    - name: Sztuczna inteligencja
+      href: artificial-intelligence.md
     - name: Cykl projektowania oprogramowania
       href: luis-concept-app-iteration.md
     - name: Planowanie aplikacji

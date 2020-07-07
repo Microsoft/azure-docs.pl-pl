@@ -28,6 +28,8 @@
       href: Quickstarts/batch-testing.md
 - name: Pojęcia
   items:
+    - name: Planowanie bazy wiedzy
+      href: Concepts/plan.md
     - name: Zasoby platformy Azure
       href: Concepts/azure-resources.md
     - name: Współpraca z innymi

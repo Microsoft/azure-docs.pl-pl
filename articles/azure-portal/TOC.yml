@@ -43,8 +43,8 @@
       items:
         - name: Tworzenie wniosku o pomoc techniczną platformy Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Przekazywanie plików dla żądania pomocy technicznej
-          href: supportability/how-to-use-file-uploader.md
+        - name: Zarządzanie wnioskiem o pomoc techniczną platformy Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Prośba o zwiększenie limitów przydziałów
           items:
             - name: Zwiększanie limitów obliczeniowych procesorów wirtualnych

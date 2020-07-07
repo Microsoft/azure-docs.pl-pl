@@ -86,6 +86,8 @@
           href: container-instances-start-command.md
         - name: Wykonywanie polecenia (exec)
           href: container-instances-exec.md
+        - name: Uruchamianie kontenera instalacyjnego (init)
+          href: container-instances-init-container.md
         - name: Korzystanie z tożsamości zarządzanej (wersja zapoznawcza)
           href: container-instances-managed-identity.md
         - name: Korzystanie z zasobów procesora GPU (wersja zapoznawcza)

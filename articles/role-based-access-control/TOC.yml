@@ -101,6 +101,8 @@
       href: elevate-access-global-admin.md
     - name: Administratorzy klasyczni
       href: classic-administrators.md
+    - name: Przenoszenie subskrypcji do innego katalogu (wersja zapoznawcza)
+      href: transfer-subscription.md
     - name: Rozwiązywanie problemów
       href: troubleshooting.md
 - name: Dokumentacja

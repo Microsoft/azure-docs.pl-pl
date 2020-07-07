@@ -99,6 +99,10 @@
     - name: Przeprowadzanie inspekcji maszyn wirtualnych przy użyciu konfiguracji gościa
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Rozszerzenie usługi Azure Policy dla programu VS Code

@@ -17,6 +17,9 @@
     - name: Uruchamianie pierwszego zapytania — program Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: ./first-query-powershell.md
+    - name: Uruchamianie pierwszego zapytania — platforma .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
     - name: Uruchamianie pierwszego zapytania — język Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
@@ -26,6 +29,9 @@
     - name: Uruchamianie pierwszego zapytania — język Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Uruchamianie pierwszego zapytania — interfejs REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
     - name: Tworzenie udostępnionego zapytania — interfejs wiersza polecenia platformy Azure
       displayName: 'extension, docker, queries'
       href: ./shared-query-azure-cli.md

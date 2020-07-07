@@ -230,6 +230,8 @@
               href: sql/data-loading-best-practices.md
             - name: Kompresja magazynu kolumn
               href: sql/data-load-columnstore-compression.md
+            - name: Omówienie ładowania danych
+              href: sql/load-data-overview.md
         - name: Opracowywanie zawartości
           items:
             - name: Omówienie
@@ -362,8 +364,10 @@
       items:
         - name: Uruchomienia potoków
           href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Aplikacje platformy Spark
+        - name: Aplikacje platformy Apache Spark
           href: monitoring/how-to-monitor-spark-applications.md
+        - name: Szczegóły aplikacji platformy Apache Spark
+          href: monitoring/apache-spark-applications.md
         - name: Synapse SQL
           items:
             - name: Monitorowanie pamięci podręcznej Gen2

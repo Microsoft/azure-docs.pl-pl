@@ -7,10 +7,16 @@
       href: what-is-application-management.md
 - name: Przewodniki Szybki start
   items:
-    - name: Wyświetlanie aplikacji dla przedsiębiorstw
+    - name: Wyświetlanie aplikacji
       href: view-applications-portal.md
-    - name: Dodawanie aplikacji w chmurze z galerii
+    - name: Dodawanie aplikacji
       href: add-application-portal.md
+    - name: Konfigurowanie aplikacji
+      href: add-application-portal-configure.md
+    - name: Konfigurowanie logowania jednokrotnego
+      href: add-application-portal-setup-sso.md
+    - name: Usuwanie aplikacji
+      href: delete-application-portal.md
 - name: Samouczki
   items:
     - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
