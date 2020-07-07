@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb7778ce25fd1ff01cfd7d2e1af7991bb38b1f47
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: d47a70f2e086c5322e8ecd53cbf352c672528ebc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605622"
+ms.locfileid: "85798910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Samouczek: integracja Azure Active Directory z usługą infor CloudSuite
 
@@ -109,21 +109,21 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą infor Cloud
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        http://mingle-sso.inforcloudsuite.com
-        http://mingle-sso.se1.inforcloudsuite.com
-        http://mingle-sso.eu1.inforcloudsuite.com
-        http://mingle-sso.se2.inforcloudsuite.com
-        ```
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
-        https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
-        ```
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -131,12 +131,12 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą infor Cloud
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://mingle-portal.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
-        https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
-        ```
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta infor CloudSuite](mailto:support@infor.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

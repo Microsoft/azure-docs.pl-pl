@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82613272"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
@@ -27,7 +27,7 @@ Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i 
 
 Musisz włączyć integrację partnera z wystąpieniem usługi Azure FarmBeats. W tym kroku jest tworzony klient, który ma dostęp do wystąpienia usługi Azure FarmBeats jako partner urządzenia i zawiera następujące wartości, które są wymagane w kolejnych krokach:
 
-- Punkt końcowy interfejsu API: jest to adres URL Datahub, na przykład\<https://Datahub>. azurewebsites.NET
+- Punkt końcowy interfejsu API: jest to adres URL Datahub, na przykład https:// \<datahub> . azurewebsites.NET
 - Identyfikator dzierżawy
 - Identyfikator klienta
 - Klucz tajny klienta
@@ -42,7 +42,7 @@ Wykonaj następujące kroki:
 
 2. **Jeśli korzystasz z FarmBeats w wersji 1.2.7 lub nowszej, Pomiń kroki a, b i c, a następnie przejdź do kroku 3.** Możesz sprawdzić wersję FarmBeats, wybierając ikonę **Ustawienia** w prawym górnym rogu interfejsu użytkownika FarmBeats.
 
-      a.  Przejdź do **Azure Active Directory** > **rejestracji aplikacji**
+      a.  Przejdź do **Azure Active Directory**  >  **rejestracji aplikacji**
 
       b. Wybierz **rejestrację aplikacji** , która została utworzona w ramach wdrożenia FarmBeats. Ma taką samą nazwę jak FarmBeats datahub.
 
@@ -70,7 +70,7 @@ Wykonaj następujące kroki:
 
     ```
 
-7. Uruchom następujący skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze strony**Przegląd** **Azure Active Directory** > .
+7. Uruchom następujący skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -140,9 +140,9 @@ Aby uzyskać więcej informacji na temat obiektów, zobacz [Swagger](https://aka
 
 ### <a name="api-request-to-create-metadata"></a>Żądanie interfejsu API do tworzenia metadanych
 
-Aby wykonać żądanie interfejsu API, należy połączyć metodę HTTP (POST), adres URL usługi interfejsu API i identyfikator URI zasobu do wysłania zapytania, przesłać dane do żądania, utworzyć lub usunąć żądanie. Następnie dodasz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi interfejsu API to punkt końcowy interfejsu API, czyli adres URL Datahub (https://\<yourdatahub>. azurewebsites.NET).
+Aby wykonać żądanie interfejsu API, należy połączyć metodę HTTP (POST), adres URL usługi interfejsu API i identyfikator URI zasobu do wysłania zapytania, przesłać dane do żądania, utworzyć lub usunąć żądanie. Następnie dodasz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi interfejsu API to punkt końcowy interfejsu API, czyli adres URL Datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 FarmBeats Datahub używa uwierzytelniania okaziciela, który wymaga następujących poświadczeń, które zostały wygenerowane w poprzedniej sekcji:
 

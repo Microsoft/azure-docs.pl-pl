@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610789"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
@@ -33,7 +33,7 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
     ![Odzyskaj dane](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Aby przywrócić dane na tym samym serwerze lub komputerze, w okienku **wprowadzenie** wybierz pozycję **ten serwer`<server name>`()** , a następnie kliknij przycisk **dalej**.
+3. Aby przywrócić dane na tym samym serwerze lub komputerze, w okienku **wprowadzenie** wybierz pozycję **ten serwer ( `<server name>` )** , a następnie kliknij przycisk **dalej**.
 
     ![Wybierz tę opcję serwera, aby przywrócić dane na ten sam komputer](./media/backup-azure-restore-system-state/samemachine.png)
 
@@ -107,7 +107,7 @@ Terminologia użyta w tych krokach obejmuje:
 
     ![Kliknij przycisk Odzyskaj, aby potwierdzić proces odzyskiwania](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-12. Skopiuj katalog *WindowsImageBackup* do niekrytycznego woluminu serwera (na przykład D:\). Zwykle wolumin systemu operacyjnego Windows jest woluminem krytycznym.
+12. Skopiuj katalog *WindowsImageBackup* do niekrytycznego woluminu serwera (na przykład D: \) . Zwykle wolumin systemu operacyjnego Windows jest woluminem krytycznym.
 
 13. Aby zakończyć proces odzyskiwania, należy skorzystać z poniższej sekcji, aby [zastosować przywrócone pliki stanu systemu w systemie Windows Server](#apply-restored-system-state-on-a-windows-server).
 

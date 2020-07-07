@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82627589"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrowanie zadań agenta SQL Server do podajnika APD przy użyciu programu SSMS
@@ -33,9 +33,9 @@ Ogólnie rzecz biorąc dla wybranych zadań programu SQL Agent z odpowiednimi ty
 
 |Obiekt zadania programu SQL Agent  |Zasób ADF  |Uwagi|
 |---------|---------|---------|
-|Zadanie agenta SQL|proces     |Nazwa potoku zostanie *wygenerowana dla \<nazwy zadania>*. <br> <br> Wbudowane zadania agenta nie mają zastosowania: <li> Zadanie konserwacji serwera SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
-|Etap zadania SSIS|Działanie wykonywania pakietu SSIS|<li> Nazwa działania będzie nazwą \<kroku>. <li> Konto serwera proxy używane w kroku zadania zostanie zmigrowane jako uwierzytelnianie systemu Windows dla tego działania. <li> *Opcje wykonywania* , z wyjątkiem *używania 32-bitowego środowiska uruchomieniowego* zdefiniowanego w kroku zadania, zostaną zignorowane w ramach migracji. <li> *Weryfikacja* zdefiniowana w kroku zadania zostanie zignorowana w ramach migracji.|
-|schedule      |wyzwalacz harmonogramu        |Nazwa wyzwalacza harmonogramu zostanie *wygenerowana dla \<nazwy harmonogramu>*. <br> <br> Poniższe opcje w harmonogramie zadań programu SQL Agent zostaną zignorowane w ramach migracji: <li> Interwał drugiego poziomu. <li> *Uruchom automatycznie, gdy zostanie uruchomiony agent SQL Server* <li> *Uruchom za każdym razem, gdy procesory staną się bezczynne* <li> dzień *tygodnia* i *dzień weekendu*<time zone> <br> Poniżej znajdują się różnice po migracji harmonogramu zadań programu SQL Agent do wyzwalacza harmonogramu ADF: <li> Wyzwalacz harmonogramu ADF po kolejnym uruchomieniu jest niezależny od stanu wykonywania wyzwalanego uruchomienia poprzedzającego. <li> Konfiguracja cyklu wyzwalacza harmonogramu usługi ADF różni się od częstotliwości codziennej w zadaniu agenta SQL.|
+|Zadanie agenta SQL|proces     |Nazwa potoku zostanie *wygenerowana dla \<job name> *. <br> <br> Wbudowane zadania agenta nie mają zastosowania: <li> Zadanie konserwacji serwera SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|Etap zadania SSIS|Działanie wykonywania pakietu SSIS|<li> Nazwa działania będzie mieć wartość \<step name> . <li> Konto serwera proxy używane w kroku zadania zostanie zmigrowane jako uwierzytelnianie systemu Windows dla tego działania. <li> *Opcje wykonywania* , z wyjątkiem *używania 32-bitowego środowiska uruchomieniowego* zdefiniowanego w kroku zadania, zostaną zignorowane w ramach migracji. <li> *Weryfikacja* zdefiniowana w kroku zadania zostanie zignorowana w ramach migracji.|
+|schedule      |wyzwalacz harmonogramu        |Zostanie *wygenerowana \<schedule name> *Nazwa wyzwalacza harmonogramu. <br> <br> Poniższe opcje w harmonogramie zadań programu SQL Agent zostaną zignorowane w ramach migracji: <li> Interwał drugiego poziomu. <li> *Uruchom automatycznie, gdy zostanie uruchomiony agent SQL Server* <li> *Uruchom za każdym razem, gdy procesory staną się bezczynne* <li> dzień *tygodnia* i *dzień weekendu*<time zone> <br> Poniżej znajdują się różnice po migracji harmonogramu zadań programu SQL Agent do wyzwalacza harmonogramu ADF: <li> Wyzwalacz harmonogramu ADF po kolejnym uruchomieniu jest niezależny od stanu wykonywania wyzwalanego uruchomienia poprzedzającego. <li> Konfiguracja cyklu wyzwalacza harmonogramu usługi ADF różni się od częstotliwości codziennej w zadaniu agenta SQL.|
 
 - Generuj szablony Azure Resource Manager (ARM) w lokalnym folderze wyjściowym i wdrażaj je bezpośrednio lub później ręcznie. Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów ADF, zobacz [Microsoft. DataFactory — typy zasobów](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
@@ -57,8 +57,8 @@ Funkcja opisana w tym artykule wymaga SQL Server Management Studio w wersji 18,5
     1. Zaktualizuj ścieżkę folderu źródłowego. Prawidłowe ścieżki są ścieżkami folderów lub ścieżkami folderów nadrzędnych pakietów.
     1. Zaktualizuj ścieżkę folderu docelowego. Wartość domyślna to ścieżka względna do domyślnego konta magazynu, które jest wybrane w kroku 1.
     1. Usuń wybrane mapowanie za pośrednictwem **mapowania usuwania**.
-![step2](media/how-to-migrate-ssis-job-ssms/step2.png)
-![step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![step2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Wybierz odpowiednie zadania do migracji i skonfiguruj ustawienia odpowiedniego *działania wykonywanego pakietu SSIS*.
 

@@ -14,13 +14,13 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
 ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611368"
 ---
-# <a name="azure-active-directory-consent-framework"></a>Azure Active Directory struktura wyrażania zgody
+# <a name="azure-active-directory-consent-framework"></a>Platforma wyrażania zgody w usłudze Azure Active Directory
 
 Struktura wyrażania zgody na Azure Active Directory (Azure AD) ułatwia tworzenie wielodostępnych aplikacji sieci Web i natywnych klientów. Te aplikacje umożliwiają logowanie się przy użyciu kont użytkowników z dzierżawy usługi Azure AD, która różni się od tej, w której jest zarejestrowana aplikacja. Mogą także mieć dostęp do interfejsów API sieci Web, takich jak interfejs API Microsoft Graph (Aby uzyskać dostęp do usług Azure AD, Intune i usługi w pakiecie Office 365) oraz innych interfejsów API usług firmy Microsoft, a także własnych interfejsów API sieci Web.
 
@@ -38,9 +38,9 @@ Poniższe kroki pokazują, jak środowisko zgody działa zarówno dla deweloper�
 
     ![Uprawnienia do innych aplikacji](./media/consent-framework/permissions.png)
 
-1. Należy wziąć pod uwagę, że uprawnienia aplikacji zostały zaktualizowane, aplikacja jest uruchomiona, a użytkownik zamierza korzystać z niego po raz pierwszy. Najpierw aplikacja musi uzyskać kod autoryzacji z `/authorize` punktu końcowego usługi Azure AD. Może wtedy użyć kodu autoryzacji do uzyskania nowego tokenu dostępu i odświeżania.
+1. Należy wziąć pod uwagę, że uprawnienia aplikacji zostały zaktualizowane, aplikacja jest uruchomiona, a użytkownik zamierza korzystać z niego po raz pierwszy. Najpierw aplikacja musi uzyskać kod autoryzacji z punktu końcowego usługi Azure AD `/authorize` . Może wtedy użyć kodu autoryzacji do uzyskania nowego tokenu dostępu i odświeżania.
 
-1. Jeśli użytkownik nie jest już uwierzytelniony, `/authorize` punkt końcowy usługi Azure AD poprosi użytkownika o zalogowanie się.
+1. Jeśli użytkownik nie jest już uwierzytelniony, punkt końcowy usługi Azure AD `/authorize` poprosi użytkownika o zalogowanie się.
 
     ![Użytkownik lub administrator loguje się do usługi Azure AD](./media/consent-framework/usersignin.png)
 
@@ -60,7 +60,7 @@ Poniższe kroki pokazują, jak środowisko zgody działa zarówno dla deweloper�
       ![Przyznawanie uprawnień dla jawnej zgody administratora](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
-   > Przyznawanie jawnej zgody przy użyciu przycisku **Udziel uprawnień** jest obecnie wymagane dla aplikacji jednostronicowych (Spa) korzystających z biblioteki ADAL. js. W przeciwnym przypadku wystąpi błąd aplikacji przy żądaniu tokenu dostępu.
+   > Udzielanie jawnej zgody przy użyciu przycisku **Udziel uprawnień** jest obecnie wymagane dla aplikacji jednostronicowych (Spa), które używają ADAL.js. W przeciwnym przypadku wystąpi błąd aplikacji przy żądaniu tokenu dostępu.
 
 ## <a name="next-steps"></a>Następne kroki
 

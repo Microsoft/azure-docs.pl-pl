@@ -9,10 +9,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612864"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Dostęp delegowany w usłudze Windows Virtual Desktop
@@ -30,7 +30,7 @@ Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące 
 * Podmiot zabezpieczeń
     * Użytkownicy
     * Grupy użytkowników
-    * Jednostki usług
+    * Jednostki usługi
 * Definicja roli
     * Wbudowane role
     * Role niestandardowe

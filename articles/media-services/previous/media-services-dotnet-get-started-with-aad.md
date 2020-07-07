@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 8fbe8e0cbf2768af973a0ccc9e237fb770b27a74
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82612303"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Używanie uwierzytelniania usługi Azure AD w celu uzyskiwania dostępu do interfejsu API Azure Media Services przy użyciu platformy .NET
@@ -56,14 +56,14 @@ Istnieje również możliwość zastępowania domyślnej implementacji **AzureAd
 ## <a name="install-and-configure-azure-media-services-net-sdk"></a>Instalowanie i Konfigurowanie Azure Media Services .NET SDK
 
 >[!NOTE]
->Aby używać uwierzytelniania usługi Azure AD z zestawem SDK Media Services platformy .NET, należy dysponować najnowszym pakietem [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) . Należy również dodać odwołanie do zestawu **Microsoft. IdentityModel. clients. ActiveDirectory** . Jeśli używasz istniejącej aplikacji, Dołącz zestaw **Microsoft. windowsazure. MediaServices. Client. Common. Authentication. dll** .
+>Aby używać uwierzytelniania usługi Azure AD z zestawem SDK Media Services platformy .NET, należy dysponować najnowszym pakietem [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) . Należy również dodać odwołanie do zestawu **Microsoft. IdentityModel. clients. ActiveDirectory** . Jeśli używasz istniejącej aplikacji, Dołącz zestaw **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** .
 
 1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio.
 2. Użyj pakietu NuGet [windowsazure. MediaServices](https://www.nuget.org/packages/windowsazure.mediaservices) , aby zainstalować **Azure Media Services .NET SDK**.
 
     Aby dodać odwołania przy użyciu NuGet, wykonaj następujące czynności: w **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Następnie wyszukaj ciąg **windowsazure. MediaServices** i wybierz pozycję **Zainstaluj**.
 
-    — lub —
+    -lub-
 
     Uruchom następujące polecenie w **konsoli Menedżera pakietów** w programie Visual Studio.
 

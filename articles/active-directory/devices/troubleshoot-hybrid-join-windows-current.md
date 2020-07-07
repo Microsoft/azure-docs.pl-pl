@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z przyłączonymi urządzeniami hybrydowymi Azure Active Directory
+title: Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 description: Rozwiązywanie problemów hybrydowych Azure Active Directory dołączonych do urządzeń z systemami Windows 10 i Windows Server 2016.
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82611317"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów z przyłączonymi urządzeniami hybrydowymi Azure Active Directory
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
 Zawartość tego artykułu dotyczy urządzeń z systemem Windows 10 lub Windows Server 2016.
 
@@ -29,7 +29,7 @@ W tym artykule przyjęto założenie, że [skonfigurowano urządzenia hybrydowe 
 
 - Dostęp warunkowy oparty na urządzeniach
 - [Roaming ustawień przedsiębiorstwa](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello dla firm](../active-directory-azureadjoin-passport-deployment.md)
 
 Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów.
 
@@ -132,7 +132,7 @@ W polu "faza błędu" jest wskazywana faza błędu sprzężenia, podczas gdy "ko
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze >  **Dziennik aplikacji i usług****rejestracja urządzeń użytkowników** w systemie**Microsoft** > **Windows** > 
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Poszukaj zdarzeń o następujących eventIDs 304, 305, 307.
 
 ![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -156,10 +156,10 @@ Możliwe przyczyny niepowodzenia:
    - Wymagany jest prawidłowy obiekt SCP w lesie usługi AD, do którego należy urządzenie, wskazujący na zweryfikowaną nazwę domeny w usłudze Azure AD.
    - Szczegółowe informacje znajdują się w sekcji [konfigurowanie punktu połączenia z usługą](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Nie można nawiązać połączenia i pobrać metadanych odnajdywania z punktu końcowego odnajdywania.
-   - Urządzenie powinno mieć dostęp `https://enterpriseregistration.windows.net`w kontekście systemu w celu odnajdywania punktów końcowych rejestracji i autoryzacji.
+   - Urządzenie powinno mieć dostęp `https://enterpriseregistration.windows.net` w kontekście systemu w celu odnajdywania punktów końcowych rejestracji i autoryzacji.
    - Jeśli środowisko lokalne wymaga serwera proxy wychodzącego, administrator IT musi upewnić się, że konto komputera urządzenia może odnajdywać i dyskretnie uwierzytelniać się na wychodzącym serwerze proxy.
 - Nie można połączyć się z punktem końcowym obszaru użytkownika i przeprowadzić odnajdywanie obszaru. (Tylko system Windows 10 w wersji 1809 lub nowszej)
-   - Urządzenie powinno mieć dostęp `https://login.microsoftonline.com`w kontekście systemu, aby przeprowadzić odnajdywanie obszarów dla zweryfikowanej domeny i określić typ domeny (zarządzany/federacyjny).
+   - Urządzenie powinno mieć dostęp `https://login.microsoftonline.com` w kontekście systemu, aby przeprowadzić odnajdywanie obszarów dla zweryfikowanej domeny i określić typ domeny (zarządzany/federacyjny).
    - Jeśli środowisko lokalne wymaga serwera proxy wychodzącego, administrator IT musi upewnić się, że kontekst systemu na urządzeniu może odnajdywać i dyskretnie uwierzytelniać się na wychodzącym serwerze proxy.
 
 **Typowe kody błędów:**
@@ -172,7 +172,7 @@ Możliwe przyczyny niepowodzenia:
    - Rozwiązanie: Znajdź poniżej Poniższy błąd, aby dokładniej zbadać.
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
    - Przyczyna: upłynął limit czasu operacji podczas odnajdywania.
-   - Rozwiązanie: Upewnij się `https://enterpriseregistration.windows.net` , że jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zapoznaj się z sekcją [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
+   - Rozwiązanie: Upewnij się, że `https://enterpriseregistration.windows.net` jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zapoznaj się z sekcją [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
    - Przyczyna: Ogólna awaria odnajdywania obszaru. Nie można określić typu domeny (zarządzane/federacyjne) z usługi STS.
    - Rozwiązanie: Znajdź poniżej Poniższy błąd, aby dokładniej zbadać.
@@ -207,7 +207,7 @@ Wyszukaj "DRS Discovery test" w sekcji "dane diagnostyczne" w danych wyjściowyc
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze >  **Dziennik aplikacji i usług****rejestracja urządzeń użytkowników** w systemie**Microsoft** > **Windows** > 
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 201
 
 ![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -252,7 +252,7 @@ Przyczyny niepowodzenia:
 
 Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod błędu serwera i komunikat o błędzie serwera.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze >  **Dziennik aplikacji i usług****rejestracja urządzeń użytkowników** w systemie**Microsoft** > **Windows** > 
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventID 305
 
 ![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -273,7 +273,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - Przyczyna: ogólny limit czasu sieci.
-   - Rozwiązanie: Upewnij się `https://login.microsoftonline.com` , że jest dostępny w kontekście systemu. Upewnij się, że lokalny dostawca tożsamości jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
+   - Rozwiązanie: Upewnij się, że `https://login.microsoftonline.com` jest dostępny w kontekście systemu. Upewnij się, że lokalny dostawca tożsamości jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
    - Przyczyna: przerwano połączenie z punktem końcowym uwierzytelniania.
    - Rozwiązanie: spróbuj ponownie za jakiś czas lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
@@ -282,7 +282,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
    - Rozwiązanie: Sprawdź pochylenie czasu klienta. Ponów próbę po upływie pewnego czasu lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Przyczyna: próba nawiązania połączenia `https://login.microsoftonline.com` nie powiodła się.
-   - Rozwiązanie: Sprawdź połączenie sieciowe `https://login.microsoftonline.com`.
+   - Rozwiązanie: Sprawdź połączenie sieciowe `https://login.microsoftonline.com` .
 
 ##### <a name="other-errors"></a>Inne błędy
 
@@ -327,7 +327,7 @@ Pole "typ rejestracji" oznacza typ wykonanego sprzężenia.
 
 Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla błędów sprzężenia.
 
-1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze >  **Dziennik aplikacji i usług****rejestracja urządzeń użytkowników** w systemie**Microsoft** > **Windows** > 
+1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 204
 
 ![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -363,10 +363,10 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 - **WININET_E_TIMEOUT** (0x80072EE2/-2147012894)
    - Przyczyna: ogólny limit czasu sieci podczas próby zarejestrowania urządzenia w usłudze DRS
-   - Rozwiązanie: sprawdź łączność sieciową `https://enterpriseregistration.windows.net`.
+   - Rozwiązanie: sprawdź łączność sieciową `https://enterpriseregistration.windows.net` .
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889)
    - Przyczyna: nie można rozpoznać nazwy serwera lub adresu.
-   - Rozwiązanie: sprawdź łączność sieciową `https://enterpriseregistration.windows.net`. Upewnij się, że rozpoznawanie nazw DNS dla nazwy hosta jest dokładne w n/w i na urządzeniu.
+   - Rozwiązanie: sprawdź łączność sieciową `https://enterpriseregistration.windows.net` . Upewnij się, że rozpoznawanie nazw DNS dla nazwy hosta jest dokładne w n/w i na urządzeniu.
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
    - Przyczyna: połączenie z serwerem zostało nieprawidłowo przerwane.
    - Rozwiązanie: spróbuj ponownie za jakiś czas lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
@@ -381,15 +381,15 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 | Kod błędu serwera | Komunikat o błędzie serwera | Możliwe przyczyny | Rozwiązanie |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: nie <UUID> znaleziono dzierżawy. Ten błąd może wystąpić, jeśli nie ma aktywnych subskrypcji dla dzierżawy. Skontaktuj się z administratorem subskrypcji. | Identyfikator dzierżawy w obiekcie SCP jest nieprawidłowy | Upewnij się, że obiekt SCP jest skonfigurowany z prawidłowym IDENTYFIKATORem dzierżawy usługi Azure AD i aktywnymi subskrypcjami, które znajdują się w dzierżawie. |
+| DirectoryError | AADSTS90002: <UUID> nie znaleziono dzierżawy. Ten błąd może wystąpić, jeśli nie ma aktywnych subskrypcji dla dzierżawy. Skontaktuj się z administratorem subskrypcji. | Identyfikator dzierżawy w obiekcie SCP jest nieprawidłowy | Upewnij się, że obiekt SCP jest skonfigurowany z prawidłowym IDENTYFIKATORem dzierżawy usługi Azure AD i aktywnymi subskrypcjami, które znajdują się w dzierżawie. |
 | DirectoryError | Nie znaleziono obiektu urządzenia o podanym IDENTYFIKATORze. | Oczekiwany błąd podczas przyłączania do synchronizacji. Obiekt urządzenia nie został zsynchronizowany z usługi AD z usługą Azure AD | Poczekaj na zakończenie synchronizacji Azure AD Connect, a kolejna próba sprzężenia po zakończeniu synchronizacji rozwiąże problem |
 | AuthenticationError | Weryfikacja identyfikatora SID komputera docelowego | Certyfikat na urządzeniu usługi Azure AD nie jest zgodny z certyfikatem używanym do podpisywania obiektu BLOB podczas przyłączania do synchronizacji. Ten błąd zazwyczaj oznacza, że synchronizacja nie została jeszcze ukończona. |  Poczekaj na zakończenie synchronizacji Azure AD Connect, a kolejna próba sprzężenia po zakończeniu synchronizacji rozwiąże problem |
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Krok 5. zbieranie dzienników i pomoc techniczna firmy Microsoft kontaktów
 
-Pobierz plik auth. zip z[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Pobierz Auth.zip pliku z[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Rozpakuj pliki i Zmień nazwy dołączonych plików **Start-auth. txt** i **stop-auth. txt** na **Start-auth. cmd** i **stop-auth. cmd**.
+1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd**.
 1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd**.
 1. Użyj konta przełącznika, aby przełączyć się do innej sesji z użytkownikiem problemu.
 1. Odtwórz problem.

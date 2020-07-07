@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763639"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
@@ -89,6 +89,6 @@ Tożsamość może być tylko płaszczyzną kontroli, jeśli może połączyć w
 - [Zarządzanie aplikacjami](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Aprowizacja aplikacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Bezpieczny dostęp do hybrydowej](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Nadzór nad tożsamościami](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Zarządzanie tożsamościami](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Platforma tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Zabezpieczenia tożsamości](https://docs.microsoft.com/azure/active-directory/conditional-access/index)
