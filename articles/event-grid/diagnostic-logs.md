@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: spelluru
 ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82630254"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Dzienniki diagnostyczne dla Azure Event Grid tematów/domen
@@ -22,7 +22,7 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
 
 | Nazwa właściwości | Typ danych | Opis |
 | ------------- | --------- | ----------- | 
-| Time | DateTime | Godzina wygenerowania wpisu dziennika <p>**Przykładowa wartość:** 01-29-2020 09:52:02.700</p> |
+| Godzina | DateTime | Godzina wygenerowania wpisu dziennika <p>**Przykładowa wartość:** 01-29-2020 09:52:02.700</p> |
 | EventSubscriptionName | String | Nazwa subskrypcji zdarzeń <p>**Przykładowa wartość:** "EVENTSUB1"</p> <p>Ta właściwość istnieje tylko w przypadku dzienników błędów dostarczania.</p>  |
 | Kategoria | String | Nazwa kategorii dziennika. <p>**Przykładowe wartości:** "DeliveryFailures" lub "PublishFailures" | 
 | OperationName | String | Nazwa operacji wykonywanej podczas napotkania błędu.<p>**Przykładowe wartości:** "Dostarcz" w przypadku niepowodzeń dostarczania. |

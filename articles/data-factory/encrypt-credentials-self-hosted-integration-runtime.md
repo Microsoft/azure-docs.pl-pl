@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: cd775c5a3bf367600a4537a9409a9bb8f902f588
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628984"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Szyfruj poświadczenia dla lokalnych magazynów danych w Azure Data Factory
@@ -29,9 +29,9 @@ Poświadczenia dla lokalnych magazynów danych (połączonych usług z informacj
 Przekaż plik definicji JSON z poświadczeniami do <br/>Polecenie cmdlet [**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) w celu utworzenia pliku wyjściowego JSON z zaszyfrowanymi poświadczeniami. Następnie użyj zaktualizowanej definicji JSON, aby utworzyć połączone usługi.
 
 ## <a name="author-sql-server-linked-service"></a>Tworzenie połączonej usługi SQL Server
-Utwórz plik JSON o nazwie **SqlServerLinkedService. JSON** w dowolnym folderze o następującej zawartości:  
+Utwórz plik JSON o nazwie **SqlServerLinkedService.js** w pliku w folderze o następującej zawartości:  
 
-Przed `<servername>`zapisaniem pliku Zastąp wartości, `<databasename>` `<username>`, i `<password>` wartościami dla SQL Server. I Zastąp `<integration runtime name>` ciąg nazwą Twojego środowiska Integration Runtime. 
+`<servername>` `<databasename>` `<username>` `<password>` Przed zapisaniem pliku Zastąp wartości,, i wartościami dla SQL Server. I Zastąp ciąg `<integration runtime name>` nazwą Twojego środowiska Integration Runtime. 
 
 ```json
 {
@@ -50,7 +50,7 @@ Przed `<servername>`zapisaniem pliku Zastąp wartości, `<databasename>` `<usern
 ```
 
 ## <a name="encrypt-credentials"></a>Szyfrowanie poświadczeń
-Aby zaszyfrować poufne dane z ładunku JSON w lokalnym środowisku Integration Runtime, uruchom polecenie **New-AzDataFactoryV2LinkedServiceEncryptedCredential**i przekaż ładunek JSON. To polecenie cmdlet zapewnia szyfrowanie poświadczeń przy użyciu funkcji DPAPI i przechowywanie ich lokalnie na własnym węźle środowiska Integration Runtime. Ładunek wyjściowy zawierający zaszyfrowane odwołanie do poświadczenia może zostać przekierowany do innego pliku JSON (w tym przypadku "encryptedLinkedService. JSON").
+Aby zaszyfrować poufne dane z ładunku JSON w lokalnym środowisku Integration Runtime, uruchom polecenie **New-AzDataFactoryV2LinkedServiceEncryptedCredential**i przekaż ładunek JSON. To polecenie cmdlet zapewnia szyfrowanie poświadczeń przy użyciu funkcji DPAPI i przechowywanie ich lokalnie na własnym węźle środowiska Integration Runtime. Ładunek wyjściowy zawierający zaszyfrowane odwołanie do poświadczenia może zostać przekierowany do innego pliku JSON (w tym przypadku "encryptedLinkedService.json").
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

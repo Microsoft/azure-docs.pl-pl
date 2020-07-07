@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652638"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
@@ -50,7 +50,7 @@ To środowisko umożliwi aplikacji uzyskanie rejestracji jednokrotnej (SSO) za p
 
 Portal rejestracji aplikacji zawiera środowisko w wersji zapoznawczej, które ułatwia Obliczanie identyfikatora URI odpowiedzi obsługiwanej przez brokera dla aplikacji dla systemów iOS i Android:
 
-1. W portalu rejestracji aplikacji wybierz pozycję **uwierzytelnianie** > **Wypróbuj nowe środowisko**.
+1. W portalu rejestracji aplikacji wybierz pozycję **uwierzytelnianie**  >  **Wypróbuj nowe środowisko**.
 
    ![Blok uwierzytelniania, w którym można wybrać nowe środowisko](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -73,7 +73,7 @@ Po wykonaniu tych kroków identyfikator URI przekierowania zostanie obliczony dl
 Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
 
 - System **iOS**:`msauth.<BUNDLE_ID>://auth` 
-  - Na przykład wprowadź`msauth.com.yourcompany.appName://auth`
+  - Na przykład wprowadź `msauth.com.yourcompany.appName://auth`
 - System **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Można wygenerować skrót sygnatury systemu Android przy użyciu klucza wydania lub klucza debugowania za pomocą polecenia narzędzia.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691721"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Porównanie Azure Data Lake Storage Gen1 i platformy Azure Blob Storage
@@ -19,7 +19,7 @@ ms.locfileid: "82691721"
 
 W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen1 i Blob Storage platformy Azure, a także kluczowe aspekty przetwarzania danych Big Data. Azure Blob Storage to ogólny cel, skalowalny magazyn obiektów przeznaczony dla szerokiej gamy scenariuszy magazynowych. Azure Data Lake Storage Gen1 to repozytorium skalowania funkcji Hyper-Skala, które jest zoptymalizowane pod kątem obciążeń związanych z analizą danych Big Data.
 
-|  | Usługa Azure Data Lake Storage 1. generacji | Azure Blob Storage |
+|  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
 | Przeznaczenie |Zoptymalizowany magazyn dla obciążeń analizy danych Big Data |Magazyn obiektów ogólnego przeznaczenia dla wielu różnych scenariuszy magazynowania, w tym analizy danych Big Data |
 | Przypadki użycia |Batch, Interactive, Stream Analytics i uczenie maszynowe, takie jak pliki dziennika, dane IoT, kliknij strumienie, duże zestawy danych |Dowolny typ danych tekstowych lub binarnych, takich jak zaplecze aplikacji, dane kopii zapasowej, magazyn multimediów do przesyłania strumieniowego i dane ogólne ogólnego przeznaczenia. Dodatkowo pełna obsługa obciążeń analitycznych; Batch, Interactive, Stream Analytics i uczenie maszynowe, takie jak pliki dziennika, dane IoT, kliknij strumienie, duże zestawy danych |
@@ -34,7 +34,7 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Operacje na danych — Inspekcja |Udostępnione. Aby [uzyskać więcej informacji](data-lake-store-diagnostic-logs.md) , zobacz. |Dostępne |
 | Szyfrowanie danych w spoczynku |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w usłudze Azure Keys</li></ul></ul> |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w magazynie kluczy platformy Azure (wersja zapoznawcza)</li></ul><li>Szyfrowania po stronie klienta</li></ul> |
 | Operacje zarządzania (na przykład tworzenie konta) |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |
-| Zestawy SDK dla deweloperów |.NET, Java, Python, Node. js |.NET, Java, Python, Node. js, C++, Ruby, PHP, go, Android, iOS |
+| Zestawy SDK dla deweloperów |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, go, Android, iOS |
 | Wydajność obciążeń analitycznych |Zoptymalizowana wydajność dla obciążeń równoległych analizy. Wysoka przepływność i operacje we/wy. |Zoptymalizowana wydajność dla obciążeń równoległych analizy. |
 | Limity rozmiaru |Brak limitów rozmiarów kont, rozmiarów plików ani liczby plików |Aby uzyskać określone limity, zobacz [elementy docelowe skalowalności dla standardowych kont magazynu](../storage/common/scalability-targets-standard-account.md) i [skalowalności oraz docelowych wydajności dla usługi BLOB Storage](../storage/blobs/scalability-targets.md). Większe limity konta dostępne przez skontaktowanie się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/) |
 | Nadmiarowość geograficzna |Lokalnie nadmiarowy (wiele kopii danych w jednym regionie platformy Azure) |Lokalnie nadmiarowy (LRS), strefy nadmiarowe (ZRS), globalnie nadmiarowy (GRS), dostęp do odczytu globalnie nadmiarowy (RA-GRS). Aby uzyskać więcej informacji, zobacz [tutaj](../storage/common/storage-redundancy.md) . |

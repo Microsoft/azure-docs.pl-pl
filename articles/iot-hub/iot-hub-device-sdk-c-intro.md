@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629358"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Zestaw SDK urządzeń Azure IoT dla języka C
@@ -42,7 +42,7 @@ Najnowszą wersję bibliotek można znaleźć w gałęzi **głównej** repozytor
 
   ![Zrzut ekranu przedstawiający główną gałąź repozytorium](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
-* Podstawowa implementacja zestawu SDK znajduje się w folderze **\_iothub Client** zawierającym implementację najniższej warstwy interfejsu API w zestawie SDK: Biblioteka **usługi iothubclient** . Biblioteka **usługi iothubclient** zawiera interfejsy API implementujące nieprzetworzone wiadomości w celu wysyłania komunikatów do IoT Hub i otrzymywania komunikatów z IoT Hub. W przypadku korzystania z tej biblioteki użytkownik jest odpowiedzialny za implementację serializacji wiadomości, ale inne szczegóły komunikacji z IoT Hub są obsługiwane.
+* Podstawowa implementacja zestawu SDK znajduje się w folderze **iothub \_ Client** zawierającym implementację najniższej warstwy interfejsu API w zestawie SDK: Biblioteka **usługi iothubclient** . Biblioteka **usługi iothubclient** zawiera interfejsy API implementujące nieprzetworzone wiadomości w celu wysyłania komunikatów do IoT Hub i otrzymywania komunikatów z IoT Hub. W przypadku korzystania z tej biblioteki użytkownik jest odpowiedzialny za implementację serializacji wiadomości, ale inne szczegóły komunikacji z IoT Hub są obsługiwane.
 
 * Folder **serializatorów** zawiera funkcje pomocnika i przykłady, które pokazują, jak serializować dane przed wysłaniem do platformy Azure IoT Hub przy użyciu biblioteki klienckiej. Użycie serializatora nie jest obowiązkowe i jest udostępniane jako wygoda. Aby użyć biblioteki **serializatorów** , należy zdefiniować model, który określa dane do wysłania do IoT Hub i komunikaty, które powinny być od niego wysyłane. Po zdefiniowaniu modelu zestaw SDK udostępnia powierzchnię interfejsu API, która umożliwia łatwą współpracę z komunikatami z urządzenia do chmury i z chmury do urządzenia, bez konieczności pojmowania się szczegółami serializacji. Biblioteka jest zależna od innych bibliotek typu "open source", które implementują transport przy użyciu protokołów takich jak MQTT i AMQP.
 
@@ -96,7 +96,7 @@ Jeśli nie masz doświadczenia z narzędziem Eksplorator urządzeń, Poniższa p
 
 1. Wprowadź **Parametry połączenia IoT Hub** w pierwszym polu, a następnie kliknij przycisk **Aktualizuj**. Ten krok umożliwia skonfigurowanie narzędzia w taki sposób, aby mógł komunikować się z IoT Hub. 
 
-**Parametry połączenia** można znaleźć w obszarze **IoT Hub** > **Ustawienia** > usługi**zasady** > dostępu współdzielonego**iothubowner**.
+**Parametry połączenia** można znaleźć w obszarze **IoT Hub**  >  **Ustawienia**usługi  >  **zasady dostępu współdzielonego**  >  **iothubowner**.
 
 1. Po skonfigurowaniu parametrów połączenia IoT Hub kliknij kartę **Zarządzanie** :
 
@@ -114,7 +114,7 @@ Na tej karcie można zarządzać urządzeniami zarejestrowanymi w usłudze IoT H
 
 1. W przypadku wybrania opcji **Kopiuj parametry połączenia dla wybranego urządzenia**parametry połączenia urządzenia zostaną skopiowane do Schowka. Zachowaj kopię parametrów połączenia urządzenia. Jest on potrzebny podczas uruchamiania przykładowych aplikacji opisanych w poniższych sekcjach.
 
-Po wykonaniu powyższych kroków wszystko jest gotowe do rozpoczęcia uruchamiania kodu. Większość przykładów ma stałą w górnej części głównego pliku źródłowego, która umożliwia wprowadzanie parametrów połączenia. Na przykład odpowiedni wiersz ze **\_iothub_client przykładów\_iothub_convenience_sample** aplikacji pojawia się w następujący sposób.
+Po wykonaniu powyższych kroków wszystko jest gotowe do rozpoczęcia uruchamiania kodu. Większość przykładów ma stałą w górnej części głównego pliku źródłowego, która umożliwia wprowadzanie parametrów połączenia. Na przykład odpowiedni wiersz ze **iothub_client \_ przykładów \_ iothub_convenience_sample** aplikacji pojawia się w następujący sposób.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -122,9 +122,9 @@ static const char* connectionString = "[device connection string]";
 
 ## <a name="use-the-iothubclient-library"></a>Korzystanie z biblioteki usługi iothubclient
 
-W folderze **Client\_iothub** w repozytorium [Azure-IoT-SDK-c](https://github.com/azure/azure-iot-sdk-c) istnieje folder **Samples** zawierający aplikację o nazwie **iothub\_Client\_Sample\_MQTT**.
+W folderze ** \_ Client iothub** w repozytorium [Azure-IoT-SDK-c](https://github.com/azure/azure-iot-sdk-c) istnieje folder **Samples** zawierający aplikację o nazwie **iothub \_ Client \_ Sample \_ MQTT**.
 
-Wersja systemu Windows **\_iothub_client przykładów\_Iothub_convenience_sample** aplikacji zawiera następujące rozwiązanie programu Visual Studio:
+Wersja systemu Windows **iothub_client \_ przykładów \_ iothub_convenience_sample** aplikacji zawiera następujące rozwiązanie programu Visual Studio:
 
   ![Eksplorator rozwiązań programu Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -140,14 +140,14 @@ To rozwiązanie zawiera pojedynczy projekt. W tym rozwiązaniu są zainstalowane
 
 Pakiet **Microsoft. Azure. C. SharedUtility** jest zawsze potrzebny podczas pracy z zestawem SDK. Ten przykład korzysta z protokołu MQTT, dlatego należy uwzględnić pakiety **Microsoft. Azure. umqtt** i **Microsoft. Azure. IoTHub. MqttTransport** (istnieją równoważne pakiety dla AMQP i https). Ponieważ przykład korzysta z biblioteki **usługi iothubclient** , w rozwiązaniu należy również uwzględnić pakiet **Microsoft. Azure. IoTHub. usługi iothubclient** .
 
-Implementację przykładowej aplikacji można znaleźć w **iothub_client\_próbkach\_iothub_convenience_sample** pliku źródłowym.
+Implementację przykładowej aplikacji można znaleźć w **iothub_client \_ próbkach \_ iothub_convenience_sample** pliku źródłowym.
 
 Poniższe kroki umożliwiają korzystanie z tej przykładowej aplikacji w celu przechodzenia przez elementy wymagane do korzystania z biblioteki **usługi iothubclient** .
 
 ### <a name="initialize-the-library"></a>Zainicjuj bibliotekę
 
 > [!NOTE]
-> Przed rozpoczęciem pracy z bibliotekami może być konieczne wykonanie pewnej inicjalizacji specyficznej dla platformy. Na przykład jeśli planujesz używać AMQP w systemie Linux, musisz zainicjować bibliotekę OpenSSL. Przykłady w [repozytorium GitHub](https://github.com/Azure/azure-iot-sdk-c) wywołują funkcję narzędzia **init platformy\_** funkcji podczas uruchamiania klienta i wywołają funkcję **\_DEINIT platformy** przed zamknięciem. Te funkcje są zadeklarowane w pliku nagłówkowym platform. h. Sprawdź definicje tych funkcji dla docelowej platformy w [repozytorium](https://github.com/Azure/azure-iot-sdk-c) , aby określić, czy w kliencie należy uwzględnić kod inicjalizacji specyficzny dla danej platformy.
+> Przed rozpoczęciem pracy z bibliotekami może być konieczne wykonanie pewnej inicjalizacji specyficznej dla platformy. Na przykład jeśli planujesz używać AMQP w systemie Linux, musisz zainicjować bibliotekę OpenSSL. Przykłady w [repozytorium GitHub](https://github.com/Azure/azure-iot-sdk-c) wywołują funkcję narzędzia ** \_ init platformy** funkcji podczas uruchamiania klienta i wywołają funkcję ** \_ DEINIT platformy** przed zamknięciem. Te funkcje są zadeklarowane w pliku nagłówkowym platform. h. Sprawdź definicje tych funkcji dla docelowej platformy w [repozytorium](https://github.com/Azure/azure-iot-sdk-c) , aby określić, czy w kliencie należy uwzględnić kod inicjalizacji specyficzny dla danej platformy.
 
 Aby rozpocząć pracę z bibliotekami, najpierw Przydziel IoT Hub obsługę klienta:
 
@@ -164,7 +164,7 @@ else
 
 Do tej funkcji jest przekazywany kopia parametrów połączenia urządzenia uzyskanych w narzędziu Eksplorator urządzeń. Należy również wyznaczyć protokół komunikacyjny do użycia. Ten przykład używa MQTT, ale AMQP i HTTPS są również opcjami.
 
-Jeśli masz prawidłowe **dojście klienta\_\_IOTHUB**, możesz rozpocząć wywoływanie interfejsów API, aby wysyłać i odbierać komunikaty do i z IoT Hub.
+Jeśli masz prawidłowe ** \_ \_ dojście klienta IOTHUB**, możesz rozpocząć wywoływanie interfejsów API, aby wysyłać i odbierać komunikaty do i z IoT Hub.
 
 ### <a name="send-messages"></a>Wysyłanie komunikatów
 
@@ -227,7 +227,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Zwróć uwagę na wywołanie funkcji **Destroy\_IoTHubMessage** po zakończeniu pracy z komunikatem. Ta funkcja zwalnia zasoby przydzieloną podczas tworzenia komunikatu.
+Zwróć uwagę na wywołanie funkcji ** \_ Destroy IoTHubMessage** po zakończeniu pracy z komunikatem. Ta funkcja zwalnia zasoby przydzieloną podczas tworzenia komunikatu.
 
 ### <a name="receive-messages"></a>Odbieranie komunikatów
 
@@ -317,7 +317,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Użyj funkcji **Getbytearray IoTHubMessage\_** , aby pobrać komunikat, który w tym przykładzie jest ciągiem.
+Użyj funkcji ** \_ getbytearray IoTHubMessage** , aby pobrać komunikat, który w tym przykładzie jest ciągiem.
 
 ### <a name="uninitialize-the-library"></a>Odinicjuj bibliotekę
 
@@ -327,7 +327,7 @@ Po zakończeniu wysyłania zdarzeń i otrzymywania komunikatów można odzainicj
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-To wywołanie zwalnia zasoby, które zostały wcześniej przydzielone przez **funkcję\_usługi iothubclient CreateFromConnectionString** .
+To wywołanie zwalnia zasoby, które zostały wcześniej przydzielone przez funkcję **usługi iothubclient \_ CreateFromConnectionString** .
 
 Jak widać, można łatwo wysyłać i odbierać komunikaty z biblioteką **usługi iothubclient** . Biblioteka obsługuje szczegóły komunikacji z IoT Hub, w tym protokół, który ma być używany (z perspektywy dewelopera, to jest prosta opcja konfiguracji).
 
@@ -337,7 +337,7 @@ Biblioteka **usługi iothubclient** zapewnia również precyzyjną kontrolę nad
 
 Koncepcyjnie Biblioteka **serializatorów** znajduje się na szczycie biblioteki **usługi iothubclient** w zestawie SDK. Używa biblioteki **usługi iothubclient** dla podstawowej komunikacji z IoT Hub, ale dodaje możliwości modelowania, które usuwają obciążenie związane z serializacji wiadomości od dewelopera. Jak działa ta biblioteka najlepiej ilustruje przykład.
 
-Wewnątrz folderu **serializatorów** w [repozytorium Azure-IoT-SDK-c](https://github.com/Azure/azure-iot-sdk-c)jest folderem **Samples** zawierającym aplikację o nazwie **simplesample\_MQTT**. Wersja tego przykładu systemu Windows zawiera następujące rozwiązanie programu Visual Studio:
+Wewnątrz folderu **serializatorów** w [repozytorium Azure-IoT-SDK-c](https://github.com/Azure/azure-iot-sdk-c)jest folderem **Samples** zawierającym aplikację o nazwie **simplesample \_ MQTT**. Wersja tego przykładu systemu Windows zawiera następujące rozwiązanie programu Visual Studio:
 
   ![Rozwiązanie Visual Studio dla przykładu MQTT](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
@@ -354,7 +354,7 @@ Tak jak w poprzednim przykładzie, to obejmuje kilka pakietów NuGet:
 
 Większość z tych pakietów była widoczna w poprzednim przykładzie, ale **pakiet Microsoft. Azure. IoTHub. Serializer** jest nowy. Ten pakiet jest wymagany w przypadku korzystania z biblioteki **serializatorów** .
 
-Implementację przykładowej aplikacji można znaleźć w pliku **iothub_client\_Samples\_iothub_convenience_sample** .
+Implementację przykładowej aplikacji można znaleźć w pliku **iothub_client \_ samples \_ iothub_convenience_sample** .
 
 W poniższych sekcjach omówiono najważniejsze części tego przykładu.
 
@@ -389,13 +389,13 @@ else
 ...
 ```
 
-Wywołanie funkcji **init serializatora\_** to jednorazowe wywołanie i inicjuje podstawową bibliotekę. Następnie należy wywołać funkcję **usługi iothubclient\_\_ll CreateFromConnectionString** , która jest tym samym interfejsem API jak w przykładzie **usługi iothubclient** . To wywołanie ustawia parametry połączenia urządzenia (to wywołanie jest również używane w przypadku wybrania protokołu, który ma być używany). Ten przykład używa MQTT jako transportu, ale może użyć AMQP lub HTTPS.
+Wywołanie funkcji ** \_ init serializatora** to jednorazowe wywołanie i inicjuje podstawową bibliotekę. Następnie należy wywołać funkcję **usługi iothubclient \_ ll \_ CreateFromConnectionString** , która jest tym samym interfejsem API jak w przykładzie **usługi iothubclient** . To wywołanie ustawia parametry połączenia urządzenia (to wywołanie jest również używane w przypadku wybrania protokołu, który ma być używany). Ten przykład używa MQTT jako transportu, ale może użyć AMQP lub HTTPS.
 
-Na koniec Wywołaj **funkcję\_Create\_model instance** . **WeatherStation** jest przestrzenią nazw modelu, a **ContosoAnemometer** jest nazwą modelu. Po utworzeniu wystąpienia modelu można go użyć do rozpoczęcia wysyłania i otrzymywania komunikatów. Ważne jest jednak, aby zrozumieć, co to jest model.
+Na koniec wywołaj funkcję **create \_ model \_ instance** . **WeatherStation** jest przestrzenią nazw modelu, a **ContosoAnemometer** jest nazwą modelu. Po utworzeniu wystąpienia modelu można go użyć do rozpoczęcia wysyłania i otrzymywania komunikatów. Ważne jest jednak, aby zrozumieć, co to jest model.
 
 ### <a name="define-the-model"></a>Zdefiniuj model
 
-Model w bibliotece **serializatorów** definiuje komunikaty, które urządzenie może wysłać do IoT Hub i komunikatów nazywanych *akcjami* w języku modelowania, które mogą być odbierane. Definiujesz model przy użyciu zestawu makr języka C, jak w **iothub_client\_Samples\_iothub_convenience_sample** Przykładowa aplikacja:
+Model w bibliotece **serializatorów** definiuje komunikaty, które urządzenie może wysłać do IoT Hub i komunikatów nazywanych *akcjami* w języku modelowania, które mogą być odbierane. Definiujesz model przy użyciu zestawu makr języka C, jak w **iothub_client \_ samples \_ iothub_convenience_sample** Przykładowa aplikacja:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -411,7 +411,7 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-Makra **Begin\_Namespace** i **End\_Namespaces** przyjmują przestrzeń nazw modelu jako argument. Oczekuje się, że wszystkie te makra są definicjami modelu lub modeli oraz strukturą danych używaną przez modele.
+Makra **Begin \_ Namespace** i **End \_ Namespaces** przyjmują przestrzeń nazw modelu jako argument. Oczekuje się, że wszystkie te makra są definicjami modelu lub modeli oraz strukturą danych używaną przez modele.
 
 W tym przykładzie istnieje jeden model o nazwie **ContosoAnemometer**. Ten model definiuje dwie fragmenty danych, które urządzenie może wysłać do IoT Hub: **DeviceID** i **WindSpeed**. Definiuje również trzy akcje (komunikaty), które urządzenie może odbierać: **TurnFanOn**, **TurnFanOff**i **SetAirResistance**. Każdy element danych ma typ, a każda akcja ma nazwę (i opcjonalnie zestaw parametrów).
 
@@ -469,7 +469,7 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
 }
 ```
 
-Drugi do ostatniego parametru **\_usługi iothubclient ll\_SendEventAsync** jest odwołaniem do funkcji wywołania zwrotnego, która jest wywoływana, gdy dane są pomyślnie wysyłane. Oto funkcja wywołania zwrotnego w przykładzie:
+Drugi do ostatniego parametru **usługi iothubclient \_ ll \_ SendEventAsync** jest odwołaniem do funkcji wywołania zwrotnego, która jest wywoływana, gdy dane są pomyślnie wysyłane. Oto funkcja wywołania zwrotnego w przykładzie:
 
 ```c
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -482,7 +482,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-Drugi parametr jest wskaźnikiem do kontekstu użytkownika; ten sam wskaźnik przeszedł **do\_usługi iothubclient\_szystkie SendEventAsync**. W tym przypadku kontekst jest prostym licznikiem, ale może być dowolny.
+Drugi parametr jest wskaźnikiem do kontekstu użytkownika; ten sam wskaźnik przeszedł do **usługi iothubclient \_ szystkie \_ SendEventAsync**. W tym przypadku kontekst jest prostym licznikiem, ale może być dowolny.
 
 To wszystko, co jest konieczne do wysyłania komunikatów z urządzenia do chmury. Jedyną czynnością, którą należy uwzględnić, jest to, jak odbierać wiadomości.
 
@@ -539,7 +539,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Jest to ten sam kod, który jest taki sam dla każdego rozwiązania. Ta funkcja otrzymuje komunikat i bierze pod uwagę kierowanie do odpowiedniej funkcji za pomocą wywołania **polecenia Execute\_**. Funkcja wywołana w tym punkcie zależy od definicji akcji w modelu.
+Jest to ten sam kod, który jest taki sam dla każdego rozwiązania. Ta funkcja otrzymuje komunikat i bierze pod uwagę kierowanie do odpowiedniej funkcji za pomocą wywołania ** \_ polecenia Execute**. Funkcja wywołana w tym punkcie zależy od definicji akcji w modelu.
 
 Podczas definiowania akcji w modelu wymagane jest zaimplementowanie funkcji, która jest wywoływana, gdy urządzenie otrzyma odpowiedni komunikat. Na przykład jeśli model definiuje tę akcję:
 
