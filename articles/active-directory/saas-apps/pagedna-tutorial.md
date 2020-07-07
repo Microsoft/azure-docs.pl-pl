@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68227478"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Samouczek: integracja Azure Active Directory z usługą PageDNA
 
@@ -110,21 +110,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PageDNA, wy
 
     1. W polu **adres URL logowania** wprowadź adres URL przy użyciu jednego z następujących wzorców:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. W polu **Identyfikator (identyfikator jednostki)** wprowadź adres URL przy użyciu jednego z następujących wzorców:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zaktualizuj te wartości, używając rzeczywistego identyfikatora i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej PageDNA](mailto:success@pagedna.com). Można również odwołać się do wzorców przedstawionych w okienku podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -149,7 +147,7 @@ Aby skonfigurować Logowanie jednokrotne po stronie PageDNA, Wyślij pobrany cer
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**   > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**    >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i "Wszyscy użytkownicy"](common/users.png)
 
@@ -163,17 +161,17 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon\@\<\< yourcompanydomain>.>rozszerzenia **. Na przykład **BrittaSimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BrittaSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji można włączyć funkcję logowania jednokrotnego dla użytkownika Britta Simon, udzielając Użytkownikowi dostępu do usługi PageDNA.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **PageDNA**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **PageDNA**.
 
     ![Okienko aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -211,5 +209,5 @@ Po wybraniu opcji **PageDNA** w portalu Moje aplikacje należy automatycznie zal
 
 * [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

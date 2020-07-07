@@ -2,14 +2,14 @@
 title: Samouczek — Tworzenie rejestru z replikacją geograficzną
 description: Tworzenie rejestru kontenerów platformy Azure, konfigurowanie replikacji geograficznej, przygotowanie obrazu platformy Docker i wdrożenie go w rejestrze. Pierwsza część trzyczęściowej serii.
 ms.topic: tutorial
-ms.date: 04/30/2017
+ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693232"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799474"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
 
@@ -37,53 +37,66 @@ Usługa Azure Cloud Shell nie zawiera składników platformy Docker wymaganych d
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
+W tym samouczku potrzebny jest rejestr kontenerów platformy Azure w warstwie usługi Premium. Aby utworzyć nowy rejestr kontenerów platformy Azure, wykonaj kroki opisane w tej sekcji.
+
+> [!TIP]
+> Jeśli wcześniej utworzono rejestr i musisz przeprowadzić uaktualnienie, zobacz [Zmiana warstw](container-registry-skus.md#changing-tiers). 
+
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 Wybierz pozycję **Utwórz**  >  **kontenery**zasobów  >  **Azure Container Registry**.
 
-![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Tworzenie rejestru kontenerów w witrynie Azure Portal":::
 
-Skonfiguruj nowy rejestr za pomocą następujących ustawień:
+Skonfiguruj nowy rejestr przy użyciu następujących ustawień. Na karcie **podstawowe** :
 
 * **Nazwa rejestru**: utwórz nazwę rejestru, która jest globalnie unikatowa w obrębie platformy Azure i składa się z od 5 do 50 znaków alfanumerycznych
 * **Grupa zasobów**: **Utwórz nową** > `myResourceGroup`
 * **Lokalizacja**:`West US`
-* **Użytkownik administracyjny**: `Enable` (wymagany do Web App for Containers ściągania obrazów)
 * **Jednostka SKU**: `Premium` (wymagana na potrzeby replikacji geograficznej)
 
-Wybierz przycisk **Utwórz**, aby wdrożyć wystąpienie usługi ACR.
+Wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć wystąpienie rejestru.
 
-![Tworzenie rejestru kontenerów w witrynie Azure Portal][tut-portal-02]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Konfigurowanie rejestru kontenerów w Azure Portal":::
 
 W pozostałej części tego samouczka użyjemy `<acrName>` jako symbolu zastępczego dla wybranej **nazwy rejestru** kontenerów.
 
 > [!TIP]
 > Ponieważ rejestry kontenerów platformy Azure to zwykle zasoby o długim czasie życia używane na wielu hostach kontenerów, zalecamy utworzenie rejestru w jego własnej grupie zasobów. Podczas konfigurowania rejestrów z replikacją geograficzną i elementów webhook te dodatkowe zasoby są umieszczane w tej samej grupie zasobów.
->
 
 ## <a name="configure-geo-replication"></a>Konfigurowanie replikacji geograficznej
 
 Teraz, gdy masz rejestr w warstwie Premium, możesz skonfigurować replikację geograficzną. Aplikacja internetowa, którą skonfigurujesz w następnym samouczku pod kątem uruchamiania w dwóch regionach, będzie wtedy mogła ściągać obrazy kontenera z najbliższego rejestru.
 
-Przejdź do nowego rejestru kontenerów w witrynie Azure Portal i wybierz pozycję **Replikacje** w obszarze **USŁUGI**:
+Przejdź do nowego rejestru kontenerów w Azure Portal a następnie wybierz pozycję **replikacje** w obszarze **usługi**:
 
-![Replikacje w interfejsie użytkownika rejestru kontenerów w witrynie Azure Portal][tut-portal-03]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Replikacje w interfejsie użytkownika rejestru kontenerów w witrynie Azure Portal":::
 
 Zostanie wyświetlona mapa z zielonymi sześciokątami reprezentującymi regiony platformy Azure dostępne dla replikacji geograficznej:
 
- ![Mapa regionów w witrynie Azure Portal][tut-map-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Mapa regionów w witrynie Azure Portal":::
 
 Zreplikuj rejestr do regionu Wschodnie stany USA, wybierając jego zielony sześciokąt, a następnie wybierz polecenie **Utwórz** w obszarze **Utwórz replikację**:
 
- ![Tworzenie interfejsu użytkownika replikacji w witrynie Azure Portal][tut-portal-04]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Tworzenie interfejsu użytkownika replikacji w witrynie Azure Portal":::
 
 Po zakończeniu replikacji w portalu będzie wyświetlany stan *Gotowe* dla obu regionów. Użyj przycisku **Odśwież**, aby odświeżyć stan replikacji. Utworzenie i zsynchronizowanie replik może trwać około minuty.
 
-![Interfejs użytkownika stanu replikacji w witrynie Azure Portal][tut-portal-05]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Interfejs użytkownika stanu replikacji w witrynie Azure Portal":::
+
+
+## <a name="enable-admin-account"></a>Włącz konto administratora
+
+W kolejnych samouczkach można wdrożyć obraz kontenera z rejestru bezpośrednio do Web App for Containers. Aby włączyć tę funkcję, należy również włączyć [konto administratora](container-registry-authentication.md#admin-account)rejestru.
+
+Przejdź do nowego rejestru kontenerów w Azure Portal i wybierz pozycję **klucze dostępu** w obszarze **Ustawienia**. W obszarze **Administrator** wybierz pozycję **Włącz**.
+
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Włącz konto administratora w Azure Portal":::
+
 
 ## <a name="container-registry-login"></a>Logowanie do rejestru Container Registry
 
-Po skonfigurowaniu replikacji geograficznej utwórz obraz kontenera i wypchnij go do rejestru. Musisz zalogować się do wystąpienia usługi ACR przed wypchnięciem do niego obrazów.
+Po skonfigurowaniu replikacji geograficznej utwórz obraz kontenera i wypchnij go do rejestru. Musisz najpierw zalogować się do rejestru przed wypchnięciem do niego obrazów.
 
 Użyj polecenia [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login), aby przeprowadzić uwierzytelnianie i zapisać poświadczenia dla rejestru w pamięci podręcznej. Zastąp ciąg `<acrName>` nazwą rejestru utworzonego wcześniej.
 
@@ -97,7 +110,7 @@ Polecenie zwraca ciąg `Login Succeeded` po zakończeniu.
 
 Przykład podany w tym samouczku obejmuje małą aplikację internetową utworzoną za pomocą platformy [ASP.NET Core][aspnet-core]. Aplikacja udostępnia stronę HTML wyświetlającą region, z którego obraz został wdrożony przez usługę Azure Container Registry.
 
-![Samouczek aplikacji wyświetlony w przeglądarce][tut-app-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Samouczek aplikacji wyświetlony w przeglądarce":::
 
 Użyj narzędzia git, aby pobrać przykład do katalogu lokalnego, a następnie użyj polecenia `cd`, aby przejść do tego katalogu:
 
@@ -228,15 +241,6 @@ Przejdź do następnego samouczka, aby wdrożyć kontener do wielu wystąpień f
 
 > [!div class="nextstepaction"]
 > [Deploy web app from Azure Container Registry (Wdrażanie aplikacji internetowej z usługi Azure Container Registry)](container-registry-tutorial-deploy-app.md)
-
-<!-- IMAGES -->
-[tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png
-[tut-portal-02]: ./media/container-registry-tutorial-prepare-registry/tut-portal-02.png
-[tut-portal-03]: ./media/container-registry-tutorial-prepare-registry/tut-portal-03.png
-[tut-portal-04]: ./media/container-registry-tutorial-prepare-registry/tut-portal-04.png
-[tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
-[tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
-[tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip

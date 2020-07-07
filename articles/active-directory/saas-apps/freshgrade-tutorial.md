@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c7a6716bbc4b297973c8bfb0305434ee08a4730
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b2bceac127645717947d1da712d1e3699a04bee0
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606396"
+ms.locfileid: "85799211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Samouczek: integracja Azure Active Directory z usługą FreshGrade
 
@@ -107,17 +107,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FreshGrad
 
      a. W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następujących wzorców:
 
-        ```https        
-        https://<subdomain>.freshgrade.com/login
-        https://<subdomain>.onboarding.freshgrade.com/login
-        ```
+    ```http       
+    https://<subdomain>.freshgrade.com/login
+    https://<subdomain>.onboarding.freshgrade.com/login
+    ```
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, korzystając z następujących wzorców:
     
-        ```https
-        https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
-        https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
-        ```
+    ```http
+    https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+    https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL i identyfikatora logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji FreshGrade](mailto:support@freshgrade.com). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

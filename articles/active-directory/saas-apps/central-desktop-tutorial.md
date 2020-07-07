@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3747c16d67d7ecbe9496e438e8d1eb1cd51ca1
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 6e2fa19c7c2525eadc0eb8008d66cf37b3526d72
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607912"
+ms.locfileid: "85799645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Samouczek: integracja Azure Active Directory z pulpitem centralnym
 
@@ -110,10 +110,10 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją BC Centra
 
     b. W polu **Identyfikator** wpisz adres URL, korzystając z następującego wzorca:
     
-        ```https
-        https://<companyname>.centraldesktop.com/saml2-metadata.php
-        https://<companyname>.imeetcentral.com/saml2-metadata.php
-        ```
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<companyname>.centraldesktop.com/saml2-assertion.php`
 

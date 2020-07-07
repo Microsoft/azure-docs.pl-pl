@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab11c4fe957ab81dde3fb4f75a4dd82a6d4e5d2
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 83efecea84073020e87b25a83a3a26c6d25ea08c
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608725"
+ms.locfileid: "85799764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Samouczek: integracja Azure Active Directory z promem ALP
 
@@ -108,19 +108,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Korn Ferr
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
 
-        ```https
-        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
-        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
-        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
-        ```
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
     
-        ```https
-        https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
-        https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
-        https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
-        ```
+    ```http
+    https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>
+    https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>
+    https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Korn Ferry ALP](mailto:noreply@kornferry.com) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 0a6a1bd5e56f94a97779a85eafd0d46473cc2d0c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 227e60486f0a6712b0d29de47983bad737481bd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800549"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -233,11 +233,13 @@ W lokalizacji instalacji można użyć wiersza polecenia do uruchamiania i zatrz
 
 ### <a name="command-line-syntax"></a>Składnia wiersza polecenia
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 Aby wyświetlić listę opcji, wpisz ciąg `Microsoft.Azure.Cosmos.Emulator.exe /?` w wierszu polecenia.
 
-|**Zaznaczyć** | **Opis** | **Polecenie**| **Argumenty**|
+|**Opcja** | **Opis** | **Polecenie**| **Argumenty**|
 |---|---|---|---|
 |[Bez argumentów] | Uruchamia emulator Azure Cosmos z ustawieniami domyślnymi. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[Help] |Wyświetla listę obsługiwanych argumentów wiersza polecenia.|Microsoft.Azure.Cosmos.Emulator.exe/? | |
@@ -418,7 +420,7 @@ Zamknięcie powłoki interaktywnej po uruchomieniu emulatora spowoduje zamknięc
 
 Aby otworzyć Eksploratora danych, otwórz następujący adres URL w przeglądarce. Punkt końcowy emulatora znajduje się w powyższym komunikacie odpowiedzi.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**Protokół \: // https** \<emulator endpoint provided in response> **/_explorer/index.html**
 
 Jeśli masz uruchomioną aplikację kliencką platformy .NET w kontenerze platformy Docker systemu Linux i jeśli korzystasz z emulatora usługi Azure Cosmos na maszynie hosta, postępuj zgodnie z poniższą sekcją w systemie Linux, aby zaimportować certyfikat do kontenera platformy Docker systemu Linux.
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85318628"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET i kodu Azure SQL Database za pomocą usługi Azure DevOps Starter
@@ -33,8 +33,8 @@ W tym samouczku wykonasz następujące czynności:
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
-> * Połącz z Azure SQL Database 
-> * Oczyszczanie zasobów
+> * Łączenie z bazą danych Azure SQL Database 
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -140,7 +140,7 @@ Teraz możesz rozpocząć współpracę z zespołem nad aplikacją w języku Pyt
 
 1. Po zakończeniu tworzenia wydania odśwież aplikację, aby zweryfikować zmiany.
 
-## <a name="connect-to-azure-sql-database"></a>Połącz z Azure SQL Database
+## <a name="connect-to-azure-sql-database"></a>Łączenie z bazą danych Azure SQL Database
 
 Musisz mieć odpowiednie uprawnienia, aby nawiązać połączenie z Azure SQL Database.
 
@@ -163,7 +163,7 @@ Musisz mieć odpowiednie uprawnienia, aby nawiązać połączenie z Azure SQL Da
    > [!NOTE]
    > Jeśli zmienisz hasło dla logowania SQL, musisz zmienić hasło w zmiennej potoku wydania, zgodnie z opisem w sekcji [Sprawdzanie potoku dysku CD](#examine-the-cd-pipeline) .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy nie są już potrzebne, możesz usunąć Azure SQL Database i powiązane zasoby, które zostały utworzone w tym samouczku. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
@@ -184,8 +184,8 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
-> * Połącz z Azure SQL Database 
-> * Oczyszczanie zasobów
+> * Łączenie z bazą danych Azure SQL Database 
+> * Czyszczenie zasobów
 
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 

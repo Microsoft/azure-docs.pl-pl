@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący podwójnej rotacji poświadczeń
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów korzystających z uwierzytelniania podwójnego poświadczeń.
+title: Samouczek dotyczący rotacji zasobów z dwoma zestawami poświadczeń
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów, które używają dwóch zestawów poświadczeń uwierzytelniania.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 9ab8a35808f94c04c1d57cd18a8d45b5a59c5160
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486984"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800701"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-dual-credential-authentication"></a>Automatyzowanie rotacji klucza tajnego dla zasobów korzystających z uwierzytelniania podwójnego poświadczeń
+# <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów przy użyciu dwóch zestawów poświadczeń uwierzytelniania
 
 Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/managed-identity.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub hasła. Klucze dostępu i hasła powinny być często obracane.
 
-W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z uwierzytelniania podwójnego poświadczeń. W tym samouczku przeniesiesz klucze konta usługi Azure Storage przechowywane w Azure Key Vault jako wpisy tajne przy użyciu funkcji wyzwalanej przez Azure Event Grid powiadomienie. :
+W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z dwóch zestawów poświadczeń uwierzytelniania. W tym samouczku przeniesiesz klucze konta usługi Azure Storage przechowywane w Azure Key Vault jako wpisy tajne przy użyciu funkcji wyzwalanej przez Azure Event Grid powiadomienie. :
 
 > [!NOTE]
 > Klucze konta magazynu mogą być automatycznie zarządzane w Key Vault przez udostępnienie tokenów sygnatury dostępu współdzielonego dla delegowanego dostępu do konta magazynu. Istnieją usługi, które wymagają parametrów połączenia konta magazynu z kluczem dostępu i w tym scenariuszu jest to rozwiązanie zalecane.
@@ -206,7 +206,7 @@ az storage account keys list -n akvrotationstorage
 - [Konto magazynu](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)
 - Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](../general/event-grid-logicapps.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f77f00870af7b9d1788d96391264bdf9b4ee73c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b3c8062bf40e8c97e93f237237dcd7c6923d59dd
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607671"
+ms.locfileid: "85799649"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Samouczek: Integrowanie kopii zapasowych punktu końcowego Carbonite z Azure Active Directory
 
@@ -84,28 +84,28 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz jeden z następujących adresów URL:
 
-        ```https
-        https://red-us.mysecuredatavault.com
-        https://red-apac.mysecuredatavault.com
-        https://red-fr.mysecuredatavault.com
-        https://red-emea.mysecuredatavault.com
-        https://kamino.mysecuredatavault.com
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com
+    https://red-apac.mysecuredatavault.com
+    https://red-fr.mysecuredatavault.com
+    https://red-emea.mysecuredatavault.com
+    https://kamino.mysecuredatavault.com
+    ```
 
     b. W polu tekstowym **adres URL odpowiedzi** wpisz jeden z następujących adresów URL:
 
-        ```https
-        https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
-        https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
-        ```
+    ```http
+    https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+    ```
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **adres URL logowania** wpisz jeden z następujących adresów URL:
 
-    ```https
+    ```http
     https://red-us.mysecuredatavault.com/
     https://red-apac.mysecuredatavault.com/
     https://red-fr.mysecuredatavault.com/

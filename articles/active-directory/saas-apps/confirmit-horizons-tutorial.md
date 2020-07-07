@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b5b43a871eefa313982275b90e2c31f99badcf97
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 04d6d79000b38116cbda6de960f078608964b6ca
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608863"
+ms.locfileid: "85799602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Samouczek: integracja Azure Active Directory z usługą Confirmit Horizons
 
@@ -109,23 +109,23 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Confirmit H
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
-        https://sso.us.confirmit.com/<UNIQUEID>
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
-        https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
-        https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+    https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+    ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -133,13 +133,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Confirmit H
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
-        https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
-        https://sso.us.confirmit.com/<UNIQUEID>
-        ```
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Confirmit Horizons](mailto:support@confirmit.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

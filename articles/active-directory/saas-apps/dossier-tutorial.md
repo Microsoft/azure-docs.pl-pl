@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: e7233ea2d9d49d9a030f11f45e8aeba3fb0927c2
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 8b9e65ed634243e60808e91d621cfe8c912b914e
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608855"
+ms.locfileid: "85799977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Samouczek: integracja Azure Active Directory z dokumentacją
 
@@ -107,10 +107,10 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą dokumentacj
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
 
-        ```https
-        https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
-        https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
-        ```
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `Dossier/<CLIENTNAME>`
 
@@ -119,10 +119,10 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą dokumentacj
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://<SUBDOMAIN>.dossiersystems.com/azuresso
-        https://dossier.<CLIENTDOMAINNAME>/azuresso
-        ```
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
     > [!NOTE]

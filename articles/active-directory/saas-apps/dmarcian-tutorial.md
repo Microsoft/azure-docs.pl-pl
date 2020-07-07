@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a09610fa7855dfa2be71e3736371f8f45078f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e8ad669f092fac0cc2e737d93ccc9d225ef57adf
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607119"
+ms.locfileid: "85799551"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Samouczek: integracja dmarcian z usługą Azure Active Directory
 
@@ -85,29 +85,29 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
-        ```
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
-        https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://us.dmarcian.com/login/<ACCOUNT_ID>
-        https://dmarcian-eu.com/login/<ACCOUNT_ID>
-        https://dmarciam-ap.com/login/<ACCOUNT_ID>
-        ```
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
      
     > [!NOTE] 
     > Te wartości nie są prawdziwe. Zaktualizujesz te wartości, używając rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania, co zostało opisane w dalszej części tego samouczka.

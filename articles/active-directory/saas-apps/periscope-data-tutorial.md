@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 128c4d1699e6e243a5c1c1573892efa516adade1
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160192"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Samouczek: integracja Azure Active Directory z danymi Periscope
 
@@ -107,10 +107,10 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
     a. W polu tekstowym **Adres URL logowania** wpisz jeden z następujących adresów URL:
     
-    | |
-    |--|
-    | `https://app.periscopedata.com/` |
-    | `https://app.periscopedata.com/app/<SITENAME>` |
+    ```https
+    https://app.periscopedata.com/
+    https://app.periscopedata.com/app/<SITENAME>
+    ```
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://app.periscopedata.com/<SITENAME>/sso`
 
@@ -125,7 +125,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
 1. W innym oknie przeglądarki internetowej zaloguj się do aplikacji Periscope Data jako administrator.
 
-2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu**zabezpieczenia** **rozliczeń** > i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
+2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu zabezpieczenia **rozliczeń**  >  **Security** i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
 
     ![Informacje na temat konfigurowania aplikacji Periscope Data](./media/periscope-data-tutorial/configure01.png)
 
@@ -141,7 +141,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
     f. Znajdź pierwszy tag pliku XML, skopiuj wartość **entityID** i wklej ją w polu tekstowym **wystawcy** .
 
-    g. Znajdź tag **IDPSSODescriptor** przy użyciu protokołu SAML. W tej sekcji znajdź tag **KeyDescriptor** przy użyciu polecenia **use=signing**. skopiuj wartość **X509Certificate** i wklej ją w polu tekstowym **Certyfikat**.
+    przykład Znajdź tag **IDPSSODescriptor** przy użyciu protokołu SAML. W tej sekcji znajdź tag **KeyDescriptor** przy użyciu polecenia **use=signing**. skopiuj wartość **X509Certificate** i wklej ją w polu tekstowym **Certyfikat**.
 
     h. W witrynach z wieloma przestrzeniami można wybrać domyślną przestrzeń w menu rozwijanym **Default Space** (Domyślna przestrzeń). Jest to przestrzeń, do której dodawani są nowy użytkownicy podczas pierwszego logowania w aplikacji Periscope Data i aprowizacji za pomocą logowania jednokrotnego w usłudze Active Directory.
 
@@ -167,12 +167,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -220,7 +220,7 @@ Użytkownicy usługi Azure AD mogą logować się w aplikacji Periscope Data po 
 
     b. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, np. **Simon**.
 
-    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np **.\@brittasimon contoso.com**.
+    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np. **brittasimon \@ contoso.com**.
 
     d. Kliknij przycisk **Dodaj**.
 
@@ -236,5 +236,5 @@ Po kliknięciu kafelka Periscope Data w panelu dostępu powinno nastąpić autom
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

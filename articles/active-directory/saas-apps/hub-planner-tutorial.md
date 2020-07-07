@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1cc89beb1e704428fdb4e10868e72e837804d3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765549"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu planisty centrum
 
@@ -43,8 +43,8 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Planista centrum obsługuje zainicjowane przez usługę **SP** SSO
-* Po skonfigurowaniu planisty centrum można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Planista centrum obsługuje zainicjowane przez usługę **SP** SSO.
+* Po skonfigurowaniu planisty centrum można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-hub-planner-from-the-gallery"></a>Dodawanie planisty centrum z galerii
 
@@ -85,9 +85,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.hubplanner.com`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://app.hubplanner.com/sso/metadata`
 
-    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej w usłudze Planner Hub](mailto:hello@hubplanner.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -133,9 +133,29 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Aby skonfigurować Logowanie jednokrotne na stronie **planisty centrum** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej planisty centrum](mailto:hello@hubplanner.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
+### <a name="install-the-extension-in-hub-planner"></a>Zainstaluj rozszerzenie w usłudze Hub Planner
+
+Aby włączyć funkcję logowania jednokrotnego, należy najpierw włączyć rozszerzenie. Jako właściciel konta lub z równoważnymi uprawnieniami wykonaj następujące czynności:
+
+1. Przejdź do obszaru **Settings** (Ustawienia).
+1. W menu po stronie wybierz pozycję **Zarządzaj rozszerzeniami**  >  **Dodaj/Usuń rozszerzenia**.
+1. Znajdź rozszerzenie logowania jednokrotnego i Dodaj lub spróbuj bezpłatnie.
+1. Po wyświetleniu monitu Zaakceptuj warunki i postanowienia, a następnie wybierz pozycję **Dodaj teraz**.
+
+### <a name="enable-sso"></a>Włączanie logowania jednokrotnego
+
+Po włączeniu rozszerzenia należy włączyć logowanie jednokrotne dla Twojego konta. 
+
+1. Przejdź do obszaru **Settings** (Ustawienia).
+1. W menu po stronie wybierz pozycję **uwierzytelnianie**.
+1. Wybierz pozycję **SSO (logowanie**jednokrotne).
+1. Wprowadź dodatkowe informacje o uwierzytelnianiu, jak pokazano na poniższej ilustracji, a następnie wybierz pozycję **Zapisz**.
+
+![Zrzut ekranu ustawień logowania jednokrotnego](media/hub-planner-tutorial/sso-settings.png)
+
 ### <a name="create-hub-planner-test-user"></a>Utwórz użytkownika testowego planisty centrum
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w usłudze Hub Planner. Aby dodać użytkowników na platformie planisty centrum, Pracuj z [zespołem pomocy technicznej planisty centrum](mailto:hello@hubplanner.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+Jeśli chcesz dodać innych użytkowników, przejdź do pozycji **Ustawienia**  >  **Zarządzaj zasobami** i Dodaj użytkowników z tego miejsca. Upewnij się, że Dodaj swój adres e-mail i zaproś go. Po zaproszeniu otrzymasz wiadomość e-mail i będzie można wprowadzić ją za pośrednictwem logowania jednokrotnego. 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -143,7 +163,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka planisty centrum w panelu dostępu należy automatycznie zalogować się do planisty centrum, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -4,22 +4,18 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/08/2020
-ms.openlocfilehash: 0163d2cd0f056f46eb176a84e55d84fe6adc9943
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f4c59cb24f0bbc131ace8a56d8530e7894ecfecf
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196574"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805566"
 ---
 ## <a name="create-an-azure-resource"></a>Tworzenie zasobu platformy Azure
 
 Zacznij korzystać z interfejs API wyszukiwania niestandardowego Bing, tworząc jeden z następujących zasobów platformy Azure.
 
-### <a name="trial-resource"></a>[Zasób wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)
-   * Nie jest wymagana żadna subskrypcja platformy Azure.
-   * Ważne przez siedem dni bezpłatnie. Po zarejestrowaniu się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/)będą dostępne klucze próbne i punkt końcowy.
-
-### <a name="bing-custom-search-resource"></a>[Zasób wyszukiwanie niestandardowe Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)
+### <a name="bing-custom-search-resource"></a>[Zasób wyszukiwanie niestandardowe Bing](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch)
    * Dostępne w Azure Portal do momentu usunięcia zasobu.
    * Skorzystaj z warstwy cenowej bezpłatna do wypróbowania usługi i przeprowadź uaktualnienie później do warstwy płatnej dla środowiska produkcyjnego.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc5ae5532acdd66e091891c55e3cebb79cb3d227
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9e3931baa8bab6f21d0edfefd17b95f7ecf3f7be
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608622"
+ms.locfileid: "85799823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą KnowledgeOwl
 
@@ -86,34 +86,34 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://app.knowledgeowl.com/sp        
-        https://app.knowledgeowl.com/sp/id/<unique ID>
-        ```
+    ```http
+    https://app.knowledgeowl.com/sp
+    https://app.knowledgeowl.com/sp/id/<unique ID>
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://subdomain.knowledgeowl.com/help/saml-login
-        https://subdomain.knowledgeowl.com/docs/saml-login
-        https://subdomain.knowledgeowl.com/home/saml-login
-        https://privatedomain.com/help/saml-login
-        https://privatedomain.com/docs/saml-login
-        https://privatedomain.com/home/saml-login
-        ```
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Musisz zaktualizować te wartości z rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania, co zostało wyjaśnione w dalszej części tego samouczka.
@@ -190,7 +190,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. W polu tekstowym **adres URL wylogowywania dostawcy tożsamości** wklej wartość **adresu URL wylogowania** , która została skopiowana z Azure Portal
 
-    g. Przekaż pobrany certyfikat w Azure Portal przez kliknięcie przycisku **Przekaż certyfikat dostawcy tożsamości**.
+    przykład Przekaż pobrany certyfikat w Azure Portal przez kliknięcie przycisku **Przekaż certyfikat dostawcy tożsamości**.
 
     h. Kliknij pozycję **Mapuj atrybuty SAML** , aby mapować atrybuty, i wykonaj następujące czynności:
 

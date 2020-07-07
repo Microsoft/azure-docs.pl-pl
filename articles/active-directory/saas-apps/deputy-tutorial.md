@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 151ec17308a593bd9361bff6ad6340cccd82edd5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 798468f1e8ef62f5ccf8cdd451b643ecdbe255bc
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/01/2020
-ms.locfileid: "85607378"
+ms.locfileid: "85799309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Samouczek: integracja Azure Active Directory z zastępcą
 
@@ -108,43 +108,43 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Deputy, w
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
-        ```https
-        https://<subdomain>.<region>.au.deputy.com
-        https://<subdomain>.<region>.ent-au.deputy.com
-        https://<subdomain>.<region>.na.deputy.com
-        https://<subdomain>.<region>.ent-na.deputy.com
-        https://<subdomain>.<region>.eu.deputy.com
-        https://<subdomain>.<region>.ent-eu.deputy.com
-        https://<subdomain>.<region>.as.deputy.com
-        https://<subdomain>.<region>.ent-as.deputy.com
-        https://<subdomain>.<region>.la.deputy.com
-        https://<subdomain>.<region>.ent-la.deputy.com
-        https://<subdomain>.<region>.af.deputy.com
-        https://<subdomain>.<region>.ent-af.deputy.com
-        https://<subdomain>.<region>.an.deputy.com
-        https://<subdomain>.<region>.ent-an.deputy.com
-        https://<subdomain>.<region>.deputy.com
-        ```
+    ```http
+    https://<subdomain>.<region>.au.deputy.com
+    https://<subdomain>.<region>.ent-au.deputy.com
+    https://<subdomain>.<region>.na.deputy.com
+    https://<subdomain>.<region>.ent-na.deputy.com
+    https://<subdomain>.<region>.eu.deputy.com
+    https://<subdomain>.<region>.ent-eu.deputy.com
+    https://<subdomain>.<region>.as.deputy.com
+    https://<subdomain>.<region>.ent-as.deputy.com
+    https://<subdomain>.<region>.la.deputy.com
+    https://<subdomain>.<region>.ent-la.deputy.com
+    https://<subdomain>.<region>.af.deputy.com
+    https://<subdomain>.<region>.ent-af.deputy.com
+    https://<subdomain>.<region>.an.deputy.com
+    https://<subdomain>.<region>.ent-an.deputy.com
+    https://<subdomain>.<region>.deputy.com
+    ```
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-        ```https
-        https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
-        https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
-        https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
-        ```
+    ```http
+    https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+    https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+    ```
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
