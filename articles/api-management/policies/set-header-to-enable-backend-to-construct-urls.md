@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: e525029ae8eab086d11126a4e18958423e207aa1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70067500"
 ---
 # <a name="add-a-forwarded-header"></a>Dodawanie przekazanego nagłówka
 
 W tym artykule przedstawiono przykład zasad usługi Azure API Management, który pokazuje, jak dodać przesłany dalej nagłówek do żądania przychodzącego, aby umożliwić interfejsowi API zaplecza konstruowanie prawidłowych adresów URL. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-samples.md).
 
-## <a name="code"></a>Code
+## <a name="code"></a>Kod
 
 Wklej kod do bloku **przychodzącego** .
 

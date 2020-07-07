@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Urządzenia Kinect, Windows, v2, Azure urządzenia Kinect, porównanie, zestaw SDK, różnice, sprzęt, oprogramowanie
 ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67452516"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Porównanie usług Azure urządzenia Kinect i urządzenia Kinect systemu Windows v2
@@ -44,7 +44,7 @@ Dodatkowe szczegóły znajdziesz w dokumencie dotyczącym [sprzętu platformy Az
 
 W poniższej tabeli przedstawiono porównanie możliwości dostępu czujnika urządzenia niskiego poziomu.
 
-| **Funkcjonalność**| **Azure urządzenia Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
+| **Funkcja**| **Azure urządzenia Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
 |---------|---------|------------|---------|
 | **Ścisł** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |

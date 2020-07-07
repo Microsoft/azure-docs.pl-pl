@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: ril
 ms.openlocfilehash: 703623e3f7f314d87417458f3f9a218dfdf45427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67849970"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Obsługa protokołu HTTP/2 w Azure CDN

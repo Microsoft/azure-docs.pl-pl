@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707792"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii HB i HC
@@ -53,7 +53,7 @@ W systemach HPC często warto oczyścić pamięć po zakończeniu zadania przed 
 
 ![Zrzut ekranu przedstawiający wiersz polecenia](./media/known-issues/cache-cleaning-1.png)
 
-Przy `numactl -H` użyciu programu zostaną wyświetlone, które NUMAnode pamięci są buforowane (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięć podręczną w trzech sposobach, aby przywrócić pamięć buforowaną lub buforowaną w pamięci podręcznej. Musisz być elementem głównym lub mieć uprawnienia sudo.
+Przy użyciu programu `numactl -H` zostaną wyświetlone, które NUMAnode pamięci są buforowane (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięć podręczną w trzech sposobach, aby przywrócić pamięć buforowaną lub buforowaną w pamięci podręcznej. Musisz być elementem głównym lub mieć uprawnienia sudo.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]

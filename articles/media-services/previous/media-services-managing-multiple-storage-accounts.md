@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69901781"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Zarządzanie zasobami Media Services na wielu kontach magazynu  
@@ -31,7 +31,7 @@ W tym artykule przedstawiono sposób dołączania wielu kont magazynu do konta M
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 W przypadku dołączania wielu kont magazynu do konta Media Services są stosowane następujące zagadnienia:
 
@@ -280,6 +280,6 @@ namespace MultipleStorageAccounts
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

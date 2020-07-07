@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707680"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii HC
@@ -44,7 +44,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 2               | 1000            | 1,80            | 7,50            | 1,85            | 1,86            | 0,20            |
 | 4               | 1000            | 1,79            | 6,06            | 1,83            | 1,84            | 0,20            |
 | 8               | 1000            | 1,78            | 5,26            | 1,83            | 1,84            | 0,19            |
-| 16              | 1000            | 1,79            | 6,21            | 1,83            | 1,84            | 0,22            |
+| 16              | 1000            | 1,79            | 6,21            | 1,83            | 1,84            | 0.22            |
 | 32              | 1000            | 1,80            | 6,82            | 1,84            | 1,85            | 0.24            |
 | 64              | 1000            | 1,85            | 5,47            | 1,88            | 1,86            | 0,12            |
 | 128             | 1000            | 1,88            | 5,61            | 1,93            | 1,89            | 0,25            |

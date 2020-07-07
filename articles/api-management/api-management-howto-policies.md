@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70072303"
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
@@ -38,7 +38,7 @@ Kliknięcie instrukcji Enabled spowoduje dodanie odpowiedniego kodu XML w lokali
 > 
 > 
 
-Konfiguracja jest podzielona na `inbound`, `backend`, `outbound`, i `on-error`. Seria określonych instrukcji zasad jest wykonywana w celu żądania i odpowiedzi.
+Konfiguracja jest podzielona na `inbound` , `backend` , `outbound` , i `on-error` . Seria określonych instrukcji zasad jest wykonywana w celu żądania i odpowiedzi.
 
 ```xml
 <policies>
@@ -58,7 +58,7 @@ Konfiguracja jest podzielona na `inbound`, `backend`, `outbound`, i `on-error`. 
 </policies> 
 ```
 
-Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe kroki w `inbound`sekcjach, `backend`lub `outbound` są pomijane, a wykonywanie przechodzi do instrukcji w `on-error` sekcji. Umieszczając instrukcje zasad w `on-error` sekcji, można sprawdzić błąd przy użyciu `context.LastError` właściwości, sprawdzić i dostosować odpowiedź na błąd przy użyciu `set-body` zasad i skonfigurować działanie w przypadku wystąpienia błędu. Istnieją kody błędów dla wbudowanych kroków i dla błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach API Management](/azure/api-management/api-management-error-handling-policies).
+Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe kroki w `inbound` `backend` `outbound` sekcjach, lub są pomijane, a wykonywanie przechodzi do instrukcji w `on-error` sekcji. Umieszczając instrukcje zasad w `on-error` sekcji, można sprawdzić błąd przy użyciu `context.LastError` właściwości, sprawdzić i dostosować odpowiedź na błąd przy użyciu `set-body` zasad i skonfigurować działanie w przypadku wystąpienia błędu. Istnieją kody błędów dla wbudowanych kroków i dla błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach API Management](/azure/api-management/api-management-error-handling-policies).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Jak skonfigurować zasady
 
@@ -88,11 +88,11 @@ Jeśli masz zasady na poziomie globalnym i skonfigurowano zasady dla interfejsu 
 </policies>
 ```
 
-W powyższej przykładowej definicji zasad `cross-domain` , instrukcja zostanie wykonana przed wszystkimi wyższymi zasadami, które byłyby po kolei przestrzegane przez `find-and-replace` zasady. 
+W powyższej przykładowej definicji zasad, `cross-domain` instrukcja zostanie wykonana przed wszystkimi wyższymi zasadami, które byłyby po kolei przestrzegane przez `find-and-replace` zasady. 
 
 ### <a name="restrict-incoming-requests"></a>Ogranicz żądania przychodzące
 
-Aby dodać nową instrukcję, aby ograniczyć żądania przychodzące do określonych adresów IP, umieść kursor bezpośrednio wewnątrz zawartości elementu `inbound` XML i kliknij instrukcję **Ogranicz wywołania IP wywołującego** .
+Aby dodać nową instrukcję, aby ograniczyć żądania przychodzące do określonych adresów IP, umieść kursor bezpośrednio wewnątrz zawartości `inbound` elementu XML i kliknij instrukcję **Ogranicz wywołania IP wywołującego** .
 
 ![Zasady ograniczeń][policies-restrict]
 

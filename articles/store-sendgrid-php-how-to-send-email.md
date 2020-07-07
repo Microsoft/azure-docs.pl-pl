@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67870909"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Jak używać usługi poczty E-mail SendGrid w języku PHP
@@ -37,7 +37,7 @@ SendGrid to [oparta na chmurze usługa poczty e-mail] , która zapewnia niezawod
 * Przekazywanie zapytań klienta
 * Powiadomienia e-mail z aplikacji
 
-Aby uzyskać więcej informacji, [https://sendgrid.com][https://sendgrid.com]Zobacz.
+Aby uzyskać więcej informacji, zobacz [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Utwórz konto SendGrid
 
@@ -53,7 +53,7 @@ Możesz wysyłać wiadomości e-mail przy użyciu protokołu SMTP lub internetow
 
 ### <a name="smtp-api"></a>INTERFEJS API SMTP
 
-Aby wysłać wiadomość e-mail przy użyciu interfejsu API SendGrid SMTP, użyj *poczty SWIFT*, która jest biblioteką opartą na składniku do wysyłania wiadomości e-mail z aplikacji php. Możesz pobrać program [SWIFT 5.3.0 Library](https://swiftmailer.symfony.com/) v (Użyj programu [Composer] , aby zainstalować SWIFT poczty). Wysyłanie wiadomości e-mail z biblioteką obejmuje tworzenie wystąpień klas `Swift\_SmtpTransport`, `Swift\_Mailer`, i `Swift\_Message` , Ustawianie odpowiednich właściwości i wywoływanie `Swift\_Mailer::send` metody.
+Aby wysłać wiadomość e-mail przy użyciu interfejsu API SendGrid SMTP, użyj *poczty SWIFT*, która jest biblioteką opartą na składniku do wysyłania wiadomości e-mail z aplikacji php. Możesz pobrać program [SWIFT 5.3.0 Library](https://swiftmailer.symfony.com/) v (Użyj programu [Composer] , aby zainstalować SWIFT poczty). Wysyłanie wiadomości e-mail z biblioteką obejmuje tworzenie wystąpień `Swift\_SmtpTransport` klas, `Swift\_Mailer` , i `Swift\_Message` , Ustawianie odpowiednich właściwości i wywoływanie `Swift\_Mailer::send` metody.
 
 ```php
 <?php
@@ -239,7 +239,7 @@ Dodatkowy wiersz kodu jest następujący:
  $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 ```
 
-Ten wiersz kodu wywołuje metodę Attach dla `Swift\_Message` obiektu i używa metody `fromPath` statycznej `Swift\_Attachment` klasy w celu pobrania i dołączenia pliku do wiadomości.
+Ten wiersz kodu wywołuje metodę Attach dla `Swift\_Message` obiektu i używa metody statycznej klasy w `fromPath` `Swift\_Attachment` celu pobrania i dołączenia pliku do wiadomości.
 
 ### <a name="web-api"></a>Interfejs API sieci Web
 

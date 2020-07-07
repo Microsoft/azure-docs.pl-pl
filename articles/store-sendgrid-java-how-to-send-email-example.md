@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876478"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z języka Java w ramach wdrożenia platformy Azure
@@ -33,7 +33,7 @@ Uzyskana wiadomość e-mail będzie wyglądać podobnie do poniższego zrzutu ek
 
 Aby użyć kodu w tym temacie, należy wykonać następujące czynności:
 
-1. Pobierz javax. mail JARs, na przykład z <https://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Pobierz javax. mail JARs, na przykład z <https://www.oracle.com/technetwork/java/javamail/index.html> .
 2. Dodaj JARs do ścieżki kompilacji Java.
 3. Jeśli używasz dyrektywy zaćmienie do utworzenia tej aplikacji Java, możesz dołączyć biblioteki SendGrid w pliku wdrożenia aplikacji (WAR) przy użyciu funkcji z zestawu wdrożeniowego z przeznaczeniem. Jeśli nie korzystasz z programu zaćmienie w celu utworzenia tej aplikacji Java, upewnij się, że biblioteki są zawarte w tej samej roli platformy Azure jako aplikacja Java, a następnie dodane do ścieżki klasy aplikacji.
 
@@ -42,7 +42,7 @@ Musisz również mieć własną nazwę użytkownika SendGrid i hasło, aby móc 
 Ponadto znajomość informacji na temat [tworzenia Hello World aplikacji dla platformy Azure w ramach Przezaćmienia](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)lub z innymi technikami do hostowania aplikacji Java na platformie Azure, jeśli nie używasz programu zaćmienie, jest zdecydowanie zalecane.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Utwórz formularz sieci Web na potrzeby wysyłania wiadomości e-mail
-Poniższy kod pokazuje, jak utworzyć formularz sieci Web, aby pobrać dane użytkownika na potrzeby wysyłania wiadomości e-mail. Do celów tej zawartości plik JSP ma nazwę **emailform. jsp**.
+Poniższy kod pokazuje, jak utworzyć formularz sieci Web, aby pobrać dane użytkownika na potrzeby wysyłania wiadomości e-mail. Do celów tej zawartości plik JSP ma nazwę **emailform.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -98,7 +98,7 @@ Poniższy kod pokazuje, jak utworzyć formularz sieci Web, aby pobrać dane uży
     </html>
 
 ## <a name="create-the-code-to-send-the-email"></a>Utwórz kod, aby wysłać wiadomość e-mail
-Poniższy kod, który jest wywoływany po zakończeniu formularza w emailform. JSP, tworzy wiadomość e-mail i wysyła ją. Do celów tej zawartości plik JSP ma nazwę **SendEmail. jsp**.
+Poniższy kod, który jest wywoływany po zakończeniu formularza w emailform.jsp, tworzy wiadomość e-mail i wysyła ją. Do celów tej zawartości plik JSP ma nazwę **sendemail.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
@@ -205,14 +205,14 @@ Poniższy kod, który jest wywoływany po zakończeniu formularza w emailform. J
     </body>
     </html>
 
-Oprócz wysyłania wiadomości e-mail emailform. jsp daje wynik użytkownikowi; Przykładem jest następujący zrzut ekranu:
+Oprócz wysyłania wiadomości e-mail, emailform.jsp zawiera wynik dla użytkownika; Przykładem jest następujący zrzut ekranu:
 
 ![Wyślij wynik wiadomości][emailresult]
 
 ## <a name="next-steps"></a>Następne kroki
-Wdróż aplikację w emulatorze obliczeń i w przeglądarce Uruchom emailform. JSP, wprowadź wartości w formularzu, kliknij pozycję **Wyślij tę wiadomość e-mail**, a następnie Zobacz wyniki w SendEmail. JSP.
+Wdróż aplikację w emulatorze obliczeń i w przeglądarce Uruchom emailform.jsp, wprowadź wartości w formularzu, kliknij pozycję **Wyślij tę wiadomość e-mail**, a następnie Zobacz wyniki w sendemail.jsp.
 
-Ten kod został dostarczony, aby zobaczyć, jak używać SendGrid w języku Java na platformie Azure. Przed wdrożeniem na platformie Azure w środowisku produkcyjnym warto dodać więcej obsługi błędów lub innych funkcji. Przykład: 
+Ten kod został dostarczony, aby zobaczyć, jak używać SendGrid w języku Java na platformie Azure. Przed wdrożeniem na platformie Azure w środowisku produkcyjnym warto dodać więcej obsługi błędów lub innych funkcji. Na przykład: 
 
 * Możesz użyć obiektów BLOB usługi Azure Storage lub SQL Database do przechowywania adresów e-mail i wiadomości e-mail, zamiast korzystać z formularza sieci Web. Aby uzyskać informacje o korzystaniu z obiektów BLOB usługi Azure Storage w języku Java, zobacz [jak używać usługi BLOB Storage z poziomu języka Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Aby uzyskać informacje o używaniu SQL Database w języku Java, zobacz [używanie SQL Database w języku Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
 * Aby uzyskać więcej informacji o korzystaniu z SendGrid w języku Java, zobacz [jak wysyłać wiadomości e-mail przy użyciu usługi SendGrid w języku Java](store-sendgrid-java-how-to-send-email.md).

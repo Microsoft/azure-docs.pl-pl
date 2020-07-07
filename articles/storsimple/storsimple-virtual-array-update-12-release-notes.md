@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: ea7e4801dfaad533403c0f927a03735ae409cc52
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66420606"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>StorSimple Virtual Array Update 1,2 — informacje o wersji
@@ -46,7 +46,7 @@ Pobierz KB4502035 i postępuj zgodnie z tymi instrukcjami, aby [zastosować aktu
 
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Funkcja | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
 | 1 |Usunięcie| W poprzednich wersjach oprogramowania wystąpił problem polegający na tym, że użycie urządzenia nie uległo zmianie nawet po usunięciu plików. Ten problem został rozwiązany w tej wersji. Ścieżka kodu warstwowego została przeprowadzona bardziej odporna podczas przetwarzania usuniętych plików.|
 | 2 |Obsługa wyjątków| W poprzednich wersjach oprogramowania wystąpił problem po ponownym uruchomieniu systemu, który może potencjalnie prowadzić do błędów w kopiach zapasowych, przywracania, odczytywania danych z chmury i automatycznego odzyskiwania przestrzeni. Ta wersja zawiera zmiany w sposobie obsługi wyjątków w ścieżce początkowej.|
@@ -59,7 +59,7 @@ Nie znaleziono żadnych nowych problemów w wersji Update 1,2. Wszystkie problem
 
 Pobierz KB4502035 i [Zastosuj aktualizację za pośrednictwem lokalnego interfejsu użytkownika sieci Web](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Szukasz starszej wersji uwagi? Przejdź do strony:
 * [StorSimple Virtual Array Update 1,1 — informacje o wersji](storsimple-virtual-array-update-11-release-notes.md)

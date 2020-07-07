@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70080596"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostyka wydajności maszyn wirtualnych platformy Azure
@@ -37,10 +37,10 @@ System Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, 
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [`*``*`], 7,3, 7,6, 7,5 (Oracle-Database-EE 13,8 marketplace), CentOS 6,5 [], 7,6, RHEL 7,2, 7,5, 8,0 [`*`], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [`*`], SLES 12 SP4 []`*`
+Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 Marketplace), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
 
 >[!Note]
->[`*`] Zapoznaj się ze [znanymi problemami](how-to-use-perfinsights-linux.md#known-issues)
+>[ `*` ] Zapoznaj się ze [znanymi problemami](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalowanie i uruchamianie diagnostyki wydajności na maszynie wirtualnej
 
@@ -86,7 +86,7 @@ Poniższe scenariusze analizy są dostępne w Azure Portal. Wybierz analizę, w 
     Obejmuje wszystkie sprawdzenia w analizie wydajności i przechwytuje śledzenie sieci i liczniki protokołu SMB. Ten scenariusz umożliwia rozwiązywanie problemów z wydajnością usługi Azure Files. Wykonanie tej analizy trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. [Dowiedz się więcej](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
->[`*`] Te scenariusze analizy są obsługiwane tylko w systemie Windows.
+>[ `*` ] Te scenariusze analizy są obsługiwane tylko w systemie Windows.
 
 ![Zrzut ekranu przedstawiający okienko uruchamiania diagnostyki w bloku diagnostyki wydajności](media/performance-diagnostics/run-diagnostics-pane.png)
 
@@ -109,7 +109,7 @@ Zostanie wyświetlone powiadomienie z informacją o ponownym uruchomieniu diagno
 Po zakończeniu analizy następujące elementy są przekazywane do tabel platformy Azure i kontenera obiektów binarnych (BLOB) na określonym koncie magazynu:
 
 * Wszystkie szczegółowe dane i powiązane informacje o przebiegu
-* Plik skompresowany (zip) (o nazwie **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-FFF. zip** ) w systemie Windows i pliku piłka smoły (o nazwie **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-FFF. tar. gz** ) w systemie Linux, który zawiera pliki dziennika
+* Plik skompresowany (zip) (o nazwie **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip** ) w systemie Windows i plik kulki pułapki (o nazwie **PerformanceDiagnostics_yyyy-mm-DD_HH-mm-SS-FFF. tar. gz** ) w systemie Linux, który zawiera pliki dziennika
 * Raport HTML
 
 Po przekazaniu nowy raport diagnostyczny zostanie wyświetlony w Azure Portal.
@@ -174,7 +174,7 @@ Istnieje wiele sposobów udostępniania raportu diagnostyki firmie Microsoft.
 Po otwarciu biletu pomocy technicznej w firmie Microsoft ważne jest, aby udostępnić Raport diagnostyki wydajności. Jeśli wybrano opcję udostępnienia tych informacji firmie Microsoft podczas uruchamiania diagnostyki (zaznaczając pole wyboru "**Zgadzam się na udostępnianie informacji diagnostycznych firmie Microsoft**"), firma Microsoft będzie mogła uzyskać dostęp do raportu z konta magazynu przy użyciu linku SAS do wyjściowego pliku zip przez maksymalnie 30 dni od daty uruchomienia. Tylko najnowszy raport jest dostępny dla inżyniera pomocy technicznej.
 
 **Opcja 2:** Generuj sygnaturę dostępu współdzielonego dla skompresowanego pliku raportu diagnostyki  
-Możesz udostępnić link do skompresowanego pliku raportów przy użyciu sygnatur dostępu współdzielonego. W tym celu wykonaj następujące czynności:
+Możesz udostępnić link do skompresowanego pliku raportów przy użyciu sygnatur dostępu współdzielonego. W tym celu wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do konta magazynu, w którym są przechowywane dane diagnostyczne.
 1. Wybierz pozycję **obiekty blob** w sekcji **BLOB Service** .

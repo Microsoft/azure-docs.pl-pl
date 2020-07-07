@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66298832"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: specjalne zagadnienia dotyczące wystąpień
@@ -64,7 +64,7 @@ Poniższe kroki konfiguracji ręcznej służą do zapewnienia, że Azure AD Conn
 
 1. Uruchom instalację Azure AD Connect.
 2. Gdy zostanie wyświetlona pierwsza strona, na której zamierzasz zaakceptować umowę licencyjną, nie należy kontynuować pracy z uruchomionym kreatorem instalacji.
-3. Uruchom regedit i Zmień klucz `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` rejestru na wartość. `4`
+3. Uruchom regedit i Zmień klucz rejestru `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` na wartość `4` .
 4. Wróć do Kreatora instalacji Azure AD Connect, zaakceptuj umowę licencyjną i Kontynuuj. Podczas instalacji upewnij się, że używasz ścieżki instalacji **niestandardowej konfiguracji** (a nie instalacji ekspresowej), a następnie kontynuuj instalację w zwykły sposób.
 
 ## <a name="next-steps"></a>Następne kroki

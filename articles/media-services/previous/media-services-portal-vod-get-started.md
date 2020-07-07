@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69015050"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal
@@ -52,7 +52,7 @@ Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scen
 Aby uruchomić punkt końcowy przesyłania strumieniowego:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz kolejno pozycje **Ustawienia** > **przesyłanie strumieniowe punkty końcowe**. 
+2. Wybierz kolejno pozycje **Ustawienia**  >  **przesyłanie strumieniowe punkty końcowe**. 
 3. Wybierz domyślny punkt końcowy przesyłania strumieniowego. Zostanie wyświetlone okno **szczegóły domyślnego punktu końcowego przesyłania strumieniowego** .
 4. Wybierz ikonę **Uruchom**.
 5. Wybierz ikonę **Zapisz**.
@@ -61,7 +61,7 @@ Aby uruchomić punkt końcowy przesyłania strumieniowego:
 Aby przesłać strumieniowo pliki wideo przy użyciu usługi Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów, a następnie opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz pozycję **Ustawienia** > **zasoby**. Następnie wybierz przycisk **Przekaż**.
+2. Wybierz pozycję **Ustawienia**  >  **zasoby**. Następnie wybierz przycisk **Przekaż**.
    
     ![Przekazywanie plików](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,14 +84,14 @@ Aby skorzystać z dynamicznego tworzenia pakietów, musisz zakodować swoje plik
 Aby zakodować zawartość przy użyciu procesora Media Encoder Standard w witrynie Azure Portal:
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz pozycję **Ustawienia** > **zasoby**. Wybierz element zawartości, który chcesz zakodować.
+2. Wybierz pozycję **Ustawienia**  >  **zasoby**. Wybierz element zawartości, który chcesz zakodować.
 3. Wybierz przycisk **Koduj**.
 4. W okienku **Kodowanie elementu zawartości** wybierz procesor **Media Encoder Standard** i ustawienia wstępne. Aby uzyskać informacje o ustawieniach wstępnych, zobacz [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Automatyczne generowanie drabiny szybkości transmisji bitów) i [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Ustawienia wstępne zadań procesora Media Encoder Standard). Ważne jest, aby wybrać ustawienia wstępne, które będą najlepiej działać dla wejściowego pliku wideo. Na przykład: jeśli wejściowy plik wideo ma rozdzielczość 1920 &#215; 1080 pikseli, można użyć ustawienia wstępnego **Wielokrotna szybkość transmisji bitów H264 1080p**. Jeśli masz wideo w niskiej rozdzielczości (640 &#215; 360), ustawienie wstępne **Wielokrotna szybkość transmisji bitów H264 1080p** nie powinno być używane.
    
    Aby ułatwić sobie zarządzanie zasobami, możesz poddać edycji nazwę wyjściowego elementu zawartości i nazwę zadania.
    
    ![Kodowanie elementów zawartości](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorowanie postępu zadania kodowania
 Aby monitorować postęp zadania kodowania, kliknij u góry strony pozycję **Ustawienia**, a następnie wybierz pozycję **Zadania**.
@@ -132,7 +132,7 @@ Aby zaktualizować datę wygaśnięcia lokalizatora, możesz użyć [interfejsu 
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Aby opublikować element zawartości za pomocą portalu
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. Wybierz pozycję **Ustawienia** > **zasoby**. Wybierz element zawartości, który chcesz opublikować.
+2. Wybierz pozycję **Ustawienia**  >  **zasoby**. Wybierz element zawartości, który chcesz opublikować.
 3. Wybierz przycisk **Publikuj**.
 4. Wybierz typ lokalizatora.
 5. Wybierz pozycję **Dodaj**.
@@ -154,7 +154,7 @@ Zagadnienia do rozważenia:
 * Upewnij się, że wideo zostało już opublikowane.
 * Odtwarzacz multimedialny w witrynie Azure Portal odtwarza zawartość z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć zawartość z punktu końcowego przesyłania strumieniowego innego niż domyślny, zaznacz i skopiuj adres URL, a następnie wklej go do innego odtwarzacza. Na przykład swoje wideo możesz przetestować w usłudze [Azure Media Player](https://aka.ms/azuremediaplayer).
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

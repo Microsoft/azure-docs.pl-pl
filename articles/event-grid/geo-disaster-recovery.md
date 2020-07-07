@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66307320"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Odzyskiwanie po awarii geograficznej po stronie serwera w Azure Event Grid

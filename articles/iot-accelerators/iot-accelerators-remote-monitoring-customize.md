@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68608010"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Dostosowywanie akceleratora rozwiązania do monitorowania zdalnego
@@ -23,7 +23,7 @@ Ten artykuł zawiera informacje o tym, jak uzyskać dostęp do kodu źródłoweg
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Przygotuj lokalne środowisko programistyczne dla interfejsu użytkownika
 
-Kod interfejsu użytkownika akceleratora rozwiązania do monitorowania zdalnego jest implementowany przy użyciu platformy reagować. js. Kod źródłowy można znaleźć w repozytorium GitHub [Azure-IoT-PC-Remote-Monitoring-WebUI](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) .
+Kod interfejsu użytkownika akceleratora rozwiązania do monitorowania zdalnego jest implementowany przy użyciu struktury React.js. Kod źródłowy można znaleźć w repozytorium GitHub [Azure-IoT-PC-Remote-Monitoring-WebUI](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) .
 
 Aby wprowadzić zmiany w interfejsie użytkownika, można uruchomić jego kopię lokalnie. Aby wykonać akcje, takie jak pobieranie telemetrii, lokalna kopia nawiązuje połączenie ze wdrożonym wystąpieniem rozwiązania.
 
@@ -31,7 +31,7 @@ Poniższe kroki przedstawiają proces konfigurowania środowiska lokalnego do tw
 
 1. Wdróż **podstawowe** wystąpienie akceleratora rozwiązania przy użyciu interfejsu wiersza polecenia **komputerów** . Zanotuj nazwę wdrożenia i poświadczenia podane dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [wdrażanie przy użyciu interfejsu wiersza polecenia](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Aby włączyć dostęp SSH do maszyny wirtualnej, która obsługuje mikrousługi w rozwiązaniu, użyj Azure Portal lub Azure Cloud Shell. Przykład:
+1. Aby włączyć dostęp SSH do maszyny wirtualnej, która obsługuje mikrousługi w rozwiązaniu, użyj Azure Portal lub Azure Cloud Shell. Na przykład:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,14 +39,14 @@ Poniższe kroki przedstawiają proces konfigurowania środowiska lokalnego do tw
 
     Włącz dostęp SSH tylko podczas testowania i programowania. Po włączeniu protokołu SSH należy [go wyłączyć zaraz po zakończeniu korzystania z niego](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Użyj Azure Portal lub Azure Cloud Shell, aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Przykład:
+1. Użyj Azure Portal lub Azure Cloud Shell, aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Na przykład:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Użyj protokołu SSH, aby nawiązać połączenie z maszyną wirtualną. Użyj adresu IP z poprzedniego kroku i poświadczeń podanych podczas uruchamiania **komputerów** w celu wdrożenia rozwiązania. `ssh` Polecenie jest dostępne w Azure Cloud Shell.
+1. Użyj protokołu SSH, aby nawiązać połączenie z maszyną wirtualną. Użyj adresu IP z poprzedniego kroku i poświadczeń podanych podczas uruchamiania **komputerów** w celu wdrożenia rozwiązania. `ssh`Polecenie jest dostępne w Azure Cloud Shell.
 
 1. Aby zezwolić na połączenie lokalnego środowiska użytkownika, uruchom następujące polecenia w powłoce bash na maszynie wirtualnej:
 
@@ -73,7 +73,7 @@ Poniższe kroki przedstawiają proces konfigurowania środowiska lokalnego do tw
     npm start
     ```
 
-1. Poprzednie polecenie uruchamia interfejs użytkownika lokalnie na http:\//localhost: 3000/pulpit nawigacyjny. Można edytować kod, gdy lokacja jest uruchomiona i wyświetlać ją dynamicznie.
+1. Poprzednie polecenie uruchamia interfejs użytkownika lokalnie na http: \/ /localhost: 3000/pulpit nawigacyjny. Można edytować kod, gdy lokacja jest uruchomiona i wyświetlać ją dynamicznie.
 
 ## <a name="customize-the-layout"></a>Dostosowywanie układu
 
@@ -245,7 +245,7 @@ Poniższe kroki przedstawiają sposób duplikowania istniejącego panelu, modyfi
 
 1. W lokalnej kopii repozytorium Utwórz kopię folderu **alertów** w `src/components/pages/dashboard/panels` folderze. Nazwij nową kopię **cust_alerts**.
 
-1. W pliku **alertsPanel. js** w folderze **cust_alerts** Edytuj nazwę klasy, która ma być **CustAlertsPanel**:
+1. W pliku **alertsPanel.js** w folderze **cust_alerts** Edytuj nazwę klasy, która ma być **CustAlertsPanel**:
 
     ```javascript
     export class CustAlertsPanel extends Component {
@@ -435,7 +435,7 @@ Na stronie **pulpit nawigacyjny** są wyświetlane wskaźniki KPI w panelu **Ana
       t={t} />
     ```
 
-Zmiany w `src/components/pages/dashboard/dashboard.js` pliku zostały już zakończone. Poniższe kroki opisują zmiany, które należy wprowadzić w `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` pliku, aby wyświetlić nowy wskaźnik KPI:
+Zmiany w pliku zostały już zakończone `src/components/pages/dashboard/dashboard.js` . Poniższe kroki opisują zmiany, które należy wprowadzić w `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` pliku, aby wyświetlić nowy wskaźnik KPI:
 
 1. Zmodyfikuj następujący wiersz kodu, aby pobrać nową wartość kluczowego wskaźnika wydajności w następujący sposób:
 

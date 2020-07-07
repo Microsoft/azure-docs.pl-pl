@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67849258"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
