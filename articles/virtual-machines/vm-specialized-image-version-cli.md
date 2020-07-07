@@ -10,10 +10,10 @@ ms.date: 04/23/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 1ccf03deee2a2f72c1eb2008e1acc5bf67d16447
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796774"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanej wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -36,7 +36,7 @@ az sig image-definition list \
 
 Utwórz maszynę wirtualną za pomocą polecenia [AZ VM Create](/cli/azure/vm#az-vm-create) przy użyciu--wyspecjalizowanego parametru, aby wskazać obraz, jest to wyspecjalizowany obraz. 
 
-Użyj identyfikatora definicji obrazu dla `--image` programu, aby utworzyć maszynę wirtualną na podstawie najnowszej wersji dostępnego obrazu. Możesz również utworzyć maszynę wirtualną na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image`. 
+Użyj identyfikatora definicji obrazu dla programu, `--image` Aby utworzyć maszynę wirtualną na podstawie najnowszej wersji dostępnego obrazu. Możesz również utworzyć maszynę wirtualną na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image` . 
 
 W tym przykładzie tworzymy maszynę wirtualną na podstawie najnowszej wersji obrazu *myImageDefinition* .
 

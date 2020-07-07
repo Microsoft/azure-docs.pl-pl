@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796592"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrowanie z obrazu zarządzanego do obrazu z galerii udostępnionych obrazów
@@ -33,7 +33,7 @@ Podczas pracy z tym artykułem należy zastąpić grupę zasobów i nazwy maszyn
 
 ## <a name="get-the-gallery"></a>Uzyskaj galerię
 
-Wszystkie galerie i definicje obrazów można wyświetlić według nazwy. Wyniki są w formacie `gallery\image definition\image version`.
+Wszystkie galerie i definicje obrazów można wyświetlić według nazwy. Wyniki są w formacie `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -52,11 +52,11 @@ $gallery = Get-AzGallery `
 
 Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o obrazie. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. Ponieważ zarządzane obrazy są zawsze uogólnione, należy ustawić `-OsState generalized`. 
+Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. Ponieważ zarządzane obrazy są zawsze uogólnione, należy ustawić `-OsState generalized` . 
 
 Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu uogólniony system operacyjny Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Linux, użyj `-OsType Linux`polecenia. 
+Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu uogólniony system operacyjny Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Linux, użyj polecenia `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -73,7 +73,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="get-the-managed-image"></a>Pobierz obraz zarządzany
 
-Możesz wyświetlić listę obrazów dostępnych w grupie zasobów za pomocą polecenia [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Gdy znasz nazwę obrazu i grupę zasobów, w której znajduje się, możesz ponownie użyć `Get-AzImage` , aby pobrać obiekt obrazu i zapisać go w zmiennej do użycia później. Ten przykład pobiera obraz *o nazwie NazwaMojejZmiennej* z grupy zasobów "Grupa zasobów" i przypisuje go do zmiennej *$managedImage*. 
+Możesz wyświetlić listę obrazów dostępnych w grupie zasobów za pomocą polecenia [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Gdy znasz nazwę obrazu i grupę zasobów, w której znajduje się, możesz ponownie użyć, `Get-AzImage` Aby pobrać obiekt obrazu i zapisać go w zmiennej do użycia później. Ten przykład pobiera obraz *o nazwie NazwaMojejZmiennej* z grupy zasobów "Grupa zasobów" i przypisuje go do zmiennej *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -107,7 +107,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby zobaczyć postęp, wpisz `$job.State`.
+Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby zobaczyć postęp, wpisz `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu. 
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS`lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 ## <a name="delete-the-managed-image"></a>Usuń obraz zarządzany

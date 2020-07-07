@@ -13,10 +13,10 @@ ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82593169"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Przepływy uwierzytelniania i scenariusze aplikacji
@@ -30,7 +30,7 @@ W tym artykule opisano przepływy uwierzytelniania i scenariusze aplikacji, któ
 Tokeny mogą być uzyskiwane z kilku typów aplikacji, w tym:
 
 - Aplikacje internetowe
-- Aplikacje mobilne
+- Aplikacji mobilnych
 - Aplikacje klasyczne
 - Interfejsy API sieci Web
 
@@ -59,11 +59,11 @@ Istnieją jednak również aplikacje demona. W tych scenariuszach aplikacje uzys
 
 Tokeny zabezpieczające mogą być uzyskiwane przez wiele typów aplikacji. Te aplikacje są podzielone na następujące trzy kategorie. Każdy z nich jest używany z różnymi bibliotekami i obiektami.
 
-- **Aplikacje jednostronicowe**: znane również jako aplikacji jednostronicowych, są to aplikacje sieci Web, w których tokeny są uzyskiwane przez aplikację JavaScript lub TypeScript działającą w przeglądarce. Wiele nowoczesnych aplikacji ma aplikację jednostronicową, która jest przede wszystkim zapisywana w języku JavaScript. Aplikacja często używa struktury, takiej jak kątowy, reaguje lub Vue. MSAL. js jest jedyną biblioteką uwierzytelniania firmy Microsoft, która obsługuje aplikacje jednostronicowe.
+- **Aplikacje jednostronicowe**: znane również jako aplikacji jednostronicowych, są to aplikacje sieci Web, w których tokeny są uzyskiwane przez aplikację JavaScript lub TypeScript działającą w przeglądarce. Wiele nowoczesnych aplikacji ma aplikację jednostronicową, która jest przede wszystkim zapisywana w języku JavaScript. Aplikacja często używa struktury, takiej jak kątowy, reaguje lub Vue. MSAL.js jest jedyną biblioteką uwierzytelniania firmy Microsoft, która obsługuje aplikacje jednostronicowe.
 
 - **Publiczne aplikacje klienckie**: aplikacje w tej kategorii, takie jak następujące typy, zawsze logują się użytkowników:
   - Aplikacje klasyczne, które wywołują interfejsy API sieci Web w imieniu zalogowanych użytkowników
-  - Aplikacje mobilne
+  - Aplikacji mobilnych
   - Aplikacje działające na urządzeniach, które nie mają przeglądarki, takie jak procesy działające na IoT
   
 - **Poufne aplikacje klienckie**: aplikacje w tej kategorii obejmują:
@@ -84,7 +84,7 @@ Punkt końcowy platformy tożsamości firmy Microsoft obsługuje uwierzytelniani
 - Aplikacje jednostronicowe
 - Aplikacje internetowe
 - Interfejsy API sieci Web
-- Aplikacje mobilne
+- Aplikacji mobilnych
 - Aplikacje natywne
 - Aplikacje demona
 - Aplikacje po stronie serwera
@@ -93,7 +93,7 @@ Aplikacje używają różnych przepływów uwierzytelniania do logowania użytko
 
 ### <a name="single-page-application"></a>Aplikacja jednostronicowa
 
-Wiele nowoczesnych aplikacji sieci Web jest zbudowanych jako aplikacje jednostronicowe po stronie klienta. Aplikacje te używają języka JavaScript lub struktury, takich jak kątowe, Vue. js i reaguje. js. Aplikacje te działają w przeglądarce internetowej.
+Wiele nowoczesnych aplikacji sieci Web jest zbudowanych jako aplikacje jednostronicowe po stronie klienta. Aplikacje te używają języka JavaScript lub struktury, takich jak kątowy, Vue.js i React.js. Aplikacje te działają w przeglądarce internetowej.
 
 Aplikacje jednostronicowe różnią się od tradycyjnych aplikacji sieci Web po stronie serwera pod kątem cech uwierzytelniania. Korzystając z platformy tożsamości firmy Microsoft, aplikacje jednostronicowe mogą logować użytkowników i uzyskiwać tokeny umożliwiające dostęp do usług zaplecza lub interfejsów API sieci Web.
 
@@ -109,7 +109,7 @@ Aby pomóc w ochronie aplikacji sieci Web, która jest oznaką użytkownika:
 
 - W przypadku tworzenia oprogramowania w programie .NET należy używać ASP.NET lub ASP.NET Core z programem ASP.NET OpenID Connect Connect. Ochrona zasobu polega na weryfikacji tokenu zabezpieczającego, który jest wykonywany przez [rozszerzenia IdentityModel dla platformy .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) , a nie MSAL.
 
-- W przypadku tworzenia oprogramowania w programie Node. js należy użyć usługi Passport. js.
+- W przypadku tworzenia w Node.js należy użyć Passport.js.
 
 Aby uzyskać więcej informacji, zobacz [aplikacja sieci Web, która oznacza użytkowników](scenario-web-app-sign-user-overview.md).
 
@@ -296,7 +296,7 @@ W kolumnie Windows w poniższej tabeli, za każdym razem, gdy jest wymieniony pr
 | [Aplikacja jednostronicowa](scenario-spa-overview.md) <br/>[![Aplikacja jednostronicowa](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md) <br/>[![Aplikacja internetowa, która loguje użytkowników](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
 | [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplikacja internetowa, która wywołuje internetowe interfejsy API](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python
-| [Aplikacja klasyczna wywołująca internetowe interfejsy API](scenario-desktop-overview.md) <br/> <br/>[Aplikacja klasyczna, która wywołuje przepływ kodu urządzenia interfejsów API sieci Web ![](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS/cel C lub SWIFT](media/sample-v2-code/small_logo_iOS.png) MSAL. objc |
+| [Aplikacja klasyczna wywołująca internetowe interfejsy API](scenario-desktop-overview.md) <br/> <br/>[ ![ Aplikacja klasyczna, która wywołuje interfejsy API](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ sieci Web Przepływ kodu urządzenia](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS/cel C lub SWIFT](media/sample-v2-code/small_logo_iOS.png) MSAL. objc |
 | [Aplikacja mobilna wywołująca internetowe interfejsy API](scenario-mobile-overview.md) <br/> [![Aplikacja mobilna wywołująca internetowe interfejsy API](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/cel C lub SWIFT](media/sample-v2-code/small_logo_iOS.png) MSAL. objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Systemów
 | [Aplikacja demona](scenario-daemon-overview.md) <br/> [![Aplikacja demona](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md) <br/><br/> [![Internetowy interfejs API wywołujący internetowe interfejsy API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core i MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python

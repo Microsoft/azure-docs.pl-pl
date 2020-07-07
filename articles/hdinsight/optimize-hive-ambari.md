@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ce3916ef1155224a91c0736c3dabe907ae8d2611
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796371"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie Apache Hive w usłudze Apache Ambari w usłudze Azure HDInsight
@@ -46,7 +46,7 @@ Jako wytyczne dotyczące wydajności, należy obniżyć oba te parametry, aby zw
 
 Na przykład, aby ustawić cztery zadania mapowania dla rozmiaru danych 128 MB, należy ustawić oba parametry na 32 MB dla każdego (33 554 432 bajty).
 
-1. Aby zmodyfikować parametry limitu, przejdź **do karty konfiguracje** usługi tez. Rozwiń panel **Ogólne** i Znajdź parametry `tez.grouping.max-size` i `tez.grouping.min-size` .
+1. Aby zmodyfikować parametry limitu, przejdź **do karty konfiguracje** usługi tez. Rozwiń panel **Ogólne** i Znajdź `tez.grouping.max-size` `tez.grouping.min-size` Parametry i.
 
 1. Ustaw oba parametry na **33 554 432** bajtów (32 MB).
 
@@ -58,11 +58,11 @@ Te zmiany wpływają na wszystkie zadania tez na serwerze. Aby uzyskać optymaln
 
 Funkcje Apache ORC i przyciągania zapewniają wysoką wydajność. Jednak program Hive może mieć domyślnie zbyt mało zmniejszeń, co powoduje wąskie gardła.
 
-Załóżmy na przykład, że masz rozmiar danych wejściowych wynoszący 50 GB. Te dane w formacie ORC z kompresją przyciągania to 1 GB. Program Hive szacuje liczbę elementów ograniczających potrzebną jako: (liczba bajtów wejściowych do mapera/ `hive.exec.reducers.bytes.per.reducer`).
+Załóżmy na przykład, że masz rozmiar danych wejściowych wynoszący 50 GB. Te dane w formacie ORC z kompresją przyciągania to 1 GB. Program Hive szacuje liczbę elementów ograniczających potrzebną jako: (liczba bajtów wejściowych do mapera/ `hive.exec.reducers.bytes.per.reducer` ).
 
 W przypadku ustawień domyślnych ten przykład ma cztery zmniejszenia.
 
-`hive.exec.reducers.bytes.per.reducer` Parametr określa liczbę bajtów przetworzonych na zmniejszenie. Wartość domyślna to 64 MB. Dostrajanie tej wartości powoduje zwiększenie równoległości i może poprawić wydajność. Dostrajanie go za mało może również generować zbyt wiele obniżyć, co może mieć negatywny wpływ na wydajność. Ten parametr jest oparty na określonych wymaganiach dotyczących danych, ustawieniach kompresji i innych czynnikach środowiskowych.
+`hive.exec.reducers.bytes.per.reducer`Parametr określa liczbę bajtów przetworzonych na zmniejszenie. Wartość domyślna to 64 MB. Dostrajanie tej wartości powoduje zwiększenie równoległości i może poprawić wydajność. Dostrajanie go za mało może również generować zbyt wiele obniżyć, co może mieć negatywny wpływ na wydajność. Ten parametr jest oparty na określonych wymaganiach dotyczących danych, ustawieniach kompresji i innych czynnikach środowiskowych.
 
 1. Aby zmodyfikować parametr, przejdź **do karty konfiguracje** programu Hive i Znajdź na stronie Ustawienia parametr **dane dla ograniczenia** .
 
@@ -80,9 +80,9 @@ W przypadku ustawień domyślnych ten przykład ma cztery zmniejszenia.
 
 Zapytanie programu Hive jest wykonywane w jednym lub kilku etapach. Jeśli niezależne etapy można uruchomić równolegle, spowoduje to zwiększenie wydajności zapytania.
 
-1. Aby włączyć równoległe wykonywanie zapytań, przejdź do karty **Konfiguracja** programu Hive i Wyszukaj `hive.exec.parallel` właściwość. Wartość domyślna to false. Zmień wartość na true, a następnie naciśnij klawisz **Enter** , aby zapisać wartość.
+1. Aby włączyć równoległe wykonywanie zapytań, przejdź do karty **Konfiguracja** programu Hive i Wyszukaj `hive.exec.parallel` Właściwość. Wartość domyślna to false. Zmień wartość na true, a następnie naciśnij klawisz **Enter** , aby zapisać wartość.
 
-1. Aby ograniczyć liczbę zadań, które mają być uruchamiane równolegle, należy zmodyfikować `hive.exec.parallel.thread.number` właściwość. Wartość domyślna to 8.
+1. Aby ograniczyć liczbę zadań, które mają być uruchamiane równolegle, należy zmodyfikować `hive.exec.parallel.thread.number` Właściwość. Wartość domyślna to 8.
 
     ![Wyświetlanie równoległe Apache Hive exec](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
 
@@ -100,7 +100,7 @@ Program Hive przetwarza wiersz danych według wiersza. Wektoryzacji kieruje gał
 
 Domyślnie gałąź jest zgodna z zestawem reguł, aby znaleźć jeden optymalny plan wykonywania zapytań. Optymalizacja oparta na kosztach (CBO) szacuje wiele planów, aby wykonać zapytanie. I przypisuje koszt do każdego planu, a następnie określa najtańszy plan wykonywania zapytania.
 
-Aby włączyć program CBO, przejdź do**ustawień** **konfiguracji** > programu **Hive** > i Znajdź pozycję **Włącz Optymalizator oparty na kosztach**, a następnie Przełącz przycisk przełączania na pozycję **włączone**.
+Aby włączyć program CBO, przejdź **Hive**do  >  **ustawień konfiguracji**programu Hive  >  **Settings** i Znajdź pozycję **Włącz Optymalizator oparty na kosztach**, a następnie Przełącz przycisk przełączania na pozycję **włączone**.
 
 ![Optymalizator oparty na kosztach usługi HDInsight](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -108,7 +108,7 @@ Następujące dodatkowe parametry konfiguracji zwiększają wydajność zapytań
 
 * `hive.compute.query.using.stats`
 
-    Po ustawieniu na wartość true, funkcja Hive używa statystyk przechowywanych w magazynie metadanych do odpowiedzi prostych zapytań `count(*)`, takich jak.
+    Po ustawieniu na wartość true, funkcja Hive używa statystyk przechowywanych w magazynie metadanych do odpowiedzi prostych zapytań, takich jak `count(*)` .
 
     ![Apache Hive kwerendy obliczeniowej przy użyciu statystyk](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
 
@@ -137,7 +137,7 @@ Dostępne typy kompresji to:
 | Gzip | Gzip | WKLĘŚNIĘCIE | `.gz` | Nie |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Tak |
 | LZO | `Lzop` | LZO | `.lzo` | Tak, jeśli indeksowane |
-| Snappy | Brak | Snappy | Snappy | Nie |
+| Snappy | Nie dotyczy | Snappy | Snappy | Nie |
 
 Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym razie zostaną utworzone pewne mapowania. Jeśli dane wejściowe są tekstem, `bzip2` najlepiej jest wybrać opcję. W przypadku formatu ORC przyciąganie jest najszybszą opcją kompresji.
 
@@ -148,11 +148,11 @@ Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym 
     > [!NOTE]  
     > Aby skompresować pliki pośrednie, wybierz koder-dekoder kompresji z niższym kosztem procesora, nawet jeśli koder-dekoder nie ma danych wyjściowych o dużej kompresji.
 
-1. Aby ustawić pośredni koder-dekoder kompresji, Dodaj właściwość `mapred.map.output.compression.codec` niestandardową `hive-site.xml` do `mapred-site.xml` pliku lub.
+1. Aby ustawić pośredni koder-dekoder kompresji, Dodaj właściwość niestandardową `mapred.map.output.compression.codec` do `hive-site.xml` `mapred-site.xml` pliku lub.
 
 1. Aby dodać ustawienie niestandardowe:
 
-    a. Przejdź do **Hive** > **konfiguracji** > programu Hive —**Zaawansowane** > **niestandardowe gałęzie — lokacja**.
+    a. Przejdź do konfiguracji programu **Hive**  >  **Configs**  >  **Advanced**  >  **— Zaawansowane niestandardowe gałęzie — lokacja**.
 
     b. Wybierz pozycję **Dodaj właściwość...** w dolnej części okienka niestandardowe gałęzie — lokacja.
 
@@ -171,9 +171,9 @@ Ogólną zasadą jest, że podział metody kompresji jest istotny, w przeciwnym 
 
 Ostateczne dane wyjściowe programu Hive mogą być również skompresowane.
 
-1. Aby skompresować końcową wersję wyjściową programu Hive, przejdź **do karty konfiguracje** programu Hive, a następnie `hive.exec.compress.output` ustaw parametr na wartość true. Wartość domyślna to false.
+1. Aby skompresować końcową wersję wyjściową programu Hive, przejdź **do karty konfiguracje** programu Hive, a następnie ustaw `hive.exec.compress.output` parametr na wartość true. Wartość domyślna to false.
 
-1. Aby wybrać koder-dekoder kompresji wyjściowej, `mapred.output.compression.codec` należy dodać właściwość niestandardową do niestandardowego okienka programu Hive, zgodnie z opisem w poprzedniej sekcji Krok 3.
+1. Aby wybrać koder-dekoder kompresji wyjściowej, należy dodać `mapred.output.compression.codec` właściwość niestandardową do niestandardowego okienka programu Hive, zgodnie z opisem w poprzedniej sekcji Krok 3.
 
     ![Apache Hive właściwości niestandardowej ADD2](./media/optimize-hive-ambari/hive-custom-property2.png)
 
@@ -183,7 +183,7 @@ Wykonanie spekulacyjne uruchamia określoną liczbę zduplikowanych zadań, aby 
 
 Wykonanie spekulacyjne nie powinno być włączone dla długotrwałych zadań MapReduce z dużymi ilościami danych wejściowych.
 
-* Aby włączyć wykonywanie spekulacyjne, przejdź **do karty konfiguracje** programu Hive, a następnie ustaw dla `hive.mapred.reduce.tasks.speculative.execution` parametru wartość true. Wartość domyślna to false.
+* Aby włączyć wykonywanie spekulacyjne, przejdź **do karty konfiguracje** programu Hive, a następnie ustaw `hive.mapred.reduce.tasks.speculative.execution` dla parametru wartość true. Wartość domyślna to false.
 
     !["Hive mapred Redukuj zadania spekulacyjne wykonywanie"](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -197,7 +197,7 @@ Program Hive umożliwia tworzenie partycji dynamicznych podczas wstawiania rekor
 
 1. Aby ograniczyć liczbę partycji dynamicznych do utworzenia, należy zmodyfikować `hive.exec.max.dynamic.partitions` parametr. Wartość domyślna to 5000.
 
-1. Aby ograniczyć łączną liczbę partycji dynamicznych na węzeł, należy zmodyfikować `hive.exec.max.dynamic.partitions.pernode`. Wartość domyślna to 2000.
+1. Aby ograniczyć łączną liczbę partycji dynamicznych na węzeł, należy zmodyfikować `hive.exec.max.dynamic.partitions.pernode` . Wartość domyślna to 2000.
 
 ## <a name="enable-local-mode"></a>Włącz tryb lokalny
 

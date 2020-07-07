@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 469019eb1e90654d1953156337593d5de99b46c0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796683"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie oprogramowania Apache świni z Apache Ambari w usłudze Azure HDInsight
@@ -35,7 +35,7 @@ Właściwości z Apache świni można modyfikować za pomocą interfejsu użytko
 
 Dostępne są dwa aparaty wykonywania, które umożliwiają wykonywanie skryptów świń: MapReduce i tez. Tez to zoptymalizowany aparat i jest znacznie szybszy niż MapReduce.
 
-1. Aby zmodyfikować aparat wykonywania, w okienku **Zaawansowane właściwości trzody chlewnej** Znajdź właściwość `exectype`.
+1. Aby zmodyfikować aparat wykonywania, w okienku **Zaawansowane właściwości trzody chlewnej** Znajdź właściwość `exectype` .
 
 1. Wartość domyślna to **MapReduce**. Zmień ją na **tez**.
 
@@ -45,15 +45,15 @@ Podobnie jak w przypadku programu Hive, tryb lokalny służy do przyspieszenia z
 
 1. Aby włączyć tryb lokalny, ustaw `pig.auto.local.enabled` **wartość PRAWDA**. Wartość domyślna to false.
 
-1. Zadania o rozmiarze danych wejściowych mniejszym niż wartość `pig.auto.local.input.maxbytes` właściwości są uważane za małe zadania. Wartość domyślna to 1 GB.
+1. Zadania o rozmiarze danych wejściowych mniejszym niż `pig.auto.local.input.maxbytes` wartość właściwości są uważane za małe zadania. Wartość domyślna to 1 GB.
 
 ## <a name="copy-user-jar-cache"></a>Kopiuj pamięć podręczną jar użytkownika
 
-Świnie kopiuje pliki JAR wymagane przez UDF do rozproszonej pamięci podręcznej w celu udostępnienia ich dla węzłów zadań. Te Jars nie zmieniają się często. W przypadku włączenia tego `pig.user.cache.enabled` ustawienia umożliwia Jars w pamięci podręcznej, aby ponownie wykorzystać je do zadań wykonywanych przez tego samego użytkownika. To ustawienie powoduje niewielkie zwiększenie wydajności zadania.
+Świnie kopiuje pliki JAR wymagane przez UDF do rozproszonej pamięci podręcznej w celu udostępnienia ich dla węzłów zadań. Te Jars nie zmieniają się często. W przypadku włączenia tego `pig.user.cache.enabled` Ustawienia umożliwia Jars w pamięci podręcznej, aby ponownie wykorzystać je do zadań wykonywanych przez tego samego użytkownika. To ustawienie powoduje niewielkie zwiększenie wydajności zadania.
 
 1. Aby włączyć, ustaw `pig.user.cache.enabled` wartość true. Wartością domyślną jest false.
 
-1. Aby ustawić ścieżkę bazową w pamięci podręcznej Jars `pig.user.cache.location` , ustaw na ścieżkę bazową. Wartość domyślna to `/tmp`.
+1. Aby ustawić ścieżkę bazową w pamięci podręcznej Jars, ustaw `pig.user.cache.location` na ścieżkę bazową. Wartość domyślna to `/tmp`.
 
 ## <a name="optimize-performance-with-memory-settings"></a>Optymalizowanie wydajności przy użyciu ustawień pamięci
 
@@ -77,11 +77,11 @@ Gdy ta funkcja jest włączona, małe pliki są łączone do mniejszej liczby za
 
 ## <a name="tune-mappers"></a>Dostrajaj mapowania
 
-Liczba odwzorowań jest kontrolowana przez modyfikację właściwości `pig.maxCombinedSplitSize`. Ta właściwość określa rozmiar danych, które mają być przetwarzane przez pojedyncze zadanie mapowania. Wartość domyślna to domyślny rozmiar bloku systemu plików. Zwiększenie tej wartości spowoduje zmniejszenie liczby zadań mapowania.
+Liczba odwzorowań jest kontrolowana przez modyfikację właściwości `pig.maxCombinedSplitSize` . Ta właściwość określa rozmiar danych, które mają być przetwarzane przez pojedyncze zadanie mapowania. Wartość domyślna to domyślny rozmiar bloku systemu plików. Zwiększenie tej wartości spowoduje zmniejszenie liczby zadań mapowania.
 
 ## <a name="tune-reducers"></a>Dostrajaj ograniczenia
 
-Liczba elementów ograniczających jest obliczana na podstawie parametru `pig.exec.reducers.bytes.per.reducer`. Parametr określa liczbę bajtów przetworzonych na program, domyślnie 1 GB. Aby ograniczyć maksymalną liczbę elementów ograniczających, należy ustawić `pig.exec.reducers.max` właściwość domyślnie 999.
+Liczba elementów ograniczających jest obliczana na podstawie parametru `pig.exec.reducers.bytes.per.reducer` . Parametr określa liczbę bajtów przetworzonych na program, domyślnie 1 GB. Aby ograniczyć maksymalną liczbę elementów ograniczających, należy ustawić `pig.exec.reducers.max` Właściwość domyślnie 999.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Tworze
 description: Ten skrypt tworzy konto usługi Azure Batch w trybie subskrypcji użytkownika. To konto przydziela węzły obliczeniowe do subskrypcji.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 9f3919574dd7dcbe932c71dfcea2ac52ec906c6c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e589361da8442107f06a0933a1f1ac79a88945ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681884"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964079"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Przykład interfejsu wiersza polecenia: tworzenie konta usługi Batch w trybie subskrypcji użytkownika
 
@@ -38,8 +38,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 | [az role assignment create](/cli/azure/role) | Tworzy nowe przypisanie roli dla użytkownika, grupy lub jednostki usługi. |
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Tworzy magazyn kluczy. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Aktualizuje zasady zabezpieczeń określonego magazynu kluczy. |
+| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Tworzy magazyn kluczy. |
+| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Aktualizuje zasady zabezpieczeń określonego magazynu kluczy. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Tworzy konto usługi Batch.  |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Przeprowadza uwierzytelnianie na określonym koncie usługi Batch na potrzeby dalszej interakcji z interfejsem wiersza polecenia.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |

@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864508"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970930"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -18,20 +18,20 @@ Usługa Blueprints umożliwia deklaratywne organizowanie i wdrażanie różnych 
 
 - Przypisania ról
 - Przypisania zasad
-- Szablony usługi Azure Resource Manager
+- Szablony Azure Resource Manager (szablony ARM)
 - Grupy zasobów
 
 Usługa Azure Blueprints jest wspierana przez globalnie dystrybuowaną [usługę Azure Cosmos DB](../../cosmos-db/introduction.md). Obiekty strategii są replikowane w wielu regionach świadczenia usługi Azure. Ta replikacja zapewnia małe opóźnienia, wysoką dostępność i spójny dostęp do obiektów planu, niezależnie od tego, w jakim regionie plany platformy Azure wdrażają Twoje zasoby.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>W czym różni się ona od szablonów usługi Resource Manager
+## <a name="how-its-different-from-arm-templates"></a>Różnice między szablonami ARM
 
-Usługa została zaprojektowana w celu ułatwienia _konfiguracji środowiska_. Ta konfiguracja często składa się z zestawu grup zasobów, zasad, przypisań ról i wdrożeń szablonów usługi Resource Manager. Plan to pakiet, który umożliwia łączenie każdego z tych typów _artefaktów_ i pozwala na tworzenie pakietów i ich wersji, w tym za pomocą potoku ciągłej integracji/ciągłego wdrażania. Każdy pakiet jest ostatecznie przypisywany do subskrypcji w ramach jednej operacji, którą można poddawać inspekcji i śledzić.
+Usługa została zaprojektowana w celu ułatwienia _konfiguracji środowiska_. Ta konfiguracja często składa się z zestawu grup zasobów, zasad, przypisań ról i wdrożeń szablonów ARM. Plan to pakiet, który umożliwia łączenie każdego z tych typów _artefaktów_ i pozwala na tworzenie pakietów i ich wersji, w tym za pomocą potoku ciągłej integracji/ciągłego wdrażania. Każdy pakiet jest ostatecznie przypisywany do subskrypcji w ramach jednej operacji, którą można poddawać inspekcji i śledzić.
 
-Niemal wszystkie elementy, które mają zostać dołączone do wdrożenia w planach platformy Azure, można wykonać przy użyciu szablonu Menedżer zasobów. Szablony usługi Resource Manager są jednak dokumentami, które nie istnieją natywnie na platformie Azure — każdy z nich jest przechowywany lokalnie lub w kontroli źródła. Szablon jest używany na potrzeby wdrożenia jednego lub większej liczby zasobów platformy Azure, ale po wdrożeniu tych zasobów nie ma aktywnego połączenia z wykorzystanym szablonem ani relacji z nim.
+Niemal wszystkie elementy, które chcesz dołączyć do wdrożenia w planach platformy Azure, można zrealizować przy użyciu szablonu ARM. Jednak szablon ARM jest dokumentem, który nie istnieje natywnie na platformie Azure — każdy jest przechowywany lokalnie lub w kontroli źródła. Szablon jest używany na potrzeby wdrożenia jednego lub większej liczby zasobów platformy Azure, ale po wdrożeniu tych zasobów nie ma aktywnego połączenia z wykorzystanym szablonem ani relacji z nim.
 
 Dzięki planom platformy Azure relacja między definicją strategii (co _należy_ wdrożyć) a przypisaniem planu (co _zostało_ wdrożone) jest zachowywana. To połączenie obsługuje ulepszone śledzenie i inspekcję wdrożeń. Plany platformy Azure mogą również uaktualnić kilka subskrypcji jednocześnie, które podlegają temu samemu planowi.
 
-Nie ma potrzeby dokonywania wyboru między szablonem usługi Resource Manager i strategią. Każda strategia może zawierać dowolną liczbę _artefaktów_ szablonu usługi Resource Manager. Ta pomoc techniczna oznacza, że poprzednie wysiłki w zakresie tworzenia i konserwowania biblioteki Menedżer zasobów szablonów są wielokrotnego użytku w planach platformy Azure.
+Nie trzeba wybierać między szablonem ARM a planem. Każdy plan może składać się z co najmniej zero _artefaktów_szablonu ARM. Ta pomoc techniczna oznacza, że poprzednie wysiłki w zakresie opracowywania i konserwowania biblioteki szablonów ARM są wielokrotnego użytku w planach platformy Azure.
 
 ## <a name="how-its-different-from-azure-policy"></a>W czym różni się ona od usługi Azure Policy
 
@@ -49,8 +49,8 @@ Strategia składa się z _artefaktów_. Plany platformy Azure obsługują obecni
 
 |Zasób  | Opcje hierarchii| Opis  |
 |---------|---------|---------|
-|Grupy zasobów | Subskrypcja | Umożliwia utworzenie nowej grupy zasobów do użytku przez inne artefakty w ramach strategii.  Te zastępcze grupy zasobów umożliwiają organizowanie zasobów dokładnie w taką strukturę, jaka jest pożądana. Udostępniają one ogranicznik zakresu na potrzeby uwzględnionych zasad i artefakty przypisania roli oraz szablony usługi Azure Resource Manager. |
-|Szablon usługi Azure Resource Manager | Subskrypcja, grupa zasobów | Szablony, w tym zagnieżdżone i połączone szablony, służą do tworzenia złożonych środowisk. Przykładowe środowiska: farma programu SharePoint, konfiguracja stanu usługi Azure Automation lub obszar roboczy usługi Log Analytics. |
+|Grupy zasobów | Subskrypcja | Umożliwia utworzenie nowej grupy zasobów do użytku przez inne artefakty w ramach strategii.  Te symbole zastępcze grup zasobów umożliwiają organizowanie zasobów dokładnie w taki sposób, aby były one uporządkowane i udostępniają ogranicznik zakresu dla dołączonych zasad i artefaktów przypisywania ról oraz szablonów ARM. |
+|Szablon ARM | Subskrypcja, grupa zasobów | Szablony, w tym zagnieżdżone i połączone szablony, służą do tworzenia złożonych środowisk. Przykładowe środowiska: farma programu SharePoint, konfiguracja stanu usługi Azure Automation lub obszar roboczy usługi Log Analytics. |
 |Przypisanie zasad | Subskrypcja, grupa zasobów | Umożliwia przypisanie zasad lub inicjatywy do subskrypcji, do której przypisano strategię. Zasady lub inicjatywa muszą znajdować się w zakresie lokalizacji definicji strategii. Jeśli zasady lub inicjatywa mają parametry, są one przypisywane podczas tworzenia strategii bądź podczas jej przypisywania. |
 |Przypisanie roli | Subskrypcja, grupa zasobów | Dodawanie istniejącego użytkownika lub grupy do wbudowanej roli w celu zagwarantowania, że odpowiednie osoby zawsze będą mieć odpowiedni dostęp do zasobów. Przypisania ról mogą być definiowane dla całej subskrypcji lub mogą być zagnieżdżone w konkretnej grupie zasobów uwzględnionej w strategii. |
 
@@ -60,9 +60,7 @@ Podczas tworzenia definicji strategii należy zdefiniować miejsce, w którym st
 
 ### <a name="blueprint-parameters"></a>Parametry strategii
 
-Usługa Blueprints może przekazywać parametry do zasad/inicjatywy lub szablonu usługi Azure Resource Manager.
-Podczas dodawania dowolnego _artefaktu_ do strategii autor decyduje o udostępnieniu zdefiniowanej wartości dla każdego przypisania strategii lub zezwoleniu, aby każde przypisanie strategii udostępniało wartość w czasie przypisywania.
-Dzięki tej elastyczności można zdefiniować wstępnie ustaloną wartość dla wszystkich zastosowań strategii lub umożliwić podjęcie decyzji w czasie przypisywania.
+Plany mogą przekazywać parametry do szablonu Policy/Initiative lub ARM. Podczas dodawania dowolnego _artefaktu_ do strategii autor decyduje o udostępnieniu zdefiniowanej wartości dla każdego przypisania strategii lub zezwoleniu, aby każde przypisanie strategii udostępniało wartość w czasie przypisywania. Dzięki tej elastyczności można zdefiniować wstępnie ustaloną wartość dla wszystkich zastosowań strategii lub umożliwić podjęcie decyzji w czasie przypisywania.
 
 > [!NOTE]
 > Strategia może mieć własne parametry, ale obecnie można je tworzyć tylko w przypadku, kiedy strategia jest generowana w interfejsie API REST, a nie za pomocą portalu.
@@ -71,8 +69,8 @@ Aby uzyskać więcej informacji, zobacz [parametry strategii](./concepts/paramet
 
 ### <a name="blueprint-publishing"></a>Publikowanie strategii
 
-Kiedy strategia jest tworzona po raz pierwszy, przyjmuje się, że jest w trybie **wersji roboczej**. Kiedy jest gotowa do przypisania, należy ją **opublikować**. Publikowanie wymaga zdefiniowania ciągu **wersji** (liter, cyfr i łączników o maksymalnej długości 20 znaków) wraz z opcjonalnymi **uwagami dotyczącymi zmian**. Dzięki zastosowaniu **wersji** przyszłe zmiany wprowadzone w strategii mogą być traktowane jako osobne wersje z możliwością ich przypisania. Obsługa wersji oznacza również, że różne **wersje** tej samej strategii można przypisać do jednej subskrypcji. Po wprowadzeniu dodatkowych zmian do planu **opublikowana**
-**wersja** nadal istnieje, tak jak w przypadku **nieopublikowanych zmian**. Po zakończeniu wprowadzania zmian zaktualizowana strategia jest **publikowana** jako nowa unikatowa **wersja**, którą teraz również można przypisać.
+Kiedy strategia jest tworzona po raz pierwszy, przyjmuje się, że jest w trybie **wersji roboczej**. Kiedy jest gotowa do przypisania, należy ją **opublikować**. Publikowanie wymaga zdefiniowania ciągu **wersji** (liter, cyfr i łączników o maksymalnej długości 20 znaków) wraz z opcjonalnymi **uwagami dotyczącymi zmian**. Dzięki zastosowaniu **wersji** przyszłe zmiany wprowadzone w strategii mogą być traktowane jako osobne wersje z możliwością ich przypisania. Obsługa wersji oznacza również, że różne **wersje** tej samej strategii można przypisać do jednej subskrypcji. Po wprowadzeniu dodatkowych zmian do planu **opublikowana** 
+ **wersja** nadal istnieje, tak jak w przypadku **nieopublikowanych zmian**. Po zakończeniu wprowadzania zmian zaktualizowana strategia jest **publikowana** jako nowa unikatowa **wersja**, którą teraz również można przypisać.
 
 ## <a name="blueprint-assignment"></a>Przypisywanie strategii
 

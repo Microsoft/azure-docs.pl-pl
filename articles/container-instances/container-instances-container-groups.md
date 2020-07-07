@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583836"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupy kontenerów w usłudze Azure Container Instances
@@ -67,7 +67,7 @@ W tym scenariuszu można ustawić limit zasobów równy 2 procesor CPU dla wyst�
 
 * Aby uzyskać **maksymalną liczbę** zasobów w grupie kontenerów, zapoznaj się z tematem [dostępność zasobów][region-availability] dla Azure Container Instances w regionie wdrożenia.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Grupy kontenerów mogą współużytkować zewnętrzny adres IP, co najmniej jeden port na tym adresie IP oraz etykietę DNS z w pełni kwalifikowaną nazwą domeny (FQDN). Aby umożliwić klientom zewnętrznym dotarcie do kontenera w grupie, należy uwidocznić port w adresie IP i z kontenera. Po usunięciu grupy kontenerów jest wydawany adres IP i nazwa FQDN grupy kontenerów. 
 
@@ -75,11 +75,11 @@ W obrębie grupy kontenerów wystąpienia kontenerów mogą się łączyć ze so
 
 Opcjonalnie można wdrożyć grupy kontenerów w [sieci wirtualnej platformy Azure][virtual-network] , aby umożliwić bezpiecznym komunikację kontenerów z innymi zasobami w sieci wirtualnej.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Możesz określić woluminy zewnętrzne do zainstalowania w obrębie grupy kontenerów. Obsługiwane są następujące woluminy:
 * [Udział plików platformy Azure][azure-files]
-* [Wpis tajny][secret]
+* [Wpisu][secret]
 * [Pusty katalog][empty-directory]
 * [Sklonowane repozytorium git][volume-gitrepo]
 

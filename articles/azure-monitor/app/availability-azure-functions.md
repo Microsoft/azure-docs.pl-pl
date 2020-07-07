@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
 ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791117"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
@@ -45,7 +45,7 @@ Skopiuj poniższy kod do pliku Run. CSX (spowoduje to zastąpienie istniejącego
 >![Funkcja Run. CSX w Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Adres punktu końcowego, który ma być używany `EndpointAddress= https://dc.services.visualstudio.com/v2/track`:. Jeśli zasób nie znajduje się w regionie, takim jak Azure Government lub Chiny platformy Azure, w tym przypadku zapoznaj się z tym artykułem, aby zastąpić [domyślne punkty końcowe](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) i wybrać odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
+> Adres punktu końcowego, który ma być używany: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Jeśli zasób nie znajduje się w regionie, takim jak Azure Government lub Chiny platformy Azure, w tym przypadku zapoznaj się z tym artykułem, aby zastąpić [domyślne punkty końcowe](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) i wybrać odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -160,7 +160,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Aby upewnić się, że wszystko działa, możesz przyjrzeć się grafowi na karcie dostępność zasobu Application Insights.
 
 > [!NOTE]
-> Jeśli zaimplementowano własną logikę biznesową w programie runAvailabilityTest. CSX, zobaczysz pomyślne wyniki podobne do poniższych zrzutów ekranu, jeśli nie zobaczysz, że wyniki nie zostaną wyświetlone. Testy utworzone za `TrackAvailability()` pomocą będą wyświetlane z **niestandardowym** obok nazwy testu.
+> Jeśli zaimplementowano własną logikę biznesową w programie runAvailabilityTest. CSX, zobaczysz pomyślne wyniki podobne do poniższych zrzutów ekranu, jeśli nie zobaczysz, że wyniki nie zostaną wyświetlone. Testy utworzone za pomocą `TrackAvailability()` będą wyświetlane z **niestandardowym** obok nazwy testu.
 
 >[!div class="mx-imgBorder"]
 >![Karta dostępność z pomyślnymi wynikami](media/availability-azure-functions/availability-custom.png)

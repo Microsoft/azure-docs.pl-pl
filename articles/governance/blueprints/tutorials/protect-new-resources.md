@@ -3,16 +3,16 @@ title: 'Samouczek: Ochrona nowych zasobów przy użyciu blokad'
 description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plans tylko do odczytu i nie usuwaj, aby chronić nowo wdrożone zasoby.
 ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864168"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969645"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
 
-Dzięki [zablokowaniu zasobów](../concepts/resource-locking.md)platformy Azure można chronić nowo wdrożone zasoby przed zmianą, nawet przez konto z rolą _właściciela_ . Tę ochronę można dodać w definicjach planów zasobów utworzonych przez artefakt szablonu Menedżer zasobów.
+Dzięki [zablokowaniu zasobów](../concepts/resource-locking.md)platformy Azure można chronić nowo wdrożone zasoby przed zmianą, nawet przez konto z rolą _właściciela_ . Tę ochronę można dodać w definicjach planów zasobów utworzonych przez artefakt szablonu Azure Resource Manager (szablon ARM).
 
 W tym samouczku wykonasz następujące czynności:
 
@@ -25,7 +25,7 @@ W tym samouczku wykonasz następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-a-blueprint-definition"></a>Tworzenie definicji strategii
 
@@ -55,8 +55,7 @@ Najpierw Utwórz definicję planu.
 1. Dodaj szablon do grupy zasobów:
    1. Wybierz **Dodaj wiersz artefaktu** w ramach wpisu **RGtoLock** .
    1. Wybierz **szablon Azure Resource Manager** w obszarze **Typ artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount**i pozostaw pole **Opis** puste.
-   1. Na karcie **szablon** wklej następujący szablon Menedżer zasobów w polu Edytor.
-      Po wklejeniu szablonu wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
+   1. Na karcie **szablon** wklej następujący szablon ARM do pola Edytor. Po wklejeniu szablonu wybierz pozycję **Dodaj** , aby dodać artefakt do planu.
 
    ```json
    {
@@ -132,7 +131,7 @@ Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie z
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - **Podstawy**
+   - **Informacje podstawowe**
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, w której zapisano definicję planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdej subskrypcji przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniana na podstawie nazwy definicji planu. To przypisanie reprezentuje zablokowanie nowej grupy zasobów, dlatego należy zmienić nazwę przypisania na **przypisanie-storageaccount-TestingBPLocks**.
@@ -166,7 +165,7 @@ Po wyświetleniu powiadomienia portalu **przypisywanie definicji planu powiodło
 
 ## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspekcja zasobów wdrożonych przez przypisanie
 
-Przypisanie tworzy _TestingBPLocks_ grupy zasobów i konto magazynu wdrożone przez artefakt szablonu Menedżer zasobów. Nowa grupa zasobów i wybrany stan blokady są wyświetlane na stronie szczegółów przypisania.
+Przypisanie tworzy _TestingBPLocks_ grupy zasobów i konto magazynu wdrożone przez artefakt szablonu ARM. Nowa grupa zasobów i wybrany stan blokady są wyświetlane na stronie szczegółów przypisania.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
@@ -188,7 +187,7 @@ Przypisanie tworzy _TestingBPLocks_ grupy zasobów i konto magazynu wdrożone pr
 
 1. Zaznacz pozycję Odmów przypisania, a następnie wybierz stronę **odmowa uprawnień** po lewej stronie.
 
-   Przypisanie Odmów uniemożliwia wszystkie operacje z konfiguracją **\*** **akcji** i, ale zezwala na dostęp do odczytu przez wykluczenie ** \*/Read** za **pośrednictwem**nostąps.
+   Przypisanie Odmów uniemożliwia wszystkie operacje z **\*** konfiguracją **akcji** i, ale zezwala na dostęp do odczytu przez wykluczenie ** \* /Read** za **NotActions**pośrednictwem nostąps.
 
 1. Na stronie nawigacyjnej Azure Portal wybierz pozycję **Kontrola dostępu TestingBPLocks (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów** . Wprowadź nazwę **TestingBPLocks** , aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** w dolnej części okienka.
 
@@ -216,7 +215,7 @@ Zabezpieczenia dla grupy zasobów pokazują, że przypisanie planu nie ma już d
 
 Po wyświetleniu powiadomienia portalu **usuwanie przypisania strategii powiodło** się przejdź do następnego kroku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń następujące zasoby:
 

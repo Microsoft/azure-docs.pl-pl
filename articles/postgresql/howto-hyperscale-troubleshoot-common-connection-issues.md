@@ -9,10 +9,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/8/2019
 ms.openlocfilehash: abcc979bb36fe0acb663a511875a1e186c2c0739
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583971"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Rozwiązywanie problemów z połączeniami w celu Azure Database for PostgreSQL-Citus

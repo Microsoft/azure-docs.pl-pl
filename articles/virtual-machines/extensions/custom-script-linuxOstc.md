@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594716"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Korzystanie z rozszerzenia niestandardowego skryptu platformy Azure w wersji 1 z maszynami wirtualnymi z systemem Linux
@@ -120,12 +120,12 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. OSTCExtensions | ciąg |
-| type | CustomScriptForLinux | ciąg |
+| typ | CustomScriptForLinux | ciąg |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | tablica |
-| Sekcji commandtoexecute (np.) | Python MyPythonScript.py \<my-param1\> | ciąg |
+| Sekcji commandtoexecute (np.) | MyPythonScript.py Python\<my-param1\> | ciąg |
 | enableInternalDNSCheck | true | wartość logiczna |
 | storageAccountName (np.) | examplestorageacct | ciąg |
 | storageAccountKey (np.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | ciąg |
@@ -260,7 +260,7 @@ az vm extension set
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Po uruchomieniu rozszerzenia skryptu niestandardowego skrypt jest tworzony lub pobierany do katalogu podobnego do poniższego przykładu. Dane wyjściowe polecenia są również zapisywane w tym katalogu w `stdout` plikach `stderr` i.
+Po uruchomieniu rozszerzenia skryptu niestandardowego skrypt jest tworzony lub pobierany do katalogu podobnego do poniższego przykładu. Dane wyjściowe polecenia są również zapisywane w tym katalogu w `stdout` `stderr` plikach i.
 
 ```bash
 /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-<version>/download/1

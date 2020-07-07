@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
 ms.openlocfilehash: 77fbdb1720e571027f28b5bdca5c0e3c65c3ded2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82584404"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej

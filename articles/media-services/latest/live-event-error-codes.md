@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
 ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791055"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
@@ -54,7 +54,7 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 |Nieznane kody błędów|Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów.|
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Kody błędów punktu końcowego przesyłania strumieniowego (Źródło)](streaming-endpoint-error-codes.md)
 

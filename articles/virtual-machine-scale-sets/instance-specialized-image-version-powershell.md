@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 8ba9379125917c482ce12cb28b6fa6e5be809203
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796553"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Tworzenie zestawu skalowania na podstawie wyspecjalizowanego obrazu przy użyciu programu PowerShell 
@@ -22,7 +22,7 @@ Utwórz maszynę wirtualną na podstawie wyspecjalizowanej wersji obrazu zapisan
 
 Po umieszczeniu wyspecjalizowanego obrazu w galerii można utworzyć zestaw skalowania maszyn wirtualnych za pomocą polecenia cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
-W tym przykładzie używamy identyfikatora definicji obrazu, aby upewnić się, że nowa maszyna wirtualna będzie używać najnowszej wersji obrazu. Można również użyć określonej wersji za pomocą identyfikatora wersji obrazu dla programu `-ImageReferenceId`. Na przykład, aby użyć *1.0.0* wersji obrazu typu: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+W tym przykładzie używamy identyfikatora definicji obrazu, aby upewnić się, że nowa maszyna wirtualna będzie używać najnowszej wersji obrazu. Można również użyć określonej wersji za pomocą identyfikatora wersji obrazu dla programu `-ImageReferenceId` . Na przykład, aby użyć *1.0.0* wersji obrazu typu: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Należy pamiętać, że użycie określonej wersji obrazu oznacza, że Automatyzacja może się nie powieść, jeśli określona wersja obrazu jest niedostępna, ponieważ została usunięta lub usunięta z regionu. Zalecamy użycie identyfikatora definicji obrazu do tworzenia nowej maszyny wirtualnej, o ile nie jest wymagana określona wersja obrazu.
 

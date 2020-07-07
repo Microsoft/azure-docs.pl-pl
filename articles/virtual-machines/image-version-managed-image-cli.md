@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 6f49ece874ea52227e6531193fc53b3bea525702
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796605"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrowanie z obrazu zarządzanego do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji na temat wartości, które można określić dla
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu [uogólniony](./linux/shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj `--os-type Windows`polecenia. 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu [uogólniony](./linux/shared-image-galleries.md#generalized-and-specialized-images) obraz systemu operacyjnego Linux. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Windows, użyj polecenia `--os-type Windows` . 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

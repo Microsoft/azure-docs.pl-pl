@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować certyfikat szyfrowania i zaszyfrow
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.openlocfilehash: eb4909d62a2627c368f24dab572b25c6f1df30ec
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583291"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Windows
@@ -16,13 +16,13 @@ W tym artykule przedstawiono sposób konfigurowania certyfikatu szyfrowania i u�
 [Azure Key Vault][key-vault-get-started] jest używany w tym miejscu jako bezpieczna lokalizacja magazynu dla certyfikatów i jako sposób uzyskiwania certyfikatów zainstalowanych w klastrach Service Fabric na platformie Azure. Jeśli nie planujesz wdrożenia na platformie Azure, nie musisz używać Key Vault do zarządzania wpisami tajnymi w aplikacjach Service Fabric. Jednak *Używanie* wpisów tajnych w aplikacji to Cloud Platform-niezależny od, aby umożliwić wdrażanie aplikacji w klastrze hostowanym w dowolnym miejscu. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Uzyskiwanie certyfikatu szyfrowania danych
-Certyfikat szyfrowanie danych jest używany wyłącznie do szyfrowania i odszyfrowywania [parametrów][parameters-link] w ustawieniach usługi. XML i [zmiennych środowiskowych][environment-variables-link] w pliku servicemanifest. XML usługi. Nie jest on używany do uwierzytelniania ani podpisywania tekstu szyfrowania. Certyfikat musi spełniać następujące wymagania:
+Certyfikat szyfrowanie danych jest używany wyłącznie do szyfrowania i odszyfrowywania [parametrów][parameters-link] w Settings.xml i [zmiennych środowiskowych][environment-variables-link] usługi w ServiceManifest.xml usługi. Nie jest on używany do uwierzytelniania ani podpisywania tekstu szyfrowania. Certyfikat musi spełniać następujące wymagania:
 
 * Certyfikat musi zawierać klucz prywatny.
 * Należy utworzyć certyfikat do wymiany kluczy, który można wyeksportować do pliku wymiany informacji osobistych (pfx).
 * Użycie klucza certyfikatu musi obejmować szyfrowanie danych (10) i nie powinno obejmować uwierzytelniania serwera ani uwierzytelniania klientów. 
   
-  Na przykład podczas tworzenia certyfikatu z podpisem własnym przy użyciu programu PowerShell `KeyUsage` Flaga musi być ustawiona na: `DataEncipherment`
+  Na przykład podczas tworzenia certyfikatu z podpisem własnym przy użyciu programu PowerShell `KeyUsage` Flaga musi być ustawiona na `DataEncipherment` :
   
   ```powershell
   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117169"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963856"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Samouczek: wyzwalanie zadania usługi Batch przy użyciu Azure Functions
 
@@ -40,13 +40,13 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli partii i zadania wsadowe
     1. Ustaw typ skali na **stały rozmiar**i ustaw liczbę węzłów dedykowanych na 3.
     1. Wybierz pozycję **Ubuntu 18,04-LTS** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
-    1. Włącz zadanie uruchamiania i Dodaj polecenie `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Pamiętaj, aby ustawić tożsamość użytkownika jako **domyślnego użytkownika zadania (administratora)**, co umożliwia uruchamianie zadań w celu uwzględnienia poleceń `sudo`z.
+    1. Włącz zadanie uruchamiania i Dodaj polecenie `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` . Pamiętaj, aby ustawić tożsamość użytkownika jako **domyślnego użytkownika zadania (administratora)**, co umożliwia uruchamianie zadań w celu uwzględnienia poleceń z `sudo` .
     1. Wybierz przycisk **OK**.
 ### <a name="create-a-job"></a>Tworzenie zadania
 
 1. Utwórz zadanie w puli, wybierając pozycję **zadania** na pasku po lewej stronie, a następnie przycisk **Dodaj** nad formularzem wyszukiwania. 
     1. Wybierz identyfikator i nazwę wyświetlaną. Będziemy używać `ocr-job` tego przykładu.
-    1. Ustaw pulę na `ocr-pool`lub inną nazwę wybraną dla puli.
+    1. Ustaw pulę na `ocr-pool` lub inną nazwę wybraną dla puli.
     1. Wybierz przycisk **OK**.
 
 
@@ -55,10 +55,10 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli partii i zadania wsadowe
 Tutaj utworzysz kontenery obiektów blob, które będą przechowywać pliki wejściowe i wyjściowe dla zadania wsadowego OCR.
 
 1. Zaloguj się, aby Eksplorator usługi Storage przy użyciu poświadczeń platformy Azure.
-1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 
 W tym przykładzie kontener wejściowy ma nazwę `input` i jest miejsce, gdzie wszystkie dokumenty bez OCR są początkowo przekazywane do przetwarzania. Kontener wyjściowy ma nazwę `output` i polega na tym, że zadanie wsadowe zapisuje przetworzone dokumenty z użyciem OCR.  
-    * W tym przykładzie wywołamy nasz kontener `input`wejściowy oraz nasz kontener `output`wyjściowy.  
+    * W tym przykładzie wywołamy nasz kontener wejściowy `input` oraz nasz kontener wyjściowy `output` .  
     * Kontener wejściowy to miejsce, w którym wszystkie dokumenty bez OCR są początkowo przekazywane.  
     * Kontener danych wyjściowych to miejsce, w którym zadanie wsadowe zapisuje dokumenty przy użyciu OCR.  
 
@@ -68,18 +68,18 @@ Utwórz sygnaturę dostępu współdzielonego dla kontenera danych wyjściowych 
 
 W tej sekcji utworzysz funkcję platformy Azure, która wyzwala zadanie wsadowe OCR za każdym razem, gdy plik zostanie przekazany do kontenera wejściowego.
 
-1. Wykonaj kroki opisane w temacie [Tworzenie funkcji wyzwalanej przez usługę Azure Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) , aby utworzyć funkcję.
+1. Wykonaj kroki opisane w temacie [Tworzenie funkcji wyzwalanej przez usługę Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md) , aby utworzyć funkcję.
     1. Po wyświetleniu monitu o konto magazynu Użyj tego samego konta magazynu, które zostało połączone z kontem usługi Batch.
     1. W obszarze **stos środowiska uruchomieniowego**wybierz opcję .NET. Zapiszemy naszą funkcję w języku C#, aby korzystać z zestawu SDK programu .NET.
-1. Po utworzeniu funkcji wyzwalanej przez obiekt BLOB Użyj [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) i [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) z usługi GitHub w funkcji.
+1. Po utworzeniu funkcji wyzwalanej przez obiekt BLOB Użyj [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) i z usługi [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) GitHub w funkcji.
     * `run.csx`jest uruchamiany po dodaniu nowego obiektu BLOB do wejściowego kontenera obiektów BLOB.
     * `function.proj`Wyświetla listę zewnętrznych bibliotek w kodzie funkcji, na przykład zestaw SDK usługi Batch dla platformy .NET.
-1. Zmień wartości zastępcze zmiennych w `Run()` funkcji pliku, `run.csx` aby odzwierciedlały poświadczenia dotyczące partii i magazynu. Poświadczenia konta magazynu i partii można znaleźć w Azure Portal w sekcji **klucze** Twojego konta w usłudze Batch.
+1. Zmień wartości zastępcze zmiennych w `Run()` funkcji `run.csx` pliku, aby odzwierciedlały poświadczenia dotyczące partii i magazynu. Poświadczenia konta magazynu i partii można znaleźć w Azure Portal w sekcji **klucze** Twojego konta w usłudze Batch.
     * Pobierz poświadczenia konta magazynu i partii w Azure Portal w sekcji **klucze** Twojego konta w usłudze Batch. 
 
 ## <a name="trigger-the-function-and-retrieve-results"></a>Wyzwalanie funkcji i pobieranie wyników
 
-Przekaż wszystkie lub wszystkie zeskanowane pliki z [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) katalogu w witrynie GitHub do kontenera wejściowego. Monitoruj Batch Explorer, aby potwierdzić, że zadanie zostanie dodane `ocr-pool` do każdego pliku. Po kilku sekundach plik z zastosowaniem OCR zostanie dodany do kontenera danych wyjściowych. Plik jest następnie widoczny i możliwy do pobierania na Eksplorator usługi Storage.
+Przekaż wszystkie lub wszystkie zeskanowane pliki z [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) katalogu w witrynie GitHub do kontenera wejściowego. Monitoruj Batch Explorer, aby potwierdzić, że zadanie zostanie dodane do `ocr-pool` każdego pliku. Po kilku sekundach plik z zastosowaniem OCR zostanie dodany do kontenera danych wyjściowych. Plik jest następnie widoczny i możliwy do pobierania na Eksplorator usługi Storage.
 
 Ponadto możesz obejrzeć plik dzienników w dolnej części okna edytora sieci Web Azure Functions, w którym będą wyświetlane komunikaty podobne do każdego pliku, który został przekazany do kontenera wejściowego:
 
@@ -111,4 +111,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 * Aby uzyskać więcej przykładów dotyczących planowania i przetwarzania obciążeń usługi Batch przy użyciu interfejsu API platformy .NET, zobacz [przykłady w witrynie GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Aby wyświetlić więcej Azure Functions wyzwalaczy, których można użyć do uruchamiania obciążeń wsadowych, zapoznaj [się z dokumentacją Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Aby wyświetlić więcej Azure Functions wyzwalaczy, których można użyć do uruchamiania obciążeń wsadowych, zapoznaj [się z dokumentacją Azure Functions](../azure-functions/functions-triggers-bindings.md).

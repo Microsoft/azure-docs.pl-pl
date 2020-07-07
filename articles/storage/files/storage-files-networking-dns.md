@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509969"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania DNS dla usługi Azure Files
@@ -151,7 +151,7 @@ Jeśli skonfigurowano już połączenie sieci VPN lub ExpressRoute, można równ
 Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCPPort SMB
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
 - [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
 - [Konfigurowanie punktów końcowych sieci Azure Files](storage-files-networking-endpoints.md)

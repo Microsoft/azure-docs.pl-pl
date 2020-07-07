@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791497"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optymalizowanie zapytań technologii Apache Hive w usłudze Azure HDInsight
 
 W usłudze Azure HDInsight istnieje kilka typów klastrów i technologii, które mogą uruchamiać Apache Hive zapytań. Wybierz odpowiedni typ klastra, aby pomóc zoptymalizować wydajność dla potrzeb związanych z obciążeniem.
 
-Na przykład wybierz pozycję **interaktywna kwerenda** typ klastra `ad hoc`, aby zoptymalizować zapytania interakcyjne. Wybierz typ klastra Apache **Hadoop** , aby zoptymalizować zapytania Hive używane jako proces wsadowy. Typy klastrów **Spark** i **HBase** mogą również uruchamiać zapytania programu Hive. Aby uzyskać więcej informacji na temat uruchamiania zapytań programu Hive w różnych typach klastrów usługi HDInsight, zobacz [co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Na przykład wybierz pozycję **interaktywna kwerenda** typ klastra, aby zoptymalizować `ad hoc` zapytania interakcyjne. Wybierz typ klastra Apache **Hadoop** , aby zoptymalizować zapytania Hive używane jako proces wsadowy. Typy klastrów **Spark** i **HBase** mogą również uruchamiać zapytania programu Hive. Aby uzyskać więcej informacji na temat uruchamiania zapytań programu Hive w różnych typach klastrów usługi HDInsight, zobacz [co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 Klastry usługi HDInsight typu klastra Hadoop nie są domyślnie zoptymalizowane pod kątem wydajności. W tym artykule opisano niektóre typowe metody optymalizacji wydajności Hive, które można zastosować do zapytań.
 
@@ -122,7 +122,7 @@ Aby uzyskać więcej informacji, zobacz [partycjonowane tabele](https://cwiki.ap
 
 ## <a name="use-the-orcfile-format"></a>Użyj formatu ORCFile
 
-Program Hive obsługuje różne formaty plików. Przykład:
+Program Hive obsługuje różne formaty plików. Na przykład:
 
 * **Tekst**: domyślny format pliku i działa z większością scenariuszy.
 * **Avro**: sprawdza się najlepiej w scenariuszach współdziałania.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Następnie wstawiasz dane do tabeli ORC z tabeli przemieszczania. Przykład:
+Następnie wstawiasz dane do tabeli ORC z tabeli przemieszczania. Na przykład:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

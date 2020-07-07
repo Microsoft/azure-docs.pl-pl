@@ -3,12 +3,12 @@ title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
 description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: f8702e84923762b2f417eee882a473228d6bafb8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bff5596049a141f06f5c189f2e5673efed1ed6bf
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888156"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970828"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
@@ -53,7 +53,7 @@ Zgodnie z wymaganiami biznesowymi zasób platformy Azure do inspekcji przy użyc
 Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omówimy każdy z nich na potrzeby tego samouczka:
 
 - Rozszerzenie usługi Azure Policy dla programu VS Code
-- Szablony usługi Resource Manager
+- Szablony Azure Resource Manager (szablony ARM)
   - Eksportowanie istniejącego zasobu
   - Środowisko tworzenia
   - Szablony Szybki start (GitHub)
@@ -64,7 +64,7 @@ Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omó
 
 [Rozszerzenia vs Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) można użyć do przeglądania zasobów w środowisku i wyświetlania właściwości Menedżer zasobów poszczególnych zasobów.
 
-### <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
+### <a name="arm-templates"></a>Szablony usługi ARM
 
 [Szablon usługi Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) zawierający szukaną właściwość w celu zarządzania nią można sprawdzić na kilka sposobów.
 
@@ -144,12 +144,11 @@ Te informacje określają typ właściwości i potwierdzają, że właściwość
 
 #### <a name="quickstart-templates-on-github"></a>Szablony Szybki start w usłudze GitHub
 
-[Szablony Szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates) w usłudze GitHub obejmują setki szablonów usługi Resource Manager stworzonych z myślą o różnych zasobach. Szablony te mogą być doskonałym sposobem na znalezienie szukanej właściwości zasobu. Niektóre właściwości mogą wydawać się odpowiednie, lecz kontrolują coś innego.
+[Szablony szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates) w usłudze GitHub mają setki szablonów ARM utworzonych dla różnych zasobów. Szablony te mogą być doskonałym sposobem na znalezienie szukanej właściwości zasobu. Niektóre właściwości mogą wydawać się odpowiednie, lecz kontrolują coś innego.
 
 #### <a name="resource-reference-docs"></a>Dokumentacja zasobu
 
-Aby zwalidować, czy właściwość**supportsHttpsTrafficOnly** jest poprawna, sprawdź dokumentację szablonu usługi Resource Manager dla [zasobu konta magazynu](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) u dostawcy magazynu.
-Obiekt właściwości zawiera listę prawidłowych parametrów. Wybranie linku [Obiekt StorageAccountPropertiesCreateParameters](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) umożliwia wyświetlenie tabeli dopuszczalnych właściwości. Właściwość **supportsHttpsTrafficOnly** jest obecna i jej opis odpowiada naszym wymaganiom biznesowym.
+Aby sprawdzić poprawność właściwości **supportsHttpsTrafficOnly** , sprawdź informacje dotyczące szablonu ARM dla [zasobu konta magazynu](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) w dostawcy magazynu. Obiekt właściwości zawiera listę prawidłowych parametrów. Wybranie linku [Obiekt StorageAccountPropertiesCreateParameters](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) umożliwia wyświetlenie tabeli dopuszczalnych właściwości. Właściwość **supportsHttpsTrafficOnly** jest obecna i jej opis odpowiada naszym wymaganiom biznesowym.
 
 ### <a name="azure-resource-explorer"></a>Eksplorator zasobów Azure
 
@@ -219,7 +218,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Wyniki są podobne do wyników uzyskanych za pomocą szablonów usługi Resource Manager i usługi Azure Resource Explorer. Jednak wyniki wykresu zasobów platformy Azure mogą również zawierać szczegóły [aliasu](../concepts/definition-structure.md#aliases) przez _projekcję_ tablicy _aliasów_ :
+Wyniki wyglądają podobnie jak te widoczne w szablonach ARM i za pomocą Azure Resource Explorer. Jednak wyniki wykresu zasobów platformy Azure mogą również zawierać szczegóły [aliasu](../concepts/definition-structure.md#aliases) przez _projekcję_ tablicy _aliasów_ :
 
 ```kusto
 Resources

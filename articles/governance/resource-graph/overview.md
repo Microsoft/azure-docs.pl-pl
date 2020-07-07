@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
 ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: 055bb0be75de4d5f6a5a27c5fb3b218fda8777d7
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565680"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970607"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -29,7 +29,7 @@ W tej dokumentacji każda funkcja zostanie szczegółowo omówiona.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Jak usługa Resource Graph uzupełnia usługę Azure Resource Manager
 
-Azure Resource Manager obecnie obsługuje zapytania dotyczące podstawowych pól zasobów, w tym w odniesieniu do nazwy zasobu, identyfikatora, typu, grupy zasobów, subskrypcji i lokalizacji. Menedżer zasobów również udostępnia funkcje do wywoływania poszczególnych dostawców zasobów w celu uzyskania szczegółowych właściwości jednego zasobu naraz.
+Menedżer zasobów obecnie obsługuje zapytania dotyczące podstawowych pól zasobów, w tym w odniesieniu do nazwy zasobu, identyfikatora, typu, grupy zasobów, subskrypcji i lokalizacji. Menedżer zasobów również udostępnia funkcje do wywoływania poszczególnych dostawców zasobów w celu uzyskania szczegółowych właściwości jednego zasobu naraz.
 
 Za pomocą usługi Azure Resource Graph możesz uzyskać dostęp do tych właściwości, które zwracają dostawców zasobów, bez konieczności wykonywania poszczególnych wywołań do każdego dostawcy zasobów. Aby uzyskać listę obsługiwanych typów zasobów, przejrzyj informacje o [typie tabeli i zasobu](./reference/supported-tables-resources.md). Alternatywny sposób wyświetlania obsługiwanych typów zasobów znajduje się w [przeglądarce schematów programu Graph zasobów platformy Azure](./first-query-portal.md#schema-browser).
 
