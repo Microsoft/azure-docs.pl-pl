@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81380686"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Informacje o przechowywaniu danych w Azure Time Series Insights
 
 W tym artykule opisano dwa podstawowe ustawienia, które mają wpływ na przechowywanie danych w środowisku Azure Time Series Insightsu.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 ### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Poniższe wideo podsumowuje Time Series Insights przechowywanie danych i sposób ich planowania.</br>
 
@@ -90,7 +90,7 @@ W Event Hubs, których dotyczy problem, Rozważ zmianę właściwości **przecho
 
 [![Przechowywanie komunikatu centrum zdarzeń.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Jeśli nie skonfigurowano żadnych właściwości dla źródła zdarzeń`timeStampPropertyName`(), Time Series Insights domyślną sygnatura czasowa przybycia w centrum zdarzeń jako oś X. Jeśli `timeStampPropertyName` jest skonfigurowany jako inny, środowisko szuka skonfigurowanej `timeStampPropertyName` w pakiecie danych, gdy zdarzenia są analizowane.
+Jeśli nie skonfigurowano żadnych właściwości dla źródła zdarzeń ( `timeStampPropertyName` ), Time Series Insights domyślną sygnatura czasowa przybycia w centrum zdarzeń jako oś X. Jeśli `timeStampPropertyName` jest skonfigurowany jako inny, środowisko szuka skonfigurowanej `timeStampPropertyName` w pakiecie danych, gdy zdarzenia są analizowane.
 
 Zapoznaj się z artykułem [Jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md) , aby skalować środowisko w celu zwiększenia pojemności lub zwiększyć czas przechowywania.
 

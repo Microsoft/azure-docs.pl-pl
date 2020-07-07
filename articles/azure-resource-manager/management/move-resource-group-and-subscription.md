@@ -4,10 +4,10 @@ description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631505"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
@@ -147,7 +147,7 @@ retry-after: 15
 ...
 ```
 
-Kod stanu 202 wskazuje, że żądanie weryfikacji zostało zaakceptowane, ale jeszcze nie zostało określone, jeśli operacja przenoszenia zakończy się pomyślnie. `location` Wartość zawiera adres URL, którego można użyć do sprawdzenia stanu długotrwałej operacji.  
+Kod stanu 202 wskazuje, że żądanie weryfikacji zostało zaakceptowane, ale jeszcze nie zostało określone, jeśli operacja przenoszenia zakończy się pomyślnie. `location`Wartość zawiera adres URL, którego można użyć do sprawdzenia stanu długotrwałej operacji.  
 
 Aby sprawdzić stan, wyślij następujące żądanie:
 
@@ -156,7 +156,7 @@ GET <location-url>
 Authorization: Bearer <access-token>
 ```
 
-Gdy operacja jest nadal uruchomiona, nadal otrzymujesz kod stanu 202. Przed ponowieniem próby poczekaj `retry-after` liczbę sekund określoną w wartości. Jeśli operacja przenoszenia zostanie pomyślnie zweryfikowana, zostanie wyświetlony kod stanu 204. Jeśli weryfikacja przenoszenia nie powiedzie się, zostanie wyświetlony komunikat o błędzie, taki jak:
+Gdy operacja jest nadal uruchomiona, nadal otrzymujesz kod stanu 202. Przed ponowieniem próby poczekaj liczbę sekund określoną w `retry-after` wartości. Jeśli operacja przenoszenia zostanie pomyślnie zweryfikowana, zostanie wyświetlony kod stanu 204. Jeśli weryfikacja przenoszenia nie powiedzie się, zostanie wyświetlony komunikat o błędzie, taki jak:
 
 ```json
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}

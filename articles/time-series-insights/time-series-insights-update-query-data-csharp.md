@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: fbc2cbc29cb23a21e7d3713091fc22f01bb1b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81379829"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights w wersji zapoznawczej przy użyciu języka C #
@@ -23,7 +23,7 @@ ms.locfileid: "81379829"
 Ten przykład w języku C# demonstruje sposób wykonywania zapytań dotyczących danych z [interfejsów API dostępu do danych w wersji zapoznawczej](https://docs.microsoft.com/rest/api/time-series-insights/preview) w środowiskach Azure Time Series Insights wersji zapoznawczej
 
 > [!TIP]
-> Wyświetl przykłady kodu w języku C# [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)w wersji zapoznawczej pod adresem.
+> Wyświetl przykłady kodu w języku C# w wersji zapoznawczej pod adresem [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample) .
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -50,7 +50,7 @@ Przed skompilowaniem i uruchomieniem przykładowego kodu wykonaj następujące c
 
 1. [Zainicjuj obsługę środowiska Azure Time Series Insights w wersji zapoznawczej](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) .
 1. Skonfiguruj środowisko Azure Time Series Insights dla Azure Active Directory zgodnie z opisem w temacie [uwierzytelnianie i autoryzacja](time-series-insights-authentication-and-authorization.md). 
-1. Uruchom [GenerateCode. bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) określony w [README.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) w celu wygenerowania zależności klienta Time Series Insights w wersji zapoznawczej.
+1. Uruchom [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) , jak określono w [README.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) , aby wygenerować Time Series Insights zależności klienta w wersji zapoznawczej.
 1. Otwórz `TSIPreviewDataPlaneclient.sln` rozwiązanie i ustaw `DataPlaneClientSampleApp` jako projekt domyślny w programie Visual Studio.
 1. Zainstaluj wymagane zależności projektu, wykonując kroki opisane [poniżej](#project-dependencies) , i skompiluj przykład do pliku wykonywalnego `.exe` .
 1. Uruchom `.exe` plik, klikając go dwukrotnie.
@@ -61,11 +61,11 @@ Zalecamy użycie najnowszej wersji programu Visual Studio:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) — wersja 16.4.2 +
 
-Przykładowy kod zawiera kilka wymaganych zależności, które można wyświetlić w pliku [Packages. config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) .
+Przykładowy kod zawiera kilka wymaganych zależności, które można wyświetlić w pliku [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) .
 
-Pobierz pakiety w programie Visual Studio 2019, wybierając opcję **Kompiluj** > **kompilację rozwiązania** . 
+Pobierz pakiety w programie Visual Studio 2019, wybierając opcję **Kompiluj**  >  **kompilację rozwiązania** . 
 
-Alternatywnie możesz dodać każdy pakiet przy użyciu narzędzia [NuGet 2.12 +](https://www.nuget.org/). Przykład:
+Alternatywnie możesz dodać każdy pakiet przy użyciu narzędzia [NuGet 2.12 +](https://www.nuget.org/). Na przykład:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 

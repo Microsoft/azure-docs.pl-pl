@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: 78d77ce176c07aed22433f29365b2d338ea32c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414567"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Porównanie Microsoft AppSource i witryny Azure Marketplace
@@ -28,7 +28,7 @@ Aby wybrać sklep, najpierw Zidentyfikuj docelowych odbiorców oferty. Jeśli ch
 
 W poniższej tabeli opisano zalety korzystania z witryny sklepu:
 
-| Korzyści | Azure Marketplace | AppSource |
+| Zalety | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
 | **Elastyczność rozliczeń** | Portal Azure Marketplace obsługuje typy ofert bezpłatnych, wersji próbnych, BYOL i Transact. Oferty Transact są oparte na użyciu lub oparte na subskrypcjach. Oferty oparte na zużyciu są rozliczane według godzinowego użycia i mogą stanowić początkowy bezpłatny okres. Usługi oparte na subskrypcjach są rozliczane miesięcznie lub rocznie według stawki za stanowisko lub stałą.| Usługa AppSource obsługuje typy ofert bezpłatnych, wersji próbnych, BYOL i Transact. Oferty Transact SaaS są produktami opartymi na subskrypcjach, które mogą być rozliczane co miesiąc lub co rok według stanowiska lub stałej stawki. |
 |**Połączenia z innymi partnerami**  | Obecnie nie można połączyć usługodawcy z ofertą usług lub partnerów dostarczania. | Linki niezależnych dostawców oprogramowania, integratorów systemów i dostawców usług zarządzanych do określonych scenariuszy implementacji. Możesz wspólnie sprzedawać do nowych klientów. |

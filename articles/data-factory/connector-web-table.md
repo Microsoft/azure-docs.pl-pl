@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410214"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli sieci Web przy użyciu Azure Data Factory
@@ -57,9 +57,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane dla połączonej usługi tabeli sieci Web:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Web** |Tak |
+| typ | Właściwość Type musi mieć wartość: **Web** |Tak |
 | url | Adres URL źródła sieci Web |Tak |
 | authenticationType | Dozwolona wartość to: **anonimowe**. |Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Samodzielna Integration Runtime jest wymagana, jak wspomniano w [wymaganiach wstępnych](#prerequisites). |Tak |
@@ -89,9 +89,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z tabeli sieci Web, ustaw właściwość Type zestawu danych na **webtable**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na: **Webtable** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na: **Webtable** | Tak |
 | ścieżka |Względny adres URL do zasobu, który zawiera tabelę. |Nie. Jeśli ścieżka nie zostanie określona, zostanie użyta tylko adres URL określony w definicji połączonej usługi. |
 | indeks |Indeks tabeli w zasobie. Zobacz sekcję [pobieranie indeksu tabeli w sekcji strony HTML,](#get-index-of-a-table-in-an-html-page) aby poznać procedurę pobierania indeksu tabeli na stronie HTML. |Tak |
 
@@ -162,7 +162,7 @@ Aby uzyskać indeks tabeli, która jest potrzebna do skonfigurowania we [właśc
 2. Na pasku narzędzi kliknij pozycję **nowe zapytanie** , wskaż polecenie **z innych źródeł** i kliknij opcję **z sieci Web**.
 
     ![Menu Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. W oknie dialogowym **z sieci Web** wprowadź **adres URL** , który będzie używany w formacie JSON połączonej usługi (na https://en.wikipedia.org/wiki/) przykład: wraz z ścieżką, którą określisz dla zestawu danych (na przykład: AFI% 27s_100_Years... 100_Movies), a następnie kliknij przycisk **OK**.
+3. W oknie dialogowym **z sieci Web** wprowadź **adres URL** , który będzie używany w formacie JSON połączonej usługi (na przykład: https://en.wikipedia.org/wiki/) wraz z ścieżką, którą określisz dla zestawu danych (na przykład: AFI% 27s_100_Years... 100_Movies), a następnie kliknij przycisk **OK**.
 
     ![Z okna dialogowego sieci Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

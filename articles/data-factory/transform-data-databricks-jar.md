@@ -12,16 +12,16 @@ author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
 ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414607"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Przekształcanie danych przez uruchomienie działania jar w Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie Azure Databricks jar w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia plik JAR platformy Spark w klastrze Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md), który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
+Działanie Azure Databricks jar w [potoku Data Factory](concepts-pipelines-activities.md) uruchamia plik JAR platformy Spark w klastrze Azure Databricks. W tym artykule przedstawiono artykuł [działania przekształcania danych](transform-data.md)   , który zawiera ogólne omówienie transformacji danych i obsługiwanych działań transformacji.Azure Databricks to zarządzana platforma do uruchamiania Apache Spark.
 
 Poniższy klip wideo zawiera jedenastominutowe wprowadzenie i demonstrację tej funkcji:
 
@@ -56,12 +56,12 @@ Poniżej znajduje się przykładowa definicja JSON działania dotyczącego jar e
 
 W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 
-|Właściwość|Opis|Wymagany|
+|Właściwość|Opis|Wymagane|
 |:--|---|:-:|
 |name|Nazwa działania w potoku.|Tak|
 |description|Tekst opisujący działanie działania.|Nie|
-|type|W przypadku działania jar dla datakostki typ działania to DatabricksSparkJar.|Tak|
-|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie jar. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący  [połączonych usług obliczeniowych](compute-linked-services.md).|Tak|
+|typ|W przypadku działania jar dla datakostki typ działania to DatabricksSparkJar.|Tak|
+|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie jar. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md)   .|Tak|
 |mainClassName|Pełna nazwa klasy zawierającej metodę Main, która ma zostać wykonana. Ta klasa musi być zawarta w formacie JAR udostępnionym jako biblioteka.|Tak|
 |parameters|Parametry, które zostaną przesłane do metody Main.  To jest tablica ciągów.|Nie|
 |biblioteki|Lista bibliotek do zainstalowania w klastrze, w którym będą wykonywane zadania. Może to być tablica <String, Object>|Tak (co najmniej jeden zawierający metodę mainClassName)|

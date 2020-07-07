@@ -4,10 +4,10 @@ description: Service Fabric usługi stanowe udostępniają niezawodne kolekcje, 
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81398428"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Wprowadzenie do niezawodnych kolekcji w usłudze Azure Service Fabric stanowe usługi
@@ -35,7 +35,7 @@ Aby zapewnić słabą spójność, aplikacje mogą potwierdzić z powrotem do kl
 Niezawodne interfejsy API kolekcji to ewolucja współbieżnych kolekcji interfejsów API (znajdujących się w przestrzeni nazw **System. Collections. współbieżne** ):
 
 * Asynchroniczne: zwraca zadanie od, w przeciwieństwie do współbieżnych kolekcji, operacje są replikowane i utrwalane.
-* Brak parametrów out: używa `ConditionalValue<T>` do zwracania wartości `bool` i zamiast parametrów out. `ConditionalValue<T>`przypomina, `Nullable<T>` ale nie musi być strukturą.
+* Brak parametrów out: używa `ConditionalValue<T>` do zwracania `bool` wartości i zamiast parametrów out. `ConditionalValue<T>`przypomina `Nullable<T>` , ale nie musi być strukturą.
 * Transakcje: używa obiektu transakcji, aby umożliwić użytkownikowi grupowanie akcji na wielu niezawodnych kolekcjach w transakcji.
 
 Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolekcje:

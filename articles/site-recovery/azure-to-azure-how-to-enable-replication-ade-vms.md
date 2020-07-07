@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81408633"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych z obsługą Azure Disk Encryption w innym regionie platformy Azure
@@ -42,7 +42,7 @@ Aby włączyć replikację maszyn wirtualnych z włączoną funkcją szyfrowania
 
 Aby zarządzać uprawnieniami, przejdź do zasobu magazynu kluczy w portalu. Dodaj wymagane uprawnienia dla użytkownika. Poniższy przykład pokazuje, jak włączyć uprawnienia do magazynu kluczy *ContosoWeb2Keyvault*, który znajduje się w regionie źródłowym.
 
-1. Przejdź do **głównych** > **magazynów** > kluczy**ContosoWeb2KeyVault > zasad dostępu**.
+1. Przejdź do **głównych**  >  **magazynów**kluczy  >  **ContosoWeb2KeyVault > zasad dostępu**.
 
    ![Okno uprawnień magazynu kluczy](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -60,9 +60,9 @@ Rozwiązywanie problemów z uprawnieniami można znaleźć [w dalszej](#trusted-
 ## <a name="copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script"></a>Kopiowanie kluczy szyfrowania dysku do regionu DR przy użyciu skryptu programu PowerShell
 
 1. [Otwórz kod skryptu RAW "CopyKeys"](https://aka.ms/ade-asr-copy-keys-code).
-2. Skopiuj skrypt do pliku i nadaj mu nazwę **copy-Keys. ps1**.
+2. Skopiuj skrypt do pliku i nadaj mu nazwę **Copy-keys.ps1**.
 3. Otwórz aplikację Windows PowerShell i przejdź do folderu, w którym zapisano plik.
-4. Wykonaj Copy-Keys. ps1.
+4. Wykonaj Copy-keys.ps1.
 5. Podaj poświadczenia platformy Azure, aby się zalogować.
 6. Wybierz **subskrypcję platformy Azure** dla maszyn wirtualnych.
 7. Zaczekaj na załadowanie grup zasobów, a następnie wybierz **grupę zasobów** maszyn wirtualnych.
@@ -86,7 +86,7 @@ W tym przykładzie głównym regionem świadczenia usługi Azure jest Azja Wscho
     - **Subskrypcja źródłowa**: subskrypcja, do której należą źródłowe maszyny wirtualne. Może to być dowolna subskrypcja, która znajduje się w tej samej dzierżawie Azure Active Directory, co magazyn usługi Recovery Services.
     - **Grupa zasobów**: Grupa zasobów, do której należą źródłowe maszyny wirtualne. W następnym kroku zostaną wyświetlone wszystkie maszyny wirtualne w wybranej grupie zasobów do ochrony.
 
-3. W obszarze **Virtual Machines** > **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
+3. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
 
 4. W obszarze **Ustawienia**można skonfigurować następujące ustawienia lokacji docelowej.
 
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
    - W przypadku **magazynu kluczy szyfrowania dysku docelowego**wybierz magazyn klucza szyfrowania dysku docelowego z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
    - W przypadku **magazynu kluczy szyfrowania klucza docelowego**Wybierz docelowy Magazyn kluczy szyfrowania z listy magazynów kluczy w lokalizacji docelowej subskrypcji.
 
-3. Wybierz pozycję **Utwórz zasób** > docelowy**Włącz replikację**.
+3. Wybierz pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 4. Po włączeniu maszyn wirtualnych na potrzeby replikacji można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**.
 
 >[!NOTE]
@@ -129,7 +129,7 @@ W następujących scenariuszach wymagane jest zaktualizowanie ustawień szyfrowa
   - Włączono Site Recovery replikację na maszynie wirtualnej. Później można było włączyć szyfrowanie dysków na źródłowej maszynie wirtualnej.
   - Włączono Site Recovery replikację na maszynie wirtualnej. Później zmieniono klucz szyfrowania dysku lub klucz szyfrowania klucza na źródłowej maszynie wirtualnej.
 
-Możesz użyć [skryptu](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) , aby skopiować klucze szyfrowania do regionu docelowego, a następnie zaktualizować docelowe ustawienia szyfrowania w obszarze**Właściwości** > **Compute and Network***zreplikowanego elementu* >  >  **magazynu usługi Recovery Services**.
+Możesz użyć [skryptu](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) , aby skopiować klucze szyfrowania do regionu docelowego, a następnie zaktualizować docelowe ustawienia szyfrowania w obszarze właściwości zreplikowanego elementu **magazynu usługi Recovery Services**  >  *replicated item*  >  **Properties**  >  **Compute and Network**.
 
 ![Okno dialogowe Aktualizowanie ustawień ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -141,7 +141,7 @@ Azure Site Recovery wymaga co najmniej uprawnienia do odczytu w magazynie kluczy
 **Jak naprawić:** Bez względu na to, czy jesteś administratorem subskrypcji, czy nie, ważne jest, aby uzyskać uprawnienia do magazynu kluczy.
 
 1. Przejdź do magazynu kluczy źródłowych regionów, w tym przykładzie jest to "ContososourceKeyvault" > **zasad dostępu** 
-2. W obszarze **Wybierz podmiot zabezpieczeń** Dodaj nazwę użytkownika na przykład:dradmin@contoso.com""
+2. W obszarze **Wybierz podmiot zabezpieczeń** Dodaj nazwę użytkownika na przykład: " dradmin@contoso.com "
 3. W obszarze **uprawnienia klucza** wybierz pozycję Pobierz. 
 4. W obszarze **uprawnienia klucza tajnego** wybierz pozycję Pobierz 
 5. Zapisz zasady dostępu
@@ -153,7 +153,7 @@ Masz wszystkie uprawnienia do magazynu kluczy w regionie źródłowym. Ale w tra
 
 Wymagane uprawnienie w [magazynie kluczy docelowych](#required-user-permissions)
 
-**Jak naprawić:** Przejdź do pozycji **Główne** > **magazyny** > kluczy**ContosotargetKeyvault** > **zasady dostępu** i Dodaj odpowiednie uprawnienia.
+**Jak naprawić:** Przejdź do pozycji **Główne**  >  **magazyny**kluczy  >  **ContosotargetKeyvault**  >  **zasady dostępu** i Dodaj odpowiednie uprawnienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 7504826f267d717f30c5e88621578412c744e5f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383505"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Używanie Data Lake narzędzi dla programu Visual Studio do nawiązywania połączenia z usługą Azure HDInsight i uruchamiania zapytań Apache Hive
@@ -42,7 +42,7 @@ Postępuj zgodnie z odpowiednimi instrukcjami, aby zainstalować narzędzia Data
 
     Podczas instalacji programu Visual Studio upewnij się, że dołączysz obciążenie **Programowanie na platformie Azure** lub **Magazyn danych i obciążenie przetwarzaniem** .  
 
-    W przypadku istniejących instalacji programu Visual Studio przejdź do paska menu IDE, a następnie wybierz pozycję **Narzędzia** > **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio. Na karcie **obciążenia** wybierz co najmniej obciążenie **Programowanie na platformie Azure** (w obszarze **chmura & sieci Web**). Lub wybierz obciążenie **magazynu i przetwarzania danych** (w obszarze **inne zestawy narzędzi**).
+    W przypadku istniejących instalacji programu Visual Studio przejdź do paska menu IDE, a następnie wybierz pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio. Na karcie **obciążenia** wybierz co najmniej obciążenie **Programowanie na platformie Azure** (w obszarze **chmura & sieci Web**). Lub wybierz obciążenie **magazynu i przetwarzania danych** (w obszarze **inne zestawy narzędzi**).
 
   ![Wybór obciążenia, Instalator programu Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
@@ -58,7 +58,7 @@ Następnie upewnij się, że Data Lake narzędzia zostały zaktualizowane do naj
 
 2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu**.
 
-3. Na pasku menu środowiska IDE programu Visual Studio wybierz pozycję **rozszerzenia** > **Zarządzanie rozszerzeniami**.
+3. Na pasku menu środowiska IDE programu Visual Studio wybierz pozycję **rozszerzenia**  >  **Zarządzanie rozszerzeniami**.
 
 4. W oknie dialogowym **Zarządzanie rozszerzeniami** rozwiń węzeł **aktualizacje** .
 
@@ -88,9 +88,9 @@ Aby nawiązać połączenie z subskrypcją platformy Azure:
 
 2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu**.
 
-3. Na pasku menu IDE wybierz polecenie **Wyświetl** > **Eksplorator serwera**.
+3. Na pasku menu IDE wybierz polecenie **Wyświetl**  >  **Eksplorator serwera**.
 
-4. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure**i Ukończ proces uwierzytelniania. W **Eksplorator serwera**rozwiń węzeł **Azure** > **HDInsight** , aby wyświetlić listę istniejących klastrów usługi HDInsight.
+4. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure**i Ukończ proces uwierzytelniania. W **Eksplorator serwera**rozwiń węzeł **Azure**  >  **HDInsight** , aby wyświetlić listę istniejących klastrów usługi HDInsight.
 
 5. Jeśli nie masz żadnych klastrów, utwórz je za pomocą Azure Portal, Azure PowerShell lub zestawu SDK usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -104,7 +104,7 @@ Po nawiązaniu połączenia z subskrypcją platformy Azure można wykonać nast�
 
 Nawiązywanie połączenia z witryną Azure Portal w programie Visual Studio:
 
-1. W **Eksplorator serwera**rozwiń węzeł **Azure** > **HDInsight** i wybierz swój klaster.
+1. W **Eksplorator serwera**rozwiń węzeł **Azure**  >  **HDInsight** i wybierz swój klaster.
 
 2. Kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie wybierz pozycję **Zarządzaj klastrem w Azure Portal**.
 
@@ -112,7 +112,7 @@ Nawiązywanie połączenia z witryną Azure Portal w programie Visual Studio:
 
 Aby zadać pytania i lub przekazać Opinie z programu Visual Studio:
 
-1. W obszarze Eksplorator serwera wybierz pozycję **Azure** > **HDInsight**.
+1. W obszarze Eksplorator serwera wybierz pozycję **Azure**  >  **HDInsight**.
 
 2. Kliknij prawym przyciskiem myszy pozycję **HDInsight** i wybierz opcję **forum MSDN** , aby zadawać pytania, lub **Przekaż opinię** , aby przesłać opinię.
 
@@ -125,7 +125,7 @@ Aby połączyć klaster usługi HDInsight:
 
 1. Kliknij prawym przyciskiem myszy pozycję **HDInsight**, a następnie wybierz pozycję **Połącz klaster usługi HDInsight** , aby wyświetlić okno dialogowe **łączenie klastra usługi HDInsight** .
 
-2. Wprowadź **adres URL połączenia** w formularzu `https://CLUSTERNAME.azurehdinsight.net`. **Nazwa klastra** jest automatycznie wypełniana nazwą klastra w adresie URL po przejściu do innego pola. Następnie wprowadź **nazwę użytkownika** i **hasło**, a następnie wybierz pozycję **dalej**.
+2. Wprowadź **adres URL połączenia** w formularzu `https://CLUSTERNAME.azurehdinsight.net` . **Nazwa klastra** jest automatycznie wypełniana nazwą klastra w adresie URL po przejściu do innego pola. Następnie wprowadź **nazwę użytkownika** i **hasło**, a następnie wybierz pozycję **dalej**.
 
     ![Łączenie klastra, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
@@ -156,13 +156,13 @@ Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Wyświetl kontene
 
 Możesz również użyć narzędzi Data Lake Tools for Visual Studio, aby zobaczyć, co znajduje się w zadaniu Hive. Narzędzia Data Lake Tools for Visual Studio zbierają i ujawniają dzienniki Yarn dla wybranych zadań Hive.
 
-W obszarze **Eksplorator serwera**wybierz pozycję **Azure** > **HDInsight** i wybierz swój klaster.  Ten węzeł jest punktem początkowym w **Eksplorator serwera** dla sekcji do wykonania.
+W obszarze **Eksplorator serwera**wybierz pozycję **Azure**  >  **HDInsight** i wybierz swój klaster.  Ten węzeł jest punktem początkowym w **Eksplorator serwera** dla sekcji do wykonania.
 
 ### <a name="view-hivesampletable"></a>Zobacz tabelę hivesampletable
 
-Wszystkie klastry usługi HDInsight mają domyślną przykładową tabelę `hivesampletable`programu Hive o nazwie.  
+Wszystkie klastry usługi HDInsight mają domyślną przykładową tabelę programu Hive o nazwie `hivesampletable` .  
 
-W klastrze wybierz opcję **bazy danych** > Hive**default** > **hivesampletable**.
+W klastrze wybierz opcję **bazy danych Hive**  >  **default**  >  **hivesampletable**.
 
 * Aby wyświetlić `hivesampletable` schemat:
 
@@ -180,7 +180,7 @@ W klastrze wybierz opcję **bazy danych** > Hive**default** > **hivesampletable*
 
 Do utworzenia tabeli programu Hive można użyć graficznego interfejsu użytkownika lub zapytań programu Hive. Aby uzyskać informacje o używaniu zapytań Hive, zobacz [Tworzenie i uruchamianie zapytań programu Hive](#create-and-run-hive-queries).
 
-1. W klastrze wybierz opcję **bazy danych** > Hive**Domyślnie**.
+1. W klastrze wybierz opcję **bazy danych Hive**  >  **Domyślnie**.
 
 2. Kliknij prawym przyciskiem myszy pozycję **domyślne**, a następnie wybierz pozycję **Utwórz tabelę**.
 
@@ -205,7 +205,7 @@ Aby utworzyć i uruchomić zapytanie ad hoc:
 
 2. Wprowadź zapytanie programu Hive.
 
-    Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM`, IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF.
+    Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM` , IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF.
 
     ![Przykład IntelliSense 1, zapytanie ad hoc Hive, klaster usługi HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-intellisense-table-names.png)
 
@@ -248,7 +248,7 @@ Aby utworzyć i uruchomić zapytanie ad hoc:
 
 Tworzenie i uruchamianie rozwiązania Hive:
 
-1. Na pasku menu wybierz pozycję **plik** > **Nowy** > **projekt**.
+1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
 2. W oknie **Tworzenie nowego projektu** zaznacz pole wyszukiwania i wpisz **Hive**. Następnie wybierz pozycję **aplikacja Hive** i wybierz pozycję **dalej**.
 
@@ -310,7 +310,7 @@ Aby wyświetlić zadania Hive:
 
 ## <a name="run-apache-pig-scripts"></a>Uruchamianie skryptów Apache świni
 
-1. Na pasku menu wybierz pozycję **plik** > **Nowy** > **projekt**.
+1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
 2. W oknie **uruchamiania** wybierz pole wyszukiwania i wprowadź **świnie**. Następnie wybierz pozycję **aplikacja świniowa** i wybierz pozycję **dalej**.
 

@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
 ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311560"
 ---
 # <a name="pricing-and-associated-costs"></a>Cennik i powiązane koszty
 
 W tym artykule wyjaśniono Azure Security Center modelu cen usługi IoT, podsumowano wszystkie powiązane koszty i wyjaśniono, jak zarządzać nimi.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Model cen usługi IoT Azure Security Center obejmuje dwie części, a opłaty są naliczane po [włączeniu](quickstart-onboard-iot-hub.md) IoT Hub w Azure Security Center dla IoT:
 
@@ -54,7 +54,7 @@ Aby zmienić ustawienia:
 
 Poniższa tabela zawiera podsumowanie powiązanych kosztów i implikacje poszczególnych opcji.
 
-|     | Sposób użycia | Komentarz |
+|     | Użycie | Komentarz |
 | --- | --- | --- |
 | **Magazyn Log Analytics** |  |
 | Zalecenia i alerty dotyczące urządzeń| Zalecenia dotyczące zabezpieczeń i alerty wygenerowane przez usługę | Nieopcjonalne |

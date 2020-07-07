@@ -11,10 +11,10 @@ ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80631768"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Jak zweryfikować przepływność sieci VPN do sieci wirtualnej
@@ -67,7 +67,7 @@ Pobierz [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Aby 
  > [!NOTE]
  > Produkty innych firm omówione w tym artykule są wytwarzane przez firmy niezależne od firmy Microsoft. Firma Microsoft nie udziela żadnych gwarancji, dorozumianych ani żadnego innego rodzaju, w odniesieniu do wydajności ani niezawodności tych produktów.
 
-### <a name="run-iperf-iperf3exe"></a>Uruchom iPerf (iperf3. exe)
+### <a name="run-iperf-iperf3exe"></a>Uruchom iPerf (iperf3.exe)
 
 1. Włącz regułę sieciowej grupy zabezpieczeń/ACL zezwalającą na ruch (na potrzeby testowania publicznego adresu IP na maszynie wirtualnej platformy Azure).
 
@@ -85,9 +85,9 @@ Pobierz [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Aby 
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   System **Linux systemu Azure:** Obrazy systemu Linux na platformie Azure mają przypisaną zaporę. Jeśli aplikacja nasłuchuje na porcie, ruch jest dozwolony w. Chronione obrazy niestandardowe mogą wymagać jawnego otwierania portów. Typowe zapory systemu operacyjnego Linux obejmują `iptables`, `ufw`, lub. `firewalld`
+   System **Linux systemu Azure:** Obrazy systemu Linux na platformie Azure mają przypisaną zaporę. Jeśli aplikacja nasłuchuje na porcie, ruch jest dozwolony w. Chronione obrazy niestandardowe mogą wymagać jawnego otwierania portów. Typowe zapory systemu operacyjnego Linux obejmują `iptables` , `ufw` , lub `firewalld` .
 
-1. W węźle serwer przejdź do katalogu, w którym został wyodrębniony iperf3. exe. Następnie uruchom program iPerf w trybie serwera i ustaw go, aby nasłuchiwać na porcie 5001 jako następujące polecenia:
+1. W węźle serwer przejdź do katalogu, w którym wyodrębniono iperf3.exe. Następnie uruchom program iPerf w trybie serwera i ustaw go, aby nasłuchiwać na porcie 5001 jako następujące polecenia:
 
    ```CMD
    cd c:\iperf-3.1.2-win65
@@ -123,27 +123,27 @@ Pobierz [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Aby 
 
 ## <a name="test-vms-running-windows"></a>Testowanie maszyn wirtualnych z systemem Windows
 
-### <a name="load-latteexe-onto-the-vms"></a>Załaduj latte. exe na maszynach wirtualnych
+### <a name="load-latteexe-onto-the-vms"></a>Załaduj Latte.exe na maszynach wirtualnych
 
-Pobierz najnowszą wersję programu [latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Pobierz najnowszą wersję programu [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Rozważ umieszczenie pliku latte. exe w osobnym folderze, na przykład`c:\tools`
+Rozważ umieszczenie Latte.exe w osobnym folderze, na przykład`c:\tools`
 
-### <a name="allow-latteexe-through-the-windows-firewall"></a>Zezwalaj programowi latte. exe za pomocą zapory systemu Windows
+### <a name="allow-latteexe-through-the-windows-firewall"></a>Zezwalaj na Latte.exe za pomocą zapory systemu Windows
 
-Na odbiorniku Utwórz regułę zezwalania w zaporze systemu Windows, aby zezwolić na odbieranie ruchu latte. exe. Najłatwiej zezwolić na cały program latte. exe, zamiast zezwalać na ruch przychodzący określonych portów TCP.
+Na odbiorniku Utwórz regułę zezwalania w zaporze systemu Windows, aby zezwolić na odbieranie Latte.exe ruchu. Najłatwiej jest zezwolić na cały program Latte.exe według nazwy, a nie zezwalać na ruch przychodzący określonych portów TCP.
 
-### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Zezwalaj na latte. exe za pomocą zapory systemu Windows, takiej jak ta
+### <a name="allow-latteexe-through-the-windows-firewall-like-this"></a>Zezwalaj na Latte.exe za pomocą zapory systemu Windows, takiej jak ta
 
 `netsh advfirewall firewall add rule program=<PATH>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
-Jeśli na przykład skopiowano plik latte. exe do folderu "c:\Tools", będzie to polecenie
+Na przykład, jeśli skopiowano latte.exe do folderu "c:\Tools", będzie to polecenie
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Testy opóźnienia uruchamiania
 
-Uruchom program latte. exe w ODBIORNIKu (Uruchom z polecenia CMD, a nie z programu PowerShell):
+Uruchom latte.exe w ODBIORNIKu (Uruchom polecenie z polecenia CMD, a nie z programu PowerShell):
 
 `latte -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -155,7 +155,7 @@ Jeśli maszyna wirtualna ma adres IP 10.0.0.4, będzie wyglądać następująco
 
 `latte -c -a 10.0.0.4:5005 -i 65100`
 
-Uruchom program latte. exe na NADAWCy (Uruchom z polecenia CMD, a nie z programu PowerShell)
+Rozpocznij latte.exe na NADAWCy (Uruchom z polecenia CMD, a nie z programu PowerShell)
 
 `latte -c -a <Receiver IP address>:<port> -i <iterations>`
 
@@ -225,7 +225,7 @@ W szczególności analiza śladów przechwytywania pakietów (Wireshark/Monitor 
 
 Nawet jeśli ogólna przepływność oceniona przy poprzednich krokach (iPERF/NTTTCP/itp.) była dobra, może wystąpić powolne polecenie ping do pliku podczas korzystania z Eksploratora Windows lub przeciąganie i upuszczanie przez sesję RDP. Ten problem jest zwykle spowodowany przez jeden lub oba z następujących czynników:
 
-* Aplikacje do kopiowania plików, takie jak Eksplorator Windows i RDP, nie używają wielu wątków podczas kopiowania plików. Aby uzyskać lepszą wydajność, należy użyć wielowątkowej aplikacji do kopiowania plików, takiej jak [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) , do kopiowania plików przy użyciu 16 lub 32 wątków. Aby zmienić numer wątku dla kopiowania plików w RichCopy, kliknij pozycję **Akcja** > **Kopiuj opcje** > **pliku Kopiuj**.
+* Aplikacje do kopiowania plików, takie jak Eksplorator Windows i RDP, nie używają wielu wątków podczas kopiowania plików. Aby uzyskać lepszą wydajność, należy użyć wielowątkowej aplikacji do kopiowania plików, takiej jak [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) , do kopiowania plików przy użyciu 16 lub 32 wątków. Aby zmienić numer wątku dla kopiowania plików w RichCopy, kliknij pozycję **Akcja**  >  **Kopiuj opcje**  >  **pliku Kopiuj**.
 
    ![Problemy związane z kopiowaniem plików](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 

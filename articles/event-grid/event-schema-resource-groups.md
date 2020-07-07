@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393263"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło Event Grid
@@ -20,11 +20,11 @@ Ten artykuł zawiera właściwości i schemat zdarzeń grup zasobów.Aby zapozna
 
 Subskrypcje i grupy zasobów platformy Azure emitują te same typy zdarzeń. Typy zdarzeń są powiązane z zmianami lub akcjami zasobów. Podstawowa różnica polega na tym, że grupy zasobów emitują zdarzenia dla zasobów w grupie zasobów, a subskrypcje platformy Azure emitują zdarzenia dotyczące zasobów w ramach subskrypcji.
 
-Zdarzenia zasobów są tworzone dla operacji PUT, PATCH, POST i DELETE, które są wysyłane do `management.azure.com`programu. Operacje GET nie tworzą zdarzeń. Operacje wysyłane do płaszczyzny danych (np `myaccount.blob.core.windows.net`.) nie tworzą zdarzeń. Zdarzenia akcji udostępniają dane zdarzeń dla operacji, takich jak Wyświetlanie kluczy dla zasobu.
+Zdarzenia zasobów są tworzone dla operacji PUT, PATCH, POST i DELETE, które są wysyłane do programu `management.azure.com` . Operacje GET nie tworzą zdarzeń. Operacje wysyłane do płaszczyzny danych (np `myaccount.blob.core.windows.net` .) nie tworzą zdarzeń. Zdarzenia akcji udostępniają dane zdarzeń dla operacji, takich jak Wyświetlanie kluczy dla zasobu.
 
 Gdy subskrybujesz zdarzenia dla grupy zasobów, punkt końcowy odbiera wszystkie zdarzenia dla tej grupy zasobów. Zdarzenia mogą obejmować zdarzenie, które ma zostać wyświetlone, takie jak aktualizacja maszyny wirtualnej, ale także zdarzenia, które mogą nie być ważne, takie jak zapisanie nowego wpisu w historii wdrożenia. Można odbierać wszystkie zdarzenia w punkcie końcowym i pisać kod, który przetwarza zdarzenia, które mają być obsługiwane. Lub można ustawić filtr podczas tworzenia subskrypcji zdarzeń.
 
-Aby programowo obsługiwać zdarzenia, Możesz sortować zdarzenia, sprawdzając `operationName` wartość. Na przykład punkt końcowy zdarzenia może przetwarzać tylko zdarzenia dla operacji, które są `Microsoft.Compute/virtualMachines/write` równe `Microsoft.Storage/storageAccounts/write`lub.
+Aby programowo obsługiwać zdarzenia, Możesz sortować zdarzenia, sprawdzając `operationName` wartość. Na przykład punkt końcowy zdarzenia może przetwarzać tylko zdarzenia dla operacji, które są równe `Microsoft.Compute/virtualMachines/write` lub `Microsoft.Storage/storageAccounts/write` .
 
 Podmiot zdarzenia jest IDENTYFIKATORem zasobu zasobu, który jest elementem docelowym operacji. Aby filtrować zdarzenia dla zasobu, podaj ten identyfikator zasobu podczas tworzenia subskrypcji zdarzeń.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
@@ -49,7 +49,7 @@ Grupy zasobów emitują zdarzenia zarządzania od Azure Resource Manager, na prz
 
 ### <a name="example-event"></a>Przykładowe zdarzenie
 
-Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceWriteFailure** i **ResourceWriteCancel** z różnymi wartościami dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceWriteFailure** i **ResourceWriteCancel** z różnymi wartościami dla `eventType` .
 
 ```json
 [{
@@ -109,7 +109,7 @@ Poniższy przykład przedstawia schemat zdarzenia **ResourceWriteSuccess** . Ten
 }]
 ```
 
-Poniższy przykład przedstawia schemat zdarzenia **ResourceDeleteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceDeleteFailure** i **ResourceDeleteCancel** z różnymi wartościami dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceDeleteSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceDeleteFailure** i **ResourceDeleteCancel** z różnymi wartościami dla `eventType` .
 
 ```json
 [{
@@ -175,7 +175,7 @@ Poniższy przykład przedstawia schemat zdarzenia **ResourceDeleteSuccess** . Te
 }]
 ```
 
-Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceActionFailure** i **ResourceActionCancel** z różnymi wartościami dla `eventType`.
+Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Ten sam schemat jest używany dla zdarzeń **ResourceActionFailure** i **ResourceActionCancel** z różnymi wartościami dla `eventType` .
 
 ```json
 [{   
@@ -241,8 +241,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia grupy zasobów. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Dane zdarzenia grupy zasobów. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -250,10 +250,10 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| autoryzacja | obiekt | Żądana autoryzacja dla operacji. |
-| oświadczenia | obiekt | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| autoryzacja | object | Żądana autoryzacja dla operacji. |
+| oświadczenia | object | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | ciąg | Identyfikator operacji na potrzeby rozwiązywania problemów. |
-| httpRequest | obiekt | Szczegóły operacji. Ten obiekt jest uwzględniany tylko w przypadku aktualizowania istniejącego zasobu lub usuwania zasobu. |
+| httpRequest | object | Szczegóły operacji. Ten obiekt jest uwzględniany tylko w przypadku aktualizowania istniejącego zasobu lub usuwania zasobu. |
 | resourceProvider | ciąg | Dostawca zasobów dla operacji. |
 | resourceUri | ciąg | Identyfikator URI zasobu w operacji. |
 | operationName | ciąg | Operacja, która została wykonana. |

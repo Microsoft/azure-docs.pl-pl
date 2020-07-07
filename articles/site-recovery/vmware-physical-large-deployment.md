@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81409769"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurowanie odzyskiwania po awarii na dużą skalę dla maszyn wirtualnych VMware/serwerów fizycznych
@@ -64,7 +64,7 @@ Następnie uruchom Planistę w następujący sposób:
 5. Analizuj [zalecenia dotyczące raportu](site-recovery-vmware-deployment-planner-analyze-report.md) i [oszacowania kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
-> Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu dla maksymalnie 1000 maszyn wirtualnych. Można zmienić ten limit poprzez zwiększenie wartości klucza MaxVMsSupported w pliku ASRDeploymentPlanner. exe. config.
+> Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu dla maksymalnie 1000 maszyn wirtualnych. Można zmienić ten limit poprzez zwiększenie wartości klucza MaxVMsSupported w pliku ASRDeploymentPlanner.exe.config.
 
 ## <a name="plan-target-azure-requirements-and-capacity"></a>Wymagania i pojemność planu docelowego (platforma Azure)
 
@@ -127,7 +127,7 @@ Ważne jest posiadanie wystarczającej liczby serwerów konfiguracji i skalowaln
  
 Wydajność serwera konfiguracji ma wpływ na liczbę maszyn replikowanych, a nie przez współczynnik zmian danych. Aby ustalić, czy potrzebujesz dodatkowych serwerów konfiguracji, Użyj tych zdefiniowanych limitów maszyn wirtualnych.
 
-**TESTY** | **Rozmiar** | **Dysk pamięci podręcznej** | **Limit zreplikowanych maszyn**
+**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Limit zreplikowanych maszyn**
  --- | --- | --- | ---
 8 procesorów wirtualnych vCPU<br> 2 gniazda * 4 rdzenie o częstotliwości 2,5 GHz | 16 GB | 600 GB | Do 550 maszyn<br> Przyjęto założenie, że każdy komputer ma trzy dyski o pojemności 100 GB każdego z nich.
 
@@ -153,7 +153,7 @@ Wydajności serwera przetwarzania mają wpływ szybkości zmian danych, a nie pr
 - Zalecamy dodanie serwera o najwyższej specyfikacji. 
 
 
-**TESTY** | **Rozmiar** | **Dysk pamięci podręcznej** | **Współczynnik zmian**
+**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Współczynnik zmian**
  --- | --- | --- | --- 
 12 procesorów wirtualnych vCPU<br> 2 gniazda * 6 rdzenie, 2,5 GHz | 24 GB | 1 GB | Do 2 TB dziennie
 

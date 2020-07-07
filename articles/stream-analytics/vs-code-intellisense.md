@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81394399"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Funkcja IntelliSense w Azure Stream Analytics narzędziach dla Visual Studio Code
@@ -21,9 +21,9 @@ Technologia IntelliSense jest dostępna dla [Stream Analytics języku zapytań](
 
 ## <a name="intellisense-features"></a>Funkcje IntelliSense
 
-Funkcje IntelliSense w Stream Analytics narzędziach dla VS Code są obsługiwane przez usługę języka. Usługa językowa analizuje kod źródłowy i zapewnia inteligentne uzupełnianie kodu na podstawie semantyki języka. Jeśli usługa językowa wie, że możliwe zakończenia, sugestie IntelliSense pojawiają się w trakcie wpisywania. Jeśli będziesz kontynuować wpisywanie, lista elementów członkowskich, takich jak zmienne i metody, jest filtrowana w celu uwzględnienia tylko elementów członkowskich, które zawierają wpisane znaki. Po naciśnięciu klawiszy `Tab` lub `Enter` funkcja IntelliSense Wstawia wybrany element członkowski.
+Funkcje IntelliSense w Stream Analytics narzędziach dla VS Code są obsługiwane przez usługę języka. Usługa językowa analizuje kod źródłowy i zapewnia inteligentne uzupełnianie kodu na podstawie semantyki języka. Jeśli usługa językowa wie, że możliwe zakończenia, sugestie IntelliSense pojawiają się w trakcie wpisywania. Jeśli będziesz kontynuować wpisywanie, lista elementów członkowskich, takich jak zmienne i metody, jest filtrowana w celu uwzględnienia tylko elementów członkowskich, które zawierają wpisane znaki. Po naciśnięciu `Tab` klawiszy lub funkcja `Enter` IntelliSense Wstawia wybrany element członkowski.
 
-Funkcję IntelliSense można wyzwolić w dowolnym oknie edytora, wpisując znak wyzwalacza, taki jak znak `.`kropki.
+Funkcję IntelliSense można wyzwolić w dowolnym oknie edytora, wpisując znak wyzwalacza, taki jak znak kropki `.` .
 
 ![Funkcja autouzupełniania IntelliSense](./media/vs-code-intellisense/auto-completion.gif)
 

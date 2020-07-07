@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311542"
 ---
 # <a name="security-recommendations"></a>Zalecenia dotyczące zabezpieczeń
@@ -35,11 +35,11 @@ Zalecenia dotyczące urządzeń zapewniają szczegółowe informacje i sugestie 
 
 | Ważność | Nazwa                                                      | Źródło danych | Opis                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Medium   | Otwórz porty na urządzeniu                                      | Agent       | Znaleziono punkt końcowy nasłuchiwania na urządzeniu.                                                                                                                                                        |
-| Medium   | Odnoszące się do zasad zapory znajdują się w jednym z łańcuchów. | Agent       | Znaleziono dozwolone zasady zapory (dane wejściowe/wyjściowe). Zasady zapory powinny domyślnie blokować cały ruch i definiować reguły zezwalające na niezbędną komunikację z urządzeniem lub z niego.                               |
-| Medium   | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym     | Agent       | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów.                                                                                    |
-| Medium   | Znaleziono ograniczającą regułę zapory w łańcuchu wyjściowym    | Agent       | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów.                                                                                   |
-| Medium   | Weryfikacja linii bazowej systemu operacyjnego nie powiodła się           | Agent       | Urządzenie nie jest zgodne z wynikami [testów CIS systemu Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
+| Średniaa   | Otwórz porty na urządzeniu                                      | Agent       | Znaleziono punkt końcowy nasłuchiwania na urządzeniu.                                                                                                                                                        |
+| Średniaa   | Odnoszące się do zasad zapory znajdują się w jednym z łańcuchów. | Agent       | Znaleziono dozwolone zasady zapory (dane wejściowe/wyjściowe). Zasady zapory powinny domyślnie blokować cały ruch i definiować reguły zezwalające na niezbędną komunikację z urządzeniem lub z niego.                               |
+| Średniaa   | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym     | Agent       | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów.                                                                                    |
+| Średniaa   | Znaleziono ograniczającą regułę zapory w łańcuchu wyjściowym    | Agent       | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów.                                                                                   |
+| Średniaa   | Weryfikacja linii bazowej systemu operacyjnego nie powiodła się           | Agent       | Urządzenie nie jest zgodne z wynikami [testów CIS systemu Linux](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
 
 ### <a name="operational-recommendations-for-iot-devices"></a>Zalecenia operacyjne dotyczące urządzeń IoT
 
@@ -58,10 +58,10 @@ Alerty dotyczące rekomendacji zapewniają wgląd i sugestie dotyczące działa�
 
 | Ważność | Nazwa                                                     | Źródło danych | Opis                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wysoka     | Identyczne poświadczenia uwierzytelniania używane przez wiele urządzeń | Usługa IoT Hub     | Poświadczenia uwierzytelniania IoT Hub są używane przez wiele urządzeń. Może to wskazywać na to, że urządzenie illegitimate personifikuje legalne urządzenie. Zduplikowane użycie poświadczeń zwiększa ryzyko personifikacji urządzenia przez złośliwy aktor. |
-| Medium   | Domyślne zasady filtrowania adresów IP powinny być Odmów                  | Usługa IoT Hub     | Konfiguracja filtru IP powinna mieć reguły zdefiniowane dla dozwolonego ruchu i powinna domyślnie odmówić całego ruchu.                                                                                                     |
-| Medium   | Reguła filtru IP obejmuje duży zakres adresów IP                   | Usługa IoT Hub     | Źródłowy zakres adresów IP reguły filtru adresów IP jest zbyt duży. Nadmiernie ograniczające reguły mogą uwidocznić Centrum IoT w złośliwych aktorach.                                                                                       |
-| Małe      | Włączanie dzienników diagnostycznych w IoT Hub                       | Usługa IoT Hub     | Włącz dzienniki i zachowaj je przez maksymalnie rok. Przechowywanie dzienników umożliwia ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci.                                       |
+| Wysoki     | Identyczne poświadczenia uwierzytelniania używane przez wiele urządzeń | IoT Hub     | Poświadczenia uwierzytelniania IoT Hub są używane przez wiele urządzeń. Może to wskazywać na to, że urządzenie illegitimate personifikuje legalne urządzenie. Zduplikowane użycie poświadczeń zwiększa ryzyko personifikacji urządzenia przez złośliwy aktor. |
+| Średniaa   | Domyślne zasady filtrowania adresów IP powinny być Odmów                  | IoT Hub     | Konfiguracja filtru IP powinna mieć reguły zdefiniowane dla dozwolonego ruchu i powinna domyślnie odmówić całego ruchu.                                                                                                     |
+| Średniaa   | Reguła filtru IP obejmuje duży zakres adresów IP                   | IoT Hub     | Źródłowy zakres adresów IP reguły filtru adresów IP jest zbyt duży. Nadmiernie ograniczające reguły mogą uwidocznić Centrum IoT w złośliwych aktorach.                                                                                       |
+| Małe      | Włączanie dzienników diagnostycznych w IoT Hub                       | IoT Hub     | Włącz dzienniki i zachowaj je przez maksymalnie rok. Przechowywanie dzienników umożliwia ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci.                                       |
 |
 
 ## <a name="next-steps"></a>Następne kroki
