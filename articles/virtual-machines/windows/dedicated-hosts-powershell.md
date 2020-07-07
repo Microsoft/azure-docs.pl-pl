@@ -9,17 +9,17 @@ ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: b90189c6ba5e51a24d0c248b5aa08e9a5e4bbd9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082853"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu Azure PowerShell
 
 W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
-Upewnij się, że zainstalowano program Azure PowerShell w wersji 2.8.0 lub nowszej oraz że zalogowano się na koncie platformy Azure `Connect-AzAccount`w usłudze. 
+Upewnij się, że zainstalowano program Azure PowerShell w wersji 2.8.0 lub nowszej oraz że zalogowano się na koncie platformy Azure w usłudze `Connect-AzAccount` . 
 
 ## <a name="limitations"></a>Ograniczenia
 

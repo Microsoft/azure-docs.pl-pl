@@ -10,23 +10,23 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083426"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Używanie dysku D: jako dysku z danymi na maszynie wirtualnej z systemem Windows
 Jeśli aplikacja musi używać dysku D do przechowywania danych, postępuj zgodnie z tymi instrukcjami, aby użyć innej litery dysku dla dysku tymczasowego. Nie należy używać dysku tymczasowego do przechowywania danych, które należy zachować.
 
-Jeśli zmienisz rozmiar lub **zatrzymasz (Cofnij przydział)** maszyny wirtualnej, może to spowodować umieszczenie maszyny wirtualnej w nowej funkcji hypervisor. Planowane lub nieplanowane zdarzenie konserwacji może również spowodować wyzwolenie tego położenia. W tym scenariuszu dysk tymczasowy zostanie ponownie przypisany do pierwszej dostępnej litery dysku. Jeśli masz aplikację, która odpowiednio wymaga dysku D:, należy wykonać następujące kroki, aby tymczasowo przenieść plik pagefile. sys, dołączyć nowy dysk z danymi i przypisać go literę D, a następnie przenieść plik pagefile. sys z powrotem do dysku tymczasowego. Po zakończeniu platforma Azure nie przejdzie z powrotem D: Jeśli maszyna wirtualna przejdzie do innej funkcji hypervisor.
+Jeśli zmienisz rozmiar lub **zatrzymasz (Cofnij przydział)** maszyny wirtualnej, może to spowodować umieszczenie maszyny wirtualnej w nowej funkcji hypervisor. Planowane lub nieplanowane zdarzenie konserwacji może również spowodować wyzwolenie tego położenia. W tym scenariuszu dysk tymczasowy zostanie ponownie przypisany do pierwszej dostępnej litery dysku. Jeśli masz aplikację, która odpowiednio wymaga dysku D:, musisz wykonać następujące kroki, aby tymczasowo przenieść pagefile.sys, dołączyć nowy dysk danych i przypisać go do litery D, a następnie przenieść pagefile.sys z powrotem do dysku tymczasowego. Po zakończeniu platforma Azure nie przejdzie z powrotem D: Jeśli maszyna wirtualna przejdzie do innej funkcji hypervisor.
 
 Aby uzyskać więcej informacji na temat sposobu korzystania z dysku tymczasowego przez platformę Azure, zobacz [opis dysku tymczasowego na Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="attach-the-data-disk"></a>Dołącz dysk z danymi
 Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić przy użyciu portalu, zobacz [jak dołączyć dysk danych zarządzanych w Azure Portal](attach-managed-disk-portal.md).
 
-## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Tymczasowo Przenieś plik pagefile. sys do dysku C
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Tymczasowo Przenieś pagefile.sys do dysku C
 1. Nawiąż połączenie z maszyną wirtualną. 
 2. Kliknij prawym przyciskiem myszy menu **Start** i wybierz pozycję **system**.
 3. W menu po lewej stronie wybierz pozycję **Zaawansowane ustawienia systemu**.
@@ -46,7 +46,7 @@ Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić p
 5. Kliknij prawym przyciskiem myszy dysk danych i wybierz polecenie **Zmień literę dysku i ścieżki**.
 6. W obszarze litera dysku wybierz pozycję dysk **D** , a następnie kliknij przycisk **OK**. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Przenoszenie pliku Pagefile. sys z powrotem do tymczasowego dysku magazynu
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Przenieś pagefile.sys z powrotem do tymczasowego dysku magazynu
 1. Kliknij prawym przyciskiem myszy menu **Start** i wybierz pozycję **system**
 2. W menu po lewej stronie wybierz pozycję **Zaawansowane ustawienia systemu**.
 3. W sekcji **wydajność** wybierz pozycję **Ustawienia**.

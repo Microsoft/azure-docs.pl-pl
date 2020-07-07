@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82083369"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Znajdowanie obrazów maszyn wirtualnych z systemem Windows w witrynie Azure Marketplace przy użyciu programu Azure PowerShell
@@ -30,7 +30,7 @@ Dostępne obrazy i oferty można także przeglądać za pomocą [witryny Azure M
 
 W tej tabeli przedstawiono podzestaw dostępnych jednostek SKU dla wskazanych wydawców i ofert.
 
-| Wydawca | Oferta | SKU |
+| Publisher | Oferta | SKU |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019 — centrum danych |
 | MicrosoftWindowsServer |WindowsServer |2019 — centrum danych — rdzeń |
@@ -178,9 +178,9 @@ W przypadku wdrożenia maszyny wirtualnej z szablonem Menedżer zasobów, parame
 
 ### <a name="view-plan-properties"></a>Wyświetl właściwości planu
 
-Aby wyświetlić informacje o planie zakupu obrazu, uruchom `Get-AzVMImage` polecenie cmdlet. Jeśli `PurchasePlan` właściwość w danych wyjściowych nie `null`jest, obraz zawiera warunki, które należy zaakceptować przed wdrożeniem programistycznym.  
+Aby wyświetlić informacje o planie zakupu obrazu, uruchom `Get-AzVMImage` polecenie cmdlet. Jeśli `PurchasePlan` Właściwość w danych wyjściowych nie jest `null` , obraz zawiera warunki, które należy zaakceptować przed wdrożeniem programistycznym.  
 
-Na przykład obraz *systemu Windows Server 2016 Datacenter* nie ma dodatkowych warunków, więc dostępne są `PurchasePlan` `null`następujące informacje:
+Na przykład obraz *systemu Windows Server 2016 Datacenter* nie ma dodatkowych warunków, więc dostępne `PurchasePlan` są następujące informacje `null` :
 
 ```powershell
 $version = "2016.127.20170406"
@@ -206,7 +206,7 @@ DataDiskImages   : []
 
 ```
 
-W poniższym przykładzie pokazano podobne polecenie dla obrazu *Data Science Virtual Machine-Windows 2016* , który `PurchasePlan` ma następujące właściwości: `name`, `product`, i. `publisher` Niektóre obrazy mają również `promotion code` właściwość. Aby wdrożyć ten obraz, zapoznaj się z następującymi sekcjami, aby zaakceptować warunki i włączyć wdrażanie programistyczne.
+W poniższym przykładzie pokazano podobne polecenie dla obrazu *Data Science Virtual Machine-Windows 2016* , który ma następujące `PurchasePlan` Właściwości: `name` , `product` , i `publisher` . Niektóre obrazy mają również `promotion code` Właściwość. Aby wdrożyć ten obraz, zapoznaj się z następującymi sekcjami, aby zaakceptować warunki i włączyć wdrażanie programistyczne.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

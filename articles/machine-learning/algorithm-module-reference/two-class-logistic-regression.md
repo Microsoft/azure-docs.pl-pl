@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137624"
 ---
 # <a name="two-class-logistic-regression-module"></a>Moduł regresji logistycznej dla dwóch klas
@@ -55,7 +55,7 @@ Na przykład kolumna etykieta może być [głosowana] z możliwymi wartościami 
   
     -   Z kolei w przypadku danych, które nie są rozrzedzone, preferowane jest uregulowanie L2.  
   
-     Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: to jest, <code>x = L1</code> Jeśli <code>y = L2</code>i, <code>ax + by = c</code> następnie definiuje liniowy zakres warunków uregulowania.  
+     Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: to jest, jeśli <code>x = L1</code> i <code>y = L2</code> , następnie <code>ax + by = c</code> definiuje liniowy zakres warunków uregulowania.  
   
     > [!NOTE]
     >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych: [w przypadku Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  

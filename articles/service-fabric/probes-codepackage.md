@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137590"
 ---
 # <a name="liveness-probe"></a>Sonda na żywo
@@ -21,7 +21,7 @@ Przed przejściem do tego artykułu zapoznaj się z [modelem aplikacji Service F
 > [!NOTE]
 > Sonda na żywo jest obsługiwana tylko w przypadku kontenerów w trybie sieci NAT.
 
-## <a name="semantics"></a>Semantyki
+## <a name="semantics"></a>Semantyka
 Można określić tylko jedną sondę na żywo na kontener i kontrolować jej zachowanie przy użyciu następujących pól:
 
 * `initialDelaySeconds`: Początkowe opóźnienie (w sekundach) uruchomienia sondy po rozpoczęciu kontenera. Obsługiwana wartość to **int**. Wartość domyślna to 0, a wartość minimalna to 0.
@@ -40,15 +40,15 @@ Ponadto Service Fabric spowodują [wygenerowanie następujących raportów o kon
 
 * `OK`: Sonda powiodła się dla wartości ustawionej w **successThreshold**.
 
-* `Error`: Sonda **failureCount** ==  **failureThreshold**przed ponownym uruchomieniem kontenera.
+* `Error`: Sonda **failureCount**  ==   **failureThreshold**przed ponownym uruchomieniem kontenera.
 
 * `Warning`: 
-    * Sonda kończy się niepowodzeniem i **failureCount** < **failureThreshold**. Ten raport kondycji pozostaje do momentu, gdy **failureCount** osiągnie wartość ustawioną w **failureThreshold** lub **successThreshold**.
+    * Sonda kończy się niepowodzeniem i **failureCount**  <  **failureThreshold**. Ten raport kondycji pozostaje do momentu, gdy **failureCount** osiągnie wartość ustawioną w **failureThreshold** lub **successThreshold**.
     * Po pomyślnym wystąpieniu błędu ostrzeżenie pozostaje niezmienione, ale z zaktualizowanymi kolejnymi sukcesami.
 
 ## <a name="specifying-a-liveness-probe"></a>Określanie sondy na żywo
 
-Możesz określić sondę w pliku ApplicationManifest. XML w obszarze **ServiceManifestImport**.
+Możesz określić sondę w pliku ApplicationManifest.xml w obszarze **ServiceManifestImport**.
 
 Sonda może mieć jedną z następujących wartości:
 

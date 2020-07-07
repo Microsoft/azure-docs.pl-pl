@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082921"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu języka C# i szablonu Menedżer zasobów
@@ -28,14 +28,14 @@ Wykonanie tych kroków trwa około 10 minut.
 W tym kroku upewnij się, że program Visual Studio jest zainstalowany i utworzysz aplikację konsolową służącą do wdrażania szablonu.
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Wybierz pozycję **Programowanie aplikacji klasycznych platformy .NET** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. W podsumowaniu można zobaczyć, że **.NET Framework narzędzia deweloperskie 4-4,6** są automatycznie wybierane. Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie .NET przy użyciu programu uruchamiania programu Visual Studio.
-2. W programie Visual Studio kliknij pozycję **plik** > **Nowy** > **projekt**.
-3. W obszarze **Szablony** > **Visual C#** wybierz pozycję **aplikacja konsoli (.NET Framework)**, wprowadź *myDotnetProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
+2. W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
+3. W obszarze **Szablony**  >  **Visual C#** wybierz pozycję **aplikacja konsoli (.NET Framework)**, wprowadź *myDotnetProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
 ## <a name="install-the-packages"></a>Zainstaluj pakiety
 
 Pakiety NuGet to najprostszy sposób instalacji bibliotek, które należy wykonać, aby zakończyć te kroki. Aby uzyskać biblioteki, które są potrzebne w programie Visual Studio, wykonaj następujące czynności:
 
-1. Kliknij kolejno pozycje **Narzędzia** > **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
+1. Kliknij kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
 2. Wpisz następujące polecenia w konsoli programu:
 
     ```powershell
@@ -49,7 +49,7 @@ W tym kroku utworzysz plik szablonu służący do wdrażania zasobów i pliku pa
 
 ### <a name="create-the-template-file"></a>Utwórz plik szablonu
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject* > **Dodaj** > **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *CreateVMTemplate. JSON*, a następnie kliknij przycisk **Dodaj**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject*  >  **Dodaj**  >  **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *CreateVMTemplate.jsna*, a następnie kliknij przycisk **Dodaj**.
 2. Dodaj ten kod JSON do utworzonego pliku:
 
     ```json
@@ -155,13 +155,13 @@ W tym kroku utworzysz plik szablonu służący do wdrażania zasobów i pliku pa
     }
     ```
 
-3. Zapisz plik CreateVMTemplate. JSON.
+3. Zapisz CreateVMTemplate.jspliku.
 
 ### <a name="create-the-parameters-file"></a>Utwórz plik parametrów
 
 Aby określić wartości parametrów zasobów w szablonie, należy utworzyć plik parametrów zawierający wartości.
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject* > **Dodaj** > **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *Parameters. JSON*, a następnie kliknij przycisk **Dodaj**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject*  >  **Dodaj**  >  **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *Parameters.jsna*, a następnie kliknij przycisk **Dodaj**.
 2. Dodaj ten kod JSON do utworzonego pliku:
 
     ```json
@@ -175,13 +175,13 @@ Aby określić wartości parametrów zasobów w szablonie, należy utworzyć pli
     }
     ```
 
-4. Zapisz plik Parameters. JSON.
+4. Zapisz Parameters.jspliku.
 
 ### <a name="create-the-authorization-file"></a>Utwórz plik autoryzacji
 
 Przed wdrożeniem szablonu upewnij się, że masz dostęp do jednostki [usługi Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Z jednostki usługi uzyskuje się token do uwierzytelniania żądań do Azure Resource Manager. Należy również zarejestrować identyfikator aplikacji, klucz uwierzytelniania i identyfikator dzierżawy, które są potrzebne w pliku autoryzacji.
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject* > **Dodaj** > **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *azureauth. Properties*, a następnie kliknij przycisk **Dodaj**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject*  >  **Dodaj**  >  **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *azureauth. Properties*, a następnie kliknij przycisk **Dodaj**.
 2. Dodaj następujące właściwości autoryzacji:
 
     ```
@@ -195,7 +195,7 @@ Przed wdrożeniem szablonu upewnij się, że masz dostęp do jednostki [usługi 
     graphURL=https://graph.microsoft.com/
     ```
 
-    Zastąp ** &lt;identyfikator Subscription&gt; -ID** identyfikatorem subskrypcji, ** &lt;identyfikatorem&gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt;&gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt;identyfikatorem&gt; dzierżawy** .
+    Zastąp ** &lt; Identyfikator Subscription &gt; -ID** identyfikatorem subskrypcji, ** &lt; identyfikatorem &gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt; &gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt; identyfikatorem &gt; dzierżawy** .
 
 3. Zapisz plik azureauth. Properties.
 4. Ustaw zmienną środowiskową w systemie Windows o nazwie AZURE_AUTH_LOCATION z pełną ścieżką do pliku autoryzacji, który został utworzony, na przykład możesz użyć następującego polecenia programu PowerShell:

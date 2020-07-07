@@ -15,10 +15,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
 ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82128006"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Przewodnik migracji biblioteki ADAL do MSAL dla języka Java
@@ -43,13 +43,13 @@ Jeśli pracujesz z punktem końcowym usługi Azure AD dla deweloperów (i ADAL4J
 
 ADAL4J uzyskuje tokeny dla zasobów, a MSAL for Java uzyskuje tokeny dla zakresów. Liczba MSAL dla klas języka Java wymaga parametru Scopes. Ten parametr jest listą ciągów, które deklarują żądane uprawnienia i żądane zasoby. Zobacz [zakresy Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) , aby zobaczyć przykładowe zakresy.
 
-Można dodać sufiks `/.default` zakresu do zasobu, aby ułatwić migrację aplikacji z punktu końcowego v 1.0 (ADAL) do punktu końcowego platformy tożsamości firmy Microsoft (MSAL). Na przykład dla wartości zasobu wartość `https://graph.microsoft.com`równoważna wartość zakresu to. `https://graph.microsoft.com/.default`  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, można nadal używać wartości zakresu jako. `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`
+Można dodać `/.default` sufiks zakresu do zasobu, aby ułatwić migrację aplikacji z punktu końcowego v 1.0 (ADAL) do punktu końcowego platformy tożsamości firmy Microsoft (MSAL). Na przykład dla wartości zasobu wartość `https://graph.microsoft.com` równoważna wartość zakresu to `https://graph.microsoft.com/.default` .  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , można nadal używać wartości zakresu jako `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
 
 ## <a name="core-classes"></a>Klasy podstawowe
 
-W ADAL4J `AuthenticationContext` Klasa reprezentuje połączenie z usługą tokenu zabezpieczającego (STS) lub serwerem autoryzacji za pomocą urzędu. MSAL for Java jest jednak przeznaczony dla aplikacji klienckich. Oferuje dwie osobne klasy: `PublicClientApplication` i `ConfidentialClientApplication` do reprezentowania aplikacji klienckich.  Drugie `ConfidentialClientApplication`, reprezentuje aplikację, która została zaprojektowana w celu bezpiecznego utrzymania hasła, takiego jak identyfikator aplikacji dla aplikacji demona.
+W ADAL4J `AuthenticationContext` Klasa reprezentuje połączenie z usługą tokenu zabezpieczającego (STS) lub serwerem autoryzacji za pomocą urzędu. MSAL for Java jest jednak przeznaczony dla aplikacji klienckich. Oferuje dwie osobne klasy: `PublicClientApplication` i `ConfidentialClientApplication` do reprezentowania aplikacji klienckich.  Drugie, `ConfidentialClientApplication` reprezentuje aplikację, która została zaprojektowana w celu bezpiecznego utrzymania hasła, takiego jak identyfikator aplikacji dla aplikacji demona.
 
 W poniższej tabeli przedstawiono, jak funkcje ADAL4J są mapowane na nowe MSAL dla funkcji języka Java:
 
@@ -113,7 +113,7 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-`IAuthenticationResult` Zwraca token dostępu i token identyfikatora, podczas gdy nowy token odświeżania jest przechowywany w pamięci podręcznej.
+`IAuthenticationResult`Zwraca token dostępu i token identyfikatora, podczas gdy nowy token odświeżania jest przechowywany w pamięci podręcznej.
 Aplikacja będzie również zawierać IAccount:
 
 ```java

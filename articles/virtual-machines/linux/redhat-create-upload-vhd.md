@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
 ms.openlocfilehash: 4140f9f07a0fd653c8e0370d017cbae7effd0a07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084315"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie Red Hat dla platformy Azure
@@ -72,7 +72,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
@@ -125,7 +125,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
         # logout
 
-1. Kliknij pozycję **Akcja** > **Zamknij** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
+1. Kliknij pozycję **Akcja**  >  **Zamknij** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
 
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Przygotowywanie maszyny wirtualnej z systemem RHEL 7 z poziomu Menedżera funkcji Hyper-V
@@ -158,7 +158,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -168,15 +168,15 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
    
     Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego. W `crashkernel` razie potrzeby można pozostawić opcję skonfigurowaną. Należy zauważyć, że ten parametr zmniejsza ilość dostępnej pamięci w maszynie wirtualnej o 128 MB lub więcej, co może być przyczyną problemów w mniejszych rozmiarach maszyn wirtualnych.
 
-1. Po zakończeniu edycji `/etc/default/grub`Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
+1. Po zakończeniu edycji `/etc/default/grub` Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu, co jest zazwyczaj ustawieniem domyślnym. Zmodyfikuj `/etc/ssh/sshd_config` , aby uwzględnić następujący wiersz:
+1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu, co jest zazwyczaj ustawieniem domyślnym. Zmodyfikuj, `/etc/ssh/sshd_config` Aby uwzględnić następujący wiersz:
 
         ClientAliveInterval 180
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -188,7 +188,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
 1. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj odpowiednio następujące parametry `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -210,7 +210,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
         # logout
 
-1. Kliknij pozycję **Akcja** > **Zamknij** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
+1. Kliknij pozycję **Akcja**  >  **Zamknij** w Menedżerze funkcji Hyper-V. Wirtualny dysk twardy z systemem Linux jest teraz gotowy do przekazania na platformę Azure.
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Przygotowywanie maszyny wirtualnej z systemem Red Hat przy użyciu przełącznika KVM
@@ -281,7 +281,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
 1. Dodawanie modułów funkcji Hyper-V do initramfs:  
 
-    Edytuj `/etc/dracut.conf`i Dodaj następującą zawartość:
+    Edytuj `/etc/dracut.conf` i Dodaj następującą zawartość:
 
         add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
@@ -302,7 +302,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
@@ -339,7 +339,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 1. Przekonwertuj obraz QCOW2 na format VHD.
 
 > [!NOTE]
-> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
+> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Dokumentacja: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -412,7 +412,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby wykonać tę konfigurację, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby wykonać tę konfigurację, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -422,7 +422,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
    
     Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego. W `crashkernel` razie potrzeby można pozostawić opcję skonfigurowaną. Należy zauważyć, że ten parametr zmniejsza ilość dostępnej pamięci w maszynie wirtualnej o 128 MB lub więcej, co może być przyczyną problemów w mniejszych rozmiarach maszyn wirtualnych.
 
-1. Po zakończeniu edycji `/etc/default/grub`Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
+1. Po zakończeniu edycji `/etc/default/grub` Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -449,7 +449,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -463,7 +463,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 
 1. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj odpowiednio następujące parametry `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -490,7 +490,7 @@ W tej sekcji założono, że plik ISO został już pobrany z witryny sieci Web f
 1. Przekonwertuj obraz QCOW2 na format VHD.
 
 > [!NOTE]
-> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
+> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Dokumentacja: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -558,11 +558,11 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -574,7 +574,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
 1. Dodawanie modułów funkcji Hyper-V do initramfs:
 
-    Edytuj `/etc/dracut.conf`i Dodaj następującą zawartość:
+    Edytuj `/etc/dracut.conf` i Dodaj następującą zawartość:
 
         add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
@@ -582,7 +582,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
         # dracut -f -v
 
-1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu, co jest zazwyczaj ustawieniem domyślnym. Zmodyfikuj `/etc/ssh/sshd_config` , aby uwzględnić następujący wiersz:
+1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu, co jest zazwyczaj ustawieniem domyślnym. Zmodyfikuj, `/etc/ssh/sshd_config` Aby uwzględnić następujący wiersz:
 
     ClientAliveInterval 180
 
@@ -594,7 +594,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
 1. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj odpowiednio następujące parametry `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -619,7 +619,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 1. Zamknij maszynę wirtualną i przekonwertuj plik VMDK na plik VHD.
 
 > [!NOTE]
-> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
+> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Dokumentacja: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -670,7 +670,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Przykład:
+1. Zmodyfikuj wiersz rozruchowy jądra w konfiguracji grub, aby uwzględnić dodatkowe parametry jądra platformy Azure. Aby to zrobić, Otwórz `/etc/default/grub` w edytorze tekstów i edytuj `GRUB_CMDLINE_LINUX` parametr. Na przykład:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -680,13 +680,13 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
    
     Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego. W `crashkernel` razie potrzeby można pozostawić opcję skonfigurowaną. Należy zauważyć, że ten parametr zmniejsza ilość dostępnej pamięci w maszynie wirtualnej o 128 MB lub więcej, co może być przyczyną problemów w mniejszych rozmiarach maszyn wirtualnych.
 
-1. Po zakończeniu edycji `/etc/default/grub`Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
+1. Po zakończeniu edycji `/etc/default/grub` Uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 1. Dodaj moduły funkcji Hyper-V do initramfs.
 
-    Edytuj `/etc/dracut.conf`, Dodaj zawartość:
+    Edytuj `/etc/dracut.conf` , Dodaj zawartość:
 
         add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
@@ -694,11 +694,11 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
         # dracut -f -v
 
-1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu. To ustawienie jest zwykle domyślnie. Zmodyfikuj `/etc/ssh/sshd_config` , aby uwzględnić następujący wiersz:
+1. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu. To ustawienie jest zwykle domyślnie. Zmodyfikuj, `/etc/ssh/sshd_config` Aby uwzględnić następujący wiersz:
 
         ClientAliveInterval 180
 
-1. Pakiet `WALinuxAgent-<version>`WALinuxAgent został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
+1. Pakiet WALinuxAgent `WALinuxAgent-<version>` został wypychany do repozytorium rozszerzeń Red Hat. Włącz repozytorium dodatków, uruchamiając następujące polecenie:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -710,7 +710,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 
 1. Nie należy tworzyć obszaru wymiany na dysku systemu operacyjnego.
 
-    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj `/etc/waagent.conf` odpowiednio następujące parametry:
+    Agent systemu Azure Linux może automatycznie skonfigurować miejsce wymiany przy użyciu lokalnego dysku zasobu dołączonego do maszyny wirtualnej po aprowizacji maszyny wirtualnej na platformie Azure. Należy pamiętać, że lokalny dysk zasobów jest dyskiem tymczasowym i może zostać opróżniony, jeśli maszyna wirtualna zostanie anulowana. Po zainstalowaniu agenta systemu Linux platformy Azure w poprzednim kroku zmodyfikuj odpowiednio następujące parametry `/etc/waagent.conf` :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -735,7 +735,7 @@ W tej sekcji założono, że zainstalowano już maszynę wirtualną RHEL w oprog
 1. Zamknij maszynę wirtualną i przekonwertuj plik VMDK na format VHD.
 
 > [!NOTE]
-> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Odwołanie: https://bugs.launchpad.net/qemu/+bug/1490611.
+> W wersjach QEMU-IMG występuje znany błąd >= 2.2.1, który powoduje niewłaściwie sformatowany dysk VHD. Problem został rozwiązany w QEMU 2,6. Zaleca się użycie opcji QEMU-IMG 2.2.0 lub Lower lub aktualizację do wersji 2,6 lub nowszej. Dokumentacja: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -911,7 +911,7 @@ W przypadku korzystania z innego systemu wirtualizacji (czyli VirtualBox, Xen it
 
 Aby rozwiązać ten problem, Dodaj moduły funkcji Hyper-V do initramfs i Skompiluj ponownie:
 
-Edytuj `/etc/dracut.conf`i Dodaj następującą zawartość:
+Edytuj `/etc/dracut.conf` i Dodaj następującą zawartość:
 
         add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 

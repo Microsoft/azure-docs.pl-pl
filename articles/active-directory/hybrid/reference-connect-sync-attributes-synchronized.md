@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82082122"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
@@ -60,7 +60,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | authOrig |X |X |X | |
 | c |X |X | | |
 | CN |X | |X | |
-| współzarządzania |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
@@ -166,7 +166,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userCertificate |X |X | | |
@@ -181,7 +181,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | authOrig |X |X |X | |
 | c |X |X | | |
 | CN |X | |X | |
-| współzarządzania |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | działu, |X |X | | |
@@ -248,7 +248,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika
@@ -262,7 +262,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
 | CN |X | |X | |
-| współzarządzania |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | działu, |X |X | | |
 | description |X |X |X | |
@@ -299,7 +299,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| title |X |X | | |
+| tytuł |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 | wWWHomePage |X |X | | |
@@ -343,7 +343,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | accountEnabled |X | | |Określa, czy konto jest włączone. |
 | c |X |X | | |
 | CN |X | |X | |
-| współzarządzania |X |X | | |
+| co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
 | description |X |X |X | |
@@ -365,7 +365,7 @@ W takim przypadku należy zacząć od listy atrybutów w tym temacie i zidentyfi
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| title |X |X | | |
+| tytuł |X |X | | |
 | usageLocation |X | | |Właściwość mechaniczna. Kraj/region użytkownika. Używany do przypisywania licencji. |
 | userPrincipalName |X | | |Nazwa UPN to identyfikator logowania użytkownika. Najczęściej taka sama jak wartość [mail]. |
 

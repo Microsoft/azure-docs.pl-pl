@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134418"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
@@ -55,7 +55,7 @@ Istnieje pięć kroków, które należy wykonać, aby utworzyć wdrożenie. W po
 
 ### <a name="step-1-name-and-label"></a>Krok 1. nazwa i etykieta
 
-1. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:.
+1. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` .
 1. Etykiety można dodawać jako pary klucz-wartość, aby ułatwić śledzenie wdrożeń. Na przykład **HostPlatform** i **Linux**, lub **wersja** i **3.0.1**.
 1. Wybierz kolejno pozycje **Następny: moduły** , aby przejść do kroku 2.
 
@@ -115,7 +115,7 @@ Aby dodać moduł z Azure Stream Analytics, wykonaj następujące kroki:
 
 Po dodaniu modułu do wdrożenia można wybrać jego nazwę, aby otworzyć stronę **modułu aktualizacji IoT Edge** . Na tej stronie można edytować ustawienia modułu, zmienne środowiskowe, opcje tworzenia i sznurki modułowe. Jeśli dodano moduł z portalu Marketplace, może on mieć już wypełnione niektóre parametry.
 
-W przypadku tworzenia wdrożenia warstwowego można skonfigurować moduł, który istnieje w innych wdrożeniach przeznaczonych dla tych samych urządzeń. Aby zaktualizować splot modułu bez zastępowania innych wersji, Otwórz kartę **Ustawienia sznurka modułu** . Utwórz nową **Właściwość sznurka modułu** o unikatowej nazwie dla podsekcji w ramach żądanych właściwości `properties.desired.settings`sznurka modułu. Jeśli zdefiniujesz właściwości w tylko `properties.desired` polu, spowoduje to zastąpienie żądanych właściwości modułu zdefiniowanego we wdrożeniach o niższym priorytecie.
+W przypadku tworzenia wdrożenia warstwowego można skonfigurować moduł, który istnieje w innych wdrożeniach przeznaczonych dla tych samych urządzeń. Aby zaktualizować splot modułu bez zastępowania innych wersji, Otwórz kartę **Ustawienia sznurka modułu** . Utwórz nową **Właściwość sznurka modułu** o unikatowej nazwie dla podsekcji w ramach żądanych właściwości sznurka `properties.desired.settings` modułu. Jeśli zdefiniujesz właściwości w tylko `properties.desired` polu, spowoduje to zastąpienie żądanych właściwości modułu zdefiniowanego we wdrożeniach o niższym priorytecie.
 
 ![Ustaw właściwość sznurka modułu dla wdrożenia warstwowego](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -125,7 +125,7 @@ Po skonfigurowaniu wszystkich modułów dla wdrożenia wybierz pozycję **Dalej:
 
 ### <a name="step-3-routes"></a>Krok 3. trasy
 
-Trasy definiują, jak moduły komunikują się ze sobą w ramach wdrożenia. Domyślnie Kreator udostępnia trasę o nazwie **nadrzędny** i zdefiniowany jako **od\* /messages/do $upstream**, co oznacza, że wszystkie komunikaty wyjściowe przez wszystkie moduły są wysyłane do centrum IoT Hub.  
+Trasy definiują, jak moduły komunikują się ze sobą w ramach wdrożenia. Domyślnie Kreator udostępnia trasę o nazwie **nadrzędny** i zdefiniowany jako **od/messages/ \* do $upstream**, co oznacza, że wszystkie komunikaty wyjściowe przez wszystkie moduły są wysyłane do centrum IoT Hub.  
 
 Dodaj lub zaktualizuj trasy z informacjami z [deklaracji trasy](module-composition.md#declare-routes), a następnie wybierz pozycję **dalej** , aby przejść do sekcji Przegląd.
 
@@ -139,7 +139,7 @@ Metryki zawierają podsumowanie liczb różnych stanów, które urządzenie moż
 
 1. Wprowadź zapytanie dla **kryteriów metryki**. Zapytanie jest oparte na IoT Edge [raportowanych właściwościach](module-edgeagent-edgehub.md#edgehub-reported-properties)modułu centrum. Metryka reprezentuje liczbę wierszy zwracanych przez zapytanie.
 
-   Przykład:
+   Na przykład:
 
    ```sql
    SELECT deviceId FROM devices

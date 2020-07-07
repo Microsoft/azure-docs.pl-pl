@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025071"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatyczne zarządzanie urządzeniami i modułami IoT przy użyciu Azure Portal
@@ -65,7 +65,7 @@ Istnieje pięć kroków, które należy wykonać, aby utworzyć konfigurację. W
 
 ### <a name="name-and-label"></a>Nazwa i etykieta
 
-1. Nadaj swojej konfiguracji unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:.
+1. Nadaj swojej konfiguracji unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` .
 
 2. Dodaj etykiety, aby pomóc w śledzeniu konfiguracji. Etykiety to **nazwy**i pary **wartości** opisujące konfigurację. Na przykład: `HostPlatform, Linux` lub `Version, 3.0.1`.
 
@@ -75,7 +75,7 @@ Istnieje pięć kroków, które należy wykonać, aby utworzyć konfigurację. W
 
 W tej sekcji zdefiniowano zawartość, która ma zostać ustawiona w bliźniaczych reprezentacji na urządzeniu lub module. Dla każdego zestawu ustawień istnieją dwa dane wejściowe. Pierwsza to ścieżka z dwuosiową, która jest ścieżką do sekcji JSON w obszarze właściwości, które zostaną ustawione.  Drugim jest zawartość JSON, która ma zostać wstawiona w tej sekcji. 
 
-Na przykład można ustawić ścieżkę bliźniaczy na `properties.desired.chiller-water` , a następnie podać następującą zawartość JSON: 
+Na przykład można ustawić ścieżkę bliźniaczy na, `properties.desired.chiller-water` a następnie podać następującą zawartość JSON: 
 
 ```json
 {
@@ -87,11 +87,11 @@ Na przykład można ustawić ścieżkę bliźniaczy na `properties.desired.chill
 ![Ustawianie ścieżki i zawartości sznurka](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
 
-Możesz również ustawić poszczególne ustawienia, określając całą ścieżkę bliźniaczy i dostarczając wartość bez nawiasów. Na przykład ze ścieżką `properties.desired.chiller-water.temperature`ze znakiem bliźniaczym Ustaw zawartość `66`na. Następnie utwórz nowe ustawienie sznurka dla właściwości ciśnienie. 
+Możesz również ustawić poszczególne ustawienia, określając całą ścieżkę bliźniaczy i dostarczając wartość bez nawiasów. Na przykład ze ścieżką ze znakiem bliźniaczym `properties.desired.chiller-water.temperature` Ustaw zawartość na `66` . Następnie utwórz nowe ustawienie sznurka dla właściwości ciśnienie. 
 
 Jeśli co najmniej dwie konfiguracje mają tę samą ścieżkę jednoosiową, zostanie zastosowana zawartość z konfiguracji o najwyższym priorytecie (priorytet jest zdefiniowany w kroku 4).
 
-Jeśli chcesz usunąć istniejącą właściwość, określ wartość właściwości `null`.
+Jeśli chcesz usunąć istniejącą właściwość, określ wartość właściwości `null` .
 
 Możesz dodać dodatkowe ustawienia, wybierając pozycję **Dodaj ustawienie sznurka urządzenia** lub **Dodaj ustawienie sznurka modułu**.
 
@@ -105,7 +105,7 @@ Każda konfiguracja może mieć maksymalnie pięć metryk niestandardowych.
 
 2. Wprowadź zapytanie dla **kryteriów metryki**.  Zapytanie jest oparte na raportowanych właściwościach urządzenia.  Metryka reprezentuje liczbę wierszy zwracanych przez zapytanie.
 
-Przykład:
+Na przykład:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -120,7 +120,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Jeśli tworzysz metrykę do raportowania w skonfigurowanych modułach, wybierz `moduleId` pozycję `devices.modules`z. Przykład:
+Jeśli tworzysz metrykę do raportowania w skonfigurowanych modułach, wybierz pozycję `moduleId` z `devices.modules` . Na przykład:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules
@@ -139,7 +139,7 @@ Ponieważ wiele konfiguracji może wskazywać na to samo urządzenie lub moduł,
 
 2. Wprowadź **warunek docelowy** , aby określić, które urządzenia lub moduły mają być ukierunkowane na tę konfigurację. Warunek jest oparty na znacznikach bliźniaczych lub wyraportowanych właściwościach i powinien być zgodny z formatem wyrażenia. 
 
-   Aby skonfigurować automatyczną konfigurację urządzenia, można określić tylko tag lub zgłoszoną właściwość jako element docelowy. Na przykład: `tags.environment='test'` lub `properties.reported.chillerProperties.model='4000x'`. Możesz określić `*` , aby wskazać wszystkie urządzenia jako docelowe. 
+   Aby skonfigurować automatyczną konfigurację urządzenia, można określić tylko tag lub zgłoszoną właściwość jako element docelowy. Na przykład: `tags.environment='test'` lub `properties.reported.chillerProperties.model='4000x'`. Możesz określić, `*` Aby wskazać wszystkie urządzenia jako docelowe. 
    
    W celu automatycznego konfigurowania modułów należy użyć zapytania, aby określić Tagi lub zgłoszone właściwości z modułów zarejestrowanych w centrum IoT Hub. Na przykład: `from devices.modules where tags.environment='test'` lub `from devices.modules where properties.reported.chillerProperties.model='4000x'`. Symbol wieloznaczny nie może być używany jako element docelowy wszystkich modułów. 
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
 ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82099890"
 ---
 # <a name="resize-a-windows-vm"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Windows
@@ -56,7 +56,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Jeśli żądany rozmiar nie znajduje się na liście, uruchom następujące polecenia, aby cofnąć alokację maszyny wirtualnej, zmienić jej rozmiar i ponownie uruchomić maszynę wirtualną. Zastąp ** \<newVMsize>** rozmiarem, który chcesz.
+Jeśli żądany rozmiar nie znajduje się na liście, uruchom następujące polecenia, aby cofnąć alokację maszyny wirtualnej, zmienić jej rozmiar i ponownie uruchomić maszynę wirtualną. Zamień na żądany **\<newVMsize>** rozmiar.
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
