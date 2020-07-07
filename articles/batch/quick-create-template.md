@@ -4,12 +4,12 @@ description: Szybko naucz się uruchamiać zadanie usługi Batch za pomocą inte
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262688"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959827"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu Azure Resource Manager
 
@@ -33,8 +33,8 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
-- [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): tworzy konto magazynu.
-- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
+- [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): tworzy konto magazynu.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 

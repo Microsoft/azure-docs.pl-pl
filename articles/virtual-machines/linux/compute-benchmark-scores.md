@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.reviewer: davberg
 ms.openlocfilehash: afe1bddd5822b506dcf2c177fc308b717ddc2129
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580449"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Linux

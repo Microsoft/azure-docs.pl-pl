@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 8028b1f301a3c7fb4ca39c8920824091a4065118
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261957"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962700"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Jak utworzyć aplikację Java, która używa Azure Cosmos DB interfejsu API SQL i procesora źródła zmian
 
@@ -57,7 +57,7 @@ mvn clean package
 
 1. Najpierw należy sprawdzić konto Azure Cosmos DB. Otwórz **Azure Portal** w przeglądarce, przejdź do swojego konta Azure Cosmos DB, a następnie w okienku po lewej stronie przejdź do **Eksplorator danych**.
 
-    ![Konto Azure Cosmos DB](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Konto Azure Cosmos DB":::
 
 1. Uruchom aplikację w terminalu przy użyciu następującego polecenia:
 
@@ -77,9 +77,7 @@ mvn clean package
     * **InventoryContainer-pktype** — materiałowy widok rekordu spisu zoptymalizowany pod kątem zapytań względem elementu```type```
     * **InventoryContainer-leases** — kontener dzierżawy jest zawsze wymagany dla źródła zmian; dzierżawy śledzą postęp aplikacji w odczytaniu źródła zmian.
 
-
-    ![Puste kontenery](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
-
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Puste kontenery":::
 
 1. W terminalu powinien pojawić się monit
 
@@ -97,7 +95,7 @@ mvn clean package
 
     Wróć do Eksplorator danych Azure Portal w przeglądarce. W kontenerze **InventoryContainer-leases** kliknij pozycję **Items (elementy** ), aby wyświetlić jego zawartość. Zobaczysz, że procesor danych zmiany wypełnił kontener dzierżawy, tj. procesor przypisał ```SampleHost_1``` proces roboczy do dzierżawy na niektórych partycjach **InventoryContainer**.
 
-    ![Dzierżawy](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Dzierżawy":::
 
 1. Naciśnij klawisz Enter ponownie w terminalu. Spowoduje to wyzwolenie 10 dokumentów do wstawienia do **InventoryContainer**. Każda wstawka dokumentu pojawia się w kanale zmian jako kod JSON; Poniższy kod wywołania zwrotnego obsługuje te zdarzenia przez dublowanie dokumentów JSON do widoku z materiałami:
 
@@ -107,15 +105,15 @@ mvn clean package
 
 1. Zezwól na uruchomienie kodu 5-10sec. Następnie wróć do Azure Portal Eksplorator danych i przejdź do **InventoryContainer > elementów**. Należy zobaczyć, że elementy są wstawiane do kontenera spisu; Zanotuj klucz partycji ( ```id``` ).
 
-    ![Kontener kanału informacyjnego](media/create-sql-api-java-changefeed/cosmos_items.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Kontener kanału informacyjnego":::
 
 1. Teraz w Eksplorator danych przejdź do **pozycji > InventoryContainer-pktype**. Jest to widok z materiałami — elementy znajdujące się w tym kontenerze dublowane **InventoryContainer** , ponieważ zostały wstawione programowo przez źródło zmian. Zanotuj klucz partycji ( ```type``` ). Dlatego ten widok z materiałami jest zoptymalizowany pod kątem zapytań filtrowanych ```type``` , co byłoby niewydajne w **InventoryContainer** , ponieważ jest on podzielony na partycje ```id``` .
 
-    ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Widok z materiałami":::
 
 1. Zamierzamy usunąć dokument z zarówno **InventoryContainer** , jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z Azure Portal Eksplorator danych. Usuniemy dokument, dla którego ```/type == "plums"``` jest on otoczony czerwono poniżej
 
-    ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Widok z materiałami":::
 
     Ponownie naciśnij klawisz ENTER, aby wywołać funkcję ```deleteDocument()``` w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5``` , który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
     

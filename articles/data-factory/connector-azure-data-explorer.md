@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
 ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82560164"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Eksplorator danych przy użyciu Azure Data Factory
@@ -75,10 +75,10 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Azure Eksplorator danych są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **AzureDataExplorer**. | Tak |
-| endpoint | Adres URL punktu końcowego klastra Eksplorator danych platformy Azure z formatem jako `https://<clusterName>.<regionName>.kusto.windows.net`. | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureDataExplorer**. | Tak |
+| endpoint | Adres URL punktu końcowego klastra Eksplorator danych platformy Azure z formatem jako `https://<clusterName>.<regionName>.kusto.windows.net` . | Tak |
 | database | Nazwa bazy danych. | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Jest on znany jako "Identyfikator urzędu" w [parametrach połączenia Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Pobierz go, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. Jest to nazywane "IDENTYFIKATORem klienta aplikacji usługi AAD" w [parametrach połączenia Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Tak |
@@ -113,9 +113,9 @@ Aby skopiować dane do usługi Azure Eksplorator danych, ustaw właściwość Ty
 
 Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **AzureDataExplorerTable**. | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureDataExplorerTable**. | Tak |
 | tabela | Nazwa tabeli, do której odwołuje się połączona usługa. | Tak dla ujścia; Nie dla źródła |
 
 **Przykład właściwości zestawu danych:**
@@ -145,9 +145,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Azure Eksplorator danych, ustaw właściwość **Type** w źródle działania Copy na **AzureDataExplorerSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość: **AzureDataExplorerSource** | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość: **AzureDataExplorerSource** | Tak |
 | query | Żądanie tylko do odczytu podawane w [formacie KQL](/azure/kusto/query/). Użyj niestandardowego zapytania KQL jako odwołania. | Tak |
 | queryTimeout | Czas oczekiwania przed upływem limitu czasu żądania zapytania. Wartość domyślna to 10 min (00:10:00); dozwolona maksymalna wartość to 1 godzina (01:00:00). | Nie |
 | notruncateer | Wskazuje, czy ma zostać obcięta zwracany zestaw wyników. Domyślnie wynik jest obcinany po 500 000 rekordach lub 64 megabajtów (MB). Obcinanie jest zdecydowanie zalecane, aby zapewnić poprawne zachowanie działania. |Nie |
@@ -192,9 +192,9 @@ Aby skopiować dane z usługi Azure Eksplorator danych, ustaw właściwość **T
 
 Aby skopiować dane do usługi Azure Eksplorator danych, ustaw właściwość Type w ujścia działania Copy na **AzureDataExplorerSink**. W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość: **AzureDataExplorerSink**. | Tak |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość: **AzureDataExplorerSink**. | Tak |
 | ingestionMappingName | Nazwa wstępnie utworzonego [mapowania](/azure/kusto/management/mappings#csv-mapping) dla tabeli Kusto. Aby zmapować kolumny ze źródła do Eksplorator danych platformy Azure (które mają zastosowanie do [wszystkich obsługiwanych magazynów i formatów źródłowych](copy-activity-overview.md#supported-data-stores-and-formats), w tym formatów CSV/JSON/Avro), można użyć [mapowania kolumny](copy-activity-schema-and-type-mapping.md) działania kopiowania (niejawnie według nazwy lub jawnie skonfigurowane) i/lub mapowań Eksplorator danych platformy Azure. | Nie |
 | additionalProperties | Zbiór właściwości, który może służyć do określania wszelkich właściwości pozyskiwania, które nie są ustawiane jeszcze przez ujścia Eksplorator danych platformy Azure. W odniesieniu do nich można określić Tagi pozyskiwania. Dowiedz się więcej z dokumentacji pozyskiwania [danych na platformie Azure](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | Nie |
 

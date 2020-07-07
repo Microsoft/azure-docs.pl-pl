@@ -12,10 +12,10 @@ ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ms.openlocfilehash: bbc27af9eb448911093473d6ab20fde8004c7b88
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783723"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Przechodzenie Azure Key Vault między grupami zasobów

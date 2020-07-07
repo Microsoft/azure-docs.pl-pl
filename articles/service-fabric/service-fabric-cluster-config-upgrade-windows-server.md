@@ -6,22 +6,22 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790851"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uaktualnianie konfiguracji klastra autonomicznego 
 
 W przypadku każdego nowoczesnego systemu możliwość uaktualnienia jest kluczem do długoterminowej sukcesu produktu. Klaster Service Fabric platformy Azure to zasób, którego jesteś członkiem. W tym artykule opisano sposób uaktualniania ustawień konfiguracji autonomicznego klastra Service Fabric.
 
-## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Dostosowywanie ustawień klastra w pliku ClusterConfig. JSON
-Klastry autonomiczne są konfigurowane za pomocą pliku *ClusterConfig. JSON* . Aby dowiedzieć się więcej na temat różnych ustawień, zobacz [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md).
+## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Dostosuj ustawienia klastra w ClusterConfig.jspliku
+Klastry autonomiczne są konfigurowane za pomocą *ClusterConfig.js* pliku. Aby dowiedzieć się więcej na temat różnych ustawień, zobacz [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md).
 
-Możesz dodawać, aktualizować lub usuwać ustawienia w `fabricSettings` sekcji w sekcji [właściwości klastra](./service-fabric-cluster-manifest.md#cluster-properties) w pliku *ClusterConfig. JSON*. 
+Ustawienia można dodawać, aktualizować i usuwać w `fabricSettings` sekcji [właściwości klastra](./service-fabric-cluster-manifest.md#cluster-properties) w *ClusterConfig.jsna*. 
 
-Na przykład poniższy kod JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do sekcji *Diagnostyka* w obszarze `fabricSettings`:
+Na przykład poniższy kod JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do sekcji *Diagnostyka* w obszarze `fabricSettings` :
 
 ```json
       {
@@ -35,7 +35,7 @@ Na przykład poniższy kod JSON dodaje nowe ustawienie *MaxDiskQuotaInMB* do sek
       }
 ```
 
-Po zmodyfikowaniu ustawień w pliku ClusterConfig. JSON [Przetestuj konfigurację klastra](#test-the-cluster-configuration) , a następnie [Uaktualnij konfigurację klastra](#upgrade-the-cluster-configuration) , aby zastosować ustawienia do klastra. 
+Po zmodyfikowaniu ustawień w ClusterConfig.jsw pliku [Przetestuj konfigurację klastra](#test-the-cluster-configuration) , a następnie [Uaktualnij konfigurację klastra](#upgrade-the-cluster-configuration) , aby zastosować ustawienia do klastra. 
 
 ## <a name="test-the-cluster-configuration"></a>Testowanie konfiguracji klastra
 Przed rozpoczęciem uaktualniania konfiguracji można przetestować nowy plik JSON konfiguracji klastra, uruchamiając następujący skrypt programu PowerShell w pakiecie autonomicznym:

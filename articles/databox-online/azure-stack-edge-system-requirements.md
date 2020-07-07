@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569084"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Wymagania systemowe Azure Stack Edge
@@ -58,7 +58,7 @@ Azure IoT Edge umożliwia komunikację wychodzącą z lokalnego urządzenia brze
 
 W poniższej tabeli przedstawiono konfigurację portów dla serwerów hostującym środowisko uruchomieniowe Azure IoT Edge:
 
-| Numer portu. | Do lub do zewnątrz | Zakres portów | Wymagany | Wskazówki |
+| Numer portu. | Do lub do zewnątrz | Zakres portów | Wymagane | Wskazówki |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | Sieć WAN        | Tak      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
 
@@ -82,9 +82,9 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego w oparciu o stałe adr
 
 | Wzorzec adresu URL                      | Składnik lub funkcjonalność                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*. CDN.MSCR.IO | Rejestr kontenerów firmy Microsoft (wymagany)               |
-| https://\*. azurecr.IO                     | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
-| https://\*. Azure-Devices.NET              | Dostęp IoT Hub (wymagany)                             | 
+| https: \/ /MCR.Microsoft.com<br></br>https:// \* . CDN.MSCR.IO | Rejestr kontenerów firmy Microsoft (wymagany)               |
+| https:// \* . azurecr.IO                     | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
+| https:// \* . Azure-Devices.NET              | Dostęp IoT Hub (wymagany)                             | 
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>Wzorce adresów URL dla bramy dla Azure Government
 
@@ -94,9 +94,9 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego w oparciu o stałe adr
 
 | Wzorzec adresu URL                      | Składnik lub funkcjonalność                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//MCR.Microsoft.com<br></br>https://\*. CDN.MSCR.com | Rejestr kontenerów firmy Microsoft (wymagany)               |
-| https://\*. Azure-Devices.us              | Dostęp IoT Hub (wymagany)           |
-| https://\*. azurecr.us                    | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
+| https: \/ /MCR.Microsoft.com<br></br>https:// \* . CDN.MSCR.com | Rejestr kontenerów firmy Microsoft (wymagany)               |
+| https:// \* . Azure-Devices.us              | Dostęp IoT Hub (wymagany)           |
+| https:// \* . azurecr.us                    | Rejestry kontenerów osobistych i innych firm (opcjonalnie) | 
 
 ## <a name="internet-bandwidth"></a>Przepustowość internetowa
 

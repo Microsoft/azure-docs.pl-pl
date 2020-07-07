@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744904"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Dostęp do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim

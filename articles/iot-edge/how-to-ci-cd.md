@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561033"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Ciągła integracja i ciągłe wdrażanie do Azure IoT Edge
@@ -25,7 +25,7 @@ W tym artykule dowiesz się, jak za pomocą wbudowanych Azure IoT Edge zadań dl
 
 * **Obrazy modułów Azure IoT Edge-Build** pobierają kod rozwiązania IoT Edge i kompilują obrazy kontenerów.
 * **Obrazy modułów wypychania Azure IoT Edge** wypychania obrazów modułów do określonego rejestru kontenerów.
-* **Azure IoT Edge — generowanie manifestu wdrożenia** przyjmuje plik Deployment. Template. JSON i zmienne, a następnie generuje plik manifestu wdrożenia Final IoT Edge.
+* **Azure IoT Edge — generowanie manifestu wdrażania** przyjmuje deployment.template.jsdla pliku i zmiennych, a następnie generuje końcowy plik manifestu wdrażania IoT Edge.
 * **Azure IoT Edge-Deploy do IoT Edge urządzeń** pomaga tworzyć wdrożenia IoT Edge na jednym lub wielu urządzeniach IoT Edge.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -54,7 +54,7 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
 >
 >Aby uzyskać więcej informacji, zobacz [Tworzenie potoku kompilacji](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Zaloguj się do swojej organizacji usługi Azure DevOps (**https\/:/dev.Azure.com/{Your Organization}/**) i Otwórz projekt zawierający repozytorium rozwiązań IoT Edge.
+1. Zaloguj się do swojej organizacji usługi Azure DevOps (**https: \/ /dev.Azure.com/{Your Organization}/**) i Otwórz projekt zawierający repozytorium rozwiązań IoT Edge.
 
    W tym artykule utworzyliśmy repozytorium o nazwie **IoTEdgeRepo**. To repozytorium zawiera **IoTEdgeSolution** , w którym znajduje się kod modułu o nazwie **filtermodule**.
 
@@ -84,7 +84,7 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
 
      ![Konfigurowanie puli agentów kompilacji](./media/how-to-ci-cd/configure-env.png)
 
-5. Potok jest wstępnie skonfigurowany przy użyciu zadania o nazwie **zadanie agenta 1**. Wybierz znak**+** plus (), aby dodać trzy zadania do zadania: **Azure IoT Edge** dwa razy, **Skopiuj pliki** i **Opublikuj artefakty kompilacji** jeden raz. (Umieść wskaźnik myszy nad nazwą każdego zadania, aby wyświetlić przycisk **Dodaj** ).
+5. Potok jest wstępnie skonfigurowany przy użyciu zadania o nazwie **zadanie agenta 1**. Wybierz znak plus ( **+** ), aby dodać trzy zadania do zadania: **Azure IoT Edge** dwa razy, **Skopiuj pliki** i **Opublikuj artefakty kompilacji** jeden raz. (Umieść wskaźnik myszy nad nazwą każdego zadania, aby wyświetlić przycisk **Dodaj** ).
 
    ![Dodawanie Azure IoT Edge zadania](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -96,23 +96,23 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
 
    * **Nazwa wyświetlana**: zaakceptuj domyślne **obrazy modułu Azure IoT Edge-Build**.
    * **Akcja**: zaakceptuj domyślne **obrazy modułu kompilacji**.
-   * **plik Template. JSON**: Wybierz symbol wielokropka (**...**) i przejdź do pliku **Deployment. Template. json** w repozytorium zawierającym IoT Edge rozwiązanie.
+   * **.template.jspliku**: Wybierz symbol wielokropka (**...**), a następnie przejdź do **deployment.template.js** pliku w repozytorium zawierającym rozwiązanie IoT Edge.
    * **Platforma domyślna**: wybierz odpowiednią platformę dla modułów na podstawie docelowego urządzenia IoT Edge.
-   * **Zmienne wyjściowe**: zmienne wyjściowe zawierają nazwę odwołania, której można użyć do skonfigurowania ścieżki pliku, w którym zostanie wygenerowany plik wdrożenia. JSON. Ustaw nazwę odwołania na coś do zapamiętania, na przykład **Edge**.
+   * **Zmienne wyjściowe**: zmienne wyjściowe zawierają nazwę odwołania, której można użyć do skonfigurowania ścieżki pliku, w której zostanie wygenerowany deployment.jspliku. Ustaw nazwę odwołania na coś do zapamiętania, na przykład **Edge**.
 
 
    Te konfiguracje używają repozytorium obrazów i znacznika, które są zdefiniowane w `module.json` pliku jako nazwa i oznakowanie obrazu modułu. **Obrazy modułu kompilacji** ułatwiają także zastępowanie zmiennych wartościami dokładnie zdefiniowanymi w `module.json` pliku. W programie Visual Studio lub Visual Studio Code określasz rzeczywistą wartość w `.env` pliku. W Azure Pipelines ustawiasz wartość na karcie **zmienne potoku** . Wybierz kartę **zmienne** i skonfiguruj nazwę i wartość w następujący sposób:
 
     * **ACR_ADDRESS**: adres Azure Container Registry. 
 
-    Jeśli w projekcie znajdują się inne zmienne, można na tej karcie określić nazwę i wartość. w **obrazach modułu kompilacji** są rozpoznawane tylko zmienne, `${VARIABLE}` które są w formacie. Upewnij się, że używasz tego formatu w `**/module.json` plikach.
+    Jeśli w projekcie znajdują się inne zmienne, można na tej karcie określić nazwę i wartość. w **obrazach modułu kompilacji** są rozpoznawane tylko zmienne, które są w `${VARIABLE}` formacie. Upewnij się, że używasz tego formatu w `**/module.json` plikach.
     
 7. Wybierz drugie zadanie **Azure IoT Edge** , aby je edytować. To zadanie powoduje wypchnięcie wszystkich obrazów modułu do rejestru kontenerów, które zostały wybrane.
 
    * **Nazwa wyświetlana**: Nazwa wyświetlana jest automatycznie aktualizowana, gdy pole akcji ulega zmianie.
    * **Akcja**: Użyj listy rozwijanej, aby wybrać **obrazy modułu wypychania**.
    * **Typ rejestru kontenera**: Wybierz typ rejestru kontenerów, który ma być używany do przechowywania obrazów modułu. Formularz zmienia się w zależności od wybranego typu rejestru. W przypadku wybrania **Azure Container Registry**Użyj listy rozwijanej, aby wybrać subskrypcję platformy Azure i nazwę rejestru kontenerów. W przypadku wybrania opcji **ogólne Container Registry**wybierz pozycję **Nowy** , aby utworzyć połączenie usługi rejestru.
-   * **plik Template. JSON**: Wybierz symbol wielokropka (**...**) i przejdź do pliku **Deployment. Template. json** w repozytorium zawierającym IoT Edge rozwiązanie.
+   * **.template.jspliku**: Wybierz symbol wielokropka (**...**), a następnie przejdź do **deployment.template.js** pliku w repozytorium zawierającym rozwiązanie IoT Edge.
    * **Platforma domyślna**: Wybierz tę samą platformę, która została utworzona przez skompilowane obrazy modułu.
 
    Jeśli masz wiele rejestrów kontenerów do hostowania obrazów modułów, musisz zduplikować to zadanie, wybrać inny rejestr kontenerów i użyć opcji **Pomiń moduły** w ustawieniach zaawansowanych, aby pominąć obrazy, które nie są przeznaczone dla tego określonego rejestru.
@@ -120,13 +120,13 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
 8. Wybierz zadanie **Kopiuj pliki** , aby je edytować. To zadanie służy do kopiowania plików do katalogu przemieszczania artefaktu.
 
    * **Nazwa wyświetlana**: Kopiuj pliki do: folder docelowy.
-   * **Zawartość**: Umieść dwa wiersze w tej sekcji `deployment.template.json` i. `**/module.json` Te dwa typy plików są danymi wejściowymi do generowania manifestu wdrażania IoT Edge. Należy skopiować do folderu przemieszczania artefaktu i opublikować go dla potoku wydania.
-   * **Folder docelowy**: Umieść zmienną `$(Build.ArtifactStagingDirectory)`. Zobacz temat [Tworzenie zmiennych](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) , aby dowiedzieć się więcej o opisie.
+   * **Zawartość**: Umieść dwa wiersze w tej sekcji `deployment.template.json` i `**/module.json` . Te dwa typy plików są danymi wejściowymi do generowania manifestu wdrażania IoT Edge. Należy skopiować do folderu przemieszczania artefaktu i opublikować go dla potoku wydania.
+   * **Folder docelowy**: Umieść zmienną `$(Build.ArtifactStagingDirectory)` . Zobacz temat [Tworzenie zmiennych](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) , aby dowiedzieć się więcej o opisie.
 
 9. Wybierz zadanie **Opublikuj artefakty kompilacji** , aby je edytować. Podaj ścieżkę katalogu przemieszczania artefaktu do zadania, aby można było opublikować ścieżkę w potoku wydania.
 
    * **Nazwa wyświetlana**: publikowanie artefaktu: drop.
-   * **Ścieżka do opublikowania**: Umieść zmienną `$(Build.ArtifactStagingDirectory)`. Zobacz temat [Tworzenie zmiennych](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) , aby dowiedzieć się więcej o opisie.
+   * **Ścieżka do opublikowania**: Umieść zmienną `$(Build.ArtifactStagingDirectory)` . Zobacz temat [Tworzenie zmiennych](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) , aby dowiedzieć się więcej o opisie.
    * **Nazwa artefaktu**: upuść.
    * **Lokalizacja publikowania artefaktu**: Azure Pipelines.
 
@@ -172,7 +172,7 @@ Utwórz nowy potok i Dodaj nowy etap
 
 8. Na etapie **dev** należy zobaczyć domyślne **zadanie agenta**. Można skonfigurować szczegółowe informacje o zadaniu agenta, ale zadanie wdrażania jest zależne od platformy, aby można było użyć **hostowanej program VS2017** lub **hostowanej Ubuntu 1604** w **puli agentów** (lub dowolnego innego agenta zarządzanego przez siebie).
 
-9. Wybierz znak plus (**+**), aby dodać dwa zadania. Wyszukaj i Dodaj **Azure IoT Edge** dwa razy.
+9. Wybierz znak plus ( **+** ), aby dodać dwa zadania. Wyszukaj i Dodaj **Azure IoT Edge** dwa razy.
 
     ![Dodawanie zadań deweloperskich](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -180,17 +180,17 @@ Utwórz nowy potok i Dodaj nowy etap
 
     * **Nazwa wyświetlana**: Nazwa wyświetlana jest automatycznie aktualizowana, gdy pole akcji ulega zmianie.
     * **Akcja**: Użyj listy rozwijanej, aby wybrać opcję **Generuj manifest wdrożenia**. Zmiana wartości akcji spowoduje również zaktualizowanie nazwy wyświetlanej zadania tak, aby była zgodna.
-    * **plik Template. JSON**: Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. Ścieżka jest publikowana z potoku kompilacji.
+    * **.template.jsw pliku**: Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json` . Ścieżka jest publikowana z potoku kompilacji.
     * **Domyślna platforma**: Wybierz tę samą wartość podczas kompilowania obrazów modułów.
-    * **Ścieżka wyjściowa**: Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. Ta ścieżka to końcowy plik manifestu wdrażania IoT Edge.
+    * **Ścieżka wyjściowa**: Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Ta ścieżka to końcowy plik manifestu wdrażania IoT Edge.
 
-    Te konfiguracje ułatwiają zastępowanie adresów URL obrazów modułów `deployment.template.json` w pliku. Funkcja **Generuj manifest wdrożenia** pomaga również zastąpić zmienne dokładnie wartością określoną w `deployment.template.json` pliku. W programie VS/VS Code określasz wartość rzeczywistą w `.env` pliku. W Azure Pipelines ustawiasz wartość na karcie zmienne potoku wydania. Przejdź do karty zmienne i skonfiguruj nazwę i wartość w następujący sposób.
+    Te konfiguracje ułatwiają zastępowanie adresów URL obrazów modułów w `deployment.template.json` pliku. Funkcja **Generuj manifest wdrożenia** pomaga również zastąpić zmienne dokładnie wartością określoną w `deployment.template.json` pliku. W programie VS/VS Code określasz wartość rzeczywistą w `.env` pliku. W Azure Pipelines ustawiasz wartość na karcie zmienne potoku wydania. Przejdź do karty zmienne i skonfiguruj nazwę i wartość w następujący sposób.
 
     * **ACR_ADDRESS**: adres Azure Container Registry.
     * **ACR_PASSWORD**: hasło Azure Container Registry.
     * **ACR_USER**: Azure Container Registry nazwy użytkownika.
 
-    Jeśli w projekcie znajdują się inne zmienne, możesz określić nazwę i wartość na tej karcie. W przypadku **wygenerowania manifestu rozmieszczenia** można rozpoznać tylko zmienne `${VARIABLE}` , należy się upewnić, że są one używane `*.template.json` w plikach.
+    Jeśli w projekcie znajdują się inne zmienne, możesz określić nazwę i wartość na tej karcie. W przypadku **wygenerowania manifestu rozmieszczenia** można rozpoznać tylko zmienne `${VARIABLE}` , należy się upewnić, że są one używane w `*.template.json` plikach.
 
     ![Konfigurowanie zmiennych dla potoku wydania](./media/how-to-ci-cd/configure-variables.png)
 
@@ -203,7 +203,7 @@ Utwórz nowy potok i Dodaj nowy etap
     * **Wybierz jedno/wiele urządzeń**: Wybierz, czy potok wydania ma zostać wdrożony na jednym urządzeniu, czy na wielu urządzeniach.
       * W przypadku wdrażania na jednym urządzeniu wprowadź **IoT Edge identyfikator urządzenia**.
       * W przypadku wdrażania na wielu urządzeniach należy określić **warunek docelowy**urządzenia. Warunek docelowy to filtr zgodny z zestawem IoT Edge urządzeń w IoT Hub. Jeśli chcesz używać tagów urządzenia jako warunku, musisz zaktualizować odpowiednie znaczniki urządzeń za pomocą sznurka urządzenia IoT Hub. Zaktualizuj **IoT Edge identyfikator wdrożenia** i **IoT Edge priorytet wdrożenia** w obszarze Ustawienia zaawansowane. Aby uzyskać więcej informacji na temat tworzenia wdrożenia dla wielu urządzeń, zobacz [opis IoT Edge wdrożeń automatycznych](module-deployment-monitoring.md).
-    * Rozwiń pozycję Ustawienia zaawansowane, wybierz pozycję **IoT Edge identyfikator wdrożenia**, umieść `$(System.TeamProject)-$(Release.EnvironmentName)`zmienną. Mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge.
+    * Rozwiń pozycję Ustawienia zaawansowane, wybierz pozycję **IoT Edge identyfikator wdrożenia**, umieść zmienną `$(System.TeamProject)-$(Release.EnvironmentName)` . Mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge.
 
 12. Wybierz pozycję **Zapisz** , aby zapisać zmiany w nowym potoku wydania. Wróć do widoku potoku, wybierając pozycję **potok** z menu.
 

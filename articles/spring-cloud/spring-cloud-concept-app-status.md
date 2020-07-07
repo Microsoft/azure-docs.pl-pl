@@ -1,5 +1,5 @@
 ---
-title: Informacje o stanie aplikacji w chmurze Azure wiosennej
+title: Informacje o stanie aplikacji w usłudze Azure Spring Cloud
 description: Poznaj kategorie stanu aplikacji w chmurze Azure wiosennej
 author: MikeDodaro
 ms.service: spring-cloud
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82569006"
 ---
-# <a name="understanding-app-status-in-azure-spring-cloud"></a>Informacje o stanie aplikacji w chmurze Azure wiosennej
+# <a name="understanding-app-status-in-azure-spring-cloud"></a>Informacje o stanie aplikacji w usłudze Azure Spring Cloud
 
 Interfejs użytkownika chmury wiosennej platformy Azure dostarcza informacje o stanie uruchomionych aplikacji.  Istnieje opcja **aplikacje** dla każdej grupy zasobów w subskrypcji, która wyświetla ogólny stan typów aplikacji.  Dla każdego typu aplikacji jest wyświetlane **wystąpienie aplikacji**.
 
@@ -42,7 +42,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 | Aktualizowanie | Zasób jest aktualizowany. |
 | Sukces | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
 | Niepowodzenie | Nie można osiągnąć celu *zakończonego powodzeniem* . |
-| Usunąć | Trwa usuwanie zasobu. Zapobiega to operacji, a zasób nie jest dostępny w tym stanie. |
+| Usuwanie | Trwa usuwanie zasobu. Zapobiega to operacji, a zasób nie jest dostępny w tym stanie. |
 
 ## <a name="app-instances-status"></a>Stan wystąpień aplikacji
 
@@ -70,5 +70,5 @@ Aby wyświetlić stan określonego wystąpienia wdrożonej aplikacji, kliknij **
 | NOTUJ | Wystąpienie aplikacji nie jest zarejestrowane w Eureka lub jest zarejestrowane, ale nie może odbierać ruchu. |
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Używanie interfejsów API REST do kopiowania do magazynu obiektów BLOB'
+title: 'Samouczek: kopiowanie do magazynu obiektów BLOB za pośrednictwem interfejsów API REST'
 titleSuffix: Azure Data Box
 description: Dowiedz się, jak skopiować dane do magazynu obiektów blob usługi Azure Data Box za pośrednictwem interfejsów API REST
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: aa59d2dea4456b977afee92103fa66d6afe9bf31
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219138"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960688"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Samouczek: kopiowanie danych do Azure Data Box magazynu obiektów BLOB za pośrednictwem interfejsów API REST  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Samouczek: Używanie interfejsów API REST do kopiowania danych do Azure Data Box magazynu obiektów BLOB  
 
 W tym samouczku opisano procedury łączenia się z magazynem obiektów blob usługi Azure Data Box za pośrednictwem protokołu *HTTP* lub *HTTPS* przy użyciu interfejsów API REST. Opisano także czynności, które należy wykonać po nawiązaniu połączenia w celu skopiowania danych do magazynu obiektów blob usługi Data Box i przygotowania urządzenia Data Box do wysyłki.
 
@@ -32,11 +32,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [Samouczek: konfigurowanie Azure Data Box](data-box-deploy-set-up.md).
+1. Ukończono [Samouczek: konfigurowanie usługi Azure Data Box](data-box-deploy-set-up.md).
 2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Znasz [wymagania systemowe magazynu obiektów blob usługi Data Box](data-box-system-requirements-rest.md) oraz obsługiwane wersje interfejsów API, zestawów SDK i narzędzi.
 4. Masz dostęp do komputera-hosta zawierającego dane, które mają zostać skopiowane do usługi Data Box. Na komputerze hosta wymagane jest:
-    * Uruchom [obsługiwany system operacyjny](data-box-system-requirements.md).
+    * Korzystanie z [obsługiwanego systemu operacyjnego](data-box-system-requirements.md).
     * Połączenie z siecią o dużej szybkości. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10 GbE nie jest dostępne, można użyć połączenia danych 1 GbE, ale będzie miało to wpływ na szybkość kopiowania.
 5. [Pobierz narzędzie AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) na komputer hosta. Użyjesz narzędzia AzCopy do skopiowania danych z komputera hosta do magazynu obiektów blob usługi Azure Data Box.
 
@@ -153,7 +153,7 @@ Po nawiązaniu połączenia z magazynem obiektów blob usługi Data Box następn
 * Jeśli dane przekazywane przy użyciu urządzenia Data Box będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
 
 > [!IMPORTANT]
-> Upewnij się, że przechowujesz kopię danych źródłowych do momentu potwierdzenia, że urządzenie Data Box przeniósł dane do usługi Azure Storage.
+> Pamiętaj, aby zachować kopię danych źródłowych do czasu potwierdzenia, że usługa Data Box przeniosła Twoje dane do usługi Azure Storage.
 
 W tym samouczku użyjesz narzędzia AzCopy do skopiowania danych do magazynu obiektów blob usługi Data Box. Możesz również skopiować dane za pomocą Eksploratora usługi Azure Storage (jeśli wolisz użyć narzędzia z graficznym interfejsem użytkownika) lub oprogramowania partnera.
 
@@ -186,15 +186,19 @@ Użyj narzędzia AzCopy, aby przekazać wszystkie pliki w folderze do magazynu o
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Zastąp wartość `<key>` własnym kluczem konta. Aby znaleźć klucz konta, w witrynie Azure Portal przejdź do swojego konta magazynu. Przejdź do pozycji **Ustawienia > Klucze dostępu**, a następnie zaznacz klucz i wklej go do polecenia narzędzia AzCopy.
 
@@ -209,16 +213,21 @@ Użyj narzędzia AzCopy do przekazania plików na podstawie daty ich ostatniej m
 Jeśli chcesz skopiować tylko zasoby źródłowe, które nie istnieją w miejscu docelowym, określ zarówno parametry `--exclude-older` i `--exclude-newer` (system Linux) lub `/XO` i `/XN` (system Windows) w poleceniu narzędzia AzCopy. Narzędzie AzCopy przekazuje tylko zaktualizowane dane na podstawie ich sygnatury czasowej.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Jeśli wystąpią błędy podczas operacji łączenia lub kopiowania, zobacz [Rozwiązywanie problemów z usługą urządzenie Data Box BLOB Storage](data-box-troubleshoot-rest.md).
 

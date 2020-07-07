@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
 ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82731682"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
@@ -33,7 +33,7 @@ Poniższa tabela zawiera listę obsługiwanych zestawów SDK.  Szczegółowe inf
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure — zestaw SDK dla sieci](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure — zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    Przejdź    |    [Azure/Azure — zestaw SDK dla języka go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Go    |    [Azure/Azure — zestaw SDK dla języka go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/Azure — zestaw SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
 |    JavaScript    |    [Azure/Azure-SDK-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure — zestaw SDK dla języka Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
@@ -45,7 +45,7 @@ W poniższej tabeli wymieniono obsługiwane narzędzia interfejsu wiersza polece
 |    Narzędzie    |    Dokumentacja polecenia    |
 |------------------|--------------------------------------------|
 |    Interfejs wiersza polecenia platformy Azure  |    [AZ netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Program PowerShell   |    [Azure PowerShell Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## <a name="code-samples"></a>Przykłady kodu
 

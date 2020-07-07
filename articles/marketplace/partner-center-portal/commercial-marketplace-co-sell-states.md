@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744700"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Kody stanu i województwa współsprzedawanego w witrynie Azure Marketplace
@@ -20,7 +20,7 @@ Ten artykuł zawiera listę dostępnych kodów stanu i powiatu podczas udostępn
 
 ## <a name="us-states-and-territories"></a>Stany USA i terytoria
 
-|   Nazwa stanu i regionu          |   Code    |
+|   Nazwa stanu i regionu          |   Kod    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
 | Alaska                              | US — KLUCZA UWIERZYTELNIANIA     |
@@ -82,7 +82,7 @@ Ten artykuł zawiera listę dostępnych kodów stanu i powiatu podczas udostępn
 
 ## <a name="canadian-provinces-and-territories"></a>Prowincje i terytoria kanadyjskie
 
-|   Nazwa województwa i regionu       |   Code    |
+|   Nazwa województwa i regionu       |   Kod    |
 |-------------------------------------|-----------|
 | Alberta                             |  CA-AB    |
 | Kolumbia Brytyjska                    |  CA-BC    |
@@ -101,7 +101,7 @@ Ten artykuł zawiera listę dostępnych kodów stanu i powiatu podczas udostępn
 
 ## <a name="australian-states-and-territories"></a>Stany i terytoria australijskie
 
-|   Nazwa stanu i regionu          |   Code    |
+|   Nazwa stanu i regionu          |   Kod    |
 |-------------------------------------|-----------|
 | Nowa Południowa Walia                     |  AU-NSW   |
 | Queensland                          |  AU-QLD   |

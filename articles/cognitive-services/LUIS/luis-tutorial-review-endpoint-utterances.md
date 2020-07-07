@@ -3,13 +3,13 @@ title: 'Samouczek: przeglądanie punktu końcowego wyrażenia długości — LUI
 description: W tym samouczku należy poprawić przewidywania aplikacji przez sprawdzenie lub poprawienie wyrażenia długości odebranych za pośrednictwem punktu końcowego LUIS HTTP, który LUIS nie ma pewności. Niektóre wypowiedzi mogą wymagać weryfikacji pod kątem intencji, a inne — pod kątem jednostki.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445932"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959046"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Samouczek: usuwanie prognoz przez przeglądanie punktu końcowego wyrażenia długości
 W tym samouczku poprawisz przewidywania aplikacji przez sprawdzenie lub poprawienie wyrażenia długości, odebranych za pośrednictwem punktu końcowego HTTPS LUIS, który LUIS nie ma pewności. Należy zapoznać się z punktem końcowym wyrażenia długości jako regularną częścią konserwacji zaplanowanej LUIS.
@@ -35,11 +35,16 @@ Przeglądając wypowiedzi punktu końcowego, weryfikujesz lub poprawiasz przewid
 
 ## <a name="download-json-file-for-app"></a>Pobierz plik JSON dla aplikacji
 
-Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## <a name="import-json-file-for-app"></a>Importuj plik JSON dla aplikacji
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. W [portalu Luis](https://www.luis.ai)na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie **zaimportuj jako plik JSON**. Znajdź zapisany plik JSON z poprzedniego kroku. Nie musisz zmieniać nazwy aplikacji. Wybierz pozycję **gotowe**
+
+1. Wybierz **Build** opcję Kompiluj **, a następnie zapoznaj się z** intencjami, głównymi blokami konstrukcyjnymi aplikacji Luis.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Przejdź do strony wersje na stronie intencje.":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Uczenie aplikacji w celu zastosowania zmian jednostek w aplikacji
 
@@ -77,15 +82,11 @@ Przejrzyj wyrażenia długości punktu końcowego pod kątem prawidłowo dopasow
 
 1. W sekcji **kompilacja** portalu wybierz pozycję **Przegląd punktu końcowego wyrażenia długości** w lewym okienku nawigacji. Lista jest przefiltrowana pod kątem intencji **ApplyForJob**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Zrzut ekranu przedstawiający przycisk wyrażenia długości punktu końcowego recenzji w lewym obszarze nawigacji.":::
 
-    Ta wypowiedź, `I'm looking for a job with Natural Language Processing` , nie jest w poprawnym zamiarem.
+    Ten wypowiedź, `I'm looking for a job with Natural Language Processing` , nie jest w poprawnym zamierzeniu, _GetJobInformation_. Został on źle przewidziany jako _ApplyForJob_ ze względu na podobieństwo nazw zadań i zleceń w dwóch intencjach.
 
-1.  Aby wyrównać ten wypowiedź, w wierszu wypowiedź wybierz odpowiednią **wyrównane opcje** `GetJobInformation` . Dodaj zmieniony wypowiedź do aplikacji, zaznaczając znacznik wyboru.
-
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  Aby wyrównać ten wypowiedź, wybierz odpowiedni **wyrównany przeznaczenie** `GetJobInformation` . Dodaj zmieniony wypowiedź do aplikacji, zaznaczając znacznik wyboru.
 
     Zapoznaj się z pozostałymi wyrażenia długości w tym zamiarze, poprawiając odpowiednio wyrównany cel. Użyj początkowej tabeli wypowiedź w tym samouczku, aby wyświetlić wyrównany cel.
 
@@ -110,37 +111,37 @@ Aby sprawdzić poprawność wyrównanego przykładu wyrażenia długości do pro
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ Aby sprawdzić poprawność wyrównanego przykładu wyrażenia długości do pro
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }
@@ -215,7 +216,7 @@ Możesz się zastanawiać, dlaczego nie dodać więcej przykładowych wypowiedzi
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Dlaczego intencja o najwyższej ocenie znajduje się na liście wypowiedzi?
 Niektóre wypowiedzi punktu końcowego będą miały wysoki współczynnik przewidywania na liście do przeglądu. Mimo to należy przejrzeć i zweryfikować te wypowiedzi. Znajdują się one na liście, ponieważ różnica między intencją o najwyższej ocenie i intencją drugą w kolejności jest zbyt mała. Różnica między dwiema najważniejszymi intencjami powinna wynosić około 15%.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

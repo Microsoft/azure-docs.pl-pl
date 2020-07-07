@@ -47,10 +47,8 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Ciągłość działania i odzyskiwanie po awarii
       href: business-continuity-disaster-recovery-guidance.md
-    - name: Zabezpieczenia
-      items:
-        - name: Punkt odniesienia zabezpieczeń
-          href: security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń
+      href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Programowanie
@@ -319,7 +317,7 @@
           href: ../connectors/connectors-create-api-yammer.md
     - name: Bezpieczeństwo
       items:
-        - name: Wzmacnianie zabezpieczeń aplikacji logiki
+        - name: Zabezpieczanie aplikacji logiki
           href: logic-apps-securing-a-logic-app.md
         - name: Uwierzytelnianie przy użyciu tożsamości zarządzanych
           href: create-managed-service-identity.md

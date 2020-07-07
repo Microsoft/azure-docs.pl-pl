@@ -3,12 +3,12 @@ title: 'Szybki Start: pierwsze zapytanie w portalu'
 description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierwsze zapytanie z Azure Portal przy użyciu Eksploratora Azure Resource Graph.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148042"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958811"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
 
@@ -90,11 +90,11 @@ Aby przedstawić przykłady zapytań dotyczących wykresów zasobów i jak możn
 
 - [Eksplorator grafów zasobów — przykładowy pulpit nawigacyjny #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Przykład obrazu dla przykładowego pulpitu nawigacyjnego #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Eksplorator grafów zasobów — przykładowy pulpit nawigacyjny #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Przykład obrazu dla przykładowego pulpitu nawigacyjnego #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Liczniki i wykresy w powyższym przykładowym zrzucie ekranu nawigacyjnego różnią się w zależności od środowiska platformy Azure.

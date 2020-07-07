@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562070"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
@@ -30,7 +30,7 @@ W tej sekcji pokazano, jak utworzyć serwer proxy w portalu funkcji.
 3. Podaj nazwę serwera proxy.
 4. Skonfiguruj punkt końcowy, który jest udostępniany w tej aplikacji funkcji, określając **szablon trasy** i **metody http**. Te parametry zachowują się zgodnie z regułami dla [wyzwalaczy http].
 5. Ustaw **adres URL zaplecza** na inny punkt końcowy. Ten punkt końcowy może być funkcją w innej aplikacji funkcji lub być innym interfejsem API. Wartość nie musi być statyczna i może odwoływać się do [ustawień] i parametrów aplikacji [z oryginalnego żądania klienta].
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Twój serwer proxy istnieje teraz jako nowy punkt końcowy w aplikacji funkcji. Z punktu widzenia klienta jest on równoznaczny z HttpTrigger w Azure Functions. Możesz wypróbować nowy serwer proxy przez skopiowanie adresu URL serwera proxy i przetestowanie go za pomocą ulubionego klienta HTTP.
 
@@ -55,7 +55,7 @@ Domyślnie odpowiedź klienta jest inicjowana jako kopia odpowiedzi wewnętrznej
 Konfiguracja serwera proxy nie musi być statyczna. Można warunkować Używanie zmiennych z oryginalnego żądania klienta, odpowiedzi wewnętrznej lub ustawień aplikacji.
 
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Odwołania do funkcji lokalnych
-Można użyć `localhost` , aby odwoływać się do funkcji w tej samej aplikacji funkcji bezpośrednio, bez żądania dwukierunkowego serwera proxy.
+Można użyć, `localhost` Aby odwoływać się do funkcji w tej samej aplikacji funkcji bezpośrednio, bez żądania dwukierunkowego serwera proxy.
 
 `"backendurl": "https://localhost/api/httptriggerC#1"`odwołuje się do lokalnej funkcji wyzwalanej przez protokół HTTP w marszrucie`/api/httptriggerC#1`
 
@@ -68,16 +68,16 @@ Można użyć `localhost` , aby odwoływać się do funkcji w tej samej aplikacj
 Parametrów żądania można użyć jako danych wejściowych właściwości adresu URL zaplecza lub w ramach modyfikowania żądań i odpowiedzi. Niektóre parametry można powiązać z szablonem trasy określonym w podstawowej konfiguracji serwera proxy, a inne mogą pochodzić z właściwości żądania przychodzącego.
 
 #### <a name="route-template-parameters"></a>Parametry szablonu trasy
-Parametry, które są używane w szablonie trasy, są dostępne do przywoływania przez nazwę. Nazwy parametrów są ujęte w nawiasy klamrowe ({}).
+Parametry, które są używane w szablonie trasy, są dostępne do przywoływania przez nazwę. Nazwy parametrów są ujęte w nawiasy klamrowe ( {} ).
 
-Na przykład, jeśli serwer proxy ma szablon trasy, `/pets/{petId}`na przykład adres URL zaplecza może zawierać wartość `{petId}`, jak w. `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}` Jeśli szablon trasy kończy się w symbolu wieloznacznym, na `/api/{*restOfPath}`przykład, `{restOfPath}` jest to ciąg reprezentujący pozostałe segmenty ścieżki z żądania przychodzącego.
+Na przykład, jeśli serwer proxy ma szablon trasy, na przykład `/pets/{petId}` adres URL zaplecza może zawierać wartość `{petId}` , jak w `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}` . Jeśli szablon trasy kończy się w symbolu wieloznacznym, na przykład `/api/{*restOfPath}` , `{restOfPath}` jest to ciąg reprezentujący pozostałe segmenty ścieżki z żądania przychodzącego.
 
 #### <a name="additional-request-parameters"></a>Dodatkowe parametry żądania
 Oprócz parametrów szablonu trasy do wartości konfiguracji można używać następujących wartości:
 
 * **{Request. Method}**: Metoda http, która jest używana w oryginalnym żądaniu.
-* **{Request. Heads\< . Nagłówekname\>}**: nagłówek, który można odczytać z oryginalnego żądania. Zastąp * \<nagłówek\> nagłówkowy* nazwą nagłówka, który ma zostać odczytany. Jeśli nagłówek nie jest uwzględniony w żądaniu, wartość będzie ciągiem pustym.
-* **{Request. QueryString.\< ParameterName\>}**: parametr ciągu zapytania, który można odczytać z oryginalnego żądania. Zastąp * \<parametrname\> * nazwą parametru, który ma zostać odczytany. Jeśli parametr nie jest uwzględniony w żądaniu, wartość będzie ciągiem pustym.
+* **{Request. Headers. \<HeaderName\> }**: nagłówek, który można odczytać z oryginalnego żądania. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać odczytany. Jeśli nagłówek nie jest uwzględniony w żądaniu, wartość będzie ciągiem pustym.
+* **{Request. QueryString. \<ParameterName\> }**: parametr ciągu zapytania, który można odczytać z oryginalnego żądania. Zamień *\<ParameterName\>* na nazwę parametru, który ma zostać odczytany. Jeśli parametr nie jest uwzględniony w żądaniu, wartość będzie ciągiem pustym.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Parametry odpowiedzi wewnętrznej bazy danych
 
@@ -85,37 +85,37 @@ Parametry odpowiedzi mogą służyć jako część modyfikacji odpowiedzi dla kl
 
 * **{zaplecze. Response. StatusCode}**: kod stanu HTTP zwracany w odpowiedzi wewnętrznej.
 * **{zaplecze. Response. statusReason}**: fraza przyczyny http, która jest zwracana w odpowiedzi wewnętrznej.
-* **{zaplecze. Response. Heads.\< HeaderName\>}**: nagłówek, który można odczytać z odpowiedzi wewnętrznej bazy danych. Zastąp * \<nagłówekname\> * nazwą nagłówka, który ma zostać odczytany. Jeśli nagłówek nie jest uwzględniony w odpowiedzi, wartość będzie ciągiem pustym.
+* **{zaplecze. Response. Headers \<HeaderName\> }**: nagłówek, który można odczytać z odpowiedzi zaplecza. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać odczytany. Jeśli nagłówek nie jest uwzględniony w odpowiedzi, wartość będzie ciągiem pustym.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Ustawienia aplikacji referencyjnych
 
 Można także odwoływać się [do ustawień aplikacji zdefiniowanych dla aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) , otaczając nazwę ustawienia ze znakami procentu (%).
 
-Na przykład adres URL *https://%ORDER_PROCESSING_HOST%/api/orders* zaplecza "% ORDER_PROCESSING_HOST%" został zastąpiony wartością ustawienia ORDER_PROCESSING_HOST.
+Na przykład adres URL zaplecza *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST%" został zastąpiony wartością ustawienia ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Ustawienia aplikacji dla hostów zaplecza należy używać w przypadku wielu wdrożeń lub środowisk testowych. Dzięki temu można upewnić się, że zawsze mówisz do odpowiedniej zaplecza dla tego środowiska.
 
 ## <a name="troubleshoot-proxies"></a><a name="debugProxies"></a>Rozwiązywanie problemów z serwerami proxy
 
-Po dodaniu flagi `"debug":true` do dowolnego serwera proxy w `proxies.json` ramach użytkownika zostanie włączone rejestrowanie debugowania. Dzienniki są przechowywane w `D:\home\LogFiles\Application\Proxies\DetailedTrace` i dostępne za pomocą narzędzi zaawansowanych (kudu). Wszystkie odpowiedzi HTTP zawierają również `Proxy-Trace-Location` nagłówek z adresem URL, aby uzyskać dostęp do pliku dziennika.
+Po dodaniu flagi `"debug":true` do dowolnego serwera proxy w ramach użytkownika `proxies.json` zostanie włączone rejestrowanie debugowania. Dzienniki są przechowywane w `D:\home\LogFiles\Application\Proxies\DetailedTrace` i dostępne za pomocą narzędzi zaawansowanych (kudu). Wszystkie odpowiedzi HTTP zawierają również `Proxy-Trace-Location` Nagłówek z adresem URL, aby uzyskać dostęp do pliku dziennika.
 
-Można debugować serwer proxy po stronie klienta, dodając do `Proxy-Trace-Enabled` `true`niego nagłówek. Spowoduje to również zarejestrowanie śledzenia w systemie plików i zwrócenie adresu URL śledzenia jako nagłówka w odpowiedzi.
+Można debugować serwer proxy po stronie klienta, dodając do niego `Proxy-Trace-Enabled` nagłówek `true` . Spowoduje to również zarejestrowanie śledzenia w systemie plików i zwrócenie adresu URL śledzenia jako nagłówka w odpowiedzi.
 
 ### <a name="block-proxy-traces"></a>Blokuj ślady serwera proxy
 
 Ze względów bezpieczeństwa możesz nie chcieć, aby ktoś wywołujący usługę w celu wygenerowania śladu. Nie będą oni mogli uzyskać dostępu do zawartości śladu bez poświadczeń logowania, ale generowanie śledzenia zużywa zasoby i uwidacznia, że są używane usługi proxy funkcji.
 
-Całkowicie wyłącz ślady poprzez `"debug":false` dodanie do każdego określonego serwera proxy `proxies.json`w.
+Całkowicie wyłącz ślady poprzez dodanie `"debug":false` do każdego określonego serwera proxy w `proxies.json` .
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
-Konfigurowane serwery proxy są przechowywane w pliku *proxy. JSON* , który znajduje się w katalogu głównym katalogu aplikacji funkcji. Możesz ręcznie edytować ten plik i wdrożyć go w ramach aplikacji, korzystając z dowolnej z [metod wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwanych przez funkcje. 
+Konfigurowane serwery proxy są przechowywane w *proxies.js* pliku, który znajduje się w katalogu głównym katalogu aplikacji funkcji. Możesz ręcznie edytować ten plik i wdrożyć go w ramach aplikacji, korzystając z dowolnej z [metod wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwanych przez funkcje. 
 
 > [!TIP] 
-> Jeśli nie skonfigurowano jednej z metod wdrażania, można również współdziałać z plikiem *proxy. JSON* w portalu. Przejdź do aplikacji funkcji, wybierz pozycję **funkcje platformy**, a następnie wybierz pozycję **Edytor usługi App Service**. Dzięki temu można wyświetlić całą strukturę plików aplikacji funkcji, a następnie wprowadzić zmiany.
+> Jeśli nie skonfigurowano jednej z metod wdrażania, można również korzystać z *proxies.jsw* pliku w portalu. Przejdź do aplikacji funkcji, wybierz pozycję **funkcje platformy**, a następnie wybierz pozycję **Edytor usługi App Service**. Dzięki temu można wyświetlić całą strukturę plików aplikacji funkcji, a następnie wprowadzić zmiany.
 
-*Proxy. JSON* jest zdefiniowany przez obiekt proxy, który składa się z nazwanych serwerów proxy i ich definicji. Opcjonalnie, jeśli edytor obsługuje tę funkcję, można odwoływać się do [schematu JSON](http://json.schemastore.org/proxies) w celu uzupełniania kodu. Przykładowy plik może wyglądać następująco:
+*Proxies.json* jest zdefiniowany przez obiekt proxy, który składa się z nazwanych serwerów proxy i ich definicji. Opcjonalnie, jeśli edytor obsługuje tę funkcję, można odwoływać się do [schematu JSON](http://json.schemastore.org/proxies) w celu uzupełniania kodu. Przykładowy plik może wyglądać następująco:
 
 ```json
 {
@@ -142,11 +142,11 @@ Każdy serwer proxy ma przyjazną nazwę, taką jak *Proxy1* w poprzednim przyk�
 * **responseOverrides**: obiekt definiujący przekształcenia do odpowiedzi klienta. Zobacz [Definiowanie obiektu responseOverrides].
 
 > [!NOTE] 
-> Właściwość *Route* w serwery proxy usługi Azure Functions nie przestrzega właściwości *routePrefix* konfiguracji hosta aplikacja funkcji. Jeśli chcesz uwzględnić prefiks, taki jak `/api`, musi być uwzględniony we właściwości *trasy* .
+> Właściwość *Route* w serwery proxy usługi Azure Functions nie przestrzega właściwości *routePrefix* konfiguracji hosta aplikacja funkcji. Jeśli chcesz uwzględnić prefiks, taki jak `/api` , musi być uwzględniony we właściwości *trasy* .
 
 ### <a name="disable-individual-proxies"></a><a name="disableProxies"></a>Wyłącz indywidualne serwery proxy
 
-Poszczególne serwery proxy można wyłączyć, dodając `"disabled": true` je do serwera proxy w `proxies.json` pliku. Spowoduje to, że wszystkie żądania, które spełniają matchCondition, zwracają 404.
+Poszczególne serwery proxy można wyłączyć, dodając je `"disabled": true` do serwera proxy w `proxies.json` pliku. Spowoduje to, że wszystkie żądania, które spełniają matchCondition, zwracają 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -184,8 +184,8 @@ Serwery proxy odczytują wszystkie ciągi z pliku JSON przy użyciu znaku \ jako
 Obiekt requestOverrides definiuje zmiany wprowadzone w żądaniu w przypadku wywołania zasobu zaplecza. Obiekt jest zdefiniowany przez następujące właściwości:
 
 * **zaplecze. Request. Method**: Metoda http, która jest używana do wywoływania zaplecza.
-* **zaplecze. Request. QueryString. \<: parametr ciągu zapytania, który można ustawić dla wywołania zaplecza.\>** Zastąp * \<parametrname\> * nazwą parametru, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
-* **zaplecze. Request. Heads. \<: nagłówek, który można ustawić dla wywołania zaplecza.\>** Zastąp * \<nagłówekname\> * nazwą nagłówka, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
+* **zaplecze. Request. \<ParameterName\> QueryString.**: parametr ciągu zapytania, który można ustawić dla wywołania zaplecza. Zamień *\<ParameterName\>* na nazwę parametru, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
+* **zaplecze. Request. \<HeaderName\> Headers**: nagłówek, który można ustawić dla wywołania zaplecza. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
 
 Wartości mogą odwoływać się do ustawień i parametrów aplikacji z oryginalnego żądania klienta.
 
@@ -217,7 +217,7 @@ Obiekt requestOverrides definiuje zmiany wprowadzane do odpowiedzi, które są p
 * **Response. StatusCode**: kod stanu HTTP do zwrócenia klientowi.
 * **Response. statusReason**: fraza przyczyny http, która ma zostać zwrócona do klienta.
 * **Response. Body**: ciąg reprezentujący treść, która ma zostać zwrócona do klienta.
-* **Response. Heads. \<: nagłówek, który można ustawić dla odpowiedzi dla\>** klienta. Zastąp * \<nagłówekname\> * nazwą nagłówka, który ma zostać ustawiony. Jeśli podano pusty ciąg, nagłówek nie zostanie uwzględniony w odpowiedzi.
+* **Response. Headers \<HeaderName\> **: nagłówek, który można ustawić dla odpowiedzi dla klienta. Zamień *\<HeaderName\>* na nazwę nagłówka, który ma zostać ustawiony. Jeśli podano pusty ciąg, nagłówek nie zostanie uwzględniony w odpowiedzi.
 
 Wartości mogą odwoływać się do ustawień aplikacji, parametrów z oryginalnego żądania klienta i parametrów z odpowiedzi zaplecza.
 
@@ -241,7 +241,7 @@ Przykładowa konfiguracja może wyglądać następująco:
 }
 ```
 > [!NOTE] 
-> W tym przykładzie treść odpowiedzi jest ustawiana bezpośrednio, więc żadna właściwość `backendUri` nie jest wymagana. W przykładzie pokazano, jak można użyć serwery proxy usługi Azure Functions do tworzenia interfejsów API.
+> W tym przykładzie treść odpowiedzi jest ustawiana bezpośrednio, więc żadna `backendUri` Właściwość nie jest wymagana. W przykładzie pokazano, jak można użyć serwery proxy usługi Azure Functions do tworzenia interfejsów API.
 
 [Azure Portal]: https://portal.azure.com
 [Wyzwalacze HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook

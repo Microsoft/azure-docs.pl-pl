@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 04/27/2020
 ms.openlocfilehash: 59f1b63a5c72ed5583b88af9e42bf5337f358b47
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561900"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera protokołu HTTPS w usłudze Azure Kubernetes Service (AKS)
@@ -38,7 +38,7 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 ## <a name="create-an-ingress-controller"></a>Tworzenie kontrolera transferu danych przychodzących
 
-Aby utworzyć kontroler transferu danych przychodzących, użyj polecenia, `helm` aby zainstalować *Nginx — ruch przychodzący*. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
+Aby utworzyć kontroler transferu danych przychodzących, użyj polecenia, `helm` Aby zainstalować *Nginx — ruch przychodzący*. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
 
 Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
@@ -140,9 +140,9 @@ Aby uzyskać więcej informacji na temat konfiguracji Menedżera certyfikatów, 
 
 ## <a name="create-a-ca-cluster-issuer"></a>Tworzenie wystawcy klastra urzędu certyfikacji
 
-Aby można było wystawiać certyfikaty, Menedżer certyfikatów wymaga zasobu [wystawcy][cert-manager-issuer] lub [ClusterIssuer][cert-manager-cluster-issuer] . Te zasoby Kubernetes są identyczne w ramach funkcjonalności, `Issuer` jednak działają w pojedynczej przestrzeni nazw `ClusterIssuer` i działają we wszystkich przestrzeniach nazw. Aby uzyskać więcej informacji, zobacz dokumentację [wystawcy Menedżera certyfikatów][cert-manager-issuer] .
+Aby można było wystawiać certyfikaty, Menedżer certyfikatów wymaga zasobu [wystawcy][cert-manager-issuer] lub [ClusterIssuer][cert-manager-cluster-issuer] . Te zasoby Kubernetes są identyczne w ramach funkcjonalności, jednak `Issuer` działają w pojedynczej przestrzeni nazw i `ClusterIssuer` działają we wszystkich przestrzeniach nazw. Aby uzyskać więcej informacji, zobacz dokumentację [wystawcy Menedżera certyfikatów][cert-manager-issuer] .
 
-Utwórz wystawcę klastra, na `cluster-issuer.yaml`przykład korzystając z następującego przykładowego manifestu. Zaktualizuj adres e-mail przy użyciu prawidłowego adresu z Twojej organizacji:
+Utwórz wystawcę klastra, na przykład `cluster-issuer.yaml` korzystając z następującego przykładowego manifestu. Zaktualizuj adres e-mail przy użyciu prawidłowego adresu z Twojej organizacji:
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -249,7 +249,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Uruchom dwie aplikacje demonstracyjne przy `kubectl apply`użyciu:
+Uruchom dwie aplikacje demonstracyjne przy użyciu `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -263,7 +263,7 @@ Obie aplikacje działają teraz w klastrze Kubernetes. Jednak są skonfigurowane
 W poniższym przykładzie ruch do adresu *Hello-World-Ingress. MY_CUSTOM_DOMAIN* jest kierowany do usługi *AKS-HelloWorld* . Ruch do adresu *Hello-World-Ingres. MY_CUSTOM_DOMAIN/Hello-World-Two* jest kierowany do usługi *AKS-HelloWorld-2* . Ruch do *Hello-World — dane wejściowe. MY_CUSTOM_DOMAIN/static* jest kierowany do usługi o nazwie *AKS-HelloWorld* dla zasobów statycznych.
 
 > [!NOTE]
-> Jeśli skonfigurowano nazwę FQDN dla adresu IP kontrolera transferu danych przychodzących zamiast domeny niestandardowej, użyj nazwy FQDN zamiast *Hello-World-Ingres. MY_CUSTOM_DOMAIN*. Jeśli na przykład nazwa FQDN to *demo-AKS-Ingress.eastus.cloudapp.Azure.com*, zastąp opcję *Hello-World-Transfered. MY_CUSTOM_DOMAIN* z *demo-AKS-Ingress.eastus.cloudapp.Azure.com* w `hello-world-ingress.yaml`.
+> Jeśli skonfigurowano nazwę FQDN dla adresu IP kontrolera transferu danych przychodzących zamiast domeny niestandardowej, użyj nazwy FQDN zamiast *Hello-World-Ingres. MY_CUSTOM_DOMAIN*. Jeśli na przykład nazwa FQDN to *demo-AKS-Ingress.eastus.cloudapp.Azure.com*, zastąp opcję *Hello-World-Transfered. MY_CUSTOM_DOMAIN* z *demo-AKS-Ingress.eastus.cloudapp.Azure.com* w `hello-world-ingress.yaml` .
 
 Utwórz plik o nazwie `hello-world-ingress.yaml` using poniżej przykład YAML. Zaktualizuj *hosty* i *host* na nazwę DNS utworzoną w poprzednim kroku.
 
@@ -340,7 +340,7 @@ tls-secret   True    tls-secret   11m
 
 Otwórz przeglądarkę internetową, aby *powitać w Internecie. MY_CUSTOM_DOMAIN* kontrolera transferu danych przychodzących. Zwróć uwagę, że przekierujesz do korzystania z protokołu HTTPS, a certyfikat jest zaufany, a aplikacja demonstracyjna zostanie wyświetlona w przeglądarce sieci Web. Dodaj ścieżkę */Hello-World-Two* i zwróć uwagę na drugą aplikację demonstracyjną z tytułem niestandardowym.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących, certyfikatów i przykładowych aplikacji. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 

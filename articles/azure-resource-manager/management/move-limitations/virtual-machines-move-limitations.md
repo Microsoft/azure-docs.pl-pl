@@ -4,10 +4,10 @@ description: Użyj Azure Resource Manager, aby przenieść maszyny wirtualne do 
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744635"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Wskazówki dotyczące przenoszenia maszyn wirtualnych
@@ -37,16 +37,16 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 2. Aby przenieść maszyny wirtualne skonfigurowane przy użyciu Azure Backup, wykonaj następujące czynności:
 
    1. Znajdź lokalizację maszyny wirtualnej.
-   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1`. Na przykład *AzureBackupRG_westus2_1*
+   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
    3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
-   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec `AzureBackup_<name of your VM that you're trying to move>_###########`nazewnictwa.
+   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
    6. Po zakończeniu operacji usuwania można przenieść maszynę wirtualną.
 
 3. Przenieś maszynę wirtualną do docelowej grupy zasobów.
 4. Wznów tworzenie kopii zapasowej.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 * Znajdź lokalizację maszyny wirtualnej.
 * Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` na przykład AzureBackupRG_westus2_1

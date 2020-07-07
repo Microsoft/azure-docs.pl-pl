@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: a78e2cbc6f1e33f516912911e2038a0de3ff6b99
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: d78767474150bc9571b25fe1f26135d6f41d1f20
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996945"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961238"
 ---
 # <a name="what-is-custom-translator"></a>Co to jest rozszerzenie Custom Translator?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) to funkcja usługi Microsoft Translator, która umożliwia przedsiębiorstwom w usłudze Translator, deweloperom aplikacji i dostawcom usług językowych tworzenie dostosowanych systemów neuronowego tłumaczenia maszynowego (NMT). Dostosowane systemy tłumaczenia bezproblemowo integrują się z istniejącymi aplikacjami, przepływami pracy i witrynami internetowymi. Rozszerzenie [Custom Translator](https://portal.customtranslator.azure.ai/) oferuje możliwości podobne do tych, które usługa [Microsoft Translator Hub](https://hub.microsofttranslator.com/) oferuje w przypadku systemów statystycznego tłumaczenia maszynowego (SMT), ale wyłącznie dla systemów neuronowego tłumaczenia maszynowego (NMT).
+[Translator niestandardowy](https://portal.customtranslator.azure.ai) to funkcja usługi translator, która umożliwia firmom, deweloperom aplikacji i dostawcom usług językowych tworzenie dostosowanych systemów neuronowych Machine Translation (NMT). Dostosowane systemy tłumaczenia bezproblemowo integrują się z istniejącymi aplikacjami, przepływami pracy i witrynami internetowymi. 
 
-Systemy tłumaczenia wykorzystujące rozszerzenie [Custom Translator](https://portal.customtranslator.azure.ai) są dostępne za pośrednictwem tego samego opartego na chmurze, [bezpiecznego](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), wysoce wydajnego i wysoce skalowalnego [interfejsu API tłumaczenia tekstu w wersji V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) w usłudze Microsoft Translator, który obsługuje miliardy tłumaczeń każdego dnia.
+Systemy tłumaczenia skompilowane przy użyciu [translatora niestandardowego](https://portal.customtranslator.azure.ai) są dostępne w ramach tej samej, [bezpiecznej](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), wysokiej wydajności, wysoce skalowalnej w chmurze [usługi Azure Cognitive Services translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), która umożliwia miliardy tłumaczeń codziennie.
 
-Rozszerzenie Custom Translator obsługuje ponad trzy tuziny języków i jest mapowane bezpośrednio na języki dostępne dla neuronowego tłumaczenia maszynowego. Aby uzyskać pełną listę, zobacz [Microsoft Translator Language (Języki w usłudze Microsoft Translator)](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Rozszerzenie Custom Translator obsługuje ponad trzy tuziny języków i jest mapowane bezpośrednio na języki dostępne dla neuronowego tłumaczenia maszynowego. Aby uzyskać pełną listę, zobacz [Języki usługi Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="features"></a>Funkcje
 
@@ -38,7 +38,7 @@ Rozszerzenie Custom Translator udostępnia różne funkcje umożliwiające utwor
 
 ## <a name="get-better-translations"></a>Uzyskiwanie lepszych tłumaczeń
 
-[Neuronowe tłumaczenie maszynowe (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) w usłudze Microsoft Translator zostało udostępnione w 2016 roku. Technologia NMT zapewnia lepszą jakość tłumaczenia niż będąca standardem w branży technologia [statystycznego tłumaczenia maszynowego (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Ponieważ NMT lepiej przechwytuje kontekst pełnych zdań przed ich przetłumaczeniem, zapewnia wyższej jakości, bardziej naturalnie brzmiące i płynne tłumaczenia. Rozszerzenie [Custom Translator](https://portal.customtranslator.azure.ai) udostępnia technologię NMT dla modeli niestandardowych, zapewniając lepszą jakość tłumaczenia.
+Translator wydał [neuronowych Machine Translation (NMT)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) w 2016. Technologia NMT zapewnia lepszą jakość tłumaczenia niż będąca standardem w branży technologia [statystycznego tłumaczenia maszynowego (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Ponieważ NMT lepiej przechwytuje kontekst pełnych zdań przed ich przetłumaczeniem, zapewnia wyższej jakości, bardziej naturalnie brzmiące i płynne tłumaczenia. Rozszerzenie [Custom Translator](https://portal.customtranslator.azure.ai) udostępnia technologię NMT dla modeli niestandardowych, zapewniając lepszą jakość tłumaczenia.
 
 Możesz użyć wcześniej przetłumaczonych dokumentów do utworzenia systemu tłumaczenia. Te dokumenty obejmują terminologię i styl specyficzny dla domeny, lepszy niż standardowy system tłumaczenia. Użytkownicy mogą przesyłać dokumenty ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX i XLSX.
 

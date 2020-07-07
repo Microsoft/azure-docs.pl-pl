@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: dfcde775780cdb42f9df1d677ff2f2475de92843
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115282"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961102"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 
@@ -235,7 +235,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
    Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje/regiony z najwyższym przychodem do najniższego przychodu.
 
-   ![Wizualizacja mapy przychodu krajów/regionów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Wizualizacja mapy przychodu krajów/regionów":::
 
 1. Przyjrzyjmy się innemu przypadku wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy przeglądali element, dodani do swojego koszyka i kupili ten element. Przyjrzyjmy się współczynnikowi konwersji zakupionych elementów. Uruchom następujący kod w nowej komórce, aby wizualizować szybkość konwersji dla każdego elementu:
 

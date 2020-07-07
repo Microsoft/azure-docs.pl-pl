@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562342"
 ---
 # <a name="apache-spark-guidelines"></a>Wskazówki dotyczące Apache Spark
@@ -22,7 +22,7 @@ Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usł
 
 | Opcja | Dokumenty |
 |---|---|
-| VSCode | [Użyj narzędzi Hive & platformy Spark dla Visual Studio Code](../hdinsight-for-vscode.md) |
+| Programu vscode | [Użyj narzędzi Hive & platformy Spark dla Visual Studio Code](../hdinsight-for-vscode.md) |
 | Notesy programu Jupyter | [Samouczek: ładowanie danych i uruchamianie zapytań w klastrze platformy Apache Spark w usłudze Azure HDInsight](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [Samouczek: Tworzenie aplikacji Apache Spark dla klastra usługi HDInsight za pomocą Azure Toolkit for IntelliJ](./apache-spark-intellij-tool-plugin.md) |
 | IntelliJ | [Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ](./apache-spark-create-standalone-application.md) |
@@ -62,8 +62,8 @@ Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usł
 
 | Opcja | Dokumenty |
 |---|---|
-| Usługa Data Lake Storage 2. generacji | [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Usługa Data Lake Storage 1. generacji | [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md) |
+| Data Lake Storage Gen2 | [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Data Lake Storage Gen1 | [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md) |
 | Azure Blob Storage | [Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>Następne kroki
