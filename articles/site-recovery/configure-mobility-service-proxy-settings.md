@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79503129"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Skonfiguruj ustawienia serwera proxy usługi mobilności na platformie Azure na potrzeby odzyskiwania po awarii platformy Azure
@@ -51,7 +51,7 @@ Usługa mobilności wykrywa ustawienia serwera proxy z ustawień środowiska lub
 W takim przypadku klient udostępnia niestandardowe ustawienia serwera proxy aplikacji w pliku konfiguracji usługi mobilności ProxyInfo. conf. Ta metoda umożliwia klientom udostępnianie serwera proxy tylko dla usługi mobilności lub innego serwera proxy dla Azure Site Recoveryej usługi mobilności niż serwer proxy (lub brak serwera proxy) dla pozostałych aplikacji na komputerze.
 
 ## <a name="proxy-template"></a>Szablon serwera proxy
-ProxyInfo. conf zawiera następujący szablon [proxy] Address =http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, Login. microsoftonline. com, BLOB. Core. Windows. NET. BypassList nie obsługuje symboli wieloznacznych, takich jak "*. windows.net", ale podawanie windows.net jest wystarczające do obejścia. 
+ProxyInfo. conf zawiera następujący szablon [proxy] Address = http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, Login. microsoftonline. com, BLOB. Core. Windows. NET. BypassList nie obsługuje symboli wieloznacznych, takich jak "*. windows.net", ale podawanie windows.net jest wystarczające do obejścia. 
 
 ## <a name="next-steps"></a>Następne kroki:
 - Odczytaj [wskazówki dotyczące sieci](site-recovery-azure-to-azure-networking-guidance.md) dotyczące replikacji maszyn wirtualnych platformy Azure.

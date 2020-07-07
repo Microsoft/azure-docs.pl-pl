@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 683b89b29265159b0316d427a7ae616bf3766f7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79529021"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MariaDB
@@ -38,7 +38,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 3. Wybierz pozycję **Dodaj alert dotyczący metryki** (+ ikona).
 
-4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wprowadź wymagane informacje:
+4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
    ![Formularz dodawania alertu metryki](./media/howto-alert-metric/4-add-rule-form.png)
 

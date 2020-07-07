@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79530142"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Database for MariaDB
@@ -26,7 +26,7 @@ Zaawansowana ochrona przed zagrożeniami jest częścią zaawansowanej oferty za
 > Funkcja zaawansowanej ochrony przed zagrożeniami **nie** jest dostępna w następujących regionach na platformie Azure dla instytucji rządowych i w ramach suwerennej chmury: US Gov Teksas, US Gov Arizona, US gov Iowa, US, gov wirginia, US DoD (region wschodni), US dod (region środkowy), Niemcy środkowe, Niemcy północne, Chiny Wschodnie, Chiny Wschodnie 2. Odwiedź stronę [dostępne produkty według regionów,](https://azure.microsoft.com/global-infrastructure/services/) Aby uzyskać ogólną dostępność produktu.
 
 ## <a name="set-up-threat-detection"></a>Konfigurowanie wykrywania zagrożeń
-1. Uruchom Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+1. Uruchom Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 2. Przejdź do strony konfiguracji serwera Azure Database for MariaDB, który ma być chroniony. W obszarze Ustawienia zabezpieczeń wybierz pozycję **Zaawansowana ochrona przed zagrożeniami (wersja zapoznawcza)**.
 3. Na stronie Konfiguracja **zaawansowanej ochrony przed zagrożeniami (wersja zapoznawcza)** :
 
