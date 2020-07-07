@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598502"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
@@ -25,7 +25,7 @@ Za pomocą [Azure Portal](https://portal.azure.com)można zarządzać klastrami 
 
 Istniejący klaster Apache Hadoop w usłudze HDInsight.  Zobacz [Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Zaloguj się do witryny [https://portal.azure.com](https://portal.azure.com).
 
@@ -47,7 +47,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
 |---|---|
 |Move|Przenosi klaster do innej grupy zasobów lub innej subskrypcji.|
 |Usuń|Usuwa klaster. |
-|Odświeżanie|Odświeża widok.|
+|Odśwież|Odświeża widok.|
 
 **Menu po lewej:**  
 
@@ -61,7 +61,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Tagi|Pozwala ustawić pary klucz/wartość, aby zdefiniować niestandardową taksonomię usług w chmurze. Na przykład możesz utworzyć klucz o nazwie **projekt**, a następnie użyć wspólnej wartości dla wszystkich usług skojarzonych z określonym projektem.|
     |Diagnozowanie i rozwiązywanie problemów|Wyświetl informacje dotyczące rozwiązywania problemów.|
     |Szybki start|Wyświetla informacje, które ułatwiają rozpoczęcie pracy z usługą HDInsight.|
-    |Narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
+    |narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
 
   - **Menu ustawień**  
 
@@ -70,7 +70,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Rozmiar klastra|Sprawdź, Zwiększ i zmniejsz liczbę węzłów procesu roboczego klastra. Zobacz [skalowanie klastrów](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limity przydziału|Wyświetl używane i dostępne rdzenie dla subskrypcji.|
     |SSH + logowanie do klastra|Zawiera instrukcje dotyczące łączenia się z klastrem przy użyciu połączenia Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Usługa Data Lake Storage 1. generacji|Skonfiguruj Data Lake Storage Gen1 dostępu.  Zobacz [Szybki Start: Konfigurowanie klastrów w usłudze HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
+    |Data Lake Storage Gen1|Skonfiguruj Data Lake Storage Gen1 dostępu.  Zobacz [Szybki Start: Konfigurowanie klastrów w usłudze HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Konta magazynu|Wyświetlanie kont magazynu i kluczy. Konta magazynu są konfigurowane podczas procesu tworzenia klastra.|
     |Aplikacje|Dodawanie/usuwanie aplikacji usługi HDInsight.  Zobacz [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md).|
     |Akcje skryptu|Uruchom skrypty bash w klastrze. Zobacz [Dostosowywanie klastrów usługi HDInsight opartych na systemie Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).|
@@ -94,7 +94,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     | Element| Opis |
     |---|---|
     |Kondycja zasobów|Zobacz [Omówienie usługi Azure Resource Health](../service-health/resource-health-overview.md).|
-    |Nowe żądanie pomocy technicznej|Umożliwia utworzenie biletu pomocy technicznej w ramach pomocy technicznej firmy Microsoft.|
+    |Nowy wniosek o pomoc techniczną|Umożliwia utworzenie biletu pomocy technicznej w ramach pomocy technicznej firmy Microsoft.|
 
 ## <a name="cluster-properties"></a><a name="properties"></a>Właściwości klastra
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: d2783d658d3420575da5d9d480fb705afe2495fc
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85550355"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984015"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie REST i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -170,7 +170,7 @@ Jeśli otrzymujesz błąd 403 lub 404, sprawdź, czy żądanie jest poprawnie sk
 1. Użyj wartości **Put** i wpisz następujący adres URL, ZASTĘPUJĄC nazwę usługi nazwą rzeczywistą nazwą usługi.
 
     ```http
-    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-ss?api-version=2020-06-30
+    https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
 1. W **treści**żądania Skopiuj poniżej definicję JSON. Ten zestawu umiejętności składa się z następujących wbudowanych umiejętności.
@@ -514,7 +514,7 @@ Wprowadzono [wbudowane umiejętności](cognitive-search-predefined-skills.md) , 
 
 Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrzeby przyszłych iteracji. Omówiono proces, w ramach którego odpytanie indeksu powoduje zwrócenie danych wyjściowych utworzonych przez wzbogacony potok indeksowania. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

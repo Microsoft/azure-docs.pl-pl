@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 4e7cc969ff2c36415b8fd1cebafa1873f9efd38c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0021548779409272dee40021dc5f56eb76aa7d96
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239051"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985588"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i środowiska Java
 
@@ -30,17 +30,18 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Zestaw Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszy.
-- Klucz wykrywania anomalii i punkt końcowy
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
+    - Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+- [Zestaw Java &trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszy.
 - Zaimportuj te biblioteki z repozytorium Maven
     - [Kod JSON w pakiecie java](https://mvnrepository.com/artifact/org.json/json)
     - Pakiet [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
 - Plik JSON zawierający punkty danych szeregów czasowych. Przykładowe dane dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## <a name="create-a-new-application"></a>Tworzenie nowej aplikacji
 
@@ -61,25 +62,25 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 1. Utwórz nową funkcję o nazwie `sendRequest()` , która przyjmuje zmienne utworzone powyżej. Następnie wykonaj poniższe czynności.
 
-2. Utwórz `CloseableHttpClient` obiekt, który może wysyłać żądania do interfejsu API. Wyślij żądanie do obiektu `HttpPost` żądania przez połączenie punktu końcowego i adresu URL wykrywania anomalii.
+2. Utwórz `CloseableHttpClient` obiekt, który może wysyłać żądania do interfejsu API. Wyślij żądanie do `HttpPost` obiektu żądania przez połączenie punktu końcowego i adresu URL wykrywania anomalii.
 
-3. Użyj `setHeader()` funkcji żądania, aby ustawić `Content-Type` nagłówek na `application/json`, i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
+3. Użyj `setHeader()` funkcji żądania, aby ustawić `Content-Type` nagłówek na `application/json` , i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
 
 4. Użyj `setEntity()` funkcji żądania do wysyłanych danych.
 
 5. Użyj `execute()` funkcji klienta, aby wysłać żądanie i zapisać ją w `CloseableHttpResponse` obiekcie.
 
-6. Utwórz `HttpEntity` obiekt do przechowywania zawartości odpowiedzi. Pobierz zawartość za pomocą `getEntity()`programu. Jeśli odpowiedź nie jest pusta, zwróć ją.
+6. Utwórz `HttpEntity` obiekt do przechowywania zawartości odpowiedzi. Pobierz zawartość za pomocą programu `getEntity()` . Jeśli odpowiedź nie jest pusta, zwróć ją.
 
     [!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Wykryj anomalie jako partię
 
-1. Utwórz metodę o nazwie `detectAnomaliesBatch()` , aby wykrywać anomalie w danych jako partię. Wywołaj `sendRequest()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. Pobierz wynik i wydrukuj go w konsoli programu.
+1. Utwórz metodę o nazwie, `detectAnomaliesBatch()` Aby wykrywać anomalie w danych jako partię. Wywołaj `sendRequest()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. Pobierz wynik i wydrukuj go w konsoli programu.
 
 2. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie.
 
-3. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly` Pole odpowiedzi zawiera wartość logiczną odnoszącą się do tego, czy dany punkt danych jest anomalią. Pobierz tablicę JSON i wykonaj iterację, drukując indeks dowolnych `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
+3. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly`Pole odpowiedzi zawiera wartość logiczną odnoszącą się do tego, czy dany punkt danych jest anomalią. Pobierz tablicę JSON i wykonaj iterację, drukując indeks dowolnych `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
 
     [!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 

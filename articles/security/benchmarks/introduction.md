@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82606861"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Wprowadzenie do usługi Azure Security test

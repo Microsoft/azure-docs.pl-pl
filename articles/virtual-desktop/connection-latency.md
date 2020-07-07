@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8a60779fb045aa612a6ba0988c4635752f973f60
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82607405"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Określanie opóźnienia połączenia użytkownika w programie Virtual Desktop systemu Windows

@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84429752"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Samouczek: uczenie i wdrażanie modelu z poziomu interfejsu wiersza polecenia
@@ -300,7 +300,7 @@ Plik runconfig zawiera również informacje służące do konfigurowania środow
 > [!TIP]
 > Chociaż istnieje możliwość ręcznego utworzenia pliku runconfig, ten kod w tym przykładzie został utworzony przy użyciu `generate-runconfig.py` pliku zawartego w repozytorium. Ten plik pobiera odwołanie do zarejestrowanego zestawu danych, tworzy konfigurację uruchomieniową programowo, a następnie utrwala ją z plikiem.
 
-Aby uzyskać więcej informacji na temat uruchamiania plików konfiguracji, zobacz [Konfigurowanie elementów docelowych obliczeń i używanie ich do uczenia modelu](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Aby uzyskać pełne odwołanie JSON, zobacz plik [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Aby uzyskać więcej informacji na temat uruchamiania plików konfiguracji, zobacz [Konfigurowanie elementów docelowych obliczeń i używanie ich do uczenia modelu](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Aby uzyskać pełne odwołanie JSON, zobacz [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Prześlij przebieg szkolenia
 
@@ -436,7 +436,7 @@ az ml service run -n myservice -d @testdata.json
 
 Odpowiedź polecenia jest podobna do `[ 3 ]` .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!IMPORTANT]
 > Utworzone zasoby mogą być używane jako wstępnie wymagane składniki w innych samouczkach usługi Azure Machine Learning i artykułach z instrukcjami.

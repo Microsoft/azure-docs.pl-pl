@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 24ff2d2b5855c2624f12c2a1523611933a426ebe
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474666"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513867"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktywowanie subskrypcji i kont platformy Azure za pomocą platformy Cloudyn
 
@@ -65,7 +65,7 @@ Dodając konto lub aktualizując subskrypcję przyznajesz platformie Cloudyn dos
     2. W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
     3. Aby uzyskać identyfikator dzierżawy, wybierz pozycję **Właściwości** dla swojej dzierżawy usługi Azure AD.
     4. Skopiuj identyfikator GUID katalogu. Ta wartość jest Twoim identyfikatorem dzierżawy.
-    Aby uzyskać więcej informacji, zobacz [Get tenant ID (Pobieranie identyfikatora dzierżawy)](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    Aby uzyskać więcej informacji, zobacz [Get tenant ID (Pobieranie identyfikatora dzierżawy)](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. W razie potrzeby wybierz identyfikator stawki. Jeśli nie znasz identyfikatora stawki, wykonaj następujące czynności, aby go znaleźć:
     1. W prawym górnym rogu witryny Azure Portal kliknij informacje o użytkowniku, a następnie kliknij pozycję **Wyświetl mój rachunek**.
     2. W obszarze **Konto rozliczeniowe** kliknij pozycję **Subskrypcje**.

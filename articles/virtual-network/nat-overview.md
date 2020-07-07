@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
 ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85549585"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
@@ -124,7 +124,7 @@ Można monitorować operacje NAT za pomocą wielowymiarowych metryk uwidoczniony
 Przy ogólnej dostępności ścieżka danych NAT jest dostępna co najmniej 99,9%.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Brama translatora adresów sieciowych jest rozliczana przy użyciu dwóch oddzielnych liczników:
 

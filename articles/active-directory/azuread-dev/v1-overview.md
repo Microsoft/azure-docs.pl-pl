@@ -14,10 +14,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85551582"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory dla deweloperów (v 1.0) — Omówienie
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmu
 - [Podstawowe informacje o uwierzytelnianiu](v1-authentication-scenarios.md) Wprowadzenie do uwierzytelniania za pomocą usługi Azure AD.
 - [Typy aplikacji](app-types.md) Omówienie scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Przewodniki Szybki Start i samouczki dotyczące programu v 1.0 przeprowadzą Cię przez proces tworzenia aplikacji na preferowanej platformie przy użyciu zestawu SDK biblioteki Azure AD Authentication Library (ADAL). Aby rozpocząć pracę, zobacz **samouczki** **Szybki Start** i wersja 1.0 usługi [Microsoft Identity platform (Azure Active Directory dla deweloperów)](index.yml) .
 
@@ -48,7 +48,7 @@ Następujące artykuły zawierają szczegółowe informacje o interfejsach API, 
 - [Przykłady kodu](sample-v1-code.md) Lista wszystkich przykładów kodu usługi Azure AD.
 - [Słownik](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologia i definicje słów używanych w tej dokumentacji.
 
-## <a name="videos"></a>Filmy wideo
+## <a name="videos"></a>Wideo
 
 Zapoznaj się z tematem [Azure Active Directory deweloperskich filmów wideo](videos.md) , aby uzyskać pomoc w migracji do nowej platformy tożsamości firmy Microsoft.
 

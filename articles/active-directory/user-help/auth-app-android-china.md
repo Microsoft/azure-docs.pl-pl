@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
 ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84323029"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator dla systemu Android w chmurze publicznej w Chinach
@@ -52,8 +52,8 @@ Funkcja Microsoft Authenticator | Dostępność w Chinach
 ------------------------------- | ---------------------
 Rejestracja w usłudze MFA przy użyciu powiadomień wypychanych | Nie
 Istniejące wcześniej konto usługi MFA weryfikujące tożsamość przy użyciu powiadomień wypychanych | Nie
-Wcześniej istniejące konto usługi MFA wykonujące ręczne sprawdzanie powiadomień | Yes
-Rejestracja/uwierzytelnianie usługi MFA przy użyciu tylko kodów TOTP/weryfikacyjnych | Yes
+Wcześniej istniejące konto usługi MFA wykonujące ręczne sprawdzanie powiadomień | Tak
+Rejestracja/uwierzytelnianie usługi MFA przy użyciu tylko kodów TOTP/weryfikacyjnych | Tak
 Rejestracja przy użyciu telefonu | Nie
 Istniejące logowanie za pomocą telefonu przy użyciu powiadomień wypychanych | Nie
 Istniejąca Weryfikacja logowania za pomocą telefonu przez wykonywanie ręcznego sprawdzania żądań uwierzytelniania | Tak

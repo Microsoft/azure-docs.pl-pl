@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82608919"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawianie systemu operacyjnego Windows w klastrze Service Fabric
@@ -153,7 +153,7 @@ Aby pobrać pakiet aplikacji, przejdź do [strony udostępnianie aplikacji aran�
 
 ## <a name="configure-poa-behavior"></a>Skonfiguruj zachowanie POA
 
-Zachowanie POA można skonfigurować w celu spełnienia Twoich potrzeb. Zastąp wartości domyślne, przekazując parametr aplikacji podczas tworzenia lub aktualizowania aplikacji. Możesz podać parametry aplikacji, określając `ApplicationParameter` polecenie cmdlet `Start-ServiceFabricApplicationUpgrade` lub. `New-ServiceFabricApplication`
+Zachowanie POA można skonfigurować w celu spełnienia Twoich potrzeb. Zastąp wartości domyślne, przekazując parametr aplikacji podczas tworzenia lub aktualizowania aplikacji. Możesz podać parametry aplikacji, określając `ApplicationParameter` `Start-ServiceFabricApplicationUpgrade` `New-ServiceFabricApplication` polecenie cmdlet lub.
 
 | Parametr        | Typ                          | Szczegóły |
 |:-|-|-|
@@ -169,16 +169,16 @@ Zachowanie POA można skonfigurować w celu spełnienia Twoich potrzeb. Zastąp 
 | AcceptWindowsUpdateEula | Boolean <br>(Wartość domyślna: *true*) | Ustawiając tę flagę, aplikacja akceptuje umowę licencyjną użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
 
 > [!TIP]
-> Jeśli aktualizacje systemu Windows mają być wykonywane natychmiast, należy `WUFrequency` ustawić względem czasu wdrożenia aplikacji. Załóżmy na przykład, że masz klaster testowy z pięcioma węzłami i planujesz wdrożenie aplikacji na około 5:00 PM czasu UTC. Jeśli założono, że uaktualnienie lub wdrożenie aplikacji trwa 30 minut, ustaw WUFrequency jako *codziennie, 17:30:00*.
+> Jeśli aktualizacje systemu Windows mają być wykonywane natychmiast, należy ustawić `WUFrequency` względem czasu wdrożenia aplikacji. Załóżmy na przykład, że masz klaster testowy z pięcioma węzłami i planujesz wdrożenie aplikacji na około 5:00 PM czasu UTC. Jeśli założono, że uaktualnienie lub wdrożenie aplikacji trwa 30 minut, ustaw WUFrequency jako *codziennie, 17:30:00*.
 
 ## <a name="deploy-poa"></a>Wdróż aplikację POA
 
 1. Wykonaj wszystkie kroki wymagań wstępnych, aby przygotować klaster.
 1. Wdróż program POA podobnie jak każda inna aplikacja Service Fabric. Aby wdrożyć go przy użyciu programu PowerShell, zobacz [wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-1. Aby skonfigurować aplikację w czasie wdrażania, należy przekazać `ApplicationParameter` do `New-ServiceFabricApplication` polecenia cmdlet. Dla wygody użytkownika udostępniamy skrypt Deploy. ps1 wraz z aplikacją. Aby użyć skryptu:
+1. Aby skonfigurować aplikację w czasie wdrażania, należy przekazać `ApplicationParameter` do `New-ServiceFabricApplication` polecenia cmdlet. Dla wygody użytkownika udostępniamy skrypt Deploy.ps1 wraz z aplikacją. Aby użyć skryptu:
 
-    - Nawiązywanie połączenia z klastrem Service Fabric `Connect-ServiceFabricCluster`przy użyciu programu.
-    - Wykonaj skrypt PowerShell Deploy. ps1 z odpowiednią `ApplicationParameter` wartością.
+    - Nawiązywanie połączenia z klastrem Service Fabric przy użyciu programu `Connect-ServiceFabricCluster` .
+    - Wykonaj Deploy.ps1 skryptu programu PowerShell z odpowiednią `ApplicationParameter` wartością.
 
 > [!NOTE]
 > Zachowaj skrypt i folder aplikacji *PatchOrchestrationApplication* w tym samym katalogu.
@@ -191,10 +191,10 @@ Aby uaktualnić wersję POA przy użyciu programu PowerShell, postępuj zgodnie 
 
 Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
-Dla wygody udostępniamy skrypt undeploy. ps1 wraz z aplikacją. Aby użyć skryptu:
+Dla wygody użytkownika udostępniamy skrypt Undeploy.ps1 wraz z aplikacją. Aby użyć skryptu:
 
-  - Nawiązywanie połączenia z klastrem Service Fabric ```Connect-ServiceFabricCluster```przy użyciu programu.
-  - Wykonanie skryptu programu PowerShell undeploy. ps1.
+  - Nawiązywanie połączenia z klastrem Service Fabric przy użyciu programu ```Connect-ServiceFabricCluster``` .
+  - Wykonaj Undeploy.ps1 skryptu programu PowerShell.
 
 > [!NOTE]
 > Zachowaj skrypt i folder aplikacji *PatchOrchestrationApplication* w tym samym katalogu.
@@ -248,15 +248,15 @@ Wynik | 0 — powodzenie<br> inne — niepowodzenie| Wskazuje przyczynę niepowo
 
 Jeśli nie zaplanowano jeszcze żadnej aktualizacji, wynikowy kod JSON jest pusty.
 
-Zaloguj się do klastra w celu zbadania Windows Update wyników. Sprawdź adres IP repliki dla podstawowego adresu usługi koordynatora i Otwórz następujący adres URL w&lt;przeglądarce: http://Replica-IP&gt;:&lt;ApplicationPort/PatchOrchestrationApplication/V1/GetWindowsUpdateResults.&gt;
+Zaloguj się do klastra w celu zbadania Windows Update wyników. Sprawdź adres IP repliki dla podstawowego adresu usługi koordynatora i Otwórz następujący adres URL w przeglądarce: http:// &lt; Replica-IP &gt; : &lt; ApplicationPort &gt; /PatchOrchestrationApplication/V1/GetWindowsUpdateResults.
 
-Punkt końcowy REST usługi koordynatora ma port dynamiczny. Aby sprawdzić dokładny adres URL, zapoznaj się z tematem Service Fabric Explorer. Na przykład wyniki są dostępne pod adresem *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults*.
+Punkt końcowy REST usługi koordynatora ma port dynamiczny. Aby sprawdzić dokładny adres URL, zapoznaj się z tematem Service Fabric Explorer. Na przykład wyniki są dostępne pod adresem *http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults* .
 
 ![Obraz punktu końcowego REST](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 Jeśli zwrotny serwer proxy jest włączony w klastrze, można uzyskać dostęp do adresu URL spoza klastra.
 
-Wymagany punkt końcowy to *http://&lt;SERVERURL&gt;&lt;: REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/V1/GetWindowsUpdateResults*.
+Wymagany punkt końcowy to *http:// &lt; SERVERURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/V1/GetWindowsUpdateResults*.
 
 Aby włączyć zwrotny serwer proxy w klastrze, postępuj zgodnie z instrukcjami w [odwrotnym serwerze proxy na platformie Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
@@ -277,7 +277,7 @@ Aby ułatwić zrozumienie, jak aktualizacje są realizowane w węźle, przejdźm
 
 1. NodeAgentNTService, uruchomione w każdym węźle, wyszukuje dostępne aktualizacje systemu Windows w zaplanowanym czasie. Jeśli aktualizacje są dostępne, pobiera je w węźle.
 
-1. Po pobraniu aktualizacji Agent węzła NTService tworzy odpowiednie zadanie naprawy dla węzła o nazwie *\<POS___ unique_id>*. Te zadania naprawy można wyświetlić za pomocą polecenia cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) lub za pomocą SFX w sekcji Szczegóły węzła. Po utworzeniu zadania naprawy szybko przechodzi do [stanu *zatwierdzono* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Po pobraniu aktualizacji Agent węzła NTService tworzy odpowiednie zadanie naprawy dla węzła o nazwie *POS___ \<unique_id> *. Te zadania naprawy można wyświetlić za pomocą polecenia cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) lub za pomocą SFX w sekcji Szczegóły węzła. Po utworzeniu zadania naprawy szybko przechodzi do [stanu *zatwierdzono* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Usługa koordynatora okresowo szuka zadań naprawy w stanie *zatwierdzono* , a następnie aktualizuje je w celu *przygotowania* stanu na podstawie TaskApprovalPolicy. Jeśli TaskApprovalPolicy jest skonfigurowany jako NodeWise, zadanie naprawy odnoszące się do węzła jest przygotowywane tylko wtedy, gdy żadne inne zadanie naprawy nie jest obecnie *przygotowywane*, *zatwierdzane*, *wykonywane*lub *przywracane* . 
 
@@ -294,7 +294,7 @@ Aby ułatwić zrozumienie, jak aktualizacje są realizowane w węźle, przejdźm
 
 1. Gdy zadanie naprawy jest w stanie *wykonywania* , rozpocznie się instalacja poprawek w tym węźle. Po zainstalowaniu poprawki węzeł może lub nie może zostać ponownie uruchomiony, w zależności od poprawki. Następnie zadanie naprawy jest przenoszone do stanu *przywracania* , co powoduje ponowną obsługę węzła. Zadanie naprawy jest następnie oznaczane jako ukończone.
 
-   W programie POA w wersji 1.4.0 i nowszych można znaleźć stan aktualizacji, wyświetlając zdarzenia kondycji na NodeAgentService z właściwością WUOperationStatus-\<nodename>. Wyróżnione sekcje na poniższych ilustracjach pokazują stan aktualizacji systemu Windows w węzłach *poanode_0* i *poanode_2*:
+   W programie POA w wersji 1.4.0 i nowszych można znaleźć stan aktualizacji, wyświetlając zdarzenia kondycji na NodeAgentService przy użyciu WUOperationStatus- \<NodeName> Property. Wyróżnione sekcje na poniższych ilustracjach pokazują stan aktualizacji systemu Windows w węzłach *poanode_0* i *poanode_2*:
 
    [![Obraz stanu operacji Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 

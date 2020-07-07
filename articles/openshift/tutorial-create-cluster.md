@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800159"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985692"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -26,7 +26,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="verify-your-permissions"></a>Sprawdzanie uprawnień
 
-Aby utworzyć klaster Red Hat OpenShift platformy Azure, sprawdź następujące uprawnienia dotyczące konta i użytkownika platformy Azure:
+Aby utworzyć klaster usługi Azure Red Hat OpenShift, sprawdź następujące uprawnienia dotyczące subskrypcji platformy Azure, użytkownika Azure Active Directory lub nazwy głównej usługi:
 
 |Uprawnienia|Grupa zasobów zawierająca sieć wirtualną|Wykonywane przez użytkownika`az aro create`|Nazwa główna usługi przebiegła jako`–client-id`|
 |----|:----:|:----:|:----:|

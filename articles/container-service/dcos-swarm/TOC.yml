@@ -1,75 +1,21 @@
 - name: Usługa ACS z systemem DC/OS i narzędziem Swarm
   href: ./index.yml
 - name: Omówienie
-  items:
-    - name: Informacje o usłudze Container Service
-      href: container-service-intro.md
 - name: Przewodniki Szybki start
   expanded: true
-  items:
-    - name: Docker Swarm
-      href: container-service-swarm-mode-walkthrough.md
-    - name: DC/OS
-      href: container-service-dcos-quickstart.md
 - name: Samouczki
-  items:
-    - name: 1. Tworzenie klastra i zarządzanie nim
-      href: container-service-dcos-manage-tutorial.md
-    - name: 2. Równoważenie obciążenia aplikacji
-      href: container-service-load-balancing.md
-    - name: 3. Zarządzanie woluminami danych
-      href: container-service-dcos-fileshare.md
-    - name: 4. Integracja z usługą ACR
-      href: container-service-dcos-acr.md
 - name: Pojęcia
-  items:
-    - name: Zabezpieczanie kontenerów
-      href: container-service-security.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Skalowanie klastra ACS
-      href: container-service-scale.md
     - name: DC/OS
       items:
-        - name: Zarządzanie kontenerem — interfejs użytkownika platformy DC/OS
-          href: container-service-mesos-marathon-ui.md
-        - name: Zarządzanie kontenerem — interfejs API REST platformy DC/OS
-          href: container-service-mesos-marathon-rest.md
-        - name: Pule agentów platformy DC/OS
-          href: container-service-dcos-agents.md
-        - name: Włączanie dostępu publicznego do platformy DC/OS
-          href: container-service-enable-public-access.md
-        - name: Koordynator specyficzny dla aplikacji/użytkownika na platformie DC/OS
-          href: container-service-application-specific-marathon.md
-        - name: Wydania Canary za pomocą systemu Vamp
-          href: container-service-dcos-vamp-canary-release.md
         - name: Monitorowanie platformy DC/OS
-          items:
-            - name: Monitorowanie za pomocą rozwiązania ELK
-              href: container-service-monitoring-elk.md
-            - name: Monitorowanie za pomocą usługi OMS
-              href: container-service-monitoring-oms.md
-            - name: Monitorowanie za pomocą usługi Datadog
-              href: container-service-monitoring.md
-            - name: Monitorowanie za pomocą narzędzia Sysdig
-              href: container-service-monitoring-sysdig.md
-            - name: Monitorowanie za pomocą rozwiązania Dynatrace
-              href: container-service-monitoring-dynatrace.md
     - name: Docker Swarm
-      items:
-        - name: Szybki start z programem Docker CE
-          href: container-service-swarm-mode-walkthrough.md
-        - name: Platforma Docker i narzędzie Docker Compose
-          href: container-service-docker-swarm.md
-        - name: Ciągła integracja/ciągłe wdrażanie za pomocą struktury Docker Swarm i usługi Azure DevOps
-          href: container-service-docker-swarm-setup-ci-cd.md
-        - name: Ciągła integracja/ciągłe wdrażanie za pomocą struktury Docker Swarm (aparat ACS) i usługi Azure DevOps
-          href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/acs
-    - name: Program PowerShell
+    - name: PowerShell
       href: /powershell/module/az.compute
     - name: REST
       href: /rest/api/container-service
@@ -77,11 +23,9 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Często zadawane pytania
-      href: container-service-faq.md
     - name: Szablony — aparat ACS
       href: 'https://github.com/Azure/acs-engine'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Dostępność w danym regionie
       href: 'https://azure.microsoft.com/regions/services/'

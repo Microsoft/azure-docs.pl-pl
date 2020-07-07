@@ -8,10 +8,10 @@ ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
 ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82609089"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MySQL przy użyciu programu PowerShell
@@ -26,7 +26,7 @@ Aby ukończyć ten przewodnik, musisz:
 - [Serwer Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia `Install-Module -Name Az.MySql -AllowPrerelease`:.
+> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > Po ogólnym udostępnieniu modułu AZ. MySql PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i dostępne natywnie z poziomu Azure Cloud Shell.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
