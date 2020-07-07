@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73242471"
 ---
 # <a name="event-schemas"></a>Schematy zdarzeń
@@ -54,14 +54,14 @@ Schemat EventGrid składa się z zestawu wymaganych właściwości, z którymi j
 
 Wszystkie zdarzenia mają następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Wymagany | Opis |
+| Właściwość | Typ | Wymagane | Opis |
 | -------- | ---- | ----------- |-----------
 | temat | ciąg | Nie | Powinien być zgodny z tematem, na którym został opublikowany. Event Grid wypełnia ją nazwą tematu, na którym jest publikowana, jeśli nie została określona. |
 | Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Tak | Typ zdarzenia dla tego źródła zdarzeń, na przykład BlobCreated. |
 | eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | ID | ciąg | Nie | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Nie | Służy do przechwytywania danych zdarzeń specyficznych dla jednostki publikowania. |
+| dane | object | Nie | Służy do przechwytywania danych zdarzeń specyficznych dla jednostki publikowania. |
 | dataVersion | ciąg | Tak | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Nie | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 

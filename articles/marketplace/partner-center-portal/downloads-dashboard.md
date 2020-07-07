@@ -8,13 +8,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82732722"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Pobierz pulpit nawigacyjny w komercyjnej analizie Marketplace
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Pobieranie w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego pliki do pobrania w centrum partnerskim. Ten pulpit nawigacyjny wyświetla listę żądań pobierania w ciągu ostatnich 30 dni.
 

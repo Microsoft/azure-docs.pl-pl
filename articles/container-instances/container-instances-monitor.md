@@ -4,10 +4,10 @@ description: Jak monitorować użycie zasobów obliczeniowych, takich jak proces
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82116371"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorowanie zasobów kontenerów w usłudze Azure Container Instances
@@ -101,7 +101,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Dla grupy wielokontenera można dodać `containerName` wymiar do metryk zwracanych dla kontenera.
+Dla grupy wielokontenera `containerName` można dodać wymiar do metryk zwracanych dla kontenera.
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table

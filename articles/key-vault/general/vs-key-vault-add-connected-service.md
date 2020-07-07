@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82116846"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Dodawanie Key Vault do aplikacji sieci Web przy użyciu usług połączonych programu Visual Studio
@@ -33,7 +33,7 @@ Aby uzyskać szczegółowe informacje o zmianach, które są połączone przez u
 
 Przed rozpoczęciem upewnij się, że jesteś zalogowany w programie Visual Studio. Zaloguj się przy użyciu tego samego konta, które jest używane w ramach subskrypcji platformy Azure. Następnie otwórz ASP.NET 4.7.1 lub nowszy lub ASP.NET Core projekt sieci Web 2,0 i wykonaj następujące czynności:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, do którego chcesz dodać obsługę Key Vault, a następnie wybierz polecenie **Dodaj** > **podłączoną usługę**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, do którego chcesz dodać obsługę Key Vault, a następnie wybierz polecenie **Dodaj**  >  **podłączoną usługę**.
    Zostanie wyświetlona strona Usługa połączona zawierająca usługi, które możesz dodać do projektu.
 1. W menu dostępne usługi wybierz pozycję **bezpieczne klucze tajne z Azure Key Vault**.
 
@@ -41,7 +41,7 @@ Przed rozpoczęciem upewnij się, że jesteś zalogowany w programie Visual Stud
 
 1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz nową lub istniejącą Key Vault. W przypadku wybrania nowej Key Vault zostanie wyświetlone łącze **Edytuj** . Wybierz go, aby skonfigurować nowy Key Vault.
 
-   ![Wybierz swoją subskrypcję](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
+   ![Wybieranie subskrypcji](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
 1. W obszarze **edytuj Azure Key Vault**wprowadź nazwę, która ma być używana dla Key Vault.
 
@@ -156,9 +156,9 @@ Aplikację można uruchomić lokalnie, aby sprawdzić, czy klucz tajny został p
 
 ## <a name="access-your-secrets-aspnet"></a>Dostęp do wpisów tajnych (ASP.NET)
 
-Konfigurację można skonfigurować tak, aby plik Web. config miał wartość fikcyjną w `appSettings` elemencie, który jest zastępowany przez wartość true w czasie wykonywania. Następnie można uzyskać do niego dostęp za `ConfigurationManager.AppSettings` pośrednictwem struktury danych.
+Konfigurację można skonfigurować tak, aby plik web.config miał wartość fikcyjną w `appSettings` elemencie, który jest zastępowany przez wartość true w czasie wykonywania. Następnie można uzyskać do niego dostęp za pośrednictwem `ConfigurationManager.AppSettings` struktury danych.
 
-1. Edytuj plik Web. config.  Znajdź tag appSettings, Dodaj atrybut `configBuilders="AzureKeyVault"`i Dodaj wiersz:
+1. Edytuj plik web.config.  Znajdź tag appSettings, Dodaj atrybut `configBuilders="AzureKeyVault"` i Dodaj wiersz:
 
    ```xml
       <add key="mysecret" value="dummy"/>
@@ -174,7 +174,7 @@ Konfigurację można skonfigurować tak, aby plik Web. config miał wartość fi
    ```
 1. Uruchom aplikację lokalnie w debugerze, przejdź do karty **informacje** i sprawdź, czy jest wyświetlana wartość z Key Vault.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie jest już potrzebna, usuń ją. Spowoduje to usunięcie Key Vault i powiązanych zasobów. Aby usunąć grupę zasobów za pośrednictwem portalu:
 
@@ -190,10 +190,10 @@ Jeśli Key Vault jest uruchomiony na innym konto Microsoft niż ten, który jest
 
 1. Wybierz pozycję **zasady dostępu**, a następnie **Dodaj zasady dostępu**i wybierz konto, za pomocą którego użytkownik jest zalogowany jako podmiot zabezpieczeń.
 
-1. W programie Visual Studio wybierz pozycję**Ustawienia konta** **pliku** > .
+1. W programie Visual Studio wybierz **File**pozycję  >  **Ustawienia konta**pliku.
 Wybierz pozycję **Dodaj konto** z sekcji **wszystkie konta** . Zaloguj się przy użyciu konta wybranego jako podmiot zabezpieczeń zasad dostępu.
 
-1. Wybierz pozycję **Narzędzia** > **Opcje**i Wyszukaj pozycję **uwierzytelnianie usługi platformy Azure**. Następnie wybierz konto, które właśnie zostało dodane do programu Visual Studio.
+1. Wybierz pozycję **Narzędzia**  >  **Opcje**i Wyszukaj pozycję **uwierzytelnianie usługi platformy Azure**. Następnie wybierz konto, które właśnie zostało dodane do programu Visual Studio.
 
 Teraz podczas debugowania aplikacji program Visual Studio nawiązuje połączenie z kontem, na którym znajduje się Key Vault.
 
@@ -205,7 +205,7 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 Ma wpływ na odwołania do pliku projektu i odwołania do pakietu NuGet.
 
-| Typ | Dokumentacja |
+| Typ | Odwołanie |
 | --- | --- |
 | NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
 
@@ -215,9 +215,9 @@ Ma wpływ na odwołania do pliku projektu i odwołania do pakietu NuGet.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Zmiany plików projektu dla ASP.NET Core
 
-- Dodano element i `ConnectedServices.json` plik usługi połączonych usług.
+- Dodano element i plik usługi połączonych usług `ConnectedServices.json` .
 
-### <a name="launchsettingsjson-changes-for-aspnet-core"></a>profilu launchsettings. JSON — zmiany dotyczące ASP.NET Core
+### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings.jszmian ASP.NET Core
 
 - Dodano następujące wpisy zmiennych środowiskowych do profilu IIS Express i profilu zgodnego z nazwą projektu sieci Web:
 
@@ -239,9 +239,9 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 ### <a name="added-references-for-aspnet-framework"></a>Dodano odwołania dla platformy ASP.NET Framework
 
-Ma wpływ na odwołania do pliku projektu `packages.config` i (odwołania NuGet).
+Ma wpływ na odwołania do pliku projektu i `packages.config` (odwołania NuGet).
 
-| Typ | Dokumentacja |
+| Typ | Odwołanie |
 | --- | --- |
 | Waga NuGet | Microsoft.Azure.KeyVault |
 | Waga NuGet | Microsoft. Azure. WebKey magazynu. |
@@ -254,10 +254,10 @@ Ma wpływ na odwołania do pliku projektu `packages.config` i (odwołania NuGet)
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>Zmiany plików projektu dla platformy ASP.NET Framework
 
-- Dodano plik Items i usługa connectedservices. JSON podłączonych usług.
+- Dodano element Items i ConnectedServices.jsw pliku połączonych usług.
 - Odwołania do zestawów .NET opisanych w sekcji [dodane odwołania](#added-references-for-aspnet-framework) .
 
-### <a name="webconfig-or-appconfig-changes"></a>zmiany pliku Web. config lub App. config
+### <a name="webconfig-or-appconfig-changes"></a>Zmiany web.config lub app.config
 
 - Dodano następujące wpisy konfiguracji:
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74e1dc68aba4ba294bccca6da278d3e30e51f056
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85360457"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Pisanie wyrażeń mapowania atrybutów w Azure Active Directory
@@ -30,7 +30,7 @@ Składnia wyrażeń dla mapowań atrybutów to Reminiscent of Visual Basic for A
 
 * Całe wyrażenie musi być zdefiniowane w zakresie funkcji, które składają się z nazwy, a następnie argumentów w nawiasach: <br>
   *FunctionName ( `<<argument 1>>` , `<<argument N>>` )*
-* Funkcje mogą być zagnieżdżane w innych. Przykład: <br> *FunctionOne (FunctionTwo ( `<<argument1>>` ))*
+* Funkcje mogą być zagnieżdżane w innych. Na przykład: <br> *FunctionOne (FunctionTwo ( `<<argument1>>` ))*
 * Można przekazać trzy różne typy argumentów do funkcji:
   
   1. Atrybuty, które muszą być ujęte w nawiasy kwadratowe. Na przykład: [attributeName]
@@ -65,7 +65,7 @@ Składnia wyrażeń dla mapowań atrybutów to Reminiscent of Visual Basic for A
 |[Lewym](#left)|Funkcja Left Zwraca określoną liczbę znaków z lewej strony ciągu.|
 |[Mid](#mid) |Zwraca podciąg wartości źródłowej. Podciąg jest ciągiem zawierającym tylko niektóre znaki z ciągu źródłowego.|
 |[NormalizeDiacritics](#normalizediacritics)|Wymaga jednego argumentu ciągu. Zwraca ciąg, ale z dowolnymi znakami diakrytycznymi zastąpionymi odpowiednikami znaków niediakrytycznych.|
-|[Niemożliwe](#not) |Odwraca wartość logiczną **źródła**. Jeśli wartością **źródłową** jest "*true*", zwraca wartość "*false*". W przeciwnym razie zwraca wartość "*true*".| 
+|[Not](#not) |Odwraca wartość logiczną **źródła**. Jeśli wartością **źródłową** jest "*true*", zwraca wartość "*false*". W przeciwnym razie zwraca wartość "*true*".| 
 |[RemoveDuplicates —](#removeduplicates)|Funkcja RemoveDuplicates — przyjmuje ciąg o wartości wielowartościowej i upewnij się, że każda wartość jest unikatowa.| 
 |[Stępować](#replace) |Zamienia wartości w ciągu. | 
 |[SelectUniqueValue](#selectuniquevalue)|Wymaga co najmniej dwóch argumentów, które są unikatowymi regułami generowania wartości zdefiniowanych przy użyciu wyrażeń. Funkcja oblicza każdą regułę, a następnie sprawdza wartość wygenerowaną w celu zapewnienia unikatowości w docelowej aplikacji/katalogu.| 
@@ -89,8 +89,8 @@ Składnia wyrażeń dla mapowań atrybutów to Reminiscent of Visual Basic for A
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-   | **przedrostk** |Wymagane |Ciąg |Ciąg, który ma zostać dołączony do końca wartości źródłowej. |
+   | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+   | **przedrostk** |Wymagane |String |Ciąg, który ma zostać dołączony do końca wartości źródłowej. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -252,9 +252,9 @@ Jeśli atrybut AccountName nie istnieje, zgłoś błąd w obiekcie.
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-   | **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
-   | **outputFormat** |Wymagane |Ciąg |Format daty wyjściowej. |
+   | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+   | **inputFormat** |Wymagane |String |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
+   | **outputFormat** |Wymagane |String |Format daty wyjściowej. |
 
 ---
 ### <a name="guid"></a>Guid (identyfikator GUID)
@@ -394,8 +394,8 @@ Jeśli jedna z wartości źródłowych jest atrybutem wielowartościowym, każda
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **rozdzielając** |Wymagane |Ciąg |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może to być "", jeśli nie jest wymagany żaden separator. |
-   | **source1 ... sourceN** |Wymagana, zmienna liczba razy |Ciąg |Wartości ciągu, które mają być połączone ze sobą. |
+   | **rozdzielając** |Wymagane |String |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może to być "", jeśli nie jest wymagany żaden separator. |
+   | **source1 ... sourceN** |Wymagana, zmienna liczba razy |String |Wartości ciągu, które mają być połączone ze sobą. |
 
 ---
 ### <a name="left"></a>Lewe
@@ -431,7 +431,7 @@ Zwraca wartość `Joh`.
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu. |
+   | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu. |
    | **Start** |Wymagane |liczba całkowita |Indeks w ciągu **źródłowym** , w którym powinien zostać uruchomiony podciąg. Pierwszy znak w ciągu będzie miał indeks 1, drugi znak będzie miał indeks 2 itd. |
    | **Długość** |Wymagane |liczba całkowita |Długość podciągu. Jeśli długość kończy się poza ciągiem **źródłowym** , funkcja zwróci podciąg z **początkowego** indeksu do końca ciągu **źródłowego** . |
 
@@ -445,7 +445,7 @@ Zwraca wartość `Joh`.
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg | Zwykle jest to atrybut imię i nazwisko. |
+   | **zewnętrz** |Wymagane |String | Zwykle jest to atrybut imię i nazwisko. |
 
 ---
 ### <a name="not"></a>Not
@@ -499,13 +499,13 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
-   | **oldValue** |Opcjonalne |Ciąg |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
-   | **regexPattern** |Opcjonalne |Ciąg |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
-   | **regexGroupName** |Opcjonalne |Ciąg |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
-   | **replacementValue** |Opcjonalne |Ciąg |Nowa wartość, aby zastąpić starą. |
-   | **replacementAttributeName** |Opcjonalne |Ciąg |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
-   | **formularza** |Opcjonalne |Ciąg |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
+   | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
+   | **oldValue** |Opcjonalne |String |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
+   | **regexPattern** |Opcjonalne |String |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
+   | **regexGroupName** |Opcjonalne |String |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
+   | **replacementValue** |Opcjonalne |String |Nowa wartość, aby zastąpić starą. |
+   | **replacementAttributeName** |Opcjonalne |String |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
+   | **formularza** |Opcjonalne |String |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -524,7 +524,7 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, brak górnej granicy |Ciąg | Lista unikatowych reguł generowania wartości do obliczenia. |
+   | **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, brak górnej granicy |String | Lista unikatowych reguł generowania wartości do obliczenia. |
 
 
 ---
@@ -537,7 +537,7 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
 
   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
   |--- | --- | --- | --- |
-  | **AppRoleAssignments** |Wymagane |Ciąg |**[appRoleAssignments]** obiekt. |
+  | **AppRoleAssignments** |Wymagane |String |**[appRoleAssignments]** obiekt. |
 
 ---
 ### <a name="split"></a>Podział
@@ -549,8 +549,8 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |wartość **źródłowa** do zaktualizowania. |
-   | **ogranicznik** |Wymagane |Ciąg |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
+   | **zewnętrz** |Wymagane |String |wartość **źródłowa** do zaktualizowania. |
+   | **ogranicznik** |Wymagane |String |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -570,7 +570,7 @@ Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator z
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |wartość **źródłowa** do zaktualizowania. |
+   | **zewnętrz** |Wymagane |String |wartość **źródłowa** do zaktualizowania. |
 
 ---
 ### <a name="switch"></a>Przełącznik
@@ -582,10 +582,10 @@ Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator z
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Wartość **źródłowa** do sprawdzenia. |
-   | **defaultValue** |Opcjonalne |Ciąg |Wartość domyślna, która ma być używana, jeśli źródło nie jest zgodne z żadnymi kluczami. Może być pustym ciągiem (""). |
-   | **głównych** |Wymagane |Ciąg |**Klucz** do porównywania wartości **źródłowej** z. |
-   | **wartościami** |Wymagane |Ciąg |Wartość zastępcza dla **źródła** pasującego do klucza. |
+   | **zewnętrz** |Wymagane |String |Wartość **źródłowa** do sprawdzenia. |
+   | **defaultValue** |Opcjonalne |String |Wartość domyślna, która ma być używana, jeśli źródło nie jest zgodne z żadnymi kluczami. Może być pustym ciągiem (""). |
+   | **głównych** |Wymagane |String |**Klucz** do porównywania wartości **źródłowej** z. |
+   | **wartościami** |Wymagane |String |Wartość zastępcza dla **źródła** pasującego do klucza. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -597,8 +597,8 @@ Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator z
 
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
-   | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu z obiektu źródłowego |
-   | **dziedzinie** |Opcjonalne |Ciąg |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
+   | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu z obiektu źródłowego |
+   | **dziedzinie** |Opcjonalne |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 
@@ -611,8 +611,8 @@ Funkcja StringFromSid konwertuje tablicę bajtową zawierającą identyfikator z
 
   | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
   | --- | --- | --- | --- |
-  | **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-  | **dziedzinie** |Opcjonalne |Ciąg |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
+  | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+  | **dziedzinie** |Opcjonalne |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 

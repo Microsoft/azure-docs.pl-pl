@@ -14,21 +14,21 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652691"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Zagadnienia dotyczące korzystania z platforma uniwersalna systemu Windows z MSAL.NET
 Deweloperzy aplikacji korzystających z platforma uniwersalna systemu Windows (platformy UWP) z MSAL.NET powinni wziąć pod uwagę Koncepcje opisane w tym artykule.
 
 ## <a name="the-usecorporatenetwork-property"></a>Właściwość UseCorporateNetwork
-Na platformie środowisko wykonawcze systemu Windows (WinRT) `PublicClientApplication` ma właściwość `UseCorporateNetwork`Boolean. Ta właściwość umożliwia aplikacjom Windows 8.1 i aplikacjom platformy UWP korzystanie z zintegrowanego uwierzytelniania systemu Windows (IWA), jeśli użytkownik jest zalogowany na koncie z dzierżawcą Azure Active Directory federacyjnego (Azure AD). Użytkownicy zalogowani do systemu operacyjnego mogą również korzystać z logowania jednokrotnego (SSO). Po ustawieniu `UseCorporateNetwork` właściwości MSAL.NET korzysta z brokera uwierzytelniania w sieci Web (WAB).
+Na platformie środowisko wykonawcze systemu Windows (WinRT) `PublicClientApplication` ma właściwość Boolean `UseCorporateNetwork` . Ta właściwość umożliwia aplikacjom Windows 8.1 i aplikacjom platformy UWP korzystanie z zintegrowanego uwierzytelniania systemu Windows (IWA), jeśli użytkownik jest zalogowany na koncie z dzierżawcą Azure Active Directory federacyjnego (Azure AD). Użytkownicy zalogowani do systemu operacyjnego mogą również korzystać z logowania jednokrotnego (SSO). Po ustawieniu `UseCorporateNetwork` właściwości MSAL.NET korzysta z brokera uwierzytelniania w sieci Web (WAB).
 
 > [!IMPORTANT]
-> Ustawienie `UseCorporateNetwork` właściwości na true zakłada, że deweloper aplikacji włączył IWA w aplikacji. Aby włączyć IWA:
-> - W aplikacji `Package.appxmanifest`platformy UWP na karcie **możliwości** Włącz następujące możliwości:
+> Ustawienie `UseCorporateNetwork` właściwości na true zakłada, że deweloper aplikacji WŁĄCZYŁ IWA w aplikacji. Aby włączyć IWA:
+> - W aplikacji platformy UWP `Package.appxmanifest` na karcie **możliwości** Włącz następujące możliwości:
 >   - **Uwierzytelnianie w przedsiębiorstwie**
 >   - **Sieci prywatne (serwer & klienta)**
 >   - **Udostępniony certyfikat użytkownika**

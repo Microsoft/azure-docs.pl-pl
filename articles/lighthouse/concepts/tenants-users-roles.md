@@ -4,10 +4,10 @@ description: Zapoznaj się z pojęciami Azure Active Directory dzierżawców, u�
 ms.date: 04/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144913"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Dzierżawy, role i użytkownicy w scenariuszach usługi Azure Lighthouse

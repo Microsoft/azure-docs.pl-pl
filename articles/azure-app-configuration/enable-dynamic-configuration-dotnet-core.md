@@ -14,16 +14,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75433674"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856491"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Core
 
-Konfiguracja aplikacji .NET Core Client Library obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie `IConfigurationRefresher` z opcji dla dostawcy konfiguracji, a następnie wywołując `Refresh` je w dowolnym miejscu w kodzie.
+Konfiguracja aplikacji .NET Core Client Library obsługuje aktualizowanie zestawu ustawień konfiguracji na żądanie bez powodowania ponownego uruchomienia aplikacji. Można to wdrożyć, najpierw pobierając wystąpienie z `IConfigurationRefresher` opcji dla dostawcy konfiguracji, a następnie wywołując je `Refresh` w dowolnym miejscu w kodzie.
 
 Aby zachować zaktualizowane ustawienia i uniknąć zbyt wielu wywołań w magazynie konfiguracji, dla każdego ustawienia zostanie użyta pamięć podręczna. Do momentu wygaśnięcia zbuforowanej wartości ustawienia operacja odświeżania nie aktualizuje wartości, nawet jeśli wartość została zmieniona w magazynie konfiguracji. Domyślny czas wygaśnięcia dla każdego żądania wynosi 30 sekund, ale w razie potrzeby można go zastąpić.
 
@@ -100,23 +100,33 @@ Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do ak
 
 1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Jeśli używasz programu Windows PowerShell, uruchom następujące polecenie:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Jeśli używasz macOS lub Linux, uruchom następujące polecenie:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 1. Uruchom następujące polecenie, aby skompilować aplikację konsolową:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 1. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację lokalnie:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/dotnet-core-app-run.png)
 
@@ -133,9 +143,9 @@ Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do ak
     ![Lokalne odświeżanie aplikacji z przewodnika Szybki start](./media/quickstarts/dotnet-core-app-run-refresh.png)
     
     > [!NOTE]
-    > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund `SetCacheExpiration` przy użyciu metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
+    > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund przy użyciu `SetCacheExpiration` metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

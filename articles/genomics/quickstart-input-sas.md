@@ -10,15 +10,15 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72248583"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Przesyłanie przepływu pracy do usługi Microsoft Genomics przy użyciu sygnatury dostępu współdzielonego zamiast klucza konta magazynu 
 
-W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu pliku config. txt zawierającego [sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) zamiast kluczy konta magazynu. Ta funkcja może być przydatna, jeśli występują obawy związane z bezpieczeństwem dotyczące klucza konta magazynu widocznego w pliku config.txt. 
+W tym artykule pokazano, jak przesłać przepływ pracy do usługi Microsoft Genomics przy użyciu pliku config.txt zawierającego [sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) zamiast kluczy konta magazynu. Ta funkcja może być przydatna, jeśli występują obawy związane z bezpieczeństwem dotyczące klucza konta magazynu widocznego w pliku config.txt. 
 
 W tym artykule założono, że użytkownik zainstalował i uruchomił klienta `msgen` oraz że zna sposób korzystania z usługi Azure Storage. Jeśli przepływ pracy został pomyślnie przesłany przy użyciu dostarczonych przykładowych danych, możesz kontynuować pracę z tym artykułem. 
 

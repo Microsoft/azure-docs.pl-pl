@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82733777"
 ---
 # <a name="understand-azure-deny-assignments"></a>Informacje o przypisaniach Odmów na platformie Azure
@@ -72,7 +72,7 @@ Odmowa przypisania jest zgodna z podobnym wzorcem jako przypisaniem roli, ale r�
 
 ## <a name="the-all-principals-principal"></a>Główne wszystkie podmioty zabezpieczeń
 
-Aby można było obsługiwać przypisania odmowy, wprowadzono podmiot zabezpieczeń zdefiniowany przez system o nazwie *wszystkie podmioty zabezpieczeń* . Ten podmiot zabezpieczeń reprezentuje wszystkich użytkowników, grupy, nazwy główne usługi i zarządzane tożsamości w katalogu usługi Azure AD. Jeśli identyfikator podmiotu zabezpieczeń jest zerowym `00000000-0000-0000-0000-000000000000` IDENTYFIKATORem GUID, a `SystemDefined`typ podmiotu zabezpieczeń to, podmiot zabezpieczeń reprezentuje wszystkie podmioty zabezpieczeń. W Azure PowerShell danych wyjściowych wszystkie podmioty zabezpieczeń wyglądają następująco:
+Aby można było obsługiwać przypisania odmowy, wprowadzono podmiot zabezpieczeń zdefiniowany przez system o nazwie *wszystkie podmioty zabezpieczeń* . Ten podmiot zabezpieczeń reprezentuje wszystkich użytkowników, grupy, nazwy główne usługi i zarządzane tożsamości w katalogu usługi Azure AD. Jeśli identyfikator podmiotu zabezpieczeń jest zerowym identyfikatorem GUID, `00000000-0000-0000-0000-000000000000` a typ podmiotu zabezpieczeń to `SystemDefined` , podmiot zabezpieczeń reprezentuje wszystkie podmioty zabezpieczeń. W Azure PowerShell danych wyjściowych wszystkie podmioty zabezpieczeń wyglądają następująco:
 
 ```azurepowershell
 Principals              : {
@@ -84,8 +84,8 @@ Principals              : {
 
 Wszystkie podmioty zabezpieczeń mogą być łączone z `ExcludePrincipals` , aby odmówić wszystkim podmiotom, z wyjątkiem niektórych użytkowników. Wszystkie podmioty zabezpieczeń mają następujące ograniczenia:
 
-- Może być używany tylko w `Principals` i nie może być używany `ExcludePrincipals`w.
-- `Principals[i].Type`musi być ustawiony na `SystemDefined`.
+- Może być używany tylko w `Principals` i nie może być używany w `ExcludePrincipals` .
+- `Principals[i].Type`musi być ustawiony na `SystemDefined` .
 
 ## <a name="next-steps"></a>Następne kroki
 

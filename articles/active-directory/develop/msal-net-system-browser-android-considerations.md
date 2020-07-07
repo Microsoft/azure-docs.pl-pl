@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8e37d443d75dccae8704bc1ff7856e1d24131766
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82652716"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Zagadnienia dotyczące korzystania z usługi MSAL.NET w przeglądarce systemu Android dla platformy Xamarin
@@ -67,7 +67,7 @@ W poniższej tabeli wymieniono urządzenia i przeglądarki, które zostały prze
 Jeśli użytkownik nie ma włączonej przeglądarki na urządzeniu, MSAL.NET zgłosi `AndroidActivityNotFound` wyjątek.  
   - Środki **zaradcze**: poproszenie użytkownika o włączenie przeglądarki na swoim urządzeniu. Zaleca się, aby przeglądarka obsługiwała niestandardowe karty.
 
-Jeśli uwierzytelnianie nie powiedzie się (na przykład w przypadku uruchamiania uwierzytelniania z DuckDuckGo), `AuthenticationCanceled MsalClientException`MSAL.NET zwróci. 
+Jeśli uwierzytelnianie nie powiedzie się (na przykład w przypadku uruchamiania uwierzytelniania z DuckDuckGo), MSAL.NET zwróci `AuthenticationCanceled MsalClientException` . 
   - **Problem z głównym**: przeglądarka, która obsługuje niestandardowe karty, nie została włączona na urządzeniu. Uwierzytelnianie zostało uruchomione przy użyciu przeglądarki, która nie mogła ukończyć uwierzytelniania. 
   - Środki **zaradcze**: poproszenie użytkownika o włączenie przeglądarki na swoim urządzeniu. Zaleca się, aby przeglądarka obsługiwała niestandardowe karty.
 

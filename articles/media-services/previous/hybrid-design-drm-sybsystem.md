@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159407"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM 
@@ -93,12 +93,12 @@ Za pomocą konfiguracji zasad dostarczania elementów zawartości można kontrol
 
 ## <a name="scenarios-and-samples"></a>Scenariusze i przykłady
 
-Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy hybrydowych używa odpowiednich kombinacji konfiguracji-**zasad dostarczania zasobów** **klucza zawartości**(przykłady wymienione w ostatniej kolumnie są zgodne z tabelą):
+Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy hybrydowych używa odpowiednich **Content key** - kombinacji konfiguracji**zasad dostarczania zasobów** klucza zawartości (przykłady wymienione w ostatniej kolumnie są zgodne z tabelą):
 
 |**Źródło & hostingu zawartości**|**Szyfrowanie DRM**|**Dostarczanie licencji DRM**|**Konfiguruj klucz zawartości**|**Konfigurowanie zasad dostarczania elementów zawartości**|**Przykład**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Yes|Yes|Przykład 1|
-|AMS|AMS|Inne firmy|Yes|Yes|Przykład 2|
+|AMS|AMS|AMS|Tak|Tak|Przykład 1|
+|AMS|AMS|Inne firmy|Tak|Tak|Przykład 2|
 |AMS|Inne firmy|AMS|Yes|Nie|Przykład 3|
 |AMS|Inne firmy|Dział|Nie|Nie|Przykład 4|
 |Inne firmy|Inne firmy|AMS|Yes|Nie|    
@@ -140,6 +140,6 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

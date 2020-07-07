@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82136485"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager grupy zasobów i usuwania zasobów
@@ -21,7 +21,7 @@ Po usunięciu grupy zasobów Menedżer zasobów określa kolejność usuwania za
 
 1. Wszystkie zasoby podrzędne (zagnieżdżone) są usuwane.
 
-2. Zasoby zarządzające innymi zasobami są usuwane dalej. Zasób może mieć ustawioną `managedBy` właściwość, aby wskazać, że zarządza innym zasobem. Gdy ta właściwość jest ustawiona, zasób zarządzający innym zasobem zostanie usunięty przed innymi zasobami.
+2. Zasoby zarządzające innymi zasobami są usuwane dalej. Zasób może mieć `managedBy` ustawioną właściwość, aby wskazać, że zarządza innym zasobem. Gdy ta właściwość jest ustawiona, zasób zarządzający innym zasobem zostanie usunięty przed innymi zasobami.
 
 3. Pozostałe zasoby zostaną usunięte po poprzednich dwóch kategoriach.
 
@@ -61,7 +61,7 @@ W przypadku innych kodów błędów Menedżer zasobów usunięcie zasobu nie pow
 
 Aby usunąć grupę zasobów, użyj jednej z poniższych metod.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
@@ -89,7 +89,7 @@ az group delete --name ExampleResourceGroup
 
 Użyj jednej z poniższych metod, aby usunąć zasób.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResource `

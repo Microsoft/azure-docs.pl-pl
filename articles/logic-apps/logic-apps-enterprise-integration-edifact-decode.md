@@ -9,15 +9,15 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82106291"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekodowanie komunikatów EDIFACT dla Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
-Za pomocą łącznika komunikatu deEDIFACT można sprawdzić poprawność właściwości EDI i specyficznych dla partnera, podzielić zmiany na zestawy transakcji lub zachować całe zmiany i generować potwierdzenia dla przetworzonych transakcji. Aby użyć tego łącznika, należy dodać Łącznik do istniejącego wyzwalacza w aplikacji logiki.
+Za pomocą łącznika komunikatów EDIFACT możesz sprawdzać właściwości usługi EDI i partnerów, dzielić wymiany na zestawy transakcji lub zachowywać całe wymiany i generować potwierdzenia dla przetworzonych transakcji. Aby użyć tego łącznika, musisz dodać go do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -61,11 +61,11 @@ Oto elementy, których potrzebujesz:
 
     ![utworzono połączenie z kontem integracji](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Przykład:
+    Na przykład:
 
     ![Wybieranie komunikatu prostego pliku EDIFACT do dekodowania](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
-## <a name="edifact-decoder-details"></a>Szczegóły dekodera EDIFACT
+## <a name="edifact-decoder-details"></a>Szczegółowe informacje na temat dekodera EDIFACT
 
 Łącznik EDIFACT dekodowanie wykonuje następujące zadania: 
 
@@ -84,13 +84,13 @@ Oto elementy, których potrzebujesz:
   * Sprawdza numer kontroli zestawu transakcji dla innych numerów kontroli zestawu transakcji w tej grupie.
 * Dzieli wymianę na zestawy transakcji lub zachowuje całą transakcję wymiany:
   * Rozdziel wymianę jako zestawy transakcji — Zawieś zestawy transakcji w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja `badMessages`nie powiodła się, i wyprowadza pozostałe `goodMessages`zestawy transakcji do.
+  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Rozdziel wymianę jako zestawy transakcji — Zawieś wymianę w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages`.
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
   * Zachowaj zestawy transakcji zawieszania wymiany w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja `badMessages`nie powiodła się, i wyprowadza pozostałe `goodMessages`zestawy transakcji do.
+  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Zachowaj wymianę — Wstrzymaj wymianę w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages`.
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
 * Generuje techniczne (kontrolkę) i/lub potwierdzenie funkcjonalności (jeśli są skonfigurowane).
   * Potwierdzenie techniczne lub potwierdzenie CONTRL raportują wyniki sprawdzania składniowego kompletnej otrzymanej wymiany.
   * Potwierdzenie funkcjonalne potwierdza akceptowanie lub odrzucanie odebranej wymiany lub grupy

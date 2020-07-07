@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: fe8e4c1b08f96e5f6b2fc7649f7a4361616b7c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311316"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Łączenie danych z Azure Security Center dla IoT z platformą Azure — wskaźnikiem (wersja zapoznawcza)
@@ -52,7 +52,7 @@ W tym przewodniku dowiesz się, jak połączyć Azure Security Center danych IoT
 1. W dolnej części okienka po prawej stronie kliknij pozycję **Otwórz stronę łącznika**.
 1. Kliknij przycisk **Połącz**obok każdej IoT Hub subskrypcji, której alerty i alerty urządzeń chcesz przesłać do usługi Azure wskaźnikowej.
     - Jeśli Azure Security Center dla IoT nie jest włączona w tym centrum, zobaczysz komunikat ostrzegawczy Włącz. Kliknij link **Włącz** , aby uruchomić i włączyć usługę.
-1. Możesz zdecydować, czy alerty od Azure Security Center dla IoT mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **Włącz** , aby włączyć regułę do automatycznego tworzenia zdarzeń z wygenerowanych alertów.  Tę regułę można zmienić lub edytować w obszarze **Analytics** > **aktywne** reguły analizy.
+1. Możesz zdecydować, czy alerty od Azure Security Center dla IoT mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **Włącz** , aby włączyć regułę do automatycznego tworzenia zdarzeń z wygenerowanych alertów.  Tę regułę można zmienić lub edytować w obszarze **Analytics**  >  **aktywne** reguły analizy.
 
 > [!NOTE]
 >Odświeżenie listy centrów po wprowadzeniu zmian połączenia może zająć 10 sekund lub dłużej.
@@ -61,7 +61,7 @@ W tym przewodniku dowiesz się, jak połączyć Azure Security Center danych IoT
 
 Aby użyć odpowiedniego schematu w Log Analytics, aby wyświetlić Azure Security Center alertów IoT:
 
-1. Otwórz pozycję **Logs** > **SecurityInsights** > **SecurityAlert**lub wyszukaj ciąg **SecurityAlert**.
+1. Otwórz pozycję **Logs**  >  **SecurityInsights**  >  **SecurityAlert**lub wyszukaj ciąg **SecurityAlert**.
 1. Filtruj, aby wyświetlić tylko Azure Security Center dla alertów generowanych przez IoT przy użyciu następującego filtru KQL:
 
 ```kusto

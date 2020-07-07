@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101556"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
@@ -72,13 +72,13 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
     }
 ```
 
-**Wdrażanie za pomocą programu PowerShell** W przypadku wdrażania maszyny wirtualnej z systemem Windows Server za pośrednictwem programu PowerShell masz `-LicenseType`dodatkowy parametr dla programu. Po przekazaniu wirtualnego dysku twardego na platformę Azure należy utworzyć maszynę wirtualną przy użyciu `New-AzVM` i określić typ licencjonowania w następujący sposób:
+**Wdrażanie za pomocą programu PowerShell** W przypadku wdrażania maszyny wirtualnej z systemem Windows Server za pośrednictwem programu PowerShell masz dodatkowy parametr dla programu `-LicenseType` . Po przekazaniu wirtualnego dysku twardego na platformę Azure należy utworzyć maszynę wirtualną przy użyciu `New-AzVM` i określić typ licencjonowania w następujący sposób:
 ```powershell
 New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Sprawdź, czy maszyna wirtualna korzysta z korzyści licencjonowania
-Po wdrożeniu maszyny wirtualnej za pomocą metody wdrażania programu PowerShell lub Menedżer zasobów należy sprawdzić typ `Get-AzVM` licencji w następujący sposób:
+Po wdrożeniu maszyny wirtualnej za pomocą metody wdrażania programu PowerShell lub Menedżer zasobów należy sprawdzić typ licencji w następujący sposób `Get-AzVM` :
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```

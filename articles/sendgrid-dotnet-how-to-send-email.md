@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062201"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z platformą Azure
 ## <a name="overview"></a>Omówienie
-W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne przy użyciu usługi poczty e-mail SendGrid na platformie Azure. Przykłady są zapisywane w języku C\# i obsługują .NET standard 1,3. Omówione scenariusze obejmują konstruowanie poczty e-mail, wysyłanie wiadomości e-mail, Dodawanie załączników i włączanie różnych ustawień poczty i śledzenia. Aby uzyskać więcej informacji na temat SendGrid i wysyłania wiadomości e-mail, zobacz sekcję [następne kroki][Next steps] .
+W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne przy użyciu usługi poczty e-mail SendGrid na platformie Azure. Przykłady są zapisywane w języku C \# i obsługują .NET Standard 1,3. Omówione scenariusze obejmują konstruowanie poczty e-mail, wysyłanie wiadomości e-mail, Dodawanie załączników i włączanie różnych ustawień poczty i śledzenia. Aby uzyskać więcej informacji na temat SendGrid i wysyłania wiadomości e-mail, zobacz sekcję [następne kroki][Next steps] .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Co to jest usługa poczty E-mail SendGrid?
 SendGrid to [oparta na chmurze usługa poczty e-mail] , która zapewnia niezawodne [dostarczanie transakcyjnych wiadomości e-mail], skalowalność i analizę w czasie rzeczywistym oraz elastyczne interfejsy API, które ułatwiają integrację niestandardową. Typowe przypadki użycia SendGrid obejmują:
@@ -34,7 +34,7 @@ SendGrid to [oparta na chmurze usługa poczty e-mail] , która zapewnia niezawod
 * Przekazywanie zapytań klientów.
 * Przetwarzanie przychodzących wiadomości e-mail.
 
-Aby uzyskać więcej informacji, [https://sendgrid.com](https://sendgrid.com) odwiedź stronę repozytorium GitHub SendGrid lub [bibliotekę języka C#][sendgrid-csharp] .
+Aby uzyskać więcej informacji, odwiedź stronę [https://sendgrid.com](https://sendgrid.com) repozytorium GitHub SendGrid lub [bibliotekę języka C#][sendgrid-csharp] .
 
 ## <a name="create-a-sendgrid-account"></a>Utwórz konto SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ Aby uzyskać więcej informacji, [https://sendgrid.com](https://sendgrid.com) od
 [Pakiet NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) jest najprostszym sposobem uzyskania interfejsu API SendGrid i skonfigurowania aplikacji ze wszystkimi zależnościami. NuGet to rozszerzenie programu Visual Studio dołączone do Microsoft Visual Studio 2015 i nowszych, które ułatwia Instalowanie i aktualizowanie bibliotek i narzędzi.
 
 > [!NOTE]
-> Aby zainstalować pakiet NuGet, jeśli używasz wersji programu Visual Studio starszej niż Visual Studio 2015, odwiedź [https://www.nuget.org](https://www.nuget.org)stronę i kliknij przycisk **Zainstaluj pakiet NuGet** .
+> Aby zainstalować pakiet NuGet, jeśli używasz wersji programu Visual Studio starszej niż Visual Studio 2015, odwiedź stronę [https://www.nuget.org](https://www.nuget.org) i kliknij przycisk **Zainstaluj pakiet NuGet** .
 >
 >
 
@@ -162,7 +162,7 @@ Zawartość `appsettings.json` pliku powinna wyglądać podobnie do:
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-Najpierw należy dodać poniższy kod w `Startup.cs` pliku projektu interfejsu API .NET Core. Jest to wymagane, aby można było uzyskać dostęp `SENDGRID_API_KEY` do `appsettings.json` pliku przy użyciu iniekcji zależności w kontrolerze interfejsu API. `IConfiguration` Interfejs można wstrzyknąć do konstruktora kontrolera po dodaniu go w poniższej `ConfigureServices` metodzie. Zawartość `Startup.cs` pliku wygląda następująco po dodaniu wymaganego kodu:
+Najpierw należy dodać poniższy kod w `Startup.cs` pliku projektu interfejsu API .NET Core. Jest to wymagane, aby można było uzyskać dostęp do `SENDGRID_API_KEY` `appsettings.json` pliku przy użyciu iniekcji zależności w kontrolerze interfejsu API. `IConfiguration`Interfejs można wstrzyknąć do konstruktora kontrolera po dodaniu go w `ConfigureServices` poniższej metodzie. Zawartość `Startup.cs` pliku wygląda następująco po dodaniu wymaganego kodu:
 
         public IConfigurationRoot Configuration { get; }
 
@@ -173,7 +173,7 @@ Najpierw należy dodać poniższy kod w `Startup.cs` pliku projektu interfejsu A
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-Po wprowadzeniu `IConfiguration` interfejsu przez kontroler, można użyć `CreateSingleEmailToMultipleRecipients` metody `MailHelper` klasy do wysłania pojedynczej wiadomości e-mail do wielu adresatów. Metoda akceptuje jeden dodatkowy parametr logiczny o nazwie `showAllRecipients`. Ten parametr może służyć do kontrolowania, czy odbiorcy poczty e-mail będą mogli zobaczyć każdy inny adres e-mail w sekcji do nagłówka wiadomości e-mail. Przykładowy kod dla kontrolera powinien wyglądać jak poniżej 
+Po wprowadzeniu interfejsu przez kontroler, `IConfiguration` można użyć `CreateSingleEmailToMultipleRecipients` metody `MailHelper` klasy do wysłania pojedynczej wiadomości e-mail do wielu adresatów. Metoda akceptuje jeden dodatkowy parametr logiczny o nazwie `showAllRecipients` . Ten parametr może służyć do kontrolowania, czy odbiorcy poczty e-mail będą mogli zobaczyć każdy inny adres e-mail w sekcji do nagłówka wiadomości e-mail. Przykładowy kod dla kontrolera powinien wyglądać jak poniżej 
 
     using System;
     using System.Collections.Generic;
@@ -253,7 +253,7 @@ SendGrid oferuje kilka interfejsów API i elementów webhook, których można u�
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy znasz już podstawy usługi poczty E-mail SendGrid, Skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
-* Repozytorium biblioteki\# SendGrid C: [SendGrid-CSharp][sendgrid-csharp]
+* \#Repozytorium biblioteki SendGrid C: [SendGrid-CSharp][sendgrid-csharp]
 * Dokumentacja interfejsu API SendGrid:<https://sendgrid.com/docs>
 
 [Next steps]: #next-steps

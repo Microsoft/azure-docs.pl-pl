@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
 ms.openlocfilehash: 75fa2071f2ad54292e1cff6856de2091b74d3187
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82101539"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Konfigurowanie dostępu do usługi WinRM dla Virtual Machines w Azure Resource Manager
@@ -76,14 +76,14 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Dostawca zasobów Microsoft. COMPUTE wymaga adresu URL dla wpisu tajnego w Key Vault podczas aprowizacji maszyny wirtualnej. Umożliwia to pobranie klucza tajnego dostawcy zasobów Microsoft. COMPUTE i utworzenie równoważnego certyfikatu na maszynie wirtualnej.
 
 > [!NOTE]
-> Adres URL klucza tajnego musi zawierać również wersję. Przykładowy adres URL wygląda jak poniżej https:\//contosovault.Vault.Azure.NET:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> Adres URL klucza tajnego musi zawierać również wersję. Przykładowy adres URL wygląda jak poniżej https: \/ /contosovault.Vault.Azure.NET:443/Secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Szablony
 Możesz uzyskać link do adresu URL w szablonie przy użyciu poniższego kodu
 
     "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 Ten adres URL można uzyskać przy użyciu poniższego polecenia programu PowerShell
 
     $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
@@ -128,7 +128,7 @@ Przykładowy szablon dla powyższych można znaleźć w tym miejscu na stronie [
 
 Kod źródłowy tego szablonu można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
     $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
     $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id

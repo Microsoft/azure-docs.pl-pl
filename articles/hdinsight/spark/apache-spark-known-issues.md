@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73494533"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dotyczące klastra Apache Spark w usłudze HDInsight
@@ -32,7 +32,7 @@ Aby obejść ten problem, wykonaj czynności opisane w poniższej procedurze:
 
         yarn application –list
 
-    Domyślne nazwy zadań zostaną usługi Livy, jeśli zadania zostały uruchomione z sesją interaktywną usługi Livy bez określonych jawnych nazw. W przypadku sesji usługi Livy uruchomionej przez [Jupyter Notebook](https://jupyter.org/)nazwa zadania rozpoczyna się od `remotesparkmagics_*`.
+    Domyślne nazwy zadań zostaną usługi Livy, jeśli zadania zostały uruchomione z sesją interaktywną usługi Livy bez określonych jawnych nazw. W przypadku sesji usługi Livy uruchomionej przez [Jupyter Notebook](https://jupyter.org/)nazwa zadania rozpoczyna się od `remotesparkmagics_*` .
 
 3. Uruchom następujące polecenie, aby skasować te zadania.
 
@@ -81,17 +81,17 @@ Nie należy używać znaków innych niż ASCII w nazwach plików notesu Jupyter.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Wystąpił błąd podczas ładowania notesów o większych rozmiarach
 
-Podczas ładowania notesów o **`Error loading notebook`** większej wielkości może pojawić się komunikat o błędzie.  
+Podczas ładowania notesów o większej wielkości może pojawić się komunikat o błędzie **`Error loading notebook`** .  
 
 **Środki zaradcze**
 
-Jeśli zostanie wyświetlony ten błąd, nie oznacza to, że dane są uszkodzone lub utracone.  Twoje notesy nadal znajdują się `/var/lib/jupyter`na dysku w systemie i można do niego uzyskać dostęp za pomocą protokołu SSH. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Jeśli zostanie wyświetlony ten błąd, nie oznacza to, że dane są uszkodzone lub utracone.  Twoje notesy nadal znajdują się na dysku w systemie i można do niego uzyskać dostęp za pomocą protokołu `/var/lib/jupyter` SSH. Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Po nawiązaniu połączenia z klastrem przy użyciu protokołu SSH można skopiować notesy z klastra na maszynę lokalną (za pomocą usługi SCP lub WinSCP) jako kopię zapasową, aby zapobiec utracie ważnych danych w notesie. Można następnie tunel SSH do węzła głównego na porcie 8001, aby uzyskać dostęp do Jupyter bez przechodzenia przez bramę.  Stamtąd możesz wyczyścić dane wyjściowe notesu i zapisać go ponownie, aby zminimalizować rozmiar notesu.
 
 Aby zapobiec wystąpieniu tego błędu w przyszłości, musisz przestrzegać pewnych najlepszych rozwiązań:
 
-* Ważne jest, aby zachować mały rozmiar notesu. Wszystkie dane wyjściowe z zadań platformy Spark, które są wysyłane z powrotem do Jupyter, są utrwalane w notesie.  Najlepszym rozwiązaniem jest Jupyter ogólnie, aby uniknąć uruchamiania `.collect()` w dużych RDDach lub ramkach danych. Zamiast tego, jeśli chcesz uzyskać wgląd w zawartość RDD, Rozważ uruchomienie `.take()` lub `.sample()` , aby dane wyjściowe nie były zbyt duże.
+* Ważne jest, aby zachować mały rozmiar notesu. Wszystkie dane wyjściowe z zadań platformy Spark, które są wysyłane z powrotem do Jupyter, są utrwalane w notesie.  Najlepszym rozwiązaniem jest Jupyter ogólnie, aby uniknąć uruchamiania `.collect()` w dużych RDD lub ramkach danych, a zamiast tego, jeśli chcesz uzyskać wgląd w zawartość RDD, Rozważ uruchomienie `.take()` lub, `.sample()` Aby dane wyjściowe nie były zbyt duże.
 * Ponadto podczas zapisywania notesu Wyczyść wszystkie komórki wyjściowe, aby zmniejszyć rozmiar.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Początkowe uruchamianie notesu trwa dłużej niż oczekiwano

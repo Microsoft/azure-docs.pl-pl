@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82120784"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemy z korzystaniem z rozszerzeń maszyn wirtualnych w systemie Python 3 z obsługą systemu Linux na platformie Azure Virtual Machines
@@ -33,7 +33,7 @@ Niektóre dystrybucje systemu Linux przechodzą do języka Python 3,8 i całkowi
 - Rozszerzenia, które są nadal przenoszone do obsługi języka Python 3. x
 - Rozszerzenia korzystające ze starszego `/usr/bin/python` punktu wejścia
 
-Użytkownicy dystrybucji systemu Linux, którzy przechodzą do języka **Python 3. x** , muszą `/usr/bin/python` upewnić się, że starszy punkt wejścia istnieje przed podjęciem próby wdrożenia tych rozszerzeń na maszynach wirtualnych. W przeciwnym razie wdrożenie rozszerzenia może zakończyć się niepowodzeniem. 
+Użytkownicy dystrybucji systemu Linux, którzy przechodzą do języka **Python 3. x** , muszą upewnić się, że starszy `/usr/bin/python` punkt wejścia istnieje przed podjęciem próby wdrożenia tych rozszerzeń na maszynach wirtualnych. W przeciwnym razie wdrożenie rozszerzenia może zakończyć się niepowodzeniem. 
 
 - Do zatwierdzonych dystrybucji systemu Linux, których dotyczy ten system, należą **Ubuntu Server 20,04 LTS** i **Ubuntu Pro 20,04 LTS**.
 
