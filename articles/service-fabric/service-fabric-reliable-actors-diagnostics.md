@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846595"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostyka i monitorowanie wydajności struktury Reliable Actors
 Środowisko uruchomieniowe Reliable Actors emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) i [liczniki wydajności](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Zapewniają one wgląd w działanie środowiska uruchomieniowego i ułatwiają rozwiązywanie problemów i monitorowanie wydajności.
@@ -46,11 +46,11 @@ Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/li
 Klaster, który ma dużą liczbę usług aktora lub partycji usługi aktora, będzie miał dużą liczbę wystąpień liczników wydajności aktora. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu określonej [partycji](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) i metody aktora (jeśli dotyczy), z którym jest skojarzone wystąpienie licznika wydajności.
 
 #### <a name="service-fabric-actor-category"></a>Kategoria aktora Service Fabric
-W przypadku kategorii `Service Fabric Actor`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric Actor` nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
 
 *ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
@@ -61,7 +61,7 @@ Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, któr
 W powyższym przykładzie `2740af29-78aa-44bc-a20b-7e60fb783264` jest reprezentacją ciągu Service Fabric identyfikator partycji i `635650083799324046` jest 64-bitowy identyfikator, który jest generowany dla wewnętrznego użycia środowiska uruchomieniowego.
 
 #### <a name="service-fabric-actor-method-category"></a>Kategoria metody aktora Service Fabric
-W przypadku kategorii `Service Fabric Actor Method`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric Actor Method` nazwy wystąpień liczników mają następujący format:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
@@ -69,7 +69,7 @@ W przypadku kategorii `Service Fabric Actor Method`nazwy wystąpień liczników 
 
 *ActorsRuntimeMethodId* to ciąg reprezentujący 32-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
 
 *ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 

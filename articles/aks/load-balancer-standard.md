@@ -6,24 +6,24 @@ services: container-service
 ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
-author: jpalma
-ms.openlocfilehash: 705cd9ae77217bdd3ac99c20e476d5673781df9c
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+author: palma21
+ms.openlocfilehash: c03c8b385fc287737853c3cabd2e25f365a84578
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831526"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
 Azure Load Balancer jest P4 modelu połączeń systemów otwartych (OSI), który obsługuje zarówno scenariusze przychodzące, jak i wychodzące. Dystrybuuje przepływy przychodzące, które docierają do frontonu modułu równoważenia obciążenia z wystąpieniami puli zaplecza.
 
-**Publiczna** Load Balancer w przypadku zintegrowania z usługą AKS służy do dwóch celów:     
+**Publiczna** Load Balancer w przypadku zintegrowania z usługą AKS służy do dwóch celów:
 
-1. Aby zapewnić połączenia wychodzące do węzłów klastra w sieci wirtualnej AKS. Osiąga ten cel przez przetłumaczenie prywatnego adresu IP węzłów na publiczny adres IP, który jest częścią jego *puli wychodzącej*. 
+1. Aby zapewnić połączenia wychodzące do węzłów klastra w sieci wirtualnej AKS. Osiąga ten cel przez przetłumaczenie prywatnego adresu IP węzłów na publiczny adres IP, który jest częścią jego *puli wychodzącej*.
 2. Aby zapewnić dostęp do aplikacji za pośrednictwem usług Kubernetes Services typu `LoadBalancer` . Dzięki niej można łatwo skalować aplikacje i tworzyć usługi o wysokiej dostępności.
 
-Używany jest **wewnętrzny (lub prywatny)** moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej. Dostęp do frontonu modułu równoważenia obciążenia można również uzyskać z sieci lokalnej w scenariuszu hybrydowym. 
+Używany jest **wewnętrzny (lub prywatny)** moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej. Dostęp do frontonu modułu równoważenia obciążenia można również uzyskać z sieci lokalnej w scenariuszu hybrydowym.
 
 Ten dokument obejmuje integrację z publicznym modułem równoważenia obciążenia. Aby zapoznać się z wewnętrzną integracją Load Balancer, zobacz [dokumentację wewnętrznego modułu równoważenia obciążenia AKS](internal-lb.md).
 
@@ -81,14 +81,15 @@ Po wyświetleniu szczegółów usługi publiczny adres IP utworzony dla tej usł
 ## <a name="configure-the-public-standard-load-balancer"></a>Konfigurowanie publicznego standardowego modułu równoważenia obciążenia
 
 W przypadku korzystania z publicznej usługi równoważenia obciążenia w warstwie Standardowa istnieje zestaw opcji, które można dostosować podczas tworzenia lub aktualizując klaster. Te opcje umożliwiają dostosowanie Load Balancer, aby spełniały potrzeby obciążeń i zostały odpowiednio zweryfikowane. Za pomocą usługi równoważenia obciążenia w warstwie Standardowa można:
-* Ustawianie lub skalowanie liczby zarządzanych adresów IP wychodzących;
-* Przenieś własne wychodzące adresy IP lub prefiks wychodzący
-* Dostosuj liczbę przydzielonych portów wychodzących do każdego węzła klastra.
-* Skonfiguruj ustawienia limitu czasu dla bezczynnych połączeń.
+
+* Ustawianie lub skalowanie liczby zarządzanych wychodzących adresów IP
+* Przenoszenie własnych niestandardowych [adresów IP lub prefiksu wychodzącego](#provide-your-own-outbound-public-ips-or-prefixes)
+* Dostosuj liczbę przydzieloną portów wychodzących do każdego węzła klastra
+* Skonfiguruj ustawienie limitu czasu dla połączeń bezczynnych
 
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Skalowanie liczby zarządzanych publicznych adresów IP
 
-Azure Load Balancer zapewnia łączność wychodzącą z sieci wirtualnej oprócz ruchu przychodzącego. Reguły ruchu wychodzącego ułatwiają konfigurowanie wychodzącej translacji adresów sieciowych usługa Load Balancer w warstwie Standardowa publicznej. 
+Azure Load Balancer zapewnia łączność wychodzącą z sieci wirtualnej oprócz ruchu przychodzącego. Reguły ruchu wychodzącego ułatwiają konfigurowanie wychodzącej translacji adresów sieciowych usługa Load Balancer w warstwie Standardowa publicznej.
 
 Podobnie jak w przypadku wszystkich reguł Load Balancer, reguły wychodzące mają taką samą znaną składnię jak równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:
 
@@ -115,7 +116,12 @@ Można również użyć parametru, **`load-balancer-managed-ip-count`** Aby usta
 
 ### <a name="provide-your-own-outbound-public-ips-or-prefixes"></a>Podaj własne wychodzące publiczne adresy IP lub prefiksy
 
-W przypadku korzystania ze *standardowego* modułu równoważenia obciążenia jednostki SKU klaster AKS automatycznie tworzy publiczny adres IP w grupie zasobów infrastruktura zarządzana przez AKS i przypisuje go do puli wychodzącej modułu równoważenia obciążenia. Alternatywnie można przypisać własny publiczny adres IP lub publiczny prefiks adresu IP podczas tworzenia klastra lub zaktualizować właściwości modułu równoważenia obciążenia istniejącego klastra.
+W przypadku korzystania ze *standardowego* modułu równoważenia obciążenia jednostki SKU klaster AKS automatycznie tworzy publiczny adres IP w grupie zasobów infrastruktura zarządzana przez AKS i przypisuje go do puli wychodzącej modułu równoważenia obciążenia.
+
+Publiczny adres IP utworzony przez AKS jest traktowany jako zasób zarządzany przez AKS. Oznacza to, że ten publiczny adres IP jest przeznaczony do zarządzania przez AKS i nie wymaga żadnej akcji użytkownika bezpośrednio w publicznym zasobie IP. Alternatywnie można przypisać własny niestandardowy adres IP lub publiczny prefiks adresu IP podczas tworzenia klastra. Niestandardowe adresy IP można także zaktualizować we właściwościach modułu równoważenia obciążenia istniejącego klastra.
+
+> [!NOTE]
+> Niestandardowe publiczne adresy IP muszą być tworzone i własnością użytkownika. Zarządzane publiczne adresy IP utworzone za pomocą AKS nie mogą być ponownie używane jako dostarczenie własnego niestandardowego adresu IP, ponieważ może to spowodować konflikty zarządzania.
 
 Przed wykonaniem tej operacji upewnij się, że spełniasz [wymagania wstępne i ograniczenia](../virtual-network/public-ip-address-prefix.md#constraints) , które są niezbędne do skonfigurowania wychodzących adresów IP lub wychodzących prefiksów.
 
@@ -181,6 +187,7 @@ az aks create \
 ```
 
 ### <a name="configure-the-allocated-outbound-ports"></a>Konfigurowanie przyznanych portów wychodzących
+
 > [!IMPORTANT]
 > Jeśli w klastrze znajdują się aplikacje, które oczekują na utworzenie dużej liczby połączeń z niewielkim zestawem miejsc docelowych, np. wiele wystąpień frontonu łączących się z bazą danych SQL to scenariusz, który jest bardzo podatny na wyczerpanie portów (od portów, z których można nawiązać połączenie). W tych scenariuszach zdecydowanie zaleca się zwiększenie przyznanych portów wychodzących i wychodzących adresów IP frontonu w usłudze równoważenia obciążenia. Zwiększenie należy wziąć pod uwagę, że jeden (1) dodatkowy adres IP dodaje 64 KB dodatkowych portów do dystrybucji między wszystkimi węzłami klastra.
 
@@ -304,7 +311,7 @@ Poniżej znajduje się lista adnotacji obsługiwanych przez usługi Kubernetes S
 
 ## <a name="troubleshooting-snat"></a>Rozwiązywanie problemów z usługą
 
-Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące nie są obsługiwane lub są zalecane w przypadku wyczerpania portów przydzielonego dostępu do danych wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem. Aby uzyskać szczegółowe informacje, zapoznaj się z [przewodnikiem rozwiązywania problemów dotyczących połączeń wychodzących](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
+Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące nie są obsługiwane lub są zalecane w przypadku wyczerpania portów przydzielonego dostępu do danych wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem. Aby uzyskać szczegółowe informacje, zapoznaj się z [przewodnikiem rozwiązywania problemów dotyczących połączeń wychodzących](../load-balancer/troubleshoot-outbound-connection.md).
 
 Często główną przyczyną wyczerpania ruchu związanego z ruchem przychodzącym jest wzorzec dla połączeń wychodzących, zarządzanych lub konfigurowalnych czasomierzy zmieniony z wartości domyślnych. Uważnie przejrzyj tę sekcję.
 
@@ -326,8 +333,7 @@ Użyj pul połączeń do kształtowania woluminu połączenia.
 - Nie zmieniaj wartości czasomierza zamknięcia protokołu TCP na poziomie systemu operacyjnego bez specjalistycznej wiedzy o wpływie na nie. Gdy stos TCP zostanie odzyskany, wydajność aplikacji może mieć negatywny wpływ, gdy punkty końcowe połączenia mają niezgodne oczekiwania. Chcemy zmienić czasomierze zwykle jest oznaką podstawowego problemu projektowego. Przejrzyj poniższe zalecenia.
 
 
-Powyższy przykład aktualizuje regułę tak, aby zezwalała na ruch zewnętrzny przychodzący z zakresu *MY_EXTERNAL_IP_RANGE* . Więcej informacji na temat korzystania z tej metody w celu ograniczenia dostępu do usługi równoważenia obciążenia jest dostępnych w [dokumentacji Kubernetes][kubernetes-cloud-provider-firewall].
-
+Powyższy przykład aktualizuje regułę tak, aby zezwalała na ruch zewnętrzny przychodzący z zakresu *MY_EXTERNAL_IP_RANGE* . Jeśli zastąpisz *MY_EXTERNAL_IP_RANGE* przy użyciu adresu IP podsieci wewnętrznej, ruch jest ograniczony tylko do wewnętrznych adresy IP klastra. Nie pozwoli to klientom spoza klastra Kubernetes na dostęp do modułu równoważenia obciążenia.
 
 ## <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Przechodzenie z usługi równoważenia obciążenia z podstawową jednostką SKU do standardowej jednostki SKU
 
@@ -345,6 +351,7 @@ Podczas tworzenia klastrów AKS i zarządzania nimi, które obsługują moduł r
     * Udostępnianie własnych publicznych adresów IP.
     * Podaj własne prefiksy publicznych adresów IP.
     * Określ liczbę do 100, aby umożliwić klastrowi AKS tworzenie wielu publicznych adresów IP *standardowej* jednostki SKU w tej samej grupie zasobów utworzonej jako klaster AKS, która zazwyczaj nazywa się *MC_* na początku. AKS przypisuje publiczny adres IP do modułu równoważenia obciążenia *standardowej* jednostki SKU. Domyślnie jeden publiczny adres IP zostanie automatycznie utworzony w tej samej grupie zasobów co klaster AKS, jeśli nie określono publicznego adresu IP, publicznego prefiksu adresu IP lub liczby adresów IP. Należy również zezwolić na publiczne adresy i uniknąć tworzenia Azure Policy, które zakazują tworzenie adresów IP.
+* Publicznego adresu IP utworzonego za pomocą AKS nie można użyć ponownie jako niestandardowego dołączenia do własnego publiczny adres IP. Wszystkie niestandardowe adresy IP muszą być tworzone i zarządzane przez użytkownika.
 * Definiowanie jednostki SKU modułu równoważenia obciążenia można wykonać tylko podczas tworzenia klastra AKS. Nie można zmienić jednostki SKU modułu równoważenia obciążenia po utworzeniu klastra AKS.
 * W pojedynczym klastrze można używać tylko jednego typu jednostki SKU usługi równoważenia obciążenia (Basic lub standard).
 * *Standard* Usługi równoważenia obciążenia jednostki SKU obsługują tylko adresy IP *standardowej* jednostki SKU.
@@ -358,7 +365,6 @@ Dowiedz się więcej o używaniu wewnętrznego Load Balancer dla ruchu przychodz
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -388,7 +394,7 @@ Dowiedz się więcej o używaniu wewnętrznego Load Balancer dla ruchu przychodz
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
-[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
 [azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli

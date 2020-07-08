@@ -1,7 +1,7 @@
 ---
 title: Listy fraz — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak dostarczać usługę mowy z listą fraz `PhraseListGrammar` przy użyciu obiektu, aby poprawić wyniki rozpoznawania zamiany mowy na tekst.
+description: Dowiedz się, jak dostarczać usługę mowy z listą fraz przy użyciu `PhraseListGrammar` obiektu, aby poprawić wyniki rozpoznawania zamiany mowy na tekst.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
-ms.openlocfilehash: d6418a863e8af75e4f2f063d9e6151e19a0e7e6e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7347fee0cd8bdaae73467a84806819c913599a51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977587"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834016"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listy fraz dla zamiany mowy na tekst
 

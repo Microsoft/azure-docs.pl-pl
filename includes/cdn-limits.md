@@ -1,15 +1,15 @@
 ---
 author: mdgattuso
-ms.service: cost-management-billing
+ms.service: cdn
 ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
-ms.openlocfilehash: 7dd97fa49931168b9a42b5c9ac7887b84298a5f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41cbc888f40505e010537b75463b72be72b50d57
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335046"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85839021"
 ---
 | Zasób | Limit |
 | --- | --- |

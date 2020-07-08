@@ -3,22 +3,22 @@ title: Zaloguj się do wersji zapoznawczej Azure Notebooks
 description: Skonfiguruj konto użytkownika dla Azure Notebooks przy użyciu konto Microsoft lub konta służbowego.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 2a19803ec0a621b981fa9198766c58376ba50534
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832189"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Twoje konto użytkownika na potrzeby Azure Notebooks wersji zapoznawczej
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Możesz użyć Azure Notebooks z lub bez logowania się przy użyciu konta użytkownika:
 
 - Bez logowania można tworzyć i uruchamiać notesy, ale nie można zachować notesów ani plików danych w ramach projektów. Użytkownicy, którzy otrzymują link do notesu platformy Azure, na przykład mogą korzystać z notesu bez konieczności logowania się.
 - Po zalogowaniu Azure Notebooks zachowuje wszystkie projekty z Twoim kontem. Zalogowani użytkownicy mają także identyfikator użytkownika, który umożliwia im udostępnianie swoich projektów i notesów innym osobom.
 - Jeśli konto używane dla Azure Notebooks jest również skojarzone z subskrypcją platformy Azure, uzyskasz dodatkowe korzyści, takie jak uruchamianie notesów na bardziej wydajnych serwerach, tworzenie prywatnych notesów i udzielanie uprawnień dla notesów poszczególnym użytkownikom.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Zalogowanie się do Azure Notebooks wymaga konta Microsoft lub konta służbowego. Po wybraniu polecenia **Zaloguj** w prawym górnym rogu strony Notes zostanie wyświetlony monit o podanie konta:
 

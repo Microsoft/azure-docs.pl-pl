@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8d0bcff79b6101047545614538dc1d58a854a6d
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832529"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -187,7 +187,7 @@ Po przygotowaniu obrazu do przekazania upewnij się, że maszyna wirtualna pozos
 
 Ta sekcja ma zastosowanie tylko wtedy, gdy obraz wzorcowy został utworzony lokalnie.
 
-Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do konta usługi Azure Storage. Jeśli nie masz jeszcze konta usługi Azure Storage, postępuj zgodnie z instrukcjami w [tym artykule](/azure/javascript/tutorial-vscode-static-website-node-03) , aby go utworzyć.
+Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do konta usługi Azure Storage. Jeśli nie masz jeszcze konta usługi Azure Storage, postępuj zgodnie z instrukcjami w [tym artykule](/azure/developer/javascript/tutorial-vscode-static-website-node-03) , aby go utworzyć.
 
 1. Przekonwertuj obraz maszyny wirtualnej (VHD) na stały, jeśli jeszcze tego nie zrobiono. Jeśli nie przekonwertujesz obrazu na naprawione, nie można pomyślnie utworzyć obrazu.
 

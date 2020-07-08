@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 937f84d1b918eb7b9f38a62caef5dea7cede6d4d
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832988"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blokowanie App Service Environment
 
@@ -96,8 +96,10 @@ To użycie Application Gateway to tylko jeden przykład konfiguracji systemu. Je
 
 Zapora platformy Azure może wysyłać dzienniki do usługi Azure Storage, centrum zdarzeń lub dzienników Azure Monitor. Aby zintegrować aplikację z dowolnym obsługiwanym miejscem docelowym, przejdź do portalu zapory platformy Azure > dzienników diagnostycznych i Włącz dzienniki dla żądanego miejsca docelowego. W przypadku integracji z dziennikami Azure Monitor można zobaczyć rejestrowanie dowolnego ruchu wysyłanego do zapory platformy Azure. Aby zobaczyć, że ruch jest zabroniony, Otwórz Log Analytics Portal obszaru roboczego > dzienniki i wprowadź zapytanie, takie jak 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 Integrowanie zapory platformy Azure z dziennikami Azure Monitor jest przydatne podczas pierwszego uruchamiania aplikacji, gdy nie są znane wszystkie zależności aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>Zależności

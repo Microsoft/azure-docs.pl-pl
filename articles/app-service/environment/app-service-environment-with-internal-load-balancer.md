@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833107"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
 
@@ -68,7 +68,7 @@ Tworzenie aplikacji w środowisku ILB ASE jest takie samo jak w przypadku normal
 3. Wybierz subskrypcję.
 4. Wybierz lub utwórz grupę zasobów.
 5. Wybierz lub Utwórz plan App Service (ASP). W przypadku tworzenia nowego środowiska ASP Wybierz środowisko ASE jako lokalizację i wybierz pulę procesów roboczych, w której ma zostać utworzona wartość ASP. Podczas tworzenia środowiska ASP należy wybrać środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji zobaczysz, że poddomena w ramach nazwy aplikacji jest zastępowana poddomeną dla środowiska ASE. 
-6. Wybierz przycisk **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
+6. Wybierz pozycję **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
 
 ![][2]
 
@@ -93,7 +93,7 @@ Jeśli chcesz wypróbować przepływ z własnymi certyfikatami i przetestować d
 4. Utwórz aplikację internetową w środowisku ASE po utworzeniu. 
 5. Utwórz maszynę wirtualną, jeśli nie masz jej w tej sieci wirtualnej (nie w tej samej podsieci co środowisko ASE lub uszkodzenie).
 6. Ustaw serwer DNS dla domeny podrzędnej. Możesz użyć symbolu wieloznacznego z poddomeną w systemie DNS lub jeśli chcesz wykonać kilka prostych testów, edytuj plik Hosts na maszynie wirtualnej, aby ustawić nazwę aplikacji sieci Web na adres IP adresu VIP. Jeśli środowisko ASE miało nazwę poddomeny. ilbase.com i MojaAplikacja aplikację sieci Web, tak aby była ona w mytestapp.ilbase.com, należy ustawić ją w pliku Hosts. (W systemie Windows plik hosts ma wartość C:\Windows\System32\drivers\etc\)
-7. Użyj przeglądarki na tej maszynie wirtualnej i przejdź do `https://mytestapp.ilbase.com` witryny (lub niezależnie od nazwy aplikacji sieci Web z poddomeną).
+7. Użyj przeglądarki na tej maszynie wirtualnej i przejdź do witryny `https://mytestapp.ilbase.com` (lub niezależnie od nazwy aplikacji sieci Web z poddomeną).
 8. Skorzystaj z przeglądarki na tej maszynie wirtualnej i przejdź na stronę `https://mytestapp.ilbase.com`. Brak zabezpieczeń należy zaakceptować, jeśli jest używany certyfikat z podpisem własnym. 
 
 Adres IP ILB jest wyświetlany na liście właściwości jako wirtualny adres IP.
@@ -118,9 +118,10 @@ Dodatkowe elementy zarządzania to zarządzanie certyfikatami i zarządzanie sys
 #### <a name="dns-configuration"></a>Konfiguracja DNS
 W przypadku korzystania z zewnętrznego adresu VIP system DNS jest zarządzany przez platformę Azure. Każda aplikacja utworzona w środowisku ASE jest automatycznie dodawana do usługi Azure DNS, która jest publiczną usługą DNS. W środowisku ASE z wewnętrznym modułem równoważenia obciążenia musisz zarządzać własną usługą DNS. Dla danej domeny podrzędnej, takiej jak contoso.corp.net, należy utworzyć rekordy A systemu DNS wskazujące adres ILB dla:
 
-    * 
-    *. menedżer SCM FTP publikowanie 
-
+- \*
+- *. SCM
+- ftp
+- publish
 
 ## <a name="getting-started"></a>Wprowadzenie
 Aby rozpocząć pracę z App Service środowiskami, zobacz [wprowadzenie do App Service środowisk][WhatisASE]

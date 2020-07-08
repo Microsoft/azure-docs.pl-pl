@@ -3,20 +3,20 @@ title: Instalowanie pakietów w notesach Jupyter Azure Notebooks — wersja zapo
 description: 'Dowiedz się, jak zainstalować pakiety Python, R i F # z poziomu notesu Jupyter działającego na platformie Azure.'
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646232"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831220"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Zainstaluj pakiety z poziomu programu Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Mimo że można skonfigurować [środowisko dla notesu na poziomie projektu](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), można zainstalować pakiety bezpośrednio w ramach danego notesu.
 
 Pakiety zainstalowane w notesie dotyczą tylko bieżącej sesji serwera. Instalacje pakietów nie są utrwalane po zamknięciu serwera.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 

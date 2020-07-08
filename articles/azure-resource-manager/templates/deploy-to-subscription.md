@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 17ae335fa40a71ed266211150df382404efbf61b
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 07/01/2020
+ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832818"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -17,7 +17,7 @@ Aby uprościć zarządzanie zasobami, możesz wdrożyć zasoby na poziomie subsk
 > [!NOTE]
 > Można wdrożyć do 800 różnych grup zasobów w ramach wdrożenia na poziomie subskrypcji.
 
-Aby wdrażać szablony na poziomie subskrypcji, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. Azure Portal nie obsługuje wdrażania na poziomie subskrypcji.
+Aby wdrażać szablony na poziomie subskrypcji, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST.
 
 ## <a name="supported-resources"></a>Obsługiwane zasoby
 

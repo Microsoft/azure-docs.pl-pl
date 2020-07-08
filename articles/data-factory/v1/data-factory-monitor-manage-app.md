@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846898"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Okna działania mogą mieć jeden z następujących stanów:
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać okien działania, dopóki nie zostanie wznowione.</td>
 </tr>
 <tr>
-<td>Ponawianie próby</td><td>Trwa ponawianie wykonywania działania.</td>
+<td>Ponów próbę</td><td>Trwa ponawianie wykonywania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Sprawdzanie poprawności nie zostało jeszcze rozpoczęte.</td>
@@ -286,7 +286,7 @@ Możesz użyć tego samego okna podręcznego do czyszczenia filtrów. Aby wyczy�
 
 ## <a name="perform-batch-actions"></a>Wykonywanie akcji wsadowych
 ### <a name="rerun-selected-activity-windows"></a>Uruchom ponownie wybrane okna działania
-Wybierz okno działania, kliknij strzałkę w dół dla pierwszego przycisku paska poleceń, a następnie wybierz pozycję **Uruchom** / ponownie**za pomocą nadrzędnego w potoku**. Po wybraniu opcji **Uruchom ponownie za pomocą nadrzędnego w potoku** jest również wykonywane ponowne uruchomienie wszystkich okien działania nadrzędnego.
+Wybierz okno działania, kliknij strzałkę w dół dla pierwszego przycisku paska poleceń, a następnie wybierz pozycję **Uruchom**ponownie  /  **za pomocą nadrzędnego w potoku**. Po wybraniu opcji **Uruchom ponownie za pomocą nadrzędnego w potoku** jest również wykonywane ponowne uruchomienie wszystkich okien działania nadrzędnego.
     ![Uruchom ponownie okno działania](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Możesz również zaznaczyć wiele okien aktywności na liście i uruchomić je ponownie w tym samym czasie. Możesz chcieć filtrować okna aktywności na podstawie stanu (na przykład: **Niepowodzenie**)--, a następnie ponownie uruchomić okna działania zakończonego niepowodzeniem po usunięciu problemu powodującego niepowodzenie działania systemu Windows. Zapoznaj się z sekcją w poniższej sekcji, aby uzyskać szczegółowe informacje na temat filtrowania okien aktywności na liście.  

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846570"
 ---
 # <a name="manage-process-servers"></a>Zarządzanie serwerami przetwarzania
 
@@ -48,7 +48,7 @@ Należy zrównoważyć obciążenie przez przeniesienie maszyn wirtualnych międ
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Kliknij pozycję **Wybierz Maszyny**, a następnie wybierz maszyny, które chcesz przenieść z bieżącego do docelowego serwera przetwarzania. Szczegóły średniej zmiany danych są wyświetlane dla każdej maszyny wirtualnej. Następnie kliknij przycisk **OK**. 
-3. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie** > **Site Recovery zadań**.
+3. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie**  >  **Site Recovery zadań**.
 
 Wprowadzenie zmian w portalu zajmie około 15 minut. Aby uzyskać szybszy efekt, [Odśwież serwer konfiguracji](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -63,7 +63,7 @@ Przenieś całe obciążenie obsługiwane przez serwer przetwarzania na inny ser
 
     ![Przełącznik](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie** > **Site Recovery zadań**.
+5. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie**  >  **Site Recovery zadań**.
 
 Wprowadzenie zmian w portalu zajmie około 15 minut. Aby uzyskać szybszy efekt, [Odśwież serwer konfiguracji](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 

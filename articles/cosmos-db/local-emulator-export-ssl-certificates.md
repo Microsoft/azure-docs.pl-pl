@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
 ms.custom: tracking-python
-ms.openlocfilehash: a20d6bdb3a2d6070e81dfca84c851003f6ff4ca2
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ae4840f5ca31f9bbef1fa5f9ffd175a1f1d7696b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262841"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832223"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Eksportowanie certyfikatów emulatora usługi Azure Cosmos DB do użycia w językach Java, Python i Node.js
 
@@ -74,6 +74,21 @@ Oba certyfikaty można wygenerować ponownie, klikając pozycję **Reset Data** 
 Podczas uruchamiania aplikacji Java lub aplikacji MongoDB, które używają klienta Java, łatwiej jest zainstalować certyfikat do domyślnego magazynu certyfikatów Java niż w przypadku przekazywania `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flag. Na przykład uwzględniona aplikacja demonstracyjna Java ( `https://localhost:8081/_explorer/index.html` ) zależy od domyślnego magazynu certyfikatów.
 
 Postępuj zgodnie z instrukcjami w artykule [Dodawanie certyfikatu do magazynu certyfikatów Java CA](https://docs.microsoft.com/azure/java-add-certificate-ca-store), aby zaimportować certyfikat X.509 do domyślnego magazynu certyfikatów Java. Pamiętaj, że podczas uruchamiania narzędzia keytool będziesz pracować w katalogu %JAVA_HOME%.
+
+Alternatywnie możesz utworzyć i uruchomić skrypt "bash", który automatycznie wykonuje to:
+```bash
+#!/bin/bash
+
+# If emulator was started with /AllowNetworkAccess, replace the below with the actual IP address of it:
+EMULATOR_HOST=localhost
+EMULATOR_PORT=8081
+EMULATOR_CERT_PATH=/tmp/cosmos_emulator.cert
+openssl s_client -connect ${EMULATOR_HOST}:${EMULATOR_PORT} </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $EMULATOR_CERT_PATH
+# delete the cert if already exists
+sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
+# import the cert
+sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
+```
 
 Po zainstalowaniu certyfikatu TLS/SSL "CosmosDBEmulatorCertificate" aplikacja powinna mieć możliwość nawiązywania połączenia i używania lokalnego emulatora Azure Cosmos DB. Jeśli nadal występują problemy, możesz wykonać czynności opisane w artykule [Debugowanie połączeń SSL/TLS](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). Jest bardzo prawdopodobne, że certyfikat nie został zainstalowany w magazynie %JAVA_HOME%/jre/lib/security/cacerts. Na przykład jeśli masz wiele zainstalowanych wersji języka Java, aplikacja może używać innego magazynu cacerts niż ten, który został zaktualizowany.
 

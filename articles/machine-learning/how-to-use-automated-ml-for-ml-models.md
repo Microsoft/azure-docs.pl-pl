@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 44da1d67155efe3feb41e3648c820a8ada0b8fc3
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831917"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -74,7 +74,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz przycisk **Dalej**.
+        Wybierz pozycję **Dalej**.
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -82,7 +82,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](#profile).
 
-        Wybierz przycisk **Dalej**.
+        Wybierz pozycję **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -99,14 +99,14 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Rozmiar maszyny wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.
     Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     
-    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
 
-    Wybierz przycisk **Dalej**.
+    Wybierz pozycję **Dalej**.
 
-1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Zobacz [jak zdefiniować typy zadań,](how-to-define-task-type.md) Aby uzyskać więcej informacji.
+1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
     1. W przypadku klasyfikacji można również włączyć uczenie głębokie, które jest używane dla featurizations tekstu.
 

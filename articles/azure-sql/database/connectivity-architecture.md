@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: fceac1a5852c0be767ffc375ad9ec5de033f17b7
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833676"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -78,10 +78,10 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | --- | --- |
 | Australia Środkowa    | 20.36.105.0 |
 | Australia Central2   | 20.36.113.0 |
-| Australia Wschodnia       | 13.75.149.87, 40.79.161.1 |
+| Australia Wschodnia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia Południowo-Wschodnia | 191.239.192.109, 13.73.109.251 |
 | Brazylia Południowa         | 104.41.11.5, 191.233.200.14 |
-| Kanada Środkowa       | 40.85.224.249      |
+| Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166      |
 | Środkowe stany USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Chiny Wschodnie           | 139.219.130.35     |
@@ -102,7 +102,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Korea Środkowa        | 52.231.32.42       |
 | Korea Południowa          | 52.231.200.86      |
 | Północno-środkowe stany USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa Północna         | 40.113.93.91, 191.235.193.75, 52.138.224.1 |
+| Europa Północna         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Norwegia Wschodnia          | 51.120.96.0        |
 | Norwegia Zachodnia          | 51.120.216.0       |
 | Północna Republika Południowej Afryki   | 102.133.152.0      |
@@ -118,7 +118,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Zachodnio-środkowe stany USA      | 13.78.145.25       |
 | Europa Zachodnia          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Zachodnie stany USA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Zachodnie stany USA 2            | 13.66.226.202      |
+| Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Następne kroki

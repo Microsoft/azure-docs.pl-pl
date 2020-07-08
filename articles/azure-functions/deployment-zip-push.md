@@ -3,12 +3,12 @@ title: Wdrożenie usługi zip push dla Azure Functions
 description: Aby opublikować Azure Functions, użyj funkcji wdrożenia pliku zip usługi wdrażania kudu.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833056"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Wdrażanie pliku zip dla usługi Azure Functions
 
@@ -54,19 +54,21 @@ Można jednak utworzyć funkcje przy użyciu edytora w Azure Portal. Istniejący
 
 + **Korzystanie z interfejsów API REST:**
 
-    Aby pobrać pliki z `<function_app>` projektu, należy użyć następującego interfejsu Get API: 
+    Aby pobrać pliki z projektu, należy użyć następującego interfejsu GET API `<function_app>` : 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
-    W `/site/wwwroot/` tym celu upewnij się, że plik zip zawiera tylko pliki projektu aplikacji funkcji, a nie całą lokację. Jeśli użytkownik nie jest jeszcze zalogowany na platformie Azure, zostanie poproszony o to.  
+    W tym celu `/site/wwwroot/` upewnij się, że plik zip zawiera tylko pliki projektu aplikacji funkcji, a nie całą lokację. Jeśli użytkownik nie jest jeszcze zalogowany na platformie Azure, zostanie poproszony o to.  
 
 Możesz również pobrać plik zip z repozytorium GitHub. Pobranie repozytorium GitHub jako pliku zip spowoduje dodanie dodatkowego poziomu folderów dla gałęzi. Ten dodatkowy poziom folderów oznacza, że nie można wdrożyć pliku zip bezpośrednio po pobraniu go z usługi GitHub. Jeśli używasz repozytorium GitHub do obsługi aplikacji funkcji, użyj [ciągłej integracji](functions-continuous-deployment.md) w celu wdrożenia aplikacji.  
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby wyzwolić wdrożenie wypychane, można użyć interfejsu wiersza polecenia platformy Azure. Wypychanie Wdróż plik. zip w aplikacji funkcji przy użyciu polecenia [AZ functionapp Deployment Source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Aby użyć tego polecenia, musisz użyć interfejsu wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Aby sprawdzić, jaka wersja interfejsu wiersza polecenia platformy Azure jest używana `az --version` , użyj polecenia.
+Aby wyzwolić wdrożenie wypychane, można użyć interfejsu wiersza polecenia platformy Azure. Wypychanie Wdróż plik. zip w aplikacji funkcji przy użyciu polecenia [AZ functionapp Deployment Source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Aby użyć tego polecenia, musisz użyć interfejsu wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Aby sprawdzić, jaka wersja interfejsu wiersza polecenia platformy Azure jest używana, użyj `az --version` polecenia.
 
-W poniższym poleceniu Zastąp `<zip_file_path>` symbol zastępczy ścieżką do lokalizacji pliku. zip. Ponadto Zastąp `<app_name>` wartość unikatową nazwą aplikacji funkcji i Zamień `<resource_group>` na nazwę grupy zasobów.
+W poniższym poleceniu Zastąp `<zip_file_path>` symbol zastępczy ścieżką do lokalizacji pliku. zip. Ponadto Zastąp `<app_name>` wartość unikatową nazwą aplikacji funkcji i Zamień na `<resource_group>` nazwę grupy zasobów.
 
 ```azurecli-interactive
 az functionapp deployment source config-zip -g <resource_group> -n \
@@ -75,7 +77,7 @@ az functionapp deployment source config-zip -g <resource_group> -n \
 
 To polecenie wdraża pliki projektu z pobranego pliku zip w aplikacji funkcji na platformie Azure. Następnie ponownie uruchamia aplikację. Aby wyświetlić listę wdrożeń dla tej aplikacji funkcji, należy użyć interfejsów API REST.
 
-Gdy korzystasz z interfejsu wiersza polecenia platformy Azure na komputerze `<zip_file_path>` lokalnym, to ścieżka do pliku zip na komputerze. Interfejs wiersza polecenia platformy Azure można również uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md). W przypadku korzystania z Cloud Shell należy najpierw przekazać plik Deployment. zip do konta Azure Files skojarzonego z Twoim Cloud Shell. W takim przypadku `<zip_file_path>` jest lokalizacją przechowywania używaną przez konto Cloud Shell. Aby uzyskać więcej informacji, zobacz [utrwalanie plików w Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
+Gdy korzystasz z interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, `<zip_file_path>` to ścieżka do pliku zip na komputerze. Interfejs wiersza polecenia platformy Azure można również uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md). W przypadku korzystania z Cloud Shell należy najpierw przekazać plik Deployment. zip do konta Azure Files skojarzonego z Twoim Cloud Shell. W takim przypadku `<zip_file_path>` jest lokalizacją przechowywania używaną przez konto Cloud Shell. Aby uzyskać więcej informacji, zobacz [utrwalanie plików w Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
@@ -83,7 +85,7 @@ Gdy korzystasz z interfejsu wiersza polecenia platformy Azure na komputerze `<zi
 
 Możesz również uruchomić funkcje bezpośrednio z pliku pakietu wdrożeniowego. Ta metoda pomija krok wdrożenia kopiowania plików z pakietu do `wwwroot` katalogu aplikacji funkcji. Zamiast tego plik pakietu jest instalowany przez środowisko uruchomieniowe funkcji, a zawartość `wwwroot` katalogu staje się tylko do odczytu.  
 
-Wdrożenie zip integruje się z tą funkcją, którą można włączyć przez ustawienie ustawienia `WEBSITE_RUN_FROM_PACKAGE` aplikacji funkcji na wartość. `1` Aby uzyskać więcej informacji, zobacz [Uruchamianie funkcji z pliku pakietu wdrożeniowego](run-functions-from-deployment-package.md).
+Wdrożenie zip integruje się z tą funkcją, którą można włączyć przez ustawienie ustawienia aplikacji funkcji `WEBSITE_RUN_FROM_PACKAGE` na wartość `1` . Aby uzyskać więcej informacji, zobacz [Uruchamianie funkcji z pliku pakietu wdrożeniowego](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

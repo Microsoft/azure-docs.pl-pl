@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833168"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji z kontrolą dostępu opartą na rolach
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W celu zapewnienia bezpieczeństwa usługa Azure Digital bliźniaczych reprezentacji zapewnia precyzyjną kontrolę dostępu do określonych danych, zasobów i akcji we wdrożeniu. Robi to za pośrednictwem szczegółowej strategii zarządzania rolami i uprawnieniami o nazwie **kontroli dostępu opartej na rolach (RBAC)**. W [tym miejscu](../role-based-access-control/overview.md)możesz zapoznać się z ogólnymi zasadami RBAC dla platformy Azure.
 
@@ -51,6 +48,9 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 Na platformie Azure dostępne są następujące wbudowane role RBAC umożliwiające autoryzowanie dostępu do zasobu Digital bliźniaczych reprezentacji systemu Azure:
 * Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza) — Ta rola zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji.
 * Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza) — Ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
+
+> [!TIP]
+> Rola usługi Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza) obsługuje teraz również Przeglądanie relacji.
 
 Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [Omówienie definicji ról](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia niestandardowych ról RBAC, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
 

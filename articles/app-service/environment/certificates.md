@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831883"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certyfikaty i App Service Environment 
 
@@ -41,13 +41,16 @@ Nie można utworzyć środowiska ASE i przekazać certyfikatu jako jednej akcji 
 
 Jeśli chcesz szybko utworzyć certyfikat z podpisem własnym w celu przetestowania, możesz użyć następującego bitu programu PowerShell:
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.pfx"
-    Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
+```
+
 Podczas tworzenia certyfikatu z podpisem własnym należy upewnić się, że nazwa podmiotu ma format CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certyfikaty aplikacji 
@@ -80,15 +83,18 @@ Aby przekazać certyfikat do aplikacji w środowisku ASE:
 
 Certyfikat będzie dostępny dla wszystkich aplikacji w tym samym planie usługi App Service, które zostały skonfigurowane dla tego ustawienia. Jeśli potrzebujesz, aby była dostępna dla aplikacji w innym planie App Service, musisz powtórzyć operację ustawienia aplikacji w aplikacji w ramach tego planu App Service. Aby sprawdzić, czy certyfikat jest ustawiony, przejdź do konsoli programu kudu i wydaj następujące polecenie w konsoli debugowania programu PowerShell:
 
-    dir cert:\localmachine\root
+```azurepowershell-interactive
+dir cert:\localmachine\root
+```
 
 Aby przeprowadzić testowanie, można utworzyć certyfikat z podpisem własnym i wygenerować plik *. cer* z następującym programem PowerShell: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.cer"
-    export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
-
+$fileName = "exportedcert.cer"
+export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+```

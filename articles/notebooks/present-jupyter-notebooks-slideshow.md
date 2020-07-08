@@ -3,18 +3,18 @@ title: Prezentowanie notesu Jupyter jako pokazu slajdów w wersji zapoznawczej A
 description: Dowiedz się, jak skonfigurować komórki dla trybu pokazu slajdów w notesie Jupyter, a następnie przedstawić pokaz slajdów przy użyciu rozszerzenia wzrostu.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe337361436ecfc8eabf2855ad633b891db69d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647122"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834050"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Uruchamianie pokazu slajdów notesu w podglądzie Azure Notebooks
 
-Azure Notebooks jest wstępnie skonfigurowany przy użyciu rozszerzenia pokazu slajdów Jupyter/IPython (wzrost), które umożliwia prezentowanie notesu bezpośrednio jako pokazu slajdów. W pokazie slajdów komórki są zwykle wyświetlane pojedynczo przy użyciu rozmiaru czcionki, który jest odpowiedni do przedprezentowania na dużych ekranach i nadal można uruchomić kod zamiast przełączać się do oddzielnego komputera demonstracyjnego.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks jest wstępnie skonfigurowany przy użyciu rozszerzenia pokazu slajdów Jupyter/IPython (wzrost), które umożliwia prezentowanie notesu bezpośrednio jako pokazu slajdów. W pokazie slajdów komórki są zwykle wyświetlane pojedynczo przy użyciu rozmiaru czcionki, który jest odpowiedni do przedprezentowania na dużych ekranach i nadal można uruchomić kod zamiast przełączać się do oddzielnego komputera demonstracyjnego.
 
 Na poniższej ilustracji przedstawiono standardowy widok notesu, w którym można zobaczyć wszystkie rozłożenia i komórki kodu:
 
@@ -34,7 +34,7 @@ Przygotowywanie notesu dla pokazu slajdów obejmuje dwie podstawowe działania:
 
 Jeśli zajmiesz się losowym notesem i użyjesz go dla pokazu slajdów, zazwyczaj znajdziesz, że wszystkie komórki są Jumbled razem, a część zawartości jest ukryta w dolnej części okna przeglądarki. Aby zastosować efektywną prezentację, należy przypisać do każdej komórki typ pokazu slajdów:
 
-1. W menu **Widok** wybierz pozycję > **Pokaz slajdów** **paska narzędzi komórki**:
+1. W menu **Widok** wybierz pozycję pokaz **slajdów paska narzędzi komórki**  >  **Slideshow**:
 
     ![Włączanie paska narzędzi pokazu slajdów](media/slideshow/slideshow-view-cell-toolbar.png)
 
@@ -52,7 +52,7 @@ Jeśli zajmiesz się losowym notesem i użyjesz go dla pokazu slajdów, zazwycza
     | Odtwarzanie | Komórka jest głównym slajdem, za pomocą strzałki w lewo i w prawo kontrolki nawigacji. |
     | Slajd podrzędny | Komórka jest "poniżej" głównego slajdu, przechodzenie do użycia strzałki w dół kontrolki nawigacji. Strzałka w górę wraca do podstawowego slajdu. Slajdy podrzędne są używane dla dodatkowego materiału, który można pominąć w ścieżce głównej prezentacji, ale jest on dostępny w razie potrzeby. |
     | Fragment | Zawartość komórki pojawia się w kontekście poprzedniego slajdu lub slajdu podrzędnego przy użyciu strzałki nawigacji w dół (fragment jest usuwany przy użyciu strzałki w górę). Możesz użyć fragmentu z komórką kodu, aby ten kod pojawił się w obrębie slajdu lub można użyć wielu fragmentów, aby punktory tekstu pojawiły się po jednym (Zobacz przykład w następnej sekcji). Ponieważ fragmenty są kompilowane na bieżącym slajdzie, nadmiarowe fragmenty nie będą widoczne w dolnej części okna przeglądarki. |
-    | Skip | Komórka nie jest wyświetlana w pokazie slajdów. |
+    | Pomiń | Komórka nie jest wyświetlana w pokazie slajdów. |
     | Uwagi | Komórka zawiera notatki prelegenta, które nie są wyświetlane w pokazie slajdów. |
 
 1. Początkowo warto wybrać opcję **slajdu** dla każdej komórki. Następnie możesz uruchomić pokaz slajdów i wprowadzić odpowiednie korekty.
@@ -88,7 +88,7 @@ Ponieważ pokaz slajdów renderuje fragmenty o większej liczbie pionowych odst�
     ![Dane wyjściowe komórki kodu pojawiają się w pokazie slajdów](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > Dane wyjściowe komórki są uważane za część komórki w pokazie slajdów. Jeśli zostanie uruchomiona komórka w widoku notesu lub pokazu slajdów, dane wyjściowe są również wyświetlane w innym widoku. Aby wyczyścić dane wyjściowe, użyj**bieżącego polecenia wyprowadzania** > **danych wyjściowych** **komórki** > (dla bieżącej komórki) lub **komórki** > **All Outputs** > **Wyczyść** wszystkie dane wyjściowe (dla wszystkich komórek).
+    > Dane wyjściowe komórki są uważane za część komórki w pokazie slajdów. Jeśli zostanie uruchomiona komórka w widoku notesu lub pokazu slajdów, dane wyjściowe są również wyświetlane w innym widoku. Aby wyczyścić dane wyjściowe, **Cell**Użyj  >  **bieżącego polecenia wyprowadzania**danych wyjściowych komórki  >  **Clear** (dla bieżącej komórki) lub **komórki**  >  **Wyczyść wszystkie dane wyjściowe**  >  **Clear** (dla wszystkich komórek).
 
 1. Gdy skończysz korzystać z pokazu slajdów, użyj **X** , aby powrócić do widoku notesu.
 

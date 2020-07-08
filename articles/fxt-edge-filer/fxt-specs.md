@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846712"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specyfikacje usługi Azure FXT Edge
 

@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846645"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista zdarzeń Service Fabric 
 
@@ -47,14 +47,14 @@ Więcej szczegółów na temat uaktualniania klastra można znaleźć [tutaj](se
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | Przejścia stanu | Dezaktywacja węzła zakończyła się | FM | Informacyjne | 
 | 18603 | NodeUp | Przejścia stanu | Klaster wykrył, że uruchomiono węzeł | FM | Informacyjne | 
-| 18604 | NodeDown | Przejścia stanu | Klaster wykrył, że węzeł został zamknięty. Podczas ponownego uruchamiania węzła zobaczysz zdarzenie NodeDown, po którym następuje zdarzenie NodeUp |  FM | Error | 
+| 18604 | NodeDown | Przejścia stanu | Klaster wykrył, że węzeł został zamknięty. Podczas ponownego uruchamiania węzła zobaczysz zdarzenie NodeDown, po którym następuje zdarzenie NodeUp |  FM | Błąd | 
 | 18605 | NodeAddedToCluster | Przejścia stanu |  Do klastra został dodany nowy węzeł i Service Fabric można wdrożyć aplikacje w tym węźle | FM | Informacyjne | 
 | 18606 | NodeRemovedFromCluster | Przejścia stanu |  Węzeł został usunięty z klastra. Service Fabric nie będzie już wdrażać aplikacji w tym węźle | FM | Informacyjne | 
 | 18607 | NodeDeactivateStarted | Przejścia stanu |  Rozpoczęto dezaktywowanie węzła | FM | Informacyjne | 
 | 25621 | NodeOpenSucceeded | Przejścia stanu |  Węzeł został pomyślnie uruchomiony | FabricNode | Informacyjne | 
-| 25622 | NodeOpenFailed | Przejścia stanu |  Nie można uruchomić węzła i połączyć się z pierścieniem | FabricNode | Error | 
+| 25622 | NodeOpenFailed | Przejścia stanu |  Nie można uruchomić węzła i połączyć się z pierścieniem | FabricNode | Błąd | 
 | 25624 | NodeClosed | Przejścia stanu |  Węzeł zostanie zamknięty pomyślnie | FabricNode | Informacyjne | 
-| 25626 | NodeAborted | Przejścia stanu |  Węzeł jest niebezpiecznie zamknięty | FabricNode | Error | 
+| 25626 | NodeAborted | Przejścia stanu |  Węzeł jest niebezpiecznie zamknięty | FabricNode | Błąd | 
 
 ## <a name="application-events"></a>Zdarzenia aplikacji
 
@@ -114,20 +114,20 @@ Więcej informacji o uaktualnieniach aplikacji można znaleźć [tutaj](service-
 | 63648 | ReliableConcurrentQueueOpened | Witrynę | Otwarto niezawodną kolejkę współbieżną | ReliableConcurrentQueue | Informacyjne |
 | 63649 | ReliableConcurrentQueueClosed | Witrynę | Zamknięto niezawodną kolejkę współbieżną | ReliableConcurrentQueue | Informacyjne |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | Witrynę | Niezawodna Kolejka współbieżna odzyska swój punkt kontrolny | ReliableConcurrentQueue | Informacyjne |
-| 61687 | TStoreError | Niepowodzenie | Niezawodna kolekcja odebrała nieoczekiwany błąd | TStore | Error |
+| 61687 | TStoreError | Niepowodzenie | Niezawodna kolekcja odebrała nieoczekiwany błąd | TStore | Błąd |
 | 63831 | PrimaryFullCopyInitiated | Witrynę | Replika podstawowa zainicjowała pełną kopię | TReplicator | Informacyjne |
 | 63832 | PrimaryPartialCopyInitiated | Witrynę | Replika podstawowa zainicjowała kopię częściową | TReplicator | Informacyjne |
 | 16831 | BuildIdleReplicaStarted | Witrynę | Replika podstawowa rozpoczęła tworzenie repliki bezczynnej | Replikacja | Informacyjne |
 | 16832 | BuildIdleReplicaCompleted | Witrynę | Replika podstawowa ukończyła tworzenie repliki bezczynnej | Replikacja | Informacyjne |
 | 16833 | BuildIdleReplicaFailed | Witrynę | Replika podstawowa nie powiodła się podczas tworzenia repliki bezczynnej | Replikacja | Ostrzeżenie |
-| 16834 | PrimaryReplicationQueueFull | Health | Kolejka replikacji repliki podstawowej jest pełna | Replikacja | Ostrzeżenie |
-| 16835 | PrimaryReplicationQueueWarning | Health | Kolejka replikacji repliki podstawowej jest blisko pełna | Replikacja | Ostrzeżenie |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Health | Kolejka replikacji repliki podstawowej jest niedobrana | Replikacja | Informacyjne |
-| 16837 | SecondaryReplicationQueueFull | Health | Kolejka replikacji pomocniczej repliki jest pełna | Replikacja | Ostrzeżenie |
-| 16838 | SecondaryReplicationQueueWarning | Health | Kolejka replikacji pomocniczej repliki jest blisko pełna | Replikacja | Ostrzeżenie |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Health | Kolejka replikacji pomocniczej repliki jest niedobrana | Replikacja | Informacyjne |
-| 16840 | PrimaryFaultedSlowSecondary | Health | Replika podstawowa spowodowała awarię wolnej repliki pomocniczej | Replikacja | Ostrzeżenie |
-| 16841 | ReplicatorFaulted | Health | Replika została uszkodzona | Replikacja | Ostrzeżenie |
+| 16834 | PrimaryReplicationQueueFull | Służba zdrowia | Kolejka replikacji repliki podstawowej jest pełna | Replikacja | Ostrzeżenie |
+| 16835 | PrimaryReplicationQueueWarning | Służba zdrowia | Kolejka replikacji repliki podstawowej jest blisko pełna | Replikacja | Ostrzeżenie |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Służba zdrowia | Kolejka replikacji repliki podstawowej jest niedobrana | Replikacja | Informacyjne |
+| 16837 | SecondaryReplicationQueueFull | Służba zdrowia | Kolejka replikacji pomocniczej repliki jest pełna | Replikacja | Ostrzeżenie |
+| 16838 | SecondaryReplicationQueueWarning | Służba zdrowia | Kolejka replikacji pomocniczej repliki jest blisko pełna | Replikacja | Ostrzeżenie |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Służba zdrowia | Kolejka replikacji pomocniczej repliki jest niedobrana | Replikacja | Informacyjne |
+| 16840 | PrimaryFaultedSlowSecondary | Służba zdrowia | Replika podstawowa spowodowała awarię wolnej repliki pomocniczej | Replikacja | Ostrzeżenie |
+| 16841 | ReplicatorFaulted | Służba zdrowia | Replika została uszkodzona | Replikacja | Ostrzeżenie |
 
 ## <a name="container-events"></a>Zdarzenia kontenera
 
@@ -143,9 +143,9 @@ Więcej informacji o uaktualnieniach aplikacji można znaleźć [tutaj](service-
 
 [Model kondycji Service Fabric](service-fabric-health-introduction.md) zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Począwszy od Service Fabric w wersji 6,2, dane dotyczące kondycji są zapisywane jako zdarzenia platformy, aby zapewnić historyczne rekordy kondycji. Aby zachować ilość zdarzeń dotyczących kondycji, należy napisać tylko następujące zdarzenia Service Fabric:
 
-* Wszystkie `Error` raporty `Warning` i kondycji
+* Wszystkie `Error` `Warning` raporty i kondycji
 * `Ok`Raporty kondycji podczas przejść
-* `Error` Po wygaśnięciu `Warning` zdarzenia dotyczącego kondycji. Pozwala to określić czas złej kondycji jednostki
+* Po `Error` `Warning` wygaśnięciu zdarzenia dotyczącego kondycji. Pozwala to określić czas złej kondycji jednostki
 
 **Zdarzenia raportów kondycji klastra**
 

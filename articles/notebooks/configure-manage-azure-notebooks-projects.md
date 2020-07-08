@@ -4,18 +4,18 @@ description: Dowiedz się, jak zarządzać metadanymi projektu, plikami projektu
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: tracking-python
-ms.openlocfilehash: df64c9d90252c31118b66943b6a182319e3f1cc2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554305"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834084"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
 
-Projekt w programie Azure Notebooks Preview jest zasadniczo konfiguracją podstawowej maszyny wirtualnej z systemem Linux, w której działają notesy Jupyter oraz folder plików i metadane opisowe. 
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Projekt w programie Azure Notebooks Preview jest zasadniczo konfiguracją podstawowej maszyny wirtualnej z systemem Linux, w której działają notesy Jupyter oraz folder plików i metadane opisowe. 
 
 Pulpit nawigacyjny projektu w Azure Notebooks umożliwia zarządzanie plikami i w inny sposób Konfigurowanie charakterystyki projektu:
 
@@ -127,7 +127,7 @@ Aby dodać krok, najpierw wybierz pozycję **+ Dodaj**, a następnie wybierz typ
 
 Informacje, które następnie projekt zależą od wybranego typu operacji:
 
-- **Requirements. txt**: na drugiej liście rozwijanej wybierz plik *Requirements. txt* , który znajduje się już w projekcie. Następnie wybierz wersję języka Python z trzeciej listy rozwijanej, która zostanie wyświetlona. Przy użyciu pliku *Requirements. txt* Azure Notebooks jest uruchamiany `pip install -r` z plikiem *Requirements. txt* podczas uruchamiania serwera notesu. Nie musisz jawnie instalować pakietów z poziomu notesu.
+- **Requirements.txt**: na drugiej liście rozwijanej wybierz plik *requirements.txt* , który znajduje się już w projekcie. Następnie wybierz wersję języka Python z trzeciej listy rozwijanej, która zostanie wyświetlona. Przy użyciu pliku *requirements.txt* Azure Notebooks uruchamiany `pip install -r` z plikiem *requirements.txt* podczas uruchamiania serwera notesu. Nie musisz jawnie instalować pakietów z poziomu notesu.
 
 - **Skrypt powłoki**: na drugiej liście rozwijanej wybierz skrypt powłoki bash w projekcie (zazwyczaj plik z rozszerzeniem *. sh* ) zawierający wszystkie polecenia, które chcesz uruchomić w celu zainicjowania środowiska.
 

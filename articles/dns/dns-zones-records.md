@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265157"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846839"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Przegląd stref i rekordów DNS
 
@@ -24,7 +24,7 @@ Na tej stronie objaśniono kluczowe pojęcia dotyczące domen, stref DNS i rekor
 
 System nazw domen (DNS, Domain Name System) jest hierarchią domen. Hierarchia rozpoczyna się od domeny głównej, której nazwa to po prostu „**.**”.  Poniżej są domeny najwyższego poziomu, takie jak „com”, „net”, „org”, „uk” lub „jp”.  Pod nimi są domeny drugiego poziomu, takie jak „org.uk” lub „co.jp”. Domeny w hierarchii DNS są dystrybuowane globalnie, hostowane przez serwery nazw DNS na całym świecie.
 
-Rejestrator nazw domen to organizacja, która umożliwia zakupienie nazwy domeny, takiej jak `contoso.com`.  Zakup nazwy domeny daje prawo do kontrolowania hierarchii DNS pod tą nazwą, na przykład w celu skierowania nazwy `www.contoso.com` do firmowej witryny sieci Web. Rejestrator może hostować domenę we własnych serwerach nazw w Twoim imieniu lub zezwolić na Określanie alternatywnych serwerów nazw.
+Rejestrator nazw domen to organizacja, która umożliwia zakupienie nazwy domeny, takiej jak `contoso.com` .  Zakup nazwy domeny daje prawo do kontrolowania hierarchii DNS pod tą nazwą, na przykład w celu skierowania nazwy `www.contoso.com` do firmowej witryny sieci Web. Rejestrator może hostować domenę we własnych serwerach nazw w Twoim imieniu lub zezwolić na Określanie alternatywnych serwerów nazw.
 
 Azure DNS oferuje globalnie dystrybuowaną infrastrukturę serwera nazw o wysokiej dostępności, której można używać do hostowania domeny. Hosting domen w Azure DNS umożliwia zarządzanie rekordami DNS przy użyciu tych samych poświadczeń, interfejsów API, narzędzi, rozliczeń i pomocy technicznej co w przypadku innych usług platformy Azure.
 
@@ -48,7 +48,7 @@ W Azure DNS czas TTL jest określany dla zestawu rekordów, a nie dla każdego r
 
 Usługa DNS platformy Azure obsługuje [rekordy z użyciem symboli wieloznacznych](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Rekordy symboli wieloznacznych są zwracane w odpowiedzi na dowolne zapytanie o pasującej nazwie (chyba że istnieje bliższe dopasowanie z zestawu rekordów innego niż symbol wieloznaczny). Azure DNS obsługuje wieloznaczne zestawy rekordów dla wszystkich typów rekordów, z wyjątkiem NS i SOA.
 
-Aby utworzyć zestaw rekordów z symbolami wieloznacznymi, użyj nazwy\*zestawu rekordów "". Alternatywnie można również użyć nazwy z "\*" jako jej lewej strony etykiety, na przykład "\*. foo".
+Aby utworzyć zestaw rekordów z symbolami wieloznacznymi, użyj nazwy zestawu rekordów " \* ". Alternatywnie można również użyć nazwy z " \* " jako jej lewej strony etykiety, na przykład " \* . foo".
 
 ### <a name="caa-records"></a>CAA rekordy
 
@@ -64,13 +64,13 @@ Rekordy CAA umożliwiają właścicielom domeny Określanie, które urzędy cert
 
 Zestawy rekordów CNAME nie mogą współistnieć z innymi zestawami rekordów o tej samej nazwie. Na przykład nie można utworzyć zestawu rekordów CNAME o nazwie względnej "www" i rekordzie A o nazwie względnej "www" w tym samym czasie.
 
-Ponieważ Apex strefy (nazwa = '\@') zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy.
+Ponieważ Apex strefy (nazwa = ' \@ ') zawsze zawiera zestawy rekordów NS i SOA, które zostały utworzone podczas tworzenia strefy, nie można utworzyć zestawu rekordów CNAME w wierzchołku strefy.
 
 Te ograniczenia powstają na podstawie standardów DNS i nie są ograniczeniami Azure DNS.
 
 ### <a name="ns-records"></a>Rekordy NS
 
-Rekord NS ustawiony na wierzchołku strefy (nazwa "\@") jest tworzony automatycznie przy użyciu każdej strefy DNS i jest automatycznie usuwany po usunięciu strefy (nie można go usunąć oddzielnie).
+Rekord NS ustawiony na wierzchołku strefy (nazwa " \@ ") jest tworzony automatycznie przy użyciu każdej strefy DNS i jest automatycznie usuwany po usunięciu strefy (nie można go usunąć oddzielnie).
 
 Ten zestaw rekordów zawiera nazwy Azure DNS serwerów nazw przypisanych do strefy. Do tego zestawu rekordów NS można dodać kolejne serwery nazw, aby obsługiwać domeny współpracujące z więcej niż jednym dostawcą DNS. Możesz również zmodyfikować czas wygaśnięcia i metadane dla tego zestawu rekordów. Nie można jednak usunąć ani zmodyfikować wstępnie wypełnionych serwerów nazw Azure DNS. 
 
@@ -78,7 +78,7 @@ Ma to zastosowanie tylko do zestawu rekordów NS w wierzchołku strefy. Inne zes
 
 ### <a name="soa-records"></a>Rekordy SOA
 
-Zestaw rekordów SOA jest tworzony automatycznie w wierzchołku każdej strefy (nazwa = '\@') i jest automatycznie usuwany po usunięciu strefy.  Rekordy SOA nie mogą być tworzone ani usuwane osobno.
+Zestaw rekordów SOA jest tworzony automatycznie w wierzchołku każdej strefy (nazwa = ' \@ ') i jest automatycznie usuwany po usunięciu strefy.  Rekordy SOA nie mogą być tworzone ani usuwane osobno.
 
 Można zmodyfikować wszystkie właściwości rekordu SOA z wyjątkiem właściwości "host", która jest wstępnie skonfigurowana do odwoływania się do nazwy podstawowego serwera nazw dostarczonego przez Azure DNS.
 
@@ -92,7 +92,7 @@ Numer seryjny strefy w rekordzie SOA nie jest aktualizowany automatycznie, gdy z
 
 [Rekordy SRV](https://en.wikipedia.org/wiki/SRV_record) są używane przez różne usługi do określania lokalizacji serwera. Podczas określania rekordu SRV w Azure DNS:
 
-* Należy określić *usługę* i *Protokół* jako część nazwy zestawu rekordów poprzedzoną znakami podkreślenia.  Na przykład "\_SIP. \_TCP.Name '.  W przypadku rekordu w wierzchołku strefy nie ma potrzeby określania elementu "\@" w nazwie rekordu, po prostu Użyj usługi i protokołu, na przykład "\_SIP. \_TCP '.
+* Należy określić *usługę* i *Protokół* jako część nazwy zestawu rekordów poprzedzoną znakami podkreślenia.  Na przykład " \_ SIP. \_ tcp.name '.  W przypadku rekordu w wierzchołku strefy nie ma potrzeby określania elementu " \@ " w nazwie rekordu, po prostu Użyj usługi i protokołu, na przykład " \_ SIP. \_ TCP '.
 * *Priorytet*, *waga*, *port*i *cel* są określone jako parametry każdego rekordu w zestawie rekordów.
 
 ### <a name="txt-records"></a>Rekordy TXT
@@ -127,10 +127,10 @@ Domyślnie program Azure DNS PowerShell używa elementów ETag do blokowania wsp
 
 Na poziomie interfejsu API REST Azure DNS elementy ETag są określane przy użyciu nagłówków HTTP.  Ich zachowanie jest podano w poniższej tabeli:
 
-| Nagłówek | Zachowanie |
+| Header | Zachowanie |
 | --- | --- |
 | Brak |UMIESZCZAj zawsze zakończone powodzeniem (brak testów ETag) |
-| Element ETag if \<-Match> |Element PUT kończy się powodzeniem tylko wtedy, gdy zasób istnieje i element ETag pasuje |
+| If-Match\<etag> |Element PUT kończy się powodzeniem tylko wtedy, gdy zasób istnieje i element ETag pasuje |
 | If-Match * |PUT kończy się powodzeniem, jeśli zasób istnieje |
 | If-None-Match * |PUT kończy się powodzeniem, jeśli zasób nie istnieje |
 

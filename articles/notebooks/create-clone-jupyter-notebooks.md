@@ -3,18 +3,18 @@ title: Tworzenie i klonowanie notesów Jupyter — wersja zapoznawcza Azure Note
 description: Projekty Azure Notebooks w wersji zapoznawczej zarządzają kolekcją notesów i powiązanych plików, które można utworzyć nowe lub klonować z innego źródła.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831288"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Tworzenie i klonowanie projektów w podglądzie Azure Notebooks
 
-Azure Notebooks organizuje notesy Jupyter i powiązane pliki do grup logicznych nazywanych *projektami*. Najpierw tworzysz projekt jako kontener, a następnie utworzysz lub Sklonowano jeden lub więcej notesów w folderze obok innych plików projektu. (Ten proces jest zaprezentowany w [samouczku](tutorial-create-run-jupyter-notebook.md)).
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks organizuje notesy Jupyter i powiązane pliki do grup logicznych nazywanych *projektami*. Najpierw tworzysz projekt jako kontener, a następnie utworzysz lub Sklonowano jeden lub więcej notesów w folderze obok innych plików projektu. (Ten proces jest zaprezentowany w [samouczku](tutorial-create-run-jupyter-notebook.md)).
 
 Projekt utrzymuje również metadane i inne ustawienia konfiguracji, które mają wpływ na serwer, na którym są uruchamiane notesy, w tym niestandardowe kroki instalacji i instalację pakietu. Aby uzyskać więcej informacji, zobacz [Zarządzanie projektami i Konfigurowanie](configure-manage-azure-notebooks-projects.md)ich.
 
@@ -29,7 +29,7 @@ Co można zrobić na pulpicie nawigacyjnym, zależy od tego, czy użytkownik jes
 | Polecenie | Dostępne dla | Opis |
 | --- | --- | --- |
 | **Uruchom** | Właściciel | Uruchamia serwer projektu i otwiera folder projektu w Jupyter. (Najczęściej możesz przejść do folderu projektu, a następnie uruchomić Notes z tego miejsca). |
-| **Pobierz** | Dowolny użytkownik | Pobiera kopię wybranego projektu jako plik ZIP. |
+| **Pobieranie** | Dowolny użytkownik | Pobiera kopię wybranego projektu jako plik ZIP. |
 | **Udostępnij** | Dowolny użytkownik | Wyświetla okno podręczne udostępniania, za pomocą którego można uzyskać adres URL wybranego projektu, udostępnić do mediów społecznościowych, wysłać wiadomość e-mail z adresem URL oraz uzyskać kod HTML lub promocji dla programu za pomocą wskaźnika "Uruchom Notes" (zobacz temat [Uzyskiwanie wskaźnika uruchamiania](#obtain-a-launch-badge)) przy użyciu adresu URL. |
 | **Usuwanie** | Właściciel | Usuwa wybrany projekt. Tej operacji nie można cofnąć. |
 | **Terminal** | Właściciel | Uruchamia serwer Project Server, a następnie otwiera nowe okno przeglądarki z terminalem bash dla tego serwera. |

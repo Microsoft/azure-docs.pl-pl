@@ -4,11 +4,11 @@ description: Dowiedz się, jak uniknąć problemów z wydajnością w Azure Func
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846776"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w Azure Functions
 
@@ -16,7 +16,7 @@ Działa w ramach zasobów funkcji udział aplikacji. Wśród tych udostępnionyc
 
 ## <a name="connection-limit"></a>Limit połączeń
 
-Liczba dostępnych połączeń jest ograniczona częściowo, ponieważ aplikacja funkcji jest uruchamiana w [środowisku piaskownicy](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Jednym z ograniczeń, które nakładają się w Twoim kodzie, jest ograniczenie liczby połączeń wychodzących, które obecnie są 600 aktywne (1 200 łącznie) dla każdego wystąpienia. Po osiągnięciu tego limitu środowisko uruchomieniowe funkcji zapisuje następujący komunikat do dzienników: `Host thresholds exceeded: Connections`. Aby uzyskać więcej informacji, zobacz [limity usługi Functions](functions-scale.md#service-limits).
+Liczba dostępnych połączeń jest ograniczona częściowo, ponieważ aplikacja funkcji jest uruchamiana w [środowisku piaskownicy](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Jednym z ograniczeń, które nakładają się w Twoim kodzie, jest ograniczenie liczby połączeń wychodzących, które obecnie są 600 aktywne (1 200 łącznie) dla każdego wystąpienia. Po osiągnięciu tego limitu środowisko uruchomieniowe funkcji zapisuje następujący komunikat do dzienników: `Host thresholds exceeded: Connections` . Aby uzyskać więcej informacji, zobacz [limity usługi Functions](functions-scale.md#service-limits).
 
 Ten limit jest przypadany na wystąpienie. Gdy [kontroler skalowania dodaje wystąpienia aplikacji funkcji](functions-scale.md#how-the-consumption-and-premium-plans-work) do obsługi większej liczby żądań, każde wystąpienie ma limit połączeń niezależnych. Oznacza to, że nie ma limitu połączenia globalnego i można mieć znacznie więcej niż 600 aktywnych połączeń we wszystkich aktywnych wystąpieniach.
 
@@ -52,11 +52,11 @@ public static async Task Run(string input)
 }
 ```
 
-Często zadawane pytania dotyczące [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) w programie .NET to "czy należy usunąć mój klient?" Ogólnie rzecz biorąc, można usunąć obiekty, które `IDisposable` implementują się po zakończeniu korzystania z nich. Nie można jednak usunąć klienta statycznego, ponieważ nie jest on używany podczas kończenia funkcji. Klient statyczny ma na żywo na czas trwania aplikacji.
+Często zadawane pytania dotyczące [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) w programie .NET to "czy należy usunąć mój klient?" Ogólnie rzecz biorąc, można usunąć obiekty, które implementują się `IDisposable` po zakończeniu korzystania z nich. Nie można jednak usunąć klienta statycznego, ponieważ nie jest on używany podczas kończenia funkcji. Klient statyczny ma na żywo na czas trwania aplikacji.
 
 ### <a name="http-agent-examples-javascript"></a>Przykłady agenta HTTP (JavaScript)
 
-Ponieważ zapewnia lepsze opcje zarządzania połączeniami, należy użyć klasy natywnej [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) zamiast metod nienatywnych, takich jak `node-fetch` moduł. Parametry połączenia są konfigurowane za pomocą opcji w `http.agent` klasie. Aby uzyskać szczegółowe opcje dostępne dla agenta HTTP, zobacz [Nowy Agent (\[opcje\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
+Ponieważ zapewnia lepsze opcje zarządzania połączeniami, należy użyć klasy natywnej [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) zamiast metod nienatywnych, takich jak `node-fetch` moduł. Parametry połączenia są konfigurowane za pomocą opcji w `http.agent` klasie. Aby uzyskać szczegółowe opcje dostępne dla agenta HTTP, zobacz [Nowy Agent ( \[ Opcje \] )](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
 Klasa globalna `http.globalAgent` używana przez `http.request()` ma wszystkie te wartości ustawione na ich wartości domyślne. Zalecanym sposobem skonfigurowania limitów połączeń w funkcjach jest ustawienie maksymalnej liczby globalnie. W poniższym przykładzie ustawiono maksymalną liczbę gniazd dla aplikacji funkcji:
 
@@ -130,7 +130,7 @@ Kod funkcji może używać Dostawca danych .NET Framework dla SQL Server ([SqlCl
 ) , ADO.NET implementuje buforowanie połączeń domyślnie. Mimo że nadal można korzystać z połączeń, należy zoptymalizować połączenia z bazą danych. Aby uzyskać więcej informacji, zobacz [SQL Servering pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Niektóre struktury danych, takie jak Entity Framework, zazwyczaj pobierają parametry połączenia z sekcji **connectionStrings** w pliku konfiguracji. W takim przypadku należy jawnie dodać parametry połączenia z bazą danych SQL do kolekcji **parametrów połączenia** ustawień aplikacji funkcji i w [pliku Local. Settings. JSON](functions-run-local.md#local-settings-file) w projekcie lokalnym. Jeśli tworzysz wystąpienie elementu [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) w kodzie funkcji, należy zapisać wartość parametrów połączenia w **ustawieniach aplikacji** przy użyciu innych połączeń.
+> Niektóre struktury danych, takie jak Entity Framework, zazwyczaj pobierają parametry połączenia z sekcji **connectionStrings** w pliku konfiguracji. W takim przypadku należy jawnie dodać parametry połączenia z bazą danych SQL do kolekcji **parametrów połączenia** ustawień aplikacji funkcji i w [local.settings.jsw pliku](functions-run-local.md#local-settings-file) w projekcie lokalnym. Jeśli tworzysz wystąpienie elementu [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) w kodzie funkcji, należy zapisać wartość parametrów połączenia w **ustawieniach aplikacji** przy użyciu innych połączeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

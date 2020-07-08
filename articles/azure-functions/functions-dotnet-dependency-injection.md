@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: df26a6815a3dde27559f2f55038bdccadd78ea0b
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832869"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -119,7 +119,7 @@ Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [inie
 
 - **Przejściowe**: usługi przejściowe są tworzone na podstawie każdego żądania usługi.
 - W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi w zakresie są tworzone raz na wykonanie. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
-- **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `SqlConnection` lub dla `HttpClient` wystąpień.
+- **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `DocumentClient` lub dla `HttpClient` wystąpień.
 
 Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://aka.ms/functions/di-sample) w serwisie GitHub.
 

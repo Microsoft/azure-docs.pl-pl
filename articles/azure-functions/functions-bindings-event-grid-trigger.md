@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: af22d7a81d8a778c3df38f929bfbfb0a651cebc6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561839"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833005"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
@@ -78,9 +78,9 @@ namespace Company.Function
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania.
+Poniższy przykład pokazuje powiązanie wyzwalacza w *function.jsw* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -130,9 +130,9 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania.
+W poniższym przykładzie pokazano powiązanie wyzwalacza w *function.jsw* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -161,9 +161,9 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* i [funkcji języka Python](functions-reference-python.md) , która używa powiązania.
+Poniższy przykład pokazuje powiązanie wyzwalacza w *function.jsw* pliku i [funkcji języka Python](functions-reference-python.md) , która używa powiązania.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -305,9 +305,9 @@ Adnotacja [EventGridTrigger](https://github.com/Azure/azure-functions-java-libra
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* . Brak parametrów lub właściwości konstruktora do ustawienia w `EventGridTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawione w *function.js* pliku. Brak parametrów lub właściwości konstruktora do ustawienia w `EventGridTrigger` atrybucie.
 
-|Function. JSON — Właściwość |Opis|
+|function.jswłaściwości |Opis|
 |---------|---------|
 | **Wprowadź** | Wymagane — musi być ustawiony na wartość `eventGridTrigger` . |
 | **wskazywa** | Wymagane — musi być ustawiony na wartość `in` . |
@@ -345,11 +345,11 @@ W Azure Functions 2. x i wyższych można także użyć następującego typu par
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w właściwości pliku *Function. JSON* `name` .
+Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w *function.js* `name` właściwości pliku.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w właściwości pliku *Function. JSON* `name` , które wpisano jako `func.EventGridEvent` .
+Wystąpienie Event Grid jest dostępne za pośrednictwem parametru skonfigurowanego w *function.js* `name` właściwości pliku, wpisane jako `func.EventGridEvent` .
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -419,11 +419,15 @@ Polecenie wymaga adresu URL punktu końcowego, który wywołuje funkcję. Poniż
 
 #### <a name="version-2x-and-higher-runtime"></a>Środowisko uruchomieniowe w wersji 2. x (lub nowszej)
 
-    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+```
 
 #### <a name="version-1x-runtime"></a>Wersja 1. x środowiska uruchomieniowego
 
-    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```http
+https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
+```
 
 Klucz systemowy jest kluczem autoryzacji, który musi być uwzględniony w adresie URL punktu końcowego dla wyzwalacza Event Grid. W poniższej sekcji wyjaśniono, jak uzyskać klucz systemowy.
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: ab4cc288f2a505baaa8f3a70db0a1fe76fb20c96
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744072"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831934"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Rozwiązywanie problemów z usługą Azure Bastion
 
@@ -28,7 +28,7 @@ Odp **.:** Jeśli utworzysz i zastosujesz sieciowej grupy zabezpieczeń do *Azur
 2. Rejestrowanie diagnostyczne i inne — ruch wychodzący w dniu 443 do AzureCloud (Tagi regionalne w tym tagu usługi nie są jeszcze obsługiwane).
 3. Docelowa maszyna wirtualna — ruch wychodzący dla 3389 i 22 do VirtualNetwork
 
-Przykład reguł sieciowej grupy zabezpieczeń jest dostępny dla celów referencyjnych w [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Przykład reguł sieciowej grupy zabezpieczeń jest dostępny dla celów referencyjnych w [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące sieciowej grupy zabezpieczeń dla usługi Azure bastionu](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Nie można użyć mojego klucza SSH z usługą Azure bastionu

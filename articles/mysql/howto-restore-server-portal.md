@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: 619dc05d709f41941d16764bf32b49a0d2a11958
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/30/2020
+ms.openlocfilehash: dab0633e0ac5f434f423053118882783cdb43a5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833961"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -37,7 +37,7 @@ Podczas tworzenia serwera za pomocą Azure Portal okno **warstwy cenowej** to mi
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Azure Database for MySQL Server — szybki start](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Okres przechowywania kopii zapasowej można zmienić na serwerze, wykonując następujące czynności:
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz serwer Azure Database for MySQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.
@@ -78,18 +78,41 @@ Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi si
 ## <a name="geo-restore"></a>Przywracanie geograficzne
 Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie nadmiarowych, można utworzyć nowy serwer z kopii zapasowej istniejącego serwera. Ten nowy serwer można utworzyć w dowolnym regionie, który Azure Database for MySQL jest dostępny.  
 
-1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych** > **Azure Database for MySQL**.
+1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych**  >  **Azure Database for MySQL**.
 
-   ![Opcja "Azure Database for MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Przejdź do Azure Database for MySQL.":::
+ 
+2. Podaj subskrypcję, grupę zasobów i nazwę nowego serwera. 
 
-2. Na liście rozwijanej **Wybierz źródło** wybierz pozycję **kopia zapasowa**. Ta akcja powoduje załadowanie listy serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe. Wybierz jedną z tych kopii zapasowych, która będzie źródłem nowego serwera.
-   ![Wybierz źródło: kopia zapasowa i lista geograficznie nadmiarowych kopii zapasowych](./media/howto-restore-server-portal/2-georestore.png)
-
+3. Wybierz pozycję **kopia zapasowa** jako **Źródło danych**. Ta akcja powoduje załadowanie listy rozwijanej, która zawiera listę serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Wybierz pozycję źródło danych.":::
+    
    > [!NOTE]
    > Gdy serwer jest tworzony po raz pierwszy, może nie być od razu dostępny do przywracania geograficznego. Wypełnienie wymaganych metadanych może potrwać kilka godzin.
    >
 
-3. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**. Po wybraniu lokalizacji możesz wybrać **warstwę cenową**. Domyślnie są wyświetlane parametry istniejącego serwera, z którego są przywracane. Możesz kliknąć przycisk **OK** bez wprowadzania zmian, aby odziedziczyć te ustawienia. Lub można zmienić **generowanie obliczeń** (jeśli są dostępne w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+4. Wybierz listę rozwijaną **kopia zapasowa** .
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Wybierz listę rozwijaną kopia zapasowa.":::
+
+5. Wybierz serwer źródłowy, z którego chcesz wykonać przywracanie.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Wybierz pozycję Kopia zapasowa.":::
+
+6. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych**, **okresu przechowywania kopii zapasowej**, **opcji nadmiarowości kopii zapasowej**, **wersji aparatu**i **poświadczeń administratora**. Wybierz pozycję **Continue** (Kontynuuj). 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Kontynuuj tworzenie kopii zapasowej.":::
+
+7. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**.
+
+    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Wypełnij formularz."::: 
+
+8. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. 
+
+9. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Ta operacja może potrwać kilka minut.
 
 Nowy serwer utworzony przy użyciu przywracania geograficznego ma tę samą nazwę logowania administratora serwera i hasło, które były prawidłowe dla istniejącego serwera w momencie zainicjowania przywracania. Hasło można zmienić na stronie **Przegląd** nowego serwera.
 

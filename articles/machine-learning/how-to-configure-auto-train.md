@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f00946c4c0a9abe343448266128c682f2376cf7a
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833693"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Jeśli wolisz nie używać kodu, możesz również [utworzyć automatyczne ekspe
 
 ## <a name="select-your-experiment-type"></a>Wybieranie typu eksperymentu
 
-Przed rozpoczęciem eksperymentu należy określić rodzaj rozwiązywanego problemu z uczeniem maszynowym. Funkcja automatycznego uczenia maszynowego obsługuje typy zadań klasyfikacji, regresji i prognozowania. Dowiedz się więcej o [typach zadań](how-to-define-task-type.md).
+Przed rozpoczęciem eksperymentu należy określić rodzaj rozwiązywanego problemu z uczeniem maszynowym. Funkcja automatycznego uczenia maszynowego obsługuje typy zadań klasyfikacji, regresji i prognozowania. Dowiedz się więcej o [typach zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
 Automatyczne Uczenie maszynowe obsługuje następujące algorytmy w trakcie procesu automatyzacji i dostrajania. Jako użytkownik nie ma potrzeby określania algorytmu.
 

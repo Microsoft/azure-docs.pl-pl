@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44b9b060be7ec707444ddf409848be1a16addb83
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833795"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -476,7 +476,7 @@ Aby uzyskać pełny przykład, zobacz [przykład wyzwalacza](#example).
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `HttpTrigger` atrybutu.
 
@@ -498,7 +498,9 @@ Typ danych wejściowych wyzwalacza jest zadeklarowany jako `HttpRequest` lub jak
 
 Domyślnie podczas tworzenia funkcji dla wyzwalacza HTTP funkcja jest adresowana z trasą w postaci:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 Można dostosować tę trasę przy użyciu właściwości opcjonalnej `route` w powiązaniu danych wejściowych wyzwalacza http. Przykładowo następujące *function.jsw* pliku definiuje `route` Właściwość wyzwalacza http:
 
@@ -766,7 +768,9 @@ Klucze funkcji można uzyskać programowo przy użyciu [interfejsów API zarząd
 
 Większość szablonów wyzwalacza HTTP wymaga klucza interfejsu API w żądaniu. Dlatego żądanie HTTP zwykle wygląda następująco:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 Klucz może być uwzględniony w zmiennej ciągu zapytania o nazwie `code` , jak powyżej. Może być również uwzględniony w `x-functions-key` nagłówku HTTP. Wartość klucza może być dowolnym kluczem funkcji zdefiniowanym dla funkcji lub dowolnym kluczem hosta.
 
@@ -809,6 +813,14 @@ Autoryzacja elementu webhook jest obsługiwana przez składnik odbiornika elemen
 
 * **Ciąg zapytania**: dostawca przekazuje nazwę klucza w `clientid` parametrze ciągu zapytania, na przykład `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Nagłówek żądania**: dostawca przekazuje nazwę klucza w `x-functions-clientid` nagłówku.
+
+## <a name="content-types"></a>Typy zawartości
+
+Przekazywanie danych binarnych i formularzy do funkcji innej niż C wymaga użycia odpowiedniego nagłówka Content-Type. Obsługiwane typy zawartości obejmują `octet-stream` dane binarne i [typy wieloczęściowe](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### <a name="known-issues"></a>Znane problemy
+
+W funkcjach innych niż języka C żądania wysyłane z typem zawartości dają `image/jpeg` w wyniku `string` wartość przekazaną do funkcji. W takich przypadkach można ręcznie skonwertować `string` wartość na tablicę bajtową, aby uzyskać dostęp do nieprzetworzonych danych binarnych.
 
 ## <a name="limits"></a>Limity
 

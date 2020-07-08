@@ -1,20 +1,7 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
-services: billing
-author: rothja
-ms.service: cost-management-billing
-ms.topic: include
-ms.date: 05/18/2018
-ms.author: jroth
-ms.custom: include file
-ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76021269"
+ title: Uwzględnij Opis pliku: Dołącz plik autor: rothja MS. Service: Azure-Resource-Manager MS. temat: include MS. Date: 05/18/2018 MS. Author: jroth MS. Custom: include File
 ---
+
 | Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
 | Procesorów wirtualnych vCPU na [subskrypcję](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10 000 |

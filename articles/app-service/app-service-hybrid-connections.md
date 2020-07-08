@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 07fc4fbf9305cb2688bae6356f44b80bb6a6c115
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: d55d1c0d72f0122472813fc6e79ba021e8b86e89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831254"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Azure App Service Połączenia hybrydowe
+# <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
 
 Połączenia hybrydowe to usługa na platformie Azure i funkcja w Azure App Service. Jako usługa, ma ona użycie i możliwości poza tymi, które są używane w App Service. Aby dowiedzieć się więcej na temat Połączenia hybrydowe i ich użycia poza App Service, zobacz [Azure Relay połączenia hybrydowe][HCService].
 
@@ -117,7 +117,7 @@ Funkcja Połączenia hybrydowe wymaga agenta przekazywania w sieci, który hostu
 
 To narzędzie działa w systemie Windows Server 2012 lub nowszym. HCM działa jako usługa i łączy ruch wychodzący do Azure Relay na porcie 443.  
 
-Po zainstalowaniu HCM można uruchomić program HybridConnectionManagerUi. exe, aby użyć interfejsu użytkownika dla narzędzia. Ten plik znajduje się w katalogu instalacyjnym programu Menedżer połączeń hybrydowych. W systemie Windows 10 można również wyszukać *Menedżer połączeń hybrydowych interfejs użytkownika* w polu wyszukiwania.  
+Po zainstalowaniu HCM można uruchomić HybridConnectionManagerUi.exe, aby użyć interfejsu użytkownika dla narzędzia. Ten plik znajduje się w katalogu instalacyjnym programu Menedżer połączeń hybrydowych. W systemie Windows 10 można również wyszukać *Menedżer połączeń hybrydowych interfejs użytkownika* w polu wyszukiwania.  
 
 ![Zrzut ekranu przedstawiający Menedżer połączeń hybrydowych][7]
 
@@ -168,26 +168,30 @@ Istnieją okresowe aktualizacje Menedżer połączeń hybrydowych w celu rozwią
 
 Istnieje obsługa interfejsu wiersza polecenia platformy Azure dla Połączenia hybrydowe. Dostępne polecenia działają zarówno w aplikacji, jak i na poziomie planu App Service.  Polecenia na poziomie aplikacji są następujące:
 
-    az webapp hybrid-connection
+```azurecli
+az webapp hybrid-connection
 
-    Group
-        az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        add    : Add a hybrid-connection to a webapp.
-        list   : List the hybrid-connections on a webapp.
-        remove : Remove a hybrid-connection from a webapp.
+Group
+    az webapp hybrid-connection : Methods that list, add and remove hybrid-connections from webapps.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    add    : Add a hybrid-connection to a webapp.
+    list   : List the hybrid-connections on a webapp.
+    remove : Remove a hybrid-connection from a webapp.
+```
 
 Polecenia planu App Service umożliwiają ustawienie klucza, który będzie używany przez połączenie hybrydowe. Dla każdego połączenia hybrydowego są ustawiane dwa klucze, podstawowe i pomocnicze. Można wybrać użycie klucza podstawowego lub pomocniczego za pomocą poniższych poleceń. Dzięki temu można przełączać klucze, aby okresowo generować ponownie klucze. 
 
-    az appservice hybrid-connection --help
+```azurecli
+az appservice hybrid-connection --help
 
-    Group
-        az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
-                  connections in that appservice plan.
+Group
+    az appservice hybrid-connection : A method that sets the key a hybrid-connection uses.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    set-key : Set the key that all apps in an appservice plan use to connect to the hybrid-
+                connections in that appservice plan.
+```
 
 ## <a name="secure-your-hybrid-connections"></a>Zabezpieczanie Połączenia hybrydowe ##
 

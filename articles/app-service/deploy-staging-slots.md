@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d6217d9616293cb4d541c9b05511d8cbd318ef20
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205732"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833276"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
@@ -199,12 +199,14 @@ Jeśli masz jakieś problemy, zobacz [Rozwiązywanie problemów z wymianą](#tro
 
 Niektóre aplikacje mogą wymagać niestandardowych akcji rozgrzewania przed wymianą. `applicationInitialization`Element konfiguracji w web.config pozwala określić niestandardowe akcje inicjowania. [Operacja wymiany](#AboutConfiguration) czeka na zakończenie tej niestandardowej rozgrzanej wartości przed zamianą na miejsce docelowe. Oto przykładowy fragment web.config.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 Aby uzyskać więcej informacji na temat dostosowywania `applicationInitialization` elementu, zobacz [najczęstsze błędy wymiany miejsca wdrożenia i sposoby ich naprawiania](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 

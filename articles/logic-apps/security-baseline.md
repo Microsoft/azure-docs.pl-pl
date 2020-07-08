@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a33d3e8b330f5ee8549f536bbfba958d96d8e59b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a37f57bc12e5756b493bb009268beb067e7faaab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256030"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833982"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
 
@@ -238,7 +238,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
-**Wskazówki**: Aby uzyskać bogatsze informacje debugowania dotyczące aplikacji logiki w czasie wykonywania, można skonfigurować i użyć dzienników Azure monitor do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w obszarze roboczym log Analytics. Azure Monitor ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można tworzyć zapytania dziennika, które pomagają zbierać i przeglądać te informacje. Możesz również używać tych danych diagnostycznych z innymi usługami platformy Azure, takimi jak Azure Storage i Azure Event Hubs.
+**Wskazówki**: Aby uzyskać bogatsze informacje debugowania dotyczące aplikacji logiki w czasie wykonywania, można skonfigurować i użyć dzienników Azure monitor do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w obszarze roboczym log Analytics. Usługa Azure Monitor pomaga w monitorowaniu środowisk w chmurze oraz lokalnych w celu łatwiejszego zachowania ich dostępności i wydajności. Korzystając z dzienników Azure Monitor, można tworzyć zapytania dziennika, które pomagają zbierać i przeglądać te informacje. Możesz również używać tych danych diagnostycznych z innymi usługami platformy Azure, takimi jak Azure Storage i Azure Event Hubs.
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
@@ -254,7 +254,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-**Wskazówki**: Aby uzyskać bogatsze informacje debugowania dotyczące aplikacji logiki w czasie wykonywania, można skonfigurować i użyć dzienników Azure monitor do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w obszarze roboczym log Analytics. Azure Monitor ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można tworzyć zapytania dziennika, które pomagają zbierać i przeglądać te informacje. Możesz również używać tych danych diagnostycznych z innymi usługami platformy Azure, takimi jak Azure Storage i Azure Event Hubs.
+**Wskazówki**: Aby uzyskać bogatsze informacje debugowania dotyczące aplikacji logiki w czasie wykonywania, można skonfigurować i użyć dzienników Azure monitor do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w obszarze roboczym log Analytics. Usługa Azure Monitor pomaga w monitorowaniu środowisk w chmurze oraz lokalnych w celu łatwiejszego zachowania ich dostępności i wydajności. Korzystając z dzienników Azure Monitor, można tworzyć zapytania dziennika, które pomagają zbierać i przeglądać te informacje. Możesz również używać tych danych diagnostycznych z innymi usługami platformy Azure, takimi jak Azure Storage i Azure Event Hubs.
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
@@ -358,7 +358,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-Aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, aplikacja logiki może używać tożsamości zarządzanej (dawniej tożsamość usługi zarządzanej lub MSI), a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych.
+Aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, aplikacja logiki może używać tożsamości zarządzanej (dawniej tożsamość usługi zarządzanej lub MSI), a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych.
 
 Każdy punkt końcowy żądania w aplikacji logiki ma sygnaturę dostępu współdzielonego (SAS) w adresie URL punktu końcowego. Jeśli adres URL punktu końcowego jest współużytkowany dla wyzwalacza opartego na żądaniach innych stron, można wygenerować adresy URL wywołania zwrotnego, które używają określonych kluczy i mają daty wygaśnięcia. Dzięki temu można bezproblemowo rzutować klucze lub ograniczyć dostęp do wyzwalania aplikacji logiki na podstawie określonego przedziału czasu.
 
@@ -483,9 +483,9 @@ Ponadto każdy punkt końcowy żądania w aplikacji logiki ma sygnaturę dostęp
 
 **Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla wystąpień Azure Logic Apps. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
-W przypadku pomocy technicznej w Logic Apps Użyj tożsamości zarządzanej, aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych.
+W przypadku pomocy technicznej w Logic Apps Użyj tożsamości zarządzanej, aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych.
 
-Azure Logic Apps obsługuje zarządzane tożsamości przypisane przez system i przypisane przez użytkownika. Aplikacja logiki może korzystać z tożsamości przypisanej do systemu lub pojedynczej tożsamości przypisanej do użytkownika, którą można udostępnić w ramach grupy aplikacji logiki, ale nie obu. Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, nie zarządzanymi łącznikami ani połączeniami, na przykład:
+Azure Logic Apps obsługuje zarządzane tożsamości przypisane przez system i przypisane przez użytkownika. Aplikacja logiki może użyć tożsamości przypisanej przez system lub przez pojedynczego użytkownika, udostępnianej w grupie aplikacji logiki, ale nie obu tych tożsamości. Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, nie zarządzanymi łącznikami ani połączeniami, na przykład:
 - HTTP
 - Azure Functions
 - Usługa Azure API Management
@@ -573,7 +573,7 @@ W przypadku aplikacji logiki, które wymagają bezpośredniego dostępu do zasob
 
 Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcowych dostępu. Wybór określa, czy wyzwalacze żądania lub elementu webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej.
 
-Ponadto należy wdrożyć izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
+Ponadto należy wdrożyć izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC).
 
 * [Omówienie łączników dla Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 
@@ -615,7 +615,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 * [Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-reqres#tls-support)
 
-* [Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
+* [Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
 
 * [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
@@ -1049,7 +1049,7 @@ Podczas tworzenia środowiska usługi integracji (ISE) na potrzeby hostowania ap
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, aplikacja logiki może używać tożsamości zarządzanej (dawniej tożsamość usługi ZARZĄDZANEJ lub MSI), a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych.
+**Wskazówki**: aby łatwo uzyskać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) i uwierzytelnić swoją tożsamość bez logowania, aplikacja logiki może używać tożsamości zarządzanej (dawniej tożsamość usługi ZARZĄDZANEJ lub MSI), a nie poświadczeń lub wpisów tajnych. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych.
 
 Obecnie tylko określone wbudowane wyzwalacze i akcje obsługują tożsamości zarządzane, nie zarządzanymi łącznikami ani połączeniami, na przykład:
 - HTTP

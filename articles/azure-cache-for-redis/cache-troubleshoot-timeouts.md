@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: c38854c8967d9cc4a5f8a58f7e068d5bfa556639
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833761"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Rozwiązywanie problemów z limitami czasu usługi Azure Cache for Redis
 
@@ -32,7 +32,9 @@ Usługa Azure cache for Redis regularnie aktualizuje oprogramowanie serwera w ra
 
 StackExchange. Redis używa ustawienia konfiguracji o nazwie `synctimeout` dla operacji synchronicznych z wartością domyślną 1000 ms. Jeśli wywołanie synchroniczne nie zostanie ukończone w tym czasie, klient StackExchange. Redis zgłasza błąd limitu czasu podobny do następującego przykładu:
 
+```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 Ten komunikat o błędzie zawiera metryki, które mogą ułatwić wskazanie przyczyny i ewentualne rozwiązanie problemu. Poniższa tabela zawiera szczegółowe informacje o metrykach komunikatów o błędach.
 
@@ -73,7 +75,10 @@ Aby zbadać możliwe przyczyny główne, można wykonać następujące czynnośc
 
     Zdecydowanie zaleca się używanie pamięci podręcznej i klienta w tym samym regionie świadczenia usługi Azure. Jeśli masz scenariusz, który obejmuje wywołania między regionami, należy ustawić `synctimeout` interwał na wartość większą niż domyślny interwał 1000-MS, dołączając `synctimeout` Właściwość w parametrach połączenia. W poniższym przykładzie przedstawiono fragment kodu połączenia dla StackExchange. Redis udostępniony przez pamięć podręczną platformy Azure dla Redis z `synctimeout` 2000 MS.
 
-        synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```output
+    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```
+
 1. Upewnij się, że używasz najnowszej wersji [pakietu NuGet stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/). Błędy są ciągle naprawiane w kodzie, aby zwiększyć jego niezawodność, tak aby Najnowsza wersja była ważna.
 1. Jeśli żądania są związane z ograniczeniami przepustowości na serwerze lub kliencie, trwają one dłużej i mogą spowodować przekroczenie limitu czasu. Aby sprawdzić, czy limit czasu jest równy przepustowości sieci na serwerze, zobacz [ograniczenia przepustowości po stronie serwera](cache-troubleshoot-server.md#server-side-bandwidth-limitation). Aby sprawdzić, czy limit czasu jest równy przepustowości sieci klienta, zobacz [ograniczenia przepustowości po stronie klienta](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
 1. Czy jest uzyskiwany procesor CPU związany z serwerem lub klientem?

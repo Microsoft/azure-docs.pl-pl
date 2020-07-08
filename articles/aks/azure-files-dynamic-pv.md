@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały z Azure Files do użycia z wieloma współbieżnymi zasobnikami w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/12/2019
-ms.openlocfilehash: 447df96240891e30570f0c7a8174674e1f404efc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 07/01/2020
+ms.openlocfilehash: 78bcd4925451125d5ab56a1da08cc307dc0fc236
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831594"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Utwórz plik o nazwie `azure-file-sc.yaml` i skopiuj w poniższym przykładowym 
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefile
+  name: my-azurefile
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
@@ -74,11 +74,11 @@ Teraz Utwórz plik o nazwie `azure-file-pvc.yaml` i skopiuj w następującym YAM
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: azurefile
+  name: my-azurefile
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: my-azurefile
   resources:
     requests:
       storage: 5Gi
@@ -96,15 +96,15 @@ kubectl apply -f azure-file-pvc.yaml
 Po zakończeniu zostanie utworzony udział plików. Tworzony jest również wpis tajny Kubernetes, który zawiera informacje o połączeniu i poświadczenia. Aby wyświetlić stan obwodu PVC, można użyć polecenia [polecenia kubectl Get][kubectl-get] :
 
 ```console
-$ kubectl get pvc azurefile
+$ kubectl get pvc my-azurefile
 
-NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
+NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            my-azurefile      5m
 ```
 
 ## <a name="use-the-persistent-volume"></a>Użyj woluminu trwałego
 
-Poniższy YAML tworzy element, który używa trwałego zastrzeżenia woluminu *azurefile* do zainstalowania udziału plików platformy Azure w ścieżce */mnt/Azure* . W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
+Poniższy YAML tworzy element, który używa trwałego zastrzeżenia woluminu *azurefile* , aby zainstalować udział plików platformy Azure w ścieżce */mnt/Azure* . W przypadku kontenerów systemu Windows Server należy określić *mountPath* przy użyciu konwencji ścieżki systemu Windows, takiej jak *'d: '*.
 
 Utwórz plik o nazwie `azure-pvc-files.yaml` i skopiuj go do poniższego YAML. Upewnij się, że wartość *claimname* pasuje do obwodu PVC utworzonego w ostatnim kroku.
 
@@ -130,7 +130,7 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: azurefile
+        claimName: my-azurefile
 ```
 
 Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] .
@@ -157,7 +157,7 @@ Containers:
 Volumes:
   volume:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  azurefile
+    ClaimName:  my-azurefile
     ReadOnly:   false
 [...]
 ```
@@ -170,7 +170,7 @@ Domyślna wartość *parametru FileMode* i *dirMode* to *0777* dla Kubernetes w 
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefile
+  name: my-azurefile
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
