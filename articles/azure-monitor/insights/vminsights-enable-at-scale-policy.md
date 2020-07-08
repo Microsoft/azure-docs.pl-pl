@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 7d3c4e0f4bd34f996bb39426af39a692a6f79c5c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507181"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy
@@ -165,7 +165,7 @@ Poniższa macierz odwzorowuje każdy możliwy stan zgodności dla inicjatywy.
 
 | Stan zgodności | Opis | 
 |------------------|-------------|
-| **Zgodny** | Wszystkie maszyny wirtualne w zakresie mają wdrożonych Log Analytics i agentów zależności.|
+| **Komputera** | Wszystkie maszyny wirtualne w zakresie mają wdrożonych Log Analytics i agentów zależności.|
 | **Niezgodne** | Nie wszystkie maszyny wirtualne w zakresie mają wdrożone Log Analytics i agentów zależności i mogą wymagać skorygowania.|
 | **Nie uruchomiono** | Dodano nowe przypisanie. |
 | **Skręt** | Nie masz wystarczających uprawnień do grupy zarządzania. <sup>1</sup> | 

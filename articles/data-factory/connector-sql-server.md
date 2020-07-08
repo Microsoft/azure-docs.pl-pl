@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/28/2020
 ms.openlocfilehash: d39dbc640dc89febc29c7b6c4942da88837c670a
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85506602"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiowanie danych do i z SQL Server przy użyciu Azure Data Factory
@@ -489,7 +489,7 @@ Podczas kopiowania danych z i do SQL Server, następujące mapowania są używan
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Wartość logiczna |
+| bit |Boolean |
 | char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
