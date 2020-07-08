@@ -3,12 +3,12 @@ title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682116"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969893"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -40,7 +40,7 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Tworzenie i przypisywanie definicji zasad za pomocą programu PowerShell
 
-1. Użyj poniższego fragmentu kodu JSON, aby utworzyć plik JSON o nazwie AuditStorageAccounts. JSON.
+1. Użyj poniższego fragmentu kodu JSON, aby utworzyć plik JSON o nazwie AuditStorageAccounts.jsna.
 
    ```json
    {
@@ -63,7 +63,7 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
 
    Aby uzyskać więcej informacji na temat tworzenia definicji zasad, zobacz [Azure Policy struktura definicji](../concepts/definition-structure.md).
 
-1. Uruchom następujące polecenie, aby utworzyć definicję zasad przy użyciu pliku AuditStorageAccounts. JSON.
+1. Uruchom następujące polecenie, aby utworzyć definicję zasad przy użyciu AuditStorageAccounts.jspliku.
 
    ```azurepowershell-interactive
    New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
@@ -95,7 +95,7 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
    - Ramach`/subscriptions/{subId}/`
    - Grupa zarządzania —`/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Azure Resource Manager PowerShell, zobacz [AZ. resources](/powershell/module/az.resources/#policies).
+Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Menedżer zasobów PowerShell, zobacz [AZ. resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Tworzenie i przypisywanie definicji zasad za pomocą ARMClient
 

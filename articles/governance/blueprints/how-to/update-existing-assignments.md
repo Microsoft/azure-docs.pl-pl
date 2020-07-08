@@ -3,12 +3,12 @@ title: Aktualizowanie istniejącego przypisania z portalu
 description: Dowiedz się więcej o mechanizmie aktualizowania istniejącego przypisania strategii z portalu w planach platformy Azure.
 ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381789"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969468"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Jak zaktualizować istniejące przypisanie strategii
 
@@ -50,18 +50,18 @@ Wdrożenie zaktualizowanych przypisań następuje po kilku ważnych regułach. T
   - Jeśli definicja przypisania zasad zostanie zmieniona, zostanie utworzone nowe przypisanie zasad.
     Wcześniej wdrożone przypisania zasad są pozostawione w miejscu.
   - Jeśli artefakt przypisania zasad zostanie usunięty z planu, wdrożone przypisania zasad są pozostawiane w miejscu.
-- Szablony usługi Azure Resource Manager
+- Szablony Azure Resource Manager (szablony ARM)
   - Szablon jest przetwarzany przez Menedżer zasobów jako **Put**. Ponieważ każdy typ zasobu obsługuje tę akcję inaczej, zapoznaj się z dokumentacją każdego dołączonego zasobu, aby określić wpływ tej akcji w przypadku uruchamiania przez plany.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Możliwe błędy podczas aktualizowania przypisań
 
-Podczas aktualizowania przypisań można wprowadzać zmiany, które są przerywane po wykonaniu. Przykładem jest zmiana lokalizacji grupy zasobów, która została już wdrożona. Można wprowadzić wszelkie zmiany, które są obsługiwane przez [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) , ale wszelkie zmiany, które spowodują wystąpienie błędu za pomocą Azure Resource Manager, spowodują również niepowodzenie przypisania.
+Podczas aktualizowania przypisań można wprowadzać zmiany, które są przerywane po wykonaniu. Przykładem jest zmiana lokalizacji grupy zasobów, która została już wdrożona. Można wprowadzić wszelkie zmiany, które są obsługiwane przez [Menedżer zasobów](../../../azure-resource-manager/management/overview.md) , ale wszelkie zmiany, które spowodują wystąpienie błędu za pomocą Menedżer zasobów, spowodują również niepowodzenie przypisania.
 
 Nie ma żadnego limitu, ile razy można zaktualizować przypisanie. W przypadku wystąpienia błędu należy określić błąd i wprowadzić kolejną aktualizację do przypisania.  Przykładowe scenariusze błędów:
 
 - Nieprawidłowy parametr
 - Już istniejący obiekt
-- Zmiana nie jest obsługiwana przez Azure Resource Manager
+- Zmiana nie jest obsługiwana przez Menedżer zasobów
 
 ## <a name="next-steps"></a>Następne kroki
 
