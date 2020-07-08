@@ -8,10 +8,10 @@ ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
 ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84906789"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
@@ -511,12 +511,12 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udziału|
-|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udziału|
+|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udział plików|
+|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udział plików|
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
-|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udziału|
-|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udziału|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udziału|
+|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
+|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
+|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
@@ -697,7 +697,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CpuUsage|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
+|CpuUsage|Użycie procesora|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
 |MemoryUsage|Użycie pamięci|Bajty|Średnia|Całkowite użycie pamięci w bajcie.|containerName|
 |NetworkBytesReceivedPerSecond|Bajty odebrane przez sieć na sekundę|Bajty|Średnia|Bajty odebrane przez sieć na sekundę.|Brak|
 |NetworkBytesTransmittedPerSecond|Bajty przesyłane przez sieć na sekundę|Bajty|Średnia|Bajty przesyłane przez sieć na sekundę.|Brak|
@@ -729,7 +729,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|SuccessfullRequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania wykonywane przez niestandardowego dostawcę|HttpMethod, CallPath, StatusCode|
+|SuccessfullRequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania wykonywane przez niestandardowego dostawcę|HttpMethod, CallPath, StatusCode|
 |FailedRequests|Żądania zakończone niepowodzeniem|Liczba|Łącznie|Pobiera dostępne dzienniki dla niestandardowych dostawców zasobów|HttpMethod, CallPath, StatusCode|
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft. DataBoxEdge/dataBoxEdgeDevices
@@ -1160,19 +1160,19 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy quotaexceedederrors|Błędy przekroczenia limitu przydziału.|Liczba|Łącznie|Przekroczono limit przydziału dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Bajty incomingbytes|Bajty przychodzące.|Bajty|Łącznie|Przychodzące bajty dla elementu Microsoft. EventHub.|EntityName|
 |Bajty outgoingbytes|Bajty wychodzące.|Bajty|Łącznie|Bajty wychodzące dla elementu Microsoft. EventHub.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. EventHub.|EntityName|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|EntityName|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|EntityName|
 |CaptureBacklog|Zaległości przechwytywania.|Liczba|Łącznie|Zaległości przechwytywania dla elementu Microsoft. EventHub.|EntityName|
 |CapturedMessages|Przechwycone komunikaty.|Liczba|Łącznie|Przechwycone komunikaty dla elementu Microsoft. EventHub.|EntityName|
 |CapturedBytes|Przechwycone bajty.|Bajty|Łącznie|Przechwycone bajty dla elementu Microsoft. EventHub.|EntityName|
@@ -1199,19 +1199,19 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|Klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy quotaexceedederrors|Błędy przekroczenia limitu przydziału.|Liczba|Łącznie|Przekroczono limit przydziału dla elementu Microsoft. EventHub.|Klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|Klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla elementu Microsoft. EventHub.|Brak|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. EventHub.|Brak|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. EventHub.|Brak|
 |Bajty incomingbytes|Bajty przychodzące.|Bajty|Łącznie|Przychodzące bajty dla elementu Microsoft. EventHub.|Brak|
 |Bajty outgoingbytes|Bajty wychodzące.|Bajty|Łącznie|Bajty wychodzące dla elementu Microsoft. EventHub.|Brak|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. EventHub.|Brak|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|Brak|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|Brak|
 |CaptureBacklog|Zaległości przechwytywania.|Liczba|Łącznie|Zaległości przechwytywania dla elementu Microsoft. EventHub.|Brak|
 |CapturedMessages|Przechwycone komunikaty.|Liczba|Łącznie|Przechwycone komunikaty dla elementu Microsoft. EventHub.|Brak|
 |CapturedBytes|Przechwycone bajty.|Bajty|Łącznie|Przechwycone bajty dla elementu Microsoft. EventHub.|Brak|
@@ -1621,14 +1621,14 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |AverageBandwidth|Przepustowość S2S bramy|BytesPerSecond|Średnia|Średnia przepustowość lokacja-lokacja bramy w bajtach na sekundę|Brak|
 |P2SBandwidth|Przepustowość P2S bramy|BytesPerSecond|Średnia|Średnia przepustowość typu punkt-lokacja bramy w bajtach na sekundę|Brak|
-|P2SConnectionCount|Liczba połączeń P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protokół|
+|P2SConnectionCount|Liczba połączeń typu P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protokół|
 |TunnelAverageBandwidth|Przepustowość tunelu|BytesPerSecond|Średnia|Średnia przepustowość tunelu w bajtach na sekundę|ConnectionName, RemoteIP|
-|TunnelEgressBytes|Bajty wychodzące tunelu|Bajty|Łącznie|Wychodzące bajty tunelu|ConnectionName, RemoteIP|
-|TunnelIngressBytes|Bajty transferu danych wejściowych tunelu|Bajty|Łącznie|Przychodzące bajty tunelu|ConnectionName, RemoteIP|
-|TunnelEgressPackets|Pakiety wychodzące tuneli|Liczba|Łącznie|Liczba wychodzących pakietów tunelu|ConnectionName, RemoteIP|
-|TunnelIngressPackets|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba przychodzących pakietów tunelu|ConnectionName, RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Porzucanie pakietów wychodzących przez tunelowanie|Liczba|Łącznie|Liczba porzucenia pakietów wychodzących z niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
-|TunnelIngressPacketDropTSMismatch|Wyrzucanie niezgodności pakietów przez tunelowanie|Liczba|Łącznie|Liczba porzucenia pakietów przychodzących z niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
+|TunnelEgressBytes|Liczba bajtów ruchu wychodzącego dla tunelu|Bajty|Łącznie|Bajty wychodzące tunelu|ConnectionName, RemoteIP|
+|TunnelIngressBytes|Liczba bajtów ruchu przychodzącego dla tunelu|Bajty|Łącznie|Liczba bajtów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelEgressPackets|Liczba pakietów ruchu wychodzącego dla tunelu|Liczba|Łącznie|Liczba pakietów wychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelIngressPackets|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba pakietów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Porzucone pakiety ruchu wychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów wychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Porzucone pakiety ruchu przychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów przychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft. Network/expressRoutePorts
@@ -1637,10 +1637,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |RxLightLevel|RxLightLevel|Liczba|Średnia|Poziom oświetlenia odbierania w dBm|Link, tor|
 |TxLightLevel|TxLightLevel|Liczba|Średnia|Poziom oświetlenia TX w dBm|Link, tor|
-|AdminState|AdminState|Liczba|Średnia|Stan administratora portu|Łącze|
-|LineProtocol|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Łącze|
-|PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Łącze|
-|PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Łącze|
+|AdminState|AdminState|Liczba|Średnia|Stan administratora portu|Link|
+|LineProtocol|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Link|
+|PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Link|
+|PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Link|
 
 
 
@@ -1648,10 +1648,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|PeeringType|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|PeeringType|
-|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|PeeredCircuitSKey|
-|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|PeeredCircuitSKey|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|PeeringType|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|PeeringType|
+|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|PeeredCircuitSKey|
+|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|PeeredCircuitSKey|
 |BgpAvailability|Dostępność protokołu BGP|Procent|Średnia|Dostępność protokołu BGP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
 |ArpAvailability|Dostępność protokołu ARP|Procent|Średnia|Dostępność protokołu ARP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
 |QosDropBitsInPerSecond|DroppedInBitsPerSecond|CountPerSecond|Średnia|Liczba porzuconych bitów danych przychodzących na sekundę|Brak|
@@ -1661,22 +1661,22 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Brak|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Brak|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Brak|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Brak|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft. Network/Connections
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Brak|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Brak|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Brak|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Brak|
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft. Network/expressRouteGateways
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|ConnectionName|
-|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|ConnectionName|
+|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|ConnectionName|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficManagerProfiles
 
@@ -1856,8 +1856,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Average_Bytes całkowita/s|Całkowita liczba bajtów/s|Liczba|Średnia|Average_Bytes całkowita/s|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Długość kolejki Average_Processor|Długość kolejki procesora|Liczba|Średnia|Długość kolejki Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Puls|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
-|Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizowanie|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
-|Zdarzenie|Zdarzenie|Liczba|Średnia|Zdarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
+|Wydarzenie|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. Komunikacja równorzędna/peeringServices
 
@@ -1915,7 +1915,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |SenderConnections — błąd servererror|SenderConnections — błąd servererror|Liczba|Łącznie|Błąd servererror on SenderConnections dla elementu Microsoft. Relay.|EntityName, klasy OperationResult|
 |ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Liczba|Łącznie|Łącznie ListenerConnections dla elementu Microsoft. Relay.|EntityName|
 |SenderConnections — TotalRequests|SenderConnections — TotalRequests|Liczba|Łącznie|Łączna liczba żądań SenderConnections dla elementu Microsoft. Relay.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Łącznie|Łącznie połączeń ActiveConnections dla elementu Microsoft. Relay.|EntityName|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Łącznie|Łącznie połączeń ActiveConnections dla elementu Microsoft. Relay.|EntityName|
 |ActiveListeners|ActiveListeners|Liczba|Łącznie|Łącznie ActiveListeners dla elementu Microsoft. Relay.|EntityName|
 |BytesTransferred|BytesTransferred|Liczba|Łącznie|Łącznie BytesTransferred dla elementu Microsoft. Relay.|EntityName|
 |ListenerDisconnects|ListenerDisconnects|Liczba|Łącznie|Łącznie ListenerDisconnects dla elementu Microsoft. Relay.|EntityName|
@@ -1935,16 +1935,16 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Łączna liczba pomyślnych żądań dla przestrzeni nazw|EntityName, klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Łączna liczba pomyślnych żądań dla przestrzeni nazw|EntityName, klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla Microsoft. ServiceBus.|EntityName|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. ServiceBus.|EntityName|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. ServiceBus.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Łącznie|Całkowita liczba aktywnych połączeń dla elementu Microsoft. ServiceBus.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Łącznie|Całkowita liczba aktywnych połączeń dla elementu Microsoft. ServiceBus.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. ServiceBus.|EntityName|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. ServiceBus.|EntityName|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. ServiceBus.|EntityName|
 |Rozmiar|Rozmiar|Bajty|Średnia|Rozmiar kolejki/tematu w bajtach.|EntityName|
 |Komunikaty|Liczba komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba komunikatów w kolejce/temacie.|EntityName|
 |ActiveMessages|Liczba aktywnych komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba aktywnych komunikatów w kolejce/temacie.|EntityName|
@@ -2144,12 +2144,12 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udziału|
-|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udziału|
+|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udział plików|
+|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udział plików|
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
-|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udziału|
-|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udziału|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udziału|
+|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
+|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
+|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|

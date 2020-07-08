@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67133076"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Przygotowywanie do uwierzytelniania żądań Azure Resource Manager
@@ -41,8 +41,8 @@ Poniższe kroki pokazują, jak skonfigurować uwierzytelnianie hasła dla aplika
 3. Utwórz nową aplikację Azure Active Directory przy użyciu następującego polecenia, zastępując posiadaczy miejsc:
    
    * **{Display Name}:** nazwa wyświetlana aplikacji, taka jak **MySampleApp**
-   * **{Adres URL strony głównej}:** adres URL strony głównej aplikacji, na przykład **http:\//mysampleapp/Home**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
-   * **{Identyfikator aplikacji}:** Unikatowy identyfikator, taki jak **http:\//mysampleapp**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
+   * **{Adres URL strony głównej}:** adres URL strony głównej aplikacji, na przykład **http: \/ /mysampleapp/Home**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
+   * **{Identyfikator aplikacji}:** Unikatowy identyfikator, taki jak **http: \/ /mysampleapp**. Ten adres URL nie musi wskazywać prawdziwej aplikacji.
    * **{Password}:** Hasło używane do uwierzytelniania w aplikacji.
      
      ```powershell

@@ -5,10 +5,10 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/27/2020
 ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80371664"
 ---
 Po zatwierdzeniu do wystąpienia zarezerwowanego maszyny wirtualnej platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych maszyn wirtualnych, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do maszyny wirtualnej, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia maszyny wirtualnej. W przypadku maszyn wirtualnych z systemem Windows licznik użycia jest podzielony na dwa oddzielne liczniki. Istnieje licznik obliczeniowy, który jest taki sam jak licznik systemu Linux i miernik adresów IP w systemie Windows. Opłaty, które zobaczysz po dokonaniu zakupu, dotyczą tylko kosztów obliczeń. Opłaty nie obejmują kosztów oprogramowania systemu Windows. Aby uzyskać więcej informacji o kosztach oprogramowania, zobacz [koszty oprogramowania nieuwzględnione w Azure Reserved VM Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji o elastyczności rozmiaru wystąpienia, zobacz a
 
 ### <a name="analyze-your-usage-information"></a>Analizowanie informacji o użyciu
 
-Analizuj informacje o użyciu, aby pomóc w ustaleniu, które rezerwacje należy zakupić. Dane użycia są dostępne w pliku użycia i interfejsach API. Należy używać ich razem w celu określenia rezerwacji do zakupu. Sprawdź wystąpienia maszyn wirtualnych o wysokim poziomie użycia codziennie, aby określić liczbę rezerwacji do zakupu. `Meter` Należy unikać podkategorii i `Product` pól w danych użycia. Nie rozróżniają one rozmiarów maszyn wirtualnych korzystających z magazynu Premium Storage. Jeśli te pola są używane do określenia rozmiaru maszyny wirtualnej dla zakupu rezerwacji, można zakupić niewłaściwy rozmiar. Nie zostanie wyświetlony oczekiwany rabat rezerwacji. Zamiast tego zapoznaj się `AdditionalInfo` z polem w pliku użycia lub interfejsie API użycia, aby określić prawidłowy rozmiar maszyny wirtualnej.
+Analizuj informacje o użyciu, aby pomóc w ustaleniu, które rezerwacje należy zakupić. Dane użycia są dostępne w pliku użycia i interfejsach API. Należy używać ich razem w celu określenia rezerwacji do zakupu. Sprawdź wystąpienia maszyn wirtualnych o wysokim poziomie użycia codziennie, aby określić liczbę rezerwacji do zakupu. Należy unikać `Meter` podkategorii i `Product` pól w danych użycia. Nie rozróżniają one rozmiarów maszyn wirtualnych korzystających z magazynu Premium Storage. Jeśli te pola są używane do określenia rozmiaru maszyny wirtualnej dla zakupu rezerwacji, można zakupić niewłaściwy rozmiar. Nie zostanie wyświetlony oczekiwany rabat rezerwacji. Zamiast tego zapoznaj się z `AdditionalInfo` polem w pliku użycia lub interfejsie API użycia, aby określić prawidłowy rozmiar maszyny wirtualnej.
 
 Twój plik użycia pokazuje opłaty według okresu rozliczeniowego i dziennego użycia. Aby uzyskać informacje na temat pobierania pliku użycia, zobacz [Wyświetlanie i pobieranie użycia platformy Azure oraz opłat](../articles/cost-management-billing/understand/download-azure-daily-usage.md). Następnie za pomocą informacji o pliku użycia można [określić, jakie rezerwacji należy kupić](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
 
@@ -87,7 +87,7 @@ Te wymagania dotyczą kupowania zarezerwowanych wystąpień maszyn wirtualnych:
 Aby kupić wystąpienie:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wybierz pozycję **wszystkie** > **rezerwacje**usług.
+1. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 1. Wybierz pozycję **Dodaj** , aby zakupić nową rezerwację, a następnie kliknij pozycję **maszyna wirtualna**.
 1. Podaj wartości w wymaganych polach. Uruchomione wystąpienia maszyn wirtualnych pasujące do wybranych atrybutów kwalifikują się do uzyskania rabatu rezerwacji. Rzeczywista liczba wystąpień maszyn wirtualnych objętych rabatem zależy od wybranego zakresu i wybranej ilości.
 
@@ -101,7 +101,7 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko doda�
 |Region    |Region świadczenia usługi Azure objęty rezerwacją.|    
 |Rozmiar maszyny wirtualnej     |Rozmiar wystąpień maszyn wirtualnych.|
 |Optymalizuj pod kątem     |Domyślnie wybrana jest elastyczność rozmiaru wystąpienia maszyny wirtualnej. Kliknij pozycję **Ustawienia zaawansowane** , aby zmienić elastyczność rozmiaru wystąpienia, aby zastosować rabat rezerwacji do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Oferuje ona dodatkowe zaufanie do uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz. Priorytet pojemności jest dostępny tylko wtedy, gdy zakresem rezerwacji jest pojedyncza subskrypcja. |
-|Termin        |Jeden rok lub trzy lata.|
+|Okres        |Jeden rok lub trzy lata.|
 |Liczba    |Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych wystąpień maszyn wirtualnych, które mogą uzyskać rabat rozliczeń. Jeśli na przykład w regionie Wschodnie stany USA są uruchomione 10 Standard_D2 maszyn wirtualnych, należy określić liczbę jako 10, aby zmaksymalizować korzyść dla wszystkich uruchomionych maszyn wirtualnych. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
@@ -133,7 +133,7 @@ Istnieje jednak możliwość *wymiany* rezerwacji, jeśli chcesz wprowadzić zmi
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
@@ -141,11 +141,11 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz [Zarządzanie rejestracjami platformy Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
+- Aby dowiedzieć się, jak zarządzać wystąpieniem zarezerwowanym, zobacz temat [Manage Azure Reservations](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md) (Zarządzanie wystąpieniami zarezerwowanymi na platformie Azure).
 - Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
-    - [Co to są Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+    - [Co to są rezerwacje platformy Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
     - [Zarządzanie rezerwacjami na platformie Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
-    - [Omówienie stosowania rabatu na rezerwacje](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
+    - [Jak jest stosowany rabat na rezerwacje](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
     - [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
     - [Koszty oprogramowania systemu Windows nieuwzględniane w przypadku wystąpień zarezerwowanych](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)

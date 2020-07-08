@@ -5,10 +5,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 1eb4e9d349fdd0097cbde4e4cef3d5c61a167193
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84908141"
 ---
 # <a name="configure-a-windows-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP systemu Windows dla Azure App Service

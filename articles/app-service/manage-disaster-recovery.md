@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 8c57cf5054bea898370cdccc7bea4243877d27b5
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84947076"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Przenoszenie aplikacji App Service do innego regionu
@@ -32,7 +32,7 @@ Zidentyfikuj wszystkie zasoby App Service aktualnie używane przez aplikację, k
 - [Certyfikaty SSL](configure-ssl-certificate.md)
 - [Integracja z usługą Azure Virtual Network](web-sites-integrate-with-vnet.md)
 - [Połączenia hybrydowe](app-service-hybrid-connections.md).
-- [Zarządzane tożsamości](overview-managed-identity.md)
+- [Tożsamości zarządzane](overview-managed-identity.md)
 - [Ustawienia kopii zapasowej](manage-backup.md)
 
 Niektóre zasoby, takie jak zaimportowane certyfikaty lub połączenia hybrydowe, zawierają integrację z innymi usługami platformy Azure. Aby uzyskać informacje na temat przenoszenia tych zasobów między regionami, zapoznaj się z dokumentacją odpowiednich usług.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
 ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84945379"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
@@ -109,7 +109,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Event Grid | Yes | Nie | Nie |  |
 |Event Hubs | Tak | Tak | Nie |  |
 |ExpressRoute | Tak | Tak | Nie |  |
-|Firewall | Tak | Tak | Nie |  |
+|Zapora | Tak | Tak | Nie |  |
 |Front Door | Tak | Tak | Nie |  |
 |Funkcje | Tak | Tak | Nie |  |
 |HDInsight | Nie | Yes | Nie |  |
@@ -118,7 +118,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Intune | Nie | Yes | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
 |Usługa IoT Hub | Tak | Tak | Nie |  |
-|Key Vault | Tak | Tak | [Tak](insights/key-vaults-insights-overview.md) |  |
+|Usługa Key Vault | Tak | Tak | [Tak](insights/key-vaults-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
 |Load Balancer | Tak | Tak | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
@@ -152,10 +152,10 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Site Recovery | Nie | Yes | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |SQL Data Warehouse | Tak | Tak | Nie |  |
-|SQL Database | Tak | Tak | Nie |  |
+|Baza danych SQL | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Storage | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Magazyn | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |

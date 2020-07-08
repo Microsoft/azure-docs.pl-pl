@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: functions
 author: nzthiago
 ms.service: azure-functions
@@ -9,17 +9,17 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77198330"
 ---
 ## <a name="function-app-timeout-duration"></a><a name="timeout"></a>Czas trwania aplikacji funkcji 
 
-Czas trwania aplikacji funkcji jest definiowany przez `functionTimeout` właściwość w pliku projektu [host. JSON](../articles/azure-functions/functions-host-json.md#functiontimeout) . W poniższej tabeli przedstawiono wartości domyślne i maksymalne w minutach dla obu planów i różnych wersji środowiska uruchomieniowego:
+Czas trwania aplikacji funkcji jest definiowany przez `functionTimeout` Właściwość w [host.jsw](../articles/azure-functions/functions-host-json.md#functiontimeout) pliku projektu. W poniższej tabeli przedstawiono wartości domyślne i maksymalne w minutach dla obu planów i różnych wersji środowiska uruchomieniowego:
 
-| Planowanie | Wersja środowiska uruchomieniowego | Domyślny | Maksimum |
+| Planowanie | Wersja środowiska uruchomieniowego | Domyślne | Maksimum |
 |------|---------|---------|---------|
 | Zużycie | 1.x | 5 | 10 |
 | Zużycie | 2.x | 5 | 10 |

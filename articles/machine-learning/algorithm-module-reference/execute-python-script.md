@@ -11,10 +11,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
 ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84907554"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python

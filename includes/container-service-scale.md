@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66814795"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
@@ -29,7 +29,7 @@ Można zmienić liczbę węzłów agenta w klastrze DC/OS, Docker Swarm lub Kube
 
 ## <a name="scale-with-the-azure-cli"></a>Skalowanie za pomocą interfejsu wiersza polecenia platformy Azure
 
-[Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zaloguj się do konta platformy `az login`Azure przy użyciu usługi.
+[Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zaloguj się do konta platformy Azure przy użyciu usługi `az login` .
 
 ### <a name="see-the-current-agent-count"></a>Sprawdzanie bieżącej liczby agentów
 Aby wyświetlić bieżącą liczbę agentów w klastrze, uruchom polecenie `az acs show`. Przedstawia ono konfigurację klastra. Na przykład następujące polecenie przedstawia konfigurację usługi kontenera o nazwie `containerservice-myACSName` w grupie zasobów `myResourceGroup`:
