@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6d0cde3d3615350658a06cf118ff38cebf8952c9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735017"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040456"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty konfiguracji sieci w Azure Active Directory Domain Services
 
-Aby aplikacje i usługi poprawnie komunikują się z Azure Active Directory Domain Services (Azure AD DS), należy otworzyć określone porty sieciowe, aby umożliwić przepływ ruchu. Na platformie Azure można kontrolować przepływ ruchu przy użyciu sieciowych grup zabezpieczeń. Stan kondycji domeny zarządzanej AD DS platformy Azure pokazuje alert, jeśli nie ma wymaganych reguł sieciowej grupy zabezpieczeń.
+Aby aplikacje i usługi poprawnie komunikują się z domeną zarządzaną Azure Active Directory Domain Services (Azure AD DS), należy otworzyć określone porty sieciowe, aby umożliwić przepływ ruchu. Na platformie Azure można kontrolować przepływ ruchu przy użyciu sieciowych grup zabezpieczeń. Stan kondycji domeny zarządzanej AD DS platformy Azure pokazuje alert, jeśli nie ma wymaganych reguł sieciowej grupy zabezpieczeń.
 
 Ten artykuł ułatwia zrozumienie i rozwiązywanie typowych alertów dotyczących problemów z konfiguracją sieciowych grup zabezpieczeń.
 
@@ -34,7 +33,7 @@ Nieprawidłowe reguły sieciowej grupy zabezpieczeń są Najczęstszymi przyczyn
 
 ## <a name="default-security-rules"></a>Domyślne reguły zabezpieczeń
 
-Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego są stosowane do sieciowej grupy zabezpieczeń dla domeny zarządzanej. Te reguły przechowują AD DS platformy Azure i umożliwiają korzystanie z platformy Azure w celu monitorowania i aktualizowania domeny zarządzanej oraz zarządzania nią. Możesz również mieć dodatkową regułę, która zezwala na ruch przychodzący w przypadku [skonfigurowania bezpiecznego protokołu LDAP][configure-ldaps].
+Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego są stosowane do sieciowej grupy zabezpieczeń dla domeny zarządzanej. Te reguły przechowują AD DS platformy Azure i umożliwiają korzystanie z platformy Azure w celu monitorowania i aktualizowania domeny zarządzanej oraz zarządzania nią.
 
 ### <a name="inbound-security-rules"></a>Reguły zabezpieczeń dla ruchu przychodzącego
 
@@ -46,6 +45,9 @@ Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychod
 | 65000    | AllVnetInBound | Dowolne | Dowolne | VirtualNetwork | VirtualNetwork | Zezwalaj |
 | 65001    | AllowAzureLoadBalancerInBound | Dowolne | Dowolne | AzureLoadBalancer | Dowolne | Zezwalaj |
 | 65500    | DenyAllInBound | Dowolne | Dowolne | Dowolne | Dowolne | Zablokuj |
+
+> [!NOTE]
+> Możesz również mieć dodatkową regułę, która zezwala na ruch przychodzący w przypadku [skonfigurowania bezpiecznego protokołu LDAP][configure-ldaps]. Ta dodatkowa reguła jest wymagana dla poprawnej komunikacji z LDAPs.
 
 ### <a name="outbound-security-rules"></a>Reguły zabezpieczeń dla ruchu wychodzącego
 

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d71e8af607ac15c708ff18a2f2a91e11ed36a987
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987742"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Jak skonfigurować protokół BGP na bramie sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia

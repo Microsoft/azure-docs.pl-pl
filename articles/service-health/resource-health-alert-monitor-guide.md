@@ -4,13 +4,12 @@ description: Utwórz alert przy użyciu Azure Portal, który powiadomi Cię, gdy
 ms.topic: conceptual
 ms.date: 6/23/2020
 ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85218038"
 ---
-# <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu Azure Portal
+# <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu witryny Azure Portal
 
 W tym artykule opisano sposób konfigurowania alertów dziennika aktywności dla powiadomień o kondycji zasobów przy użyciu Azure Portal.
 
@@ -77,4 +76,4 @@ Utwórz alerty Service Health:
 
 * [Konfigurowanie alertów dla Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
 * [Schemat zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-schema.md)
-* [Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów Menedżer zasobów](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów usługi Resource Manager](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)

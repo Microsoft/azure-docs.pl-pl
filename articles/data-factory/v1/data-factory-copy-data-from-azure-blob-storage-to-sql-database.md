@@ -14,10 +14,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6c8c93c8721527d506847e394a02fc4eb5a98c47
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85248364"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: kopiowanie danych z Blob Storage do SQL Database przy użyciu Data Factory
@@ -26,7 +25,7 @@ ms.locfileid: "85248364"
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 > * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -117,7 +116,7 @@ Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzys
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

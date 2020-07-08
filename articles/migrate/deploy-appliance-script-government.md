@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate w Azure 
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052486"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
@@ -49,7 +48,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 3. Sprawdź, czy Najnowsza wersja i wartość skrótu urządzenia:
 
-    **Algorytm** | **Pobierz** | **SHA256**
+    **Algorytm** | **Pobieranie** | **SHA256**
     --- | --- | ---
     VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
 
@@ -101,7 +100,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 3. Sprawdź, czy Najnowsza wersja i wartość skrótu urządzenia:
 
-    **Scenariusz** | **Pobierz** | **SHA256**
+    **Scenariusz** | **Pobieranie** | **SHA256**
     --- | --- | ---
     Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430662"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia IoT Edge
@@ -53,11 +52,11 @@ Aby utworzyć certyfikaty demonstracyjne na urządzeniu z systemem Windows, nale
 #### <a name="install-openssl"></a>Zainstaluj OpenSSL
 
 Zainstaluj program OpenSSL dla systemu Windows na komputerze, którego używasz do generowania certyfikatów.
-Jeśli masz już zainstalowaną OpenSSL na urządzeniu z systemem Windows, możesz pominąć ten krok, ale upewnij się, że OpenSSL. exe jest dostępny w zmiennej środowiskowej PATH.
+Jeśli masz już zainstalowaną OpenSSL na urządzeniu z systemem Windows, możesz pominąć ten krok, ale upewnij się, że openssl.exe jest dostępny w zmiennej środowiskowej PATH.
 
 Istnieje kilka sposobów instalacji programu OpenSSL, w tym następujące opcje:
 
-* **Łatwiejsze:** Pobierz i zainstaluj wszystkie [pliki binarne OpenSSL innych](https://wiki.openssl.org/index.php/Binaries)firm, na przykład z [OpenSSL na sourceforge](https://sourceforge.net/projects/openssl/). Dodaj pełną ścieżkę do OpenSSL. exe do zmiennej środowiskowej PATH.
+* **Łatwiejsze:** Pobierz i zainstaluj wszystkie [pliki binarne OpenSSL innych](https://wiki.openssl.org/index.php/Binaries)firm, na przykład z [OpenSSL na sourceforge](https://sourceforge.net/projects/openssl/). Dodaj pełną ścieżkę do openssl.exe do zmiennej środowiskowej PATH.
 
 * **Zalecane:** Pobierz kod źródłowy OpenSSL i Utwórz pliki binarne na komputerze przez siebie lub za pośrednictwem [vcpkg](https://github.com/Microsoft/vcpkg). Poniższe instrukcje wykorzystują vcpkg do pobierania kodu źródłowego, kompilowania i instalowania OpenSSL na komputerze z systemem Windows z prostymi krokami.
 
@@ -69,7 +68,7 @@ Istnieje kilka sposobów instalacji programu OpenSSL, w tym następujące opcje:
       .\vcpkg install openssl:x64-windows
       ```
 
-   3. Dodaj `<vcpkg path>\installed\x64-windows\tools\openssl` do zmiennej środowiskowej PATH, tak aby plik OpenSSL. exe był dostępny do wywołania.
+   3. Dodaj `<vcpkg path>\installed\x64-windows\tools\openssl` do zmiennej środowiskowej PATH, aby plik openssl.exe był dostępny do wywołania.
 
 #### <a name="prepare-scripts-in-powershell"></a>Przygotowywanie skryptów w programie PowerShell
 
