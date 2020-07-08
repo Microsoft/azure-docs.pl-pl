@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: a0131e461f2664fa06fc0e24237aec1579bd253c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85203847"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Logowanie w sieci Web za pomocą OpenID Connect Connect in Azure Active Directory B2C
@@ -88,7 +88,7 @@ error=access_denied
 
 | Parametr | Opis |
 | --------- | ----------- |
-| error | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
+| Błąd | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
 | error_description | Określony komunikat o błędzie, który może pomóc identyfikować główną przyczynę błędu uwierzytelniania. |
 | state | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 
@@ -188,7 +188,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --------- | ----------- |
-| error | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
+| Błąd | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
 | error_description | Komunikat, który może pomóc identyfikować główną przyczynę błędu uwierzytelniania. |
 
 ## <a name="use-the-token"></a>Użyj tokenu
@@ -257,7 +257,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --------- | ----------- |
-| error | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
+| Błąd | Kod, który może służyć do klasyfikowania typów błędów, które występują. |
 | error_description | Komunikat, który może pomóc identyfikować główną przyczynę błędu uwierzytelniania. |
 
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania

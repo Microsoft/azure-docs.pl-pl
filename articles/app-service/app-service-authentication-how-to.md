@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85205649"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
@@ -249,7 +249,7 @@ Chociaż App Service zajmuje się najprostszym przypadkiem autoryzacji (tj. odrz
 
 W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie autoryzacji serwera sieci Web usług IIS, edytując plik *Web.config* . Aplikacje systemu Linux nie używają usług IIS i nie można ich skonfigurować za pomocą *Web.config*.
 
-1. Przejdź do`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. Przejdź do strony `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
 1. W Eksploratorze przeglądarki plików App Service przejdź do *lokalizacji site/wwwroot*. Jeśli *Web.config* nie istnieje, utwórz ją, wybierając pozycję **+**  >  **nowy plik**. 
 

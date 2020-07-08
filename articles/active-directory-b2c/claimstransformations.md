@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85202963"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -159,9 +159,9 @@ Można na przykład przechowywać w ostatniej wersji usługi, która zaakceptowa
 
 Przykłady przekształceń oświadczeń można znaleźć na następujących stronach odniesienia:
 
-- [Wartość logiczna](boolean-transformations.md)
+- [Boolean](boolean-transformations.md)
 - [Date](date-transformations.md)
-- [Liczba całkowita](integer-transformations.md)
+- [Całkowitą](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numer telefonu](phone-number-claims-transformations.md)
 - [Ogólne](general-transformations.md)

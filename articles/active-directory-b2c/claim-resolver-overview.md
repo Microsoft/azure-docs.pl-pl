@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201179"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
@@ -122,8 +122,8 @@ Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 m
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`Wartość elementu z żądania SAML. | urn: języka Oasis: names: TC: SAML: 2.0: AC: klasy: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format`Atrybut, od `NameIDPolicy` elementu żądania SAML. | urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: emailAddress |
 | {SAML: Issuer} |  `Issuer`Wartość elementu SAML żądania SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | `AllowCreate`Wartość atrybutu z `NameIDPolicy` elementu żądania języka SAML. | True |
-| {SAML: ForceAuthn} | `ForceAuthN`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML. | True |
+| {SAML: AllowCreate} | `AllowCreate`Wartość atrybutu z `NameIDPolicy` elementu żądania języka SAML. | Prawda |
+| {SAML: ForceAuthn} | `ForceAuthN`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML. | Prawda |
 | {SAML: ProviderName} | `ProviderName`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML.| Contoso.com |
 | {SAML: RelayState} | `RelayState`Parametr ciągu zapytania.| 
 

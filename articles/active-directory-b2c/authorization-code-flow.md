@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: dd94811baddba3a40910b3a0c68eb4e1b2744b0b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201246"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Przepływ kodu autoryzacji OAuth 2,0 w Azure Active Directory B2C
@@ -92,7 +92,7 @@ error=access_denied
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
+| Błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 | state |Zobacz pełny opis w powyższej tabeli. Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 
@@ -153,7 +153,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
+| Błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które wystąpiły. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 ## <a name="3-use-the-token"></a>3. Użyj tokenu
@@ -219,7 +219,7 @@ Odpowiedzi na błędy wyglądają następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
+| Błąd |Ciąg kodu błędu, którego można użyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>Korzystanie z własnego katalogu Azure AD B2C

@@ -11,10 +11,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85201450"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Żądanie tokenu dostępu w Azure Active Directory B2C
