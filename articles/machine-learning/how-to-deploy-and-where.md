@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 06/12/2020
 ms.custom: seoapril2019, tracking-python
 ms.openlocfilehash: bc9ab6ddf3a9032fd1919b70d830f0d65cdc06ed
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817976"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
@@ -236,7 +236,7 @@ AZUREML_MODEL_DIR jest zmienną środowiskową utworzoną podczas wdrażania us�
 
 W poniższej tabeli opisano wartość AZUREML_MODEL_DIR w zależności od liczby wdrożonych modeli:
 
-| wdrażania | Wartość zmiennej środowiskowej |
+| Wdrożenie | Wartość zmiennej środowiskowej |
 | ----- | ----- |
 | Jeden model | Ścieżka do folderu zawierającego model. |
 | Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze ( `$MODEL_NAME/$VERSION` ) |

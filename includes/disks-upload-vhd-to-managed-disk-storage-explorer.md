@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74013798"
 ---
 Eksplorator usługi Storage 1.10.0 umożliwia użytkownikom przekazywanie, pobieranie i kopiowanie dysków zarządzanych, a także tworzenie migawek. Ze względu na te dodatkowe możliwości można używać Eksplorator usługi Storage do migrowania danych z lokalnego na platformę Azure oraz migrowania danych między regionami platformy Azure.
@@ -42,7 +42,7 @@ Jeśli Eksplorator usługi Storage nie jest połączony z platformą Azure, nie 
 
 1. Wybierz subskrypcję z listy, a następnie kliknij przycisk **Zastosuj**.
 
-    ![Wybierz swoją subskrypcję](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
+    ![Wybieranie subskrypcji](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
 ## <a name="upload-a-managed-disk-from-an-on-prem-vhd"></a>Przekaż dysk zarządzany na podstawie Premium wirtualnego dysku twardego
 
@@ -50,7 +50,7 @@ Jeśli Eksplorator usługi Storage nie jest połączony z platformą Azure, nie 
 
     ![Wybierz grupę zasobów 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. Wybierz pozycję **Przekaż**.
+1. Wybierz przycisk **Przekaż**.
 
     ![Wybieranie pozycji Przekaż](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 

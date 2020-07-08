@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872132"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Rejestrowanie połączenia usługi komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure

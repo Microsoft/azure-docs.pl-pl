@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
 ms.openlocfilehash: 53adf974a3af4a2cc3e5c89156fe4b50571c7b79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871729"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Azure Active Directory konfigurację tożsamości dla interfejsu API platformy Azure dla FHIR

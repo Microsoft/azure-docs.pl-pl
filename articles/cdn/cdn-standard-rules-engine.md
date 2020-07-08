@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887530"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Skonfiguruj aparat reguł standardowych dla Azure CDN

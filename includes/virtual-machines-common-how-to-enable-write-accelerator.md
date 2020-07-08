@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74566326"
 ---
 Akcelerator zapisu to możliwość dysku dla Virtual Machines serii M (VM) na Premium Storage z platformą Azure Managed Disks. Podobnie jak w przypadku nazw, celem funkcji jest poprawa opóźnienia operacji we/wy na platformie Azure Premium Storage. Akcelerator zapisu doskonale nadaje się do miejsca, w którym są wymagane aktualizacje plików dziennika, aby zachować wysoką dostępność nowoczesnych baz danych.
@@ -112,7 +112,7 @@ Dwa główne scenariusze można wykonać w skrypcie, jak pokazano w poniższych 
 
 Za pomocą tego skryptu można dodać nowy dysk do maszyny wirtualnej. Dysk utworzony za pomocą tego skryptu używa akcelerator zapisu.
 
-Zamień `myVM`, `myWAVMs`, `log001`, rozmiar dysku i LunID dysku na wartości odpowiednie dla określonego wdrożenia.
+Zamień `myVM` , `myWAVMs` , `log001` , rozmiar dysku i LunID dysku na wartości odpowiednie dla określonego wdrożenia.
 
 ```powershell
 # Specify your VM Name
@@ -135,7 +135,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Włączanie akcelerator zapisu na istniejącym dysku platformy Azure przy użyciu programu PowerShell
 
-Za pomocą tego skryptu można włączyć akcelerator zapisu na istniejącym dysku. `myVM`Zastąp `myWAVMs`wartości, `test-log001` i wartościami odpowiednimi dla określonego wdrożenia. Skrypt dodaje akcelerator zapisu do istniejącego dysku, gdzie wartość dla **$newStatus** jest ustawiona na "$true". Użycie wartości "$false" spowoduje wyłączenie akcelerator zapisu na danym dysku.
+Za pomocą tego skryptu można włączyć akcelerator zapisu na istniejącym dysku. Zastąp `myVM` `myWAVMs` wartości, i `test-log001` wartościami odpowiednimi dla określonego wdrożenia. Skrypt dodaje akcelerator zapisu do istniejącego dysku, gdzie wartość dla **$newStatus** jest ustawiona na "$true". Użycie wartości "$false" spowoduje wyłączenie akcelerator zapisu na danym dysku.
 
 ```powershell
 #Specify your VM Name
@@ -179,19 +179,19 @@ Aby przeprowadzić wdrożenie za pomocą interfejsu API REST platformy Azure, na
 
 ### <a name="install-armclient"></a>Zainstaluj armclient
 
-Aby uruchomić armclient, należy zainstalować ją za poorednictwem czekolady. Można go zainstalować za poorednictwem cmd. exe lub PowerShell. Użyj podwyższonych uprawnień dla tych poleceń ("Uruchom jako administrator").
+Aby uruchomić armclient, należy zainstalować ją za poorednictwem czekolady. Można go zainstalować za poorednictwem cmd.exe lub PowerShell. Użyj podwyższonych uprawnień dla tych poleceń ("Uruchom jako administrator").
 
-Używając cmd. exe, uruchom następujące polecenie:`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+Korzystając z cmd.exe, uruchom następujące polecenie:`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
 Korzystając z usługi PowerShell, uruchom następujące polecenie:`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-Teraz można zainstalować armclient za pomocą następującego polecenia w programie cmd. exe lub programie PowerShell.`choco install armclient`
+Teraz można zainstalować armclient za pomocą następującego polecenia w cmd.exe lub PowerShell`choco install armclient`
 
 ### <a name="getting-your-current-vm-configuration"></a>Pobieranie bieżącej konfiguracji maszyny wirtualnej
 
 Aby zmienić atrybuty konfiguracji dysku, należy najpierw pobrać bieżącą konfigurację w pliku JSON. Bieżącą konfigurację można uzyskać, wykonując następujące polecenie:`armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 
-Zastąp warunki w obszarze "<<   >>" danymi, włącznie z nazwą pliku, który powinien zawierać plik JSON.
+Zamień warunki w elemencie "<<   >>" na dane, łącznie z nazwą pliku, który powinien zawierać plik JSON.
 
 Dane wyjściowe mogą wyglądać następująco:
 

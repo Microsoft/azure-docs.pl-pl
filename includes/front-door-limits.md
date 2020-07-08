@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: frontdoor
 author: sharad4u
 ms.service: frontdoor
@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: 148ec3eccce71ab7a4a6c1391c0fa4753c248bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334591"
 ---
 | Zasób | Limit |
@@ -51,7 +51,7 @@ ms.locfileid: "80334591"
 
 |  | Z kodowaniem transferu fragmentarycznego (CTE) | Bez fragmentacji HTTP |
 | ---- | ------- | ------- |
-| **Pobierz** | Nie ma żadnego limitu rozmiaru pobierania. | Nie ma żadnego limitu rozmiaru pobierania. |
+| **Pobieranie** | Nie ma żadnego limitu rozmiaru pobierania. | Nie ma żadnego limitu rozmiaru pobierania. |
 | **Przekaż** |    Nie ma żadnego limitu, o ile każde przesłanie CTE jest mniejsze niż 2 GB. | Rozmiar nie może być większy niż 2 GB. |
 
 ### <a name="other-limits"></a>Inne limity

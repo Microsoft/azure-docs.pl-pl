@@ -13,10 +13,10 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84904800"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurowanie aplikacji mobilnej, która wywołuje interfejsy API sieci Web

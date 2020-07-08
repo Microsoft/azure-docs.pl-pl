@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888752"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
@@ -230,7 +230,7 @@ Poniższe Wyniki pokazują dwa różne formaty danych wyjściowych:
 
 Aby zobaczyć, jak działa działanie, Uruchommy kilka testów. Najpierw Wdróż [szablon, który tworzy sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Ta sieć wirtualna będzie używana do testowania, w jaki sposób zmiany są raportowane przez co to jest.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -258,7 +258,7 @@ az deployment group create \
 
 Po zakończeniu wdrażania możesz sprawdzić, czy operacja co należy wykonać. Tym razem wdrażasz [szablon, który zmienia sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Brak jednego z oryginalnych tagów, podsieć została usunięta, a prefiks adresu został zmieniony.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -320,7 +320,7 @@ Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zm
 
 Teraz można programowo oszacować wyniki działania warunkowego, ustawiając polecenie na zmienną.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
@@ -351,7 +351,7 @@ Operacja działania warunkowego obsługuje używanie [trybu wdrożenia](deployme
 
 Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj polecenia Confirm Switch z poleceniem Deployment. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `

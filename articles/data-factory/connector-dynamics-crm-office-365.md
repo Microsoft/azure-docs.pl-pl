@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887011"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
@@ -378,21 +378,21 @@ Skonfiguruj odpowiedni typ danych Data Factory w strukturze zestawu danych, któ
 | Typ danych Dynamics | Data Factory typ danych pośrednich | Obsługiwane jako źródło | Obsługiwane jako ujścia |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Długo | ✓ | ✓ |
-| AttributeTypeCode. Boolean | Wartość logiczna | ✓ | ✓ |
+| AttributeTypeCode. Boolean | Boolean | ✓ | ✓ |
 | AttributeType. Customer | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. DateTime | Datetime (data/godzina) | ✓ | ✓ |
 | AttributeType. Decimal | Wartość dziesiętna | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
-| AttributeType. EntityName | Ciąg | ✓ | ✓ |
+| AttributeType. EntityName | String | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
 | AttributeType. Lookup | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
-| AttributeType. ManagedProperty | Wartość logiczna | ✓ | |
-| AttributeType. MEMO | Ciąg | ✓ | ✓ |
+| AttributeType. ManagedProperty | Boolean | ✓ | |
+| AttributeType. MEMO | String | ✓ | ✓ |
 | AttributeType. Money | Wartość dziesiętna | ✓ | ✓ |
 | AttributeType. Owner | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. Lista wyboru | Int32 | ✓ | ✓ |
 | AttributeType. unikatowy identyfikator | GUID | ✓ | ✓ |
-| AttributeType. String | Ciąg | ✓ | ✓ |
+| AttributeType. String | String | ✓ | ✓ |
 | AttributeType. State | Int32 | ✓ | ✓ |
 | AttributeType. status | Int32 | ✓ | ✓ |
 

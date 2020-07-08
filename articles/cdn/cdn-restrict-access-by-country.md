@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
 ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887029"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Ogranicz zawartość Azure CDN według kraju/regionu
@@ -69,7 +69,7 @@ Po wybraniu krajów/regionów wybierz pozycję **Zapisz** , aby aktywować nową
 
 ![Reguły filtrowania geograficznego](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby usunąć regułę, wybierz ją z listy na stronie **filtrowania geograficznego** , a następnie wybierz **Usuń**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Azure CDN Premium z profilów Verizon
@@ -95,10 +95,10 @@ Dla **programu Azure CDN Premium z profilów Verizon** interfejs użytkownika s�
 
     ![Reguły filtrowania geograficznego](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 W tabeli reguł filtrowania kraju/regionu wybierz ikonę Usuń obok reguły, aby ją usunąć, lub ikonę edycji, aby ją zmodyfikować.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 * Zmiany w konfiguracji filtrowania geograficznego nie zaczynają obowiązywać natychmiast:
    * W przypadku profili usługi **Azure CDN Standard from Microsoft** propagacja zwykle trwa do 10 minut. 
    * W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 

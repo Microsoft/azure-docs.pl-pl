@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888067"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
@@ -75,7 +75,7 @@ W ramach wersji zapoznawczej nie ma dodatkowych kosztów związanych z replikacj
 
 Replikacja obiektów wymaga włączenia następujących funkcji usługi Azure Storage: 
 - [Źródło zmian](storage-blob-change-feed.md)
-- [Obsługa wersji](versioning-overview.md)
+- [Przechowywanie wersji](versioning-overview.md)
 
 Przed skonfigurowaniem replikacji obiektów należy włączyć jej wymagania wstępne. Źródło zmian musi być włączone na koncie źródłowym, a wersja obiektu BLOB musi być włączona zarówno na koncie źródłowym, jak i docelowym. Aby uzyskać więcej informacji na temat włączania tych funkcji, zobacz następujące artykuły:
 

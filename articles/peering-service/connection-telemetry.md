@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 0e54b20cc6aefa69226c24f557ae02166dc4b4b6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872008"
 ---
 # <a name="peering-service-connection-telemetry"></a>Telemetria połączenia usługi Komunikacja równorzędna

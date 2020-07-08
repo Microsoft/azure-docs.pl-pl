@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887574"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
@@ -66,7 +66,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Przeczyszczanie punktu końcowego Azure CDN](cdn-purge-endpoint.md)
 * [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

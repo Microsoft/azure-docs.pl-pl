@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817715"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Zabezpieczenia i ochrona danych w usłudze Azure Data Box
@@ -79,7 +79,7 @@ W usłudze Azure Data Box dane osobowe są zbierane i wyświetlane w następują
 
   - Nazwa kontaktu
   - Numer telefonu
-  - E-mail
+  - Poczta e-mail
   - Adres
   - Miasto
   - Kod pocztowy

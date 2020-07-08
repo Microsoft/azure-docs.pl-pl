@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
 ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84883983"
 ---
 # <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
@@ -445,7 +445,7 @@ Przykładowe właściwości:
 
 * [Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Dzienniki usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Dzienniki Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Interfejs API REST usługi Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887705"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizowanie wydajności węzła brzegowego w usłudze Microsoft Azure CDN
@@ -183,7 +183,7 @@ Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepu
 | Błędy 502 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały niewłaściwy kod odpowiedzi bramy 502. 502 nieprawidłowy kod odpowiedzi bramy występuje, gdy wystąpi awaria protokołu HTTP między serwerem i serwerem proxy HTTP. W przypadku naszej sieci CDN niewłaściwy kod odpowiedzi bramy 502 zwykle występuje, gdy serwer pochodzenia klienta zwróci nieprawidłową odpowiedź na serwer graniczny. Odpowiedź jest nieprawidłowa, jeśli nie można jej przeanalizować lub jeśli jest niepełna. |
 | Błędy 5xx |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 500.  Wykluczone z tego raportu to 502 niewłaściwe kody odpowiedzi bramy i bramy 504. |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

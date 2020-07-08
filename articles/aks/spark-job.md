@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887523"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Uruchamianie Apache Spark zadań w AKS

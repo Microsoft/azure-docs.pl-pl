@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
 ms.openlocfilehash: aa348728cd4e9ac0ce5d70cb293ac850cc549666
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84817128"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84887606"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN 

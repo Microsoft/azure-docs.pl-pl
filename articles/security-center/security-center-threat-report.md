@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
 ms.openlocfilehash: a4fdbab4a69fac1376779f37d5fa69fef587bf52
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84888221"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Raport analizy zagrożeń Azure Security Center

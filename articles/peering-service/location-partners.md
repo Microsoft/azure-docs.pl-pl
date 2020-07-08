@@ -11,10 +11,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/29/2020
 ms.author: derekol
 ms.openlocfilehash: 012468ea16a9d1125bbcc93333eb8dad586aa502
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84872104"
 ---
 # <a name="peering-service-partners"></a>Partnerzy usług komunikacji równorzędnej

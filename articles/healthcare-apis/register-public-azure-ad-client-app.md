@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: 5aa9e5a33dbe66e3ebd787decfa3a520454fc6f6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84871792"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Zarejestruj publiczną aplikację kliencką w Azure Active Directory
