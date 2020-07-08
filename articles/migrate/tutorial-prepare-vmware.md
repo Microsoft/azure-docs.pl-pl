@@ -4,18 +4,18 @@ description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtua
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: f3bfaf7c2396e0f1091299375aae4bfaa1d7e8ff
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771193"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109580"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Przygotowywanie maszyny wirtualnej środowiska VMware do oceny i migracji na platformę Azure
 
 Ten artykuł ułatwia przygotowanie się do oceny i migracji lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu [Azure Migrate](migrate-services-overview.md).
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure do pracy z Azure Migrate.
@@ -64,7 +64,7 @@ Aby zarejestrować urządzenie, konto platformy Azure musi mieć uprawnienia do 
 Udziel uprawnień do konta w następujący sposób:
 
 1. Upewnij się, że jesteś dzierżawcą lub administratorem globalnym. Następnie w usłudze Azure AD przejdź do **Azure Active Directory**  >  **Users**  >  **ustawień użytkownika**Azure Active Directory użytkownicy.
-2. Ustaw wartość **rejestracje aplikacji** na **tak**. Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Ustaw wartość **rejestracje aplikacji** na **tak**. Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Uprawnienia usługi Azure AD](./media/tutorial-prepare-vmware/aad.png)
 
@@ -72,7 +72,7 @@ Udziel uprawnień do konta w następujący sposób:
 
 #### <a name="method-2-assign-application-developer-role"></a>Metoda 2. Przypisywanie roli dewelopera aplikacji
 
-Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) na temat przypisywania roli.
+Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) na temat przypisywania roli.
 
 ### <a name="assign-permissions-to-create-a-key-vault"></a>Przypisywanie uprawnień do tworzenia Key Vault
 
