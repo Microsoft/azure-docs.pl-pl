@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 42717b1e9b4ba12c2fe42dbd13ef44223ef2ba43
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856722"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -73,7 +73,7 @@ Cognitive Services, jako Grupa usług, może wymagać braku, niektórych lub wsz
 
 ### <a name="no-additional-training-data-required"></a>Nie są wymagane żadne dodatkowe dane szkoleniowe
 
-Usługi zapewniające w pełni szkolony model mogą być traktowane jako _czarne pole_. Nie musisz wiedzieć, jak działają lub jakie dane zostały użyte do ich uczenia. Dane można przenieść do w pełni przeszkolonego modelu, aby uzyskać prognozę. 
+Usługi zapewniające w pełni szkolony model mogą być traktowane jako _nieprzezroczyste_. Nie musisz wiedzieć, jak działają lub jakie dane zostały użyte do ich uczenia. Dane można przenieść do w pełni przeszkolonego modelu, aby uzyskać prognozę. 
 
 ### <a name="some-or-all-training-data-required"></a>Wymagane są niektóre lub wszystkie dane szkoleniowe
 
@@ -93,9 +93,9 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |--|--|--|--|
 |[Narzędzie do wykrywania anomalii](./Anomaly-Detector/overview.md)|x|x|x|
 |Wyszukiwanie Bing |x|||
-|[Przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
+|[przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Niestandardowe przetwarzanie obrazów](./Custom-Vision-Service/home.md)||x||
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
 |[Rozpoznawanie formularzy](./form-recognizer/overview.md)||x||
 |[Czytnik immersyjny](./immersive-reader/overview.md)|x|||
@@ -107,7 +107,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Zamiana tekstu na mowę (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Zamiana mowy na mowę na tekst (monitora STT)](speech-service/speech-to-text.md)|x|x||
 |[Tłumaczenie mowy](speech-service/speech-translation.md)|x|||
-|[Analiza tekstu](./text-analytics/overview.md)|x|||
+|[analiza tekstu](./text-analytics/overview.md)|x|||
 |[Translator](./translator/translator-info-overview.md)|x|||
 |[Translator — translator niestandardowy](./translator/custom-translator/overview.md)||x||
 
@@ -129,9 +129,9 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 
 |Usługa poznawcze|Informacje o modelu|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
+|[Niestandardowe przetwarzanie obrazów](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)

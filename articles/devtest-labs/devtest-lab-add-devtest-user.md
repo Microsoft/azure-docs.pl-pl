@@ -3,12 +3,12 @@ title: Dodawanie właścicieli i użytkowników w Azure DevTest Labs | Microsoft
 description: Dodawanie właścicieli i użytkowników w Azure DevTest Labs przy użyciu Azure Portal lub programu PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 180c46480d099de4537216a59f0a2b9ab13d5d40
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: d5e7a166f9b79e2ff46f5874d53a40ed16750100
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855690"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Dodawanie właścicieli i użytkowników w Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -77,29 +77,31 @@ Możesz pobrać `subscriptionId` `labResourceGroup` wartości, i `labName` z blo
 > 
 > 
 
-    # Add an external user in DevTest Labs user role to a lab
-    # Ensure that guest users can be added to the Azure Active directory:
-    # https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+```azurepowershell
+# Add an external user in DevTest Labs user role to a lab
+# Ensure that guest users can be added to the Azure Active directory:
+# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
-    # Values to change
-    $subscriptionId = "<Enter Azure subscription ID here>"
-    $labResourceGroup = "<Enter lab's resource name here>"
-    $labName = "<Enter lab name here>"
-    $userDisplayName = "<Enter user's display name here>"
+# Values to change
+$subscriptionId = "<Enter Azure subscription ID here>"
+$labResourceGroup = "<Enter lab's resource name here>"
+$labName = "<Enter lab name here>"
+$userDisplayName = "<Enter user's display name here>"
 
-    # Log into your Azure account
-    Connect-AzAccount
+# Log into your Azure account
+Connect-AzAccount
 
-    # Select the Azure subscription that contains the lab. 
-    # This step is optional if you have only one subscription.
-    Select-AzSubscription -SubscriptionId $subscriptionId
+# Select the Azure subscription that contains the lab. 
+# This step is optional if you have only one subscription.
+Select-AzSubscription -SubscriptionId $subscriptionId
 
-    # Retrieve the user object
-    $adObject = Get-AzADUser -SearchString $userDisplayName
+# Retrieve the user object
+$adObject = Get-AzADUser -SearchString $userDisplayName
 
-    # Create the role assignment. 
-    $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+# Create the role assignment. 
+$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+```
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Dodawanie właściciela lub użytkownika na poziomie subskrypcji
 Uprawnienia platformy Azure są propagowane z zakresu nadrzędnego do zakresu podrzędnego na platformie Azure. W związku z tym właściciele subskrypcji platformy Azure, która zawiera laboratoria, są automatycznie właściciele tych laboratoriów. Są one również właścicielami maszyn wirtualnych i innych zasobów utworzonych przez użytkowników laboratorium i usługi Azure DevTest Labs. 

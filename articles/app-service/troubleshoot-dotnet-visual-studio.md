@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926854"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857203"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -66,7 +66,7 @@ Program Visual Studio zapewnia dostęp do podzbioru funkcji zarządzania aplikac
     Jeśli chcesz wykonać zadanie zarządzania aplikacjami, które nie może zostać wykonane w tym oknie, kliknij przycisk **Otwórz w Portal zarządzania** , aby otworzyć okno przeglądarki do Azure Portal.
 
 ## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>Dostęp do plików aplikacji w Eksplorator serwera
-Zwykle projekt sieci Web jest wdrażany z `customErrors` flagą w pliku Web. config ustawionym `On` na `RemoteOnly`lub, co oznacza, że nie można uzyskać przydatnego komunikatu o błędzie, gdy coś się nie stało. W przypadku wielu błędów wszystkie te strony są takie same jak następujące:
+Zwykle projekt sieci Web jest wdrażany z `customErrors` flagą w pliku Web.config ustawionym na `On` lub `RemoteOnly` , co oznacza, że nie można uzyskać przydatnego komunikatu o błędzie, gdy coś się nie stało. W przypadku wielu błędów wszystkie te strony są takie same jak następujące:
 
 **Błąd serwera w aplikacji "/":**
 
@@ -80,28 +80,28 @@ Zwykle projekt sieci Web jest wdrażany z `customErrors` flagą w pliku Web. con
 
 ![Strona błędu niepomocowego](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Często najprostszym sposobem znalezienia przyczyny błędu jest włączenie szczegółowych komunikatów o błędach, które pierwszy z powyższych zrzutów ekranu wyjaśnia, jak to zrobić. Wymaga zmiany we wdrożonym pliku Web. config. Można edytować plik *Web. config* w projekcie i ponownie wdrożyć projekt lub utworzyć [transformację pliku Web. config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) i wdrożyć kompilację debugowania, ale istnieje szybszy sposób: w **Eksplorator rozwiązań**można bezpośrednio wyświetlać i edytować pliki w aplikacji zdalnej przy użyciu funkcji *Widok zdalny* .
+Często najprostszym sposobem znalezienia przyczyny błędu jest włączenie szczegółowych komunikatów o błędach, które pierwszy z powyższych zrzutów ekranu wyjaśnia, jak to zrobić. Wymaga zmiany we wdrożonym pliku Web.config. Można edytować *Web.config* plik w projekcie i ponownie wdrożyć projekt lub utworzyć [Web.config Przekształć](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) i wdrożyć kompilację debugowania, ale istnieje szybszy sposób: w **Eksplorator rozwiązań**można bezpośrednio wyświetlać i edytować pliki w aplikacji zdalnej przy użyciu funkcji *Widok zdalny* .
 
 1. W **Eksplorator serwera**rozwiń węzeł **Azure**, rozwiń węzeł **App Service**, rozwiń grupę zasobów, w której znajduje się aplikacja, a następnie rozwiń węzeł aplikacji.
 
     Zobaczysz węzły, które zapewniają dostęp do plików zawartości i plików dziennika aplikacji.
-2. Rozwiń węzeł **pliki** , a następnie kliknij dwukrotnie plik *Web. config* .
+2. Rozwiń węzeł **pliki** , a następnie kliknij dwukrotnie plik *Web.config* .
 
-    ![Otwórz plik Web. config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
+    ![Otwórz Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-    Program Visual Studio otwiera plik Web. config z aplikacji zdalnej i wyświetla [Remote] obok nazwy pliku na pasku tytułu.
+    Program Visual Studio otwiera plik Web.config z aplikacji zdalnej i wyświetla [zdalny] obok nazwy pliku na pasku tytułu.
 3. Dodaj następujący wiersz do `system.web` elementu:
 
     `<customErrors mode="Off"></customErrors>`
 
-    ![Edytuj plik Web. config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
+    ![Edytuj Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 4. Odśwież przeglądarkę wyświetlającą niepomocowy komunikat o błędzie, a teraz zostanie wyświetlony szczegółowy komunikat o błędzie, taki jak Poniższy przykład:
 
     ![Szczegółowy komunikat o błędzie](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
     (Wyświetlony błąd został utworzony przez dodanie wiersza pokazanego w kolorze czerwonym do *Views\Home\Index.cshtml*).
 
-Edytowanie pliku Web. config to tylko jeden przykład scenariuszy, w których możliwość odczytywania i edytowania plików w aplikacji App Service ułatwia rozwiązywanie problemów.
+Edytowanie pliku Web.config to tylko jeden przykład scenariuszy, w których możliwość odczytywania i edytowania plików w aplikacji App Service ułatwia rozwiązywanie problemów.
 
 ## <a name="remote-debugging-apps"></a><a name="remotedebug"></a>Aplikacje zdalnego debugowania
 Jeśli szczegółowy komunikat o błędzie nie zawiera wystarczającej ilości informacji i nie można ponownie utworzyć błędu, inny sposób rozwiązywania problemów jest wykonywany zdalnie w trybie debugowania. Można ustawić punkty przerwania, manipulować bezpośrednio pamięcią, krok po kroku, a nawet zmienić ścieżkę kodu.
@@ -206,7 +206,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
 11. Naciśnij klawisz F5, aby kontynuować działanie.
 
-     `GenerateThumbnail` Metoda kończy tworzenie miniatury.
+     `GenerateThumbnail`Metoda kończy tworzenie miniatury.
 
 12. W przeglądarce Odśwież stronę indeksu i zobaczysz miniaturę.
 
@@ -218,7 +218,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
      ![Kliknij pozycję ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-     Pulpit nawigacyjny pokazuje, `GenerateThumbnail` że funkcja została ostatnio wykonana.
+     Pulpit nawigacyjny pokazuje, że `GenerateThumbnail` funkcja została ostatnio wykonana.
 
      (Gdy następnym razem klikniesz pozycję **Wyświetl pulpit nawigacyjny**, nie musisz logować się, a przeglądarka przechodzi bezpośrednio do strony zadania WebJob).
 
@@ -233,7 +233,7 @@ Jeśli funkcja [zapisała dzienniki](https://github.com/Azure/azure-webjobs-sdk/
 * Uruchamianie w trybie debugowania w środowisku produkcyjnym nie jest zalecane. Jeśli aplikacja produkcyjna nie jest skalowana w poziomie wielu wystąpień serwera, debugowanie uniemożliwia serwerowi sieci Web odpowiadanie na inne żądania. Jeśli masz wiele wystąpień serwera sieci Web, po dołączeniu do debugera otrzymujesz losowe wystąpienie i nie masz możliwości zapewnienia, że kolejne żądania przeglądarki przechodzą do tego samego wystąpienia. Ponadto zazwyczaj nie są wdrażane kompilacje debugowania w środowisku produkcyjnym, a optymalizacja kompilatora dla kompilacji wydań może uniemożliwić wyświetlenie tego, co dzieje się w wierszu w kodzie źródłowym. W przypadku rozwiązywania problemów produkcyjnych najlepszym zasobem jest śledzenie aplikacji i Dzienniki serwera sieci Web.
 * Unikaj długotrwałych zatrzymań w punktach przerwania podczas debugowania zdalnego. System Azure traktuje proces, który jest zatrzymany przez dłużej niż kilka minut, jako proces nieodpowiadający i zamyka go.
 * Podczas debugowania serwer wysyła dane do programu Visual Studio, co może mieć wpływ na opłaty za przepustowość. Aby uzyskać informacje o stawkach przepustowości, zobacz [Cennik platformy Azure](https://azure.microsoft.com/pricing/calculator/).
-* Upewnij się, że `debug` atrybut `compilation` elementu w pliku *Web. config* ma wartość true. Domyślnie jest ustawiona wartość true w przypadku publikowania konfiguracji kompilacji debugowania.
+* Upewnij się, że `debug` atrybut `compilation` elementu w pliku *Web.config* ma wartość true. Domyślnie jest ustawiona wartość true w przypadku publikowania konfiguracji kompilacji debugowania.
 
     ```xml
     <system.web>
@@ -243,7 +243,7 @@ Jeśli funkcja [zapisała dzienniki](https://github.com/Azure/azure-webjobs-sdk/
     ```
 * Jeśli okaże się, że debuger nie przekroczy kodu, który ma być debugowany, może zajść potrzeba zmiany ustawienia Tylko mój kod.  Aby uzyskać więcej informacji, zobacz [Określanie, czy debugować tylko kod użytkownika przy użyciu tylko mój kod w programie Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Czasomierz jest uruchamiany na serwerze po włączeniu funkcji zdalnego debugowania, a po 48 godzinach funkcja jest automatycznie wyłączona. Ten limit 48 godzin jest realizowany ze względu na bezpieczeństwo i wydajność. Możesz łatwo włączyć tę funkcję na tyle razy, ile chcesz. Zalecamy pozostawienie jej wyłączonej, jeśli nie będziesz aktywnie debugować.
-* Debuger można dołączyć ręcznie do dowolnego procesu, a nie tylko procesu aplikacji (w3wp. exe). Aby uzyskać więcej informacji na temat używania trybu debugowania w programie Visual Studio, zobacz [debugowanie w programie Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
+* Debuger można dołączyć ręcznie do dowolnego procesu, a nie tylko procesu aplikacji (w3wp.exe). Aby uzyskać więcej informacji na temat używania trybu debugowania w programie Visual Studio, zobacz [debugowanie w programie Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="diagnostic-logs-overview"></a><a name="logsoverview"></a>Omówienie dzienników diagnostycznych
 Aplikacja ASP.NET działająca w aplikacji App Service może tworzyć następujące rodzaje dzienników:
@@ -271,7 +271,7 @@ W tej sekcji wykonasz następujące zadania:
 Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach WebJob, zobacz [jak korzystać z usługi Azure queue storage przy użyciu zestawu SDK WebJobs — jak pisać dzienniki](https://github.com/Azure/azure-webjobs-sdk/wiki). Poniższe instrukcje dotyczące wyświetlania dzienników i kontrolowania sposobu ich przechowywania na platformie Azure mają zastosowanie również do dzienników aplikacji utworzonych przez Zadania WebJob.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Dodawanie instrukcji śledzenia do aplikacji
-1. Otwórz *Controllers\HomeController.cs*i Zastąp metody `Index`, `About`, i `Contact` następującym kodem w celu dodania `Trace` instrukcji i `using` instrukcji dla: `System.Diagnostics`
+1. Otwórz *Controllers\HomeController.cs*i Zastąp `Index` metody, `About` , i `Contact` następującym kodem w celu dodania `Trace` instrukcji i `using` instrukcji dla `System.Diagnostics` :
 
     ```csharp
     public ActionResult Index()
@@ -312,7 +312,7 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
     ![Śledzenie w oknie debugowania](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     Poniższe kroki pokazują, jak wyświetlać dane wyjściowe śledzenia na stronie sieci Web bez kompilowania w trybie debugowania.
-1. Otwórz plik Web. config aplikacji (znajdujący się w folderze projektu) i Dodaj `<system.diagnostics>` element na końcu pliku tuż przed elementem zamykającym: `</configuration>`
+1. Otwórz plik Web.config aplikacji (znajdujący się w folderze projektu) i Dodaj `<system.diagnostics>` element na końcu pliku tuż przed elementem zamykającym `</configuration>` :
 
     ``` xml
     <system.diagnostics>
@@ -329,15 +329,15 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
     </system.diagnostics>
     ```
 
-`WebPageTraceListener` Umożliwia wyświetlanie danych wyjściowych śledzenia przez przechodzenie `/trace.axd`do.
-1. Dodaj `<system.web>` <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">element Trace</a> w pliku Web. config, taki jak Poniższy przykład:
+`WebPageTraceListener`Umożliwia wyświetlanie danych wyjściowych śledzenia przez przechodzenie do `/trace.axd` .
+1. Dodaj <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">element Trace</a> w obszarze `<system.web>` w pliku Web.config, na przykład następujący przykład:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
     ```
 
 1. Naciśnij klawisze CTRL+F5, aby uruchomić aplikację.
-1. Na pasku adresu okna przeglądarki Dodaj wartość *Trace. axd* do adresu URL, a następnie naciśnij klawisz ENTER (adres URL jest podobny do `http://localhost:53370/trace.axd`).
+1. Na pasku adresu okna przeglądarki Dodaj wartość *Trace. axd* do adresu URL, a następnie naciśnij klawisz ENTER (adres URL jest podobny do `http://localhost:53370/trace.axd` ).
 1. Na stronie **ślad aplikacji** kliknij pozycję **Wyświetl szczegóły** w pierwszym wierszu (nie w wierszu BrowserLink).
 
     ![Trace. axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -346,11 +346,13 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
 
     ![Trace. axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-    Domyślnie program `trace.axd` jest dostępny tylko lokalnie. Jeśli chcesz udostępnić ją z poziomu aplikacji zdalnej, możesz dodać `localOnly="false"` do `trace` elementu w pliku *Web. config* , jak pokazano w następującym przykładzie:
+    Domyślnie program `trace.axd` jest dostępny tylko lokalnie. Jeśli chcesz udostępnić ją z poziomu aplikacji zdalnej, możesz dodać `localOnly="false"` do `trace` elementu w pliku *Web.config* , jak pokazano w następującym przykładzie:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
+    ```
 
-    Nie zaleca się `trace.axd` jednak włączania w aplikacji produkcyjnej ze względów bezpieczeństwa. W poniższych sekcjach zobaczysz łatwiejszy sposób odczytywania dzienników śledzenia w aplikacji App Service.
+    `trace.axd`Nie zaleca się jednak włączania w aplikacji produkcyjnej ze względów bezpieczeństwa. W poniższych sekcjach zobaczysz łatwiejszy sposób odczytywania dzienników śledzenia w aplikacji App Service.
 
 ### <a name="view-the-tracing-output-in-azure"></a>Wyświetlanie danych wyjściowych śledzenia na platformie Azure
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt sieci Web i kliknij pozycję **Publikuj**.
@@ -386,7 +388,7 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
 
     ![Pełne dane wyjściowe śledzenia](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
-    W tej sekcji można włączyć i wyłączyć rejestrowanie przy użyciu ustawień aplikacji. Możesz również włączyć i wyłączyć detektory śledzenia, modyfikując plik Web. config. Jednak zmodyfikowanie pliku Web. config powoduje odtworzenie domeny aplikacji, podczas gdy włączenie rejestrowania za pomocą konfiguracji aplikacji nie wykonuje tego. Jeśli ten problem zajmuje dużo czasu na odtworzenie lub nieprzerwane, odtwarzanie domeny aplikacji może "naprawić" i wymusić odczekanie do momentu ponownego uruchomienia. Włączenie diagnostyki na platformie Azure umożliwia natychmiastowe rozpoczęcie przechwytywania informacji o błędach bez konieczności odtwarzania domeny aplikacji.
+    W tej sekcji można włączyć i wyłączyć rejestrowanie przy użyciu ustawień aplikacji. Możesz również włączyć i wyłączyć detektory śledzenia, modyfikując plik Web.config. Jednak zmodyfikowanie pliku Web.config powoduje odtworzenie domeny aplikacji, podczas gdy włączenie rejestrowania za pomocą konfiguracji aplikacji nie wykonuje tego. Jeśli ten problem zajmuje dużo czasu na odtworzenie lub nieprzerwane, odtwarzanie domeny aplikacji może "naprawić" i wymusić odczekanie do momentu ponownego uruchomienia. Włączenie diagnostyki na platformie Azure umożliwia natychmiastowe rozpoczęcie przechwytywania informacji o błędach bez konieczności odtwarzania domeny aplikacji.
 
 ### <a name="output-window-features"></a>Funkcje okna danych wyjściowych
 Karta **dzienniki Microsoft Azure** w oknie **danych wyjściowych** zawiera kilka przycisków i pole tekstowe:
@@ -440,7 +442,7 @@ Szczegółowe dzienniki błędów zawierają dodatkowe informacje o żądaniach 
 
     ![Monitoruj wszystkie dzienniki](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
-4. Na pasku adresu okna przeglądarki Dodaj znak dodatkowy do adresu URL, aby spowodować błąd 404 (na przykład `http://localhost:53370/Home/Contactx`), a następnie naciśnij klawisz ENTER.
+4. Na pasku adresu okna przeglądarki Dodaj znak dodatkowy do adresu URL, aby spowodować błąd 404 (na przykład `http://localhost:53370/Home/Contactx` ), a następnie naciśnij klawisz ENTER.
 
     Po kilku sekundach szczegółowy dziennik błędów pojawi się w oknie **danych wyjściowych** programu Visual Studio.
 

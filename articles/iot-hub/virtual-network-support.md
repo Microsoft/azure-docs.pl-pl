@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: bf193859c140001def83a18ca7965d9cbd312b02
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918765"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -69,8 +69,8 @@ Przed kontynuowaniem upewnij się, że spełniono następujące wymagania wstęp
 [Filtr IP](iot-hub-ip-filtering.md) IoT Hub również nie kontroluje publicznego dostępu do wbudowanego punktu końcowego. Aby całkowicie zablokować dostęp do sieci publicznej do centrum IoT, należy: 
 
 1. Konfigurowanie dostępu do prywatnego punktu końcowego dla IoT Hub
-1. Wyłącz dostęp do sieci publicznej za pomocą filtru IP, aby zablokować wszystkie adresy IP
-1. Wyłącz wbudowany punkt końcowy centrum zdarzeń przez [skonfigurowanie routingu, aby nie wysyłał do niego danych](iot-hub-devguide-messages-d2c.md)
+1. Wyłącz [dostęp do sieci publicznej](iot-hub-public-network-access.md) lub Użyj filtru IP, aby zablokować wszystkie adresy IP
+1. Zatrzymywanie korzystania z wbudowanego punktu końcowego centrum zdarzeń przez [skonfigurowanie routingu, aby nie wysyłał do niego danych](iot-hub-devguide-messages-d2c.md)
 1. Wyłącz [trasę rezerwową](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Skonfiguruj ruch wychodzący do innych zasobów platformy Azure przy użyciu [zaufanej usługi firmy Microsoft](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 

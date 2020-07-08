@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b9db450139c22fdf2df0875f36c65cdf684dfb3
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856692"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Przykłady konfiguracji routera umożliwiające skonfigurowanie routingu i zarządzanie nim
 Ta strona zawiera przykłady konfiguracji interfejsu i routingu dla routerów z serii Cisco IOS-XE i Juniper MX podczas pracy z usługą Azure ExpressRoute.
@@ -40,78 +40,90 @@ Na każdym routerze, który nawiązuje połączenie z firmą Microsoft, będzie 
 
 Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z pojedynczym IDENTYFIKATORem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla poszczególnych komunikacji równorzędnych. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <VLAN_ID>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <VLAN_ID>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 **Definicja interfejsu QinQ**
 
 Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z dwoma identyfikatorami sieci VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam dla wszystkich komunikacji równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy dla komunikacji równorzędnej. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+```
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurowanie sesji eBGP
 Należy skonfigurować sesję protokołu BGP dla każdej komunikacji równorzędnej z firmą Microsoft. Skonfiguruj sesję BGP przy użyciu poniższego przykładu. Jeśli adres IPv4 używany przez interfejs podrzędny to a. b. c. d, wówczas adres IP sąsiada BGP (Microsoft) będzie a. b. c. d + 1. Ostatni oktet adresu IPv4 sąsiada BGP zawsze będzie liczbą parzystą.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-     neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+ neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Skonfiguruj prefiksy do anonsowania za pośrednictwem sesji BGP
 Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-     exit-address-family
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+ exit-address-family
+!
+```
 
 ### <a name="route-maps"></a>Mapy tras
 Użyj map tras i list prefiksów do filtrowania prefiksów rozmnożonych do sieci. Zapoznaj się z poniższym przykładem i upewnij się, że skonfigurowano odpowiednie listy prefiksów.
 
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      network <Prefix_to_be_advertised> mask <Subnet_mask>
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
-     exit-address-family
-    !
-    route-map <MS_Prefixes_Inbound> permit 10
-     match ip address prefix-list <MS_Prefixes>
-    !
+```console
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  network <Prefix_to_be_advertised> mask <Subnet_mask>
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
+ exit-address-family
+!
+route-map <MS_Prefixes_Inbound> permit 10
+ match ip address prefix-list <MS_Prefixes>
+!
+```
 
 ### <a name="configure-bfd"></a>Konfigurowanie BFD
 
 Skonfigurujesz BFD w dwóch miejscach: jeden na poziomie interfejsu i inny na poziomie protokołu BGP. Przykład dotyczy interfejsu QinQ. 
 
-    interface GigabitEthernet<Interface_Number>.<Number>
-     bfd interval 300 min_rx 300 multiplier 3
-     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
-     ip address <IPv4_Address><Subnet_Mask>
-    
-    router bgp <Customer_ASN>
-     bgp log-neighbor-changes
-     neighbor <IP#2_used_by_Azure> remote-as 12076
-     !        
-     address-family ipv4
-      neighbor <IP#2_used_by_Azure> activate
-      neighbor <IP#2_used_by_Azure> fall-over bfd
-     exit-address-family
-    !
+```console
+interface GigabitEthernet<Interface_Number>.<Number>
+ bfd interval 300 min_rx 300 multiplier 3
+ encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ ip address <IPv4_Address><Subnet_Mask>
+
+router bgp <Customer_ASN>
+ bgp log-neighbor-changes
+ neighbor <IP#2_used_by_Azure> remote-as 12076
+ !
+ address-family ipv4
+  neighbor <IP#2_used_by_Azure> activate
+  neighbor <IP#2_used_by_Azure> fall-over bfd
+ exit-address-family
+!
+```
 
 
 ## <a name="juniper-mx-series-routers"></a>Routery serii Juniper MX
@@ -123,6 +135,7 @@ Przykłady w tej sekcji dotyczą dowolnego routera serii Juniper MX.
 
 Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z pojedynczym IDENTYFIKATORem sieci VLAN. Identyfikator sieci VLAN jest unikatowy dla poszczególnych komunikacji równorzędnych. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
+```console
     interfaces {
         vlan-tagging;
         <Interface_Number> {
@@ -134,12 +147,14 @@ Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z pojedynczym I
             }
         }
     }
+```
 
 
 **Definicja interfejsu QinQ**
 
 Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z dwoma identyfikatorami sieci VLAN. Zewnętrzny identyfikator sieci VLAN (s-tag), jeśli jest używany, pozostaje taki sam dla wszystkich komunikacji równorzędnych. Wewnętrzny identyfikator sieci VLAN (c-tag) jest unikatowy dla komunikacji równorzędnej. Ostatni oktet adresu IPv4 zawsze będzie liczbą nieparzystą.
 
+```console
     interfaces {
         <Interface_Number> {
             flexible-vlan-tagging;
@@ -151,10 +166,12 @@ Ten przykład zawiera definicję podinterfejsu dla podinterfejsu z dwoma identyf
             }                               
         }                                   
     }                           
+```
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurowanie sesji eBGP
 Należy skonfigurować sesję protokołu BGP dla każdej komunikacji równorzędnej z firmą Microsoft. Skonfiguruj sesję BGP przy użyciu poniższego przykładu. Jeśli adres IPv4 używany przez interfejs podrzędny to a. b. c. d, wówczas adres IP sąsiada BGP (Microsoft) będzie a. b. c. d + 1. Ostatni oktet adresu IPv4 sąsiada BGP zawsze będzie liczbą parzystą.
 
+```console
     routing-options {
         autonomous-system <Customer_ASN>;
     }
@@ -167,10 +184,12 @@ Należy skonfigurować sesję protokołu BGP dla każdej komunikacji równorzęd
             }                               
         }                                   
     }
+```
 
 ### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Skonfiguruj prefiksy do anonsowania za pośrednictwem sesji BGP
 Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy użyciu poniższego przykładu.
 
+```console
     policy-options {
         policy-statement <Policy_Name> {
             term 1 {
@@ -192,11 +211,12 @@ Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy uż
             }                               
         }                                   
     }
-
+```
 
 ### <a name="route-policies"></a>Zasady tras
 Za pomocą map tras i list prefiksów można filtrować prefiksy rozmnożone do sieci. Zapoznaj się z poniższym przykładem i upewnij się, że skonfigurowano odpowiednie listy prefiksów.
 
+```console
     policy-options {
         prefix-list MS_Prefixes {
             <IP_Prefix_1/Subnet_Mask>;
@@ -223,10 +243,12 @@ Za pomocą map tras i list prefiksów można filtrować prefiksy rozmnożone do 
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-bfd"></a>Konfigurowanie BFD
 Skonfiguruj BFD w sekcji protokołu BGP.
 
+```console
     protocols {
         bgp { 
             group <Group_Name> { 
@@ -239,10 +261,12 @@ Skonfiguruj BFD w sekcji protokołu BGP.
             }                               
         }                                   
     }
+```
 
 ### <a name="configure-macsec"></a>Konfigurowanie MACSec
 W przypadku konfiguracji MACSec, klucz skojarzenia łączności (CAK) i nazwa klucza skojarzenia łączności (CKN) muszą być zgodne ze skonfigurowanymi wartościami za pośrednictwem poleceń programu PowerShell.
 
+```console
     security {
         macsec {
             connectivity-association <Connectivity_Association_Name> {
@@ -260,6 +284,7 @@ W przypadku konfiguracji MACSec, klucz skojarzenia łączności (CAK) i nazwa kl
             }
         }
     }
+```
 
 ## <a name="next-steps"></a>Następne kroki
 Szczegółowe informacje znajdują się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 08b5e915902fb4e2002bd20699cdaca9f0f35e3e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 725490316ef4fcbce197d5a29b7665b7de7014c9
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505070"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857126"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
@@ -34,15 +34,19 @@ W tym artykule dowiesz się, jak używać interfejsu API REST do uwierzytelniani
 
 W tym scenariuszu aplikacja udostępnia własne poświadczenia do wykonywania operacji. W tym celu należy wydać żądanie POST, tak jak pokazano w poniższym fragmencie kodu:
 
-    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-      -F grant_type=client_credentials \
-      -F resource=https://management.core.windows.net/ \
-      -F client_id=<CLIENT-ID> \
-      -F client_secret=<AUTH-KEY>
+```console
+curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+  -F grant_type=client_credentials \
+  -F resource=https://management.core.windows.net/ \
+  -F client_id=<CLIENT-ID> \
+  -F client_secret=<AUTH-KEY>
+```
 
 Dane wyjściowe żądania zawierają Token autoryzacji (wskazywane przez `access-token` w danych wyjściowych poniżej), które następnie są przekazywane do wywołań interfejsu API REST. Zapisz token uwierzytelniania w pliku tekstowym; będzie on potrzebny podczas tworzenia wywołań REST do Data Lake Storage Gen1.
 
-    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```output
+{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```
 
 W tym artykule wykorzystano podejście **nieinterakcyjne**. Więcej informacji na temat podejścia nieinterakcyjnego (wywołań między usługami) zawiera temat [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx) (Wywołania między usługami przy użyciu poświadczeń).
 

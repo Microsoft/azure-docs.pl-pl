@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 225c67421a26edc52e06ee0cf0b6e1c965f52009
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85515589"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856816"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
@@ -170,7 +170,9 @@ Podczas pracy z danymi w ramach konta Data Lake Storage Gen1 istnieje kilka cią
 
 W przypadku użycia, na przykład klastra utworzonego przy użyciu Data Lake Storage Gen1 jako magazynu podstawowego, ścieżką do danych jest: *adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.NET/Path/to/File*. Zapytanie programu Hive w celu utworzenia tabeli na podstawie przykładowych danych przechowywanych na koncie Data Lake Storage Gen1 wygląda następująco:
 
-    CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```console
+CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
+```
 
 Znajduje
 
@@ -195,7 +197,7 @@ Klastra Spark można używać do uruchamiania zadań platformy Spark na danych p
 
 Przy użyciu konta Data Lake Storage Gen1 można pisać dane z topologii burzowej. Aby uzyskać instrukcje dotyczące sposobu osiągnięcia tego scenariusza, zobacz [Korzystanie z Azure Data Lake Storage Gen1 z Apache Storm z usługą HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

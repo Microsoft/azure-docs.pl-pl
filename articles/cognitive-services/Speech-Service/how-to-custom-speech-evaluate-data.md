@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856835"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Ocena dokładności usługi Custom Speech
 
@@ -23,7 +23,7 @@ W tym dokumencie dowiesz się, jak ilościowo mierzyć jakość modelu zamiany m
 
 ## <a name="what-is-word-error-rate-wer"></a>Co to jest współczynnik błędów programu Word?
 
-Standardem branżowym do mierzenia dokładności modelu jest *Współczynnik błędów programu Word* . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi. Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
+Standardem branżowym do mierzenia dokładności modelu jest *Współczynnik błędów programu Word* . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi (pokazane poniżej jako N). Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
 
 ![Formuła raportowanie błędów](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -56,7 +56,7 @@ Aby oszacować modele obok siebie:
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Oceń dokładność**. Nadaj testowi nazwę, opis, a następnie wybierz swój audio + ludzki zestaw danych transkrypcji.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Po pomyślnym utworzeniu testu można porównać wyniki obok siebie.
 

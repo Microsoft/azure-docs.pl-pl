@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71846539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856952"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure
 
-Microsoft Azure teraz umożliwia użytkownikom korzystanie z 32-bitowych systemów operacyjnych Windows na platformie Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już swoją umowę dotyczącą korzystania z usługi Life, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux lub Berkeley Software Distribution (BSD), które działają na Microsoft Azure maszynę wirtualną.
+Microsoft Azure teraz umożliwia użytkownikom korzystanie z 32-bitowych systemów operacyjnych Windows na platformie Azure. Obsługiwane są tylko wyspecjalizowane dyski VHD, a uogólnione obrazy nie będą działały na platformie Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już swoją umowę dotyczącą korzystania z usługi Life, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux lub Berkeley Software Distribution (BSD), które działają na Microsoft Azure maszynę wirtualną.
 
 ## <a name="more-information"></a>Więcej informacji
 
 Aby uzyskać więcej informacji na temat systemów operacyjnych obsługiwanych w usłudze Azure Virtual Machines, przejdź do następujących artykułów z bazy wiedzy Microsoft Knowledge Base:
 
 * [Pomoc techniczna dotycząca oprogramowania serwerowego firmy Microsoft dla maszyn wirtualnych platformy Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [Obsługa technologii Linux i Open Source na platformie Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
+* [Obsługa systemu Linux i technologii open source na platformie Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Dowiedz się więcej o bezpłatnych rozszerzonych aktualizacjach zabezpieczeń dla systemu Windows Server 2008/R2 na platformie Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
 * [Dowiedz się więcej o obsłudze systemu Windows Server 2008 z dodatkiem SP2 32-bitowym wyspecjalizowanym obrazom na platformie Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)

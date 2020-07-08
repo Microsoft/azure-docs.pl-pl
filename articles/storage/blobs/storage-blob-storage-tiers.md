@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 41b7dc2b7ddcf5d8bd15043d117a25771a278f95
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919917"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
@@ -82,7 +82,7 @@ Obsługa warstw na poziomie obiektów BLOB umożliwia przekazywanie danych do wy
 Czas ostatniej zmiany warstwy obiektu blob jest uwidaczniany za pomocą właściwości obiektu blob **Czas zmiany warstwy dostępu**. Podczas zastępowania obiektu BLOB w warstwie gorąca lub chłodna nowo utworzony obiekt BLOB dziedziczy warstwę obiektu BLOB, który został zastąpiony, chyba że nowa warstwa dostępu do obiektów BLOB jest jawnie ustawiona podczas tworzenia. Jeśli obiekt BLOB znajduje się w warstwie archiwum, nie można go zastąpić, więc przekazywanie tego samego obiektu BLOB nie jest dozwolone w tym scenariuszu. 
 
 > [!NOTE]
-> Magazyn Archiwum i funkcja obsługi warstw na poziomie obiektów blob obsługują tylko blokowe obiekty blob. Obecnie nie można zmienić warstwy blokowego obiektu BLOB, który ma migawki.
+> Magazyn Archiwum i funkcja obsługi warstw na poziomie obiektów blob obsługują tylko blokowe obiekty blob.
 
 ### <a name="blob-lifecycle-management"></a>Zarządzanie cyklem życia obiektów BLOB
 

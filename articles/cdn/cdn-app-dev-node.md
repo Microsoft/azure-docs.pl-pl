@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f5a6180fa939699f752678271fbddfb8328a1afe
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84883932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920176"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
@@ -44,7 +44,9 @@ Po utworzeniu grupy zasobów dla naszych profilów usługi CDN i udostępnieniu 
 
 Utwórz folder do przechowywania aplikacji.  Z poziomu konsoli programu z narzędziami Node.js w bieżącej ścieżce Ustaw bieżącą lokalizację na ten nowy folder i zainicjuj projekt, wykonując następujące polecenie:
 
-    npm init
+```console
+npm init
+```
 
 Zostanie wyświetlona seria pytań umożliwiających zainicjowanie projektu.  W przypadku **punktu wejścia**ten samouczek używa *app.js*.  W poniższym przykładzie można zobaczyć inne opcje.
 
@@ -52,8 +54,10 @@ Zostanie wyświetlona seria pytań umożliwiających zainicjowanie projektu.  W 
 
 Nasz projekt jest teraz zainicjowany przy użyciu *packages.js* pliku.  Nasz projekt będzie używać niektórych bibliotek platformy Azure zawartych w pakietach NPM.  Użyjemy środowiska uruchomieniowego klienta platformy Azure dla Node.js (MS-REST-Azure) i biblioteki klienta Azure CDN dla Node.js (Azure-ARM-CD).  Dodajmy je do projektu jako zależności.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
 Po zakończeniu instalacji pakietów *package.jsw* pliku powinien wyglądać podobnie do tego przykładu (numery wersji mogą się różnić):
 

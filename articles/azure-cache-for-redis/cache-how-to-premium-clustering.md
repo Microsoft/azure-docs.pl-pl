@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4a0e5b0c18264e1f7a98e81bcdfd56a7159235da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856323"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować klastrowanie Redis dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. W tym artykule opisano sposób konfigurowania klastrowania w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis.
@@ -98,7 +98,7 @@ Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usług
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>W jaki sposób klucze są dystrybuowane w klastrze?
 Dokumentacja [modelu dystrybucji kluczy](https://redis.io/topics/cluster-spec#keys-distribution-model) Redis: przestrzeń klucza jest dzielona na 16384 gniazd. Każdy klucz jest przypisywany do jednego z tych miejsc, które są rozproszone w węzłach klastra. Można skonfigurować, która część klucza ma być używana do mieszania, aby mieć pewność, że wiele kluczy znajduje się w tym samym fragmentu za pomocą tagów skrótu.
 
-* Klucze ze znacznikiem skrótu — Jeśli jakakolwiek część klucza jest zawarta w `{` i `}`, tylko ta część klucza ma wartość hash dla celów określania miejsca skrótu klucza. Na przykład następujące trzy klucze mogą znajdować się w tym samym fragmentu `{key}1`:, `{key}2`, i `{key}3` , ponieważ tylko `key` część nazwy jest skrótem. Aby zapoznać się z pełną listą parametrów skrótu kluczy, zobacz [Tagi skrótów kluczy](https://redis.io/topics/cluster-spec#keys-hash-tags).
+* Klucze ze znacznikiem skrótu — Jeśli jakakolwiek część klucza jest zawarta w `{` i `}` , tylko ta część klucza ma wartość hash dla celów określania miejsca skrótu klucza. Na przykład następujące trzy klucze mogą znajdować się w tym samym fragmentu: `{key}1` , `{key}2` , i, `{key}3` ponieważ tylko `key` część nazwy jest skrótem. Aby zapoznać się z pełną listą parametrów skrótu kluczy, zobacz [Tagi skrótów kluczy](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Klucze bez znacznika skrótu — cała nazwa klucza jest używana do tworzenia skrótów. Wynikiem tego jest statystycznie równomierny rozkład w fragmentów pamięci podręcznej.
 
 W celu uzyskania najlepszej wydajności i przepływności zalecamy równomierne dystrybuowanie kluczy. Jeśli używasz kluczy ze znacznikiem skrótu, jest on odpowiedzialny za zapewnienie, że klucze są dystrybuowane równomiernie.
@@ -123,17 +123,19 @@ Protokół klastrowania Redis wymaga, aby każdy klient łączył się z każdym
 Można nawiązać połączenie z pamięcią podręczną przy użyciu tych samych [punktów końcowych](cache-configure.md#properties), [portów](cache-configure.md#properties)i [kluczy](cache-configure.md#access-keys) , które są używane podczas nawiązywania połączenia z pamięcią podręczną, w której nie włączono obsługi klastrowania. Redis zarządza klastrowaniem w zapleczu, aby nie trzeba było zarządzać nim z poziomu klienta.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Czy mogę połączyć się bezpośrednio z konkretną fragmentówą pamięci podręcznej?
-Protokół klastrowania wymaga, aby klient przełączył poprawne połączenia usługi fragmentu. Dlatego klient powinien prawidłowo wykonać tę czynność. Z tego powodu każdy fragmentu składa się z pary pamięci podręcznej podstawowej/repliki, zwanej wspólnie wystąpieniem pamięci podręcznej. Można nawiązać połączenie z tymi wystąpieniami pamięci podręcznej za pomocą narzędzia Redis-CLI w [niestabilnej](https://redis.io/download) gałęzi repozytorium Redis w witrynie GitHub. Ta wersja implementuje podstawową pomoc techniczną po uruchomieniu `-c` przełącznika. Aby uzyskać więcej informacji, zobacz temat [granie z klastrem](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) [https://redis.io](https://redis.io) w [klastrze Redis](https://redis.io/topics/cluster-tutorial).
+Protokół klastrowania wymaga, aby klient przełączył poprawne połączenia usługi fragmentu. Dlatego klient powinien prawidłowo wykonać tę czynność. Z tego powodu każdy fragmentu składa się z pary pamięci podręcznej podstawowej/repliki, zwanej wspólnie wystąpieniem pamięci podręcznej. Można nawiązać połączenie z tymi wystąpieniami pamięci podręcznej za pomocą narzędzia Redis-CLI w [niestabilnej](https://redis.io/download) gałęzi repozytorium Redis w witrynie GitHub. Ta wersja implementuje podstawową pomoc techniczną po uruchomieniu `-c` przełącznika. Aby uzyskać więcej informacji, zobacz temat [granie z klastrem](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) w [https://redis.io](https://redis.io) [klastrze Redis](https://redis.io/topics/cluster-tutorial).
 
 W przypadku niezwiązanych z protokołem TLS użyj następujących poleceń.
 
-    Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
-    Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
-    Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
-    ...
-    Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
+```bash
+Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
+Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
+Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
+...
+Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
+```
 
-W przypadku protokołu TLS `1300N` Zastąp ciąg opcją `1500N`.
+W przypadku protokołu TLS Zastąp ciąg `1300N` opcją `1500N` .
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Czy można skonfigurować klastrowanie dla wcześniej utworzonej pamięci podręcznej?
 Tak. Najpierw upewnij się, że pamięć podręczna jest Premium, przez skalowanie Jeśli nie jest. Następnie powinno być możliwe wyświetlenie opcji konfiguracji klastra, w tym opcji włączania klastrów. Rozmiar klastra można zmienić po utworzeniu pamięci podręcznej lub po pierwszym włączeniu klastra.

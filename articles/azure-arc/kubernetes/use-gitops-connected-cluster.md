@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856990"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Korzystanie z GitOps dla konfiguracji z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -167,7 +167,7 @@ Należy pamiętać, że `sourceControlConfiguration` zasób jest aktualizowany z
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -201,8 +201,8 @@ Gdy `sourceControlConfiguration` jest tworzony, kilka rzeczy odbywa się pod oka
 Podczas procesu aprowizacji `sourceControlConfiguration` wystąpią pewne zmiany stanu. Monitoruj postęp przy użyciu `az k8sconfiguration show ...` powyższego polecenia:
 
 1. `complianceStatus` -> `Pending`: reprezentuje Stany początkowe i w toku
-1. `complianceStatus` -> `Compliant`: udało `config-agent` się pomyślnie skonfigurować klaster i wdrożyć go `flux` bez błędu
-1. `complianceStatus` -> `Noncompliant`: `config-agent` Wystąpił błąd podczas wdrażania `flux` , szczegółowe informacje powinny być dostępne w `complianceStatus.message` treści odpowiedzi
+1. `complianceStatus` -> `Installed`: udało `config-agent` się pomyślnie skonfigurować klaster i wdrożyć go `flux` bez błędu
+1. `complianceStatus` -> `Failed`: `config-agent` Wystąpił błąd podczas wdrażania `flux` , szczegółowe informacje powinny być dostępne w `complianceStatus.message` treści odpowiedzi
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Zastosuj konfigurację z prywatnego repozytorium git
 

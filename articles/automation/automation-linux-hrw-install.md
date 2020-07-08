@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0fc7951411f1c8956b4816f9031a8b7c26594b42
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856142"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -30,17 +30,17 @@ Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze 
 
 Jeśli masz obszar roboczy, ale nie jest on połączony z kontem usługi Automation, włączenie funkcji automatyzacji powoduje dodanie funkcji dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po włączeniu jednej z Azure Automation funkcji w obszarze roboczym Log Analytics, w odróżnieniu od [Update Management](automation-update-management.md) lub [Change Tracking i spisu](change-tracking.md), składniki procesu roboczego są automatycznie wypychane do komputera agenta.
 
-   Aby dodać funkcję Update Management do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby dodać funkcję Update Management do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```
 
-   Aby dodać funkcję Change Tracking i spisu do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby dodać funkcję Change Tracking i spisu do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 

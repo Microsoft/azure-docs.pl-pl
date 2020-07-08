@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1cd5ead1604f47f07aa9d517f679850fcea8d897
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856377"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -47,7 +47,7 @@ W architekturze sieci wirtualnej platformy Azure wirtualne centra sieci WAN są 
 
 Można nawiązać wirtualną sieć WAN, tworząc pojedyncze wirtualne koncentratory sieci WAN w regionie, który ma największą liczbę szprych (gałęzie, sieci wirtualnych, użytkowników), a następnie łącząc szprychy, które znajdują się w innych regionach z koncentratorem. Jest to dobrym rozwiązaniem, gdy powierzchnia przedsiębiorstwa jest w większości w jednym regionie, z kilkoma zdalnymi szprychami.  
   
-## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Łączność między centrami (wersja zapoznawcza)
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Łączność między centrami
 
 Obszar chmury przedsiębiorstwa może obejmować wiele regionów chmur i jest optymalny (opóźnienia), aby uzyskać dostęp do chmury z regionu znajdującego się najbliżej ich fizycznej witryny i użytkowników. Jedną z najważniejszych zasad globalnej architektury sieci tranzytowej jest włączenie łączności między regionami i punktami końcowymi sieci lokalnych. Oznacza to, że ruch z gałęzi, która jest połączona z chmurą w jednym regionie, może należeć do innej gałęzi lub sieci wirtualnej w innym regionie przy użyciu połączenia typu Hub-do-Hub włączonego przez [Sieć globalną platformy Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 

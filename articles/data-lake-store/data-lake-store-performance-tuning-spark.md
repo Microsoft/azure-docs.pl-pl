@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: f604d1d054717e426fcb02271b3a2aa06c6489b6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856910"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla platformy Spark w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -55,26 +55,30 @@ Istnieje kilka ogólnych sposobów zwiększania współbieżności zadań intens
 
 **Krok 3. Ustawianie rdzeni wykonawców** — w przypadku obciążeń intensywnie korzystających z operacji we/wy, które nie mają złożonych działań, warto zacząć od dużej liczby rdzeni wykonawców, aby zwiększyć liczbę zadań równoległych na wykonawcę. Ustawienie "wykonawca-rdzenie na 4" jest dobrym uruchomieniem.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 Zwiększenie liczby rdzeni programu wykonującego zapewnia większą równoległość, dzięki czemu można eksperymentować z różnymi rdzeniami wykonawcy. W przypadku zadań, które mają bardziej skomplikowane operacje, należy zmniejszyć liczbę rdzeni na wykonawcę. Jeśli liczba rdzeni programu wykonującego jest większa niż 4, wówczas wyrzucanie elementów bezużytecznych może stać się niewydajne i spadek wydajności.
 
 **Krok 4. Określanie ilości pamięci przędzy w klastrze** — te informacje są dostępne w Ambari. Przejdź do PRZĘDZy i obejrzyj kartę Contigs. W tym oknie zostanie wyświetlona pamięć PRZĘDZy.
 Pamiętaj, że w oknie można także zobaczyć domyślny rozmiar kontenera PRZĘDZy. Rozmiar kontenera PRZĘDZy jest taki sam jak pamięć na parametr wykonawcy.
 
-    Total YARN memory = nodes * YARN memory per node
+Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
+
 **Krok 5. Obliczanie NUM-wykonawców**
 
 **Obliczanie ograniczenia pamięci** — parametr NUM-wykonawczy jest ograniczany przez pamięć lub przez procesor CPU. Ograniczenie pamięci zależy od ilości dostępnej pamięci PRZĘDZy dla aplikacji. Zrób łączną ilość pamięci PRZĘDZy i Podziel ją przez program wykonujący pamięć. Ograniczenie musi być w nieskalowanej liczbie aplikacji, aby można było podzielić je na liczbę aplikacji.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps
+Ograniczenie pamięci = (Łączna ilość pamięci/pamięci pakietu)/liczba aplikacji
+
 **Oblicz ograniczenie procesora CPU** — ograniczenie procesora CPU jest obliczane jako łączne rdzenie wirtualne podzielone przez liczbę rdzeni na wykonawcę. Każdy rdzeń fizyczny ma 2 rdzenie wirtualne. Podobnie jak w przypadku ograniczeń pamięci, Podzielmy na liczbę aplikacji.
 
-    virtual cores = (nodes in cluster * # of physical cores in node * 2)
-    CPU constraint = (total virtual cores / # of cores per executor) / # of apps
+rdzenie wirtualne = (węzły w klastrze * # rdzeni fizycznych w węźle * 2) ograniczenie procesora = (łączna liczba rdzeni wirtualnych/liczba rdzeni na wykonawcę)/liczba aplikacji
+
 **Ustaw NUM-wykonawcze** — parametr NUM-wykonawcs jest określany przez pobranie minimalnej wartości ograniczenia pamięci i ograniczenia procesora CPU. 
 
-    num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)
-Ustawienie większej liczby programów wykonujących liczbę NUM-wykonawców nie musi zwiększyć wydajności. Należy wziąć pod uwagę, że dodanie większej liczby modułów wykonujących spowoduje dodanie dodatkowych obciążeń dla każdego dodatkowego wykonawcy, co może spowodować spadek wydajności. Liczba modułów wykonujących jest ograniczona przez zasoby klastra.
+NUM-wykonawcze = min (całkowita liczba rdzeni wirtualnych/liczba rdzeni na wykonawcę, dostępna pamięć PRZĘDZy/moduł wykonawczy-pamięć) ustawienie większej liczby programów wykonujących nie musi zwiększać wydajności. Należy wziąć pod uwagę, że dodanie większej liczby modułów wykonujących spowoduje dodanie dodatkowych obciążeń dla każdego dodatkowego wykonawcy, co może spowodować spadek wydajności. Liczba modułów wykonujących jest ograniczona przez zasoby klastra.
 
 ## <a name="example-calculation"></a>Przykładowe obliczenie
 
@@ -84,30 +88,28 @@ Załóżmy, że obecnie masz klaster składający się z 8 D4v2 węzłów, na kt
 
 **Krok 2. Ustawianie pamięci programu wykonującego** — w tym przykładzie określimy, że 6 GB pamięci podręcznej jest wystarczająca dla zadania intensywnie korzystających z operacji we/wy.
 
-    executor-memory = 6GB
+```console
+executor-memory = 6GB
+```
+
 **Krok 3. Ustawianie rdzeni wykonawcy** — ponieważ jest to zadanie intensywnie korzystające z operacji we/wy, można ustawić liczbę rdzeni dla każdego wykonawcy na cztery. Ustawienie rdzeni na wykonawcę do większej niż cztery może spowodować problemy z wyrzucaniem elementów bezużytecznych.
 
-    executor-cores = 4
+```console
+executor-cores = 4
+```
+
 **Krok 4. określenie ilości pamięci przędzy w klastrze** — Ambari, aby dowiedzieć się, że każdy D4V2 ma 25 GB pamięci przędzenia. Ponieważ istnieją 8 węzłów, dostępna pamięć PRZĘDZy jest mnożona przez 8.
 
-    Total YARN memory = nodes * YARN memory* per node
-    Total YARN memory = 8 nodes * 25 GB = 200 GB
+Łączna ilość pamięci PRZĘDZy = węzły * PRZĘDZa pamięć * na węzeł Łączna ilość pamięci PRZĘDZy = 8 węzłów * 25 GB = 200 GB
+
 **Krok 5. Obliczanie liczby programów wykonujących liczbę-wykonawcze** — parametr NUM-wykonawczy jest określany przez przejęcie minimalnej wartości ograniczenia pamięci i ograniczenia procesora CPU podzielone przez liczbę aplikacji uruchomionych na platformie Spark.
 
 **Ograniczenie pamięci** — ograniczenie pamięci jest obliczane jako łączna ilość pamięci przędzy podzielona przez pamięć na wykonawcę.
 
-    Memory constraint = (total YARN memory / executor memory) / # of apps 
-    Memory constraint = (200 GB / 6 GB) / 2
-    Memory constraint = 16 (rounded)
-**Obliczanie ograniczenia procesora CPU** — ograniczenie procesora CPU jest obliczane jako łączna liczba rdzeni przędzy podzielona przez liczbę rdzeni na wykonawcę.
-    
-    YARN cores = nodes in cluster * # of cores per node * 2
-    YARN cores = 8 nodes * 8 cores per D14 * 2 = 128
-    CPU constraint = (total YARN cores / # of cores per executor) / # of apps
-    CPU constraint = (128 / 4) / 2
-    CPU constraint = 16
+Ograniczenie pamięci = (Łączna ilość pamięci lub pamięci programu do wykonania)/liczba aplikacji ograniczenie pamięci = (200 GB/6 GB)/2 ograniczenie pamięci = 16 (zaokrąglone) **Obliczanie ograniczenia procesora** — ograniczenie procesora CPU jest obliczane jako łączna liczba rdzeni przędzy, które są podzielone przez liczbę rdzeni na wykonawcę.
+
+Rdzenie PRZĘDZy = węzły w klastrze * liczba rdzeni na węzeł * 2 rdzenie PRZĘDZy = 8 węzłów * 8 rdzeni na D14 * 2 = 128 ograniczenie procesora CPU = (łączna liczba rdzeni PRZĘDZy/liczba rdzeni na wykonawcę)/liczba ograniczeń procesora (128/4)/2 ograniczenie procesora CPU = 16
+
 **Ustaw NUM-wykonawcze**
 
-    num-executors = Min (memory constraint, CPU constraint)
-    num-executors = Min (16, 16)
-    num-executors = 16
+NUM-wykonawcy = min (ograniczenie pamięci, ograniczenie procesora) NUM-wykonawcy = min (16, 16) NUM-wykonawcy = 16

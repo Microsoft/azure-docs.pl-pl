@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 51716bdd6ab7f5b5102ccba3e6d57855dee5df33
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73904625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855911"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Dostrajanie Azure Data Lake Storage Gen1 na potrzeby wydajności
 
@@ -43,11 +43,11 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie          | Ustawienia | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Łącze](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Jednostki Azure Data Lake Analytics | [Łącze](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| Pomocą distcp            | -m (mapowanie) | [Łącze](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies | [Łącze](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Łącze](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
+| AdlCopy    | Jednostki Azure Data Lake Analytics | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| Pomocą distcp            | -m (mapowanie) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -65,15 +65,11 @@ Czasami potoki danych mają ograniczoną kontrolę nad danymi pierwotnymi, któr
 
 W przypadku obciążeń Hive i ADLA, oczyszczanie partycji danych szeregów czasowych może pomóc niektórym kwerendom odczytywać tylko podzbiór danych, co zwiększa wydajność.
 
-Te potoki, które pobierają dane szeregów czasowych, często umieszczają pliki z strukturalną nazewnictwem plików i folderów. Poniżej przedstawiono typowy przykład, który jest widoczny dla danych uporządkowanych według daty:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Te potoki, które pobierają dane szeregów czasowych, często umieszczają pliki z strukturalną nazewnictwem plików i folderów. Poniżej przedstawiono typowy przykład, który jest widoczny dla danych, które są uporządkowane według daty: *\dataset\yyyy\mm\dd\ datafile_YYYY_MM_DD. tsv*.
 
 Zwróć uwagę, że informacje o dacie i godzinie są wyświetlane zarówno jako foldery, jak i w nazwie pliku.
 
-W przypadku daty i godziny następujący wzorzec jest typowym wzorcem
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+W przypadku daty i godziny następujący wzorzec jest typowy: *\dataset\yyyy\mm\dd\hh\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*.
 
 Po ponownym wyborze z folderu i organizacji plików należy zoptymalizować dla większych rozmiarów plików i rozsądnej liczby plików w poszczególnych folderach.
 

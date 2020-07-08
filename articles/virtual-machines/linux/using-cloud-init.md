@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: c16343b412cd9164df84ea140e9bc5368890cc3e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920198"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
 W tym artykule opisano obsługę funkcji [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te konfiguracje usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure.  
@@ -46,38 +46,52 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1. el7_6.2*|
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 września 2020) | Nie dotyczy |
 |RedHat 7,7 (Gen1)|RHEL |7,7 | 7.7.2020051912 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen1)|RHEL |7 — LVM | 7.7.2020051921 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 7lvm — Gen2 | 7.7.2020051922  | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen1) |RHEL — BYOS | RHEL — lvm77 | 7.7.20200416 | tak  | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
-|RedHat 8,1 (Gen1) |RHEL |8,1-Ci |8.1.2020042511 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca|
-|RedHat 8,1 (Gen2) |RHEL |81-Ci-Gen2 |8.1.2020042524 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca |
+|RedHat 8,1 (Gen1) |RHEL |8,1-Ci |8.1.2020042511 | tak (Uwaga: jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują funkcję Cloud-init, która zostanie usunięta 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca|
+|RedHat 8,1 (Gen2) |RHEL |81-Ci-Gen2 |8.1.2020042524 | tak (Uwaga: jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują funkcję Cloud-init, która zostanie usunięta 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca |
 
-RedHat: RHEL 7,8 i 8,2 (Gen1 i Gen2) są obsługiwane przy użyciu funkcji Cloud-init.
+* Wszystkie obrazy z RedHat: RHEL 7,8 i 8,2 (Gen1 i Gen2) są inicjowane przy użyciu funkcji Cloud-init.
 
 ### <a name="centos"></a>CentOS
 
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem CentOS 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu:`18.5-3.el7.centos`|
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 września 2020) | Nie dotyczy |
+|OpenLogic 7,7 |CentOS | 7,7 |7.7.2020062400 |tak | tak — obsługa z wersji pakietu:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS | 7_7 — Gen2 |7.7.2020062401 |tak | tak — obsługa z wersji pakietu:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 |CentOS — HPC | 7,7 |7.6.2020062600 |tak | tak — obsługa z wersji pakietu:`18.5-6.el7.centos.5`|
+|OpenLogic 7,7 (Gen2) |CentOS — HPC | 7_7 — Gen2 |7.6.2020062601 |tak | tak — obsługa z wersji pakietu:`18.5-6.el7.centos.5`|
+|OpenLogic 8,1 |CentOS | 8_1 |8.1.2020062400 |tak | tak — obsługa z wersji pakietu:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS | 8_1 — Gen2 |8.1.2020062401 |tak | tak — obsługa z wersji pakietu:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 |CentOS — HPC | 8_1 |8.1.2020062400 |tak | tak — obsługa z wersji pakietu:`18.5-7.el8_1.1`|
+|OpenLogic 8,1 (Gen2) |CentOS-HPC: 8_1-Gen2 | 8_1 — Gen2 |8.1.2020062401 |tak | tak — obsługa z wersji pakietu:`18.5-7.el8_1.1`|
 
-* CentOS 7,7 obrazów, które będą miały włączoną funkcję Cloud-init, można zaktualizować tutaj w czerwcu 2020 
-* Obsługa obrazów w programie CentOS 7,8 przy użyciu funkcji Cloud-init.
-
+* Wszystkie obrazy z OpenLogic: CentOS 7,8 i 8,2 (Gen1 i Gen2) są inicjowane przy użyciu funkcji Cloud-init.
 
 ### <a name="oracle"></a>Oracle
 
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7,7 |Oracle — Linux |77-Ci |7.7.01| Podgląd obrazu (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a gdy wszystkie obrazy z systemem Oracle 7,7 obsługują funkcję Cloud-init, zostanie ono 2020 usunięte. | nie, w wersji zapoznawczej pakiet jest: *18.5-3.0.1. el7*
+|Oracle 7,7 |Oracle — Linux |77-Ci |7.7.01| Podgląd obrazu (Uwaga: jest to obraz w wersji zapoznawczej, a gdy wszystkie obrazy z systemem Oracle 7,7 obsługują funkcję Cloud-init, zostanie on 2020 usunięty. | nie, w wersji zapoznawczej pakiet jest: *18.5-3.0.1. el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
-| Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
-|:--- |:--- |:--- |:--- |:--- |:--- |
-|SUSE SLES 15 SP1 |SUSE |SLES-15-SP1 — podstawowy |Cloud-init — wersja zapoznawcza| Aby uzyskać szczegółowe informacje, zobacz [blog SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) . | Nie, w wersji zapoznawczej. |
-|SUSE SLES 15 SP1 |SUSE |SLES-15-SP1 — podstawowy |Gen2-Cloud-init — wersja zapoznawcza| Aby uzyskać szczegółowe informacje, zobacz [blog SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) . | Nie, w wersji zapoznawczej. |
+Te obrazy SLES zostały zaktualizowane w celu inicjowania obsługi administracyjnej przy użyciu funkcji Cloud-init, a także wariantów obrazów Gen2.
+* SUSE: SLES-15-SP1-{podstawowa/BYOS/HPC/HPC-BYOS/Chost-BYOS}: Gen1:2020.06.10
+* SUSE: SLES-SAP-15-SP1: Gen1:2020.06.10
+* SUSE: SLES-SAP-15-SP1-BYOS: Gen1:2020.06.10
+* SUSE: Manager-proxy-4-BYOS: Gen1:2020.06.10
+* SUSE: Manager-Server-4-BYOS: Gen1:2020.06.10
+* SUSE: SLES-{BYOS/SAP/SAP-BYOS}: 15:2020.06.10
+* SUSE: SLES-12-SP5: Gen1:2020.06.10
+* SUSE: SLES-12-SP5 {-BYOS/Basic/HPC-BYOS/HPC}: Gen1:2020.06.10
+* SUSE: SLES-{BYOS/SAP/SAP-BYOS}: 12-SP4:2020.06.10
+* SUSE: SLES-{BYOS/SAP/SAP-BYOS}: 12-SP3:2020.06.10
+* SUSE: SLES-{BYOS/SAP/SAP-BYOS}: 12-SP2:2020.06.10
 
 
 ### <a name="debian"></a>Debian

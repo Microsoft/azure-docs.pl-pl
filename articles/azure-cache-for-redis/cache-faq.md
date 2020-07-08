@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 00b4306340e9888ea5a794c7940a021674060e05
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856966"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis — często zadawane pytania
 Poznaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure cache for Redis.
@@ -213,22 +213,23 @@ Jednym z wspaniałych Redis jest to, że wielu klientów obsługuje wiele różn
 ### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Czy istnieje emulator lokalny dla usługi Azure cache for Redis?
 Nie ma lokalnego emulatora dla usługi Azure cache for Redis, ale można uruchomić wersję MSOpenTech redis-server.exe z [narzędzi wiersza polecenia Redis](https://github.com/MSOpenTech/redis/releases/) na komputerze lokalnym i połączyć się z nią w celu uzyskania podobnego środowiska na potrzeby lokalnego emulatora pamięci podręcznej, jak pokazano w następującym przykładzie:
 
-    private static Lazy<ConnectionMultiplexer>
-          lazyConnection = new Lazy<ConnectionMultiplexer>
-        (() =>
-        {
-            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-        });
+```csharp
+private static Lazy<ConnectionMultiplexer>
+      lazyConnection = new Lazy<ConnectionMultiplexer>
+    (() =>
+    {
+        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+    });
 
-        public static ConnectionMultiplexer Connection
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+```
 
 Opcjonalnie można skonfigurować plik [Redis. conf](https://redis.io/topics/config) , aby lepiej pasował do [domyślnych ustawień pamięci](cache-configure.md#default-redis-server-configuration) podręcznej w pamięci podręcznej platformy Azure online dla Redis w razie potrzeby.
 
@@ -366,10 +367,12 @@ W zasadzie oznacza to, że gdy liczba zajętych wątków jest większa niż min,
 
 Jeśli zobaczysz przykładowy komunikat o błędzie z StackExchange. Redis (kompilacja 1.0.450 lub nowsza), zobaczysz, że teraz jest drukowana Statystyka puli wątków (zobacz szczegóły dotyczące portu i procesu roboczego).
 
+```output
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
 
 W poprzednim przykładzie można zobaczyć, że dla wątku portu są sześć zajętych wątków, a system jest skonfigurowany tak, aby zezwalał na cztery minimalne wątki. W takim przypadku klient prawdopodobnie widzi opóźnienia 2 500-MS, ponieważ 6 > 4.
 

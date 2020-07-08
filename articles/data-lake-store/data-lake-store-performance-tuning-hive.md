@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 819e158ce2613441efdf2177d50fc8e7989bf68f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: c49388d50b79b037b0a0923f2c5e9ac72105c54e
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855764"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla programu Hive w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -55,17 +55,15 @@ Obciążenia intensywnie korzystające z operacji we/wy mogą korzystać z więk
 
 Liczba współbieżnych zadań uruchomionych lub równoległych zostanie ograniczona przez łączną ilość pamięci PRZĘDZy.  Liczba kontenerów PRZĘDZy będzie określać liczbę współbieżnych zadań, które można uruchomić.  Aby znaleźć pamięć PRZĘDZy na węzeł, możesz przejść do Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+> Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł liczba kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/rozmiar kontenera tez
+
 Kluczem do poprawienia wydajności przy użyciu Data Lake Storage Gen1 jest zwiększenie współbieżności tak, jak to możliwe.  Tez automatycznie oblicza liczbę zadań, które należy utworzyć, aby nie trzeba było ich ustawiać.   
 
 ## <a name="example-calculation"></a>Przykładowe obliczenie
 
 Załóżmy, że masz klaster D14 z 8 węzłami.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+> Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł Łączna ilość pamięci PRZĘDZy = 8 węzłów * 96GB = 768GB liczba kontenerów PRZĘDZy = 768GB/3072MB = 256
 
 ## <a name="limitations"></a>Ograniczenia
 

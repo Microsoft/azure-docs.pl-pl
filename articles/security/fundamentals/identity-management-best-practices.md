@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855897"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -167,7 +167,7 @@ Poniżej przedstawiono opcje i korzyści dotyczące włączania weryfikacji dwue
 * Wymagaj żądania MFA za pośrednictwem Microsoft Authenticator dla wszystkich użytkowników
 * Ogranicz starsze protokoły uwierzytelniania.
 
-Ta metoda jest dostępna dla wszystkich warstw licencjonowania, ale nie może być mieszana z istniejącymi zasadami dostępu warunkowego. Więcej informacji można znaleźć w ustawieniach zabezpieczeń usługi Azure AD.
+Ta metoda jest dostępna dla wszystkich warstw licencjonowania, ale nie może być mieszana z istniejącymi zasadami dostępu warunkowego. Więcej informacji można znaleźć w [ustawieniach zabezpieczeń usługi Azure AD](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) .
 
 **Opcja 2**: [Włączanie Multi-Factor Authentication przez zmianę stanu użytkownika](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Korzyść**: jest to tradycyjna metoda wymagająca weryfikacji dwuetapowej. Działa ona zarówno [w przypadku usługi azure Multi-Factor Authentication w chmurze, jak i na platformie azure serwer Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-whichversion). Użycie tej metody wymaga, aby użytkownicy przeprowadzali weryfikację dwuetapową przy każdym logowaniu i zastępują zasady dostępu warunkowego.
@@ -189,7 +189,7 @@ Jest to najbardziej elastyczny sposób na umożliwienie weryfikacji dwuetapowej 
 Ta metoda używa oceny ryzyka Azure AD Identity Protection, aby określić, czy Weryfikacja dwuetapowa jest wymagana na podstawie ryzyka związanego z logowaniem do wszystkich aplikacji w chmurze. Ta metoda wymaga licencjonowania Azure Active Directory P2. Więcej informacji na temat tej metody można znaleźć w [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Opcja 1, Włączanie Multi-Factor Authentication przez zmianę stanu użytkownika, przesłania zasady dostępu warunkowego. Ponieważ opcje 2 i 3 korzystają z zasad dostępu warunkowego, nie można użyć opcji 1 z nimi.
+> Opcja 2, Włączanie Multi-Factor Authentication przez zmianę stanu użytkownika, przesłania zasady dostępu warunkowego. Ponieważ opcje 3 i 4 korzystają z zasad dostępu warunkowego, nie można użyć opcji 2 z nimi.
 
 Organizacje, które nie dodawaj dodatkowych warstw ochrony tożsamości, takich jak weryfikacja dwuetapowa, są bardziej podatne na ataki kradzieży poświadczeń. Atak kradzieży poświadczeń może prowadzić do złamania danych.
 

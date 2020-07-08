@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8b823ea97e39dfa05295449fd5a039d2b9debdfa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856560"
 ---
 Ten artykuł zawiera omówienie funkcji dostępności maszyn wirtualnych platformy Azure.
 

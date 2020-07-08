@@ -3,12 +3,12 @@ title: Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Lab
 description: Dowiedz się, jak tworzyć własne artefakty do użycia z Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f33b6da3354dc3caf9376f249b802d324aa3148c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857022"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
 
@@ -24,23 +24,25 @@ Możesz użyć *artefaktów* do wdrożenia i skonfigurowania aplikacji po zainic
 ## <a name="artifact-definition-file-format"></a>Format pliku definicji artefaktu
 Poniższy przykład przedstawia sekcje, które składają się na podstawową strukturę pliku definicji:
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
+```json
+  {
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "",
+    "description": "",
+    "iconUri": "",
+    "targetOsType": "",
+    "parameters": {
+      "<parameterName>": {
+        "type": "",
+        "displayName": "",
+        "description": ""
       }
+    },
+    "runCommand": {
+      "commandToExecute": ""
     }
+  }
+```
 
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
@@ -57,13 +59,15 @@ W sekcji parametry pliku definicji Określ wartości, które użytkownik może w
 
 Aby zdefiniować parametry, należy użyć następującej struktury:
 
-    "parameters": {
-      "<parameterName>": {
-        "type": "<type-of-parameter-value>",
-        "displayName": "<display-name-of-parameter>",
-        "description": "<description-of-parameter>"
-      }
+```json
+  "parameters": {
+    "<parameterName>": {
+      "type": "<type-of-parameter-value>",
+      "displayName": "<display-name-of-parameter>",
+      "description": "<description-of-parameter>"
     }
+  }
+```
 
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
@@ -115,12 +119,14 @@ Na poniższej liście przedstawiono typowe funkcje:
 
 Poniższy przykład pokazuje, jak używać wyrażeń i funkcji do konstruowania wartości:
 
-    runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+```json
+  runCommand": {
+      "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+  , ' -RawPackagesList ', parameters('packages')
+  , ' -Username ', parameters('installUsername')
+  , ' -Password ', parameters('installPassword'))]"
+  }
+```
 
 ## <a name="create-a-custom-artifact"></a>Tworzenie artefaktu niestandardowego
 

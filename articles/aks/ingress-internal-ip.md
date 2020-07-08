@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy kontroler dla wewnętrznej, prywatnej sieci w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: ca804849001ec99f077397fb9fbee2aae7bc2e18
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.date: 07/02/2020
+ms.openlocfilehash: 8f1a538364284863cbfe3786213434b14918f214
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920229"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,9 @@ Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. N
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
+
+# Add the official stable repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress stable/nginx-ingress \
@@ -265,7 +268,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 
