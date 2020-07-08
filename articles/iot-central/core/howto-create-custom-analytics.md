@@ -10,10 +10,9 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660133"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
@@ -62,7 +61,7 @@ Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.a
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa    | Wybierz nazwę przestrzeni nazw |
-| Warstwa cenowa | Podstawowa |
+| Warstwa cenowa | Podstawowy |
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
@@ -113,7 +112,7 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Devices | Wyłączone |
+    | Urządzenia | Wyłączone |
     | Szablony urządzeń | Wyłączone |
 
 ![Konfiguracja eksportu danych](media/howto-create-custom-analytics/cde-configuration.png)

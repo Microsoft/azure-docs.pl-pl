@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763741"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: dsindona
 ms.openlocfilehash: 53a22140fe62ce0db18c1d02d816eb31b12a381b
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714155"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Umowa standardowa dla portalu komercyjnego firmy Microsoft

@@ -11,12 +11,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698839"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037294"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Wysyłanie zdarzeń do środowiska Time Series Insights przy użyciu centrum zdarzeń
 
@@ -55,13 +54,13 @@ W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w us�
 
 ## <a name="add-a-time-series-insights-instance"></a>Dodaj wystąpienie Time Series Insights
 
-Aktualizacja Time Series Insights używa wystąpień do dodawania danych kontekstowych do przychodzących danych telemetrycznych. Dane są przyłączone w czasie zapytania przy użyciu **identyfikatora szeregów czasowych**. **Identyfikator szeregów czasowych** dla przykładowego projektu Windmills, który jest używany w dalszej części tego artykułu `id` . Aby dowiedzieć się więcej o wystąpieniach usługi Time Series Insights i **identyfikatorze szeregów czasowych**, zobacz [modele szeregów czasowych](./time-series-insights-update-tsm.md).
+Aktualizacja Time Series Insights używa wystąpień do dodawania danych kontekstowych do przychodzących danych telemetrycznych. Dane są przyłączone w czasie zapytania przy użyciu **identyfikatora szeregów czasowych**. **Identyfikator szeregów czasowych** dla przykładowego projektu Windmills, który jest używany w dalszej części tego artykułu `id` . Aby dowiedzieć się więcej o wystąpieniach usługi Time Series Insights i **identyfikatorze szeregów czasowych**, zobacz [modele szeregów czasowych](./concepts-model-overview.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń Time Series Insights
 
 1. Jeśli nie utworzono źródła zdarzeń, wykonaj kroki, aby [utworzyć źródło zdarzenia](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Ustaw wartość dla parametru `timeSeriesId` . Aby dowiedzieć się więcej na temat **identyfikatora szeregów czasowych**, Przeczytaj [modele szeregów czasowych](./time-series-insights-update-tsm.md).
+1. Ustaw wartość dla parametru `timeSeriesId` . Aby dowiedzieć się więcej na temat **identyfikatora szeregów czasowych**, Przeczytaj [modele szeregów czasowych](./concepts-model-overview.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Wypchnij zdarzenia do przykładu Windmills
 

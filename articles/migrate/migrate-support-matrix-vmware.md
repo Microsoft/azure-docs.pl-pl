@@ -4,10 +4,9 @@ description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 00f35f6b3848dcd590a9dbcd864c0ca62c1673bc
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770241"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
@@ -24,7 +23,7 @@ Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę A
 --- | ---
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure.<br/><br/> Można odkrywać i oceniać do 35 000 maszyn wirtualnych VMware w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects). Projekt może również obejmować serwery fizyczne i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
 **Odnajdowa** | Urządzenie Azure Migrate może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.
-**Stopnia** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn wirtualnych.
+**Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn wirtualnych.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
 
@@ -71,7 +70,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
 **Dostęp do maszyny wirtualnej** | Funkcja odnajdywania aplikacji musi mieć konto użytkownika lokalnego na maszynie wirtualnej w celu odnajdywania aplikacji.<br/><br/> Azure Migrate obecnie obsługuje użycie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jedno poświadczenie dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.
 **Narzędzia VMware** | Narzędzia VMware muszą być zainstalowane i uruchomione na maszynach wirtualnych, które mają zostać odnajdywane. <br/><br/> Wersja narzędzi VMware musi być nowsza niż 10.2.0.
-**PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**Program PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
 **Dostęp do portu** | Na hostach ESXi z uruchomionymi maszynami wirtualnymi urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
 **Limity** | W przypadku odnajdywania aplikacji można wyszukiwać do 10000 maszyn wirtualnych na każdym urządzeniu Azure Migrate.
 

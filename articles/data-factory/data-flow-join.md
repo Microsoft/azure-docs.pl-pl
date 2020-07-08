@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683373"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Przekształcenie łączenia w przepływie danych mapowania
@@ -55,13 +54,13 @@ Jeśli chcesz jawnie utworzyć pełny produkt kartezjańskiego, użyj przekszta�
 > [!NOTE]
 > Pamiętaj o uwzględnieniu co najmniej jednej kolumny z każdej strony lewej i prawej relacji w przypadku niestandardowego sprzężenia krzyżowego. Wykonywanie sprzężenia krzyżowego z wartościami statycznymi zamiast kolumn z każdego z nich skutkuje pełnymi skanami całego zestawu danych, co sprawia, że przepływ danych jest niewłaściwie wykonywany.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 1. Wybierz strumień danych, z którym chcesz się połączyć, na liście rozwijanej **odpowiedniego strumienia** .
 1. Wybierz **Typ sprzężenia**
 1. Wybierz kolumny klucza, dla których chcesz dopasować warunek sprzężenia. Domyślnie przepływ danych wyszukuje równość między jedną kolumną w każdym strumieniu. Aby porównać przez obliczoną wartość, umieść kursor na liście rozwijanej kolumny i wybierz **kolumnę obliczaną**.
 
-![Przekształcanie sprzężenia](media/data-flow/join.png "Dołączanie")
+![Przekształcanie sprzężenia](media/data-flow/join.png "Join")
 
 ### <a name="non-equi-joins"></a>Sprzężenia inne niż Equi
 

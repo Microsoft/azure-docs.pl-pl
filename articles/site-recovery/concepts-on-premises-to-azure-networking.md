@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770496"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Nawiązywanie połączenia z maszynami wirtualnymi platformy Azure po przejściu w tryb failover z lokalnego 

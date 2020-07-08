@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684714"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
@@ -52,7 +51,7 @@ Skrót, który działa dla niektórych typów projektów programu Visual Studio,
 
 1. Kliknij pozycję **Rozpocznij**.
 
-1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **zarejestruj**.
+1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj**.
 
 W tym momencie aplikacja jest skonfigurowana do monitorowania aplikacji, co oznacza, że wszystkie obciążenia stron są śledzone przy użyciu metryk domyślnych. Aby uzyskać więcej informacji o poprzednich krokach, zobacz [Włączanie telemetrii po stronie serwera Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -70,7 +69,7 @@ Na kliencie może być dodatkowy kod, który manipuluje danymi wejściowymi zapy
 
 **Korzystanie z języka C#**
 
-W języku C# **InstrumentationKey** znajduje się w konfiguracji aplikacji, na przykład pliku appSettings. JSON, jeśli projekt jest ASP.NET. Zapoznaj się z powrotem z instrukcjami rejestracji, jeśli nie masz pewności co do lokalizacji klucza.
+W języku C# **InstrumentationKey** znajduje się w konfiguracji aplikacji, na przykład appsettings.js, jeśli projekt jest ASP.NET. Zapoznaj się z powrotem z instrukcjami rejestracji, jeśli nie masz pewności co do lokalizacji klucza.
 
 ```csharp
 private static TelemetryClient _telemetryClient;

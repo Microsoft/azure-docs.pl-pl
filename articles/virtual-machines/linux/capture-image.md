@@ -9,10 +9,9 @@ ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
 ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83723310"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego

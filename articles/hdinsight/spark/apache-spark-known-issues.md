@@ -8,12 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: eec5de7521c98e8147a8439844fd2a2a6b1bd2bc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73494533"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037498"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dotyczące klastra Apache Spark w usłudze HDInsight
 
@@ -30,13 +29,17 @@ Aby obejść ten problem, wykonaj czynności opisane w poniższej procedurze:
 
 2. Uruchom następujące polecenie, aby znaleźć identyfikatory aplikacji zadań interaktywnych rozpoczętych za pomocą usługi Livy.
 
-        yarn application –list
+   ```bash
+   yarn application –list
+   ```
 
     Domyślne nazwy zadań zostaną usługi Livy, jeśli zadania zostały uruchomione z sesją interaktywną usługi Livy bez określonych jawnych nazw. W przypadku sesji usługi Livy uruchomionej przez [Jupyter Notebook](https://jupyter.org/)nazwa zadania rozpoczyna się od `remotesparkmagics_*` .
 
 3. Uruchom następujące polecenie, aby skasować te zadania.
 
-        yarn application –kill <Application ID>
+   ```bash
+   yarn application –kill <Application ID>
+   ```
 
 Rozpoczęto wykonywanie nowych zadań.
 

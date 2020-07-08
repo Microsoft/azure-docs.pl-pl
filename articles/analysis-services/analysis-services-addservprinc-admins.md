@@ -9,10 +9,9 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83697532"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
@@ -22,10 +21,10 @@ ms.locfileid: "83697532"
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestrowaną w Azure Active Directory.
 
-[Tworzenie nazwy głównej usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Tworzenie jednostki usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Tworzenie jednostki usługi — PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="using-sql-server-management-studio"></a>Używanie programu SQL Server Management Studio
+## <a name="using-sql-server-management-studio"></a>Korzystanie z programu SQL Server Management Studio
 
 Administratorów serwera można skonfigurować przy użyciu SQL Server Management Studio (SSMS). Aby wykonać to zadanie, musisz mieć uprawnienia [administratora serwera](analysis-services-server-admins.md) na platformie Azure jako serwer. 
 

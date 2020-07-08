@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8cfe1d6434c0f5765196776ae9f6712fe14c52a3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984127"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Konfigurowanie zawsze włączonego tunelu VPN użytkownika

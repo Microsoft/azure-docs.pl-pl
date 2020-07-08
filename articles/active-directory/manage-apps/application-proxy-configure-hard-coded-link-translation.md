@@ -17,10 +17,9 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764846"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj linki stałe dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
@@ -145,7 +144,7 @@ Wprowadzenie do tłumaczenia linków jest tak proste, jak kliknięcie przycisku:
 
 Teraz, gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy automatycznie przeskanuje pod kątem wewnętrznych adresów URL, które zostały opublikowane za pomocą serwera proxy aplikacji w dzierżawie.
 
-## <a name="send-feedback"></a>Wyślij opinię
+## <a name="send-feedback"></a>Przesyłanie opinii
 
 Chcemy, aby Twoja funkcja działała we wszystkich aplikacjach. Przeszukiwane są ponad 30 tagów w formacie HTML i CSS. Jeśli masz przykład wygenerowanych linków, które nie są tłumaczone, Wyślij fragment kodu do [opinii serwera proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
 

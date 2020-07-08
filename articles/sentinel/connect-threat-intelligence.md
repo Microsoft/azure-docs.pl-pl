@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84769877"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Łączenie danych od dostawców analizy zagrożeń

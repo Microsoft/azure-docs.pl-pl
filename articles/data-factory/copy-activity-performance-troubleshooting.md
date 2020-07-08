@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770972"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania

@@ -14,12 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c477d0d293e896bc92cd3bd6047135a56cb4ad
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
-ms.translationtype: MT
+ms.openlocfilehash: 70d53bf3d97f27caae7d3dee7cd03a4606d6761c
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85105972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921758"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -1349,8 +1348,7 @@ Może zarządzać zakupami komercyjnymi dla firmy, działu lub zespołu.
 | --- | --- |
 | Microsoft. Commerce. rozliczenia/partnerzy/odczyt | Odczytaj Właściwość partnera rozliczeń usługi O365. |
 | Microsoft. Commerce. volumeLicenseServiceCenter/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Volume Licensing Service Center. |
-| Microsoft. Directory/Organization/Basic/Update | Aktualizuj podstawowe właściwości organizacji w Azure Active Directory. |
-| Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz i wyświetlaj własne bilety pomocy technicznej pakietu Office 365. |
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 
 

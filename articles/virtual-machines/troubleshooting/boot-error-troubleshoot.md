@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
 ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84769612"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Rozwiązywanie problemów z błędami rozruchu usługi Azure Virtual Machines

@@ -13,12 +13,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c527ef9767d7b88e956bb1b3354b3067847857d9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921694"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurowanie modułu równoważenia obciążenia dla SQL Server zawsze włączone grupy dostępności na platformie Azure Virtual Machines
 
@@ -79,7 +78,7 @@ Najpierw Utwórz moduł równoważenia obciążenia.
    | **Grupa zasobów** |Wybierz grupę zasobów, w której znajdują się wystąpienia SQL Server. |
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
 
-6. Wybierz przycisk **Utwórz**. 
+6. Wybierz pozycję **Utwórz**. 
 
 Platforma Azure tworzy moduł równoważenia obciążenia. Moduł równoważenia obciążenia należy do określonej sieci, podsieci, grupy zasobów i lokalizacji. Po zakończeniu zadania przez platformę Azure Sprawdź ustawienia modułu równoważenia obciążenia na platformie Azure. 
 
@@ -203,8 +202,10 @@ Przetestuj połączenie, wykonując następujące czynności:
 1. Użyj protokołu RDP (Remote Desktop Protocol), aby nawiązać połączenie z wystąpieniem SQL Server, które znajduje się w tej samej sieci wirtualnej, ale nie jest to replika. Ten serwer może być innym wystąpieniem SQL Server w klastrze.
 
 2. Przetestuj połączenie przy użyciu narzędzia **sqlcmd** . Na przykład poniższy skrypt ustanawia połączenie **sqlcmd** z repliką podstawową za pomocą odbiornika z uwierzytelnianiem systemu Windows:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 Połączenie SQLCMD automatycznie łączy się z wystąpieniem SQL Server, które obsługuje replikę podstawową. 
 

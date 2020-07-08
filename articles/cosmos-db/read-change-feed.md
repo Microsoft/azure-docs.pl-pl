@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83697346"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Odczytywanie zestawienia zmian w usłudze Azure Cosmos DB
@@ -27,7 +26,7 @@ Podczas odczytywania ze źródła zmian Azure Cosmos DB zwykle zalecamy korzysta
 - Równoważenie obciążenia na wielu klientach korzystających ze zmian. Na przykład jeśli jeden klient nie może zachować zmian w przetwarzaniu, a drugi ma dostępną pojemność.
 - [Obsługa błędów](change-feed-processor.md#error-handling). Na przykład automatyczne ponawianie nieudanych zmian, które zostały nieprawidłowo przetworzone po nieobsługiwanym wyjątku w kodzie lub przejściowym problemie z siecią.
 
-Większość scenariuszy korzystających ze źródła zmian Azure Cosmos DB będzie korzystać z jednej z opcji modelu wypychania. Istnieje jednak kilka scenariuszy, w których można chcieć uzyskać dodatkową kontrolę nad modelem na niskim poziomie. Należą do nich:
+Większość scenariuszy korzystających ze źródła zmian Azure Cosmos DB będzie korzystać z jednej z opcji modelu wypychania. Istnieje jednak kilka scenariuszy, w których można chcieć uzyskać dodatkową kontrolę nad modelem na niskim poziomie. Są to moduły:
 
 - Odczytywanie zmian z określonego klucza partycji
 - Kontrolowanie tempa, w którym klient otrzymuje zmiany w celu przetworzenia

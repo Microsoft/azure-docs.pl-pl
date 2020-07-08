@@ -3,25 +3,24 @@ title: Zagadnienia dotyczące programu Cloud Solution Provider
 description: W przypadku partnerów programu CSP delegowane zarządzanie zasobami systemu Azure pomaga zwiększyć bezpieczeństwo i kontrolę dzięki włączeniu szczegółowych uprawnień.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 15b66568ae468d772c0fb7141a10e336cd94afc3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456914"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921617"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse i program dostawcy rozwiązań w chmurze
 
-Jeśli jesteś partnerem [CSP (dostawca rozwiązań w chmurze)](https://docs.microsoft.com/partner-center/csp-overview) , możesz uzyskać dostęp do subskrypcji platformy Azure utworzonych dla klientów za pośrednictwem programu CSP przy użyciu funkcji [Administruj w imieniu (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Ten dostęp pozwala bezpośrednio obsługiwać i konfigurować subskrypcje klientów oraz zarządzać nimi.
+Jeśli jesteś partnerem [CSP (dostawca rozwiązań w chmurze)](/partner-center/csp-overview) , możesz uzyskać dostęp do subskrypcji platformy Azure utworzonych dla klientów za pośrednictwem programu CSP przy użyciu funkcji [Administruj w imieniu (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Ten dostęp pozwala bezpośrednio obsługiwać i konfigurować subskrypcje klientów oraz zarządzać nimi.
 
 [Usługa Azure Lighthouse](../overview.md)umożliwia zarządzanie zasobami delegowanymi na platformie Azure wraz z AOBO. Pozwala to zwiększyć bezpieczeństwo i ograniczyć niepotrzebny dostęp przez umożliwienie użytkownikom bardziej szczegółowych uprawnień. Umożliwia również zwiększenie wydajności i skalowalności, ponieważ użytkownicy mogą korzystać z wielu subskrypcji klienta przy użyciu jednej nazwy logowania w dzierżawie.
 
 > [!TIP]
-> Aby pomóc w zabezpieczeniu zasobów klientów, należy zapoznać się z naszymi [zalecanymi rozwiązaniami](recommended-security-practices.md) dotyczącymi zabezpieczeń oraz z [wymaganiami dotyczącymi zabezpieczeń partnerów](https://docs.microsoft.com/partner-center/partner-security-requirements).
+> Aby pomóc w zabezpieczeniu zasobów klientów, należy zapoznać się z naszymi [zalecanymi rozwiązaniami](recommended-security-practices.md) dotyczącymi zabezpieczeń oraz z [wymaganiami dotyczącymi zabezpieczeń partnerów](/partner-center/partner-security-requirements).
 
 ## <a name="administer-on-behalf-of-aobo"></a>Administruj w imieniu (AOBO)
 
-W przypadku usługi AOBO każdy użytkownik z rolą [agenta administracyjnego](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) w Twojej dzierżawie będzie miał dostęp AOBO do subskrypcji platformy Azure utworzonych za pomocą programu CSP. Wszyscy użytkownicy, którzy potrzebują dostępu do subskrypcji klientów, muszą być członkami tej grupy. AOBO nie pozwala na elastyczność tworzenia odrębnych grup, które współpracują z różnymi klientami, lub aby włączyć różne role dla grup lub użytkowników.
+W przypadku usługi AOBO każdy użytkownik z rolą [agenta administracyjnego](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) w Twojej dzierżawie będzie miał dostęp AOBO do subskrypcji platformy Azure utworzonych za pomocą programu CSP. Wszyscy użytkownicy, którzy potrzebują dostępu do subskrypcji klientów, muszą być członkami tej grupy. AOBO nie pozwala na elastyczność tworzenia odrębnych grup, które współpracują z różnymi klientami, lub aby włączyć różne role dla grup lub użytkowników.
 
 ![Zarządzanie dzierżawcą przy użyciu AOBO](../media/csp-1.jpg)
 
@@ -34,7 +33,7 @@ Aby dołączać subskrypcję utworzoną za pomocą programu CSP, wykonaj kroki o
 ![Zarządzanie dzierżawcą przy użyciu AOBO i zarządzania zasobami delegowanymi przez platformę Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> Na [stronie **moi klienci** w Azure Portal](../how-to/view-manage-customers.md) teraz znajduje się sekcja **dostawca rozwiązań w chmurze (wersja zapoznawcza)** , która wyświetla informacje o rozliczeniach i zasoby dla klientów programu CSP, którzy [podpisali umowę klienta firmy Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie [do rozliczeń umowy partnerskiej firmy Microsoft](../../billing/mpa-overview.md).
+> Na [stronie **moi klienci** w Azure Portal](../how-to/view-manage-customers.md) teraz znajduje się sekcja **dostawca rozwiązań w chmurze (wersja zapoznawcza)** , która wyświetla informacje o rozliczeniach i zasoby dla klientów programu CSP, którzy [podpisali umowę klienta firmy Microsoft (MCA)](/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](/partner-center/azure-plan-get-started). Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie [do rozliczeń umowy partnerskiej firmy Microsoft](../../billing/mpa-overview.md).
 >
 > Klienci korzystający z programu CSP mogą pojawić się w tej sekcji bez względu na to, czy zostały również dołączone do zarządzania zasobami delegowanymi przez platformę Azure. Jeśli są one dostępne, pojawią się również w sekcji **klienci** zgodnie z opisem w temacie [Wyświetlanie i zarządzanie klientami oraz delegowanymi zasobami](../how-to/view-manage-customers.md). Podobnie klient dostawcy usług kryptograficznych nie musi być widoczny w sekcji **dostawca rozwiązań w chmurze (wersja zapoznawcza)** w obszarze **moi klienci** w celu dodania ich do zarządzania zasobami delegowanymi przez platformę Azure.
 
@@ -42,4 +41,4 @@ Aby dołączać subskrypcję utworzoną za pomocą programu CSP, wykonaj kroki o
 
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](cross-tenant-management-experience.md).
 - Dowiedz się [, jak dołączyć subskrypcję do zarządzania zasobami delegowanymi przez platformę Azure](../how-to/onboard-customer.md).
-- Dowiedz się więcej o [programie dostawcy rozwiązań w chmurze](https://docs.microsoft.com/partner-center/csp-overview).
+- Dowiedz się więcej o [programie dostawcy rozwiązań w chmurze](/partner-center/csp-overview).

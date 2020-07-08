@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
 ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664991"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Rozwiązywanie problemów z błędem Menedżera rozruchu systemu Windows-0xC0000225 "nie znaleziono stanu"
@@ -37,7 +36,7 @@ Jeśli plik jest obecny, ale odwołuje się do sterownika (jak pokazano) lub dot
  
 Na poniższej ilustracji nie udało się uruchomić systemu Windows Stany Menedżera rozruchu systemu Windows. Przyczyną może być niedawna zmiana sprzętu lub oprogramowania ". Na obrazie jest również wyświetlany stan "0xc0000225", **plik:** AS `\windows\System32\drivers\atapi.sys` , i **informacje:** "nie można załadować systemu operacyjnego z powodu braku krytycznych sterowników systemu lub zawiera błędy".
 
-![Uruchamianie systemu Windows Stany Menedżera rozruchu systemu Windows nie powiodło się. Przyczyną może być Ostatnia zmiana sprzętu lub oprogramowania. Wskazuje również stan jako "0xc0000225", plik jako "\windows\System32\drivers\atapi.sys", a w sekcji informacji: "nie można załadować systemu operacyjnego z powodu braku krytycznych sterowników systemu lub zawiera błędy".](./media/troubleshoot-boot-error-status-not-found/1.png)
+![Uruchamianie systemu Windows Stany Menedżera rozruchu systemu Windows nie powiodło się. Przyczyną może być Ostatnia zmiana sprzętu lub oprogramowania. Przedstawia on również stan jako "0xc0000225", plik jako "\windows\System32\drivers\atapi.sys" i w sekcji informacji: "nie można załadować systemu operacyjnego z powodu braku krytycznych sterowników systemu lub zawiera błędy".](./media/troubleshoot-boot-error-status-not-found/1.png)
 
 ### <a name="no-file"></a>Brak pliku
 
@@ -108,11 +107,11 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
 1. Kliknij prawym przyciskiem myszy plik, wybierz polecenie **Właściwości**, a następnie wybierz kartę **szczegóły** , aby wyświetlić informacje o pliku.
    1. Zanotuj wersję pliku, jak pokazano na poniższej ilustracji:
 
-      ![Okno właściwości dla pliku "CNG. sys" z wyróżnioną wersją pliku.](./media/troubleshoot-boot-error-status-not-found/5.png)
+      ![Okno właściwości dla pliku "cng.sys" z wyróżnioną wersją pliku.](./media/troubleshoot-boot-error-status-not-found/5.png)
 
-1. Zmień nazwę pliku na **< binarny. SYS >. old**, zastępując dane **binarne<. SYS >** z nazwą pliku.
+1. Zmień nazwę pliku na **< BINARY.SYS >. old**, zastępując **< BINARY.SYS >** nazwą pliku.
 
-   W przypadku obrazu w powyższym kroku plik **CNG. sys** zostanie zmieniony na **CNG. sys. old**
+   W przypadku obrazu w powyższym kroku **cng.sys** zmienić nazwy pliku na **cng.sys. old**
 
    > [!NOTE]
    > Jeśli spróbujesz zmienić nazwę pliku i otrzymasz komunikat "plik jest uszkodzony i nie można go odczytać", [skontaktuj się z pomocą techniczną w celu uzyskania pomocy](https://azure.microsoft.com/support/create-ticket/), ponieważ to rozwiązanie nie będzie działało.
@@ -127,7 +126,7 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
 
       To polecenie wyświetla listę wszystkich wersji pliku, które zawiera komputer, co zapewnia historię ścieżki tego składnika.
       
-      Na przykład **katalog CNG. sys** zostanie zmieniony na **dir CNG. sys/s**
+      Na przykład **katalog cng.sys** zostałby zmieniona na dir **cng.sys/s**
 
    1. Wybierz najnowszą wersję pliku na liście (lub dowolną preferowaną) i skopiuj plik do folderu **Windows\System32** przy użyciu poprzedniej ścieżki i następującego polecenia:
 
@@ -136,9 +135,9 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
       > [!NOTE]
       > Jeśli najnowsza wartość binarna nie zadziałała, Wypróbuj wersję przed nią lub, z której wiesz, że istnieje stabilny plik, taki jak wersja przed poprawką.
 
-      Jeśli na przykład plik binarny, którego szukasz, to **cmimcext. sys**, uszkodzony dysk jest dyskiem **F:**, a właśnie uruchomiono wyszukiwanie w najnowszej wersji, zobaczysz następujący obraz, gdzie zapytanie w wierszu polecenia programu `dir cmim* /s` lokalizuje najnowszą wersję pliku cmimcext. sys.
+      Jeśli na przykład plik binarny, którego szukasz, jest **cmimcext.sys**, uszkodzony dysk jest dyskiem **F:**, a właśnie uruchomiono wyszukiwanie w najnowszej wersji, zobaczysz następujący obraz, gdzie zapytanie w wierszu polecenia `dir cmim* /s` lokalizowanie najnowszej wersji pliku cmimcext.sys.
 
-      ![Zapytanie w wierszu polecenia "dir cmim */s" w celu zlokalizowania najnowszej wersji pliku cmimcext. sys.](./media/troubleshoot-boot-error-status-not-found/6.png)
+      ![Zapytanie w wierszu polecenia "dir cmim */s" w celu zlokalizowania najnowszej wersji pliku cmimcext.sys.](./media/troubleshoot-boot-error-status-not-found/6.png)
 
       Na przykładowym obrazie powyżej zapytanie zostało wykonane na dysku **C:**, podczas gdy litera dysku powinna mieć uszkodzony dysk, **F:**, czyli dysk systemu operacyjnego dołączony jako dysk z danymi na maszynie wirtualnej naprawy.
 

@@ -1,6 +1,6 @@
 ---
 title: Komunikaty z chmury do urządzenia za pomocą usługi Azure IoT Hub (węzeł) | Microsoft Docs
-description: Jak wysyłać komunikaty z chmury do urządzenia z usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla środowiska Node. js. Zmodyfikuj aplikację symulowanego urządzenia, aby odbierać komunikaty z chmury do urządzenia i modyfikować aplikację zaplecza w celu wysyłania komunikatów z chmury do urządzenia.
+description: Jak wysyłać komunikaty z chmury do urządzenia z usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla Node.js. Zmodyfikuj aplikację symulowanego urządzenia, aby odbierać komunikaty z chmury do urządzenia i modyfikować aplikację zaplecza w celu wysyłania komunikatów z chmury do urządzenia.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -13,13 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: a1e0e3623692321e5c69e4b9c5a26ff82a1c47a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732357"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Node. js)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -35,7 +34,7 @@ Ten samouczek kompiluje na temat [wysyłania danych telemetrycznych z urządzeni
 
 Więcej informacji na temat komunikatów z chmury do urządzeń można znaleźć w [przewodniku dewelopera IoT Hub](iot-hub-devguide-messaging.md).
 
-Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe środowiska Node. js:
+Na końcu tego samouczka uruchamiasz dwie Node.js aplikacje konsolowe:
 
 * **SimulatedDevice**, zmodyfikowana wersja aplikacji utworzona w wysyłanie danych [telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-node.md), która łączy się z Centrum IoT Hub i odbiera komunikaty z chmury do urządzenia.
 
@@ -47,7 +46,7 @@ Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe środowiska Node. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Node. js w wersji 10.0. x lub nowszej. [Przygotuj środowisko programistyczne](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) , w którym opisano sposób instalowania środowiska Node. js na potrzeby tego samouczka w systemie Windows lub Linux.
+* Node.js w wersji 10.0. x lub nowszej. [Przygotowanie środowiska programistycznego](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
 
 * Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial) w zaledwie kilka minut).
 
@@ -57,7 +56,7 @@ Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe środowiska Node. 
 
 W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w artykule wysyłanie danych [telemetrycznych z urządzenia do usługi IoT Hub](quickstart-send-telemetry-node.md) w celu odbierania komunikatów z chmury do urządzenia z Centrum IoT Hub.
 
-1. Za pomocą edytora tekstów Otwórz plik **SimulatedDevice. js** . Ten plik znajduje się w folderze **IoT-hub\Quickstarts\simulated-Device** , który znajduje się w folderze głównym w przykładowym kodzie środowiska Node. js, który został pobrany z urządzenia do przewodnika Szybki Start dotyczącego usługi [IoT Hub](quickstart-send-telemetry-node.md) .
+1. Za pomocą edytora tekstów Otwórz plik **SimulatedDevice.js** . Ten plik znajduje się w folderze **IoT-hub\Quickstarts\simulated-Device** , który znajduje się w folderze głównym Node.js przykładowym kodzie pobranym w polu [Wyślij dane telemetryczne z urządzenia do centrum IoT Hub](quickstart-send-telemetry-node.md) .
 
 2. Zarejestruj procedurę obsługi z klientem urządzenia, aby odbierać komunikaty wysyłane z IoT Hub. Dodaj wywołanie do `client.on` tuż po wierszu, który tworzy klienta urządzenia, tak jak w poniższym fragmencie kodu:
 
@@ -90,9 +89,9 @@ W tym artykule opisano tworzenie usługi zaplecza do wysyłania komunikatów z c
 
 ## <a name="send-a-cloud-to-device-message"></a>Wysyłanie komunikatu z chmury do urządzenia
 
-W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która wysyła komunikaty z chmury do urządzenia do aplikacji symulowanego urządzenia. Potrzebujesz identyfikatora urządzenia dodanego w polu [Wyślij telemetrię z urządzenia do](quickstart-send-telemetry-node.md) przewodnika Szybki Start dotyczącego usługi IoT Hub. Potrzebne są również parametry połączenia usługi IoT Hub, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
+W tej sekcji utworzysz aplikację konsolową Node.js, która wysyła komunikaty z chmury do urządzenia do aplikacji symulowanego urządzenia. Potrzebujesz identyfikatora urządzenia dodanego w polu [Wyślij telemetrię z urządzenia do](quickstart-send-telemetry-node.md) przewodnika Szybki Start dotyczącego usługi IoT Hub. Potrzebne są również parametry połączenia usługi IoT Hub, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
 
-1. Utwórz pusty folder o nazwie **sendcloudtodevicemessage**. W folderze **sendcloudtodevicemessage** Utwórz plik Package. JSON przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz pusty folder o nazwie **sendcloudtodevicemessage**. W folderze **sendcloudtodevicemessage** Utwórz package.jsw pliku przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
 
     ```shell
     npm init
@@ -104,9 +103,9 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która wysył
     npm install azure-iothub --save
     ```
 
-3. Za pomocą edytora tekstów Utwórz plik **SendCloudToDeviceMessage. js** w folderze **SendCloudToDeviceMessage** .
+3. Za pomocą edytora tekstów Utwórz plik **SendCloudToDeviceMessage.js** w folderze **sendcloudtodevicemessage** .
 
-4. Dodaj następujące `require` instrukcje na początku pliku **SendCloudToDeviceMessage. js** :
+4. Dodaj następujące `require` instrukcje na początku pliku **SendCloudToDeviceMessage.js** :
 
     ```javascript
     'use strict';
@@ -115,7 +114,7 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która wysył
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Dodaj następujący kod do pliku **SendCloudToDeviceMessage. js** . Zastąp wartości symboli zastępczych "{ciąg połączenia usługi IoT Hub}" i "{Device ID}" parametrami połączenia usługi IoT Hub i zanotowanym wcześniej IDENTYFIKATORem urządzenia:
+5. Dodaj następujący kod do pliku **SendCloudToDeviceMessage.js** . Zastąp wartości symboli zastępczych "{ciąg połączenia usługi IoT Hub}" i "{Device ID}" parametrami połączenia usługi IoT Hub i zanotowanym wcześniej IDENTYFIKATORem urządzenia:
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -164,7 +163,7 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która wysył
     });
     ```
 
-9. Zapisz i zamknij plik **SendCloudToDeviceMessage. js** .
+9. Zapisz i zamknij plik **SendCloudToDeviceMessage.js** .
 
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
 

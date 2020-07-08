@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: b35f78385b85a7514db4d69a0f209c37e3af0d7f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.openlocfilehash: b0a6bf3dd6585b600ff7283f6fd47cb87b68feda
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262382"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028175"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu szablonów Azure Resource Manager
 
@@ -33,7 +32,7 @@ Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy 
 
 Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API MongoDB (3,2 lub 3,6) z dwiema kolekcjami, które udostępniają przepływność skalowania automatycznego na poziomie bazy danych. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb-autoscale/azuredeploy.json":::
 
@@ -43,7 +42,7 @@ Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API M
 
 Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API MongoDB (3,2 lub 3,6) z dwiema kolekcjami, które współ400 użytkują standardową przepływność (ręcznie) na poziomie bazy danych. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
 

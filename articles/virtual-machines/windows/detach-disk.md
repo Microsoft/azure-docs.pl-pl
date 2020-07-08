@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
 ms.openlocfilehash: 3fce527c1a9feb3dbf9add36577cfa5ba8349882
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84659330"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>How to detach a data disk from a Windows virtual machine (Jak odłączyć dysk od maszyny wirtualnej systemu Windows)

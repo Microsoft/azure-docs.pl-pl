@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: bdddf097265e7af688175688b6f3214413a90fdc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984085"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurowanie klientów OpenVPN dla platformy Azure VPN Gateway

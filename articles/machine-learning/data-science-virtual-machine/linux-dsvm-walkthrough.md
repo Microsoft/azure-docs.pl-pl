@@ -10,10 +10,9 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682482"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine systemu Linux na platformie Azure
@@ -313,7 +312,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-Rozkład Anaconda w DSVM zawiera Jupyter Notebook, czyli środowisko Międzyplatformowe do udostępniania kodu Python, R lub Julia i analizy. Dostęp do Jupyter Notebook można uzyskać za pomocą JupyterHub. Użytkownik loguje się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux pod \< nazwą DNS https://DSVM lub adresem IP \> : 8000/. Wszystkie pliki konfiguracji dla JupyterHub znajdują się w/etc/jupyterhub.
+Rozkład Anaconda w DSVM zawiera Jupyter Notebook, czyli środowisko Międzyplatformowe do udostępniania kodu Python, R lub Julia i analizy. Dostęp do Jupyter Notebook można uzyskać za pomocą JupyterHub. Użytkownik loguje się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux pod adresem https:// \<DSVM DNS name or IP address\> : 8000/. Wszystkie pliki konfiguracji dla JupyterHub znajdują się w/etc/jupyterhub.
 
 > [!NOTE]
 > Aby użyć Menedżera pakietów języka Python (za pośrednictwem `pip` polecenia) z Jupyter notebook w bieżącym jądrze, użyj tego polecenia w komórce kodu:
@@ -508,7 +507,7 @@ Aby skonfigurować połączenie z serwerem lokalnym:
 1. Wprowadź nazwę użytkownika i hasło.
 1. Wybierz przycisk **OK**.
 1. Aby otworzyć okno **połączenia** , kliknij dwukrotnie alias **bazy danych spamu** .
-1. Wybierz przycisk **Połącz**.
+1. Wybierz pozycję **Połącz**.
 
 Aby uruchomić niektóre zapytania:
 

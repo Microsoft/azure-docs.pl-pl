@@ -4,10 +4,9 @@ description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń jęz
 ms.date: 05/20/2020
 ms.topic: how-to
 ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684257"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
@@ -183,7 +182,7 @@ Dla każdego poniższego przykładu warunku Zastąp ciąg wyrażeniem `<field>` 
 
 Poniższe wyniki są wynikiem kombinacji warunku i przykładową regułę zasad i tablicę istniejących wartości powyżej:
 
-|Warunek |Wynik | Scenariusz |Wyjaśnienie |
+|Warunek |Wynik | Scenariusz |Objaśnienie |
 |-|-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Nothing |Brak dopasowania |Jeden element tablicy ma wartość false (127.0.0.1! = 127.0.0.1) i jeden jako true (127.0.0.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość false_ , a efekt nie jest wyzwalany. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efekt zasad |Brak dopasowania |Oba elementy tablicy są oceniane jako prawdziwe (10.0.4.1! = 127.0.0.1 i 10.0.4.1! = 192.168.1.1), więc warunek **notEquals** ma _wartość true_ i zostanie wyzwolony efekt. |

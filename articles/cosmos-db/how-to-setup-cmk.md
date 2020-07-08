@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: 229c1307559c0bd452e95a4f833bc68b66bc6299
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
-ms.translationtype: MT
+ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027765"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
@@ -28,7 +27,7 @@ Klucze zarządzane przez klienta muszą być przechowywane w [Azure Key Vault](.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/), przejdź do subskrypcji platformy Azure, a następnie wybierz pozycję **dostawcy zasobów** na karcie **Ustawienia** :
 
-   ![Wpis "dostawcy zasobów" z menu po lewej stronie](./media/how-to-setup-cmk/portal-rp.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Wpis dostawcy zasobów z menu po lewej stronie":::
 
 1. Wyszukaj dostawcę zasobów usługi **Microsoft.DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj**:
 
@@ -51,7 +50,7 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
 1. W Azure Portal przejdź do wystąpienia Azure Key Vault, które ma być używane do hostowania kluczy szyfrowania. Wybierz pozycję **zasady dostępu** w menu po lewej stronie:
 
-   !["Zasady dostępu" z menu po lewej stronie](./media/how-to-setup-cmk/portal-akv-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Zasady dostępu z menu po lewej stronie":::
 
 1. Wybierz pozycję **+ Dodaj zasady dostępu**.
 
@@ -69,7 +68,7 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
 1. W Azure Portal przejdź do wystąpienia Azure Key Vault, które ma być używane do hostowania kluczy szyfrowania. Następnie wybierz pozycję **klucze** z menu po lewej stronie:
 
-   ![Wpis "klucze" z menu po lewej stronie](./media/how-to-setup-cmk/portal-akv-keys.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Wpis klucze z menu po lewej stronie":::
 
 1. Wybierz pozycję **Generuj/Importuj**, podaj nazwę nowego klucza, a następnie wybierz rozmiar klucza RSA. Aby zapewnić najlepsze zabezpieczenia, zalecamy co najmniej 3072. Następnie wybierz pozycję **Utwórz**:
 

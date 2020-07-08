@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93827e4d5f6bcf66191ae78c18adac71b5dd0a22
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255181"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027877"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -109,6 +108,8 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 3. Kliknij przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź do karty **nagłówki** w odpowiedzi i Wyszukaj klucz **lokalizacji** . Skopiuj wartość klucza **lokalizacji** , która jest `status URL` dla żądania konwersji.
 
@@ -151,7 +152,7 @@ Przykładowy pakiet rysowania powinien zostać skonwertowany bez błędów lub o
 }
 ```
 
-## <a name="create-a-dataset"></a>Tworzenie zestawu danych
+## <a name="create-a-dataset"></a>Utwórz zestaw danych
 
 Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby utworzyć zestaw danych, użyj [interfejsu API tworzenia zestawu danych](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Interfejs API tworzenia zestawu danych przyjmuje `conversionId` dla przekonwertowanego pakietu rysowania i zwraca `datasetId` z utworzonego zestawu danych. Poniższe kroki pokazują, jak utworzyć zestaw danych.
 

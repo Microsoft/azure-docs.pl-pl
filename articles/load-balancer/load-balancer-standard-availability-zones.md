@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 2c16c40ba7ed97f933516811432c3d4768bd0c62
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888491"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027566"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Usługa Load Balancer w warstwie Standardowa i strefy dostępności
 
@@ -105,7 +104,7 @@ Inne strefy, które mogą nawiązać połączenie z tą maszyną wirtualną, mog
 
 Usługa równoważenia obciążenia jest elastyczna w kontekście stref dostępności. Dla każdej reguły można wybrać opcję Wyrównaj do stref lub być nadmiarowe strefy. Zwiększona dostępność może być naliczana w cenie zwiększonej złożoności. Zaprojektuj dostępność w celu uzyskania optymalnej wydajności.
 
-### <a name="automatic-zone-redundancy"></a>Automatyczna nadmiarowość stref
+### <a name="zone-redundancy"></a>Strefa — nadmiarowość
 
 Load Balancer ułatwia używanie pojedynczego adresu IP jako frontonu Strefowo nadmiarowego. Strefowo nadmiarowy adres IP może obsłużyć zasób strefy w dowolnej strefie.  Adres IP może przetrwać co najmniej jedną awarię strefy, o ile jedna strefa pozostaje w dobrej kondycji w regionie.  Zamiast tego strefa frontonu jest redukcją usługi do pojedynczej strefy i udostępnia losy z odpowiednią strefą.
 

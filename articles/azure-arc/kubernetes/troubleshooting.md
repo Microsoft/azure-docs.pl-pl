@@ -9,10 +9,9 @@ ms.author: mlearned
 description: Rozwiązywanie typowych problemów z obsługą Arc klastrów Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725588"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Kubernetes Rozwiązywanie problemów z usługą Azure ARC (wersja zapoznawcza)

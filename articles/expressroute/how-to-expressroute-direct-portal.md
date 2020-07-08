@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84765442"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
@@ -56,7 +55,7 @@ Usługa ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia 
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Przejrzyj i utwórz":::
 
-1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Zmień stan administratora linków
 
@@ -100,7 +99,7 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
    :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Przejrzyj i utwórz":::
 
-1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

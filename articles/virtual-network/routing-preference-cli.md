@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: b67d8a9d7d4cdc8e1f42ca9f0a7dcc1a56fa2298
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709984"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Konfigurowanie preferencji routingu dla publicznego adresu IP przy użyciu interfejsu wiersza polecenia platformy Azure

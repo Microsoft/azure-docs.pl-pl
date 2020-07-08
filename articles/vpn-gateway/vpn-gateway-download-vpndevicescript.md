@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: e17d17484ea9caf735fd717b1e58b85e798df87b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983210"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Pobieranie skryptów konfiguracji urządzenia sieci VPN dla połączeń sieci VPN S2S

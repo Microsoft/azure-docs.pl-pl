@@ -10,10 +10,9 @@ ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 75f2e20db6ad1155e62691b711d8084a1feb5bae
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513332"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage

@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 05/20/2020
 ms.openlocfilehash: 2cf8ff446fe3441fc039ef3c2afef6308224666f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701221"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Znane problemy/ograniczenia migracji z migracją online z programu Oracle do usługi Azure DB dla PostgreSQL — pojedynczy serwer

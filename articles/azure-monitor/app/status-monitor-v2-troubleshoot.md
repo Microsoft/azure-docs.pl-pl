@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732950"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Rozwiązywanie problemów z agentem Application Insights (dawniej nazwany monitor stanu v2)
@@ -24,9 +23,9 @@ Jeśli wystąpi problem, którego nie ma na liście, możesz skontaktować się 
 
 Jeśli dowolna z tych bibliotek dll znajduje się w katalogu bin, monitorowanie może zakończyć się niepowodzeniem:
 
-- Microsoft. ApplicationInsights. dll
-- Microsoft. AspNet. TelemetryCorrelation. dll
-- System. Diagnostics. DiagnosticSource. dll
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 Niektóre z tych bibliotek DLL są zawarte w domyślnych szablonach aplikacji programu Visual Studio, nawet jeśli aplikacja nie korzysta z nich.
 Możesz użyć narzędzi do rozwiązywania problemów, aby zobaczyć zachowanie objawem:
@@ -42,7 +41,7 @@ Możesz użyć narzędzi do rozwiązywania problemów, aby zobaczyć zachowanie 
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset i obciążenie aplikacji (bez telemetrii). Zbadaj przy użyciu programu Sysinternals (Handle. exe i ListDLLs. exe):
+- IISReset i obciążenie aplikacji (bez telemetrii). Zbadaj przy użyciu programu Sysinternals (Handle.exe i ListDLLs.exe):
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -60,7 +59,7 @@ Nie można wstrzyknąć modułu HttpModule do tej konfiguracji udostępnionej.
 Uruchom polecenie Enable na każdym serwerze sieci Web, aby zainstalować bibliotekę DLL w poszczególnych serwerach GAC.
 
 Po uruchomieniu polecenia Enable wykonaj następujące czynności:
-1. Przejdź do katalogu konfiguracji udostępnionej i Znajdź plik applicationHost. config.
+1. Przejdź do katalogu konfiguracji udostępnionej i Znajdź plik applicationHost.config.
 2. Dodaj ten wiersz do sekcji modułów w konfiguracji:
     ```
     <modules>
@@ -86,7 +85,7 @@ Konfiguracja zestawu SDK nie jest dostępna dla użytkownika końcowego w wersji
 ### <a name="troubleshooting-powershell"></a>Rozwiązywanie problemów z programem PowerShell
 
 #### <a name="determine-which-modules-are-available"></a>Określanie, które moduły są dostępne
-Możesz użyć polecenia, `Get-Module -ListAvailable` aby określić, które moduły są zainstalowane.
+Możesz użyć polecenia, `Get-Module -ListAvailable` Aby określić, które moduły są zainstalowane.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importowanie modułu do bieżącej sesji
 Jeśli moduł nie został załadowany do sesji programu PowerShell, można go załadować ręcznie przy użyciu `Import-Module <path to psd1>` polecenia.
@@ -95,7 +94,7 @@ Jeśli moduł nie został załadowany do sesji programu PowerShell, można go za
 ### <a name="troubleshooting-the-application-insights-agent-module"></a>Rozwiązywanie problemów z modułem agenta Application Insights
 
 #### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Wyświetl listę poleceń dostępnych w module agenta Application Insights
-Uruchom polecenie `Get-Command -Module Az.ApplicationMonitor` , aby pobrać dostępne polecenia:
+Uruchom polecenie, `Get-Command -Module Az.ApplicationMonitor` Aby pobrać dostępne polecenia:
 
 ```
 CommandType     Name                                               Version    Source
@@ -111,7 +110,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Określ bieżącą wersję modułu Application Insights Agent
-Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` , aby wyświetlić następujące informacje dotyczące modułu:
+Uruchom `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` polecenie, aby wyświetlić następujące informacje dotyczące modułu:
    - Wersja modułu programu PowerShell
    - Wersja zestawu SDK Application Insights
    - Ścieżki plików modułu programu PowerShell
@@ -133,8 +132,8 @@ Zapoznaj się z dokumentacją [interfejsu API](status-monitor-v2-api-reference.m
 
 #### <a name="setup"></a>Konfigurowanie
 
-1. Pobierz narzędzia PerfView. exe i PerfView64. exe z usługi [GitHub](https://github.com/Microsoft/perfview/releases).
-2. Uruchom PerfView64. exe.
+1. Pobierz PerfView.exe i PerfView64.exe z usługi [GitHub](https://github.com/Microsoft/perfview/releases).
+2. Rozpocznij PerfView64.exe.
 3. Rozwiń **Opcje zaawansowane**.
 4. Wyczyść następujące pola wyboru:
     - **Kodu**

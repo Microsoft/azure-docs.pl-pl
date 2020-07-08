@@ -7,17 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83a48ad13fe4ae217319b2aa85adf976aa6a7ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dd5fc389ccb52c4a5eeec0e0f544a17b011333a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77149851"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604526"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Dodawanie lub usuwanie właścicieli grupy w Azure Active Directory
 Grupy Azure Active Directory (Azure AD) należą do właścicieli grup i są przez nich zarządzane. Właściciele grup mogą być użytkownikami lub jednostkami usługi i mogą zarządzać grupą, w tym członkostwem. Tylko istniejący właściciele grup lub Administratorzy grup mogą przypisywać właścicieli grup. Właściciele grupy nie muszą być członkami grupy.
@@ -61,7 +60,7 @@ Usuń właściciela z grupy przy użyciu usługi Azure AD.
     Po usunięciu właściciela można wrócić do strony **właściciele** i zobaczyć, że nazwa została usunięta z listy właścicieli.
 
 ## <a name="next-steps"></a>Następne kroki
-- [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
+- [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](active-directory-manage-groups.md)
 
 - [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md)
 
