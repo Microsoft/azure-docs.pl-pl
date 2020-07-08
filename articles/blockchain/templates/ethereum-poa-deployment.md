@@ -1,15 +1,15 @@
 ---
 title: Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia i skonfigurowania wieloskładnikowej sieci Ethereum konsorcjum na platformie Azure
-ms.date: 06/04/2020
+ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210120"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085926"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -17,15 +17,17 @@ Za pomocą [szablonu rozwiązania Ethereum weryfikacji urzędu certyfikacji w we
 
 Szablon rozwiązania może być używany przez każdego członka konsorcjum do aprowizacji łańcucha bloków sieci Microsoft Azure za pomocą usług obliczeniowych, sieciowych i magazynowych. Każdy element sieci członkowski konsorcjum składa się z zestawu węzłów modułu sprawdzania o zrównoważonym obciążeniu, z którymi aplikacja lub użytkownik może współdziałać w celu przesyłania transakcji Ethereum.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Wybierz rozwiązanie Azure łańcucha bloków
 
 Przed wybraniem opcji użycia szablonu rozwiązania do Ethereum weryfikacji dla urzędu certyfikacji Porównaj swój scenariusz z typowymi przypadkami użycia dostępnych opcji usługi Azure łańcucha bloków.
 
 Opcja | Model usług | Typowy przypadek użycia
 -------|---------------|-----------------
-Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków.
+Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 [Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -95,7 +97,7 @@ Subskrypcja | Subskrypcja, do której ma zostać wdrożona sieć konsorcjum |
 Grupa zasobów| Grupa zasobów, w której ma zostać wdrożona sieć konsorcjum. | myResourceGroup
 Lokalizacja | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
@@ -109,7 +111,7 @@ Liczba regionów|Liczba regionów do wdrożenia sieci konsorcjum| 2
 Pierwszy region | Pierwszy region wdrożenia sieci konsorcjum | Zachodnie stany USA 2
 Drugi region | Drugi region do wdrożenia sieci konsorcjum. Dodatkowe regiony są widoczne, gdy liczba regionów jest równa co najmniej dwa. | Wschodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
@@ -131,7 +133,7 @@ F1|Dysk SSD w warstwie Standardowa|małą|małą|wysoka
 D2_v3|Dysk SSD w warstwie Standardowa|średni|średni|średni
 F16s|Dysk SSD w warstwie Premium|wysoka|wysoka|małą
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
@@ -150,7 +152,7 @@ Limit blokowania gazu | Limit wychodzący z bloków wyjściowych sieci. | 500000
 Okres ponownego pieczętowania bloku (s) | Częstotliwość tworzenia pustych bloków, gdy nie ma żadnych transakcji w sieci. Wyższa częstotliwość będzie miała szybszy wzrost, ale zwiększy się koszty magazynowania. | 15
 Kontrakt uprawnień transakcji | Kod bajtowy dla kontraktu uprawniającego do transakcji. Ogranicza wdrożenie i wykonywanie kontraktu inteligentnego do listy dozwolonych kont Ethereum. |
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -166,7 +168,7 @@ Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | Wschodnie sta
 Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
 Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="summary"></a>Podsumowanie
 
@@ -729,7 +731,7 @@ Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub z
 
 Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-* [Firma Microsoft pytań i odpowiedzi na&stronie pytań dotyczących usługi Azure łańcucha bloków](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+* [Microsoft Q&strony pytania](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
 * [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

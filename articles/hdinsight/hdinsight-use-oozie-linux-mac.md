@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 35835e1508311bd31008a2335a8c543e558686c2
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319382"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085943"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -47,9 +47,11 @@ Przepływ pracy używany w tym dokumencie zawiera dwie akcje. Akcje to definicje
 
 1. Akcja Hive uruchamia skrypt HiveQL, aby wyodrębnić rekordy z `hivesampletable` dołączonego do usługi HDInsight. Każdy wiersz danych zawiera opis odwiedzania z określonego urządzenia przenośnego. Format rekordu wygląda podobnie do następującego tekstu:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     Skrypt Hive używany w tym dokumencie zlicza łączną liczbę wizyt dla każdej z platform, takich jak Android lub iPhone, i przechowuje liczby w nowej tabeli programu Hive.
 
@@ -240,11 +242,13 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
     Otrzymujesz dane wyjściowe podobne do następującego tekstu:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. W wierszu `1>` wprowadź następujące wiersze:
 
@@ -268,8 +272,10 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
     Zobaczysz dane wyjściowe podobne do następującego tekstu:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Zamknij narzędzie TSQL, wpisując `exit` w `1>` wierszu polecenia.
 
@@ -424,20 +430,22 @@ Poniższe kroki służą do przesyłania przepływów pracy Oozie do klastra i z
 
     Spowoduje to zwrócenie informacji takich jak następujący tekst:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     To zadanie ma stan `PREP` . Ten stan wskazuje, że zadanie zostało utworzone, ale nie zostało uruchomione.
 
@@ -464,14 +472,16 @@ Poniższe kroki służą do przesyłania przepływów pracy Oozie do klastra i z
 
     Zwracane informacje są podobne do następujących:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Aby uzyskać więcej informacji na temat polecenia Oozie, zobacz [Narzędzie wiersza polecenia Apache Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
