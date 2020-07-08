@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78255566"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Samouczek: Migrowanie bazy danych Oracle do Azure Database for PostgreSQL online przy użyciu usługi DMS (wersja zapoznawcza)
@@ -86,7 +85,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       SHUTDOWN IMMEDIATE;
       ```
 
-      Poczekaj na `'ORACLE instance shut down'`potwierdzenie.
+      Poczekaj na potwierdzenie `'ORACLE instance shut down'` .
 
     * Uruchom nowe wystąpienie i zainstaluj (ale nie Otwórz) bazy danych, aby włączyć lub wyłączyć archiwizowanie komp uruchomione następujące polecenie:
 
@@ -116,12 +115,12 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       SELECT log_mode FROM v$database;
       ```
 
-      Należy odebrać odpowiedź `'ARCHIVELOG'`. Jeśli odpowiedź to `'NOARCHIVELOG'`, to wymagania nie jest spełnione.
+      Należy odebrać odpowiedź `'ARCHIVELOG'` . Jeśli odpowiedź to `'NOARCHIVELOG'` , to wymagania nie jest spełnione.
 
   * Włącz dodatkowe rejestrowanie dla replikacji przy użyciu jednej z następujących opcji.
 
     * **Opcja 1**.
-      Zmień dodatkowe rejestrowanie na poziomie bazy danych, aby uwzględnić wszystkie tabele z klucz podstawowy i unikatowym indeksem. Zapytanie wykrywania zwróci wartość `'IMPLICIT'`.
+      Zmień dodatkowe rejestrowanie na poziomie bazy danych, aby uwzględnić wszystkie tabele z klucz podstawowy i unikatowym indeksem. Zapytanie wykrywania zwróci wartość `'IMPLICIT'` .
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE) COLUMNS;
@@ -134,7 +133,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       ```
 
     * **Opcja 2**.
-      Zmień dodatkowe rejestrowanie na poziomie bazy danych, aby objęło wszystkie tabele, i zapytanie wykrywania zwraca `'YES'`.
+      Zmień dodatkowe rejestrowanie na poziomie bazy danych, aby objęło wszystkie tabele, i zapytanie wykrywania zwraca `'YES'` .
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
@@ -166,7 +165,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
       SELECT supplemental_log_data_min FROM v$database;
       ```
 
-    Należy odebrać odpowiedź `'YES'`.
+    Należy odebrać odpowiedź `'YES'` .
 
 ## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Oceń wysiłki dla programu Oracle do Azure Database for PostgreSQL migracji
 
@@ -178,7 +177,7 @@ Aby skonfigurować i uruchomić program ora2pg w celu utworzenia raportu z oceny
 
 ## <a name="export-the-oracle-schema"></a>Eksportowanie schematu programu Oracle
 
-Zalecamy użycie ora2pg do konwersji schematu Oracle i innych obiektów Oracle (typy, procedury, funkcje itp.) do schematu, który jest zgodny z Azure Database for PostgreSQL. ora2pg zawiera wiele dyrektyw, które ułatwiają wstępne Definiowanie niektórych typów danych. Na przykład można użyć dyrektywy, `DATA_TYPE` aby zastąpić wszystkie cyfry (*, 0) wartością bigint, a nie wartością numeryczną (38).
+Zalecamy użycie ora2pg do konwersji schematu Oracle i innych obiektów Oracle (typy, procedury, funkcje itp.) do schematu, który jest zgodny z Azure Database for PostgreSQL. ora2pg zawiera wiele dyrektyw, które ułatwiają wstępne Definiowanie niektórych typów danych. Na przykład można użyć `DATA_TYPE` dyrektywy, aby zastąpić wszystkie cyfry (*, 0) wartością bigint, a nie wartością numeryczną (38).
 
 Aby wyeksportować wszystkie obiekty bazy danych w plikach. SQL, można uruchomić ora2pg. Następnie można przejrzeć pliki. SQL przed zaimportowaniem ich do Azure Database for PostgreSQL przy użyciu PSQL lub można wykonać. Skrypt SQL w PgAdmin.
 
@@ -221,7 +220,7 @@ Jeśli utworzysz schemat PostgreSQL przy użyciu narzędzi takich jak ora2pg prz
     ![Wyświetlanie subskrypcji w portalu](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Jeśli zachodzi potrzeba mapowania nazw tabel źródłowych do tabel o różnych nazwach, [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) wiadomości e-mail i możemy udostępnić skrypt służący do automatyzowania procesu.
+> Jeśli zachodzi potrzeba mapowania nazw tabel źródłowych do tabel o różnych nazwach, wiadomości e-mail [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) i możemy udostępnić skrypt służący do automatyzowania procesu.
 
 ### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Gdy schemat tabeli PostgreSQL nie istnieje
 
@@ -249,7 +248,7 @@ Aby rozpocząć:
     | HR | targetHR.HR | "HR". " KRAJE "." COUNTRY_ID " |
     | HR | targetHR.Hr | * Nie można zmapować przypadków mieszanych |
 
-    * Aby utworzyć mieszany schemat przypadków i nazwy tabel w docelowym PostgreSQL, skontaktuj [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)się z firmą. Możemy udostępnić skrypt pozwalający skonfigurować mieszany schemat tabeli przypadków w docelowej bazie danych PostgreSQL.
+    * Aby utworzyć mieszany schemat przypadków i nazwy tabel w docelowym PostgreSQL, skontaktuj się z firmą [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com) . Możemy udostępnić skrypt pozwalający skonfigurować mieszany schemat tabeli przypadków w docelowej bazie danych PostgreSQL.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
@@ -322,7 +321,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 ## <a name="upload-oracle-oci-driver"></a>Przekazywanie sterownika OCI firmy Oracle
 
-1. Wybierz pozycję **Zapisz**, a następnie na ekranie **Zainstaluj sterownik OCI** Zaloguj się do swojego konta Oracle i Pobierz sterownik **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37 128 586 bajtów) (suma kontrolna SHA1:865082268) z tego [miejsca](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+1. Wybierz pozycję **Zapisz**, a następnie na ekranie **Zainstaluj sterownik OCI** Zaloguj się do konta Oracle i pobierz **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** sterownika (37 128 586 bajtów) (suma kontrolna SHA1:865082268) z tego [miejsca](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Pobierz sterownik do folderu udostępnionego.
 
    Upewnij się, że folder jest współużytkowany przy użyciu podanej nazwy użytkownika z minimalnym dostępem tylko do odczytu. Azure Database Migration Service dostępu do udziału i odczytuje z niego dane w celu przekazania sterownika OCI do platformy Azure przez personifikowanie określonej nazwy użytkownika.

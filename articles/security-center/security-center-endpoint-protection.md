@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78208546"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Ocena i zalecenia dotyczące programu Endpoint Protection w Azure Security Center
@@ -163,7 +162,7 @@ Security Center zaleca się **"Zainstaluj rozwiązania programu Endpoint Protect
 
 Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na swoich maszynach" w** przypadku braku spełnienia następujących testów:
 
-- **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | grep-i "zaplanowane skanowanie. \* ukończono "| tail-1 "** zwraca wartość
+- **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | grep-i "zaplanowane skanowanie. \* Ukończono "| tail-1 "** zwraca wartość
 
 - **"/opt/Sophos-AV/bin/savlog--maxAge = 7 | Zakończono skanowanie grep** "| tail-1 "zwraca wartość
 

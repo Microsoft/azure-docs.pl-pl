@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206558"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Używanie Microsoft Cognitive Toolkit modelu uczenia głębokiego z klastrem Azure HDInsight Spark
@@ -68,13 +67,13 @@ Aby uzyskać instrukcje dotyczące sposobu używania Azure Portal do uruchamiani
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Przekazywanie notesu Jupyter do klastra Azure HDInsight Spark
 
-Aby użyć Microsoft Cognitive Toolkit z klastrem Azure HDInsight Spark, należy załadować Notes Jupyter **CNTK_model_scoring_on_Spark_walkthrough. ipynb** do klastra Azure HDInsight Spark. Ten Notes jest dostępny w witrynie GitHub [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)pod adresem.
+Aby użyć Microsoft Cognitive Toolkit z klastrem Azure HDInsight Spark, należy załadować Notes Jupyter **CNTK_model_scoring_on_Spark_walkthrough. ipynb** do klastra Azure HDInsight Spark. Ten Notes jest dostępny w witrynie GitHub pod adresem [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
-1. Pobierz i rozpakuj [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+1. Pobierz i rozpakuj [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration) .
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. W notesie Jupyter wybierz pozycję **Przekaż** w prawym górnym rogu, a następnie przejdź do opcji Pobierz i wybierz plik `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
+1. W notesie Jupyter wybierz pozycję **Przekaż** w prawym górnym rogu, a następnie przejdź do opcji Pobierz i wybierz plik `CNTK_model_scoring_on_Spark_walkthrough.ipynb` .
 
     ![Przekaż Notes Jupyter do klastra Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Przekaż Notes Jupyter do klastra Azure HDInsight Spark")
 

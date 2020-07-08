@@ -11,10 +11,9 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78185614"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Przepływy użytkownika w Azure Active Directory B2C
@@ -73,7 +72,7 @@ Obecnie zalecane są następujące przepływy użytkowników:
 
 Przepływ użytkownika **rejestracji lub logowania** z kontami lokalnymi zawiera link **zapomniane hasło?** na pierwszej stronie środowiska. Kliknięcie tego linku nie powoduje automatycznego wyzwolenia przepływu użytkownika resetowania hasła.
 
-Zamiast tego kod `AADB2C90118` błędu jest zwracany do aplikacji. Aplikacja musi obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło. Aby zobaczyć przykład, zapoznaj się z [prostym przykładem ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) , który pokazuje łączenie przepływów użytkowników.
+Zamiast tego kod błędu `AADB2C90118` jest zwracany do aplikacji. Aplikacja musi obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło. Aby zobaczyć przykład, zapoznaj się z [prostym przykładem ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) , który pokazuje łączenie przepływów użytkowników.
 
 ## <a name="email-address-storage"></a>Magazyn adresów e-mail
 

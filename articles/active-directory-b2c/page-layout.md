@@ -12,10 +12,9 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183979"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
@@ -26,20 +25,20 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 ## <a name="200"></a>2.0.0
 
-- Strona z własnym potwierdzeniem (`selfasserted`)
+- Strona z własnym potwierdzeniem ( `selfasserted` )
   - Dodano obsługę [formantów wyświetlania](display-controls.md) w zasadach niestandardowych.
 
 ## <a name="120"></a>1.2.0
 
 - Wszystkie strony
   - Poprawki ułatwień dostępu
-  - Teraz możesz dodać `data-preload="true"` atrybut do [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu KONTROLOWANIA kolejności ładowania dla CSS i JavaScript.
+  - Teraz możesz dodać atrybut do `data-preload="true"` [tagów HTML w](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) celu kontrolowania kolejności ładowania dla CSS i JavaScript.
     - Załaduj połączone pliki CSS jednocześnie jako szablon HTML, aby nie "migotać" między ładowaniem plików.
     - Kontroluj kolejność, w jakiej `script` Tagi są pobierane i wykonywane przed załadowaniem strony.
   - Pole e-mail to teraz `type=email` , a klawiatury przenośne zapewniają poprawne sugestie
   - Obsługa funkcji tłumaczenia dla programu Chrome
 - Ujednolicone i samodzielne strony
-  - Pola username/email i Password używają teraz elementu HTML `form` , aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
+  - Pola username/email i Password używają teraz `form` elementu HTML, aby umożliwić programowi Edge i Internet Explorer (IE) prawidłowe Zapisywanie tych informacji.
 
 ## <a name="110"></a>1.1.0
 

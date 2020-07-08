@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78296385"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
@@ -56,7 +55,7 @@ Tutaj znajduje się zestaw wyników.
 ```
 
  Poniżej przedstawiono przykłady z nieprawidłowymi danymi wejściowymi.
-Mimo że są one prawidłowe w ramach zapytania, nie będą analizowane pod kątem prawidłowych obiektów. Ciągi w\\ciągu obiektu muszą mieć wartość ucieczki "{" a\\":\\" str\\"}" lub otaczające cudzysłowy muszą być pojedynczym ciągiem "{" a ":" str "}".
+Mimo że są one prawidłowe w ramach zapytania, nie będą analizowane pod kątem prawidłowych obiektów. Ciągi w ciągu obiektu muszą mieć wartość ucieczki "{ \\ " a \\ ": \\ " str \\ "}" lub otaczające cudzysłowy muszą być pojedynczym ciągiem "{" a ":" str "}".
 
 Pojedyncze cudzysłowy otaczające nazwy właściwości nie są prawidłowymi formatami JSON.
 

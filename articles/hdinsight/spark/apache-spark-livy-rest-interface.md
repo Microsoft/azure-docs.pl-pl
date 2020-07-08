@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78206286"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Przesyłanie zadań zdalnych do klastra usługi HDInsight Spark przy użyciu interfejsu API REST platformy Apache Spark
@@ -41,7 +40,7 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-* Jeśli chcesz przekazać nazwę pliku JAR i ClassName jako część pliku wejściowego (w tym przykładzie Input. txt)
+* Jeśli chcesz przekazać nazwę pliku JAR i nazwę klasy jako część pliku wejściowego (w tym przykładzie input.txt)
 
     ```cmd
     curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -77,7 +76,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Przykład
 
-Usuwanie zadania wsadowego z IDENTYFIKATORem `5`partii.
+Usuwanie zadania wsadowego z IDENTYFIKATORem partii `5` .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -99,7 +98,7 @@ W tej sekcji przedstawiono przykłady użycia usługi Livy Spark do przesyłania
 
 Wykonaj poniższe czynności:
 
-1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne środowiskowe. Ten przykład jest oparty na środowisku systemu Windows, Popraw zmienne odpowiednio do potrzeb środowiska. Zamień `CLUSTERNAME`i `PASSWORD` z odpowiednimi wartościami.
+1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne środowiskowe. Ten przykład jest oparty na środowisku systemu Windows, Popraw zmienne odpowiednio do potrzeb środowiska. Zamień `CLUSTERNAME` i `PASSWORD` z odpowiednimi wartościami.
 
     ```cmd
     set clustername=CLUSTERNAME
@@ -128,13 +127,13 @@ Wykonaj poniższe czynności:
 
     Zwróć uwagę, jak ostatni wiersz w danych wyjściowych wskazuje **całkowitą wartość: 0**, która sugeruje brak uruchomionych partii.
 
-1. Pozwól nam teraz przesłać zadanie wsadowe. Poniższy fragment kodu używa pliku wejściowego (Input. txt), aby przekazać nazwę jar i nazwę klasy jako parametry. Wykonanie tych kroków z komputera z systemem Windows przy użyciu pliku wejściowego jest zalecanym rozwiązaniem.
+1. Pozwól nam teraz przesłać zadanie wsadowe. Poniższy fragment kodu używa pliku wejściowego (input.txt) do przekazywania nazwy jar i nazwy klasy jako parametrów. Wykonanie tych kroków z komputera z systemem Windows przy użyciu pliku wejściowego jest zalecanym rozwiązaniem.
 
     ```cmd
     curl -k --user "admin:%password%" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     ```
 
-    Parametry w pliku **Input. txt** są zdefiniowane w następujący sposób:
+    Parametry w pliku **input.txt** są zdefiniowane w następujący sposób:
 
     ```text
     { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
@@ -207,7 +206,7 @@ Klastry usługi HDInsight 3,5 i nowsze — domyślnie Wyłącz używanie lokalny
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Przesyłanie zadań usługi Livy dla klastra w sieci wirtualnej platformy Azure
 
-Jeśli łączysz się z klastrem usługi HDInsight Spark z poziomu Virtual Network platformy Azure, możesz połączyć się bezpośrednio z usługą usługi Livy w klastrze. W takim przypadku adresem URL dla punktu końcowego usługi Livy jest `http://<IP address of the headnode>:8998/batches`. W tym miejscu **8998** jest port, na którym usługi Livy działa w klastrze węzła głównego. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do usług na portach innych niż publiczne, zobacz [porty używane przez usługi Apache Hadoop w usłudze HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Jeśli łączysz się z klastrem usługi HDInsight Spark z poziomu Virtual Network platformy Azure, możesz połączyć się bezpośrednio z usługą usługi Livy w klastrze. W takim przypadku adresem URL dla punktu końcowego usługi Livy jest `http://<IP address of the headnode>:8998/batches` . W tym miejscu **8998** jest port, na którym usługi Livy działa w klastrze węzła głównego. Aby uzyskać więcej informacji na temat uzyskiwania dostępu do usług na portach innych niż publiczne, zobacz [porty używane przez usługi Apache Hadoop w usłudze HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

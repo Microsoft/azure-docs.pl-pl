@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78244640"
 ---
 # <a name="live-event-types-comparison"></a>Porównanie typów zdarzeń na żywo
@@ -34,15 +33,15 @@ Poniższa tabela zawiera porównanie funkcji typów zdarzeń na żywo. Typy są 
 * **LiveEventEncodingType. Standard** — lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienia wstępne **Default720p** zakodują zestaw par rozdzielczości i szybkości transmisji bitów (szczegóły znajdują się w dalszej części artykułu).
 * **LiveEventEncodingType. Premium1080p** — lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Ustawienie wstępne Default1080p określa zestaw danych wyjściowych par rozdzielczości/szybkości transmisji bitów (szczegóły znajdują się w dalszej części artykułu). 
 
-| Funkcja | Zdarzenie przekazywania na żywo | Standardowe lub Premium1080p zdarzenie na żywo |
+| Cecha | Zdarzenie przekazywania na żywo | Standardowe lub Premium1080p zdarzenie na żywo |
 | --- | --- | --- |
-| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Tak |
+| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Yes |
 | Maksymalna rozdzielczość wideo dla kanału informacyjnego udziału |4K (4096x2160 o 60 klatek/s) |1080p (1920x1088 o 30 klatkach/s)|
 | Zalecana maksymalna liczba warstw w strumieniu wkładu|Do 12|Jeden dźwięk|
 | Maksymalna liczba warstw w danych wyjściowych| Analogicznie jak dane wejściowe|Do 6 (Zobacz poniższe ustawienia wstępne systemu)|
 | Maksymalna agregowana przepustowość kanału informacyjnego udziału|60 MB/s|Nie dotyczy|
 | Maksymalna szybkość transmisji bitów dla pojedynczej warstwy w udziale |20 MB/s|20 MB/s|
-| Obsługa wielu ścieżek audio z wieloma językami|Tak|Nie|
+| Obsługa wielu ścieżek audio z wieloma językami|Yes|Nie|
 | Obsługiwane wejściowe kodery-dekoder wideo |H. 264/AVC i H. 265/HEVC|H. 264/AVC|
 | Obsługiwane wyjściowe kodery-dekoder wideo|Analogicznie jak dane wejściowe|H. 264/AVC|
 | Obsługiwana głębia bitowa wideo, dane wejściowe i wyjściowe|Do 10 bitów włącznie z HDR 10/HLG|8-bitowa|
@@ -76,12 +75,12 @@ Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawie
 
 | Multimedia | impulsów | Właściwość Height | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Wysoka |
-| 2200 |960 |540 |30 |Wysoka |
-| 1350 |704 |396 |30 |Wysoka |
-| 850 |512 |288 |30 |Wysoka |
-| 550 |384 |216 |30 |Wysoka |
-| 200 |340 |192 |30 |Wysoka |
+| 3500 |1280 |720 |30 |Wysoki |
+| 2200 |960 |540 |30 |Wysoki |
+| 1350 |704 |396 |30 |Wysoki |
+| 850 |512 |288 |30 |Wysoki |
+| 550 |384 |216 |30 |Wysoki |
+| 200 |340 |192 |30 |Wysoki |
 
 > [!NOTE]
 > Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy istnieje tylko jedna warstwa dla rozdzielczości 720p i maksymalnie 6 warstw. Należy również określić, że zażądano ustawienia wstępnego dla standardowego kodera na żywo.
@@ -93,12 +92,12 @@ Jeśli kanał informacyjny udziału ma rozdzielczość 1080p, ustawienia wstępn
 
 | Multimedia | impulsów | Właściwość Height | MaxFPS | Profil |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Wysoka |
-| 3000 |1280 |720 |30 |Wysoka |
-| 1600 |960 |540 |30 |Wysoka |
-| 800 |640 |360 |30 |Wysoka |
-| 400 |480 |270 |30 |Wysoka |
-| 200 |320 |180 |30 |Wysoka |
+| 5500 |1920 |1080 |30 |Wysoki |
+| 3000 |1280 |720 |30 |Wysoki |
+| 1600 |960 |540 |30 |Wysoki |
+| 800 |640 |360 |30 |Wysoki |
+| 400 |480 |270 |30 |Wysoki |
+| 200 |320 |180 |30 |Wysoki |
 
 > [!NOTE]
 > Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Upewnij się, że istnieje tylko jedna warstwa w lokalizacji 1080p i co najwyżej 6 warstw. Należy również określić, że żądasz ustawienia wstępnego dla kodera Premium1080p na żywo.

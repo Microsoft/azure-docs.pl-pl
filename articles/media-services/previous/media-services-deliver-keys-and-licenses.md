@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78268110"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Używanie Media Services do dostarczania licencji DRM lub kluczy AES 
@@ -39,12 +38,12 @@ Na poniższym diagramie przedstawiono główne kroki, które należy wykonać, a
 
 ![Ochrona za pomocą PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
-## <a name="download-sample"></a>Pobieranie próbki
+## <a name="download-sample"></a>Pobieranie przykładu
 Aby pobrać przykład opisany w tym artykule, zobacz [używanie Azure Media Services do dostarczania licencji PlayReady i/lub Widevine za pomocą platformy .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Skonfiguruj środowisko deweloperskie i wypełnij plik App. config informacjami o połączeniu, zgodnie z opisem w temacie [programowanie Media Services przy użyciu platformy .NET](media-services-dotnet-how-to-use.md).
+1. Skonfiguruj środowisko deweloperskie i wypełnij plik app.config za pomocą informacji o połączeniu, zgodnie z opisem w temacie [Media Services Development z platformą .NET](media-services-dotnet-how-to-use.md).
 
 2. Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:
 
@@ -352,7 +351,7 @@ namespace DeliverDRMLicenses
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz także

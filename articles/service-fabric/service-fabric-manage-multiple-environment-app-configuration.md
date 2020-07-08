@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196983"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Zarządzanie aplikacjami dla wielu środowisk
@@ -42,7 +41,7 @@ Podczas tworzenia nazwanych wystąpień aplikacji w programie Service Fabric ist
 
   - W programie PowerShell [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenie cmdlet przyjmuje parametry aplikacji jako tablicę skrótów.
   - Przy użyciu sfctl [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) polecenie przyjmuje parametry jako ciąg JSON. Skrypt install.sh używa sfctl.
-  - Program Visual Studio udostępnia zestaw plików parametrów w folderze Parameters w projekcie aplikacji. Te pliki parametrów są używane podczas publikowania z programu Visual Studio przy użyciu Azure DevOps Services lub Azure DevOps Server. W programie Visual Studio pliki parametrów są przesyłane do skryptu Deploy-FabricApplication. ps1.
+  - Program Visual Studio udostępnia zestaw plików parametrów w folderze Parameters w projekcie aplikacji. Te pliki parametrów są używane podczas publikowania z programu Visual Studio przy użyciu Azure DevOps Services lub Azure DevOps Server. W programie Visual Studio pliki parametrów są przesyłane do skryptu Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Następne kroki
 W poniższych artykułach pokazano, jak używać niektórych pojęć opisanych tutaj:
