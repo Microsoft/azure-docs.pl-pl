@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317403"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043244"
 ---
-# <a name="build-migration-plan-with-azure-migrate"></a>Kompiluj plan migracji z Azure Migrate
+# <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
 Ten artykuł zawiera krótki przewodnik ułatwiający Kompilowanie planu migracji na platformie Azure przy użyciu [Azure Migrate](migrate-services-overview.md).Jeśli masz inne pytania, zapoznaj się z następującymi zasobami:
 
@@ -83,7 +83,7 @@ Wyeksportuj raport oceny maszyn wirtualnych platformy Azure i przefiltruj je wed
 
 - **Nieznane gotowość**: Azure Migrate nie może ustalić gotowości maszyny z powodu niewystarczających metadanych
 
-Korzystając z ocen baz danych, można ocenić gotowość do migracji SQL Server danych do baz danych Azure SQL lub Azure SQL Database wystąpień zarządzanych. Procent stanu gotowości do migracji jest widoczny dla każdego wystąpienia programu SQL Server. Ponadto dla każdego wystąpienia można zobaczyć zalecaną wartość docelową na platformie Azure, potencjalni bloki migracji, liczbę zmian powodujących zmiany, gotowość do usługi Azure SQL DB/VM Azure SQL oraz poziom zgodności. Można Dig bardziej szczegółowo zrozumieć wpływ blokowania migracji i rekomendacji, aby je rozwiązać.
+Korzystając z ocen baz danych, można ocenić gotowość do migracji SQL Server danych do Azure SQL Database lub wystąpień zarządzanych usługi Azure SQL. Procent stanu gotowości do migracji jest widoczny dla każdego wystąpienia programu SQL Server. Ponadto dla każdego wystąpienia można zobaczyć zalecaną wartość docelową na platformie Azure, potencjalni bloki migracji, liczbę zmian powodujących zmiany, gotowość do usługi Azure SQL DB/VM Azure SQL oraz poziom zgodności. Można Dig bardziej szczegółowo zrozumieć wpływ blokowania migracji i rekomendacji, aby je rozwiązać.
 
  ![Oceny bazy danych](./media/concepts-migration-planning/database-assessment-portal.png)
 

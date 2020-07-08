@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f191fffd1c8d66ac959953c55cbc79b3807c803
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 9beb617ed8626b1fda1c9db98d626ca70ee01755
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204556"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042921"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Rekomendacje dotyczące korygowania w usłudze Azure Security Center
 
@@ -79,7 +79,7 @@ Operacja korygowania używa wdrożenia szablonu lub wywołania interfejsu API po
 |Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniu zarządzanym SQL|Ta akcja spowoduje włączenie oceny luk w zabezpieczeniach SQL na wybranym wystąpieniu zarządzanym SQL. <br>**Uwaga**:<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (AD). Jeśli usługa ADS nie jest już włączona, zostanie ona automatycznie włączona w zarządzanym wystąpieniu.</li><li>Dla każdego regionu i grupy zasobów wybranego wystąpienia zarządzanego SQL konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Opłaty za reklamy są naliczone o $15 za SQL Database.</li></ul>||
 |Zaawansowana ochrona danych powinna być włączona na SQL Database|Ta akcja spowoduje włączenie zaawansowanych zabezpieczeń danych (ADS) na tych wybranych serwerach i ich bazach danych. <br>**Uwaga**:<ul><li>Dla każdego regionu i grupy zasobów wybranego SQL Database konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie serwery w tym regionie. <</li><li>Opłaty za reklamy są naliczone o $15 za SQL Database.</li></ul>||
 |Ocena luk w zabezpieczeniach powinna być włączona na SQL Database|Ta akcja spowoduje włączenie oceny luk w zabezpieczeniach programu SQL dla wybranych serwerów i ich baz danych. <br>**Uwaga**:<ul><li>Ocena luk w zabezpieczeniach SQL jest częścią pakietu SQL Advanced Data Security (AD). Jeśli usługa ADS nie jest już włączona, zostanie automatycznie włączona na SQL Database.</li><li>Dla każdego regionu i grupy zasobów wybranego SQL Database konto magazynu do przechowywania wyników skanowania zostanie utworzone i udostępnione przez wszystkie wystąpienia w tym regionie.</li><li>Opłaty za reklamy są naliczone o $15 za SQL Database.</li></ul>||
-|Należy włączyć funkcję przezroczystego szyfrowania danych w bazach danych SQL.|Ta akcja włącza SQL Database Transparent Data Encryption (TDE) dla wybranych baz danych. <br>**Uwaga**: Domyślnie zostaną użyte klucze TDE zarządzane przez usługę.
+|SQL Database powinna być włączona funkcja przezroczystego szyfrowania danych|Ta akcja włącza SQL Database Transparent Data Encryption (TDE) dla wybranych baz danych. <br>**Uwaga**: Domyślnie zostaną użyte klucze TDE zarządzane przez usługę.
 |Należy włączyć bezpieczny transfer na konta magazynu|Ta akcja aktualizuje zabezpieczenia konta magazynu tak, aby zezwalać na żądania przez bezpieczne połączenia. (HTTPS). <br>**Uwaga**:<ul><li>Wszystkie żądania przy użyciu protokołu HTTP zostaną odrzucone.</li><li>Gdy korzystasz z usługi Azure Files, połączenie bez szyfrowania zakończy się niepowodzeniem, w tym scenariusze korzystające z protokołu SMB 2,1, protokołu SMB 3,0 bez szyfrowania i niektórych typów klienta SMB systemu Linux. Dowiedz się więcej.</li></ul>|
 |Aplikacja sieci Web powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do HTTPS na wybranych zasobach. <br>**Uwaga**:<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, będzie wyświetlany w przeglądarce z powodu błędu "Prywatność". Użytkownicy, którzy posiadają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że pakiet i zapory aplikacji sieci Web chronią usługę App Service, Zezwalaj na przekazywanie sesji HTTPS.</li></ul>|
 |aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS|Ta akcja spowoduje przekierowanie całego ruchu z protokołu HTTP do HTTPS na wybranych zasobach. <br>**Uwaga**:<ul><li>Punkt końcowy HTTPS, który nie ma certyfikatu SSL, będzie wyświetlany w przeglądarce z powodu błędu "Prywatność". Użytkownicy, którzy posiadają domenę niestandardową, muszą sprawdzić, czy skonfigurowali certyfikat SSL.</li><li>Upewnij się, że pakiet i zapory aplikacji sieci Web chronią usługę App Service, Zezwalaj na przekazywanie sesji HTTPS.</li></ul>|

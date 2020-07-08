@@ -49,16 +49,26 @@
               href: time-series-insights-parameterized-urls.md
     - name: Azure Time Series Insights (wersja zapoznawcza)
       items:
-        - name: Planowanie środowiska
-          href: time-series-insights-update-plan.md
-        - name: Magazyn danych i ruch przychodzący
-          href: time-series-insights-update-storage-ingress.md
         - name: Przypadki zastosowań
           href: time-series-insights-update-use-cases.md
+        - name: Planowanie środowiska
+          href: time-series-insights-update-plan.md
+        - name: Omówienie pozyskiwania danych
+          href: concepts-ingestion-overview.md
+        - name: Obsługiwane typy danych
+          href: concepts-supported-data-types.md
+        - name: Źródła zdarzeń pozyskiwania danych za pośrednictwem przesyłania strumieniowego
+          href: concepts-streaming-ingestion-event-sources.md
+        - name: Reguły pomijania i spłaszczania danych JSON
+          href: concepts-json-flattening-escaping-rules.md
+        - name: Limity przepływności strumieniowego ruchu przychodzącego
+          href: concepts-streaming-throughput-limitations.md
+        - name: Magazyn
+          href: concepts-storage.md
         - name: Model szeregów czasowych
-          href: time-series-insights-update-tsm.md
+          href: concepts-model-overview.md
         - name: Zapytanie szeregów czasowych
-          href: time-series-insights-update-tsq.md
+          href: concepts-query-overview.md
         - name: Wizualizowanie danych w Eksploratorze (wersja zapoznawcza)
           href: time-series-insights-update-explorer.md
         - name: Programowanie
