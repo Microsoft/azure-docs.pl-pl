@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975796"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
@@ -41,7 +41,7 @@ Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego masz
 
 Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której ta funkcja jest włączona. Aby uzyskać najlepsze wyniki, Włącz tę funkcję na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikowania się między sieciami wirtualnymi lub łączenia lokalnego ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 - **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS)**: usunięcie przełącznika wirtualnego ze ścieżki danych powoduje usunięcie pakietów czasu poświęcanych przez hosta w celu przetworzenia zasad. Zwiększa również liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
 

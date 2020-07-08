@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9a0315fadefac0269a6d9670844ef8c3886eef12
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975626"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
@@ -88,7 +88,7 @@ Na powyższym diagramie aplikacja:
 1. Żąda kodu autoryzacji, który jest zrealizowany dla tokenu dostępu.
 2. Używa tokenu dostępu do wywoływania internetowego interfejsu API.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 - Aby zrealizować token, można użyć kodu autoryzacji tylko raz. Nie próbuj uzyskać tokenu wielokrotnie przy użyciu tego samego kodu autoryzacji, ponieważ jest on jawnie zabroniony przez standardową specyfikację protokołu. W przypadku zrealizowania kodu kilka razy, celowo lub, ponieważ nie masz pewności, że struktura robi to również, zostanie wyświetlony następujący błąd:
 

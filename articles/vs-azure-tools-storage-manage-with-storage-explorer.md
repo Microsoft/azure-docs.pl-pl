@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975269"
 ---
 # <a name="get-started-with-storage-explorer"></a>Wprowadzenie do Eksploratora usługi Storage
 
 ## <a name="overview"></a>Omówienie
 
-Eksplorator usługi Microsoft Azure Storage jest aplikacją autonomiczną, która ułatwia współpracę z danymi usługi Azure Storage w systemach Windows, macOS i Linux. W tym artykule przedstawiono kilka sposobów łączenia się z kontami usługi Azure Storage i zarządzania nimi.
+Eksplorator usługi Microsoft Azure Storage jest autonomiczną aplikacją, która ułatwia obsługę danych w usłudze Azure Storage w systemach Windows, macOS i Linux. W tym artykule przedstawiono kilka sposobów łączenia się z kontami usługi Azure Storage i zarządzania nimi.
 
 ![Microsoft Azure Storage Explorer][0]
 
@@ -123,7 +123,7 @@ Istnieje kilka sposobów dołączenia do zasobu w Eksplorator usługi Storage:
 
 1. Wybierz pozycję **Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD)**, a następnie wybierz pozycję **dalej**.
 
-1. Wybierz konto platformy Azure i dzierżawcę. Te wartości muszą mieć dostęp do zasobu magazynu, do którego chcesz dołączyć. Wybierz przycisk **Dalej**.
+1. Wybierz konto platformy Azure i dzierżawcę. Te wartości muszą mieć dostęp do zasobu magazynu, do którego chcesz dołączyć. Wybierz pozycję **Dalej**.
 
 1. Wybierz typ zasobu, który chcesz dołączyć. Wprowadź informacje konieczne do nawiązania połączenia. 
 
@@ -155,7 +155,7 @@ Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który
 
 1. Wybierz pozycję **Użyj identyfikatora URI sygnatury dostępu współdzielonego (SAS)**, a następnie wybierz przycisk **dalej**.
 
-1. Wybierz nazwę wyświetlaną dla połączenia i wprowadź swój identyfikator URI sygnatury dostępu współdzielonego. Punkt końcowy usługi dla typu zasobu, który jest dołączany, powinien mieć wartość Autowypełnianie. Jeśli używasz niestandardowego punktu końcowego, możliwe, że może to nie być. Wybierz przycisk **Dalej**.
+1. Wybierz nazwę wyświetlaną dla połączenia i wprowadź swój identyfikator URI sygnatury dostępu współdzielonego. Punkt końcowy usługi dla typu zasobu, który jest dołączany, powinien mieć wartość Autowypełnianie. Jeśli używasz niestandardowego punktu końcowego, możliwe, że może to nie być. Wybierz pozycję **Dalej**.
 
 1. Przejrzyj **Podsumowanie połączenia** , aby upewnić się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
 

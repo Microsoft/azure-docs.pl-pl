@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84977752"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blokuj połączenia utworzone przez łączniki w Azure Logic Apps
@@ -129,7 +129,7 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Wymuszanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
 1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
@@ -250,7 +250,7 @@ Po utworzeniu połączenia wewnątrz aplikacji logiki to połączenie istnieje j
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Wymuszanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
 1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
@@ -337,7 +337,7 @@ Następnie należy przypisać definicję zasad, w której chcesz wymusić zasady
    | **Nazwa przypisania** | Tak | Nazwa, która ma zostać użyta do przypisania zasad, jeśli różni się od definicji zasad |
    | **Identyfikator przypisania** | Tak | Wygenerowany automatycznie identyfikator dla przypisania zasad |
    | **Opis** | Nie | Opis przypisania zasad |
-   | **Wymuszanie zasad** | Tak | Ustawienie, które włącza lub wyłącza przypisanie zasad |
+   | **Egzekwowanie zasad** | Tak | Ustawienie, które włącza lub wyłącza przypisanie zasad |
    | **Przypisane przez** | Nie | Nazwa osoby, która utworzyła i stosowała przypisanie zasad |
    ||||
 

@@ -17,10 +17,10 @@ ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 505b42c9dae5c3ddf6e5621b13e29f15520604b7
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84975915"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nazwy produktów i identyfikatory planów usług na potrzeby licencjonowania
