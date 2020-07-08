@@ -3,12 +3,12 @@ title: Zadania i zadania w Azure Batch
 description: Dowiedz się więcej o zadaniach i zadaniach oraz sposobie ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: aeffd05a26066675ca320ab4b3c3c09e6807e6df
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791078"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955373"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Zadania i zadania w Azure Batch
 
@@ -22,7 +22,7 @@ Zadanie określa [pulę](nodes-and-pools.md#pools) , w której ma być uruchamia
 
 ### <a name="job-priority"></a>Priorytet zadań
 
-Do utworzonych zadań można przypisać opcjonalny priorytet zadania. Usługa Batch używa wartości priorytetu zadania do określania kolejności planowania zadań w ramach konta (nie należy mylić tego pojęcia z [zadaniem zaplanowanym](#scheduled-jobs)). Wartości priorytetu mieszczą się w zakresie od -1000 do 1000, gdzie -1000 oznacza najniższy priorytet, a 1000 najwyższy. Aby zaktualizować priorytet zadania, wywołaj operację [Aktualizuj właściwości zadania](https://docs.microsoft.com/rest/api/batchservice/job/update) (interfejs REST usługi Batch) lub zmień właściwość [CloudJob.Priority](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) (platforma .NET usługi Batch).
+Do utworzonych zadań można przypisać opcjonalny priorytet zadania. Usługa Batch używa wartości priorytetu zadania do określania kolejności planowania zadań w ramach konta (nie należy mylić tego pojęcia z [zadaniem zaplanowanym](#scheduled-jobs)). Wartości priorytetu mieszczą się w zakresie od -1000 do 1000, gdzie -1000 oznacza najniższy priorytet, a 1000 najwyższy. Aby zaktualizować priorytet zadania, wywołaj operację [Aktualizuj właściwości zadania](/rest/api/batchservice/job/update) (interfejs REST usługi Batch) lub zmień właściwość [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (platforma .NET usługi Batch).
 
 W ramach tego samego konta zadania o wyższym priorytecie mają pierwszeństwo planowania nad zadaniami o niższym priorytecie. Zadanie o wyższym priorytecie na jednym koncie nie ma pierwszeństwa planowania nad innym zadaniem o niższym priorytecie na innym koncie. Zadania podrzędne w zadaniach o niższym priorytecie, które zostały już uruchomione, nie są przerywane.
 
@@ -39,13 +39,13 @@ Ograniczenia zadania umożliwiają określenie pewnych limitów dla zadań:
 
 Aplikacja kliencka może dodawać zadania podrzędne do zadania. Można również wybrać [zadanie podrzędne Menedżera zadań](#job-manager-task). Zadanie podrzędne Menedżera zadań zawiera informacje niezbędne do utworzenia wymaganych zadań podrzędnych danego zadania. Jest ono uruchamiane na jednym z węzłów obliczeniowych w puli. Zadanie Menedżera zadań jest obsługiwane w odróżnieniu od partii; jest on umieszczany zaraz po utworzeniu zadania i zostanie ponownie uruchomiony, jeśli zakończy się niepowodzeniem. Zadanie Menedżera zadań jest wymagane w przypadku zadań tworzonych w ramach [harmonogramu zadań](#scheduled-jobs), ponieważ jest jedynym sposobem definiowania zadań przed wystąpieniem zadania.
 
-Domyślnie zadania pozostają aktywne do momentu ukończenia zdań podrzędnych odpowiadających danemu zadaniu. To zachowanie można zmienić tak, aby zadanie było automatycznie przerywane po ukończeniu wszystkich powiązanych z nim zadań podrzędnych. Ustaw dla właściwości **onAllTasksComplete** zadania ([OnAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) na platformie .NET w usłudze Batch) wartość *terminatejob*, aby automatycznie zakończyć zadanie po ukończeniu wszystkich powiązanych z nim zadań podrzędnych.
+Domyślnie zadania pozostają aktywne do momentu ukończenia zdań podrzędnych odpowiadających danemu zadaniu. To zachowanie można zmienić tak, aby zadanie było automatycznie przerywane po ukończeniu wszystkich powiązanych z nim zadań podrzędnych. Ustaw dla właściwości **onAllTasksComplete** zadania ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) na platformie .NET w usłudze Batch) wartość *terminatejob*, aby automatycznie zakończyć zadanie po ukończeniu wszystkich powiązanych z nim zadań podrzędnych.
 
 Usługa Batch traktuje zadanie *bez* zadań do wykonania wszystkich zadań. W związku z tym ta opcja jest najczęściej używana w przypadku [zadania podrzędnego Menedżera zadań](#job-manager-task). Jeśli chcesz użyć opcji automatycznego przerywania zadań bez Menedżera zadań, musisz początkowo ustawić właściwość **onAllTasksComplete** nowego zadania na wartość *noaction*. Po dodaniu wszystkich podrzędnych do zadania zmień tę wartość na *terminatejob*.
 
 ### <a name="scheduled-jobs"></a>Zaplanowane zadania
 
-[Harmonogramy zadań](https://docs.microsoft.com/rest/api/batchservice/jobschedule) umożliwiają tworzenie zadań cyklicznych w ramach usługi Batch. Harmonogram zadań określa, kiedy uruchamiać zadania i zawiera specyfikacje zadań do uruchomienia. Możesz określić czas trwania harmonogramu (jak długo i kiedy harmonogram obowiązuje) oraz częstotliwość tworzenia zadań w zaplanowanym okresie.
+[Harmonogramy zadań](/rest/api/batchservice/jobschedule) umożliwiają tworzenie zadań cyklicznych w ramach usługi Batch. Harmonogram zadań określa, kiedy uruchamiać zadania i zawiera specyfikacje zadań do uruchomienia. Możesz określić czas trwania harmonogramu (jak długo i kiedy harmonogram obowiązuje) oraz częstotliwość tworzenia zadań w zaplanowanym okresie.
 
 ## <a name="tasks"></a>Zadania
 
@@ -153,11 +153,11 @@ Aby uzyskać więcej informacji, zobacz [zależności zadań w Azure Batch](batc
 
 ### <a name="environment-settings-for-tasks"></a>Ustawienia środowiska dla zadań
 
-Każde zadanie podrzędne wykonywane przez usługę Batch ma dostęp do zmiennych środowiskowych ustawionych w węzłach obliczeniowych. Obejmuje to zmienne środowiskowe zdefiniowane przez usługę Batch ([zdefiniowane przez usługę](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) i niestandardowe zmienne środowiskowe, które można zdefiniować dla zadań podrzędnych). Aplikacje i skrypty wykonywane przez zadania podrzędne mają dostęp do tych zmiennych środowiskowych podczas wykonywania.
+Każde zadanie podrzędne wykonywane przez usługę Batch ma dostęp do zmiennych środowiskowych ustawionych w węzłach obliczeniowych. Obejmuje to zmienne środowiskowe zdefiniowane przez usługę Batch ([zdefiniowane przez usługę](./batch-compute-node-environment-variables.md) i niestandardowe zmienne środowiskowe, które można zdefiniować dla zadań podrzędnych). Aplikacje i skrypty wykonywane przez zadania podrzędne mają dostęp do tych zmiennych środowiskowych podczas wykonywania.
 
-Można ustawić niestandardowe zmienne środowiskowe na poziomie zadania podrzędnego lub zadania, podając informacje o właściwości *ustawień środowiska* dla tych jednostek. Aby uzyskać więcej informacji, zobacz [CloudTask. EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) i [CloudJob. CommonEnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) w [usłudze](https://docs.microsoft.com/rest/api/batchservice/task/add?)Batch .NET, aby uzyskać więcej szczegółów.
+Można ustawić niestandardowe zmienne środowiskowe na poziomie zadania podrzędnego lub zadania, podając informacje o właściwości *ustawień środowiska* dla tych jednostek. Aby uzyskać więcej informacji, zobacz [CloudTask. EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) i [CloudJob. CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob) w [usłudze](/rest/api/batchservice/task/add?)Batch .NET, aby uzyskać więcej szczegółów.
 
-Usługa lub aplikacja kliencka może pobrać zmienne środowiskowe zadania podrzędnego, zdefiniowane przez usługę i niestandardowe, za pomocą operacji [Uzyskaj informacje o zadaniu podrzędnym](https://docs.microsoft.com/rest/api/batchservice/task/get) (interfejs API REST usługi Batch) lub uzyskując dostęp do właściwości [CloudTask.EnvironmentSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) (platforma .NET usługi Batch). Procesy wykonywane w węźle obliczeniowym mają również dostęp do wszystkich zmiennych środowiskowych, np. przy użyciu znanej składni `%VARIABLE_NAME%` (Windows) lub `$VARIABLE_NAME` (Linux).
+Usługa lub aplikacja kliencka może pobrać zmienne środowiskowe zadania podrzędnego, zdefiniowane przez usługę i niestandardowe, za pomocą operacji [Uzyskaj informacje o zadaniu podrzędnym](/rest/api/batchservice/task/get) (interfejs API REST usługi Batch) lub uzyskując dostęp do właściwości [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask) (platforma .NET usługi Batch). Procesy wykonywane w węźle obliczeniowym mają również dostęp do wszystkich zmiennych środowiskowych, np. przy użyciu znanej składni `%VARIABLE_NAME%` (Windows) lub `$VARIABLE_NAME` (Linux).
 
 Pełna lista wszystkich zmiennych środowiskowych zdefiniowanych przez usługę jest dostępna w artykule dotyczącym [zmiennych środowiskowych węzłów obliczeniowych](batch-compute-node-environment-variables.md).
 

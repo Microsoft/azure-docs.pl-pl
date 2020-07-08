@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 3ede22b5af942c3f0c0cd88d86b56a625c7656c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 9810d29750e7c741c84b11b296099a37d67fc595
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267617"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955170"
 ---
 # <a name="monitor-azure-storage"></a>Monitorowanie usługi Azure Storage
 
@@ -78,7 +78,9 @@ Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać p
 
 Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Aby proces tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Podczas tworzenia ustawienia diagnostycznego wybierz typ magazynu, dla którego chcesz włączyć dzienniki, takie jak obiekt BLOB, kolejka, tabela lub plik. W przypadku utworzenia ustawienia diagnostycznego w Azure Portal można wybrać zasób z listy. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz użyć identyfikatora zasobu typu magazyn. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+Podczas tworzenia ustawienia diagnostycznego wybierz typ magazynu, dla którego chcesz włączyć dzienniki, takie jak obiekt BLOB, kolejka, tabela lub plik. Data Lake Storage Gen2 nie jest wyświetlana jako typ magazynu. Jest to spowodowane tym, że Data Lake Storage Gen2 jest zestawem funkcji dostępnych dla magazynu obiektów BLOB. 
+
+W przypadku utworzenia ustawienia diagnostycznego w Azure Portal można wybrać zasób z listy. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz użyć identyfikatora zasobu typu magazyn. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
 
 Należy również określić kategorie operacji, dla których mają być zbierane dzienniki. Kategorie usługi Azure Storage są wymienione w tej tabeli.
 
@@ -317,7 +319,7 @@ Dzienniki są wyświetlane jako obiekty blob przechowywane w kontenerze na docel
 
 `https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/blobServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
 
-Oto przykład:
+Przykład:
 
 `https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
@@ -343,6 +345,8 @@ Dane są przechowywane w tych tabelach.
 |StorageFileLogs | Dzienniki opisujące działanie w udziałach plików. |
 |StorageQueueLogs | Dzienniki opisujące działanie w kolejkach.|
 |StorageTableLogs| Dzienniki opisujące działanie w tabelach.|
+
+Dzienniki dla Data Lake Storage Gen2 nie są wyświetlane w dedykowanej tabeli. Jest to spowodowane tym, że Data Lake Storage Gen2 nie jest usługą. Jest to zestaw funkcji, które można włączyć na koncie magazynu obiektów BLOB. Jeśli te funkcje zostały włączone, dzienniki będą nadal wyświetlane w tabeli StorageBlobLogs. 
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Log Analytics zapytań usługi Azure Storage w Azure Monitor
 

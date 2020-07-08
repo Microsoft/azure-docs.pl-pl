@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: dd4d6e1632ba858e709f6d463a6da4779314e64d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262025"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954098"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Łączenie aplikacji bazy danych MongoDB z usługą Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 4. Wybierz platformę (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Jeśli nie widzisz sterownika lub narzędzia na liście, nie martw się — ciągle dokumentuje więcej fragmentów kodu połączenia. Dodaj komentarz poniżej na temat tego, co chcesz zobaczyć. Aby dowiedzieć się, jak połączyć własne połączenie, przeczytaj temat [pobieranie informacji o parametrach połączenia konta](#get-the-mongodb-connection-string-to-customize).
 5. Skopiuj i wklej fragment kodu do aplikacji MongoDB.
 
-    ![Blok Szybki Start](./media/connect-mongodb-account/QuickStartBlade.png)
+    :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="Blok Szybki Start":::
 
 ## <a name="get-the-mongodb-connection-string-to-customize"></a>Pobierz parametry połączenia MongoDB, aby dostosować
 
@@ -51,13 +51,11 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 ## <a name="connection-string-requirements"></a>Wymagania dotyczące parametrów połączenia
 
 > [!Important]
-> usługa Azure Cosmos DB ma ścisłe wymagania i standardy dotyczące bezpieczeństwa. Konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem *protokołu TLS*. 
->
->
+> usługa Azure Cosmos DB ma ścisłe wymagania i standardy dotyczące bezpieczeństwa. Konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem *protokołu TLS*.
 
 Azure Cosmos DB obsługuje format standardowego identyfikatora URI parametrów połączenia MongoDB z kilkoma określonymi wymaganiami: konta Azure Cosmos DB wymagają uwierzytelniania i bezpiecznej komunikacji za pośrednictwem protokołu TLS. W związku z tym format parametrów połączenia to:
 
-    mongodb://username:password@host:port/[database]?ssl=true
+`mongodb://username:password@host:port/[database]?ssl=true`
 
 Wartości tego ciągu są dostępne w bloku **parametrów połączenia** przedstawionym wcześniej:
 
@@ -70,7 +68,7 @@ Wartości tego ciągu są dostępne w bloku **parametrów połączenia** przedst
 
 Rozważmy na przykład konto pokazane w bloku **parametrów połączenia** . Prawidłowe parametry połączenia to:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
+`mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 
 ## <a name="next-steps"></a>Następne kroki
 

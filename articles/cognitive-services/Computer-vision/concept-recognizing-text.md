@@ -1,7 +1,7 @@
 ---
-title: Odczytywanie tekstu z obrazów i dokumentów — przetwarzanie obrazów
+title: Optyczne rozpoznawanie znaków (OCR) — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Pojęcia dotyczące optycznego rozpoznawania znaków (OCR) i tekstu z obrazów i dokumentów na potrzeby drukowania i tekstu odręcznego przy użyciu interfejs API przetwarzania obrazów.
+description: Pojęcia dotyczące optycznego rozpoznawania znaków (OCR) z obrazów i dokumentów z drukowanym i odręcznym tekstem przy użyciu interfejs API przetwarzania obrazów.
 services: cognitive-services
 author: msbbonsu
 manager: netahw
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 416a7edfdcd7e7915aa7886a8f53cf822b43fe93
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: d1c642a660b24cfc54c9c4308b8956582e13d50a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560795"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954744"
 ---
-# <a name="read-text-from-images-and-documents"></a>Odczytywanie tekstu z obrazów i dokumentów
+# <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
 Przetwarzanie obrazów obejmuje nowe funkcje optycznego rozpoznawania znaków (OCR) oparte na głębokiej uczeniu, które wyodrębniają tekst drukowany lub odręczny z obrazów i dokumentów PDF. Przetwarzanie obrazów wyodrębnia tekst z dokumentów analogowych (obrazów, zeskanowanych dokumentów) i dokumentów z cyframi. Można wyodrębnić tekst ze obrazków dzika, takich jak zdjęcia z płyt licencyjnych lub kontenerów z numerami seryjnymi, a także dokumenty — faktury, weksle, raporty finansowe, artykuły i inne. Ta funkcja OCR jest dostępna jako część usługi zarządzanej w chmurze lub lokalnie (kontenery). Obsługuje ona także sieci wirtualne i prywatne punkty końcowe, aby zaspokoić wymagania dotyczące zgodności i prywatności klasy korporacyjnej.
 

@@ -9,12 +9,12 @@ ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 4c4ac1d332c4348941963b90d25aefb4fdf30ce4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560219"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955543"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -134,7 +134,7 @@ conda install <package> -n py35
 
 Jeśli korzystasz z interfejsu graficznego lub chcesz skonfigurować przekazywanie X11, możesz wprowadzić **platformy PyCharm itd** , aby otworzyć środowisko IDE platformy PyCharm itd Python. Można użyć domyślnych edytorów tekstu. Ponadto można użyć Spyder, środowiska IDE języka Python, które jest powiązane z dystrybucją języka Python Anaconda. Spyder potrzebuje graficznego pulpitu lub X11ego przesyłania dalej. Pulpit graficzny ma skrót do Spyder.
 
-## <a name="jupyter-notebook"></a>Notes Jupyter
+## <a name="jupyter-notebook"></a>Jupyter Notes
 
 Dystrybucja Anaconda zawiera również Notes Jupyter, czyli środowisko do udostępniania kodu i analizy. Notes Jupyter jest dostępny za pomocą JupyterHub. Zaloguj się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux.
 
@@ -255,7 +255,7 @@ Aby uzyskać informacje na temat sposobu wdrażania modeli w języku R i Python 
 
 ## <a name="machine-learning-tools"></a>Narzędzia uczenia maszynowego
 
-Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich następujące elementy:
+Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Są to moduły:
 
 * **Vowpal Wabbit**: Krótki algorytm uczenia w trybie online.
 * **xgboost**: narzędzie, które zapewnia zoptymalizowane, podwyższające algorytmy drzewa.
@@ -263,8 +263,10 @@ Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zos
 * **Python**: Anaconda Python jest powiązany z algorytmami uczenia maszynowego z bibliotekami, takimi jak Scikit — uczenie się. Inne biblioteki można zainstalować za pomocą `pip install` polecenia.
 * **LightGBM**: szybka i rozproszona platforma do tworzenia gradientów o wysokiej wydajności oparta na algorytmach drzewa decyzyjnego.
 * **R**: Zaawansowana biblioteka funkcji uczenia maszynowego jest dostępna dla języka R. wstępnie zainstalowane biblioteki to LM, GLM, randomForest i rpart. Aby zainstalować inne biblioteki, należy uruchomić następujące polecenie:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Poniżej znajdują się dodatkowe informacje na temat pierwszych trzech narzędzi uczenia maszynowego na liście.
 

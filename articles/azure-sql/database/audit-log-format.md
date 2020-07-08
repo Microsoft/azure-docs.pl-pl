@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 760720d133dc382ba7af4aa5f0519d4d918e93cd
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322213"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954115"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database format dziennika inspekcji
 
@@ -31,7 +31,7 @@ Dzienniki inspekcji przechowywane w usłudze Azure Blob Storage są przechowywan
 
 Na przykład w przypadku bazy danych `Database1` o `Server1` następującym poprawnej ścieżce:
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 Dzienniki inspekcji [replik tylko do odczytu](read-scale-out.md) są przechowywane w tym samym kontenerze. Hierarchia katalogów w kontenerze ma postać `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . Nazwa pliku obiektu BLOB ma ten sam format. Dzienniki inspekcji replik tylko do odczytu są przechowywane w tym samym kontenerze.
 

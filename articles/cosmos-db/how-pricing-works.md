@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 3a2f7f8edfab635d1c59ce61b60b7c5b5311b283
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/29/2020
+ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513357"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955816"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Model cen w usłudze Azure Cosmos DB 
 
@@ -28,18 +28,18 @@ Obsługiwana przepływność, określona jako [jednostki żądań](request-units
 
 Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) i [poznanie Azure Cosmos DB rachunku](understand-your-bill.md).
 
-Model cen w Azure Cosmos DB jest spójny dla wszystkich interfejsów API. Aby dowiedzieć się więcej, zobacz [jak model cen Azure Cosmos DB jest ekonomiczny dla klientów](total-cost-ownership.md). W przypadku bazy danych lub kontenera należy określić minimalną przepływność, aby upewnić się, że umowy SLA i zwiększyć lub zmniejszyć przepływność, która jest obsługiwana przez ~ $6 dla każdego 100 RU/s.
+Model cen w Azure Cosmos DB jest spójny dla wszystkich interfejsów API. Aby dowiedzieć się więcej, zobacz [jak model cen Azure Cosmos DB jest ekonomiczny dla klientów](total-cost-ownership.md). W przypadku bazy danych lub kontenera należy określić minimalną przepływność, aby zapewnić umowy SLA i zwiększyć lub zmniejszyć zainicjowaną przepływność dla każdego 100 RU/s.
 
-Obecnie minimalna cena zarówno dla bazy danych, jak i przepływności opartej na kontenerze wynosi ~ $24/Miesiąc (zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby uzyskać najnowsze informacje. Jeśli obciążenie używa wielu kontenerów, można je zoptymalizować pod kątem kosztów przy użyciu przepływności na poziomie bazy danych, ponieważ przepływność na poziomie bazy danych umożliwia korzystanie z dowolnej liczby kontenerów w bazie danych udostępniającej przepływność między kontenerami. Poniższa tabela zawiera podsumowanie przepływności i kosztów dla różnych jednostek:
+W przypadku wdrożenia konta Azure Cosmos DB w regionie nierządowym Stanów Zjednoczonych obecnie minimalna cena zarówno dla bazy danych, jak i przepływności opartej na kontenerze wynosi około 24 USD/miesiąc. Ceny różnią się w zależności od regionu, z którego korzystasz, aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Jeśli obciążenie używa wielu kontenerów, można je zoptymalizować pod kątem kosztów przy użyciu przepływności na poziomie bazy danych, ponieważ przepływność na poziomie bazy danych umożliwia korzystanie z dowolnej liczby kontenerów w bazie danych udostępniającej przepływność między kontenerami. Poniższa tabela zawiera podsumowanie przepływności i kosztów dla różnych jednostek:
 
-|**Jednostka**  | **Minimalny koszt & przepływności** |**Przyrosty skalowania & kosztu** |**Zakres aprowizacji** |
+|**Jednostka**  | **Minimalna przepływność** |**Przyrosty skalowania** |**Zakres aprowizacji** |
 |---------|---------|---------|-------|
-|baza danych    | 400 RU/s (~ $24/Miesiąc)    | 100 RU/s (~ $6/miesiąc)   |Przepływność jest zarezerwowana dla bazy danych i jest współdzielona przez kontenery w ramach bazy danych |
-|Kontener     | 400 RU/s (~ $24/Miesiąc)    | 100 RU/s (~ $6/miesiąc)  |Przepływność jest zarezerwowana dla określonego kontenera |
+|baza danych    | 400 RU/s    | 100 RU/s   |Przepływność jest zarezerwowana dla bazy danych i jest współdzielona przez kontenery w ramach bazy danych |
+|Kontener     | 400 RU/s   | 100 RU/s  |Przepływność jest zarezerwowana dla określonego kontenera |
 
-Jak pokazano w poprzedniej tabeli, minimalną przepływność w Azure Cosmos DB zaczyna się od ceny ~ $24/Miesiąc. W przypadku rozpoczęcia od minimalnej przepływności i skalowania w górę w czasie w celu zapewnienia obsługi obciążeń produkcyjnych Twoje koszty zostaną zakłócone w przyrostach wynoszących ~ $6/miesiąc. Model cen w Azure Cosmos DB jest elastyczny i ma płynny wzrost lub spadek ceny podczas skalowania w górę lub w dół.
+Jak pokazano w poprzedniej tabeli, minimalną przepływność w Azure Cosmos DB zaczyna się od ceny wynoszącej około $24 miesięcznie. W przypadku rozpoczęcia od minimalnej przepływności i skalowania w górę w czasie w celu zapewnienia obsługi obciążeń produkcyjnych Twoje koszty zostaną zakłócone w przyrostach wynoszących około $6 miesięcznie. Ceny różnią się w zależności od regionu, z którego korzystasz, aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Model cen w Azure Cosmos DB jest elastyczny i ma płynny wzrost lub spadek ceny podczas skalowania w górę lub w dół.
 
-## <a name="try-azure-cosmos-db-for-free"></a>Wypróbuj usługę Azure Cosmos DB bezpłatnie 
+## <a name="try-azure-cosmos-db-for-free"></a>Wypróbuj usługę Azure Cosmos DB bezpłatnie
 
 Azure Cosmos DB oferuje dla deweloperów kilka opcji bezpłatnych. Dostępne są następujące opcje:
 
