@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700046"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Włącz usługę komunikacji równorzędnej platformy Azure w bezpośredniej komunikacji równorzędnej przy użyciu Azure Portal

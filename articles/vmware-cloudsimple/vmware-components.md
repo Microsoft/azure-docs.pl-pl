@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702826"
 ---
 # <a name="private-cloud-vmware-components"></a>Składniki VMware chmury prywatnej
@@ -34,7 +33,7 @@ Stos VMware chmury prywatnej jest wdrażany z użyciem następującej wersji opr
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Program vCenter Standard |
 | Sieci vSAN | 6.7 | Enterprise |
-| Centrum danych NSX | 2.4.1 | Zaawansowane |
+| Centrum danych NSX | 2.4.1 | Zaawansowany |
 
 ## <a name="esxi"></a>ESXi
 

@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702843"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Przeglądanie i modyfikowanie nazw hostów

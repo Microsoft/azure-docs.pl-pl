@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84702298"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Przenoszenie danych do i z Azure Cosmos DB przy użyciu Azure Data Factory
@@ -131,7 +130,7 @@ W przypadku działania kopiowania, gdy źródło jest typu **DocumentDbCollectio
 | **Właściwość** | **Opis** | **Dozwolone wartości** | **Wymagane** |
 | --- | --- | --- | --- |
 | nestingSeparator |Znak specjalny w nazwie kolumny źródłowej, aby wskazać, że jest wymagany dokument zagnieżdżony. <br/><br/>Na przykład powyżej: `Name.First` w tabeli danych wyjściowych powstaje następująca struktura JSON w Cosmos DB dokumencie:<br/><br/>"Name": {<br/>    "First": "Jan"<br/>}, |Znak używany do rozdzielania poziomów zagnieżdżenia.<br/><br/>Wartość domyślna to `.` (kropka). |Znak używany do rozdzielania poziomów zagnieżdżenia. <br/><br/>Wartość domyślna to `.` (kropka). |
-| writeBatchSize |Liczba równoległych żądań do Azure Cosmos DB usługi do tworzenia dokumentów.<br/><br/>Można dostosować wydajność podczas kopiowania danych do/z Cosmos DB za pomocą tej właściwości. Po zwiększeniu writeBatchSize można oczekiwać większej wydajności, ponieważ wysyłane są bardziej równoległe żądania do Cosmos DB. Należy jednak unikać ograniczania, które może zgłosić komunikat o błędzie: "częstotliwość żądań jest duża".<br/><br/>Ograniczanie przepustowości zależy od wielu czynników, w tym rozmiaru dokumentów, liczby warunków w dokumentach, zasad indeksowania kolekcji docelowej itd. W przypadku operacji kopiowania można użyć lepszej kolekcji (np. S3), aby uzyskać dostęp do najbardziej dostępnej przepływności (2 500 jednostek żądań/sekundę). |Liczba całkowita |Nie (domyślnie: 5) |
+| writeBatchSize |Liczba równoległych żądań do Azure Cosmos DB usługi do tworzenia dokumentów.<br/><br/>Można dostosować wydajność podczas kopiowania danych do/z Cosmos DB za pomocą tej właściwości. Po zwiększeniu writeBatchSize można oczekiwać większej wydajności, ponieważ wysyłane są bardziej równoległe żądania do Cosmos DB. Należy jednak unikać ograniczania, które może zgłosić komunikat o błędzie: "częstotliwość żądań jest duża".<br/><br/>Ograniczanie przepustowości zależy od wielu czynników, w tym rozmiaru dokumentów, liczby warunków w dokumentach, zasad indeksowania kolekcji docelowej itd. W przypadku operacji kopiowania można użyć lepszej kolekcji (np. S3), aby uzyskać dostęp do najbardziej dostępnej przepływności (2 500 jednostek żądań/sekundę). |Integer |Nie (domyślnie: 5) |
 | writeBatchTimeout |Czas oczekiwania na zakończenie operacji przed upływem limitu czasu. |zakres czasu<br/><br/> Przykład: "00:30:00" (30 minut). |Nie |
 
 ## <a name="importexport-json-documents"></a>Importuj/Eksportuj dokumenty JSON
@@ -483,16 +482,16 @@ Azure Cosmos DB to Magazyn NoSQL dla dokumentów JSON, w którym zagnieżdżone 
 ## <a name="appendix"></a>Dodatek
 1. **Pytanie:** Czy działanie kopiowania obsługuje aktualizację istniejących rekordów?
 
-    **Odpowiedź:** Znaleziono.
+    **Odpowiedź:** Nie.
 2. **Pytanie:** Jak ponowienie kopii w celu Azure Cosmos DB transakcji z już skopiowanymi rekordami?
 
     **Odpowiedź:** Jeśli rekordy mają pole "ID", a operacja kopiowania próbuje wstawić rekord o takim samym IDENTYFIKATORze, operacja kopiowania zgłosi błąd.
 3. **Pytanie:** Czy Data Factory obsługiwać [zakres lub partycjonowanie danych oparte na skrótach](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Odpowiedź:** Znaleziono.
+    **Odpowiedź:** Nie.
 4. **Pytanie:** Czy można określić więcej niż jedną kolekcję Azure Cosmos DB dla tabeli?
 
-    **Odpowiedź:** Znaleziono. W tej chwili można określić tylko jedną kolekcję.
+    **Odpowiedź:** Nie. W tej chwili można określić tylko jedną kolekcję.
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajanie
 Zobacz [Przewodnik dostrajania wydajności & działania kopiowania](data-factory-copy-activity-performance.md) , aby poznać kluczowe czynniki wpływające na wydajność przenoszenia danych (działanie kopiowania) w Azure Data Factory i różne sposoby jego optymalizacji.
