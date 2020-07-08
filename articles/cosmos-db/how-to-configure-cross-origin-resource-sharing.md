@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
 ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390877"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Skonfiguruj współużytkowanie zasobów między źródłami (CORS)

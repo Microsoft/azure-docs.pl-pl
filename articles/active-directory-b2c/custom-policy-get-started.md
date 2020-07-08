@@ -12,10 +12,10 @@ ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389296"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
@@ -44,7 +44,7 @@ ms.locfileid: "85389296"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -53,7 +53,7 @@ ms.locfileid: "85389296"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -64,7 +64,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 

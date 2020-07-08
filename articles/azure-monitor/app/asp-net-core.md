@@ -4,10 +4,10 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: f9e51521e9bd35c6afb3dbe7cafb1e56e847756a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390129"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
@@ -103,7 +103,7 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](https://docs.mic
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Na przykład:
+    Przykład:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 

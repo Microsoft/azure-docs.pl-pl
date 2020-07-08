@@ -8,10 +8,10 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: e52307c92d9371af6479f64841c6f269ed10e4b4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390826"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Uwierzytelnianie aplikacji klienckiej za pomocą usługi Azure Digital bliźniaczych reprezentacji

@@ -4,10 +4,10 @@ description: Wprowadzenie do kluczowych pojęć związanych z rejestrami kontene
 ms.topic: article
 ms.date: 06/16/2020
 ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390452"
 ---
 # <a name="about-registries-repositories-and-images"></a>Rejestry, repozytoria i obrazy — informacje

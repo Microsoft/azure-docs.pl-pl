@@ -11,10 +11,10 @@ ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: accd32f376c6030900a9f9a3c29547118d0a1a7b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85388514"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: aplikacja rozszerzeń
@@ -36,7 +36,7 @@ Aby sprawdzić, czy B2C-Extensions-App jest obecna:
 
 Jeśli przypadkowo usunięto aplikację B2C-Extensions-App, masz 30 dni na jej odzyskanie. Możesz przywrócić aplikację przy użyciu interfejs API programu Graph:
 
-1. Przejdź do [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/) .
+1. Przejdź do [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
 1. Zaloguj się do witryny jako Administrator globalny katalogu Azure AD B2C, do którego chcesz przywrócić usuniętą aplikację. Ten Administrator globalny musi mieć adres e-mail podobny do poniższego: `username@{yourTenant}.onmicrosoft.com` .
 1. Wydaj protokół HTTP GET względem adresu URL `https://graph.windows.net/myorganization/deletedApplications` z interfejsem API-Version = 1.6. Ta operacja spowoduje wyświetlenie listy wszystkich aplikacji, które zostały usunięte w ciągu ostatnich 30 dni.
 1. Znajdź aplikację na liście, której nazwa zaczyna się od "B2C-Extension-App" i skopiuj jej `objectid` wartość właściwości.

@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85389868"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapasu czasu dla automatycznej aprowizacji użytkowników
@@ -107,35 +107,35 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Wartość logiczna|
-   |externalId|Ciąg|
-   |displayName|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |tytuł|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |userName|Ciąg|
-   |Pseudonim|Ciąg|
-   |adresy [typ EQ "untyped"]. streetAddress|Ciąg|
-   |adresy [Type EQ "untyped"]. locale|Ciąg|
-   |adresy [Type EQ "untyped"]. region|Ciąg|
-   |adresy [Type EQ "untyped"]. KodPocztowy|Ciąg|
-   |adresy [Type EQ "untyped"]. Country|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |role [podstawowa EQ "true"]. Value|Ciąg|
-   |locale|Ciąg|
-   |Name. honorificPrefix|Ciąg|
-   |fotografie [typ EQ "Fotografia"]. wartość|Ciąg|
-   |profileUrl|Ciąg|
-   |TimeZone|Ciąg|
-   |userType|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|Ciąg|
+   |aktywne|Boolean|
+   |externalId|String|
+   |displayName|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. imię|String|
+   |tytuł|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |userName|String|
+   |Pseudonim|String|
+   |adresy [typ EQ "untyped"]. streetAddress|String|
+   |adresy [Type EQ "untyped"]. locale|String|
+   |adresy [Type EQ "untyped"]. region|String|
+   |adresy [Type EQ "untyped"]. KodPocztowy|String|
+   |adresy [Type EQ "untyped"]. Country|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |role [podstawowa EQ "true"]. Value|String|
+   |locale|String|
+   |Name. honorificPrefix|String|
+   |fotografie [typ EQ "Fotografia"]. wartość|String|
+   |profileUrl|String|
+   |TimeZone|String|
+   |userType|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|String|
    |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Manager|Dokumentacja|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|String|
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do zapasu czasu**.
 
@@ -143,7 +143,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
+      |displayName|String|
       |elementy członkowskie|Dokumentacja|
 
 14. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

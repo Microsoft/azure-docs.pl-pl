@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85390860"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
@@ -21,7 +21,7 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 ## <a name="headers"></a>Nagłówki
 
-| Header | Typ | Przykładowa wartość | Po dołączeniu | Wyjaśnienie |
+| Header | Typ | Przykładowa wartość | Po dołączeniu | Objaśnienie |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla komunikatu częściowego odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla opłaty za konkretny fragment odpowiedzi. Tylko w przypadku żądań składających się z pojedynczego fragmentu odpowiedzi ten nagłówek dopasowuje łączny koszt przechodzenia. Jednak w przypadku większości złożonych przechodzenia ta wartość reprezentuje koszt częściowy. |
 | **x-ms-total-request-charge** | double | 423,987 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona łączną opłatę od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje na całkowitą opłatą żądania. |
@@ -36,7 +36,7 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 Poniżej wymieniono najczęstsze kody stanu zwracane przez serwer.
 
-| Stan | Wyjaśnienie |
+| Stan | Objaśnienie |
 | --- | --- |
 | **401** | Komunikat o błędzie `"Unauthorized: Invalid credentials provided"` jest zwracany, jeśli hasło uwierzytelniania nie jest zgodne z kluczem konta Cosmos DB. Przejdź do konta Cosmos DB Gremlin w Azure Portal i upewnij się, że klucz jest prawidłowy.|
 | **404** | Współbieżne operacje, które próbują usunąć i zaktualizować tę samą krawędź lub wierzchołek jednocześnie. Komunikat o błędzie `"Owner resource does not exist"` wskazuje, że określona baza danych lub kolekcja jest niepoprawna w ramach parametrów połączenia w formacie `/dbs/<database name>/colls/<collection or graph name>`.|

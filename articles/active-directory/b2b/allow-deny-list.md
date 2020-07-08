@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387290"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia dla użytkowników B2B z określonych organizacji i blokowanie ich
@@ -45,7 +45,7 @@ Aby dodać listę Odmów:
 2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
 3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 4. W obszarze **ograniczenia dotyczące współpracy**wybierz pozycję **Odmów zaproszeń do określonych domen**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
+5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Przykład:
 
    ![Wyświetla opcję Odmów z dodanymi domenami](./media/allow-deny-list/DenyListSettings.png)
  
@@ -66,7 +66,7 @@ Aby dodać listę dozwolonych:
 2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
 3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 4. W obszarze **ograniczenia dotyczące współpracy**wybierz opcję **Zezwalaj na zaproszenia tylko do określonych domen (najbardziej restrykcyjne)**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
+5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Przykład:
 
    ![Wyświetla opcję Zezwalaj z dodanymi domenami](./media/allow-deny-list/AllowListSettings.png)
  
@@ -140,19 +140,19 @@ Poniżej pokazano ten sam przykład, ale z definicją zasad w tekście.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

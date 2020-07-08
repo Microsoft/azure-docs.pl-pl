@@ -13,17 +13,17 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387307"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Dodawanie użytkowników-Gości współpracy B2B bez linku do zaproszenia lub wiadomości e-mail
 
 Możesz teraz zaprosić użytkowników-Gości przez wysłanie bezpośredniego linku do udostępnionej aplikacji. W przypadku tej metody użytkownicy-Goście nie muszą już używać wiadomości e-mail z zaproszeniem, z wyjątkiem niektórych specjalnych przypadków. Użytkownik-Gość klika link aplikacji, przegląda i akceptuje warunki prywatności, a następnie bezproblemowo uzyskuje dostęp do aplikacji. Aby uzyskać więcej informacji, zobacz temat do realizacji [zaproszeń do współpracy B2B](redemption-experience.md).   
 
-Przed udostępnieniem tej nowej metody można zaprosić użytkowników-Gości bez konieczności wysyłania wiadomości e-mail z zaproszeniem przez dodanie osoby żądającej (z organizacji lub z organizacji partnerskiej) do roli katalogu **zapraszania gościa** , a następnie dodanie użytkowników-Gości do katalogu, grup lub aplikacji za pośrednictwem interfejsu użytkownika lub programu PowerShell. (Jeśli używasz programu PowerShell, możesz całkowicie pominąć wiadomość e-mail z zaproszeniem). Na przykład:
+Przed udostępnieniem tej nowej metody można zaprosić użytkowników-Gości bez konieczności wysyłania wiadomości e-mail z zaproszeniem przez dodanie osoby żądającej (z organizacji lub z organizacji partnerskiej) do roli katalogu **zapraszania gościa** , a następnie dodanie użytkowników-Gości do katalogu, grup lub aplikacji za pośrednictwem interfejsu użytkownika lub programu PowerShell. (Jeśli używasz programu PowerShell, możesz całkowicie pominąć wiadomość e-mail z zaproszeniem). Przykład:
 
 1. Użytkownik w organizacji hosta (na przykład WoodGrove) zaprasza jednego użytkownika z organizacji partnera (na przykład Sam@litware.com ) jako gość.
 2. Administrator w organizacji hosta [konfiguruje zasady](delegate-invitations.md) zezwalające usłudze sam na identyfikację i dodawanie innych użytkowników z organizacji partnera (litware). (Sam należy dodać do roli **zapraszania gościa** ).

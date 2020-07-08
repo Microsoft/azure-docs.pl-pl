@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387354"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B
@@ -32,7 +32,7 @@ Przed zapoznaj się z instrukcjami dotyczącymi aplikacji, poniżej przedstawion
 * W przypadku atrybutów użytkowników aby wyeliminować problemy z zniekształcona profilem użytkownika (UPD) w obszarze Użytkownicy-Goście, należy zawsze ustawić **Identyfikator użytkownika** na **User. mail**.
 
 
-## <a name="dropbox-business"></a>Usługa Dropbox
+## <a name="dropbox-business"></a>Dropbox Business
 
 Aby umożliwić użytkownikom logowanie się przy użyciu konta organizacji, musisz ręcznie skonfigurować usługę Dropbox, aby używać usługi Azure AD jako dostawcy tożsamości SAML (SAML). Jeśli usługa Dropbox nie została skonfigurowana w taki sposób, nie może monitować ani w inny sposób zezwalać użytkownikom na logowanie się za pomocą usługi Azure AD.
 
