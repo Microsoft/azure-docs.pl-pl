@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje na temat dodawania punktu końcoweg
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315432"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Korzystanie z punktów końcowych usługi Virtual Network z platformą Azure Event Hubs

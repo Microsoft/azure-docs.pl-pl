@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/24/2020
 ms.author: abnarain
 ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315146"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
@@ -281,7 +281,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następując
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)

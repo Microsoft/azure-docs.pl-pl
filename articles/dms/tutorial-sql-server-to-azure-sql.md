@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316234"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Samouczek: przeprowadzanie migracji z programu SQL Server do usługi Azure SQL Database w trybie offline przy użyciu usługi DMS
@@ -149,7 +149,7 @@ Aby przeprowadzić migrację schematu **AdventureWorks2012** do pojedynczej bazy
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
-1. Zaloguj się do Portalu Azure. Wyszukaj i wybierz pozycję **subskrypcje**.
+1. Zaloguj się do witryny Azure Portal. Wyszukaj i wybierz pozycję **subskrypcje**.
 
    ![Wyświetlanie subskrypcji w portalu](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 

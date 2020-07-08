@@ -4,10 +4,10 @@ description: Napisz aplikację konsolową Node.js do obsługi żądań HTTP poł
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 4e40b16d71e8d651e687fa8dea93efeab7064ca9
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316919"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Wprowadzenie do żądań HTTP połączeń hybrydowych usługi Relay w środowisku Node

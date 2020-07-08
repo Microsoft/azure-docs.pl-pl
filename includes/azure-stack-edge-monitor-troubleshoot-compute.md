@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85313204"
 ---
 Na urządzeniu brzegowym Azure Stack, na którym skonfigurowano rolę COMPUTE, podzbiór poleceń platformy Docker jest dostępny do monitorowania i rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, Połącz się [z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i Użyj `dkrdbe` funkcji.

@@ -4,10 +4,10 @@ description: W tym artykule opisano interakcje po stronie klienta z usługą Po�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316657"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
@@ -137,7 +137,7 @@ Opcje parametrów ciągu zapytania są następujące.
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Tak      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
 | `{path}`         | Tak      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
-| `sb-hc-token`    | Opcję\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
+| `sb-hc-token`    | Tak\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
 | `sb-hc-id`       | Nie       | Ten opcjonalny identyfikator dostarczony przez klienta umożliwia kompleksowe śledzenie diagnostyczne.
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego lub nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
@@ -427,7 +427,7 @@ Opcje parametrów ciągu zapytania są następujące:
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Tak       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
 | `{path}`       | Tak       | (zobacz poniższy akapit)
-| `sb-hc-token`  | Opcję\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `sb-hc-token`  | Tak\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 | `sb-hc-id`     | Nie        | Opcjonalny identyfikator, który umożliwia kompleksowe śledzenie diagnostyczne i jest udostępniany odbiornikowi podczas uzgadniania akceptacji.
 
  `{path}`Jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. `path`Wyrażenie można rozszerzyć za pomocą sufiksu i wyrażenia ciągu zapytania w celu dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowane pod ścieżką `hyco` , `path` po wyrażeniu mogą występować `hyco/suffix?param=value&...` parametry ciągu zapytania zdefiniowane w tym miejscu. Kompletne wyrażenie może następnie być następujące:
@@ -473,7 +473,7 @@ Opcje parametrów ciągu zapytania są następujące:
 
 | Param          | Wymagane? | Opis
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | Opcję\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `sb-hc-token`  | Tak\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 
 Token może być również przenoszony w `ServiceBusAuthorization` `Authorization` nagłówku lub http. Token może zostać pominięty, jeśli połączenie hybrydowe jest skonfigurowane do zezwalania na żądania anonimowe.
 

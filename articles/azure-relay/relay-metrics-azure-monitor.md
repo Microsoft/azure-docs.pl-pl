@@ -5,10 +5,10 @@ services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314373"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Metryki Azure Relay w Azure Monitor 
@@ -58,7 +58,7 @@ Wszystkie wartości metryk są wysyłane do Azure Monitor co minutę. Stopień s
 |SenderConnections — błąd servererror |Liczba błędów serwera w połączeniach nadawcy w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |ListenerConnections-TotalRequests |Całkowita liczba połączeń odbiornika w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |SenderConnections — TotalRequests |Żądania połączenia wykonywane przez nadawców w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Połączeń ActiveConnections |Liczba aktywnych połączeń. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Aktywne połączenia |Liczba aktywnych połączeń. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |ActiveListeners |Liczba aktywnych odbiorników. Ta wartość jest wartością punktu w czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |ListenerDisconnects |Liczba odłączonych odbiorników w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |SenderDisconnects |Liczba odłączonych nadawców w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|

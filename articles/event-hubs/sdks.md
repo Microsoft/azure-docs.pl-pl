@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące zestawów SDK klienta dl
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85312555"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs — zestawy SDK klienta
@@ -20,7 +20,7 @@ Ten artykuł zawiera następujące informacje dotyczące zestawów SDK obsługiw
 ## <a name="client-sdks"></a>Zestawy SDK klienta
 W poniższej tabeli opisano wszystkie aktualnie dostępne klientów środowiska uruchomieniowego platformy Azure Event Hubs. Niektóre z tych bibliotek zawierają również ograniczoną funkcjonalność zarządzania, ale istnieją również pewne biblioteki przeznaczone do operacji zarządzania. Podstawowym fokusem tych bibliotek jest **wysyłanie i odbieranie komunikatów** z centrum zdarzeń.
 
-| Język | Pakiet | Tematy pomocy | 
+| Język | Pakiet | Dokumentacja | 
 | -------- | ------- | --------------- | 
 | . NET Standard (**Najnowsza** i obsługa platformy .NET Core i .NET Framework) | [Azure. Messaging. EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |<ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs)</li><li>[Samouczek](get-started-dotnet-standard-send-v2.md)</li></ul> |
 |       | [Azure. Messaging. EventHubs. Processor](https://www.nuget.org/packages/Azure.Messaging.EventHubs.Processor/) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor)</li><li>[Samouczek](get-started-dotnet-standard-send-v2.md)</li></ul> |
@@ -39,7 +39,7 @@ W poniższej tabeli opisano wszystkie aktualnie dostępne klientów środowiska 
 ## <a name="management-sdks"></a>Zestawy SDK zarządzania
 W poniższej tabeli wymieniono wszystkie aktualnie dostępne biblioteki specyficzne dla zarządzania. Żadna z tych bibliotek nie zawiera operacji środowiska uruchomieniowego i służy wyłącznie do **zarządzania jednostkami Event Hubs**.
 
-| Język | Pakiet | Tematy pomocy | 
+| Język | Pakiet | Dokumentacja | 
 | -------- | ------- | --------------- | 
 | .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Samouczek](get-started-dotnet-standard-send-v2.md)</li></ul> |
 

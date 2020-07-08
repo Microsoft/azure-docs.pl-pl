@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314551"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
@@ -23,7 +23,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przy użyciu protokołu HTTP POST lu
 
 W przypadku używania zarządzanych interfejsów API platformy .NET głównymi konstrukcjami na potrzeby publikowania danych w usłudze Event Hubs są klasy [EventHubClient][] i [EventData][]. [EventHubClient][] udostępnia kanał komunikacji AMQP, przez który zdarzenia są wysyłane do centrum zdarzeń. Klasa [EVENTDATA][] reprezentuje zdarzenie i jest używana do publikowania komunikatów w centrum zdarzeń. Ta klasa obejmuje treść, niektóre metadane (właściwości) i informacje nagłówka (SystemProperties) dotyczące zdarzenia. Inne właściwości są dodawane do obiektu [EVENTDATA][] , gdy przechodzi on przez centrum zdarzeń.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Klasy .NET obsługujące Event Hubs są dostępne w pakiecie NuGet [Microsoft. Azure. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) . Program można zainstalować za pomocą Eksploratora rozwiązań programu Visual Studio lub [konsoli Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) w programie Visual Studio. Aby to zrobić, należy wydać następujące polecenie w oknie [konsoli menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ```shell

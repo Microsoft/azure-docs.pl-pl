@@ -4,10 +4,10 @@ description: Opisuje sposób migrowania aplikacji Azure Relay z używania Azure 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314314"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay — migracja z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego

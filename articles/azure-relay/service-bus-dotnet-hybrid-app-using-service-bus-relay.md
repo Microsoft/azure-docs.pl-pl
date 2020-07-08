@@ -4,10 +4,10 @@ description: Dowiedz się, jak uwidocznić lokalną usługę WCF dla aplikacji i
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314408"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Uwidacznianie lokalnej usługi WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay

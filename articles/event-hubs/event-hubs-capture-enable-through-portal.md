@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak włączyć przechwytywanie zdarzeń prz
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85315728"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Włączanie przechwytywania zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs

@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316068"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Dostawca stanu sesji ASP.NET dla usługi Azure Cache for Redis

@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące monitorowania platformy 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85314599"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metryki usługi Azure Event Hubs na platformie Azure Monitor
@@ -53,7 +53,7 @@ Zlicza żądania operacji na danych i zarządzania.
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
 | Żądania przychodzące  | Liczba żądań wysyłanych do usługi Azure Event Hubs w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
-| Żądania zakończone powodzeniem    | Liczba pomyślnych żądań skierowanych do usługi Azure Event Hubs w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
+| Żądania pomyślne    | Liczba pomyślnych żądań skierowanych do usługi Azure Event Hubs w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
 | Błędy serwera  | Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Azure Event Hubs w określonym przedziale czasu. <br/><br/>Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName |
 |Błędy użytkownika |Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Błędy przekroczenia limitu przydziału |Liczba żądań przekroczyła dostępny limit przydziału. Aby uzyskać więcej informacji na temat przydziałów Event Hubs, zobacz [ten artykuł](event-hubs-quotas.md) .<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
@@ -77,7 +77,7 @@ Zlicza żądania operacji na danych i zarządzania.
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Połączeń ActiveConnections |Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Aktywne połączenia |Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 
@@ -87,7 +87,7 @@ Po włączeniu funkcji przechwytywania dla centrów zdarzeń można monitorować
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Zaległości przechwytywania |Liczba bajtów, które nie są jeszcze przechwytywane do wybranego miejsca docelowego.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Lista prac przechwytywania |Liczba bajtów, które nie są jeszcze przechwytywane do wybranego miejsca docelowego.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Przechwycone komunikaty |Liczba komunikatów lub zdarzeń, które są przechwytywane do wybranego miejsca docelowego w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Przechwycone bajty |Liczba bajtów przechwytywanych do wybranego miejsca docelowego w określonym przedziale czasu.<br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 

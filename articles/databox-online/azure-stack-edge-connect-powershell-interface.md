@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85313202"
 ---
 # <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Zarządzanie urządzeniem brzegowym Azure Stack za pomocą programu Windows PowerShell
