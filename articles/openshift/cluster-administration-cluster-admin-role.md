@@ -8,10 +8,9 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139100"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Rola Administrator klienta Red Hat OpenShift na platformie Azure
@@ -23,23 +22,23 @@ Jeśli dla konta jest powiązana rola autoryzacji klient-administrator-klaster, 
 > [!Note] 
 > Rola klastra klient-administrator-klaster nie jest taka sama jak rola klastra-administratora klastra.
 
-Na przykład można wykonać akcje skojarzone z zestawem czasowników (`create`) do działania na zestawie nazw zasobów (`templates`). Aby wyświetlić szczegóły tych ról i ich zestawów zleceń i zasobów, uruchom następujące polecenie:
+Na przykład można wykonać akcje skojarzone z zestawem czasowników ( `create` ) do działania na zestawie nazw zasobów ( `templates` ). Aby wyświetlić szczegóły tych ról i ich zestawów zleceń i zasobów, uruchom następujące polecenie:
 
 `$ oc get clusterroles customer-admin-cluster -o yaml`
 
 Nazwy zleceń nie zawsze są mapowane bezpośrednio do `oc` poleceń. Są one bardziej ogólne dla typów operacji interfejsu wiersza polecenia, które można wykonywać. 
 
-Na przykład, jeśli `list` zlecenie oznacza, że można wyświetlić listę wszystkich obiektów o nazwie zasobu (`oc get`). `get` Zlecenie oznacza, że można wyświetlić szczegóły konkretnego obiektu, jeśli znasz jego nazwę (`oc describe`).
+Na przykład, `list` Jeśli zlecenie oznacza, że można wyświetlić listę wszystkich obiektów o nazwie zasobu ( `oc get` ). `get`Zlecenie oznacza, że można wyświetlić szczegóły konkretnego obiektu, jeśli znasz jego nazwę ( `oc describe` ).
 
 ## <a name="configure-the-customer-administrator-role"></a>Konfigurowanie roli administratora klienta
 
-Rolę klastra klient-administrator-klaster można skonfigurować tylko podczas tworzenia klastra, dostarczając flagę `--customer-admin-group-id`. To pole nie jest obecnie konfigurowalne w Azure Portal. Aby dowiedzieć się, jak skonfigurować Azure Active Directory i grupę administratorów, zobacz [Azure Active Directory Integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
+Rolę klastra klient-administrator-klaster można skonfigurować tylko podczas tworzenia klastra, dostarczając flagę `--customer-admin-group-id` . To pole nie jest obecnie konfigurowalne w Azure Portal. Aby dowiedzieć się, jak skonfigurować Azure Active Directory i grupę administratorów, zobacz [Azure Active Directory Integration for Azure Red Hat OpenShift](howto-aad-app-configuration.md).
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Potwierdzenie członkostwa w roli administratora klienta
 
-Aby potwierdzić członkostwo w grupie administratorów klienta, spróbuj użyć poleceń interfejsu wiersza polecenia `oc get nodes` OpenShift lub `oc projects`. `oc get nodes`program wyświetli listę węzłów, jeśli masz rolę klient-administrator-klaster i błąd uprawnień, jeśli masz tylko rolę klient-administrator-projekt. `oc projects`pokaże wszystkie projekty w klastrze, a nie tylko projekty, w których pracujesz.
+Aby potwierdzić członkostwo w grupie administratorów klienta, spróbuj użyć poleceń interfejsu wiersza polecenia OpenShift `oc get nodes` lub `oc projects` . `oc get nodes`program wyświetli listę węzłów, jeśli masz rolę klient-administrator-klaster i błąd uprawnień, jeśli masz tylko rolę klient-administrator-projekt. `oc projects`pokaże wszystkie projekty w klastrze, a nie tylko projekty, w których pracujesz.
 
-Aby dowiedzieć się więcej o rolach i uprawnieniach w klastrze, można [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) użyć polecenia.
+Aby dowiedzieć się więcej o rolach i uprawnieniach w klastrze, można użyć [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) polecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

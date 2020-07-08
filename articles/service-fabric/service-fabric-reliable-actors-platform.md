@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282304"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Jak Reliable Actors używać platformy Service Fabric
@@ -28,7 +27,7 @@ Ponieważ sama usługa aktora to niezawodna usługa, wszystkie pojęcia związan
 
 Na powyższym diagramie przedstawiono relację między strukturami aplikacji Service Fabric i kodem użytkownika. Niebieskie elementy reprezentują strukturę aplikacji Reliable Services, pomarańczowy reprezentuje niezawodną strukturę aktora, a zielony reprezentuje kod użytkownika.
 
-W Reliable Services usługa dziedziczy `StatefulService` klasę. Ta klasa jest sama pochodna `StatefulServiceBase` (lub `StatelessService` dla usług bezstanowych). W Reliable Actors używasz usługi aktora. Usługa aktora to inna implementacja `StatefulServiceBase` klasy implementującej wzorzec aktora, w którym działają aktory. Ponieważ sama usługa aktora jest tylko implementacją programu `StatefulServiceBase`, można napisać własną usługę, która pochodzi z `ActorService` i Implementuj funkcje na poziomie usług w taki sam sposób `StatefulService`, jak w przypadku dziedziczenia, na przykład:
+W Reliable Services usługa dziedziczy `StatefulService` klasę. Ta klasa jest sama pochodna `StatefulServiceBase` (lub `StatelessService` dla usług bezstanowych). W Reliable Actors używasz usługi aktora. Usługa aktora to inna implementacja `StatefulServiceBase` klasy implementującej wzorzec aktora, w którym działają aktory. Ponieważ sama usługa aktora jest tylko implementacją programu `StatefulServiceBase` , można napisać własną usługę, która pochodzi z `ActorService` i Implementuj funkcje na poziomie usług w taki sam sposób, jak w przypadku dziedziczenia, na przykład `StatefulService` :
 
 * Kopia zapasowa i przywracanie usługi.
 * Funkcje udostępnione dla wszystkich aktorów, na przykład wyłącznika.
@@ -40,7 +39,7 @@ Aby uzyskać więcej informacji, zobacz [Implementowanie funkcji poziomu usług 
 Usługi aktora są Reliable Services, więc model aplikacji jest taki sam. Jednak narzędzia do tworzenia struktury aktora generują niektóre pliki modelu aplikacji.
 
 ### <a name="service-manifest"></a>Manifest usługi
-Narzędzia do kompilowania struktury aktora automatycznie generują zawartość pliku servicemanifest. XML usługi aktora. Ten plik zawiera:
+Narzędzia do kompilowania struktury aktora automatycznie generują zawartość pliku ServiceManifest.xml usługi aktora. Ten plik zawiera:
 
 * Typ usługi aktora. Nazwa typu jest generowana na podstawie nazwy projektu aktora. W oparciu o atrybut trwałości aktora flaga HasPersistedState jest również ustawiana odpowiednio.
 * Pakiet kodu.
@@ -71,7 +70,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Każde `ActorId` jest skrótem do wartości Int64. Dlatego usługa aktora musi używać schematu partycjonowania Int64 z pełnym zakresem wartości Int64. Jednak niestandardowe wartości identyfikatora mogą być używane dla elementu `ActorID`, w tym identyfikatory GUID/UUID, ciągi i wartości Int64.
+Każde `ActorId` jest skrótem do wartości Int64. Dlatego usługa aktora musi używać schematu partycjonowania Int64 z pełnym zakresem wartości Int64. Jednak niestandardowe wartości identyfikatora mogą być używane dla elementu `ActorID` , w tym identyfikatory GUID/UUID, ciągi i wartości Int64.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -84,7 +83,7 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-W przypadku używania identyfikatorów GUID/UUID i ciągów wartości są zmieszane z wartością Int64. Jeśli jednak jawnie podajesz wartość Int64 do `ActorId`, to Int64 będzie mapować bezpośrednio na partycję bez dalszej mieszania. Za pomocą tej metody można kontrolować, w której partycji umieszczane są aktory.
+W przypadku używania identyfikatorów GUID/UUID i ciągów wartości są zmieszane z wartością Int64. Jeśli jednak jawnie podajesz wartość Int64 do `ActorId` , to Int64 będzie mapować bezpośrednio na partycję bez dalszej mieszania. Za pomocą tej metody można kontrolować, w której partycji umieszczane są aktory.
 
 
 ## <a name="next-steps"></a>Następne kroki

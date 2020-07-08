@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79126858"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
@@ -19,7 +18,7 @@ Za pomocą Logic Apps i wywołań REST można wykonywać automatyczne operacje o
 
 Aby dowiedzieć się więcej o korzystaniu z interfejsów API REST z Azure Analysis Services, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładach w tym artykule zostanie użyta nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -65,13 +64,13 @@ Skonfiguruj działanie HTTP w następujący sposób:
 |Właściwość  |Wartość  |
 |---------|---------|
 |**Metoda**     |POST         |
-|**Identyfikator URI**     | https://*serwera*/Servers/*AAS nazwa serwera*/models/*Nazwa bazy danych*/refreshes <br /> <br /> Na przykład: https:\//westus.asazure.Windows.NET/Servers/MyServer/models/AdventureWorks/refreshes|
+|**Identyfikator URI**     | https://*serwera*/Servers/*AAS nazwa serwera*/models/*Nazwa bazy danych*/refreshes <br /> <br /> Na przykład: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/models/AdventureWorks/refreshes|
 |**Nagłówki**     |   Content-Type, Application/JSON <br /> <br />  ![Nagłówki](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Treść**     |   Aby dowiedzieć się więcej na temat tworzenia treści żądania, zobacz [odświeżanie asynchroniczne za pomocą interfejsu API REST — post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Uwierzytelnianie**     |Active Directory OAuth         |
+|**Authentication**     |Active Directory OAuth         |
 |**Dzierżawa**     |Wypełnij Azure Active Directory TenantId         |
 |**Grupy odbiorców**     |https://*. asazure. Windows. NET         |
-|**Client ID (Identyfikator klienta)**     |Wprowadź nazwę główną usługi ClientID         |
+|**Identyfikator klienta**     |Wprowadź nazwę główną usługi ClientID         |
 |**Typ poświadczeń**     |Wpis tajny         |
 |**Wpis tajny**     |Wprowadź klucz tajny nazwy głównej usługi         |
 

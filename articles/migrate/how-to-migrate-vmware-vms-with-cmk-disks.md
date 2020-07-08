@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79269486"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrowanie maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure z włączoną funkcją szyfrowania po stronie serwera i kluczami zarządzanymi przez klienta
@@ -52,7 +51,7 @@ Infrastruktura replikacji musi być utworzona w docelowym regionie platformy Azu
 
 1. Na Azure Portal przejdź do strony grupy zasobów i wybierz grupę zasobów, w której został utworzony projekt Azure Migrate.
 2. Wybierz pozycję **wdrożenia** z menu po lewej stronie i wyszukaj nazwę wdrożenia zaczynającą się od ciągu *"Microsoft. MigrateV2. VMwareV2EnableMigrate"*. Zostanie wyświetlona lista szablonów Menedżer zasobów utworzonych przez środowisko portalu, aby skonfigurować replikację dla maszyn wirtualnych w tym projekcie. Pobierzemy ten szablon i użyjesz go jako podstawy do przygotowania szablonu do replikacji za pomocą CMK.
-3. Aby pobrać szablon, Wybierz dowolne wdrożenie zgodne ze wzorcem ciągu w poprzednim kroku > wybierz opcję **szablon** z menu po lewej stronie, > kliknij pozycję **Pobierz** w górnym menu. Zapisz lokalnie plik Template. JSON. Ten plik szablonu należy edytować w ostatnim kroku.
+3. Aby pobrać szablon, Wybierz dowolne wdrożenie zgodne ze wzorcem ciągu w poprzednim kroku > wybierz opcję **szablon** z menu po lewej stronie, > kliknij pozycję **Pobierz** w górnym menu. Zapisz template.jsw pliku lokalnie. Ten plik szablonu należy edytować w ostatnim kroku.
 
 ## <a name="create-a-disk-encryption-set"></a>Tworzenie zestawu szyfrowania dysków
 

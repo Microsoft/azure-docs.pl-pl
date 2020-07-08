@@ -9,10 +9,9 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79139117"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Zarządzanie projektami, szablonami, strumieniami obrazów w klastrze Red Hat OpenShift na platformie Azure 
@@ -69,7 +68,7 @@ Można uniemożliwić uwierzytelnionej grupie użytkowników możliwość samoob
    oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. Usuń rolę z procesu aktualizacji ARO, dodając następującą adnotację: `openshift.io/reconcile-protect: "true"`.
+3. Usuń rolę z procesu aktualizacji ARO, dodając następującą adnotację: `openshift.io/reconcile-protect: "true"` .
 
    ```
    ...
@@ -122,7 +121,7 @@ Aby wyłączyć aktualizacje dla wszystkich `Templates` i `ImageStreams` w `open
    ...
    ```
 
-   Każdy pojedynczy obiekt w `openshift` przestrzeni nazw można usunąć z procesu aktualizacji, dodając do niego `openshift.io/reconcile-protect: "true"` adnotację.
+   Każdy pojedynczy obiekt w `openshift` przestrzeni nazw można usunąć z procesu aktualizacji, dodając `openshift.io/reconcile-protect: "true"` do niego adnotację.
 
 ## <a name="next-steps"></a>Następne kroki
 

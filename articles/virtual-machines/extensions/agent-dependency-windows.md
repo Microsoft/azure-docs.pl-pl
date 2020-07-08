@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79250675"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Azure Monitor rozszerzenie maszyny wirtualnej zależności dla systemu Windows
@@ -75,7 +74,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta zależności maszyny 
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft. Azure. Monitoring. DependencyAgent |
-| type | DependencyAgentWindows |
+| typ | DependencyAgentWindows |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
@@ -127,7 +126,7 @@ Gdy umieścisz kod JSON rozszerzenia w katalogu głównym szablonu, nazwa zasobu
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
 
-Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej agenta zależności do istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia należy zapisać konfigurację publiczną i prywatną w tabeli skrótów programu PowerShell.
+Za pomocą polecenia można `Set-AzVMExtension` wdrożyć rozszerzenie maszyny wirtualnej agenta zależności do istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia należy zapisać konfigurację publiczną i prywatną w tabeli skrótów programu PowerShell.
 
 ```powershell
 

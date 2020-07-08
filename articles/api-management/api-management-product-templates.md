@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79243928"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Szablony produktów w usłudze Azure API Management
@@ -28,7 +27,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 -   [Lista produktów](#ProductList)  
   
--   [Product (Produkt)](#Product)  
+-   [Product](#Product)  
   
 > [!NOTE]
 >  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -71,7 +70,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- `Product list` Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
+ `Product list`Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
 -   [Kontrola stronicowania](api-management-page-controls.md#paging-control)  
   
@@ -198,7 +197,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- `Product list` Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
+ `Product list`Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
 -   [subskrypcja — przycisk](api-management-page-controls.md#subscribe-button)  
   
@@ -206,14 +205,14 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Product (Produkt)|[Product (Produkt)](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
+|Produkt|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
 |IsDeveloperSubscribed|wartość logiczna|Czy bieżący użytkownik subskrybuje ten produkt.|  
-|SubscriptionState|numer|Stan subskrypcji. Możliwe stany to:<br /><br /> -   `0 - suspended`— subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br />-   `1 - active`— subskrypcja jest aktywna.<br />-   `2 - expired`— subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br />-   `3 - submitted`— żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br />-   `4 - rejected`— żądanie subskrypcji zostało odrzucone przez administratora.<br />-   `5 - cancelled`— subskrypcja została anulowana przez dewelopera lub administratora.|  
+|SubscriptionState|liczba|Stan subskrypcji. Możliwe stany to:<br /><br /> -   `0 - suspended`— subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br />-   `1 - active`— subskrypcja jest aktywna.<br />-   `2 - expired`— subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br />-   `3 - submitted`— żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br />-   `4 - rejected`— żądanie subskrypcji zostało odrzucone przez administratora.<br />-   `5 - cancelled`— subskrypcja została anulowana przez dewelopera lub administratora.|  
 |Limity|tablica|Ta właściwość jest przestarzała i nie powinna być używana.|  
 |DelegatedSubscriptionEnabled|wartość logiczna|Czy [delegowanie](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) jest włączone dla tej subskrypcji.|  
 |DelegatedSubscriptionUrl|ciąg|Jeśli Delegowanie jest włączone, delegowany adres URL subskrypcji.|  
 |Nie zgadzam się|wartość logiczna|Jeśli produkt ma warunki, niezależnie od tego, czy bieżący użytkownik wyraził zgodę na warunki.|  
-|Subscriptions|Kolekcja jednostek [podsumowania subskrypcji](api-management-template-data-model-reference.md#SubscriptionSummary) .|Subskrypcje produktu.|  
+|Subskrypcje|Kolekcja jednostek [podsumowania subskrypcji](api-management-template-data-model-reference.md#SubscriptionSummary) .|Subskrypcje produktu.|  
 |Programowania|Kolekcja jednostek [interfejsu API](api-management-template-data-model-reference.md#API) .|Interfejsy API w tym produkcie.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|wartość logiczna|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do limitu subskrypcji.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|wartość logiczna|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do dozwolonej liczby subskrypcji, czy nie.|  

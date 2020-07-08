@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371651"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii na platformie Azure Service Fabric
@@ -60,7 +59,7 @@ Pojedyncze maszyny mogą kończyć się niepowodzeniem w przypadku wszystkich r�
 
 Niezależnie od typu usługi uruchomienie pojedynczego wystąpienia powoduje przestoje dla tej usługi, jeśli jedna kopia kodu nie powiedzie się z jakiegokolwiek powodu. 
 
-W celu obsługi dowolnego pojedynczego błędu najprostszą czynnością jest upewnienie się, że usługi działają domyślnie w więcej niż jednym węźle. W przypadku usług bezstanowych upewnij `InstanceCount` się, że jest ona większa niż 1. W przypadku usług stanowych minimalnym zaleceniem `TargetReplicaSetSize` są `MinReplicaSetSize` te, które są ustawione na 3. Uruchomienie większej liczby kopii kodu usługi zapewnia, że usługa może obsłużyć pojedynczy błąd automatycznie. 
+W celu obsługi dowolnego pojedynczego błędu najprostszą czynnością jest upewnienie się, że usługi działają domyślnie w więcej niż jednym węźle. W przypadku usług bezstanowych upewnij się, że `InstanceCount` jest ona większa niż 1. W przypadku usług stanowych minimalnym zaleceniem są te, które `TargetReplicaSetSize` `MinReplicaSetSize` są ustawione na 3. Uruchomienie większej liczby kopii kodu usługi zapewnia, że usługa może obsłużyć pojedynczy błąd automatycznie. 
 
 ### <a name="handling-coordinated-failures"></a>Obsługa niepowodzeń koordynowanych
 Skoordynowane awarie w klastrze mogą być spowodowane planowanymi lub nieplanowanymi awariami infrastruktury oraz zmianami lub planowanymi zmianami oprogramowania. Service Fabric modeleje strefy infrastruktury, które napotykają skoordynowane błędy jako *domeny błędów*. Obszary, które będą powodować skoordynowane zmiany oprogramowania są modelowane jako *domeny uaktualnienia*. Aby uzyskać więcej informacji na temat domen błędów, domen uaktualnienia i topologii klastra, zobacz [Opis klastra Service Fabric przy użyciu Menedżer zasobów klastrów](service-fabric-cluster-resource-manager-cluster-description.md).
@@ -171,7 +170,7 @@ Następujące akcje mogą spowodować utratę danych. Sprawdź przed wykonaniem 
 > _Nie_ można bezpiecznie używać tych metod innych niż w celu dla konkretnych partycji. 
 >
 
-- Użyj interfejsu `Repair-ServiceFabricPartition -PartitionId` API `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` lub. Ten interfejs API umożliwia określenie identyfikatora partycji, która ma zostać przeniesiona z utraty kworum, oraz do utraty danych.
+- Użyj `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` interfejsu API lub. Ten interfejs API umożliwia określenie identyfikatora partycji, która ma zostać przeniesiona z utraty kworum, oraz do utraty danych.
 - Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Dostępność klastra Service Fabric

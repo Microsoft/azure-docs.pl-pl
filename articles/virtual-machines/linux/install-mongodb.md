@@ -12,10 +12,9 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944892"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Jak zainstalować i skonfigurować MongoDB na maszynie wirtualnej z systemem Linux
@@ -47,7 +46,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH z maszyną wirtualną przy użyciu własnej nazwy użytkownika `publicIpAddress` i wymienionej w danych wyjściowych z poprzedniego kroku:
+SSH z maszyną wirtualną przy użyciu własnej nazwy użytkownika i `publicIpAddress` wymienionej w danych wyjściowych z poprzedniego kroku:
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -59,7 +58,7 @@ Aby dodać źródła instalacji dla MongoDB, Utwórz plik repozytorium **yum** w
 sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Otwórz plik repozytorium MongoDB do edycji, taki jak z `vi` lub. `nano` Dodaj następujące wiersze:
+Otwórz plik repozytorium MongoDB do edycji, taki jak z `vi` lub `nano` . Dodaj następujące wiersze:
 
 ```sh
 [mongodb-org-3.6]
@@ -89,7 +88,7 @@ Uruchom usługę MongoDB w następujący sposób:
 sudo service mongod start
 ```
 
-Sprawdź instalację MongoDB, łącząc się przy użyciu klienta `mongo` lokalnego:
+Sprawdź instalację MongoDB, łącząc się przy użyciu `mongo` klienta lokalnego:
 
 ```bash
 mongo
@@ -197,7 +196,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Wdrożenie i skonfigurowanie wszystkich wystąpień maszyn wirtualnych może potrwać ponad godzinę. `--no-wait` Flaga jest używana na końcu poprzedniego polecenia, aby zwrócić kontrolę do wiersza polecenia po zaakceptowaniu wdrożenia szablonu przez platformę Azure. Następnie można wyświetlić stan wdrożenia za pomocą [AZ Group Deployment show](/cli/azure/group/deployment). Poniższy przykład ilustruje Wyświetlanie stanu wdrożenia *myMongoDBCluster* w *grupie zasobów zasobu* :
+Wdrożenie i skonfigurowanie wszystkich wystąpień maszyn wirtualnych może potrwać ponad godzinę. `--no-wait`Flaga jest używana na końcu poprzedniego polecenia, aby zwrócić kontrolę do wiersza polecenia po zaakceptowaniu wdrożenia szablonu przez platformę Azure. Następnie można wyświetlić stan wdrożenia za pomocą [AZ Group Deployment show](/cli/azure/group/deployment). Poniższy przykład ilustruje Wyświetlanie stanu wdrożenia *myMongoDBCluster* w *grupie zasobów zasobu* :
 
 ```azurecli
 az group deployment show \

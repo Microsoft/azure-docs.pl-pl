@@ -9,10 +9,9 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79127553"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnozowanie problemów z wydajnością grafiki w programie Pulpit zdalny
@@ -35,7 +34,7 @@ Do identyfikacji liczników wydajności grafiki potrzebna jest nazwa sesji zdaln
 
 Po ustaleniu nazwy sesji zdalnej postępuj zgodnie z tymi instrukcjami, aby zebrać liczniki wydajności grafiki RemoteFX dla sesji zdalnej.
 
-1. Wybierz kolejno pozycje **Uruchom** > **Narzędzia** > administracyjne**Monitor wydajności**.
+1. Wybierz kolejno pozycje **Uruchom**  >  **Narzędzia administracyjne**  >  **Monitor wydajności**.
 2. W oknie dialogowym **Monitor wydajności** rozwiń węzeł **Narzędzia do monitorowania**, wybierz pozycję **Monitor wydajności**, a następnie wybierz pozycję **Dodaj**.
 3. W oknie dialogowym **Dodawanie liczników** z listy **dostępne liczniki** rozwiń sekcję dotyczącą grafiki RemoteFX.
 4. Wybierz liczniki do monitorowania.

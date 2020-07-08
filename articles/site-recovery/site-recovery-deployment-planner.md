@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
 ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79366300"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informacje o Planista wdrażania usługi Azure Site Recovery dla oprogramowania VMware na platformie Azure
@@ -98,9 +97,9 @@ Narzędzie można uruchomić z systemu Windows Server 2012 R2, jeśli serwer ma 
 Folder zawiera wiele plików i podfolderów. Plik wykonywalny nosi nazwę ASRDeploymentPlanner.exe i znajduje się w folderze nadrzędnym.
 
     Przykład: skopiuj plik zip na dysk E:\ i wyodrębnij go.
-    E:\ASR Deployment Planner_v2.3. zip
+    Planner_v2.3.zip wdrażania E:\ASR
 
-    E:\ASR Deployment Planner_v2.3 \ ASRDeploymentPlanner. exe
+    Planner_v2.3\ASRDeploymentPlanner.exe wdrażania E:\ASR
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Aktualizowanie planisty wdrażania do najnowszej wersji
 

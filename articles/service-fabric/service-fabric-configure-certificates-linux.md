@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
 ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79282577"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certyfikaty i zabezpieczenia w klastrach systemu Linux
@@ -17,7 +16,7 @@ Ten artykuł zawiera informacje dotyczące konfigurowania certyfikatów X. 509 w
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Lokalizacja i format certyfikatów X. 509 w węzłach systemu Linux
 
-Service Fabric zazwyczaj oczekuje, że certyfikaty X. 509 mają być obecne w katalogu */var/lib/sfcerts* w węzłach klastra systemu Linux. Jest to prawdziwe w przypadku certyfikatów klastra, certyfikatów klientów itp. W niektórych przypadkach można określić lokalizację inną niż folder *var/lib/sfcerts* dla certyfikatów. Na przykład w przypadku Reliable Services utworzonych przy użyciu Service Fabric zestawu Java SDK można określić inną lokalizację za pośrednictwem pakietu konfiguracyjnego (Settings. xml) dla niektórych certyfikatów specyficznych dla aplikacji. Aby dowiedzieć się więcej, zobacz [certyfikaty, do których odwołuje się pakiet konfiguracyjny (Settings. xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
+Service Fabric zazwyczaj oczekuje, że certyfikaty X. 509 mają być obecne w katalogu */var/lib/sfcerts* w węzłach klastra systemu Linux. Jest to prawdziwe w przypadku certyfikatów klastra, certyfikatów klientów itp. W niektórych przypadkach można określić lokalizację inną niż folder *var/lib/sfcerts* dla certyfikatów. Na przykład w przypadku Reliable Services utworzonych przy użyciu zestawu SDK języka Java Service Fabric można określić inną lokalizację za pośrednictwem pakietu konfiguracji (Settings.xml) dla niektórych certyfikatów specyficznych dla aplikacji. Aby dowiedzieć się więcej, zobacz [certyfikaty, do których odwołuje się pakiet konfiguracyjny (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 W przypadku klastrów systemu Linux Service Fabric oczekuje, że certyfikaty mają być obecne jako plik PEM zawierający zarówno certyfikat, jak i klucz prywatny, albo plik CRT zawierający certyfikat i plik klucza, który zawiera klucz prywatny. Wszystkie pliki powinny mieć format PEM. 
 
@@ -27,13 +26,13 @@ W przypadku instalowania certyfikatu z Azure Key Vault przy użyciu [szablonu Me
 
 Certyfikaty określone w manifeście aplikacji, na przykład przez elementy [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) lub [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) , muszą znajdować się w katalogu */var/lib/sfcerts* . Elementy, które są używane do określania certyfikatów w manifeście aplikacji, nie przyjmują atrybutu Path, więc certyfikaty muszą być obecne w katalogu domyślnym. Te elementy przyjmują opcjonalny atrybut **X509StoreName** . Wartość domyślna to "my", która wskazuje katalog */var/lib/sfcerts* w węzłach systemu Linux. Jakakolwiek inna wartość jest niezdefiniowana w klastrze systemu Linux. Firma Microsoft zaleca, aby pominąć atrybut **X509StoreName** dla aplikacji działających w klastrach systemu Linux. 
 
-## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certyfikaty, do których odwołuje się pakiet konfiguracyjny (Settings. xml)
+## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certyfikaty, do których odwołuje się pakiet konfiguracyjny (Settings.xml)
 
-W przypadku niektórych usług można skonfigurować certyfikaty X. 509 w [ConfigPackage](./service-fabric-application-and-service-manifests.md) (domyślnie: Settings. xml). Na przykład dzieje się tak w przypadku deklarowania certyfikatów używanych do zabezpieczania kanałów RPC dla Reliable Services usług utworzonych przy użyciu zestawów SDK Service Fabric .NET Core lub Java. Istnieją dwa sposoby odwoływania się do certyfikatów w pakiecie konfiguracyjnym. Obsługa różni się między zestawami SDK platformy .NET Core i Java.
+W przypadku niektórych usług można skonfigurować certyfikaty X. 509 w [ConfigPackage](./service-fabric-application-and-service-manifests.md) (domyślnie Settings.xml). Na przykład dzieje się tak w przypadku deklarowania certyfikatów używanych do zabezpieczania kanałów RPC dla Reliable Services usług utworzonych przy użyciu zestawów SDK Service Fabric .NET Core lub Java. Istnieją dwa sposoby odwoływania się do certyfikatów w pakiecie konfiguracyjnym. Obsługa różni się między zestawami SDK platformy .NET Core i Java.
 
 ### <a name="using-x509-securitycredentialstype"></a>Korzystanie z certyfikatu x509 SecurityCredentialsType
 
-Za pomocą zestawów SDK dla platformy .NET lub Java możesz określić opcję **x509** dla **SecurityCredentialsType**. Odnosi się to do `X509Credentials` typu ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
+Za pomocą zestawów SDK dla platformy .NET lub Java możesz określić opcję **x509** dla **SecurityCredentialsType**. Odnosi się to do `X509Credentials` typu ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx) / [Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 Odwołanie **x509** lokalizuje certyfikat w magazynie certyfikatów. Poniższy kod XML przedstawia parametry używane do określania lokalizacji certyfikatu:
 
@@ -43,7 +42,7 @@ Odwołanie **x509** lokalizuje certyfikat w magazynie certyfikatów. Poniższy k
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-W przypadku usługi działającej w systemie Linux **LocalMachine**/**Moje** punkty w domyślną lokalizację dla certyfikatów, katalog */var/lib/sfcerts* . W przypadku systemu Linux wszystkie inne kombinacje **CertificateStoreLocation** i **CertificateStoreName** są niezdefiniowane. 
+W przypadku usługi działającej w systemie Linux **LocalMachine** / **Moje** punkty w domyślną lokalizację dla certyfikatów, katalog */var/lib/sfcerts* . W przypadku systemu Linux wszystkie inne kombinacje **CertificateStoreLocation** i **CertificateStoreName** są niezdefiniowane. 
 
 Zawsze należy określić **LocalMachine** dla parametru **CertificateStoreLocation** . Nie trzeba określać parametru **CertificateStoreName** , ponieważ jego wartość domyślna to "my". Za pomocą odwołania **x509** pliki certyfikatów muszą znajdować się w katalogu */var/lib/sfcerts* w węźle klastra.  
 
@@ -64,7 +63,7 @@ Poniższy kod XML przedstawia sekcję **TransportSettings** na podstawie tego st
 
 ### <a name="using-x509_2-securitycredentialstype"></a>Używanie X509_2 SecurityCredentialsType
 
-Za pomocą zestawu SDK języka Java można określić **X509_2** dla **SecurityCredentialsType**. Odnosi się to do `X509Credentials2` typu[(Java)](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)języka `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
+Za pomocą zestawu SDK języka Java można określić **X509_2** dla **SecurityCredentialsType**. Odnosi się to do `X509Credentials2` typu[(Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) `SecurityCredentials` języka ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 
 Za pomocą odwołania **X509_2** należy określić parametr path, aby można było zlokalizować certyfikat w katalogu innym niż */var/lib/sfcerts*.  Poniższy kod XML przedstawia parametry używane do określania lokalizacji certyfikatu: 
 
@@ -94,7 +93,7 @@ Poniższy kod XML przedstawia sekcję **TransportSettings** na podstawie tego st
 
 Zestawy SDK Service Fabric umożliwiają komunikowanie się z interfejsami API środowiska uruchomieniowego Service Fabric w celu wykorzystania platformy. Po uruchomieniu dowolnej aplikacji korzystającej z tej funkcji w zabezpieczonych klastrach systemu Linux należy skonfigurować aplikację przy użyciu certyfikatu, który może być używany do sprawdzania poprawności w środowisku uruchomieniowym Service Fabric. Aplikacje, które zawierają Service Fabric niezawodne usługi usług zapisaną przy użyciu zestawów SDK .NET Core lub Java, wymagają tej konfiguracji. 
 
-Aby skonfigurować aplikację, Dodaj element [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) w obszarze tag **Certificates (certyfikaty** ) znajdujący się pod tagiem **ApplicationManifest** w pliku *ApplicationManifest. XML* . Poniższy kod XML przedstawia certyfikat, do którego odwołuje się odcisk palca: 
+Aby skonfigurować aplikację, Dodaj element [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) w obszarze tag **Certificates (certyfikaty** ) znajdujący się w tagu **ApplicationManifest** w pliku *ApplicationManifest.xml* . Poniższy kod XML przedstawia certyfikat, do którego odwołuje się odcisk palca: 
 
 ```xml
    <Certificates>

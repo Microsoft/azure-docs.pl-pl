@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79214725"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Zainstaluj platformę .NET na rolach usługi Azure Cloud Services
@@ -35,11 +34,11 @@ Aby pobrać Instalatora sieci Web dla .NET Framework, wybierz wersję, którą c
 * [.NET Framework Instalator sieci Web 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Aby dodać Instalatora dla roli *sieci Web* :
-  1. W **Eksplorator rozwiązań**, w obszarze **role** w projekcie usługi w chmurze, kliknij prawym przyciskiem myszy rolę *sieci Web* i wybierz polecenie **Dodaj** > **Nowy folder**. Utwórz folder o nazwie **bin**.
-  2. Kliknij prawym przyciskiem myszy folder bin i wybierz polecenie **Dodaj** > **istniejący element**. Wybierz Instalatora .NET i dodaj go do folderu bin.
+  1. W **Eksplorator rozwiązań**, w obszarze **role** w projekcie usługi w chmurze, kliknij prawym przyciskiem myszy rolę *sieci Web* i wybierz polecenie **Dodaj**  >  **Nowy folder**. Utwórz folder o nazwie **bin**.
+  2. Kliknij prawym przyciskiem myszy folder bin i wybierz polecenie **Dodaj**  >  **istniejący element**. Wybierz Instalatora .NET i dodaj go do folderu bin.
   
 Aby dodać Instalatora dla roli *proces roboczy* :
-* Kliknij prawym przyciskiem myszy rolę *procesu roboczego* i wybierz pozycję **Dodaj** > **istniejący element**. Wybierz Instalatora .NET i dodaj go do roli. 
+* Kliknij prawym przyciskiem myszy rolę *procesu roboczego* i wybierz pozycję **Dodaj**  >  **istniejący element**. Wybierz Instalatora .NET i dodaj go do roli. 
 
 Gdy pliki są dodawane w ten sposób do folderu zawartości roli, są one automatycznie dodawane do pakietu usługi w chmurze. Pliki są następnie wdrażane do spójnej lokalizacji na maszynie wirtualnej. Powtórz ten proces dla każdej roli sieci Web i procesu roboczego w usłudze w chmurze, aby wszystkie role miały kopię Instalatora.
 
@@ -73,7 +72,7 @@ Zadania uruchamiania umożliwiają wykonywanie operacji przed rozpoczęciem roli
     </Startup>
     ```
    
-    Poprzednia konfiguracja uruchamia polecenie `install.cmd` konsoli z uprawnieniami administratora w celu zainstalowania .NET Framework. Konfiguracja tworzy również element **LOCALSTORAGE** o nazwie **NETFXInstall**. Skrypt uruchamiania ustawia folder tymczasowy do korzystania z tego zasobu magazynu lokalnego. 
+    Poprzednia konfiguracja uruchamia polecenie konsoli `install.cmd` z uprawnieniami administratora w celu zainstalowania .NET Framework. Konfiguracja tworzy również element **LOCALSTORAGE** o nazwie **NETFXInstall**. Skrypt uruchamiania ustawia folder tymczasowy do korzystania z tego zasobu magazynu lokalnego. 
     
     > [!IMPORTANT]
     > Aby zapewnić poprawną instalację platformy, należy ustawić rozmiar tego zasobu na co najmniej 1 024 MB.
@@ -197,7 +196,7 @@ Zadania uruchamiania umożliwiają wykonywanie operacji przed rozpoczęciem roli
    EXIT /B 0
    ```
 
-3. Dodaj plik Install. cmd do każdej roli za pomocą polecenia **Dodaj** > **istniejący element** w **Eksplorator rozwiązań** zgodnie z opisem we wcześniejszej części tego tematu. 
+3. Dodaj plik Install. cmd do każdej roli za pomocą polecenia **Dodaj**  >  **istniejący element** w **Eksplorator rozwiązań** zgodnie z opisem we wcześniejszej części tego tematu. 
 
     Po zakończeniu tego kroku wszystkie role powinny mieć plik Instalatora .NET i plik Install. cmd.
 
@@ -222,7 +221,7 @@ Ten plik XML konfiguruje diagnostykę do transferu plików w katalogu dziennika 
 ## <a name="deploy-your-cloud-service"></a>Wdrażanie usługi w chmurze
 Podczas wdrażania usługi w chmurze zadania uruchamiania instalują .NET Framework, jeśli nie zostały jeszcze zainstalowane. Twoje role usługi w chmurze są w stanie *zajętym* podczas instalowania platformy. Jeśli instalacja struktury wymaga ponownego uruchomienia, role usługi mogą być również ponownie uruchomione. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Instalowanie programu .NET Framework][Installing the .NET Framework]
 * [Ustal, które wersje .NET Framework są zainstalowane][How to: Determine Which .NET Framework Versions Are Installed]
 * [Rozwiązywanie problemów z instalacjami .NET Framework][Troubleshooting .NET Framework Installations]

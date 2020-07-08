@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79258189"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
@@ -37,9 +36,9 @@ Użyj następujących linków, aby pobrać Service Fabric Explorer jako aplikacj
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Uruchamianie Service Fabric Explorer z klastra
 
-Service Fabric Explorer jest również hostowana w punkcie końcowym zarządzania HTTP klastra Service Fabric. Aby uruchomić SFX w przeglądarce internetowej, przejdź do punktu końcowego zarządzania HTTP klastra z dowolnej przeglądarki — na przykład https:\//clusterFQDN: 19080.
+Service Fabric Explorer jest również hostowana w punkcie końcowym zarządzania HTTP klastra Service Fabric. Aby uruchomić SFX w przeglądarce internetowej, przejdź do punktu końcowego zarządzania HTTP klastra z dowolnej przeglądarki — na przykład https: \/ /clusterFQDN: 19080.
 
-W przypadku konfiguracji stacji roboczej dla deweloperów można uruchomić Service Fabric Explorer w lokalnym klastrze, przechodząc https://localhost:19080/Explorerdo lokalizacji. Zapoznaj się z tym artykułem, aby [przygotować środowisko programistyczne](service-fabric-get-started.md).
+W przypadku konfiguracji stacji roboczej dla deweloperów można uruchomić Service Fabric Explorer w lokalnym klastrze, przechodząc do lokalizacji https://localhost:19080/Explorer . Zapoznaj się z tym artykułem, aby [przygotować środowisko programistyczne](service-fabric-get-started.md).
 
 > [!NOTE]
 > Jeśli klaster jest zabezpieczony przy użyciu certyfikatu z podpisem własnym, zostanie wyświetlony komunikat o błędzie z przeglądarki sieci Web "Ta witryna nie jest bezpieczna". Możesz po prostu wykonać większość nowoczesnych przeglądarek sieci Web, zastępując ostrzeżenie. W środowisku produkcyjnym klaster powinien być zabezpieczony przy użyciu nazwy pospolitej i certyfikatu wystawionego przez urząd certyfikacji. 
@@ -47,7 +46,7 @@ W przypadku konfiguracji stacji roboczej dla deweloperów można uruchomić Serv
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Nawiązywanie połączenia z klastrem usługi Service Fabric
-Aby nawiązać połączenie z klastrem Service Fabric, wymagany jest punkt końcowy zarządzania klastrami (FQDN/IP) i Port punktu końcowego zarządzania HTTP (domyślnie 19080). Na przykład https\://mysfcluster.westus.cloudapp.Azure.com:19080. Użyj pola wyboru "Połącz z lokalnym", aby nawiązać połączenie z lokalnym klastrem na stacji roboczej.
+Aby nawiązać połączenie z klastrem Service Fabric, wymagany jest punkt końcowy zarządzania klastrami (FQDN/IP) i Port punktu końcowego zarządzania HTTP (domyślnie 19080). Na przykład https \: //mysfcluster.westus.cloudapp.Azure.com:19080. Użyj pola wyboru "Połącz z lokalnym", aby nawiązać połączenie z lokalnym klastrem na stacji roboczej.
 
 ### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
 Dostęp klienta do klastra Service Fabric można kontrolować przy użyciu certyfikatów lub Azure Active Directory (AAD).
@@ -83,7 +82,7 @@ Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można spr
 ## <a name="actions"></a>Akcje
 Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
-Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje** > **Usuń aplikację**.
+Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację**.
 
 ![Usuwanie aplikacji w Service Fabric Explorer][sfx-delete-application]
 

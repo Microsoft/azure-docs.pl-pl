@@ -9,15 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367996"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Wizualizowanie interakcyjnych zapytań Apache Hive danych za pomocą usługi Microsoft Power BI przy użyciu zapytania bezpośredniego w usłudze HDInsight
 
-W tym artykule opisano sposób łączenia Power BI firmy Microsoft z klastrami zapytań interakcyjnych usługi Azure HDInsight i wizualizacji danych Apache Hive przy użyciu zapytania bezpośredniego. Podany przykład ładuje dane z tabeli programu `hivesampletable` Hive do Power BI. Tabela `hivesampletable` programu Hive zawiera dane użycia telefonu komórkowego. Następnie można wykreślić dane użycia na mapie światowej:
+W tym artykule opisano sposób łączenia Power BI firmy Microsoft z klastrami zapytań interakcyjnych usługi Azure HDInsight i wizualizacji danych Apache Hive przy użyciu zapytania bezpośredniego. Podany przykład ładuje dane z `hivesampletable` tabeli programu Hive do Power BI. `hivesampletable`Tabela programu Hive zawiera dane użycia telefonu komórkowego. Następnie można wykreślić dane użycia na mapie światowej:
 
 ![Usługa HDInsight Power BI raport mapy](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -31,11 +30,11 @@ Przed przejściem do tego artykułu należy dysponować następującymi elementa
 
 ## <a name="load-data-from-hdinsight"></a>Ładowanie danych z usługi HDInsight
 
-Tabela `hivesampletable` programu Hive zawiera wszystkie klastry usługi HDInsight.
+`hivesampletable`Tabela programu Hive zawiera wszystkie klastry usługi HDInsight.
 
 1. Uruchom program Power BI Desktop.
 
-2. Na pasku menu Przejdź do **strony głównej** > **Pobierz dane** > **więcej...**.
+2. Na pasku menu Przejdź do **strony głównej**  >  **Pobierz dane**  >  **więcej...**.
 
     ![Usługa HDInsight Power BI uzyskać więcej danych](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 

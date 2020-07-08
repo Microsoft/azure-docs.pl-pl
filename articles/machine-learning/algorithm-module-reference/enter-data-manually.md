@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367520"
 ---
 # <a name="enter-data-manually-module"></a>Wprowadź ręcznie moduł danych
@@ -28,7 +27,7 @@ Ten moduł może być przydatny w scenariuszach takich jak:
 - Tworzenie krótkiej listy etykiet.  
 - Wpisywanie listy nazw kolumn do wstawienia do zestawu danych.
 
-## <a name="create-a-dataset"></a>Tworzenie zestawu danych 
+## <a name="create-a-dataset"></a>Utwórz zestaw danych 
   
 1. Dodaj moduł [Wprowadź dane ręcznie](./enter-data-manually.md) do potoku. Ten moduł można znaleźć w kategorii dane **wejściowe i wyjściowe** w Azure Machine Learning. 
   
@@ -57,7 +56,7 @@ Ten moduł może być przydatny w scenariuszach takich jak:
   
    - **ARFF**: Wklej w istniejącym pliku formatu ARFF. W przypadku wpisywania wartości bezpośrednio należy pamiętać o dodaniu opcjonalnego nagłówka i wymaganych pól atrybutów na początku danych. 
 
-     Na przykład następujące wiersze nagłówka i atrybutu można dodać do prostej listy. Nagłówek kolumny `SampleText`. Należy zauważyć, że typ ciągu nie jest obsługiwany.
+     Na przykład następujące wiersze nagłówka i atrybutu można dodać do prostej listy. Nagłówek kolumny `SampleText` . Należy zauważyć, że typ ciągu nie jest obsługiwany.
     
      ```text
      % Title: SampleText.ARFF  

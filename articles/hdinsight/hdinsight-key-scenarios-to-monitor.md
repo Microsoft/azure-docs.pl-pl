@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79082884"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorowanie wydajności klastra w usłudze Azure HDInsight
@@ -32,7 +31,7 @@ Aby uzyskać ogólne omówienie węzłów klastra i ich ładowania, zaloguj się
 | Red | Co najmniej jeden główny składnik na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Orange | Co najmniej jeden składnik pomocniczy na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Yellow | Serwer Ambari nie otrzymał pulsu od hosta przez więcej niż 3 minuty. |
-| Zielony | Normalny stan działania. |
+| Green | Normalny stan działania. |
 
 Zobaczysz również kolumny przedstawiające liczbę rdzeni i ilość pamięci RAM dla każdego hosta, a także użycie dysku i średnie obciążenie.
 
@@ -70,7 +69,7 @@ W interfejsie użytkownika Menedżer zasobów wybierz pozycję **harmonogram** z
 
 ![Menu interfejsu użytkownika Menedżer zasobów Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-## <a name="storage-throttling"></a>Ograniczanie magazynu
+## <a name="storage-throttling"></a>Ograniczanie przepustowości magazynu
 
 Na poziomie magazynu mogą wystąpić wąskie gardła wydajności klastra. Ten typ wąskich gardeł najczęściej z powodu *blokowania* operacji wejścia/wyjścia (IO), które są wykonywane, gdy uruchomione zadania wysyłają więcej operacji we/wy niż może obsłużyć usługa magazynu. Ten blok umożliwia utworzenie kolejki żądań we/wy oczekujących na przetworzenie do momentu przetworzenia bieżącego systemu IOs. Bloki są spowodowane *ograniczeniami magazynu*, które nie jest limitem fizycznym, ale raczej limitem narzuconym przez usługę magazynu przez umowę dotyczącą poziomu usług (SLA). Ten limit gwarantuje, że żaden pojedynczy klient lub dzierżawca nie może monopolize usługi. Umowa SLA ogranicza liczbę operacji we/wy na sekundę (IOPS) dla usługi Azure Storage — Aby uzyskać szczegółowe informacje, zobacz [elementy docelowe skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../storage/common/scalability-targets-standard-account.md).
 
@@ -95,7 +94,7 @@ W niektórych przypadkach może wystąpić pomniejszanie z powodu małej ilości
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Przejrzyj dane wyjściowe i sprawdź obecność dużych plików w `mnt` folderze lub innych folderach. Zwykle foldery `usercache`, i `appcache` (mnt/Resource/Hadoop/usercache/Hive/appcache/) zawierają duże pliki.
+1. Przejrzyj dane wyjściowe i sprawdź obecność dużych plików w `mnt` folderze lub innych folderach. Zwykle `usercache` foldery, i `appcache` (mnt/Resource/Hadoop/usercache/Hive/appcache/) zawierają duże pliki.
 
 1. W przypadku dużych plików, bieżące zadanie powoduje wzrost rozmiaru pliku lub zakończyło się niepowodzeniem poprzednie zadanie mogło zostać wniesione do tego problemu. Aby sprawdzić, czy to zachowanie jest spowodowane przez bieżące zadanie, uruchom następujące polecenie:
 
@@ -109,7 +108,7 @@ W niektórych przypadkach może wystąpić pomniejszanie z powodu małej ilości
     yarn application -kill -applicationId <application_id>
     ```
 
-    Zamień `application_id` na identyfikator aplikacji. Jeśli nie określono konkretnych zadań, przejdź do następnego kroku.
+    Zamień na `application_id` Identyfikator aplikacji. Jeśli nie określono konkretnych zadań, przejdź do następnego kroku.
 
 1. Po zakończeniu powyższego polecenia lub jeśli nie określono konkretnych zadań, usuń duże pliki, które zostały zidentyfikowane przez uruchomienie polecenia podobnego do następującego:
 

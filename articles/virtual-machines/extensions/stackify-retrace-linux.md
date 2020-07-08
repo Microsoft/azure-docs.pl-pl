@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79253795"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Rozwiązania Stackify retrace rozszerzenie agenta systemu Linux
@@ -54,14 +53,14 @@ Agenta ponownego śledzenia można uruchomić w odniesieniu do tych dystrybucji 
 
 Rozszerzenie agenta rozwiązania Stackify dla systemu Linux wymaga, aby docelowa maszyna wirtualna była połączona z Internetem. 
 
-Może być konieczne dostosowanie konfiguracji sieci w celu umożliwienia połączeń z usługą rozwiązania Stackify, zobacz https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+Może być konieczne dostosowanie konfiguracji sieci w celu umożliwienia połączeń z usługą rozwiązania Stackify, zobacz https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall . 
 
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
 ---
 
-Poniższy kod JSON przedstawia schemat rozszerzenia agenta retrace rozwiązania Stackify. Rozszerzenie wymaga `environment` i `activationKey`.
+Poniższy kod JSON przedstawia schemat rozszerzenia agenta retrace rozwiązania Stackify. Rozszerzenie wymaga `environment` i `activationKey` .
 
 ```json
     {
@@ -95,7 +94,7 @@ KOD JSON rozszerzenia maszyny wirtualnej może być zagnieżdżony w obrębie za
 
 W poniższym przykładzie przyjęto założenie, że rozszerzenie rozwiązania Stackify retrace systemu Linux jest zagnieżdżone w ramach zasobu maszyny wirtualnej. Podczas zagnieżdżania zasobu rozszerzenia kod JSON jest umieszczany w obiekcie "Resources": [] maszyny wirtualnej.
 
-Rozszerzenie wymaga `environment` i `activationKey`.
+Rozszerzenie wymaga `environment` i `activationKey` .
 
 ```json
     {
@@ -150,9 +149,9 @@ Podczas umieszczania kodu JSON rozszerzenia w katalogu głównym szablonu nazwa 
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
 
-Za `Set-AzVMExtension` pomocą polecenia można wdrożyć rozszerzenie maszyny wirtualnej agenta rozwiązania Stackify ponownego śledzenia dla istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia należy zapisać konfigurację publiczną i prywatną w tabeli skrótów programu PowerShell.
+Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej agenta rozwiązania Stackify ponownego śledzenia dla istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia należy zapisać konfigurację publiczną i prywatną w tabeli skrótów programu PowerShell.
 
-Rozszerzenie wymaga `environment` i `activationKey`.
+Rozszerzenie wymaga `environment` i `activationKey` .
 
 ```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -173,7 +172,7 @@ Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
 
 Narzędzia interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszerzenia maszyny wirtualnej rozwiązania Stackify retrace agenta systemu Linux na istniejącej maszynie wirtualnej.  
 
-Rozszerzenie wymaga `environment` i `activationKey`.
+Rozszerzenie wymaga `environment` i `activationKey` .
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
@@ -198,4 +197,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | Wyłącz błąd | Usuwanie usługi nie powiodło się |
 | 120 | Błąd dezinstalacji | Zatrzymanie usługi nie powiodło się |
 
-Jeśli potrzebujesz więcej pomocy, możesz skontaktować się z pomocą https://support.stackify.comtechniczną rozwiązania Stackify.
+Jeśli potrzebujesz więcej pomocy, możesz skontaktować się z pomocą techniczną rozwiązania Stackify https://support.stackify.com .
