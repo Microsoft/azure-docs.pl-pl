@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 48a23c483ab4338492a407b60f3a5dfc95c0e680
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564996"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Korzystanie z dzienników w celu rozwiązywania problemów ze sprawdzaniem poprawności w Azure Data Box Disk
 
@@ -21,7 +21,7 @@ Ten artykuł ma zastosowanie do Data Box Disk Microsoft Azure. W tym artykule op
 
 ## <a name="validation-tool-log-files"></a>Pliki dziennika narzędzia walidacji
 
-Po sprawdzeniu poprawności danych na dyskach za pomocą [Narzędzia sprawdzania poprawności](data-box-disk-deploy-copy-data.md#validate-data)zostanie wygenerowany plik *Error. XML* w celu zarejestrowania błędów. Plik dziennika znajduje się w `Drive:\DataBoxDiskImport\logs` folderze dysku. Po uruchomieniu walidacji jest dostępny link do dziennika błędów.
+Po sprawdzeniu poprawności danych na dyskach za pomocą [Narzędzia sprawdzania poprawności](data-box-disk-deploy-copy-data.md#validate-data)zostanie wygenerowane *error.xml* , aby rejestrować błędy. Plik dziennika znajduje się w `Drive:\DataBoxDiskImport\logs` folderze dysku. Po uruchomieniu walidacji jest dostępny link do dziennika błędów.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
@@ -71,7 +71,7 @@ W przypadku uruchomienia wielu sesji w celu sprawdzenia poprawności zostanie wy
 
 ## <a name="validation-tool-errors"></a>Błędy narzędzi walidacji
 
-Błędy zawarte w *pliku Error. XML* z odpowiednimi zalecanymi akcjami zostały podsumowane w poniższej tabeli.
+Błędy zawarte w *error.xml* z odpowiednimi zalecanymi akcjami zostały podsumowane w poniższej tabeli.
 
 | Kod błędu| Opis                       | Zalecane akcje               |
 |------------|--------------------------|-----------------------------------|

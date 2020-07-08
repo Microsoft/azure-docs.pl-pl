@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 28f5bac80529306fc11eb7eb059b6f25071efd41
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a728eff7addc7f835f82e795457e722fd60d2e30
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564602"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -32,7 +32,7 @@ Możesz tworzyć indeksatory i zarządzać nimi przy użyciu tych metod:
 
 * [Kreator importu danych > portalu](search-import-data-portal.md)
 * [Interfejs API REST usługi](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 
 Początkowo nowy indeksator jest ogłaszany jako funkcja w wersji zapoznawczej. Funkcje w wersji zapoznawczej są wprowadzane w interfejsach API (REST i .NET), a następnie integrowane z portalem po przejściu do poziomu ogólnej dostępności. Jeśli oceniasz nowy indeksator, zaplanuj napisanie kodu.
 
@@ -77,7 +77,7 @@ Definicja indeksatora to konstrukcja, która łączy wszystkie elementy związan
 
 Chociaż często jest planowane planowanie indeksowania, indeksator może być również wywoływany na żądanie przy użyciu [polecenia Run](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Stan indeksatora można monitorować w portalu lub za pomocą interfejsu API pob
 Można pobrać stan i historię wykonywania indeksatora za pomocą [polecenia Pobierz indeksator stanu](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 Odpowiedź zawiera ogólny stan indeksatora, ostatnie (lub w toku) wywołanie indeksatora i historię najnowszych wywołań indeksatora.

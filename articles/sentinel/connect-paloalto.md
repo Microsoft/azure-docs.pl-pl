@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych Palo Alto Networks z platformą Azure Microsoft Docs
-description: Dowiedz się, jak łączyć dane Palo Alto Networks z platformą Azure.
+description: Dowiedz się, w jaki sposób używać łącznika danych Palo Alto Networks do łatwego łączenia dzienników Palo Alto Networks z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 337575a85b899b918162ad59c0bbbbaf742a83fe
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564558"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Łączenie Palo Alto z platformą Azure — wskaźnik
 

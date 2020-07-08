@@ -1,6 +1,6 @@
 ---
 title: Łączenie Cloud App Security danych z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak połączyć Cloud App Security dane z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak używać łącznika Microsoft Cloud App Security (MCAS) do przesyłania strumieniowego alertów i Cloud Discovery dzienników z MCAS do platformy Azure. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: b2a48b3990afc5fb4ecfb8d40738b18873846459
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563941"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Łączenie danych z Microsoft Cloud App Security 
 

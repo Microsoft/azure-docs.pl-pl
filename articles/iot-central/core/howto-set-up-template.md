@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562859"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji IoT Central platformy Azure
 
@@ -66,7 +66,7 @@ Szablon urządzenia zawiera:
 Aby utworzyć szablon urządzenia w IoT Central:
 
 1. Przejdź do strony **Szablony urządzeń** w aplikacji IoT Central.
-1. Wybierz pozycję **+ Nowy** > **niestandardowy**.
+1. Wybierz pozycję **+ Nowy**  >  **niestandardowy**.
 1. Wprowadź nazwę szablonu, na przykład **czujnik środowiska**.
 1. Naciśnij klawisz **Enter**. IoT Central tworzy pusty szablon urządzenia.
 
@@ -119,13 +119,13 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji telemetrii
 | Pole | Opis |
 | ----- | ----------- |
 | Nazwa wyświetlana | Nazwa wyświetlana wartości telemetrii używanej na pulpitach nawigacyjnych i formularzach. |
-| Nazwa | Nazwa pola w komunikacie telemetrii. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. |
+| Nazwa | Nazwa pola w komunikacie telemetrii. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Telemetrii. |
 | Typ semantyczny | Typ semantyczny telemetrii, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
 | Schemat | Typ danych telemetrii, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu. |
 | Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji**lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
-| Jednostka | Jednostka wartości telemetrii, na przykład **mph**, **%** lub ** &deg;C**. |
+| Jednostka | Jednostka wartości telemetrii, na przykład **mph**, **%** lub ** &deg; C**. |
 | Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji telemetrii. |
 | Opis | Opis możliwości telemetrii. |
@@ -139,14 +139,14 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Pole | Opis |
 | ----- | ----------- |
 | Nazwa wyświetlana | Nazwa wyświetlana wartości właściwości używanej na pulpitach nawigacyjnych i formularzach. |
-| Nazwa | Nazwa właściwości. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. |
+| Nazwa | Nazwa właściwości. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Wartość. |
 | Typ semantyczny | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne. |
 | Schemat | Typ danych właściwości, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu. |
 | Z możliwością zapisu | Jeśli właściwość nie jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central i IoT Central może wysyłać do urządzenia aktualizacje właściwości.
 | Ważność | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji**lub **ostrzeżenia**. |
 | Wartości stanu | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość. |
-| Jednostka | Jednostka wartości właściwości, takiej jak **mph**, **%** lub ** &deg;C**. |
+| Jednostka | Jednostka wartości właściwości, takiej jak **mph**, **%** lub ** &deg; C**. |
 | Jednostka wyświetlania | Jednostka wyświetlania do użycia na pulpitach nawigacyjnych i formularzach. |
 | Komentarz | Wszelkie komentarze dotyczące możliwości właściwości. |
 | Opis | Opis możliwości właściwości. |
@@ -160,12 +160,12 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji polecenia:
 | Pole | Opis |
 | ----- | ----------- |
 | Nazwa wyświetlana | Nazwa wyświetlana polecenia użyta na pulpitach nawigacyjnych i formularzach. |
-| Nazwa | Nazwa polecenia. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. |
+| Nazwa | Nazwa polecenia. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne. |
 | Typ możliwości | Dotyczące. |
 | Polecenie | `SynchronousExecutionType`. |
 | Komentarz | Wszelkie komentarze dotyczące funkcji polecenia. |
 | Opis | Opis możliwości polecenia. |
-| Request | Jeśli ta funkcja jest włączona, definicja parametru żądania, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
+| Żądanie | Jeśli ta funkcja jest włączona, definicja parametru żądania, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
 | Odpowiedź | Jeśli ta funkcja jest włączona, definicja odpowiedzi polecenia, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
 
 ## <a name="manage-an-interface"></a>Zarządzanie interfejsem
@@ -189,7 +189,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla właściwości chm
 
 ## <a name="add-customizations"></a>Dodawanie dostosowań
 
-Dostosowań należy używać w przypadku konieczności modyfikacji zaimportowanego interfejsu lub dodania funkcji specyficznych dla IoT Central do funkcji. Można dostosować tylko pola, które nie łamią zgodności interfejsów. Można na przykład:
+Dostosowań należy używać w przypadku konieczności modyfikacji zaimportowanego interfejsu lub dodania funkcji specyficznych dla IoT Central do funkcji. Można dostosować tylko pola, które nie łamią zgodności interfejsów. Możesz na przykład:
 
 - Dostosuj nazwę wyświetlaną i jednostki możliwości.
 - Dodaj domyślny kolor, który ma być używany, gdy wartość pojawia się na wykresie.

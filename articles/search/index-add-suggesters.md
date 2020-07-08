@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770098"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565324"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -41,7 +41,7 @@ Aby utworzyć sugestię, należy dodać jeden do [schematu indeksu](https://docs
 
 + Używaj tylko pól ciągów
 
-+ Użyj domyślnego standardowego analizatora Lucene`"analyzer": null`() lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"`) w polu
++ Użyj domyślnego standardowego analizatora Lucene ( `"analyzer": null` ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"` ) w polu
 
 ### <a name="choose-fields"></a>Wybierz pola
 
@@ -136,8 +136,8 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |Właściwość      |Opis      |
 |--------------|-----------------|
 |`name`        |Nazwa sugestii.|
-|`searchMode`  |Strategia używana do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching`, który jest obecnie zgodny na początku okresu.|
-|`sourceFields`|Lista co najmniej jednego pola, które jest źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i. `Collection(Edm.String)` Jeśli analizator jest określony w polu, musi to być nazwany Analizator z [tej listy](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (nie Analizator niestandardowy).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
+|`searchMode`  |Strategia używana do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
+|`sourceFields`|Lista co najmniej jednego pola, które jest źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi to być nazwany Analizator z [tej listy](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (nie Analizator niestandardowy).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -155,7 +155,7 @@ W aplikacji wyszukiwania kod klienta powinien korzystać z biblioteki, takiej ja
 Użycie interfejsu API jest zilustrowane w następującym wywołaniu interfejsu API REST autouzupełniania. W tym przykładzie istnieją dwa wnioski. Po pierwsze, podobnie jak w przypadku wszystkich zapytań, operacja jest odnosząca się do kolekcji dokumentów indeksu, a zapytanie zawiera parametr **wyszukiwania** , który w tym przypadku zawiera częściowe zapytanie. Po drugie należy dodać **suggesterName** do żądania. Jeśli nie zdefiniowano sugestii w indeksie, wywołanie funkcji Autouzupełnianie lub sugestii zakończy się niepowodzeniem.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"

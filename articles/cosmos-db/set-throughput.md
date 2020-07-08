@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: f1a093b85c832adaf5f810913dcbe8ecb46a305a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298926"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563200"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 
 Azure Cosmos DB pozwala ustawić przepływność aprowizacji dla baz danych i kontenerów. Istnieją dwa typy zainicjowanej przepływności, standardowe (ręczne) lub automatyczne skalowanie. Ten artykuł zawiera omówienie sposobu działania zainicjowanej przepływności. 
 
-Baza danych usługi Azure Cosmos jest jednostką zarządzania dla zestawu kontenerów. Baza danych składa się z zestawu kontenerów schematów niezależny od. Kontenerem usługi Azure Cosmos jest jednostka skalowalności zarówno dla przepływności, jak i magazynu. Kontener jest podzielony w poziomie na zestaw maszyn w regionie świadczenia usługi Azure i dystrybuowany do wszystkich regionów świadczenia usługi Azure skojarzonych z Twoim kontem usługi Azure Cosmos.
+Baza danych usługi Azure Cosmos jest jednostką zarządzania dla zestawu kontenerów. Baza danych składa się z zestawu niezależnych od schematów kontenerów. Kontenerem usługi Azure Cosmos jest jednostka skalowalności zarówno przepływności, jak i magazynu. Kontener jest partycjonowany w poziomie między maszynami z zestawu znajdującego się w regionie świadczenia usługi Azure i jest dystrybuowany między wszystkimi regionami świadczenia usługi Azure skojarzonymi z Twoim kontem usługi Azure Cosmos.
 
 Za pomocą Azure Cosmos DB można zainicjować przepływność przy dwóch stopniach szczegółowości:
  
@@ -67,7 +67,7 @@ Wszystkie kontenery utworzone w bazie danych z zainicjowaną przepływność mus
 
 Jeśli obciążenie partycji logicznej zużywa więcej niż przepływność przydzieloną do określonej partycji logicznej, operacje są ograniczone proporcjonalnie. W przypadku wystąpienia ograniczenia szybkości można zwiększyć przepływność całej bazy danych lub wykonać operację ponownie. Aby uzyskać więcej informacji na temat partycjonowania, zobacz [partycje logiczne](partition-data.md).
 
-Kontenery w udostępnionej bazie danych przepływności współdzielą przepływność (RU/s) przydzieloną do tej bazy danych. W bazie danych można korzystać z maksymalnie czterech kontenerów z co najmniej 400 RU/s. W standardowym (ręcznym) rozpoczęciu przepływności każdy nowy kontener po pierwszym cztery będzie wymagać dodatkowego 100 RU/s. Na przykład jeśli masz udostępnioną bazę danych przepływności z ośmioma kontenerami, minimalna wartość RU/s w bazie danych będzie 800 RU/s. W przypadku przepływności z obsługą automatycznego skalowania można mieć maksymalnie 25 kontenerów w bazie danych z funkcją automatycznego skalowania ru/s 4000 RU/s (skaluje się między 400 – 4000 RU/s).
+Kontenery w bazie danych z udostępnioną przepływnością współdzielą przepływność (RU/s) przydzieloną do tej bazy danych. W bazie danych można mieć maksymalnie cztery kontenery z minimalną przepływnością 400 RU/s. W standardowym (ręcznym) rozpoczęciu przepływności każdy nowy kontener po pierwszym cztery będzie wymagać dodatkowego 100 RU/s. Przykładowo jeśli masz bazę danych z udostępnioną przepływnością z ośmioma kontenerami, minimalna wartość przepływności w tej bazie danych będzie wynosiła 800 RU/s. W przypadku przepływności z obsługą automatycznego skalowania można mieć maksymalnie 25 kontenerów w bazie danych z automatycznym skalą 4000 RU/s (skaluje się między 400 – 4000 RU/s).
 
 > [!NOTE]
 > W lutym 2020 Wprowadziliśmy zmianę, która umożliwia korzystanie z maksymalnie 25 kontenerów w udostępnionej bazie danych przepływności, co zapewnia lepszą obsługę przepływności w kontenerach. Po pierwszych 25 kontenerach możesz dodać więcej kontenerów do bazy danych tylko wtedy, gdy są one udostępniane [z dedykowaną przepływność](#set-throughput-on-a-database-and-a-container), która jest oddzielona od udostępnionej przepływności bazy danych.<br>
@@ -114,7 +114,7 @@ W dowolnym momencie można skalować zainicjowaną przepływność kontenera lub
 ## <a name="comparison-of-models"></a>Porównanie modeli
 W tej tabeli przedstawiono porównanie standardowego (ręcznej) przepływności dla bazy danych i kontenera. 
 
-|**Konstruktora**  |**Przepustowość standardowa (ręczna) w bazie danych**  |**Standardowa (ręczna) przepływność na kontenerze**|**Automatyczne skalowanie przepływności bazy danych** | **Automatyczne skalowanie przepływności dla kontenera**|
+|**Parametr**  |**Przepustowość standardowa (ręczna) w bazie danych**  |**Standardowa (ręczna) przepływność na kontenerze**|**Automatyczne skalowanie przepływności bazy danych** | **Automatyczne skalowanie przepływności dla kontenera**|
 |---------|---------|---------|---------|---------|
 |Punkt wejścia (minimalny RU/s) |400 RU/s. Po pierwsze cztery kontenery każdy dodatkowy kontener wymaga co najmniej 100 RU/s</li> |400| Automatyczne skalowanie w zakresie od 400 do 4000 RU/s. Może mieć do 25 kontenerów bez minimum RU/s na kontener</li> | Automatyczne skalowanie w zakresie od 400 do 4000 RU/s.|
 |Minimalna wartość RU/s na kontener|100|400|--|Skalowanie automatyczne z zakresu od 400 do 4000 RU/s|

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22a15750a353b88d5a9bbff96f9ed080116792db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672847"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564194"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Wprowadzenie do wykazu U-SQL w Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ W poprzednim skrypcie U-SQL powtórzono użycie WYODRĘBNIAnia do odczytu z tego
 
 Poniższy skrypt tworzy TVF o nazwie wywoływanej `Searchlog()` w domyślnej bazie danych i schemacie:
 
-```
+```usql
 DROP FUNCTION IF EXISTS Searchlog;
 
 CREATE FUNCTION Searchlog()
@@ -55,7 +55,7 @@ END;
 
 Poniższy skrypt pokazuje, jak używać TVF, który został zdefiniowany w poprzednim skrypcie:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -76,7 +76,7 @@ Jeśli masz pojedyncze wyrażenie zapytania, a nie TVF, możesz użyć widoku U-
 
 Poniższy skrypt tworzy widok o nazwie `SearchlogView` w domyślnej bazie danych i schemacie:
 
-```
+```usql
 DROP VIEW IF EXISTS SearchlogView;
 
 CREATE VIEW SearchlogView AS  
@@ -93,7 +93,7 @@ USING Extractors.Tsv();
 
 Poniższy skrypt demonstruje użycie zdefiniowanego widoku:
 
-```
+```usql
 @res =
     SELECT
         Region,
@@ -113,7 +113,7 @@ Podobnie jak w przypadku tabel relacyjnych baz danych, za pomocą języka U-SQL 
 
 Utwórz bazę danych i dwie tabele przy użyciu następującego skryptu:
 
-```
+```usql
 DROP DATABASE IF EXISTS SearchLogDb;
 CREATE DATABASE SearchLogDb;
 USE DATABASE SearchLogDb;
@@ -147,7 +147,7 @@ Można wykonywać zapytania dotyczące tabel, takich jak te utworzone w poprzedn
 
 Aby odczytywać z tabel, zmodyfikuj użyty wcześniej skrypt przekształcenia:
 
-```
+```usql
 @rs1 =
     SELECT
         Region,

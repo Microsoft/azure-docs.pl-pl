@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: c7bc818133a0bd708f9f850f0ad258dccc6c02cc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a4faab9ac6d5e1c39c1120e09dae792b95892d60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564415"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -58,6 +58,9 @@ Po etapie **działania** klaster czeka na kolejne 60 minut dla pozostałych 20% 
  
 ### <a name="create-new-service-principal-through-hdinsight"></a>Utwórz nową nazwę główną usługi za usługą HDInsight
 Wcześniej dzięki utworzeniu klastra klienci mogą utworzyć nową nazwę główną usługi, aby uzyskać dostęp do połączonego konta ADLS Gen 1 w Azure Portal. Od czerwca 15 2020 klienci nie mogą utworzyć nowej jednostki usługi w przepływie pracy tworzenia w usłudze HDInsight, obsługiwana jest tylko Istniejąca jednostka usługi. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+### <a name="time-out-for-script-actions-with-cluster-creation"></a>Limit czasu dla akcji skryptu z tworzeniem klastra
+Usługa HDInsight obsługuje uruchamianie akcji skryptów przy użyciu tworzenia klastrów. W tej wersji wszystkie akcje skryptu z tworzeniem klastra muszą zakończyć się w ciągu **60 minut**lub przekroczyć limit czasu. Nie ma to wpływu na akcje skryptu przesłane do uruchomionych klastrów. Więcej informacji znajdziesz [tutaj](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process).
  
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Brak przyszłych zmian, do których należy zwrócić uwagę.
@@ -77,3 +80,7 @@ Wersja Kafka jest uaktualniana z wersji 2.1.0 do 2.1.1.
  
 Bieżące wersje składników usługi HDInsight 4,0 AD HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## <a name="known-issues"></a>Znane problemy
+
+### <a name="hive-warehouse-connector-issue"></a>Problem z łącznikiem magazynu Hive
+W tej wersji występuje problem dotyczący łącznika magazynu Hive. Poprawka zostanie uwzględniona w następnej wersji. Nie ma to wpływu na istniejące klastry utworzone przed tą wersją. Należy unikać upuszczania i ponownego tworzenia klastra, jeśli jest to możliwe. Otwórz bilet pomocy technicznej, jeśli potrzebujesz dalszej pomocy na ten temat.

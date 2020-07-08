@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 245a375a71cab7f09e6c64835def944bc5a638ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71802554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564872"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio (Rozwiązywanie problemów z niesymetrycznością danych przy użyciu narzędzi Azure Data Lake Tools for Visual Studio)
 
@@ -54,7 +54,9 @@ Język U-SQL zawiera instrukcję CREATE STATISTICs w tabelach. Ta instrukcja zaw
 
 Przykład kodu:
 
-    CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```usql
+CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
+```
 
 >[!NOTE]
 >Informacje statystyczne nie są aktualizowane automatycznie. Jeśli zaktualizujesz dane w tabeli bez ponownego tworzenia statystyk, wydajność zapytań może się nie powieść.
@@ -65,62 +67,66 @@ Jeśli chcesz zsumować podatek dla każdego stanu, musisz użyć grupowania wed
 
 Zazwyczaj można ustawić parametr jako 0,5 i 1, z 0,5 oznacza to, że nie ma dużo pochylenia i 1 oznacza duże pochylenie. Ponieważ Wskazówka ma wpływ na optymalizację planu wykonania dla bieżącej instrukcji i wszystkich instrukcji podrzędnych, należy pamiętać, aby dodać wskazówkę przed potencjalną skośną agregacją klucza.
 
-    SKEWFACTOR (columns) = x
+```usql
+SKEWFACTOR (columns) = x
+```
 
-    Provides a hint that the given columns have a skew factor x from 0 (no skew) through 1 (very heavy skew).
+Zapewnia wskazówkę, że dana kolumna ma Współczynnik skośności x od 0 (bez pochylenia) do 1 (bardzo ciężki pochylenie).
 
 Przykład kodu:
 
-    //Add a SKEWFACTOR hint.
-    @Impressions =
-        SELECT * FROM
-        searchDM.SML.PageView(@start, @end) AS PageView
-        OPTION(SKEWFACTOR(Query)=0.5)
-        ;
+```usql
+//Add a SKEWFACTOR hint.
+@Impressions =
+    SELECT * FROM
+    searchDM.SML.PageView(@start, @end) AS PageView
+    OPTION(SKEWFACTOR(Query)=0.5)
+    ;
+//Query 1 for key: Query, ClientId
+@Sessions =
+    SELECT
+        ClientId,
+        Query,
+        SUM(PageClicks) AS Clicks
+    FROM
+        @Impressions
+    GROUP BY
+        Query, ClientId
+    ;
+//Query 2 for Key: Query
+@Display =
+    SELECT * FROM @Sessions
+        INNER JOIN @Campaigns
+            ON @Sessions.Query == @Campaigns.Query
+    ;
+```
 
-    //Query 1 for key: Query, ClientId
-    @Sessions =
-        SELECT
-            ClientId,
-            Query,
-            SUM(PageClicks) AS Clicks
-        FROM
-            @Impressions
-        GROUP BY
-            Query, ClientId
-        ;
-
-    //Query 2 for Key: Query
-    @Display =
-        SELECT * FROM @Sessions
-            INNER JOIN @Campaigns
-                ON @Sessions.Query == @Campaigns.Query
-        ;   
-
-### <a name="option-3-use-rowcount"></a>Opcja 3: Użyj liczby wierszy  
+### <a name="option-3-use-rowcount"></a>Opcja 3: Użyj liczby wierszy
 Oprócz SKEWFACTOR, dla konkretnych przypadków sprzężenia z kluczami skośnymi, Jeśli wiesz, że inny połączony zestaw wierszy jest mały, możesz powiedzieć Optymalizatorowi, dodając wskazówkę w instrukcji "U-SQL" przed przyłączeniem. Dzięki temu optymalizator może wybrać strategię sprzężenia emisji, aby zwiększyć wydajność. Należy pamiętać, że liczba wierszy nie rozwiązuje problemu związanego z odchyleniami danych, ale może oferować dodatkową pomoc.
 
-    OPTION(ROWCOUNT = n)
+```usql
+OPTION(ROWCOUNT = n)
+```
 
-    Identify a small row set before JOIN by providing an estimated integer row count.
+Przed przystąpieniem Zidentyfikuj mały zestaw wierszy przed przypisaniem, podając szacowaną liczbę wierszy Integer.
 
 Przykład kodu:
 
-    //Unstructured (24-hour daily log impressions)
-    @Huge   = EXTRACT ClientId int, ...
-                FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
-                ;
-
-    //Small subset (that is, ForgetMe opt out)
-    @Small  = SELECT * FROM @Huge
-                WHERE Bing.ForgetMe(x,y,z)
-                OPTION(ROWCOUNT=500)
-                ;
-
-    //Result (not enough information to determine simple broadcast JOIN)
-    @Remove = SELECT * FROM Bing.Sessions
-                INNER JOIN @Small ON Sessions.Client == @Small.Client
-                ;
+```usql
+//Unstructured (24-hour daily log impressions)
+@Huge   = EXTRACT ClientId int, ...
+            FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
+            ;
+//Small subset (that is, ForgetMe opt out)
+@Small  = SELECT * FROM @Huge
+            WHERE Bing.ForgetMe(x,y,z)
+            OPTION(ROWCOUNT=500)
+            ;
+//Result (not enough information to determine simple broadcast JOIN)
+@Remove = SELECT * FROM Bing.Sessions
+            INNER JOIN @Small ON Sessions.Client == @Small.Client
+            ;
+```
 
 ## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Rozwiązanie 3: poprawa zdefiniowanego przez użytkownika narzędzia do ograniczania i łączenia
 
@@ -136,19 +142,23 @@ Aby zmienić ograniczenie niecykliczne na cykliczne, należy się upewnić, że 
 
 Atrybut zredukowania cyklicznego:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+```
 
 Przykład kodu:
 
-    [SqlUserDefinedReducer(IsRecursive = true)]
-    public class TopNReducer : IReducer
+```usql
+[SqlUserDefinedReducer(IsRecursive = true)]
+public class TopNReducer : IReducer
+{
+    public override IEnumerable<IRow>
+        Reduce(IRowset input, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Reduce(IRowset input, IUpdatableRow output)
-        {
-            //Your reducer code goes here.
-        }
+        //Your reducer code goes here.
     }
+}
+```
 
 ### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opcja 2: Użyj trybu łączenia na poziomie wiersza, jeśli jest to możliwe
 
@@ -175,12 +185,14 @@ Atrybuty trybu łączenia:
 
 Przykład kodu:
 
-    [SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
-    public class WatsonDedupCombiner : ICombiner
+```usql
+[SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
+public class WatsonDedupCombiner : ICombiner
+{
+    public override IEnumerable<IRow>
+        Combine(IRowset left, IRowset right, IUpdatableRow output)
     {
-        public override IEnumerable<IRow>
-            Combine(IRowset left, IRowset right, IUpdatableRow output)
-        {
-        //Your combiner code goes here.
-        }
+    //Your combiner code goes here.
     }
+}
+```

@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych aktywności platformy Azure z usługą Azure wskaźnikowego | Microsoft Docs
-description: Dowiedz się, jak połączyć dane aktywności platformy Azure z wskaźnikiem kontrolnym platformy Azure.
+description: Przesyłaj strumieniowo dzienniki aktywności platformy Azure do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia. Dziennik aktywności rejestruje i wyświetla zdarzenia na poziomie subskrypcji na platformie Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124985"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564496"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Połącz dane z dziennika aktywności platformy Azure
 
@@ -41,7 +41,7 @@ Dzienniki [aktywności platformy Azure](../azure-monitor/platform/platform-logs-
 
 4. W okienku subskrypcja, które jest otwierane z prawej strony, kliknij pozycję **Połącz**.
 
-5. Aby użyć odpowiedniego schematu w Log Analytics dla alertów aktywności platformy Azure, `AzureActivity` wpisz w oknie zapytania.
+5. Aby użyć odpowiedniego schematu w Log Analytics dla alertów aktywności platformy Azure, wpisz `AzureActivity` w oknie zapytania.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia dziennika aktywności platformy Azure z wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

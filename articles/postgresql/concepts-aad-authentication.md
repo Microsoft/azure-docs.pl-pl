@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 737587ccf46d4af292dc11d37567249c13260f51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565491"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą PostgreSQL
 
@@ -66,8 +66,11 @@ Azure Active Directory Authentication obsługuje następujące metody łączenia
 - Azure Active Directory zintegrowany
 - Azure Active Directory Universal with MFA
 - Korzystanie z Active Directory certyfikatów aplikacji lub wpisów tajnych klienta
+- [Tożsamość zarządzana](howto-connect-with-managed-identity.md)
 
 Po uzyskaniu uwierzytelnienia względem Active Directory można pobrać token. Ten token jest hasłem do logowania.
+
+Należy pamiętać, że operacje zarządzania, takie jak dodawanie nowych użytkowników, są obsługiwane tylko w przypadku ról użytkownika usługi Azure AD.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat nawiązywania połączenia z tokenem Active Directory, zobacz [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).

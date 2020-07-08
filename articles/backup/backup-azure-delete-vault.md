@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563108"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -16,10 +16,10 @@ W tym artykule opisano sposób usuwania magazynu Recovery Services [Azure Backup
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Nie można usunąć magazynu Recovery Services z następującymi zależnościami:
+Nie można usunąć magazynu usługi Recovery Services z dowolnymi z następujących zależności:
 
 - Nie można usunąć magazynu zawierającego chronione źródła danych (na przykład IaaS maszyny wirtualne, bazy danych SQL, udziały plików platformy Azure itp.).  
-- Nie można usunąć magazynu, który zawiera dane kopii zapasowej. Po usunięciu danych kopii zapasowej spowoduje to usunięcie nietrwałego stanu.
+- Nie można usunąć magazynu, który zawiera dane kopii zapasowej. Po usunięciu danych kopii zapasowej przejdzie on do stanu usunięcia nietrwałego.
 - Nie można usunąć magazynu zawierającego dane kopii zapasowej w stanie usunięte nietrwałe.
 - Nie można usunąć magazynu, w którym zarejestrowano konta magazynu.
 
@@ -90,7 +90,7 @@ Najpierw zapoznaj się z sekcją **[przed rozpoczęciem](#before-you-start)** , 
 
       - W przypadku serwera usługi MAB lub DPM wybierz pozycję **serwery zarządzania kopiami zapasowymi**. Następnie wybierz serwer, który chcesz usunąć.
 
-          ![W obszarze serwera usługi MAB wybierz swój magazyn, aby otworzyć jego pulpit nawigacyjny.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![W przypadku usługi serwera usługi MAB lub DPM wybierz swój magazyn, aby otworzyć jego pulpit nawigacyjny.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Zostanie wyświetlone okienko **Usuń** z komunikatem ostrzegawczym.
 
@@ -114,7 +114,7 @@ Najpierw zapoznaj się z sekcją **[przed rozpoczęciem](#before-you-start)** , 
 Po zakończeniu tego procesu można usunąć elementy kopii zapasowej z konsoli zarządzania programu:
 
 - [Usuwanie elementów kopii zapasowej z konsoli zarządzania MARS](#delete-backup-items-from-the-mars-management-console)
-- [Usuwanie elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB](#delete-backup-items-from-the-mabs-management-console)
+- [Usuwanie elementów kopii zapasowej z programu serwera usługi MAB lub konsoli zarządzania programu DPM](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Usuwanie elementów kopii zapasowej z konsoli zarządzania MARS
 
@@ -142,12 +142,12 @@ Po zakończeniu tego procesu można usunąć elementy kopii zapasowej z konsoli 
 
 Po usunięciu lokalnych elementów kopii zapasowej wykonaj kolejne kroki z portalu.
 
-### <a name="delete-backup-items-from-the-mabs-management-console"></a>Usuwanie elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB
+### <a name="delete-backup-items-from-the-mabs-or-dpm-management-console"></a>Usuwanie elementów kopii zapasowej z programu serwera usługi MAB lub konsoli zarządzania programu DPM
 
 >[!NOTE]
 >Jeśli maszyna źródłowa została usunięta lub utracona bez zatrzymywania kopii zapasowej, następna zaplanowana kopia zapasowa zakończy się niepowodzeniem. Stary punkt odzyskiwania wygasa zgodnie z zasadami, ale ostatni pojedynczy punkt odzyskiwania jest zawsze zachowywany do momentu zatrzymania wykonywania kopii zapasowej i usunięcia danych. Można to zrobić, wykonując kroki opisane w [tej sekcji](#delete-protected-items-on-premises).
 
-Istnieją dwie metody, których można użyć do usunięcia elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB.
+Istnieją dwie metody, których można użyć do usunięcia elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB lub DPM.
 
 #### <a name="method-1"></a>Metoda 1
 
@@ -171,7 +171,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej, wykonaj następujące c
 
 #### <a name="method-2"></a>Metoda 2
 
-Otwórz konsolę **zarządzania serwera usługi MAB** . W obszarze **Wybierz metodę ochrony danych**wyczyść pole wyboru **Chcę chronić w trybie online** .
+Otwórz konsolę zarządzania **serwera usługi mabą** lub **programem DPM** . W obszarze **Wybierz metodę ochrony danych**wyczyść pole wyboru **Chcę chronić w trybie online** .
 
   ![Wybierz metodę ochrony danych.](./media/backup-azure-delete-vault/data-protection-method.png)
 

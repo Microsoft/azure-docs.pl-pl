@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6e32a0a876928e9430f9127299e6b7e657d7743c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563135"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
 
@@ -49,7 +49,7 @@ W przypadku indeksowania tabeli źródło danych musi mieć następujące właś
 
 Aby utworzyć źródło danych:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtu
 
 Aby utworzyć indeks:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera 
 
 Po utworzeniu indeksu i źródła danych możesz utworzyć indeksator:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -135,7 +135,7 @@ Po skonfigurowaniu indeksatora tabeli do uruchamiania zgodnie z harmonogramem pr
 
 Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można użyć strategii usuwania nietrwałego. Zamiast usuwać wiersz, Dodaj właściwość, aby wskazać, że została usunięta, i skonfiguruj zasady wykrywania usuwania nietrwałego dla źródła danych. Na przykład następujące zasady uważają, że wiersz jest usuwany, jeśli wiersz ma właściwość `IsDeleted` o wartości `"true"` :
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

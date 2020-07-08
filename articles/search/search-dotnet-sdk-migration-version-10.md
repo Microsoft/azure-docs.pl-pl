@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 32d77b82b30411bd5b423f903c25392fd8e09e44
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562384"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10
 
@@ -22,7 +22,7 @@ W przypadku korzystania z programu [.NET SDK](https://docs.microsoft.com/dotnet/
 
 Nazwa Azure Search została zmieniona na Wyszukiwanie poznawcze platformy Azure w wersji 10, ale przestrzenie nazw i nazwy pakietów nie są zmieniane. Poprzednie wersje zestawu SDK (9,0 i starsze) nadal używają poprzedniej nazwy. Aby uzyskać więcej informacji na temat korzystania z zestawu SDK, w tym przykładów, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
-Wersja 10 dodaje kilka funkcji i poprawek błędów, umożliwiając ich przekazanie na ten sam poziom funkcjonalności co Najnowsza wersja interfejsu API REST `2019-05-06` . W przypadkach, gdy zmiana przerywa istniejący kod, przeprowadzimy Cię przez [kroki wymagane do rozwiązania problemu](#UpgradeSteps).
+Wersja 10 dodaje kilka funkcji i poprawek błędów, przenosząc je na ten sam poziom funkcjonalności co wersja interfejsu API REST `2019-05-06` . W przypadkach, gdy zmiana przerywa istniejący kod, przeprowadzimy Cię przez [kroki wymagane do rozwiązania problemu](#UpgradeSteps).
 
 > [!NOTE]
 > Jeśli używasz wersji 8,0-Preview lub starszej, należy najpierw uaktualnić do wersji 9, a następnie uaktualnić do wersji 10. Aby uzyskać instrukcje [, zobacz Uaktualnianie do Azure Search .NET SDK w wersji 9](search-dotnet-sdk-migration-version-9.md) .
@@ -32,7 +32,7 @@ Wersja 10 dodaje kilka funkcji i poprawek błędów, umożliwiając ich przekaza
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>Co nowego w wersji 10
-Wersja 10 zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET jest przeznaczona dla najnowszej, ogólnie dostępnej wersji interfejsu API REST ( `2019-05-06` ) z tymi aktualizacjami:
+W wersji 10 zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET są przeznaczone dla interfejsu API REST `2019-05-06` z tymi aktualizacjami:
 
 * Wprowadzenie dwóch nowych [umiejętności związanych z umiejętnościami](cognitive-search-skill-conditional.md) i [tłumaczeniami tekstu](cognitive-search-skill-text-translation.md).
 * Dane wejściowe [umiejętności kształtu](cognitive-search-skill-shaper.md) zostały poddane restrukturyzacji w celu uwzględnienia konsolidacji z zagnieżdżonych kontekstów. Aby uzyskać więcej informacji, zobacz tę [przykładową definicję JSON](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).

@@ -1,6 +1,6 @@
 ---
 title: Zbadaj zdarzenia za pomocą usługi Azure wskaźnikowej | Microsoft Docs
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zbadać zdarzenia za pomocą platformy Azure.
+description: W tym samouczku dowiesz się, jak za pomocą usługi Azure wskaźnikowej utworzyć zaawansowane reguły alertów, które generują zdarzenia, które można przypisać i zbadać.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c4118ef8de6d9289b67dd76c710fc11758768262
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565235"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 

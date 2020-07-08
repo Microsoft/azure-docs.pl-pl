@@ -5,18 +5,16 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: d93c3b47c518962bf45762b846eaf53e490ae8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73518439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563624"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>Co to jest bezpieczny koncentrator wirtualny?
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 Koncentrator wirtualny to zarządzana przez firmę Microsoft Sieć wirtualna, która umożliwia łączność z innych zasobów. Gdy koncentrator wirtualny jest tworzony na podstawie wirtualnej sieci WAN w Azure Portal, jako jej składniki są tworzone wirtualne i bramy koncentratora wirtualnego (opcjonalnie).
 

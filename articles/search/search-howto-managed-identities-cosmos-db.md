@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 3524f55f70ff42bd5ff800fb2bd7ab7b0e732596
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c67a5537a74e37473280fbd44fa47c65f2a37806
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563149"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Konfigurowanie połączenia indeksatora z bazą danych Cosmos DB przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -65,7 +65,7 @@ W przypadku uwierzytelniania do źródła danych przy użyciu tożsamości zarz�
 Przykład sposobu tworzenia obiektu źródła danych Cosmos DB przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [Search service admin key]
 
@@ -88,8 +88,8 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 | Pole   | Opis |
 |---------|-------------|
 | **Nazwij** | Wymagany. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
-|**typ**| Wymagany. Musi być `cosmosdb` . |
-|**uwierzytelniające** | Wymagany. <br/><br/>Podczas nawiązywania połączenia przy użyciu tożsamości zarządzanej powinien być format **poświadczeń** : *Database = [Database-Name]; ResourceId = [Resource-ID-String];(rodzaju interfejsu API = [API-Kind];)*<br/> <br/>Format ResourceId: *ResourceID =/SUBSCRIPTIONS/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.DocumentDB/databaseAccounts/**nazwy konta Cosmos DB**/;*<br/><br/>W przypadku kolekcji SQL parametry połączenia nie wymagają rodzaju interfejsu API.<br/><br/>W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do parametrów połączenia. <br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku wykresów Gremlin i tabel Cassandra.<br/>|
+|**Wprowadź**| Wymagany. Musi być `cosmosdb` . |
+|**uwierzytelniające** | Wymagany. <br/><br/>Podczas nawiązywania połączenia przy użyciu tożsamości zarządzanej powinien być format **poświadczeń** : *Database = [Database-Name]; ResourceId = [Resource-ID-String];(rodzaju interfejsu API = [API-Kind];)*<br/> <br/>Format ResourceId: *ResourceID =/SUBSCRIPTIONS/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.DocumentDB/databaseAccounts/**nazwę konta Cosmos DB**/;*<br/><br/>W przypadku kolekcji SQL parametry połączenia nie wymagają rodzaju interfejsu API.<br/><br/>W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do parametrów połączenia. <br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku wykresów Gremlin i tabel Cassandra.<br/>|
 | **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Zalecane |
 |**dataDeletionDetectionPolicy** | Opcjonalne |
@@ -103,7 +103,7 @@ Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtu
 Oto jak utworzyć indeks z polem z możliwością wyszukiwania `booktitle` :
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -126,7 +126,7 @@ Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeks
 
 Przykładowa definicja indeksatora:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

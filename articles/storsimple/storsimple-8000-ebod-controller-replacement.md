@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 34a02181632c301f443ce48ade0de2013e2ae86c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564233"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Zastępowanie kontrolera EBOD na urządzeniu StorSimple
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem należy wziąć pod uwagę następujące informacje:
 * Kontroler EBOD jest wymienialny i można go usunąć. Nie usuwaj modułu zakończonego niepowodzeniem, dopóki nie zostanie zamieniony. Po zainicjowaniu procesu wymiany należy go zakończyć w ciągu 10 minut.
 
 > [!IMPORTANT]
-> Przed podjęciem próby usunięcia lub zastąpienia dowolnego składnika StorSimple upewnij się, że zawarto przegląd [Konwencji ikon bezpieczeństwa](storsimple-safety.md#safety-icon-conventions) i innych [środków bezpieczeństwa](storsimple-safety.md).
+> Przed podjęciem próby usunięcia lub zastąpienia dowolnego składnika StorSimple upewnij się, że zawarto przegląd [Konwencji ikon bezpieczeństwa](storsimple-8000-safety.md#safety-icon-conventions) i innych [środków bezpieczeństwa](storsimple-8000-safety.md).
 
 ## <a name="remove-an-ebod-controller"></a>Usuwanie kontrolera EBOD
 Przed zastępowaniem modułu niepowodzenia kontrolera EBOD na urządzeniu StorSimple upewnij się, że inny moduł kontrolera EBOD jest aktywny i uruchomiony. Poniższa procedura i tabela wyjaśniają, jak usunąć moduł kontrolera EBOD.

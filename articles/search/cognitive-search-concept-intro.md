@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564424"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -83,7 +83,7 @@ Wewnętrznie potok generuje kolekcję ulepszonych dokumentów. Można zdecydowa�
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Dodaj element knowledgeStore, aby zapisać wzbogacenia
 
-Usługa [Search API REST — Version = 2019-05 -06-Preview](search-api-preview.md) rozszerza umiejętności z `knowledgeStore` definicją, która zapewnia połączenie z usługą Azure Storage i projekcje opisujące sposób przechowywania wzbogaceń. Jest to uzupełnienie indeksu. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. W sklepie merytorycznym chronione dokumenty są zachowywane. Aby uzyskać więcej informacji, zobacz artykuł [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md).
+[Interfejs API REST usługi Search — wersja = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) rozszerza umiejętności z `knowledgeStore` definicją, która zapewnia połączenie z usługą Azure Storage i projekcje opisujące sposób przechowywania wzbogacania. Jest to uzupełnienie indeksu. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. W sklepie merytorycznym chronione dokumenty są zachowywane. Aby uzyskać więcej informacji, zobacz artykuł [sklep z bazami](knowledge-store-concept-intro.md)danych.
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Krok 3. Wyszukiwanie indeksu i dostępu opartego na zapytaniach
 
@@ -121,6 +121,6 @@ Indeksy są generowane na podstawie schematu indeksu, który definiuje pola, atr
 + [Przykład: Tworzenie niestandardowej umiejętności dla wzbogacania AI (C#)](cognitive-search-create-custom-skill-example.md)
 + [Szybki Start: Wypróbuj wzbogacanie AI w portalu](cognitive-search-quickstart-blob.md)
 + [Samouczek: informacje na temat interfejsów API wzbogacania AI](cognitive-search-tutorial-blob.md)
-+ [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md)
++ [Magazyn wiedzy](knowledge-store-concept-intro.md)
 + [Tworzenie sklepu merytorycznego w usłudze REST](knowledge-store-create-rest.md)
 + [Porady dotyczące rozwiązywania problemów](cognitive-search-concept-troubleshooting.md)

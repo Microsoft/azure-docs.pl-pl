@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02a0de7760c660a7cce1bbd9cd36d4bb2a1180e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112975"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565782"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Jak monitorować stan i wyniki usługi Azure Wyszukiwanie poznawcze indeksator
 
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji na temat badania błędów i ostrzeżeń indeksa
 
 Można pobrać stan i historię wykonywania indeksatora przy użyciu [polecenia Pobierz indeksator stanu](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
     api-key: [Search service admin key]
 
 Odpowiedź zawiera ogólny stan indeksatora, ostatnie (lub w toku) wywołanie indeksatora i historię najnowszych wywołań indeksatora.
@@ -180,6 +180,6 @@ Gdy indeksator zostanie zresetowany w celu odświeżenia stanu śledzenia zmian,
 
 Aby uzyskać więcej informacji na temat kodów stanu i informacji dotyczących monitorowania indeksatora, zobacz [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) w interfejsie API REST.
 
-Szczegółowe informacje o błędach lub ostrzeżeniach specyficznych dla dokumentu można pobrać przez Wyliczenie `IndexerExecutionResult.Errors` list `IndexerExecutionResult.Warnings`i.
+Szczegółowe informacje o błędach lub ostrzeżeniach specyficznych dla dokumentu można pobrać przez Wyliczenie list `IndexerExecutionResult.Errors` i `IndexerExecutionResult.Warnings` .
 
 Aby uzyskać więcej informacji na temat klas zestawu .NET SDK służących do monitorowania indeksatorów, zobacz [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) i [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

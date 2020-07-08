@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b2ef8a944af9f80dd65ce75869bcf4e3156c63f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564451"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -135,7 +135,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 
 Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues/) .
 
-## <a name="feedback"></a>Opinia
+## <a name="uservoice-site"></a>Witryna UserVoice
 
 Prześlij opinię na temat zespołów Microsoft Teams na pulpicie wirtualnym systemu Windows w witrynie Teams [UserVoice](https://microsoftteams.uservoice.com/).
 

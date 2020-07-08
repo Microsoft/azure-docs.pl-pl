@@ -5,19 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bfa1ae5bd0f2ffe92fb37494f9fe589e1b2040e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757165"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565554"
 ---
-# <a name="ip-groups-preview-in-azure-firewall"></a>Grupy IP (wersja zapoznawcza) w zaporze platformy Azure
-
-> [!IMPORTANT]
-> Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="ip-groups-in-azure-firewall"></a>Grupy IP w zaporze platformy Azure
 
 Grupy IP umożliwiają grupowanie adresów IP dla reguł zapory platformy Azure i zarządzanie nimi w następujący sposób:
 
@@ -40,7 +37,7 @@ Następujące przykłady formatu adresu IPv4 są prawidłowe do użycia w grupac
 
 ## <a name="create-an-ip-group"></a>Tworzenie grupy adresów IP
 
-Grupę adresów IP można utworzyć przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub API REST. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy adresów IP (wersja zapoznawcza)](create-ip-group.md).
+Grupę adresów IP można utworzyć przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub API REST. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy adresów IP](create-ip-group.md).
 
 ## <a name="browse-ip-groups"></a>Przeglądaj grupy adresów IP
 1. Na pasku wyszukiwania Azure Portal wpisz **grupy adresów IP** i wybierz je. Zobaczysz listę grup adresów IP lub możesz wybrać pozycję **Dodaj** , aby utworzyć nową grupę adresów IP.
@@ -64,9 +61,6 @@ Widoczne są wszystkie adresy IP należące do grupy IP oraz skojarzone z nimi r
 ## <a name="use-an-ip-group"></a>Użyj grupy adresów IP
 
 Teraz można wybrać **grupę adresów** IP jako **typ źródłowy** lub **docelowy** dla adresów IP podczas tworzenia reguł DNAT, aplikacji lub sieci platformy Azure.
-
-> [!NOTE]
-> Grupy adresów IP nie są obsługiwane w zasadach zapory. Jest ona obecnie obsługiwana tylko w przypadku tradycyjnych reguł zapory.
 
 ![Grupy IP w zaporze](media/ip-groups/fw-ipgroup.png)
 

@@ -9,12 +9,12 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: 4854d5ff9d697a2bf082a788c0e761a2152b0294
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564993"
 ---
 # <a name="graphics-binding"></a>Powiązanie grafiki
 
@@ -27,7 +27,7 @@ Po skonfigurowaniu, powiązanie grafiki zapewnia dostęp do różnych funkcji, k
 W środowisku Unity całe powiązanie jest obsługiwane przez `RemoteUnityClientInit` strukturę przekazaną do `RemoteManagerUnity.InitializeManager` . Aby ustawić tryb grafiki, `GraphicsApiType` pole musi być ustawione na wybrane powiązanie. Pole zostanie wypełnione automatycznie w zależności od tego, czy XRDevice jest obecny. Zachowanie można przesłonić ręcznie przy użyciu następujących zachowań:
 
 * **HoloLens 2**: zawsze używane jest powiązanie grafiki w [rzeczywistości mieszanej systemu Windows](#windows-mixed-reality) .
-* **Aplikacja klasyczna Flat platformy UWP**: [symulacja](#simulation) jest zawsze używana. Aby użyć tego trybu, należy postępować zgodnie z krokami opisanymi w [samouczku: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md).
+* **Aplikacja klasyczna Flat platformy UWP**: [symulacja](#simulation) jest zawsze używana.
 * **Edytor aparatu Unity**: [symulacja](#simulation) jest zawsze używana, chyba że jest podłączony zestaw WMR VR, w którym wypadek to, że ARR zostanie wyłączony, aby umożliwić debugowanie niezwiązanych z nią części aplikacji. Zobacz też [holographice komunikacji zdalnej](../how-tos/unity/holographic-remoting.md).
 
 Jedyną inną istotną częścią aparatu Unity jest uzyskiwanie dostępu do [podstawowego powiązania](#access). wszystkie pozostałe sekcje poniżej można pominąć.
@@ -233,4 +233,4 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Samouczek: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md)
+* [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../tutorials/unity/view-remote-models/view-remote-models.md)

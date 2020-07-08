@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73981cb0f124e1577690f893ead60e6375f16298
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565885"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik warunków IoT Hub
 
@@ -94,7 +94,7 @@ Brama w chmurze umożliwia łączność urządzeń, które nie mogą łączyć s
 
 Odnosi się do komunikatów wysyłanych z usługi IoT Hub do podłączonego urządzenia. Często te komunikaty są poleceniami, które nakazują urządzeniu wykonanie akcji. Aby uzyskać więcej informacji, zobacz [wysyłanie i odbieranie komunikatów przy użyciu IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W kontekście [automatycznej konfiguracji urządzeń](iot-hub-auto-device-config.md)konfiguracja w ramach IoT Hub definiuje żądaną konfigurację zestawu urządzeń bliźniaczych reprezentacji i zawiera zestaw metryk do raportowania stanu i postępu.
 
@@ -222,7 +222,7 @@ IoT Hub to w pełni zarządzana usługa platformy Azure, która umożliwia nieza
 
 ## <a name="iot-hub-query-language"></a>Język zapytań IoT Hub
 
-[Język zapytań IoT Hub](iot-hub-devguide-query-language.md) to język przypominający SQL, który umożliwia wykonywanie zapytań do bliźniaczych reprezentacji [](#job) i urządzeń.
+[Język zapytań IoT Hub](iot-hub-devguide-query-language.md) to język przypominający SQL, który umożliwia wykonywanie zapytań dotyczących [zadań](#job) i bliźniaczych reprezentacji urządzeń.
 
 ## <a name="iot-hub-resource-rest-api"></a>Interfejs API REST zasobów IoT Hub
 
@@ -343,7 +343,7 @@ Za pomocą usługi tokenu można zaimplementować mechanizm uwierzytelniania dla
 
 ## <a name="twin-queries"></a>Zapytania bliźniaczye
 
-[Zapytania wieloosiowe urządzenia i modułu](iot-hub-devguide-query-language.md) używają języka zapytań IoT Hub, takich jak SQL, do pobierania informacji z urządzenia bliźniaczych reprezentacji lub modułu bliźniaczych reprezentacji. Możesz użyć tego samego IoT Hub języka zapytań, aby pobrać informacje o [](#job) działaniu w centrum IoT.
+[Zapytania wieloosiowe urządzenia i modułu](iot-hub-devguide-query-language.md) używają języka zapytań IoT Hub, takich jak SQL, do pobierania informacji z urządzenia bliźniaczych reprezentacji lub modułu bliźniaczych reprezentacji. Możesz użyć tego samego IoT Hub języka zapytań, aby pobrać informacje o [zadaniu](#job) uruchomionym w centrum IoT.
 
 ## <a name="twin-synchronization"></a>Synchronizacja przędzy
 

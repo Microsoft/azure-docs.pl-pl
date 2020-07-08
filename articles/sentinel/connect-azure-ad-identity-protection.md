@@ -1,6 +1,6 @@
 ---
 title: Łączenie Azure AD Identity Protection danych z platformą Azure — wskaźnikiem
-description: Dowiedz się, jak połączyć Azure AD Identity Protection dane z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak przesyłać strumienie dzienników i alertów z Azure AD Identity Protection na platformę Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie.
 author: yelevin
 manager: rkarlin
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 06/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 0f85e543c83413e840354c053a1f4cb0925fc271
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 69ab76bf213653ea10db8dfd181b615a7e0f47b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362904"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564474"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Łączenie danych z usługi Azure Active Directory (Azure AD) Identity Protection
 

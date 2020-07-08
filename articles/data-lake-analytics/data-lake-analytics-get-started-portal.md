@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c78889c8d910edb5111c18b9cbb77387d2693f87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315755"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564779"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,7 +29,7 @@ Przed rozpoczęciem tego samouczka musisz dysponować **subskrypcją platformy A
 Teraz utworzysz Data Lake Analytics i konto Azure Data Lake Storage Gen1 w tym samym czasie.  Ten krok jest prosty i jego wykonanie zajmuje tylko około 60 sekund.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **Utwórz zasób** >  **dane + analiza** > **Data Lake Analytics**.
+2. Kliknij pozycję **Utwórz zasób**  >   **dane + analiza**  >  **Data Lake Analytics**.
 3. Wybierz wartości dla następujących elementów:
    * **Nazwa**: nazwa konta usługi Data Lake Analytics (dozwolone są tylko małe litery i cyfry).
    * **Subskrypcja**: wybierz subskrypcję platformy Azure używaną na potrzeby konta usługi Analytics.
@@ -37,14 +37,14 @@ Teraz utworzysz Data Lake Analytics i konto Azure Data Lake Storage Gen1 w tym s
    * **Lokalizacja**. Wybierz centrum danych platformy Azure na potrzeby konta usługi Data Lake Analytics.
    * **Data Lake Storage Gen1**: Postępuj zgodnie z instrukcjami, aby utworzyć nowe konto Data Lake Storage Gen1 lub Wybierz istniejące. 
 4. Opcjonalnie wybierz warstwę cenową dla konta usługi Data Lake Analytics.
-5. Kliknij przycisk **Utwórz**. 
+5. Kliknij pozycję **Utwórz**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Pierwszy skrypt U-SQL
 
-Poniższy tekst to bardzo prosty skrypt U-SQL. Wszystko to definiuje niewielki zestaw danych w skrypcie, a następnie zapisuje ten zestaw danych do domyślnego konta Data Lake Storage Gen1 jako plik o nazwie `/data.csv`.
+Poniższy tekst to bardzo prosty skrypt U-SQL. Wszystko to definiuje niewielki zestaw danych w skrypcie, a następnie zapisuje ten zestaw danych do domyślnego konta Data Lake Storage Gen1 jako plik o nazwie `/data.csv` .
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES

@@ -1,6 +1,6 @@
 ---
 title: Łączenie Azure Active Directory danych z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak połączyć Azure Active Directory dane z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak zbierać dane z Azure Active Directory i przesyłać dzienniki logowania usługi Azure AD i dzienniki inspekcji do usługi Azure wskaźnikowej.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 5ec8a37a0c782a5426b87f785af2d047ca35aa22
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374818"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564533"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Łączenie danych z Azure Active Directory (Azure AD)
 

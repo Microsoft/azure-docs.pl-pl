@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562489"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
@@ -34,7 +34,7 @@ Pozostała część tego artykułu koncentruje się na zapytaniach i kodzie klie
 Elementy żądania obejmują jedno z interfejsów API wyszukiwania jako typ, częściowe zapytanie i sugestię. Poniższy skrypt ilustruje składniki żądania przy użyciu interfejsu API REST Autouzupełnianie jako przykładu.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -66,12 +66,12 @@ Odpowiedzi są dostosowane do parametrów żądania. Dla opcji Autouzupełnianie
 
 W przypadku sugestii należy dokładniej ograniczyć odpowiedź, aby uniknąć duplikowania lub jakie są niepowiązane wyniki. Aby kontrolować wyniki, Dołącz więcej parametrów do żądania. Następujące parametry mają zastosowanie zarówno do autouzupełniania, jak i sugestii, ale mogą być bardziej potrzebne w przypadku sugestii, zwłaszcza wtedy, gdy sugerował zawiera wiele pól.
 
-| Parametr | Sposób użycia |
+| Parametr | Użycie |
 |-----------|-------|
-| **$select** | Jeśli masz wiele **sourceFields** w sugestii, użyj **$SELECT** , aby określić, które pole zawiera wartości (`$select=GameTitle`). |
+| **$select** | Jeśli masz wiele **sourceFields** w sugestii, użyj **$SELECT** , aby określić, które pole zawiera wartości ( `$select=GameTitle` ). |
 | **searchFields** | Ogranicz zapytanie do określonych pól. |
-| **$filter** | Zastosuj kryteria dopasowania w zestawie wyników (`$filter=Category eq 'ActionAdventure'`). |
-| **$top** | Ogranicz wyniki do określonego numeru (`$top=5`).|
+| **$filter** | Zastosuj kryteria dopasowania w zestawie wyników ( `$filter=Category eq 'ActionAdventure'` ). |
+| **$top** | Ogranicz wyniki do określonego numeru ( `$top=5` ).|
 
 ## <a name="add-user-interaction-code"></a>Dodawanie kodu interakcji użytkownika
 
@@ -116,9 +116,9 @@ $(function () {
 });
 ```
 
-`source` Informuje funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projektem MVC, wywołuje funkcję **Sugeruj** w **HomeController.cs** , która zawiera logikę do zwracania sugestii zapytania. Ta funkcja przekazuje również kilka parametrów w celu kontrolowania świateł, dopasowywania rozmytego i warunku. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
+`source`Informuje funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projektem MVC, wywołuje funkcję **Sugeruj** w **HomeController.cs** , która zawiera logikę do zwracania sugestii zapytania. Ta funkcja przekazuje również kilka parametrów w celu kontrolowania świateł, dopasowywania rozmytego i warunku. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
 
-`minLength: 3` Zapewnia, że zalecenia będą wyświetlane tylko wtedy, gdy w polu wyszukiwania znajdują się co najmniej trzy znaki.
+`minLength: 3`Zapewnia, że zalecenia będą wyświetlane tylko wtedy, gdy w polu wyszukiwania znajdują się co najmniej trzy znaki.
 
 ### <a name="enable-fuzzy-matching"></a>Włącz dopasowywanie rozmyte
 
@@ -140,7 +140,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-`InitSearch` Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

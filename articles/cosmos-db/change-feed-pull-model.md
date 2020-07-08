@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: c47016d0b82a4e4ed084f5d82394d91fd2b46be1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697715"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563800"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Zmień model ściągania kanału informacyjnego w Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Oto przykład do uzyskania `FeedIterator` , który zwraca `Stream` :
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-Korzystając z programu `FeedIterator` , można łatwo przetwarzać cały kanał informacyjny zmiany kontenera we własnym tempie. Oto przykład:
+Korzystając z programu `FeedIterator` , można łatwo przetwarzać cały kanał informacyjny zmiany kontenera we własnym tempie. Przykład:
 
 ```csharp
 FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
@@ -164,13 +164,13 @@ Należy rozważyć użycie modelu ściągania w następujących scenariuszach:
 
 Oto kilka najważniejszych różnic między procesorem kanału informacyjnego zmiany i modelem ściągania:
 
-|  | Procesor zestawienia zmian| Model ściągania |
+|Cecha  | Procesor zestawienia zmian| Model ściągania |
 | --- | --- | --- |
 | Śledzenie bieżącego punktu w strumieniu zmian przetwarzania | Dzierżawa (przechowywana w kontenerze Azure Cosmos DB) | Token kontynuacji (przechowywany w pamięci lub ręcznie utrwalony) |
 | Możliwość powtórzenia ostatnich zmian | Tak, przy użyciu modelu wypychania | Tak, z modelem ściągania|
 | Sondowanie w poszukiwaniu przyszłych zmian | Automatycznie sprawdza zmiany na podstawie określonych przez użytkownika`WithPollInterval` | Ręcznie |
 | Przetwarzanie zmian z całego kontenera | Tak, i automatycznie przeparalleluje wiele wątków/maszyn z tego samego kontenera| Tak i ręcznie paralleled using FeedTokens |
-| Przetwarzaj zmiany tylko z jednego klucza partycji | Nieobsługiwane | Yes|
+| Przetwarzaj zmiany tylko z jednego klucza partycji | Nieobsługiwane | Tak|
 | Poziom pomocy technicznej | Ogólnie dostępne | Wersja zapoznawcza |
 
 ## <a name="next-steps"></a>Następne kroki

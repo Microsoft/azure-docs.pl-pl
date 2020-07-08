@@ -1,28 +1,25 @@
 ---
-title: Pojęcia dotyczące sklepu wiedzy (wersja zapoznawcza)
+title: Pojęcia dotyczące sklepu wiedzy
 titleSuffix: Azure Cognitive Search
-description: Wysyłaj wzbogacone dokumenty do usługi Azure Storage, które umożliwiają wyświetlanie, przekształcanie i używanie wzbogaconych dokumentów na platformie Azure Wyszukiwanie poznawcze i w innych aplikacjach. Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
+description: Wysyłaj wzbogacone dokumenty do usługi Azure Storage, które umożliwiają wyświetlanie, przekształcanie i używanie wzbogaconych dokumentów na platformie Azure Wyszukiwanie poznawcze i w innych aplikacjach.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: a8f7aa18598dba41b33ea4964bd2967a8c2670ac
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 06/30/2020
+ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752983"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565268"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Magazyn wiedzy na platformie Azure Wyszukiwanie poznawcze
 
-> [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
+Sklep z bazami informacji to funkcja platformy Azure Wyszukiwanie poznawcze, która utrzymuje dane wyjściowe [potoku wzbogacania AI](cognitive-search-concept-intro.md) na potrzeby niezależnej analizy lub przetwarzania podrzędnego. *Wzbogacony dokument* to dane wyjściowe potoku, utworzone na podstawie zawartości wyodrębnionej, strukturalnej i analizowanej przy użyciu procesów AI. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. Wybranie opcji tworzenia sklepu z bazami informacji umożliwi zachowanie ulepszonych dokumentów. 
 
-Sklep z bazami informacji to funkcja platformy Azure Wyszukiwanie poznawcze, która utrzymuje dane wyjściowe [potoku wzbogacania AI](cognitive-search-concept-intro.md) na potrzeby niezależnej analizy lub przetwarzania podrzędnego. *Wzbogacony dokument* to dane wyjściowe potoku, utworzone na podstawie zawartości wyodrębnionej, strukturalnej i analizowanej przy użyciu procesów AI. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. W sklepie merytorycznym chronione dokumenty są zachowywane. 
-
-Jeśli w przeszłości korzystasz z umiejętności poznawczych, już wiesz, że *umiejętności* przenieść dokument przez sekwencję wzbogacania. Wynikiem może być indeks wyszukiwania lub (Nowość w tej wersji zapoznawczej) projekcje w sklepie z bazami danych. Dwa dane wyjściowe, indeks wyszukiwania i magazyn wiedzy są produktami tego samego potoku; pochodzące z tych samych danych wejściowych, ale wynikające z danych wyjściowych, które są strukturalne, przechowywane i używane na różne sposoby.
+Jeśli w przeszłości korzystasz z umiejętności poznawczych, już wiesz, że *umiejętności* przenieść dokument przez sekwencję wzbogacania. Wynikiem może być indeks wyszukiwania lub projekcje w sklepie z bazami danych. Dwa dane wyjściowe, indeks wyszukiwania i magazyn wiedzy są produktami tego samego potoku; pochodzące z tych samych danych wejściowych, ale wynikające z danych wyjściowych, które są strukturalne, przechowywane i używane na różne sposoby.
 
 Fizycznie magazyn wiedzy to [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), Azure Table Storage, Azure Blob Storage lub oba te elementy. Wszystkie narzędzia i procesy, które mogą łączyć się z usługą Azure Storage, mogą zużywać zawartość sklepu z bazami wiedzy.
 
@@ -103,7 +100,7 @@ Wymagany jest [indeksator](search-indexer-overview.md) . Zestawu umiejętności 
 
 ## <a name="how-to-create-a-knowledge-store"></a>Jak utworzyć sklep merytoryczny
 
-Aby utworzyć sklep merytoryczny, użyj portalu lub interfejsu API REST ( `api-version=2019-05-06-Preview` ).
+Aby utworzyć magazyn wiedzy, użyj portalu lub interfejsu API REST ( `api-version=2020-06-30` ).
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
@@ -117,13 +114,11 @@ Kreator **importu danych** zawiera opcje tworzenia sklepu z bazami informacji. W
 
 1. Uruchom kreatora. W tym ostatnim kroku występuje Ekstrakcja, wzbogacanie i magazyn.
 
-### <a name="use-create-skillset-and-the-preview-rest-api"></a>Korzystanie z interfejsu API REST Create zestawu umiejętności i wersji zapoznawczej
+### <a name="use-create-skillset-rest-api"></a>Użyj Create zestawu umiejętności (interfejs API REST)]
 
 A `knowledgeStore` jest zdefiniowany w [zestawu umiejętności](cognitive-search-working-with-skillsets.md), który z kolei jest wywoływany przez [indeksator](search-indexer-overview.md). Podczas wzbogacania usługa Azure Wyszukiwanie poznawcze tworzy miejsce na koncie usługi Azure Storage i projektuje wzbogacone dokumenty jako obiekty blob lub tabele, w zależności od konfiguracji.
 
-Obecnie interfejs API REST w wersji zapoznawczej jest jedynym mechanizmem, za pomocą którego można programowo utworzyć magazyn wiedzy. Prostą metodą eksplorowania jest [utworzenie pierwszego sklepu z bazami danych przy użyciu programu Poster i interfejsu API REST](knowledge-store-create-rest.md).
-
-Zawartość referencyjna tej funkcji w wersji zapoznawczej znajduje się w sekcji [Dokumentacja interfejsu API](#kstore-rest-api) w tym artykule. 
+Interfejs API REST to jeden mechanizm, za pomocą którego można programowo utworzyć magazyn wiedzy. Prostą metodą eksplorowania jest [utworzenie pierwszego sklepu z bazami danych przy użyciu programu Poster i interfejsu API REST](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -139,19 +134,19 @@ Po wprowadzeniu wzbogaceń do magazynu dowolne narzędzie lub technologia, któr
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Odwołanie API
+## <a name="api-reference"></a>Dokumentacja interfejsu API
 
-Wersja interfejsu API REST `2019-05-06-Preview` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
+Wersja interfejsu API REST `2020-06-30` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
 
-+ [Create zestawu umiejętności (API-Version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
-+ [Update zestawu umiejętności (API-Version = 2019-05 -06 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
++ [Create zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
++ [Update zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Magazyn wiedzy oferuje trwałość ulepszonych dokumentów, przydatnych podczas projektowania zestawu umiejętności lub tworzenia nowych struktur i zawartości do użycia przez dowolne aplikacje klienckie, które mogą uzyskać dostęp do konta usługi Azure Storage.
 
-Najprostszym podejściem do tworzenia wzbogaconych dokumentów jest użycie portalu, ale można również użyć [programu](knowledge-store-create-portal.md)Poster i interfejsu API REST, który jest bardziej przydatny, jeśli chcesz uzyskać wgląd w sposób tworzenia obiektów i odwoływania się do nich.
+Najprostszym podejściem do tworzenia wzbogaconych dokumentów jest [Przechodzenie przez portal](knowledge-store-create-portal.md), ale można również użyć programu Poster i interfejsu API REST, który jest bardziej przydatny, jeśli chcesz uzyskać wgląd w sposób tworzenia obiektów i odwoływania się do nich.
 
 > [!div class="nextstepaction"]
 > [Tworzenie sklepu z wiedzą przy użyciu programu Poster i REST](knowledge-store-create-rest.md)

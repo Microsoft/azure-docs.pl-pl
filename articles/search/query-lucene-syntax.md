@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: efef4a5e3fd846b06d73211bc6cf63a8ecf24438
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564087"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Składnia zapytań Lucene w usłudze Azure Wyszukiwanie poznawcze
 
@@ -46,13 +46,13 @@ Poniższy przykład odnajduje dokumenty w indeksie przy użyciu składni zapyta�
 `searchMode=all`Parametr jest istotny w tym przykładzie. Zawsze, gdy operatory znajdują się w zapytaniu, należy ogólnie ustawić, `searchMode=all` Aby upewnić się, że *wszystkie* kryteria są zgodne.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Alternatywnie możesz użyć wpisu:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -189,7 +189,7 @@ Dopasowanie sufiksu, Where `*` lub `?` poprzedzające ciąg (as in `search=/.*nu
 
 Usługa Azure Wyszukiwanie poznawcze używa oceniania opartego na częstotliwościach ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) na potrzeby zapytań tekstowych. Jednakże w przypadku zapytań wieloznacznych i wyrażeń regularnych, w których zakres terminów może być bardzo szeroki, współczynnik częstotliwości jest ignorowany, aby zapobiec rozliczeniu na dopasowania od rzadkich warunków. Wszystkie dopasowania są traktowane równo w przypadku wyszukiwania symboli wieloznacznych i wyrażeń regularnych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Przykłady zapytań dla prostego wyszukiwania](search-query-simple-examples.md)
 + [Przykłady zapytań dla pełnego wyszukiwania Lucene](search-query-lucene-examples.md)

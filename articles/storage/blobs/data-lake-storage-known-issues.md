@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 06/29/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563919"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -65,19 +65,6 @@ Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierar
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Obsługa systemu plików w zestawach SDK, programie PowerShell i interfejsie wiersza polecenia platformy Azure
 
 - Operacje pobierania i ustawiania listy ACL nie są obecnie cykliczne.
-
-
-## <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
-
-Usuwanie migawek obiektów BLOB nie jest jeszcze obsługiwane. 
-
-## <a name="archive-tier"></a>Warstwa Archiwum
-
-Obecnie występuje usterka wpływająca na warstwę dostępu archiwizowania.
-
-## <a name="blobfuse"></a>Blobfuse
-
-Blobfuse nie jest obsługiwana.
 
 <a id="known-issues-tools"></a>
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 413f8d02420b5442b5ffa1491f4312292e8b3a0e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6c7e1fcaebd415fcacfffcef62ca25cccde3e476
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85077497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563162"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Jak indeksować dokumenty w usłudze Azure Blob Storage przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -53,7 +53,7 @@ W przypadku indeksowania obiektów BLOB źródło danych musi mieć następując
 
 Aby utworzyć źródło danych:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -85,7 +85,7 @@ Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtu
 
 Oto jak utworzyć indeks z polem z możliwością wyszukiwania, `content` Aby przechowywać tekst wyodrębniony z obiektów blob:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -104,7 +104,7 @@ Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera 
 
 Po utworzeniu indeksu i źródła danych można rozpocząć tworzenie indeksatora:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -181,7 +181,7 @@ Na potrzeby tego przykładu wybierzemy `metadata_storage_name` pole jako klucz d
 
 Aby to zrobić, możesz dodać mapowania pól i włączyć kodowanie Base-64 kluczy dla istniejącego indeksatora:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -207,7 +207,7 @@ Można kontrolować, które obiekty blob są indeksowane i które są pomijane.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indeksuj tylko obiekty blob z określonymi rozszerzeniami plików
 Można indeksować tylko obiekty blob z rozszerzeniami nazw plików, które można określić za pomocą `indexedFileNameExtensions` parametru konfiguracji indeksatora. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby zindeksować tylko. PDF i. Pliki BLOB DOCX, wykonaj następujące czynności:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -219,7 +219,7 @@ Można indeksować tylko obiekty blob z rozszerzeniami nazw plików, które moż
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Wyklucz obiekty blob z określonymi rozszerzeniami plików
 Można wykluczyć obiekty blob z określonymi rozszerzeniami nazw plików z indeksowania przy użyciu `excludedFileNameExtensions` parametru konfiguracji. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby indeksować wszystkie obiekty blob z wyjątkiem. PNG i. Rozszerzenia JPEG, wykonaj następujące czynności:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -241,7 +241,7 @@ Można kontrolować, które fragmenty obiektów BLOB są indeksowane przy użyci
 
 Na przykład aby zindeksować tylko metadane magazynu, użyj:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -254,7 +254,7 @@ Na przykład aby zindeksować tylko metadane magazynu, użyj:
 
 Opisane powyżej parametry konfiguracji dotyczą wszystkich obiektów BLOB. Czasami może być konieczne sterowanie sposobem indeksowania *poszczególnych obiektów BLOB* . Można to zrobić, dodając następujące właściwości i wartości metadanych obiektu BLOB:
 
-| Nazwa właściwości | Wartość właściwości | Wyjaśnienie |
+| Nazwa właściwości | Wartość właściwości | Objaśnienie |
 | --- | --- | --- |
 | AzureSearch_Skip |oznacza |Instruuje indeksator obiektu BLOB, aby całkowicie pominąć obiekt BLOB. Nie podjęto próby przeprowadzenia żadnej metadanych ani wyodrębniania zawartości. Jest to przydatne, gdy konkretny obiekt BLOB powtarza się wielokrotnie i przerywa proces indeksowania. |
 | AzureSearch_SkipContent |oznacza |Jest to odpowiednik `"dataToExtract" : "allMetadata"` Ustawienia opisanego [powyżej](#PartsOfBlobToIndex) w zakresie określonego obiektu BLOB. |
@@ -264,7 +264,7 @@ Opisane powyżej parametry konfiguracji dotyczą wszystkich obiektów BLOB. Czas
 
 Domyślnie indeksator obiektu BLOB jest zatrzymywany zaraz po napotkaniu obiektu BLOB z nieobsługiwanym typem zawartości (na przykład obrazem). Możesz użyć `excludedFileNameExtensions` parametru, aby pominąć niektóre typy zawartości. Jednak może być konieczne indeksowanie obiektów Blob bez znajomości wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować indeksowanie, gdy zostanie napotkany nieobsługiwany typ zawartości, ustaw `failOnUnsupportedContentType` parametr konfiguracji na `false` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -302,20 +302,20 @@ Istnieją dwa sposoby implementacji nietrwałego podejścia do usuwania. Oba te 
 ### <a name="native-blob-soft-delete-preview"></a>Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Obsługa natywnego usuwania nietrwałego obiektu BLOB jest w wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](https://docs.microsoft.com/azure/search/search-api-preview) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
+> Obsługa natywnego usuwania nietrwałego obiektu BLOB jest w wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](https://docs.microsoft.com/azure/search/search-api-preview) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
 > [!NOTE]
 > W przypadku używania natywnych zasad usuwania nietrwałego obiektu BLOB klucze dokumentów dla dokumentów w indeksie muszą być właściwościami obiektu BLOB lub obiektami BLOB.
 
 W tej metodzie będziesz używać [natywnej funkcji usuwania nietrwałego obiektu BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferowanej przez usługę Azure Blob Storage. Jeśli na koncie magazynu jest włączone natywne trwałe usuwanie obiektów blob, źródło danych ma natywny zestaw zasad usuwania nietrwałego, a indeksator odnajdzie obiekt BLOB, który został przeniesiony do nietrwałego stanu usuniętego, indeksator usunie ten dokument z indeksu. Natywne zasady usuwania nietrwałego obiektu BLOB nie są obsługiwane podczas indeksowania obiektów blob z Azure Data Lake Storage Gen2.
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 1. Włącz [natywne usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Zalecamy ustawienie zasad przechowywania na wartość, która jest znacznie wyższa niż harmonogram interwału indeksatora. W ten sposób, jeśli wystąpi problem z uruchamianiem indeksatora lub jeśli masz dużą liczbę dokumentów do indeksowania, istnieje dużo czasu, aby indeksator mógł ostatecznie przetworzyć usunięte nietrwałe obiekty blob. Indeksatory usługi Azure Wyszukiwanie poznawcze spowodują usunięcie dokumentu z indeksu tylko wtedy, gdy przetwarza on obiekt BLOB w stanie nietrwałego usunięcia.
 1. Skonfiguruj zasady wykrywania natywnych usunięć obiektów BLOB w źródle danych. Przykład przedstawiono poniżej. Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy użyć interfejsu API REST.
 1. Uruchom indeksator lub ustaw indeksator do uruchomienia zgodnie z harmonogramem. Gdy indeksator działa i przetwarza obiekt BLOB, dokument zostanie usunięty z indeksu.
 
     ```
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -337,7 +337,7 @@ W przypadku usunięcia obiektu BLOB z usługi Azure Blob Storage z włączonym n
 
 W tej metodzie metadane obiektu BLOB zostaną użyte do wskazania, kiedy dokument powinien zostać usunięty z indeksu wyszukiwania.
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
 1. Dodaj niestandardową parę klucz-wartość metadanych do obiektu BLOB, aby wskazać, że usługa Azure Wyszukiwanie poznawcze jest usuwana logicznie.
 1. Skonfiguruj zasady wykrywania nietrwałej kolumny usuwania w źródle danych. Przykład przedstawiono poniżej.
@@ -345,7 +345,7 @@ Wykonaj następujące czynności:
 
 Na przykład następujące zasady uznają obiekt BLOB, który ma zostać usunięty, jeśli ma właściwość metadanych `IsDeleted` o wartości `true` :
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -396,7 +396,7 @@ Aby to działało, wszystkie indeksatory i inne składniki muszą wyrazić zgod�
 
 Jeśli wszystkie obiekty blob zawierają zwykły tekst w tym samym kodowaniu, można znacząco poprawić wydajność indeksowania przy użyciu **trybu analizowania tekstu**. Aby użyć trybu analizowania tekstu, ustaw `parsingMode` Właściwość konfiguracja na `text` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

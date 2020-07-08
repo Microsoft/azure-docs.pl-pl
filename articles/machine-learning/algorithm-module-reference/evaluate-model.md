@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847416"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564349"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -122,7 +122,7 @@ Następujące metryki są zgłaszane do oceny modeli klastrowania.
   
      Jeśli liczba punktów danych przypisanych do klastrów jest mniejsza niż całkowita liczba dostępnych punktów danych, oznacza to, że nie można przypisać punktów danych do klastra.  
   
--   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra**, reprezentują sumę odległości między każdym punktem a centroidaem klastra tego punktu.  
+-   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra**, reprezentują maksymalną odległość między każdym punktem a centroida klastra tego punktu.  
   
      Jeśli ta liczba jest wysoka, może to oznaczać, że klaster jest szeroko rozpraszany. Należy zapoznać się z tą statystyką wraz z **średnim dystansem do centrum klastra** , aby określić rozmieszczenie klastra.   
 

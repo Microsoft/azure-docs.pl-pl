@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfff2a1278bc31dc9bc130941985aed2cfb74362
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562347"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uaktualnianie do Azure Search .NET SDK wersja 9
 
@@ -35,7 +35,7 @@ Wersja 9 zestawu SDK Azure Search .NET zawiera wiele zmian z wcześniejszych wer
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-9"></a>Co nowego w wersji 9
-Wersja 9 zestawu SDK Azure Search .NET jest przeznaczona dla najnowszej ogólnie dostępnej wersji interfejsu API REST Azure Search, w tym 2019-05-06. Dzięki temu można korzystać z nowych funkcji Azure Search z aplikacji .NET, w tym:
+Wersja 9 zestawu Azure Search .NET SDK Target w wersji 2019-05-06 Azure Search API REST z następującymi funkcjami:
 
 * [Wzbogacanie AI](cognitive-search-concept-intro.md) to możliwość wyodrębnienia tekstu z obrazów, obiektów blob i innych źródeł danych bez struktury — wzbogacanie zawartości, aby ułatwić wyszukiwanie w Azure Search indeksie.
 * Obsługa [typów złożonych](search-howto-complex-data-types.md) pozwala modelować niemal dowolną zagnieżdżoną strukturę JSON w indeksie Azure Search.

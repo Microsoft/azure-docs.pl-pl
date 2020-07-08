@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563455"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonimy w usłudze Azure Wyszukiwanie poznawcze
 
@@ -51,7 +51,7 @@ Mapy synonimów muszą znajdować się w formacie Apache Solr, który wyjaśnion
 
 Można utworzyć nową mapę synonimów przy użyciu protokołu HTTP POST, jak w poniższym przykładzie:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -64,7 +64,7 @@ Można utworzyć nową mapę synonimów przy użyciu protokołu HTTP POST, jak w
 
 Alternatywnie można użyć PUT i określić nazwę mapy synonimów w identyfikatorze URI. Jeśli mapa synonimu nie istnieje, zostanie utworzona.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -90,24 +90,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Wyświetl listę list synonimów w ramach usługi.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Uzyskaj mapę synonimów w ramach usługi.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Usuń mapę synonimów w ramach usługi.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Skonfiguruj pole z możliwością wyszukiwania, aby użyć mapy synonimów w definicji indeksu.
 
 Nowe właściwości pola **synonymMaps** można użyć do określenia mapy synonimów, która ma być używana dla pola z możliwością wyszukiwania. Mapy synonimów to zasoby poziomu usług i mogą być przywoływane przez dowolne pola indeksu w ramach usługi.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
     {
@@ -152,7 +152,7 @@ Funkcja synonimu dotyczy zapytań wyszukiwania i nie ma zastosowania do filtrów
 
 Rozszerzenia synonimów nie mają zastosowania do terminów wyszukiwania w postaci symboli wieloznacznych; wyrażenia prefix, rozmyte i wyrażeń regularnych nie są rozwinięte.
 
-Jeśli trzeba wykonać pojedyncze zapytanie, które stosuje rozwinięcie synonimu i symbole wieloznaczne, wyrażenie regularne lub rozmyte, można połączyć zapytania przy użyciu składni lub. Na przykład, aby połączyć synonimy z symbolami wieloznacznymi dla prostej składni zapytania, `<query> | <query>*`może to być termin.
+Jeśli trzeba wykonać pojedyncze zapytanie, które stosuje rozwinięcie synonimu i symbole wieloznaczne, wyrażenie regularne lub rozmyte, można połączyć zapytania przy użyciu składni lub. Na przykład, aby połączyć synonimy z symbolami wieloznacznymi dla prostej składni zapytania, może to być termin `<query> | <query>*` .
 
 Jeśli masz istniejący indeks w środowisku programistycznym (nieprodukcyjnym), eksperymentuj z małym słownikiem, aby dowiedzieć się, jak dodanie synonimów zmienia środowisko wyszukiwania, w tym wpływ na profile oceniania, wyróżnianie trafień i sugestie.
 
