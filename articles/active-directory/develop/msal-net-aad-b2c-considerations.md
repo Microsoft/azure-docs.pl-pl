@@ -14,10 +14,9 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82883230"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Korzystanie z MSAL.NET do logowania użytkowników przy użyciu tożsamości społecznościowych
@@ -76,7 +75,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 W poprzednim fragmencie kodu:
 
-- `policy`jest ciągiem zawierającym nazwę przepływu użytkownika Azure AD B2C lub zasad niestandardowych (na przykład `PolicySignUpSignIn`).
+- `policy`jest ciągiem zawierającym nazwę przepływu użytkownika Azure AD B2C lub zasad niestandardowych (na przykład `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`jest wymagana w przypadku systemu Android (działanie) i jest opcjonalne dla innych platform, które obsługują nadrzędny interfejs użytkownika, taki jak Windows w systemach Microsoft Windows i UIViewController w systemie iOS. Aby uzyskać więcej informacji o interfejsie użytkownika, zobacz [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) The MSAL wiki.
 - `GetAccountByPolicy(IEnumerable<IAccount>, string)`to metoda, która odnajduje konto dla danej zasady. Przykład:
 
@@ -93,13 +92,13 @@ W poprzednim fragmencie kodu:
   }
   ```
 
-Zastosowanie przepływu użytkownika lub zasad niestandardowych (na przykład umożliwienie użytkownikowi edytowania profilu lub resetowania hasła) jest obecnie wykonywane przez wywołanie metody `AcquireTokenInteractive`. W przypadku tych dwóch zasad nie jest używany zwrócony wynik tokenu/uwierzytelniania.
+Zastosowanie przepływu użytkownika lub zasad niestandardowych (na przykład umożliwienie użytkownikowi edytowania profilu lub resetowania hasła) jest obecnie wykonywane przez wywołanie metody `AcquireTokenInteractive` . W przypadku tych dwóch zasad nie jest używany zwrócony wynik tokenu/uwierzytelniania.
 
 ## <a name="profile-edit-policies"></a>Zasady edytowania profilu
 
 Aby umożliwić użytkownikom logowanie się przy użyciu tożsamości społecznościowej, a następnie edytowanie ich profilu, Zastosuj Azure AD B2C edytowanie zasad profilu.
 
-Zrób to, wywołując `AcquireTokenInteractive` z urzędu dla tych zasad. Ponieważ użytkownik jest już zalogowany i ma aktywną sesję plików cookie, użyj `Prompt.NoPrompt` , aby zapobiec wyświetlaniu okna dialogowego wyboru konta.
+Zrób to, wywołując `AcquireTokenInteractive` z urzędu dla tych zasad. Ponieważ użytkownik jest już zalogowany i ma aktywną sesję plików cookie, użyj, `Prompt.NoPrompt` Aby zapobiec wyświetlaniu okna dialogowego wyboru konta.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -157,7 +156,7 @@ Przepływ ROPC **działa tylko w przypadku kont lokalnych**, w których zaAzure 
 
 ## <a name="google-auth-and-embedded-webview"></a>Uwierzytelnianie Google i osadzony widok WebView
 
-Jeśli używasz usługi Google jako dostawcy tożsamości, zalecamy użycie przeglądarki systemowej jako Google nie zezwala na [uwierzytelnianie z osadzonych widoków WebView](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Obecnie `login.microsoftonline.com` jest to zaufana organizacja z firmą Google i będzie współdziałać z osadzonym widokiem WebView. Nie `b2clogin.com` jest to jednak zaufany urząd z firmą Google, dlatego użytkownicy nie będą mogli się uwierzytelniać.
+Jeśli używasz usługi Google jako dostawcy tożsamości, zalecamy użycie przeglądarki systemowej jako Google nie zezwala na [uwierzytelnianie z osadzonych widoków WebView](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Obecnie `login.microsoftonline.com` jest to zaufana organizacja z firmą Google i będzie współdziałać z osadzonym widokiem WebView. `b2clogin.com`Nie jest to jednak zaufany urząd z firmą Google, dlatego użytkownicy nie będą mogli się uwierzytelniać.
 
 Udostępnimy aktualizację tego [problemu](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) , jeśli zmienią się.
 
@@ -174,7 +173,7 @@ Obecnie MSAL.NET potrzebuje dwóch oświadczeń, aby utworzyć klucz pamięci po
 
 W scenariuszach Azure AD B2C mogą brakować obydwu oświadczeń, ponieważ nie wszyscy dostawcy tożsamości społecznościowej (Facebook, Google i innych) zwracają je w tokenach, które zwracają do Azure AD B2C.
 
-Objawem takiego scenariusza jest to, że MSAL.NET zwraca `Missing from the token response` , gdy uzyskujesz `preferred_username` dostęp do wartości w tokenach wystawionych przez Azure AD B2C. MSAL używa `Missing from the token response` wartości dla `preferred_username` , aby zachować zgodność między bibliotekami w pamięci podręcznej.
+Objawem takiego scenariusza jest to, że MSAL.NET zwraca, `Missing from the token response` gdy uzyskujesz dostęp do `preferred_username` wartości w tokenach wystawionych przez Azure AD B2C. MSAL używa `Missing from the token response` wartości dla `preferred_username` , aby zachować zgodność między bibliotekami w pamięci podręcznej.
 
 ### <a name="workarounds"></a>Obejścia
 
@@ -182,11 +181,11 @@ Objawem takiego scenariusza jest to, że MSAL.NET zwraca `Missing from the token
 
 Sugerowane obejście polega na użyciu [pamięci podręcznej opisanej wcześniej przez zasady](#acquire-a-token-to-apply-a-policy) .
 
-Alternatywnie możesz użyć tego `tid` żądania, jeśli używasz [zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Alternatywnie możesz użyć tego żądania, `tid` Jeśli używasz [zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](/azure/active-directory-b2c/claims-transformation-technical-profile).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Środki zaradcze dla braku odpowiedzi tokenu
 
-Jedną z `name` `preferred_username`opcji jest użycie roszczeń zamiast. Aby uwzględnić `name` w TOKENach identyfikatorów wystawionych przez Azure AD B2C, wybierz opcję **Nazwa wyświetlana** podczas konfigurowania przepływu użytkownika.
+Jedną z opcji jest użycie `name` roszczeń zamiast `preferred_username` . Aby uwzględnić `name` w tokenach identyfikatorów wystawionych przez Azure AD B2C, wybierz opcję **Nazwa wyświetlana** podczas konfigurowania przepływu użytkownika.
 
 Aby uzyskać więcej informacji na temat określania, które oświadczenia są zwracane przez przepływy użytkownika, zobacz [Samouczek: Tworzenie przepływów użytkowników w Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 

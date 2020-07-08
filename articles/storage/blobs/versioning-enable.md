@@ -10,17 +10,16 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82884347"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi
 
 W dowolnym momencie możesz włączyć lub wyłączyć obsługę wersji obiektów BLOB (wersja zapoznawcza) dla konta magazynu, korzystając z szablonu Azure Portal lub Azure Resource Manager.
 
-## <a name="enable-blob-versioning"></a>Włącz przechowywanie wersji obiektów BLOB
+## <a name="enable-blob-versioning"></a>Włączanie obsługi wersji obiektów blob
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -37,7 +36,7 @@ Aby włączyć obsługę wersji obiektów BLOB w Azure Portal:
 Aby włączyć obsługę wersji obiektów BLOB przy użyciu szablonu, Utwórz szablon z właściwością **IsVersioningEnabled** na **wartość true**. Poniższe kroki opisują sposób tworzenia szablonu w Azure Portal.
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Przeszukaj witrynę Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **ENTER**.
+1. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 1. Wybierz **Template Deployment**, wybierz pozycję **Utwórz**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
 1. W edytorze szablonów wklej poniższy kod JSON. Zastąp symbol zastępczy `<accountName>` nazwą konta magazynu.
 1. Zapisz szablon.

@@ -11,10 +11,9 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758943"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Łączenie czujnika RuuviTag z aplikacją IoT Central platformy Azure
@@ -45,8 +44,8 @@ Aby dołączyć czujnik RuuviTag do wystąpienia aplikacji platformy Azure IoT C
 
 Aby dodać szablon urządzenia RuuviTag:
 
-1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy** ![: Utwórz nowy](./media/howto-connect-ruuvi/devicetemplate-new.png) szablon urządzenia strona umożliwia ***utworzenie szablonu niestandardowego*** lub ***użycie wstępnie skonfigurowanego szablonu urządzenia***
-1. Wybierz szablon urządzenia RuuviTag z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![wybierz szablon urządzenia RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**: ![ Utwórz nowy szablon urządzenia ](./media/howto-connect-ruuvi/devicetemplate-new.png) strona umożliwia ***utworzenie szablonu niestandardowego*** lub ***użycie wstępnie skonfigurowanego szablonu urządzenia***
+1. Wybierz szablon urządzenia RuuviTag z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![ Wybierz szablon urządzenia RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Wybierz pozycję ***Dalej: Dostosuj*** , aby przejść do następnego kroku.
 1. Na następnym ekranie wybierz pozycję ***Utwórz*** , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
 
@@ -72,7 +71,7 @@ Aby utworzyć symulowaną RuuviTag:
 1. Wybierz pozycję **+ Nowy**.
 1. Określ unikatowy **Identyfikator urządzenia** i przyjazną **nazwę urządzenia**.  
 1. Włącz ustawienie **symulowane** .
-1. Wybierz przycisk **Utwórz**.  
+1. Wybierz pozycję **Utwórz**.  
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793146"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Uaktualnij wersję Service Fabric działającą w klastrze 
@@ -26,7 +25,7 @@ Klaster można uaktualnić do nowej wersji tylko wtedy, gdy jest używana konfig
 Dwa różne przepływy pracy umożliwiają uaktualnienie klastra do najnowszej wersji lub obsługiwanej wersji Service Fabric. Jeden przepływ pracy jest przeznaczony dla klastrów, które mają łączność do automatycznego pobierania najnowszej wersji. Drugi przepływ pracy jest przeznaczony dla klastrów, które nie mają łączności do pobierania najnowszej wersji Service Fabric.
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>Włącz funkcję autouaktualnienia wersji Service Fabric klastra
-Aby ustawić, że klaster ma pobierać aktualizacje Service Fabric w przypadku wydania przez firmę Microsoft nowej wersji, `fabricClusterAutoupgradeEnabled` Ustaw dla konfiguracji klastra *wartość true*. Aby ręcznie wybrać obsługiwaną wersję Service Fabric, do której ma być włączony klaster, ustaw dla konfiguracji `fabricClusterAutoupgradeEnabled` klastra *wartość false*.
+Aby ustawić, że klaster ma pobierać aktualizacje Service Fabric w przypadku wydania przez firmę Microsoft nowej wersji, ustaw dla `fabricClusterAutoupgradeEnabled` konfiguracji klastra *wartość true*. Aby ręcznie wybrać obsługiwaną wersję Service Fabric, do której ma być włączony klaster, ustaw `fabricClusterAutoupgradeEnabled` dla konfiguracji klastra *wartość false*.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Uaktualnij klastry z łącznością, aby pobrać najnowszy kod i konfigurację
 Wykonaj te kroki, aby uaktualnić klaster do obsługiwanej wersji, jeśli węzły klastra mają łączność z Internetem z [Centrum pobierania Microsoft](https://download.microsoft.com).
@@ -94,7 +93,7 @@ Wykonaj te kroki, aby uaktualnić klaster do obsługiwanej wersji, jeśli węzł
 >
 
 ### <a name="auto-provisioning-vs-manual-provisioning"></a>Obsługa autoaprowizacji a Ręczne inicjowanie obsługi
-Aby włączyć automatyczne pobieranie i rejestrację dla najnowszej wersji kodu, skonfiguruj usługę aktualizacji Service Fabric. Aby uzyskać instrukcje, zobacz *tools\servicefabricupdateservice.zip\ Readme_InstructionsAndHowTos. txt* w [pakiecie autonomicznym](service-fabric-cluster-standalone-package-contents.md).
+Aby włączyć automatyczne pobieranie i rejestrację dla najnowszej wersji kodu, skonfiguruj usługę aktualizacji Service Fabric. Aby uzyskać instrukcje, zobacz *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt* w [pakiecie autonomicznym](service-fabric-cluster-standalone-package-contents.md).
 
 W przypadku procesu ręcznego postępuj zgodnie z tymi instrukcjami.
 

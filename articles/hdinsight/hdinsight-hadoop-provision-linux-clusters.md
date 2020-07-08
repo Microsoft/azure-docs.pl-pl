@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 04/30/2020
 ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82889257"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
@@ -43,7 +42,7 @@ W poniższej tabeli przedstawiono różne metody konfigurowania klastra usługi 
 
 Ten artykuł przeprowadzi Cię przez proces instalacji w [Azure Portal](https://portal.azure.com), w którym można utworzyć klaster usługi HDInsight.
 
-## <a name="basics"></a>Podstawy
+## <a name="basics"></a>Informacje podstawowe
 
 ![Tworzenie niestandardowych opcji usługi HDInsight — szybkie](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -81,7 +80,7 @@ Usługa Azure HDInsight obecnie udostępnia następujące typy klastrów, z któ
 | [Zapytanie interakcyjne](./interactive-query/apache-interactive-query-get-started.md) |Buforowanie w pamięci na potrzeby interaktywnych i szybszych zapytań Hive |
 | [Kafka](kafka/apache-kafka-introduction.md) | Platforma przesyłania strumieniowego rozproszonego, która może służyć do tworzenia potoków danych i aplikacji w czasie rzeczywistym |
 | [Usługi ML](r-server/r-server-overview.md) |Różne statystyki danych Big Data, modelowanie predykcyjne i możliwości uczenia maszynowego |
-| [platforma Spark](spark/apache-spark-overview.md) |Przetwarzanie w pamięci, interaktywne zapytania, przetwarzanie strumienia mikropartii |
+| [Spark](spark/apache-spark-overview.md) |Przetwarzanie w pamięci, interaktywne zapytania, przetwarzanie strumienia mikropartii |
 | [Storm](storm/apache-storm-overview.md) |Przetwarzanie zdarzeń w czasie rzeczywistym |
 
 #### <a name="version"></a>Wersja
@@ -98,13 +97,13 @@ Klastry usługi HDInsight umożliwiają skonfigurowanie dwóch kont użytkownik�
 Nazwa użytkownika HTTP ma następujące ograniczenia:
 
 * Dozwolone znaki specjalne: `_` i`@`
-* Znaki nie są dozwolone: #;. "'\/,: '! *? $ ({}) [] <>|&--= +% ~ miejsce
+* Znaki nie są dozwolone: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Maksymalna długość: 20
 
 Nazwa użytkownika SSH ma następujące ograniczenia:
 
-* Dozwolone znaki specjalne:`_` i`@`
-* Znaki nie są dozwolone: #;. "'\/,: '! *? $ ({}) [] <>|&--= +% ~ miejsce
+* Dozwolone znaki specjalne: `_` i`@`
+* Znaki nie są dozwolone: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Maksymalna długość: 64
 * Nazwy zastrzeżone: Hadoop, users, Oozie, Hive, mapred, Ambari-pytań i odpowiedzi, dozorcy, tez, HDFS, Sqoop, przędza, hcat, AMS, HBase, burza, administrator, administrator, użytkownik, Użytkownik1, test,, TEST1, user3, admin1, 1, 123, a, actuser, adm, admin2, ASPNET, Backup, Console, David, gość, Jan, właściciel, katalog_główny Support_388945a0
 
@@ -266,21 +265,21 @@ Niektóre natywne składniki języka Java, takie jak Apache Mahout i kaskadowe, 
 
 Czasami podczas procesu tworzenia należy skonfigurować następujące pliki konfiguracji:
 
-* clusterIdentity. XML
-* pliku Core-site. XML
-* Gateway. XML
-* HBase-ENV. XML
-* HBase-site. XML
-* HDFS-site. XML
-* Hive-ENV. XML
-* Hive-site. XML
+* clusterIdentity.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
+* hbase-site.xml
+* hdfs-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred — lokacja
-* Oozie-site. XML
-* Oozie-ENV. XML
-* Storm-site. XML
-* tez-site. XML
-* webhcat-site. XML
-* Yarn-site. XML
+* oozie-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
+* webhcat-site.xml
+* yarn-site.xml
 
 Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastrów usługi HDInsight przy użyciu narzędzia Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 

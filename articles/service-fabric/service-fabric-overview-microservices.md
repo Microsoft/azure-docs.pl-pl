@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792872"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
@@ -176,7 +175,7 @@ Wiele organizacji zostało zatrzymanych w tym miejscu. Mają już zalety kontene
 **Modernizowanie**  
 Modernizacja to dodawanie nowych usług wraz z istniejącym kodem kontenera. Jeśli zamierzasz napisać nowy kod, najlepiej wykonać małe kroki w dół ścieżki mikrousług. Może to oznaczać dodanie nowego punktu końcowego interfejsu API REST lub nowej logiki biznesowej. W ten sposób należy rozpocząć proces tworzenia nowych mikrousług i opracowywania ich oraz wdrażania.
 
-**Wprowadzaj innowacje**  
+**Innowacje**  
 Podejście mikrousługowe uwzględnia zmieniające się potrzeby biznesowe. Na tym etapie należy zdecydować, czy rozpocząć dzielenie aplikacji monolitycznej na usługi, czy innowacje. Klasycznym przykładem jest to, że baza danych, która jest używana jako kolejka przepływu pracy, stanowi wąskie gardła przetwarzania. W miarę zwiększania się liczby żądań przepływów pracy należy przeprowadzić dystrybucję na potrzeby skalowania. Zapoznaj się z konkretną częścią aplikacji, która nie jest skalowana ani która musi być aktualizowana częściej, i Podziel ją jako mikrousługi i innowacji.
 
 **Przekształcanie aplikacji w mikrousługi**  

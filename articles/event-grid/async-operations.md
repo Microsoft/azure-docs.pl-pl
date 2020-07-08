@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: spelluru
 ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892019"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Śledź asynchroniczne operacje na platformie Azure
@@ -69,7 +68,7 @@ Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym pr
 }
 ```
 
-Zwracana `status` jest tylko dla wszystkich odpowiedzi. Obiekt Error jest zwracany, gdy stan jest zakończony niepowodzeniem lub anulowane. Wszystkie inne wartości są opcjonalne; w związku z tym odpowiedź, którą otrzymasz, może wyglądać inaczej niż w przypadku przykładu.
+`status`Zwracana jest tylko dla wszystkich odpowiedzi. Obiekt Error jest zwracany, gdy stan jest zakończony niepowodzeniem lub anulowane. Wszystkie inne wartości są opcjonalne; w związku z tym odpowiedź, którą otrzymasz, może wyglądać inaczej niż w przypadku przykładu.
 
 ## <a name="provisioningstate-values"></a>provisioningState wartości
 

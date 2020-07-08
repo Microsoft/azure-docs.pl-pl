@@ -6,10 +6,9 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82025037"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Wdrażanie na dedykowanych hostach
@@ -28,17 +27,17 @@ Dedykowana jednostka SKU jest odpowiednia dla obciążeń kontenera, które wyma
 > Użycie dedykowanej jednostki SKU jest dostępne tylko w najnowszej wersji interfejsu API (2019-12-01), która jest obecnie wycofywana. Określ tę wersję interfejsu API w szablonie wdrożenia.
 >
 
-Począwszy od interfejsu API w wersji 2019-12-01, istnieje `sku` właściwość w sekcji Właściwości grupy kontenerów szablonu wdrożenia, który jest wymagany do wdrożenia ACI. Obecnie można użyć tej właściwości jako części szablonu wdrażania Azure Resource Manager ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Począwszy od interfejsu API w wersji 2019-12-01, istnieje `sku` Właściwość w sekcji Właściwości grupy kontenerów szablonu wdrożenia, który jest wymagany do wdrożenia ACI. Obecnie można użyć tej właściwości jako części szablonu wdrażania Azure Resource Manager ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-`sku` Właściwość może mieć jedną z następujących wartości:
+`sku`Właściwość może mieć jedną z następujących wartości:
 * `Standard`— wybór standardowego wdrożenia ACI, który nadal gwarantuje zabezpieczenia na poziomie funkcji hypervisor 
 * `Dedicated`— służy do izolacji poziomu obciążenia z dedykowanymi hostami fizycznymi dla grupy kontenerów.
 
 ## <a name="modify-your-json-deployment-template"></a>Modyfikowanie szablonu wdrożenia JSON
 
 W szablonie wdrożenia zmodyfikuj lub Dodaj następujące właściwości:
-* W `resources`obszarze Ustaw `apiVersion` wartość `2019-12-01`.
-* W obszarze właściwości grupy kontenerów Dodaj `sku` właściwość o wartości. `Dedicated`
+* W obszarze `resources` Ustaw `apiVersion` wartość `2019-12-01` .
+* W obszarze właściwości grupy kontenerów Dodaj `sku` Właściwość o wartości `Dedicated` .
 
 Oto przykładowy fragment dla sekcji Resources szablonu wdrożenia grupy kontenerów, który używa dedykowanej jednostki SKU:
 

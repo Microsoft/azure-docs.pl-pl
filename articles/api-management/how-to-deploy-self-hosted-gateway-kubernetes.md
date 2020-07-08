@@ -10,10 +10,9 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82854114"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Wdrażanie własnej bramy w usłudze Kubernetes
@@ -57,7 +56,7 @@ W tym artykule opisano kroki wdrażania składnika bramy samoobsługowego API Ma
     ![Stan bramy](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> Uruchom polecenie <code>kubectl logs deployment/<gateway-name></code> , aby wyświetlić dzienniki z losowo wybranej usługi pod warunkiem, że istnieje więcej niż jeden.
+> Uruchom <code>kubectl logs deployment/<gateway-name></code> polecenie, aby wyświetlić dzienniki z losowo wybranej usługi pod warunkiem, że istnieje więcej niż jeden.
 > Uruchom <code>kubectl logs -h</code> polecenie, aby uzyskać pełny zestaw opcji poleceń, takich jak wyświetlanie dzienników dla określonego elementu lub kontenera.
 
 ## <a name="production-deployment-considerations"></a>Zagadnienia dotyczące wdrażania produkcyjnego
@@ -110,7 +109,7 @@ Aby dowiedzieć się więcej na temat rozpoznawania nazw w programie Kubernetes,
 ### <a name="configuration-backup"></a>Kopia zapasowa konfiguracji
 Aby dowiedzieć się więcej na temat zachowania bramy samoobsługowej w obecności tymczasowej awarii łączności platformy Azure, zobacz [Omówienie bramy samohostowanej](self-hosted-gateway-overview.md#connectivity-to-azure).
 
-Skonfiguruj lokalny wolumin magazynu dla kontenera bramy samoobsługowej, aby można było zachować kopię zapasową najnowszej pobranej konfiguracji. Jeśli łączność nie działa, wolumin magazynu może użyć kopii zapasowej po ponownym uruchomieniu. Ścieżka instalacji woluminu musi mieć <code>/apim/config</code>wartość. Zobacz przykład w witrynie [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
+Skonfiguruj lokalny wolumin magazynu dla kontenera bramy samoobsługowej, aby można było zachować kopię zapasową najnowszej pobranej konfiguracji. Jeśli łączność nie działa, wolumin magazynu może użyć kopii zapasowej po ponownym uruchomieniu. Ścieżka instalacji woluminu musi mieć wartość <code>/apim/config</code> . Zobacz przykład w witrynie [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 Aby dowiedzieć się więcej o magazynie w programie Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/storage/volumes/).
 
 ### <a name="local-logs-and-metrics"></a>Dzienniki i metryki lokalne

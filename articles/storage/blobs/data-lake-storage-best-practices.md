@@ -9,10 +9,9 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857884"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen2
@@ -39,7 +38,7 @@ Nazwy główne usług Azure Active Directory są zwykle używane przez usługi, 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Włączanie zapory Data Lake Storage Gen2 z dostępem do usługi platformy Azure
 
-Data Lake Storage Gen2 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane do ograniczenia wektora ataków zewnętrznych. Zaporę można włączyć na koncie magazynu w Azure Portal za pomocą **zapory** > **Włącz zaporę (włączona)** > **Zezwalaj na dostęp do opcji usług platformy Azure** .
+Data Lake Storage Gen2 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane do ograniczenia wektora ataków zewnętrznych. Zaporę można włączyć na koncie magazynu w Azure Portal za pomocą **zapory**  >  **Włącz zaporę (włączona)**  >  **Zezwalaj na dostęp do opcji usług platformy Azure** .
 
 Aby uzyskać dostęp do konta magazynu z Azure Databricks, wdróż Azure Databricks w sieci wirtualnej, a następnie Dodaj tę sieć wirtualną do zapory. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
 ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82863420"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Zdalna pomoc techniczna dla zapory platformy Azure

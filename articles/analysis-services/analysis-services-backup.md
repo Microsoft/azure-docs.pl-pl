@@ -8,10 +8,9 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871298"
 ---
 # <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
@@ -40,7 +39,7 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 
 2.  Kliknij pozycję **włączone**, a następnie kliknij pozycję **ustawienia magazynu**.
 
-    ![Włączanie](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Włącz](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Wybierz konto magazynu lub Utwórz nowe.
 
@@ -58,7 +57,7 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 
 1. W programie SSMS kliknij prawym przyciskiem myszy bazę danych > **utworzyć kopię zapasową**.
 
-2. W obszarze kopia zapasowa**pliku**kopii zapasowej **bazy danych** > kliknij przycisk **Przeglądaj**.
+2. W obszarze kopia zapasowa pliku kopii zapasowej **bazy danych**  >  **Backup file**kliknij przycisk **Przeglądaj**.
 
 3. W oknie dialogowym **Zapisz plik jako** Sprawdź ścieżkę folderu, a następnie wpisz nazwę pliku kopii zapasowej. 
 

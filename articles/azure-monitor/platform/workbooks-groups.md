@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892084"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Jak używać grup w skoroszytach
@@ -22,7 +21,7 @@ Element grupy w skoroszycie umożliwia logiczne grupowanie zestawu kroków w sko
 
 Grupy w skoroszytach są przydatne w kilku kwestiach:
 
-- Układ
+- Layout
   - W scenariuszach, w których elementy mają być zorganizowane w pionie, można utworzyć grupę elementów, które będą miały wszystkie stosy, i ustawić styl grupy jako szerokość procentową, a nie ustawienie szerokości procentowej dla wszystkich poszczególnych elementów.
 - Widoczność
   - W scenariuszach, w których wiele elementów ma być ukrywanych i wyświetlanych razem, można ustawić widoczność całej grupy elementów, zamiast ustawiać ustawienia widoczności poszczególnych elementów. Może to być przydatne w szablonach korzystających z kart, jak można użyć grupy jako zawartości karty, a cała grupa może być ukryta/pokazana na podstawie parametru ustawionego przez wybraną kartę.
@@ -114,15 +113,15 @@ Po załadowaniu drugiego szablonu do grupy, zduplikowane parametry zostaną scal
 Rozważmy szablon grupy, który ma dwa parametry u góry.
 
 - `TimeRange`-parametr zakresu czasu.
-- `FilterB`-Parametr tekstowy, należy zauważyć, że nie `Filter` jest tak samo jak w przypadku górnego szablonu.
+- `FilterB`-Parametr tekstowy, należy zauważyć, że nie jest `Filter` tak samo jak w przypadku górnego szablonu.
 
 ![Edytowanie elementu grupy z wynikiem parametrów scalonych](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Po załadowaniu szablonu item's grupy `TimeRange` parametr zostanie scalony z grupy. Następnie skoroszyt będzie miał krok początkowy parametrów z `TimeRange` i `Filter`, a krok parametru grupy będzie zawierać tylko`FilterB`
+Po załadowaniu szablonu item's grupy `TimeRange` parametr zostanie scalony z grupy. Następnie skoroszyt będzie miał krok początkowy parametrów z `TimeRange` i `Filter` , a krok parametru grupy będzie zawierać tylko`FilterB`
 
 ![wynik parametrów, które nie zostaną scalone](./media/workbooks-groups/groups-wont-merge-away-result.png)
 
-Jeśli załadowany szablon zawiera `TimeRange` i `Filter` (zamiast `FilterB`), wynikowy skoroszyt będzie miał krok parametrów i grupę z tylko pozostałym krokiem tekstu.
+Jeśli załadowany szablon zawiera `TimeRange` i `Filter` (zamiast `FilterB` ), wynikowy skoroszyt będzie miał krok parametrów i grupę z tylko pozostałym krokiem tekstu.
 
 ## <a name="how-to-split-a-large-template-into-many-templates"></a>Jak podzielić duży szablon na wiele szablonów
 

@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800655"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
@@ -65,7 +64,7 @@ Tak. Kopie zapasowe są uruchamiane, gdy maszyna jest wyłączona. Punkt odzyski
 
 Tak. Zadanie tworzenia kopii zapasowej można anulować w stanie trwającej **migawki** . Nie można anulować zadania, jeśli transfer danych z migawki jest w toku.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Włączono blokadę grupy zasobów utworzonej przez usługę Azure Backup (na przykład `AzureBackupRG_<geo>_<number>`). Czy operacje tworzenia kopii zapasowych będą nadal działać?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Włączono blokadę grupy zasobów utworzonej przez usługę Azure Backup (na przykład `AzureBackupRG_<geo>_<number>` ). Czy operacje tworzenia kopii zapasowych będą nadal działać?
 
 Jeśli zablokujesz grupę zasobów utworzoną przez usługę Azure Backup, kopie zapasowe rozpoczną się niepowodzeniem, ponieważ obowiązuje limit 18 punktów przywracania.
 
@@ -143,7 +142,7 @@ Funkcja [natychmiastowego przywracania](backup-instant-restore-capability.md) u�
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Co się stanie w przypadku zmiany ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej?
 
-Po zmianie ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej kopie zapasowe będą nadal współpracują z nowym zestawem szczegółów. Jednak po przywróceniu z punktu odzyskiwania przed zmianą należy przywrócić klucze tajne w magazynie kluczy, aby można było utworzyć maszynę wirtualną. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Po zmianie ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej kopie zapasowe będą nadal współpracują z nowym zestawem szczegółów. Jednak po przywróceniu z punktu odzyskiwania przed zmianą należy przywrócić klucze tajne w magazynie kluczy, aby można było utworzyć maszynę wirtualną. Więcej informacji znajduje się w tym [artykule](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
 
 Operacje, takie jak przechodzenie do trybu tajnego/klucza, nie wymagają tego kroku, a ten sam magazyn kluczy może być używany po przywróceniu.
 
@@ -166,9 +165,9 @@ Utworzono kopię zapasową maszyny wirtualnej przy użyciu ustawień harmonogram
 2. Aby przenieść maszyny wirtualne skonfigurowane przy użyciu Azure Backup, wykonaj następujące czynności:
 
    1. Znajdź lokalizację maszyny wirtualnej.
-   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1`. Na przykład *AzureBackupRG_westus2_1*
+   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
    3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
-   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec `AzureBackup_<name of your VM that you're trying to move>_###########`nazewnictwa.
+   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
    6. Po zakończeniu operacji usuwania można przenieść maszynę wirtualną.
 

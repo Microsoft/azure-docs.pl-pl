@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792313"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Przygotowywanie istniejącego obrazu maszyny wirtualnej z systemem Linux na potrzeby użycia z usługą Cloud-init
@@ -29,7 +28,7 @@ sudo yum install -y gdisk cloud-utils-growpart
 sudo yum install - y cloud-init 
 ```
 
-Zaktualizuj `cloud_init_modules` sekcję w programie `/etc/cloud/cloud.cfg` , aby uwzględnić następujące moduły:
+Zaktualizuj `cloud_init_modules` sekcję w programie, `/etc/cloud/cloud.cfg` Aby uwzględnić następujące moduły:
 
 ```bash
 - disk_setup
@@ -55,7 +54,7 @@ cloud_init_modules:
  - ssh
 ```
 
-Kilka zadań związanych z obsługą administracyjną i obsługą dysków tymczasowych należy zaktualizować w programie `/etc/waagent.conf`. Uruchom następujące polecenia, aby zaktualizować odpowiednie ustawienia.
+Kilka zadań związanych z obsługą administracyjną i obsługą dysków tymczasowych należy zaktualizować w programie `/etc/waagent.conf` . Uruchom następujące polecenia, aby zaktualizować odpowiednie ustawienia.
 
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
@@ -65,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Zezwól na dostęp do platformy Azure jako źródła danych dla agenta systemu Azure Linux, tworząc `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` nowy plik za pomocą wybranego edytora z następującym wierszem:
+Zezwól na dostęp do platformy Azure jako źródła danych dla agenta systemu Azure Linux, tworząc nowy plik `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` za pomocą wybranego edytora z następującym wierszem:
 
 ```bash
 # Azure Data Source config
@@ -82,7 +81,7 @@ W przypadku obrazów CentOS z włączonym swapfile można uruchomić następują
 sudo swapoff /mnt/resource/swapfile
 ```
 
-Upewnij się, że odwołanie swapfile zostało `/etc/fstab` usunięte z — powinien wyglądać podobnie do następującego:
+Upewnij się, że odwołanie swapfile zostało usunięte z `/etc/fstab` — powinien wyglądać podobnie do następującego:
 
 ```output
 # /etc/fstab

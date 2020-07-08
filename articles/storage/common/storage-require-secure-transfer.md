@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870514"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Wymagaj bezpiecznego transferu w celu zapewnienia bezpiecznych połączeń
@@ -53,11 +52,11 @@ Właściwość **Required Secure transfer** można włączyć podczas tworzenia 
 
 Aby wymagać bezpiecznego transferu programowo, należy ustawić właściwość _supportsHttpsTrafficOnly_ na koncie magazynu. Tę właściwość można ustawić za pomocą interfejsu API REST dostawcy zasobów usługi Storage, bibliotek klienckich lub narzędzi:
 
-* [INTERFEJS API REST](/rest/api/storagerp/storageaccounts)
-* [Narzędzia](/powershell/module/az.storage/set-azstorageaccount)
+* [Interfejs API REST](/rest/api/storagerp/storageaccounts)
+* [Program PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [Interfejs wiersza polecenia](/cli/azure/storage/account)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
-* [Zestaw SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [Zestaw SDK platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
 * [Zestaw SDK dla języka Python](https://pypi.org/project/azure-mgmt-storage)
 * [Zestaw SDK dla języka Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 

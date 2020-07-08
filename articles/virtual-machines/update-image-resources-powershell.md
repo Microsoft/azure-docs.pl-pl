@@ -10,10 +10,9 @@ ms.date: 04/27/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: c6bc4fea05f79c446f318eb4cbc86beb160ea108
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797008"
 ---
 # <a name="list-update-and-delete-image-resources-using-powershell"></a>Wyświetlanie listy, aktualizowanie i usuwanie zasobów obrazów przy użyciu programu PowerShell 

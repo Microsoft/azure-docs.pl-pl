@@ -10,10 +10,9 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891466"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Windows dla Azure App Service
@@ -43,7 +42,7 @@ Wszystkie środowiska uruchomieniowe języka Java na App Service przy użyciu JV
 
 Aby można było rejestrować czas, potrzebny jest Identyfikator PID (identyfikator procesu) aplikacji Java. Aby znaleźć identyfikator PID, Otwórz przeglądarkę dla witryny SCM aplikacji sieci Web pod adresem https://<nazwę witryny>. scm.azurewebsites.net/ProcessExplorer/. Na tej stronie są wyświetlane uruchomione procesy w aplikacji sieci Web. Znajdź w tabeli proces o nazwie "Java" i skopiuj odpowiedni identyfikator PID (identyfikator procesu).
 
-Następnie otwórz **konsolę debugowania** na górnym pasku narzędzi w witrynie SCM i uruchom następujące polecenie. Zamień `<pid>` na identyfikator procesu, który został wcześniej skopiowany. To polecenie spowoduje uruchomienie 30-sekundowego nagrania profilera aplikacji Java i wygenerowanie pliku o nazwie `timed_recording_example.jfr` w `D:\home` katalogu.
+Następnie otwórz **konsolę debugowania** na górnym pasku narzędzi w witrynie SCM i uruchom następujące polecenie. Zamień na `<pid>` Identyfikator procesu, który został wcześniej skopiowany. To polecenie spowoduje uruchomienie 30-sekundowego nagrania profilera aplikacji Java i wygenerowanie pliku o nazwie `timed_recording_example.jfr` w `D:\home` katalogu.
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -82,7 +81,7 @@ Azure App Service obsługuje Dostosowywanie i Dostosowywanie pól za pomocą Azu
 
 Aby ustawić przydzieloną pamięć lub inne opcje środowiska uruchomieniowego JVM, Utwórz [ustawienie aplikacji](configure-common.md#configure-app-settings) o nazwie `JAVA_OPTS` z opcjami. App Service przekazuje to ustawienie jako zmienną środowiskową do środowiska uruchomieniowego Java podczas jego uruchamiania.
 
-W Azure Portal w obszarze **Ustawienia aplikacji** dla aplikacji sieci Web Utwórz nowe ustawienie aplikacji o nazwie `JAVA_OPTS` , które zawiera dodatkowe ustawienia, na przykład. `-Xms512m -Xmx1204m`
+W Azure Portal w obszarze **Ustawienia aplikacji** dla aplikacji sieci Web Utwórz nowe ustawienie aplikacji o nazwie, `JAVA_OPTS` które zawiera dodatkowe ustawienia, na przykład `-Xms512m -Xmx1204m` .
 
 Aby skonfigurować ustawienie aplikacji z wtyczki Maven, Dodaj Tagi ustawienia/wartość w sekcji wtyczka platformy Azure. W poniższym przykładzie ustawiono określony minimalny i maksymalny rozmiar sterty Java:
 
@@ -122,7 +121,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>Ustaw domyślne kodowanie znaków
 
-W Azure Portal w obszarze **Ustawienia aplikacji** dla aplikacji sieci Web Utwórz nowe ustawienie aplikacji o nazwie `JAVA_OPTS` z wartością. `-Dfile.encoding=UTF-8`
+W Azure Portal w obszarze **Ustawienia aplikacji** dla aplikacji sieci Web Utwórz nowe ustawienie aplikacji o nazwie `JAVA_OPTS` z wartością `-Dfile.encoding=UTF-8` .
 
 Alternatywnie można skonfigurować ustawienie aplikacji przy użyciu wtyczki App Service Maven. Dodaj nazwę ustawienia i Tagi wartości w konfiguracji wtyczki:
 
@@ -149,7 +148,7 @@ Skonfiguruj uwierzytelnianie aplikacji w Azure Portal przy użyciu opcji **uwier
 
 #### <a name="tomcat"></a>Tomcat
 
-Aplikacja Tomcat może uzyskać dostęp do oświadczeń użytkownika bezpośrednio z serwletu przez rzutowanie obiektu podmiotu zabezpieczeń na obiekt mapy. Obiekt mapy będzie mapować każdy typ oświadczenia do kolekcji oświadczeń dla tego typu. W poniższym kodzie `request` jest wystąpienie `HttpServletRequest`.
+Aplikacja Tomcat może uzyskać dostęp do oświadczeń użytkownika bezpośrednio z serwletu przez rzutowanie obiektu podmiotu zabezpieczeń na obiekt mapy. Obiekt mapy będzie mapować każdy typ oświadczenia do kolekcji oświadczeń dla tego typu. W poniższym kodzie `request` jest wystąpienie `HttpServletRequest` .
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -179,7 +178,7 @@ public String getScheme()
 public int getServerPort()
 ```
 
-Aby wyłączyć tę funkcję, należy utworzyć ustawienie aplikacji o `WEBSITE_AUTH_SKIP_PRINCIPAL` nazwie z wartością `1`. Aby wyłączyć wszystkie filtry serwletu dodane przez App Service, Utwórz ustawienie o nazwie `WEBSITE_SKIP_FILTERS` z wartością `1`.
+Aby wyłączyć tę funkcję, należy utworzyć ustawienie aplikacji o nazwie `WEBSITE_AUTH_SKIP_PRINCIPAL` z wartością `1` . Aby wyłączyć wszystkie filtry serwletu dodane przez App Service, Utwórz ustawienie o nazwie `WEBSITE_SKIP_FILTERS` z wartością `1` .
 
 ### <a name="configure-tlsssl"></a>Konfigurowanie protokołu TLS/SSL
 
@@ -191,7 +190,7 @@ Postępuj zgodnie z instrukcjami w polu [Zabezpiecz niestandardową nazwę DNS z
 
 Najpierw postępuj zgodnie z instrukcjami dotyczącymi [udzielania dostępu aplikacji do Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) i [dokonywania odwołania do magazynu kluczy w ustawieniach aplikacji](app-service-key-vault-references.md#reference-syntax). Można sprawdzić, czy odwołanie jest rozpoznawane jako wpis tajny, drukując zmienną środowiskową podczas zdalnego uzyskiwania dostępu do terminalu App Service.
 
-Aby wstrzyknąć te wpisy tajne w pliku konfiguracji wiosennej lub Tomcat, użyj składni iniekcji`${MY_ENV_VAR}`zmiennych środowiskowych (). W przypadku plików konfiguracji wiosennej zapoznaj się z tą dokumentacją w temacie [konfiguracje zewnętrzne](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Aby wstrzyknąć te wpisy tajne w pliku konfiguracji wiosennej lub Tomcat, użyj składni iniekcji zmiennych środowiskowych ( `${MY_ENV_VAR}` ). W przypadku plików konfiguracji wiosennej zapoznaj się z tą dokumentacją w temacie [konfiguracje zewnętrzne](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 
 ## <a name="configure-apm-platforms"></a>Konfigurowanie platform APM
@@ -201,26 +200,26 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ### <a name="configure-new-relic"></a>Konfiguruj nowe Relic
 
 1. Utwórz nowe konto Relic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, jego nazwa będzie wyglądać podobnie do *newrelic-Java-x. x. x. zip*.
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
 4. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM*.
 5. Przekaż pliki w postaci unpackd New Relic Java Agent do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
 6. Zmodyfikuj plik YAML pod adresem */Home/site/wwwroot/APM/newrelic/newrelic.yml* i Zastąp wartość licencji zastępczej własnym kluczem licencji.
 7. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
-    - Jeśli aplikacja używa **języka Java SE**, Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-    - Jeśli używasz **Tomcat**, Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością. `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
+    - Jeśli aplikacja używa **języka Java SE**, Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Jeśli używasz **Tomcat**, Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ### <a name="configure-appdynamics"></a>Konfigurowanie AppDynamics
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x. x. x. xxxxx. zip*
+2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
 3. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM*.
 4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
-    - Jeśli używasz **języka Java SE**, Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` przy użyciu wartości `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` , `<app-name>` gdzie to nazwa App Service.
-    - Jeśli używasz **Tomcat**, Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` przy użyciu wartości `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` , gdzie `<app-name>` to nazwa App Service.
+    - Jeśli używasz **języka Java SE**, Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` przy użyciu wartości, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
+    - Jeśli używasz **Tomcat**, Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` przy użyciu wartości, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
 
->  Jeśli masz już zmienną środowiskową dla `JAVA_OPTS` lub `CATALINA_OPTS`, Dołącz `-javaagent:/...` opcję do końca bieżącej wartości.
+>  Jeśli masz już zmienną środowiskową dla `JAVA_OPTS` lub `CATALINA_OPTS` , Dołącz `-javaagent:/...` opcję do końca bieżącej wartości.
 
 ## <a name="data-sources"></a>Źródła danych
 
@@ -228,13 +227,13 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 Te instrukcje dotyczą wszystkich połączeń z bazą danych. Musisz wypełnić symbole zastępcze nazwą klasy sterownika wybranej bazy danych i plikiem JAR. Dostarczono tabelę z nazwami klas i pobraniami sterowników dla wspólnych baz danych.
 
-| Baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
+| baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Pobierz](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Pobieranie](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Pobierz](https://dev.mysql.com/downloads/connector/j/) (wybierz pozycję "Platforma niezależna") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Pobierz](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Pobieranie](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
-Aby skonfigurować Tomcat do korzystania z łączności z bazą danych Java (JDBC) lub interfejsu API trwałości Java (JPA), `CATALINA_OPTS` najpierw Dostosuj zmienną środowiskową, która jest odczytywana przez Tomcat podczas uruchamiania. Ustaw te wartości za pomocą ustawienia aplikacji w [dodatku App Service Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
+Aby skonfigurować Tomcat do korzystania z łączności z bazą danych Java (JDBC) lub interfejsu API trwałości Java (JPA), najpierw Dostosuj `CATALINA_OPTS` zmienną środowiskową, która jest odczytywana przez Tomcat podczas uruchamiania. Ustaw te wartości za pomocą ustawienia aplikacji w [dodatku App Service Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings>
@@ -245,15 +244,15 @@ Aby skonfigurować Tomcat do korzystania z łączności z bazą danych Java (JDB
 </appSettings>
 ```
 
-Lub Ustaw zmienne środowiskowe na stronie **Configuration** > **Ustawienia aplikacji** konfiguracji w Azure Portal.
+Lub Ustaw zmienne środowiskowe na stronie **Configuration**  >  **Ustawienia aplikacji** konfiguracji w Azure Portal.
 
 Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikacji, czy dla wszystkich aplikacji uruchomionych na Tomcat serwletu.
 
 #### <a name="application-level-data-sources"></a>Źródła danych na poziomie aplikacji
 
-1. Utwórz plik *Context. XML* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
+1. Utwórz plik *context.xml* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
 
-2. W *pliku Context. XML*Dodaj `Context` element, aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
+2. W *context.xml*Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
 
     ```xml
     <Context>
@@ -268,7 +267,7 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
     </Context>
     ```
 
-3. Zaktualizuj *plik Web. XML* aplikacji w taki sposób, aby korzystał ze źródła danych w aplikacji.
+3. Zaktualizuj *web.xml* aplikacji tak, aby korzystała ze źródła danych w aplikacji.
 
     ```xml
     <resource-env-ref>
@@ -301,14 +300,14 @@ Alternatywnie możesz użyć klienta FTP do przekazania sterownika JDBC. Postęp
 
 Aby edytować Tomcat `server.xml` lub inne pliki konfiguracyjne, najpierw Zanotuj wersję główną Tomcat w portalu.
 
-1. Znajdź katalog macierzysty Tomcat dla swojej wersji, uruchamiając `env` polecenie. Wyszukaj zmienną środowiskową rozpoczynającą się od `AZURE_TOMCAT`i dopasowuje wersję główną. Na przykład `AZURE_TOMCAT85_HOME` wskazuje katalog Tomcat dla Tomcat 8,5.
-1. Po zidentyfikowaniu katalogu macierzystego Tomcat dla danej wersji Skopiuj katalog konfiguracji do `D:\home`programu. Na przykład, jeśli `AZURE_TOMCAT85_HOME` ma wartość `D:\Program Files (x86)\apache-tomcat-8.5.37`, Nowa ścieżka do skopiowanego katalogu byłaby `D:\home\apache-tomcat-8.5.37`.
+1. Znajdź katalog macierzysty Tomcat dla swojej wersji, uruchamiając `env` polecenie. Wyszukaj zmienną środowiskową rozpoczynającą się od `AZURE_TOMCAT` i dopasowuje wersję główną. Na przykład `AZURE_TOMCAT85_HOME` wskazuje katalog Tomcat dla Tomcat 8,5.
+1. Po zidentyfikowaniu katalogu macierzystego Tomcat dla danej wersji Skopiuj katalog konfiguracji do programu `D:\home` . Na przykład, jeśli `AZURE_TOMCAT85_HOME` ma wartość `D:\Program Files (x86)\apache-tomcat-8.5.37` , Nowa ścieżka do skopiowanego katalogu byłaby `D:\home\apache-tomcat-8.5.37` .
 
 Na koniec uruchom ponownie usługę App Service. Twoje wdrożenia powinny przejść do `D:\home\site\wwwroot\webapps` tak jak wcześniej.
 
 ## <a name="configure-java-se"></a>Konfigurowanie środowiska Java SE
 
-Podczas uruchamiania programu. Aplikacja JAR w języku Java SE w systemie `server.port` Windows jest przenoszona jako opcja wiersza polecenia podczas uruchamiania aplikacji. Można ręcznie rozwiązać port HTTP ze zmiennej środowiskowej `HTTP_PLATFORM_PORT`. Wartością tej zmiennej środowiskowej będzie port HTTP, na którym aplikacja powinna nasłuchiwać. 
+Podczas uruchamiania programu. Aplikacja JAR w języku Java SE w systemie Windows `server.port` jest przenoszona jako opcja wiersza polecenia podczas uruchamiania aplikacji. Można ręcznie rozwiązać port HTTP ze zmiennej środowiskowej `HTTP_PLATFORM_PORT` . Wartością tej zmiennej środowiskowej będzie port HTTP, na którym aplikacja powinna nasłuchiwać. 
 
 ## <a name="java-runtime-statement-of-support"></a>Instrukcja obsługi środowiska uruchomieniowego Java
 

@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: a5ba7d7fce3f3eabd223956ca8d9cc824fbd0c5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869447"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalowanie i Konfigurowanie MongoDB na maszynie wirtualnej z systemem Windows na platformie Azure
@@ -38,10 +37,10 @@ Aby rozpocząć instalowanie i Konfigurowanie MongoDB, [Zaloguj się do maszyny 
    
    * Wybierz ikonę **Narzędzia** w prawym górnym rogu.
    * W **Opcje internetowe**, wybierz kartę **zabezpieczenia** , a następnie wybierz ikonę **Zaufane witryny** .
-   * Kliknij przycisk **Lokacje** . Dodaj *https://\*. MongoDB.com* do listy zaufanych witryn, a następnie zamknij okno dialogowe.
+   * Kliknij przycisk **Lokacje** . Dodaj *https:// \* . MongoDB.com* do listy zaufanych witryn, a następnie zamknij okno dialogowe.
      
      ![Konfigurowanie ustawień zabezpieczeń programu Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Przejdź do strony [MongoDB — pliki do pobrania](https://www.mongodb.com/downloads) (https://www.mongodb.com/downloads).
+4. Przejdź do strony [MongoDB — pliki do pobrania](https://www.mongodb.com/downloads) ( https://www.mongodb.com/downloads) .
 5. W razie potrzeby wybierz wersję **serwer Community** , a następnie wybierz najnowszą bieżącą, stabilną wersję dla*systemu Windows Server 2008 R2 64-bit i nowszego*. Aby pobrać Instalatora, kliknij pozycję **Pobierz (msi)**.
    
     ![Pobierz instalatora MongoDB](./media/install-mongodb/download-mongodb.png)
@@ -60,14 +59,14 @@ Aby rozpocząć instalowanie i Konfigurowanie MongoDB, [Zaloguj się do maszyny 
      
      ![Konfiguruj zmienne ścieżki](./media/install-mongodb/configure-path-variables.png)
      
-     Dodaj ścieżkę do folderu MongoDB `bin` . MongoDB jest zazwyczaj instalowany w *katalogu C:\Program Files\MongoDB*. Sprawdź ścieżkę instalacji na maszynie wirtualnej. Poniższy przykład dodaje domyślną lokalizację instalacji MongoDB do `PATH` zmiennej:
+     Dodaj ścieżkę do `bin` folderu MongoDB. MongoDB jest zazwyczaj instalowany w *katalogu C:\Program Files\MongoDB*. Sprawdź ścieżkę instalacji na maszynie wirtualnej. Poniższy przykład dodaje domyślną lokalizację instalacji MongoDB do `PATH` zmiennej:
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
-     > Pamiętaj, aby dodać wiodący średnik (`;`), aby wskazać, że dodajesz lokalizację do `PATH` zmiennej.
+     > Pamiętaj, aby dodać wiodący średnik ( `;` ), aby wskazać, że dodajesz lokalizację do `PATH` zmiennej.
 
 2. Utwórz MongoDB danych i katalogów dzienników na dysku z danymi. Z menu **Start** wybierz **polecenie Wiersz polecenia**. Poniższe przykłady tworzą katalogi na dysku F:
    
@@ -94,9 +93,9 @@ Aby rozpocząć instalowanie i Konfigurowanie MongoDB, [Zaloguj się do maszyny 
    
     Poprzednie polecenie tworzy usługę o nazwie MongoDB, z opisem "Mongo DB". Określono również następujące parametry:
    
-   * `--dbpath` Opcja określa lokalizację katalogu danych.
-   * `--logpath` Opcja musi być użyta do określenia pliku dziennika, ponieważ uruchomiona usługa nie ma okna polecenia, aby wyświetlić dane wyjściowe.
-   * `--logappend` Opcja określa, że ponowne uruchomienie usługi powoduje dołączenie danych wyjściowych do istniejącego pliku dziennika.
+   * `--dbpath`Opcja określa lokalizację katalogu danych.
+   * `--logpath`Opcja musi być użyta do określenia pliku dziennika, ponieważ uruchomiona usługa nie ma okna polecenia, aby wyświetlić dane wyjściowe.
+   * `--logappend`Opcja określa, że ponowne uruchomienie usługi powoduje dołączenie danych wyjściowych do istniejącego pliku dziennika.
    
    Aby uruchomić usługę MongoDB, uruchom następujące polecenie:
    
@@ -154,7 +153,7 @@ Regułę można także utworzyć przy użyciu narzędzia do zarządzania w trybi
 W razie potrzeby utwórz regułę sieciowej grupy zabezpieczeń, aby zezwolić na dostęp do MongoDB spoza istniejącej podsieci sieci wirtualnej platformy Azure. Reguły sieciowej grupy zabezpieczeń można utworzyć przy użyciu [Azure Portal](nsg-quickstart-portal.md) lub [Azure PowerShell](nsg-quickstart-powershell.md). Podobnie jak w przypadku reguł zapory systemu Windows, Zezwól na port TCP 27017 do interfejsu sieci wirtualnej maszyny wirtualnej MongoDB.
 
 > [!NOTE]
-> Port TCP 27017 jest domyślnym portem używanym przez MongoDB. Można zmienić ten port przy użyciu `--port` parametru podczas ręcznego uruchamiania `mongod.exe` lub z usługi. Jeśli zmienisz port, pamiętaj o zaktualizowaniu zasad zapory systemu Windows i sieciowych grup zabezpieczeń w powyższych krokach.
+> Port TCP 27017 jest domyślnym portem używanym przez MongoDB. Można zmienić ten port przy użyciu `--port` parametru podczas `mongod.exe` ręcznego uruchamiania lub z usługi. Jeśli zmienisz port, pamiętaj o zaktualizowaniu zasad zapory systemu Windows i sieciowych grup zabezpieczeń w powyższych krokach.
 
 
 ## <a name="next-steps"></a>Następne kroki

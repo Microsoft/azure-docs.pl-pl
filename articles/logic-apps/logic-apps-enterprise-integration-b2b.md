@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792364"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Odbieraj i potwierdzaj wiadomości AS2 B2B przy użyciu Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
@@ -45,7 +44,7 @@ Ten przykład korzysta z projektanta aplikacji logiki w Azure Portal, ale można
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
 
-1. W polu wyszukiwania wpisz `when a http request`, a następnie wybierz, **kiedy zostanie ODEBRANe żądanie HTTP** , które ma być używane jako wyzwalacz.
+1. W polu wyszukiwania wpisz `when a http request` , a następnie wybierz, **kiedy zostanie odebrane żądanie HTTP** , które ma być używane jako wyzwalacz.
 
    ![Wybierz wyzwalacz żądania, aby uruchomić przepływ pracy aplikacji logiki](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
@@ -67,7 +66,7 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
    ![Dodawanie kolejnego kroku do przepływu pracy aplikacji logiki](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `as2 decode`, a następnie wybierz pozycję **dekodowanie AS2 (v2)**.
+1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `as2 decode` , a następnie wybierz pozycję **dekodowanie AS2 (v2)**.
 
    ![Znajdź i wybierz pozycję "dekodowanie AS2 (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
@@ -77,7 +76,7 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
      ![Wybierz wartość "treść" z wyzwalacza](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz komunikatu, **Aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
+   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
 
      `triggerOutputs()['body']`
 
@@ -117,13 +116,13 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
-   W środkowym polu upewnij się, że operacja porównywania jest ustawiona `is equal to`na. W polu po prawej stronie Wprowadź wartość `Expected`. Aby uzyskać wyrażenie do rozpoznania jako ten token, przełączać się między projektantem a widokiem kodu.
+   W środkowym polu upewnij się, że operacja porównywania jest ustawiona na `is equal to` . W polu po prawej stronie Wprowadź wartość `Expected` . Aby uzyskać wyrażenie do rozpoznania jako ten token, przełączać się między projektantem a widokiem kodu.
 
    ![Kształt warunku z ścieżkami decyzji](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Teraz Określ odpowiedzi, aby zwrócić, czy Akcja **dekodowania AS2** powiodła się.
 
-   1. W przypadku pomyślnej akcji **dekodowania AS2** w kształcie **Jeśli prawda** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response`, a następnie wybierz pozycję **odpowiedź**.
+   1. W przypadku pomyślnej akcji **dekodowania AS2** w kształcie **Jeśli prawda** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**.
 
       ![Znajdź i wybierz akcję "odpowiedź"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,7 +140,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
       ![Rozpoznano wyrażenie umożliwiające dostęp do AS2 powiadomienia MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. W przypadku niepowodzenia akcji **dekodowania AS2** w kształcie **Jeśli FAŁSZ** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response`, a następnie wybierz pozycję **odpowiedź**. Skonfiguruj akcję **odpowiedź** w celu zwrócenia żądanego stanu i błędu.
+   1. W przypadku niepowodzenia akcji **dekodowania AS2** w kształcie **Jeśli FAŁSZ** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**. Skonfiguruj akcję **odpowiedź** w celu zwrócenia żądanego stanu i błędu.
 
 1. Zapisz aplikację logiki.
 
@@ -149,7 +148,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. Teraz Dodaj akcję **Dekoduj X12 komunikat** . W obszarze Akcja **odpowiedzi** wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `x12 decode`, a następnie wybierz opcję **Dekoduj komunikat X12**.
+1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `x12 decode` , a następnie wybierz opcję **Dekoduj komunikat X12**.
 
    ![Znajdź i wybierz akcję "Dekoduj komunikat X12"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 
@@ -174,7 +173,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 Teraz wszystko jest gotowe do skonfigurowania aplikacji logiki B2B. W aplikacji Real World można przechowywać zdekodowane X12 dane w aplikacji biznesowych lub magazynu danych programu (LOB). Na przykład zobacz następujące artykuły:
 
 * [Łączenie z systemami SAP z usługi Azure Logic Apps](../logic-apps/logic-apps-using-sap-connector.md)
-* [Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołów SSH i Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
+* [Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
 Aby połączyć własne aplikacje LOB i używać tych interfejsów API w aplikacji logiki, możesz dodać więcej akcji lub [napisać niestandardowe interfejsy API](../logic-apps/logic-apps-create-api-app.md).
 

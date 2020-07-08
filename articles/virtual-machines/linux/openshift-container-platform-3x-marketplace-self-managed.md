@@ -11,10 +11,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759578"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
@@ -53,7 +52,7 @@ Kliknij ofertę, aby wyświetlić szczegóły oferty. Aby wdrożyć tę ofertę,
    ![Strona tytułu oferty](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Podstawy**
+**Informacje podstawowe**
 
 Aby uzyskać pomoc dotyczącą dowolnego z parametrów wejściowych, umieść kursor nad ***i*** obok nazwy parametru.
 
@@ -191,7 +190,7 @@ Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Na
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 

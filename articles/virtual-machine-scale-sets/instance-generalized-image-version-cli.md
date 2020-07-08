@@ -10,10 +10,9 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82797138"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu
@@ -36,9 +35,9 @@ az sig image-definition list \
    --output tsv
 ```
 
-Utwórz zestaw skalowania przy [`az vmss create`](/cli/azure/vmss#az-vmss-create)użyciu. 
+Utwórz zestaw skalowania przy użyciu [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
-Użyj identyfikatora definicji obrazu do, `--image` aby utworzyć wystąpienia zestawu skalowania z najnowszej wersji dostępnego obrazu. Możesz również utworzyć wystąpienia zestawu skalowania na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image`. Należy pamiętać, że użycie określonej wersji obrazu oznacza, że Automatyzacja może się nie powieść, jeśli określona wersja obrazu jest niedostępna, ponieważ została usunięta lub usunięta z regionu. Zalecamy użycie identyfikatora definicji obrazu do tworzenia nowej maszyny wirtualnej, o ile nie jest wymagana określona wersja obrazu.
+Użyj identyfikatora definicji obrazu do, `--image` Aby utworzyć wystąpienia zestawu skalowania z najnowszej wersji dostępnego obrazu. Możesz również utworzyć wystąpienia zestawu skalowania na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image` . Należy pamiętać, że użycie określonej wersji obrazu oznacza, że Automatyzacja może się nie powieść, jeśli określona wersja obrazu jest niedostępna, ponieważ została usunięta lub usunięta z regionu. Zalecamy użycie identyfikatora definicji obrazu do tworzenia nowej maszyny wirtualnej, o ile nie jest wymagana określona wersja obrazu.
 
 W tym przykładzie tworzymy wystąpienia z najnowszej wersji obrazu *myImageDefinition* .
 

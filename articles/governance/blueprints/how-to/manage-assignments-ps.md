@@ -4,10 +4,9 @@ description: Dowiedz się, jak zarządzać przypisaniami planów przy użyciu of
 ms.date: 05/06/2020
 ms.topic: how-to
 ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82863981"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Zarządzanie przypisaniami przy użyciu programu PowerShell
@@ -49,9 +48,9 @@ Moduł planów platformy Azure dla programu PowerShell to **AZ. plan**.
 ## <a name="get-blueprint-definitions"></a>Pobierz definicje planów
 
 Pierwszym krokiem do pracy z przypisaniem jest często pobranie odwołania do definicji planu.
-`Get-AzBlueprint` Polecenie cmdlet pobiera co najmniej jedną definicję planu. Polecenie cmdlet może pobrać definicje planu z grupy zarządzania z `-ManagementGroupId {mgId}` lub z subskrypcją programu `-SubscriptionId {subId}`. Parametr **name** pobiera definicję planu, ale musi być używany z **ManagementGroupId** lub identyfikatorem **subskrypcji**. **Wersja** może być używana z **nazwą** , aby być bardziej jawna, na której jest zwracana definicja planu. Zamiast **wersji**, przełącznik `-LatestPublished` korzysta z ostatnio opublikowanej wersji.
+`Get-AzBlueprint`Polecenie cmdlet pobiera co najmniej jedną definicję planu. Polecenie cmdlet może pobrać definicje planu z grupy zarządzania z `-ManagementGroupId {mgId}` lub z subskrypcją programu `-SubscriptionId {subId}` . Parametr **name** pobiera definicję planu, ale musi być używany z **ManagementGroupId** lub identyfikatorem **subskrypcji**. **Wersja** może być używana z **nazwą** , aby być bardziej jawna, na której jest zwracana definicja planu. Zamiast **wersji**, przełącznik korzysta z `-LatestPublished` ostatnio opublikowanej wersji.
 
-Poniższy przykład używa `Get-AzBlueprint` , aby pobrać wszystkie wersje definicji planu o nazwie "101-plany-definicja-subskrypcja" z określonej subskrypcji reprezentowanej jako `{subId}`:
+Poniższy przykład używa, `Get-AzBlueprint` Aby pobrać wszystkie wersje definicji planu o nazwie "101-plany-definicja-subskrypcja" z określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -97,7 +96,7 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 Jeśli przypisanie planu już istnieje, można uzyskać odwołanie do niego przy użyciu `Get-AzBlueprintAssignment` polecenia cmdlet. Polecenie cmdlet przyjmuje identyfikator **subskrypcji** i **nazwę** jako parametry opcjonalne. Jeśli nie określono identyfikatora **subskrypcji** , używany jest bieżący kontekst subskrypcji.
 
-Poniższy przykład używa `Get-AzBlueprintAssignment` do uzyskania jednego przypisania planu o nazwie "przypisanie-blokada-zasób-grupy" z określonej subskrypcji reprezentowanej jako `{subId}`:
+Poniższy przykład używa `Get-AzBlueprintAssignment` do uzyskania jednego przypisania planu o nazwie "przypisanie-blokada-zasób-grupy" z określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -132,7 +131,7 @@ Jeśli przypisanie planu nie istnieje jeszcze, można je utworzyć za pomocą `N
   - Musi być unikatowa i jeszcze nie istnieć w identyfikatorze **subskrypcji**
 - **Plan** [wymagany]
   - Określa definicję planu do przypisania
-  - Użyj `Get-AzBlueprint` , aby uzyskać obiekt odwołania
+  - Użyj, `Get-AzBlueprint` Aby uzyskać obiekt odwołania
 - **Lokalizacja** [wymagana]
   - Określa region dla tożsamości zarządzanej przypisanej do systemu i obiektu wdrożenia subskrypcji
 - **Subskrypcja** (opcjonalnie)
@@ -168,7 +167,7 @@ Jeśli przypisanie planu nie istnieje jeszcze, można je utworzyć za pomocą `N
 
 ### <a name="example-1-provide-parameters"></a>Przykład 1: podaj parametry
 
-Poniższy przykład tworzy nowe przypisanie wersji "1,1" w definicji planu "My-strategii" `Get-AzBlueprint`pobranej z, ustawia lokalizację zarządzaną tożsamości i obiektu przypisania na "westus2", blokuje zasoby z _AllResourcesReadOnly_i ustawia tabele skrótów dla **parametrów** i **ResourceGroupParameter** dla określonej subskrypcji reprezentowanej jako: `{subId}`
+Poniższy przykład tworzy nowe przypisanie wersji "1,1" w definicji planu "My-strategii" pobranej z `Get-AzBlueprint` , ustawia lokalizację zarządzaną tożsamości i obiektu przypisania na "westus2", blokuje zasoby z _AllResourcesReadOnly_i ustawia tabele skrótów dla **parametrów** i **ResourceGroupParameter** dla określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +249,7 @@ Przykład pliku definicji przypisania JSON dla tożsamości zarządzanej przypis
 
 ## <a name="update-blueprint-assignments"></a>Aktualizowanie przypisań planów
 
-Czasami trzeba zaktualizować przypisanie planu, które zostało już utworzone. `Set-AzBlueprintAssignment` Polecenie cmdlet obsługuje tę akcję. Polecenie cmdlet pobiera większość z tych samych parametrów, które `New-AzBlueprintAssignment` są używane przez polecenie cmdlet, co umożliwia zaktualizowanie wszystkich elementów ustawionych w przypisaniu. Wyjątkami są _nazwy_, _plany_i identyfikator _subskrypcji_. Tylko podane wartości są aktualizowane.
+Czasami trzeba zaktualizować przypisanie planu, które zostało już utworzone. `Set-AzBlueprintAssignment`Polecenie cmdlet obsługuje tę akcję. Polecenie cmdlet pobiera większość z tych samych parametrów, które są używane przez `New-AzBlueprintAssignment` polecenie cmdlet, co umożliwia zaktualizowanie wszystkich elementów ustawionych w przypisaniu. Wyjątkami są _nazwy_, _plany_i identyfikator _subskrypcji_. Tylko podane wartości są aktualizowane.
 
 Aby zrozumieć, co się dzieje w przypadku aktualizowania przypisania planu, zobacz [reguły dotyczące aktualizowania przypisań](./update-existing-assignments.md#rules-for-updating-assignments).
 
@@ -259,7 +258,7 @@ Aby zrozumieć, co się dzieje w przypadku aktualizowania przypisania planu, zob
   - Służy do lokalizowania przypisania do aktualizacji, a nie do zmiany przypisania
 - **Plan** [wymagany]
   - Określa definicję planu przypisania planu
-  - Użyj `Get-AzBlueprint` , aby uzyskać obiekt odwołania
+  - Użyj, `Get-AzBlueprint` Aby uzyskać obiekt odwołania
   - Służy do lokalizowania przypisania do aktualizacji, a nie do zmiany przypisania
 - **Lokalizacja** (opcjonalnie)
   - Określa region dla tożsamości zarządzanej przypisanej do systemu i obiektu wdrożenia subskrypcji
@@ -322,7 +321,7 @@ ResourceGroups    : ResourceGroup
 
 Gdy jest czas, aby można było usunąć przypisanie do planu, `Remove-AzBlueprintAssignment` polecenie cmdlet obsługuje tę akcję. Polecenie cmdlet przyjmuje **nazwę** lub parametr **inputobject** , aby określić, które przypisanie planu ma zostać usunięte. Identyfikator **subskrypcji** jest _wymagany_ i musi być podany we wszystkich przypadkach.
 
-Poniższy przykład pobiera istniejące przypisanie strategii z `Get-AzBlueprintAssignment` , a następnie usuwa je z określonej subskrypcji reprezentowanej jako: `{subId}`
+Poniższy przykład pobiera istniejące przypisanie strategii z `Get-AzBlueprintAssignment` , a następnie usuwa je z określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -336,7 +335,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="code-example"></a>Przykładowy kod
 
-Wykonanie wszystkich kroków razem, w poniższym przykładzie pobiera definicję planu, tworzy, aktualizuje i usuwa przypisanie strategii w ramach określonej subskrypcji reprezentowanej jako `{subId}`:
+Wykonanie wszystkich kroków razem, w poniższym przykładzie pobiera definicję planu, tworzy, aktualizuje i usuwa przypisanie strategii w ramach określonej subskrypcji reprezentowanej jako `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

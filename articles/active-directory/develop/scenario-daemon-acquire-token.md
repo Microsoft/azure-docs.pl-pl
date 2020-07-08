@@ -12,19 +12,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d755573b53eb63d85165fb73fe4b97298dbeff09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868994"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu
 
-Po zbudowaniu poufnej aplikacji klienckiej można uzyskać token dla aplikacji przez wywołanie `AcquireTokenForClient`, przekazanie zakresu i opcjonalnie wymuszenie odświeżenia tokenu.
+Po zbudowaniu poufnej aplikacji klienckiej można uzyskać token dla aplikacji przez wywołanie `AcquireTokenForClient` , przekazanie zakresu i opcjonalnie wymuszenie odświeżenia tokenu.
 
 ## <a name="scopes-to-request"></a>Zakresy do żądania
 
-Zakresem żądania dla przepływu poświadczeń klienta jest nazwa zasobu, po którym następuje `/.default`. Ta notacja informuje Azure Active Directory (Azure AD) o korzystaniu z *uprawnień na poziomie aplikacji* , które są zadeklarowane statycznie podczas rejestrowania aplikacji. Ponadto te uprawnienia interfejsu API muszą zostać przyznane przez administratora dzierżawy.
+Zakresem żądania dla przepływu poświadczeń klienta jest nazwa zasobu, po którym następuje `/.default` . Ta notacja informuje Azure Active Directory (Azure AD) o korzystaniu z *uprawnień na poziomie aplikacji* , które są zadeklarowane statycznie podczas rejestrowania aplikacji. Ponadto te uprawnienia interfejsu API muszą zostać przyznane przez administratora dzierżawy.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -53,11 +52,11 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ### <a name="azure-ad-v10-resources"></a>Zasoby usługi Azure AD (v 1.0)
 
-Zakres używany na potrzeby poświadczeń klienta zawsze powinien być IDENTYFIKATORem zasobu, po `/.default`którym następuje.
+Zakres używany na potrzeby poświadczeń klienta zawsze powinien być IDENTYFIKATORem zasobu, po którym następuje `/.default` .
 
 > [!IMPORTANT]
 > Gdy MSAL żąda tokenu dostępu dla zasobu, który akceptuje token dostępu w wersji 1,0, usługa Azure AD analizuje żądanych odbiorców od żądanego zakresu, pobierając wszystko przed ostatnim ukośnikiem i używając go jako identyfikatora zasobu.
-> Tak więc jeśli, podobnie jak Azure SQL Database (**https:\//Database.Windows.NET**), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/`), należy zażądać zakresu `https://database.windows.net//.default`. (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Tak więc jeśli, podobnie jak Azure SQL Database (**https: \/ /Database.Windows.NET**), zasób oczekuje odbiorców kończących się ukośnikiem (dla Azure SQL Database `https://database.windows.net/` ), należy zażądać zakresu `https://database.windows.net//.default` . (Należy pamiętać o podwójnym ukośniku). Zobacz również #747 problemu MSAL.NET [: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>Interfejs API AcquireTokenForClient
 
@@ -167,7 +166,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 ---
 
-### <a name="protocol"></a>Protocol (Protokół)
+### <a name="protocol"></a>Protokół
 
 Jeśli nie masz jeszcze biblioteki dla wybranego języka, możesz chcieć użyć protokołu bezpośrednio:
 
@@ -202,13 +201,13 @@ Aby uzyskać więcej informacji, zobacz dokumentację protokołu: [Microsoft Ide
 
 ## <a name="application-token-cache"></a>Pamięć podręczna tokenów aplikacji
 
-W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken*XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient`, ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient`sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
+W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken*XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient`sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Czy używasz tego zakresu zasobu/. default?
 
-Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że użyto nieprawidłowego zakresu, prawdopodobnie nie był `resource/.default` używany zakres.
+Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że użyto nieprawidłowego zakresu, prawdopodobnie nie był używany `resource/.default` zakres.
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Czy pamiętasz o podaniu zgody administratora? Aplikacje demonów wymagają!
 

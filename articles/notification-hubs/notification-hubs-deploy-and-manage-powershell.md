@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82891198"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Wdrażanie centrów powiadomień i zarządzanie nimi przy użyciu programu PowerShell
@@ -34,7 +33,7 @@ W tym artykule pokazano, jak używać usługi Azure Notification Hubs tworzenia 
 
 Jeśli trzeba również utworzyć nową przestrzeń nazw usługi Service Bus dla centrów powiadomień, zobacz [zarządzanie Service Bus przy użyciu programu PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
-Zarządzanie centrami powiadomień nie jest obsługiwane bezpośrednio przez polecenia cmdlet dołączone do Azure PowerShell. Najlepszym podejściem z programu PowerShell jest odwołanie do zestawu Microsoft. Azure. NotificationHubs. dll. Zestaw jest dystrybuowany z [pakietem NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Zarządzanie centrami powiadomień nie jest obsługiwane bezpośrednio przez polecenia cmdlet dołączone do Azure PowerShell. Najlepszym podejściem z programu PowerShell jest odwołanie do zestawu Microsoft.Azure.NotificationHubs.dll. Zestaw jest dystrybuowany z [pakietem NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,11 +45,11 @@ Zarządzanie centrami powiadomień nie jest obsługiwane bezpośrednio przez pol
 
 Zarządzanie usługą Azure Notification Hubs nie jest jeszcze dołączone do poleceń cmdlet programu PowerShell w programie Azure PowerShell. Aby udostępnić Centra powiadomień, można użyć klienta platformy .NET dostarczonego w [pakiecie NuGet Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Najpierw upewnij się, że skrypt może zlokalizować zestaw **Microsoft. Azure. NotificationHubs. dll** , który jest instalowany jako pakiet NuGet w projekcie programu Visual Studio. Aby zapewnić elastyczność, skrypt wykonuje następujące czynności:
+Najpierw upewnij się, że skrypt może zlokalizować zestaw **Microsoft.Azure.NotificationHubs.dll** , który jest instalowany jako pakiet NuGet w projekcie programu Visual Studio. Aby zapewnić elastyczność, skrypt wykonuje następujące czynności:
 
 1. Określa ścieżkę, w której został wywołany.
-2. Przechodzi ścieżką do momentu znalezienia folderu o nazwie `packages`. Ten folder jest tworzony podczas instalowania pakietów NuGet dla projektów programu Visual Studio.
-3. Rekursywnie wyszukuje `packages` folder dla zestawu o `Microsoft.Azure.NotificationHubs.dll`nazwie.
+2. Przechodzi ścieżką do momentu znalezienia folderu o nazwie `packages` . Ten folder jest tworzony podczas instalowania pakietów NuGet dla projektów programu Visual Studio.
+3. Rekursywnie wyszukuje `packages` folder dla zestawu o nazwie `Microsoft.Azure.NotificationHubs.dll` .
 4. Odwołuje się do zestawu, tak aby typy były dostępne do późniejszego użycia.
 
 Oto, jak te kroki są zaimplementowane w skrypcie programu PowerShell:
@@ -102,7 +101,7 @@ W tej części skryptu można skonfigurować cztery zmienne lokalne.
 Te zmienne są używane do nawiązywania połączenia z przestrzenią nazw i tworzenia nowego centrum powiadomień skonfigurowanego do obsługi powiadomień usługi Windows Notification Services (WNS) z poświadczeniami WNS dla aplikacji systemu Windows. Aby uzyskać informacje na temat uzyskiwania identyfikatora SID pakietu i klucza tajnego, zobacz [wprowadzenie z Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) samouczkiem.
 
 - Fragment skryptu używa `NamespaceManager` obiektu do sprawdzenia, czy centrum powiadomień identyfikowane przez `$Path` istnieje.
-- Jeśli nie istnieje, skrypt tworzy `NotificationHubDescription` przy użyciu poświadczeń WNS i przekazuje go do metody `NamespaceManager` klasy. `CreateNotificationHub`
+- Jeśli nie istnieje, skrypt tworzy `NotificationHubDescription` przy użyciu poświadczeń WNS i przekazuje go do `NamespaceManager` `CreateNotificationHub` metody klasy.
 
 ``` powershell
 $Namespace = "<Enter your namespace>"

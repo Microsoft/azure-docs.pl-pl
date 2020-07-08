@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732574"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Śledzenie komunikatów z urządzenia do chmury w usłudze Azure IoT z rozproszonym śledzeniem (wersja zapoznawcza)
@@ -93,7 +92,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 
 1. Zainstaluj [obciążenie "Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) dla programu Visual Studio 2019. Obsługiwane są również programy Visual Studio 2017 i 2015.
 
-1. Zainstaluj [CMAKE](https://cmake.org/). Upewnij się, że znajduje się `PATH` w obszarze `cmake -version` , wpisując polecenie w wierszu polecenia.
+1. Zainstaluj [CMAKE](https://cmake.org/). Upewnij się, że znajduje się w obszarze `PATH` , wpisując `cmake -version` polecenie w wierszu polecenia.
 
 1. Otwórz wiersz polecenia lub powłokę Git Bash. Uruchom następujące polecenia, aby sklonować najnowszą wersję repozytorium [usługi Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) w witrynie GitHub:
 
@@ -136,7 +135,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Pobierz przykład w witrynie GitHub</a>
 
-1. Użyj edytora, aby otworzyć plik `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` źródłowy.
+1. Użyj edytora, aby otworzyć `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` plik źródłowy.
 
 1. Znajdź deklarację stałej `connectionString`:
 
@@ -144,15 +143,15 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 
     Zastąp wartość `connectionString` stałą parametrami połączenia urządzenia, które zostały zanotowane w sekcji [Rejestrowanie urządzenia](./quickstart-send-telemetry-c.md#register-a-device) w [przewodniku szybki start dotyczącego wysyłania telemetrii C](./quickstart-send-telemetry-c.md).
 
-1. Zmień wartość `MESSAGE_COUNT` Definiuj na `5000`:
+1. Zmień wartość `MESSAGE_COUNT` Definiuj na `5000` :
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
-1. Znajdź wiersz kodu, który wywołuje `IoTHubDeviceClient_LL_SetConnectionStatusCallback` , aby zarejestrować funkcję wywołania zwrotnego stanu połączenia przed pętlą wysyłania komunikatów. Dodaj kod w tym wierszu, jak pokazano poniżej, `IoTHubDeviceClient_LL_EnablePolicyConfiguration` aby wywołać Włączenie śledzenia rozproszonego dla urządzenia:
+1. Znajdź wiersz kodu, który wywołuje, `IoTHubDeviceClient_LL_SetConnectionStatusCallback` Aby zarejestrować funkcję wywołania zwrotnego stanu połączenia przed pętlą wysyłania komunikatów. Dodaj kod w tym wierszu, jak pokazano poniżej, aby wywołać `IoTHubDeviceClient_LL_EnablePolicyConfiguration` Włączenie śledzenia rozproszonego dla urządzenia:
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
-    `IoTHubDeviceClient_LL_EnablePolicyConfiguration` Funkcja włącza zasady dla określonych funkcji IoTHub skonfigurowanych za pośrednictwem [urządzenia bliźniaczych reprezentacji](./iot-hub-devguide-device-twins.md). Po `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` włączeniu z wierszem kodu powyżej zachowanie śledzenia urządzenia będzie odzwierciedlać rozproszone zmiany śledzenia dotyczące sznurka urządzenia.
+    `IoTHubDeviceClient_LL_EnablePolicyConfiguration`Funkcja włącza zasady dla określonych funkcji IoTHub skonfigurowanych za pośrednictwem [urządzenia bliźniaczych reprezentacji](./iot-hub-devguide-device-twins.md). Po `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` włączeniu z wierszem kodu powyżej zachowanie śledzenia urządzenia będzie odzwierciedlać rozproszone zmiany śledzenia dotyczące sznurka urządzenia.
 
 1. Aby zapewnić, że aplikacja Przykładowa będzie uruchomiona bez korzystania ze wszystkich limitów przydziału, należy dodać jednosekundowe opóźnienie na końcu pętli wysyłania komunikatu:
 
@@ -160,7 +159,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 
 ### <a name="compile-and-run"></a>Kompiluj i uruchom
 
-1. Przejdź do katalogu projektu *iothub_ll_telemetry_sample* z utworzonego wcześniej katalogu CMAKE (`azure-iot-sdk-c/cmake`) i skompiluj przykład:
+1. Przejdź do katalogu projektu *iothub_ll_telemetry_sample* z utworzonego wcześniej katalogu CMAKE ( `azure-iot-sdk-c/cmake` ) i skompiluj przykład:
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
@@ -204,7 +203,7 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
 1. Wybierz **częstotliwość próbkowania** w zakresie od 0% do 100%.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Odczekaj kilka sekund, a następnie kliknij przycisk **Odśwież**, a następnie, jeśli został pomyślnie potwierdzony przez urządzenie, zostanie wyświetlona ikona synchronizacji z znacznikiem wyboru.
 
@@ -212,7 +211,7 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
     ![Stan śledzenia](./media/iot-hub-distributed-tracing/MicrosoftTeams-image.png)
 
-1. Obowiązkowe Zmień częstotliwość próbkowania na inną wartość i obserwuj zmianę częstotliwości, jaką mogą zawierać `tracestate` komunikaty we właściwościach aplikacji.
+1. Obowiązkowe Zmień częstotliwość próbkowania na inną wartość i obserwuj zmianę częstotliwości, jaką mogą zawierać komunikaty `tracestate` we właściwościach aplikacji.
 
 ### <a name="update-using-azure-iot-hub-for-vs-code"></a>Aktualizowanie za pomocą usługi Azure IoT Hub dla VS Code
 
@@ -249,8 +248,8 @@ Aby zaktualizować konfigurację próbkowania śledzenia rozproszonego dla wielu
 
 | Nazwa elementu | Wymagany | Typ | Opis |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Tak | Liczba całkowita | Dwie wartości trybu są obecnie obsługiwane do włączania i wyłączania próbkowania. `1`jest włączone i, `2` jest wyłączone. |
-| `sampling_rate` | Tak | Liczba całkowita | Ta wartość jest wartością procentową. Dozwolone są tylko `0` wartości `100` z do (włącznie).  |
+| `sampling_mode` | Tak | Integer | Dwie wartości trybu są obecnie obsługiwane do włączania i wyłączania próbkowania. `1`jest włączone i, `2` jest wyłączone. |
+| `sampling_rate` | Tak | Integer | Ta wartość jest wartością procentową. Dozwolone są tylko wartości z `0` do `100` (włącznie).  |
 
 ## <a name="query-and-visualize"></a>Zapytanie i wizualizacja
 
@@ -311,9 +310,9 @@ Po włączeniu obsługa śledzenia rozproszonego dla IoT Hub będzie zgodna z ty
 1. Urządzenie IoT wysyła komunikat do IoT Hub.
 1. Wiadomość dotarła do bramy IoT Hub.
 1. IoT Hub szuka `tracestate` we właściwościach aplikacji komunikatów i sprawdza, czy jest w poprawnym formacie.
-1. Jeśli tak, IoT Hub generuje globalnie unikatowy `trace-id` dla wiadomości, `span-id` dla "przeskok" i rejestruje je do Azure monitor dzienników diagnostycznych w ramach tej operacji. `DiagnosticIoTHubD2C`
-1. Po zakończeniu przetwarzania komunikatu IoT Hub generuje inny `span-id` i rejestruje go wraz z istniejącym `trace-id` w ramach operacji. `DiagnosticIoTHubIngress`
-1. Jeśli dla wiadomości jest włączona funkcja routingu, IoT Hub zapisuje ją w niestandardowym punkcie końcowym i `span-id` rejestruje inne dane `trace-id` przy użyciu tej `DiagnosticIoTHubEgress`samej kategorii.
+1. Jeśli tak, IoT Hub generuje globalnie unikatowy `trace-id` dla wiadomości, `span-id` dla "przeskok" i rejestruje je do Azure monitor dzienników diagnostycznych w ramach tej operacji `DiagnosticIoTHubD2C` .
+1. Po zakończeniu przetwarzania komunikatu IoT Hub generuje inny `span-id` i rejestruje go wraz z istniejącym `trace-id` w ramach operacji `DiagnosticIoTHubIngress` .
+1. Jeśli dla wiadomości jest włączona funkcja routingu, IoT Hub zapisuje ją w niestandardowym punkcie końcowym i rejestruje inne `span-id` dane przy użyciu tej samej `trace-id` kategorii `DiagnosticIoTHubEgress` .
 1. Powyższe kroki są powtórzone dla każdego wygenerowanego komunikatu.
 
 ## <a name="public-preview-limits-and-considerations"></a>Limity i zagadnienia dotyczące publicznej wersji zapoznawczej

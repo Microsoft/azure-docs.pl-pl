@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870471"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalacja uprawnień vCenter w chmurze prywatnej z portalu CloudSimple
@@ -39,7 +38,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
     ![Zmień uprawnienie vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Wybierz typ użytkownika vSphere.  Można `CloudOwner@cloudsimple.local` eskalować tylko użytkownika lokalnego.
+4. Wybierz typ użytkownika vSphere.  `CloudOwner@cloudsimple.local`Można eskalować tylko użytkownika lokalnego.
 
 5. Wybierz przedział czasu eskalacji z listy rozwijanej. Wybierz najkrótszy okres, który pozwoli na ukończenie zadania.
 
@@ -63,7 +62,7 @@ Eskalacja uprawnień rozpoczyna się i trwa do końca wybranego interwału.  Mo�
 
 Jeśli potrzebujesz dodatkowego czasu na ukończenie zadań, możesz zwiększyć okres eskalacji uprawnień.  Wybierz dodatkowy interwał okresu eskalacji, który umożliwia wykonywanie zadań administracyjnych.
 
-1. W**chmurach prywatnych** **zasobów** > w portalu CloudSimple Wybierz chmurę prywatną, dla której chcesz rozłożyć eskalację uprawnień.
+1. W **Resources**  >  **chmurach prywatnych** zasobów w portalu CloudSimple Wybierz chmurę prywatną, dla której chcesz rozłożyć eskalację uprawnień.
 
 2. W dolnej części karty Podsumowanie kliknij polecenie **Zwiększ eskalację uprawnień**.
 
@@ -77,7 +76,7 @@ Jeśli potrzebujesz dodatkowego czasu na ukończenie zadań, możesz zwiększyć
 
 Po zakończeniu zadań administracyjnych należy anulować eskalację uprawnień.  
 
-1. W**chmurach prywatnych** **zasobów** > w portalu CloudSimple Wybierz chmurę prywatną, dla której chcesz cofnąć eskalację uprawnień.
+1. W **Resources**  >  **chmurach prywatnych** zasobów w portalu CloudSimple Wybierz chmurę prywatną, dla której chcesz cofnąć eskalację uprawnień.
 
 2. Kliknij przycisk **Anuluj eskalację**.
 

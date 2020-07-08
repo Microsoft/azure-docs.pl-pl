@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81868844"
 ---
 # <a name="protected-web-api-app-registration"></a>Chroniony internetowy interfejs API: Rejestracja aplikacji
@@ -56,7 +55,7 @@ Inne ustawienia specyficzne dla interfejsów API sieci Web to uwidoczniony inter
 
 ### <a name="application-id-uri-and-scopes"></a>Identyfikator URI i zakresy identyfikatora aplikacji
 
-Zakresy mają zwykle postać `resourceURI/scopeName`. W przypadku Microsoft Graph zakresy mają skróty. Na przykład, `User.Read` jest skrótem dla `https://graph.microsoft.com/user.read`.
+Zakresy mają zwykle postać `resourceURI/scopeName` . W przypadku Microsoft Graph zakresy mają skróty. Na przykład, `User.Read` jest skrótem dla `https://graph.microsoft.com/user.read` .
 
 Podczas rejestracji aplikacji należy zdefiniować następujące parametry:
 
@@ -64,7 +63,7 @@ Podczas rejestracji aplikacji należy zdefiniować następujące parametry:
 - Co najmniej jeden zakres
 - Co najmniej jedna rola aplikacji
 
-Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI `api://{clientId}`zasobu. Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa.
+Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu `api://{clientId}` . Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa.
 
 W przypadku aplikacji klienckich zakresy są wyświetlane jako uprawnienia *delegowane* i role aplikacji są wyświetlane jako *uprawnienia aplikacji* dla internetowego interfejsu API.
 
@@ -77,7 +76,7 @@ Zakresy są również wyświetlane w oknie zgody prezentowanym użytkownikom apl
 
 1. Wybierz opcję **Uwidacznianie interfejsu API** w rejestracji aplikacji.
 1. Wybierz polecenie **Dodaj zakres**.
-1. Jeśli zostanie wyświetlony monit, zaakceptuj proponowany identyfikator URI`api://{clientId}`aplikacji (), wybierając pozycję **Zapisz i Kontynuuj**.
+1. Jeśli zostanie wyświetlony monit, zaakceptuj proponowany identyfikator URI aplikacji ( `api://{clientId}` ), wybierając pozycję **Zapisz i Kontynuuj**.
 1. Określ następujące wartości:
     - Wybierz pozycję **Nazwa zakresu** i wprowadź **access_as_user**.
     - Wybierz **osoby, które mogą wyrazić zgodę** i upewnij się, że wybrano **administratorów i użytkowników** .
@@ -102,11 +101,11 @@ Aby uwidocznić uprawnienia aplikacji, należy edytować manifest.
 1. W obszarze Rejestracja aplikacji dla aplikacji wybierz pozycję **manifest**.
 1. Aby edytować manifest, Znajdź `appRoles` ustawienie i Dodaj role aplikacji. Definicje ról są podane w następującym przykładowym bloku JSON.
 1. Pozostaw `allowedMemberTypes` ustawiony `"Application"` tylko wartość.
-1. Upewnij się `id` , że jest UNIKATOWYm identyfikatorem GUID.
-1. Upewnij się `displayName` , `value` że nie zawierają spacji.
+1. Upewnij `id` się, że jest unikatowym identyfikatorem GUID.
+1. Upewnij się `displayName` , że `value` nie zawierają spacji.
 1. Zapisz manifest.
 
-Poniższy przykład pokazuje zawartość `appRoles`, gdzie wartość `id` może być dowolnym unikatowym identyfikatorem GUID.
+Poniższy przykład pokazuje zawartość `appRoles` , gdzie wartość `id` może być dowolnym UNIKATOWYm identyfikatorem GUID.
 
 ```json
 "appRoles": [
@@ -141,11 +140,11 @@ Aby dodać zwiększone zabezpieczenia:
 
    > [!IMPORTANT]
    >
-   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak**, usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: nazwa \<\> aplikacji aplikacji nie jest przypisana do roli dla \<internetowego interfejsu API\>".
+   > Jeśli ustawisz **przypisanie użytkownika jako wymagane?** na **tak**, usługa Azure AD sprawdzi przypisania roli aplikacji klienta, gdy zażąda tokenu dostępu do interfejsu API sieci Web. Jeśli klient nie jest przypisany do żadnych ról aplikacji, usługa Azure AD zwróci komunikat o błędzie "invalid_client: AADSTS501051: aplikacja \<application name\> nie jest przypisana do roli dla \<web API\> ".
    >
    > Jeśli jest **wymagane przypisanie użytkownika?** wartość **nie**, usługa Azure AD nie będzie sprawdzać przypisań roli aplikacji, gdy klient zażąda tokenu dostępu dla internetowego interfejsu API. Każdy klient demona, który oznacza dowolnego klienta używający przepływu poświadczeń klienta, może uzyskać token dostępu dla interfejsu API tylko przez określenie jego odbiorców. Każda aplikacja może uzyskać dostęp do interfejsu API bez konieczności żądania uprawnień do niego.
    >
-   > Jednak zgodnie z opisem w poprzedniej sekcji internetowy interfejs API może zawsze sprawdzić, czy aplikacja ma odpowiednią rolę, która jest autoryzowana przez administratora dzierżawy. Interfejs API wykonuje tę weryfikację, sprawdzając, czy token dostępu ma rolę i czy wartość tego żądania jest poprawna. W poprzednim przykładzie JSON wartość jest `access_as_application`.
+   > Jednak zgodnie z opisem w poprzedniej sekcji internetowy interfejs API może zawsze sprawdzić, czy aplikacja ma odpowiednią rolę, która jest autoryzowana przez administratora dzierżawy. Interfejs API wykonuje tę weryfikację, sprawdzając, czy token dostępu ma rolę i czy wartość tego żądania jest poprawna. W poprzednim przykładzie JSON wartość jest `access_as_application` .
 
 1. Wybierz pozycję **Zapisz**.
 

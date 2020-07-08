@@ -9,10 +9,9 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792602"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Włączanie Azure Disk Encryption z usługą Azure AD na maszynach wirtualnych z systemem Linux (poprzednia wersja)
@@ -146,7 +145,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | --- | --- |
 | AADClientID | Identyfikator klienta aplikacji usługi Azure AD, który ma uprawnienia do zapisywania wpisów tajnych w magazynie kluczy. |
 | AADClientSecret | Klucz tajny klienta aplikacji usługi Azure AD, który ma uprawnienia do zapisywania wpisów tajnych w magazynie kluczy. |
-| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego ma zostać przekazany klucz. Możesz uzyskać go za pomocą polecenia `az keyvault show --name "MySecureVault" --query KVresourceGroup`interfejsu CLI platformy Azure. |
+| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego ma zostać przekazany klucz. Możesz uzyskać go za pomocą polecenia interfejsu CLI platformy Azure `az keyvault show --name "MySecureVault" --query KVresourceGroup` . |
 |  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza używany do szyfrowania wygenerowanego klucza. Ten parametr jest opcjonalny w przypadku wybrania opcji **nokek** na liście rozwijanej **UseExistingKek** . Jeśli wybierzesz pozycję **KEK** na liście rozwijanej **UseExistingKek** , musisz wprowadzić wartość _keyEncryptionKeyURL_ . |
 | liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe obsługiwane wartości to _system operacyjny_ lub _wszystkie_. (Zobacz obsługiwane dystrybucje systemu Linux i ich wersje dla systemów operacyjnych i danych w sekcji wymagania wstępne wcześniej). |
 | sequenceVersion | Wersja sekwencji operacji funkcji BitLocker. Zwiększ ten numer wersji za każdym razem, gdy na tej samej maszynie wirtualnej jest wykonywana operacja szyfrowania dysku. |

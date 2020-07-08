@@ -9,10 +9,9 @@ ms.date: 07/01/2019
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: fb9a77a63351e87e20b9e92e09133aa46db80880
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869713"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure

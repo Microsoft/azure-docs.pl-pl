@@ -9,10 +9,9 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 43718e992349ff9bcb3635ab1b949c2b2f2c9ec0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871989"
 ---
 # <a name="security-baselines-for-azure"></a>Punkty odniesienia zabezpieczeń dla platformy Azure
@@ -32,4 +31,4 @@ Każde zalecenie zawiera następujące informacje:
 Wszystkie zalecenia, w tym zalecenia, które nie mają zastosowania do tej konkretnej usługi, znajdują się w linii bazowej, aby zapewnić kompletną wersję testu porównawczego zabezpieczeń platformy Azure dla każdej usługi. Mogą być sporadyczne kontrolki, które nie mają zastosowania z różnych powodów — na przykład kontrolki ukierunkowane na IaaS/obliczeniowe (takie jak kontrolki specyficzne dla zarządzania konfiguracją systemu operacyjnego) mogą nie być stosowane do usług PaaS Services.
 
 
-Poznamy Twoją opinię na temat linii bazowych zabezpieczeń dla usług platformy Azure. Zachęcamy do podania komentarzy w obszarze opinii poniżej. Lub, jeśli wolisz udostępnić dane wejściowe bardziej prywatnie z zespołem https://aka.ms/AzSecBenchmarkusługi Azure Security test
+Poznamy Twoją opinię na temat linii bazowych zabezpieczeń dla usług platformy Azure. Zachęcamy do podania komentarzy w obszarze opinii poniżej. Lub, jeśli wolisz udostępnić dane wejściowe bardziej prywatnie z zespołem usługi Azure Security test https://aka.ms/AzSecBenchmark

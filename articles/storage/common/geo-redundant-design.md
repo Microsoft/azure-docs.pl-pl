@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82859018"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej
@@ -196,12 +195,12 @@ Magazyn Geograficznie nadmiarowy działa przez replikowanie transakcji z podstaw
 
 W poniższej tabeli przedstawiono przykład takiej sytuacji, w której mogą wystąpić informacje o tym, co się stanie w przypadku zaktualizowania szczegółów pracownika, aby uczynić je członkiem roli *administratorzy* . Na potrzeby tego przykładu należy zaktualizować jednostkę **Employee** i zaktualizować jednostkę **roli administratora** z liczbą całkowitej liczby administratorów. Zwróć uwagę, w jaki sposób aktualizacje są stosowane poza kolejnością w regionie pomocniczym.
 
-| **Pierwszym** | **Transaction**                                            | **Replikacja**                       | **Czas ostatniej synchronizacji** | **Wynika** |
+| **Godzina** | **Transaction**                                            | **Replikacja**                       | **Czas ostatniej synchronizacji** | **Wynik** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transakcja A: <br> Wstaw pracownika <br> jednostka w podstawowym |                                   |                    | Transakcja wstawiona do elementu podstawowego,<br> jeszcze nie zreplikowane. |
 | T1       |                                                            | Transakcja A <br> zreplikowane do<br> dodatkowych | T1 | Transakcja jest replikowana do pomocniczej. <br>Czas ostatniej synchronizacji został zaktualizowany.    |
-| T2       | Transakcja B:<br>Aktualizowanie<br> Jednostka Employee<br> w podstawowym  |                                | T1                 | Transakcja B zapisywana w podstawowym,<br> jeszcze nie zreplikowane.  |
-| T3       | Transakcja C:<br> Aktualizowanie <br>administrator<br>Jednostka roli w<br>głównym |                    | T1                 | Transakcja C została zapisywana na podstawową,<br> jeszcze nie zreplikowane.  |
+| T2       | Transakcja B:<br>Aktualizacja<br> Jednostka Employee<br> w podstawowym  |                                | T1                 | Transakcja B zapisywana w podstawowym,<br> jeszcze nie zreplikowane.  |
+| T3       | Transakcja C:<br> Aktualizacja <br>administrator<br>Jednostka roli w<br>głównym |                    | T1                 | Transakcja C została zapisywana na podstawową,<br> jeszcze nie zreplikowane.  |
 | *T4*     |                                                       | Transakcja C <br>zreplikowane do<br> dodatkowych | T1         | Transakcja C została zreplikowana do pomocniczej.<br>LastSyncTime nie został zaktualizowany, ponieważ <br>transakcja B nie została jeszcze zreplikowana.|
 | *Otrzymując*     | Odczytaj jednostki <br>z pomocniczego                           |                                  | T1                 | Otrzymujesz nieodświeżoną wartość dla pracownika <br> jednostka, ponieważ transakcja B nie została <br> zreplikowane jeszcze. Otrzymujesz nową wartość dla<br> Jednostka roli administratora, ponieważ C ma<br> powtórzon. Czas ostatniej synchronizacji nadal nie<br> Zaktualizowano, ponieważ transakcja B<br> nie zreplikowane. Możesz powiedzieć<br>Jednostka roli administratora jest niespójna <br>ponieważ data/godzina jednostki przypada po <br>Czas ostatniej synchronizacji. |
 | *T6*     |                                                      | Transakcja B<br> zreplikowane do<br> dodatkowych | T6                 | *T6* — wszystkie transakcje za poorednictwem języka C <br>zreplikowane, czas ostatniej synchronizacji<br> został zaktualizowany. |

@@ -8,10 +8,9 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 6651ae21694022be86d8db08737c609aed3df569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81870275"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią z wieloma kartami sieciowymi
@@ -152,7 +151,7 @@ Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofni
     ```
 
     ### <a name="primary-virtual-nics"></a>Podstawowe wirtualne karty sieciowe
-    Jedną z kart sieciowych na maszynie wirtualnej z obsługą wielu kart sieciowych musi być podstawowa. Jeśli jedna z istniejących wirtualnych kart sieciowych na maszynie wirtualnej jest już ustawiona jako podstawowa, można pominąć ten krok. W poniższym przykładzie założono, że dwie wirtualne karty sieciowe są teraz obecne na maszynie wirtualnej i chcesz dodać pierwszą kartę sieciową (`[0]`) jako podstawową:
+    Jedną z kart sieciowych na maszynie wirtualnej z obsługą wielu kart sieciowych musi być podstawowa. Jeśli jedna z istniejących wirtualnych kart sieciowych na maszynie wirtualnej jest już ustawiona jako podstawowa, można pominąć ten krok. W poniższym przykładzie założono, że dwie wirtualne karty sieciowe są teraz obecne na maszynie wirtualnej i chcesz dodać pierwszą kartę sieciową ( `[0]` ) jako podstawową:
         
     ```powershell
     # List existing NICs on the VM and find which one is primary

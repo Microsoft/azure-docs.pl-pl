@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: dsindona
 ms.openlocfilehash: 690ee5ed332c7ed342f786e1a9889746054834fa
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82872366"
 ---
 # <a name="preferred-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Preferowane rozwiązania w Microsoft AppSource i Azure Marketplace

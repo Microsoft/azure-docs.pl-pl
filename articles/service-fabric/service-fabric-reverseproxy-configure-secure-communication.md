@@ -4,10 +4,9 @@ description: Skonfiguruj zwrotny serwer proxy, aby zapewnić bezpieczną komplek
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858529"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connect to a secure service with the reverse proxy (Łączenie z bezpieczną usługą przy użyciu zwrotnego serwera proxy)
@@ -20,7 +19,7 @@ W tym artykule wyjaśniono, jak ustanowić bezpieczne połączenie między zwrot
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Ustanowienie bezpiecznego połączenia między zwrotnym serwerem proxy a usługami 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Zwrotny serwer proxy uwierzytelniania do usług:
-Zwrotny serwer proxy identyfikuje siebie w usługach przy użyciu swojego certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) szablonu Menedżer zasobów. W przypadku klastrów autonomicznych certyfikat jest określany za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Security** pliku ClusterConfig. JSON. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+Zwrotny serwer proxy identyfikuje siebie w usługach przy użyciu swojego certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) szablonu Menedżer zasobów. W przypadku klastrów autonomicznych certyfikat jest określany za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Security** ClusterConfig.json. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Usługi mogą wdrożyć logikę w celu zweryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Usługi mogą określić zaakceptowane szczegóły certyfikatu klienta jako ustawienia konfiguracji w pakiecie konfiguracyjnym. Można go odczytać w czasie wykonywania i służy do weryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Aby dodać ustawienia konfiguracji, zapoznaj się z tematem [Zarządzanie parametrami aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) . 
 

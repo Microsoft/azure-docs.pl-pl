@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1ffa116f6877b58d54c22f918b4e83574b85860c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82800723"
 ---
 # <a name="http-features"></a>Funkcje HTTP
@@ -47,17 +46,17 @@ Zobacz artykuł dotyczący [interfejsów API protokołu HTTP](durable-functions-
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**index. js**
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-**Function. JSON**
+**function.jsna**
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 ---
 
-Uruchamianie funkcji programu Orchestrator za pomocą funkcji wyzwalacza protokołu HTTP pokazanych wcześniej można wykonać przy użyciu dowolnego klienta HTTP. Następujące polecenie zwinięcie uruchamia funkcję programu Orchestrator o nazwie `DoWork`:
+Uruchamianie funkcji programu Orchestrator za pomocą funkcji wyzwalacza protokołu HTTP pokazanych wcześniej można wykonać przy użyciu dowolnego klienta HTTP. Następujące polecenie zwinięcie uruchamia funkcję programu Orchestrator o nazwie `DoWork` :
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -166,7 +165,7 @@ Interfejs API "Call HTTP" może automatycznie implementować stronę klienta wzo
 > [!NOTE]
 > Program Orchestrator Functions również natywnie obsługuje wzorzec klienta sondowania po stronie serwera, zgodnie z opisem w temacie [śledzenie operacji asynchronicznych](#async-operation-tracking). Ta pomoc techniczna oznacza, że aranżacje w jednej aplikacji funkcji mogą łatwo koordynować funkcje programu Orchestrator w innych aplikacjach funkcji. Jest to podobne do koncepcji [aranżacji podrzędnej](durable-functions-sub-orchestrations.md) , ale z obsługą komunikacji między aplikacjami. Ta obsługa jest szczególnie przydatna w przypadku tworzenia aplikacji w stylu mikrousług.
 
-### <a name="managed-identities"></a>Zarządzane tożsamości
+### <a name="managed-identities"></a>Tożsamości zarządzane
 
 Durable Functions natywnie obsługuje wywołania interfejsów API, które akceptują tokeny Azure Active Directory (Azure AD) na potrzeby autoryzacji. Ta obsługa używa [tożsamości zarządzanych przez platformę Azure](../../active-directory/managed-identities-azure-resources/overview.md) do uzyskiwania tych tokenów.
 
@@ -224,7 +223,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-W poprzednim przykładzie `tokenSource` parametr jest skonfigurowany do uzyskiwania tokenów usługi Azure AD dla [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokeny są identyfikowane przez identyfikator URI `https://management.core.windows.net`zasobu. W przykładzie przyjęto założenie, że bieżąca aplikacja funkcji działa lokalnie lub została wdrożona jako aplikacja funkcji z tożsamością zarządzaną. Przyjęto założenie, że lokalna tożsamość lub zarządzana tożsamość ma uprawnienia do zarządzania maszynami wirtualnymi w `myRG`określonej grupie zasobów.
+W poprzednim przykładzie `tokenSource` parametr jest skonfigurowany do uzyskiwania tokenów usługi Azure AD dla [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Tokeny są identyfikowane przez identyfikator URI zasobu `https://management.core.windows.net` . W przykładzie przyjęto założenie, że bieżąca aplikacja funkcji działa lokalnie lub została wdrożona jako aplikacja funkcji z tożsamością zarządzaną. Przyjęto założenie, że lokalna tożsamość lub zarządzana tożsamość ma uprawnienia do zarządzania maszynami wirtualnymi w określonej grupie zasobów `myRG` .
 
 W czasie wykonywania skonfigurowane Źródło tokenu automatycznie zwraca token dostępu OAuth 2,0. Źródło dodaje token jako token okaziciela do nagłówka autoryzacji żądania wychodzącego. Ten model to poprawa ręcznego dodawania nagłówków autoryzacji do żądań HTTP z następujących powodów:
 
