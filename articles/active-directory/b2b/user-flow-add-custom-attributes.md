@@ -11,23 +11,21 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4369f42df8862adbc0b7fafd42979b9ceac0729b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551169"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkowników (wersja zapoznawcza)
 
-|      |
-| ---- |
-| Funkcja niestandardowych atrybutów użytkownika jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure. |
-|      |
+> [!NOTE]
+> Funkcja niestandardowych atrybutów użytkownika jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Dla każdej aplikacji mogą istnieć różne wymagania dotyczące informacji, które mają być zbierane podczas tworzenia konta. Usługa Azure AD zawiera wbudowany zestaw informacji przechowywanych w atrybutach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą usługi Azure AD można rozciągnąć zestaw atrybutów przechowywanych na koncie gościa, gdy użytkownik zewnętrzny zarejestruje się za pomocą przepływu użytkownika.
 
-Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Na przykład:
+Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Przykład:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -53,7 +51,7 @@ Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepł
 
    ![Dodawanie atrybutu](media/user-flow-add-custom-attributes/add-an-attribute.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 
 Atrybut niestandardowy jest teraz dostępny na liście atrybutów użytkownika i do użycia w przepływach użytkownika. Atrybut niestandardowy jest tworzony tylko za pierwszym razem, gdy jest używany w dowolnym przepływie użytkownika, a nie po dodaniu go do listy atrybutów użytkownika.
 

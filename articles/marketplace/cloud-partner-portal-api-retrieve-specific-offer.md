@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/19/2020
 ms.author: dsindona
 ms.openlocfilehash: 771c103b535c09f8481c2b01328078504b8633aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516236"
 ---
 <a name="retrieve-a-specific-offer"></a>Pobierz konkretną ofertę
@@ -43,11 +43,11 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 
 | **Nazwa**    | **Opis**                                                                          | **Typ danych** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Na przykład contoso                                                        | Ciąg        |
-| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | Ciąg        |
-| version     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Liczba całkowita       |
+| publisherId | publisherId. Na przykład contoso                                                        | String        |
+| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | String        |
+| version     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Integer       |
 | slotId      | Gniazdo, z którego ma zostać pobrana oferta, może być jedną z:      <br/>  - `Draft`(domyślnie) Pobiera wersję oferty aktualnie w wersji roboczej.  <br/>  -  `Preview`Pobiera wersję oferty aktualnie w wersji zapoznawczej.     <br/>  -  `Production`Pobiera wersję oferty aktualnie w środowisku produkcyjnym.          |      enum |
-| api-version | Najnowsza wersja interfejsu API                                                                    | Date          |
+| api-version | Najnowsza wersja interfejsu API                                                                    | Data          |
 |  |  |  |
 
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550674"
 ---
 # <a name="combined-security-information-registration-overview"></a>Przegląd rejestracji informacji o zabezpieczeniach
 
@@ -34,7 +34,7 @@ Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowan�
 Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure USA, Azure (Niemcy) i Azure (Chiny).
 
 > [!IMPORTANT]
-> Nowe zachowanie będzie widoczne dla użytkowników, którzy są włączeni do wersji zapoznawczej i udoskonalonego środowiska rejestracji połączonej. Użytkownicy, którzy są włączeni do obu środowisk, będą widzieć tylko nowe środowisko my profilu. Nowy mój profil jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc [https://myprofile.microsoft.com](https://myprofile.microsoft.com)do.
+> Nowe zachowanie będzie widoczne dla użytkowników, którzy są włączeni do wersji zapoznawczej i udoskonalonego środowiska rejestracji połączonej. Użytkownicy, którzy są włączeni do obu środowisk, będą widzieć tylko nowe środowisko my profilu. Nowy mój profil jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
 > Podczas próby uzyskania dostępu do opcji informacje zabezpieczające może wystąpić komunikat o błędzie. Na przykład "Niestety, nie możemy cię zalogować". W takim przypadku upewnij się, że nie masz żadnej konfiguracji ani obiektu zasad grupy, który blokuje pliki cookie innych firm w przeglądarce sieci Web.
 
@@ -46,17 +46,17 @@ Moje strony profilów są zlokalizowane na podstawie ustawień języka komputera
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-|   | Zarejestruj | Change | Usuwanie |
+| Metoda | Zarejestruj | Zmiana | Usuń |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
-| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
-| Token sprzętu | Nie | Nie | Tak |
+| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Yes |
+| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Yes |
+| Token sprzętu | Nie | Nie | Yes |
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Nie | Nie | Nie |
 | Poczta e-mail | Tak | Tak | Tak |
-| Pytania zabezpieczające | Tak | Nie | Tak |
-| Hasła aplikacji | Tak | Nie | Tak |
+| Pytania zabezpieczające | Yes | Nie | Yes |
+| Hasła aplikacji | Yes | Nie | Yes |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Jeśli zasady SSPR wymagają od użytkowników przeglądania ich informacji zabe
 
 ### <a name="manage-mode"></a>Tryb zarządzania
 
-Użytkownicy mogą uzyskać dostęp do trybu zarządzania, [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) przechodząc do lub wybierając pozycję **informacje zabezpieczające** z mojego profilu. Z tego miejsca użytkownicy mogą dodawać metody, usuwać lub zmieniać istniejące metody, zmieniać metodę domyślną i nie tylko.
+Użytkownicy mogą uzyskać dostęp do trybu zarządzania, przechodząc do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) lub wybierając pozycję **informacje zabezpieczające** z mojego profilu. Z tego miejsca użytkownicy mogą dodawać metody, usuwać lub zmieniać istniejące metody, zmieniać metodę domyślną i nie tylko.
 
 ## <a name="key-usage-scenarios"></a>Scenariusze użycia klucza
 
@@ -125,15 +125,15 @@ Użytkownik nie skonfigurował wszystkich wymaganych informacji zabezpieczający
 
 Administrator nie wymusił rejestracji.
 
-Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, [https://myprofile.microsoft.com](https://myprofile.microsoft.com)przejdzie do programu. Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została właśnie skonfigurowana na stronie informacje zabezpieczające.
+Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, przejdzie do programu [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została właśnie skonfigurowana na stronie informacje zabezpieczające.
 
 ### <a name="delete-security-info-from-my-profile"></a>Usuń informacje zabezpieczające z mojego profilu
 
-Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Użytkownik zdecyduje się na usunięcie jednej z wcześniej zarejestrowanych metod. Po zakończeniu użytkownik nie widzi już tej metody na stronie informacje zabezpieczające.
+Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Użytkownik zdecyduje się na usunięcie jednej z wcześniej zarejestrowanych metod. Po zakończeniu użytkownik nie widzi już tej metody na stronie informacje zabezpieczające.
 
 ### <a name="change-the-default-method-from-my-profile"></a>Zmień domyślną metodę z mojego profilu
 
-Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę, która może być używana do Multi-Factor Authentication nawigowania do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Użytkownik zmienia bieżącą metodę domyślną na inną metodę domyślną. Po zakończeniu użytkownik zobaczy nową domyślną metodę na stronie informacje zabezpieczające.
+Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę, która może być używana do Multi-Factor Authentication nawigowania do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Użytkownik zmienia bieżącą metodę domyślną na inną metodę domyślną. Po zakończeniu użytkownik zobaczy nową domyślną metodę na stronie informacje zabezpieczające.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e37365c73c603a8cd742e2f7943c2f5116ce22
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551441"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Dodawanie usługi Facebook jako dostawcy tożsamości dla tożsamości zewnętrznych
 
@@ -32,7 +32,7 @@ Aby użyć konta w serwisie Facebook jako [dostawcy tożsamości](identity-provi
 
 > [!NOTE]  
 > Użyj następujących adresów URL w krokach 9 i 16 poniżej.
-> - Wprowadź **adres URL witryny** `https://login.microsoftonline.com` .
+> - W polu **adres URL witryny** wprowadź adres aplikacji, na przykład `https://contoso.com` .
 > - W przypadku **prawidłowych identyfikatorów URI przekierowania OAuth**wprowadź `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp` . Możesz znaleźć `<tenant-ID>` w bloku przegląd Azure Active Directory.
 
 

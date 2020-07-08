@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 95b9c76a2ff962cb2fa4bacbb1b1e9a953b7014f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fb43a0d39beacf02a6949228eaa32a719164987
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873815"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552229"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (wersja zapoznawcza) na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
-> Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
+> Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](search-api-preview.md) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-`moreLikeThis=[key]`to parametr zapytania w [interfejsie API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) , który znajduje dokumenty podobne do dokumentu określonego przez klucz dokumentu. Gdy zostanie wysłane żądanie wyszukiwania `moreLikeThis`, zapytanie jest generowane z wyszukiwanymi terminami wyciągniętymi z danego dokumentu, który opisuje ten dokument. Wygenerowane zapytanie jest następnie używane do wykonywania żądania wyszukiwania. Domyślnie zawartość wszystkich pól, które można przeszukiwać, jest uwzględniana, minus wszystkie pola z ograniczeniami, które `searchFields` zostały określone za pomocą parametru. Nie `moreLikeThis` można użyć parametru z parametrem wyszukiwania `search=[string]`.
+`moreLikeThis=[key]`to parametr zapytania w [interfejsie API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) , który znajduje dokumenty podobne do dokumentu określonego przez klucz dokumentu. Gdy zostanie wysłane żądanie wyszukiwania `moreLikeThis` , zapytanie jest generowane z wyszukiwanymi terminami wyciągniętymi z danego dokumentu, który opisuje ten dokument. Wygenerowane zapytanie jest następnie używane do wykonywania żądania wyszukiwania. Domyślnie zawartość wszystkich pól, które można przeszukiwać, jest uwzględniana, minus wszystkie pola z ograniczeniami, które zostały określone za pomocą `searchFields` parametru. `moreLikeThis`Nie można użyć parametru z parametrem wyszukiwania `search=[string]` .
 
 Domyślnie są brane pod uwagę zawartość wszystkich pól z możliwością wyszukiwania najwyższego poziomu. Jeśli chcesz zamiast tego określić określone pola, możesz użyć `searchFields` parametru. 
 
@@ -36,14 +36,14 @@ W poniższych przykładach użyto przykładu hoteli z [przewodnika Szybki Start:
 Poniższe zapytanie znajduje dokumenty, których pola opisu są najbardziej podobne do pola dokumentu źródłowego, określonego przez `moreLikeThis` parametr:
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2020-06-30-Preview
 ```
 
 W tym przykładzie żądanie wyszukuje Hotele podobne do tego z `HotelId` 29.
 Zamiast korzystać z protokołu HTTP GET, można również wywołać `MoreLikeThis` przy użyciu protokołu HTTP Post:
 
 ```
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
     {
       "moreLikeThis": "29",
       "searchFields": "Description"
@@ -52,18 +52,18 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
 
 ### <a name="apply-filters"></a>Stosowanie filtrów
 
-`MoreLikeThis`można łączyć z innymi typowymi parametrami zapytania `$filter`, takimi jak. Na przykład zapytanie może być ograniczone tylko do hoteli, którego kategoria ma wartość "budżet" i gdzie klasyfikacja jest wyższa niż 3,5:
+`MoreLikeThis`można łączyć z innymi typowymi parametrami zapytania, takimi jak `$filter` . Na przykład zapytanie może być ograniczone tylko do hoteli, którego kategoria ma wartość "budżet" i gdzie klasyfikacja jest wyższa niż 3,5:
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
 ```
 
 ### <a name="select-fields-and-limit-results"></a>Wybierz pola i Ogranicz wyniki
 
-Selektora można użyć, `$top` aby ograniczyć liczbę wyników, `MoreLikeThis` które powinny być zwracane w zapytaniu. Ponadto pola mogą być wybierane za `$select`pomocą. W tym miejscu wybiera się trzy pierwsze Hotele z IDENTYFIKATORem, nazwą i klasyfikacją: 
+`$top`Selektora można użyć, aby ograniczyć liczbę wyników, które powinny być zwracane w `MoreLikeThis` zapytaniu. Ponadto pola mogą być wybierane za pomocą `$select` . W tym miejscu wybiera się trzy pierwsze Hotele z IDENTYFIKATORem, nazwą i klasyfikacją: 
 
 ```
-GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2020-06-30-Preview
 ```
 
 ## <a name="next-steps"></a>Następne kroki

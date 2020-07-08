@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a9026db19d453100971739dcf633629a3f06d43
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 394af855b7968d38bf99afada246ae661dc0459a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85388307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549484"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konta w usłudze Facebook przy użyciu Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Aby użyć konta w serwisie Facebook jako [dostawcy tożsamości](authorization-
 1. Wybierz pozycję **Ustawienia**  >  **podstawowe**.
 1. Wybierz **kategorię**, na przykład `Business and Pages` . Ta wartość jest wymagana przez serwis Facebook, ale nie jest używana do Azure AD B2C.
 1. W dolnej części strony wybierz pozycję **Dodaj platformę**, a następnie wybierz pozycję **Witryna sieci Web**.
-1. W polu **adres URL witryny**wprowadź `https://your-tenant-name.b2clogin.com/` zamianę na `your-tenant-name` nazwę dzierżawy. Wprowadź adres URL **zasad zachowania poufności informacji**, na przykład `http://www.contoso.com` . Adres URL zasad to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.
+1. W polu **adres URL witryny**wprowadź adres witryny sieci Web, na przykład `https://contoso.com` . Wprowadź adres URL **zasad zachowania poufności informacji**, na przykład `http://www.contoso.com/privacy` . Adres URL zasad to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.
 1. Wybierz pozycję **Zapisz zmiany**.
 1. W górnej części strony skopiuj wartość **Identyfikator aplikacji**.
 1. Wybierz pozycję **Pokaż** i skopiuj wartość **wpisu tajnego aplikacji**. Oba te elementy umożliwiają skonfigurowanie usługi Facebook jako dostawcy tożsamości w dzierżawie. **Wpis tajny aplikacji** jest ważnym poświadczeniem zabezpieczeń.

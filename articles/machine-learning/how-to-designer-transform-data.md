@@ -11,10 +11,10 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85517544"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
@@ -164,7 +164,7 @@ Po zakończeniu potoku można wyświetlić wyniki, przechodząc do magazynu obie
 
 1. Sprawdź, czy kolumna "kraj macierzysty" nie zawiera wartości "Stany Zjednoczone".
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować pracę z częścią 2 tej metody, aby ponownie przeprowadzić [uczenie modeli przy użyciu programu Azure Machine Learning Designer](how-to-retrain-designer.md).
 

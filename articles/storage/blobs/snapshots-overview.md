@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26646ad5ae42d2fa301a7f894084a78a64c73bd4
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884672"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550979"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB
 
@@ -25,9 +25,9 @@ Migawka to wersja obiektu BLOB tylko do odczytu, która jest wykonywana w danym 
 
 ## <a name="about-blob-snapshots"></a>Informacje o migawek obiektów BLOB
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-Migawka obiektu BLOB jest taka sama jak jego podstawowy obiekt BLOB, z tą różnicą, że identyfikator URI obiektu BLOB ma dołączoną wartość **DateTime** do identyfikatora URI obiektu BLOB, aby wskazać godzinę utworzenia migawki. Na przykład jeśli identyfikator URI strony ma `http://storagesample.core.blob.windows.net/mydrives/myvhd`wartość, identyfikator URI migawki jest podobny do. `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`
+Migawka obiektu BLOB jest taka sama jak jego podstawowy obiekt BLOB, z tą różnicą, że identyfikator URI obiektu BLOB ma dołączoną wartość **DateTime** do identyfikatora URI obiektu BLOB, aby wskazać godzinę utworzenia migawki. Na przykład jeśli identyfikator URI strony ma wartość `http://storagesample.core.blob.windows.net/mydrives/myvhd` , identyfikator URI migawki jest podobny do `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z` .
 
 > [!NOTE]
 > Wszystkie migawki korzystają z identyfikatora URI podstawowego obiektu BLOB. Jedyną różnicą między bazowym obiektem blob a migawką jest dołączona wartość **DateTime** .

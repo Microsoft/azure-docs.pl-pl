@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: mingshen
 ms.openlocfilehash: 99a6cebd22c88388c68ceff3873ea8f8782b1c87
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516260"
 ---
 # <a name="cancel-operation"></a>Anuluj operację
@@ -29,9 +29,9 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 
 |  **Nazwa**    |      **Opis**                                  |    **Typ danych**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identyfikator wydawcy, na przykład`contoso`         |   Ciąg          |
-| offerId      |  Identyfikator oferty                                     |   Ciąg          |
-| api-version  |  Bieżąca wersja interfejsu API                               |    Date           |
+| publisherId  |  Identyfikator wydawcy, na przykład`contoso`         |   String          |
+| offerId      |  Identyfikator oferty                                     |   String          |
+| api-version  |  Bieżąca wersja interfejsu API                               |    Data           |
 |  |  |  |
 
 ## <a name="header"></a>Header

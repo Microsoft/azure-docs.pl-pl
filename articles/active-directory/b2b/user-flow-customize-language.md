@@ -11,18 +11,17 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 856338e6c5a2bac55fee57d3ea09575a1a4d14ed
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: abd6423ebbdba11cd1b0e0c2d00cfd36aa745e72
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551155"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Dostosowanie języka w Azure Active Directory (wersja zapoznawcza)
-|     |
-| --- |
-| Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+
+> [!NOTE]
+> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Dostosowanie języka w programie Azure Active Directory (Azure AD) pozwala przepływom użytkownika dostosowywać się do potrzeb użytkowników w różnych językach. Firma Microsoft udostępnia tłumaczenia dla [języków 36](#supported-languages). Nawet jeśli środowisko jest dostarczane tylko dla jednego języka, można dostosować nazwy atrybutów na stronie kolekcji atrybutów.
 
@@ -193,8 +192,8 @@ Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływ
 | Rosyjski               | ru            | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Słowacki                | SK            | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Słoweński             | SL            | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
-| Serbski — Cyrylica    | Wirtualizacja SR-cryl-CS    | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
-| Serbski (łaciński)       | Wirtualizacja sr-latn-cs    | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
+| Serbski – cyrylica    | Wirtualizacja SR-cryl-CS    | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
+| Serbski – łaciński       | Wirtualizacja sr-latn-cs    | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Szwedzki               | sv            | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Tamilski                 | Ta            | ![tak](./media/user-flow-customize-language/yes.png) | ![nie](./media/user-flow-customize-language/no.png) |
 | Telugu                | Usuń            | ![tak](./media/user-flow-customize-language/yes.png) | ![nie](./media/user-flow-customize-language/no.png) |
@@ -202,5 +201,5 @@ Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływ
 | Turecki               | zdawczy            | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Ukraiński             | Południowe Zjednoczone Królestwo            | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
 | Wietnamski            | VI            | ![nie](./media/user-flow-customize-language/no.png) | ![tak](./media/user-flow-customize-language/yes.png) |
-| Chiński (uproszczony)  | zh-Hans       | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
-| Chiński (tradycyjny) | zh-Hant       | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
+| Chiński – uproszczony  | zh-Hans       | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |
+| Chiński – tradycyjny | zh-Hant       | ![tak](./media/user-flow-customize-language/yes.png) | ![tak](./media/user-flow-customize-language/yes.png) |

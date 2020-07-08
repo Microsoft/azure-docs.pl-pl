@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa110dac1ede9c3ef46bafcca0f4a59d956e3ae9
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 800c3dbeb96dfb87c7b495909e21eca929bec726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550307"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmiana ról zasobów dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -90,7 +90,7 @@ Aby uzyskać więcej informacji, zobacz [porównywanie grup](https://docs.micros
 
     Po wybraniu grupy lub zespołu w kolumnie **podtyp** zostanie wystawiona jedna z następujących podtypów:
 
-    |  |  |
+    | Podtyp | Opis |
     | --- | --- |
     | Zabezpieczenia | Służy do udzielania dostępu do zasobów. |
     | Dystrybucja | Służy do wysyłania powiadomień do grupy osób. |

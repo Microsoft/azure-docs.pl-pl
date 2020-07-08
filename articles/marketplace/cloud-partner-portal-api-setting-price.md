@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 2dc69299e69546da25e7e46cfc38b1f5741096fe
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516387"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Cennik ofert maszyn wirtualnych
@@ -114,7 +114,7 @@ Wydawca maszyn wirtualnych został powiadomiony 2 lipca 2019 o dodawaniu nowych 
 
 W poniższej tabeli przedstawiono różne regiony, które można określić dla dostosowywanych podstawowych cen i ich kodów walutowych.
 
-| **Region** | **Nazwa**             | **Kod waluty** |
+| **Okolicy** | **Nazwa**             | **Kod waluty** |
 |------------|----------------------|-------------------|
 | DZ         | Algieria              | DZD               |
 | AR         | Argentyna            | ARS               |

@@ -11,21 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550639"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory (wersja zapoznawcza)
 
 Ten dokument koncentruje się na włączaniu uwierzytelniania bez hasła do zasobów lokalnych w środowiskach z **dołączonymi usługami Azure AD** i **hybrydowymi** urządzeniami z systemem Windows 10 przyłączonymi do usługi Azure AD. Ta funkcja zapewnia bezproblemowe logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy zabezpieczeń zgodnych z firmą Microsoft.
 
-|     |
-| --- |
-| Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure|
-|     |
+> [!NOTE]
+> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDO2
 
@@ -148,7 +146,7 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 Obiekt serwera Kerberos usługi Azure AD jest reprezentowany w usłudze Azure AD jako obiekt *KerberosDomain* . Każda lokalna domena Active Directory jest reprezentowana jako pojedynczy obiekt *KerberosDomain* w usłudze Azure AD.
 
-Na przykład organizacja ma Las Active Directory z dwiema domenami `contoso.com` i. `fabrikam.com` Jeśli zdecydujesz się zezwolić usłudze Azure AD na wystawienie protokołu Kerberos TGT dla całego lasu, istnieją dwa obiekty *KerberosDomain* w usłudze Azure AD. Jeden obiekt *KerberosDomain* dla `contoso.com`, i jeden dla `fabrikam.com`. Jeśli masz wiele Active Directory lasów, dla każdej domeny w każdym lesie istnieje jeden obiekt *KerberosDomain* .
+Na przykład organizacja ma Las Active Directory z dwiema domenami `contoso.com` i `fabrikam.com` . Jeśli zdecydujesz się zezwolić usłudze Azure AD na wystawienie protokołu Kerberos TGT dla całego lasu, istnieją dwa obiekty *KerberosDomain* w usłudze Azure AD. Jeden obiekt *KerberosDomain* dla `contoso.com` , i jeden dla `fabrikam.com` . Jeśli masz wiele Active Directory lasów, dla każdej domeny w każdym lesie istnieje jeden obiekt *KerberosDomain* .
 
 Należy wykonać kroki, aby [utworzyć obiekt serwera Kerberos](#create-kerberos-server-object) w każdej domenie i lesie w organizacji zawierającej użytkowników usługi Azure AD.
 
@@ -192,12 +190,12 @@ Klucze z Azure Portal można usunąć, przechodząc do strony **informacje zabez
 
 W przypadku czystej instalacji hybrydowej maszyny połączonej z usługą Azure AD po przyłączeniu do domeny i ponownym uruchomieniu należy zalogować się przy użyciu hasła i poczekać na synchronizację zasad, zanim będzie możliwe zalogowanie się przy użyciu usługi FIDO.
 
-- Sprawdź bieżący stan, `dsregcmd /status` wpisując w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak *YES*i *DomainJoined* .
+- Sprawdź bieżący stan, wpisując `dsregcmd /status` w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak *YES*i *DomainJoined* .
 - To opóźnienie jest znanym ograniczeniem dla urządzeń przyłączonych do domeny i nie jest specyficzne dla FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Nie mogę pobrać logowania jednokrotnego do zasobu sieciowego NTLM po zalogowaniu się za pomocą programu FIDO i wyświetleniu monitu o poświadczenia
 
-Upewnij się, że jest wystarczająca liczba kontrolerów domeny w celu uzyskania odpowiedzi na czas na obsługę żądania zasobu. Aby sprawdzić, czy widzisz kontroler domeny z uruchomioną funkcją, Przejrzyj dane wyjściowe `nltest /dsgetdc:contoso /keylist /kdc`.
+Upewnij się, że jest wystarczająca liczba kontrolerów domeny w celu uzyskania odpowiedzi na czas na obsługę żądania zasobu. Aby sprawdzić, czy widzisz kontroler domeny z uruchomioną funkcją, Przejrzyj dane wyjściowe `nltest /dsgetdc:contoso /keylist /kdc` .
 
 ## <a name="next-steps"></a>Następne kroki
 

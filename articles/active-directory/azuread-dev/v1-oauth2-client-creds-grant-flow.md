@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c698b9381755f81303dc3adfa9422b82500bb208
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551711"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Wywołania usługi do obsługi przy użyciu poświadczeń klienta (wspólny klucz tajny lub certyfikat)
 
@@ -52,7 +52,7 @@ Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka zostanie
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Pierwszy przypadek: żądanie tokenu dostępu przy użyciu wspólnego klucza tajnego
 Gdy jest używany wspólny klucz tajny, żądanie tokenu dostępu między usługami zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | grant_type |wymagane |Określa typ żądanego przydziału. W przepływie przydzielenia poświadczeń klienta wartość musi być **client_credentials**. |
 | client_id |wymagane |Określa identyfikator klienta usługi Azure AD wywołującej usługę sieci Web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [Azure Portal](https://portal.azure.com)kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację. Client_id jest *Identyfikator aplikacji* |
@@ -73,7 +73,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Drugi przypadek: żądanie tokenu dostępu z certyfikatem
 Żądanie tokenu dostępu między usługami i certyfikatem zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | grant_type |wymagane |Określa żądany typ odpowiedzi. W przepływie przydzielenia poświadczeń klienta wartość musi być **client_credentials**. |
 | client_id |wymagane |Określa identyfikator klienta usługi Azure AD wywołującej usługę sieci Web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [Azure Portal](https://portal.azure.com)kliknij pozycję **Azure Active Directory**, kliknij pozycję **rejestracje aplikacji**, kliknij aplikację. Client_id jest *Identyfikator aplikacji* |

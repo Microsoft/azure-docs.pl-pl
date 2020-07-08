@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85517382"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
@@ -98,7 +98,7 @@ Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostow
 
 Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 

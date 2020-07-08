@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f905b3eb6d1675f0bc252c3500169b3144287d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550711"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminate bad passwords in your organization (Eliminowanie nieprawidłowych haseł w organizacji)
 
@@ -158,7 +158,7 @@ Po normalizacji to hasło zmieni się na "contosoblankf9!". Proces dopasowywania
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 
-|   | Ochrona hasłem w usłudze Azure AD z listą globalnie zakazanych haseł | Ochrona hasłem w usłudze Azure AD za pomocą niestandardowej listy zablokowanych haseł|
+| Użytkownicy | Ochrona hasłem w usłudze Azure AD z listą globalnie zakazanych haseł | Ochrona hasłem w usłudze Azure AD za pomocą niestandardowej listy zablokowanych haseł|
 | --- | --- | --- |
 | Użytkownicy tylko w chmurze | Usługa Azure AD — warstwa Bezpłatna | Azure AD — wersja Premium P1 lub P2 |
 | Użytkownicy zsynchronizowani z lokalnego systemu Windows Server Active Directory | Azure AD — wersja Premium P1 lub P2 | Azure AD — wersja Premium P1 lub P2 |

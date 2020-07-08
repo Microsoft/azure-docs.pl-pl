@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f22b7eca6db55f886dbd4fea563d993bbee11ecb
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552188"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Aby przetestować tylko wymagania systemowe:
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Aby wyświetlić wyniki w formacie CSV:
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Zgodność systemu plików
@@ -146,7 +147,7 @@ Obsługiwane są tylko woluminy NTFS; Systemy plików ReFS, FAT, FAT32 i inne ni
 
 W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu plików NTFS: 
 
-| Cechy | Stan obsługi | Uwagi |
+| Cecha | Stan obsługi | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Poufne listy kontroli dostępu w stylu systemu Windows są zachowywane przez Azure File Sync i są wymuszane przez system Windows Server w punktach końcowych serwera. Listy ACL można również wymuszać podczas bezpośredniego instalowania udziału plików platformy Azure, jednak wymaga to dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tożsamości](#identity) . |
 | Twarde linki | Pominięto | |

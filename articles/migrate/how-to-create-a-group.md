@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 867124a08bbad88b7dac5386ee6bc1c9c4d99c12
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68301706"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549923"
 ---
 # <a name="create-a-group-for-assessment"></a>Tworzenie grupy do oceny
 
@@ -43,11 +43,11 @@ Jeśli chcesz utworzyć grupę ręcznie poza tworzeniem oceny, wykonaj następuj
 
 2. Kliknij ikonę **grupy** .
 3. W obszarze **Tworzenie grupy**Określ nazwę grupy, a w polu **Nazwa urządzenia**wybierz urządzenie Azure Migrate, którego używasz do odnajdywania maszyn.
-1. Z listy maszyna wybierz maszyny, które chcesz dodać do grupy > **utworzyć**.
+4. Z listy maszyna wybierz maszyny, które chcesz dodać do grupy > **utworzyć**.
 
     ![Tworzenie grupy:](./media/how-to-create-a-group/create-group.png)
 
-Tej grupy można teraz używać podczas [tworzenia oceny](how-to-create-assessment.md).
+Tej grupy można teraz używać podczas [tworzenia oceny maszyn wirtualnych platformy Azure](how-to-create-assessment.md) lub [oceny rozwiązania Azure VMware (Automatyczna synchronizacja)](how-to-create-azure-vmware-solution-assessment.md). Należy pamiętać, że można utworzyć ocenę automatycznej synchronizacji dla grup mających tylko maszyny wirtualne VMware. 
 
 ## <a name="refine-a-group-with-dependency-mapping"></a>Uściślij grupę z mapowaniem zależności
 

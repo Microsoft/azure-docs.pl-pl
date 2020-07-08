@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515667"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operacje systemu plików na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 
 > [!div class="op_single_selector"]
-> * [Zestaw SDK .NET](data-lake-store-data-operations-net-sdk.md)
+> * [Zestaw SDK platformy .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [Interfejs API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -198,7 +198,7 @@ Poniżej przedstawiono kilka przykładów, które pokazują, jak korzystać z ze
 * [Podstawowy przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Zaawansowany przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Dokumentacja zestawu SDK platformy .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)

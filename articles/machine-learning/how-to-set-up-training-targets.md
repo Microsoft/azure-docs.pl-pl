@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515821"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
@@ -337,7 +337,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Wypełnij formularz. Podaj wartości dla wymaganych właściwości, szczególnie **rodziny maszyn wirtualnych**i **maksymalną liczbę węzłów** do użycia w celu uruchomienia obliczeń.  
 
-1. Wybierz przycisk __Utwórz__.
+1. Wybierz pozycję __Utwórz__.
 
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:

@@ -11,18 +11,16 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdae4a219408e811a49826999c85837aac449c0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551253"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
-|     |
-| --- |
-| Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+> [!NOTE]
+> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone przez organizację. Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się i uzyskać konto gościa przy użyciu opcji skonfigurowanych w przepływie użytkownika.
 
@@ -73,7 +71,7 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 
    ![Tworzenie nowej strony przepływu użytkownika](media/self-service-sign-up-user-flow/create-user-flow.png)
 
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Nowy przepływ użytkownika zostanie wyświetlony na liście **przepływy użytkownika (wersja zapoznawcza)** . W razie potrzeby Odśwież stronę.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Wybierz układ formularza kolekcji atrybutów

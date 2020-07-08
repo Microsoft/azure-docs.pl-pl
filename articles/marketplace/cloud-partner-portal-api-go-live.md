@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 5d550f576108447a88660321899f2f55ffeb3c77
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516269"
 ---
 # <a name="go-live"></a>Przejdź na żywo
@@ -28,9 +28,9 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**      |   **Opis**                                                           | **Typ danych** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  Ciąg       |
-| offerId        | Identyfikator oferty oferty do pobrania                                   |  Ciąg       |
-| api-version    | Najnowsza wersja interfejsu API                                                   |  Date         |
+| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String       |
+| offerId        | Identyfikator oferty oferty do pobrania                                   |  String       |
+| api-version    | Najnowsza wersja interfejsu API                                                   |  Data         |
 |  |  |  |
 
 ## <a name="header"></a>Header

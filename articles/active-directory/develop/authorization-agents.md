@@ -12,12 +12,12 @@ ms.date: 09/05/2019
 ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83a33fa3891e01c484f298f22d67467bc54a7618
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77085338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551978"
 ---
 # <a name="authorization-agents-android"></a>Agenci autoryzacji (Android)
 
@@ -25,7 +25,7 @@ W tym artykule opisano różnych agentów autoryzacji, które mogą być używan
 
 Wybór konkretnej strategii dla agentów autoryzacji jest opcjonalny i reprezentuje dodatkowe funkcje, które można dostosować. Większość aplikacji będzie używać ustawień domyślnych MSAL (zobacz [Opis pliku konfiguracji systemu Android MSAL](msal-configuration.md) , aby zobaczyć różne ustawienia domyślne).
 
-MSAL obsługuje autoryzację przy `WebView`użyciu programu lub przeglądarki systemowej.  Na poniższym obrazie pokazano `WebView`, w jaki sposób wygląda korzystanie z programu lub przeglądarki systemu z CustomTabs lub bez CustomTabs:
+MSAL obsługuje autoryzację przy użyciu programu `WebView` lub przeglądarki systemowej.  Na poniższym obrazie pokazano, w jaki sposób wygląda korzystanie z programu `WebView` lub przeglądarki systemu z CustomTabs lub bez CustomTabs:
 
 ![Przykłady logowania MSAL](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -45,13 +45,13 @@ Aby użyć widoku webapp w aplikacji, należy umieścić następujący wiersz w 
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-W przypadku używania w aplikacji `WebView`użytkownik loguje się bezpośrednio do aplikacji. Tokeny są przechowywane w piaskownicy aplikacji i nie są dostępne poza plikiem jar plików cookie aplikacji. W związku z tym użytkownik nie może korzystać z logowania jednokrotnego w aplikacjach, chyba że aplikacje integrują się z wystawcą uwierzytelnienia lub Portal firmy.
+W przypadku używania w aplikacji `WebView` użytkownik loguje się bezpośrednio do aplikacji. Tokeny są przechowywane w piaskownicy aplikacji i nie są dostępne poza plikiem jar plików cookie aplikacji. W związku z tym użytkownik nie może korzystać z logowania jednokrotnego w aplikacjach, chyba że aplikacje integrują się z wystawcą uwierzytelnienia lub Portal firmy.
 
 Program `WebView` udostępnia jednak możliwość dostosowania wyglądu i sposobu działania interfejsu użytkownika logowania. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz temat [WebViews dla systemu Android](https://developer.android.com/reference/android/webkit/WebView) .
 
 ## <a name="default-browser-plus-custom-tabs"></a>Domyślna przeglądarka i karty niestandardowe
 
-Domyślnie MSAL używa przeglądarki i strategii [kart niestandardowych](https://developer.chrome.com/multidevice/android/customtabs) . Można jawnie wskazać tę strategię, aby uniemożliwić wprowadzanie zmian w przyszłych `DEFAULT` wersjach przy użyciu następującej konfiguracji JSON w pliku konfiguracji niestandardowej:
+Domyślnie MSAL używa przeglądarki i strategii [kart niestandardowych](https://developer.chrome.com/multidevice/android/customtabs) . Można jawnie wskazać tę strategię, aby uniemożliwić wprowadzanie zmian w przyszłych wersjach przy `DEFAULT` użyciu następującej konfiguracji JSON w pliku konfiguracji niestandardowej:
 
 ```json
 "authorization_user_agent" : "BROWSER"
@@ -65,7 +65,7 @@ Ponieważ nie jest możliwe, aby MSAL określony pakiet przeglądarki był używ
 
 MSAL pobiera pełną listę przeglądarek zainstalowanych na urządzeniu w celu wybrania używanej przeglądarki. Lista znajduje się w kolejności zwróconej przez Menedżera pakietów, która pośrednio odzwierciedla preferencje użytkownika. Na przykład domyślna przeglądarka, jeśli jest ustawiona, to pierwszy wpis na liście. _Pierwsza_ przeglądarka na liście zostanie wybrana bez względu na to, czy obsługuje ona karty niestandardowe. Jeśli przeglądarka obsługuje niestandardowe karty, MSAL uruchomi kartę niestandardową. karty niestandardowe mają wygląd i czują się bliżej aplikacji `WebView` i umożliwiają podstawowe dostosowanie interfejsu użytkownika. Aby dowiedzieć się więcej, zobacz [niestandardowe karty w systemie Android](https://developer.chrome.com/multidevice/android/customtabs) .
 
-Jeśli na urządzeniu nie ma żadnych pakietów przeglądarki, MSAL korzysta z aplikacji `WebView`.
+Jeśli na urządzeniu nie ma żadnych pakietów przeglądarki, MSAL korzysta z aplikacji `WebView` .
 
 Kolejność przeglądarek w przeglądarce jest określana przez system operacyjny. Jest ona w kolejności od największej do najmniej. Jeśli ustawienie domyślne urządzenia nie zostanie zmienione, należy uruchomić tę samą przeglądarkę dla każdego logowania, aby zapewnić obsługę logowania jednokrotnego.
 
@@ -76,7 +76,7 @@ Kolejność przeglądarek w przeglądarce jest określana przez system operacyjn
 
 Następujące przeglądarki zostały przetestowane w celu sprawdzenia, czy poprawne przekierowanie do `"redirect_uri"` określonego w pliku konfiguracji:
 
-| | Wbudowana przeglądarka | Chrome | Opera  | Microsoft Edge | Przeglądarka UC | Firefox |
+| Urządzenie | Wbudowana przeglądarka | Chrome | Opera  | Microsoft Edge | Przeglądarka UC | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (interfejs API 17) | chodzenia | chodzenia |nie dotyczy |nie dotyczy |nie dotyczy |nie dotyczy |
 | Samsung S7 (interfejs API 25) | chodzenia | chodzenia | chodzenia | chodzenia | udało |chodzenia |

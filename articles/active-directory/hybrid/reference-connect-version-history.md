@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1c0bd880f2052e6ee2ad3c5cdc3bed803f6da1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550127"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -901,18 +901,31 @@ CBool(
 ```
 
 * Dodano następujący zestaw funkcji zgodnych z X509Certificate2 na potrzeby tworzenia wyrażeń reguł synchronizacji w celu obsługi wartości certyfikatów w atrybucie userCertificate:
-
-    ||||
-    | --- | --- | --- |
-    |CertSubject|CertIssuer|CertKeyAlgorithm|
-    |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
-    |CertSubjectNameOid|CertIssuerDN|Iscert|
-    |CertFriendlyName|CertThumbprint|CertExtensionOids|
-    |CertFormat|CertNotAfter|CertPublicKeyOid|
-    |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Wybierz pozycję|
-    |CertKeyAlgorithmParams|CertHashString|Lokalizacja|
-    |||With|
+  * CertSubject 
+  * CertIssuer
+  * CertKeyAlgorithm
+  * CertSubjectNameDN
+  * CertIssuerOid
+  * CertNameInfo
+  * CertSubjectNameOid
+  * CertIssuerDN
+  * Iscert
+  * CertFriendlyName
+  * CertThumbprint
+  * CertExtensionOids
+  * CertFormat
+  * CertNotAfter
+  * CertPublicKeyOid 
+  * CertSerialNumber
+  * CertNotBefore
+  * CertPublicKeyParametersOid
+  * CertVersion
+  * CertSignatureAlgorithmOid
+  * Wybierz pozycję
+  * CertKeyAlgorithmParams
+  * CertHashString
+  * Lokalizacja
+  * With
 
 * Wprowadzono następujące zmiany schematu, które umożliwiają klientom tworzenie niestandardowych reguł synchronizacji w celu przepływu zasad sAMAccountName, domainNetBios i domainFQDN dla obiektów grup, a także nazwy odróżnionyname dla obiektów użytkownika:
 

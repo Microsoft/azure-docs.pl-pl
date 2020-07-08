@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: bf980f7c60cd43a4a37a481b96dce737a91d03aa
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85516237"
 ---
 # <a name="retrieve-operations"></a>Pobieranie operacji
@@ -34,10 +34,10 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 
 |  **Nazwa**          |      **Opis**                                                                                           | **Typ danych** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  Ciąg       |
-|  offerId           |  Identyfikator oferty                                                                                              |  Ciąg       |
+|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  String       |
+|  offerId           |  Identyfikator oferty                                                                                              |  String       |
 |  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację na ofercie. OperationId może zostać pobrany za pomocą tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla dowolnej długotrwałej operacji, takiej jak interfejs API [oferty publikacji](./cloud-partner-portal-api-publish-offer.md) .  |   Guid (identyfikator GUID)   |
-|  api-version       | Najnowsza wersja interfejsu API |    Date      |
+|  api-version       | Najnowsza wersja interfejsu API |    Data      |
 |  |  |  |
 
 ## <a name="header"></a>Header
@@ -179,7 +179,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  createdDateTime             | UTC DateTime podczas tworzenia operacji                                                       |
 |  lastActionDateTime          | Data i godzina UTC ostatniej aktualizacji dla operacji                                       |
 |  status                      | Stan operacji `not started` \| `running` \| `failed` \| `completed` . W danym momencie może istnieć tylko jedna operacja `running` . |
-|  error                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
+|  Błąd                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Właściwości kroku odpowiedzi

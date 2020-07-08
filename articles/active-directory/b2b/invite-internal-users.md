@@ -11,19 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f217266a2b28bfaf15df6a70a28784873dd123
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551371"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Zapraszanie użytkowników wewnętrznych do współpracy B2B
 
-|     |
-| --- |
-| Zapraszanie użytkowników wewnętrznych do korzystania z współpracy B2B jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure. |
-|     |
+> [!NOTE]
+> Zapraszanie użytkowników wewnętrznych do korzystania z współpracy B2B jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Przed udostępnieniem funkcji współpracy B2B usługi Azure AD organizacje mogą współpracować z dystrybutorami, dostawcami, dostawcami i innymi użytkownikami-gośćmi przez skonfigurowanie dla nich poświadczeń wewnętrznych. Jeśli masz użytkowników z wewnętrznymi Gośćmi, możesz zaprosić ich do korzystania ze współpracy B2B, aby móc korzystać z korzyści B2B usługi Azure AD. Użytkownicy korzystający z programu B2B będą mogli korzystać z własnych tożsamości i poświadczeń w celu zalogowania się i nie będzie potrzeby zachowywania haseł ani zarządzania cyklem życia konta.
 

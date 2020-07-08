@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220720"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550338"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
 
@@ -29,10 +29,8 @@ Niektóre organizacje nie zostały przeniesione do uwierzytelniania hybrydowego 
 
 Aby ułatwić przechodzenie do uwierzytelniania hybrydowego, można teraz skonfigurować usługę Azure AD w taki sposób, aby umożliwić użytkownikom logowanie się przy użyciu wiadomości e-mail w zweryfikowanej domenie jako alternatywny identyfikator logowania. Jeśli na przykład *firma Contoso* została Poprzednia zalogowaniem się do firmy *Fabrikam*, a nie będziesz w stanie zalogować się przy użyciu starszej `balas@contoso.com` nazwy UPN, można teraz użyć poczty e-mail jako alternatywnego identyfikatora logowania. Aby uzyskać dostęp do aplikacji lub usług, użytkownicy będą logować się do usługi Azure AD przy użyciu przypisanych im adresów e-mail, takich jak `balas@fabrikam.com` .
 
-|     |
-| --- |
-| Logowanie do usługi Azure AD za pomocą poczty e-mail jako alternatywny identyfikator logowania jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+> [!NOTE]
+> Logowanie do usługi Azure AD za pomocą poczty e-mail jako alternatywny identyfikator logowania jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Przegląd podejścia do logowania za pomocą usługi Azure AD
 
@@ -45,6 +43,19 @@ Jednak w niektórych organizacjach lokalna nazwa UPN nie jest używana jako nazw
 Typowym obejściem tego problemu jest ustawienie nazwy UPN usługi Azure AD na adres e-mail, za pomocą którego użytkownik oczekuje na zalogowanie. Takie podejście działa, chociaż skutkuje różnymi nazwami UPN między lokalną usługą AD i usługą Azure AD, a ta konfiguracja nie jest zgodna ze wszystkimi obciążeniami Microsoft 365.
 
 Innym rozwiązaniem jest zsynchronizowanie usługi Azure AD i lokalnych nazw UPN z tą samą wartością, a następnie skonfigurowanie usługi Azure AD, aby umożliwić użytkownikom logowanie się do usługi Azure AD za pomocą zweryfikowanej wiadomości e-mail. Aby zapewnić tę możliwość, należy zdefiniować co najmniej jeden adres e-mail w atrybucie *proxyAddresses* użytkownika w katalogu lokalnym. *ProxyAddresses* są następnie synchronizowane z usługą Azure AD automatycznie przy użyciu Azure AD Connect.
+
+## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
+
+W bieżącym stanie wersji zapoznawczej następujące ograniczenia są stosowane, gdy użytkownik loguje się przy użyciu adresu e-mail bez nazwy UPN jako alternatywnego identyfikatora logowania:
+
+* Użytkownicy mogą zobaczyć swoją nazwę UPN, nawet jeśli zalogowano się za pomocą wiadomości e-mail bez nazwy UPN. Może być widoczne następujące przykładowe zachowanie:
+    * Użytkownik jest monitowany o zalogowanie się przy użyciu nazwy UPN po skierowaniu do logowania do usługi Azure AD za pomocą usługi `login_hint=<non-UPN email>` .
+    * Gdy użytkownik zaloguje się przy użyciu wiadomości e-mail bez nazwy UPN i wprowadzi nieprawidłowe hasło, Strona *"wprowadź hasło"* zmieni się, aby wyświetlić nazwę UPN.
+    * W niektórych witrynach i aplikacjach firmy Microsoft, takich jak [https://portal.azure.com](https://portal.azure.com) i Microsoft Office, formant **Menedżera kont** zwykle wyświetlany w prawym górnym rogu może wyświetlać nazwę UPN użytkownika zamiast wiadomości e-mail bez nazwy UPN użytej do zalogowania się.
+
+* Niektóre przepływy nie są obecnie zgodne z wiadomościami e-mail bez nazwy UPN, na przykład:
+    * Ochrona tożsamości nie jest obecnie *zgodna z* alternatywnymi identyfikatorami logowania w wiadomości e-mail z wykryciem zagrożeń. To wykrywanie ryzyka używa nazwy UPN w celu dopasowania do nieujawnionych poświadczeń. Aby uzyskać więcej informacji, zobacz [Azure AD Identity Protection wykrywania ryzyka i korygowania][identity-protection].
+    * Zaproszenia B2B wysyłane do alternatywnej poczty e-mail identyfikatora logowania nie są w pełni obsługiwane. Po zaakceptowaniu zaproszenia wysłanego do wiadomości e-mail jako alternatywnego identyfikatora logowania logowanie za pomocą alternatywnej wiadomości e-mail może nie być możliwe w przypadku użytkownika w punkcie końcowym dzierżawcy.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synchronizuj adresy e-mail logowania z usługą Azure AD
 
@@ -177,6 +188,7 @@ Aby uzyskać więcej informacji o operacjach związanych z tożsamościami hybry
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 287f881fb17dd84357f540ee562e21c66c11ab95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae1fbc89564ca17938e6a630146be5e5fb5b11f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77114362"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550852"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Co to jest adres IP 168.63.129.16?
 
@@ -37,7 +37,7 @@ Adres IP 168.63.129.16 to wirtualny publiczny adres IP, który służy do ułatw
 Publiczny adres IP 168.63.129.16 jest używany we wszystkich regionach i wszystkich chmurach narodowych. Ten specjalny publiczny adres IP należy do firmy Microsoft i nie zmieni się. Zalecamy Zezwalanie na ten adres IP w ramach zasad zapory lokalnych (w maszynie wirtualnej) (kierunek wychodzący). Komunikacja między tym specjalnym adresem IP a zasobami jest bezpieczna, ponieważ tylko wewnętrzna platforma platformy Azure może uzyskać komunikat z tego adresu IP. Jeśli ten adres jest zablokowany, może wystąpić nieoczekiwane zachowanie w różnych scenariuszach. 168.63.129.16 jest [wirtualnym adresem IP węzła hosta](../virtual-network/security-overview.md#azure-platform-considerations) i nie podlega trasom zdefiniowanym przez użytkownika.
 
 - Agent maszyny wirtualnej wymaga komunikacji wychodzącej przez porty 80, 443, 32526 z WireServer (168.63.129.16). Powinny być one otwarte w lokalnej zaporze na maszynie wirtualnej. Komunikacja na tych portach z 168.63.129.16 nie podlega skonfigurowanym grupom zabezpieczeń sieci.
-- 168.63.129.16 mogą udostępniać usługi DNS dla maszyny wirtualnej. Jeśli nie jest to potrzebne, ten ruch może być blokowany w lokalnej zaporze na maszynie wirtualnej. Domyślnie komunikacja DNS nie podlega skonfigurowanym grupom zabezpieczeń sieci, chyba że jest to celowe wykorzystanie tagu usługi [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) .
+- 168.63.129.16 mogą udostępniać usługi DNS dla maszyny wirtualnej. Jeśli nie jest to potrzebne, ten ruch może być blokowany w lokalnej zaporze na maszynie wirtualnej. Domyślnie komunikacja DNS nie podlega skonfigurowanym grupom zabezpieczeń sieci, chyba że jest to celowe wykorzystanie tagu usługi [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) . Aby zablokować ruch DNS do Azure DNS za sieciowej grupy zabezpieczeń, Utwórz regułę ruchu wychodzącego w celu odblokowania ruchu [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags)i określ "*" jako "docelowe zakresy portów" i "any" jako protokół.
 - Jeśli maszyna wirtualna jest częścią puli zaplecza modułu równoważenia obciążenia, komunikacja z [sondą kondycji](../load-balancer/load-balancer-custom-probe-overview.md) powinna być dozwolona z 168.63.129.16. Domyślna konfiguracja grupy zabezpieczeń sieci ma regułę, która zezwala na tę komunikację. Ta reguła wykorzystuje tag usługi [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) . W razie potrzeby można zablokować ten ruch przez skonfigurowanie sieciowej grupy zabezpieczeń, co spowoduje niepowodzenie sond.
 
 W scenariuszu sieci niewirtualnej (klasyczny) sonda kondycji pochodzi z prywatnego adresu IP, a 168.63.129.16 nie jest używana.

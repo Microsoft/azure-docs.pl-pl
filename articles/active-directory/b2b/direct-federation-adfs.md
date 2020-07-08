@@ -12,18 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf9b92b868e8707a0e20531f5738146d833c301
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85387086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551523"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Przykład: bezpośrednia Federacja z Active Directory Federation Services (AD FS) (wersja zapoznawcza)
-|     |
-| --- |
-| Federacja bezpośrednia jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+
+> [!NOTE]
+> Federacja bezpośrednia jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 W tym artykule opisano sposób konfigurowania [Federacji bezpośredniej](direct-federation.md) przy użyciu Active Directory Federation Services (AD FS) jako dostawcy tożsamości SAML 2,0 lub WS-in. Aby zapewnić obsługę federacji bezpośredniej, należy skonfigurować pewne atrybuty i oświadczenia u dostawcy tożsamości. Aby zilustrować sposób konfigurowania dostawcy tożsamości dla Federacji bezpośredniej, będziemy używać Active Directory Federation Services (AD FS) jako przykładu. Pokażemy, jak skonfigurować AD FS zarówno jako dostawcę tożsamości SAML, jak i jako dostawcę tożsamości.
 

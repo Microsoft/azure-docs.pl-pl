@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef4bbe25c21940958b2bc3e22d4bb85b04acd34
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550481"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i Zezwalanie użytkownikom na uwierzytelnianie SMS przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -24,10 +24,8 @@ Aby zmniejszyć złożoność i zagrożenie bezpieczeństwa dla użytkowników l
 
 W tym artykule opisano sposób włączania uwierzytelniania opartego na programie SMS dla wybranych użytkowników lub grup w usłudze Azure AD.
 
-|     |
-| --- |
-| Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure|
-|     |
+> [!NOTE]
+> Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
