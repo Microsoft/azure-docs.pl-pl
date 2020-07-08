@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561780"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Użyj "pełnej" składni wyszukiwania Lucene (zapytania zaawansowane w usłudze Azure Wyszukiwanie poznawcze)
 
@@ -34,9 +34,9 @@ To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiani
 
 ### <a name="set-the-request-header"></a>Ustawianie nagłówka żądania
 
-1. W nagłówku żądania ustaw wartość w **polu Typ zawartości** na `application/json`.
+1. W nagłówku żądania ustaw wartość w **polu Typ zawartości** na `application/json` .
 
-2. Dodaj **klucz API-Key**i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB`. Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
+2. Dodaj **klucz API-Key**i ustaw go na ten ciąg: `252044BE3886FE4A8E3BAA4F595114BB` . Jest to klucz zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC.
 
 Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zapytań w tym artykule, zamieniając tylko ciąg **Search =** String. 
 
@@ -53,7 +53,7 @@ Kompozycja adresów URL ma następujące elementy:
 + **`https://azs-playground.search.windows.net/`** jest usługą wyszukiwania piaskownicy obsługiwaną przez zespół deweloperów Wyszukiwanie poznawcze platformy Azure. 
 + **`indexes/nycjobs/`** jest indeksem zadań NYC w kolekcji Indexs tej usługi. W żądaniu wymagane są zarówno nazwę usługi, jak i indeks.
 + **`docs`** jest kolekcją dokumentów zawierającą całą zawartość przeszukiwaną. Klucz API Query-Key podany w nagłówku żądania działa tylko na operacjach odczytu dla kolekcji Documents.
-+ **`api-version=2019-05-06`** Ustawia wersję interfejsu API, która jest parametrem wymaganym dla każdego żądania.
++ **`api-version=2020-06-30`** Ustawia wersję interfejsu API, która jest parametrem wymaganym dla każdego żądania.
 + **`search=*`** jest ciągiem zapytania, który w początkowym zapytaniu ma wartość null, zwracając pierwsze wyniki 50 (domyślnie).
 
 ## <a name="send-your-first-query"></a>Wysyłanie pierwszego zapytania
@@ -63,10 +63,10 @@ W ramach kroku weryfikacji Wklej następujące żądanie do GET i kliknij pozycj
 Wklej ten adres URL do klienta REST jako krok walidacji i Wyświetl strukturę dokumentu.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*
   ```
 
-Ciąg zapytania, **`search=*`**, jest nieokreślonym wyszukiwaniem równym null lub pustego wyszukiwania. Jest to najprostszy sposób wyszukiwania.
+Ciąg zapytania, **`search=*`** , jest nieokreślonym wyszukiwaniem równym null lub pustego wyszukiwania. Jest to najprostszy sposób wyszukiwania.
 
 Opcjonalnie możesz dodać **`$count=true`** do adresu URL, aby zwrócić liczbę dokumentów pasujących do kryteriów wyszukiwania. W przypadku pustego ciągu wyszukiwania jest to wszystkie dokumenty w indeksie (około 2800 w przypadku zadań NYC).
 
@@ -75,7 +75,7 @@ Opcjonalnie możesz dodać **`$count=true`** do adresu URL, aby zwrócić liczb�
 Dodaj **zapytania = Full** , aby wywołać pełną składnię zapytania, zastępując domyślną prostą składnię zapytania. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&search=*
 ```
 
 We wszystkich przykładach w tym artykule określono parametr **querytype = Full** Search wskazujący, że Pełna składnia jest obsługiwana przez Analizator zapytań Lucene. 
@@ -101,12 +101,12 @@ search=*&searchFields=business_title, posting_type&$select=business_title, posti
 Spacje po przecinkach są opcjonalne.
 
 > [!Tip]
-> W przypadku korzystania z interfejsu API REST z kodu aplikacji nie należy zapominać o parametrach kodowania `$select` URL `searchFields`, takich jak i.
+> W przypadku korzystania z interfejsu API REST z kodu aplikacji nie należy zapominać o parametrach kodowania URL, takich jak `$select` i `searchFields` .
 
 ### <a name="full-url"></a>Pełny adres URL
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
 ```
 
 Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
@@ -134,7 +134,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 ### <a name="full-url"></a>Pełny adres URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Przykładowa odpowiedź Poster](media/search-query-lucene-examples/intrafieldfilter.png)
@@ -150,7 +150,7 @@ Pamiętaj, aby umieścić wiele ciągów w cudzysłowie, jeśli chcesz, aby oba 
 Pole określone w elemencie **FieldName: searchExpression** musi być polem z możliwością wyszukiwania. Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index (interfejs API REST platformy Azure wyszukiwanie poznawcze)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
 > [!NOTE]
-> W powyższym przykładzie nie musimy używać `searchFields` parametru, ponieważ każda część zapytania ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` Na przykład zapytanie byłoby `senior NOT junior` zgodne tylko z `business_title` polem, a w tym `posting_type` polu będzie pasować wartość "External". Nazwa pola podana w nazwie **NazwaPola: searchExpression** zawsze ma pierwszeństwo przed `searchFields` parametrem, co w tym przykładzie nie musi zawierać `business_title` `searchFields` parametrów.
+> W powyższym przykładzie nie musimy używać `searchFields` parametru, ponieważ każda część zapytania ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. Na przykład zapytanie `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` byłoby zgodne tylko z `senior NOT junior` `business_title` polem, a w tym polu będzie pasować wartość "External" `posting_type` . Nazwa pola podana w nazwie **NazwaPola: searchExpression** zawsze ma pierwszeństwo przed `searchFields` parametrem, co w tym przykładzie nie musi zawierać `business_title` `searchFields` parametrów.
 
 ## <a name="example-3-fuzzy-search"></a>Przykład 3: Wyszukiwanie rozmyte
 
@@ -174,7 +174,7 @@ searchFields=business_title&$select=business_title&search=business_title:asosiat
 To zapytanie wyszukuje zadania z terminem "Skojarz" (świadomie błędny):
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
   ![Odpowiedź na Wyszukiwanie rozmyte](media/search-query-lucene-examples/fuzzysearch.png)
 
@@ -197,14 +197,14 @@ searchFields=business_title&$select=business_title&search=business_title:%22seni
 W tym zapytaniu w przypadku zadań z terminem "wyższy analityk", w którym jest oddzielona nie więcej niż jeden wyraz:
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
   ![Zapytanie o bliskość](media/search-query-lucene-examples/proximity-before.png)
 
 Spróbuj ponownie usunąć słowa między terminem "wyższego analityka". Zwróć uwagę, że 8 dokumentów jest zwracanych dla tego zapytania, a nie do 10 dla poprzedniego zapytania.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~0
 ```
 
 ## <a name="example-5-term-boosting"></a>Przykład 5: zwiększenie warunków
@@ -215,16 +215,16 @@ Zwiększenie warunków dotyczy klasyfikacji dokumentu, jeśli zawiera on podwyż
 W tym zapytaniu "Before" Wyszukaj zadania z takim *analitykiem komputerowym* i zwróć uwagę na to, że nie ma żadnych wyników zarówno dla *komputera* , jak i *analityka*, ale zadania *komputera* znajdują się w górnej części wyników.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
   ![Trwa zwiększanie warunków](media/search-query-lucene-examples/termboostingbefore.png)
 
 W zapytaniu "After" Powtórz wyszukiwanie, a tym samym czasie zwiększy wyniki za pomocą warunkowego *analityka* na *komputerze* , jeśli oba słowa nie istnieją. 
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst%5e2
 ```
-Bardziej czytelna wersja powyższego zapytania to `search=business_title:computer analyst^2`. W przypadku zapytania prawidłowo zakodowane `^2` jest jako `%5E2`, co jest trudniejsze do wyświetlenia.
+Bardziej czytelna wersja powyższego zapytania to `search=business_title:computer analyst^2` . W przypadku zapytania prawidłowo `^2` zakodowane jest jako `%5E2` , co jest trudniejsze do wyświetlenia.
 
   ![Zwiększenie warunków](media/search-query-lucene-examples/termboostingafter.png)
 
@@ -247,10 +247,10 @@ searchFields=business_title&$select=business_title&search=business_title:/(Sen|J
 
 ### <a name="full-url"></a>Pełny adres URL
 
-W tym zapytaniu Wyszukaj zadania z terminem starszym lub niezawodnym `search=business_title:/(Sen|Jun)ior/`:.
+W tym zapytaniu Wyszukaj zadania z terminem starszym lub niezawodnym: `search=business_title:/(Sen|Jun)ior/` .
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
   ![Zapytanie wyrażenia regularnego](media/search-query-lucene-examples/regex.png)
@@ -260,7 +260,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 >
 
 ## <a name="example-7-wildcard-search"></a>Przykład 7: wyszukiwanie przy użyciu symboli wieloznacznych
-Można użyć ogólnie rozpoznanej składni dla wielu symboli\*wieloznacznych () lub pojedynczych znaków (?). Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
+Można użyć ogólnie rozpoznanej składni dla wielu \* symboli wieloznacznych () lub pojedynczych znaków (?). Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
 
 ### <a name="search-expression"></a>Wyrażenie wyszukiwania
 
@@ -273,7 +273,7 @@ searchFields=business_title&$select=business_title&search=business_title:prog*
 W tym zapytaniu Wyszukaj zadania, które zawierają prefiks "program", który zawiera tytuły biznesowe z programowaniem terminów i programistą. Nie można użyć znaku * ani? Symbol jako pierwszy znak wyszukiwania.
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
   ![Zapytanie symboli wieloznacznych](media/search-query-lucene-examples/wildcard.png)
 
