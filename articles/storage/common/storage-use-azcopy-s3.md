@@ -9,15 +9,15 @@ ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513749"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiowanie danych z usług Amazon S3 do usługi Azure Storage za pomocą AzCopy
 
-AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob lub plików do lub z konta magazynu. Ten artykuł pomaga w kopiowaniu obiektów, katalogów i zasobników z Amazon Web Services (AWS) S3 do usługi Azure Blob Storage za pomocą AzCopy.
+AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować obiekty blob lub pliki do lub z konta magazynu. Ten artykuł pomaga w kopiowaniu obiektów, katalogów i zasobników z Amazon Web Services (AWS) S3 do usługi Azure Blob Storage za pomocą AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Wybierz sposób dostarczania poświadczeń autoryzacji
 

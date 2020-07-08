@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514040"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
@@ -23,7 +23,7 @@ Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia pakietu dla 
 
 ## <a name="create-a-support-package"></a>Tworzenie pakietu dla pomocy technicznej
 
-W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Na przykład:
+W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Przykład:
 
 * Jeśli musisz usunąć poufne informacje z plików dziennika przed udostępnieniem pomoc techniczna firmy Microsoft.
 * Jeśli masz problemy z przekazywaniem pakietu ze względu na problemy z łącznością.

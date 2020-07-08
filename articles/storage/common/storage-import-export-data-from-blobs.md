@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513507"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
     - Wybierz subskrypcję.
     - Wprowadź lub wybierz grupę zasobów.
 
-        ![Podstawy](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Informacje podstawowe](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. W **szczegółach zadania**:
 

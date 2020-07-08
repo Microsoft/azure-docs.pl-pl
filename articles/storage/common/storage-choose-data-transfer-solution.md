@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514437"
 ---
-# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybieranie rozwiązania platformy Azure do transferu danych
+# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybierz rozwiązanie platformy Azure na potrzeby transferu danych
 
 Ten artykuł zawiera omówienie niektórych typowych rozwiązań do transferu danych na platformie Azure. Artykuł zawiera również instrukcje dotyczące zalecanych opcji w zależności od przepustowości sieci w danym środowisku oraz wielkości danych, które mają być transferowane.
 

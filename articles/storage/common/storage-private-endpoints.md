@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513276"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Używanie prywatnych punktów końcowych usługi Azure Storage
@@ -106,7 +106,7 @@ Zalecane nazwy stref DNS dla prywatnych punktów końcowych usług magazynu to:
 | Usługa magazynu        | Nazwa strefy                            |
 | :--------------------- | :----------------------------------- |
 | Blob service           | `privatelink.blob.core.windows.net`  |
-| Usługa Data Lake Storage 2. generacji | `privatelink.dfs.core.windows.net`   |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
 | Usługa plików           | `privatelink.file.core.windows.net`  |
 | usługa kolejki          | `privatelink.queue.core.windows.net` |
 | Table service          | `privatelink.table.core.windows.net` |

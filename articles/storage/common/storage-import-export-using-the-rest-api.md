@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: ae80c00fd81d0966167d2adf00764a0b1089c163
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514112"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure Import/Export
@@ -29,7 +29,7 @@ Usługa Azure Import/Export jest dostawcą zasobów dla Azure Resource Manager i
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
 ```
 
-## <a name="versioning"></a>Obsługa wersji
+## <a name="versioning"></a>Przechowywanie wersji
 
 Żądania do usługi Import/Export muszą określać `api-version` parametr i ustawić jego wartość na `2016-11-01` .
 

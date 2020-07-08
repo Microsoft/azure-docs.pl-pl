@@ -8,10 +8,10 @@ ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 89a5fa0be104c3a7b7e035f82d2fed80d4781701
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85511990"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
@@ -99,16 +99,16 @@ Jeśli połączenie zostało pomyślnie nawiązane, powinny pojawić się nastę
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Rozwiązanie 1 — użycie usługi Azure File Sync
-Azure File Sync można przekształcić lokalny serwer systemu Windows w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego protokołu, który jest dostępny w systemie Windows Server, aby uzyskać dostęp do danych lokalnie, w tym SMB, NFS i FTPS. Azure File Sync działa przez port 443 i może służyć jako obejście w celu uzyskania dostępu Azure Files z klientów, którzy mają zablokowany port 445. [Dowiedz się, jak skonfigurować Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync można przekształcić lokalny serwer systemu Windows w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Usługa Azure File Sync działa przez port 443 i może służyć jako obejście w celu uzyskania dostępu do usługi Azure Files z klientów, którzy mają zablokowany port 445. [Dowiedz się, jak skonfigurować Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Rozwiązanie 2 — użycie sieci VPN
-Skonfigurowanie sieci VPN do określonego konta magazynu spowoduje, że ruch przejdzie przez bezpieczny tunel, a nie przez Internet. Postępuj zgodnie z [instrukcjami, aby skonfigurować sieć VPN](storage-files-configure-p2s-vpn-windows.md) , aby uzyskać dostęp do Azure Files z systemu Windows.
+Skonfigurowanie sieci VPN do określonego konta magazynu spowoduje, że ruch przejdzie przez bezpieczny tunel, a nie przez Internet. Postępuj zgodnie z [instrukcjami konfigurowania sieci VPN](storage-files-configure-p2s-vpn-windows.md), aby uzyskać dostęp do usługi Azure Files z systemu Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Rozwiązanie 3 — odblokowanie portu 445 przy pomocy usługodawcy internetowego/administratora IT
 Skontaktuj się z działem IT lub usługodawcą internetowym, aby otworzyć port 445 wychodzące do [zakresów adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Rozwiązanie 4 — użycie narzędzi opartych na interfejsie API REST, takich jak Eksplorator usługi Storage/Powershell
-Azure Files obsługuje również protokół REST oprócz protokołu SMB. Dostęp do REST działa przez port 443 (standardowy protokół TCP). Istnieją różne narzędzia, które są zapisywane przy użyciu interfejsu API REST, które umożliwiają rozbudowane środowisko użytkownika. [Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) jest jednym z nich. [Pobierz i zainstaluj Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) i Połącz się ze swoim udziałem plików, Azure Files. Można również użyć [programu PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , który również jest interfejsem API REST użytkownika.
+Azure Files obsługuje również protokół REST oprócz protokołu SMB. Dostęp do funkcji REST działa przez port 443 (standardowy protokół TCP). Istnieją różne narzędzia, które są napisane przy użyciu interfejsu API REST, które oferują rozbudowany interfejs użytkownika. [Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) jest jednym z nich. [Pobierz i zainstaluj Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) i połącz się ze swoim udziałem plików obsługiwanym przez usługę Azure Files. Można również użyć [programu PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , który również jest interfejsem API REST użytkownika.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Przyczyna 2: NTLMv1 jest włączona
 
@@ -276,11 +276,11 @@ Ten problem może wystąpić, jeśli używasz system szyfrowania plików (EFS). 
 Aby skopiować plik za pośrednictwem sieci, należy go najpierw odszyfrować. Użyj jednej z następujących metod:
 
 - Użyj polecenia **copy/d** . Umożliwia zapisywanie zaszyfrowanych plików jako odszyfrowanych plików w miejscu docelowym.
-- Ustaw następujący klucz rejestru:
+- Ustaw poniższy klucz rejestru:
   - Ścieżka = HKLM\Software\Policies\Microsoft\Windows\System
   - Typ wartości = DWORD
-  - Nazwa = CopyFileAllowDecryptedRemoteDestination
-  - Wartość = 1
+  - Nazwa: CopyFileAllowDecryptedRemoteDestination
+  - Wartość: 1
 
 Należy pamiętać, że ustawienie klucza rejestru ma wpływ na wszystkie operacje kopiowania wprowadzone do udziałów sieciowych.
 

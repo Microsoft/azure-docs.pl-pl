@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514422"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Otwórz bilet pomocy technicznej dla zadania importu/eksportu
@@ -28,7 +28,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
 1. Przejdź do zadania importowania/eksportowania. Przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie kliknij pozycję **nowe żądanie obsługi**.
      
-    ![Podstawy](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Informacje podstawowe](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. W obszarze **nowe żądanie obsługi**wybierz pozycję **podstawowe**. W obszarze **podstawowe**wykonaj następujące czynności:
     

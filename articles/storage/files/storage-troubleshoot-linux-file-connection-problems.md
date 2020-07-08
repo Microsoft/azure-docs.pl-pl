@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512005"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
@@ -210,7 +210,7 @@ Flaga Force **f** w COPYFILE powoduje wykonanie **wiersza CP-p-f** w systemie UN
 
 ### <a name="workaround"></a>Obejście
 
-Użyj użytkownika konta magazynu do kopiowania plików:
+Użyj użytkownika konta magazynu w celu skopiowania plików:
 
 - `Useadd : [storage account name]`
 - `Passwd [storage account name]`
@@ -227,9 +227,9 @@ Podczas próby wyświetlenia listy plików w udziale plików platformy Azure prz
 ### <a name="solution"></a>Rozwiązanie
 Uaktualnij jądro systemu Linux do następujących wersji, które mają rozwiązanie tego problemu:
 
-- 4.4.87 +
-- 4.9.48 +
-- 4.12.11 +
+- 4.4.87 i nowsze
+- 4.9.48 i nowsze
+- 4.12.11 i nowsze
 - Wszystkie wersje, które są większe niż lub równe 4,13
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Nie można utworzyć linków symbolicznych — ln: nie można utworzyć linku symbolicznego ": operacja nie jest obsługiwana
@@ -277,7 +277,7 @@ Ten problem z ponownym nawiązywaniem połączenia w jądrze systemu Linux jest 
 
 - [Poprawka ponownego nawiązywania połączenia w celu nie odraczania ponownego łączenia sesji protokołu smb3 długo po ponownym połączeniu gniazda](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Wywoływanie usługi echo natychmiast po ponownym połączeniu gniazda](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: naprawianie potencjalnego uszkodzenia pamięci podczas ponownego nawiązywania połączenia](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Naprawienie potencjalnego uszkodzenia pamięci podczas ponownego nawiązywania połączenia](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: naprawianie możliwego podwójnego blokowania obiektu mutex podczas ponownego nawiązywania połączenia (dla jądra v 4.9 i nowszego)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 Te zmiany mogą jednak nie być jeszcze przeniesione do wszystkich dystrybucji systemu Linux. Jeśli używasz popularnej dystrybucji systemu Linux, możesz zaewidencjonować [Azure Files użycia z systemem Linux](storage-how-to-use-files-linux.md) , aby zobaczyć, która wersja dystrybucji ma niezbędne zmiany jądra.

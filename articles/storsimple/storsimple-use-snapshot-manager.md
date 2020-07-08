@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
 ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513745"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
@@ -118,7 +118,7 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Szczegóły |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **szczegóły** , aby wyświetlić szczegóły konfiguracji urządzenia. |
 | Edytuj |Kliknij pozycję **zasady tworzenia kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy zasady w okienku **wyników** . |Kliknij przycisk **Edytuj** , aby zmienić harmonogram tworzenia kopii zapasowych dla grupy woluminów. |
 | Eksportuj listę |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Eksportuj listę** , aby zapisać listę w pliku z wartościami rozdzielanymi przecinkami (CSV). Następnie można zaimportować ten plik do aplikacji arkusza kalkulacyjnego do analizy. |
-| Help |Kliknij dowolny węzeł lub wynik. (Ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Pomoc** , aby otworzyć Pomoc online w osobnym oknie przeglądarki. |
+| Pomoc |Kliknij dowolny węzeł lub wynik. (Ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Pomoc** , aby otworzyć Pomoc online w osobnym oknie przeglądarki. |
 | Nowe okno w tym miejscu |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij pozycję **nowe okno w tym miejscu** , aby otworzyć nowe okno Snapshot Manager StorSimple. |
 | Odśwież |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Odśwież** , aby zaktualizować aktualnie wyświetlane okno StorSimple Snapshot Manager. |
 | Odśwież urządzenie |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **Odśwież urządzenie** , aby zsynchronizować określone podłączone urządzenie z StorSimple Snapshot Manager. |

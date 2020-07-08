@@ -8,10 +8,10 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85510739"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Włączanie i tworzenie dużych udziałów plików
@@ -60,7 +60,7 @@ Włączenie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
 
     ![Zrzut ekranu z przyciskiem opcji "Enabled" na nowym koncie magazynu w Azure Portal](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514458"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
@@ -34,7 +34,7 @@ Każda z tych metod jest pokazywana przy użyciu różnych przeciążeń dla ró
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchroniczna a synchroniczna
 
-Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Na przykład:
+Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Przykład:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

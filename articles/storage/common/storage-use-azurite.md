@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512147"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Korzystanie z emulatora azurite na potrzeby programowania i testowania lokalnego magazynu platformy Azure (wersja zapoznawcza)
@@ -148,7 +148,7 @@ To polecenie informuje azurite o przechowywaniu wszystkich danych w określonym 
 
 Ta sekcja zawiera szczegółowe informacje dotyczące przełączników wiersza polecenia dostępnych podczas uruchamiania azurite.
 
-### <a name="help"></a>Help
+### <a name="help"></a>Pomoc
 
 **Opcjonalne** — Uzyskiwanie pomocy wiersza polecenia za pomocą `-h` przełącznika lub `--help` .
 
