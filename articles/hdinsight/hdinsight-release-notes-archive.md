@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
 ms.openlocfilehash: aff3ae34f391ac50dc4333fc2dcc3622e1bf479f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738009"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
@@ -1220,7 +1220,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 | USTERKA — 98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | Dostęp do rodziny kolumn HBase jest autoryzowany przez otagowaną kolumnę w rodzinie kolumn                                       |
 | USTERKA — 99883              | [Hive-19073](https://issues.apache.org/jira/browse/HIVE-19073), [Hive-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer mogą mangle stałe kolumny                                                                             |
 
-**Inne**
+**Inne problemy**
 
 | **Identyfikator błędu Hortonworks** | **Apache JIRA**                                                                                                                        | **Podsumowanie**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1671,7 +1671,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
     
   Warunek zasad można sprawdzić za pomocą tych znaków, otwierając zasady w trybie edycji.
     
-  **Poprawkę**
+  **Obejście**
     
   - **Opcja \# 1. Tworzenie/aktualizowanie zasad za pośrednictwem interfejsu API REST usługi Ranger**
         

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737057"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie MACsec na portach Direct ExpressRoute

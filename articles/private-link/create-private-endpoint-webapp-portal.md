@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737397"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza)
@@ -174,7 +174,7 @@ W tej sekcji połączysz się prywatnie z aplikacją internetową przy użyciu p
 1. W myVM upewnij się, że aplikacja sieci Web nie jest dostępna za pomocą publicznego adresu IP. Otwórz przeglądarkę i wklej nazwę aplikacji sieci Web, musisz mieć niedostępną stronę błędu o 403
 
    > [!div class="mx-imgBorder"]
-   >![Forbidden][17]
+   >![Zabronione][17]
 
 > [!Important]
 > Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy ręcznie zarządzać wpisem DNS.
@@ -198,7 +198,7 @@ W tej sekcji połączysz się prywatnie z aplikacją internetową przy użyciu p
 
 1. Uzyskujesz dostęp do aplikacji sieci Web za pomocą prywatnego punktu końcowego
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy skończysz korzystać z prywatnego punktu końcowego, aplikacji sieci Web i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

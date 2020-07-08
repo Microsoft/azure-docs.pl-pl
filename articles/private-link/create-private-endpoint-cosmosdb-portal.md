@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: d074128376d481902a203de3d32ef89aa72d7b3a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737720"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Nawiązywanie prywatnego połączenia z kontem usługi Azure Cosmos za pomocą usługi Azure Private Link
@@ -57,7 +57,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **WestCentralUS**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -147,7 +147,7 @@ W tej sekcji nastąpi połączenie prywatne z kontem usługi Azure Cosmos za pom
 
 1. Wprowadź parametry połączenia, wklejając wcześniej skopiowane informacje.
 
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Połącz**.
 

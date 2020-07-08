@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: 2f2aac6dd7e073634d4114d33fae6bebd51fe176
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736326"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modyfikowanie obwodu usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
@@ -123,7 +123,7 @@ W obwodzie będzie teraz dostępna funkcja dodatku ExpressRoute Premium. Gdy tyl
 >
 >
 
-#### <a name="considerations"></a>Zagadnienia do rozważenia
+#### <a name="considerations"></a>Istotne zagadnienia
 
 * Upewnij się, że liczba sieci wirtualnych podłączonych do obwodu jest mniejsza niż 10 przed obniżeniem poziomu warstwy Premium do warstwy Standardowa. Jeśli tego nie zrobisz, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane.
 * Należy odłączyć wszystkie sieci wirtualne w innych regionach geopolitycznych. Jeśli tego nie zrobisz, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane.
@@ -191,7 +191,7 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>Cofanie aprowizacji i usuwanie obwodu
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 * Aby ta operacja zakończyła się powodzeniem, należy odłączyć wszystkie sieci wirtualne od obwodu usługi ExpressRoute. Sprawdź, czy istnieją sieci wirtualne połączone z obwodem, jeśli ta operacja nie powiedzie się.
 * Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.

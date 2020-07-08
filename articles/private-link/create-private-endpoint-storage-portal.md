@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 1ccbb685ceb406fd7a52edf793b53d9e1c32630b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737329"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Nawiązywanie prywatnego połączenia z kontem magazynu za pomocą prywatnego punktu końcowego platformy Azure
@@ -59,7 +59,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **WestCentralUS**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -181,9 +181,9 @@ W tej sekcji nastąpi połączenie prywatne z kontem magazynu przy użyciu prywa
 4. Wybierz pozycję **konta magazynu** po kliknięciu prawym przyciskiem myszy.
 5. Wybierz pozycję **Połącz z usługą Azure Storage**.
 6. Wybierz pozycję **Użyj parametrów połączenia**.
-7. Wybierz przycisk **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. Wprowadź parametry połączenia, wklejając wcześniej skopiowane informacje.
-9. Wybierz przycisk **Dalej**.
+9. Wybierz pozycję **Dalej**.
 10. Wybierz pozycję **Połącz**.
 11. Przeglądanie kontenerów obiektów blob z mojekontomagazynu 
 12. Zdefiniować Utwórz foldery i/lub Przekaż pliki do *mojekontomagazynu*. 

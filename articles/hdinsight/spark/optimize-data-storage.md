@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84737635"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Optymalizacja magazynu danych dla Apache Spark
@@ -64,7 +64,7 @@ Podczas tworzenia nowego klastra Spark można wybrać platformę Azure Blob Stor
 
 Pełny opis opcji magazynu można znaleźć w temacie [porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
-## <a name="use-the-cache"></a>Użyj pamięci podręcznej
+## <a name="use-the-cache"></a>Korzystanie z pamięci podręcznej
 
 Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą być używane przez różne metody, takie jak `.persist()` , `.cache()` , i `CACHE TABLE` . Natywne buforowanie jest efektywne w przypadku małych zestawów danych i potoków ETL, w których należy przechować pośrednie wyniki. Jednak natywne buforowanie Spark nie działa prawidłowo z partycjonowaniem, ponieważ w pamięci podręcznej tabela nie zachowuje danych partycjonowania. Bardziej generyczną i niezawodną techniką buforowania jest *buforowanie warstwy magazynowania*.
 
@@ -88,7 +88,7 @@ Zadania platformy Spark są dystrybuowane, więc odpowiednia Serializacja danych
 * Wartością domyślną jest Serializacja języka Java.
 * `Kryo`Serializacja jest w nowszym formacie i może prowadzić do szybszej i bardziej kompaktowej serializacji niż w przypadku języka Java.  `Kryo`wymaga zarejestrowania klas w programie i nie obsługuje jeszcze wszystkich typów możliwych do serializacji.
 
-## <a name="use-bucketing"></a>Używanie zasobników
+## <a name="use-bucketing"></a>Korzystanie z zasobników
 
 Przedziałowanie jest podobne do partycjonowania danych. Ale każdy zasobnik może przechowywać zestaw wartości kolumn, a nie tylko jeden. Ta metoda dobrze sprawdza się w przypadku partycjonowania na dużą liczbę (w milionach lub więcej) wartości, takich jak identyfikatory produktów. Zasobnik jest określany przez mieszanie klucza zasobnika wiersza. Tabele z przedziałów oferują unikatowe optymalizacje, ponieważ przechowują metadane dotyczące ich przedziałów i sortowania.
 
