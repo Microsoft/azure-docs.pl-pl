@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: search
 author: HeidiSteen
 ms.service: cognitive-search
@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: fe5c8129434ddb4eec2dd25a3f123f28b4db221b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682613"
 ---
 Usługa wyszukiwania jest ograniczona przez miejsce na dysku lub przez stały limit maksymalnej liczby indeksów lub indeksatorów, w zależności od tego, co nastąpi wcześniej. W poniższej tabeli przedstawiono limity magazynu. Aby uzyskać maksymalne limity obiektów, zobacz [ograniczenia według zasobu](../articles/search/search-limits-quotas-capacity.md#index-limits).

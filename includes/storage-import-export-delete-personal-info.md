@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183444"
 ---
 ## <a name="deleting-personal-information"></a>Usuwanie danych osobowych
@@ -21,7 +21,7 @@ ms.locfileid: "67183444"
 
 Informacje osobiste dotyczą usługi Import/Export (za pośrednictwem portalu i interfejsu API) podczas operacji importowania i eksportowania. Dane używane w tych procesach obejmują:
 
-- Nazwisko osoby kontaktowej
+- Nazwa kontaktu
 - Numer telefonu
 - Poczta e-mail
 - Adres
@@ -41,7 +41,7 @@ Osobiste informacje kontaktowe można usunąć w następujący sposób:
 
 - Informacje kontaktowe zapisane w ustawieniach portalu można usunąć, usuwając ustawienia portalu. Ustawienia portalu można usunąć, wykonując następujące czynności:
   - Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-  - Kliknij ikonę ![ *ustawień* ikona ustawień platformy Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Kliknij ikonę *ustawień* ikona ustawień ![ platformy Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Kliknij pozycję *Eksportuj wszystkie ustawienia* (aby zapisać bieżące ustawienia do `.json` pliku).
   - Kliknij pozycję *Usuń wszystkie ustawienia i prywatne pulpity nawigacyjne* , aby usunąć wszystkie ustawienia, w tym zapisane informacje kontaktowe.
 

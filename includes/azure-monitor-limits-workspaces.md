@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 864b37c9e59786546ad2c29faf8457cfc3a21f6b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82161164"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
@@ -47,7 +47,7 @@ ms.locfileid: "82161164"
 | Maksymalny rozmiar pojedynczego wpisu | 30 MB | Podziel większe woluminy na wiele wpisów. |
 | Maksymalny rozmiar wartości pól  | 32 KB | Pola dłuższe niż 32 KB są obcinane. |
 
-**Interfejs API wyszukiwania**
+**Wyszukaj interfejs API**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -69,7 +69,7 @@ ms.locfileid: "82161164"
 
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Domyślny limit ilości woluminu pozyskiwania danych wysyłanych z zasobów platformy Azure przy użyciu [ustawień diagnostycznych](../articles/azure-monitor/platform/diagnostic-settings.md) to około **6 GB/min** na obszar roboczy. Jest to przybliżona wartość, ponieważ rzeczywisty rozmiar może się różnić między typami danych w zależności od długości dziennika i jego stosunku kompresji. Ten limit nie dotyczy danych wysyłanych z agentów lub [interfejsu API modułu zbierającego dane](../articles/azure-monitor/platform/data-collector-api.md).
 
-W przypadku wysyłania danych o wyższej stawce do jednego obszaru roboczego niektóre dane zostaną usunięte, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg zostanie przekroczony. Jeśli wolumin pozyskiwania w dalszym ciągu przekroczy limit szybkości lub oczekujesz, że wkrótce dojdziesz do niego, możesz poprosić o zwiększenie do obszaru roboczego, wysyłając LAIngestionRate@microsoft.com wiadomość e-mail lub otwierając żądanie pomocy technicznej.
+W przypadku wysyłania danych o wyższej stawce do jednego obszaru roboczego niektóre dane zostaną usunięte, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg zostanie przekroczony. Jeśli wolumin pozyskiwania w dalszym ciągu przekroczy limit szybkości lub oczekujesz, że wkrótce dojdziesz do niego, możesz poprosić o zwiększenie do obszaru roboczego, wysyłając wiadomość e-mail LAIngestionRate@microsoft.com lub otwierając żądanie pomocy technicznej.
  
 Aby otrzymywać powiadomienia o takim zdarzeniu w Twoim obszarze roboczym, należy utworzyć [regułę alertu dziennika](../articles/azure-monitor/platform/alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników, które nie są równe zeru.
 

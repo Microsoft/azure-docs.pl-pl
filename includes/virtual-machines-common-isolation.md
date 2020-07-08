@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83343324"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta.  Te rozmiary maszyn wirtualnych najlepiej nadają się do obciążeń wymagających wysokiego stopnia izolacji od innych klientów w przypadku obciążeń obejmujących takie elementy, jak zgodność i wymagania prawne.  Klienci mogą również dodatkowo podzielić zasoby tych izolowanych maszyn wirtualnych, korzystając z [pomocy technicznej platformy Azure dla zagnieżdżonych maszyn wirtualnych](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -51,7 +51,7 @@ Jeśli dla Ciebie wymagana jest izolacja, przed 15 maja 2020 należy:
 Aby uzyskać szczegółowe informacje, zobacz:
 
 ## <a name="timeline"></a>Oś czasu
-| Date | Akcja | 
+| Data | Akcja | 
 | --- | --- |
 | 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) |
 | 14 maja 2020  | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 
