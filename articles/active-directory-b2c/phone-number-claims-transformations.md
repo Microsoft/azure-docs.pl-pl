@@ -12,10 +12,10 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385386"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiowanie przekształceń oświadczeń numeru telefonu w Azure AD B2C

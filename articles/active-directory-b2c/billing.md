@@ -11,10 +11,10 @@ ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386066"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Model rozliczeń dla Azure Active Directory B2C
@@ -58,7 +58,7 @@ Oto jak włączyć MAU rozliczeń dla istniejącego zasobu Azure AD B2C:
 
 Pomiar oparty na MAU jest włączony zaraz po wykonaniu tej subskrypcji/właściciela zasobu, potwierdzić zmianę. Rachunek miesięczny będzie uwzględniać jednostki uwierzytelniania, które są rozliczane do momentu zmiany, oraz nowe jednostki MAU rozpoczynające się od zmiany.
 
-Użytkownicy nie są podwójnie zliczane w miesiącu przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są uwzględnieni w obliczeniach MAU dla pozostałej części cyklu rozliczeniowego subskrypcji. Na przykład:
+Użytkownicy nie są podwójnie zliczane w miesiącu przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są uwzględnieni w obliczeniach MAU dla pozostałej części cyklu rozliczeniowego subskrypcji. Przykład:
 
 * Dzierżawa contoso B2C ma 1 000 użytkowników. 250 użytkowników jest aktywnych w danym miesiącu. Administrator subskrypcji zmieni się z uwierzytelniania na comiesięcznych użytkowników aktywnych (MAU) w dziesiątym miesiącu.
 * Naliczanie opłat za 1 dziesiątki jest rozliczane przy użyciu modelu na uwierzytelnianie.
@@ -99,7 +99,7 @@ Subskrypcja połączona z dzierżawą Azure AD B2C może być używana do rozlic
 1. Wybierz **dzierżawę Azure AD B2C** z listy rozwijanej. Wyświetlane są tylko dzierżawy, dla których jesteś administratorem globalnym i które nie są już połączone z subskrypcją. Pole **nazwy zasobu Azure AD B2C** jest wypełniane nazwą domeny wybranej dzierżawy Azure AD B2C.
 1. Wybierz aktywną **subskrypcję** platformy Azure, której jesteś administratorem.
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, a następnie określ **lokalizację grupy zasobów**. Ustawienia grupy zasobów nie mają wpływu na lokalizację dzierżawy Azure AD B2C, wydajność ani stan rozliczeń.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
     ![Strona tworzenia zasobów Azure AD B2C w programie Azure Portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
 Po wykonaniu tych kroków dla dzierżawy Azure AD B2C subskrypcja platformy Azure jest rozliczana zgodnie ze szczegółowymi informacjami dotyczącymi usługi Azure Direct lub Umowa Enterprise, jeśli ma to zastosowanie.

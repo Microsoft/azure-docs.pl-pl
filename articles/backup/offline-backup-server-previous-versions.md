@@ -4,10 +4,10 @@ description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą us
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85374835"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
@@ -55,8 +55,8 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     | Region suwerennej chmury | Link pliku ustawień publikowania platformy Azure |
     | --- | --- |
-    | Stany Zjednoczone | [Łącze](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Chiny | [Łącze](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Stany Zjednoczone | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Chiny | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
 * W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów. Na koncie magazynu Utwórz nowy kontener obiektów blob, który będzie używany jako miejsce docelowe.
 
@@ -96,7 +96,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386219"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor

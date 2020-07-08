@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85387018"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
@@ -61,7 +61,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Na przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
 
 - Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
 - Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).

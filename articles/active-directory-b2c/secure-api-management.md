@@ -11,10 +11,10 @@ ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385420"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
@@ -73,7 +73,7 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -154,7 +154,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

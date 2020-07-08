@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385981"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure Active Directory B2C przy użyciu Application Insights

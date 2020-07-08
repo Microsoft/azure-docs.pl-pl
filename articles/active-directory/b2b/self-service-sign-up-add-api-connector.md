@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386746"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
@@ -135,8 +135,8 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| action                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| version                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| action                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie można opcjonalnie zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
@@ -161,10 +161,10 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
-| action      | Ciąg | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
-| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | Ciąg | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| version     | String | Tak      | Wersja interfejsu API.                                                    |
+| action      | String | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
+| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Środowisko użytkownika końcowego z odpowiedzią blokującą
 
@@ -191,11 +191,11 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
-| action      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | Ciąg  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| version     | String  | Tak      | Wersja interfejsu API.                                                    |
+| action      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
+| status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Środowisko użytkownika końcowego ze sprawdzaniem poprawności — odpowiedź z błędami
 

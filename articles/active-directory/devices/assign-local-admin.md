@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85386372"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
@@ -85,7 +85,7 @@ Dodatkowo można również dodać użytkowników przy użyciu wiersza polecenia:
 - Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj programu `net localgroup administrators /add "Contoso\username"` .
 - Jeśli w usłudze Azure AD są tworzone użytkownicy dzierżawy, użyj`net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>Zagadnienia do rozważenia 
+## <a name="considerations"></a>Istotne zagadnienia 
 
 Nie można przypisać grup do roli administratora urządzenia. dozwolone są tylko indywidualni użytkownicy.
 

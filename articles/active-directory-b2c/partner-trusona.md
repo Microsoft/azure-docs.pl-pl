@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85385556"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrowanie Trusona z Azure Active Directory B2C
@@ -140,7 +140,7 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
 
 3. Ponieważ Trusona jest z własnym czynnikiem wieloskładnikowym, najlepszym rozwiązaniem jest pozostawienie wyłączonego uwierzytelniania wieloskładnikowego.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. W obszarze **atrybuty użytkownika i oświadczenia**wybierz pozycję **Pokaż więcej**. W formularzu wybierz co najmniej jeden atrybut, który został określony podczas instalacji dostawcy tożsamości w poprzedniej sekcji.
 

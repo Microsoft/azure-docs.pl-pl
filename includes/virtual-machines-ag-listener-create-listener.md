@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183180"
 ---
 W tym kroku ręcznie utworzysz odbiornik grupy dostępności w Menedżer klastra trybu failover i SQL Server Management Studio.
@@ -19,7 +19,7 @@ W tym kroku ręcznie utworzysz odbiornik grupy dostępności w Menedżer klastra
 
 3. Rozwiń węzeł Nazwa klastra, a następnie kliknij pozycję **role**.
 
-4. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób** > **Klient punkt dostępu**.
+4. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób**  >  **Klient punkt dostępu**.
    
     ![Dodawanie punktu dostępu klienta dla grupy dostępności](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
