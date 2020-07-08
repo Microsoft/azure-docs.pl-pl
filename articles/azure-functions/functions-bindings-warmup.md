@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982245"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Wyzwalacz rozgrzewania Azure Functions
@@ -38,7 +37,7 @@ Należy zauważyć, że wyzwalacz rozgrzewania jest wywoływany tylko podczas op
 
 ## <a name="trigger---example"></a>Wyzwalacz — przykład
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji. Atrybut wartości zwracanej nie jest wymagany.
 
@@ -76,11 +75,11 @@ namespace WarmupSample
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 
-Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w *function.js* w pliku i [funkcję skryptu języka C#](functions-reference-csharp.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji.
 
 Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może mieć tylko jedną funkcję rozgrzewania na aplikację.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -96,7 +95,7 @@ Oto plik *Function. JSON* :
 
 W sekcji [Konfiguracja](#trigger---configuration) objaśniono te właściwości.
 
-Oto kod skryptu w języku C#, który jest `HttpRequest`powiązany z:
+Oto kod skryptu w języku C#, który jest powiązany z `HttpRequest` :
 
 ```cs
 public static void Run(ILogger log)
@@ -107,11 +106,11 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* oraz [funkcję języka JavaScript](functions-reference-node.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w *function.js* w pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
 
 Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -137,11 +136,11 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład przedstawia wyzwalacz rozgrzewania w pliku *Function. JSON* i [funkcję języka Python](functions-reference-python.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w *function.js* w pliku i [funkcję języka Python](functions-reference-python.md) , która będzie uruchamiana na każdym nowym wystąpieniu po dodaniu go do aplikacji.
 
 Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -187,11 +186,11 @@ public void run( ExecutionContext context) {
 
 W [bibliotekach klas języka C#](functions-dotnet-class-library.md) `WarmupTrigger` atrybut jest dostępny w celu skonfigurowania funkcji.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 W tym przykładzie pokazano, jak używać atrybutu [rozgrzewania](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
-Należy pamiętać, że funkcja musi być ```Warmup``` wywoływana i może istnieć tylko jedna funkcja rozgrzewania dla aplikacji.
+Należy pamiętać, że funkcja musi być wywoływana ```Warmup``` i może istnieć tylko jedna funkcja rozgrzewania dla aplikacji.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -224,13 +223,13 @@ Wyzwalacz rozgrzewania nie jest obsługiwany w języku Java jako atrybut.
 
 ## <a name="trigger---configuration"></a>Wyzwalacz — konfiguracja
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `WarmupTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `WarmupTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-| **Wprowadź** | n/d| Wymagane — musi być ustawiony na `warmupTrigger`wartość. |
-| **wskazywa** | n/d| Wymagane — musi być ustawiony na `in`wartość. |
-| **Nazwij** | n/d| Wymagane — nazwa zmiennej używana w kodzie funkcji.|
+| **Wprowadź** | nie dotyczy| Wymagane — musi być ustawiony na wartość `warmupTrigger` . |
+| **wskazywa** | nie dotyczy| Wymagane — musi być ustawiony na wartość `in` . |
+| **Nazwij** | nie dotyczy| Wymagane — nazwa zmiennej używana w kodzie funkcji.|
 
 ## <a name="trigger---usage"></a>Wyzwalacz-użycie
 

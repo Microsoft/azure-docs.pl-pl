@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
 ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82926235"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Omówienie rekordów aliasów usługi Azure DNS
@@ -60,13 +59,13 @@ To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają apli
 
 Ten problem jest rozwiązywany przy użyciu rekordów aliasów. W przeciwieństwie do rekordów CNAME, rekordy aliasów są tworzone w wierzchołku strefy, a właściciele aplikacji mogą jej używać do wskazywania rekordu wierzchołka strefy do Traffic Manager profilu, który ma zewnętrzne punkty końcowe. Właściciele aplikacji wskazują ten sam profil Traffic Manager, który jest używany przez dowolną inną domenę w ramach strefy DNS.
 
-Na przykład contoso.com i www\.contoso.com mogą wskazywać na ten sam profil Traffic Manager. Aby dowiedzieć się więcej o używaniu rekordów aliasów w profilach usługi Azure Traffic Manager, zobacz sekcję następne kroki.
+Na przykład contoso.com i www \. contoso.com mogą wskazywać na ten sam profil Traffic Manager. Aby dowiedzieć się więcej o używaniu rekordów aliasów w profilach usługi Azure Traffic Manager, zobacz sekcję następne kroki.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Wierzchołk strefy punktu do Azure CDN punktów końcowych
 
 Podobnie jak w przypadku profilu Traffic Manager, można również użyć rekordów aliasów do wskazywania wierzchołka strefy DNS do Azure CDN punktów końcowych. Jest to przydatne w przypadku tworzenia statycznych witryn sieci Web przy użyciu usługi Azure Storage i Azure CDN. Następnie można uzyskać dostęp do witryny sieci Web bez oczekiwania "www" na nazwę DNS.
 
-Na przykład jeśli statyczna Witryna internetowa ma `www.contoso.com`nazwę, użytkownicy mogą uzyskać dostęp do witryny `contoso.com` za pomocą programu bez konieczności dołączania sieci WWW do nazwy DNS.
+Na przykład jeśli statyczna Witryna internetowa ma nazwę `www.contoso.com` , użytkownicy mogą uzyskać dostęp do witryny za pomocą programu bez konieczności dołączania sieci `contoso.com` www do nazwy DNS.
 
 Jak opisano wcześniej, rekordy CNAME nie są obsługiwane w wierzchołku strefy. Dlatego nie można użyć rekordu CNAME, aby wskazywał contoso.com do punktu końcowego usługi CDN. Zamiast tego można użyć rekordu aliasu, aby wskazywał bezpośrednio na punkt końcowy usługi CDN.
 

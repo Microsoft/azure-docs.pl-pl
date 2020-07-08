@@ -8,10 +8,9 @@ ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82981225"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Jak używać tożsamości zarządzanych do konfiguracji aplikacji platformy Azure
@@ -83,7 +82,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Utwórz tożsamość przypisaną przez użytkownika o `myUserAssignedIdentity` nazwie przy użyciu interfejsu wiersza polecenia.
+1. Utwórz tożsamość przypisaną przez użytkownika o nazwie `myUserAssignedIdentity` przy użyciu interfejsu wiersza polecenia.
 
     ```azurecli-interactive
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
@@ -91,7 +90,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisan
 
     W danych wyjściowych tego polecenia Zanotuj wartość `id` właściwości.
 
-1. Uruchom polecenie [AZ AppConfig Identity Assign] , aby przypisać nową tożsamość przypisaną przez użytkownika do tego magazynu konfiguracji. Użyj wartości `id` właściwości zanotowanej w poprzednim kroku.
+1. Uruchom polecenie [AZ AppConfig Identity Assign] , aby przypisać nową tożsamość przypisaną przez użytkownika do tego magazynu konfiguracji. Użyj wartości `id` Właściwości zanotowanej w poprzednim kroku.
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity

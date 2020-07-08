@@ -12,10 +12,9 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 777f3de8f2872e378fe30cc50ee0a5eb3823a625
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82900311"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplikacja jednostronicowa: Przenieś do środowiska produkcyjnego
@@ -32,17 +31,17 @@ Przetestuj integrację, postępując zgodnie z [listą kontrolną integracji z p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Głębokie szczegółowe przykładu szybkiego startu, w którym wyjaśniono kod sposobu logowania użytkowników i uzyskiwania tokenu dostępu do wywoływania interfejsu API Microsoft Graph przy użyciu MSAL. js:
+Głębokie szczegółowe przykładu szybkiego startu, w którym wyjaśniono kod sposobu logowania użytkowników i uzyskiwania tokenu dostępu do wywoływania interfejsu API Microsoft Graph przy użyciu MSAL.js:
 
 > [!div class="nextstepaction"]
 > [Samouczek dotyczący SPA JavaScript](./tutorial-v2-javascript-spa.md)
 
-Przykład demonstrujący, jak uzyskać tokeny dla własnego interfejsu API sieci Web zaplecza przy użyciu MSAL. js:
+Przykład demonstrujący, jak uzyskać tokeny dla własnego interfejsu API sieci Web zaplecza przy użyciu MSAL.js:
 
 > [!div class="nextstepaction"]
 > [SPA z ASP.NET zaplecza](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
 
-Przykład, który pokazuje, jak używać MSAL. js do logowania użytkowników w aplikacji, która jest zarejestrowana w Azure Active Directory B2C (Azure AD B2C):
+Przykład, który pokazuje, jak używać MSAL.js do logowania użytkowników w aplikacji zarejestrowanej za pomocą Azure Active Directory B2C (Azure AD B2C):
 
 > [!div class="nextstepaction"]
 > [SPA z Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

@@ -4,10 +4,9 @@ description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kon
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82928724"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
@@ -84,7 +83,7 @@ Wspomniano kilka razy w tym artykule **Grupa kontenerów**. Każdy kontener w Az
 
 [Wdrażanie grupy z wieloma kontenerami](container-instances-multi-container-group.md)
 
-[Ręcznie Zatrzymaj lub Uruchom kontenery w Azure Container Instances](container-instances-stop-start.md)
+[Ręczne zatrzymywanie lub uruchamianie kontenerów w usłudze Azure Container Instances](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 

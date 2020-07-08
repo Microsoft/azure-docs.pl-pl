@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978386"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
@@ -174,7 +173,7 @@ Aby skonfigurować podstawowe wystąpienie bazy danych programu IBM DB2 LUW:
 
 Aby skonfigurować serwer bazy danych w stanie gotowości przy użyciu procedury kopiowania jednorodnego systemu SAP, wykonaj następujące kroki:
 
-1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems** > **rozproszonej** > **bazy danych**w systemie docelowym.
+1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych**w systemie docelowym.
 1. Jako metodę kopiowania wybierz **jednorodny system** , aby można było użyć kopii zapasowej do przywrócenia kopii zapasowej w wystąpieniu serwera w stanie gotowości.
 1. Po dojściu do kroku zakończenia, aby przywrócić bazę danych jednorodnej kopii systemu, zamknij Instalatora. Przywróć bazę danych z kopii zapasowej hosta podstawowego. Wszystkie kolejne etapy instalacji zostały już wykonane na podstawowym serwerze bazy danych.
 1. Skonfiguruj HADR Cluster dla programu IBM DB2.
@@ -314,8 +313,8 @@ Następujące elementy są poprzedzone prefiksem:
 - **[2]**: dotyczy tylko węzła 2
 
 **[A]** wymagania wstępne dotyczące konfiguracji Pacemaker:
-1. Zamknij oba serwery bazy danych z identyfikatorem\<SID user DB2> z db2stop.
-1. Zmień środowisko powłoki dla identyfikatora SID\<bazy danych DB2> użytkownika na */bin/ksh*. Zalecamy korzystanie z narzędzia YaST. 
+1. Zamknij oba serwery baz danych z użytkownikiem DB2 \<sid> z db2stop.
+1. Zmień środowisko powłoki dla użytkownika programu DB2 na \<sid> */bin/ksh*. Zalecamy korzystanie z narzędzia YaST. 
 
 
 ### <a name="pacemaker-configuration"></a>Konfiguracja Pacemaker
@@ -451,18 +450,18 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    f. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
 
-   g. Wybierz przycisk **OK**.
+   przykład Wybierz przycisk **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Wprowadzanie zmian w profilach SAP do używania wirtualnego adresu IP na potrzeby połączenia
 Aby nawiązać połączenie z podstawowym wystąpieniem konfiguracji HADR Cluster, warstwa aplikacji SAP musi używać wirtualnego adresu IP, który został zdefiniowany i skonfigurowany dla Azure Load Balancer. Wymagane są następujące zmiany:
 
-Identyfikator\<SID/Sapmnt/>/profile/default. PFL
+/sapmnt/ \<SID> /Profile/default. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-Identyfikator\<SID/sapmnt/>/Global/DB6/db2cli.ini
+/sapmnt/ \<SID> /global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -480,7 +479,7 @@ Użyj narzędzia konfiguracji J2EE, aby sprawdzić lub zaktualizować adres URL 
  
 1. Zaloguj się do podstawowego serwera aplikacji wystąpienia J2EE i wykonaj następujące operacje:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. W lewej ramce wybierz pozycję **Magazyn zabezpieczeń**.
-1. W prawej ramce wybierz pozycję Key JDBC/Pool/\<SAPSID>/URL.
+1. W prawej ramce wybierz pozycję Key JDBC/Pool/ \<SAPSID> /URL.
 1. Zmień nazwę hosta w adresie URL JDBC na nazwę hosta wirtualnego.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Wybierz pozycję **Dodaj**.
@@ -541,7 +540,7 @@ Oryginalny stan w systemie SAP jest opisany w temacie Transaction DBACOCKPIT > C
 > Przed rozpoczęciem testu upewnij się, że:
 > * Pacemaker nie ma żadnych akcji zakończonych niepowodzeniem (stan programu CRM).
 > * Brak ograniczeń lokalizacji (pozostałości testu migracji)
-> * Synchronizacja programu IBM DB2 HADR Cluster działa. Sprawdź przy użyciu identyfikatora\<SID użytkownika DB2> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * Synchronizacja programu IBM DB2 HADR Cluster działa. Skontaktuj się z użytkownikiem DB2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Przeprowadź migrację węzła, w którym działa podstawowa baza danych DB2, wykonując następujące polecenie:
@@ -575,9 +574,9 @@ Przeprowadź migrację zasobu z powrotem do *azibmdb01* i wyczyść ograniczenia
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **RES_NAME migracji \<zasobów programu CRM \<>> hosta:** Tworzy ograniczenia lokalizacji i może powodować problemy z przejęciem
-- **RES_NAME czyszczenia \<zasobów programu CRM>**: czyści ograniczenia lokalizacji
-- **RES_NAME oczyszczania \<zasobów programu CRM>**: czyści wszystkie błędy zasobu
+- **Migrowanie zasobów programu CRM \<res_name> \<host> :** tworzy ograniczenia lokalizacji i może powodować problemy z przejęciem
+- **czyszczenie \<res_name> zasobu CRM **: czyści ograniczenia lokalizacji
+- **oczyszczanie \<res_name> zasobów programu CRM **: czyści wszystkie błędy zasobu
 
 ### <a name="test-the-fencing-agent"></a>Testowanie czynnika ogrodzenia
 
@@ -750,7 +749,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Jako identyfikator SID\<użytkownika DB2> wykonywania polecenia db2stop:
+Jako użytkownik programu DB2 \<sid> wykona db2stop polecenia:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

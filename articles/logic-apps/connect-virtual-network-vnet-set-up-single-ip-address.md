@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927143"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Skonfiguruj pojedynczy adres IP dla co najmniej jednego środowiska usługi integracji w Azure Logic Apps
@@ -31,7 +30,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
 
    ![Wybierz tabelę tras z regułą dla ruchu wychodzącego](./media/connect-virtual-network-vnet-set-up-single-ip-address/select-route-table-for-virtual-network.png)
 
-1. Aby [dodać nową trasę](../virtual-network/manage-route-table.md#create-a-route), w menu tabela tras wybierz pozycję **trasy** > **Dodaj**.
+1. Aby [dodać nową trasę](../virtual-network/manage-route-table.md#create-a-route), w menu tabela tras wybierz pozycję **trasy**  >  **Dodaj**.
 
    ![Dodawanie trasy do kierowania ruchu wychodzącego](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-route-to-route-table.png)
 
@@ -61,13 +60,13 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
 
 ## <a name="set-up-network-rule"></a>Konfigurowanie reguły sieci
 
-1. W Azure Portal Znajdź i wybierz zaporę. W menu Zapora w obszarze **Ustawienia**wybierz pozycję **reguły**. W okienku reguły wybierz pozycję >  **Kolekcja reguł sieciowych****Dodaj kolekcję reguł sieci**.
+1. W Azure Portal Znajdź i wybierz zaporę. W menu Zapora w obszarze **Ustawienia**wybierz pozycję **reguły**. W okienku reguły wybierz pozycję **Kolekcja reguł sieciowych**  >  **Dodaj kolekcję reguł sieci**.
 
    ![Dodawanie kolekcji reguł sieci do zapory](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-network-rule-collection.png)
 
 1. W kolekcji Dodaj regułę zezwalającą na ruch do systemu docelowego.
 
-   Załóżmy na przykład, że masz aplikację logiki, która działa w ISE i musi komunikować się z serwerem SFTP. Tworzysz kolekcję reguł sieci o nazwie `LogicApp_ISE_SFTP_Outbound`, która zawiera regułę sieci o nazwie. `ISE_SFTP_Outbound` Ta zasada zezwala na ruch z adresu IP każdej podsieci, w której ISE działa w sieci wirtualnej na docelowy serwer SFTP przy użyciu prywatnego adresu IP zapory.
+   Załóżmy na przykład, że masz aplikację logiki, która działa w ISE i musi komunikować się z serwerem SFTP. Tworzysz kolekcję reguł sieci o nazwie `LogicApp_ISE_SFTP_Outbound` , która zawiera regułę sieci o nazwie `ISE_SFTP_Outbound` . Ta zasada zezwala na ruch z adresu IP każdej podsieci, w której ISE działa w sieci wirtualnej na docelowy serwer SFTP przy użyciu prywatnego adresu IP zapory.
 
    ![Konfigurowanie reguły sieci dla zapory](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -76,7 +75,7 @@ W tym temacie pokazano, jak skierować ruch wychodzący za pośrednictwem zapory
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | **Nazwa** | <*Sieć-reguła-kolekcja-nazwa*> | Nazwa kolekcji reguł sieci |
-   | **Priorytet** | <*priorytet — poziom*> | Kolejność, w której ma zostać uruchomiona Kolekcja reguł. Aby uzyskać więcej informacji, zobacz [co to są niektóre zagadnienia dotyczące zapory platformy Azure](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
+   | **Priority** | <*priorytet — poziom*> | Kolejność, w której ma zostać uruchomiona Kolekcja reguł. Aby uzyskać więcej informacji, zobacz [co to są niektóre zagadnienia dotyczące zapory platformy Azure](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
    | **Akcja** | **Zezwalaj** | Typ akcji do wykonania dla tej reguły |
    |||
 

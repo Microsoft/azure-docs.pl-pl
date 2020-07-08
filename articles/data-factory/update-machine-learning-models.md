@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927415"
 ---
 # <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Aktualizowanie modeli ML Studio (klasycznych) w wersji v przy użyciu działania Update Resource
@@ -59,15 +58,15 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego ML Studi
 }
 ```
 
-| Właściwość                      | Opis                              | Wymagany |
+| Właściwość                      | Opis                              | Wymagane |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nazwa działania w potoku     | Yes      |
+| name                          | Nazwa działania w potoku     | Tak      |
 | description                   | Tekst opisujący działanie działania.  | Nie       |
-| type                          | W przypadku działania dotyczącego Azure Machine Learning aktualizowania zasobów typem działania jest **AzureMLUpdateResource**. | Yes      |
-| linkedServiceName             | Azure Machine Learning połączona usługa, która zawiera właściwość właściwości updateresourceendpoint. | Yes      |
-| trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Yes      |
-| trainedModelLinkedServiceName | Nazwa połączonej usługi Azure Storage przechowująca plik ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
-| trainedModelFilePath          | Względna ścieżka pliku w trainedModelLinkedService do reprezentowania pliku ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
+| typ                          | W przypadku działania dotyczącego Azure Machine Learning aktualizowania zasobów typem działania jest **AzureMLUpdateResource**. | Tak      |
+| linkedServiceName             | Azure Machine Learning połączona usługa, która zawiera właściwość właściwości updateresourceendpoint. | Tak      |
+| trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Tak      |
+| trainedModelLinkedServiceName | Nazwa połączonej usługi Azure Storage przechowująca plik ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
+| trainedModelFilePath          | Względna ścieżka pliku w trainedModelLinkedService do reprezentowania pliku ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
 
 ## <a name="end-to-end-workflow"></a>Kompletny przepływ pracy
 

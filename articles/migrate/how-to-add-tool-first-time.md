@@ -4,10 +4,9 @@ description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzę
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901189"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Dodawanie narzędzia oceny/migracji po raz pierwszy
@@ -58,8 +57,8 @@ Skonfiguruj nowy projekt Azure Migrate w ramach subskrypcji platformy Azure i Do
     > [!NOTE]
     > Podczas tworzenia projektu należy dodać co najmniej jedno narzędzie do oceny lub migracji.
 
-5. W **narzędziu Wybierz ocenę**Dodaj narzędzie do oceny. Jeśli nie potrzebujesz narzędzia do oceny, wybierz pozycję **Pomiń Dodawanie narzędzia do oceny teraz** > **.** 
-2. W obszarze **Wybieranie narzędzia migracji**Dodaj narzędzie do migracji zgodnie z wymaganiami. Jeśli nie**potrzebujesz teraz narzędzia**migracji, wybierz pozycję **Pomiń Dodawanie narzędzia do migracji teraz** > .
+5. W **narzędziu Wybierz ocenę**Dodaj narzędzie do oceny. Jeśli nie potrzebujesz narzędzia do oceny, wybierz pozycję **Pomiń Dodawanie narzędzia do oceny teraz**  >  **Next**. 
+2. W obszarze **Wybieranie narzędzia migracji**Dodaj narzędzie do migracji zgodnie z wymaganiami. Jeśli nie potrzebujesz teraz narzędzia migracji, wybierz pozycję **Pomiń Dodawanie narzędzia do migracji teraz**  >  **Next**.
 3. W oknie **Recenzja + Dodawanie narzędzi**przejrzyj ustawienia, a następnie kliknij pozycję **Dodaj narzędzia**.
 
 Po utworzeniu projektu można wybrać dodatkowe narzędzia do oceny i migracji serwerów oraz obciążeń, baz danych i aplikacji sieci Web.

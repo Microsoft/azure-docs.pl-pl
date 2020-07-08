@@ -9,10 +9,9 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82930696"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Linux i dystrybuowanie go do galerii obrazów udostępnionych 
@@ -20,7 +19,7 @@ ms.locfileid: "82930696"
 W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 W celu rozesłania obrazu do galerii obrazów udostępnionych szablon używa [sharedImage](image-builder-json.md#distribute-sharedimage) jako wartości `distribute` sekcji szablonu.
 
@@ -80,7 +79,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Utwórz zmienną dla identyfikatora subskrypcji. Można to zrobić za pomocą `az account show | grep id`polecenia.
+Utwórz zmienną dla identyfikatora subskrypcji. Można to zrobić za pomocą polecenia `az account show | grep id` .
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -227,7 +226,7 @@ Obraz został dostosowany wraz z *komunikatem dnia* zaraz po nawiązaniu połąc
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz teraz spróbować ponownie dostosować wersję obrazu, aby utworzyć nową wersję tego samego obrazu, pomiń następne kroki i przejdź do, aby [użyć usługi Azure Image Builder do utworzenia innej wersji obrazu](image-builder-gallery-update-image-version.md).
 
@@ -257,7 +256,7 @@ az role definition delete --name "$imageRoleDefName"
 az identity delete --ids $imgBuilderId
 ```
 
-Pobierz wersję obrazu utworzoną przez konstruktora obrazów, która zawsze zaczyna się od `0.`, a następnie Usuń wersję obrazu
+Pobierz wersję obrazu utworzoną przez konstruktora obrazów, która zawsze zaczyna się od `0.` , a następnie Usuń wersję obrazu
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

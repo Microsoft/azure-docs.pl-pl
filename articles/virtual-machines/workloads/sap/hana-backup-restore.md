@@ -14,10 +14,9 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82901393"
 ---
 # <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
@@ -112,12 +111,12 @@ Aby upewnić się, że skrypt migawek działa prawidłowo, upewnij się, że ję
 
 Aby skonfigurować migawki magazynu z dużymi wystąpieniami platformy HANA, wykonaj następujące kroki.
 1. Upewnij się, że język Perl jest zainstalowany w systemie operacyjnym Linux na serwerze z dużymi wystąpieniami HANA.
-1. Zmodyfikuj konfigurację/etc/ssh/SSH\_, aby dodać wiersz _Mac HMAC-SHA1_.
+1. Zmodyfikuj konfigurację/etc/ssh/SSH, \_ Aby dodać wiersz _Mac HMAC-SHA1_.
 1. Utwórz konto użytkownika SAP HANA kopii zapasowej w węźle głównym dla każdego uruchomionego wystąpienia SAP HANA, jeśli ma to zastosowanie.
 1. Zainstaluj klienta programu SAP HANA HDB na wszystkich serwerach SAP HANA — duże wystąpienia.
 1. Na pierwszym serwerze SAP HANA — duże wystąpienia każdego regionu Utwórz klucz publiczny, aby uzyskać dostęp do podstawowej infrastruktury magazynu, która kontroluje tworzenie migawek.
 1. Skopiuj skrypty i plik konfiguracji z usługi [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) do lokalizacji **hdbsql** w instalacji SAP HANA.
-1. Zmodyfikuj plik *HANABackupDetails. txt* stosownie do potrzeb zgodnie ze specyfikacją klienta.
+1. Zmodyfikuj plik *HANABackupDetails.txt* stosownie do potrzeb, aby uzyskać odpowiednie specyfikacje klienta.
 
 Pobierz najnowsze skrypty i dokumentację migawek z witryny [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). Aby zapoznać się z wymienionymi wcześniej krokami, zobacz [Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
@@ -131,7 +130,7 @@ System operacyjny Linux zainstalowany w SAP HANA na platformie Azure (duże wyst
 
 Użytkownik jest odpowiedzialny za Instalowanie SAP HANA klienta HDB w jednostkach dużego wystąpienia HANA podczas instalowania SAP HANA.
 
-### <a name="step-2-change-the-etcsshssh_config"></a>Krok 2. zmiana konfiguracji/etc/ssh/SSH\_
+### <a name="step-2-change-the-etcsshssh_config"></a>Krok 2. zmiana konfiguracji/etc/ssh/SSH \_
 
 Ten krok jest opisany w artykule "Włączanie komunikacji z magazynem" w [narzędziu Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
@@ -174,17 +173,17 @@ Informacje o różnych skryptach i plikach w miarę ich instalacji zostały opis
 
 Przed skonfigurowaniem narzędzi migawek upewnij się, że skonfigurowano również lokalizacje i ustawienia kopii zapasowej HANA. Aby uzyskać więcej informacji, zobacz "SAP HANA Configuration" w [narzędziu Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Konfiguracja zestawu narzędzi migawek została opisana w artykule "config File-HANABackupCustomerDetails. txt" w [narzędziu Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Konfiguracja zestawu narzędzi migawek została opisana w artykule "plik konfiguracji-HANABackupCustomerDetails.txt" w [narzędziu Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-connectivity-with-sap-hana"></a>Testowanie łączności z SAP HANA
 
-Po umieszczeniu wszystkich danych konfiguracyjnych w pliku *HANABackupCustomerDetails. txt* Sprawdź, czy konfiguracje są poprawne dla danych wystąpienia platformy Hana. Użyj skryptu `testHANAConnection`, który jest niezależny od konfiguracji skalowania w górę lub w poziomie SAP HANA.
+Po umieszczeniu wszystkich danych konfiguracyjnych w pliku *HANABackupCustomerDetails.txt* Sprawdź, czy konfiguracje są poprawne dla danych wystąpienia platformy Hana. Użyj skryptu `testHANAConnection` , który jest niezależny od konfiguracji skalowania w górę lub w poziomie SAP HANA.
 
 Aby uzyskać więcej informacji, zobacz "Sprawdzanie łączności za pomocą SAP HANA-testHANAConnection" w [narzędziach Microsoft Snapshot Tools dla SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-storage-connectivity"></a>Testowanie połączenia z magazynem
 
-Następny krok testu polega na sprawdzeniu łączności z magazynem na podstawie danych umieszczonych w pliku konfiguracji *HANABackupCustomerDetails. txt* . Następnie uruchom migawkę testową. Przed uruchomieniem `azure_hana_backup` polecenia należy uruchomić ten test. Aby uzyskać sekwencję poleceń dla tego testu, zobacz "Sprawdzanie łączności z usługą Storage-testStorageSnapshotConnection" "w [narzędziach Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Następny krok testu polega na sprawdzeniu łączności z magazynem na podstawie danych umieszczonych w pliku konfiguracji *HANABackupCustomerDetails.txt* . Następnie uruchom migawkę testową. Przed uruchomieniem `azure_hana_backup` polecenia należy uruchomić ten test. Aby uzyskać sekwencję poleceń dla tego testu, zobacz "Sprawdzanie łączności z usługą Storage-testStorageSnapshotConnection" "w [narzędziach Microsoft Snapshot Tools for SAP HANA na platformie Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Po pomyślnym zalogowaniu się do interfejsów maszyny wirtualnej magazynu skrypt kontynuuje działanie fazy 2 i utworzy migawkę testową. Dane wyjściowe są wyświetlane w tym miejscu dla konfiguracji SAP HANA skalowanie w poziomie z trzema węzłami.
 
@@ -286,7 +285,7 @@ Po uruchomieniu pierwszej pomyślnej migawki magazynu Usuń migawkę testową ur
 
 ### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Monitoruj liczbę i rozmiar migawek na woluminie dysku
 
-Na określonym woluminie magazynu można monitorować liczbę migawek i użycie magazynu dla tych migawek. `ls` Polecenie nie pokazuje katalogu lub plików migawek. Polecenie `du` systemu operacyjnego Linux wyświetla szczegóły dotyczące tych migawek magazynu, ponieważ są one przechowywane na tych samych woluminach. Użyj polecenia z następującymi opcjami:
+Na określonym woluminie magazynu można monitorować liczbę migawek i użycie magazynu dla tych migawek. `ls`Polecenie nie pokazuje katalogu lub plików migawek. Polecenie systemu operacyjnego Linux `du` wyświetla szczegóły dotyczące tych migawek magazynu, ponieważ są one przechowywane na tych samych woluminach. Użyj polecenia z następującymi opcjami:
 
 - `du –sh .snapshot`: Ta opcja zapewnia łączną liczbę wszystkich migawek w katalogu migawek.
 - `du –sh --max-depth=1`: Ta opcja zawiera listę wszystkich migawek zapisywanych w folderze **. snapshot** oraz rozmiar każdej migawki.
@@ -298,7 +297,7 @@ Użyj tych poleceń, aby upewnić się, że migawki, które są pobierane i prze
 >Migawki rozruchowej jednostki LUN nie są widoczne dla poprzednich poleceń.
 
 ### <a name="get-details-of-snapshots"></a>Pobierz szczegóły migawek
-Aby uzyskać więcej informacji na temat migawek, Użyj skryptu `azure_hana_snapshot_details`. Ten skrypt można uruchomić w dowolnej lokalizacji, jeśli istnieje aktywny serwer w lokalizacji odzyskiwania po awarii. Skrypt zawiera następujące dane wyjściowe, podzielone na poszczególne woluminy, które zawierają migawki: 
+Aby uzyskać więcej informacji na temat migawek, Użyj skryptu `azure_hana_snapshot_details` . Ten skrypt można uruchomić w dowolnej lokalizacji, jeśli istnieje aktywny serwer w lokalizacji odzyskiwania po awarii. Skrypt zawiera następujące dane wyjściowe, podzielone na poszczególne woluminy, które zawierają migawki: 
    * Rozmiar łącznej liczby migawek w woluminie
    * Następujące szczegóły dotyczące każdej migawki w tym woluminie: 
       - Nazwa migawki 
@@ -332,7 +331,7 @@ W przypadku uruchomienia skryptu z tym ustawieniem liczba migawek obejmujących 
 
 Jeśli nie chcesz już przechowywać zestawu migawek z prefiksem kopii zapasowej **dailyhana** w przykładach składni, uruchom skrypt z **wartością 0** jako numer przechowywania. Wszystkie migawki, które pasują do tej etykiety, zostaną usunięte. Usunięcie wszystkich migawek może mieć wpływ na możliwości odzyskiwania po awarii w dużych wystąpieniach platformy HANA.
 
-Drugą opcją usunięcia określonych migawek jest użycie skryptu `azure_hana_snapshot_delete`. Ten skrypt służy do usuwania migawki lub zestawu migawek przy użyciu identyfikatora kopii zapasowej HANA, który znajduje się w programie HANA Studio, lub za pośrednictwem samej nazwy migawki. Obecnie identyfikator kopii zapasowej jest powiązany tylko z migawkami utworzonymi dla typu migawki platformy **Hana** . Kopie zapasowe migawek typu **dzienników** i **rozruchu** nie wykonują SAP HANA migawki, dlatego nie istnieje identyfikator kopii zapasowej do znalezienia dla tych migawek. Jeśli nazwa migawki zostanie wprowadzona, szuka wszystkich migawek na różnych woluminach, które pasują do podanej nazwy migawki. 
+Drugą opcją usunięcia określonych migawek jest użycie skryptu `azure_hana_snapshot_delete` . Ten skrypt służy do usuwania migawki lub zestawu migawek przy użyciu identyfikatora kopii zapasowej HANA, który znajduje się w programie HANA Studio, lub za pośrednictwem samej nazwy migawki. Obecnie identyfikator kopii zapasowej jest powiązany tylko z migawkami utworzonymi dla typu migawki platformy **Hana** . Kopie zapasowe migawek typu **dzienników** i **rozruchu** nie wykonują SAP HANA migawki, dlatego nie istnieje identyfikator kopii zapasowej do znalezienia dla tych migawek. Jeśli nazwa migawki zostanie wprowadzona, szuka wszystkich migawek na różnych woluminach, które pasują do podanej nazwy migawki. 
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
 
