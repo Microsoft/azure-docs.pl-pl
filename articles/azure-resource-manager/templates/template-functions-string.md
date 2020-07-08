@@ -3,12 +3,12 @@ title: Funkcje szablonu — ciąg
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z ciągami.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: a590e8102bce45e577f1a827c09e752eb0a13139
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676611"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962071"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funkcje ciągów dla szablonów ARM
 
@@ -1846,7 +1846,7 @@ Ta funkcja jest przydatna, gdy konieczne jest utworzenie unikatowej nazwy dla za
 
 Zwracana wartość nie jest ciągiem losowym, ale raczej wynikiem funkcji skrótu. Zwrócona wartość to 13 znaków. Nie jest on globalnie unikatowy. Możesz chcieć połączyć wartość z prefiksem z konwencji nazewnictwa, aby utworzyć zrozumiałą nazwę. Poniższy przykład pokazuje format zwracanej wartości. Wartość rzeczywista różni się w zależności od podanych parametrów.
 
-    tcvhiyu5h2o5o
+`tcvhiyu5h2o5o`
 
 W poniższych przykładach pokazano, jak za pomocą uniqueString utworzyć unikatową wartość dla często używanych poziomów.
 
