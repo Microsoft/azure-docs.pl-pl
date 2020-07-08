@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: f638b332eae5cd85e1cb6aae9c6bd8eb4ad44848
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: e720be86c6505c2ddebaca91eeefa08e38170cbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558613"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
 
@@ -24,7 +24,8 @@ Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie ur
 Te informacje obejmują jednostki SKU, magazyn, konfiguracje sieci i nadchodzące zdarzenia konserwacji. Pełną listę dostępnych danych można znaleźć w temacie [Metadata API](#metadata-apis).
 Instance Metadata Service jest dostępny dla wystąpień maszyny wirtualnej i zestawu skalowania maszyn wirtualnych. Jest on dostępny tylko w przypadku uruchamiania maszyn wirtualnych utworzonych/zarządzanych przy użyciu [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
-Instance Metadata Service platformy Azure to punkt końcowy REST, który jest dostępny w dobrze znanym adresie IP bez obsługi routingu ( `169.254.169.254` ), można uzyskać do niego dostęp tylko z poziomu maszyny wirtualnej.
+IMDS platformy Azure to punkt końcowy REST, który jest dostępny w dobrze znanym adresie IP bez obsługi routingu ( `169.254.169.254` ), można uzyskać do niego dostęp tylko z poziomu maszyny wirtualnej. Komunikacja między maszyną wirtualną i IMDS nigdy nie opuszcza hosta.
+Najlepszym rozwiązaniem jest, aby klienci HTTP pomijali serwery proxy sieci Web w ramach maszyny wirtualnej podczas wykonywania zapytań w IMDS i traktować `169.254.169.254` je tak samo jak [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) .
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -46,7 +47,7 @@ Poniżej znajduje się przykładowy kod służący do pobierania wszystkich meta
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
 **Reakcji**
@@ -180,13 +181,13 @@ Interfejs API | Domyślny format danych | Inne formaty
 Aby uzyskać dostęp do formatu niedomyślnej odpowiedzi, należy określić żądany format jako parametr ciągu zapytania w żądaniu. Przykład:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
 > W przypadku węzłów liści w/Metadata/instance `format=json` nie działa. Dla tych zapytań `format=text` należy jawnie określić, ponieważ format domyślny to JSON.
 
-### <a name="versioning"></a>Obsługa wersji
+### <a name="versioning"></a>Przechowywanie wersji
 
 Instance Metadata Service ma wersję, a określenie wersji interfejsu API w żądaniu HTTP jest obowiązkowe.
 
@@ -204,7 +205,7 @@ Jeśli żadna wersja nie zostanie określona, zostanie zwrócony błąd z listą
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 ```
 
 **Reakcji**
@@ -270,7 +271,7 @@ Jako usługodawca może być konieczne śledzenie liczby maszyn wirtualnych korz
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Reakcji**
@@ -288,7 +289,7 @@ Możesz wysyłać zapytania o te dane bezpośrednio za pośrednictwem Instance M
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 **Reakcji**
@@ -304,7 +305,7 @@ Jako dostawca usług możesz uzyskać informacje o pomocy technicznej, w któryc
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **Reakcji**
@@ -404,7 +405,7 @@ Platforma Azure ma rozmaite suwerenne chmury, takie jak [Azure Government](https
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Reakcji**
@@ -443,7 +444,7 @@ macAddress | Adres MAC maszyny wirtualnej | 2017-04-02
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **Reakcji**
@@ -482,7 +483,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="sample-2-retrieving-public-ip-address"></a>Przykład 2: pobieranie publicznego adresu IP
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 ## <a name="storage-metadata"></a>Metadane magazynu
@@ -538,7 +539,7 @@ Poniższy przykład pokazuje, jak zbadać informacje o magazynowaniu maszyny wir
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **Reakcji**
@@ -610,7 +611,7 @@ Tagi mogły zostać zastosowane do maszyny wirtualnej platformy Azure, aby logic
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
 **Reakcji**
@@ -624,7 +625,7 @@ Department:IT;Environment:Test;Role:WebRole
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
 ```
 
 **Reakcji**
@@ -658,7 +659,7 @@ Częścią scenariusza obsługiwanego przez Instance Metadata Service jest zapew
 **Żądanie**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
 Interfejs API-Version jest polem obowiązkowym. Zapoznaj się z [sekcją użycie](#usage) dla obsługiwanych wersji interfejsu API.
@@ -702,7 +703,7 @@ Dostawcy portalu Marketplace chcą mieć pewność, że ich oprogramowanie jest 
 
 ```bash
 # Get the signature
-curl --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+curl --silent -H Metadata:True --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2019-04-30" | jq -r '.["signature"]' > signature
 # Decode the signature
 base64 -d signature > decodedsignature
 # Get PKCS7 format

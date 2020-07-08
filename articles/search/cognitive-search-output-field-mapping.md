@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557273"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Jak mapować pola wzbogacone AI na indeks wyszukiwania
 
@@ -28,7 +28,7 @@ Mapowania pól wyjściowych są wymagane do przeniesienia zawartości z ulepszon
 Aby zmapować pola, Dodaj `outputFieldMappings` je do definicji indeksatora, jak pokazano poniżej:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -74,7 +74,7 @@ Dla każdego mapowania pola danych wyjściowych Ustaw lokalizację danych w drze
 
 ## <a name="flattening-information-from-complex-types"></a>Spłaszczanie informacji z typów złożonych 
 
-Ścieżka w sourceFieldName może reprezentować jeden element lub wiele elementów. W powyższym przykładzie ```/document/content/sentiment``` reprezentuje pojedynczą wartość liczbową, ```/document/content/organizations/*/description``` a jednocześnie reprezentuje kilka opisów organizacji. 
+Ścieżka w sourceFieldName może reprezentować jeden element lub wiele elementów. W powyższym przykładzie ```/document/content/sentiment``` reprezentuje pojedynczą wartość liczbową, a jednocześnie ```/document/content/organizations/*/description``` reprezentuje kilka opisów organizacji. 
 
 W przypadkach, gdy istnieje kilka elementów, są one "spłaszczone" do tablicy zawierającej poszczególne elementy. 
 
@@ -117,7 +117,7 @@ Jest to istotna zasada, więc zapewnimy kolejną przykład. Załóżmy, że masz
 
 Załóżmy, że indeks ma pole o nazwie "choroby" typu kolekcja (EDM. String), gdzie chcesz przechowywać każdą z nazw jednostek. 
 
-Można to zrobić łatwo przy użyciu symbolu "\*" w następujący sposób:
+Można to zrobić łatwo przy użyciu \* symbolu "" w następujący sposób:
 
 ```json
     "outputFieldMappings": [

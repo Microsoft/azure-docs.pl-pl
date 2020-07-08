@@ -4,12 +4,12 @@ description: Dowiedz się więcej o dostępie i tożsamości w usłudze Azure Ku
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: ffb3f0a7aee63f8b655e7056ee870de80c2f814e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558161"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -67,6 +67,9 @@ Po zdefiniowaniu ról w celu udzielenia uprawnień do zasobów należy przypisa�
 Powiązania ról służą do przypisywania ról dla danego obszaru nazw. Takie podejście umożliwia logicznie segregowanie pojedynczego klastra AKS, dzięki czemu użytkownicy mogą uzyskiwać dostęp do zasobów aplikacji w ich przypisanej przestrzeni nazw. Jeśli musisz powiązać role w całym klastrze lub z zasobami klastra spoza danego obszaru nazw, zamiast tego możesz użyć *ClusterRoleBindings*.
 
 ClusterRoleBinding działa w taki sam sposób, aby powiązać role z użytkownikami, ale można je stosować do zasobów w całym klastrze, a nie w określonym obszarze nazw. Takie podejście umożliwia przyznanie administratorom lub inżynierom pomocy technicznej dostępu do wszystkich zasobów w klastrze AKS.
+
+> [!NOTE]
+> Wszystkie akcje klastra podejmowane przez pomoc techniczną firmy Microsoft są realizowane z zgodą użytkownika w ramach wbudowanej roli ["Edytuj"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) Kubernetes `aks-support-rolebinding` . Dzięki tej AKS obsłudze technicznej można edytować konfigurację klastra i zasoby w celu rozwiązywania problemów z klastrem, ale rola nie może modyfikować uprawnień ani tworzyć ról ani powiązań ról. Dostęp do roli jest włączony tylko w ramach aktywnych biletów pomocy technicznej z dostępem just-in-Time (JIT). Przeczytaj więcej na temat [zasad pomocy technicznej AKS](support-policies.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

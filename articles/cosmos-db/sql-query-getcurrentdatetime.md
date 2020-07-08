@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ac3235191952702f2acc39a25e948511901050b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555894"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Zwraca bieżącą datę i godzinę w formacie UTC (Coordinated Universal Time) jako ciąg ISO 8601.
@@ -25,9 +25,9 @@ GetCurrentDateTime ()
   
 ## <a name="return-types"></a>Typy zwracane
   
-  Zwraca bieżącą wartość ciągu ISO 8601 daty i czasu UTC w formacie `YYYY-MM-DDThh:mm:ss.fffffffZ` , gdzie:
+  Zwraca bieżącą wartość ciągu ISO 8601 daty i czasu UTC w formacie, `YYYY-MM-DDThh:mm:ss.fffffffZ` gdzie:
   
-  |||
+  |Format|Opis|
   |-|-|
   |YYYY|rok czterocyfrowy|
   |MM|dwucyfrowy miesiąc (01 = styczeń itd.)|

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2c519792bcf9251f926d305c9611320a18b7c346
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556157"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Włączanie obsługi wielu przestrzeni nazw w klastrze AKS przy użyciu kontrolera Application Gateway transferu danych przychodzących
 
@@ -45,6 +45,7 @@ W górnej części hierarchii- **detektory** (adres IP, port i Host) oraz **regu
 W przypadku innych ścieżek ręcznych pule zaplecza, ustawienia protokołu HTTP i certyfikaty TLS mogą być tworzone tylko przez jedną przestrzeń nazw, a duplikaty zostaną usunięte.
 
 Rozważmy na przykład następujące zduplikowane przestrzenie nazw zasobów przychodzących `staging` i `production` dla `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -101,6 +102,7 @@ Domyślnie AGIC skonfiguruje Application Gateway na podstawie adnotacji przychod
   - Użyj [roli/](https://docs.microsoft.com/azure/aks/azure-ad-rbac) rolibinding, aby ograniczyć AGIC do określonych przestrzeni nazw
 
 ## <a name="sample-helm-config-file"></a>Przykładowy plik konfiguracji Helm
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Domyślnie AGIC skonfiguruje Application Gateway na podstawie adnotacji przychod
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

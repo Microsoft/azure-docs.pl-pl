@@ -1,6 +1,6 @@
 ---
 title: Łączenie źródeł danych z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak łączyć źródła danych z danymi wskaźnikowymi platformy Azure.
+description: Dowiedz się, jak nawiązać połączenie ze źródłami danych, takimi jak Microsoft Threat Protection, Microsoft 365 i Office 365, Azure AD, ATP i Cloud App Security do platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 3ff031cb9e4dd45de180eca4b726aa47f0fd52e1
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555519"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -67,7 +67,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
-    - [Dzienniki obwodów 81](connect-perimeter-81-logs.md)
+    - [Dzienniki rozwiązania Perimeter 81](connect-perimeter-81-logs.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [Zimperium](connect-zimperium-mtd.md)
@@ -80,7 +80,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     Agent wskaźnikowy platformy Azure, który jest rzeczywiście agentem Log Analytics, konwertuje CEF dzienników w formacie, który może zostać pozyskany przez Log Analytics. W zależności od typu urządzenia Agent jest instalowany bezpośrednio na urządzeniu lub w dedykowanej usłudze przesyłania dalej dzienników opartej na systemie Linux. Agent dla systemu Linux odbiera zdarzenia z demona dziennika systemu za pośrednictwem protokołu UDP, ale jeśli oczekuje się, że maszyna z systemem Linux będzie zbierać duże ilości zdarzeń dziennika systemowego, są one wysyłane za pośrednictwem protokołu TCP z demona dziennika systemowego do agenta i z tego miejsca do Log Analytics.
 
     - **Zapory, proxy i punkty końcowe:**
-        - [Wykrywanie Vectra AI](connect-ai-vectra-detect.md)
+        - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)

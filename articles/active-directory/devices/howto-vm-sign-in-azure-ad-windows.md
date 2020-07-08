@@ -12,21 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 700e8f2ae29ad41ceaecf58c3ffde4a27725c25c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554888"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
 Organizacje mogą teraz korzystać z uwierzytelniania Azure Active Directory (AD) na maszynach wirtualnych platformy Azure z systemem **Windows Server 2019 Datacenter Edition** lub **Windows 10 1809** lub nowszym. Uwierzytelnianie na maszynach wirtualnych za pomocą usługi Azure AD zapewnia możliwość centralnego kontrolowania i wymuszania zasad. Narzędzia, takie jak Access Control oparte na rolach na platformie Azure (RBAC) i dostęp warunkowy usługi Azure AD, umożliwiają kontrolowanie dostępu do maszyny wirtualnej. W tym artykule pokazano, jak utworzyć i skonfigurować maszynę wirtualną z systemem Windows Server 2019 do korzystania z uwierzytelniania usługi Azure AD.
 
-|     |
-| --- |
-| Logowanie za pomocą usługi Azure AD na potrzeby maszyn wirtualnych systemu Windows Azure jest publiczną funkcją w wersji zapoznawczej programu Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure|
-|     |
+> [!NOTE]
+> Logowanie za pomocą usługi Azure AD na potrzeby maszyn wirtualnych systemu Windows Azure jest publiczną funkcją w wersji zapoznawczej programu Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz temat [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Istnieje wiele zalet używania uwierzytelniania usługi Azure AD do logowania się do maszyn wirtualnych z systemem Windows na platformie Azure, w tym:
 

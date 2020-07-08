@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554906"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
 
 Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chmurze lub tylko w chmurze. Każda organizacja może wdrożyć urządzenia przyłączone do usługi Azure AD niezależnie od wielkości lub branży. Funkcja Azure AD Join działa nawet w środowisku hybrydowym, umożliwiając dostęp do aplikacji i zasobów zarówno w chmurze, jak i lokalnych.
 
-|   | Sprzężenia Azure AD |
+| Sprzężenia Azure AD | Opis |
 | --- | --- |
 | **Definicja** | Przyłączone do usługi Azure AD wymagające konta organizacyjnego do logowania się na urządzeniu |
 | **Odbiorcy podstawowe** | Odpowiednie dla organizacji tylko w chmurze i hybrydowych. |

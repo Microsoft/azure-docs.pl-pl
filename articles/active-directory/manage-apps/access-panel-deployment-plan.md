@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeffcfc919a6aeeae61ed79286d613d72c6b183c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84761174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555318"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu Azure Active Directory
 
@@ -63,7 +63,7 @@ Panel dostępu jest bezpłatny i nie wymaga licencji do użycia na poziomie pods
 
 * [Członkostwo oparte na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Samoobsługowe resetowanie hasła](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Samoobsługowe resetowanie haseł](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Ochrona tożsamości w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
@@ -122,7 +122,7 @@ Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na 
 
 Poniższa tabela zawiera kilka ważnych konfiguracji panelu dostępu i typowych wartości, których można użyć:
 
-| Konfiguracja| Typowe wartości |
+| Konfigurowanie| Typowe wartości |
 | - | - |
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
@@ -261,7 +261,7 @@ Aby zaplanować członkostwo w grupach samoobsługi, ustal, czy zezwolisz wszyst
 
 Usługa Azure AD udostępnia [raporty, które oferują szczegółowe informacje techniczne i biznesowe](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Pracuj z właścicielami aplikacji firmowych i technicznych, aby założyć własność tych raportów i regularnie je wykorzystać. W poniższej tabeli przedstawiono kilka przykładów typowych scenariuszy raportowania.
 
-|   | Zarządzanie ryzykiem| Zwiększ produktywność| Zarządzanie i zgodność |
+| Przykład | Zarządzanie ryzykiem| Zwiększ produktywność| Zarządzanie i zgodność |
 |  - |- | - | - |
 | Typy raportów|  Uprawnienia i użycie aplikacji| Działanie aprowizacji konta| Sprawdź, kto uzyskuje dostęp do aplikacji |
 | Potencjalni akcje| Inspekcja dostępu; Odwołaj uprawnienia| Koryguj wszelkie błędy aprowizacji| Odwołaj dostęp |

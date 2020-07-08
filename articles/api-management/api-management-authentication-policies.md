@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a92540ff2c57ff5c1aa827237a7341aecc1592b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557975"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -140,7 +140,7 @@ Do żądania tokenu można użyć zarówno tożsamości przypisanej do systemu, 
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554765"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -41,13 +41,12 @@ W tym artykule założono, że znasz już [wprowadzenie do zarządzania tożsamo
 
 Aby zaplanować implementację hybrydowej usługi Azure AD, zapoznaj się z:
 
-|   |   |
-| --- | --- |
-| ![Zaznacz][1] | Przejrzyj obsługiwane urządzenia |
-| ![Zaznacz][1] | Przejrzyj interesujące Cię rzeczy |
-| ![Zaznacz][1] | Przeglądanie kontrolowanej weryfikacji hybrydowego sprzężenia usługi Azure AD |
-| ![Zaznacz][1] | Wybierz swój scenariusz w oparciu o infrastrukturę tożsamości |
-| ![Zaznacz][1] | Zapoznaj się z lokalną obsługą UPN usługi AD na potrzeby hybrydowego dołączania do usługi Azure AD |
+> [!div class="checklist"]
+> - Przejrzyj obsługiwane urządzenia
+> - Przejrzyj interesujące Cię rzeczy
+> - Przeglądanie kontrolowanej weryfikacji hybrydowego sprzężenia usługi Azure AD
+> - Wybierz swój scenariusz w oparciu o infrastrukturę tożsamości
+> - Zapoznaj się z lokalną obsługą UPN usługi AD na potrzeby hybrydowego dołączania do usługi Azure AD
 
 ## <a name="review-supported-devices"></a>Przejrzyj obsługiwane urządzenia
 
@@ -66,7 +65,7 @@ W przypadku urządzeń z systemem operacyjnym Windows dla komputerów stacjonarn
 
 - Windows 8.1
 - Obsługa systemu Windows 7 zakończyła się 14 stycznia 2020. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna dla systemu Windows 7 została zakończona](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
-- Windows Server 2012 R2
+- Windows Server 2012 z dodatkiem R2
 - Windows Server 2012
 - Windows Server 2008 R2. Informacje o pomocy technicznej dotyczące systemów Windows Server 2008 i 2008 R2 znajdują się w temacie [przygotowanie do systemu Windows server 2008 End of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
@@ -136,7 +135,7 @@ Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uw
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **Usługi ADFS/Services/Trust/2005/windowstransport** lub **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być udostępniane jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych usługi WS-Trust systemu Windows, zobacz temat [wyłączanie punktów końcowych systemu Windows WS-Trust na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze**punkty końcowe** **usługi** > .
+> **Usługi ADFS/Services/Trust/2005/windowstransport** lub **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być udostępniane jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych usługi WS-Trust systemu Windows, zobacz temat [wyłączanie punktów końcowych systemu Windows WS-Trust na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze **Service**  >  **punkty końcowe**usługi.
 
 > [!NOTE]
 > Usługa Azure AD nie obsługuje kart inteligentnych ani certyfikatów w domenach zarządzanych.
@@ -164,14 +163,14 @@ Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej do
 | ----- | ----- | ----- | ----- |
 | Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
 | Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Wzajemn | Zarządzani | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
-| Bez obsługi routingu | Zarządzani | Nieobsługiwane | |
+| Wzajemn | Zarządzany | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Bez obsługi routingu | Zarządzany | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska](hybrid-azuread-join-federated-domains.md)
-> federacyjnego[Skonfiguruj sprzężenie Azure Active Directory hybrydowego dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
+> [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md) 
+>  [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

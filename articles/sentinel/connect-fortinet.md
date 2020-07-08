@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych Fortinet z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak połączyć dane Fortinet z platformą Azure.
+description: Połącz urządzenie Fortinet z platformą Azure wskaźnikiem wydajności, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72ba4acd694933db503b01611e63867af99a129f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588199"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555953"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Łączenie Fortinet z platformą Azure — wskaźnik
 
@@ -50,7 +50,7 @@ Skonfiguruj konfigurację Fortinet do przesyłania dalej komunikatów dziennika 
    > [!NOTE] 
    > Aby uzyskać więcej informacji, przejdź do [biblioteki dokumentów Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Wybierz swoją wersję, a następnie użyj dokumentacji **podręcznika** i **komunikatu dziennika**.
 
-1. Aby użyć odpowiedniego schematu w Azure Monitor Log Analytics dla imprez Fortinet, wyszukaj ciąg `CommonSecurityLog`.
+1. Aby użyć odpowiedniego schematu w Azure Monitor Log Analytics dla imprez Fortinet, wyszukaj ciąg `CommonSecurityLog` .
 
 1. Przejdź do [kroku 3: weryfikowanie łączności](connect-cef-verify.md).
 

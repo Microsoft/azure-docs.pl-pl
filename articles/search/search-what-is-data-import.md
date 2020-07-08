@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 26899d629661fbf3a4f48ac09fa9fd3ee806bdb4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 06/30/2020
+ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321146"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554263"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Omówienie importowania danych — Wyszukiwanie poznawcze platformy Azure
 
@@ -63,11 +63,13 @@ W zestawie SDK platformy .NET Pakuj dane do `IndexBatch` obiektu. `IndexBatch`He
 
 Istnieją dwie metody [przeszukiwania indeksu przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Pierwsza z nich polega na wysłaniu żądania HTTP POST, w ramach którego parametry zapytania są definiowane w obiekcie JSON w treści żądania. Druga metoda obejmuje wysłanie żądania HTTP GET, w ramach którego parametry zapytania są definiowane w adresie URL żądania. W przypadku żądania POST limity dotyczące rozmiaru parametrów zapytania są [luźniejsze](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) niż dla żądania GET. Z tego powodu zaleca się używanie żądania POST, o ile nie występują specjalne okoliczności, w których korzystanie z żądania GET jest wygodniejsze.
 
-Zarówno dla żądania POST, jak i GET zawartość adresu URL żądania musi obejmować *nazwę usługi*, *nazwę indeksu* oraz odpowiednią *wersję interfejsu API* (w momencie publikowania tego dokumentu aktualna wersja interfejsu API to `2019-05-06`). W przypadku żądania GET parametry zapytania są określane w *ciągu zapytania* na końcu adresu URL. Format adresu URL został przedstawiony poniżej:
+W przypadku funkcji POST i GET należy podać *nazwę usługi*, *nazwę indeksu*i *wersję interfejsu API* w adresie URL żądania. 
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+W przypadku żądania GET parametry zapytania są określane w *ciągu zapytania* na końcu adresu URL. Format adresu URL został przedstawiony poniżej:
 
-Format dla żądania POST jest taki sam, ale parametry ciągu zapytania zawierają tylko element api-version.
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+
+Format wpisu POST jest taki sam, ale z `api-version` parametrami ciągu zapytania.
 
 ## <a name="pulling-data-into-an-index"></a>Ściąganie danych do indeksu
 
@@ -94,7 +96,7 @@ Szybkim sposobem przeprowadzenia wstępnego sprawdzenia w przekazaniu dokumentu 
 > [!TIP]
 > Wiele [przykładów kodu wyszukiwanie poznawcze platformy Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) obejmuje osadzone lub łatwo dostępne zestawy danych, oferując łatwy sposób na rozpoczęcie pracy. Portal udostępnia również przykładowy indeksator i źródło danych składające się z małego zestawu danych nieruchomości (o nazwie „realestate-us-sample”). Po uruchomieniu wstępnie skonfigurowanego indeksatora w przykładowym źródle danych indeks zostanie utworzony i załadowany z dokumentami, które mogą następnie być badane w Eksploratorze wyszukiwania lub przez zapisanie kodu.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Omówienie indeksatora](search-indexer-overview.md)
 + [Przewodnik po portalu: tworzenie i ładowanie indeksu oraz wykonywanie na nim zapytań](search-get-started-portal.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557581"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -37,7 +37,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 1. Włącz rozwiązanie Service Map z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań monitorowania z Galeria rozwiązań](solutions.md).
 1. [Zainstaluj agenta zależności w systemie Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) lub [Zainstaluj agenta zależności programu](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) dla systemu Linux na każdym komputerze, na którym chcesz pobrać dane. Agent Dependency Agent może monitorować połączenia do najbliższych sąsiadów, więc nie jest konieczny na każdym komputerze.
 
-Dostęp do Service Map w Azure Portal z obszaru roboczego Log Analytics i wybierz **rozwiązania** opcji w okienku po lewej stronie.<br><br> ![Wybierz opcję rozwiązania w obszarze](./media/service-map/select-solution-from-workspace.png)roboczym.<br> Z listy rozwiązań wybierz pozycję **ServiceMap (WorkspaceName)** i na stronie przegląd rozwiązania Service map kliknij kafelek podsumowanie Service map.<br><br> ![Kafelek](./media/service-map/service-map-summary-tile.png)podsumowania Service map.
+Dostęp do Service Map w Azure Portal z obszaru roboczego Log Analytics i wybierz **rozwiązania** opcji w okienku po lewej stronie.<br><br> ![Wybierz opcję rozwiązania w obszarze roboczym ](./media/service-map/select-solution-from-workspace.png) .<br> Z listy rozwiązań wybierz pozycję **ServiceMap (WorkspaceName)** i na stronie przegląd rozwiązania Service map kliknij kafelek podsumowanie Service map.<br><br> ![Kafelek podsumowania Service Map ](./media/service-map/service-map-summary-tile.png) .
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Przypadki użycia: uczyń proces IT Rozpoznaj zależności
 
@@ -113,7 +113,7 @@ Po utworzeniu niektórych grup można je wyświetlić, wybierając kartę grupy.
 ![Karta grupy](media/service-map/machine-groups-tab.png)
 
 Następnie wybierz nazwę grupy, aby wyświetlić mapę dla tej grupy maszyn.
-![Grupa](media/service-map/machine-group.png) maszyn komputery należące do grupy są pokreślone na białej mapie.
+![Grupa maszyn ](media/service-map/machine-group.png) komputery należące do grupy są pokreślone na białej mapie.
 
 Rozszerzanie grupy spowoduje wyświetlenie listy maszyn, które tworzą grupę maszyn.
 
@@ -273,16 +273,16 @@ W okienku **wydajność komputera** są wyświetlane metryki wydajności standar
 Aby wyświetlić dane dotyczące wydajności, może być konieczne [włączenie odpowiednich liczników wydajności log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Liczniki, które chcesz włączyć:
 
 W systemie Windows:
-- Procesor (*)\\czas procesora (%)
+- Procesor (*) \\ czas procesora (%)
 - \\Procent zadeklarowanych bajtów w użyciu
-- Liczba bajtów wysłanych z\\karty sieciowej (*) na sekundę
-- Liczba odebranych bajtów karty\\sieciowej (*)/s
+- Liczba bajtów wysłanych z karty sieciowej (*) na \\ sekundę
+- Liczba odebranych bajtów karty sieciowej (*) \\ /s
 
 W systemie Linux:
-- Procesor (*)\\czas procesora (%)
-- Pamięć (*)\\% zajętej pamięci
-- Liczba bajtów wysłanych z\\karty sieciowej (*) na sekundę
-- Liczba odebranych bajtów karty\\sieciowej (*)/s
+- Procesor (*) \\ czas procesora (%)
+- Pamięć (*) \\ % zajętej pamięci
+- Liczba bajtów wysłanych z karty sieciowej (*) na \\ sekundę
+- Liczba odebranych bajtów karty sieciowej (*) \\ /s
 
 Aby uzyskać dane dotyczące wydajności sieci, należy również włączyć rozwiązanie Wire Data 2.0 w obszarze roboczym.
  
@@ -485,7 +485,7 @@ ServiceMapProcess_CL | gdzie MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1
 
 ### <a name="list-all-computers-running-sql"></a>Wyświetl listę wszystkich komputerów z uruchomionym programem SQL
 
-ServiceMapComputer_CL | gdzie ResourceName_s ((search in (ServiceMapProcess_CL) "\*SQL\*" | DISTINCT MachineResourceName_s)) | różne ComputerName_s
+ServiceMapComputer_CL | gdzie ResourceName_s ((search in (ServiceMapProcess_CL) " \* SQL \* " | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Wyświetl listę wszystkich unikatowych wersji programu zwinięcie w moim centrum danych
 
@@ -554,52 +554,52 @@ Dowiedz się więcej o [przeszukiwaniu dzienników](../../azure-monitor/log-quer
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli masz problemy z instalowaniem lub uruchamianiem Service Map, ta sekcja może Ci pomóc. Jeśli nadal nie możesz rozwiązać problemu, skontaktuj się z pomoc techniczna firmy Microsoft.
+Jeśli masz problemy z instalowaniem lub uruchamianiem Service Map, ta sekcja może Ci pomóc. Jeśli nadal nie możesz rozwiązać problemu, skontaktuj się z pomocą techniczną firmy Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemy z instalacją agenta zależności
 
-#### <a name="installer-prompts-for-a-reboot"></a>Instalator prosi o ponowne uruchomienie
+#### <a name="installer-prompts-for-a-reboot"></a>Instalator monituje o ponowne uruchomienie
 Agent zależności *zazwyczaj* nie wymaga ponownego uruchomienia podczas instalacji lub usuwania. Jednak w niektórych rzadkich przypadkach system Windows Server wymaga ponownego uruchomienia w celu kontynuowania instalacji. Zdarza się to, gdy zależność, zazwyczaj Microsoft Visual C++ redystrybucyjna biblioteka wymaga ponownego uruchomienia z powodu zablokowanego pliku.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Komunikat "nie można zainstalować agenta zależności: nie można zainstalować bibliotek środowiska uruchomieniowego programu Visual Studio (kod = [code_number])"
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Wyświetlany jest komunikat „Nie można zainstalować agenta zależności: Nie można zainstalować bibliotek środowiska uruchomieniowego programu Visual Studio (kod = [code_number])”
 
-Program Microsoft Dependency Agent jest oparty na bibliotekach środowiska uruchomieniowego Microsoft Visual Studio. Jeśli wystąpi problem podczas instalacji bibliotek, otrzymasz komunikat o błędzie. 
+Program Microsoft Dependency Agent jest oparty na bibliotekach środowiska uruchomieniowego programu Microsoft Visual Studio. Jeśli podczas instalowania tych bibliotek wystąpi problem, jest wyświetlany komunikat. 
 
-Instalatorzy biblioteki środowiska uruchomieniowego tworzą dzienniki w folderze%LOCALAPPDATA%\temp. `dd_vcredist_arch_yyyymmddhhmmss.log`Plik to, gdzie *Arch* `x86` jest lub `amd64` i *rrrrmmddggmmss* jest datą i godziną (zegar 24-godzinny) podczas tworzenia dziennika. Dziennik zawiera szczegółowe informacje o problemie, który blokuje instalację.
+Instalatory biblioteki środowiska uruchomieniowego tworzą dzienniki w folderze %LOCALAPPDATA%\temp. Plik to `dd_vcredist_arch_yyyymmddhhmmss.log` , gdzie *Arch* jest `x86` lub `amd64` i *rrrrmmddggmmss* jest datą i godziną (zegar 24-godzinny) podczas tworzenia dziennika. Dziennik zawiera szczegółowe informacje o problemie, który blokuje instalację.
 
-Czasami warto zainstalować [najnowsze biblioteki środowiska uruchomieniowego](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
+Pierwszym działaniem, które może pomóc, jest zainstalowanie [najnowszych bibliotek środowiska uruchomieniowego](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
 W poniższej tabeli przedstawiono numery kodów i sugerowane rozwiązania.
 
-| Code | Opis | Rozwiązanie |
+| Kod | Opis | Rozwiązanie |
 |:--|:--|:--|
-| 0x17 | Instalator biblioteki wymaga aktualizacji systemu Windows, która nie została zainstalowana. | Zapoznaj się z najnowszym dziennikiem Instalatora biblioteki.<br><br>Jeśli po odwołaniu `Windows8.1-KB2999226-x64.msu` następuje wiersz `Error 0x80240017: Failed to execute MSU package,` nie spełnia wymagań wstępnych dotyczących instalacji KB2999226. Postępuj zgodnie z instrukcjami w sekcji wymagania wstępne w [środowisku uruchomieniowym uniwersalnego języka C w artykule systemu Windows](https://support.microsoft.com/kb/2999226) . Aby zainstalować wymagania wstępne, może być konieczne uruchomienie Windows Update i ponowne uruchomienie komputera.<br><br>Uruchom ponownie Instalatora programu Microsoft Dependency Agent. |
+| 0x17 | Instalator biblioteki wymaga aktualizacji systemu Windows, która nie została zainstalowana. | Zapoznaj się z najnowszym dziennikiem instalatora biblioteki.<br><br>Jeśli po odwołaniu `Windows8.1-KB2999226-x64.msu` następuje wiersz `Error 0x80240017: Failed to execute MSU package,` nie spełnia wymagań wstępnych dotyczących instalacji KB2999226. Postępuj zgodnie z instrukcjami zamieszczonymi w sekcji wymagań wstępnych w artykule [Uniwersalne środowisko uruchomieniowe języka C w systemie Windows](https://support.microsoft.com/kb/2999226). Aby zainstalować wymagania wstępne, może być konieczne uruchomienie usługi Windows Update i kilkukrotne ponowne uruchomienie komputera.<br><br>Uruchom ponownie Instalatora programu Microsoft Dependency Agent. |
 
 ### <a name="post-installation-issues"></a>Problemy po instalacji
 
 #### <a name="server-doesnt-appear-in-service-map"></a>Serwer nie jest wyświetlany w Service Map
 
 Jeśli instalacja agenta zależności zakończyła się pomyślnie, ale nie widzisz maszyny w Service Map rozwiązaniu:
-* Czy Agent zależności został zainstalowany pomyślnie? Można to sprawdzić, sprawdzając, czy usługa jest zainstalowana i uruchomiona.<br><br>
+* Czy agent zależności został zainstalowany pomyślnie? Możesz to zweryfikować, sprawdzając, czy usługa jest zainstalowana i uruchomiona.<br><br>
 **Windows**: Wyszukaj usługę o nazwie **Microsoft Dependency Agent**.
 **Linux**: Wyszukaj uruchomiony proces **Microsoft-Dependency-Agent**.
 
-* Czy jesteś w [log Analytics warstwy Bezpłatna](https://azure.microsoft.com/pricing/details/monitor/)? Plan bezpłatny pozwala na maksymalnie pięć unikatowych maszyn Service Map. Wszystkie kolejne maszyny nie będą wyświetlane w Service Map, nawet jeśli poprzednie pięć nie wyśle już danych.
+* Czy jesteś w [log Analytics warstwy Bezpłatna](https://azure.microsoft.com/pricing/details/monitor/)? Plan Bezpłatna pozwala na korzystanie z maksymalnie pięciu unikatowych maszyn w usłudze Service Map. Wszystkie kolejne maszyny nie będą wyświetlane w usłudze Service Map, nawet jeśli poprzednie pięć nie wysyła już danych.
 
-* Czy serwer wysyła dane dziennika i wydajności do dzienników Azure Monitor? Przejdź do usługi Azure Monitor\Logs i uruchom następujące zapytanie dla komputera: 
+* Czy serwer wysyła dane dziennika i wydajności do dzienników Azure Monitor? Przejdź do katalogu Azure Monitor\Logs i uruchom następujące zapytanie dla komputera: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Czy w wynikach pojawiły się wiele zdarzeń? Czy dane są ostatnie? Jeśli tak, Agent Log Analytics działa prawidłowo i komunikuje się z obszarem roboczym. Jeśli nie, sprawdź, czy Agent na komputerze: [log Analytics Agent do rozwiązywania problemów z systemem Windows](../platform/agent-windows-troubleshoot.md) lub [agenta log Analytics dla systemu Linux](../platform/agent-linux-troubleshoot.md).
+Czy w wynikach pojawiły się wiele zdarzeń? Czy są to świeże dane? Jeśli tak, Twój agent usługi Log Analytics działa prawidłowo i komunikuje się z obszarem roboczym. Jeśli nie, sprawdź agenta na swojej maszynie: [Rozwiązywanie problemów z agentem usługi Log Analytics dla systemu Windows](../platform/agent-windows-troubleshoot.md) lub [Rozwiązywanie problemów z agentem usługi Log Analytics dla systemu Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Serwer pojawia się w Service Map ale nie ma procesów
 
 Jeśli komputer jest widoczny w Service Map, ale nie ma żadnych procesów ani danych połączenia, oznacza to, że Agent zależności został zainstalowany i uruchomiony, ale nie załadowano sterownika jądra. 
 
-Sprawdź `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) lub `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). Ostatni wiersz pliku powinien wskazywać, dlaczego jądro nie zostało załadowane. Na przykład jądro może nie być obsługiwane w systemie Linux, jeśli zaktualizowano jądro.
+Sprawdź `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) lub `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). W ostatnich wierszach pliku powinna znajdować się odpowiedź, dlaczego nie załadowano jądra. Na przykład jądro może nie być obsługiwane w systemie Linux, jeśli zostało zaktualizowane.
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
 Czy masz opinię na temat Service Map lub tej dokumentacji?  Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zapoznaj się z istniejącymi sugestiami.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 6ce11e806c514aa4a2074d120cb64ecdce222528
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557920"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Użyj Key Vault odwołań dla App Service i Azure Functions
 
@@ -72,7 +72,7 @@ Aby użyć odwołania Key Vault dla ustawienia aplikacji, należy ustawić odwo�
 
 W przypadku automatyzowania wdrożeń zasobów za pomocą szablonów Azure Resource Manager może być konieczne sekwencjonowanie zależności w określonej kolejności, aby ta funkcja działała. Pamiętaj, że musisz zdefiniować ustawienia aplikacji jako własny zasób zamiast używać `siteConfig` właściwości w definicji lokacji. Wynika to z faktu, że lokacja musi być zdefiniowana jako pierwsza, aby można było utworzyć tożsamość przypisaną do systemu i użyć jej w zasadach dostępu.
 
-Przykład psuedo-Template dla aplikacji funkcji może wyglądać następująco:
+Przykładowy szablon aplikacji funkcji może wyglądać następująco:
 
 ```json
 {

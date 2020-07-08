@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9254e0ce9f27d95edb01359e53888078c1087381
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555034"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Problemy z debugowaniem łącznika serwera proxy aplikacji 
 
@@ -40,7 +40,7 @@ Ten schemat blokowy przeprowadzi Cię przez kroki dotyczące debugowania niektó
 
 ![Schemat blokowy przedstawiający kroki debugowania łącznika](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Akcja | Opis | 
+| Krok | Akcja | Opis |
 |---------|---------|---------|
 |1 | Znajdowanie grupy łączników przypisanej do aplikacji | Prawdopodobnie masz łącznik zainstalowany na wielu serwerach, w takim przypadku łączniki powinny być [przypisane do grup łączników](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Aby dowiedzieć się więcej na temat grup łączników, zobacz [publikowanie aplikacji w oddzielnych sieciach i lokalizacjach za pomocą grup łączników](application-proxy-connector-groups.md). |
 |2 | Instalowanie łącznika i przypisywanie grupy | Jeśli nie masz zainstalowanego łącznika, zobacz [Instalowanie i rejestrowanie łącznika](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Jeśli masz problemy z instalowaniem łącznika, zobacz [problem z instalowaniem łącznika](application-proxy-connector-installation-problem.md).<br></br> Jeśli łącznik nie jest przypisany do grupy, zobacz [przypisywanie łącznika do grupy](application-proxy-connector-groups.md#create-connector-groups).<br></br>Jeśli aplikacja nie jest przypisana do grupy łączników, zobacz [przypisywanie aplikacji do grupy łączników](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

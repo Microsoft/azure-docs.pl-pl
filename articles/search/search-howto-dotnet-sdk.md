@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bd89e3366fbaa60109be9ef3552970936f0a6715
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 4714fbb5d9f08e0b02dbc8f6cb32845642911e51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556306"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET
 
@@ -38,7 +38,7 @@ Różne biblioteki klienta definiują takie klasy jak `Index` , `Field` , i `Doc
 
 Jeśli chcesz przekazać opinię na temat przyszłej aktualizacji zestawu SDK, zobacz [stronę z opiniami](https://feedback.azure.com/forums/263029-azure-search/) lub Utwórz problem w witrynie [GitHub](https://github.com/azure/azure-sdk-for-net/issues) i podaj "wyszukiwanie poznawcze platformy Azure" w tytule problemu.
 
-Zestaw SDK platformy .NET obsługuje wersję `2019-05-06` [interfejsu API REST usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). Ta wersja obejmuje obsługę [typów złożonych](search-howto-complex-data-types.md), [wzbogacania AI](cognitive-search-concept-intro.md), [autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete)i [trybu analizowania JsonLines](search-howto-index-json-blobs.md) podczas indeksowania obiektów blob platformy Azure. 
+Zestaw SDK platformy .NET ma wersję docelową `2019-05-06` [interfejsu API REST platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). Ta wersja obejmuje obsługę [typów złożonych](search-howto-complex-data-types.md), [wzbogacania AI](cognitive-search-concept-intro.md), [autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete)i [trybu analizowania JsonLines](search-howto-index-json-blobs.md) podczas indeksowania obiektów blob platformy Azure. 
 
 Ten zestaw SDK nie obsługuje [operacji zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) , takich jak tworzenie i skalowanie usług wyszukiwania oraz zarządzanie kluczami interfejsu API. Jeśli potrzebujesz zarządzać zasobami wyszukiwania z poziomu aplikacji .NET, możesz użyć [zestawu Azure wyszukiwanie poznawcze .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 

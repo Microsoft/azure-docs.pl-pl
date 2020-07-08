@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9691ecb8d742952ba4364dcda2b62c3829f79d60
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84760324"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555130"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Dodawanie aplikacji nieznajdującej się na liście (bez galerii) do organizacji usługi Azure AD
 
@@ -54,7 +54,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
    >* **Skonfiguruj serwer proxy aplikacji dla bezpiecznego dostępu zdalnego do aplikacji lokalnej** otwiera stronę konfiguracji dla serwer proxy aplikacji usługi Azure AD i łączników platformy Azure.
    >* **Zarejestrowanie aplikacji, nad którą pracujesz, aby zintegrować usługę z usługą Azure AD** , spowoduje otwarcie strony **rejestracje aplikacji** . Ta opcja jest zwykle używana w przypadku aplikacji OpenID Connect Connect.
 
-7. Wybierz przycisk **Utwórz**. Zostanie otwarta strona **Przegląd** aplikacji.
+7. Wybierz pozycję **Utwórz**. Zostanie otwarta strona **Przegląd** aplikacji.
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurowanie właściwości logowania użytkownika
 
@@ -70,7 +70,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
       Zachowanie w przypadku użytkowników **przypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników przypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników przypisanych | Środowisko użytkowników przypisanych |
        |---|---|---|---|---|
        | Włączono dla użytkowników w celu logowania się? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | tak | tak  |
@@ -84,7 +84,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
       Zachowanie w przypadku użytkowników **nieprzypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników nieprzypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników nieprzypisanych | Środowisko użytkowników nieprzypisanych |
        |---|---|---|---|---|
        | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy nieprzypisani użytkownicy mogą się logować? | Czy nieprzypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | nie  | nie   |

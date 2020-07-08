@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557224"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
 
@@ -29,7 +29,7 @@ W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składnik
 
 ## <a name="install-the-service-map-management-pack"></a>Zainstaluj pakiet administracyjny Service Map
 
-Integrację między Operations Manager i funkcją mapy można włączyć, importując pakiet pakietów administracyjnych Microsoft. Center. ServiceMap (Microsoft. Center. ServiceMap. mpb). Pakiet pakietów administracyjnych można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Pakiet zawiera następujące pakiety administracyjne:
+Integrację między Operations Manager i funkcją mapy można włączyć, importując pakiet pakietów administracyjnych Microsoft.SystemCenter. ServiceMap (Microsoft.SystemCenter. ServiceMap. mpb). Pakiet pakietów administracyjnych można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Pakiet zawiera następujące pakiety administracyjne:
 
 * Widoki aplikacji Service Map firmy Microsoft
 * Wewnętrzny Service Map programu Microsoft System Center
@@ -106,7 +106,7 @@ Folder Service Map ma cztery węzły:
 
 ## <a name="edit-or-delete-the-workspace"></a>Edytowanie lub usuwanie obszaru roboczego
 
-Skonfigurowany obszar roboczy można edytować lub usunąć za pomocą okienka **Przegląd Service map** (okienko**Administracja** > **Pakiet Operations Management Suite** > **Service map**).
+Skonfigurowany obszar roboczy można edytować lub usunąć za pomocą okienka **Przegląd Service map** (okienko**Administracja** > **Pakiet Operations Management Suite**  >  **Service map**).
 
 > [!NOTE]
 > [Pakiet Operations Management Suite to zbiór usług](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) należących do log Analytics, które są teraz częścią [Azure monitor](../overview.md).
@@ -117,7 +117,7 @@ W tej bieżącej wersji można skonfigurować tylko jeden obszar roboczy Log Ana
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurowanie reguł i zastąpień
 
-Reguła, *Microsoft. Center. ServiceMapImport. Rule*, okresowo pobiera informacje z funkcji mapy Azure monitor dla maszyn wirtualnych. Aby zmodyfikować interwał synchronizacji, można zastąpić regułę i zmodyfikować wartość parametru **IntervalMinutes**.
+Reguła, *Microsoft.SystemCenter. ServiceMapImport. Rule*, okresowo pobiera informacje z funkcji mapy Azure monitor dla maszyn wirtualnych. Aby zmodyfikować interwał synchronizacji, można zastąpić regułę i zmodyfikować wartość parametru **IntervalMinutes**.
 
 ![Okno właściwości zastąpień Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -142,5 +142,6 @@ Aby uzyskać oficjalną dokumentację platformy Azure dotyczącą tworzenia nazw
 * [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [Tworzenie jednostki usługi przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
-### <a name="feedback"></a>Opinia
+### <a name="suggestions"></a>Sugestie
+
 Czy masz jakieś opinie o integracji z funkcją mapy Azure Monitor dla maszyn wirtualnych lub z tą dokumentacją? Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zagłosować na istniejące sugestie.

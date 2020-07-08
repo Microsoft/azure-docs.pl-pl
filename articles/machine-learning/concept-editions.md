@@ -8,23 +8,16 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: d870cb8d90573ab0c9661804aa1dd17b64d1600d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555541"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Wersje Enterprise i Basic Azure Machine Learning 
 
 Azure Machine Learning oferuje dwie wersje dostosowane do potrzeb uczenia maszynowego. Te wersje określają, które narzędzia uczenia maszynowego są dostępne dla deweloperów i naukowców danych z ich obszaru roboczego.
-
-<br/>
-<br/>
-
-| Wersja podstawowa | Wersja Enterprise                 |
-|------------------------------------------------------------------------------------|-----------|
-|Doskonały dla: <br/>+ Programowanie Open-Source <br/>+ w skali chmury z<br/>+ kod — pierwsze środowisko <br/><br/>Podstawowe obszary robocze umożliwiają kontynuowanie korzystania z Azure Machine Learning i [płatność tylko za zasoby platformy Azure używane](concept-plan-manage-cost.md) w ramach procesu ml. |Wszystkie wersje Basic oraz:<br/>+ Interfejs sieci Web programu Studio <br/>+ bezpieczne, kompleksowe zarządzanie cyklem życia ML <br/>+ dla wszystkich poziomów umiejętności<br/><br/>Obszary robocze wersji Enterprise Edition są rozliczane tylko za użycie platformy Azure, a wersja jest w wersji zapoznawczej. |
 
 ## <a name="choose-an-edition"></a>Wybieranie wersji
 
@@ -111,7 +104,6 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](h
 | Inferencing Batch                                                                  | Wszystko                     |
 | Modele z przyspieszaniem sprzętowym oparte na FPGA                                             | Wszystko                     |
 | Profilowanie modelu                                                                    | Wszystko                     |
-| Wyjaśnienie w interfejsie użytkownika                                                               | Tylko wersja Enterprise |
 
 <br/>
 <br/>

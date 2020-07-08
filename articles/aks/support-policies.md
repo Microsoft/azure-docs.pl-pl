@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 147fc33d068909fa892023ec00cfc2827203607f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558081"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -50,6 +50,9 @@ Ze względu na to, że węzły procesu roboczego są poufne, firma Microsoft bar
 ## <a name="aks-support-coverage"></a>AKS pomocy technicznej
 
 Firma Microsoft zapewnia pomoc techniczną dla następujących:
+
+> [!NOTE]
+> Wszystkie akcje klastra podejmowane przez pomoc techniczną firmy Microsoft są realizowane z zgodą użytkownika w ramach wbudowanej roli ["Edytuj"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) Kubernetes `aks-support-rolebinding` . Dzięki tej AKS obsłudze technicznej można edytować konfigurację klastra i zasoby w celu rozwiązywania problemów z klastrem, ale rola nie może modyfikować uprawnień ani tworzyć ról ani powiązań ról. Dostęp do roli jest włączony tylko w ramach aktywnych biletów pomocy technicznej z dostępem just-in-Time (JIT).
 
 * Łączność ze wszystkimi składnikami Kubernetes obsługiwanymi przez usługę Kubernetes, takimi jak serwer interfejsu API.
 * Zarządzanie, czas pracy, QoS i operacje usług Kubernetes kontroli płaszczyzny (na przykład węzły główne Kubernetes, serwery API, etcd i polecenia-DNS).

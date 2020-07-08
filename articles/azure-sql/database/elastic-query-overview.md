@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 9069ec574af54c5c44efac5a6a9df1da62053219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557858"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database Elastic Query — omówienie (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -148,7 +148,7 @@ Koszt zapytania elastycznego jest uwzględniany w koszcie Azure SQL Database. Na
 * Statystyki kolumn dla tabel zewnętrznych nie są obecnie obsługiwane. Statystyki tabeli są obsługiwane, ale należy je utworzyć ręcznie.
 * Zapytanie elastyczne działa tylko z Azure SQL Database. Nie można jej użyć do wykonywania zapytań o wystąpienie SQL Server.
 
-## <a name="feedback"></a>Opinia
+## <a name="share-your-feedback"></a>Podziel się swoją opinią
 
 Zapoznaj się ze swoją opinią, korzystając z elastycznych zapytań z poniższymi przykładami, na forach MSDN lub na Stack Overflow. Interesuję się wszystkimi rodzajami opinii na temat usługi (wady, przybliżone krawędzie, luki w funkcji).
 

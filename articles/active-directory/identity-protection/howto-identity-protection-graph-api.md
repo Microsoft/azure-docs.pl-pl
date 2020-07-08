@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/18/2019
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 324737611d2d05411012050fcf7140bee48d35b0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f5e5a4075705e43dc0ac37181bf33b078013177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85505838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555221"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph
 
@@ -30,113 +30,56 @@ Microsoft Graph to punkt końcowy Microsoft Unified API i Strona główna [Azure
 
 Aby uzyskać dostęp do danych ochrony tożsamości za poorednictwem Microsoft Graph, należy wykonać cztery kroki:
 
-1. Pobierz nazwę domeny.
-2. Utwórz nową rejestrację aplikacji. 
-3. Użyj tego wpisu tajnego i kilku innych informacji do uwierzytelnienia w Microsoft Graph, gdzie otrzymujesz token uwierzytelniania. 
-4. Użyj tego tokenu, aby przetworzyć żądania do punktu końcowego interfejsu API i odzyskać dane z usługi Identity Protection.
+- [Pobierz nazwę domeny](#retrieve-your-domain-name)
+- [Utwórz nową rejestrację aplikacji](#create-a-new-app-registration)
+- [Konfigurowanie uprawnień interfejsu API](#configure-api-permissions)
+- [Skonfiguruj prawidłowe poświadczenie](#configure-a-valid-credential)
 
-Przed rozpoczęciem należy:
+### <a name="retrieve-your-domain-name"></a>Pobierz nazwę domeny 
 
-* Uprawnienia administratora do tworzenia aplikacji w usłudze Azure AD
-* Nazwa domeny dzierżawy (na przykład contoso.onmicrosoft.com)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).  
+1. Przejdź do **Azure Active Directory**  >  **niestandardowych nazw domen**. 
+1. Zanotuj `.onmicrosoft.com` tę domenę. te informacje będą potrzebne w późniejszym kroku.
 
-## <a name="retrieve-your-domain-name"></a>Pobierz nazwę domeny 
+### <a name="create-a-new-app-registration"></a>Utwórz nową rejestrację aplikacji
 
-1. [Zaloguj](https://portal.azure.com) się do Azure Portal jako administrator. 
-1. W okienku nawigacji po lewej stronie kliknij pozycję **Active Directory**. 
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/41.png)
-
-1. W sekcji **Zarządzanie** kliknij pozycję **Właściwości**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/42.png)
-
-1. Skopiuj nazwę domeny.
-
-## <a name="create-a-new-app-registration"></a>Utwórz nową rejestrację aplikacji
-
-1. Na stronie **Active Directory** w sekcji **zarządzanie** kliknij pozycję **rejestracje aplikacji**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/42.png)
-
-1. W menu u góry kliknij pozycję **rejestracja nowej aplikacji**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/43.png)
-
+1. W Azure Portal przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**.
+1. Wybierz pozycję **Nowa rejestracja**.
 1. Na stronie **Tworzenie** wykonaj następujące czynności:
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/44.png)
-
-   1. W polu tekstowym **Nazwa** wpisz nazwę aplikacji (na przykład: aplikacja interfejsu API wykrywania ryzyka usługi Azure AD).
-
-   1. Jako **Typ**wybierz pozycję **aplikacja sieci Web i/lub interfejs API sieci Web**.
-
-   1. W polu tekstowym **adres URL logowania** wpisz `http://localhost` .
-
-   1. Kliknij pozycję **Utwórz**.
-1. Aby otworzyć stronę **Ustawienia** , na liście Aplikacje kliknij nowo utworzoną rejestrację aplikacji. 
+   1. W polu tekstowym **Nazwa** wpisz nazwę aplikacji (na przykład: interfejs API wykrywania ryzyka usługi Azure AD).
+   1. W obszarze **obsługiwane typy kont**wybierz typ kont, które będą używać interfejsów API.
+   1. Wybierz pozycję **Zarejestruj**.
 1. Skopiuj **Identyfikator aplikacji**.
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Przyznaj aplikacji uprawnienia do korzystania z interfejsu API
+### <a name="configure-api-permissions"></a>Konfigurowanie uprawnień interfejsu API
 
-1. Na stronie **Ustawienia** kliknij pozycję **wymagane uprawnienia**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/15.png)
-
-1. Na stronie **wymagane uprawnienia** na pasku narzędzi u góry kliknij przycisk **Dodaj**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/16.png)
-
+1. Z utworzonej **aplikacji** wybierz pozycję **uprawnienia interfejsu API**.
+1. Na stronie **skonfigurowane uprawnienia** na pasku narzędzi u góry kliknij pozycję **Dodaj uprawnienie**.
 1. Na stronie **Dodawanie dostępu do interfejsu API** kliknij pozycję **Wybierz interfejs API**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/17.png)
-
 1. Na stronie **Wybierz interfejs API** wybierz opcję **Microsoft Graph**, a następnie kliknij przycisk **Wybierz**.
+1. Na stronie **uprawnienia interfejsu API żądania** : 
+   1. Wybierz pozycję **Uprawnienia aplikacji**.
+   1. Zaznacz pola wyboru obok `IdentityRiskEvent.Read.All` i `IdentityRiskyUser.Read.All` .
+   1. Wybierz pozycję **Dodaj uprawnienia**.
+1. Wybierz pozycję **Udziel zgody administratora na domenę** 
 
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/18.png)
+### <a name="configure-a-valid-credential"></a>Skonfiguruj prawidłowe poświadczenie
 
-1. Na stronie **Dodawanie dostępu do interfejsu API** kliknij pozycję **Wybierz uprawnienia**.
+1. Z utworzonej **aplikacji** wybierz pozycję **Certyfikaty & wpisy tajne**.
+1. W obszarze wpisy **tajne klienta**wybierz pozycję **nowy klucz tajny klienta**.
+   1. Podaj wpis tajny klienta w **opisie** i Ustaw okres czasu wygaśnięcia zgodnie z zasadami organizacji.
+   1. Wybierz pozycję **Dodaj**.
 
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/19.png)
-
-1. Na stronie **Włączanie dostępu** kliknij pozycję **Odczytaj wszystkie informacje o ryzyku tożsamości**, a następnie kliknij przycisk **Wybierz**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/20.png)
-
-1. Na stronie **Dodawanie dostępu do interfejsu API** kliknij przycisk **gotowe**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/21.png)
-
-1. Na stronie **wymagane uprawnienia** kliknij pozycję **Udziel uprawnień**, a następnie kliknij przycisk **tak**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/22.png)
-
-## <a name="get-an-access-key"></a>Uzyskiwanie klucza dostępu
-
-1. Na stronie **Ustawienia** kliknij pozycję **klucze**.
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/23.png)
-
-1. Na stronie **klucze** wykonaj następujące czynności:
-
-   ![Tworzenie aplikacji](./media/howto-identity-protection-graph-api/24.png)
-
-   1. W polu tekstowym **Opis klucza** wpisz opis (na przykład *wykrywanie ryzyka w usłudze Azure AD*).
-   1. Jako **czas trwania**wybierz **za 1 rok**.
-   1. Kliknij pozycję **Zapisz**.
-   1. Skopiuj wartość klucza, a następnie wklej ją do bezpiecznej lokalizacji.   
-   
    > [!NOTE]
    > Jeśli ten klucz zostanie utracony, musisz wrócić do tej sekcji i utworzyć nowy klucz. Zachowaj klucz tajny: każdy, kto ma dostęp do danych.
-   > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Uwierzytelnianie w celu Microsoft Graph i zbadania interfejsu API wykrywania ryzyka tożsamości
 
 W tym momencie należy:
 
 - Nazwa domeny dzierżawy
-- Identyfikator klienta 
-- Klucz 
+- Identyfikator aplikacji (klienta) 
+- Klucz tajny klienta lub certyfikat 
 
 Aby przeprowadzić uwierzytelnianie, Wyślij żądanie post do `https://login.microsoft.com` następujących parametrów w treści:
 
@@ -145,7 +88,7 @@ Aby przeprowadzić uwierzytelnianie, Wyślij żądanie post do `https://login.mi
 - client_id:\<your client ID\>
 - client_secret:\<your key\>
 
-Jeśli to się powiedzie, zwraca token uwierzytelniania.  
+Jeśli to się powiedzie, żądanie zwróci token uwierzytelniania.  
 Aby wywołać interfejs API, Utwórz nagłówek z następującym parametrem:
 
 ```
@@ -154,9 +97,11 @@ Aby wywołać interfejs API, Utwórz nagłówek z następującym parametrem:
 
 Podczas uwierzytelniania można znaleźć token tokenu i tokenu dostępu w zwracanym tokenie.
 
-Wyślij ten nagłówek jako żądanie do następującego adresu URL interfejsu API:`https://graph.microsoft.com/beta/identityRiskEvents`
+Wyślij ten nagłówek jako żądanie do następującego adresu URL interfejsu API:`https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
 Odpowiedź, jeśli to się powiedzie, jest kolekcją wykrywania ryzyka tożsamości i skojarzonych danych w formacie JSON OData, który można przeanalizować i obsłużyć zgodnie z oczekiwaniami.
+
+### <a name="sample"></a>Przykład
 
 Oto przykładowy kod służący do uwierzytelniania i wywoływania interfejsu API przy użyciu programu PowerShell.  
 Po prostu Dodaj swój identyfikator klienta, klucz tajny i domenę dzierżawy.
@@ -177,7 +122,7 @@ Po prostu Dodaj swój identyfikator klienta, klucz tajny i domenę dzierżawy.
     if ($oauth.access_token -ne $null) {
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        $url = "https://graph.microsoft.com/beta/identityRiskEvents"
+        $url = "https://graph.microsoft.com/v1.0/identityProtection/riskDetections"
         Write-Output $url
 
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)

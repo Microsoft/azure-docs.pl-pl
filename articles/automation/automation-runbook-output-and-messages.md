@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557873"
 ---
 # <a name="monitor-runbook-output"></a>Monitorowanie wyniku uruchomienia elementu runbook
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono przykłady typów danych wyjściowych:
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Deklarowanie typu danych wyjściowych w przepływie pracy
 
-Przepływ pracy określa typ danych wyjściowych przy użyciu [atrybutu OutputType](https://technet.microsoft.com/library/hh847785.aspx). Ten atrybut nie ma wpływu na środowisko uruchomieniowe, ale udostępnia wskazanie w czasie projektowania oczekiwanych danych wyjściowych elementu Runbook. Ponieważ zestaw narzędzi dla elementów Runbook jest w dalszym ciągu rozwijany, znaczenie deklarowania typów danych wyjściowych w czasie projektowania rośnie. W związku z tym najlepszym rozwiązaniem jest dołączenie tej deklaracji do utworzonych elementów Runbook.
+Przepływ pracy określa typ danych wyjściowych przy użyciu [atrybutu OutputType](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Ten atrybut nie ma wpływu na środowisko uruchomieniowe, ale udostępnia wskazanie w czasie projektowania oczekiwanych danych wyjściowych elementu Runbook. Ponieważ zestaw narzędzi dla elementów Runbook jest w dalszym ciągu rozwijany, znaczenie deklarowania typów danych wyjściowych w czasie projektowania rośnie. W związku z tym najlepszym rozwiązaniem jest dołączenie tej deklaracji do utworzonych elementów Runbook.
 
 Następujący przykładowy element Runbook generuje obiekt ciągu i zawiera deklarację typu jego danych wyjściowych. Jeśli element Runbook generuje tablicę pewnego typu, należy także określić typ, a nie tablicę typu.
 

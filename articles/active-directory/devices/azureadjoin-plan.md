@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17e6660548084d64fce38617ba4e80ccf197f3d3
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253073"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555030"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -32,15 +32,14 @@ W tym artykule założono, że znasz już [wprowadzenie do zarządzania urządze
 
 Aby zaplanować wdrożenie usługi Azure AD join, zapoznaj się z tematem:
 
-|   |   |
-|---|---|
-|![Zaznacz][1]|Przejrzyj scenariusze|
-|![Zaznacz][1]|Przegląd infrastruktury tożsamości|
-|![Zaznacz][1]|Ocenianie zarządzania urządzeniami|
-|![Zaznacz][1]|Zrozumienie zagadnień dotyczących aplikacji i zasobów|
-|![Zaznacz][1]|Zapoznaj się z opcjami aprowizacji|
-|![Zaznacz][1]|Konfigurowanie roamingu stanu przedsiębiorstwa|
-|![Zaznacz][1]|Konfigurowanie dostępu warunkowego|
+> [!div class="checklist"]
+> - Przejrzyj scenariusze
+> - Przegląd infrastruktury tożsamości
+> - Ocenianie zarządzania urządzeniami
+> - Zrozumienie zagadnień dotyczących aplikacji i zasobów
+> - Zapoznaj się z opcjami aprowizacji
+> - Konfigurowanie roamingu stanu przedsiębiorstwa
+> - Konfigurowanie dostępu warunkowego
 
 ## <a name="review-your-scenarios"></a>Przejrzyj scenariusze 
 
@@ -197,7 +196,7 @@ Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
  
 Poniżej przedstawiono porównanie tych trzech metod 
  
-|   | Konfiguracja samoobsługowa | Windows Autopilot | Rejestrowanie zbiorcze |
+| Element | Konfiguracja samoobsługowa | Windows Autopilot | Rejestrowanie zbiorcze |
 | --- | --- | --- | --- |
 | Wymagaj interakcji z użytkownikiem w celu skonfigurowania | Tak | Tak | Nie |
 | Wymaganie nakładu pracy IT | Nie | Tak | Tak |
