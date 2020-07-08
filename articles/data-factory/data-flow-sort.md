@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606334"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Sortowanie transformacji w strumieniu danych mapowania
@@ -24,7 +23,7 @@ Transformacja sortowania pozwala sortować wiersze przychodzące w bieżącym st
 > [!NOTE]
 > Mapowanie przepływów danych jest wykonywane w klastrach Spark, które dystrybuują dane między wieloma węzłami i partycjami. Jeśli zdecydujesz się na ponowne Partycjonowanie danych w kolejnej transformacji, możesz utracić sortowanie ze względu na reshuffling danych.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ![Ustawienia sortowania](media/data-flow/sort.png "Sortowanie")
 

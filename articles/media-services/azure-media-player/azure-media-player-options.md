@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727166"
 ---
 # <a name="options"></a>Opcje #
@@ -30,12 +29,12 @@ Na koniec, jeśli nie używasz atrybutu konfiguracja danych do wyzwalania konfig
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> Opcje w Konstruktorze są ustawiane dopiero po pierwszym inicjacji przed ustawieniem źródła.  Jeśli chcesz zmodyfikować opcje w tym samym zainicjowanym elemencie Azure Media Player, musisz zaktualizować opcje przed zmianą źródła. Opcje w języku JavaScript można zaktualizować za pomocą polecenia `myPlayer.options({/*updated options*/});`. Zwróć uwagę na to, że wszystkie zmienione opcje będą mieć wartość wszystkie pozostałe opcje zestawu zostaną zachowane.
+> Opcje w Konstruktorze są ustawiane dopiero po pierwszym inicjacji przed ustawieniem źródła.  Jeśli chcesz zmodyfikować opcje w tym samym zainicjowanym elemencie Azure Media Player, musisz zaktualizować opcje przed zmianą źródła. Opcje w języku JavaScript można zaktualizować za pomocą polecenia `myPlayer.options({/*updated options*/});` . Zwróć uwagę na to, że wszystkie zmienione opcje będą mieć wartość wszystkie pozostałe opcje zestawu zostaną zachowane.
 
 ## <a name="individual-options"></a>Opcje indywidualne ##
 
 > [!NOTE]
->Atrybuty tagu wideo mogą mieć tylko wartość true lub false (Boolean), wystarczy po prostu dołączyć atrybut (bez znaku równości), aby go włączyć, lub wykluczyć go, aby go wyłączyć. Na przykład, aby włączyć kontrolki: `<video controls="true" ...>` niewłaściwy `<video controls ...>` dla największego problemu osoby, które uruchamiają, podejmuje próbę ustawienia wartości false przy użyciu false jako wartość (np. Controls = "false"), która faktycznie wykonuje przeciwieństwo i ustawia wartość true, ponieważ ten atrybut jest nadal uwzględniony.
+>Atrybuty tagu wideo mogą mieć tylko wartość true lub false (Boolean), wystarczy po prostu dołączyć atrybut (bez znaku równości), aby go włączyć, lub wykluczyć go, aby go wyłączyć. Na przykład, aby włączyć kontrolki: niewłaściwy dla `<video controls="true" ...>` `<video controls ...>` największego problemu osoby, które uruchamiają, podejmuje próbę ustawienia wartości false przy użyciu false jako wartość (np. Controls = "false"), która faktycznie wykonuje przeciwieństwo i ustawia wartość true, ponieważ ten atrybut jest nadal uwzględniony.
 
 ### <a name="controls"></a>funkcje sterowania ###
 
@@ -79,7 +78,7 @@ Aby uzyskać więcej informacji na temat programowania i użycia wtyczek, zobacz
 
 ### <a name="other-options"></a>inne opcje ###
 
-Inne opcje można ustawić dla `<video>` znacznika przy użyciu `data-setup` parametru, który pobiera kod JSON.
+Inne opcje można ustawić dla znacznika przy `<video>` użyciu `data-setup` parametru, który pobiera kod JSON.
 `<video ... data-setup='{"nativeControlsForTouch": false}'>`
 
 #### <a name="nativecontrolsfortouch"></a>nativeControlsForTouch ####
@@ -92,7 +91,7 @@ Ustawienie tej opcji na true elementu wideo spowoduje pełną szerokość konten
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`Opcja przesłania jawne `width` i `height` ustawienia. Ta opcja jest dostępna tylko w wersji `2.0.0` Azure Media Player i nowszych.
+`fluid`Opcja przesłania jawne `width` i `height` Ustawienia. Ta opcja jest dostępna tylko w wersji Azure Media Player `2.0.0` i nowszych.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
@@ -101,7 +100,7 @@ Ustawienie tej opcji na true elementu wideo spowoduje pełną szerokość konten
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Inne właściwości `playbackSpeed` ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) .
+Inne właściwości `playbackSpeed` Ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) .
 
 Przykład ustawiania opcji szybkości odtwarzania w języku JavaScript:
 
@@ -130,7 +129,7 @@ Ta opcja jest dostępna tylko w Azure Media Player w wersji 2.0.0 lub nowszej.
 
 ### <a name="staledatatimelimitinsec"></a>staleDataTimeLimitInSec ###
 
-`staleDataTimeLimitInSec` Opcja jest optymalizacją, która umożliwia skonfigurowanie liczby sekund, które mają być używane w buforach mediaSource. Ta opcja jest domyślnie wyłączona.
+`staleDataTimeLimitInSec`Opcja jest optymalizacją, która umożliwia skonfigurowanie liczby sekund, które mają być używane w buforach mediaSource. Ta opcja jest domyślnie wyłączona.
 
 ### <a name="cea708captionssettings"></a>cea708CaptionsSettings ###
 

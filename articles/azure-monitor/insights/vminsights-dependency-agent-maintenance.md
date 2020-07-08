@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81617846"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Jak uaktualnić agenta zależności Azure Monitor dla maszyn wirtualnych
@@ -29,7 +28,7 @@ Agenta zależności dla systemów Windows i Linux można uaktualnić do najnowsz
 
 ## <a name="upgrade-windows-agent"></a>Uaktualnij agenta systemu Windows 
 
-Aby zaktualizować agenta na maszynie wirtualnej z systemem Windows do najnowszej wersji, która nie jest zainstalowana przy użyciu rozszerzenia maszyny wirtualnej agenta zależności, można uruchomić polecenie z wiersza polecenia, skryptu lub innego rozwiązania do automatyzacji lub przy użyciu Kreatora instalacji programu InstallDependencyAgent-Windows. exe.  
+Aby zaktualizować agenta na maszynie wirtualnej z systemem Windows do najnowszej wersji, która nie jest zainstalowana przy użyciu rozszerzenia maszyny wirtualnej agenta zależności, można uruchomić polecenie z wiersza polecenia, skryptu lub innego rozwiązania do automatyzacji lub przy użyciu Kreatora instalacji InstallDependencyAgent-Windows.exe.  
 
 W [tym miejscu](https://aka.ms/dependencyagentwindows)możesz pobrać najnowszą wersję agenta systemu Windows.
 
@@ -37,7 +36,7 @@ W [tym miejscu](https://aka.ms/dependencyagentwindows)możesz pobrać najnowszą
 
 1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Wykonaj **InstallDependencyAgent-Windows. exe** , aby uruchomić Kreatora instalacji.
+2. Wykonaj **InstallDependencyAgent-Windows.exe** , aby uruchomić Kreatora instalacji.
    
 3. Wykonaj czynności opisane w kreatorze **instalacji agent zależności** , aby odinstalować poprzednią wersję agenta zależności, a następnie zainstalować najnowszą wersję.
 
@@ -54,7 +53,7 @@ W [tym miejscu](https://aka.ms/dependencyagentwindows)możesz pobrać najnowszą
 
     Ten `/RebootMode=manual` parametr uniemożliwia automatyczne ponowne uruchomienie komputera przez proces uaktualniania, jeśli niektóre procesy używają plików z poprzedniej wersji i mają blokadę. 
 
-3. Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, Sprawdź szczegółowe informacje `install.log` dotyczące instalacji. Katalog dziennika to *%ProgramFiles%\Microsoft Dependency Agent\logs*.
+3. Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, sprawdź `install.log` szczegółowe informacje dotyczące instalacji. Katalog dziennika to *%ProgramFiles%\Microsoft Dependency Agent\logs*.
 
 ## <a name="upgrade-linux-agent"></a>Uaktualnij agenta systemu Linux 
 
@@ -64,7 +63,7 @@ W [tym miejscu](https://aka.ms/dependencyagentlinux)możesz pobrać najnowszą w
 
 1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Uruchom następujące polecenie jako element główny`sh InstallDependencyAgent-Linux64.bin -s`. 
+2. Uruchom następujące polecenie jako element główny `sh InstallDependencyAgent-Linux64.bin -s` . 
 
 Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Linux katalog dziennika to */var/opt/Microsoft/Dependency-Agent/log*. 
 

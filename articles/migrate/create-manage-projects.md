@@ -4,10 +4,9 @@ description: Znajdź, twórz, Zarządzaj i usuwaj projekty w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
 ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676388"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
@@ -78,8 +77,8 @@ Należy pamiętać, że:
 
 1. Przejdź do obszaru roboczego Log Analytics dołączonego do projektu.
 
-    - Jeśli projekt Azure Migrate nie został usunięty, można znaleźć link do obszaru roboczego w**ocenie serwera** **Essentials** > .
-       ![LA —](./media/create-manage-projects/loganalytics-workspace.png)obszar roboczy.
+    - Jeśli projekt Azure Migrate nie został usunięty, można znaleźć link do obszaru roboczego w **Essentials**  >  **ocenie serwera**Essentials.
+       ![LA — obszar roboczy ](./media/create-manage-projects/loganalytics-workspace.png) .
        
     - Jeśli projekt Azure Migrate został już usunięty, wybierz pozycję **grupy zasobów** w lewym okienku Azure Portal i Znajdź obszar roboczy.
        

@@ -1,6 +1,6 @@
 ---
 title: Przekazywanie plików z urządzeń do usługi Azure IoT Hub z węzłem | Microsoft Docs
-description: Jak przekazywać pliki z urządzenia do chmury przy użyciu zestawu SDK urządzeń Azure IoT dla środowiska Node. js. Przekazane pliki są przechowywane w kontenerze obiektów BLOB usługi Azure Storage.
+description: Jak przekazywać pliki z urządzenia do chmury przy użyciu zestawu SDK urządzeń Azure IoT dla Node.js. Przekazane pliki są przechowywane w kontenerze obiektów BLOB usługi Azure Storage.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt
 ms.openlocfilehash: af9743233a61e8e6d816b362d35e6a38735df35b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732246"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Node. js)
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -36,18 +35,18 @@ W tym samouczku przedstawiono kod w oknie [wysyłanie komunikatów z chmury do u
 
 Te pliki są zwykle przetwarzane wsadowo w chmurze przy użyciu narzędzi, takich jak [Azure Data Factory](../data-factory/introduction.md) lub stos [Hadoop](../hdinsight/index.yml) . W przypadku konieczności przewożenia plików z urządzenia można nadal korzystać z zabezpieczeń i niezawodności IoT Hub.
 
-Na końcu tego samouczka uruchomisz dwie aplikacje konsolowe środowiska Node. js:
+Na końcu tego samouczka uruchomisz dwie Node.js aplikacje konsolowe:
 
-* **SimulatedDevice. js**, który przekazuje plik do magazynu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego dostarczonego przez Centrum IoT.
+* **SimulatedDevice.js**, która przekazuje plik do magazynu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego dostarczonego przez Centrum IoT.
 
-* **ReadFileUploadNotification. js**otrzymuje powiadomienia o przekazywaniu plików z Centrum IoT Hub.
+* **ReadFileUploadNotification.js**, który odbiera powiadomienia o przekazywaniu plików z Centrum IoT Hub.
 
 > [!NOTE]
 > IoT Hub obsługuje wiele platform i języków urządzeń (w tym C, .NET, JavaScript, Python i Java) za pomocą zestawów SDK urządzeń usługi Azure IoT. Zapoznaj się z artykułem [Azure IoT Developer Center], aby uzyskać instrukcje krok po kroku dotyczące sposobu łączenia urządzenia z usługą Azure IoT Hub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Node. js w wersji 10.0. x lub nowszej. [Przygotuj środowisko programistyczne](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) , w którym opisano sposób instalowania środowiska Node. js na potrzeby tego samouczka w systemie Windows lub Linux.
+* Node.js w wersji 10.0. x lub nowszej. [Przygotowanie środowiska programistycznego](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
 
 * Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut).
 
@@ -118,7 +117,7 @@ W tej sekcji utworzysz aplikację urządzenia w celu przekazania pliku do centru
 
 8. Zapisz i zamknij plik **SimulatedDevice.js**.
 
-9. Skopiuj plik obrazu do `simulateddevice` folderu i zmień jego nazwę. `myimage.png`
+9. Skopiuj plik obrazu do `simulateddevice` folderu i zmień jego nazwę `myimage.png` .
 
 ## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 
@@ -128,7 +127,7 @@ W tym artykule opisano tworzenie usługi zaplecza do odbierania komunikatów pow
 
 ## <a name="receive-a-file-upload-notification"></a>Odbieranie powiadomienia o przekazywaniu plików
 
-W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która odbiera komunikaty powiadomień o przekazaniu plików z IoT Hub.
+W tej sekcji utworzysz aplikację konsolową Node.js, która odbiera komunikaty powiadomień o przekazaniu plików z IoT Hub.
 
 Możesz użyć parametrów połączenia **iothubowner** z IoT Hub, aby ukończyć tę sekcję. Parametry połączenia można znaleźć w [Azure Portal](https://portal.azure.com/) w bloku **zasady dostępu współużytkowanego** .
 
@@ -144,9 +143,9 @@ Możesz użyć parametrów połączenia **iothubowner** z IoT Hub, aby ukończy�
     npm install azure-iothub --save
     ```
 
-3. Za pomocą edytora tekstów Utwórz plik **FileUploadNotification. js** w `fileuploadnotification` folderze.
+3. Za pomocą edytora tekstów Utwórz plik **FileUploadNotification.js** w `fileuploadnotification` folderze.
 
-4. Dodaj następujące `require` instrukcje na początku pliku **FileUploadNotification. js** :
+4. Dodaj następujące `require` instrukcje na początku pliku **FileUploadNotification.js** :
 
     ```javascript
     'use strict';
@@ -191,7 +190,7 @@ Możesz użyć parametrów połączenia **iothubowner** z IoT Hub, aby ukończy�
     });
     ```
 
-8. Zapisz i zamknij plik **FileUploadNotification. js** .
+8. Zapisz i zamknij plik **FileUploadNotification.js** .
 
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
 

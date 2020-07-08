@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687331"
 ---
 # <a name="workbook-text-parameters"></a>Parametry tekstu skoroszytu
@@ -60,7 +59,7 @@ W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
     ![Obraz przedstawiający parametr tekstowy, do którego odwołuje się element KQL](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> W powyższym przykładzie `{SlowRequestThreshold}` reprezentuje wartość całkowitą. Jeśli wykonano zapytanie dotyczące ciągu, takiego jak `{ComputerName}` należy zmodyfikować zapytanie Kusto, aby dodać cudzysłowy `"{ComputerName}"` , aby pole parametru akceptowało dane wejściowe bez cudzysłowów.
+> W powyższym przykładzie `{SlowRequestThreshold}` reprezentuje wartość całkowitą. Jeśli wykonano zapytanie dotyczące ciągu, takiego jak należy `{ComputerName}` zmodyfikować zapytanie Kusto, aby dodać cudzysłowy, aby `"{ComputerName}"` pole parametru akceptowało dane wejściowe bez cudzysłowów.
 
 ## <a name="setting-default-values"></a>Ustawianie wartości domyślnych
 1. Zacznij od pustego skoroszytu w trybie edycji.

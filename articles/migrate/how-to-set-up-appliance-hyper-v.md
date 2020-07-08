@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceni
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538294"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych funkcji Hyper-V
@@ -35,8 +34,8 @@ Aby skonfigurować urządzenie przy użyciu szablonu wirtualnego dysku twardego:
 
 Pobierz szablon skompresowanego dysku VHD dla urządzenia.
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją Hyper-V**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją Hyper-V**.
 3. Kliknij pozycję **Pobierz** , aby pobrać plik VHD.
 
     ![Pobierz maszynę wirtualną](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
@@ -91,7 +90,7 @@ Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone p
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
     - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
     - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN.
+        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN .
         - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
         - Obsługiwane są tylko serwery proxy HTTP.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby funkcja odnajdywania maszyn wirtualnych działała prawidłowo.
@@ -106,7 +105,7 @@ Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone p
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
 4. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate. Następnie wybierz projekt.
 5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-6. Kliknij pozycję **zarejestruj**.
+6. Kliknij pozycję **Zarejestruj**.
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegowanie poświadczeń dla wirtualnych dysków twardych SMB
@@ -120,7 +119,7 @@ Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowani
     ```
 
 2. Alternatywnie należy to zrobić w Edytor lokalnych zasad grupy na urządzeniu:
-    - W obszarze**Konfiguracja komputera** >  **zasad komputera lokalnego**kliknij pozycję **Szablony administracyjne** > **System** > **delegowania poświadczeń**systemowych.
+    - W obszarze Konfiguracja komputera **zasad komputera lokalnego**  >  **Computer Configuration**kliknij pozycję **Szablony administracyjne**  >  **System**  >  **delegowania poświadczeń**systemowych.
     - Kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń**i wybierz pozycję **włączone**.
     - W obszarze **Opcje**kliknij pozycję **Pokaż**, a następnie na liście Dodaj każdego hosta funkcji Hyper-V, który ma zostać odnajdowany, przy użyciu **usługi WSMAN/** jako prefiksu.
     - W obszarze **Delegowanie poświadczeń**kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń z uwierzytelnianiem serwera tylko NTLM**. Ponownie Dodaj każdy host funkcji Hyper-V, który ma zostać odnalezienie do listy, przy użyciu **usługi WSMAN/** jako prefiksu.
@@ -145,7 +144,7 @@ Spowoduje to uruchomienie odnajdywania. Metadane wykrytych maszyn wirtualnych mo
 Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoczne w portalu.
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-2. W **Azure Migrate serwery** > **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 
 ## <a name="next-steps"></a>Następne kroki

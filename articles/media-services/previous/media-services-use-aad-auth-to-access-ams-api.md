@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682046"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Uzyskiwanie dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD.  
@@ -79,13 +78,13 @@ Na powyższym diagramie liczba reprezentuje przepływ żądań w kolejności chr
        Informacje o dzierżawie można pobrać z Azure Portal. Umieść kursor nad nazwą zalogowanego użytkownika w prawym górnym rogu.
    * Media Services identyfikator URI zasobu. 
 
-       Ten identyfikator URI jest taki sam dla kont Media Services, które znajdują się w tym samym środowisku platformy Azure (\/na przykład https:/Rest.Media.Azure.NET).
+       Ten identyfikator URI jest taki sam dla kont Media Services, które znajdują się w tym samym środowisku platformy Azure (na przykład https: \/ /rest.Media.Azure.NET).
 
    * Identyfikator klienta aplikacji Media Services (natywny).
    * Media Services (natywny) identyfikator URI przekierowania aplikacji.
    * Identyfikator URI zasobu dla Media Services REST.
         
-       Identyfikator URI reprezentuje punkt końcowy interfejsu API REST (na przykład https://test03.restv2.westus.media.azure.net/api/).
+       Identyfikator URI reprezentuje punkt końcowy interfejsu API REST (na przykład https://test03.restv2.westus.media.azure.net/api/) .
 
      Aby uzyskać wartości dla tych parametrów, zobacz [używanie Azure Portal do uzyskiwania dostępu do ustawień uwierzytelniania usługi Azure AD](media-services-portal-get-started-with-aad.md) przy użyciu opcji uwierzytelnianie użytkownika.
 
@@ -121,11 +120,11 @@ Na powyższym rysunku liczba reprezentuje przepływ żądań w kolejności chron
        Informacje o dzierżawie można pobrać z Azure Portal. Umieść kursor nad nazwą zalogowanego użytkownika w prawym górnym rogu.
    * Media Services identyfikator URI zasobu. 
 
-       Ten identyfikator URI jest taki sam dla kont Media Services, które znajdują się w tym samym środowisku platformy Azure (na\/przykład https:/Rest.Media.Azure.NET).
+       Ten identyfikator URI jest taki sam dla kont Media Services, które znajdują się w tym samym środowisku platformy Azure (na przykład https: \/ /rest.Media.Azure.NET).
 
    * Identyfikator URI zasobu dla Media Services REST.
 
-       Identyfikator URI reprezentuje punkt końcowy interfejsu API REST (na przykład https://test03.restv2.westus.media.azure.net/api/).
+       Identyfikator URI reprezentuje punkt końcowy interfejsu API REST (na przykład https://test03.restv2.westus.media.azure.net/api/) .
 
    * Wartości aplikacji usługi Azure AD: identyfikator klienta i klucz tajny klienta.
     

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683742"
 ---
 # <a name="understand-the-device-model-schema"></a>Opis schematu modelu urządzenia
@@ -78,7 +77,7 @@ W poniższej tabeli opisano wpisy schematu najwyższego poziomu:
 | `Version` | Identyfikuje wersję modelu urządzenia. |
 | `Name` | Przyjazna nazwa dla modelu urządzenia. |
 | `Description` | Opis modelu urządzenia. |
-| `Protocol` | Protokół połączenia wykorzystywany przez urządzenie. Może być jedną z `AMQP`, `MQTT`, i `HTTP`. |
+| `Protocol` | Protokół połączenia wykorzystywany przez urządzenie. Może być jedną z `AMQP` , `MQTT` , i `HTTP` . |
 
 W poniższych sekcjach opisano inne sekcje schematu JSON:
 
@@ -115,11 +114,11 @@ Poniższy przykład przedstawia definicję obiektu stanu urządzenia symulowaneg
 }
 ```
 
-Usługa symulacji uruchamia plik **Chiller-01-State. js** co pięć sekund, aby zaktualizować stan urządzenia. Pliki JavaScript dla domyślnych symulowanych urządzeń można zobaczyć w [folderze skryptów](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) w witrynie GitHub. Zgodnie z Konwencją te pliki JavaScript mają **stan** sufiksu, aby odróżnić je od plików, które implementują zachowania metody.
+Usługa symulacji uruchamia plik **chiller-01-state.js** co pięć sekund, aby zaktualizować stan urządzenia. Pliki JavaScript dla domyślnych symulowanych urządzeń można zobaczyć w [folderze skryptów](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) w witrynie GitHub. Zgodnie z Konwencją te pliki JavaScript mają **stan** sufiksu, aby odróżnić je od plików, które implementują zachowania metody.
 
 ## <a name="properties"></a>Właściwości
 
-`Properties` Sekcja schematu definiuje wartości właściwości, które urządzenie zgłasza do rozwiązania. Przykład:
+`Properties`Sekcja schematu definiuje wartości właściwości, które urządzenie zgłasza do rozwiązania. Przykład:
 
 ```json
 "Properties": {
@@ -130,13 +129,13 @@ Usługa symulacji uruchamia plik **Chiller-01-State. js** co pięć sekund, aby 
 }
 ```
 
-Po rozpoczęciu tego rozwiązania wysyła zapytanie do wszystkich symulowanych urządzeń, aby utworzyć listę `Type` wartości do użycia w interfejsie użytkownika. Rozwiązanie używa właściwości `Latitude` i `Longitude` do dodawania lokalizacji urządzenia do mapy na pulpicie nawigacyjnym.
+Po rozpoczęciu tego rozwiązania wysyła zapytanie do wszystkich symulowanych urządzeń, aby utworzyć listę `Type` wartości do użycia w interfejsie użytkownika. Rozwiązanie używa `Latitude` `Longitude` właściwości i do dodawania lokalizacji urządzenia do mapy na pulpicie nawigacyjnym.
 
 ## <a name="telemetry"></a>Telemetria
 
-`Telemetry` Tablica zawiera wszystkie typy telemetrii, które symulowane urządzenie wysyła do rozwiązania.
+`Telemetry`Tablica zawiera wszystkie typy telemetrii, które symulowane urządzenie wysyła do rozwiązania.
 
-Poniższy przykład wysyła komunikat telemetrii JSON co 10 sekund przy `floor`użyciu `vibration`, i `temperature` danych z czujników Wind:
+Poniższy przykład wysyła komunikat telemetrii JSON co 10 sekund przy użyciu `floor` , `vibration` i `temperature` danych z czujników Wind:
 
 ```json
 "Telemetry": [
@@ -168,11 +167,11 @@ Obecnie można używać tylko schematów wiadomości JSON. Pola wymienione w sch
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
 * Boolean
-* Liczba całkowita
+* Integer
 * Double
 * DateTime
 
-Aby wysyłać komunikaty telemetryczne w różnych interwałach, Dodaj do `Telemetry` tablicy wiele typów telemetrii. Poniższy przykład wysyła dane temperatury i wilgotności co 10 sekund i stan światła co minutę:
+Aby wysyłać komunikaty telemetryczne w różnych interwałach, Dodaj do tablicy wiele typów telemetrii `Telemetry` . Poniższy przykład wysyła dane temperatury i wilgotności co 10 sekund i stan światła co minutę:
 
 ```json
 "Telemetry": [
@@ -206,7 +205,7 @@ Aby wysyłać komunikaty telemetryczne w różnych interwałach, Dodaj do `Telem
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-Symulowane urządzenie może odpowiadać na metody z chmury do urządzenia wywoływane z Centrum IoT Hub. `CloudToDeviceMethods` Sekcja w pliku schematu modelu urządzenia:
+Symulowane urządzenie może odpowiadać na metody z chmury do urządzenia wywoływane z Centrum IoT Hub. `CloudToDeviceMethods`Sekcja w pliku schematu modelu urządzenia:
 
 * Definiuje metody, na które symulowane urządzenie może reagować.
 * Identyfikuje plik JavaScript zawierający logikę do wykonania.

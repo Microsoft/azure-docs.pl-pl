@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.custom: mqtt
 ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730292"
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików za pomocą usługi IoT Hub
@@ -67,7 +66,7 @@ IoT Hub zwraca następujące dane, których urządzenie używa do przekazania pl
 > [!NOTE]
 > W tej sekcji opisano przestarzałą funkcję odbierania identyfikatora URI sygnatury dostępu współdzielonego z IoT Hub. Użyj opisanej wcześniej metody POST.
 
-IoT Hub ma dwa punkty końcowe REST obsługujące przekazywanie plików, jeden w celu uzyskania identyfikatora URI sygnatury dostępu współdzielonego dla magazynu, a drugi w celu powiadomienia centrum IoT o ukończonym przekazywaniu. Urządzenie uruchamia proces przekazywania plików, wysyłając do centrum IoT Hub w lokalizacji `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. Centrum IoT Hub zwraca:
+IoT Hub ma dwa punkty końcowe REST obsługujące przekazywanie plików, jeden w celu uzyskania identyfikatora URI sygnatury dostępu współdzielonego dla magazynu, a drugi w celu powiadomienia centrum IoT o ukończonym przekazywaniu. Urządzenie uruchamia proces przekazywania plików, wysyłając do centrum IoT Hub w lokalizacji `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}` . Centrum IoT Hub zwraca:
 
 * Identyfikator URI sygnatury dostępu współdzielonego dla pliku, który ma zostać przekazany.
 
@@ -86,7 +85,7 @@ Urządzenie przekazuje plik do magazynu przy użyciu zestawów SDK usługi Azure
 }
 ```
 
-Wartość `isSuccess` jest wartością logiczną, która wskazuje, czy plik został pomyślnie przekazany. Kod stanu dla `statusCode` jest stanem przekazywania pliku do magazynu, a `statusDescription` odpowiada. `statusCode`
+Wartość jest wartością `isSuccess` logiczną, która wskazuje, czy plik został pomyślnie przekazany. Kod stanu dla `statusCode` jest stanem przekazywania pliku do magazynu, a `statusDescription` odpowiada `statusCode` .
 
 ## <a name="reference-topics"></a>Tematy dotyczące odwołań:
 
@@ -153,7 +152,7 @@ Teraz wiesz już, jak przekazywać pliki z urządzeń za pomocą IoT Hub, możes
 
 * [Zarządzanie tożsamościami urządzeń w IoT Hub](iot-hub-devguide-identity-registry.md)
 
-* [Kontrola dostępu do centrum IoT Hub](iot-hub-devguide-security.md)
+* [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md)
 
 * [Synchronizowanie stanu i konfiguracji przy użyciu urządzenia bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md)
 

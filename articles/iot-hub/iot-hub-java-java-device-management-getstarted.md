@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 75d89b54bae6eb8166d44e08ea020a0da67ad20c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732554"
 ---
 # <a name="get-started-with-device-management-java"></a>Wprowadzenie do zarządzania urządzeniami (Java)
@@ -98,7 +97,7 @@ Ta Aplikacja konsolowa nawiązuje połączenie z IoT Hub, aby wywołać metodę 
 
 3. W wierszu polecenia przejdź do folderu **wyzwalacz-ponowne uruchomienie** .
 
-4. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **wyzwalacz-ponowne uruchomienie** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
+4. Za pomocą edytora tekstów Otwórz plik **pom.xml** w folderze **wyzwalacz-ponowny rozruch** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
 
     ```xml
     <dependency>
@@ -149,7 +148,7 @@ Ta Aplikacja konsolowa nawiązuje połączenie z IoT Hub, aby wywołać metodę 
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{youriothubconnectionstring}` na IoT Hub parametry połączenia, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string):
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień na `{youriothubconnectionstring}` IoT Hub parametry połączenia, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string):
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -249,7 +248,7 @@ W tej sekcji utworzysz aplikację konsolową Java, która symuluje urządzenie. 
 
 2. W wierszu polecenia przejdź do folderu **symulowane urządzenia** .
 
-3. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **symulowanych urządzeń** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
+3. Za pomocą edytora tekstów Otwórz plik **pom.xml** w folderze **symulowane urządzenia** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
 
     ```xml
     <dependency>
@@ -308,7 +307,7 @@ W tej sekcji utworzysz aplikację konsolową Java, która symuluje urządzenie. 
     import java.util.HashSet;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{yourdeviceconnectionstring}` na parametry połączenia urządzenia zanotowane w sekcji [Rejestrowanie nowego urządzenia w centrum IoT](#register-a-new-device-in-the-iot-hub) :
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień na `{yourdeviceconnectionstring}` Parametry połączenia urządzenia zanotowane w sekcji [Rejestrowanie nowego urządzenia w centrum IoT](#register-a-new-device-in-the-iot-hub) :
 
     ```java
     private static final int METHOD_SUCCESS = 200;

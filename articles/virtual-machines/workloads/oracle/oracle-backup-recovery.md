@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687002"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej platformy Azure z systemem Linux
@@ -141,7 +140,7 @@ Kopie zapasowe spójne z aplikacjami są nową funkcją w Azure Backup. Można t
 
 1. Pobierz plik JSON.
 
-    Pobierz plik VMSnapshotScriptPluginConfig. JSON https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfigz elementu. Zawartość pliku wygląda podobnie do poniższego:
+    Pobierz VMSnapshotScriptPluginConfig.jsz https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig . Zawartość pliku wygląda podobnie do poniższego:
 
     ```output
     {
@@ -168,11 +167,11 @@ Kopie zapasowe spójne z aplikacjami są nową funkcją w Azure Backup. Można t
 
 3. Skopiuj plik JSON.
 
-    Skopiuj plik VMSnapshotScriptPluginConfig. JSON do folderu/etc/Azure.
+    Skopiuj VMSnapshotScriptPluginConfig.jsdo folderu/etc/Azure.
 
 4. Edytuj plik JSON.
 
-    Edytuj plik VMSnapshotScriptPluginConfig. JSON, aby zawierał parametry `PreScriptLocation` i `PostScriptlocation` . Przykład:
+    Edytuj VMSnapshotScriptPluginConfig.jspliku, aby uwzględnić `PreScriptLocation` `PostScriptlocation` Parametry i. Przykład:
 
     ```output
     {

@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f4601de6ee495def43d1267131193762ea482d2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310920"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Wprowadzenie do usługi Azure Security Center dla IoT
@@ -51,9 +50,9 @@ Użyj zaawansowanej analizy i Microsoft Intelligent Security Graph, aby uzyskać
 
 W tym omówieniu przedstawiono informacje na temat funkcji i usług Azure Security Center dla IoT. Aby dowiedzieć się więcej na temat Azure Security Center architektury IoT, wymagań wstępnych i dowiedzieć się, jak rozpocząć pracę, zobacz następujące artykuły:
 
-- [Będąc](architecture.md)
+- [Architektura](architecture.md)
 - [Wymagania wstępne usługi](service-prerequisites.md)
-- [Wprowadzenie](getting-started.md)
+- [Rozpoczęcie pracy](getting-started.md)
 - [Definiowanie rozwiązania](quickstart-configure-your-solution.md)
 - [Azure Security Center często zadawane pytania dotyczące usługi IoT](resources-frequently-asked-questions.md)
 - [Azure Security Center alertów IoT](concept-security-alerts.md)

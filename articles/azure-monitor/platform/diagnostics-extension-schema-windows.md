@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676431"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
@@ -70,7 +69,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration, element
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Wymagany
+ Wymagane
 
 |Atrybuty|Opis|  
 |----------------|-----------------|  
@@ -119,7 +118,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**IISLogs**|Uwzględnienie tego elementu w konfiguracji umożliwia zbieranie dzienników usług IIS:<br /><br /> **ContainerName** — nazwa kontenera obiektów BLOB na koncie usługi Azure Storage, która ma być używana do przechowywania dzienników usług IIS.|   
-|**FailedRequestLogs**|Uwzględnienie tego elementu w konfiguracji umożliwia zbieranie dzienników dotyczących żądań zakończonych niepowodzeniem do witryny lub aplikacji usług IIS. Należy również włączyć opcje śledzenia w obszarze **System. Serwer WebServer** w **pliku Web. config**.|  
+|**FailedRequestLogs**|Uwzględnienie tego elementu w konfiguracji umożliwia zbieranie dzienników dotyczących żądań zakończonych niepowodzeniem do witryny lub aplikacji usług IIS. Należy również włączyć opcje śledzenia w obszarze **System. Serwer WebServer** w **Web.config**.|  
 |**Źródła danych**|Lista katalogów do monitorowania.|
 
 
@@ -170,7 +169,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br/><br/> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Wydarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -180,7 +179,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Wydarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -189,7 +188,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Umożliwia generowanie tabeli liczników wydajności zoptymalizowanej pod kątem szybkich zapytań. Każdy licznik wydajności, który jest zdefiniowany w elemencie **liczniki wydajności** , jest przechowywany w tabeli metryk oprócz tabeli liczników wydajności.  
 
- Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj** -> **grupy**  ->  zasobów **<nazwa\>**. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  
+ Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj**  ->  **grupy zasobów**  ->  **<nazwa \> **. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
@@ -208,7 +207,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf`.<br /><br /> - **SampleRate** — częstotliwość próbkowania licznika.<br /><br /> Opcjonalny atrybut:<br /><br /> **Unit** — jednostka miary licznika. Wartości są dostępne w [klasie UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf` .<br /><br /> - **SampleRate** — częstotliwość próbkowania licznika.<br /><br /> Opcjonalny atrybut:<br /><br /> **Unit** — jednostka miary licznika. Wartości są dostępne w [klasie UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Azure Monitor lub Event Hubs.|    
 
 
@@ -239,7 +238,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość magazynu systemu plików, który jest dostępny dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
 |**scheduledTransferLogLevelFilter**|**parametry**|Opcjonalny. Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
 |**scheduledTransferPeriod**|**trwania**|Opcjonalny. Określa interwał między planowanymi transferami danych zaokrągloną w górę do najbliższej minuty.<br /><br /> Wartość domyślna to PT0S.|  
-|**ujścia** |**parametry**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs.|  
+|**ujścia** |**ciąg**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -248,7 +247,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Nazwa elementu|Opis|  
 |------------------|-----------------|  
-|**Stats**|Informuje system, aby gromadził dane statystyczne kontenerów platformy Docker|  
+|**Statystyki**|Informuje system, aby gromadził dane statystyczne kontenerów platformy Docker|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig, element  
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig*
@@ -284,7 +283,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Element|Typ|Opis|  
 |-------------|----------|-----------------|  
-|**Channel**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
+|**Kanał**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
 
 ## <a name="channel-element"></a>Element kanału
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-ujścia-Channel*
@@ -295,8 +294,8 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Atrybuty|Typ|Opis|  
 |----------------|----------|-----------------|  
-|**logLevel**|**parametry**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
-|**Nazwij**|**parametry**|Unikatowa nazwa kanału, do którego odwołuje się|  
+|**logLevel**|**ciąg**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
+|**Nazwij**|**ciąg**|Unikatowa nazwa kanału, do którego odwołuje się|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig, element
@@ -304,7 +303,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Dodano w wersji 1,3.  
 
- Optional  
+ Opcjonalne  
 
  Przechowuje prywatne szczegóły konta magazynu (nazwa, klucz i punkt końcowy). Te informacje są wysyłane do maszyny wirtualnej, ale nie można z niej pobrać.  
 

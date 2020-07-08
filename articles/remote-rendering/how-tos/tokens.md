@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687079"
 ---
 # <a name="get-service-access-tokens"></a>Uzyskiwanie tokenów dostępu do usług
@@ -24,7 +23,7 @@ W tym artykule opisano sposób tworzenia takiego tokenu dostępu.
 
 ## <a name="token-service-rest-api"></a>Interfejs API REST usługi tokenów
 
-Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje pojedynczy interfejs API REST. Adres URL usługi STS programu z identyfikatorem:\//STS.mixedreality.Azure.com.
+Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje pojedynczy interfejs API REST. Adres URL usługi STS programu z identyfikatorem: \/ /STS.mixedreality.Azure.com.
 
 ### <a name="get-token-request"></a>Żądanie "Get token"
 
@@ -32,7 +31,7 @@ Aby można było utworzyć tokeny dostępu, *Usługa Secure Tokens* oferuje poje
 |-----------|:-----------|
 | /accounts/**accountId**/token | GET |
 
-| Nagłówek | Wartość |
+| Header | Wartość |
 |--------|:------|
 | Autoryzacja | "Bearer **accountId**:**accountKey**" |
 
@@ -44,7 +43,7 @@ Zastąp *accountId* i *accountKey* odpowiednimi danymi.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: ciąg | Powodzenie |
 
-| Nagłówek | Przeznaczenie |
+| Header | Przeznaczenie |
 |--------|:------|
 | MS-CV | Ta wartość może służyć do śledzenia wywołania w ramach usługi |
 

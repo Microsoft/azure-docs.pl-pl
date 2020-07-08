@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687810"
 ---
 # <a name="front-door-routing-methods"></a>Metody routingu przed drzwiami
@@ -80,7 +79,7 @@ Czas życia pliku cookie jest taki sam jak sesji użytkownika, ponieważ usługa
 > [!NOTE]
 > Publiczne serwery proxy mogą zakłócać koligację sesji. Wynika to z faktu, że ustanawianie sesji wymaga, aby dodać do odpowiedzi plik cookie koligacji sesji, którego nie można wykonać, jeśli odpowiedź jest buforowana, ponieważ spowodowałoby to zakłócenie plików cookie innych klientów żądających tego samego zasobu. Aby zapewnić ochronę przed tym, koligacja sesji **nie** zostanie ustanowiona, jeśli zaplecze wyśle odpowiedź w pamięci podręcznej, gdy ta próba zostanie podjęta. Jeśli sesja została już ustanowiona, nie ma znaczenia, czy odpowiedź z zaplecza jest buforowana.
 > Koligacja sesji zostanie ustanowiona w następujących sytuacjach, **chyba że** odpowiedź ma kod stanu HTTP 304:
-> - Odpowiedź ma określone wartości ustawione dla ```Cache-Control``` nagłówka, który uniemożliwia buforowanie, takie jak "Private" lub "No-Store".
+> - Odpowiedź ma określone wartości ustawione dla nagłówka, ```Cache-Control``` który uniemożliwia buforowanie, takie jak "Private" lub "No-Store".
 > - Odpowiedź zawiera ```Authorization``` nagłówek, który nie wygasł.
 > - Odpowiedź ma kod stanu HTTP 302.
 

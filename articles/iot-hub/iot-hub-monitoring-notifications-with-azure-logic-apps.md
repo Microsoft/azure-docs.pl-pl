@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej
@@ -28,9 +27,9 @@ ms.locfileid: "81680719"
 
 Dowiesz się, jak utworzyć aplikację logiki, która łączy centrum IoT Hub z Twoją skrzynką pocztową w celu monitorowania i powiadamiania o temperaturze.
 
-Kod klienta uruchomiony na urządzeniu ustawia właściwość aplikacji, `temperatureAlert`na każdy komunikat telemetrii wysyłany do centrum IoT Hub. Gdy kod klienta wykrywa temperaturę powyżej 30 °C, ustawia tę właściwość na `true`; w przeciwnym razie ustawia właściwość na `false`.
+Kod klienta uruchomiony na urządzeniu ustawia właściwość aplikacji, `temperatureAlert` na każdy komunikat telemetrii wysyłany do centrum IoT Hub. Gdy kod klienta wykrywa temperaturę powyżej 30 °C, ustawia tę właściwość na `true` ; w przeciwnym razie ustawia właściwość na `false` .
 
-Komunikaty docierające do centrum IoT wyglądają podobnie do następujących, z danymi telemetrycznymi zawartymi w treści i `temperatureAlert` właściwościami zawartymi we właściwościach aplikacji (właściwości systemu nie są wyświetlane):
+Komunikaty docierające do centrum IoT wyglądają podobnie do następujących, z danymi telemetrycznymi zawartymi w treści i właściwościami `temperatureAlert` zawartymi we właściwościach aplikacji (właściwości systemu nie są wyświetlane):
 
 ```json
 {
@@ -48,7 +47,7 @@ Komunikaty docierające do centrum IoT wyglądają podobnie do następujących, 
 
 Aby dowiedzieć się więcej o IoT Hub formacie wiadomości, zobacz [Tworzenie i odczytywanie IoT Hub komunikatów](iot-hub-devguide-messages-construct.md).
 
-W tym temacie opisano Konfigurowanie routingu w centrum IoT Hub w celu wysyłania komunikatów, w których `temperatureAlert` właściwość dotyczy `true` Service Bus punktu końcowego. Następnie skonfigurujesz aplikację logiki, która wyzwala komunikaty docierające do punktu końcowego Service Bus i wyśle Ci powiadomienie e-mail.
+W tym temacie opisano Konfigurowanie routingu w centrum IoT Hub w celu wysyłania komunikatów, w których `temperatureAlert` Właściwość dotyczy `true` Service Bus punktu końcowego. Następnie skonfigurujesz aplikację logiki, która wyzwala komunikaty docierające do punktu końcowego Service Bus i wyśle Ci powiadomienie e-mail.
 
 ## <a name="what-you-do"></a>Co robisz
 
@@ -58,7 +57,7 @@ W tym temacie opisano Konfigurowanie routingu w centrum IoT Hub w celu wysyłani
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi przy użyciu środowiska Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
+* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
 
   * Aktywna subskrypcja platformy Azure.
   * Usługa Azure IoT Hub w ramach Twojej subskrypcji.
@@ -70,7 +69,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
 ### <a name="create-a-service-bus-namespace"></a>Tworzenie przestrzeni nazw usługi Service Bus
 
-1. Na [Azure Portal](https://portal.azure.com/)wybierz pozycję **+ Utwórz zasób** > **integracja** > **Service Bus**.
+1. Na [Azure Portal](https://portal.azure.com/)wybierz pozycję **+ Utwórz zasób**  >  **integracja**  >  **Service Bus**.
 
 1. W okienku **Tworzenie przestrzeni nazw** podaj następujące informacje:
 
@@ -84,7 +83,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Utwórz przestrzeń nazw usługi Service Bus w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Wybierz przycisk **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
+1. Wybierz pozycję **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Dodawanie kolejki Service Bus do przestrzeni nazw
 
@@ -96,7 +95,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Dodaj kolejkę usługi Service Bus do Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. Wróć do okienka **Service Bus przestrzeń nazw** , w obszarze **jednostki**wybierz **kolejno pozycje kolejki**. Otwórz kolejkę Service Bus z listy, a następnie wybierz > pozycję **zasady dostępu współdzielonego****+ Dodaj**.
+1. Wróć do okienka **Service Bus przestrzeń nazw** , w obszarze **jednostki**wybierz **kolejno pozycje kolejki**. Otwórz kolejkę Service Bus z listy, a następnie wybierz pozycję **zasady dostępu współdzielonego**  >  **+ Dodaj**.
 
 1. Wprowadź nazwę zasad, sprawdź pozycję **Zarządzaj**, a następnie wybierz pozycję **Utwórz**.
 
@@ -104,7 +103,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Dodawanie niestandardowego punktu końcowego i reguły routingu do centrum IoT Hub
 
-Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i Utwórz regułę routingu wiadomości, aby skierować komunikaty zawierające alert dotyczący temperatury do tego punktu końcowego, gdzie zostaną one pobrane przez aplikację logiki. Reguła routingu używa zapytania `temperatureAlert = "true"`routingu, do przesyłania dalej komunikatów na podstawie wartości właściwości `temperatureAlert` aplikacji ustawionej przez kod klienta uruchomiony na urządzeniu. Aby dowiedzieć się więcej, zobacz [zapytanie routingu komunikatów na podstawie właściwości wiadomości](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i Utwórz regułę routingu wiadomości, aby skierować komunikaty zawierające alert dotyczący temperatury do tego punktu końcowego, gdzie zostaną one pobrane przez aplikację logiki. Reguła routingu używa zapytania routingu, `temperatureAlert = "true"` do przesyłania dalej komunikatów na podstawie wartości `temperatureAlert` właściwości aplikacji ustawionej przez kod klienta uruchomiony na urządzeniu. Aby dowiedzieć się więcej, zobacz [zapytanie routingu komunikatów na podstawie właściwości wiadomości](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Dodawanie niestandardowego punktu końcowego
 
@@ -124,7 +123,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
    ![Dodaj punkt końcowy do centrum IoT Hub w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Wybierz przycisk **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
+1. Wybierz pozycję **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
 
 ### <a name="add-a-routing-rule"></a>Dodawanie reguły rozsyłania
 
@@ -138,7 +137,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
    **Źródło danych**: wybierz pozycję **komunikaty telemetryczne urządzenia**.
 
-   **Zapytanie routingu**: ENTER `temperatureAlert = "true"`.
+   **Zapytanie routingu**: ENTER `temperatureAlert = "true"` .
 
    ![Dodawanie reguły routingu w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -150,7 +149,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
 ### <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-1. Wybierz pozycję **Utwórz zasób** > **Integration** > **aplikacja logiki**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
 1. Wprowadź następujące informacje.
 
@@ -162,7 +161,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
    ![Tworzenie aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurowanie wyzwalacza aplikacji logiki
 
@@ -189,7 +188,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
       ![Utwórz połączenie usługi Service Bus dla aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. Na ostatnim ekranie, w polu **Nazwa kolejki**, wybierz kolejkę utworzoną z listy rozwijanej. Wprowadź `175` , aby określić **maksymalną liczbę komunikatów**.
+   1. Na ostatnim ekranie, w polu **Nazwa kolejki**, wybierz kolejkę utworzoną z listy rozwijanej. Wprowadź, `175` Aby określić **maksymalną liczbę komunikatów**.
 
       ![Określ maksymalną liczbę komunikatów dla połączenia usługi Service Bus w aplikacji logiki](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
@@ -218,7 +217,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
       ![Wybieranie pól e-mail połączenia SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. Wprowadź adres e-mail **od** i **do**, a `High temperature detected` na przykład **temat** i **treść**. Jeśli zostanie otwarte okno dialogowe **Dodaj zawartość dynamiczną z aplikacji i łączników używanych w tym przepływie** , wybierz pozycję **Ukryj** , aby je zamknąć. W tym samouczku nie jest używana zawartość dynamiczna.
+   1. Wprowadź adres e-mail **od** i **do**, a na przykład `High temperature detected` **temat** i **treść**. Jeśli zostanie otwarte okno dialogowe **Dodaj zawartość dynamiczną z aplikacji i łączników używanych w tym przepływie** , wybierz pozycję **Ukryj** , aby je zamknąć. W tym samouczku nie jest używana zawartość dynamiczna.
 
       ![Wypełnij pola e-mail połączenia SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 

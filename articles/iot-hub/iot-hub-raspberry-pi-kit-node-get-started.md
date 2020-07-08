@@ -1,5 +1,5 @@
 ---
-title: Łączenie Raspberry Pi z platformą Azure IoT Hub w chmurze (Node. js)
+title: Połącz Raspberry Pi z platformą Azure IoT Hub w chmurze (Node.js)
 description: Dowiedz się, jak skonfigurować i połączyć Raspberry Pi z platformą IoT Hub Azure w celu wysyłania danych do platformy Azure w chmurze w tym samouczku.
 author: wesmc7777
 manager: eliotgra
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640529"
 ---
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Łączenie Raspberry Pi z platformą Azure IoT Hub (Node. js)
+# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Połącz Raspberry Pi z platformą Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -51,7 +50,7 @@ Nie masz jeszcze zestawu? Wypróbuj [symulator online Raspberry Pi](iot-hub-rasp
 
 * Tablica Raspberry Pi 2 lub Raspberry Pi 3.
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Monitor, klawiatura USB i mysz, która łączy się z pi.
 
@@ -116,9 +115,9 @@ Przygotuj kartę microSD na potrzeby instalacji obrazu raspbian.
 
 1. Połącz pi z monitorem, klawiaturą i myszą.
 
-2. Rozpocznij Pi, a następnie zaloguj się do raspbian `pi` przy użyciu nazwy użytkownika i `raspberry` hasła.
+2. Rozpocznij Pi, a następnie zaloguj się do raspbian przy użyciu `pi` nazwy użytkownika i `raspberry` hasła.
 
-3. Kliknij ikonę Raspberry > **Preferencje** > **Raspberry Pi Configuration**.
+3. Kliknij ikonę Raspberry > **Preferencje**  >  **Raspberry Pi Configuration**.
 
    ![Menu preferencji raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -182,17 +181,17 @@ Włącz opcję pi przy użyciu kabla micro USB i zasilacza. Podłącz PI do siec
    Użyj wbudowanego klienta SSH w systemie Ubuntu lub macOS. Może być konieczne uruchomienie `ssh pi@<ip address of pi>` programu w celu nawiązania połączenia pi za pośrednictwem protokołu SSH.
 
    > [!NOTE]
-   > Domyślna nazwa użytkownika to `pi` , a hasło to `raspberry`.
+   > Domyślna nazwa użytkownika to `pi` , a hasło to `raspberry` .
 
-2. Zainstaluj program Node. js i NPM na potrzeby języka pi.
+2. Zainstaluj Node.js i NPM do liczby pi.
 
-   Najpierw sprawdź wersję środowiska Node. js.
+   Najpierw sprawdź wersję Node.js.
 
    ```bash
    node -v
    ```
 
-   Jeśli wersja jest starsza niż 10. x lub nie ma żadnego środowiska Node. js w przypadku liczby pi, zainstaluj najnowszą wersję.
+   Jeśli wersja jest starsza niż 10. x lub jeśli na pi nie ma Node.js, zainstaluj najnowszą wersję.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -225,11 +224,11 @@ Włącz opcję pi przy użyciu kabla micro USB i zasilacza. Podłącz PI do siec
 
    ![Plik konfiguracji](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
-   W tym pliku znajdują się dwa elementy, które można skonfigurować. Pierwszy z nich to `interval`, który definiuje przedział czasu (w milisekundach) między komunikatami wysyłanymi do chmury. Druga z nich to `simulatedData`, czyli wartość logiczna określająca, czy użyć symulowanych danych czujników, czy nie.
+   W tym pliku znajdują się dwa elementy, które można skonfigurować. Pierwszy z nich to `interval` , który definiuje przedział czasu (w milisekundach) między komunikatami wysyłanymi do chmury. Druga z nich to `simulatedData` , czyli wartość logiczna określająca, czy użyć symulowanych danych czujników, czy nie.
 
-   Jeśli **nie masz czujnika**, ustaw `simulatedData` wartość tak, aby `true` aplikacja Przykładowa utworzyła i używała symulowanych danych czujników.
+   Jeśli **nie masz czujnika**, ustaw wartość tak, `simulatedData` Aby `true` aplikacja Przykładowa utworzyła i używała symulowanych danych czujników.
 
-   *Uwaga: adres I2C używany w tym samouczku jest domyślnie 0x77. W zależności od konfiguracji może być również 0x76: Jeśli wystąpi błąd I2C, spróbuj zmienić wartość na 118 i sprawdź, czy działa lepiej. Aby zobaczyć, jaki adres jest używany przez czujnik, uruchom `sudo i2cdetect -y 1` polecenie w powłoce na Raspberry Pi*
+   *Uwaga: adres I2C używany w tym samouczku jest domyślnie 0x77. W zależności od konfiguracji może być również 0x76: Jeśli wystąpi błąd I2C, spróbuj zmienić wartość na 118 i sprawdź, czy działa lepiej. Aby zobaczyć, jaki adres jest używany przez czujnik, uruchom polecenie `sudo i2cdetect -y 1` w powłoce na Raspberry Pi*
 
 2. Zapisz i wyjdź, wpisując Control-O > Enter > Control-X.
 

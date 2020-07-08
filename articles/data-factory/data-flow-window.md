@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: 1f440a5877dcefeca8c1baa82fad4299b5ce7bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606223"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Przekształcenie okna Azure Data Factory
@@ -29,7 +28,7 @@ Ustaw Partycjonowanie danych kolumn dla transformacji okna. Odpowiednikiem SQL j
 ![Opcje okna](media/data-flow/windows4.png "System Windows 4")
 
 ## <a name="sort"></a>Sortowanie
-Inną częścią klauzuli over jest ustawienie ```Order By```. Spowoduje to ustawienie kolejności sortowania danych. Można również utworzyć wyrażenie dla wartości obliczanej w tym polu kolumny w celu sortowania.
+Inną częścią klauzuli over jest ustawienie ```Order By``` . Spowoduje to ustawienie kolejności sortowania danych. Można również utworzyć wyrażenie dla wartości obliczanej w tym polu kolumny w celu sortowania.
 
 ![Opcje okna](media/data-flow/windows5.png "System Windows 5")
 
@@ -45,7 +44,7 @@ Na koniec użyj konstruktora wyrażeń do definiowania agregacji, które mają b
 
 ![Opcje okna](media/data-flow/windows7.png "System Windows 7")
 
-Pełna lista funkcji agregujących i analitycznych dostępnych do użycia w języku wyrażeń przepływu danych ADF za pośrednictwem konstruktora wyrażeń jest wymieniona tutaj: https://aka.ms/dataflowexpressions.
+Pełna lista funkcji agregujących i analitycznych dostępnych do użycia w języku wyrażeń przepływu danych ADF za pośrednictwem konstruktora wyrażeń jest wymieniona tutaj: https://aka.ms/dataflowexpressions .
 
 ## <a name="next-steps"></a>Następne kroki
 

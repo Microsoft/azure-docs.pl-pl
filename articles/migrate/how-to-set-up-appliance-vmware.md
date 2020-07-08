@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceni
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81538260"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
@@ -33,8 +32,8 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 
 ## <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją hypervisor programu VMware vSphere**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją hypervisor programu VMware vSphere**.
 3. Kliknij pozycję **Pobierz**, aby pobrać plik szablonu OVA.
 
   ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
@@ -55,7 +54,7 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny.
 
 Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 
-1. W konsoli klienta vSphere kliknij pozycję **plik** > **Wdróż OVF szablon**.
+1. W konsoli klienta vSphere kliknij pozycję **plik**  >  **Wdróż OVF szablon**.
 ![Polecenie menu do wdrażania szablonu OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. W Kreatorze wdrażania szablonu OVF > **Źródło**Określ lokalizację pliku komórek jajowych.
@@ -84,7 +83,7 @@ Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone p
 4. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
     - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
     - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN.
+        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN .
         - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
         - Obsługiwane są tylko serwery proxy HTTP.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Aby odnajdywanie działało prawidłowo, czas na urządzeniu powinien być zsynchronizowany z czasem Internetu.
@@ -102,7 +101,7 @@ Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone p
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
 2. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate. Następnie wybierz projekt.
 3. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-4. Kliknij pozycję **zarejestruj**.
+4. Kliknij pozycję **Zarejestruj**.
 
 
 ## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Rozpocznij odnajdowanie ciągłe, podając poświadczenia vCenter Server i maszyny wirtualnej

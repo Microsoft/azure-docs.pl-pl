@@ -10,17 +10,16 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641289"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Shape JSON w celu zmaksymalizowania wydajności zapytań
 
 Ten artykuł zawiera wskazówki dotyczące sposobu tworzenia kształtu JSON w celu zmaksymalizowania wydajności zapytań Azure Time Series Insights.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi kształtowania JSON w celu spełnienia wymagań dotyczących magazynu.</br>
 
@@ -97,16 +96,16 @@ Należy wziąć pod uwagę następujący ładunek JSON wysłany do środowiska T
 
    | deviceId | Identyfikatora | deviceLocation |
    | --- | --- | --- |
-   | FXXX | dane\_wiersza | UE |
-   | FYYY | dane\_wiersza | USA |
+   | FXXX | \_dane wiersza | UE |
+   | FYYY | \_dane wiersza | USA |
 
 * Time Series Insights tabeli zdarzeń po spłaszczeniu:
 
    | deviceId | Identyfikatora | deviceLocation | sygnatura czasowa | wiele. Szybkość przepływu ft3/s | wiele. Psi ciśnienie oleju silnikowego |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | dane\_wiersza | UE | 2018 R-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
-   | FXXX | dane\_wiersza | UE | 2018 R-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
-   | FYYY | dane\_wiersza | USA | 2018 R-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | \_dane wiersza | UE | 2018 R-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
+   | FXXX | \_dane wiersza | UE | 2018 R-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
+   | FYYY | \_dane wiersza | USA | 2018 R-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - Kolumna **deviceId** służy jako nagłówek kolumny dla różnych urządzeń w flotie. Właściwość **deviceId** , która ma własną nazwę właściwości, ogranicza łączną liczbę urządzeń do 595 (dla środowisk S1) lub 795 (dla środowisk S2) z innymi pięcioma kolumnami.
@@ -165,23 +164,23 @@ Przykładowy ładunek JSON:
 
 * Tabela danych referencyjnych, która zawiera właściwości klucza **deviceId** i **Series. tagId**:
 
-   | deviceId | Seria. tagId | Identyfikatora | deviceLocation | type | unit |
+   | deviceId | Seria. tagId | Identyfikatora | deviceLocation | typ | unit |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | dane\_wiersza | UE | Szybkość przepływu | ft3/s |
-   | FXXX | oilPressure | dane\_wiersza | UE | Ciśnienie oleju silnikowego | psi |
-   | FYYY | pumpRate | dane\_wiersza | USA | Szybkość przepływu | ft3/s |
-   | FYYY | oilPressure | dane\_wiersza | USA | Ciśnienie oleju silnikowego | psi |
+   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s |
+   | FXXX | oilPressure | \_dane wiersza | UE | Ciśnienie oleju silnikowego | psi |
+   | FYYY | pumpRate | \_dane wiersza | USA | Szybkość przepływu | ft3/s |
+   | FYYY | oilPressure | \_dane wiersza | USA | Ciśnienie oleju silnikowego | psi |
 
 * Time Series Insights tabeli zdarzeń po spłaszczeniu:
 
-   | deviceId | Seria. tagId | Identyfikatora | deviceLocation | type | unit | sygnatura czasowa | Serie. wartość |
+   | deviceId | Seria. tagId | Identyfikatora | deviceLocation | typ | unit | sygnatura czasowa | Serie. wartość |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | dane\_wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | dane\_wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | dane\_wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | dane\_wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | dane\_wiersza | USA | Szybkość przepływu | ft3/s | 2018 R-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | dane\_wiersza | USA | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | \_dane wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | \_dane wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 49,2 |
+   | FYYY | pumpRate | \_dane wiersza | USA | Szybkość przepływu | ft3/s | 2018 R-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | \_dane wiersza | USA | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - Kolumny **deviceId** i **Series. tagId** pełnią rolę nagłówków kolumn dla różnych urządzeń i tagów w flotie. Użycie każdego z nich jako własnego atrybutu ogranicza zapytanie do 594 (dla środowisk S1) lub 794 (dla środowisk S2) Łączna liczba urządzeń z innymi sześcioma kolumnami.

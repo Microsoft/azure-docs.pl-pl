@@ -4,10 +4,9 @@ description: Dowiedz się, jak przełączyć klaster Service Fabric z używania 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272631"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Change cluster from certificate thumbprint to common name (Zmienianie klastra z odcisku palca certyfikatu na nazwę pospolitą)
@@ -118,7 +117,7 @@ Następnie otwórz plik szablonu w edytorze tekstów i wprowadź trzy aktualizac
 
     Rozważ również usunięcie *certificateThumbprint*, w którym nie można już odwoływać się do szablonu Menedżer zasobów.
 
-2. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  W **oknie virtualMachineProfile**->**extensionProfile**->**rozszerzenia**->**Właściwości** `"commonNames": ["[parameters('certificateCommonName')]"],` `"thumbprint": "[parameters('certificateThumbprint')]",`**certificate****settings**ustawienia certyfikat, Dodaj i Usuń.->->
+2. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  W oknie **virtualMachineProfile** -> **extensionProfile** -> **rozszerzenia** -> **Właściwości** -> **Ustawienia** -> **certyfikat**, Dodaj `"commonNames": ["[parameters('certificateCommonName')]"],` i Usuń `"thumbprint": "[parameters('certificateThumbprint')]",` .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

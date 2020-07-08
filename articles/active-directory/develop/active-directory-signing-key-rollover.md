@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537240"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Przerzucanie klucza podpisywania w Azure Active Directory
@@ -37,7 +36,7 @@ Sposób, w jaki aplikacja obsługuje Przerzucanie kluczy, zależy od zmiennych, 
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby i skompilowane przy użyciu usługi Azure App Services](#appservices)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby za pomocą oprogramowania .NET OWIN OpenID Connect Connect, WS-karmione lub WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET Core OpenID Connect Connect lub JwtBearerAuthentication](#owincore)
-* [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu modułu Node. js paszport-Azure-AD](#passport)
+* [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu modułu Node.js Passport-Azure-AD](#passport)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby i tworzone za pomocą programu Visual Studio 2015 lub nowszego](#vs2015)
 * [Aplikacje sieci Web chroniące zasoby i tworzone za pomocą Visual Studio 2013](#vs2013)
 * Interfejsy API sieci Web chroniące zasoby i tworzone za pomocą Visual Studio 2013
@@ -110,10 +109,10 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu modułu Node. js paszport-Azure-AD
-Jeśli aplikacja korzysta z modułu Node. js paszport-AD, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
+### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu modułu Node.js Passport-Azure-AD
+Jeśli aplikacja korzysta z modułu Node.js Passport-AD, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
 
-Możesz potwierdzić, że aplikacja jest paszportowa, wyszukując następujący fragment kodu w aplikacji App. js.
+Możesz potwierdzić, że Twoja aplikacja jest zadana przez wyszukiwanie następującego fragmentu kodu w app.js aplikacji
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -129,7 +128,7 @@ Jeśli aplikacja została skompilowana przy użyciu szablonu aplikacji sieci Web
 W przypadku ręcznego dodania uwierzytelniania do rozwiązania aplikacja może nie mieć niezbędnej logiki przerzucania kluczy. Należy napisać go samodzielnie lub wykonać kroki opisane w temacie [aplikacje sieci Web/interfejsy API przy użyciu innych bibliotek lub ręcznie wdrażać dowolne z obsługiwanych protokołów](#other).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Aplikacje sieci Web chroniące zasoby i tworzone za pomocą Visual Studio 2013
-Jeśli aplikacja została skompilowana przy użyciu szablonu aplikacji sieci Web w Visual Studio 2013 i wybrano opcję **konta organizacji** z menu **Zmień uwierzytelnianie** , istnieje już niezbędna logika do automatycznego obsłużenia przerzucania kluczy. Ta logika przechowuje unikatowy identyfikator organizacji i informacje o kluczu podpisywania w dwóch tabelach bazy danych skojarzonych z projektem. Parametry połączenia dla bazy danych można znaleźć w pliku Web. config projektu.
+Jeśli aplikacja została skompilowana przy użyciu szablonu aplikacji sieci Web w Visual Studio 2013 i wybrano opcję **konta organizacji** z menu **Zmień uwierzytelnianie** , istnieje już niezbędna logika do automatycznego obsłużenia przerzucania kluczy. Ta logika przechowuje unikatowy identyfikator organizacji i informacje o kluczu podpisywania w dwóch tabelach bazy danych skojarzonych z projektem. Parametry połączenia dla bazy danych można znaleźć w pliku Web.config projektu.
 
 W przypadku ręcznego dodania uwierzytelniania do rozwiązania aplikacja może nie mieć niezbędnej logiki przerzucania kluczy. Należy napisać go samodzielnie lub wykonać kroki opisane w temacie [aplikacje sieci Web/interfejsy API przy użyciu innych bibliotek lub ręcznie wdrażać dowolne z obsługiwanych protokołów.](#other)
 
@@ -239,7 +238,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplikacje sieci Web chroniące zasoby i utworzone za pomocą programu Visual Studio 2012
-Jeśli aplikacja została skompilowana w programie Visual Studio 2012, prawdopodobnie używasz narzędzia do tworzenia tożsamości i dostępu do konfigurowania aplikacji. Jest również prawdopodobnie używany do [sprawdzania poprawności rejestru Nazwa wystawcy (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR jest odpowiedzialny za utrzymywanie informacji o zaufanych dostawcach tożsamości (Azure AD) oraz kluczy używanych do weryfikacji tokenów wystawionych przez nich. VINR ułatwia również automatyczne aktualizowanie informacji o kluczach przechowywanych w pliku Web. config przez pobranie najnowszego dokumentu metadanych Federacji skojarzonego z Twoim katalogiem, sprawdzenie, czy konfiguracja jest nieaktualna przy użyciu najnowszego dokumentu, a następnie zaktualizowanie aplikacji w celu użycia nowego klucza w razie potrzeby.
+Jeśli aplikacja została skompilowana w programie Visual Studio 2012, prawdopodobnie używasz narzędzia do tworzenia tożsamości i dostępu do konfigurowania aplikacji. Jest również prawdopodobnie używany do [sprawdzania poprawności rejestru Nazwa wystawcy (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR jest odpowiedzialny za utrzymywanie informacji o zaufanych dostawcach tożsamości (Azure AD) oraz kluczy używanych do weryfikacji tokenów wystawionych przez nich. VINR ułatwia również automatyczne aktualizowanie informacji o kluczach przechowywanych w pliku Web.config przez pobranie najnowszego dokumentu metadanych Federacji skojarzonego z Twoim katalogiem, sprawdzenie, czy konfiguracja jest nieaktualna przy użyciu najnowszego dokumentu, i zaktualizowanie aplikacji tak, aby korzystała z nowego klucza w razie potrzeby.
 
 Jeśli aplikacja została utworzona przy użyciu którejkolwiek z przykładów kodu lub dokumentacji instruktażowej dostarczonej przez firmę Microsoft, kluczowa logika przerzucania jest już dołączona do projektu. Zobaczysz, że Poniższy kod już istnieje w projekcie. Jeśli aplikacja nie ma jeszcze tej logiki, wykonaj poniższe czynności, aby je dodać, i sprawdź, czy działa poprawnie.
 
@@ -269,11 +268,11 @@ Jeśli aplikacja została utworzona przy użyciu którejkolwiek z przykładów k
    }
    ```
 
-Po wykonaniu tych kroków plik Web. config aplikacji zostanie zaktualizowany przy użyciu najnowszych informacji z dokumentu metadanych Federacji, łącznie z najnowszymi kluczami. Ta aktualizacja będzie odbywać się za każdym razem, gdy pula aplikacji jest odtwarzana w usługach IIS. Domyślnie usługi IIS są skonfigurowane do odtwarzania aplikacji co 29 godzin.
+Po wykonaniu tych kroków Web.config aplikacji zostanie zaktualizowana o najnowsze informacje z dokumentu metadanych Federacji, łącznie z najnowszymi kluczami. Ta aktualizacja będzie odbywać się za każdym razem, gdy pula aplikacji jest odtwarzana w usługach IIS. Domyślnie usługi IIS są skonfigurowane do odtwarzania aplikacji co 29 godzin.
 
 Wykonaj poniższe kroki, aby sprawdzić, czy logika przerzucania kluczy działa.
 
-1. Po zweryfikowaniu, że aplikacja korzysta z powyższego kodu, Otwórz plik **Web. config** i przejdź do bloku ** \<issuerNameRegistry>** , w którym szukasz następujących kilku wierszy:
+1. Po zweryfikowaniu, że aplikacja korzysta z powyższego kodu, Otwórz plik **Web.config** i przejdź do **\<issuerNameRegistry>** bloku, w którym szukasz następujących kilku wierszy:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,7 +280,7 @@ Wykonaj poniższe kroki, aby sprawdzić, czy logika przerzucania kluczy działa.
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. W ustawieniu ** \<>Dodaj odcisk palca = ""** Zmień wartość odcisku palca, zastępując dowolny znak innym. Zapisz plik **Web. config** .
+2. W **\<add thumbprint="">** ustawieniu Zmień wartość odcisku palca, zastępując dowolny znak innym. Zapisz plik **Web.config** .
 3. Skompiluj aplikację, a następnie uruchom ją. Jeśli możesz zakończyć proces logowania, aplikacja pomyślnie zaktualizuje klucz, pobierając wymagane informacje z dokumentu metadanych Federacji katalogu. Jeśli masz problemy z logowaniem się, upewnij się, że zmiany w aplikacji są poprawne, odczytując [Dodawanie logowania do aplikacji sieci Web przy użyciu artykułu usługi Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) lub pobierając i sprawdzając następujący przykład kodu: [wielodostępna aplikacja w chmurze dla Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Aplikacje sieci Web chroniące zasoby i utworzone za pomocą programu Visual Studio 2008 lub 2010 oraz Windows Identity Foundation (WIF) v 1.0 dla programu .NET 3,5

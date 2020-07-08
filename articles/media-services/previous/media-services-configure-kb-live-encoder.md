@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641681"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj kodera Haivision KB Live, aby wysłać strumień na żywo o pojedynczej szybkości transmisji bitów  
@@ -83,7 +82,7 @@ Dźwięku
     ![Zrzut ekranu 2017-08-14 o godzinie 9.33.17 AM](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Kliknij przycisk Dalej, a następnie kliknij przycisk Gotowe.
 9.  Kliknij **przycisk Odtwórz** , aby uruchomić kanał kodera.  
-    ![Haivision KB. png](./media/media-services-configure-kb-live-encoder/step9.png)
+    ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## <a name="test-playback"></a>Odtwarzanie testów
 Przejdź do narzędzia AMSE, a następnie kliknij prawym przyciskiem myszy kanał, który ma zostać przetestowany. W menu Umieść wskaźnik myszy nad odtwarzaniem wersji zapoznawczej i wybierz pozycję z Azure Media Player.

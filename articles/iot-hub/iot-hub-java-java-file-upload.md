@@ -13,10 +13,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f0753827fe5f7f2b866726683d4cb1f205da4599
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732467"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Java)
@@ -63,7 +62,7 @@ Na końcu tego samouczka uruchomisz dwie aplikacje konsolowe Java:
 
 W tej sekcji zmodyfikujesz aplikację urządzenia utworzoną w temacie [wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub](iot-hub-java-java-c2d.md) w celu przekazania pliku do usługi IoT Hub.
 
-1. Skopiuj plik obrazu do `simulated-device` folderu i zmień jego nazwę. `myimage.png`
+1. Skopiuj plik obrazu do `simulated-device` folderu i zmień jego nazwę `myimage.png` .
 
 2. Za pomocą edytora tekstów Otwórz `simulated-device\src\main\java\com\mycompany\app\App.java` plik.
 

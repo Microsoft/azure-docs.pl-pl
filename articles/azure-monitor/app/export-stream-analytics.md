@@ -4,10 +4,9 @@ description: Stream Analytics mogą w sposób ciągły przekształcać, filtrowa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536883"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
@@ -107,7 +106,7 @@ W tym przykładzie:
 > 
 
 ## <a name="add-new-output"></a>Dodaj nowe dane wyjściowe
-Teraz wybierz zadanie >**Dodawanie**danych **wyjściowych** > .
+Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  **Add**.
 
 ![](./media/export-stream-analytics/SA006.png)
 
@@ -204,7 +203,7 @@ Teraz można użyć tego zestawu danych w raportach i pulpitach nawigacyjnych w 
 ## <a name="no-data"></a>Brak danych?
 * Sprawdź, czy [Format daty](#set-path-prefix-pattern) jest prawidłowo ustawiony na rrrr-mm-dd (z kreskami).
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 Noam Ben Zeev pokazuje, jak przetwarzać eksportowane dane przy użyciu Stream Analytics.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]

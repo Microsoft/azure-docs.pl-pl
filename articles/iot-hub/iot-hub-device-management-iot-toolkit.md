@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81688099"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Korzystanie z narzędzi Azure IoT Tools for Visual Studio Code na potrzeby zarządzania urządzeniami IoT Hub platformy Azure
@@ -48,7 +47,7 @@ Uruchom narzędzia Azure IoT Tools dla Visual Studio Code z różnymi opcjami za
 * Aktywna subskrypcja platformy Azure.
 * Usługa Azure IoT Hub w ramach Twojej subskrypcji.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Narzędzia usługi Azure IoT dla vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub Skopiuj ten adres URL i wklej go do okna przeglądarki`vscode:extension/vsciot-vscode.azure-iot-tools`:.
+* [Narzędzia usługi Azure IoT dla vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub Skopiuj ten adres URL i wklej go do okna przeglądarki: `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Zaloguj się, aby uzyskać dostęp do centrum IoT Hub
 
@@ -71,19 +70,19 @@ Uruchom narzędzia Azure IoT Tools dla Visual Studio Code z różnymi opcjami za
 
 2. Wprowadź nazwę metody i ładunek w polu wejściowym.
 
-3. Wyniki będą wyświetlane w widoku **wyjście** > **IoT Hub platformy Azure** .
+3. Wyniki będą wyświetlane w widoku **wyjście**  >  **IoT Hub platformy Azure** .
 
 ## <a name="read-device-twin"></a>Odczytaj sznurki urządzenia
 
 1. Kliknij prawym przyciskiem myszy urządzenie, a następnie wybierz pozycję **Edytuj sznurek urządzeń**. 
 
-2. Plik **Azure-IoT-Device-splot. JSON** zostanie otwarty z zawartością sznurka urządzenia.
+2. **azure-iot-device-twin.jsw** pliku zostanie otwarty z zawartością sznurka urządzenia.
 
 ## <a name="update-device-twin"></a>Aktualizacja sznurka urządzenia
 
 1. Wprowadź edycję **tagów** lub **właściwości. żądane** pole.
 
-2. Kliknij prawym przyciskiem myszy plik **Azure-IoT-Device-splot. JSON** .
+2. Kliknij prawym przyciskiem myszy **azure-iot-device-twin.jsna** pliku.
 
 3. Wybierz pozycję **Aktualizuj sznurek urządzenia** , aby zaktualizować sznurek urządzeń.
 
@@ -95,7 +94,7 @@ Aby wysłać komunikat z usługi IoT Hub do urządzenia, wykonaj następujące k
 
 2. Wprowadź komunikat w polu wejściowym.
 
-3. Wyniki będą wyświetlane w widoku **wyjście** > **IoT Hub platformy Azure** .
+3. Wyniki będą wyświetlane w widoku **wyjście**  >  **IoT Hub platformy Azure** .
 
 ## <a name="next-steps"></a>Następne kroki
 

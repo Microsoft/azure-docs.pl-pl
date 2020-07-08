@@ -6,10 +6,9 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
 ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537512"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki Start: Rozpoczynanie pracy z Application Insights w projekcie sieci Web w języku Java
@@ -38,7 +37,7 @@ Application Insights jest rozszerzalną usługą analizy dla deweloperów sieci 
 
 # <a name="maven"></a>[Maven](#tab/maven)
 
-Jeśli projekt jest już skonfigurowany do korzystania z Maven na potrzeby kompilacji, Scal następujący kod z plikiem *pliku pom. XML* .
+Jeśli projekt jest już skonfigurowany do korzystania z Maven na potrzeby kompilacji, Scal Poniższy kod z plikiem *pom.xml* .
 
 Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
 
@@ -75,7 +74,7 @@ Pobierz [najnowszą wersję](https://github.com/Microsoft/ApplicationInsights-Ja
 ---
 
 ### <a name="questions"></a>Pytania
-* *Jaka jest relacja między `-web-auto`składnikami `-web` i `-core` ?*
+* *Jaka jest relacja między `-web-auto` `-web` `-core` składnikami i?*
   * `applicationinsights-web-auto`Program udostępnia metryki do śledzenia liczby żądań i czasów odpowiedzi HTTP serwletu przez automatyczne zarejestrowanie filtru Application Insights serwletu w czasie wykonywania.
   * `applicationinsights-web`zapewnia również metryki, które śledzą liczby żądań HTTP serwletu i czasy odpowiedzi, ale wymagają ręcznej rejestracji filtru Application Insights serwletu w aplikacji.
   * `applicationinsights-core`zapewnia tylko bezobsługowy interfejs API, na przykład jeśli aplikacja nie jest oparta na serwletu.
@@ -86,8 +85,8 @@ Pobierz [najnowszą wersję](https://github.com/Microsoft/ApplicationInsights-Ja
   * Jeśli ręcznie zarządzasz zależnościami...
     * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) i zastąp nim stary. Zmiany są opisane w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## <a name="add-an-applicationinsightsxml-file"></a>Dodawanie pliku *ApplicationInsights. XML*
-Dodaj *ApplicationInsights. XML* do folderu Resources w projekcie lub upewnij się, że jest on dodany do ścieżki klasy wdrożenia projektu. Skopiuj do niego następujący kod XML.
+## <a name="add-an-applicationinsightsxml-file"></a>Dodawanie pliku *ApplicationInsights.xml*
+Dodaj *ApplicationInsights.xml* do folderu Resources w projekcie lub upewnij się, że jest on dodany do ścieżki klasy wdrażania projektu. Skopiuj do niego następujący kod XML.
 
 Zastąp klucz Instrumentacji tym, który został uzyskany z Azure Portal.
 
@@ -118,7 +117,7 @@ Zastąp klucz Instrumentacji tym, który został uzyskany z Azure Portal.
 </ApplicationInsights>
 ```
 
-Opcjonalnie plik konfiguracji może znajdować się w dowolnej lokalizacji dostępnej dla aplikacji.  Właściwość `-Dapplicationinsights.configurationDirectory` system Określa katalog, który zawiera *ApplicationInsights. XML*. Na przykład plik konfiguracji znajdujący się w lokalizacji `E:\myconfigs\appinsights\ApplicationInsights.xml` można skonfigurować za pomocą właściwości `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Opcjonalnie plik konfiguracji może znajdować się w dowolnej lokalizacji dostępnej dla aplikacji.  Właściwość system `-Dapplicationinsights.configurationDirectory` określa katalog, który zawiera *ApplicationInsights.xml*. Na przykład plik konfiguracji znajdujący się w lokalizacji `E:\myconfigs\appinsights\ApplicationInsights.xml` można skonfigurować za pomocą właściwości `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * Klucz instrumentacji jest wysyłany wraz z każdym elementem telemetrii i dzięki temu te elementy mogą być wyświetlane dla odpowiedniego zasobu usługi Application Insights.
 * Składnik żądań HTTP jest opcjonalny. Powoduje automatyczne wysyłanie telemetrii dotyczącej żądań i czasów odpowiedzi do portalu.
@@ -129,7 +128,7 @@ Zestaw SDK usługi Application Insights szuka klucza w następującej kolejnośc
 
 1. Właściwość systemu:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. Zmienna środowiskowa: APPINSIGHTS_INSTRUMENTATIONKEY
-3. Plik konfiguracji: *ApplicationInsights. XML*
+3. Plik konfiguracji: *ApplicationInsights.xml*
 
 Możesz również [ustawić klucz w kodzie](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -188,13 +187,13 @@ Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, 
 
 * Na serwerach systemu Windows zainstaluj:
 
-  * [Pakiet Microsoft Visual C++ Redistributable](https://www.microsoft.com/download/details.aspx?id=40784)
+  * [Pakiet redystrybucyjny Microsoft Visual C++](https://www.microsoft.com/download/details.aspx?id=40784)
 
     Ten składnik umożliwia działanie liczników wydajności.
 
 ## <a name="azure-app-service-config-spring-boot"></a>Konfiguracja Azure App Service (sprężynowy rozruch)
 
-Aplikacje ze sprężyną rozruchu działające w systemie Windows wymagają dodatkowej konfiguracji do uruchomienia na platformie Azure App Services. Zmodyfikuj **plik Web. config** i Dodaj następującą konfigurację:
+Aplikacje ze sprężyną rozruchu działające w systemie Windows wymagają dodatkowej konfiguracji do uruchomienia na platformie Azure App Services. Zmodyfikuj **web.config** i Dodaj następującą konfigurację:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -225,7 +224,7 @@ Zestaw Application Insights Java SDK obsługuje teraz [rozproszone śledzenie W3
 
 Konfiguracja przychodzącego zestawu SDK została omówiona dokładniej w naszym artykule dotyczącym [korelacji](correlation.md).
 
-Konfiguracja wychodzącego zestawu SDK jest zdefiniowana w pliku [AI-Agent. XML](java-agent.md) .
+Konfiguracja wychodzącego zestawu SDK została zdefiniowana w pliku [AI-Agent.xml](java-agent.md) .
 
 ## <a name="performance-counters"></a>Liczniki wydajności
 Otwórz **Badanie**, **metryki**, aby wyświetlić zakres liczników wydajności.
@@ -233,7 +232,7 @@ Otwórz **Badanie**, **metryki**, aby wyświetlić zakres liczników wydajności
 ![Zrzut ekranu okienka metryk z wybranymi prywatnymi bajtami procesu](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Dostosowywanie zbierania danych liczników wydajności
-Aby wyłączyć zbieranie standardowego zestawu liczników wydajności, Dodaj następujący kod w węźle głównym pliku *ApplicationInsights. XML* :
+Aby wyłączyć zbieranie standardowego zestawu liczników wydajności, Dodaj następujący kod w węźle głównym pliku *ApplicationInsights.xml* :
 
 ```XML
     <PerformanceCounters>
@@ -300,7 +299,7 @@ Usługa Application Insights może służyć do testowania witryny sieci Web w r
 
 [Dowiedz się więcej na temat konfigurowania testów dostępności sieci Web.][availability]
 
-## <a name="questions-problems"></a>Pytania? Problemy?
+## <a name="questions-problems"></a>Masz pytania? Problemy?
 [Rozwiązywanie problemów z technologią Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Następne kroki

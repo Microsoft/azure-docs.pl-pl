@@ -9,10 +9,9 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687199"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configure an IoT Edge device to communicate through a proxy server (Konfigurowanie urządzenia usługi IoT Edge pod kątem komunikacji za pośrednictwem serwera proxy)
@@ -53,7 +52,7 @@ Adresy URL serwera proxy mają następujący format: **Protokół**://**proxy_ho
 
 * **Protokół** to http lub https. Demon platformy Docker może używać dowolnego protokołu, w zależności od ustawień rejestru kontenerów, ale IoT Edge w celu nawiązania połączenia z serwerem proxy należy używać protokołu HTTP.
 
-* **Proxy_host** jest adresem serwera proxy. Jeśli serwer proxy wymaga uwierzytelnienia, możesz podać swoje poświadczenia jako część hosta proxy w następującym formacie: **użytkownik**:**hasło**\@**proxy_host**.
+* **Proxy_host** jest adresem serwera proxy. Jeśli serwer proxy wymaga uwierzytelnienia, możesz podać swoje poświadczenia jako część hosta proxy w następującym formacie: **użytkownik**:**hasło** \@ **proxy_host**.
 
 * **Proxy_port** jest portem sieciowym, w którym serwer proxy reaguje na ruch sieciowy.
 
@@ -83,7 +82,7 @@ Poniższe kroki przedstawiają przykład instalacji systemu Windows przy użyciu
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-Jeśli masz skomplikowane poświadczenia serwera proxy, którego nie można uwzględnić w adresie URL, użyj `-ProxyCredential` parametru w. `-InvokeWebRequestParameters` Na przykład:
+Jeśli masz skomplikowane poświadczenia serwera proxy, którego nie można uwzględnić w adresie URL, użyj `-ProxyCredential` parametru w `-InvokeWebRequestParameters` . Na przykład
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -122,7 +121,7 @@ Otwórz Edytor w terminalu, aby skonfigurować demona IoT Edge.
 sudo systemctl edit iotedge
 ```
 
-Wprowadź następujący tekst, zastępując ** \<adres URL serwera proxy>** z adresem i portem serwera proxy. Następnie Zapisz i Zakończ.
+Wprowadź następujący tekst, zastępując **\<proxy URL>** go adresem serwera proxy i portem. Następnie Zapisz i Zakończ.
 
 ```ini
 [Service]
@@ -149,7 +148,7 @@ systemctl show --property=Environment iotedge
 
 #### <a name="windows"></a>Windows
 
-Otwórz okno programu PowerShell jako administrator i uruchom następujące polecenie, aby edytować rejestr przy użyciu nowej zmiennej środowiskowej. Zastąp ** \<adres URL serwera proxy>** z adresem i portem serwera proxy.
+Otwórz okno programu PowerShell jako administrator i uruchom następujące polecenie, aby edytować rejestr przy użyciu nowej zmiennej środowiskowej. Zastąp ciąg **\<proxy url>** adresem i portem serwera proxy.
 
 ```powershell
 reg add HKLM\SYSTEM\CurrentControlSet\Services\iotedge /v Environment /t REG_MULTI_SZ /d https_proxy=<proxy URL>

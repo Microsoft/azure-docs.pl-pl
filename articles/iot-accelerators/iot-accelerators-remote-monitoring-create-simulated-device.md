@@ -10,10 +10,9 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682007"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Tworzenie i testowanie nowego symulowanego urządzenia
@@ -73,7 +72,7 @@ W poniższej tabeli przedstawiono początkowy stan urządzenia:
 
 Aby wykonać kroki opisane w tym przewodniku, musisz mieć aktywną subskrypcję platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -108,11 +107,11 @@ Pobierz i rozpakuj [mikrousługę symulacji urządzenia z usługi](https://githu
 
 Otwórz folder **Remote-Monitoring-Services-dotnet-master\storage-adapter** w Visual Studio Code. Kliknij dowolne przyciski **przywracania** , aby naprawić wszystkie nierozwiązane zależności.
 
-Otwórz plik **Storage-Adapter/WebService/appSettings. ini** i przypisz Cosmos DB parametry połączenia do zmiennej **documentDBConnectionString** .
+Otwórz plik **Storage-Adapter/WebService/appsettings.ini** i przypisz Cosmos DB parametry połączenia do zmiennej **documentDBConnectionString** .
 
 Aby uruchomić mikrousługę lokalnie, kliknij pozycję **debuguj > Rozpocznij debugowanie**.
 
-W oknie **terminalu** w Visual Studio Code są wyświetlane dane wyjściowe z uruchomionej mikrousługi, w tym adres URL sprawdzania kondycji [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)usługi sieci Web:. Po przejściu na ten adres stan powinien mieć wartość "OK: Alive i".
+W oknie **terminalu** w Visual Studio Code są wyświetlane dane wyjściowe z uruchomionej mikrousługi, w tym adres URL sprawdzania kondycji usługi sieci Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) . Po przejściu na ten adres stan powinien mieć wartość "OK: Alive i".
 
 W tym wystąpieniu Visual Studio Code należy pozostawić działającą mikrousługę kart pamięci podczas wykonywania następnych kroków.
 
@@ -126,14 +125,14 @@ W tej sekcji dodasz nowy typ telemetrii **temperatury wewnętrznej** do istniej�
 
     | Element źródłowy | Element docelowy |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\chiller-01.jsna | C:\temp\devicemodels\chiller-01.jsna |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
     | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
     | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
     | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
     | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
-1. Otwórz plik **C:\temp\devicemodels\chiller-01.JSON** .
+1. Otwórz **C:\temp\devicemodels\chiller-01.js** pliku.
 
 1. W sekcji **InitialState** Dodaj następujące dwie definicje:
 
@@ -159,9 +158,9 @@ W tej sekcji dodasz nowy typ telemetrii **temperatury wewnętrznej** do istniej�
     },
     ```
 
-1. Zapisz plik **C:\temp\devicemodels\chiller-01.JSON** .
+1. Zapisz **C:\temp\devicemodels\chiller-01.js** pliku.
 
-1. Otwórz plik **C:\temp\devicemodels\scripts\chiller-01-State.js** .
+1. Otwórz plik **C:\temp\devicemodels\scripts\chiller-01-state.js** .
 
 1. Dodaj następujące pola do zmiennej **stanu** :
 
@@ -202,13 +201,13 @@ W tej sekcji dodasz nowy typ telemetrii **temperatury wewnętrznej** do istniej�
     }
     ```
 
-1. Zapisz plik **C:\temp\devicemodels\scripts\chiller-01-State.js** .
+1. Zapisz plik **C:\temp\devicemodels\scripts\chiller-01-state.js** .
 
 ## <a name="create-the-lightbulb"></a>Tworzenie żarówki
 
 W tej sekcji definiujesz nowy typ urządzenia **żarówki** :
 
-1. Utwórz plik **C:\temp\devicemodels\lightbulb-01.JSON** i Dodaj następującą zawartość:
+1. Utwórz plik **C:\temp\devicemodels\lightbulb-01.jsna** i Dodaj następującą zawartość:
 
     ```json
     {
@@ -272,9 +271,9 @@ W tej sekcji definiujesz nowy typ urządzenia **żarówki** :
     }
     ```
 
-    Zapisz zmiany w **C:\temp\devicemodels\lightbulb-01.JSON**.
+    Zapisz zmiany w **C:\temp\devicemodels\lightbulb-01.js**.
 
-1. Utwórz plik **C:\temp\devicemodels\scripts\lightbulb-01-State.js** i Dodaj następującą zawartość:
+1. Utwórz plik **C:\temp\devicemodels\scripts\lightbulb-01-state.js** i Dodaj następującą zawartość:
 
     ```javascript
     "use strict";
@@ -361,9 +360,9 @@ W tej sekcji definiujesz nowy typ urządzenia **żarówki** :
     }
     ```
 
-    Zapisz zmiany w **C:\temp\devicemodels\scripts\lightbulb-01-State.js**.
+    Zapisz zmiany w **C:\temp\devicemodels\scripts\lightbulb-01-state.js**.
 
-1. Utwórz plik **C:\temp\devicemodels\scripts\SwitchOn-Method.js** i Dodaj następującą zawartość:
+1. Utwórz plik **C:\temp\devicemodels\scripts\SwitchOn-method.js** i Dodaj następującą zawartość:
 
     ```javascript
     "use strict";
@@ -387,9 +386,9 @@ W tej sekcji definiujesz nowy typ urządzenia **żarówki** :
     }
     ```
 
-    Zapisz zmiany w **C:\temp\devicemodels\scripts\SwitchOn-Method.js**.
+    Zapisz zmiany w **C:\temp\devicemodels\scripts\SwitchOn-method.js**.
 
-1. Utwórz plik **C:\temp\devicemodels\scripts\SwitchOff-Method.js** i Dodaj następującą zawartość:
+1. Utwórz plik **C:\temp\devicemodels\scripts\SwitchOff-method.js** i Dodaj następującą zawartość:
 
     ```javascript
     "use strict";
@@ -413,7 +412,7 @@ W tej sekcji definiujesz nowy typ urządzenia **żarówki** :
     }
     ```
 
-    Zapisz zmiany w **C:\temp\devicemodels\scripts\SwitchOff-Method.js**.
+    Zapisz zmiany w **C:\temp\devicemodels\scripts\SwitchOff-method.js**.
 
 Utworzono dostosowaną wersję typu urządzenia **chłodzenia** i utworzono nowy typ urządzenia **żarówki** .
 
@@ -425,7 +424,7 @@ W tej sekcji przetestujesz typy urządzeń utworzone w poprzednich sekcjach loka
 
 Otwórz folder **"symulacja urządzenia-dotnet"** , który został pobrany z usługi GitHub w nowym wystąpieniu Visual Studio Code. Kliknij dowolne przyciski **przywracania** , aby naprawić wszystkie nierozwiązane zależności.
 
-Otwórz plik **WebService/appSettings. ini** i przypisz Cosmos DB parametry połączenia do zmiennej **documentdb_connstring** i zmodyfikuj ustawienia w następujący sposób:
+Otwórz plik usługi **WebService/appsettings.ini** i przypisz parametry połączenia Cosmos DB do zmiennej **documentdb_connstring** , a także zmodyfikuj ustawienia w następujący sposób:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -493,7 +492,7 @@ Aby skonfigurować i uruchomić symulację:
 
 Aby zatrzymać symulację, wybierz żądanie **zatrzymania symulacji** w programie Poster i kliknij pozycję **Wyślij**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (**debugowanie > zatrzymać debugowanie**).
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730107"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planowanie zadań na wielu urządzeniach
@@ -30,7 +29,7 @@ Należy rozważyć użycie zadań, gdy zachodzi potrzeba zaplanowania i śledzen
 
 ## <a name="job-lifecycle"></a>Cykl życia zadania
 
-Zadania są inicjowane przez zaplecze rozwiązania i obsługiwane przez IoT Hub. Zadanie można zainicjować za pomocą identyfikatora URI dotyczącego usługi (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) i wykonać zapytanie o postęp wykonywania zadania za pomocą identyfikatora URI mającego dostęp do usługi`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`(). Aby odświeżyć stan uruchomionych zadań po zainicjowaniu zadania, uruchom zapytanie o zadanie.
+Zadania są inicjowane przez zaplecze rozwiązania i obsługiwane przez IoT Hub. Zadanie można zainicjować za pomocą identyfikatora URI `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` dotyczącego usługi () i wykonać zapytanie o postęp wykonywania zadania za pomocą identyfikatora URI mającego dostęp do usługi `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` (). Aby odświeżyć stan uruchomionych zadań po zainicjowaniu zadania, uruchom zapytanie o zadanie.
 
 > [!NOTE]
 > Po zainicjowaniu zadania nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
@@ -122,7 +121,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> Właściwość *updateTwin* wymaga prawidłowego dopasowania ETag; na przykład `etag="*"`.
+> Właściwość *updateTwin* wymaga prawidłowego dopasowania ETag; na przykład `etag="*"` .
 
 Poniższy fragment kodu przedstawia żądanie i odpowiedź dla zadania zaplanowanego do aktualizacji właściwości sznurka urządzenia dla urządzenia test-Hub
 

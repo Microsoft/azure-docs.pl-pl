@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605183"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i Konfigurowanie Pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure
@@ -34,7 +33,7 @@ Ten artykuł wymaga istniejącej maszyny wirtualnej Ubuntu 18,04 LTS na platform
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalowanie środowiska pulpitu na maszynie wirtualnej z systemem Linux
 Większość maszyn wirtualnych z systemem Linux na platformie Azure nie ma domyślnie zainstalowanego środowiska pulpitu. Maszyny wirtualne z systemem Linux są często zarządzane przy użyciu połączeń SSH, a nie środowiska pulpitu. Dostępne są różne środowiska pulpitu w systemie Linux, które można wybrać. W zależności od wybranego środowiska komputerowego może zużywać jeden do 2 GB miejsca na dysku i przejmować od 5 do 10 minut na zainstalowanie i skonfigurowanie wszystkich wymaganych pakietów.
 
-Poniższy przykład instaluje środowisko pulpitu lekkiego [Xfce4](https://www.xfce.org/) na maszynie wirtualnej z systemem Ubuntu 18,04 LTS. Polecenia dla innych dystrybucji różnią się nieznacznie `yum` (Użyj, aby zainstalować program na `selinux` Red Hat Enterprise Linux i skonfigurować odpowiednie `zypper` reguły, lub użyć programu do instalacji w systemie SUSE, na przykład).
+Poniższy przykład instaluje środowisko pulpitu lekkiego [Xfce4](https://www.xfce.org/) na maszynie wirtualnej z systemem Ubuntu 18,04 LTS. Polecenia dla innych dystrybucji różnią się nieznacznie (Użyj, `yum` Aby zainstalować program na Red Hat Enterprise Linux i skonfigurować odpowiednie `selinux` reguły, lub użyć `zypper` programu do instalacji w systemie SUSE, na przykład).
 
 Najpierw SSH z maszyną wirtualną. Poniższy przykład nawiązuje połączenie z maszyną wirtualną o nazwie *MyVM.westus.cloudapp.Azure.com* z nazwą użytkownika *azureuser*. Użyj własnych wartości:
 
@@ -106,7 +105,7 @@ Jeśli lokalny klient RDP korzysta z uwierzytelniania na poziomie sieci, może b
 
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
-Jeśli nie można nawiązać połączenia z maszyną wirtualną z systemem Linux przy `netstat` użyciu klienta pulpit zdalny, użyj maszyny wirtualnej z systemem Linux, aby sprawdzić, czy maszyna wirtualna nasłuchuje połączeń RDP w następujący sposób:
+Jeśli nie można nawiązać połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta Pulpit zdalny, użyj `netstat` maszyny wirtualnej z systemem Linux, aby sprawdzić, czy maszyna wirtualna nasłuchuje połączeń RDP w następujący sposób:
 
 ```bash
 sudo netstat -plnt | grep rdp

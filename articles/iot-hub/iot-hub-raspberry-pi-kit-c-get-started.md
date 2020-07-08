@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81640542"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Łączenie Raspberry Pi z platformą Azure IoT Hub (C)
@@ -117,9 +116,9 @@ Przygotuj kartę microSD na potrzeby instalacji obrazu raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Włączanie protokołów SSH i SPI
 
-1. Połącz pi z monitorem, klawiaturą i myszą, Zacznij od Pi, a następnie zaloguj się `pi` do raspbian, używając jako `raspberry` nazwy użytkownika i hasła.
+1. Połącz pi z monitorem, klawiaturą i myszą, Zacznij od Pi, a następnie zaloguj się do raspbian, używając `pi` jako nazwy użytkownika i `raspberry` hasła.
  
-2. Kliknij ikonę Raspberry > **Preferencje** > **Raspberry Pi Configuration**.
+2. Kliknij ikonę Raspberry > **Preferencje**  >  **Raspberry Pi Configuration**.
 
    ![Menu preferencji raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -180,7 +179,7 @@ Włącz opcję pi przy użyciu kabla micro USB i zasilacza. Podłącz PI do siec
 
    Użyj wbudowanego klienta SSH w systemie Ubuntu lub macOS. Może być konieczne uruchomienie `ssh pi@<ip address of pi>` programu w celu nawiązania połączenia pi za pośrednictwem protokołu SSH.
    > [!NOTE]
-   > Domyślna nazwa użytkownika to `pi` , a hasło to `raspberry`.
+   > Domyślna nazwa użytkownika to `pi` , a hasło to `raspberry` .
 
 
 ### <a name="configure-the-sample-application"></a>Konfigurowanie aplikacji przykładowej

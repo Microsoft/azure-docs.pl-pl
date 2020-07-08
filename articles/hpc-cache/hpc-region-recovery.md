@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 21074ae6bc4959da031bc7065cd7d0639ec2a14f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537274"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Używanie wielu pamięci podręcznych dla regionalnego odzyskiwania trybu failover
@@ -55,6 +54,6 @@ Jeśli ma to zastosowanie w przypadku oryginalnych klientów, Utwórz nowych kli
 
 Wszyscy klienci będą musieli zainstalować nową pamięć podręczną, nawet jeśli awaria regionu nie wpłynie na klientów. Nowa pamięć podręczna ma inne adresy instalacji od Starego.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 Przewodnik po architekturze aplikacji platformy Azure zawiera więcej informacji o sposobach [odzyskiwania po przerwie między](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)działami w całym regionie.

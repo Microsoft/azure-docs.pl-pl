@@ -16,10 +16,9 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273209"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
@@ -50,7 +49,7 @@ Blokowanie stron w pamięci jest ustawieniem uniemożliwiającym stronicowanie b
 
 
 ## <a name="linux-operating-system-specific-settings"></a>Ustawienia specyficzne dla systemu operacyjnego Linux
-Na maszynach wirtualnych z `saptune` systemem Linux Uruchom polecenie with profile SAP-ASE w systemie Linux, które powinny być domyślnie włączone i można je zweryfikować za pomocą polecenia  
+Na maszynach wirtualnych z systemem Linux Uruchom polecenie `saptune` with profile SAP-ASE w systemie Linux, które powinny być domyślnie włączone i można je zweryfikować za pomocą polecenia  
 
 `cat /proc/meminfo` 
 
@@ -80,10 +79,10 @@ Przykłady podane poniżej służą do celów ilustracyjnych i mogą być modyfi
 
 Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy danych wynoszącym od 50 GB do 250 GB, na przykład Menedżera rozwiązań SAP, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E4s_v3 (4 vCPU/32 GB pamięci RAM) | E4s_v3 (4 vCPU/32 GB pamięci RAM) | --- |
-| Accelerated Networking | Włączanie | Włączanie | ---|
+| Accelerated Networking | Włącz | Włącz | ---|
 | Wersja oprogramowania SAP ASE | 16.0.03.07 lub wyższy | 16.0.03.07 lub wyższy | --- |
 | Liczba urządzeń z danymi | 4 | 4 | ---|
 | Liczba urządzeń dziennika | 1 | 1 | --- |
@@ -101,10 +100,10 @@ Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy d
 
 Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 250 GB – 750 GB, na przykład w przypadku mniejszych systemów SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E16s_v3 (16 vCPU/128 GB pamięci RAM) | E16s_v3 (16 vCPU/128 GB pamięci RAM) | --- |
-| Accelerated Networking | Włączanie | Włączanie | ---|
+| Accelerated Networking | Włącz | Włącz | ---|
 | Wersja oprogramowania SAP ASE | 16.0.03.07 lub wyższy | 16.0.03.07 lub wyższy | --- |
 | Liczba urządzeń z danymi | 8 | 8 | ---|
 | Liczba urządzeń dziennika | 1 | 1 | --- |
@@ -121,10 +120,10 @@ Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z r
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarze bazy danych wynoszącym od 750 GB do 2000 GB, na przykład w większym systemie SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E64s_v3 (64 vCPU/432 GB pamięci RAM) | E64s_v3 (64 vCPU/432 GB pamięci RAM) | --- |
-| Accelerated Networking | Włączanie | Włączanie | ---|
+| Accelerated Networking | Włącz | Włącz | ---|
 | Wersja oprogramowania SAP ASE | 16.0.03.07 lub wyższy | 16.0.03.07 lub wyższy | --- |
 | Liczba urządzeń z danymi | 16 | 16 | ---|
 | Liczba urządzeń dziennika | 1 | 1 | --- |
@@ -142,10 +141,10 @@ Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarz
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 2 TB +, na przykład w większym globalnie używanym systemie SAP Business Suite, może wyglądać jak
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | Seria M (1,0 do 4,0 TB pamięci RAM)  | Seria M (1,0 do 4,0 TB pamięci RAM) | --- |
-| Accelerated Networking | Włączanie | Włączanie | ---|
+| Accelerated Networking | Włącz | Włącz | ---|
 | Wersja oprogramowania SAP ASE | 16.0.03.07 lub wyższy | 16.0.03.07 lub wyższy | --- |
 | Liczba urządzeń z danymi | 32 | 32 | ---|
 | Liczba urządzeń dziennika | 1 | 1 | --- |
@@ -221,7 +220,7 @@ Menedżer aprowizacji oprogramowania SAP (SWPM) zapewnia możliwość szyfrowani
 ## <a name="using-dbacockpit-to-monitor-database-instances"></a>Monitorowanie wystąpień bazy danych za pomocą DBACockpit
 W przypadku systemów SAP, które korzystają z oprogramowania SAP ASE jako platformy bazy danych, DBACockpit jest dostępny jako osadzone okna przeglądarki w transakcjach DBACockpit lub jako WebDynpro. Jednak Pełna funkcjonalność monitorowania i administrowania bazą danych jest dostępna tylko w implementacji WebDynpro tylko DBACockpit.
 
-Zgodnie z systemami lokalnymi należy wykonać kilka kroków, aby włączyć wszystkie funkcje SAP NetWeaver używane przez implementację WebDynpro DBACockpit. Postępuj zgodnie z [uwagą pomocy technicznej SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) , aby włączyć użycie webdynpros i wygenerować wymagane. Wykonując instrukcje podane w powyższych informacjach, należy również skonfigurować program Internet Communications Manager (`ICM`) wraz z portami używanymi na potrzeby połączeń HTTP i https. Domyślne ustawienie dla protokołu HTTP wygląda następująco:
+Zgodnie z systemami lokalnymi należy wykonać kilka kroków, aby włączyć wszystkie funkcje SAP NetWeaver używane przez implementację WebDynpro DBACockpit. Postępuj zgodnie z [uwagą pomocy technicznej SAP #1245200](https://launchpad.support.sap.com/#/notes/1245200) , aby włączyć użycie webdynpros i wygenerować wymagane. Wykonując instrukcje podane w powyższych informacjach, należy również skonfigurować program Internet Communications Manager ( `ICM` ) wraz z portami używanymi na potrzeby połączeń HTTP i https. Domyślne ustawienie dla protokołu HTTP wygląda następująco:
 
 > ICM/server_port_0 = PROT = HTTP, PORT = 8000, PROCTIMEOUT = 600, TIMEOUT = 600
 > 
@@ -231,17 +230,17 @@ Zgodnie z systemami lokalnymi należy wykonać kilka kroków, aby włączyć wsz
 
 a linki wygenerowane w ramach transakcji DBACockpit wyglądają podobnie do:
 
-> https:\//\<fullyqualifiedhostname>:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ / \<fullyqualifiedhostname> : 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//\<fullyqualifiedhostname>:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ / \<fullyqualifiedhostname> : 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
 W zależności od tego, jak maszyna wirtualna platformy Azure hostującym system SAP jest połączona z usługami AD i DNS, należy się upewnić, że ICM korzysta z w pełni kwalifikowanej nazwy hosta, którą można rozwiązać na komputerze, na którym jest otwierany DBACockpit. Zobacz [uwagi dotyczące pomocy technicznej SAP #773830](https://launchpad.support.sap.com/#/notes/773830) , aby zrozumieć, jak ICM określa w pełni kwalifikowaną nazwę hosta na podstawie parametrów profilu i w razie potrzeby jawnie ustaw parametr icm/host_name_full.
 
-Jeśli maszyna wirtualna została wdrożona w scenariuszu obejmującym tylko chmurę bez połączenia między środowiskiem lokalnym i platformą Azure, musisz zdefiniować publiczny adres IP i `domainlabel`. Format publicznej nazwy DNS maszyny wirtualnej wygląda następująco:
+Jeśli maszyna wirtualna została wdrożona w scenariuszu obejmującym tylko chmurę bez połączenia między środowiskiem lokalnym i platformą Azure, musisz zdefiniować publiczny adres IP i `domainlabel` . Format publicznej nazwy DNS maszyny wirtualnej wygląda następująco:
 
-> `<custom domainlabel`>. `<azure region`>. cloudapp.Azure.com
+> `<custom domainlabel`>. `<azure region`>. cloudapp.azure.com
 > 
 > 
 
@@ -249,9 +248,9 @@ Więcej szczegółów dotyczących nazwy DNS można znaleźć [tutaj] [Virtual-M
 
 Ustawienie opcji ICM/host_name_full parametru profilu SAP na nazwę DNS maszyny wirtualnej platformy Azure link może wyglądać podobnie do:
 
-> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https: \/ /mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http: \/ /mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 
 W takim przypadku należy upewnić się, że:
 

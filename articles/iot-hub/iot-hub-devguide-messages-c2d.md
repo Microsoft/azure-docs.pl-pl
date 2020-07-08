@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81730010"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Wysyłanie komunikatów z chmury do urządzeń z Centrum IoT Hub
@@ -97,7 +96,7 @@ Treść jest serializowaną w formacie JSON tablicą rekordów, z których każd
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Sygnatura czasowa wskazująca, kiedy wystąpił wynik komunikatu (na przykład centrum odebrało wiadomość z opinia lub wygasła oryginalna wiadomość) |
 | OriginalMessageId  | Identyfikator *MessageID* komunikatu z chmury do urządzenia, do którego odnoszą się informacje o opinii |
-| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Powodzenie* <br/> *Wygasłe* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
+| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Prawnego* <br/> *Wygasła* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
 | Opis        | Wartości ciągu dla elementu *StatusCode* |
 | DeviceId           | Identyfikator urządzenia docelowego komunikatu z chmury do *urządzenia, do* którego odnosi się ten element opinii |
 | DeviceGenerationId | *DeviceGenerationId* urządzenia docelowego komunikatu z chmury do urządzenia, do którego odnosi się ten element opinii |

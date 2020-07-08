@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606134"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w mapowaniu przepływu danych
@@ -31,7 +30,7 @@ Aby dodać wzorzec kolumny w kolumnie pochodnej lub karcie agregowania transform
 
 ![wzorce kolumn](media/data-flow/columnpattern.png "Wzorce kolumn")
 
-Użyj [konstruktora wyrażeń](concepts-data-flow-expression-builder.md) , aby wprowadzić warunek dopasowania. Utwórz wyrażenie logiczne, które pasuje do kolumn na podstawie `name`kolumny `type`, `stream`, i `position` . Wzorzec będzie miał wpływ na wszystkie kolumny, przenoszące lub zdefiniowane, gdzie warunek zwraca wartość true.
+Użyj [konstruktora wyrażeń](concepts-data-flow-expression-builder.md) , aby wprowadzić warunek dopasowania. Utwórz wyrażenie logiczne, które pasuje do kolumn na podstawie `name` `type` kolumny,, `stream` i `position` . Wzorzec będzie miał wpływ na wszystkie kolumny, przenoszące lub zdefiniowane, gdzie warunek zwraca wartość true.
 
 Dwa pola wyrażenia poniżej warunku Match określają nowe nazwy i wartości kolumn, których dotyczy problem. Służy `$$` do odwoływania się do istniejącej wartości dopasowanego pola. Pole wyrażenia Left definiuje nazwę i prawo pole wyrażenia definiuje wartość.
 
@@ -45,7 +44,7 @@ Aby sprawdzić, czy odpowiedni warunek jest poprawny, można sprawdzić poprawno
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapowanie oparte na regułach w SELECT i ujścia
 
-Podczas mapowania kolumn w źródle i wybierania transformacji można dodać stałe mapowania lub mapowania oparte na regułach. Dopasowanie na podstawie kolumn `name`, `type`, `stream`i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
+Podczas mapowania kolumn w źródle i wybierania transformacji można dodać stałe mapowania lub mapowania oparte na regułach. Dopasowanie na podstawie `name` kolumn, `type` , `stream` i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
 
 Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach**.
 
@@ -55,7 +54,7 @@ Każde mapowanie oparte na regułach wymaga dwóch danych wejściowych: warunek,
 
 ![Mapowanie oparte na regułach](media/data-flow/rule-based-mapping.png "Mapowanie oparte na regułach")
 
-Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu na przykład, Załóżmy, że użytkownik chce dopasować wszystkie kolumny ciągów, których nazwy są krótsze niż sześć znaków. Jeśli jedna kolumna przychodząca `test`ma nazwę, `$$ + '_short'` wyrażenie zmieni nazwę kolumny `test_short`. Jeśli jest to jedyne mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunku, zostaną usunięte z danych, które zostały wydane.
+Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu na przykład, Załóżmy, że użytkownik chce dopasować wszystkie kolumny ciągów, których nazwy są krótsze niż sześć znaków. Jeśli jedna kolumna przychodząca `test` ma nazwę, wyrażenie zmieni `$$ + '_short'` nazwę kolumny `test_short` . Jeśli jest to jedyne mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunku, zostaną usunięte z danych, które zostały wydane.
 
 Wzorce pasują do kolumn przeznaczonych i zdefiniowanych. Aby zobaczyć, które zdefiniowane kolumny są mapowane przez regułę, kliknij ikonę okularów obok reguły. Sprawdź dane wyjściowe przy użyciu podglądu danych.
 
@@ -65,7 +64,7 @@ Jeśli klikniesz ikonę z dolnym cudzysłowem, możesz określić warunek mapowa
 
 ![Mapowanie oparte na regułach](media/data-flow/regex-matching.png "Mapowanie oparte na regułach")
 
-Powyższy przykład pasuje do wzorca `(r)` wyrażenia regularnego lub nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku standardowego mapowania opartego na regułach, wszystkie dopasowane kolumny są modyfikowane przez warunek `$$` po prawej stronie składni.
+Powyższy przykład pasuje do wzorca wyrażenia regularnego `(r)` lub nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku standardowego mapowania opartego na regułach, wszystkie dopasowane kolumny są modyfikowane przez warunek po prawej stronie `$$` składni.
 
 ### <a name="rule-based-hierarchies"></a>Hierarchie oparte na regułach
 
@@ -73,7 +72,7 @@ Jeśli zdefiniowana projekcja ma hierarchię, można użyć mapowania opartego n
 
 ![Mapowanie oparte na regułach](media/data-flow/rule-based-hierarchy.png "Mapowanie oparte na regułach")
 
-Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a`. `a`zawiera dwie podkolumny `b` i `c`. Schemat danych wyjściowych będzie zawierać dwie `b` kolumny `c` , a jako warunek "name as" `$$`.
+Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a` . `a`zawiera dwie podkolumny `b` i `c` . Schemat danych wyjściowych będzie zawierać dwie kolumny `b` , a `c` jako warunek "name as" `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Wartości wyrażeń dopasowania do wzorca.
 

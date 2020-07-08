@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81262438"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
@@ -58,13 +57,13 @@ Jednakże jeśli zapytania testowe nie wytwarzają oczekiwanych odpowiedników, 
 
 Zapytania rozmyte są konstruowane przy użyciu pełnej składni zapytań Lucene, wywołując [Analizator zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-1. Ustaw pełny parser Lucene dla zapytania (`queryType=full`).
+1. Ustaw pełny parser Lucene dla zapytania ( `queryType=full` ).
 
-1. Opcjonalnie należy ograniczyć zakres żądania do określonych pól przy użyciu tego parametru (`searchFields=<field1,field2>`). 
+1. Opcjonalnie należy ograniczyć zakres żądania do określonych pól przy użyciu tego parametru ( `searchFields=<field1,field2>` ). 
 
-1. Dołącz operator tyldy`~`() na końcu całego okresu (`search=<string>~`).
+1. Dołącz operator tyldy ( `~` ) na końcu całego okresu ( `search=<string>~` ).
 
-   Dołącz opcjonalny parametr, liczbę z zakresu od 0 do 2 (domyślnie), jeśli chcesz określić odległość do edycji (`~1`). Na przykład "Blue ~" lub "Blue ~ 1" zwróci "Blue", "Blues" i "Glue".
+   Dołącz opcjonalny parametr, liczbę z zakresu od 0 do 2 (domyślnie), jeśli chcesz określić odległość do edycji ( `~1` ). Na przykład "Blue ~" lub "Blue ~ 1" zwróci "Blue", "Blues" i "Glue".
 
 Na platformie Azure Wyszukiwanie poznawcze, poza terminem i odległością (maksymalnie 2), nie ma żadnych dodatkowych parametrów do ustawienia dla zapytania.
 
