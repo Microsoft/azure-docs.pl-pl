@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 42fd1a6c17ddbf06715a9f814bc214db3f34e1ad
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100175"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038042"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>

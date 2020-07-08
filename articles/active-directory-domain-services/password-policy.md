@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 097159a1cbe87add5267d763e20e1bebb6cc5b3a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734541"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040048"
 ---
 # <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Zasady blokowania haseł i kont w Active Directory Domain Services domenach zarządzanych
 

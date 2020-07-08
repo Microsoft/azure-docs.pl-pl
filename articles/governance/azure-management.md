@@ -3,12 +3,12 @@ title: Zarządzanie platformą Azure — omówienie — zarządzanie platformą 
 description: Przegląd obszarów zarządzania dla aplikacji i zasobów platformy Azure z linkami do zawartości w narzędziach zarządzania platformy Azure.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 00e42f05e07a6aba2fcada973d57c11e0ab98ca7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956343"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041918"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Co to są obszary zarządzania platformy Azure?
 
@@ -24,9 +24,9 @@ Poniższy diagram przedstawia różne obszary zarządzania wymagane do obsługi 
 
 W poniższych sekcjach krótko opisano różne obszary zarządzania oraz podano linki do szczegółowych informacji o głównych usługach platformy Azure dotyczących tych obszarów.
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorowanie
 
-Monitorowanie to czynność zbierania i analizowania danych w celu przeprowadzenia inspekcji wydajności, kondycji i dostępności zasobów. Skuteczna strategia monitorowania pomaga zrozumieć działanie składników i zwiększyć czas pracy przy użyciu powiadomień. Zapoznaj się z omówieniem monitorowania, który obejmuje różne usługi używane do [monitorowania aplikacji i zasobów platformy Azure](../monitoring/monitoring-overview.md).
+Monitorowanie to czynność zbierania i analizowania danych w celu przeprowadzenia inspekcji wydajności, kondycji i dostępności zasobów. Skuteczna strategia monitorowania pomaga zrozumieć działanie składników i zwiększyć czas pracy przy użyciu powiadomień. Zapoznaj się z omówieniem monitorowania, który obejmuje różne usługi używane do [monitorowania aplikacji i zasobów platformy Azure](../azure-monitor/overview.md).
 
 ## <a name="configure"></a>Konfigurowanie
 
@@ -46,12 +46,12 @@ Zarządzanie zabezpieczeniami zasobów i danych. Program zabezpieczeń obejmuje 
 
 ## <a name="protect"></a>Ochrona
 
-Ochrona dotyczy utrzymywania dostępu do aplikacji i danych, nawet w przypadku awarii, które wykraczają poza swoją kontrolę. Ochrona na platformie Azure jest zapewniana przez dwie usługi. [Usługa Azure Backup](../backup/backup-introduction-to-azure-backup.md) oferuje tworzenie kopii zapasowych i odzyskiwanie danych w chmurze lub lokalnie. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) zapewnia ciągłość działania i natychmiastowe odzyskiwanie podczas awarii.
+Ochrona dotyczy utrzymywania dostępu do aplikacji i danych, nawet w przypadku awarii, które wykraczają poza swoją kontrolę. Ochrona na platformie Azure jest zapewniana przez dwie usługi. [Usługa Azure Backup](../backup/backup-overview.md) oferuje tworzenie kopii zapasowych i odzyskiwanie danych w chmurze lub lokalnie. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) zapewnia ciągłość działania i natychmiastowe odzyskiwanie podczas awarii.
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 Migracja dotyczy przenoszenia obciążeń działających obecnie lokalnie do chmury platformy Azure.
-[Azure Migrate](../migrate/migrate-overview.md) to usługa, która ułatwia ocenę przydatności do migracji lokalnych maszyn wirtualnych na platformę Azure. Azure Site Recovery migruje maszyny wirtualne [z lokalizacji lokalnej](../site-recovery/migrate-tutorial-on-premises-azure.md) lub [z Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Migracja bazy danych platformy Azure](../dms/dms-overview.md) ułatwia Migrowanie źródeł baz danych do platform danych platformy Azure.
+[Azure Migrate](../migrate/migrate-services-overview.md) to usługa, która ułatwia ocenę przydatności do migracji lokalnych maszyn wirtualnych na platformę Azure. Azure Site Recovery migruje maszyny wirtualne [z lokalizacji lokalnej](../site-recovery/migrate-tutorial-on-premises-azure.md) lub [z Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Migracja bazy danych platformy Azure](../dms/dms-overview.md) ułatwia Migrowanie źródeł baz danych do platform danych platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

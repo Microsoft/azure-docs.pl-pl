@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021691"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039300"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics
 
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby dodać Azure SQL Database jako źródłowe źr�
 
 ### <a name="create-a-sql-database-table"></a>Tworzenie tabeli SQL Database
 
-Użyj SQL Server Management Studio, aby utworzyć tabelę do przechowywania danych referencyjnych. Aby uzyskać szczegółowe informacje, zobacz [projektowanie pierwszej bazy danych Azure SQL Database przy użyciu programu SSMS](../azure-sql/database/design-first-database-tutorial.md) .
+Użyj SQL Server Management Studio, aby utworzyć tabelę do przechowywania danych referencyjnych. Aby uzyskać szczegółowe informacje, zobacz artykuł [projektowanie pierwszego Azure SQL Database za pomocą programu SSMS](../azure-sql/database/design-first-database-tutorial.md) .
 
 Przykładowa tabela użyta w poniższym przykładzie została utworzona z następującej instrukcji:
 
@@ -99,13 +99,13 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Nowe dane wejściowe Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. Kliknij dwukrotnie plik **Input. JSON** w **Eksplorator rozwiązań**.
+2. Kliknij dwukrotnie **Input.js** w **Eksplorator rozwiązań**.
 
 3. Wypełnij **Stream Analytics konfigurację wejściową**. Wybierz nazwę bazy danych, nazwę serwera, typ odświeżania i częstotliwość odświeżania. Określ częstotliwość odświeżania w formacie `DD:HH:MM` .
 
    ![Konfiguracja danych wejściowych Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
-   Jeśli wybierzesz opcję "wykonaj tylko raz" lub "wykonaj okresowo", jeden plik SQL CodeBehind o nazwie **[Input alias]. snapshot. SQL** jest generowany w projekcie w węźle pliku **Input. JSON** .
+   Jeśli wybierzesz opcję "wykonaj tylko raz" lub "wykonaj okresowo", jeden plik SQL CodeBehind o nazwie **[Input alias]. snapshot. SQL** jest generowany w projekcie pod **Input.jsw** węźle plik.
 
    ![Kod wejściowy w programie Visual Studio](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
@@ -115,11 +115,11 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Otwórz plik SQL w edytorze i napisz zapytanie SQL.
 
-5. Jeśli używasz programu Visual Studio 2019 i masz zainstalowane SQL Server narzędzia danych, możesz przetestować zapytanie, klikając pozycję **Wykonaj**. Zostanie wyświetlone okno kreatora, które pomoże Ci połączyć się z bazą danych SQL, a wynik zapytania pojawi się w oknie u dołu.
+5. Jeśli używasz programu Visual Studio 2019 i masz zainstalowane SQL Server narzędzia danych, możesz przetestować zapytanie, klikając pozycję **Wykonaj**. Zostanie wyświetlone okno kreatora, które pomoże Ci połączyć się z SQL Database, a wynik zapytania pojawi się w oknie u dołu.
 
 ### <a name="specify-storage-account"></a>Określ konto magazynu
 
-Otwórz plik **JobConfig. JSON** , aby określić konto magazynu do przechowywania migawek odwołań SQL.
+Otwórz **JobConfig.jsna** , aby określić konto magazynu do przechowywania migawek odwołań SQL.
 
    ![Konfiguracja zadania Stream Analytics w programie Visual Studio](./media/sql-reference-data/stream-analytics-job-config.png)
 
@@ -147,7 +147,7 @@ W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azu
    ```
 2. Utwórz zapytanie migawki. 
 
-   Użyj parametru ** \@ snapshotTime** , aby nakazać środowisko uruchomieniowe Stream Analytics w celu uzyskania zestawu danych referencyjnych z tabeli danych czasowych usługi SQL Database w czasie systemowym. Jeśli ten parametr nie jest określony, istnieje ryzyko uzyskania niedokładnego zestawu danych referencyjnych odniesienia z powodu przesunięcia zegara. Poniżej przedstawiono przykładowe zapytanie o pełną migawkę:
+   Użyj parametru ** \@ snapshotTime** , aby nakazać środowisko uruchomieniowe Stream Analytics w celu uzyskania zestawu danych referencyjnych z SQL Database tabeli czasowej prawidłowej w czasie systemowym. Jeśli ten parametr nie jest określony, istnieje ryzyko uzyskania niedokładnego zestawu danych referencyjnych odniesienia z powodu przesunięcia zegara. Poniżej przedstawiono przykładowe zapytanie o pełną migawkę:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +156,7 @@ W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azu
  
 2. Utwórz zapytanie różnicowe. 
    
-   To zapytanie pobiera wszystkie wiersze z bazy danych SQL, które zostały wstawione lub usunięte w czasie rozpoczęcia, ** \@ deltaStartTime**i ** \@ deltaEndTime**czasu zakończenia. Zapytanie Delta musi zwracać te same kolumny co zapytanie migawki, a także **_operację_** kolumny. Ta kolumna określa, czy wiersz został wstawiony, czy usunięty między ** \@ deltaStartTime** i ** \@ deltaEndTime**. Utworzone wiersze są oflagowane jako **1** , jeśli rekordy zostały wstawione lub **2** , jeśli zostały usunięte. Zapytanie musi również dodać **znak wodny** ze strony SQL Server, aby upewnić się, że wszystkie aktualizacje w okresie Delta zostaną odpowiednio przechwycone. Użycie zapytania Delta bez **znaku wodnego** może spowodować powstanie nieprawidłowego zestawu danych referencyjnych.  
+   To zapytanie pobiera wszystkie wiersze w SQL Database, które zostały wstawione lub usunięte w czasie rozpoczęcia, ** \@ deltaStartTime**i ** \@ deltaEndTime**czasu zakończenia. Zapytanie Delta musi zwracać te same kolumny co zapytanie migawki, a także **_operację_** kolumny. Ta kolumna określa, czy wiersz został wstawiony, czy usunięty między ** \@ deltaStartTime** i ** \@ deltaEndTime**. Utworzone wiersze są oflagowane jako **1** , jeśli rekordy zostały wstawione lub **2** , jeśli zostały usunięte. Zapytanie musi również dodać **znak wodny** ze strony SQL Server, aby upewnić się, że wszystkie aktualizacje w okresie Delta zostaną odpowiednio przechwycone. Użycie zapytania Delta bez **znaku wodnego** może spowodować powstanie nieprawidłowego zestawu danych referencyjnych.  
 
    W przypadku rekordów, które zostały zaktualizowane, tabela danych czasowych wykonuje operacje we/wykorzystaniu operacji wstawiania i usuwania. Środowisko uruchomieniowe Stream Analytics następnie zastosuje wyniki zapytania różnicowego do poprzedniej migawki, aby zapewnić aktualność danych referencyjnych. Poniżej przedstawiono przykładowe zapytanie różnicowe:
 
@@ -183,12 +183,12 @@ W zadaniu Stream Analytics nie ma dodatkowych [kosztów na jednostkę przesyłan
 
 **Jak mogę znane są zapytania o dane referencyjne z bazy danych SQL i używane w zadaniu Azure Stream Analytics?**
 
-Istnieją dwie metryki odfiltrowane według nazwy logicznej (w obszarze metryki Azure Portal), których można użyć do monitorowania kondycji danych wejściowych referencyjnych bazy danych SQL.
+Istnieją dwie metryki odfiltrowane według nazwy logicznej (w obszarze metryki Azure Portal), których można użyć do monitorowania kondycji SQL Database danych referencyjnych.
 
-   * InputEvents: Ta Metryka mierzy liczbę rekordów załadowanych z zestawu danych referencyjnych bazy danych SQL.
+   * InputEvents: Ta Metryka mierzy liczbę rekordów załadowanych z SQL Database zestawie danych referencyjnych.
    * InputEventBytes: Ta Metryka mierzy rozmiar migawki danych referencyjnych załadowanej w pamięci zadania Stream Analytics. 
 
-Połączenie obu tych metryk może służyć do wnioskowania, czy zadanie wysyła zapytanie do bazy danych SQL w celu pobrania zestawu danych referencyjnych, a następnie ładowania go do pamięci.
+Połączenie obu tych metryk może służyć do wnioskowania, czy zadanie wykonuje zapytanie SQL Database, aby pobrać zestaw danych referencyjnych, a następnie załadować go do pamięci.
 
 **Czy jest wymagany specjalny typ Azure SQL Database?**
 

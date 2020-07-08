@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/06/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 22743a1e202ac26d95cf4a48cb58b2a2418e9f0c
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4a5ae321a4a97df5b5fa91bb239589c76c6601fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734185"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039759"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z blokadą konta przy użyciu domeny zarządzanej Azure Active Directory Domain Services
 
-Aby zapobiec powtarzaniu złośliwych prób logowania, Azure Active Directory Domain Services (Azure AD DS) blokuje konta po określonym progu. Ta blokada konta może również być spowodowana awarią bez zdarzenia ataku logowania. Na przykład jeśli użytkownik wielokrotnie wprowadzi nieprawidłowe hasło lub usługa próbuje użyć starego hasła, konto zostanie zablokowane.
+Aby zapobiec ponownemu złośliwemu podejmowaniu prób logowania, konta usług Azure Active Directory Domain Services (Azure AD DS) są blokowane po upływie zdefiniowanej wartości progowej. Ta blokada konta może również być spowodowana awarią bez zdarzenia ataku logowania. Na przykład jeśli użytkownik wielokrotnie wprowadzi nieprawidłowe hasło lub usługa próbuje użyć starego hasła, konto zostanie zablokowane.
 
 Ten artykuł rozwiązywania problemów zawiera informacje o tym, dlaczego blokady kont są wykonywane i jak można skonfigurować zachowanie oraz jak przeglądać inspekcje zabezpieczeń w celu rozwiązywania problemów z blokadami zdarzeń.
 
 ## <a name="what-is-an-account-lockout"></a>Co to jest blokada konta?
 
-Konto użytkownika w usłudze Azure AD DS jest blokowane, gdy osiągnięto określony próg nieudanych prób logowania. To zachowanie blokady konta zostało zaprojektowane z myślą o ochronie przed powtarzanymi próbami logowania z wykorzystaniem pełnego wymuszania, które mogą wskazywać na zautomatyzowany atak cyfrowy.
+Konto użytkownika w domenie zarządzanej AD DS platformy Azure jest blokowane, gdy zostanie spełniony określony próg nieudanych prób logowania. To zachowanie blokady konta zostało zaprojektowane z myślą o ochronie przed powtarzanymi próbami logowania z wykorzystaniem pełnego wymuszania, które mogą wskazywać na zautomatyzowany atak cyfrowy.
 
 **Domyślnie jeśli w ciągu 2 minut występuje 5 nieudanych prób wprowadzenia hasła, konto jest zablokowane przez 30 minut.**
 
@@ -33,7 +33,7 @@ Domyślne progi blokady konta są konfigurowane przy użyciu szczegółowych zas
 
 ### <a name="fine-grained-password-policy"></a>Szczegółowe zasady haseł
 
-Szczegółowe zasady haseł (FGPPs) pozwalają stosować określone ograniczenia dotyczące zasad blokowania haseł i kont dla różnych użytkowników w domenie. SZCZEGÓŁOWYCH zasad haseł ma wpływ tylko na użytkowników w domenie zarządzanej. Użytkownicy chmury i użytkownicy domeny zsynchronizowani z domeną zarządzaną AD DS platformy Azure z usługi Azure AD mają wpływ tylko zasady haseł w usłudze Azure AD DS. Nie ma to wpływu na konta w usłudze Azure AD lub katalog lokalny.
+Szczegółowe zasady haseł (FGPPs) pozwalają stosować określone ograniczenia dotyczące zasad blokowania haseł i kont dla różnych użytkowników w domenie. SZCZEGÓŁOWYCH zasad haseł ma wpływ tylko na użytkowników w domenie zarządzanej. Użytkownicy chmury i użytkownicy domeny synchronizowane w domenie zarządzanej z usługi Azure AD mają wpływ tylko na zasady haseł w domenie zarządzanej. Nie ma to wpływu na konta w usłudze Azure AD lub katalog lokalny.
 
 Zasady są dystrybuowane za pomocą skojarzenia grupy w domenie zarządzanej, a wszelkie wprowadzone zmiany są stosowane podczas następnego logowania użytkownika. Zmiana zasad nie powoduje odblokowania konta użytkownika, które jest już zablokowane.
 
@@ -44,13 +44,13 @@ Aby uzyskać więcej informacji na temat szczegółowych zasad haseł i różnic
 Najczęstsze przyczyny zablokowania konta, bez żadnego złośliwego zamiaru lub czynników, obejmują następujące scenariusze:
 
 * **Użytkownik zablokował się.**
-    * Czy po zmianie hasła użytkownik będzie kontynuował korzystanie z poprzedniego hasła? Domyślne zasady blokady konta 5 nieudanych prób w ciągu 2 minut mogą być przyczyną przypadkowego ponawiania próby starego hasła przez użytkownika.
+    * Czy po zmianie hasła użytkownik będzie kontynuował korzystanie z poprzedniego hasła? Domyślne zasady blokady konta z pięciu nieudanych prób w ciągu 2 minut mogą być spowodowane przez użytkownika przypadkowo próbującego ponawiać stare hasło.
 * **Istnieje aplikacja lub usługa, która ma stare hasło.**
     * Jeśli konto jest używane przez aplikacje lub usługi, te zasoby mogą wielokrotnie próbować zalogować się przy użyciu starego hasła. To zachowanie powoduje, że konto jest zablokowane.
     * Spróbuj zminimalizować użycie konta w wielu różnych aplikacjach lub usługach, a następnie zarejestruj, gdzie są używane poświadczenia. Jeśli hasło konta zostanie zmienione, należy odpowiednio zaktualizować powiązane aplikacje lub usługi.
 * **Hasło zostało zmienione w innym środowisku, a nowe hasło nie zostało jeszcze zsynchronizowane.**
-    * Jeśli hasło do konta zostanie zmienione poza usługą Azure AD DS, na przykład w środowisku Premium AD DS, może upłynąć kilka minut, zanim zmieni się hasło za pomocą usługi Azure AD i usługi Azure AD DS.
-    * Użytkownik próbujący zalogować się do zasobu za pomocą usługi Azure AD DS przed ukończeniem procesu synchronizacji haseł spowoduje jego zablokowanie.
+    * Jeśli hasło konta zostanie zmienione poza domeną zarządzaną, na przykład w środowisku Premium AD DS, może upłynąć kilka minut, zanim zmieni się hasło za pomocą usługi Azure AD i w domenie zarządzanej.
+    * Użytkownik próbujący zalogować się do zasobu w domenie zarządzanej przed ukończeniem tego procesu synchronizacji haseł spowoduje zablokowanie konta.
 
 ## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Rozwiązywanie problemów z blokadami kont przy użyciu inspekcji zabezpieczeń
 
@@ -75,11 +75,11 @@ AADDomainServicesAccountLogon
 | where "driley" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
 ```
 
-Wyświetl wszystkie zdarzenia blokady konta w zakresie od 26 czerwca do 2019 o godzinie 9 i 1 lipca 2019 północy, posortowane rosnąco według daty i godziny:
+Wyświetl wszystkie zdarzenia blokady konta w zakresie od 26 czerwca do 2020 o godzinie 9 i 1 lipca 2020 północy, posortowane rosnąco według daty i godziny:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-06-26 09:00) and TimeGenerated <= datetime(2020-07-01)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

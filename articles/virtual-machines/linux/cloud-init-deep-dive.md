@@ -5,15 +5,15 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 731cb79096de4af2864060e7a665ac54b6581418
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306993"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042082"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Dokładniejsze umieszczenie w usłudze Cloud-init
 Aby dowiedzieć się więcej o programie [Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) lub rozwiązywaniu problemów z nim na wyższym poziomie, należy zrozumieć, jak działa. W tym dokumencie przedstawiono ważne części i wyjaśniono specyficzne dla platformy Azure.
@@ -26,9 +26,9 @@ Konfigurowanie maszyny wirtualnej do uruchamiania na platformie, oznacza, że us
 
 Niektóre konfiguracje są już rozszerzania do obrazów w portalu Azure Marketplace, które są dostarczane z usługą Cloud-init, na przykład:
 
-* Źródło danych w chmurze — usługa Cloud-init zawiera kod, który może współistnieć z platformami w chmurze. są one nazywane "źródłami danych". Po utworzeniu maszyny wirtualnej z poziomu obrazu Cloud-init na [platformie Azure usługa](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure)Cloud-init ładuje źródło danych platformy Azure, które będzie współdziałać z punktami końcowymi metadanych platformy Azure w celu pobrania konfiguracji specyficznej dla maszyny wirtualnej.
-* Konfiguracja obrazu (/etc/Cloud)
-* Konfiguracja środowiska uruchomieniowego (/Run/Cloud-init), taka jak `/etc/cloud/cloud.cfg` , `/etc/cloud/cloud.cfg.d/*.cfg` . Przykładem użycia tej funkcji na platformie Azure jest to, że w przypadku obrazów systemu operacyjnego Linux, które są dostępne w usłudze Cloud-init, można używać dyrektywy DataSource platformy Azure, która informuje chmurę o tym, jakie źródła danych powinny być używane, zapisuje czas inicjowania chmury:
+1. **Źródło danych w chmurze** — Usługa Cloud-init zawiera kod, który może współistnieć z platformami w chmurze. są one nazywane "DataSources". Po utworzeniu maszyny wirtualnej na podstawie obrazu z inicjowania chmury na [platformie Azure usługa](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure)Cloud-init ładuje źródło danych platformy Azure, które będzie współdziałać z punktami końcowymi metadanych platformy Azure w celu uzyskania konfiguracji specyficznej dla maszyny wirtualnej.
+2. **Konfiguracja środowiska uruchomieniowego** (/Run/Cloud-init)
+3. **Konfiguracja obrazu** (/etc/Cloud), taka jak `/etc/cloud/cloud.cfg` , `/etc/cloud/cloud.cfg.d/*.cfg` . Przykładem użycia tej funkcji na platformie Azure jest to, że w przypadku obrazów systemu operacyjnego Linux, które są dostępne w usłudze Cloud-init, można używać dyrektywy DataSource platformy Azure, która informuje chmurę o tym, jakie źródła danych powinny być używane, zapisuje czas inicjowania chmury:
 
    ```bash
    /etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
@@ -41,26 +41,28 @@ Niektóre konfiguracje są już rozszerzania do obrazów w portalu Azure Marketp
 
 W przypadku inicjowania obsługi administracyjnej przy użyciu usługi Cloud-init istnieje 5 etapów rozruchu, w których Konfiguracja procesu jest wyświetlana w dziennikach.
 
-1. [Etap generatora](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): systemowy generator w chmurze jest uruchamiany i określa, że funkcja Cloud-init powinna zostać uwzględniona w celach rozruchu, a jeśli tak, to umożliwia włączenie funkcji Cloud-init. Na przykład jeśli chcesz wyłączyć funkcję Cloud-init, możesz utworzyć ten plik `/etc/cloud/cloud-init.disabled` .
+1. [Etap generatora](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): systemowy generator w chmurze jest uruchamiany i określa, że funkcja Cloud-init powinna zostać uwzględniona w celach rozruchu, a jeśli tak, to umożliwia włączenie funkcji Cloud-init. 
 
 2. Usługa Cloud [-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): w tym miejscu Cloud-init będzie szukać lokalnego źródła danych "Azure", które umożliwi interfejsowi Cloud-init korzystanie z platformy Azure, a także zastosowanie konfiguracji sieci, w tym powrotu.
 
 3. [Etap inicjowania usługi Cloud-init (Sieć)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): sieć powinna być w trybie online, a informacje o karcie sieciowej i tabeli tras powinny zostać wygenerowane. Na tym etapie zostaną uruchomione moduły wymienione w `cloud_init_modules` /etc/Cloud/Cloud.cfg. Maszyna wirtualna na platformie Azure zostanie zainstalowana, dysk tymczasowych zostanie sformatowany, nazwa hosta zostanie ustawiona wraz z innymi zadaniami.
 
-   Oto niektóre z cloud_init_modules:
-   - `migrator`
-   - `seed_random`
-   - `bootcmd`
-   - `write-files`
-   - `growpart`
-   - `resizefs`
-   - `disk_setup`
-   - `mounts`
-   - `set_hostname`
-   - `update_hostname`
-   - `ssh`
-
-
+   Oto niektóre z następujących elementów `cloud_init_modules` :
+   
+   ```bash
+   - migrator
+   - seed_random
+   - bootcmd
+   - write-files
+   - growpart
+   - resizefs
+   - disk_setup
+   - mounts
+   - set_hostname
+   - update_hostname
+   - ssh
+   ```
+   
    Po tym etapie Usługa Cloud-init będzie sygnalizować platformę Azure, że maszyna wirtualna została pomyślnie zainicjowana. Niektóre moduły mogły się nie powiodło, nie wszystkie błędy modułów spowodują niepowodzenie aprowizacji.
 
 4. [Etap konfiguracji usługi Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): na tym etapie `cloud_config_modules` zostaną uruchomione moduły zdefiniowane i wymienione w/etc/Cloud/Cloud.cfg.

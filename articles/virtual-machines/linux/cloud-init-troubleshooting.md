@@ -5,15 +5,15 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 92c878497f16162f46f4da34501885b73ff85dfc
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306904"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042083"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Rozwiązywanie problemów z obsługą maszyny wirtualnej za pomocą funkcji Cloud-init
 
@@ -27,13 +27,13 @@ Przykłady problemów dotyczących aprowizacji:
 - Sieć nie jest prawidłowo skonfigurowana
 - Zamiana błędów pliku lub partycji
 
-W tym artykule opisano sposób rozwiązywania problemów z usługą Cloud-init. Aby uzyskać bardziej szczegółowe informacje, zobacz [jak działa usługa Cloud-init](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+W tym artykule opisano sposób rozwiązywania problemów z usługą Cloud-init. Aby uzyskać bardziej szczegółowe informacje, zobacz [Cloud-init głębokie szczegółowe](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
 
 ## <a name="step-1-test-the-deployment-without-customdata"></a>Krok 1. Testowanie wdrożenia bez customData
 
 Usługa Cloud-init może akceptować customData, które są do niego przesyłane podczas tworzenia maszyny wirtualnej. Najpierw należy upewnić się, że nie powoduje to problemów z wdrożeniami. Spróbuj zainicjować maszynę wirtualną bez przechodzenia do żadnej konfiguracji. Jeśli okaże się, że nie można zainicjować obsługi administracyjnej maszyny wirtualnej, wykonaj poniższe czynności, jeśli okaże się, że przekazanie konfiguracji nie jest stosowane, przejdź do [kroku 4](). 
 
-## <a name="step-2-review-image-requirements-are-satisfied"></a>Krok 2. Zapoznaj się z wymaganiami dotyczącymi obrazu
+## <a name="step-2-review-image-requirements"></a>Krok 2. Przegląd wymagań dotyczących obrazu
 Główną przyczyną niepowodzenia aprowizacji maszyny wirtualnej jest obraz systemu operacyjnego, który nie spełnia wymagań wstępnych dotyczących uruchamiania na platformie Azure. Upewnij się, że obrazy są prawidłowo przygotowane przed próbą udostępnienia ich na platformie Azure. 
 
 
@@ -59,22 +59,16 @@ Gdy maszyna wirtualna jest uruchomiona, potrzebne będą dzienniki z maszyny wir
 
 - [Włącz diagnostykę rozruchu](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) je w trakcie rozruchu.
 
-- [Ręczne dołączanie i Instalowanie dysku systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) na uruchomionej maszynie wirtualnej w celu wyodrębnienia dzienników — Naprawa maszyny wirtualnej platformy Azure
-
-Zbierz te dzienniki:
+- [Uruchom polecenie AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
 ```bash
+/var/log/cloud-init*
 /var/log/waagent*
 /var/log/syslog*
 /var/log/rsyslog*
 /var/log/messages*
 /var/log/kern*
 /var/log/dmesg*
-/var/log/dpkg*
-/var/log/yum*
-/var/log/cloud-init*
 /var/log/boot*
-/var/log/auth*
-/var/log/secure*
 ```
 Aby rozpocząć wstępne Rozwiązywanie problemów, Zacznij od dzienników usługi Cloud-init i zapoznaj się z informacjami o tym, gdzie wystąpił błąd, a następnie użyj innych dzienników do głębokiej szczegółowe i Udostępnij dodatkowe szczegółowe informacje. 
 * /var/log/cloud-init.log
@@ -138,4 +132,4 @@ Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsł
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive) . 
+Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) . 

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267107"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042018"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Utwórz zasób czytnika immersyjny i Skonfiguruj uwierzytelnianie Azure Active Directory
 
@@ -183,9 +183,10 @@ Skrypt został zaprojektowany jako elastyczny. Najpierw szuka istniejącego czyt
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Przewodnik Szybki Start środowiska Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK programu immersyjny przy użyciu środowiska Node. js.
+* Wyświetl [Node.js przewodnika Szybki Start](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu Node.js
+* Obejrzyj [Samouczek systemu Android](./tutorial-android.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
+* Wyświetl [Samouczek systemu iOS](./tutorial-ios.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
 * Obejrzyj [samouczek języka Python](./tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK dla czytnika immersyjny przy użyciu języka Python
-* Obejrzyj [samouczek SWIFT](./tutorial-ios-picture-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT
 * Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](./reference.md)
 
 

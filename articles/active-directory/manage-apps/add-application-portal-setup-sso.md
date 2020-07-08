@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727e51c535eaade4cd229ee10ab92e6306d4cf42
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f90edf525a8deb35376d6637090e7b424b2fd658
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956122"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038994"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie logowania jednokrotnego (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -47,7 +47,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
 1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
 2. W sekcji Zarządzanie wybierz pozycję **Logowanie** jednokrotne, aby otworzyć okienko właściwości do edycji.
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="Pokazuje stronę konfiguracyjną logowania jednokrotnego w portalu usługi Azure AD.":::
-3. Wybierz pozycję SAML, aby otworzyć stronę konfiguracja logowania jednokrotnego. W tym przykładzie aplikacja konfigurowana na potrzeby logowania jednokrotnego jest w serwisie GitHub. Po skonfigurowaniu usługi GitHub użytkownicy będą mogli zalogować się w usłudze GitHub przy użyciu swoich poświadczeń z dzierżawy usługi Azure AD.
+3. Wybierz pozycję SAML, aby otworzyć stronę konfiguracja logowania jednokrotnego. W tym przykładzie aplikacja konfigurowana na potrzeby logowania jednokrotnego jest w serwisie GitHub. Po skonfigurowaniu usługi GitHub użytkownicy będą mogli logować się do usługi GitHub przy użyciu swoich poświadczeń z dzierżawy usługi Azure AD.
     :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Pokazuje stronę konfiguracyjną logowania jednokrotnego w witrynie GitHub.":::
 4. Proces konfigurowania aplikacji do korzystania z usługi Azure AD na potrzeby logowania jednokrotnego opartego na protokole SAML różni się w zależności od aplikacji. Zwróć uwagę na link do wskazówek dotyczących usługi GitHub. Przewodniki dotyczące innych aplikacji można znaleźć pod adresem:https://docs.microsoft.com/azure/active-directory/saas-apps/
 5. Postępuj zgodnie z przewodnikiem, aby skonfigurować Logowanie jednokrotne dla aplikacji. Wiele aplikacji ma określone wymagania dotyczące subskrypcji dla funkcji logowania jednokrotnego. Na przykład serwis GitHub wymaga subskrypcji przedsiębiorstwa.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ea8492ff5a25eb72b0a842c4da82ed78c89863f8
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733827"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039572"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Typowe błędy i kroki rozwiązywania problemów dla Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów z typowymi pro
 
 Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące typowe błędy i wykonaj kroki, aby je rozwiązać:
 
-| **Przykładowy komunikat o błędzie** | **Rozwiązanie** |
+| **Przykładowy komunikat o błędzie** | **Rozdzielczość** |
 | --- |:--- |
 | *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.* |[Konflikt nazw domen w sieci wirtualnej](troubleshoot.md#domain-name-conflict) |
 | *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.* |[Usługi domenowe nie mają wystarczających uprawnień do aplikacji do synchronizacji Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
@@ -41,7 +41,7 @@ Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące
 
 *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.*
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 Sprawdź, czy nie masz istniejącego środowiska AD DS o tej samej nazwie domeny w tej samej lub równorzędnej sieci wirtualnej. Na przykład może istnieć AD DS domena o nazwie *aaddscontoso.com* , która jest uruchamiana na maszynach wirtualnych platformy Azure. Gdy próbujesz włączyć domenę zarządzaną platformy Azure AD DS z tą samą nazwą domeny *aaddscontoso.com* w sieci wirtualnej, żądana operacja nie powiedzie się.
 
@@ -53,7 +53,7 @@ Ten błąd jest spowodowany konfliktami nazw dla nazwy domeny w sieci wirtualnej
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azure AD Domain Services Sync* . Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS. Aby wyszukać istniejącą aplikację i usunąć ją w razie potrzeby, wykonaj następujące czynności:
 
@@ -68,7 +68,7 @@ Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azur
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja usług domenowych w dzierżawie usługi Azure AD nie ma wymaganych uprawnień, aby włączyć usługi domenowe. Usuń aplikację z identyfikatorem aplikacji d87dcbc6-a371-462e-88e3-28ad15ec4e64, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 Sprawdź, czy masz istniejącą aplikację o nazwie *AzureActiveDirectoryDomainControllerServices* z identyfikatorem aplikacji *d87dcbc6-a371-462e-88e3-28ad15ec4e64* w katalogu usługi Azure AD. Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS.
 
@@ -112,7 +112,7 @@ if ($sp -ne $null)
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja Microsoft Azure AD jest wyłączona w dzierżawie usługi Azure AD. Włącz aplikację przy użyciu identyfikatora aplikacji 00000002-0000-0000-C000-000000000000, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 Sprawdź, czy aplikacja została wyłączona z identyfikatorem *00000002-0000-0000-C000-000000000000*. Ta aplikacja jest aplikacją Microsoft Azure AD i zapewnia interfejs API programu Graph dostęp do dzierżawy usługi Azure AD. Aby zsynchronizować dzierżawę usługi Azure AD, ta aplikacja musi być włączona.
 
@@ -137,15 +137,15 @@ Jeśli co najmniej jeden użytkownik w dzierżawie usługi Azure AD nie może za
     
       * [Najnowsza zalecana wersja Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)została wdrożona lub zaktualizowana do programu.
       * Azure AD Connect skonfigurowano w celu [przeprowadzenia pełnej synchronizacji][hybrid-phs].
-      * W zależności od rozmiaru katalogu może upłynąć trochę czasu, aż do uzyskania dostępu do kont użytkowników i skrótów poświadczeń w usłudze Azure AD DS. Przed podjęciem próby uwierzytelnienia w domenie zarządzanej upewnij się, że zaczekasz wystarczającą ilość czasu.
-      * Jeśli problem będzie się powtarzać po sprawdzeniu poprzednich kroków, spróbuj ponownie uruchomić *usługę synchronizacji Microsoft Azure AD*. Na serwerze Azure AD Connect Otwórz wiersz polecenia i uruchom następujące polecenia:
+      * W zależności od rozmiaru katalogu może upłynąć trochę czasu dla kont użytkowników i skrótów poświadczeń, które będą dostępne w domenie zarządzanej. Przed podjęciem próby uwierzytelnienia w domenie zarządzanej upewnij się, że zaczekasz wystarczającą ilość czasu.
+      * Jeśli problem będzie się powtarzać po sprawdzeniu poprzednich kroków, spróbuj ponownie uruchomić *usługę synchronizacji Microsoft Azure AD*. Na serwerze Azure AD Connect Otwórz wiersz polecenia, a następnie uruchom następujące polecenia:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **Konta tylko w chmurze**: Jeśli konto użytkownika, którego to dotyczy, jest kontem użytkownika tylko w chmurze, upewnij się, że [użytkownik zmienił hasło po włączeniu usługi Azure AD DS][cloud-only-passwords]. To zresetowanie hasła powoduje wygenerowanie wymaganych skrótów poświadczeń dla Azure AD Domain Services.
+    * **Konta tylko w chmurze**: Jeśli konto użytkownika, którego to dotyczy, jest kontem użytkownika tylko w chmurze, upewnij się, że [użytkownik zmienił hasło po włączeniu usługi Azure AD DS][cloud-only-passwords]. To Resetowanie hasła powoduje wygenerowanie wymaganych skrótów poświadczeń dla domeny zarządzanej.
 
 * **Sprawdź, czy konto użytkownika jest aktywne**: domyślnie pięć nieudanych prób wprowadzenia hasła w ciągu 2 minut w domenie zarządzanej powoduje zablokowanie konta użytkownika przez 30 minut. Użytkownik nie może się zalogować, gdy konto jest zablokowane. Po 30 minutach konto użytkownika zostanie automatycznie odblokowane.
   * Nieprawidłowe próby hasła w domenie zarządzanej nie Zablokuj konta użytkownika w usłudze Azure AD. Konto użytkownika jest blokowane tylko w domenie zarządzanej. Sprawdź stan konta użytkownika w *konsoli administracyjnej Active Directory (usługach ADAC)* przy użyciu [maszyny wirtualnej zarządzania][management-vm], a nie w usłudze Azure AD.

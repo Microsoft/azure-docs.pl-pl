@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 07006de016ba956c02cbd5f527417df3bdc2f723
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734048"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039691"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z przyłączaniem do domeny za pomocą Azure Active Directory Domain Services domeny zarządzanej
 
@@ -30,11 +30,11 @@ Podczas próby dołączenia maszyny wirtualnej lub połączenia aplikacji z dome
 
 Jeśli maszyna wirtualna nie może znaleźć domeny zarządzanej, zazwyczaj występuje problem z połączeniem sieciowym lub konfiguracją. Zapoznaj się z poniższymi krokami rozwiązywania problemów, aby zlokalizować i rozwiązać problem:
 
-1. Upewnij się, że maszyna wirtualna jest połączona z tą samą lub równorzędną siecią wirtualną, która jest włączona dla usługi Azure AD DS. Jeśli nie, maszyna wirtualna nie może znaleźć domeny i połączyć się z nią w celu dołączenia.
+1. Upewnij się, że maszyna wirtualna jest połączona z tą samą lub równorzędną siecią wirtualną, co domena zarządzana. Jeśli nie, maszyna wirtualna nie może znaleźć domeny i połączyć się z nią w celu dołączenia.
     * Jeśli maszyna wirtualna nie jest połączona z tą samą siecią wirtualną, upewnij się, że wirtualne sieci równorzędne lub połączenie sieci VPN jest *aktywne* lub *połączone* , aby umożliwić poprawne przepływ ruchu.
 1. Spróbuj wysłać polecenie ping do domeny przy użyciu nazwy domeny zarządzanej, na przykład `ping aaddscontoso.com` .
     * Jeśli odpowiedź ping nie powiedzie się, spróbuj wysłać polecenie ping do adresów IP dla domeny wyświetlanej na stronie Przegląd w portalu dla domeny zarządzanej, na przykład `ping 10.0.0.4` .
-    * Jeśli można pomyślnie wysłać polecenie ping do adresu IP, ale nie do domeny, może to spowodować niepoprawne skonfigurowanie usługi DNS. Upewnij się, że skonfigurowano serwery DNS domeny zarządzanej dla sieci wirtualnej.
+    * Jeśli można pomyślnie wysłać polecenie ping do adresu IP, ale nie do domeny, może to spowodować niepoprawne skonfigurowanie usługi DNS. Upewnij się, że [skonfigurowano serwery DNS domeny zarządzanej dla sieci wirtualnej][configure-dns].
 1. Spróbuj użyć opróżniania pamięci podręcznej programu rozpoznawania nazw DNS na maszynie wirtualnej, na przykład `ipconfig /flushdns` .
 
 ### <a name="network-security-group-nsg-configuration"></a>Konfiguracja sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)
@@ -53,7 +53,7 @@ Jeśli zostanie wyświetlone okno dialogowe z prośbą o podanie poświadczeń w
 
 Aby rozwiązać problemy związane z poświadczeniami, zapoznaj się z następującymi krokami rozwiązywania problemów:
 
-1. Spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `dee@aaddscontoso.onmicrosoft.com` . Upewnij się, że ta nazwa UPN jest prawidłowo skonfigurowana w usłudze Azure AD.
+1. Spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `dee@contoso.onmicrosoft.com` . Upewnij się, że ta nazwa UPN jest prawidłowo skonfigurowana w usłudze Azure AD.
     * Nazwa *sAMAccountName* dla Twojego konta może zostać wygenerowana automatycznie, jeśli istnieje wielu użytkowników z tym samym PREFIKSEM nazwy UPN w dzierżawie lub jeśli prefiks nazwy UPN jest zbyt długi. W związku z tym format *sAMAccountName* dla konta może być inny niż oczekiwany lub używany w domenie lokalnej.
 1. Spróbuj użyć poświadczeń dla konta użytkownika, które jest częścią domeny zarządzanej, aby dołączyć maszyny wirtualne do domeny zarządzanej.
 1. Upewnij się, że [włączono synchronizację haseł][enable-password-sync] i upłynął wystarczająco długo, aby można było ukończyć synchronizację wstępnego hasła.
@@ -68,6 +68,7 @@ Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarzą
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
 
 <!-- EXTERNAL LINKS -->
 [join-authentication-issues]: /previous-versions/windows/it-pro/windows-2000-server/cc961817(v=technet.10)

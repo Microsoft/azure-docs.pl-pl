@@ -4,14 +4,14 @@ description: W tym artykule wyjaśniono różne błędy danych wejściowych i wy
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/27/2020
-ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133801"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041051"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Błędy danych Azure Stream Analytics
 

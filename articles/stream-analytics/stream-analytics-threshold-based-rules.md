@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób korzystania z danych referencyjnych 
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75369715"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039045"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Przetwarzaj konfigurowalne reguły oparte na progach w Azure Stream Analytics
 W tym artykule opisano sposób korzystania z danych referencyjnych w celu uzyskania rozwiązania do obsługi alertów, które używa konfigurowalnych reguł opartych na progach w Azure Stream Analytics.
@@ -39,10 +39,10 @@ Załóżmy na przykład, że istnieje zadanie Stream Analytics, które ma refere
 ## <a name="reference-data"></a>Dane referencyjne
 Te przykładowe dane referencyjne pokazują, jak można przedstawić regułę opartą na progach. Plik JSON zawiera dane referencyjne i jest zapisywany w usłudze Azure Blob Storage, a kontener magazynu obiektów BLOB jest używany jako dane wejściowe danych referencyjnych o nazwie **Rules**. Można zastąpić ten plik JSON i zamienić konfigurację reguły na czas, bez zatrzymywania lub uruchamiania zadania przesyłania strumieniowego.
 
-- Przykładowa reguła jest używana do reprezentowania regulowanego alertu, gdy procesor CPU przekracza (średnia jest większa lub równa) `90` wartości procentowej. `value` Pole można skonfigurować zgodnie z wymaganiami.
-- Zwróć uwagę, że reguła ma pole **operatora** , które jest dynamicznie interpretowane w składni zapytania w `AVGGREATEROREQUAL`dalszej części. 
-- Reguła filtruje dane w określonym kluczu `2` wymiaru o wartości. `C1` Inne pola są pustym ciągiem, co oznacza, że nie można filtrować strumienia wejściowego według tych pól zdarzeń. Można skonfigurować dodatkowe reguły procesora, aby odfiltrować inne dopasowane pola zgodnie z wymaganiami.
-- Nie wszystkie kolumny są uwzględniane w wyjściowym zdarzeniu alertu. W takim przypadku numer `includedDim` `2` klucza jest włączony, `TRUE` aby reprezentować, że pole numer 2 danych zdarzenia w strumieniu zostanie uwzględnione w kwalifikujących się zdarzeniach wyjściowych. Pozostałe pola nie są uwzględniane w danych wyjściowych alertu, ale można dostosować listę pól.
+- Przykładowa reguła jest używana do reprezentowania regulowanego alertu, gdy procesor CPU przekracza (średnia jest większa lub równa) wartości `90` procentowej. `value`Pole można skonfigurować zgodnie z wymaganiami.
+- Zwróć uwagę, że reguła ma pole **operatora** , które jest dynamicznie interpretowane w składni zapytania w dalszej części `AVGGREATEROREQUAL` . 
+- Reguła filtruje dane w określonym kluczu wymiaru `2` o wartości `C1` . Inne pola są pustym ciągiem, co oznacza, że nie można filtrować strumienia wejściowego według tych pól zdarzeń. Można skonfigurować dodatkowe reguły procesora, aby odfiltrować inne dopasowane pola zgodnie z wymaganiami.
+- Nie wszystkie kolumny są uwzględniane w wyjściowym zdarzeniu alertu. W takim przypadku `includedDim` numer klucza `2` jest włączony, `TRUE` aby reprezentować, że pole numer 2 danych zdarzenia w strumieniu zostanie uwzględnione w kwalifikujących się zdarzeniach wyjściowych. Pozostałe pola nie są uwzględniane w danych wyjściowych alertu, ale można dostosować listę pól.
 
 
 ```json
@@ -134,10 +134,10 @@ HAVING
 ## <a name="example-streaming-input-event-data"></a>Przykładowe dane wejściowe zdarzenia przesyłania strumieniowego
 Te przykładowe dane JSON reprezentują dane wejściowe **metryk** , które są używane w powyższym zapytaniu przesyłania strumieniowego. 
 
-- Trzy przykładowe zdarzenia są wymienione w 1-minutowym przedziale `T14:50`czasu, wartość. 
-- Wszystkie trzy mają tę samą `deviceId` wartość `978648`.
-- Wartości metryk procesora CPU różnią się w zależności `98`od `95`zdarzenia `80` , odpowiednio. Tylko pierwsze dwa Przykładowe zdarzenia przekraczają regułę alertu procesora CPU ustanowioną w regule.
-- Pole includeDim w regule alertu było kluczem nr 2. Odpowiednie pole klucz 2 w zdarzeniach przykładowych ma nazwę `NodeName`. Trzy przykładowe zdarzenia mają odpowiednio wartości `N024`, `N024`, i `N014` . W danych wyjściowych zobaczysz tylko węzeł `N024` , który jest jedynymi danymi, które pasują do kryteriów alertów dla wysokiego procesora. `N014`nie spełnia wysokiego progu procesora CPU.
+- Trzy przykładowe zdarzenia są wymienione w 1-minutowym przedziale czasu, wartość `T14:50` . 
+- Wszystkie trzy mają tę samą `deviceId` wartość `978648` .
+- Wartości metryk procesora CPU różnią się w zależności od zdarzenia, `98` `95` `80` odpowiednio. Tylko pierwsze dwa Przykładowe zdarzenia przekraczają regułę alertu procesora CPU ustanowioną w regule.
+- Pole includeDim w regule alertu było kluczem nr 2. Odpowiednie pole klucz 2 w zdarzeniach przykładowych ma nazwę `NodeName` . Trzy przykładowe zdarzenia mają odpowiednio wartości `N024` , `N024` , i `N014` . W danych wyjściowych zobaczysz tylko węzeł, `N024` który jest jedynymi danymi, które pasują do kryteriów alertów dla wysokiego procesora. `N014`nie spełnia wysokiego progu procesora CPU.
 - Reguła alertu ma skonfigurowany `filter` tylko dla klucza o numerze 2, który odnosi się do `cluster` pola w przykładowych zdarzeniach. Trzy przykładowe zdarzenia wszystkie mają wartość `C1` i pasują do kryteriów filtrowania.
 
 ```json
@@ -282,7 +282,7 @@ Te przykładowe dane JSON reprezentują dane wejściowe **metryk** , które są 
 ```
 
 ## <a name="example-output"></a>Przykładowe dane wyjściowe
-Te przykładowe dane wyjściowe JSON pokazują pojedyncze zdarzenie alertu na podstawie reguły progu procesora zdefiniowanej w danych referencyjnych. Zdarzenie wyjściowe zawiera nazwę alertu, a także zagregowaną (średnią, minimalną, maksymalną) pól branych pod uwagę. Dane wyjściowe zdarzenia zawierają wartość `NodeName` `N024` klucza pola numer 2 ze względu na konfigurację reguły. (Kod JSON został zmieniony, aby pokazać podziały wierszy w celu zapewnienia czytelności).
+Te przykładowe dane wyjściowe JSON pokazują pojedyncze zdarzenie alertu na podstawie reguły progu procesora zdefiniowanej w danych referencyjnych. Zdarzenie wyjściowe zawiera nazwę alertu, a także zagregowaną (średnią, minimalną, maksymalną) pól branych pod uwagę. Dane wyjściowe zdarzenia zawierają wartość klucza pola numer 2 `NodeName` `N024` ze względu na konfigurację reguły. (Kod JSON został zmieniony, aby pokazać podziały wierszy w celu zapewnienia czytelności).
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",

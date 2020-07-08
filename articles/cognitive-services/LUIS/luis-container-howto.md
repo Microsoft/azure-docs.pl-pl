@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100247"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039011"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalowanie i uruchamianie kontenerów platformy Docker LUIS
 
@@ -26,17 +26,17 @@ Poniższy film wideo demonstruje użycie tego kontenera.
 
 [![Demonstracja kontenera dla Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby uruchomić kontener LUIS, należy zwrócić uwagę na następujące wymagania wstępne:
 
-|Wymagany|Przeznaczenie|
+|Wymagane|Przeznaczenie|
 |--|--|
 |Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows**program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
-|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość `docker` podstawowych poleceń.|
-|Zasób `Cognitive Services` platformy Azure i plik Luis [spakowanej aplikacji](luis-how-to-start-new-app.md) |Aby można było używać kontenera, musisz mieć:<br><br>* Zasób platformy Azure _Cognitive Services_ i skojarzony klucz rozliczeniowy identyfikator URI punktu końcowego rozliczenia. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera. <br>* Przeszkolone lub opublikowana aplikacja spakowana jako zainstalowano dane wejściowe do kontenera ze skojarzonym IDENTYFIKATORem aplikacji. Spakowany plik można pobrać z portalu LUIS lub interfejsów API tworzenia. Jeśli otrzymujesz spakowaną aplikację LUIS z [interfejsów API tworzenia](#authoring-apis-for-package-file), będziesz również potrzebować _klucza tworzenia_.<br><br>Te wymagania są używane do przekazywania argumentów wiersza polecenia do następujących zmiennych:<br><br>**{AUTHORING_KEY}**: ten klucz służy do uzyskiwania spakowanej aplikacji z usługi Luis w chmurze i przekazywania dzienników zapytań z powrotem do chmury. Format to `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{App_id}**: ten identyfikator jest używany do wybierania aplikacji. Format to `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: ten klucz jest używany do uruchamiania kontenera. Klucz punktu końcowego można znaleźć w dwóch miejscach. Pierwszy to Azure Portal na liście kluczy zasobu _Cognitive Services_ . Klucz punktu końcowego jest również dostępny w portalu LUIS na stronie ustawień klucze i punkt końcowy. Nie używaj klucza początkowego.<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie Przegląd.<br><br>[Klucz tworzenia i klucz punktu końcowego](luis-limits.md#key-limits) mają różne cele. Nie należy ich używać zamiennie. |
+|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.|
+|Zasób platformy Azure `Cognitive Services` i plik Luis [spakowanej aplikacji](luis-how-to-start-new-app.md) |Aby można było używać kontenera, musisz mieć:<br><br>* Zasób platformy Azure _Cognitive Services_ i skojarzony klucz rozliczeniowy identyfikator URI punktu końcowego rozliczenia. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera. <br>* Przeszkolone lub opublikowana aplikacja spakowana jako zainstalowano dane wejściowe do kontenera ze skojarzonym IDENTYFIKATORem aplikacji. Spakowany plik można pobrać z portalu LUIS lub interfejsów API tworzenia. Jeśli otrzymujesz spakowaną aplikację LUIS z [interfejsów API tworzenia](#authoring-apis-for-package-file), będziesz również potrzebować _klucza tworzenia_.<br><br>Te wymagania są używane do przekazywania argumentów wiersza polecenia do następujących zmiennych:<br><br>**{AUTHORING_KEY}**: ten klucz służy do uzyskiwania spakowanej aplikacji z usługi Luis w chmurze i przekazywania dzienników zapytań z powrotem do chmury. Format to `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .<br><br>**{App_id}**: ten identyfikator jest używany do wybierania aplikacji. Format to `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .<br><br>**{API_KEY}**: ten klucz jest używany do uruchamiania kontenera. Klucz punktu końcowego można znaleźć w dwóch miejscach. Pierwszy to Azure Portal na liście kluczy zasobu _Cognitive Services_ . Klucz punktu końcowego jest również dostępny w portalu LUIS na stronie ustawień klucze i punkt końcowy. Nie używaj klucza początkowego.<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie Przegląd.<br><br>[Klucz tworzenia i klucz punktu końcowego](luis-limits.md#key-limits) mają różne cele. Nie należy ich używać zamiennie. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -62,11 +62,11 @@ Ten kontener obsługuje minimalne i zalecane wartości ustawień:
 * Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
 * TPS — liczba transakcji na sekundę
 
-Rdzeń i pamięć odpowiadają `--cpus` ustawieniom `--memory` i, które są używane jako część `docker run` polecenia.
+Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
 
-Użyj polecenia [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) , aby pobrać obraz kontenera z `mcr.microsoft.com/azure-cognitive-services/luis` repozytorium:
+Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera z `mcr.microsoft.com/azure-cognitive-services/luis` repozytorium:
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
@@ -89,7 +89,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 1. Po zakończeniu pracy z kontenerem [zaimportuj dzienniki punktów końcowych](#import-the-endpoint-logs-for-active-learning) z instalacji wyjściowej w portalu Luis i [Zatrzymaj](#stop-the-container) kontener.
 1. Aby ulepszyć aplikację, użyj [aktywnej uczenia](luis-how-to-review-endpoint-utterances.md) w portalu Luis na stronie **Przegląd punktu końcowego wyrażenia długości** .
 
-Nie można zmienić aplikacji działającej w kontenerze. W kolejności zmiany aplikacji w kontenerze należy zmienić aplikację w usłudze LUIS przy użyciu portalu [Luis](https://www.luis.ai) lub użyć [interfejsów API tworzenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)Luis. Następnie Wyszkol i/lub Opublikuj, a następnie Pobierz nowy pakiet i ponownie uruchom kontener.
+Nie można zmienić aplikacji działającej w kontenerze. Aby można było zmienić aplikację w kontenerze, należy zmienić aplikację w usłudze LUIS przy użyciu portalu [Luis](https://www.luis.ai) lub użyć [interfejsów API tworzenia](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)Luis. Następnie Wyszkol i/lub Opublikuj, a następnie Pobierz nowy pakiet i ponownie uruchom kontener.
 
 Nie można wyeksportować aplikacji LUIS wewnątrz kontenera z powrotem do usługi LUIS. Można przekazać tylko dzienniki zapytań.
 
@@ -97,7 +97,7 @@ Nie można wyeksportować aplikacji LUIS wewnątrz kontenera z powrotem do usłu
 
 Kontener LUIS wymaga przeszkolonej lub opublikowanej aplikacji LUIS do odpowiedzi na zapytania predykcyjne wyrażenia długości użytkownika. Aby uzyskać aplikację LUIS, użyj interfejsu API pakietu przeszkolonego lub opublikowanego.
 
-Domyślną lokalizacją jest `input` podkatalog w odniesieniu do miejsca, w którym `docker run` jest uruchamiane polecenie.
+Domyślną lokalizacją jest `input` podkatalog w odniesieniu do miejsca, w którym jest uruchamiane `docker run` polecenie.
 
 Umieść plik pakietu w katalogu i odwołuje się do tego katalogu jako instalacji wejściowej podczas uruchamiania kontenera Docker.
 
@@ -120,7 +120,7 @@ Przed spakowaniem aplikacji LUIS należy wykonać następujące czynności:
 
 |Wymagania dotyczące pakietów|Szczegóły|
 |--|--|
-|Wystąpienie zasobów usługi Azure _Cognitive Services_|Obsługiwane regiony obejmują<br><br>Zachodnie Stany`westus`USA ()<br>Europa Zachodnia (`westeurope`)<br>Australia Wschodnia (`australiaeast`)|
+|Wystąpienie zasobów usługi Azure _Cognitive Services_|Obsługiwane regiony obejmują<br><br>Zachodnie stany USA ( `westus` )<br>Europa Zachodnia ( `westeurope` )<br>Australia Wschodnia ( `australiaeast` )|
 |Przeszkolone lub opublikowana aplikacja LUIS|Bez [nieobsługiwanych zależności][unsupported-dependencies]. |
 |Dostęp do systemu plików [komputera hosta](#the-host-computer) |Komputer hosta musi zezwalać na [instalację wejściową](luis-container-configuration.md#mount-settings).|
 
@@ -196,7 +196,7 @@ Aby pobrać pakiet z wersjami, zapoznaj się z [dokumentacją interfejsu API w t
 
 ## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
 
-Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) `{ENDPOINT_URI}` , aby uzyskać szczegółowe `{API_KEY}` informacje na temat sposobu pobierania wartości i.
+Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{ENDPOINT_URI}` `{API_KEY}` wartości i.
 
 [Przykłady](luis-container-configuration.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
@@ -214,7 +214,7 @@ ApiKey={API_KEY}
 
 * Ten przykład używa katalogu poza `C:` dyskiem, aby uniknąć konfliktów uprawnień w systemie Windows. Jeśli musisz użyć określonego katalogu jako katalogu wejściowego, może być konieczne przyznanie uprawnienia usługi Docker.
 * Nie zmieniaj kolejności argumentów, chyba że znasz kontenery Docker.
-* W przypadku korzystania z innego systemu operacyjnego należy użyć właściwej konsoli/terminalu, składni folderu dla instalacji i znaku kontynuacji wiersza dla systemu. W poniższych przykładach założono, że konsola systemu Windows `^`ma znak kontynuacji wiersza. Ponieważ kontener jest systemem operacyjnym Linux, instalacja docelowa używa składni folderu w stylu systemu Linux.
+* W przypadku korzystania z innego systemu operacyjnego należy użyć właściwej konsoli/terminalu, składni folderu dla instalacji i znaku kontynuacji wiersza dla systemu. W poniższych przykładach założono, że konsola systemu Windows ma znak kontynuacji wiersza `^` . Ponieważ kontener jest systemem operacyjnym Linux, instalacja docelowa używa składni folderu w stylu systemu Linux.
 
 To polecenie:
 
@@ -228,8 +228,8 @@ To polecenie:
 Więcej [przykładów](luis-container-configuration.md#example-docker-run-commands) `docker run` polecenia jest dostępnych.
 
 > [!IMPORTANT]
-> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
-> Wartość ApiKey jest **kluczem** ze strony **zasobów platformy Azure** w portalu Luis i jest również dostępna na stronie klucze zasobów platformy Azure `Cognitive Services` .
+> `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+> Wartość ApiKey jest **kluczem** ze strony **zasobów platformy Azure** w portalu Luis i jest również dostępna na `Cognitive Services` stronie klucze zasobów platformy Azure.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -241,7 +241,7 @@ W kontenerze są dostępne zarówno wersje 2, jak i [v3](luis-migration-api-v3.m
 
 Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. Punkty końcowe dla opublikowanych aplikacji (przemieszczania lub produkcji) mają _różną_ trasę niż punkty końcowe dla aplikacji z wersjami.
 
-Użyj hosta, `http://localhost:5000`, dla interfejsów API kontenerów.
+Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
 
 # <a name="v3-prediction-endpoint"></a>[Punkt końcowy przewidywania v3](#tab/v3)
 
@@ -271,7 +271,7 @@ Parametry zapytania konfigurują sposób i wartość zwracaną w odpowiedzi na z
 |Parametr zapytania|Typ|Przeznaczenie|
 |--|--|--|
 |`q`|ciąg|Wypowiedź użytkownika.|
-|`timezoneOffset`|numer|TimezoneOffset umożliwia [zmianę strefy czasowej](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) używanej przez wstępnie utworzoną jednostkę datetimeV2.|
+|`timezoneOffset`|liczba|TimezoneOffset umożliwia [zmianę strefy czasowej](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) używanej przez wstępnie utworzoną jednostkę datetimeV2.|
 |`verbose`|wartość logiczna|Zwraca wszystkie intencje i ich wyniki po ustawieniu na wartość true. Wartość domyślna to false, która zwraca tylko najwyższy cel.|
 |`staging`|wartość logiczna|Zwraca zapytanie z wyników środowiska przejściowego, jeśli ma wartość true. |
 |`log`|wartość logiczna|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to „true”.|
@@ -294,7 +294,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Aby wykonać zapytania do środowiska **przejściowego** , Zastąp `production` w trasie `staging`:
+Aby wykonać zapytania do środowiska **przejściowego** , Zastąp `production` w trasie `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 

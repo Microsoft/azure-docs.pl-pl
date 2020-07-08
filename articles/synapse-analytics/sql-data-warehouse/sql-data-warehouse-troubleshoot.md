@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b2ae3aa77383888c320ed58e03e73b2e306feeba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213775"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039028"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z usługą SQL Synapse w usłudze Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ W tym artykule wymieniono typowe problemy dotyczące rozwiązywania problemów w
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Nieudane logowanie użytkownika „NT AUTHORITY\ANONYMOUS LOGON”. (Microsoft SQL Server, błąd: 18456) | Ten błąd występuje, gdy użytkownik usługi Azure AD próbuje nawiązać połączenie z bazą danych Master, ale nie ma użytkownika w głównej.  Aby rozwiązać ten problem, należy określić pulę SQL, z którą chcesz nawiązać połączenie, lub dodać użytkownika do bazy danych Master.  Aby uzyskać więcej informacji, zobacz artykuł [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) . |
 | Podmiot zabezpieczeń serwera „nousername” nie jest w stanie uzyskać dostępu do bazy danych „master” w bieżącym kontekście zabezpieczeń. Nie można otworzyć domyślnej bazy danych użytkownika. Logowanie nie powiodło się. Logowanie użytkownika „nousername” nie powiodło się. (Microsoft SQL Server, błąd: 916) | Ten błąd występuje, gdy użytkownik usługi Azure AD próbuje nawiązać połączenie z bazą danych Master, ale nie ma użytkownika w głównej.  Aby rozwiązać ten problem, należy określić pulę SQL, z którą chcesz nawiązać połączenie, lub dodać użytkownika do bazy danych Master.  Aby uzyskać więcej informacji, zobacz artykuł [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) . |
-| Błąd CTAIP                                                  | Ten błąd może wystąpić, gdy została utworzona nazwa logowania w bazie danych Master programu SQL Server, ale nie w bazie danych SQL.  Jeśli ten błąd wystąpi, zapoznaj się z artykułem [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) .  W tym artykule wyjaśniono, jak utworzyć identyfikator logowania i użytkownika w bazie danych Master, a następnie jak utworzyć użytkownika w usłudze SQL Database. |
+| Błąd CTAIP                                                  | Ten błąd może wystąpić, gdy została utworzona nazwa logowania w bazie danych Master SQL Database, ale nie w określonej bazie danych SQL.  Jeśli ten błąd wystąpi, zapoznaj się z artykułem [Omówienie zabezpieczeń](sql-data-warehouse-overview-manage-security.md) .  W tym artykule wyjaśniono, jak utworzyć identyfikator logowania i użytkownika w bazie danych Master, a następnie jak utworzyć użytkownika w bazie danych SQL. |
 | Zablokowane przez zaporę                                          | Pule SQL są chronione przez zapory, aby zapewnić, że tylko znane adresy IP mają dostęp do bazy danych. Zapory są domyślnie bezpieczne, co oznacza, że musisz jawnie włączyć i adres IP lub zakres adresów, aby można było nawiązać połączenie.  Aby skonfigurować zaporę w celu uzyskania dostępu, wykonaj kroki opisane w sekcji [Konfigurowanie dostępu do zapory serwera dla adresu IP klienta](create-data-warehouse-portal.md) w [instrukcje aprowizacji](create-data-warehouse-portal.md). |
 | Nie można nawiązać połączenia z narzędziem lub sterownikiem                           | Synapse w puli SQL zaleca się używanie programu [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT dla programu Visual Studio](sql-data-warehouse-install-visual-studio.md)lub [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) do wykonywania zapytań dotyczących danych. Aby uzyskać więcej informacji na temat sterowników i łączenia się z usługą Azure Synapse, zobacz [sterowniki dla platformy Azure Synapse](sql-data-warehouse-connection-strings.md) i Połącz się z artykułami [Synapse platformy Azure](sql-data-warehouse-connect-overview.md) . |
 
