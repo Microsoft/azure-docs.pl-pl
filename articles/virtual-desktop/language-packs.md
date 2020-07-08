@@ -9,10 +9,10 @@ ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361306"
 ---
 # <a name="install-language-packs"></a>Instalowanie pakietów językowych
@@ -146,7 +146,7 @@ Aby przechwycić obraz:
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający okno Tworzenie obrazu. Nazwa, którą użytkownik udzielił do tego obrazu testu, to "vmwvd-Image-fr" i przypisano ją do grupy zasobów "testwvdimagerg".](media/create-image.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Poczekaj kilka minut na zakończenie procesu przechwytywania. Gdy obraz jest gotowy, w centrum powiadomień powinien zostać wyświetlony komunikat informujący o przechwyceniu obrazu.
 

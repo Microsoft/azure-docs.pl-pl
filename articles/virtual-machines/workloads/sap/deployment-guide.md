@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
 ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361391"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
@@ -424,7 +424,7 @@ Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z w
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
-1.  Wybierz przycisk **Utwórz**.
+1.  Wybierz pozycję **Utwórz**.
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
 
@@ -1499,7 +1499,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

@@ -9,10 +9,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362445"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS

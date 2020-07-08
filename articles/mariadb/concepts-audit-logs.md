@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85362428"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Inspekcja dzienników w Azure Database for MariaDB
@@ -33,7 +33,7 @@ Inne parametry, które można dostosować, obejmują:
 > [!Note]
 > `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
 
-| **Zdarzenie** | **Opis** |
+| **Wydarzenie** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> -Uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -46,7 +46,7 @@ Inne parametry, które można dostosować, obejmują:
 
 ## <a name="access-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji
 
-Dzienniki inspekcji są zintegrowane z Azure Monitor dziennikami diagnostycznymi. Po włączeniu dzienników inspekcji na serwerze MariaDB można je emitować do dzienników Azure Monitor, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Dzienniki inspekcji są zintegrowane z dziennikami diagnostycznymi usługi Azure Monitor. Gdy włączysz dzienniki inspekcji na serwerze MariaDB, możesz je emitować do dzienników usługi Azure Monitor, Event Hubs i Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Schematy dzienników diagnostycznych
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361629"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
@@ -131,7 +131,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
-| Zakończone |Zadanie zostało ukończone pomyślnie. |
+| Ukończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |

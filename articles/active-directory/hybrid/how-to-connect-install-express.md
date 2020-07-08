@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85358875"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
@@ -71,7 +71,7 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 
-| Temat | Łącze |
+| Temat | Link |
 | --- | --- |
 | Omówienie programu Azure AD Connect | [Integrowanie katalogów lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 | Instalowanie przy użyciu ustawień dostosowanych | [Niestandardowa instalacja programu Azure AD Connect](how-to-connect-install-custom.md) |

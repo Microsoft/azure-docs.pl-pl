@@ -8,10 +8,10 @@ ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361476"
 ---
 # <a name="connecting-to-servers"></a>Łączenie z serwerami

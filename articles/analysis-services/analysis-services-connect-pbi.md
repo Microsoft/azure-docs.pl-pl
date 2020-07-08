@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361527"
 ---
 # <a name="connect-with-power-bi"></a>Łączenie z usługą Power BI
@@ -46,7 +46,7 @@ Po utworzeniu serwera na platformie Azure i wdrożeniu modelu tabelarycznego uż
 1. Utwórz plik Power BI Desktop, który ma połączenie na żywo z modelem na serwerze.
 2. W [Power BI](https://powerbi.microsoft.com)kliknij pozycję **Pobierz**  >  **pliki**danych, a następnie Znajdź i wybierz plik pbix.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Połącz z Azure Analysis Services](analysis-services-connect.md)   
 [Biblioteki klienta](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 

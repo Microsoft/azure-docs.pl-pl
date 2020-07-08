@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361561"
 ---
 # <a name="connect-with-excel"></a>Łączenie z programem Excel
@@ -40,7 +40,7 @@ Konto, za pomocą którego logujesz się, musi należeć do roli bazy danych mod
     ![Połącz z wybierz model z programu Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Biblioteki klienckie](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Zarządzanie serwerem](analysis-services-manage.md)     

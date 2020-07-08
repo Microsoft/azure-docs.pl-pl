@@ -8,10 +8,10 @@ ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85361442"
 ---
 # <a name="alias-server-names"></a>Nazwy serwerów aliasów
@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Biblioteki klienckie](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Łączenie z programu Power BI Desktop](analysis-services-connect-pbi.md)
