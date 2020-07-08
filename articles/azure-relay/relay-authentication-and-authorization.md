@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie uwierzytelniania sygnatury dostępu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316942"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay uwierzytelnianie i autoryzacja

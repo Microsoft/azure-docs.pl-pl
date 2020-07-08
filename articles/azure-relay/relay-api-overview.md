@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie dostępnych Azure Relay interfejsó
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85316956"
 ---
 # <a name="available-relay-apis"></a>Dostępne interfejsy API przekazywania

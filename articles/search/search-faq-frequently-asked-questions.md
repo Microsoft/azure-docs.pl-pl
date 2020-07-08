@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85317234"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Wyszukiwanie poznawcze platformy Azure — często zadawane pytania
@@ -101,8 +101,8 @@ Większość klientów wybiera dedykowane pola w kolekcji, gdy ma ona obsługiwa
 
 Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Zażądaj funkcji w [witrynie sieci Web głosu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [StackOverflow: Azure Wyszukiwanie poznawcze](https://stackoverflow.com/questions/tagged/azure-search)   
  [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)  
- [Co to jest wyszukiwanie poznawcze na platformie Azure?](search-what-is-azure-search.md)
+ [Co to jest platforma Azure Wyszukiwanie poznawcze?](search-what-is-azure-search.md)
