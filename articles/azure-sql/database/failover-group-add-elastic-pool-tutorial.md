@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 683e448156d8f55c19ba55607f6171ca4279ebe9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253906"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042581"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Samouczek: Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,7 +70,7 @@ Utwórz pulę elastyczną przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia puli elastycznej, a następnie wybierz pozycję **Utwórz** , aby utworzyć pulę elastyczną.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Tworzenie pul elastycznych i serwera pomocniczego przy użyciu programu PowerShell.
 
@@ -162,7 +162,7 @@ Utwórz grupę trybu failover przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Wybierz** , aby zastosować ustawienia puli elastycznej do grupy trybu failover, a następnie wybierz pozycję **Utwórz** , aby utworzyć grupę trybu failover. Dodanie puli elastycznej do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover przy użyciu programu PowerShell.
 
@@ -273,7 +273,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 1. Sprawdź, który serwer jest serwerem podstawowym, który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
 1. Wybierz ponownie **tryb failover** , aby zakończyć pracę grupy trybu failover z powrotem do oryginalnych ustawień.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.
 
@@ -358,7 +358,7 @@ Wyczyść zasoby, usuwając grupę zasobów.
 1. Wybierz pozycję **Usuń grupę zasobów** , aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów.
 1. Wpisz nazwę grupy zasobów, `myResourceGroup` w polu tekstowym, a następnie wybierz pozycję **Usuń** , aby usunąć grupę zasobów.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Wyczyść zasoby przy użyciu programu PowerShell.
 
@@ -385,7 +385,7 @@ W tej części samouczka jest stosowane następujące polecenie cmdlet programu 
 
 ## <a name="full-script"></a>Pełny skrypt
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 8e4f042e162408fef44b5c525b3a737e37005fdd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7564adb6e2e596b95cd138c8e4e2190a4c1e2a57
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042512"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042649"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Uruchamianie zapytań analizy ad hoc w wielu bazach danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Wingtip bilety SaaS wielodostępnych skryptów bazy danych i kodu źródłowego 
 
 Aby uruchamiać zapytania dla bardziej interesującego zestawu danych, Utwórz dane sprzedaży biletów, uruchamiając Generator biletów.
 
-1. W *ISE programu PowerShell*Otwórz pozycję... \\ Learning modules \\ Operational Analytics \\ AdHoc raportowanie \\ *demo-AdhocReporting. ps1* i ustaw następujące wartości:
+1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ analizy \\ ad hoc \\ *Demo-AdhocReporting.ps1* skrypt i ustaw następujące wartości:
    * **$DemoScenario** = 1, **bilety zakupu dla zdarzeń we wszystkich miejsc**.
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i wygenerować sprzedaż biletów. Po uruchomieniu skryptu wykonaj kroki opisane w tym samouczku. W sekcji *Uruchom zapytania rozproszone ad hoc* są wysyłane zapytania o dane biletów, więc poczekaj na ukończenie generatora biletów.
 
@@ -73,7 +73,7 @@ Aby osiągnąć ten wzorzec, wszystkie tabele dzierżaw zawierają kolumnę *Ven
 
 W tym ćwiczeniu zostanie wdrożona baza danych *adhocreporting* . Jest to główna baza danych zawierająca Schemat używany do wykonywania zapytań we wszystkich bazach danych dzierżaw. Baza danych jest wdrażana na istniejącym serwerze wykazu, który jest serwerem używanym dla wszystkich baz danych związanych z zarządzaniem w przykładowej aplikacji.
 
-1. Otwórz... \\ Learning modules \\ Operational Analytics \\ AdHoc Reporting \\ *demo-AdhocReporting. ps1* w programie *PowerShell ISE* i ustaw następujące wartości:
+1. Otwórz... \\ Moduły szkoleniowe \\ analizy \\ ad hoc \\ *Demo-AdhocReporting.ps1* w programie *PowerShell ISE* i ustaw następujące wartości:
    * **$DemoScenario** = 2, **Wdróż bazę danych analizy ad hoc**.
 
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i utworzyć bazę danych *adhocreporting* .
@@ -159,4 +159,4 @@ Wypróbuj teraz [samouczek analizy dzierżawy](saas-multitenantdb-tenant-analyti
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
 
-* [Elastyczne zapytanie](elastic-query-overview.md)
+* [Zapytanie elastyczne](elastic-query-overview.md)

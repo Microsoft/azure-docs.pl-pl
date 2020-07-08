@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441251"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042496"
 ---
 # <a name="linq-to-sql-translation"></a>Tłumaczenie składni LINQ na język SQL
 
-Dostawca zapytań Azure Cosmos DB wykonuje Mapowanie najlepszego nakładu pracy z zapytania LINQ do Cosmos DB zapytania SQL. W poniższym opisie założono podstawową znajomość programu LINQ.
+Dostawca zapytań Azure Cosmos DB wykonuje Mapowanie najlepszego nakładu pracy z zapytania LINQ do Cosmos DB zapytania SQL. Jeśli chcesz uzyskać zapytanie SQL tłumaczone na LINQ, użyj `ToString()` metody dla wygenerowanego `IQueryable` obiektu. W poniższym opisie założono podstawową znajomość programu LINQ.
 
 System typu dostawcy zapytań obsługuje tylko typy pierwotne JSON: numeric, Boolean, String i null.
 
@@ -59,17 +59,17 @@ Dostawca zapytań obsługuje następujące wyrażenia skalarne:
 Dostawca LINQ zawarty w zestawie SDK programu SQL .NET obsługuje następujące operatory:
 
 - **SELECT**: projekcje przekładają się na wybór SQL, w tym Konstruowanie obiektu.
-- **Gdzie**: filtry przekładają się na SQL i obsługują tłumaczenie między `&&`, `||`i `!` do operatorów SQL
+- **Gdzie**: filtry przekładają się na SQL i obsługują tłumaczenie między `&&` , `||` i `!` do operatorów SQL
 - **SelectMany**: umożliwia rozwijanie tablic do klauzuli JOIN języka SQL. Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
 - **OrderBy** i **OrderByDescending**: Przekształć do order by przy użyciu ASC lub DESC.
 - Operatory **Count**, **Sum**, **Min**, **Max** i **Average** na potrzeby agregacji oraz ich asynchroniczne odpowiedniki **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** i **AverageAsync**.
 - **CompareTo**: operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
 - **Pomiń** i **Zrób**: tłumaczy na przesunięcie SQL i limit ograniczenia wyników zapytania i dzielenia na strony.
-- **Funkcje matematyczne**: obsługuje tłumaczenie z `Abs`platformy `Acos`.NET `Asin`, `Atan`, `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Sqrt` `Tan` `Truncate` ,,,,,,,,,,,,,, i do równoważnych funkcji wbudowanych języka SQL. `Pow` `Round` `Sign` `Sin`
-- **Funkcje ciągów**: obsługuje tłumaczenie z platformy `Concat`.NET `Contains`, `Count`, `EndsWith``IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper`,,,,,,,,, i `TrimStart` do równoważnych funkcji wbudowanych języka `TrimEnd`SQL.
-- **Funkcje tablicowe**: obsługuje tłumaczenie z `Concat`platformy `Contains`.NET, `Count` i do równoważnych funkcji wbudowanych języka SQL.
-- **Funkcje rozszerzenia geograficznego**: obsługuje tłumaczenie z `Distance`metod `IsValid`zastępczych `IsValidDetailed`, `Within` , i do równoważnych funkcji wbudowanych języka SQL.
-- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika**: obsługuje translację z metody `UserDefinedFunctionProvider.Invoke` zastępczej do odpowiedniej funkcji zdefiniowanej przez użytkownika.
+- **Funkcje matematyczne**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` , i `Truncate` do równoważnych funkcji wbudowanych języka SQL.
+- **Funkcje ciągów**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,, `Concat` `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` i `TrimStart` do równoważnych funkcji wbudowanych języka SQL.
+- **Funkcje tablicowe**: obsługuje tłumaczenie z platformy .NET `Concat` , `Contains` i `Count` do równoważnych funkcji wbudowanych języka SQL.
+- **Funkcje rozszerzenia geograficznego**: obsługuje tłumaczenie z metod zastępczych `Distance` ,, `IsValid` `IsValidDetailed` i `Within` do równoważnych funkcji wbudowanych języka SQL.
+- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika**: obsługuje translację z metody zastępczej `UserDefinedFunctionProvider.Invoke` do odpowiedniej funkcji zdefiniowanej przez użytkownika.
 - **Różne**: obsługuje translację `Coalesce` operatorów i operatory warunkowe. Można przetłumaczyć `Contains` na ciąg zawiera, ARRAY_CONTAINS lub SQL w, w zależności od kontekstu.
 
 ## <a name="examples"></a>Przykłady
@@ -264,7 +264,7 @@ Składnia to `input(.|.SelectMany())(.Select()|.Where())*`. Połączone zapytani
 
 ### <a name="nesting"></a>Zagnieżdżanie
 
-Składnia to `input.SelectMany(x=>x.Q())` gdzie `Q` jest operator `Select`, `SelectMany`, or. `Where`
+Składnia to `input.SelectMany(x=>x.Q())` gdzie `Q` jest `Select` `SelectMany` operator,, or `Where` .
 
 Zapytanie zagnieżdżone stosuje wewnętrzne zapytanie do każdego elementu zewnętrznego kontenera. Jedną z ważnych funkcji jest to, że zapytanie wewnętrzne może odwoływać się do pól elementów w kontenerze zewnętrznym, takich jak samosprzężenie.
 
