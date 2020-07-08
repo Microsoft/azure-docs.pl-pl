@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709032"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w Azure AI Gallery
@@ -26,7 +25,7 @@ Galeria zawiera różne zasoby, których można użyć do opracowania własnych 
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Co mogę znaleźć w galerii?
 
-Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Należą do nich następujące elementy:
+Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Są to moduły:
 
 * **Eksperymenty** — Galeria zawiera szeroką gamę eksperymentów, które zostały opracowane w Azure Machine Learning Studio (klasyczny). Ten zakres od szybkich eksperymentów z zakresu weryfikacji koncepcji, które przedstawiają konkretną technikę uczenia maszynowego, do w pełni opracowanych rozwiązań w celu uzyskania złożonych problemów z uczeniem maszynowym.
 * **Samouczki** — dostępne są kilka samouczków, które przeprowadzą Cię przez technologie i koncepcje uczenia maszynowego, lub opisują zaawansowane metody rozwiązywania różnych problemów z uczeniem maszynowym.
@@ -123,7 +122,7 @@ Możesz zmienić dowolne z poniższych informacji dla eksperymentu bezpośrednio
 * Nazwa eksperymentu
 * Podsumowanie lub opis
 * Tagi
-* Image (Obraz)
+* Obraz
 * Ustawienie widoczności (**publiczne** lub **nieznajdujące**się na liście)
 
 Możesz również usunąć eksperyment z galerii.
@@ -160,7 +159,7 @@ Możesz pomóc innym, pisząc **samouczek** w galerii, który objaśnia koncepcj
    > [!TIP]
    > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący**się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący**się na liście.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Twój udział jest teraz w Azure AI Gallery. Twoje wkłady są wyświetlane na stronie Twojego konta na karcie **Items (elementy** ).
 

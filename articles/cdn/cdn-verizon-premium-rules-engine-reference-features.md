@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343204"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN z funkcji aparatu reguł Verizon Premium
@@ -33,7 +32,7 @@ Dostępne typy funkcji to:
 * [Origin](#origin)
 * [Specjalizacja](#specialty)
 * [Adres URL](#url)
-* [Zapora aplikacji internetowej](#waf)
+* [Web Application Firewall](#waf)
 
 ### <a name="access"></a><a name="access"></a>Access
 
@@ -161,7 +160,7 @@ Te funkcje umożliwiają przekierowanie lub zapisanie żądania w innym adresie 
 
 **[Powrót do początku](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
 
 Funkcja [Zapora aplikacji sieci Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) określa, czy żądanie będzie sprawdzane przez zaporę aplikacji sieci Web.
 

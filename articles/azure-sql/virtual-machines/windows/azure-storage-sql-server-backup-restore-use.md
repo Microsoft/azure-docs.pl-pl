@@ -13,10 +13,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669201"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Tworzenie kopii zapasowych i przywracanie SQL Server przy użyciu usługi Azure Storage
@@ -51,7 +50,7 @@ Poniższe składniki platformy Azure są używane podczas tworzenia kopii zapaso
 | --- | --- |
 | **Konto magazynu** |Konto magazynu jest punktem początkowym dla wszystkich usług magazynu. Aby uzyskać dostęp do usługi Azure Blob Storage, należy najpierw utworzyć konto usługi Azure Storage. Aby uzyskać więcej informacji na temat usługi Azure Blob Storage, zobacz [jak korzystać z usługi Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/). |
 | **Kontener** |Kontener zawiera grupowanie zestawu obiektów blob i może przechowywać nieograniczoną liczbę obiektów BLOB. Aby napisać SQL Server kopię zapasową do magazynu obiektów blob platformy Azure, musisz mieć co najmniej utworzony kontener główny. |
-| **Tworzenia** |Plik o dowolnym typie i rozmiarze. Adresy obiektów BLOB są adresowane przy użyciu następującego formatu adresu URL: **https://[konto magazynu]. blob. Core. Windows. NET/[Container]/[BLOB]**. Aby uzyskać więcej informacji na temat stronicowych obiektów blob, zobacz [Opis bloków i stronicowych obiektów BLOB](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Obiekt blob** |Plik o dowolnym typie i rozmiarze. Adresy obiektów BLOB są adresowane przy użyciu następującego formatu adresu URL: **https://[konto magazynu]. blob. Core. Windows. NET/[Container]/[BLOB]**. Aby uzyskać więcej informacji na temat stronicowych obiektów blob, zobacz [Opis bloków i stronicowych obiektów BLOB](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Składniki SQL Server
 Poniższe składniki SQL Server są używane podczas tworzenia kopii zapasowych w usłudze Azure Blob Storage.

@@ -12,10 +12,9 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045480"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu usługi Azure Multi-Factor Authentication
@@ -62,7 +61,7 @@ Aby zarejestrować i ustawić wymagane uprawnienia dla aplikacji:
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
-    ![Rejestracja aplikacji](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Rejestrowanie aplikacji](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Po utworzeniu rejestracji aplikacji jest generowana i wyświetlana wartość **identyfikatora aplikacji** .
 

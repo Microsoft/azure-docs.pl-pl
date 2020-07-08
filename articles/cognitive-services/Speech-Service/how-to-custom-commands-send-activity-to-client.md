@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0a3e3455615006c0e93cf32eebcdaedac9960a79
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-ms.translationtype: MT
+ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307736"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027617"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Wyślij działanie poleceń niestandardowych do aplikacji klienckiej
 
@@ -28,7 +27,7 @@ Wykonaj następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) lub nowszy. Ten przewodnik używa programu Visual Studio 2019
 > * Klucz subskrypcji platformy Azure dla usługi mowy: [Uzyskaj jeden bezpłatnie](get-started.md) lub utwórz go na [Azure Portal](https://portal.azure.com)
 > * Wcześniej [utworzona aplikacja poleceń niestandardowych](quickstart-custom-commands-application.md)
 > * Aplikacja kliencka z włączonym zestawem SDK: Porada [: integracja z aplikacją kliencką przy użyciu zestawu Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -46,7 +45,7 @@ Wykonaj następujące zadania:
      "device": "{SubjectDevice}"
    }
    ```
-1. Kliknij przycisk **Zapisz** , aby utworzyć nową regułę z akcją Wyślij działanie
+1. Kliknij przycisk **Zapisz** , aby utworzyć nową regułę z akcją wysyłania, **nauczenie** i **opublikowanie** zmiany
 
    > [!div class="mx-imgBorder"]
    > ![Wyślij regułę ukończenia działania](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -55,9 +54,12 @@ Wykonaj następujące zadania:
 
 W temacie [How to: Setup Application Client with Speech SDK (wersja zapoznawcza)](./how-to-custom-commands-setup-speech-sdk.md)utworzono aplikację kliencką platformy UWP z użyciem zestawu Speech SDK, który obsłużył polecenia takie jak `turn on the tv` , `turn off the fan` . Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
 
-Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy użyciu następującego kodu XML dodanego do`MainPage.xaml`
+Aby dodać **pola z etykietą z tekstem wskazującym** lub **wyłączać**, Dodaj następujący blok XML StackPanel do `MainPage.xaml` .
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -72,6 +74,7 @@ Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy uż
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### <a name="add-reference-libraries"></a>Dodawanie bibliotek referencyjnych
@@ -79,15 +82,21 @@ Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy uż
 Ze względu na to, że utworzono ładunek JSON, musisz dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
 
 1. Klient z odpowiednim rozwiązaniem.
-1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Zainstaluj** . 
-1. Wyszukaj **Newtonsoft.jsna** liście aktualizacji, zaktualizuj **pakiet Microsoft. servicecore. UniversalWindowsPlatform** do najnowszej wersji
+1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Przeglądaj** . 
+1. Jeśli masz już zainstalowaną **Newtonsoft.jsna**, upewnij się, że jej wersja to co najmniej 12.0.3. Jeśli nie, przejdź do pozycji **Zarządzaj pakietami NuGet dla rozwiązania — aktualizacje**, Wyszukaj **Newtonsoft.jsna** , aby je zaktualizować. W tym przewodniku jest używana wersja 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Wyślij ładunek aktywności](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Wyślij ładunek aktywności](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Upewnij się również, że pakiet NuGet **Microsoft. servicecore. UniversalWindowsPlatform** ma co najmniej 6.2.10. W tym przewodniku jest używana wersja 6.2.10.
 
 W pliku "MainPage. XAML. cs" Dodaj
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### <a name="handle-the-received-payload"></a>Obsługuj otrzymany ładunek
 

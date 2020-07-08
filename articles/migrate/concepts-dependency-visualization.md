@@ -4,10 +4,9 @@ description: Opisuje sposób używania analizy zależności do oceny przy użyci
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771346"
 ---
 # <a name="dependency-analysis"></a>Analiza zależności
@@ -28,7 +27,7 @@ Analiza zależności identyfikuje zależności między wykrytymi maszynami lokal
 
 Istnieją dwie opcje wdrażania analizy zależności
 
-**Zaznaczyć** | **Szczegóły** | **Chmura publiczna** | **Azure Government**
+**Opcja** | **Szczegóły** | **Chmura publiczna** | **Azure Government**
 ----  |---- | ---- 
 **Bez agenta** | Sonduje dane z maszyn wirtualnych VMware przy użyciu interfejsów API vSphere.<br/><br/> Nie musisz instalować agentów na maszynach wirtualnych.<br/><br/> Ta opcja jest obecnie dostępna w wersji zapoznawczej tylko w przypadku maszyn wirtualnych VMware. | Obsługiwane. | Obsługiwane.
 **Analiza oparta na agentach** | Używa [rozwiązania Service map](../azure-monitor/insights/service-map.md) w Azure monitor, aby włączyć wizualizację zależności i analizę.<br/><br/> Należy zainstalować agentów na poszczególnych maszynach lokalnych, które mają być analizowane. | Obsługiwane | Nieobsługiwane.
@@ -74,11 +73,11 @@ Różnice między wizualizacją bez agenta i wizualizacją opartą na agentach z
 **Wymaganie** | **Bez agenta** | **Na podstawie agenta**
 --- | --- | ---
 **Pomoc techniczna** | Tylko w wersji zapoznawczej dla maszyn wirtualnych VMware. [Przejrzyj](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) obsługiwane systemy operacyjne. | Ogólnie dostępna.
-**Agent** | Na maszynach, które mają być analizowane, nie są wymagane żadne agenci. | Agenci zobowiązani na poszczególnych maszynach lokalnych, które mają zostać poddane analizie.
+**Odczynnik** | Na maszynach, które mają być analizowane, nie są wymagane żadne agenci. | Agenci zobowiązani na poszczególnych maszynach lokalnych, które mają zostać poddane analizie.
 **Log Analytics** | Niewymagane. | Azure Migrate używa rozwiązania [Service map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) w [dziennikach Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) na potrzeby analizy zależności. 
 **Proces** | Przechwytuje dane połączenia TCP. Po odnajdywaniu dane są zbierane w odstępach pięciu minut. | Service Map agenci zainstalowani na komputerze zbierają dane dotyczące procesów TCP oraz połączeń przychodzących/wychodzących dla każdego procesu.
 **Dane** | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port. | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port.<br/><br/> Liczba połączeń, opóźnień i informacji o przesyłaniu danych jest zbieranych i dostępnych dla zapytań Log Analytics. 
-**Wizualizacja** | Mapę zależności pojedynczego serwera można wyświetlać w czasie trwania z przedziału od godziny do 30 dni. | Mapa zależności pojedynczego serwera.<br/><br/> Mapa zależności grupy serwerów.<br/><br/>  Mapę można wyświetlać tylko w ciągu godziny.<br/><br/> Dodawanie i usuwanie serwerów w grupie z widoku mapy.
+**Dopasowywa** | Mapę zależności pojedynczego serwera można wyświetlać w czasie trwania z przedziału od godziny do 30 dni. | Mapa zależności pojedynczego serwera.<br/><br/> Mapa zależności grupy serwerów.<br/><br/>  Mapę można wyświetlać tylko w ciągu godziny.<br/><br/> Dodawanie i usuwanie serwerów w grupie z widoku mapy.
 Eksportowanie danych | Dane z ostatnich 30 dni można pobrać w formacie CSV. | Dane można badać przy użyciu Log Analytics.
 
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 0d3e7e7de6d8f044355a43eb870420ad121ed61f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343697"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955509"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -104,7 +103,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Tworzenie klastra trybu failover
 
-W tym kroku utworzysz klaster trybu failover. Jeśli nie znasz tych kroków, możesz je wykonać przy użyciu [samouczka klastra trybu failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+W tym kroku utworzysz klaster trybu failover. Jeśli nie znasz tych kroków, możesz je wykonać przy użyciu [samouczka klastra trybu failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Istotne różnice między samouczkiem i co należy zrobić w przypadku klastra grupy roboczej:
 - Usuń zaznaczenie pozycji **Magazyn**i **bezpośrednie miejsca do magazynowania** podczas wykonywania walidacji klastra. 
@@ -130,7 +129,7 @@ Po utworzeniu klastra Przypisz statyczny adres IP klastra. Aby to zrobić, wykon
 
 ## <a name="create-a-cloud-witness"></a>Utwórz monitor w chmurze 
 
-W tym kroku skonfigurujesz monitor udostępniania w chmurze. Jeśli nie znasz tego kroku, zapoznaj się z [samouczkiem dotyczącym klastra trybu failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+W tym kroku skonfigurujesz monitor udostępniania w chmurze. Jeśli nie znasz tych kroków, zobacz [wdrażanie monitora chmury dla klastra trybu failover](/windows-server/failover-clustering/deploy-cloud-witness). 
 
 ## <a name="enable-the-availability-group-feature"></a>Włącz funkcję grupy dostępności 
 

@@ -7,12 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.openlocfilehash: 1bea8adbdb39d2ce83cfe7821ef052fdc1f1d512
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265254"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921322"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Użyj usługi ID brokera (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -89,6 +88,8 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z poniższymi atrybutami do pr
 ## <a name="tool-integration"></a>Integracja narzędzi
 
 [Wtyczka IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) usługi HDInsight została zaktualizowana w celu obsługi protokołu OAuth. Ta wtyczka służy do nawiązywania połączenia z klastrem i przesyłania zadań.
+
+[Za pomocą narzędzi Hive & platformy Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) można także vs Code, aby korzystać z notesu i przesyłania zadań.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Dostęp SSH bez skrótu hasła na platformie Azure AD DS
 

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: cd33e202a76a5ae55a68d902bb4812dcaaf348aa
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84047538"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Poświadczenia używane do uzyskiwania dostępu do biblioteki klienta Elastic Database
@@ -73,7 +72,7 @@ W tym przykładzie **smmUserConnectionString** przechowuje parametry połączeni
 
 Podobnie jak w przypadku poświadczeń administratora, nie należy używać wartości w postaci " username@server ". Zamiast tego wystarczy użyć "username".  Należy również zauważyć, że parametry połączenia nie zawierają nazwy serwera i bazy danych. Wynika to z faktu, że wywołanie **OpenConnectionForKey** automatycznie kieruje połączenie do poprawnej fragmentu na podstawie klucza. W związku z tym nazwa bazy danych i nazwa serwera nie są podane.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Zarządzanie bazami danych i logowaniami w usłudze Azure SQL Database](logins-create-manage.md)
 

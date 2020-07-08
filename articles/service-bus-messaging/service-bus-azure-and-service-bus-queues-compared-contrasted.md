@@ -4,10 +4,9 @@ description: Analizuje różnice i podobieństwa między dwoma typami kolejek of
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337641"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
@@ -121,7 +120,7 @@ W tej sekcji porównano kolejki magazynu i kolejki Service Bus z perspektywy [po
 
 | Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
-| Maksymalny rozmiar kolejki |**500 TB**<br/><br/>(ograniczone do [jednej pojemności konta magazynu](../storage/common/storage-introduction.md#queue-storage)) |**1 GB do 80 GB**<br/><br/>(zdefiniowane podczas tworzenia kolejki i [włączania partycjonowania](service-bus-partitioning.md) — Zobacz sekcję "informacje dodatkowe"). |
+| Maksymalny rozmiar kolejki |**500 TB**<br/><br/>(ograniczone do [jednej pojemności konta magazynu](../storage/common/storage-introduction.md#queue-storage)) |**1 GB do 80 GB**<br/><br/>(zdefiniowane podczas tworzenia kolejki i [włączania partycjonowania](service-bus-partitioning.md) — Zobacz sekcję "informacje dodatkowe"). |
 | Maksymalny rozmiar komunikatu |**64 KB**<br/><br/>(48 KB przy użyciu kodowania **Base64** )<br/><br/>Platforma Azure obsługuje duże komunikaty przez połączenie kolejek i obiektów BLOB — w tym momencie można umieścić w kolejce do 200 GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym nagłówek i treść, maksymalny rozmiar nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
 | Maksymalny czas wygaśnięcia komunikatu |**Nieskończony** (w przypadku interfejsu API w wersji 2017-07-27) |**TimeSpan. Max** |
 | Maksymalna liczba kolejek |**Nieograniczona liczba** |**10 000**<br/><br/>(na przestrzeń nazw usługi) |

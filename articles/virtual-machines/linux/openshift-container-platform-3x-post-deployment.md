@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759522"
 ---
 # <a name="post-deployment-tasks"></a>Zadania po wdrożeniu
@@ -34,9 +33,9 @@ Aby użyć Azure Active Directory na potrzeby uwierzytelniania, najpierw musisz 
 Te kroki używają interfejsu wiersza polecenia platformy Azure w celu utworzenia rejestracji aplikacji oraz graficznego interfejsu użytkownika (portalu) w celu ustawienia uprawnień. Aby można było utworzyć rejestrację aplikacji, potrzebne są następujące pięć informacji:
 
 - Nazwa wyświetlana: Nazwa rejestracji aplikacji (na przykład OCPAzureAD)
-- Strona główna: adres URL konsoli OpenShift (na przykład `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
-- Identyfikator URI identyfikatora: adres URL konsoli OpenShift (na `https://masterdns343khhde.westus.cloudapp.azure.com/console`przykład)
-- Adres URL odpowiedzi: główny publiczny adres URL i nazwa rejestracji aplikacji (na przykład `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
+- Strona główna: adres URL konsoli OpenShift (na przykład `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- Identyfikator URI identyfikatora: adres URL konsoli OpenShift (na przykład `https://masterdns343khhde.westus.cloudapp.azure.com/console` )
+- Adres URL odpowiedzi: główny publiczny adres URL i nazwa rejestracji aplikacji (na przykład `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD` )
 - Hasło: bezpieczne hasło (użyj silnego hasła)
 
 Poniższy przykład umożliwia utworzenie rejestracji aplikacji przy użyciu podanych powyżej informacji:
@@ -69,7 +68,7 @@ Zanotuj Właściwość appId zwracaną z polecenia w celu wykonania kolejnego kr
 
 W witrynie Azure Portal:
 
-1. Wybierz pozycję **Azure Active Directory** > **rejestracji aplikacji**.
+1. Wybierz pozycję **Azure Active Directory**  >  **rejestracji aplikacji**.
 2. Wyszukaj rejestrację aplikacji (na przykład OCPAzureAD).
 3. W wynikach kliknij rejestrację aplikacji.
 4. W obszarze **Ustawienia**wybierz pozycję **wymagane uprawnienia**.
@@ -197,7 +196,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 Otwarcie Service Broker dla systemu Azure lub OSBA umożliwia udostępnienie Cloud Services platformy Azure bezpośrednio z poziomu programu OpenShift. OSBA w ramach implementacji interfejsu API Open Service Broker dla platformy Azure. Interfejs API Open Service Broker to specyfikacja, która definiuje wspólny język dla dostawców chmury, których natywne aplikacje w chmurze mogą używać do zarządzania usługami w chmurze bez blokowania.
 
-Aby zainstalować OSBA na OpenShift, postępuj zgodnie z instrukcjami znajdującymi się tutaj: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
+Aby zainstalować OSBA na OpenShift, postępuj zgodnie z instrukcjami znajdującymi się tutaj: https://github.com/Azure/open-service-broker-azure#openshift-project-template . 
 > [!NOTE]
 > Wykonaj kroki opisane w sekcji szablon projektu OpenShift, a nie całej sekcji instalacji.
 

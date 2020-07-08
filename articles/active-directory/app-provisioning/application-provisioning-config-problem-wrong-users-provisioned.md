@@ -12,10 +12,9 @@ ms.date: 09/20/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782215"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników

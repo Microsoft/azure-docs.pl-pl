@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641645"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954977"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj kodera Wirecast, aby wysłać strumień na żywo o pojedynczej szybkości transmisji bitów 
 > [!div class="op_single_selector"]
@@ -102,7 +101,7 @@ W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej czę
 
     Nazwij ustawienie wstępne i sprawdź następujące zalecane ustawienia:
 
-    **Plików**
+    **Wideo**
 
    * Koder: MainConcept H. 264
    * Liczba klatek na sekundę: 30
@@ -147,7 +146,7 @@ W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej czę
 
 Przejdź do narzędzia AMSE, a następnie kliknij prawym przyciskiem myszy kanał, który ma zostać przetestowany. W menu Umieść wskaźnik myszy nad **odtwarzaniem wersji zapoznawczej** i wybierz pozycję **z Azure Media Player**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Jeśli w odtwarzaczu pojawi się strumień, koder został prawidłowo skonfigurowany do łączenia z usługą AMS.
 
@@ -175,5 +174,5 @@ Aby uzyskać wskazówki, zobacz artykuł dotyczący [rozwiązywania problemów](
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

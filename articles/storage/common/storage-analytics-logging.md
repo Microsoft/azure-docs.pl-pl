@@ -10,10 +10,9 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
 ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83675922"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
