@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678090"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Oszczędność kosztów dzięki Zarezerwowanemu wystąpieniu dedykowanych hostów platformy Azure
@@ -133,9 +132,9 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 
 - [Dedicated Hosts Pricing (Ceny hostów usługi Azure Dedicated Host)](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Zarządzanie rejestracjami platformy Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Zarządzanie rezerwacjami na platformie Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 
-- [Omówienie stosowania rabatu na rezerwacje](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Jak jest stosowany rabat na rezerwacje](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
 
 - [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
 

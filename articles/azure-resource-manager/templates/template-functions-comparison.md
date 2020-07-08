@@ -4,10 +4,9 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 01d66f43cf73dcc9228118db5a9b6149b19ee66d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677835"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funkcje porównania dla szablonów ARM
@@ -15,7 +14,7 @@ ms.locfileid: "84677835"
 Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
 
 * [łączonych](#coalesce)
-* [equals](#equals)
+* [równa się](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [wcześniejsz](#less)
@@ -93,10 +92,10 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | stringOutput | String | default |
 | intOutput | int | 1 |
 | objectOutput | Obiekt | {"First": "default"} |
-| arrayOutput | Tablica | jedno |
+| arrayOutput | Tablica |  [1] |
 | emptyOutput | Wartość logiczna | Prawda |
 
-## <a name="equals"></a>equals
+## <a name="equals"></a>równa się
 
 `equals(arg1, arg2)`
 

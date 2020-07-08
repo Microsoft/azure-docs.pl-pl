@@ -9,10 +9,9 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193518"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
@@ -123,12 +122,12 @@ W modelu w stylu POSIX, który jest używany przez Data Lake Storage Gen2, upraw
 
 W poniższej tabeli przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumienie, które uprawnienia są potrzebne do wykonania niektórych operacji na koncie magazynu.
 
-|    Operacja             |    /    | Oregon | Biura | Data. txt     |
+|    Operacja             |    /    | Oregon | Biura | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Odczytaj dane. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Dołącz do danych. txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Usuń dane. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Utwórz dane. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Odczytaj Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Dołącz do Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Usuń Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Utwórz Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Staw                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | /Oregon/listy           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | /Oregon/Portland/listy  |   `--X`   |   `--X`    |  `R-X`      | `---`          |

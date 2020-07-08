@@ -4,10 +4,9 @@ description: Opisuje, w jaki sposób właściciel konta laboratorium może ustaw
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445087"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Konfigurowanie informacji o pomocy technicznej (właściciel konta laboratorium w Azure Lab Services)
@@ -16,7 +15,7 @@ W tym artykule wyjaśniono, jak użytkownik (jako właściciel konta laboratoriu
 Informacje o pomocy technicznej obejmują:
 
 - Adres URL
-- E-mail
+- Poczta e-mail
 - Telefon
 - Dodatkowe instrukcje 
 

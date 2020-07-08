@@ -15,10 +15,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79e3ed41ad3038cf66d61c25292ebad55c2b5e92
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731701"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Role administratorów dla usług Microsoft 365 Services
@@ -38,7 +37,7 @@ Security & — Centrum zgodności (Office 365 Advanced Threat Protection, Exchan
 Wynik zabezpieczony | [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Menedżer zgodności | [Role Menedżera zgodności](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | Niedostępne
 Azure Information Protection | [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
-Microsoft Cloud App Security | [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/cloud-app-security/manage-admins) | [Odwołanie API](https://docs.microsoft.com/cloud-app-security/api-tokens) 
+Microsoft Cloud App Security | [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/cloud-app-security/manage-admins) | [Dokumentacja interfejsu API](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure Advanced Threat Protection | [Grupy ról Zaawansowanej ochrony przed zagrożeniami na platformie Azure](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | Niedostępne
 Zaawansowana ochrona przed zagrożeniami w usłudze Windows Defender | [Kontrola dostępu oparta na rolach w usłudze Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | Niedostępne
 Privileged Identity Management | [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

@@ -12,10 +12,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194471"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Informacje o wersji bramy zarządzania danymi
@@ -26,7 +25,7 @@ Jednym z wyzwań związanych z integracją nowoczesnych danych jest przeniesieni
 
 Zobacz następujące artykuły, aby uzyskać szczegółowe informacje na temat bramy Zarządzanie danymi i korzystania z niej:
 
-*  [Brama zarządzania danymi](data-factory-data-management-gateway.md)
+*  [Zarządzanie danymi Gateway](data-factory-data-management-gateway.md)
 *  [Przenoszenie danych między środowiskiem lokalnym i chmurą przy użyciu Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 

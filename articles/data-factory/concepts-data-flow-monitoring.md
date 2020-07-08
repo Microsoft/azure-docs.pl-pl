@@ -7,13 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
-ms.openlocfilehash: 9594a2ddfaa0103e171618925ba6974bf9ad7f00
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.date: 07/03/2020
+ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833986"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958904"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
@@ -56,12 +55,31 @@ Gdy przepływ danych jest wykonywany w platformie Spark, Azure Data Factory okre
   * Czas uruchamiania klastra: ilość czasu na uzyskanie środowiska obliczeniowego JIT platformy Spark na potrzeby wykonywania przepływu danych
   * Liczba przekształceń: ile kroków transformacji jest wykonywanych w przepływie
   
-![Monitorowanie przepływu danych](media/data-flow/monitornew.png "Monitorowanie przepływu danych nowe")  
+![Monitorowanie przepływu danych](media/data-flow/monitornew.png "Monitorowanie przepływu danych nowe")
+
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Łączny czas przetwarzania ujścia w porównaniu z czasem przetwarzania transformacji
+
+Każdy etap transformacji obejmuje łączny czas wykonywania tego etapu przy każdym łącznym czasie wykonania partycji. Po kliknięciu ujścia zostanie wyświetlony stan "czas przetwarzania ujścia". Ta godzina obejmuje łączny czas transformacji *oraz* czas operacji we/wy, przez jaki zajęło się zapisanie danych w magazynie docelowym. Różnica między czasem przetwarzania ujścia a łącznym przekształceniem to czas we/wy zapisu danych.
+
+Możesz również zobaczyć szczegółowy chronometraż dla każdego kroku przekształcenia partycji, jeśli otworzysz dane wyjściowe JSON z działania przepływu danych w widoku monitorowanie potoków ADF. Plik JSON zawiera czas milisekund dla każdej partycji, natomiast widok monitorowania środowiska użytkownika jest zagregowanym chronometrażem dodanych partycji:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## <a name="monitor-icons"></a>Monitoruj ikony
 
 Ta ikona oznacza, że dane przekształcenia zostały już zapisane w pamięci podręcznej, więc czasy i ścieżki wykonywania zostały wzięte pod uwagę:
 
-![Monitorowanie przepływu danych](media/data-flow/mon004.png "Monitorowanie przepływu danych")
+![Monitorowanie przepływu danych](media/data-flow/mon005.png "Monitorowanie przepływu danych")
 
 W transformację widoczne są również zielone kółka koła. Reprezentują one liczbę zlewów, do których przepływa dane.

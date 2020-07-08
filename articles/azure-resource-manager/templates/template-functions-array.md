@@ -4,17 +4,16 @@ description: Opisuje funkcje, które mają być używane w Azure Resource Manage
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677852"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funkcje tablicy dla szablonów ARM
 
 Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami w szablonie Azure Resource Manager (ARM).
 
-* [tablica](#array)
+* [array](#array)
 * [Concat](#concat)
 * [wyświetlana](#contains)
 * [przearray](#createarray)
@@ -93,7 +92,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| intOutput | Tablica | jedno |
+| intOutput | Tablica |  [1] |
 | stringOutput | Tablica | ["efgh"] |
 | objectOutput | Tablica | [{"a": "b", "c": "d"}] |
 

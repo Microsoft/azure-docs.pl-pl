@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194404"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Przenoszenie danych z bazy danych SQL Server do SQL Database za pomocą Azure Data Factory
@@ -61,7 +60,7 @@ W tym samouczku założono, że masz:
 >
 
 ## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Przekaż dane do wystąpienia SQL Server
-Używamy [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/) w celu zademonstrowania procesu migracji. Zestaw danych NYC taksówki jest dostępny w tym wpisie w przypadku [danych o taksówkach](https://www.andresmh.com/nyctaxitrips/)w usłudze Azure Blob Storage NYC. Dane mają dwa pliki, plik CSV trip_data, zawierający szczegóły dotyczące wyjazdu i plik trip_far. csv, który zawiera szczegółowe informacje o opłatach za każdą podróż. Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
+Używamy [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/) w celu zademonstrowania procesu migracji. Zestaw danych NYC taksówki jest dostępny w tym wpisie w przypadku [danych o taksówkach](https://www.andresmh.com/nyctaxitrips/)w usłudze Azure Blob Storage NYC. Dane mają dwa pliki, plik trip_data.csv, zawierający szczegóły dotyczące wyjazdu i plik trip_far.csv, który zawiera szczegółowe informacje o opłatach za każdą podróż. Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
 Można dostosować procedurę podaną tutaj do zestawu własnych danych lub postępować zgodnie z instrukcjami w sposób opisany przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 
@@ -138,7 +137,7 @@ Definicja tabeli dla SQL Server jest określona w następującym pliku JSON:
 
 Nazwy kolumn nie zostały uwzględnione w tym miejscu. W tym miejscu możesz wybrać nazwy kolumn, dołączając je tutaj (Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [Dokumentacja usługi ADF](../../data-factory/copy-activity-overview.md) .
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *onpremtabledef. JSON* i Zapisz ją w znanej lokalizacji (przyjęto, że jest *C:\temp\onpremtabledef.JSON*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *onpremtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\onpremtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
@@ -171,7 +170,7 @@ Definicja tabeli dla wyjściowej lokalizacji obiektu BLOB znajduje się w nastę
 }
 ```
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *bloboutputtabledef. JSON* i Zapisz ją w znanej lokalizacji (przyjęto, że jest *C:\temp\bloboutputtabledef.JSON*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *bloboutputtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\bloboutputtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
@@ -203,7 +202,7 @@ Definicja tabeli dla danych wyjściowych usługi SQL Azure jest następująca (t
 }
 ```
 
-Skopiuj definicję JSON tabeli do pliku o nazwie *wartość azuresqltable. JSON* i Zapisz ją w znanej lokalizacji (przyjęto, że jest *C:\temp\AzureSqlTable.JSON*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj definicję JSON tabeli do pliku o nazwie *AzureSqlTable.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\AzureSqlTable.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
@@ -288,7 +287,7 @@ Korzystając z podanych wcześniej definicji tabeli, definicja potoku dla ADF je
 }
 ```
 
-Skopiuj tę definicję JSON potoku do pliku o nazwie *pipelinedef. JSON* i Zapisz ją w znanej lokalizacji (przyjęto, że jest *C:\temp\pipelinedef.JSON*). Utwórz potok w podajniku APD przy użyciu następującego polecenia cmdlet Azure PowerShell:
+Skopiuj tę definicję JSON potoku do pliku o nazwie *pipelinedef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\pipelinedef.jsna*). Utwórz potok w podajniku APD przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
