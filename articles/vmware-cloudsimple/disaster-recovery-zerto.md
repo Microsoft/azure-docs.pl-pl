@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083134"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Skonfiguruj chmurę prywatną CloudSimple jako lokację odzyskiwania po awarii dla lokalnych obciążeń programu VMware
@@ -51,7 +50,7 @@ W poniższych sekcjach opisano, jak wdrożyć rozwiązanie DR przy użyciu repli
 Aby włączyć replikację wirtualną Zerto z poziomu środowiska lokalnego do chmury prywatnej, należy spełnić następujące wymagania wstępne.
 
 1. [Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między siecią lokalną a chmurą prywatną usługi CloudSimple](set-up-vpn.md).
-2. [Skonfiguruj wyszukiwanie DNS w taki sposób, aby składniki zarządzania chmurą prywatną były przekazywane do serwerów DNS w chmurze prywatnej](on-premises-dns-setup.md).  Aby włączyć przekazywanie wyszukiwania DNS, Utwórz wpis strefy przekazywania na lokalnym serwerze DNS dla `*.cloudsimple.io` CLOUDSIMPLE serwerów DNS.
+2. [Skonfiguruj wyszukiwanie DNS w taki sposób, aby składniki zarządzania chmurą prywatną były przekazywane do serwerów DNS w chmurze prywatnej](on-premises-dns-setup.md).  Aby włączyć przekazywanie wyszukiwania DNS, Utwórz wpis strefy przekazywania na lokalnym serwerze DNS dla `*.cloudsimple.io` CloudSimple serwerów DNS.
 3. Skonfiguruj wyszukiwanie DNS w taki sposób, że lokalne składniki programu vCenter są przekazywane do lokalnych serwerów DNS.  Serwery DNS muszą być dostępne z chmury prywatnej CloudSimple za pośrednictwem sieci VPN typu lokacja-lokacja. Aby uzyskać pomoc, Prześlij [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), dostarczając poniższe informacje.  
 
     * Lokalna nazwa domeny DNS

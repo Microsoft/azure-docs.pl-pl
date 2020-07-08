@@ -4,10 +4,9 @@ description: Ten artykuł zawiera omówienie składników i architektury używan
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162841"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z serwera fizycznego do platformy Azure

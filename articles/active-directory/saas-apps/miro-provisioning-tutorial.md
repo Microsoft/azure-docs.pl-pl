@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
 ms.openlocfilehash: b7e1907e3fa1eb9d775fb7662445b08d5671e0b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063417"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Miro na potrzeby automatycznego aprowizacji użytkowników
@@ -54,7 +53,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="set-up-miro-for-provisioning"></a>Konfigurowanie Miro na potrzeby aprowizacji
 
-1.  Aby pobrać wymagany **token tajny** , skontaktuj się z zespołem pomocy technicznej Miro support@miro.com. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji Miro w Azure Portal.
+1.  Aby pobrać wymagany **token tajny** , skontaktuj się z zespołem pomocy technicznej Miro support@miro.com . Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji Miro w Azure Portal.
 
 ## <a name="add-miro-from-the-gallery"></a>Dodaj Miro z galerii
 
@@ -114,7 +113,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Miro**.
 
@@ -154,7 +153,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Miro Standard scim Endpoint nie zezwala na operacje **tworzenia** i **usuwania** dla grup. Obsługuje tylko operację **aktualizacji** grupy.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

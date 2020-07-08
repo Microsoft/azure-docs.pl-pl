@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77121718"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS często zadawane pytania
@@ -42,7 +41,7 @@ Aby uzyskać więcej informacji, zobacz [stronę umów SLA Azure DNS](https://az
 
 Domena jest unikatową nazwą w systemie nazw domen. Przykładowa domena to contoso.com.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Na przykład domena contoso.com może zawierać kilka rekordów DNS. Rekordy mogą zawierać mail.contoso.com dla serwera poczty i sieci Web\.contoso.com dla witryny internetowej. Te rekordy są hostowane w strefie DNS contoso.com.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Na przykład domena contoso.com może zawierać kilka rekordów DNS. Rekordy mogą zawierać mail.contoso.com dla serwera poczty i sieci Web \. contoso.com dla witryny internetowej. Te rekordy są hostowane w strefie DNS contoso.com.
 
 Nazwa domeny jest *tylko nazwą*. Strefa DNS jest zasobem danych zawierającym rekordy DNS dla nazwy domeny. Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Zapewnia również serwerom nazw DNS odpowiedzi na zapytania DNS z Internetu.
 
@@ -96,7 +95,7 @@ Tak. Azure DNS obsługuje rozszerzony zestaw kodowania ASCII dla zestawów rekor
 
 Można na przykład podać ciąg jako wartość rekordu TXT, który ma rozszerzony znak ASCII \ 128. Przykładem jest "abcd\128efgh." Azure DNS używa wartości Byte tego znaku, czyli 128 w wewnętrznej reprezentacji. W momencie rozpoznawania nazw DNS ta wartość bajtu jest zwracana w odpowiedzi. Należy również zauważyć, że "ABC" i "\ 097 \ 098 \ 099" są zamienne, o ile dotyczy to rozwiązania. 
 
-Stosujemy reguły ucieczki pliku strefy [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) dla rekordów TXT. Na przykład `\` teraz wyprowadza wszystkie informacje na temat specyfikacji RFC. Jeśli określisz `A\B` jako wartość rekordu TXT, zostanie ona reprezentowana i rozwiązany jako tylko `AB`. Jeśli na pewno chcesz, aby rekord TXT miał `A\B` swoją rozdzielczość, należy `\` ponownie wprowadzić zmiany. Na przykład określ `A\\B`.
+Stosujemy reguły ucieczki pliku strefy [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) dla rekordów TXT. Na przykład `\` teraz wyprowadza wszystkie informacje na temat specyfikacji RFC. Jeśli określisz `A\B` jako wartość rekordu TXT, zostanie ona reprezentowana i rozwiązany jako tylko `AB` . Jeśli na pewno chcesz, aby rekord TXT miał swoją `A\B` rozdzielczość, należy ponownie wprowadzić zmiany `\` . Na przykład określ `A\\B` .
 
 Ta obsługa jest obecnie niedostępna dla rekordów TXT utworzonych na podstawie Azure Portal.
 

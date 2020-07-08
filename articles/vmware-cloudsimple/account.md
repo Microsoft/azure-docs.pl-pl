@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 00348d36c38fdbfdf69a2e4e80a4c720268b40c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025371"
 ---
 # <a name="manage-accounts-on-the-azure-vmware-solution-by-cloudsimple-portal"></a>Zarządzanie kontami w ramach rozwiązania Azure VMware według portalu CloudSimple
@@ -35,6 +34,6 @@ Aby usunąć wpis, kliknij przycisk **X**.
 
 ## <a name="cloudsimple-operator-access"></a>Dostęp do operatora CloudSimple
 
-Ustawienie dostęp operatora umożliwia CloudSimpleom Rozwiązywanie problemów, umożliwiając inżynierowi pomocy technicznej logowanie się do portalu CloudSimple.  Ustawienie jest domyślnie włączone. Wszystkie akcje wykonywane przez inżyniera pomocy technicznej po zalogowaniu się na koncie klienta są rejestrowane i dostępne do przeglądu na stronie **Activity** > **Inspekcja** aktywności.
+Ustawienie dostęp operatora umożliwia CloudSimpleom Rozwiązywanie problemów, umożliwiając inżynierowi pomocy technicznej logowanie się do portalu CloudSimple.  Ustawienie jest domyślnie włączone. Wszystkie akcje wykonywane przez inżyniera pomocy technicznej po zalogowaniu się na koncie klienta są rejestrowane i dostępne do przeglądu na stronie **Activity**  >  **Inspekcja** aktywności.
 
 Kliknij przełącznik **włączony dostęp operatora CloudSimple** , aby włączyć lub wyłączyć dostęp.

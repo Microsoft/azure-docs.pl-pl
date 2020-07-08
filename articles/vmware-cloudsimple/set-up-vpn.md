@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087130"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Skonfiguruj połączenie sieci VPN z chmurą prywatną CloudSimple
@@ -57,7 +56,7 @@ W poniższym przykładzie pokazano Importowanie połączenia za pomocą **klient
 
 2. Otwórz na komputerze.
 
-3. Kliknij **+** ikonę i wybierz pozycję **Importuj połączenie** > **z pliku**.
+3. Kliknij **+** ikonę i wybierz pozycję **Importuj połączenie**  >  **z pliku**.
 
     ![Importuj konfigurację sieci VPN z pliku](media/import-p2s-vpn-config.png)
 
@@ -79,7 +78,7 @@ Połączenie sieci VPN typu punkt-lokacja rozwiązuje nazwy DNS pierwszej utworz
 
 1. Uruchom [Portal CloudSimple](access-cloudsimple-portal.md).
 
-2. Przejdź do **zasobów** > **chmury prywatne** i wybierz chmurę prywatną, z którą chcesz nawiązać połączenie.
+2. Przejdź do **zasobów**  >  **chmury prywatne** i wybierz chmurę prywatną, z którą chcesz nawiązać połączenie.
 
 3. Na stronie **Podsumowanie** chmury prywatnej Skopiuj adres IP serwera DNS w chmurze prywatnej w obszarze **podstawowe informacje**.
 
@@ -97,7 +96,7 @@ Połączenie sieci VPN typu punkt-lokacja rozwiązuje nazwy DNS pierwszej utworz
 
     ![Edytowanie połączenia sieci VPN](media/viscosity-edit-connection.png)
 
-7. Kliknij kartę **Sieć** , a następnie wprowadź adresy IP serwerów DNS w chmurze prywatnej oddzielone przecinkami lub spacjami i domeną jako ```cloudsimple.io```.  Wybierz opcję **Ignoruj ustawienia DNS wysyłane przez serwer sieci VPN**.
+7. Kliknij kartę **Sieć** , a następnie wprowadź adresy IP serwerów DNS w chmurze prywatnej oddzielone przecinkami lub spacjami i domeną jako ```cloudsimple.io``` .  Wybierz opcję **Ignoruj ustawienia DNS wysyłane przez serwer sieci VPN**.
 
     ![Sieci VPN](media/viscosity-edit-connection-networking.png)
 

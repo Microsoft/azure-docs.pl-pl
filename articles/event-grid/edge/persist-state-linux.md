@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086657"
 ---
 # <a name="persist-state-in-linux"></a>Stan utrwalania w systemie Linux
@@ -25,7 +24,7 @@ Domyślnie tylko metadane są utrwalane, a Zdarzenia nadal są przechowywane w p
 W tym artykule przedstawiono procedurę wdrażania modułu Event Grid z trwałością we wdrożeniach systemu Linux.
 
 > [!NOTE]
->Moduł Event Grid działa jako użytkownik z niskim poziomem uprawnień z identyfikatorami UID `2000` i Name `eventgriduser`.
+>Moduł Event Grid działa jako użytkownik z niskim poziomem uprawnień z identyfikatorami UID `2000` i Name `eventgriduser` .
 
 ## <a name="persistence-via-volume-mount"></a>Trwałość za pośrednictwem instalacji woluminu
 
@@ -105,7 +104,7 @@ Zamiast woluminu platformy Docker można również zainstalować folder hosta.
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
    ```
 
-    Na przykład:
+    Na przykład
 
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
@@ -123,7 +122,7 @@ Zamiast woluminu platformy Docker można również zainstalować folder hosta.
     }
     ```
 
-    Na przykład:
+    Na przykład
 
     ```json
     {
@@ -170,7 +169,7 @@ Ważne kwestie dotyczące utrwalania zdarzeń:
 * Trwałość zdarzenia jest konfigurowana w subskrypcji zdarzeń podczas tworzenia i nie można jej modyfikować po utworzeniu subskrypcji zdarzeń. Aby przełączać trwałość zdarzeń, należy usunąć i ponownie utworzyć subskrypcję zdarzeń.
 * Utrwalanie zdarzeń jest niemal zawsze wolniejsze niż w przypadku operacji w pamięci, jednak różnica między szybkością zależy od charakterystyki dysku. Kompromis między szybkością i niezawodnością jest nieodłączny dla wszystkich systemów obsługi komunikatów, ale ogólnie mówiąc, tylko w dużej skali.
 
-Aby włączyć trwałość zdarzeń w subskrypcji zdarzeń, ustaw `persistencePolicy` opcję na `true`:
+Aby włączyć trwałość zdarzeń w subskrypcji zdarzeń, ustaw opcję `persistencePolicy` na `true` :
 
  ```json
         {

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019404"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z łącznością i siecią dla platformy Azure Cloud Services: często zadawane pytania
@@ -38,7 +37,7 @@ Dodaj reguły do sieciowej grupy zabezpieczeń, które zezwalają na ruch na por
 
 Nie, nie przy użyciu normalnego protokołu/ICMP "ping". Protokół ICMP nie jest dozwolony za pomocą modułu równoważenia obciążenia platformy Azure.
 
-W celu przetestowania łączności zalecamy wykonanie polecenia ping do portu. Gdy polecenie ping. exe używa protokołu ICMP, można użyć innych narzędzi, takich jak PSPing, Nmap i Telnet, aby przetestować łączność z określonym portem TCP.
+W celu przetestowania łączności zalecamy wykonanie polecenia ping do portu. Gdy Ping.exe korzysta z protokołu ICMP, można użyć innych narzędzi, takich jak PSPing, Nmap i Telnet, aby przetestować łączność z określonym portem TCP.
 
 Aby uzyskać więcej informacji, zobacz [Używanie ping portów zamiast protokołu ICMP do testowania łączności maszyn wirtualnych platformy Azure](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
 
@@ -65,14 +64,14 @@ Używany algorytm dystrybucji to skrót 5 (źródłowy adres IP, port źródłow
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Jak można przekierować ruch przychodzący do domyślnego adresu URL mojej usługi w chmurze na niestandardowy adres URL?
 
-Moduł ponownego zapisywania adresów URL usług IIS może służyć do przekierowywania ruchu, który jest dostarczany do domyślnego adresu URL dla usługi w chmurze (na \*przykład. cloudapp.NET) do niestandardowej nazwy/adresu URL. Ponieważ moduł ponownego zapisywania adresu URL jest domyślnie włączony w rolach sieci Web, a jego reguły są konfigurowane w pliku Web. config aplikacji, jest on zawsze dostępny na maszynie wirtualnej niezależnie od ponownych uruchomień/odniesień. Aby uzyskać więcej informacji, zobacz:
+Moduł ponownego zapisywania adresów URL usług IIS może służyć do przekierowywania ruchu, który jest dostarczany do domyślnego adresu URL dla usługi w chmurze (na przykład \* . cloudapp.NET) do niestandardowej nazwy/adresu URL. Ponieważ moduł ponownego zapisywania adresu URL jest domyślnie włączony w rolach sieci Web, a jego reguły są konfigurowane w web.config aplikacji, jest on zawsze dostępny na maszynie wirtualnej niezależnie od ponownych uruchomień/odniesień. Aby uzyskać więcej informacji, zobacz:
 
 - [Utwórz reguły ponownego zapisywania dla modułu ponownego zapisywania adresu URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Usuwanie linku domyślnego](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Jak zablokować lub wyłączyć ruch przychodzący do domyślnego adresu URL mojej usługi w chmurze?
 
-Można zapobiec przychodzącemu ruchowi do domyślnego adresu URL/nazwy usługi w chmurze (na przykład \*. cloudapp.NET). Ustaw nagłówek hosta na niestandardową nazwę DNS (na przykład www\.MyCloudService.com) w obszarze Konfiguracja powiązania witryny w pliku definicji usługi w chmurze (*. csdef), jak wskazano poniżej:
+Można zapobiec przychodzącemu ruchowi do domyślnego adresu URL/nazwy usługi w chmurze (na przykład \* . cloudapp.NET). Ustaw nagłówek hosta na niestandardową nazwę DNS (na przykład www \. MyCloudService.com) w obszarze Konfiguracja powiązania witryny w pliku definicji usługi w chmurze (*. csdef), jak wskazano poniżej:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

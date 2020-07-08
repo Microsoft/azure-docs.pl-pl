@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057655"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub na potrzeby automatycznego aprowizacji użytkowników
@@ -77,13 +76,13 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
     ![Okno dialogowe autoryzacji](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. W Azure Portal wprowadź **adres URL dzierżawy** i kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z Twoją aplikacją w usłudze GitHub. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto w usłudze GitHub ma uprawnienia administratora i **adres URL dzierżawy** został niepoprawnie podano, a następnie spróbuj ponownie wykonać krok "Autoryzuj" ( `https://api.github.com/scim/v2/organizations/<Organization_name>` **adres URL dzierżawy** można określić za pomocą reguły: możesz znaleźć swoje organizacje w ramach konta usługi GitHub: **Ustawienia** > **organizacji**).
+7. W Azure Portal wprowadź **adres URL dzierżawy** i kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z Twoją aplikacją w usłudze GitHub. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto w usłudze GitHub ma uprawnienia administratora i **adres URL dzierżawy** został niepoprawnie podano, a następnie spróbuj ponownie wykonać krok "Autoryzuj" ( **adres URL dzierżawy** można określić za pomocą reguły: możesz `https://api.github.com/scim/v2/organizations/<Organization_name>` znaleźć swoje organizacje w ramach konta usługi GitHub: **Ustawienia**  >  **organizacji**).
 
     ![Okno dialogowe autoryzacji](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach dotyczących aprowizacji w polu **E-mail powiadomienia** , i zaznacz pole wyboru "Wyślij powiadomienie e-mail, gdy wystąpi błąd".
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do serwisu GitHub**.
 
@@ -91,13 +90,13 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 12. Aby włączyć usługę Azure AD Provisioning dla usługi GitHub, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-13. Kliknij przycisk **Zapisz**.
+13. Kliknij pozycję **Zapisz**.
 
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do usługi GitHub w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji.
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

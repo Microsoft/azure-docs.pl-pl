@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77064295"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie StarLeaf na potrzeby automatycznego aprowizacji użytkowników
@@ -54,7 +53,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem usługi StarLeaf do automatycznego aprowizacji użytkowników w usłudze Azure AD należy skonfigurować Inicjowanie obsługi administracyjnej Standard scim w usłudze StarLeaf:
 
-1. Zaloguj się do [konsoli administracyjnej StarLeaf](https://portal.starleaf.com/#page=login). Przejdź do obszarze **integracji** > **Dodaj integrację**.
+1. Zaloguj się do [konsoli administracyjnej StarLeaf](https://portal.starleaf.com/#page=login). Przejdź do obszarze **integracji**  >  **Dodaj integrację**.
 
     ![StarLeaf Dodaj Standard scim](media/starleaf-provisioning-tutorial/image00.png)
 
@@ -115,7 +114,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do StarLeaf**.
 
@@ -150,7 +149,7 @@ Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji us
 * StarLeaf nie obsługuje obecnie aprowizacji grup. 
 * StarLeaf wymaga wartości **adresu e-mail** i **nazwy użytkownika** , aby mieć taką samą wartość źródłową.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025082"
 ---
 # <a name="azure-network-connections-overview"></a>Omówienie połączeń sieciowych platformy Azure
@@ -25,7 +24,7 @@ Podczas tworzenia usługi CloudSimple w regionie i tworzenia węzłów można:
 
 Połączenie ExpressRoute ma wysoką przepustowość dzięki małym opóźnieniu.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 Połączenie sieciowe platformy Azure umożliwia:
 

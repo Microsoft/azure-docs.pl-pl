@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 2b0b11ae89e1f0d150b84f49b04a8badcb44e82c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063151"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
@@ -69,7 +68,7 @@ Przed skonfigurowaniem usługi TheOrgWiki na potrzeby automatycznego inicjowania
 
     ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij pozycję **Zapisz**.
 
     ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -151,7 +150,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do TheOrgWiki**.
 
@@ -179,7 +178,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie TheOrgWiki. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

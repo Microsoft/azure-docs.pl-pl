@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 300acaf4a9d2a11ef107e19df99452c909257d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190571"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Kontrolki zabezpieczeń dla Linux Virtual Machines
@@ -43,7 +42,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Linux Virtual Machine
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak |  |
+| Authentication| Tak |  |
 | Autoryzacja| Tak |  |
 
 ## <a name="data-protection"></a>Ochrona danych

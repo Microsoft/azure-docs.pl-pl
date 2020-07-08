@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063171"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie automatycznego aprowizacji użytkowników
@@ -56,7 +55,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed rozpoczęciem konfigurowania programu w celu automatycznego aprowizacji użytkowników przy użyciu usługi Azure AD należy włączyć funkcję inicjowania obsługi administracyjnej między domenami (standard scim) na stronie odwiedzającej.
 
-1. Zaloguj [się, aby](https://app.visitly.io/login)uzyskać więcej. Wybierz pozycję **integracja** > **hosta synchronizacja**.
+1. Zaloguj [się, aby](https://app.visitly.io/login)uzyskać więcej. Wybierz pozycję **integracja**  >  **hosta synchronizacja**.
 
     ![Synchronizacja hosta](media/Visitly-provisioning-tutorial/login.png)
 
@@ -100,7 +99,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi użytkowników w usłudze Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Wszystkie aplikacje](common/enterprise-applications.png)
 
@@ -116,7 +115,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Tryb aprowizacji ustawiony na automatyczny](common/provisioning-automatic.png)
 
-5. W sekcji poświadczenia administratora wprowadź odpowiednio `https://api.visitly.io/v1/usersync/SCIM` wartości i **klucze interfejsu API** pobrane wcześniej w **adresie URL dzierżawy** i w **tokenie tajnym**. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z witryną sieci Web. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto odwiedzające ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji poświadczenia administratora wprowadź `https://api.visitly.io/v1/usersync/SCIM` odpowiednio wartości i **klucze interfejsu API** pobrane wcześniej w **adresie URL dzierżawy** i w **tokenie tajnym**. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z witryną sieci Web. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto odwiedzające ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -156,7 +155,7 @@ Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępo
 
 Nie obsługuje żadnych stałych usunięć. Wszystko jest tylko usuwaniem nieelastycznym.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

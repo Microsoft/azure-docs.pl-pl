@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
 ms.openlocfilehash: 17736f5215c4ed80a2140cfc664ef76b1a055f79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060392"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie stosu dla automatycznej aprowizacji użytkowników
@@ -121,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do stosu**.
 

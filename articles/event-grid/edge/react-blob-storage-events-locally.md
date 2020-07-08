@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086607"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Samouczek: reagowanie na zdarzenia Blob Storage w IoT Edge (wersja zapoznawcza)
@@ -134,14 +133,14 @@ W tej sekcji pokazano, jak wdrożyć moduł Blob Storage platformy Azure, który
 
    > [!IMPORTANT]
    > - Moduł Blob Storage umożliwia publikowanie zdarzeń przy użyciu protokołów HTTPS i HTTP. 
-   > - W przypadku włączenia uwierzytelniania opartego na kliencie dla EventGrid upewnij się, że Zaktualizowano wartość EVENTGRID_ENDPOINT, aby zezwolić na używanie protokołu HTTPS w następujący `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`sposób:.
-   > - Dodaj również kolejną zmienną `AllowUnknownCertificateAuthority=true` środowiskową do powyższego kodu JSON. Podczas rozmowy z EventGrid za pośrednictwem protokołu HTTPS **AllowUnknownCertificateAuthority** umożliwia modułowi magazynu ufanie certyfikatom serwera EventGrid z podpisem własnym.
+   > - W przypadku włączenia uwierzytelniania opartego na kliencie dla EventGrid upewnij się, że Zaktualizowano wartość EVENTGRID_ENDPOINT, aby zezwolić na używanie protokołu HTTPS w następujący sposób: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` .
+   > - Dodaj również kolejną zmienną środowiskową `AllowUnknownCertificateAuthority=true` do powyższego kodu JSON. Podczas rozmowy z EventGrid za pośrednictwem protokołu HTTPS **AllowUnknownCertificateAuthority** umożliwia modułowi magazynu ufanie certyfikatom serwera EventGrid z podpisem własnym.
 
 4. Zaktualizuj skopiowany kod JSON przy użyciu następujących informacji:
 
    - Zamień `<your storage account name>` na nazwę, którą można zapamiętać. Nazwy kont powinny składać się z od 3 do 24 znaków, z małymi literami i cyframi. Bez spacji.
 
-   - Zamień `<your storage account key>` na 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
+   - Zamień na `<your storage account key>` 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
 
    - Zamień `<event grid module name>` na nazwę modułu Event Grid.
    - Zamień `<storage mount>` według systemu operacyjnego kontenera.
@@ -199,7 +198,7 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
     > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby odebrać każde zdarzenie, musisz utworzyć subskrypcję Event Grid dla tematu **MicrosoftStorage** .
-    1. Utwórz plik blobsubscription. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
+    1. Utwórz blobsubscription.jsprzy użyciu następującej zawartości. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
 
        ```json
         {
@@ -217,7 +216,7 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
        >[!NOTE]
        > Właściwość **EndpointType** określa, że subskrybent jest elementem **webhook**.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odnosi się do wdrożonej wcześniej przykładowej funkcji platformy Azure.
 
-    2. Uruchom następujące polecenie, aby utworzyć subskrypcję tematu. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK`.
+    2. Uruchom następujące polecenie, aby utworzyć subskrypcję tematu. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK` .
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -332,8 +331,8 @@ Poniżej znajduje się lista obsługiwanych właściwości zdarzeń oraz ich typ
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia magazynu obiektów BLOB. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Dane zdarzenia magazynu obiektów BLOB. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -341,14 +340,14 @@ Obiekt danych ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| api | ciąg | Operacja, która wyzwoliła zdarzenie. Może to być jedna z następujących wartości: <ul><li>BlobCreated — dozwolone wartości to: `PutBlob` i`PutBlockList`</li><li>BlobDeleted — dozwolone wartości to `DeleteBlob`, `DeleteAfterUpload` i `AutoDelete`. <p>Zdarzenie `DeleteAfterUpload` jest generowane, gdy obiekt BLOB jest automatycznie usuwany, ponieważ żądana Właściwość deleteAfterUpload ma wartość true. </p><p>`AutoDelete`zdarzenie jest generowane, gdy obiekt BLOB zostanie automatycznie usunięty, ponieważ deleteAfterMinutes żądana wartość właściwości wygasła.</p></li></ul>|
+| api | ciąg | Operacja, która wyzwoliła zdarzenie. Może to być jedna z następujących wartości: <ul><li>BlobCreated — dozwolone wartości to: `PutBlob` i`PutBlockList`</li><li>BlobDeleted — dozwolone wartości to `DeleteBlob` , `DeleteAfterUpload` i `AutoDelete` . <p>`DeleteAfterUpload`Zdarzenie jest generowane, gdy obiekt BLOB jest automatycznie usuwany, ponieważ żądana Właściwość deleteAfterUpload ma wartość true. </p><p>`AutoDelete`zdarzenie jest generowane, gdy obiekt BLOB zostanie automatycznie usunięty, ponieważ deleteAfterMinutes żądana wartość właściwości wygasła.</p></li></ul>|
 | Identyfikatorem żądania klienta | ciąg | Identyfikator żądania dostarczonego przez klienta dla operacji interfejsu API magazynu. Tego identyfikatora można użyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Client-Request-ID" w dziennikach i można go podać w żądaniach klientów przy użyciu nagłówka "x-MS-Client-Request-ID". Aby uzyskać szczegółowe informacje, zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
 | IdentyfikatorŻądania | ciąg | Identyfikator żądania wygenerowanego przez usługę dla operacji interfejsu API magazynu. Może służyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Request-ID-Header" w dziennikach i jest zwracana z inicjowania wywołania interfejsu API w nagłówku "x-MS-Request-ID". Zobacz [format dziennika](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | Element ETag | ciąg | Wartość, której można użyć do warunkowego wykonywania operacji. |
 | contentType | ciąg | Typ zawartości określony dla obiektu BLOB. |
 | contentLength | liczba całkowita | Rozmiar obiektu BLOB w bajtach. |
 | Obiekt blobtype | ciąg | Typ obiektu BLOB. Prawidłowe wartości to "BlockBlob" lub "PageBlob". |
-| url | ciąg | Ścieżka do obiektu BLOB. <br>Jeśli klient używa interfejsu API REST usługi BLOB, ten adres URL ma strukturę: * \<Storage\>-account-name. blob.Core.Windows.NET/\<Container-\>/\<\>* Name. <br>Jeśli klient używa interfejsu API REST Data Lake Storage, ten adres URL ma strukturę: * \<Storage-account-\>Name.\<DFS.Core.Windows.NET/File\>/\<\>*-Name-Name. |
+| url | ciąg | Ścieżka do obiektu BLOB. <br>Jeśli klient używa interfejsu API REST usługi BLOB, ten adres URL ma następującą strukturę: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Jeśli klient używa interfejsu API REST Data Lake Storage, ten adres URL ma następującą strukturę: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
 
 
 ## <a name="next-steps"></a>Następne kroki

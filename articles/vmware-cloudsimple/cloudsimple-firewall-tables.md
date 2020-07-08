@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025048"
 ---
 # <a name="firewall-tables-overview"></a>Tabele zapory — Omówienie
@@ -26,9 +25,9 @@ W poniższej tabeli opisano parametry w regule zapory.
 | Właściwość | Szczegóły |
 | ---------| --------|
 | **Nazwa** | Nazwa, która jednoznacznie identyfikuje regułę zapory i jej przeznaczenie. |
-| **Priorytet** | Liczba z zakresu od 100 do 4096, z 100 jest najwyższy priorytet. Reguły są przetwarzane w kolejności priorytetów. Gdy ruch napotyka zgodność z regułą, przetwarzanie reguł zostanie zatrzymane. W efekcie reguły o niższych priorytetach, które mają te same atrybuty co reguły o wyższych priorytetach nie są przetwarzane.  Należy zachować ostrożność, aby uniknąć reguł powodujących konflikt. |
+| **Priority** | Liczba z zakresu od 100 do 4096, z 100 jest najwyższy priorytet. Reguły są przetwarzane w kolejności priorytetów. Gdy ruch napotyka zgodność z regułą, przetwarzanie reguł zostanie zatrzymane. W efekcie reguły o niższych priorytetach, które mają te same atrybuty co reguły o wyższych priorytetach nie są przetwarzane.  Należy zachować ostrożność, aby uniknąć reguł powodujących konflikt. |
 | **Śledzenie stanu** | Śledzenie może być bezstanowe (Chmura prywatna, Internet lub sieć VPN) lub stanowa (Public IP).  |
-| **Protokol** | Dostępne opcje to TCP lub UDP. Jeśli jest wymagany protokół ICMP, użyj dowolnego z nich. |
+| **Protokół** | Dostępne opcje to TCP lub UDP. Jeśli jest wymagany protokół ICMP, użyj dowolnego z nich. |
 | **Kierunek** | Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego. |
 | **Akcja** | Zezwalaj lub Odmów dla typu ruchu zdefiniowanego w regule. |
 | **Element źródłowy** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
@@ -53,12 +52,12 @@ Do przepływu ruchu w odwrotnym kierunku mogą być wymagane dodatkowe reguły. 
 
 W każdej tabeli zapory są tworzone następujące reguły domyślne.
 
-|Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protocol (Protokół)|Element źródłowy|Port źródłowy|Element docelowy|Port docelowy|Akcja|
+|Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protokół|Element źródłowy|Port źródłowy|Element docelowy|Port docelowy|Akcja|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Zezwalaj na wszystkie-internetowe|Stanowa|Wychodzący|Publiczny adres IP lub ruch internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65001|Odmów — wszystko-z Internetu|Stanowa|Przychodzący|Publiczny adres IP lub ruch internetowy|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
-|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Wychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Przychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszystkie|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65000|Zezwalaj na wszystkie-internetowe|Stanowa|Wychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65001|Odmów — wszystko-z Internetu|Stanowa|Przychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
+|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Wychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Przychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
 
 ## <a name="next-steps"></a>Następne kroki
 

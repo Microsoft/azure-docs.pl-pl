@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061373"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zasad dla automatycznego aprowizacji użytkowników
@@ -56,7 +55,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem zasad dotyczących automatycznego aprowizacji użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim dla zasad moje zasady.
 
-1. Skontaktuj się z przedstawicielem ds. zasad **support@mypolicies.com** w celu uzyskania tokenu tajnego, który jest wymagany do skonfigurowania aprowizacji Standard scim.
+1. Skontaktuj się z przedstawicielem ds. zasad w **support@mypolicies.com** celu uzyskania tokenu tajnego, który jest wymagany do skonfigurowania APROWIZACJI Standard scim.
 
 2.  Zapisz wartość tokenu dostarczoną przez przedstawiciela zasad. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji moje zasady w Azure Portal.
 
@@ -108,7 +107,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **adres URL dzierżawy** , gdzie `<myPoliciesCustomDomain>` jest domeną niestandardową dla zasad. Możesz pobrać domenę klienta moje zasady z adresu URL.
-Przykład: `<demo0-qa>`. mypolicies.com.
+Przykład: `<demo0-qa>` . mypolicies.com.
 
 6. W polu **token tajny**wprowadź wartość tokenu, która została pobrana wcześniej. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z regułami. Jeśli połączenie nie powiedzie się, upewnij się, że konto moje zasady ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -118,7 +117,7 @@ Przykład: `<demo0-qa>`. mypolicies.com.
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do moje zasady**.
 
@@ -151,7 +150,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * moje zasady zawsze wymagają **nazwy użytkownika**, **adresu e-mail** i **externalid**.
 * moje zasady nie obsługują stałych usunięć dla atrybutów użytkownika.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

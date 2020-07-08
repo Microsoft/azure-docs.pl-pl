@@ -16,10 +16,9 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77061279"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Pingboard na potrzeby automatycznego aprowizacji użytkowników
@@ -58,7 +57,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika w usłudze Azure AD Pingboard
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** > aplikacje dla**wszystkich aplikacji** w**przedsiębiorstwie** > .
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory**aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
 
 1. Jeśli już skonfigurowano Pingboard do logowania jednokrotnego, Wyszukaj wystąpienie elementu Pingboard przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Pingboard** w galerii aplikacji. Wybierz pozycję **Pingboard** z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -70,11 +69,11 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 1. W sekcji **poświadczenia administratora** wykonaj następujące czynności:
 
-    a. W polu **adres URL dzierżawy**wpisz i Zastąp ciąg `https://your_domain.pingboard.com/scim/v2`"your_domain" rzeczywistą domeną.
+    a. W polu **adres URL dzierżawy**wpisz `https://your_domain.pingboard.com/scim/v2` i Zastąp ciąg "your_domain" rzeczywistą domeną.
 
     b. Zaloguj się do usługi [Pingboard](https://pingboard.com/) przy użyciu konta administratora.
 
-    c. Wybierz opcję**integracje** >  **dodatków** > **Azure Active Directory**.
+    c. Wybierz **Add-Ons**opcję  >  **integracje**dodatków  >  **Azure Active Directory**.
 
     d. Przejdź na kartę **Konfiguracja** i wybierz pozycję **Włącz Inicjowanie obsługi użytkowników na platformie Azure**.
 
@@ -98,7 +97,7 @@ Synchronizacja początkowa trwa dłużej niż następujące synchronizacje, któ
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [raport dotyczący automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

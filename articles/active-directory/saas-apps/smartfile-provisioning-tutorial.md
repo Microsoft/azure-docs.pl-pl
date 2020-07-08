@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: b113cc27195b2ce954d677ab0f1ec83e394946be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060239"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie SmartFile na potrzeby automatycznego aprowizacji użytkowników
@@ -113,7 +112,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5.  W sekcji **poświadczenia administratora** wprowadź `https://<SmartFile sitename>.smartfile.com/ftp/scim` **adres URL dzierżawy**. Przykład będzie wyglądać następująco `https://demo1test.smartfile.com/ftp/scim`. Wprowadź wartość **tokenu okaziciela** (ProductKey: ProductPassword), która została wcześniej pobrana w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą SmartFile. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi SmartFile ma uprawnienia administratora, a następnie spróbuj ponownie.
+5.  W sekcji **poświadczenia administratora** wprowadź `https://<SmartFile sitename>.smartfile.com/ftp/scim` **adres URL dzierżawy**. Przykład będzie wyglądać następująco `https://demo1test.smartfile.com/ftp/scim` . Wprowadź wartość **tokenu okaziciela** (ProductKey: ProductPassword), która została wcześniej pobrana w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą SmartFile. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi SmartFile ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -121,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do SmartFile**.
 
@@ -161,7 +160,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 * SmartFile obsługuje tylko twarde usunięcia. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77020645"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Skonfiguruj szyfrowanie sieci vSAN dla chmury prywatnej CloudSimple
@@ -78,7 +77,7 @@ Aby wdrożyć klaster kontroli HyTrust Azure Resource Manager w sieci wirtualnej
 3. Wdróż początkowy węzeł kontrolki z obrazu w portalu Azure Marketplace.  Użyj klucza publicznego pary kluczy, która została wygenerowana, i wybierz **sieciowej grupy zabezpieczeń-hytrust** jako grupę zabezpieczeń sieci dla węzła kontrolki.
 4. Przekonwertuj prywatny adres IP kontrolki na statyczny adres IP.
 5. SSH do sterowania maszyną wirtualną przy użyciu jego publicznego adresu IP i klucza prywatnego wcześniej wymienionej pary kluczy.
-6. Po wyświetleniu monitu w powłoce `No` SSH zaznacz, aby ustawić węzeł jako początkowy węzeł kontrolki.
+6. Po wyświetleniu monitu w powłoce SSH zaznacz, `No` Aby ustawić węzeł jako początkowy węzeł kontrolki.
 7. Dodaj dodatkowe węzły kontroli, powtarzając kroki 3-5 tej procedury i wybierając opcję `Yes` gdy zostanie wyświetlony monit o dodanie do istniejącego klastra.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: Skonfiguruj serwer KMIP
@@ -98,7 +97,7 @@ W programie vCenter przejdź do pozycji **klaster > Skonfiguruj** i wybierz opcj
 
 ![Włączanie szyfrowania sieci vSAN i Konfigurowanie klastra usługi KMS w programie vCenter](media/vsan-config02.png)
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 ### <a name="azure"></a>Azure
 

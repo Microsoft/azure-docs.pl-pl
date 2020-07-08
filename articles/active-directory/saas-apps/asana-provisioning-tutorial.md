@@ -17,10 +17,9 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058935"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana na potrzeby automatycznego aprowizacji użytkowników
@@ -59,7 +58,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika w usłudze Azure AD Asana
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** > aplikacje dla**wszystkich aplikacji** w**przedsiębiorstwie** > .
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory**aplikacje dla  >  **Enterprise Apps**  >  **wszystkich aplikacji** w przedsiębiorstwie.
 
 1. Jeśli już skonfigurowano Asana do logowania jednokrotnego, Wyszukaj wystąpienie elementu Asana przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Asana** w galerii aplikacji. Wybierz pozycję **Asana** z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 

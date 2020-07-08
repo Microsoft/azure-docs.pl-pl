@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120673"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Konfigurowanie Azure Files w kontenerze systemu Windows na App Service

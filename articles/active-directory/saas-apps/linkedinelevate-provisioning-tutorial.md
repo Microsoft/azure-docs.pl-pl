@@ -16,10 +16,9 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057417"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podniesienia uprawnień w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
@@ -59,14 +58,14 @@ Ta sekcja przeprowadzi Cię przez proces nawiązywania połączenia z usługą A
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Aby skonfigurować funkcję automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD:
 
-Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jesteś administratorem przedsiębiorstwa, możesz automatycznie zainicjować obsługę administracyjną tokenu dostępu. W centrum konta przejdź do pozycji **ustawienia &gt; ustawienia globalne** i Otwórz panel **ustawień Standard scim** .
+Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jesteś administratorem przedsiębiorstwa, możesz automatycznie zainicjować obsługę administracyjną tokenu dostępu. W centrum konta przejdź do pozycji **Ustawienia ustawienia &gt; globalne** i Otwórz panel **ustawień Standard scim** .
 
 > [!NOTE]
 > Jeśli uzyskujesz dostęp do centrum kont bezpośrednio, a nie za pośrednictwem linku, możesz uzyskać do niego dostęp, wykonując poniższe kroki.
 
 1. Zaloguj się do centrum konta.
 
-2. Wybierz **pozycję &gt; ustawienia administratora administratora** .
+2. Wybierz **pozycję &gt; Ustawienia administratora administratora** .
 
 3. Kliknij przycisk **integracji zaawansowane** na lewym pasku bocznym. Nastąpi przekierowanie do centrum konta.
 
@@ -98,7 +97,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 11. Wypełnij następujące pola w obszarze **poświadczenia administratora** :
 
-    * W polu **adres URL dzierżawy** wprowadź `https://api.linkedin.com`wartość.
+    * W polu **adres URL dzierżawy** wprowadź wartość `https://api.linkedin.com` .
 
     * W polu **token Secret** wprowadź token dostępu wygenerowany w kroku 1, a następnie kliknij pozycję **Testuj połączenie** .
 
@@ -106,7 +105,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 12. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji w polu **E-mail powiadomienia** , a następnie zaznacz pole wyboru poniżej.
 
-13. Kliknij przycisk **Zapisz**.
+13. Kliknij pozycję **Zapisz**.
 
 14. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkowników i grup, które zostaną zsynchronizowane z usługi Azure AD w celu podniesienia uprawnień do serwisu LinkedIn. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane w celu dopasowania do kont użytkowników i grup w serwisie LinkedIn podwyższanie poziomu dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
@@ -114,7 +113,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 15. Aby włączyć podwyższenie poziomu usługi Azure AD Provisioning w usłudze LinkedIn, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-16. Kliknij przycisk **Zapisz**.
+16. Kliknij pozycję **Zapisz**.
 
 Spowoduje to rozpoczęcie synchronizacji początkowej dla wszystkich użytkowników i/lub grup przypisanych do serwisu LinkedIn podniesienia uprawnień w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacja początkowa zajmie więcej czasu niż kolejne synchronizacje, co będzie odbywać się około co 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji w aplikacji podniesienia uprawnień w serwisie LinkedIn.
 

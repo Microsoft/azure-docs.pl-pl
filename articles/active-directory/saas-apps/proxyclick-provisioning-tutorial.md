@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: 95cb0371c4b2181d8f09991fe6e652c0e939f3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063360"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Proxyclick na potrzeby automatycznego aprowizacji użytkowników
@@ -102,7 +101,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. Aby pobrać **adres URL dzierżawy** i **klucz tajny** konta Proxyclick, postępuj zgodnie z opisem w sekcji Krok 6.
 
-6. Zaloguj się do [konsoli administracyjnej Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Przejdź do **ustawień** > **Integrations** > **Przeglądaj Portal Marketplace**.
+6. Zaloguj się do [konsoli administracyjnej Proxyclick](https://app.proxyclick.com/login//?destination=%2Fdefault). Przejdź do **ustawień**  >  **Integrations**  >  **Przeglądaj Portal Marketplace**.
 
     ![Ustawienia Proxyclick](media/proxyclick-provisioning-tutorial/proxyclick09.png)
 
@@ -120,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Proxyclick aprowizacji użytkowników](media/proxyclick-provisioning-tutorial/proxyclick05.png)
 
-    Odpowiedni interfejs użytkownika konfiguracji ustawień powinien teraz zostać wyświetlony w obszarze **Ustawienia** > **integracji**. Wybierz pozycję **Ustawienia** w obszarze **Azure AD (Inicjowanie obsługi użytkowników)**.
+    Odpowiedni interfejs użytkownika konfiguracji ustawień powinien teraz zostać wyświetlony w obszarze **Ustawienia**  >  **integracji**. Wybierz pozycję **Ustawienia** w obszarze **Azure AD (Inicjowanie obsługi użytkowników)**.
 
     ![Proxyclick Utwórz](media/proxyclick-provisioning-tutorial/proxyclick06.png)
 
@@ -136,7 +135,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Proxyclick**.
 
@@ -169,7 +168,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Proxyclick wymaga, aby **wiadomości e-mail** i **Nazwa użytkownika** miały tę samą wartość źródłową. Wszystkie aktualizacje obu atrybutów spowodują modyfikację drugiej wartości.
 * Proxyclick nie obsługuje aprowizacji dla grup.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -20,13 +20,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153880"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter`, `$orderby`i `$select` na platformie Azure wyszukiwanie poznawcze
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter` , `$orderby` i `$select` na platformie Azure wyszukiwanie poznawcze
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje podzbiór składni wyrażenia OData dla wyrażeń **$Filter**, **$OrderBy**i **$SELECT** . Wyrażenia filtru są oceniane podczas analizowania zapytania, ograniczając wyszukiwanie do określonych pól lub dodając kryteria dopasowywania używane podczas skanowania indeksów. Wyrażenia order-by są stosowane jako krok przetwarzania końcowego względem zestawu wyników w celu sortowania zwracanych dokumentów. Wybór wyrażeń określa, które pola dokumentu są uwzględniane w zestawie wyników. Składnia tych wyrażeń różni się od [prostej](query-simple-syntax.md) lub [pełnej](query-lucene-syntax.md) składni zapytań, która jest używana w parametrze **wyszukiwania** , chociaż występuje kilka nakładania się w składni dla pól, do których się odwołuje.
 
@@ -66,26 +65,26 @@ Dostępny jest również interaktywny diagram składni:
 
 Ścieżka pola składa się z jednego lub więcej **identyfikatorów** rozdzielonych ukośnikami. Każdy identyfikator jest sekwencją znaków, które muszą zaczynać się literą lub podkreśleniem ASCII i zawierać tylko litery ASCII, cyfry i znaki podkreślenia. Litery mogą być wielkie lub małe.
 
-Identyfikator może odwoływać się do nazwy pola lub **zmiennej zakresu** w kontekście [wyrażenia kolekcji](search-query-odata-collection-operators.md) (`any` lub `all`) w filtrze. Zmienna zakresu jest jak zmienna pętli, która reprezentuje bieżący element kolekcji. W przypadku złożonych kolekcji ta zmienna reprezentuje obiekt, dlatego można użyć ścieżek pól do odwoływania się do podpól zmiennej. Jest to analogiczny do notacji kropki w wielu językach programowania.
+Identyfikator może odwoływać się do nazwy pola lub **zmiennej zakresu** w kontekście [wyrażenia kolekcji](search-query-odata-collection-operators.md) ( `any` lub `all` ) w filtrze. Zmienna zakresu jest jak zmienna pętli, która reprezentuje bieżący element kolekcji. W przypadku złożonych kolekcji ta zmienna reprezentuje obiekt, dlatego można użyć ścieżek pól do odwoływania się do podpól zmiennej. Jest to analogiczny do notacji kropki w wielu językach programowania.
 
 Przykłady ścieżek pól przedstawiono w poniższej tabeli:
 
 | Ścieżka pola | Opis |
 | --- | --- |
 | `HotelName` | Odwołuje się do pola najwyższego poziomu indeksu |
-| `Address/City` | Odwołuje się `City` do podpola złożonego pola w indeksie; `Address` jest typu `Edm.ComplexType` w tym przykładzie |
-| `Rooms/Type` | Odwołuje się `Type` do pola podrzędnego złożonego pola kolekcji w indeksie; `Rooms` jest typu `Collection(Edm.ComplexType)` w tym przykładzie |
-| `Stores/Address/Country` | Odwołuje się `Country` do podpola w polu `Address` podrzędnym złożonego pola kolekcji w indeksie; `Stores` jest typu `Collection(Edm.ComplexType)` i `Address` jest typu `Edm.ComplexType` w tym przykładzie |
-| `room/Type` | Odwołuje się `Type` do podpola zmiennej `room` zakresu, na przykład w wyrażeniu filtru`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Odwołuje się `Country` do podpola `Address` podrzędnego podpola zmiennej `store` zakresu, na przykład w wyrażeniu filtru.`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `Address/City` | Odwołuje się do `City` podpola złożonego pola w indeksie; `Address` jest typu `Edm.ComplexType` w tym przykładzie |
+| `Rooms/Type` | Odwołuje się do `Type` pola podrzędnego złożonego pola kolekcji w indeksie; `Rooms` jest typu `Collection(Edm.ComplexType)` w tym przykładzie |
+| `Stores/Address/Country` | Odwołuje się do `Country` podpola w polu `Address` podrzędnym złożonego pola kolekcji w indeksie; `Stores` jest typu `Collection(Edm.ComplexType)` i `Address` jest typu `Edm.ComplexType` w tym przykładzie |
+| `room/Type` | Odwołuje się do `Type` podpola `room` zmiennej zakresu, na przykład w wyrażeniu filtru`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Odwołuje się do `Country` podpola `Address` podrzędnego podpola `store` zmiennej zakresu, na przykład w wyrażeniu filtru.`Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Znaczenie ścieżki pola różni się w zależności od kontekstu. W filtrach ścieżka pola odnosi się do wartości *pojedynczego wystąpienia* pola w bieżącym dokumencie. W innych kontekstach, takich jak **$OrderBy**, **$SELECT**lub w [wyszukiwaniu w polu Pełna składnia](query-lucene-syntax.md#bkmk_fields), ścieżka pola odnosi się do samego pola. Różnica ta ma pewne konsekwencje dla sposobu używania ścieżek pól w filtrach.
 
-Rozważ użycie ścieżki `Address/City`pola. W filtrze odnosi się to do jednego miasta dla bieżącego dokumentu, takiego jak "San Francisco". W przeciwieństwie `Rooms/Type` odnosi się `Type` do podpola dla wielu pokojów (na przykład "Standardowa" w pierwszym pokoju, "Deluxe" dla drugiego pokoju itd.). Ponieważ `Rooms/Type` nie odwołuje się do *pojedynczego wystąpienia* podpola `Type`, nie można go używać bezpośrednio w filtrze. Zamiast tego, aby odfiltrować typ pokoju, należy użyć [wyrażenia lambda](search-query-odata-collection-operators.md) z zmienną zakresu, takiej jak:
+Rozważ użycie ścieżki pola `Address/City` . W filtrze odnosi się to do jednego miasta dla bieżącego dokumentu, takiego jak "San Francisco". W przeciwieństwie `Rooms/Type` odnosi się do `Type` podpola dla wielu pokojów (na przykład "Standardowa" w pierwszym pokoju, "Deluxe" dla drugiego pokoju itd.). Ponieważ `Rooms/Type` nie odwołuje się do *pojedynczego wystąpienia* podpola `Type` , nie można go używać bezpośrednio w filtrze. Zamiast tego, aby odfiltrować typ pokoju, należy użyć [wyrażenia lambda](search-query-odata-collection-operators.md) z zmienną zakresu, takiej jak:
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-W tym przykładzie zmienna `room` zakresu pojawia się w ścieżce `room/Type` pola. W ten sposób `room/Type` , odnosi się do typu bieżącego pokoju w bieżącym dokumencie. Jest to pojedyncze wystąpienie `Type` podpola, dlatego może być używane bezpośrednio w filtrze.
+W tym przykładzie zmienna zakresu `room` pojawia się w `room/Type` ścieżce pola. W ten sposób, `room/Type` odnosi się do typu bieżącego pokoju w bieżącym dokumencie. Jest to pojedyncze wystąpienie `Type` podpola, dlatego może być używane bezpośrednio w filtrze.
 
 ### <a name="using-field-paths"></a>Używanie ścieżek pól
 
@@ -96,10 +95,10 @@ W tym przykładzie zmienna `room` zakresu pojawia się w ścieżce `room/Type` p
 | [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `suggesters/sourceFields` | Brak |
 | [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `scoringProfiles/text/weights` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
 | [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `scoringProfiles/functions/fieldName` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`gdy `queryType` jest`full` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Może odwoływać się tylko do pól **kroju** |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`gdy `queryType` jest`full` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Może odwoływać się tylko do pól **kroju** |
+| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
 | [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions) i [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Może odwoływać się tylko do pól, które są częścią [sugestii](index-add-suggesters.md) |
 | [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions)i [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
 | [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) i [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Może odwoływać się tylko do pól do **sortowania** |
@@ -126,7 +125,7 @@ W poniższej tabeli przedstawiono przykłady stałych dla każdego z typów dany
 
 Stałe w postaci ciągów w protokole OData są rozdzielane pojedynczymi cudzysłowami. Jeśli konieczne jest skonstruowanie zapytania z stałą typu String, która może zawierać pojedyncze cudzysłowy, można wypróbować osadzone cudzysłowy, podwajając je.
 
-Na przykład fraza z niesformatowanym apostrofem, taka jak "samochód Alicja", będzie reprezentowana w formacie OData jako stała `'Alice''s car'`w postaci ciągu.
+Na przykład fraza z niesformatowanym apostrofem, taka jak "samochód Alicja", będzie reprezentowana w formacie OData jako stała w postaci ciągu `'Alice''s car'` .
 
 > [!IMPORTANT]
 > W przypadku programistycznego konstruowania filtrów ważne jest, aby pamiętać o stałych ciągach ucieczki, które pochodzą z danych wejściowych użytkownika. Jest to ograniczenie możliwości [ataków iniekcji](https://wikipedia.org/wiki/SQL_injection), szczególnie w przypadku używania filtrów do zaimplementowania [przycinania zabezpieczeń](search-security-trimming-for-azure-search.md).
@@ -229,7 +228,7 @@ Dostępny jest również interaktywny diagram składni:
 > [!NOTE]
 > Zapoznaj się z informacjami o [składni wyrażenia OData dla usługi Azure wyszukiwanie poznawcze](search-query-odata-syntax-reference.md) , aby uzyskać pełną EBNF.
 
-Parametry **$OrderBy** i **$SELECT** są rozdzielanymi przecinkami listami prostszych wyrażeń. **$Filter** parametr jest wyrażeniem logicznym, które składa się z prostszych wyrażeń podrzędnych. Te wyrażenia podrzędne są łączone za pomocą operatorów logicznych, takich [ `and`jak `or`,, `not`i ](search-query-odata-logical-operators.md)operatory porównania, takie [ `eq` `lt`jak, `gt`,, i tak dalej](search-query-odata-comparison-operators.md), oraz operatorów kolekcji, takich jak [ `any` `all`i ](search-query-odata-collection-operators.md).
+Parametry **$OrderBy** i **$SELECT** są rozdzielanymi przecinkami listami prostszych wyrażeń. **$Filter** parametr jest wyrażeniem logicznym, które składa się z prostszych wyrażeń podrzędnych. Te wyrażenia podrzędne są łączone za pomocą operatorów logicznych, takich jak [ `and` , `or` , `not` i ](search-query-odata-logical-operators.md)operatory porównania, takie jak,, [ `eq` `lt` `gt` , i tak dalej](search-query-odata-comparison-operators.md), oraz operatorów kolekcji, takich jak [ `any` i `all` ](search-query-odata-collection-operators.md).
 
 Parametry **$Filter**, **$OrderBy**i **$SELECT** zostały omówione bardziej szczegółowo w następujących artykułach:
 

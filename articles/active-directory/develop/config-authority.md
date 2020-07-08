@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77085207"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Instrukcje: Konfigurowanie MSAL dla systemów iOS i macOS w celu korzystania z różnych dostawców tożsamości
@@ -26,7 +25,7 @@ W tym artykule opisano sposób konfigurowania aplikacji biblioteki uwierzytelnia
 
 ## <a name="default-authority-configuration"></a>Domyślna konfiguracja urzędu
 
-`MSALPublicClientApplication`jest skonfigurowany przy użyciu domyślnego adresu URL urzędu `https://login.microsoftonline.com/common`, który jest odpowiedni dla większości scenariuszy Azure Active Directory (AAD). Chyba że wdrażasz zaawansowane scenariusze, takie jak chmury krajowe, lub pracujesz z programem B2C, nie musisz go zmieniać.
+`MSALPublicClientApplication`jest skonfigurowany przy użyciu domyślnego adresu URL urzędu `https://login.microsoftonline.com/common` , który jest odpowiedni dla większości scenariuszy Azure Active Directory (AAD). Chyba że wdrażasz zaawansowane scenariusze, takie jak chmury krajowe, lub pracujesz z programem B2C, nie musisz go zmieniać.
 
 > [!NOTE]
 > Nowoczesne uwierzytelnianie z Active Directory Federation Services jako dostawca tożsamości (ADFS) nie jest obsługiwane (szczegółowe informacje można znaleźć [w usługach ADFS dla deweloperów](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) ). Usługi ADFS są obsługiwane za poorednictwem Federacji.
@@ -37,9 +36,9 @@ W niektórych scenariuszach, takich jak Business-to-Consumer (B2C), może zajś�
 
 ### <a name="b2c"></a>B2C
 
-Aby można było korzystać z B2C, [Biblioteka uwierzytelniania firmy Microsoft (MSAL)](reference-v2-libraries.md) wymaga innej konfiguracji urzędu certyfikacji. MSAL rozpoznaje jeden format adresu URL urzędu jako B2C. Rozpoznany format B2Cego urzędu certyfikacji `https://<host>/tfp/<tenant>/<policy>`jest na przykład `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`. Można jednak również użyć innych obsługiwanych adresów URL urzędu certyfikacji B2C przez zadeklarowanie urzędu jako urzędu certyfikacji B2C.
+Aby można było korzystać z B2C, [Biblioteka uwierzytelniania firmy Microsoft (MSAL)](reference-v2-libraries.md) wymaga innej konfiguracji urzędu certyfikacji. MSAL rozpoznaje jeden format adresu URL urzędu jako B2C. Rozpoznany format B2Cego urzędu certyfikacji jest `https://<host>/tfp/<tenant>/<policy>` na przykład `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy` . Można jednak również użyć innych obsługiwanych adresów URL urzędu certyfikacji B2C przez zadeklarowanie urzędu jako urzędu certyfikacji B2C.
 
-Aby zapewnić obsługę dowolnego formatu adresu URL dla B2C `MSALB2CAuthority` , można ustawić dowolny adres URL, na przykład:
+Aby zapewnić obsługę dowolnego formatu adresu URL dla B2C, `MSALB2CAuthority` można ustawić dowolny adres URL, na przykład:
 
 Obiektowy C
 ```objc
@@ -76,7 +75,7 @@ b2cApplicationConfig.knownAuthorities = [b2cAuthority]
 
 Gdy aplikacja zażąda nowych zasad, należy zmienić adres URL urzędu, ponieważ adres URL urzędu jest inny dla każdej zasady. 
 
-Aby skonfigurować aplikację B2C, przed utworzeniem `@property MSALAuthority *authority` `MSALPublicClientApplication`należy ustawić wystąpienie elementu `MSALB2CAuthority` in `MSALPublicClientApplicationConfig` , jak to:
+Aby skonfigurować aplikację B2C, `@property MSALAuthority *authority` przed utworzeniem należy ustawić wystąpienie elementu `MSALB2CAuthority` in `MSALPublicClientApplicationConfig` `MSALPublicClientApplication` , jak to:
 
 Obiektowy C
 ```ObjC
@@ -129,7 +128,7 @@ do{
 
 ### <a name="sovereign-clouds"></a>Suwerenne chmury
 
-Jeśli aplikacja jest uruchomiona w chmurze suwerennej, może zajść konieczność zmiany adresu URL urzędu w `MSALPublicClientApplication`. Poniższy przykład ustawia adres URL urzędu do pracy z niemiecką chmurą AAD:
+Jeśli aplikacja jest uruchomiona w chmurze suwerennej, może zajść konieczność zmiany adresu URL urzędu w `MSALPublicClientApplication` . Poniższy przykład ustawia adres URL urzędu do pracy z niemiecką chmurą AAD:
 
 Obiektowy C
 ```objc
@@ -178,9 +177,9 @@ Może być konieczne przekazanie różnych zakresów do poszczególnych suwerenn
 
 ### <a name="signing-a-user-into-a-specific-tenant"></a>Podpisywanie użytkownika do określonej dzierżawy
 
-Jeśli adres URL urzędu jest ustawiony na `"login.microsoftonline.com/common"`, użytkownik zostanie zalogowany do swojej dzierżawy domowej. Niektóre aplikacje mogą jednak wymagać podpisania użytkownika w innej dzierżawie, a niektóre aplikacje współpracują tylko z jedną dzierżawą.
+Jeśli adres URL urzędu jest ustawiony na `"login.microsoftonline.com/common"` , użytkownik zostanie zalogowany do swojej dzierżawy domowej. Niektóre aplikacje mogą jednak wymagać podpisania użytkownika w innej dzierżawie, a niektóre aplikacje współpracują tylko z jedną dzierżawą.
 
-Aby podpisać użytkownika w określonej dzierżawie, należy `MSALPublicClientApplication` skonfigurować z określonym Urzędem. Przykład:
+Aby podpisać użytkownika w określonej dzierżawie, należy skonfigurować `MSALPublicClientApplication` z określonym Urzędem. Przykład:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
@@ -232,9 +231,9 @@ do{
 
 ### <a name="msalauthority"></a>MSALAuthority
 
-`MSALAuthority` Klasa jest podstawową klasą abstrakcyjną dla klas urzędu MSAL. Nie próbuj tworzyć wystąpienia elementu przy użyciu `alloc` lub. `new` Zamiast tego należy utworzyć jedną z jej podklas bezpośrednio (`MSALAADAuthority`, `MSALB2CAuthority`) lub użyć metody `authorityWithURL:error:` fabryki do utworzenia podklas przy użyciu adresu URL urzędu.
+`MSALAuthority`Klasa jest podstawową klasą abstrakcyjną dla klas urzędu MSAL. Nie próbuj tworzyć wystąpienia elementu przy użyciu `alloc` lub `new` . Zamiast tego należy utworzyć jedną z jej podklas bezpośrednio ( `MSALAADAuthority` , `MSALB2CAuthority` ) lub użyć metody fabryki `authorityWithURL:error:` do utworzenia podklas przy użyciu adresu URL urzędu.
 
-Użyj właściwości `url` , aby uzyskać znormalizowany adres URL urzędu. Dodatkowe parametry i składniki ścieżki lub fragmenty, które nie są częścią urzędu, nie będą znajdować się w zwracanym znormalizowanym adresie URL.
+Użyj `url` właściwości, aby uzyskać znormalizowany adres URL urzędu. Dodatkowe parametry i składniki ścieżki lub fragmenty, które nie są częścią urzędu, nie będą znajdować się w zwracanym znormalizowanym adresie URL.
 
 Poniżej znajdują się klasy `MSALAuthority` , które można utworzyć w zależności od urzędu, którego chcesz użyć.
 
@@ -244,7 +243,7 @@ Poniżej znajdują się klasy `MSALAuthority` , które można utworzyć w zależ
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`reprezentuje urząd B2C. Domyślnie adres URL urzędu B2C powinien mieć następujący format, gdzie `<port>` jest opcjonalny:. `https://<host>:<port>/tfp/<tenant>/<policy>` Jednak MSAL obsługuje również inne B2Ce formaty urzędów certyfikacji.
+`MSALB2CAuthority`reprezentuje urząd B2C. Domyślnie adres URL urzędu B2C powinien mieć następujący format, gdzie `<port>` jest opcjonalny: `https://<host>:<port>/tfp/<tenant>/<policy>` . Jednak MSAL obsługuje również inne B2Ce formaty urzędów certyfikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

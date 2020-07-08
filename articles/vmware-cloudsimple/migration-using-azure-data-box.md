@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019761"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrowanie danych do rozwiązania VMware platformy Azure przy użyciu Azure Data Box
@@ -133,7 +132,7 @@ Maszyna wirtualna zostanie zmigrowana do magazynu danych systemu plików NFS z u
 
 ### <a name="clone-a-virtual-machine-or-a-virtual-machine-template-to-the-data-box-datastore"></a>Klonowanie maszyny wirtualnej lub szablonu maszyny wirtualnej do urządzenie Data Box magazynu danych
 
-1. Kliknij prawym przyciskiem myszy maszynę wirtualną lub szablon maszyny wirtualnej, który ma zostać sklonowany. Wybierz **klon** > klonowania**do maszyny wirtualnej**.
+1. Kliknij prawym przyciskiem myszy maszynę wirtualną lub szablon maszyny wirtualnej, który ma zostać sklonowany. Wybierz **klon**klonowania  >  **do maszyny wirtualnej**.
 
     ![Klonowanie maszyny wirtualnej](media/databox-migration-vm-clone.png)
 
@@ -227,12 +226,12 @@ Najpierw skopiuj dane usługi BLOB Storage na dysk zarządzany na maszynie wirtu
 
 4. Zainstaluj program [AzCopy na maszynie wirtualnej z systemem Linux](../storage/common/storage-use-azcopy-v10.md).
 
-5. Pobierz dane z magazynu obiektów blob platformy Azure na dysk zarządzany przy użyciu AzCopy.  Składnia polecenia: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Zastąp `<storage-account-name>` ciąg nazwą konta usługi Azure Storage `<container-name>` i kontenerem zawierającym dane skopiowane za pomocą urządzenie Data Box.
+5. Pobierz dane z magazynu obiektów blob platformy Azure na dysk zarządzany przy użyciu AzCopy.  Składnia polecenia: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"` .  Zastąp ciąg `<storage-account-name>` nazwą konta usługi Azure Storage i `<container-name>` kontenerem zawierającym dane skopiowane za pomocą urządzenie Data Box.
 
 6. Zainstaluj serwer NFS na maszynie wirtualnej z systemem Linux:
 
-    - W dystrybucji Ubuntu/Debian: `sudo apt install nfs-kernel-server`.
-    - W dystrybucji systemu Linux w przedsiębiorstwie: `sudo yum install nfs-utils`.
+    - W dystrybucji Ubuntu/Debian: `sudo apt install nfs-kernel-server` .
+    - W dystrybucji systemu Linux w przedsiębiorstwie: `sudo yum install nfs-utils` .
 
 7. Zmień uprawnienia folderu na dysku zarządzanym, w którym skopiowano dane z usługi Azure Blob Storage.  Zmień uprawnienia dla wszystkich folderów, które mają zostać wyeksportowane jako udział w systemie plików NFS.
 
@@ -241,7 +240,7 @@ Najpierw skopiuj dane usługi BLOB Storage na dysk zarządzany na maszynie wirtu
     chown nfsnobody:nfsnobody /<folder>/<subfolder>
     ```
 
-8. Przypisz uprawnienia do adresów IP klientów, aby uzyskać dostęp do udziału NFS, `/etc/exports` edytując plik.
+8. Przypisz uprawnienia do adresów IP klientów, aby uzyskać dostęp do udziału NFS, edytując `/etc/exports` plik.
 
     ```bash
     sudo vi /etc/exports
@@ -256,9 +255,9 @@ Najpierw skopiuj dane usługi BLOB Storage na dysk zarządzany na maszynie wirtu
     .
     ```
 
-9. Wyeksportuj udziały NFS przy `sudo exportfs -a` użyciu polecenia.
+9. Wyeksportuj udziały NFS przy użyciu `sudo exportfs -a` polecenia.
 
-10. Uruchom ponownie serwer jądra systemu plików NFS `sudo systemctl restart nfs-kernel-server` przy użyciu polecenia.
+10. Uruchom ponownie serwer jądra systemu plików NFS przy użyciu `sudo systemctl restart nfs-kernel-server` polecenia.
 
 
 ### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>Zainstaluj udział NFS maszyny wirtualnej z systemem Linux jako magazyn danych w prywatnym klastrze vCenter w chmurze, a następnie skopiuj dane

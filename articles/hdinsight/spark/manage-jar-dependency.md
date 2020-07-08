@@ -9,15 +9,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77135735"
 ---
 # <a name="jar-dependency-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania zależnościami JAR
 
-Składniki zainstalowane w klastrach usługi HDInsight mają zależności od bibliotek innych firm. Zwykle do konkretnej wersji wspólnych modułów, takich jak Guava, odwołują się te wbudowane składniki. Gdy przesyłana jest aplikacja z zależnościami, może to spowodować konflikt między różnymi wersjami tego samego modułu. Jeśli wersja składnika, do której odwołuje się pierwsza ścieżka klasy, składniki wbudowane mogą generować wyjątki z powodu niezgodności wersji. Jeśli jednak składniki wbudowane wymagają najpierw dodania ich do ścieżki klas, aplikacja może zgłosić błędy takie jak `NoSuchMethod`.
+Składniki zainstalowane w klastrach usługi HDInsight mają zależności od bibliotek innych firm. Zwykle do konkretnej wersji wspólnych modułów, takich jak Guava, odwołują się te wbudowane składniki. Gdy przesyłana jest aplikacja z zależnościami, może to spowodować konflikt między różnymi wersjami tego samego modułu. Jeśli wersja składnika, do której odwołuje się pierwsza ścieżka klasy, składniki wbudowane mogą generować wyjątki z powodu niezgodności wersji. Jeśli jednak składniki wbudowane wymagają najpierw dodania ich do ścieżki klas, aplikacja może zgłosić błędy takie jak `NoSuchMethod` .
 
 Aby uniknąć konfliktu wersji, należy rozważyć cieniowanie zależności aplikacji.
 
@@ -32,9 +31,9 @@ Uber-JAR to pojedynczy plik JAR, który zawiera zarówno aplikację jar, jak i j
 ### <a name="shade-package-using-maven"></a>Wycieniowanie pakietu przy użyciu Maven
 Maven mogą tworzyć aplikacje, które są zapisywane zarówno w języku Java, jak i Scala. Maven-cieniowanie — wtyczka może pomóc w łatwym tworzeniu cieniowanych Uber-jar.
 
-W poniższym przykładzie przedstawiono plik `pom.xml` , który został zaktualizowany w celu odcieniowania pakietu przy użyciu funkcji Maven-odcieni-plugin.  Sekcja `<relocation>…</relocation>` XML przenosi klasy z pakietu `com.google.guava` do pakietu `com.google.shaded.guava` przez przeniesienie odpowiednich wpisów w pliku JAR i ponowne zapisanie kodu bajtowego, którego to dotyczy.
+W poniższym przykładzie przedstawiono plik `pom.xml` , który został zaktualizowany w celu odcieniowania pakietu przy użyciu funkcji Maven-odcieni-plugin.  Sekcja XML `<relocation>…</relocation>` przenosi klasy z pakietu `com.google.guava` do pakietu `com.google.shaded.guava` przez przeniesienie odpowiednich wpisów w pliku JAR i ponowne zapisanie kodu bajtowego, którego to dotyczy.
 
-Po zmianie `pom.xml`można wykonać `mvn package` w celu skompilowania zacieniowanego Uber-jar.
+Po zmianie `pom.xml` można wykonać `mvn package` w celu skompilowania zacieniowanego Uber-jar.
 
 ```xml
   <build>
@@ -67,7 +66,7 @@ Po zmianie `pom.xml`można wykonać `mvn package` w celu skompilowania zacieniow
 ### <a name="shade-package-using-sbt"></a>Wycieniowanie pakietu przy użyciu SBT
 SBT jest również narzędziem kompilacji dla Scala i Java. SBT nie ma wtyczki do cieniowania, takiej jak Maven-decień-wtyczka. Można zmodyfikować `build.sbt` plik w celu cieniowania pakietów. 
 
-Na przykład, aby odcieniować `com.google.guava`, można dodać poniższe polecenie do `build.sbt` pliku:
+Na przykład, aby odcieniować `com.google.guava` , można dodać poniższe polecenie do `build.sbt` pliku:
 
 ```scala
 assemblyShadeRules in assembly := Seq(
