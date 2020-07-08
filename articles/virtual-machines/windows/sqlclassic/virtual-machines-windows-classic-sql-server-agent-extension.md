@@ -16,16 +16,15 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338411"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatyzowanie zadań zarządzania na platformie Azure Virtual Machines przy użyciu rozszerzenia agenta SQL Server (klasycznego)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
-> * [Wdrożenie klasyczne](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Klasyczny](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
@@ -48,7 +47,7 @@ Wymagania dotyczące używania SQL Server rozszerzenia agenta IaaS na maszynie w
 
 ### <a name="operating-system"></a>System operacyjny:
 * Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2012 z dodatkiem R2
 * Windows Server 2016
 
 ### <a name="sql-server-versions"></a>SQL Server wersje:

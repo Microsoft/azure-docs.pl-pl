@@ -12,10 +12,9 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324542"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Zarządzanie miejscem plików dla baz danych w Azure SQL Database
@@ -124,7 +123,7 @@ Zrozumienie następujących ilości miejsca do magazynowania jest istotne dla za
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Zbadaj pulę elastyczną w celu uzyskania informacji o miejscu do magazynowania
 
-Poniższe zapytania mogą służyć do określenia ilości miejsca do magazynowania dla puli elastycznej.  
+Poniższe zapytania mogą służyć do ustalenia ilości miejsca do magazynowania dla elastycznej puli.  
 
 ### <a name="elastic-pool-data-space-used"></a>Używane miejsce na dane puli elastycznej
 

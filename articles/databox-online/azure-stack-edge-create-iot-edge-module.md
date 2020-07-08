@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339896"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack Edge
@@ -64,7 +63,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. Dwie popularne usługi rejestru platformy Docker dostępne w chmurze to Azure Container Registry i Docker Hub. W tym artykule jest wykorzystywany Container Registry.
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij przycisk **Utwórz**.
+2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij pozycję **Utwórz**.
 3. Oferować
 
    1. Unikatowa **Nazwa rejestru** na platformie Azure, która zawiera od 5 do 50 znaków alfanumerycznych.
@@ -116,7 +115,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
 
     ![Utwórz nowe rozwiązanie 4](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. Przeglądaj i wskaż utworzony wcześniej folder **EdgeSolution** . Okno VS Code ładuje obszar roboczy rozwiązania IoT Edge z pięcioma składnikami najwyższego poziomu. W tym artykule nie można edytować folderu **. programu vscode** , pliku **GITIGNORE** , pliku **. env** i **wdrożenia. Template. JSON** .
+5. Przeglądaj i wskaż utworzony wcześniej folder **EdgeSolution** . Okno VS Code ładuje obszar roboczy rozwiązania IoT Edge z pięcioma składnikami najwyższego poziomu. Nie będziesz edytować folderu **. programu vscode** , pliku **GITIGNORE** , pliku **ENV** ani **deployment.template.js** w tym artykule.
     
     Jedynym modyfikowanym składnikiem jest folder moduły. Ten folder zawiera kod C# dla modułu i plików platformy Docker, aby skompilować moduł jako obraz kontenera.
 
@@ -256,7 +255,7 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do FileCopyMod
 
 2. Po wyświetleniu monitu o podanie hasła Podaj hasło. Możesz również pobrać wartości dla opcji serwer logowania, nazwa użytkownika i hasło z **kluczy dostępu** w rejestrze kontenerów w Azure Portal.
  
-3. Po dostarczeniu poświadczeń można wypchnąć obraz modułu do usługi Azure Container Registry. W Eksploratorze VS Code kliknij prawym przyciskiem myszy plik **module. JSON** i wybierz polecenie **Kompiluj i wypchnij IoT Edge rozwiązanie**.
+3. Po dostarczeniu poświadczeń można wypchnąć obraz modułu do usługi Azure Container Registry. W Eksploratorze VS Code kliknij prawym przyciskiem myszy **module.jsna** pliku i wybierz polecenie **Kompiluj i wypchnij IoT Edge rozwiązanie**.
 
     ![Rozwiązanie do kompilowania i wypychania IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
@@ -273,7 +272,7 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do FileCopyMod
 
     *Program. cs (77, 44): ostrzeżenie CS1998: Ta metoda asynchroniczna nie zawiera operatorów "await" i zostanie uruchomiona synchronicznie. Rozważ użycie operatora "await" do oczekiwania na nieblokujące wywołania interfejsu API lub "await Task. Run (...)" w celu wykonania pracy związanej z PROCESORem w wątku w tle.*
 
-4. Pełny adres obrazu kontenera możesz wyświetlić za pomocą tagu w zintegrowanym terminalu programu VS Code. Adres obrazu jest tworzony na podstawie informacji znajdujących się w pliku module. JSON w formacie `<repository>:<version>-<platform>` . W tym artykule powinien wyglądać tak `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
+4. Pełny adres obrazu kontenera możesz wyświetlić za pomocą tagu w zintegrowanym terminalu programu VS Code. Adres obrazu jest tworzony na podstawie informacji znajdujących się w module.jsw pliku z formatem `<repository>:<version>-<platform>` . W tym artykule powinien wyglądać tak `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
 
 ## <a name="next-steps"></a>Następne kroki
 

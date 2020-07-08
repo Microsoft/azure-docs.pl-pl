@@ -14,10 +14,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
 ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84344632"
 ---
 # <a name="what-is-azure-sql"></a>Co to jest usługa Azure SQL? 
