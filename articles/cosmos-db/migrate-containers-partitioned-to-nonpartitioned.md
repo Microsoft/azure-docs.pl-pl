@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: 619ec7e5510f9d3a5a17dcd5961fbd2182674df4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263487"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych

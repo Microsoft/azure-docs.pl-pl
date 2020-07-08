@@ -13,10 +13,10 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.custom: tracking-python
 ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261498"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps dla potoku pozyskiwania danych

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263368"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)

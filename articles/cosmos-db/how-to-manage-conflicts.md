@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.openlocfilehash: ebc5ea6e39b3c4c5f7451c60fef976f6a12b1312
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261532"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
@@ -61,7 +61,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionLWWAsync)]
 
-# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -249,7 +249,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionSprocAsync)]
 
-# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -364,7 +364,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionCustomAsync)]
 
-# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 

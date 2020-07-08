@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261430"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w Azure Cosmos DB .NET v3 SDK
@@ -87,7 +87,7 @@ Aby uzyskać obsługę zbiorczą w zestawie SDK platformy .NET, nie ma żadnych 
 > [!NOTE]
 > W przypadkach, gdy jednostki żądania aprowizacji są znacznie mniejsze niż oczekiwane na podstawie ilości danych, warto rozważyć ustawienie wartości górnych. Operacja zbiorcza zajmie więcej czasu, ale ma wyższą szansę na całkowite sukcesy z powodu wyższych ponownych prób.
 
-## <a name="performance-improvements"></a>Usprawnienia wydajności
+## <a name="performance-improvements"></a>Ulepszenia wydajności
 
 Podobnie jak w przypadku innych operacji przy użyciu zestawu .NET SDK, korzystanie z interfejsów API usługi Stream skutkuje lepszą wydajnością i pozwala uniknąć niepotrzebnej serializacji. 
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261855"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Szacowanie RU/s przy użyciu Azure Cosmos DB planista pojemności
@@ -23,8 +23,8 @@ Planista pojemności może być używana w dwóch trybach.
 
 |**Tryb**  |**Opis**  |
 |---------|---------|
-|Podstawowa|Zapewnia szybkie, wysokiego poziomu RU/s i oszacowanie kosztów. W tym trybie założono domyślne ustawienia Azure Cosmos DB dla zasad indeksowania, spójności i innych parametrów. <br/><br/>Użyj trybu podstawowego, aby szybko oszacować wysoki poziom oszacowania podczas oceniania potencjalnych obciążeń do uruchomienia na Azure Cosmos DB.|
-|Zaawansowane|Zapewnia bardziej szczegółowy zakres RU/s i oszacowanie kosztów, z możliwością dostrajania dodatkowych ustawień — zasad indeksowania, poziomu spójności i innych parametrów, które wpływają na koszt i przepływność. <br/><br/>Użyj trybu zaawansowanego, gdy szacujesz RU/s dla nowego projektu lub chcesz bardziej szczegółowo oszacować. |
+|Podstawowy|Zapewnia szybkie, wysokiego poziomu RU/s i oszacowanie kosztów. W tym trybie założono domyślne ustawienia Azure Cosmos DB dla zasad indeksowania, spójności i innych parametrów. <br/><br/>Użyj trybu podstawowego, aby szybko oszacować wysoki poziom oszacowania podczas oceniania potencjalnych obciążeń do uruchomienia na Azure Cosmos DB.|
+|Zaawansowany|Zapewnia bardziej szczegółowy zakres RU/s i oszacowanie kosztów, z możliwością dostrajania dodatkowych ustawień — zasad indeksowania, poziomu spójności i innych parametrów, które wpływają na koszt i przepływność. <br/><br/>Użyj trybu zaawansowanego, gdy szacujesz RU/s dla nowego projektu lub chcesz bardziej szczegółowo oszacować. |
 
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Szacowanie alokowanej przepływności i kosztów przy użyciu trybu podstawowego

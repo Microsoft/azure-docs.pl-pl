@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 8f15ad8c1edfa64268ec699c8195a7831d98482b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260546"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Usuwanie danych w Azure Cosmos DB interfejs API Cassandra tabelach z platformy Spark

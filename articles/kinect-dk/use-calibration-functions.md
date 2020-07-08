@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, system współrzędnych, kalibracja, funkcje, aparat, wewnętrzna, zewnętrznych, projekt, unprojekt, transformacja, RGB-d, Chmura punktu
 ms.openlocfilehash: a501765222154bde4ed35e878a9d18042893fca2
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277494"
 ---
 # <a name="use-azure-kinect-calibration-functions"></a>Korzystanie z funkcji kalibracji platformy Azure urządzenia Kinect
@@ -58,8 +58,8 @@ Funkcja [k4a_calibration_2d_to_2d ()](https://microsoft.github.io/Azure-Kinect-S
 
 Teraz wiesz o kalibracji aparatu, możesz również dowiedzieć się, jak
 >[!div class="nextstepaction"]
->[Przechwytywanie synchronizacji urządzeń](capture-device-synchronization.md)
+>[Synchronizacja urządzeń do przechwytywania](capture-device-synchronization.md)
 
 Możesz również przejrzeć
 
-[Systemy współrzędnych](coordinate-systems.md)
+[Układy współrzędnych](coordinate-systems.md)

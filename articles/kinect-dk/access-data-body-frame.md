@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: how-to
 keywords: treść, ramka, Azure, urządzenia Kinect, treść, śledzenie, porady
 ms.openlocfilehash: be44f59cb84e99129bf526575293eee69ca64598
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277564"
 ---
-# <a name="access-data-in-body-frame"></a>Dostęp do danych w ramce treści
+# <a name="access-data-in-body-frame"></a>Uzyskiwanie dostępu do danych w klatce ciała
 
 W tym artykule opisano dane zawarte w ramce treści i funkcje umożliwiające dostęp do tych danych.
 
@@ -76,4 +76,4 @@ k4a_capture_release(input_capture);
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Zestaw SDK śledzenia treści usługi Azure urządzenia Kinect](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)
+>[Azure Kinect Body Tracking SDK](https://microsoft.github.io/Azure-Kinect-Body-Tracking/)

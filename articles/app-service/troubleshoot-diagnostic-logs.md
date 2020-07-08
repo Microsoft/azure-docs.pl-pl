@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261345"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
@@ -62,7 +62,7 @@ Wybierz **poziom**lub poziom szczegółów do zarejestrowania. W poniższej tabe
 
 | Poziom | Uwzględnione kategorie |
 |-|-|
-|**Wyłączone** | Brak |
+|**Disabled (Wyłączone)** | Brak |
 |**Błąd** | Błąd, krytyczny |
 |**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
 |**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|

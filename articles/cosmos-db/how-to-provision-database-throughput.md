@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 63f8d408d76cfce86c254ad3840c2f0eefb09fd4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263643"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w Azure Cosmos DB

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
 ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262229"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika

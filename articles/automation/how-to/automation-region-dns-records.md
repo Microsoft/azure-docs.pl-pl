@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298314"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Rekordy DNS dla regionów platformy Azure używanych przez Azure Automation
@@ -30,7 +30,7 @@ Poniższa tabela zawiera rekord DNS dla każdego regionu.
 >[!NOTE]
 >Mimo że lista rekordów DNS usługi Automation w tym miejscu została wycofana, nadal pozostają funkcjonalne, aby umożliwić przeprowadzenie migracji do nowych rekordów wymienionych w obszarze [Obsługa prywatnego linku](#support-for-private-link) i zapobieganie błędom procesów automatyzacji.
 
-| **Region** | **Rekord DNS** |
+| **Okolicy** | **Rekord DNS** |
 | --- | --- |
 | Australia Środkowa |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
 | Australia Wschodnia |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
@@ -52,7 +52,7 @@ Poniższa tabela zawiera rekord DNS dla każdego regionu.
 
 Aby zapewnić obsługę [prywatnego linku](../../private-link/private-link-overview.md) w Azure Automation, rekordy DNS dla każdego obsługiwanego centrum danych zostały zaktualizowane. Zamiast adresów URL specyficznych dla regionu adresy URL są specyficzne dla konta usługi Automation.
 
-| **Region** | **Rekord DNS** |
+| **Okolicy** | **Rekord DNS** |
 | --- | --- |
 | Zachodnio-środkowe stany USA |`https://<accountId>.webhook.wcus.azure-automation.net`<br>`https://<accountId>.agentsvc.wcus.azure-automation.net`<br>`https://<accountId>.jrds.wcus.azure-automation.net` |
 | Zachodnie stany USA |`https://<accountId>.webhook.wus.azure-automation.net`<br>`https://<accountId>.agentsvc.wus.azure-automation.net`<br>`https://<accountId>.jrds.wus.azure-automation.net` |

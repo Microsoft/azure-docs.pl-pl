@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
 ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263626"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB

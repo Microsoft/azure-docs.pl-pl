@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263011"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym

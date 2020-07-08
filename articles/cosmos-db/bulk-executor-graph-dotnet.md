@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: 86d88787d024029b11d9718f8dbc834ae7217707
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260648"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Korzystanie z biblioteki programu .NET Bulk wykonującej wykresy w celu wykonywania operacji zbiorczych w Azure Cosmos DB interfejsie API Gremlin

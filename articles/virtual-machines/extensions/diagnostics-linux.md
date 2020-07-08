@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298960"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników

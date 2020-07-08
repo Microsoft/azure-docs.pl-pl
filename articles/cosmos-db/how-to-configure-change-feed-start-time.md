@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
 ms.openlocfilehash: d3d9af1b8cbda3f0fa2ff4650fef4602f7812f79
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261719"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Jak skonfigurować czas rozpoczęcia procesora kanału informacyjnego zmiany

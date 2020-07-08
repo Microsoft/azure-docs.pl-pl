@@ -10,10 +10,10 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260665"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Użycie zbiorczej biblioteki programu .NET do wykonywania operacji zbiorczych w Azure Cosmos DB
@@ -105,7 +105,7 @@ Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je d
    ```
    **Metoda BulkImportAsync akceptuje następujące parametry:**
    
-   |**Konstruktora**  |**Opis** |
+   |**Parametr**  |**Opis** |
    |---------|---------|
    |enableUpsert    |   Flaga włączenia operacji upsert na dokumentach. Jeśli dokument o podanym IDENTYFIKATORze już istnieje, zostanie zaktualizowany. Domyślnie jest ustawiona wartość false.      |
    |disableAutomaticIdGeneration    |    Flaga wyłączenia automatycznej generacji identyfikatora. Domyślnie jest ustawiona wartość true.     |
@@ -115,7 +115,7 @@ Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je d
 
    **Definicja obiektu odpowiedzi importu zbiorczego** Wynik wywołania interfejsu API importu zbiorczego zawiera następujące atrybuty:
 
-   |**Konstruktora**  |**Opis**  |
+   |**Parametr**  |**Opis**  |
    |---------|---------|
    |NumberOfDocumentsImported (Long)   |  Całkowita liczba dokumentów, które zostały pomyślnie zaimportowane z całkowitej liczby dokumentów dostarczonych do wywołania interfejsu API importu zbiorczego.       |
    |TotalRequestUnitsConsumed (Double)   |   Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API importu zbiorczego.      |
@@ -156,7 +156,7 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
    ```  
    **Metoda BulkUpdateAsync akceptuje następujące parametry:**
 
-   |**Konstruktora**  |**Opis** |
+   |**Parametr**  |**Opis** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   Maksymalny stopień współbieżności na zakres kluczy partycji, ustawienie dla tego parametru wartości null spowoduje, że biblioteka będzie używać wartości domyślnej (20).   |
    |maxInMemorySortingBatchSize    |    Maksymalna liczba elementów aktualizacji pobranych z numeratora elementów aktualizacji została przeniesiona do wywołania interfejsu API na każdym etapie. Dla fazy sortowania w pamięci, która jest wykonywana przed aktualizacją zbiorczą, ustawienie dla tego parametru wartości null spowoduje użycie domyślnej wartości minimalnej (updateItems. Count, 1000000).     |
@@ -164,7 +164,7 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
 
    **Definicja obiektu odpowiedzi aktualizacji zbiorczej** Wynik wywołania interfejsu API aktualizacji zbiorczej zawiera następujące atrybuty:
 
-   |**Konstruktora**  |**Opis** |
+   |**Parametr**  |**Opis** |
    |---------|---------|
    |NumberOfDocumentsUpdated (Long)    |   Liczba dokumentów, które zostały pomyślnie zaktualizowane z całkowitej liczby dokumentów dostarczonych do wywołania interfejsu API aktualizacji zbiorczej.      |
    |TotalRequestUnitsConsumed (Double)   |    Łączna liczba jednostek żądań (jednostek ru) zużytych przez wywołanie interfejsu API aktualizacji zbiorczej.    |

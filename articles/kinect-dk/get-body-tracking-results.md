@@ -9,13 +9,13 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, treść, śledzenie, wspólne
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277558"
 ---
-# <a name="get-body-tracking-results"></a>Pobierz wyniki śledzenia treści
+# <a name="get-body-tracking-results"></a>Pobieranie wyników śledzenia ciała
 
 Zestaw SDK śledzenia treści używa obiektu śledzenia treści do przetwarzania przechwytywania usługi Azure urządzenia Kinect DK i generowania wyników śledzenia treści. Zachowuje także globalny stan śledzenia, przetwarza kolejki i kolejkę wyjściową. W przypadku korzystania z narzędzia do śledzenia treści należy wykonać trzy kroki:
 
@@ -131,4 +131,4 @@ k4abt_frame_release(body_frame); // Remember to release the body frame once you 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Dostęp do danych w ramce treści](access-data-body-frame.md)
+>[Uzyskiwanie dostępu do danych w klatce ciała](access-data-body-frame.md)

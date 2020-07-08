@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: faacaf6700b14ba068d5cf0a48ea851f562e2302
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261804"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Jak użyć kroku profilu wykonywania do oceny zapytań aparatu Gremlin

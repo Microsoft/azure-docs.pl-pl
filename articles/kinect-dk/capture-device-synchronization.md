@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, Głębokość, RGB, wewnętrzny, zewnętrzny, synchronizacja, łańcuch łańcucha, przesunięcie fazy
 ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277512"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Przechwyć synchronizację urządzeń z usługą Azure urządzenia Kinect

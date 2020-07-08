@@ -9,10 +9,10 @@ ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260699"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB

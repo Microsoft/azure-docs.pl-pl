@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.subservice: ''
 ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85269042"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation

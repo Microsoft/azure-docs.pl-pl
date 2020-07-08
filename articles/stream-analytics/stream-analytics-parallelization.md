@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85296325"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Korzystanie z przetwarzanie równoległe zapytań w Azure Stream Analytics

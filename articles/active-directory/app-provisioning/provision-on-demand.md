@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85297532"
 ---
 # <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie

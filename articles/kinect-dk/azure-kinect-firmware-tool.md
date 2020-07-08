@@ -1,5 +1,5 @@
 ---
-title: Narzędzie oprogramowania układowego Azure urządzenia Kinect
+title: Narzędzie do zarządzania oprogramowaniem układowym urządzenia Azure Kinect
 description: Dowiedz się, jak wysyłać zapytania i aktualizować oprogramowanie układowe urządzenia przy użyciu narzędzia oprogramowania układowego Azure urządzenia Kinect.
 author: tesych
 ms.author: tesych
@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, oprogramowanie układowe, aktualizacja
 ms.openlocfilehash: f8b89751d27fb5a4b18d635f45f63f4f36bd05f6
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277523"
 ---
 # <a name="azure-kinect-dk-firmware-tool"></a>Narzędzie oprogramowania układowego w usłudze Azure urządzenia Kinect DK

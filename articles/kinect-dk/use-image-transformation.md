@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, system współrzędnych, kalibracja, projekt, unprojekt, transformacja, RGB-d, Chmura punktów
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277458"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Korzystanie z transformacji obrazu zestawu SDK usługi Azure urządzenia Kinect
@@ -101,4 +101,4 @@ Teraz wiesz, jak korzystać z funkcji transformacji obrazu zestawu SDK usługi A
 
 Możesz również przejrzeć
 
-[Systemy współrzędnych](coordinate-systems.md)
+[Układy współrzędnych](coordinate-systems.md)

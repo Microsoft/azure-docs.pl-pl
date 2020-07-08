@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261413"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki procesora źródła zmian do zestawu SDK platformy Azure Cosmos DB .NET v3

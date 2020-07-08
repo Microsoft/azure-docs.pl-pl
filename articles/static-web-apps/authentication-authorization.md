@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85297073"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)

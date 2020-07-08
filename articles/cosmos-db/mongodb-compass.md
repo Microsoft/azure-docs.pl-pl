@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 author: LuisBosquez
 ms.author: lbosq
 ms.openlocfilehash: 2f461ebbd84a66470eba012660db3aefebc8c5e7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260784"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Użyj MongoDB kompas do nawiązywania połączenia z interfejsem API usługi Azure Cosmos DB dla MongoDB

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, Głębokość, RGB, urządzenie, Znajdź, otwarte
 ms.openlocfilehash: 67fc93b924d5d663bb43098969c54d1975bd5895
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277475"
 ---
 # <a name="find-then-open-the-azure-kinect-device"></a>Znajdź, a następnie otwórz urządzenie Azure urządzenia Kinect

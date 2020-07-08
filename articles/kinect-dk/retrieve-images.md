@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, pobieranie, czujnik, aparat, zestaw SDK, Głębokość, RGB, obrazy, kolor, przechwytywanie, rozdzielczość, bufor
 ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277463"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Pobieranie danych obrazu usługi Azure urządzenia Kinect
@@ -123,7 +123,7 @@ k4a_capture_release(capture);
 Teraz wiesz, jak przechwytywać i koordynować obrazy kamer między kolorem i głębią przy użyciu urządzenia urządzenia Kinect platformy Azure. Można również:
 
 >[!div class="nextstepaction"]
->[Pobierz przykłady IMU](retrieve-imu-samples.md)
+>[Pobieranie próbek z czujnika IMU](retrieve-imu-samples.md)
 
 >[!div class="nextstepaction"]
 >[Dostęp do mikrotelefonu](access-mics.md)

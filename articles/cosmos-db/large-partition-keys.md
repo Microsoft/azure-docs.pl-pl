@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 853d3fa79436d9af0119aada86d283f9970d4ef2
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262807"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Tworzenie kontenerów z dużym kluczem partycji

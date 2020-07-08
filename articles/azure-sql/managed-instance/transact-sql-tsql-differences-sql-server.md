@@ -12,10 +12,10 @@ ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298451"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
@@ -188,7 +188,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - [Tworzenie kopii zapasowej klucza głównego usługi](/sql/t-sql/statements/backup-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 - [Przywracanie klucza głównego usługi](/sql/t-sql/statements/restore-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów
 

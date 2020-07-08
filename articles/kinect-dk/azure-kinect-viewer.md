@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, urządzenia Kinect, czujnik, Podgląd, Wizualizacja, Głębokość, RGB, Color, IMU, audio, mikrofon, Chmura w chmurze
 ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277487"
 ---
 # <a name="azure-kinect-viewer"></a>Azure Kinect Viewer

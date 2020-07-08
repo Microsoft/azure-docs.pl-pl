@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, urządzenia Kinect, RGB, IR, nagrywanie, czujnik, zestaw SDK, dostęp, Głębokość, wideo, kamera, IMU, ruch, czujnik, dźwięk, mikrofon, Matroska, zestaw SDK czujnika, pobieranie
 ms.openlocfilehash: 17c1b33120eacb5d0c6d3c02e692d1488ef474e6
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277531"
 ---
 # <a name="about-azure-kinect-sensor-sdk"></a>Informacje o zestawie SDK czujnika usługi Azure urządzenia Kinect

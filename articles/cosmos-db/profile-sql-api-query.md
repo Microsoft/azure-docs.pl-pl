@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: 8bec102064d6269964cb917d745af206acf948ad
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262552"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Pobieranie metryk wykonywania zapytań SQL i analizowanie wydajności zapytań przy użyciu zestawu .NET SDK
@@ -233,7 +233,7 @@ To zapytanie jest teraz możliwe do doręczania z indeksu.
 
 Aby dowiedzieć się więcej na temat dostrajania wydajności zapytań, zobacz artykuł [dostrajanie wydajności zapytań](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
 
-## <a name="references"></a><a id="References"></a>Dokumentacja
+## <a name="references"></a><a id="References"></a>Odwołania
 
 - [Azure Cosmos DB SQL specification (Specyfikacja języka SQL w usłudze Azure Cosmos DB)](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

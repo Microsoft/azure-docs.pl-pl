@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262637"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Jak używać usługi Azure Kubernetes z Azure Cosmos DB (wersja zapoznawcza)

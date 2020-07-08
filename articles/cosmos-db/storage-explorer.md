@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: a43e49ab29780e718139b677b780443e5e31e2ab
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262246"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Praca z danymi za pomocą Eksploratora usługi Azure Storage

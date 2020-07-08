@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261073"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Wzorce wyrażeń powiązań Azure Functions

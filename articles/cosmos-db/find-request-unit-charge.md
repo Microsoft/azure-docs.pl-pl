@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
 ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261838"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Znajdź koszt jednostkowy żądania w Azure Cosmos DB

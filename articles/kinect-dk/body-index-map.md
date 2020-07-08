@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, transport, treść, śledzenie, indeks, segmentacja, Mapa
 ms.openlocfilehash: 8c128e59cef515aafb4f59794f0f644b90fd625d
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277552"
 ---
 # <a name="azure-kinect-body-tracking-index-map"></a>Mapa indeksu śledzenia treści usługi Azure urządzenia Kinect
@@ -31,4 +31,4 @@ Mapa indeksu treści jest przechowywana jako `k4a_image_t` a i ma takie samo roz
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie pierwszej aplikacji do śledzenia treści](build-first-body-app.md)
+[Tworzenie pierwszej aplikacji śledzącej ciało](build-first-body-app.md)

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: thweiss
 ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261634"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos

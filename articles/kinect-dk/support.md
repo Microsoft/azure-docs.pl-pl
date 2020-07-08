@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, urządzenia Kinect, RGB, IR, nagrywanie, czujnik, zestaw SDK, dostęp, Głębokość, wideo, kamera, IMU, ruch, czujnik, dźwięk, mikrofon, Matroska, zestaw SDK czujnika, pobieranie, treść, śledzenie, obsługa
 ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277612"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Opcje pomocy technicznej i zasoby platformy Azure urządzenia Kinect
@@ -59,4 +59,4 @@ Aby uzyskać więcej informacji na temat ofert pomocy technicznej, Dowiedz się 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Rozwiązywanie problemów z usługą Azure urządzenia Kinect](troubleshooting.md)
+[Rozwiązywanie problemów z zestawem Azure Kinect](troubleshooting.md)

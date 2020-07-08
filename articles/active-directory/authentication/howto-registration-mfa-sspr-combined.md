@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7feb69b2ea53794b780a983ed8ab4ba5874ac022
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260852"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Włącz rejestrację połączonych informacji o zabezpieczeniach w Azure Active Directory

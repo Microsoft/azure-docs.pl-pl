@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: eda3ee3e9e170469ffb0b9b0e1d7dede181fe3f0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262008"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
@@ -71,8 +71,8 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
    |_ts     |   Numeryczne      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
-   |Data (na przykład:-2019-08-11 12:00:00)   |  Ciąg       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
+   |Data (na przykład:-2019-08-19)     |   String      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
+   |Data (na przykład:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
 
 
 1. **Zdefiniuj zasady odświeżania** — Zdefiniuj zasady odświeżania, przechodząc do karty **odświeżanie przyrostowe** w menu **kontekstowym** dla tabeli. Ustaw zasady odświeżania do odświeżania **codziennie** i przechowuj dane z ostatniego miesiąca.

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261889"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 

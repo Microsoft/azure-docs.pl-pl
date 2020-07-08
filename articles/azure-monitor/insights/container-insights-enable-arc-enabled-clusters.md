@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób konfigurowania monitorowania za pomo
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261056"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Włącz monitorowanie klastra Kubernetes z obsługą usługi Azure Arc

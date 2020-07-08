@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, transport, treść, śledzenie, wspólne, hierarchia, kość, połączenie
 ms.openlocfilehash: 4cf6ac13a93d0674f9fa144abcc3153a2d7c3350
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277536"
 ---
 # <a name="azure-kinect-body-tracking-joints"></a>Złącza do śledzenia treści w usłudze Azure urządzenia Kinect
@@ -77,4 +77,4 @@ W poniższej tabeli wymieniono standardowe połączenia wspólne.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Mapa indeksu śledzenia treści](body-index-map.md)
+[Śledzenie ciała — mapa indeksu](body-index-map.md)

@@ -7,15 +7,15 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85298858"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
-W przypadku scenariuszy, w których aplikacje logiki i konta integracji potrzebują dostępu do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md), Utwórz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE to dedykowane środowisko, które używa dedykowanego magazynu i innych zasobów, które są oddzielone od "globalnej" Logic Apps wielodostępnej usługi. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
+W przypadku scenariuszy, w których aplikacje logiki i konta integracji potrzebują dostępu do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md), Utwórz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
 
 Po utworzeniu ISE platforma Azure wprowadza tę ISE do sieci wirtualnej platformy Azure *, która następnie* wdraża usługę Logic Apps w sieci wirtualnej. Podczas tworzenia aplikacji logiki lub konta integracji wybierz swój ISE jako lokalizację. Aplikacja logiki lub konto integracji może następnie bezpośrednio uzyskać dostęp do zasobów, takich jak maszyny wirtualne, serwery, systemy i usługi, w sieci wirtualnej.
 
@@ -98,7 +98,7 @@ Aby upewnić się, że ISE jest dostępny i że aplikacje logiki w tym ISE mogą
 
 <a name="network-ports-for-ise"></a>
 
-### <a name="network-ports-used-by-your-ise"></a>Porty sieciowe używane przez ISE
+### <a name="network-ports-used-by-your-ise"></a>Porty sieciowe używane przez środowisko ISE
 
 W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dla tych portów. Aby zmniejszyć złożoność podczas konfigurowania reguł zabezpieczeń, w tabeli są używane [Tagi usług](../virtual-network/service-tags-overview.md) reprezentujące grupy prefiksów adresów IP dla określonej usługi platformy Azure. Gdzie zanotowano, *wewnętrzne ISE* i *zewnętrzna ISE* odnoszą się do [punktu końcowego dostępu wybranego podczas tworzenia ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Aby uzyskać więcej informacji, zobacz [dostęp do punktu końcowego](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 

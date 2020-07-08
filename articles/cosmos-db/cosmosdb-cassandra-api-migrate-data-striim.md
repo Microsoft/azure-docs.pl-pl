@@ -8,10 +8,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 7590d40085c3963a95fd251dd1291cf34fbaf4a0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262093"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrowanie danych do konta Azure Cosmos DB interfejs API Cassandra za pomocą Striim

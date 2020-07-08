@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85296342"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Key Vault monitorowania z Azure Event Grid (wersja zapoznawcza)

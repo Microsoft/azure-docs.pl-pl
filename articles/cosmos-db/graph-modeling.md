@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261821"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
@@ -47,13 +47,13 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiekt
 
 | Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołka | ID | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | ID | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
 | Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
 | Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
-| Brzeg | ID | Ciąg | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Brzeg | label | Ciąg | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
-| Brzeg | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
+| Edge | ID | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Edge | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Edge | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]
 > Krawędzie nie wymagają wartości klucza partycji, ponieważ jej wartość jest przypisywana automatycznie na podstawie wierzchołka źródłowego. Dowiedz się więcej z artykułu [partycjonowania grafów](graph-partitioning.md) .

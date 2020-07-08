@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: tracking-python
 ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263419"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach C# (wersja zapoznawcza)

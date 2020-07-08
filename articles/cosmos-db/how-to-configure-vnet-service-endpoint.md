@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: mjbrown
 ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261668"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurowanie dostępu z sieci wirtualnych (VNet)

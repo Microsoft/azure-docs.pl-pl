@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261770"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Używanie grafu podzielonego na partycje w usłudze Azure Cosmos DB

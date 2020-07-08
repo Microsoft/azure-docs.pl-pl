@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85261260"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos

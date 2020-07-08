@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 07a6b84569fe0356267440e38b31ac738b2659d6
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260835"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności

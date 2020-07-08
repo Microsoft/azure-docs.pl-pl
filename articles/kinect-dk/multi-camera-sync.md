@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, urządzenia Kinect, specyfikacje, sprzęt, DK, możliwości, Głębokość, kolor, RGB, IMU, tablica, Głębokość, wiele, synchronizacja
 ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85277576"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchronizowanie wielu urządzeń z usługą Azure urządzenia Kinect DK
@@ -198,4 +198,4 @@ Po skonfigurowaniu synchronizowanych urządzeń można również dowiedzieć si�
 - [Szybki Start: Konfigurowanie platformy Azure urządzenia Kinect DK](set-up-azure-kinect-dk.md) 
 - [Aktualizowanie oprogramowania układowego usługi Azure urządzenia Kinect DK](update-device-firmware.md) 
 - [Resetowanie zestawu Azure Kinect DK](reset-azure-kinect-dk.md) 
-- [Azure Kinect Viewer](azure-kinect-viewer.md) 
+- [Przeglądarka Azure urządzenia Kinect](azure-kinect-viewer.md) 

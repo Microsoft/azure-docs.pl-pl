@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85257418"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Odczytywanie danych z Azure Cosmos DB interfejs API Cassandra tabelach przy użyciu platformy Spark

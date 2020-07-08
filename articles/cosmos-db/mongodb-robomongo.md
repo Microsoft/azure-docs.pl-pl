@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85263045"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Używanie programu Robo 3T za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.openlocfilehash: 591bff468c90b17812554b02810d9a6cd4f874d1
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85262161"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
@@ -374,7 +374,7 @@ Utwórz obiekt [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Skonfiguruj Niestandardowe analizatory](index-add-custom-analyzers.md) dla minimalnego przetwarzania lub wyspecjalizowanego przetwarzania dla poszczególnych pól.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

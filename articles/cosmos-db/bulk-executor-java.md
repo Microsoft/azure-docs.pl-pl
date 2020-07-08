@@ -10,10 +10,10 @@ ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85260597"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
@@ -105,7 +105,7 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
 
    Metoda nieportal akceptuje następujące parametry:
  
-   |**Konstruktora**  |**Opis**  |
+   |**Parametr**  |**Opis**  |
    |---------|---------|
    |isUpsert    |   Flaga umożliwiająca upsert dokumentów. Jeśli dokument o podanym IDENTYFIKATORze już istnieje, zostanie zaktualizowany.  |
    |disableAutomaticIdGeneration     |   Flaga wyłączenia automatycznej generacji identyfikatora. Domyślnie jest ustawiona wartość true.   |
@@ -113,7 +113,7 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
 
    **Definicja obiektu odpowiedzi importu zbiorczego** Wynik wywołania interfejsu API importowania zbiorczego zawiera następujące metody Get:
 
-   |**Konstruktora**  |**Opis**  |
+   |**Parametr**  |**Opis**  |
    |---------|---------|
    |int getNumberOfDocumentsImported ()  |   Całkowita liczba dokumentów, które zostały pomyślnie zaimportowane z dokumentów dostarczonych do wywołania interfejsu API importu zbiorczego.      |
    |Podwójna getTotalRequestUnitsConsumed ()   |  Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API importu zbiorczego.       |
@@ -171,13 +171,13 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
 
    Metoda updateAll akceptuje następujące parametry:
 
-   |**Konstruktora** |**Opis** |
+   |**Parametr** |**Opis** |
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  Maksymalny stopień współbieżności na zakres kluczy partycji. Wartość domyślna to 20.  |
  
    **Definicja obiektu odpowiedzi importu zbiorczego** Wynik wywołania interfejsu API importowania zbiorczego zawiera następujące metody Get:
 
-   |**Konstruktora** |**Opis**  |
+   |**Parametr** |**Opis**  |
    |---------|---------|
    |int getNumberOfDocumentsUpdated ()  |   Całkowita liczba dokumentów, które zostały pomyślnie zaktualizowane z dokumentów dostarczonych do wywołania interfejsu API aktualizacji zbiorczej.      |
    |Podwójna getTotalRequestUnitsConsumed () |  Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API aktualizacji zbiorczej.       |
