@@ -2,13 +2,13 @@
 title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 07/02/2020
+ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854744"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -78,11 +78,11 @@ Dodaj szablon Menedżer zasobów do repozytorium GitHub. Jeśli go nie masz, mo�
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy. JSON**i jest przechowywany w folderze o nazwie **templates** w katalogu głównym repozytorium.
+Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy.json**i jest przechowywany w folderze o nazwie **templates** w katalogu głównym repozytorium.
 
 ## <a name="create-workflow"></a>Tworzenie przepływu pracy
 
-Plik przepływu pracy musi być przechowywany w folderze **. GitHub/Workflow** w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML**.
+Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML**.
 
 Można utworzyć plik przepływu pracy, a następnie wypchnąć/przekazać plik do repozytorium lub użyć następującej procedury:
 

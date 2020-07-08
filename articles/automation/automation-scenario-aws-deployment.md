@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855303"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Wdrażanie maszyny wirtualnej Amazon Web Services za pomocą elementu Runbook
 
@@ -64,7 +64,7 @@ Po wdrożeniu modułu AWS PowerShell możesz teraz utworzyć element Runbook, ab
 
 8. Aby pobrać listę nazw obrazów z subskrypcji programu AWS, uruchom program PowerShell ISE i zaimportuj moduł AWS PowerShell. Uwierzytelnianie względem AWS przez zastąpienie `Get-AutomationPSCredential` w środowisku ISE za pomocą `AWScred = Get-Credential` . W tej instrukcji zostanie wyświetlony komunikat z prośbą o podanie poświadczeń i podanie identyfikatora klucza dostępu dla nazwy użytkownika i klucza dostępu tajnego dla hasła. 
 
-        ```powershell
+      ```powershell
         #Sample to get the AWS VM available images
         #Please provide the path where you have downloaded the AWS PowerShell module
         Import-Module AWSPowerShell
@@ -78,7 +78,7 @@ Po wdrożeniu modułu AWS PowerShell możesz teraz utworzyć element Runbook, ab
         Set-DefaultAWSRegion -Region $AwsRegion
    
         Get-EC2ImageByName -ProfileName AWSProfile
-        ```
+      ```
         
     Zwracane są następujące dane wyjściowe:<br><br>
    ![Pobierz obrazy AWS](./media/automation-scenario-aws-deployment/powershell-ise-output.png)<br>  

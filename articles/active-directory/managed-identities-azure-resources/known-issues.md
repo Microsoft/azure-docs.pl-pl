@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 971ec1fcda87a9db61147133604dd0e28cc4d102
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976170"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855125"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -104,7 +104,7 @@ Po udostępnieniu funkcji eksportu schematu dla tożsamości zarządzanych dla r
 
 Jeśli przeniesiesz maszynę wirtualną w stan uruchomienia, będzie ona nadal działać podczas przenoszenia. Jednak po przeniesieniu, jeśli maszyna wirtualna zostanie zatrzymana i uruchomiona ponownie, nie zostanie uruchomiona. Ten problem występuje, ponieważ maszyna wirtualna nie aktualizuje odwołania do zarządzanych tożsamości dla tożsamości zasobów platformy Azure i kontynuuje wskazywanie jej w starej grupie zasobów.
 
-**Poprawkę** 
+**Obejście** 
  
 Wyzwól aktualizację na maszynie wirtualnej, aby możliwe było uzyskanie prawidłowych wartości dla zarządzanych tożsamości dla zasobów platformy Azure. Aby zaktualizować odwołanie do zarządzanych tożsamości dla tożsamości zasobów platformy Azure, można zmienić wartość właściwości maszyny wirtualnej. Na przykład można ustawić nową wartość tagu na maszynie wirtualnej przy użyciu następującego polecenia:
 
@@ -132,6 +132,8 @@ Obejście dla zarządzanych tożsamości w ramach subskrypcji, która została p
 
  - Dla tożsamości zarządzanych przypisanych przez system: Wyłącz i ponownie włącz. 
  - W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych).
+
+Aby uzyskać więcej informacji, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Przeniesienie tożsamości zarządzanej przypisanej przez użytkownika do innej grupy zasobów/subskrypcji
 

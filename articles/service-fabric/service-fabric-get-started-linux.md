@@ -3,12 +3,12 @@ title: Konfigurowanie środowiska projektowego w systemie Linux
 description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lokalny klaster projektowy w systemie Linux. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 346230c0363bf58926cc46cb8bac2de61b81d68b
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361976"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854795"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. Dodaj nowy klucz Gnu Privacy Guard (GnuPG lub GPG) do swojego pęku kluczy APT.
+3. Dodaj nowy klucz programu MS Open Tech Privacy Guard (GnuPG lub GPG) do pęku kluczy APT.
 
     ```bash
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
@@ -80,26 +80,20 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Dodaj klucz Microsoft Open Tech GPG do dzwonka klucza APT.
-
-    ```bash
-    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
-    ```
-
-6. Skonfiguruj repozytorium platformy Docker.
+5. Skonfiguruj repozytorium platformy Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Dodaj klucz JDK Azul do pęku kluczy APT i skonfiguruj jego repozytorium.
+6. Dodaj klucz JDK Azul do pęku kluczy APT i skonfiguruj jego repozytorium.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
+7. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
 
     ```bash
     sudo apt-get update

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: cd4faec2d57b15dd23fe01dfc49063f06d70639e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855052"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 jako magazyn domyślny przy użyciu programu PowerShell
 
@@ -52,17 +52,19 @@ Aby utworzyć konto Data Lake Storage Gen1, wykonaj następujące czynności:
 
 1. Na pulpicie Otwórz okno programu PowerShell, a następnie wprowadź Poniższe fragmenty kodu. Gdy zostanie wyświetlony monit o zalogowanie się, zaloguj się jako jeden z administratorów subskrypcji lub właścicieli. 
 
-        # Sign in to your Azure account
-        Connect-AzAccount
+    ```azurepowershell
+    # Sign in to your Azure account
+    Connect-AzAccount
 
-        # List all the subscriptions associated to your account
-        Get-AzSubscription
+    # List all the subscriptions associated to your account
+    Get-AzSubscription
 
-        # Select a subscription
-        Set-AzContext -SubscriptionId <subscription ID>
+    # Select a subscription
+    Set-AzContext -SubscriptionId <subscription ID>
 
-        # Register for Data Lake Storage Gen1
-        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+    # Register for Data Lake Storage Gen1
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+    ```
 
     > [!NOTE]
     > Jeśli zarejestrujesz dostawcę zasobów Data Lake Storage Gen1 i otrzymasz błąd podobny do `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , subskrypcja może nie być listy dozwolonych dla Data Lake Storage Gen1. Aby włączyć subskrypcję platformy Azure dla Data Lake Storage Gen1, postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md).
@@ -70,44 +72,53 @@ Aby utworzyć konto Data Lake Storage Gen1, wykonaj następujące czynności:
 
 2. Konto Data Lake Storage Gen1 jest skojarzone z grupą zasobów platformy Azure. Zacznij od utworzenia grupy zasobów.
 
-        $resourceGroupName = "<your new resource group name>"
-        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
+    ```azurepowershell
+    $resourceGroupName = "<your new resource group name>"
+    New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
+    ```
 
     Powinny pojawić się następujące dane wyjściowe:
 
-        ResourceGroupName : hdiadlgrp
-        Location          : eastus2
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+    ```output
+    ResourceGroupName : hdiadlgrp
+    Location          : eastus2
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+    ```
 
 3. Utwórz konto Data Lake Storage Gen1. Określona nazwa konta może zawierać tylko małe litery i cyfry.
 
-        $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
-        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+    ```azurepowershell
+    $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
+    New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+    ```
 
     Powinny pojawić się dane wyjściowe podobne do następujących:
 
-        ...
-        ProvisioningState           : Succeeded
-        State                       : Active
-        CreationTime                : 5/5/2017 10:53:56 PM
-        EncryptionState             : Enabled
-        ...
-        LastModifiedTime            : 5/5/2017 10:53:56 PM
-        Endpoint                    : hdiadlstore.azuredatalakestore.net
-        DefaultGroup                :
-        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
-        Name                        : hdiadlstore
-        Type                        : Microsoft.DataLakeStore/accounts
-        Location                    : East US 2
-        Tags                        : {}
+    ```output
+    ...
+    ProvisioningState           : Succeeded
+    State                       : Active
+    CreationTime                : 5/5/2017 10:53:56 PM
+    EncryptionState             : Enabled
+    ...
+    LastModifiedTime            : 5/5/2017 10:53:56 PM
+    Endpoint                    : hdiadlstore.azuredatalakestore.net
+    DefaultGroup                :
+    Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+    Name                        : hdiadlstore
+    Type                        : Microsoft.DataLakeStore/accounts
+    Location                    : East US 2
+    Tags                        : {}
+    ```
 
 4. Używanie Data Lake Storage Gen1 jako magazynu domyślnego wymaga określenia ścieżki głównej, do której pliki specyficzne dla klastra są kopiowane podczas tworzenia klastra. Aby utworzyć ścieżkę katalogu głównego, która jest **/Clusters/hdiadlcluster** w tym fragmencie kodu, użyj następujących poleceń cmdlet:
 
-        $myrootdir = "/"
-        New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
-
+    ```azurepowershell
+    $myrootdir = "/"
+    New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
+    ````
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Konfigurowanie uwierzytelniania na potrzeby dostępu opartego na rolach do Data Lake Storage Gen1
 Każda subskrypcja platformy Azure jest skojarzona z jednostką usługi Azure AD. Użytkownicy i usługi, które uzyskują dostęp do zasobów subskrypcji przy użyciu Azure Portal lub interfejsu API Azure Resource Manager, muszą najpierw uwierzytelniać się w usłudze Azure AD. Dostęp do subskrypcji i usług platformy Azure można uzyskać, przypisując im odpowiednią rolę w zasobie platformy Azure. W przypadku usług jednostka usługi identyfikuje usługę w usłudze Azure AD.
@@ -121,15 +132,19 @@ Przed wykonaniem kroków opisanych w tej sekcji upewnij się, że zainstalowano 
 
 1. W oknie programu PowerShell przejdź do lokalizacji, w której zainstalowano Windows SDK (zazwyczaj *C:\Program Files (x86) \Windows Kits\10\bin\x86*), a następnie użyj narzędzia [MakeCert][makecert] , aby utworzyć certyfikat z podpisem własnym i klucz prywatny. Użyj następujących poleceń:
 
-        $certificateFileDir = "<my certificate directory>"
-        cd $certificateFileDir
+    ```azurepowershell
+    $certificateFileDir = "<my certificate directory>"
+    cd $certificateFileDir
 
-        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
+    makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
+    ```
 
     Zostanie wyświetlony monit o wprowadzenie hasła klucza prywatnego. Po pomyślnym wykonaniu polecenia zobaczysz **CERTFILE. cer** i **klucze. PVK** w określonym katalogu certyfikatów.
 2. Użyj narzędzia [Pvk2pfx][pvk2pfx] , aby przekonwertować pliki. PVK i. cer, które MakeCert utworzone do pliku PFX. Uruchom następujące polecenie:
 
-        pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
+    ```azurepowershell
+    pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
+    ```
 
     Po wyświetleniu monitu wprowadź określone wcześniej hasło klucza prywatnego. Wartość określona dla parametru **-po** jest hasłem skojarzonym z plikiem pfx. Po pomyślnym zakończeniu polecenia powinien być widoczny plik **CERTFILE. pfx** w katalogu certyfikatu, który został określony.
 
@@ -138,35 +153,43 @@ W tej sekcji utworzysz jednostkę usługi dla aplikacji usługi Azure AD, przypi
 
 1. Wklej poniższe polecenia cmdlet w oknie konsoli programu PowerShell. Upewnij się, że wartość określona dla właściwości **-DisplayName** jest unikatowa. Wartości parametrów **-Strona główna** i **-IdentiferUris** są wartościami zastępczymi i nie są weryfikowane.
 
-        $certificateFilePath = "$certificateFileDir\CertFile.pfx"
+    ```azurepowershell
+    $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
+    $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
-        $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
+    $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 
-        $rawCertificateData = $certificatePFX.GetRawCertData()
+    $rawCertificateData = $certificatePFX.GetRawCertData()
 
-        $credential = [System.Convert]::ToBase64String($rawCertificateData)
+    $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzADApplication `
-            -DisplayName "HDIADL" `
-            -HomePage "https://contoso.com" `
-            -IdentifierUris "https://mycontoso.com" `
-            -CertValue $credential  `
-            -StartDate $certificatePFX.NotBefore  `
-            -EndDate $certificatePFX.NotAfter
+    $application = New-AzADApplication `
+        -DisplayName "HDIADL" `
+        -HomePage "https://contoso.com" `
+        -IdentifierUris "https://mycontoso.com" `
+        -CertValue $credential  `
+        -StartDate $certificatePFX.NotBefore  `
+        -EndDate $certificatePFX.NotAfter
 
-        $applicationId = $application.ApplicationId
+    $applicationId = $application.ApplicationId
+    ```
+
 2. Utwórz nazwę główną usługi przy użyciu identyfikatora aplikacji.
 
-        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
+    ```azurepowershell
+    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
-        $objectId = $servicePrincipal.Id
+    $objectId = $servicePrincipal.Id
+    ```
+
 3. Przyznaj jednostce usługi dostęp do katalogu głównego Data Lake Storage Gen1 i wszystkich folderów w ścieżce katalogu głównego określonej wcześniej. Użyj następujących poleceń cmdlet:
 
-        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
-        Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
+    ```azurepowershell
+    Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+    Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
+    Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
+    ```
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-the-default-storage"></a>Tworzenie klastra usługi HDInsight w systemie Linux z Data Lake Storage Gen1 jako magazyn domyślny
 
@@ -174,37 +197,41 @@ W tej sekcji utworzysz klaster usługi HDInsight Hadoop Linux z Data Lake Storag
 
 1. Pobierz identyfikator dzierżawy subskrypcji i Zapisz go do późniejszego użycia.
 
-        $tenantID = (Get-AzContext).Tenant.TenantId
+    ```azurepowershell
+    $tenantID = (Get-AzContext).Tenant.TenantId
+    ```
 
 2. Utwórz klaster usługi HDInsight przy użyciu następujących poleceń cmdlet:
 
-        # Set these variables
+    ```azurepowershell
+    # Set these variables
 
-        $location = "East US 2"
-        $storageAccountName = $dataLakeStorageGen1Name                         # Data Lake Storage Gen1 account name
+    $location = "East US 2"
+    $storageAccountName = $dataLakeStorageGen1Name                         # Data Lake Storage Gen1 account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
-        $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
-        $httpCredentials = Get-Credential
-        $sshCredentials = Get-Credential
+    $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
+    $httpCredentials = Get-Credential
+    $sshCredentials = Get-Credential
 
-        New-AzHDInsightCluster `
-               -ClusterType Hadoop `
-               -OSType Linux `
-               -ClusterSizeInNodes $clusterNodes `
-               -ResourceGroupName $resourceGroupName `
-               -ClusterName $clusterName `
-               -HttpCredential $httpCredentials `
-               -Location $location `
-               -DefaultStorageAccountType AzureDataLakeStore `
-               -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
-               -DefaultStorageRootPath $storageRootPath `
-               -Version "3.6" `
-               -SshCredential $sshCredentials `
-               -AadTenantId $tenantId `
-               -ObjectId $objectId `
-               -CertificateFilePath $certificateFilePath `
-               -CertificatePassword $password
+    New-AzHDInsightCluster `
+           -ClusterType Hadoop `
+           -OSType Linux `
+           -ClusterSizeInNodes $clusterNodes `
+           -ResourceGroupName $resourceGroupName `
+           -ClusterName $clusterName `
+           -HttpCredential $httpCredentials `
+           -Location $location `
+           -DefaultStorageAccountType AzureDataLakeStore `
+           -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
+           -DefaultStorageRootPath $storageRootPath `
+           -Version "3.6" `
+           -SshCredential $sshCredentials `
+           -AadTenantId $tenantId `
+           -ObjectId $objectId `
+           -CertificateFilePath $certificateFilePath `
+           -CertificatePassword $password
+    ```
 
     Po pomyślnym ukończeniu tego polecenia cmdlet powinny zostać wyświetlone dane wyjściowe zawierające szczegółowe informacje o klastrze.
 
@@ -218,20 +245,25 @@ W tej sekcji utworzysz połączenie Secure Shell (SSH) z utworzonym klastrem us�
 
 1. Po nawiązaniu połączenia Uruchom interfejs wiersza polecenia Hive (CLI) za pomocą następującego polecenia:
 
-        hive
+    ```powershell
+    hive
+    ```
+
 2. Użyj interfejsu wiersza polecenia, aby wprowadzić następujące instrukcje w celu utworzenia nowej tabeli o nazwie **pojazdy** przy użyciu przykładowych danych w Data Lake Storage Gen1:
 
-        DROP TABLE log4jLogs;
+    ```azurepowershell
+    DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'adl:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    ```
 
-    Powinno zostać wyświetlone dane wyjściowe zapytania w konsoli SSH.
+Powinno zostać wyświetlone dane wyjściowe zapytania w konsoli SSH.
 
-    >[!NOTE]
-    >Ścieżka do przykładowych danych w poprzednim poleceniu CREATE TABLE to `adl:///example/data/` , gdzie `adl:///` jest katalogiem głównym klastra. Zgodnie z przykładem katalogu głównego klastra określonego w tym samouczku polecenie to `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster` . Możesz użyć krótszej alternatywy lub podać pełną ścieżkę do katalogu głównego klastra.
-    >
+>[!NOTE]
+>Ścieżka do przykładowych danych w poprzednim poleceniu CREATE TABLE to `adl:///example/data/` , gdzie `adl:///` jest katalogiem głównym klastra. Zgodnie z przykładem katalogu głównego klastra określonego w tym samouczku polecenie to `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster` . Możesz użyć krótszej alternatywy lub podać pełną ścieżkę do katalogu głównego klastra.
+>
 
 ## <a name="access-data-lake-storage-gen1-by-using-hdfs-commands"></a>Dostęp do Data Lake Storage Gen1 przy użyciu systemu plików HDFS
 Po skonfigurowaniu klastra usługi HDInsight pod kątem używania Data Lake Storage Gen1 można uzyskać dostęp do magazynu za pomocą poleceń powłoki rozproszony system plików usługi Hadoop (HDFS).
@@ -243,11 +275,13 @@ W tej sekcji nawiążesz połączenie SSH z utworzonym klastrem usługi HDInsigh
 
 Po nawiązaniu połączenia należy wyświetlić listę plików w Data Lake Storage Gen1 przy użyciu następującego polecenia systemu plików HDFS.
 
-    hdfs dfs -ls adl:///
+```azurepowershell
+hdfs dfs -ls adl:///
+```
 
 Możesz również użyć `hdfs dfs -put` polecenia, aby przekazać pliki do Data Lake Storage Gen1, a następnie użyć `hdfs dfs -ls` do sprawdzenia, czy pliki zostały pomyślnie przekazane.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure Portal: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
