@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804677"
 ---
 # <a name="drawing-tool-events"></a>Zdarzenia narzędzia do rysowania
@@ -32,7 +31,7 @@ Poniższy kod przedstawia sposób działania zdarzeń w module narzędzi do ryso
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Zdarzenia narzędzi do rysowania" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>zdarzenia narzędzi do rysowania</a> piórem według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() w witrynie <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>zdarzenia narzędzi do rysowania</a> piórem według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -43,12 +42,12 @@ Zapoznaj się z typowymi scenariuszami korzystającymi z zdarzeń narzędzi do r
 
 ### <a name="select-points-in-polygon-area"></a>Wybierz punkty w obszarze wielokąta
 
-Ten kod demonstruje sposób monitorowania zdarzenia kształtów rysowania przez użytkownika. W tym przykładzie kod monitoruje kształty wielokątów, prostokątów i okręgów. Następnie określa, które punkty danych na mapie znajdują się w obszarze rysunku. To `drawingcomplete` zdarzenie służy do wyzwalania logiki SELECT. W ramach logiki SELECT kod przechodzi przez wszystkie punkty danych na mapie. Sprawdza, czy istnieje część przecięcia punktu i obszaru rysowanego kształtu. W tym przykładzie użyto biblioteki typu open source [Turf. js](https://turfjs.org/) do wykonania obliczeń między częściami przestrzennymi.
+Ten kod demonstruje sposób monitorowania zdarzenia kształtów rysowania przez użytkownika. W tym przykładzie kod monitoruje kształty wielokątów, prostokątów i okręgów. Następnie określa, które punkty danych na mapie znajdują się w obszarze rysunku. To `drawingcomplete` zdarzenie służy do wyzwalania logiki SELECT. W ramach logiki SELECT kod przechodzi przez wszystkie punkty danych na mapie. Sprawdza, czy istnieje część przecięcia punktu i obszaru rysowanego kształtu. W tym przykładzie użyto biblioteki [Turf.js](https://turfjs.org/) typu open source do wykonania obliczeń między częściami przestrzennymi.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Wybierz dane w wyrysowanym obszarze wielokątów" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Wybierz dane w wyrysowanym obszarze wielokąta</a> przez Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Wybierz dane w wyrysowanym obszarze wielokąta</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -60,19 +59,19 @@ Ten kod wyszukuje punkty zainteresowań w obszarze kształtu po zakończeniu rys
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Rysowanie i wyszukiwanie w obszarze wielokąta" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>rysowanie i wyszukiwanie piórem w obszarze wielokąta</a> , Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>rysowanie i wyszukiwanie piórem w obszarze wielokąta</a> , Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
 ### <a name="create-a-measuring-tool"></a>Tworzenie narzędzia pomiarowego
 
-Poniższy kod pokazuje, jak można użyć zdarzeń rysowania do utworzenia narzędzia pomiarowego. `drawingchanging` Służy do monitorowania kształtu w miarę jego rysowania. Gdy użytkownik przesuwa mysz, są obliczane wymiary kształtu. To `drawingcomplete` zdarzenie służy do wykonywania ostatecznego obliczenia na kształcie po jego narysowaniu. To `drawingmodechanged` zdarzenie służy do określenia, kiedy użytkownik przechodzi do trybu rysowania. Ponadto `drawingmodechanged` zdarzenie czyści kanwę rysowania i czyści stare informacje o pomiarach.
+Poniższy kod pokazuje, jak można użyć zdarzeń rysowania do utworzenia narzędzia pomiarowego. Służy `drawingchanging` do monitorowania kształtu w miarę jego rysowania. Gdy użytkownik przesuwa mysz, są obliczane wymiary kształtu. To `drawingcomplete` zdarzenie służy do wykonywania ostatecznego obliczenia na kształcie po jego narysowaniu. To `drawingmodechanged` zdarzenie służy do określenia, kiedy użytkownik przechodzi do trybu rysowania. Ponadto `drawingmodechanged` zdarzenie czyści kanwę rysowania i czyści stare informacje o pomiarach.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Narzędzie pomiarowe" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Narzędzie pomiar</a> piórem Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Narzędzie pomiar</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>

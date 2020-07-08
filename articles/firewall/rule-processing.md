@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113447"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logika przetwarzania reguł usługi Azure Firewall
@@ -49,7 +48,7 @@ Połączenie z usługą google.com jest dozwolone z powodu zgodnej reguły sieci
 - Akcja: Zezwalaj
 
 
-|name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
+|name  |Protokół  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
 |Zezwalaj — sieć Web     |TCP|Adres IP|*|Adres IP|*|80 443
 
@@ -75,7 +74,7 @@ Odmowa ruchu SSH, ponieważ wyższy priorytet *odmówi* kolekcji reguł sieci.
 - Priorytet: 200
 - Akcja: Zezwalaj
 
-|name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
+|name  |Protokół  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
 |Zezwalaj — SSH     |TCP|Adres IP|*|Adres IP|*|22
 
@@ -85,7 +84,7 @@ Odmowa ruchu SSH, ponieważ wyższy priorytet *odmówi* kolekcji reguł sieci.
 - Priorytet: 100
 - Akcja: Odmów
 
-|name  |Protocol (Protokół)  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
+|name  |Protokół  |Typ źródła  |Element źródłowy  |Typ docelowy  |Adres docelowy  |Porty docelowe|
 |---------|---------|---------|---------|----------|----------|--------|
 |Odmów — SSH     |TCP|Adres IP|*|Adres IP|*|22
 

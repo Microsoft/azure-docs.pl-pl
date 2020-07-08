@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886742"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS w usłudze Azure Kubernetes Service (AKS)
@@ -100,9 +99,9 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Stosowanie etykiety DNS do usługi
 
-Jeśli w usłudze jest używany dynamiczny lub statyczny publiczny adres IP, możesz użyć adnotacji `service.beta.kubernetes.io/azure-dns-label-name` usługi, aby ustawić publiczną etykietę DNS. Spowoduje to opublikowanie w pełni kwalifikowanej nazwy domeny dla usługi przy użyciu publicznych serwerów DNS i domen najwyższego poziomu platformy Azure. Wartość adnotacji musi być unikatowa w obrębie lokalizacji platformy Azure, więc zaleca się użycie wystarczająco kwalifikowanej etykiety.   
+Jeśli w usłudze jest używany dynamiczny lub statyczny publiczny adres IP, możesz użyć adnotacji usługi, `service.beta.kubernetes.io/azure-dns-label-name` Aby ustawić publiczną etykietę DNS. Spowoduje to opublikowanie w pełni kwalifikowanej nazwy domeny dla usługi przy użyciu publicznych serwerów DNS i domen najwyższego poziomu platformy Azure. Wartość adnotacji musi być unikatowa w obrębie lokalizacji platformy Azure, więc zaleca się użycie wystarczająco kwalifikowanej etykiety.   
 
-Na platformie Azure zostanie automatycznie dołączona domyślna podsieć, `<location>.cloudapp.azure.com` na przykład (gdzie lokalizacja jest wybranym regionem) do podania nazwy, aby utworzyć w pełni KWALIFIKOWANĄ nazwę DNS. Przykład:
+Na platformie Azure zostanie automatycznie dołączona domyślna podsieć, na przykład `<location>.cloudapp.azure.com` (gdzie lokalizacja jest wybranym regionem) do podania nazwy, aby utworzyć w pełni kwalifikowaną nazwę DNS. Przykład:
 
 ```yaml
 apiVersion: v1

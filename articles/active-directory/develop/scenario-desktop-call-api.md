@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882968"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
@@ -64,7 +63,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Wywoływanie interfejsu API sieci Web w programie MSAL dla systemów iOS i macOS
 
-Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` właściwość, która może służyć do wywoływania internetowego interfejsu API. Dodaj token dostępu do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
+Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` Właściwość, która może służyć do wywoływania internetowego interfejsu API. Dodaj token dostępu do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
 
 Cel-C:
 
@@ -94,7 +93,7 @@ task.resume()
 
 ## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Wywoływanie kilku interfejsów API: przyrostowej zgody i dostępu warunkowego
 
-Aby wywołać kilka interfejsów API dla tego samego użytkownika, po uzyskaniu tokenu dla pierwszego interfejsu API Wywołaj `AcquireTokenSilent`polecenie. Otrzymasz token dla innych interfejsów API w sposób cichy przez większość czasu.
+Aby wywołać kilka interfejsów API dla tego samego użytkownika, po uzyskaniu tokenu dla pierwszego interfejsu API Wywołaj polecenie `AcquireTokenSilent` . Otrzymasz token dla innych interfejsów API w sposób cichy przez większość czasu.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -130,4 +129,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przenoszenie do środowiska produkcyjnego](scenario-desktop-production.md)
+> [Przenieś do środowiska produkcyjnego](scenario-desktop-production.md)

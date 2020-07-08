@@ -4,10 +4,9 @@ description: Usługa Azure Service Fabric pozwala określić limity zasobów dla
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81115144"
 ---
 # <a name="resource-governance"></a>Nadzór nad zasobami
@@ -21,9 +20,9 @@ W przypadku uruchamiania wielu usług w tym samym węźle lub klastrze istnieje 
 
 Zarządzanie zasobami jest obsługiwane w Service Fabric zgodnie z [pakietem usługi](service-fabric-application-model.md). Zasoby przypisane do pakietu usługi mogą być dalej dzielone między pakietami kodu. Określone limity zasobów oznaczają również rezerwację zasobów. Service Fabric obsługuje określanie procesora CPU i pamięci na pakiet usługi przy użyciu dwóch wbudowanych [metryk](service-fabric-cluster-resource-manager-metrics.md):
 
-* *Procesor* (nazwa `servicefabric:/_CpuCores`metryki): rdzeń logiczny, który jest dostępny na komputerze-hoście. Wszystkie rdzenie we wszystkich węzłach są ważone jako takie same.
+* *Procesor* (Nazwa metryki `servicefabric:/_CpuCores` ): rdzeń logiczny, który jest dostępny na komputerze-hoście. Wszystkie rdzenie we wszystkich węzłach są ważone jako takie same.
 
-* *Pamięć* (nazwa `servicefabric:/_MemoryInMB`metryki): pamięć jest wyrażona w megabajtach i mapowana na pamięć fizyczną, która jest dostępna na komputerze.
+* *Pamięć* (Nazwa metryki `servicefabric:/_MemoryInMB` ): pamięć jest wyrażona w megabajtach i mapowana na pamięć fizyczną, która jest dostępna na komputerze.
 
 W przypadku tych dwóch metryk [klaster Menedżer zasobów](service-fabric-cluster-resource-manager-cluster-description.md) śledzi łączną pojemność klastra, obciążenie każdego węzła w klastrze oraz pozostałe zasoby w klastrze. Te dwie metryki są równoważne z jakimkolwiek innym użytkownikiem lub metryką niestandardową. Z nimi można korzystać ze wszystkich istniejących funkcji:
 
@@ -206,7 +205,7 @@ Aby zapobiec wystąpieniu tych sytuacji, Service Fabric umożliwia *wymuszenie 
 
 Dodatkowe uwagi:
 
-* Wymuszanie limitu zasobów dotyczy tylko `servicefabric:/_CpuCores` metryk `servicefabric:/_MemoryInMB` zasobów i
+* Wymuszanie limitu zasobów dotyczy tylko `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` metryk zasobów i
 * Wymuszanie limitu zasobów działa tylko wtedy, gdy pojemność węzłów dla metryk zasobów jest dostępna do Service Fabric, za pomocą mechanizmu autowykrywania, lub przez użytkowników ręcznie określając pojemności węzła (zgodnie z opisem w sekcji [Konfiguracja klastra dla włączania zarządzania zasobami](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ).Jeśli nie skonfigurowano pojemności węzła, nie można użyć możliwości wymuszania limitu zasobów, ponieważ Service Fabric nie może znać ilości zasobów zarezerwowanych dla usług użytkownika.Service Fabric wystawia ostrzeżenia o kondycji, jeśli "EnforceUserServiceMetricCapacities" ma wartość true, ale pojemności węzła nie są skonfigurowane.
 
 ## <a name="other-resources-for-containers"></a>Inne zasoby dla kontenerów

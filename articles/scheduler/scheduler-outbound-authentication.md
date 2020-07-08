@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878973"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Uwierzytelnianie wychodzące dla usługi Azure Scheduler
@@ -32,7 +31,7 @@ Usługa Scheduler obsługuje te modele uwierzytelniania:
 
 ## <a name="add-or-remove-authentication"></a>Dodaj lub Usuń uwierzytelnianie
 
-* Aby dodać uwierzytelnianie do zadania usługi Scheduler, podczas tworzenia lub aktualizowania zadania Dodaj element podrzędny `authentication` JavaScript Object Notation (JSON) do `request` elementu. 
+* Aby dodać uwierzytelnianie do zadania usługi Scheduler, podczas tworzenia lub aktualizowania zadania Dodaj `authentication` element podrzędny JavaScript Object Notation (JSON) do `request` elementu. 
 
   Odpowiedzi nigdy nie zwracają wpisów tajnych, które są przesyłane do usługi Scheduler przez umieszczenie, POPRAWKĘ lub żądanie POST w `authentication` obiekcie. 
   Odpowiedzi ustawiają informacje o kluczach tajnych na wartość null lub mogą korzystać z tokenu publicznego reprezentującego uwierzytelnioną jednostkę. 
@@ -45,10 +44,10 @@ Usługa Scheduler obsługuje te modele uwierzytelniania:
 
 Podczas dodawania uwierzytelniania przy użyciu `ClientCertificate` modelu należy określić te dodatkowe elementy w treści żądania.  
 
-| Element | Wymagany | Opis |
+| Element | Wymagane | Opis |
 |---------|----------|-------------|
 | **uwierzytelnianie** (element nadrzędny) | Obiekt uwierzytelniania używany do korzystania z certyfikatu klienta SSL/TLS |
-| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku certyfikatów klienta SSL/TLS wartość jest `ClientCertificate`równa. |
+| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku certyfikatów klienta SSL/TLS wartość jest równa `ClientCertificate` . |
 | **PFX** | Tak | Zawartość pliku PFX zakodowana algorytmem Base64 |
 | **hasło** | Tak | Hasło do uzyskiwania dostępu do pliku PFX |
 ||| 
@@ -60,7 +59,7 @@ Gdy żądanie jest wysyłane z informacjami o uwierzytelnianiu, odpowiedź zawie
 | Element | Opis | 
 |---------|-------------| 
 | **uwierzytelnianie** (element nadrzędny) | Obiekt uwierzytelniania używany do korzystania z certyfikatu klienta SSL/TLS |
-| **Wprowadź** | Typ uwierzytelniania. W przypadku certyfikatów klienta SSL/TLS wartość jest `ClientCertificate`równa. |
+| **Wprowadź** | Typ uwierzytelniania. W przypadku certyfikatów klienta SSL/TLS wartość jest równa `ClientCertificate` . |
 | **certificateThumbprint** |Odcisk palca certyfikatu |
 | **certificateSubjectName** |Nazwa wyróżniająca podmiotu certyfikatu |
 | **certificateExpiration** | Data wygaśnięcia certyfikatu |
@@ -165,10 +164,10 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Podczas dodawania uwierzytelniania przy użyciu `Basic` modelu należy określić te dodatkowe elementy w treści żądania.
 
-| Element | Wymagany | Opis |
+| Element | Wymagane | Opis |
 |---------|----------|-------------|
 | **uwierzytelnianie** (element nadrzędny) | Obiekt uwierzytelniania używany do uwierzytelniania podstawowego | 
-| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania podstawowego wartość jest `Basic`równa. | 
+| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania podstawowego wartość jest równa `Basic` . | 
 | **uż** | Tak | Nazwa użytkownika do uwierzytelnienia | 
 | **hasło** | Tak | Hasło do uwierzytelnienia |
 |||| 
@@ -180,7 +179,7 @@ Gdy żądanie jest wysyłane z informacjami o uwierzytelnianiu, odpowiedź zawie
 | Element | Opis | 
 |---------|-------------|
 | **uwierzytelnianie** (element nadrzędny) | Obiekt uwierzytelniania używany do uwierzytelniania podstawowego |
-| **Wprowadź** | Typ uwierzytelniania. W przypadku uwierzytelniania podstawowego wartość jest `Basic`równa. |
+| **Wprowadź** | Typ uwierzytelniania. W przypadku uwierzytelniania podstawowego wartość jest równa `Basic` . |
 | **uż** | Uwierzytelniona nazwa użytkownika |
 ||| 
 
@@ -283,12 +282,12 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Podczas dodawania uwierzytelniania przy użyciu `ActiveDirectoryOAuth` modelu należy określić te dodatkowe elementy w treści żądania.
 
-| Element | Wymagany | Opis |
+| Element | Wymagane | Opis |
 |---------|----------|-------------|
 | **uwierzytelnianie** (element nadrzędny) | Tak | Obiekt uwierzytelniania używany do uwierzytelniania ActiveDirectoryOAuth |
-| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest `ActiveDirectoryOAuth`równa. |
-| **dzierżaw** | Tak | Identyfikator dzierżawy dzierżawy usługi Azure AD. Aby znaleźć identyfikator dzierżawy dzierżawy usługi Azure AD, uruchom `Get-AzureAccount` polecenie w Azure PowerShell. |
-| **publiczn** | Tak | Ta wartość jest ustawiona na `https://management.core.windows.net/`. | 
+| **Wprowadź** | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest równa `ActiveDirectoryOAuth` . |
+| **tenant** | Tak | Identyfikator dzierżawy dzierżawy usługi Azure AD. Aby znaleźć identyfikator dzierżawy dzierżawy usługi Azure AD, uruchom polecenie `Get-AzureAccount` w Azure PowerShell. |
+| **publiczn** | Tak | Ta wartość jest ustawiona na `https://management.core.windows.net/` . | 
 | **clientId** | Tak | Identyfikator klienta aplikacji usługi Azure AD | 
 | **wpisu** | Tak | Wpis tajny klienta żądającego tokenu | 
 |||| 
@@ -300,9 +299,9 @@ Gdy żądanie jest wysyłane z informacjami o uwierzytelnianiu, odpowiedź zawie
 | Element | Opis |
 |---------|-------------|
 | **uwierzytelnianie** (element nadrzędny) | Obiekt uwierzytelniania używany do uwierzytelniania ActiveDirectoryOAuth |
-| **Wprowadź** | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest `ActiveDirectoryOAuth`równa. | 
-| **dzierżaw** | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
-| **publiczn** | Ta wartość jest ustawiona na `https://management.core.windows.net/`. |
+| **Wprowadź** | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest równa `ActiveDirectoryOAuth` . | 
+| **tenant** | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
+| **publiczn** | Ta wartość jest ustawiona na `https://management.core.windows.net/` . |
 | **clientId** | Identyfikator klienta aplikacji usługi Azure AD |
 ||| 
 

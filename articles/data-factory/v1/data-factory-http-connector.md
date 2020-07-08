@@ -12,10 +12,9 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991573"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Przenoszenie danych ze źródła HTTP przy użyciu Azure Data Factory
@@ -38,7 +37,7 @@ Za pomocą tego łącznika protokołu HTTP można pobrać dane z *chmury i lokal
 
 Podczas kopiowania danych z lokalnego punktu końcowego HTTP należy zainstalować bramę Zarządzanie danymi w środowisku lokalnym lub na maszynie wirtualnej platformy Azure. Aby dowiedzieć się więcej na temat bramy Zarządzanie danymi i uzyskać instrukcje krok po kroku dotyczące konfigurowania bramy, zobacz temat [przeniesienie danych między lokalizacjami lokalnymi i chmurą](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Można utworzyć potok z działaniem kopiowania, aby przenieść dane ze źródła HTTP przy użyciu różnych narzędzi lub interfejsów API:
 
@@ -50,9 +49,9 @@ Można utworzyć potok z działaniem kopiowania, aby przenieść dane ze źród�
 
 W poniższej tabeli opisano elementy JSON, które są specyficzne dla połączonej usługi HTTP:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type | Właściwość **Type** musi być ustawiona na wartość **http**. | Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **http**. | Tak |
 | url | Podstawowy adres URL serwera sieci Web. | Tak |
 | authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to **anonimowe**, **podstawowe**, **szyfrowane**, **Windows**i **ClientCertificate**. <br><br> Zapoznaj się z nowszymi sekcjami w tym artykule, aby uzyskać więcej właściwości i próbek JSON dla tych typów uwierzytelniania. | Tak |
 | enableServerCertificateValidation | Określa, czy włączyć weryfikację certyfikatu protokołu TLS/SSL serwera, jeśli źródłem jest serwer sieci Web HTTPS. Gdy serwer HTTPS używa certyfikatu z podpisem własnym, ustaw tę wartość na **false**. | Nie<br /> (wartość domyślna to **true**) |
@@ -65,7 +64,7 @@ Aby uzyskać szczegółowe informacje na temat ustawiania poświadczeń dla loka
 
 Ustaw wartość **AuthenticationType** na **Basic**, **Digest**lub **Windows**. Poza ogólnymi właściwościami łącznika HTTP opisanymi w poprzednich sekcjach ustaw następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | userName | Nazwa użytkownika, która ma być używana do uzyskiwania dostępu do punktu końcowego HTTP. | Tak |
 | hasło | Hasło użytkownika (**username**). | Tak |
@@ -93,7 +92,7 @@ Ustaw wartość **AuthenticationType** na **Basic**, **Digest**lub **Windows**. 
 
 Aby użyć uwierzytelniania podstawowego, ustaw wartość **AuthenticationType** na **ClientCertificate**. Poza ogólnymi właściwościami łącznika HTTP opisanymi w poprzednich sekcjach ustaw następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | embeddedCertData | Zakodowana w formacie base64 zawartość danych binarnych pliku PFX. | Określ wartość **embeddedCertData** lub **certThumbprint** |
 | certThumbprint | Odcisk palca certyfikatu, który został zainstalowany w magazynie certyfikatów maszyny bramy. Stosuje się tylko w przypadku kopiowania danych z lokalnego źródła HTTP. | Określ wartość **embeddedCertData** lub **certThumbprint** |
@@ -102,8 +101,8 @@ Aby użyć uwierzytelniania podstawowego, ustaw wartość **AuthenticationType**
 Jeśli używasz **certThumbprint** do uwierzytelniania, a certyfikat jest instalowany w magazynie osobistym komputera lokalnego, Udziel uprawnień do odczytu do usługi bramy:
 
 1. Otwórz program Microsoft Management Console (MMC). Dodaj przystawkę **Certyfikaty** , która jest przeznaczona dla **komputera lokalnego**.
-2. Rozwiń węzeł **Certyfikaty** > **osobiste**, a następnie wybierz pozycję **Certyfikaty**.
-3. Kliknij prawym przyciskiem myszy certyfikat ze sklepu osobistego, a następnie wybierz pozycję **wszystkie zadania** >**Zarządzaj kluczami prywatnymi**.
+2. Rozwiń węzeł **Certyfikaty**  >  **osobiste**, a następnie wybierz pozycję **Certyfikaty**.
+3. Kliknij prawym przyciskiem myszy certyfikat ze sklepu osobistego, a następnie wybierz pozycję **wszystkie zadania**  > **Zarządzaj kluczami prywatnymi**.
 3. Na karcie **zabezpieczenia** Dodaj konto użytkownika, pod którym działa usługa hosta bramy zarządzanie danymi, z dostępem do odczytu do certyfikatu.  
 
 **Przykład: używanie certyfikatu klienta**
@@ -157,9 +156,9 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja **typeProperties** zawiera informacje o lokalizacji danych w magazynie danych. Sekcja **typeProperties** zestawu danych typu **http** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | **Typ** zestawu danych musi być ustawiony na wartość **http**. | Tak |
+| typ | **Typ** zestawu danych musi być ustawiony na wartość **http**. | Tak |
 | relativeUrl | Względny adres URL do zasobu, który zawiera dane. Jeśli ścieżka nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. <br><br> Aby utworzyć dynamiczny adres URL, można użyć [funkcji Data Factory i zmiennych systemowych](data-factory-functions-variables.md). Przykład: **relativeUrl**: **$ $Text. Format ("/My/Report? miesiąc = {0: rrrr}-{0: mm} &FMT = CSV", parametru slicestart)**. | Nie |
 | requestMethod | Metoda HTTP. Dozwolone wartości to **Get** i **post**. | Nie <br />(wartość domyślna to **Get**) |
 | additionalHeaders | Dodatkowe nagłówki żądań HTTP. | Nie |
@@ -220,7 +219,7 @@ Właściwości, które są dostępne w sekcji **typeProperties** działania, ró
 
 Obecnie, gdy źródło w działaniu kopiowania ma typ **HttpSource** , obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Jest to limit czasu, aby uzyskać odpowiedź, a nie limit czasu odczytu danych odpowiedzi. | Nie<br />(wartość domyślna: **00:01:40**) |
 

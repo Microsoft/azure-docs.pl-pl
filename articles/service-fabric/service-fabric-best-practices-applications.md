@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
 ms.openlocfilehash: 56df6e28940eb15597a3d6bccca3f85e5f690f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991658"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Najlepsze rozwiązania dotyczące projektowania aplikacji Service Fabric platformy Azure
@@ -70,7 +69,7 @@ Service Fabric Reliable Actors umożliwia łatwe tworzenie stanowych i zwirtuali
 - Ze względu [na sposób współbieżności](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)aktory najlepiej używać jako obiektów niezależnych. Nie twórz grafów wywołań metod synchronicznych (z których każde prawdopodobnie stanie się oddzielnym wywołaniem sieciowym) lub Utwórz cykliczne żądania aktora. Znacznie wpływają na wydajność i skalowalność.
 - Nie mieszaj kodu synchronizacji z kodem asynchronicznym. Aby zapobiec problemom z wydajnością, należy regularnie używać Async.
 - Nie należy wykonywać długotrwałych wywołań w aktorach. Długotrwałe wywołania będą blokować inne wywołania do tego samego aktora z powodu współbieżności opartej na włączeniu.
-- Jeśli komunikujesz się z innymi usługami przy użyciu [Service Fabric komunikacji zdalnej](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) i tworzysz `ServiceProxyFactory`, Utwórz fabrykę na poziomie [aktora usługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) , a *nie* na poziomie aktora.
+- Jeśli komunikujesz się z innymi usługami przy użyciu [Service Fabric komunikacji zdalnej](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) i tworzysz `ServiceProxyFactory` , Utwórz fabrykę na poziomie [aktora usługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) , a *nie* na poziomie aktora.
 
 
 ## <a name="application-diagnostics"></a>Diagnostyka aplikacji

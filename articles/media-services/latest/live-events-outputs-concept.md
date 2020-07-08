@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
 ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010583"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
@@ -30,7 +29,7 @@ Azure Media Services pozwala na dostarczanie na żywo wydarzeń klientom w chmur
 
 ## <a name="live-events"></a>Wydarzenia na żywo
 
-[Wydarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Podczas tworzenia zdarzenia na żywo tworzony jest podstawowy i pomocniczy punkt końcowy wejścia, którego można użyć do wysłania sygnału na żywo ze zdalnego kodera. Zdalny koder na żywo wysyła strumieniowe źródło danych do tego wejściowego punktu końcowego przy użyciu protokołu [RTMP](https://www.adobe.com/devnet/rtmp.html) lub [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmentacja-MP4). W przypadku protokołu pozyskiwania RTMP zawartość może być wysyłana w postaci zwykłej`rtmp://`() lub bezpiecznie zaszyfrowanej w`rtmps://`sieci (). W przypadku protokołu pozyskiwania Smooth Streaming obsługiwane schematy adresów URL to `http://` lub `https://`.  
+[Wydarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Podczas tworzenia zdarzenia na żywo tworzony jest podstawowy i pomocniczy punkt końcowy wejścia, którego można użyć do wysłania sygnału na żywo ze zdalnego kodera. Zdalny koder na żywo wysyła strumieniowe źródło danych do tego wejściowego punktu końcowego przy użyciu protokołu [RTMP](https://www.adobe.com/devnet/rtmp.html) lub [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmentacja-MP4). W przypadku protokołu pozyskiwania RTMP zawartość może być wysyłana w postaci zwykłej ( `rtmp://` ) lub bezpiecznie zaszyfrowanej w sieci ( `rtmps://` ). W przypadku protokołu pozyskiwania Smooth Streaming obsługiwane schematy adresów URL to `http://` lub `https://` .  
 
 ## <a name="live-event-types"></a>Typy zdarzeń na żywo
 
@@ -87,7 +86,7 @@ Podczas tworzenia zdarzenia na żywo można określić następujące opcje:
 ### <a name="naming-rules"></a>Reguły nazewnictwa
 
 * Maksymalna Nazwa zdarzenia na żywo to 32 znaków.
-* Nazwa powinna być zgodna z tym wzorcem `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) :.
+* Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Zobacz również [konwencje nazewnictwa punktów końcowych przesyłania strumieniowego](streaming-endpoint-concept.md#naming-convention).
 
@@ -116,11 +115,11 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
     > [!NOTE]
     > W Azure Portal adres URL znaczącym ma nazwę "*trwały wejściowy adres URL*".
 
-    Aby określić ten tryb w interfejsie API, `vanityUrl` Ustaw `true` opcję na godzina utworzenia (domyślnie `false`). Należy również przekazać własny token dostępu (`LiveEventInput.accessToken`) podczas tworzenia. Należy określić wartość tokenu, aby uniknąć losowego tokenu w adresie URL. Token dostępu musi być prawidłowym ciągiem identyfikatora GUID (z łącznikami lub bez nich). Po ustawieniu trybu nie można go zaktualizować.
+    Aby określić ten tryb w interfejsie API, ustaw opcję na `vanityUrl` `true` godzina utworzenia (domyślnie `false` ). Należy również przekazać własny token dostępu ( `LiveEventInput.accessToken` ) podczas tworzenia. Należy określić wartość tokenu, aby uniknąć losowego tokenu w adresie URL. Token dostępu musi być prawidłowym ciągiem identyfikatora GUID (z łącznikami lub bez nich). Po ustawieniu trybu nie można go zaktualizować.
 
     Token dostępu musi być unikatowy w centrum danych. Jeśli Twoja aplikacja musi używać adresu URL znaczącym, zaleca się, aby zawsze utworzyć nowe wystąpienie GUID dla tokenu dostępu (zamiast ponownie używać dowolnego istniejącego identyfikatora GUID).
 
-    Użyj następujących interfejsów API, aby włączyć adres URL znaczącym i ustawić token dostępu na prawidłowy identyfikator GUID (na przykład `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
+    Użyj następujących interfejsów API, aby włączyć adres URL znaczącym i ustawić token dostępu na prawidłowy identyfikator GUID (na przykład `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
     |Język|Włącz adres URL znaczącym|Określanie tokenu dostępu|
     |---|---|---|

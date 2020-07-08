@@ -4,10 +4,9 @@ description: Dowiedz się, jak utworzyć szablon Menedżer zasobów dla klastra 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985375"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Tworzenie szablonu Menedżer zasobów klastra Service Fabric
@@ -24,13 +23,13 @@ Przed wdrożeniem klastra produkcyjnego w celu uruchomienia obciążeń produkcy
 ## <a name="create-the-resource-manager-template"></a>Tworzenie szablonu usługi Resource Manager
 Przykładowe szablony Menedżer zasobów są dostępne w [przykładach platformy Azure w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Te szablony mogą służyć jako punkt początkowy dla szablonu klastra.
 
-W tym artykule jest stosowany przykładowy szablon i szablon szablonu [bezpiecznego klastra z pięcioma węzłami][service-fabric-secure-cluster-5-node-1-nodetype] . Pobierz *azuredeploy. JSON* i *azuredeploy. Parameters. JSON* na komputer i Otwórz oba pliki w ulubionym edytorze tekstu.
+W tym artykule jest stosowany przykładowy szablon i szablon szablonu [bezpiecznego klastra z pięcioma węzłami][service-fabric-secure-cluster-5-node-1-nodetype] . Pobierz *azuredeploy.js* i *azuredeploy.parameters.jsna* komputer i Otwórz oba pliki w ulubionym edytorze tekstu.
 
 > [!NOTE]
-> W przypadku chmur narodowych (Azure Government platformy Azure, Chin, platformy Azure (Niemcy), należy `fabricSettings` również dodać następujące elementy `AADLoginEndpoint`do `AADTokenEndpointFormat` szablonu `AADCertEndpointFormat`:, i.
+> W przypadku chmur narodowych (Azure Government platformy Azure, Chin, platformy Azure (Niemcy), należy również dodać następujące elementy `fabricSettings` do szablonu: `AADLoginEndpoint` , `AADTokenEndpointFormat` i `AADCertEndpointFormat` .
 
 ## <a name="add-certificates"></a>Dodawanie certyfikatów
-Należy dodać certyfikaty do szablonu Menedżer zasobów klastra, odwołując się do magazynu kluczy, który zawiera klucze certyfikatów. Dodaj te parametry i wartości magazynu kluczy w pliku parametrów szablonu Menedżer zasobów (*azuredeploy. Parameters. JSON*).
+Należy dodać certyfikaty do szablonu Menedżer zasobów klastra, odwołując się do magazynu kluczy, który zawiera klucze certyfikatów. Dodaj te parametry i wartości magazynu kluczy w pliku parametrów szablonu Menedżer zasobów (*azuredeploy.parameters.json*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Dodaj wszystkie certyfikaty do zestawu skalowania maszyn wirtualnych osProfile
 Każdy certyfikat zainstalowany w klastrze musi być skonfigurowany w sekcji **osProfile** zasobu zestawu skalowania (Microsoft. COMPUTE/virtualMachineScaleSets). Ta akcja powoduje, że dostawca zasobów instaluje certyfikat na maszynach wirtualnych. Ta instalacja obejmuje zarówno certyfikat klastra, jak i wszystkie certyfikaty zabezpieczeń aplikacji, które zamierzasz używać dla aplikacji:
@@ -132,7 +131,7 @@ Certyfikat uwierzytelniania klastra musi być skonfigurowany zarówno w ramach z
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Dodawanie konfiguracji usługi Azure AD do użycia na potrzeby dostępu klientów
 
-Konfigurację usługi Azure AD można dodać do szablonu Menedżer zasobów klastra, odwołując się do magazynu kluczy, który zawiera klucze certyfikatów. Dodaj te parametry i wartości usługi Azure AD w pliku parametrów szablonu Menedżer zasobów (*azuredeploy. Parameters. JSON*). 
+Konfigurację usługi Azure AD można dodać do szablonu Menedżer zasobów klastra, odwołując się do magazynu kluczy, który zawiera klucze certyfikatów. Dodaj te parametry i wartości usługi Azure AD w pliku parametrów szablonu Menedżer zasobów (*azuredeploy.parameters.json*). 
 
 > [!NOTE]
 > W systemie Linux przed utworzeniem klastra należy utworzyć dzierżawy i użytkowników usługi Azure AD.  Aby uzyskać więcej informacji, przeczytaj temat [Konfigurowanie usługi Azure AD do uwierzytelniania klientów](service-fabric-cluster-creation-setup-aad.md).

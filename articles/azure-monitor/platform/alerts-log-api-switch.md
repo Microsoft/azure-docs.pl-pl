@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114363"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Przełącz preferencję interfejsu API dla alertów dziennika
@@ -50,7 +49,7 @@ Poniżej przedstawiono wpływ przełączania preferencji do interfejsu API sched
 Proces przechodzenia reguł alertów ze [starszej wersji interfejsu API alertu log Analytics](api-alerts.md) nie obejmuje zmiany definicji alertu, zapytania ani konfiguracji. Reguły alertów i monitorowanie nie są modyfikowane, a alerty nie zatrzymają się ani nie zostaną wstrzymane podczas przełączania lub po nim. Jedyne zmiany:
 
 - Zmiana preferencji interfejsu API i dostęp do reguł za pośrednictwem nowego interfejsu API.
-- Zmodyfikowany identyfikator URI zasobu reguły alertu zawierający identyfikatory użyte w [starszym interfejsie API alertu log Analytics](api-alerts.md) zamiast nazwy reguły alertu w `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`tej strukturze. Nazwa wyświetlana reguły alertu pozostanie niezmieniona.
+- Zmodyfikowany identyfikator URI zasobu reguły alertu zawierający identyfikatory użyte w [starszym interfejsie API alertu log Analytics](api-alerts.md) zamiast nazwy reguły alertu w tej strukturze `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Nazwa wyświetlana reguły alertu pozostanie niezmieniona.
 
 Wszyscy klienci, którzy chcą przełączać się dobrowolnie do nowego [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) i blokować użycie ze [starszego interfejsu API alertów log Analytics](api-alerts.md). można to zrobić przez wykonanie wywołania PUT na poniższym interfejsie API w celu przełączenia wszystkich reguł alertów skojarzonych z określonym obszarem roboczym Log Analytics.
 

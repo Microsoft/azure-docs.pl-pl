@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114407"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Przygotowywanie aplikacji logiki i elementów Runbook do migracji reguł alertów klasycznych
@@ -24,7 +23,7 @@ Jeśli zdecydujesz się na dobrowolne Migrowanie reguł alertów klasycznych do 
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
-Interfejsy API, które tworzą i zarządzają klasycznymi`microsoft.insights/alertrules`regułami alertów (), różnią się od interfejsów API,`microsoft.insights/metricalerts`które tworzą nowe alerty metryk () i zarządzają nimi. W przypadku programistycznego tworzenia i zarządzania klasycznymi regułami alertów należy zaktualizować skrypty wdrażania, aby współpracowały z nowymi interfejsami API.
+Interfejsy API, które tworzą i zarządzają klasycznymi regułami alertów ( `microsoft.insights/alertrules` ), różnią się od interfejsów API, które tworzą nowe alerty metryk () i zarządzają nimi `microsoft.insights/metricalerts` . W przypadku programistycznego tworzenia i zarządzania klasycznymi regułami alertów należy zaktualizować skrypty wdrażania, aby współpracowały z nowymi interfejsami API.
 
 Poniższa tabela zawiera odwołanie do interfejsów programistycznych zarówno dla klasycznego, jak i nowego alertu:
 
@@ -32,7 +31,7 @@ Poniższa tabela zawiera odwołanie do interfejsów programistycznych zarówno d
 |---------|---------|---------|
 |Interfejs API REST     | [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Interfejs wiersza polecenia platformy Azure     | [AZ monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ Monitoruj metryki alertu](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Dokumentacja](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Dokumentacja](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+|PowerShell      | [Tematy pomocy](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Tematy pomocy](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Szablon usługi Azure Resource Manager | [W przypadku alertów klasycznych](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nowe alerty metryki](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Zmiany ładunku powiadomień

@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114228"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor wycofywanie interfejsów API klasycznego modelu wdrażania dla metryk i skalowania automatycznego
@@ -35,9 +34,9 @@ Ten artykuł ma zastosowanie w przypadku korzystania z następujących składnik
 
 Jeśli nie masz pewności, czy Twój kod lub narzędzia niestandardowe wywołuje klasyczne interfejsy API, zapoznaj się z następującymi tematami:
 
-- Przejrzyj identyfikator URI, do którego istnieje odwołanie w kodzie lub narzędziu. Klasyczne interfejsy API używają identyfikatora URI https://management.core.windows.net. Należy użyć nowszego identyfikatora URI dla interfejsów API opartych na Menedżer zasobów rozpoczyna `https://management.azure.com/`się od.
+- Przejrzyj identyfikator URI, do którego istnieje odwołanie w kodzie lub narzędziu. Klasyczne interfejsy API używają identyfikatora URI https://management.core.windows.net . Należy użyć nowszego identyfikatora URI dla interfejsów API opartych na Menedżer zasobów rozpoczyna się od `https://management.azure.com/` .
 
-- Porównaj nazwę zestawu na swojej maszynie. Starszy zestaw klasyczny ma wartość o https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
+- Porównaj nazwę zestawu na swojej maszynie. Starszy zestaw klasyczny ma wartość o https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
 
 - Jeśli używasz uwierzytelniania certyfikatu w celu uzyskania dostępu do metryk lub interfejsów API automatycznego skalowania, używasz klasycznego punktu końcowego i biblioteki. Nowsze Menedżer zasobów interfejsy API wymagają uwierzytelniania Azure Active Directory za pośrednictwem jednostki usługi lub nazwy głównej użytkownika.
 
@@ -83,9 +82,9 @@ Powiadomienie o wycofaniu zostało wysłane na adresy e-mail dla następujących
 - Administratorzy konta i usługi
 - Współadministratorów  
 
-Jeśli masz jakieś pytania, skontaktuj się z nami MonitorClassicAPIhelp@microsoft.compod adresem.  
+Jeśli masz jakieś pytania, skontaktuj się z nami pod adresem MonitorClassicAPIhelp@microsoft.com .  
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 - [Nowsze interfejsy API REST dla Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
 - [Nowszy Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

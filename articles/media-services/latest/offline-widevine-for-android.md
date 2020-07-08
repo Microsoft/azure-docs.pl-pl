@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: willzhan
 ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80887201"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
@@ -49,7 +48,7 @@ Przed wdrożeniem funkcji DRM w trybie offline dla Widevine na urządzeniach z s
 - Zapoznaj się z pojęciami wprowadzonymi do ochrony zawartości online przy użyciu funkcji DRM Widevine. Opisano to szczegółowo w następujących dokumentach/przykładach:
     - [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)
     - [Używanie usługi dostarczania licencji i szyfrowania dynamicznego w technologii DRM](protect-with-drm.md)
-- Sklonuj https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
+- Sklonuj https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git .
 
     Aby dodać konfiguracje Widevine, należy zmodyfikować kod [zaszyfrowany za pomocą technologii DRM przy użyciu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) .  
 - Zapoznaj się z zestawem SDK usługi Google ExoPlayer dla systemu Android — zestawem SDK odtwarzacza wideo typu open source, który umożliwia obsługę odtwarzania w trybie offline Widevine funkcji DRM. 
@@ -121,7 +120,7 @@ Deweloperzy powinni odwoływać się do [przewodnika dla deweloperów ExoPlayer]
 
 W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
 
-Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie https://github.com/google/ExoPlayer/issues/3150 , https://github.com/google/ExoPlayer/issues/3112Zobacz i. <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
+Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie, zobacz https://github.com/google/ExoPlayer/issues/3150 i https://github.com/google/ExoPlayer/issues/3112 . <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
 
 Ten problem nie występuje w przypadku systemu Android 5,0 Lizak lub nowszego, ponieważ system Android 5,0 to pierwsza wersja systemu Android, która została zaprojektowana w celu zapewnienia pełnej obsługi ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) i 64-bitowych platform, podczas gdy system Android 4,4 KitKat został pierwotnie zaprojektowany do obsługi platform architektury armv7 i 32-bit, jak w przypadku innych starszych wersji systemu Android.
 
@@ -145,9 +144,9 @@ Ponadto firma Google wygenerowała progresywną aplikację sieci Web (PWA) i Źr
 
 W przypadku uaktualnienia przeglądarki Mobile Chrome do v62 (lub nowszej) na telefonie z systemem Android i przetestowania powyższej przykładowej aplikacji można zobaczyć, że dane przesyłane strumieniowo online i odtwarzanie w trybie offline zostaną wykonane.
 
-Powyższa aplikacja PWA Open Source została utworzona w programie Node. js. Jeśli chcesz hostować własną wersję na serwerze Ubuntu, pamiętaj o następujących typowych problemach, które mogą uniemożliwić odtwarzanie:
+Powyższa aplikacja PWA Open Source została utworzona w Node.js. Jeśli chcesz hostować własną wersję na serwerze Ubuntu, pamiętaj o następujących typowych problemach, które mogą uniemożliwić odtwarzanie:
 
-1. Problem CORS: Przykładowe wideo w przykładowej aplikacji jest hostowane w https://storage.googleapis.com/biograf-video-files/videos/programie. Firma Google skonfigurował mechanizm CORS dla wszystkich próbek testowych hostowanych w przedziale magazynu Google Cloud. Są one obsługiwane z nagłówkami CORS, określając jawnie wpis CORS: `https://biograf-155113.appspot.com` (domena, w której jest hostowana przez firmę Google), uniemożliwiając dostęp przez inne lokacje. Jeśli spróbujesz, zobaczysz następujący błąd HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problem CORS: Przykładowe wideo w przykładowej aplikacji jest hostowane w programie https://storage.googleapis.com/biograf-video-files/videos/ . Firma Google skonfigurował mechanizm CORS dla wszystkich próbek testowych hostowanych w przedziale magazynu Google Cloud. Są one obsługiwane z nagłówkami CORS, określając jawnie wpis CORS: `https://biograf-155113.appspot.com` (domena, w której jest hostowana przez firmę Google), uniemożliwiając dostęp przez inne lokacje. Jeśli spróbujesz, zobaczysz następujący błąd HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problem z certyfikatem: począwszy od programu Chrome v 58, EME for Widevine wymaga protokołu HTTPS. W związku z tym należy hostować przykładową aplikację za pośrednictwem protokołu HTTPS z certyfikatem x509. Zwykły certyfikat testowy nie działa z powodu następujących wymagań: należy uzyskać certyfikat spełniający następujące wymagania minimalne:
     - Przeglądarki Chrome i Firefox wymagają ustawienia alternatywnej nazwy podmiotu (SAN) w certyfikacie
     - Certyfikat musi mieć zaufany urząd certyfikacji, a certyfikat programistyczny z podpisem własnym nie działa

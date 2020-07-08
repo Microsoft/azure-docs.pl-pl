@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881252"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Instrukcje: Konfigurowanie logowania jednokrotnego w systemach macOS i iOS
@@ -145,7 +144,7 @@ MSAL zapewnia obsługę uwierzytelniania obsługiwanego przez brokera Microsoft 
 
 Poniższe kroki umożliwiają włączenie logowania jednokrotnego przy użyciu brokera uwierzytelniania dla aplikacji:
 
-1. Zarejestruj format URI przekierowania zgodnego z brokerem dla aplikacji w informacji. plist aplikacji. Format identyfikatora URI przekierowania zgodnego `msauth.<app.bundle.id>://auth`z brokerem to. Zastąp element "<app.bundle.id>" "IDENTYFIKATORem pakietu aplikacji. Przykład:
+1. Zarejestruj format URI przekierowania zgodnego z brokerem dla aplikacji w informacji. plist aplikacji. Format identyfikatora URI przekierowania zgodnego z brokerem to `msauth.<app.bundle.id>://auth` . Zastąp element "<app.bundle.id>" "IDENTYFIKATORem pakietu aplikacji. Przykład:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +153,7 @@ Poniższe kroki umożliwiają włączenie logowania jednokrotnego przy użyciu b
     </array>
     ```
 
-1. Dodaj następujące schematy do informacji o aplikacji. plist w obszarze `LSApplicationQueriesSchemes`:
+1. Dodaj następujące schematy do informacji o aplikacji. plist w obszarze `LSApplicationQueriesSchemes` :
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -183,7 +182,7 @@ Poniższe kroki umożliwiają włączenie logowania jednokrotnego przy użyciu b
     }
     ```
     
-**Jeśli używasz Xcode 11**, zamiast tego należy umieścić w `SceneDelegate` pliku wywołanie zwrotne MSAL.
+**Jeśli używasz Xcode 11**, zamiast tego należy umieścić w pliku wywołanie zwrotne MSAL `SceneDelegate` .
 W przypadku obsługi UISceneDelegate i UIApplicationDelegate w celu zapewnienia zgodności ze starszymi wersjami systemu iOS należy umieścić wywołanie zwrotne w obu plikach.
 
 Cel-C:

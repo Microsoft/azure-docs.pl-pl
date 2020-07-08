@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: ec4d1cfbe0c76c8245c4beeaa7c044d76d917a7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259808"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informacje o usłudze mobilności dla maszyn wirtualnych VMware i serwerów fizycznych
@@ -172,7 +171,7 @@ Ustawienie | Szczegóły
 --- | ---
 Składnia | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Obowiązkowy parametr instalacji. Określa, czy należy zainstalować usługę mobilności (MS), czy główny cel (MT).
-`-d` | Parametr opcjonalny. Określa lokalizację instalacji usługi mobilności: `/usr/local/ASR`.
+`-d` | Parametr opcjonalny. Określa lokalizację instalacji usługi mobilności: `/usr/local/ASR` .
 `-v` | Obowiązkowy. Określa platformę, na której zainstalowano usługę mobilności. <br/> **Oprogramowanie VMware** dla maszyn wirtualnych VMware/serwerów fizycznych. <br/> **Platforma Azure** dla maszyn wirtualnych platformy Azure.
 `-q` | Opcjonalny. Określa, czy Instalator ma być uruchamiany w trybie dyskretnym.
 
@@ -200,7 +199,7 @@ Na serwerze konfiguracji przejdź do folderu _%ProgramData%\ASR\home\svsystems\p
 
 Plik Instalatora | System operacyjny (tylko 64-bitowy)
 --- | ---
-`Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1
+`Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 z dodatkiem R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 z dodatkiem SP1 </br> Obejmuje dodatki SP2 i SP3.

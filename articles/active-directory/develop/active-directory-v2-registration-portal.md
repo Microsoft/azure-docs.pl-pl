@@ -14,10 +14,9 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885637"
 ---
 # <a name="app-registration-reference"></a>Dokumentacja rejestracji aplikacji
@@ -26,7 +25,7 @@ Ten dokument zawiera kontekst i opisy różnych funkcji dostępnych w [rejestrac
 
 ## <a name="my-applications-or-converged-applications"></a>Moje aplikacje lub aplikacje, które są zbieżne
 
-Ta lista zawiera wszystkie aplikacje zarejestrowane do użycia z punktem końcowym Microsoft Identity platform (v 2.0). Te aplikacje mają możliwość logowania użytkowników z kontami osobistymi firmy Microsoft i kont służbowych z Azure Active Directory. Aby dowiedzieć się więcej o punkcie końcowym platformy tożsamości, zobacz [Omówienie programu v 2.0](active-directory-appmodel-v2-overview.md). Te aplikacje mogą być również używane do integracji z punktem końcowym uwierzytelniania konto Microsoft `https://login.live.com`.
+Ta lista zawiera wszystkie aplikacje zarejestrowane do użycia z punktem końcowym Microsoft Identity platform (v 2.0). Te aplikacje mają możliwość logowania użytkowników z kontami osobistymi firmy Microsoft i kont służbowych z Azure Active Directory. Aby dowiedzieć się więcej o punkcie końcowym platformy tożsamości, zobacz [Omówienie programu v 2.0](active-directory-appmodel-v2-overview.md). Te aplikacje mogą być również używane do integracji z punktem końcowym uwierzytelniania konto Microsoft `https://login.live.com` .
 
 ## <a name="azure-ad-only-applications"></a>Tylko aplikacje usługi Azure AD
 
@@ -34,11 +33,11 @@ Ta lista zawiera wszystkie aplikacje zarejestrowane do użycia w punkcie końcow
 
 ## <a name="live-sdk-applications"></a>Dynamiczne aplikacje zestawu SDK
 
-Ta lista zawiera wszystkie aplikacje zarejestrowane do użytku wyłącznie z konto Microsoft. Nie są one dostępne do użycia z Azure Active Directory. Tutaj znajdziesz wszystkie aplikacje, które zostały wcześniej zarejestrowane w portalu dla deweloperów w `https://account.live.com/developers/applications`usłudze MSA. Wszystkie funkcje, które były wykonane wcześniej `https://account.live.com/developers/applications` , można teraz wykonać w [rejestracje aplikacji](https://aka.ms/appregistrations).
+Ta lista zawiera wszystkie aplikacje zarejestrowane do użytku wyłącznie z konto Microsoft. Nie są one dostępne do użycia z Azure Active Directory. Tutaj znajdziesz wszystkie aplikacje, które zostały wcześniej zarejestrowane w portalu dla deweloperów w usłudze MSA `https://account.live.com/developers/applications` . Wszystkie funkcje, które były wykonane wcześniej, `https://account.live.com/developers/applications` można teraz wykonać w [rejestracje aplikacji](https://aka.ms/appregistrations).
 
 ## <a name="application-secrets"></a>Wpisy tajne aplikacji
 
-Wpisy tajne aplikacji są poświadczeniami, które umożliwiają aplikacji wykonywanie niezawodnego [uwierzytelniania klienta](https://tools.ietf.org/html/rfc6749#section-2.3) w usłudze Azure AD. W programie OAuth & OpenID Connect Connect, klucz tajny aplikacji jest często określany `client_secret`jako. W protokole v 2.0 wszystkie aplikacje, które odbierają token zabezpieczający w lokalizacji adresowej sieci Web (przy użyciu `https` schematu), muszą używać klucza tajnego aplikacji, aby identyfikować się w usłudze Azure AD po wykorzystaniu tego tokenu zabezpieczającego. Ponadto każdy natywny klient, który odbiera tokeny na urządzeniu, będzie zabroniony przy użyciu klucza tajnego aplikacji w celu uwierzytelniania klientów. Nie zaleca się przechowywania wpisów tajnych w środowiskach niezabezpieczonych.
+Wpisy tajne aplikacji są poświadczeniami, które umożliwiają aplikacji wykonywanie niezawodnego [uwierzytelniania klienta](https://tools.ietf.org/html/rfc6749#section-2.3) w usłudze Azure AD. W programie OAuth & OpenID Connect Connect, klucz tajny aplikacji jest często określany jako `client_secret` . W protokole v 2.0 wszystkie aplikacje, które odbierają token zabezpieczający w lokalizacji adresowej sieci Web (przy użyciu `https` schematu), muszą używać klucza tajnego aplikacji, aby identyfikować się w usłudze Azure AD po wykorzystaniu tego tokenu zabezpieczającego. Ponadto każdy natywny klient, który odbiera tokeny na urządzeniu, będzie zabroniony przy użyciu klucza tajnego aplikacji w celu uwierzytelniania klientów. Nie zaleca się przechowywania wpisów tajnych w środowiskach niezabezpieczonych.
 
 Każda aplikacja może zawierać dwa prawidłowe wpisy tajne aplikacji w danym momencie. Utrzymując dwa klucze tajne, można wykonywać okresowe Przerzucanie kluczy w całym środowisku aplikacji. Po przeprowadzeniu migracji całości aplikacji do nowego klucza tajnego możesz usunąć stary klucz tajny i udostępnić go nowym.
 

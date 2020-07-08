@@ -7,10 +7,9 @@ ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892261"
 ---
 # <a name="what-is-distributed-tracing"></a>Co to jest śledzenie rozproszone?
@@ -31,7 +30,7 @@ Włączenie śledzenia rozproszonego w ramach usług w aplikacji jest tak proste
 
 ## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Włączanie za pośrednictwem Application Insights za pomocą funkcji autoinstrumentation lub SDK
 
-Application Insights agenci i/lub zestawy SDK dla platform .NET, .NET Core, Java, Node. js i JavaScript obsługują śledzenie rozproszone natywnie. Instrukcje dotyczące instalowania i konfigurowania każdego zestawu Application Insights SDK są dostępne poniżej:
+Application Insights agenci i/lub zestawy SDK dla platform .NET, .NET Core, Java, Node.js i JavaScript obsługują śledzenie rozproszone natywnie. Instrukcje dotyczące instalowania i konfigurowania każdego zestawu Application Insights SDK są dostępne poniżej:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)

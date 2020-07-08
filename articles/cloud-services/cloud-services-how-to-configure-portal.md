@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811411"
 ---
 # <a name="how-to-configure-cloud-services"></a>Jak skonfigurować Cloud Services
@@ -46,7 +45,7 @@ Jeśli musisz wybrać konkretną wersję systemu operacyjnego, możesz ustawić 
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Możesz dodać alerty do usługi w chmurze. Kliknij kolejno pozycje **Ustawienia** > **reguły** > alertu**Dodawanie alertu**.
+Możesz dodać alerty do usługi w chmurze. Kliknij kolejno pozycje **Ustawienia**  >  **reguły alertu**  >  **Dodawanie alertu**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +61,7 @@ W tym miejscu możesz skonfigurować alert. Za pomocą pola listy rozwijanej **M
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurowanie monitorowania na podstawie kafelka metryki
 
-Zamiast korzystać z **Settings** > **reguł alertów**dotyczących ustawień, można kliknąć jeden z kafelków metryk w sekcji **monitorowanie** w usłudze w chmurze.
+Zamiast korzystać z **Settings**  >  **reguł alertów**dotyczących ustawień, można kliknąć jeden z kafelków metryk w sekcji **monitorowanie** w usłudze w chmurze.
 
 ![Monitorowanie usługi w chmurze](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -92,7 +91,7 @@ Może być konieczne ponowne skonfigurowanie usługi w chmurze za pomocą pliku 
     ![Blok konfiguracji](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Kliknij przycisk **Pobierz**.
 
-    ![Pliki do pobrania](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Pobierz](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Po zaktualizowaniu pliku konfiguracji usługi należy przekazać i zastosować aktualizacje konfiguracji:
 
     ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)

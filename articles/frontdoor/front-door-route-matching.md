@@ -12,13 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80878599"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Jak tylne drzwi dopasowują żądania do reguły routingu
+# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Jak usługa Front Door dopasowuje żądania do reguły routingu
 
 Po ustanowieniu połączenia i przeprowadzeniu uzgadniania protokołu TLS, gdy żądanie znajduje się w środowisku przednim, jeden z pierwszych elementów jest określany na podstawie wszystkich konfiguracji, które są określone dla każdej reguły routingu, aby dopasować żądanie do, a następnie wykonać zdefiniowaną akcję. W poniższym dokumencie wyjaśniono, jak drzwi z przodu określają konfigurację tras, która ma być używana podczas przetwarzania żądania HTTP.
 
@@ -29,8 +28,8 @@ Konfiguracja reguły routingu dla drzwi przednich składa się z dwóch główny
 Następujące właściwości określają, czy żądanie przychodzące jest zgodne z regułą routingu (lub po lewej stronie):
 
 * **Protokoły http** (http/https)
-* **Hosty** (na przykład www\.foo.com, \*. bar.com)
-* **Ścieżki** (na przykład\*/Users/\*,/File.gif)
+* **Hosty** (na przykład www \. foo.com, \* . bar.com)
+* **Ścieżki** (na przykład \* /users/ \* ,/file.gif)
 
 Te właściwości są rozszerzane wewnętrznie w taki sposób, aby każda kombinacja protokołów/hosta/ścieżki była możliwym zestawem dopasowywania.
 
@@ -52,19 +51,19 @@ Aby uzyskać więcej informacji na temat tego procesu, przyjrzyjmy się przykła
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
-| C | fabrikam.com\.www, foo.Adventure-Works.com  | /\*, /images/\* |
+| C | \.fabrikam.com www, foo.Adventure-Works.com  | /\*, /images/\* |
 
 Jeśli następujące żądania przychodzące zostały wysłane do przednich drzwi, są one zgodne z następującymi regułami routingu powyżej:
 
 | Przychodzący Host frontonu | Dopasowane reguły routingu |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| fabrikam.com\.www | C |
+| \.fabrikam.com www | C |
 | images.fabrikam.com | Błąd 400: Nieprawidłowe żądanie |
 | foo.adventure-works.com | C |
 | contoso.com | Błąd 400: Nieprawidłowe żądanie |
-| adventure-works.com\.www | Błąd 400: Nieprawidłowe żądanie |
-| northwindtraders.com\.www | Błąd 400: Nieprawidłowe żądanie |
+| \.Adventure-Works.com www | Błąd 400: Nieprawidłowe żądanie |
+| \.northwindtraders.com www | Błąd 400: Nieprawidłowe żądanie |
 
 ### <a name="path-matching"></a>Dopasowanie ścieżki
 Po ustaleniu konkretnego hosta frontonu i zafiltrowaniu możliwych reguł routingu do tylko tras z tym hostem frontonu, a następnie przefiltruje reguły routingu na podstawie ścieżki żądania. Używamy podobnej logiki jako hostów frontonu:
@@ -80,35 +79,35 @@ Aby jeszcze bardziej wyjaśnić, przyjrzyjmy się innemu zestawowi przykładów:
 
 | Reguła routingu | Host frontonu    | Ścieżka     |
 |-------|---------|----------|
-| A     | contoso.com\.www | /        |
-| B     | contoso.com\.www | /\*      |
-| C     | contoso.com\.www | /ab      |
-| D     | contoso.com\.www | /abc     |
-| E     | contoso.com\.www | ABC    |
-| F     | contoso.com\.www | ABC\*  |
-| G     | contoso.com\.www | /abc/def |
-| H     | contoso.com\.www | /Path   |
+| A     | \.contoso.com www | /        |
+| B     | \.contoso.com www | /\*      |
+| C     | \.contoso.com www | /ab      |
+| D     | \.contoso.com www | /abc     |
+| E     | \.contoso.com www | ABC    |
+| F     | \.contoso.com www | ABC\*  |
+| G     | \.contoso.com www | /abc/def |
+| H     | \.contoso.com www | /Path   |
 
 Zgodnie z konfiguracją Poniższy przykład tabeli będzie miał wynik:
 
 | Żądanie przychodzące    | Dopasowana trasa |
 |---------------------|---------------|
-| contoso.com/\.www            | A             |
-| contoso.com/a\.www           | B             |
-| contoso.com/ab\.www          | C             |
-| contoso.com/abc\.www         | D             |
-| contoso.com/abzzz\.www       | B             |
-| contoso.com/abc/\.www        | E             |
-| contoso.com/abc/d\.www       | F             |
-| contoso.com/abc/def\.www     | G             |
-| contoso.com/abc/defzzz\.www  | F             |
-| contoso.com/abc/def/ghi\.www | F             |
-| contoso.com/path\.www        | B             |
-| contoso.com/path/\.www       | H             |
-| contoso.com/path/zzz\.www    | B             |
+| \.contoso.com/www            | A             |
+| \.contoso.com/a www           | B             |
+| \.contoso.com/AB www          | C             |
+| \.contoso.com/ABC www         | D             |
+| \.contoso.com/abzzz www       | B             |
+| \.contoso.com/ABC/www        | E             |
+| \.contoso.com/ABC/d www       | F             |
+| \.contoso.com/ABC/DEF www     | G             |
+| \.contoso.com/ABC/defzzz www  | F             |
+| \.contoso.com/ABC/DEF/ghi www | F             |
+| \.contoso.com/Path www        | B             |
+| \.contoso.com/Path/www       | H             |
+| \.contoso.com/Path/ZZZ www    | B             |
 
 >[!WARNING]
-> </br> Jeśli nie ma żadnych reguł routingu dla hosta frontonu dla dokładnego dopasowania ze ścieżką catch-all (`/*`), nie będzie można dopasować do żadnej reguły routingu.
+> </br> Jeśli nie ma żadnych reguł routingu dla hosta frontonu dla dokładnego dopasowania ze ścieżką catch-all ( `/*` ), nie będzie można dopasować do żadnej reguły routingu.
 >
 > Przykładowa konfiguracja:
 >

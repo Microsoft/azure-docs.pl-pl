@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80989531"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa aplikacji: Klasyfikacja aplikacje rozproszone
@@ -112,7 +111,7 @@ namespace CustomInitializer.Telemetry
 
 **ASP.NET Apps: Załaduj inicjator do aktywnego TelemetryConfiguration**
 
-W pliku ApplicationInsights. config:
+W ApplicationInsights.config:
 
 ```xml
     <ApplicationInsights>
@@ -138,7 +137,7 @@ Alternatywną metodą ASP.NET Web Apps jest tworzenie wystąpienia inicjatora w 
 ```
 
 > [!NOTE]
-> Dodawanie inicjatora `ApplicationInsights.config` przy użyciu `TelemetryConfiguration.Active` lub użycie nie jest prawidłowe dla aplikacji ASP.NET Core. 
+> Dodawanie inicjatora przy użyciu `ApplicationInsights.config` lub użycie `TelemetryConfiguration.Active` nie jest prawidłowe dla aplikacji ASP.NET Core. 
 
 **ASP.NET Core Apps: Załaduj inicjator do TelemetryConfiguration**
 
@@ -169,7 +168,7 @@ W przypadku [agenta Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app
 }
 ```
 
-Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej ```APPLICATIONINSIGHTS_ROLE_NAME```środowiskowej.
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej ```APPLICATIONINSIGHTS_ROLE_NAME``` .
 
 **Zestaw SDK Java**
 
@@ -199,7 +198,7 @@ appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
 appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
 ```
 
-### <a name="alternate-method-for-nodejs"></a>Alternatywna metoda dla środowiska Node. js
+### <a name="alternate-method-for-nodejs"></a>Alternatywna metoda dla Node.js
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -229,7 +228,7 @@ W miarę jak sądzisz o **nazwie roli w chmurze**, warto przyjrzeć się mapie a
 
 ![Zrzut ekranu mapy aplikacji](media/app-map/cloud-rolename.png)
 
-Na mapie aplikacji powyżej każdej z nazw w zielonych polach znajdują się wartości nazw ról w chmurze dla różnych aspektów tej konkretnej aplikacji rozproszonej. W przypadku tej aplikacji role składają się z: `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`. 
+Na mapie aplikacji powyżej każdej z nazw w zielonych polach znajdują się wartości nazw ról w chmurze dla różnych aspektów tej konkretnej aplikacji rozproszonej. W przypadku tej aplikacji role składają się z: `Authentication` , `acmefrontend` , `Inventory Management` , `Payment Processing Worker Role` . 
 
 W przypadku tej aplikacji każda z tych nazw roli w chmurze reprezentuje również inny unikatowy Application Insights zasób z własnymi kluczami Instrumentacji. Ponieważ właściciel tej aplikacji ma dostęp do każdego z czterech różnych zasobów Application Insights, Mapa aplikacji jest w stanie połączyć mapę relacji podstawowych.
 

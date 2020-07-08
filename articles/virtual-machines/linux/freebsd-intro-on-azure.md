@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
 ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261639"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Wprowadzenie do systemu FreeBSD na platformie Azure
@@ -52,7 +51,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Podczas instalacji zostanie wyświetlony monit `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Jeśli odpowiesz `y` i `/etc/rc.conf` wprowadzisz jako `a path to an rc file to update`, możesz rozwiązać ten `ERROR: [Errno 13] Permission denied`problem. Aby rozwiązać ten problem, należy udzielić uprawnienia do zapisu dla bieżącego użytkownika względem pliku `etc/rc.conf`.
+Podczas instalacji zostanie wyświetlony monit `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` . Jeśli odpowiesz `y` i wprowadzisz `/etc/rc.conf` jako `a path to an rc file to update` , możesz rozwiązać ten problem `ERROR: [Errno 13] Permission denied` . Aby rozwiązać ten problem, należy udzielić uprawnienia do zapisu dla bieżącego użytkownika względem pliku `etc/rc.conf` .
 
 Teraz możesz zalogować się do platformy Azure i utworzyć maszynę wirtualną FreeBSD. Poniżej przedstawiono przykład tworzenia maszyny wirtualnej z systemem FreeBSD 11,0. Możesz również dodać parametr `--public-ip-address-dns-name` z globalnie unikatową nazwą DNS dla nowo utworzonego publicznego adresu IP. 
 
@@ -103,7 +102,7 @@ Rozszerzenie [CustomScript](https://github.com/Azure/azure-linux-extensions/tree
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Uwierzytelnianie: nazwy użytkowników, hasła i klucze SSH
 Podczas tworzenia maszyny wirtualnej FreeBSD przy użyciu Azure Portal należy podać nazwę użytkownika, hasło lub klucz publiczny SSH.
 Nazwy użytkowników do wdrożenia maszyny wirtualnej FreeBSD na platformie Azure nie mogą być zgodne z nazwami kont systemu (UID <100), które już znajdują się na maszynie wirtualnej (na przykład "root").
-Obecnie obsługiwany jest tylko klucz SSH RSA. Wielowierszowy klucz SSH musi zaczynać się `---- BEGIN SSH2 PUBLIC KEY ----` od `---- END SSH2 PUBLIC KEY ----`i kończyć się znakiem.
+Obecnie obsługiwany jest tylko klucz SSH RSA. Wielowierszowy klucz SSH musi zaczynać się od `---- BEGIN SSH2 PUBLIC KEY ----` i kończyć się znakiem `---- END SSH2 PUBLIC KEY ----` .
 
 ## <a name="obtaining-superuser-privileges"></a>Uzyskiwanie uprawnień administratora
 Konto użytkownika określone podczas wdrażania wystąpienia maszyny wirtualnej na platformie Azure jest kontem uprzywilejowanym. Pakiet sudo został zainstalowany w opublikowanym obrazie FreeBSD.
@@ -113,7 +112,7 @@ Po zalogowaniu się za pomocą tego konta użytkownika można uruchomić polecen
 $ sudo <COMMAND>
 ```
 
-Opcjonalnie możesz uzyskać powłokę główną przy użyciu `sudo -s`.
+Opcjonalnie możesz uzyskać powłokę główną przy użyciu `sudo -s` .
 
 ## <a name="known-issues"></a>Znane problemy
 [Agent gościa maszyny wirtualnej platformy Azure](https://github.com/Azure/WALinuxAgent/) w wersji 2.2.2 ma [znany problem](https://github.com/Azure/WALinuxAgent/pull/517) , który powoduje niepowodzenie inicjowania obsługi maszyny wirtualnej FreeBSD na platformie Azure. Poprawka została przechwycona przez [agenta gościa maszyny wirtualnej platformy Azure](https://github.com/Azure/WALinuxAgent/) w wersji 2.2.3 i nowszych. 

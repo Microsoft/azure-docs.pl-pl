@@ -4,10 +4,9 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwa
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259514"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
@@ -282,7 +281,7 @@ Tak, ale należy zauważyć, że maszyna fizyczna może się nie powracać do ma
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Gdzie można pobrać klucze rejestracji magazynu?
 
-W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą** > **Manage**. Następnie w obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
+W magazynie Recovery Services wybierz pozycję **serwery konfiguracji** w obszarze **Site Recovery zarządzanie infrastrukturą**  >  **Manage**. Następnie w obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Czy można użyć jednego serwera konfiguracji do ochrony wielu wystąpień programu vCenter?
 

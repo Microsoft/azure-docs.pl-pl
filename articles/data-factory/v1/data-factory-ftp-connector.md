@@ -13,10 +13,9 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80992049"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Przenoszenie danych z serwera FTP przy użyciu Azure Data Factory
@@ -39,7 +38,7 @@ Jeśli przenosisz dane z lokalnego serwera FTP do magazynu danych **w** chmurze 
 
 Można zainstalować bramę na maszynie lokalnej lub IaaS maszyny wirtualnej jako serwer FTP. Zaleca się jednak zainstalowanie bramy na oddzielnym komputerze lub maszynie wirtualnej IaaS, aby uniknąć rywalizacji o zasoby i zwiększyć wydajność. Po zainstalowaniu bramy na oddzielnym komputerze komputer powinien mieć możliwość uzyskania dostępu do serwera FTP.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane ze źródła FTP przy użyciu różnych narzędzi lub interfejsów API.
 
 Najprostszym sposobem tworzenia potoku jest użycie **Kreatora kopiowania Data Factory**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu.
@@ -62,9 +61,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 W poniższej tabeli opisano elementy JSON specyficzne dla połączonej usługi FTP.
 
-| Właściwość | Opis | Wymagany | Domyślny |
+| Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| type |Ustaw tę wartość na FtpServer. |Tak |&nbsp; |
+| typ |Ustaw tę wartość na FtpServer. |Tak |&nbsp; |
 | host |Określ nazwę lub adres IP serwera FTP. |Tak |&nbsp; |
 | authenticationType |Określ typ uwierzytelniania. |Tak |Podstawowa, anonimowa |
 | nazwa użytkownika |Określ użytkownika, który ma dostęp do serwera FTP. |Nie |&nbsp; |
@@ -152,10 +151,10 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Zawiera informacje, które są specyficzne dla typu zestawu danych. Sekcja **typeProperties** dla zestawu danych typu **udziału** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | folderPath |Ścieżka podrzędna do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Przykłady można znaleźć w temacie przykładowe połączone usługi i zestawy danych.<br/><br/>Możesz połączyć tę właściwość z **partitionBy** , aby mieć ścieżki folderu na podstawie daty rozpoczęcia i zakończenia wycinka. |Tak |
-| fileName |Określ nazwę pliku w **folderPath** , jeśli chcesz, aby tabela odnosiła się do określonego pliku w folderze. Jeśli nie określisz żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Gdy nie określono **nazwy** pliku wyjściowego zestawu danych, nazwa wygenerowanego pliku jest w następującym formacie: <br/><br/>`Data.<Guid>.txt`(Przykład: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Nie |
+| fileName |Określ nazwę pliku w **folderPath** , jeśli chcesz, aby tabela odnosiła się do określonego pliku w folderze. Jeśli nie określisz żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Gdy nie określono **nazwy** pliku wyjściowego zestawu danych, nazwa wygenerowanego pliku jest w następującym formacie: <br/><br/>`Data.<Guid>.txt`(Przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
 | fileFilter |Określ filtr, który ma być używany do wybierania podzbioru plików w **folderPath**, a nie wszystkich plików.<br/><br/>Dozwolone wartości to: `*` (wiele znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1:`"fileFilter": "*.log"`<br/>Przykład 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **FileFilter** ma zastosowanie do wejściowego zestawu danych. Ta właściwość nie jest obsługiwana w rozproszony system plików Hadoop (HDFS). |Nie |
 | partitionedBy |Służy do określania dynamicznej **folderPath** i **nazwy pliku** dla danych szeregów czasowych. Na przykład można określić **folderPath** , który jest sparametryzowane dla każdej godziny danych. |Nie |
 | format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz skopiować pliki między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
@@ -203,7 +202,7 @@ Właściwości dostępne w sekcji **typeProperties** działania, z drugiej stron
 
 W działaniu kopiowania, gdy źródłem jest typ **FileSystemSource**, następująca właściwość jest dostępna w sekcji **typeProperties** :
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | rozpoznawania |Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. |Prawda, FAŁSZ (wartość domyślna) |Nie |
 
@@ -259,7 +258,7 @@ Zapoznaj się z sekcją [połączonej usługi FTP](#linked-service-properties) ,
 ```
 ### <a name="ftp-input-dataset"></a>Wejściowy zestaw danych FTP
 
-Ten zestaw danych odwołuje się do `mysharedfolder` folderu i `test.csv`pliku FTP. Potok kopiuje plik do miejsca docelowego.
+Ten zestaw danych odwołuje się do folderu `mysharedfolder` i pliku FTP `test.csv` . Potok kopiuje plik do miejsca docelowego.
 
 Ustawienie od **zewnątrz** do **true** informuje usługę Data Factory, że zestaw danych znajduje się poza fabryką danych i nie jest wytwarzany przez działanie w fabryce danych.
 

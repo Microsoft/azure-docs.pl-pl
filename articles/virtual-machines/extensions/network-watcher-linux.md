@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81255757"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Rozszerzenie agenta usługi Network Watcher dla maszyny wirtualnej dla systemu Linux
@@ -79,7 +78,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Network Watcher. Rozs
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft. Azure. NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| typ | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu

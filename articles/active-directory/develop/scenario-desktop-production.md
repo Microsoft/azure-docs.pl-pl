@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882883"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Przenieś do środowiska produkcyjnego
@@ -31,7 +30,7 @@ W różnych przepływach wiesz, jak obsłużyć błędy dla przepływów dyskret
 > [!NOTE]
 > Uzyskanie zgody na kilka zasobów działa w przypadku platformy tożsamości firmy Microsoft, ale nie dla Azure Active Directory (Azure AD) B2C. Azure AD B2C obsługuje tylko zgodę z uprawnieniami administratora, a nie za zgodą użytkownika.
 
-Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym Microsoft Identity platform (v 2.0). `scopes` Parametr może zawierać zakresy tylko dla pojedynczego zasobu. Można upewnić się, że użytkownik wstępnie wysłał kilka zasobów przy użyciu `extraScopesToConsent` parametru.
+Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym Microsoft Identity platform (v 2.0). `scopes`Parametr może zawierać zakresy tylko dla pojedynczego zasobu. Można upewnić się, że użytkownik wstępnie wysłał kilka zasobów przy użyciu `extraScopesToConsent` parametru.
 
 Przykładowo mogą istnieć dwa zasoby, które mają dwa zakresy:
 

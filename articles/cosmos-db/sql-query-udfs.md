@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81011127"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funkcje zdefiniowane przez użytkownika (UDF) w Azure Cosmos DB
@@ -32,7 +31,7 @@ Jeśli w zapytaniu należy użyć tej samej wartości UDF wielokrotnie, należy 
 
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład rejestruje UDF w kontenerze elementu w bazie danych Cosmos. W przykładzie tworzony jest `REGEX_MATCH`format UDF o nazwie. Akceptuje dwie wartości ciągu JSON `input` i `pattern`i sprawdza, czy pierwsze pasuje do wzorca określonego w drugim przy użyciu `string.match()` funkcji JavaScript.
+Poniższy przykład rejestruje UDF w kontenerze elementu w bazie danych Cosmos. W przykładzie tworzony jest format UDF o nazwie `REGEX_MATCH` . Akceptuje dwie wartości ciągu JSON `input` i `pattern` i sprawdza, czy pierwsze pasuje do wzorca określonego w drugim przy użyciu `string.match()` funkcji JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +47,7 @@ Poniższy przykład rejestruje UDF w kontenerze elementu w bazie danych Cosmos. 
            regexMatchUdf).Result;  
 ```
 
-Teraz Użyj tego formatu UDF w projekcji zapytania. Należy zakwalifikować UDF z prefiksem `udf.` z rozróżnianiem wielkości liter podczas wywoływania ich z poziomu zapytań.
+Teraz Użyj tego formatu UDF w projekcji zapytania. Należy zakwalifikować UDF z prefiksem z rozróżnianiem wielkości liter `udf.` podczas wywoływania ich z poziomu zapytań.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")

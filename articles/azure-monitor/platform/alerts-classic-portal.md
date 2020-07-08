@@ -6,10 +6,9 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114577"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Twórz i wyświetlaj klasyczne alerty metryk i zarządzaj nimi za pomocą Azure Monitor
@@ -34,7 +33,7 @@ Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień,
 
 6. Wybierz **właścicieli poczty e-mail...** , jeśli chcesz, aby administratorzy i współadministratorzy otrzymywali powiadomienia e-mail o alertach.
 
-7. Jeśli chcesz wysyłać powiadomienia do dodatkowych adresów e-mail po uruchomieniu alertu, Dodaj je w polu dodatkowe adresy **E-mail administratora** . Oddziel wiele wiadomości e-mail średnikami, w następującym formacie: *e-mail\@contoso. com; email2\@contoso.com*
+7. Jeśli chcesz wysyłać powiadomienia do dodatkowych adresów e-mail po uruchomieniu alertu, Dodaj je w polu dodatkowe adresy **E-mail administratora** . Oddziel wiele wiadomości e-mail średnikami, w następującym formacie: *e-mail \@ contoso. com; email2 \@ contoso.com*
 
 8. Wprowadź prawidłowy identyfikator URI w polu **elementu webhook** , jeśli chcesz, aby był on wywoływany po uruchomieniu alertu.
 
