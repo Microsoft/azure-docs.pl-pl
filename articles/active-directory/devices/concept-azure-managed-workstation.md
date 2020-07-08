@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672657"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure

@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
 ms.openlocfilehash: 0d3f0a61da3654c31c99cfac43c86b081876f700
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78944576"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalowanie bazy danych MySQL na maszynie wirtualnej z systemem OpenSUSE Linux na platformie Azure
@@ -98,7 +97,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Hasło MySQL
 
-Po zakończeniu instalacji hasło główne programu MySQL jest domyślnie puste. Uruchom skrypt **instalacji\_bezpiecznego\_MySQL** , aby zabezpieczyć MySQL. Skrypt poprosi o zmianę hasła głównego programu MySQL, usunięcie kont użytkowników anonimowych, wyłączenie zdalnego logowania się, usunięcie testów baz danych i ponowne załadowanie tabeli uprawnień. 
+Po zakończeniu instalacji hasło główne programu MySQL jest domyślnie puste. Uruchom skrypt ** \_ \_ instalacji bezpiecznego MySQL** , aby zabezpieczyć MySQL. Skrypt poprosi o zmianę hasła głównego programu MySQL, usunięcie kont użytkowników anonimowych, wyłączenie zdalnego logowania się, usunięcie testów baz danych i ponowne załadowanie tabeli uprawnień. 
 
 Po ponownym uruchomieniu serwera należy ponownie przeprowadzić protokół SSH do maszyny wirtualnej.
 
@@ -133,7 +132,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ## <a name="create-a-database"></a>Tworzenie bazy danych
 
 
-Utwórz bazę danych i Udziel uprawnień `mysqluser` użytkownika.
+Utwórz bazę danych i Udziel `mysqluser` uprawnień użytkownika.
 
 ```sql
 CREATE DATABASE testdatabase;

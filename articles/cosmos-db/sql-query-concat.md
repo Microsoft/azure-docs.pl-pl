@@ -8,10 +8,9 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78302614"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
@@ -26,7 +25,7 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 ## <a name="arguments"></a>Argumenty
   
 *str_expr*  
-   Jest wyrażeniem ciągu do łączenia z innymi wartościami. `CONCAT` Funkcja wymaga co najmniej dwóch argumentów *str_expr* .  
+   Jest wyrażeniem ciągu do łączenia z innymi wartościami. `CONCAT`Funkcja wymaga co najmniej dwóch argumentów *str_expr* .  
   
 ## <a name="return-types"></a>Typy zwracane
   

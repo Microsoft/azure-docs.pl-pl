@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78926711"
 ---
 # <a name="import-the-postman-environment"></a>Importowanie środowiska programu Poster  
@@ -25,7 +24,7 @@ ms.locfileid: "78926711"
 Ten artykuł zawiera definicję zmiennych środowiskowych programu **Poster** , które są używane w [kolekcji programu Poster](postman-collection.md) , która zawiera zgrupowane żądania HTTP, które wywołują Media Services interfejsów API REST. Pliki środowiska i kolekcji są używane przez kreatora [konfigurowania programu do obsługi wywołań interfejsu API REST Media Services](media-rest-apis-with-postman.md) .
 
 > [!NOTE]
-> `AzureADSTSEndpoint `  = Wartość `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. Aby uzyskać identyfikator dzierżawy, możesz umieścić wskaźnik myszy nad nazwą użytkownika w portalu (w prawym górnym rogu) i będzie on znajdować się w katalogu "katalog: Microsoft ({{TENANTID}}").
+> Wartość `AzureADSTSEndpoint `  =  `https://login.microsoftonline.com/{{TenantId}}/oauth2/token` . Aby uzyskać identyfikator dzierżawy, możesz umieścić wskaźnik myszy nad nazwą użytkownika w portalu (w prawym górnym rogu) i będzie on znajdować się w katalogu "katalog: Microsoft ({{TENANTID}}").
 
 ```
 {

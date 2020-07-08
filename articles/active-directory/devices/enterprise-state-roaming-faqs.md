@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672389"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
@@ -76,8 +75,8 @@ W listopadzie 2015 lub nowszych wersjach systemu Windows 10 Enterprise State Roa
 
 Gdy wiele kont usługi Azure AD z różnych dzierżaw usługi Azure AD znajduje się na tym samym urządzeniu, należy zaktualizować rejestr urządzenia, aby komunikować się z usługą Azure Rights Management dla każdej dzierżawy usługi Azure AD.  
 
-1. Znajdź identyfikator GUID dla każdej dzierżawy usługi Azure AD. Otwórz Azure Portal i wybierz dzierżawę usługi Azure AD. Identyfikator GUID dla dzierżawy znajduje się na stronie właściwości wybranej dzierżawy (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), **Identyfikator katalogu**oznaczonego nazwą. 
-2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE identyfikator GUID identyfikatora dzierżawy \software\microsoft\windows\settingsync\winmsipc\<>**.
+1. Znajdź identyfikator GUID dla każdej dzierżawy usługi Azure AD. Otwórz Azure Portal i wybierz dzierżawę usługi Azure AD. Identyfikator GUID dla dzierżawy znajduje się na stronie właściwości wybranej dzierżawy ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) , **Identyfikator katalogu**oznaczonego nazwą. 
+2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> **.
    W kluczu **GUID identyfikatora dzierżawy** Utwórz nową wartość ciągu wielociągowego (reg-wiele-SZ) o nazwie **AllowedRMSServerUrls**. W przypadku danych określ adresy URL punktów dystrybucji licencjonowania innych dzierżawców platformy Azure, do których uzyskuje dostęp urządzenie.
 3. Adresy URL punktów dystrybucji licencjonowania można znaleźć, uruchamiając polecenie cmdlet **Get-AadrmConfiguration** w module aadrm. Jeśli wartości dla **LicensingIntranetDistributionPointUrl** i **LicensingExtranetDistributionPointUrl** są różne, określ obie wartości. Jeśli wartości są takie same, określ wartość tylko raz.
 
@@ -112,7 +111,7 @@ W systemie Windows 10 nie ma ustawienia MDM ani zasady grupy, aby wyłączyć ro
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>Jak włączyć lub wyłączyć roaming?
 
-W aplikacji **Ustawienia** przejdź do pozycji **konta** > **Synchronizowanie ustawień**. Na tej stronie można sprawdzić, które konto jest używane do roamingu ustawień, a także włączyć lub wyłączyć poszczególne grupy ustawień do przeroamingu.
+W aplikacji **Ustawienia** przejdź do pozycji **konta**  >  **Synchronizowanie ustawień**. Na tej stronie można sprawdzić, które konto jest używane do roamingu ustawień, a także włączyć lub wyłączyć poszczególne grupy ustawień do przeroamingu.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Jakie są zalecenia firmy Microsoft dotyczące włączania roamingu w systemie Windows 10?
 

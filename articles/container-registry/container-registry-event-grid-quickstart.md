@@ -5,21 +5,20 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403241"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Szybki Start: wysyłanie zdarzeń z rejestru kontenerów prywatnych do Event Grid
 
-Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która zapewnia jednorodne użycie zdarzeń przy użyciu modelu publikowania/subskrybowania. W tym przewodniku szybki start utworzysz rejestr kontenerów za pomocą interfejsu wiersza polecenia platformy Azure, zasubskrybujesz zdarzenia rejestru, a następnie wdrożono przykładową aplikację sieci Web do odbierania zdarzeń. Na koniec Wyzwalasz obraz `push` kontenera i `delete` zdarzenia i wyświetlasz ładunek zdarzenia w przykładowej aplikacji.
+Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która zapewnia jednorodne użycie zdarzeń przy użyciu modelu publikowania/subskrybowania. W tym przewodniku szybki start utworzysz rejestr kontenerów za pomocą interfejsu wiersza polecenia platformy Azure, zasubskrybujesz zdarzenia rejestru, a następnie wdrożono przykładową aplikację sieci Web do odbierania zdarzeń. Na koniec Wyzwalasz obraz kontenera `push` i `delete` zdarzenia i wyświetlasz ładunek zdarzenia w przykładowej aplikacji.
 
 Po wykonaniu kroków opisanych w tym artykule zdarzenia wysyłane z rejestru kontenerów do Event Grid są wyświetlane w przykładowej aplikacji sieci Web:
 
 ![Przeglądarka sieci Web renderuje przykładową aplikację internetową przy użyciu trzech odebranych zdarzeń][sample-app-01]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][azure-account] .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][azure-account].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,7 +36,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Następnie wdróż rejestr kontenerów w grupie zasobów przy użyciu następujących poleceń. Przed uruchomieniem polecenia [AZ ACR Create][az-acr-create] Ustaw `ACR_NAME` jako nazwę rejestru. Nazwa musi być unikatowa w ramach platformy Azure i jest ograniczona do 5-50 znaków alfanumerycznych.
+Następnie wdróż rejestr kontenerów w grupie zasobów przy użyciu następujących poleceń. Przed uruchomieniem polecenia [AZ ACR Create][az-acr-create] Ustaw jako `ACR_NAME` nazwę rejestru. Nazwa musi być unikatowa w ramach platformy Azure i jest ograniczona do 5-50 znaków alfanumerycznych.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -73,7 +72,7 @@ Po utworzeniu rejestru interfejs wiersza polecenia platformy Azure zwraca dane w
 
 W tej sekcji użyjesz szablonu Menedżer zasobów znajdującego się w repozytorium GitHub do wdrożenia wstępnie skompilowanej przykładowej aplikacji sieci Web do Azure App Service. Później można subskrybować zdarzenia Event Grid w rejestrze i określić tę aplikację jako punkt końcowy, do którego są wysyłane zdarzenia.
 
-Aby wdrożyć przykładową aplikację, ustaw `SITE_NAME` jako unikatową nazwę aplikacji sieci Web i wykonaj następujące polecenia. Nazwa witryny musi być unikatowa w ramach platformy Azure, ponieważ stanowi część w pełni kwalifikowanej nazwy domeny (FQDN) aplikacji sieci Web. W dalszej części możesz przejść do nazwy FQDN aplikacji w przeglądarce sieci Web, aby wyświetlić zdarzenia rejestru.
+Aby wdrożyć przykładową aplikację, Ustaw jako `SITE_NAME` unikatową nazwę aplikacji sieci Web i wykonaj następujące polecenia. Nazwa witryny musi być unikatowa w ramach platformy Azure, ponieważ stanowi część w pełni kwalifikowanej nazwy domeny (FQDN) aplikacji sieci Web. W dalszej części możesz przejść do nazwy FQDN aplikacji w przeglądarce sieci Web, aby wyświetlić zdarzenia rejestru.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -194,15 +193,15 @@ Are you sure you want to continue? (y/n):
 
 ## <a name="view-registry-events"></a>Wyświetlanie zdarzeń rejestru
 
-Teraz można wypchnąć obraz do rejestru, a następnie go usunąć. Przejdź do aplikacji sieci Web w przeglądarce Event Grid i zobacz oba `ImageDeleted` zdarzenia i. `ImagePushed` Możesz również zobaczyć zdarzenie weryfikacji subskrypcji wygenerowane przez wykonanie polecenia w sekcji [subskrybowanie zdarzeń rejestru](#subscribe-to-registry-events) .
+Teraz można wypchnąć obraz do rejestru, a następnie go usunąć. Przejdź do aplikacji sieci Web w przeglądarce Event Grid i zobacz oba `ImageDeleted` `ImagePushed` zdarzenia i. Możesz również zobaczyć zdarzenie weryfikacji subskrypcji wygenerowane przez wykonanie polecenia w sekcji [subskrybowanie zdarzeń rejestru](#subscribe-to-registry-events) .
 
 Poniższy zrzut ekranu przedstawia przykładową aplikację z trzema zdarzeniami, a `ImageDeleted` zdarzenie jest rozwinięte, aby wyświetlić jego szczegóły.
 
 ![Przeglądarka sieci Web przedstawiająca przykładową aplikację ze zdarzeniami ImagePushed i ImageDeleted][sample-app-03]
 
-Gratulacje! Jeśli widzisz zdarzenia `ImagePushed` i `ImageDeleted` , rejestr wysyła zdarzenia do Event Grid, a Event Grid przekazuje te zdarzenia do punktu końcowego aplikacji sieci Web.
+Gratulacje! Jeśli widzisz `ImagePushed` zdarzenia i `ImageDeleted` , rejestr wysyła zdarzenia do Event Grid, a Event Grid przekazuje te zdarzenia do punktu końcowego aplikacji sieci Web.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po wykonaniu zasobów utworzonych w ramach tego przewodnika Szybki Start można je usunąć za pomocą poniższego polecenia platformy Azure. Po usunięciu grupy zasobów wszystkie zawarte w niej zasoby są trwale usuwane.
 

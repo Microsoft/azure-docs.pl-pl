@@ -10,10 +10,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78399109"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning monitorowania
@@ -50,7 +49,7 @@ Wszystkie metryki dla Azure Machine Learning znajdują się w **obszarze roboczy
 
 ### <a name="filtering-and-splitting"></a>Filtrowanie i dzielenie
 
-W przypadku metryk, które obsługują wymiary, można zastosować filtry przy użyciu wartości wymiaru. Na przykład filtrowanie **aktywnych rdzeni** dla **nazwy klastra** `cpu-cluster`. 
+W przypadku metryk, które obsługują wymiary, można zastosować filtry przy użyciu wartości wymiaru. Na przykład filtrowanie **aktywnych rdzeni** dla **nazwy klastra** `cpu-cluster` . 
 
 Możesz również podzielić metrykę według wymiaru, aby wizualizować różne segmenty porównania z innymi. Na przykład należy podzielić **Typ etapu potoku** , aby zobaczyć liczbę typów kroków użytych w potoku.
 
@@ -68,7 +67,7 @@ Poniższa tabela zawiera listę typowych i zalecanych reguł alertów dotyczący
 | Procent wykorzystania przydziałów | Typ agregacji: Average, operator: większe niż, wartość progowa: 90| Gdy wartość procentowa wykorzystania przydziałów jest większa niż 90% |
 | Węzły niezdatne do użytku | Typ agregacji: łącznie, operator: większy niż, wartość progowa: 0 | Gdy istnieje co najmniej jeden niezdatny do użytku węzeł |
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 > [!IMPORTANT]
 > __Nie trzeba konfigurować metryk dla Azure Machine Learning__, są one zbierane automatycznie i są dostępne w Eksplorator metryk do monitorowania i wysyłania alertów.

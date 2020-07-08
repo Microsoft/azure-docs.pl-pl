@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78933756"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Zarządzanie usługą StorSimple Data Manager w programie Azure Portal
@@ -48,7 +47,7 @@ Wykonaj następujące kroki, aby utworzyć usługę StorSimple Data Manager.
     
    5. Aby uzyskać link do tej usługi na pulpicie nawigacyjnym, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**.
     
-   6. Kliknij przycisk **Utwórz**.
+   6. Kliknij pozycję **Utwórz**.
 
       ![Tworzenie usługi StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 

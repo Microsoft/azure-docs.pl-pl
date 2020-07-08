@@ -10,10 +10,9 @@ ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672153"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Kierowanie zdarzeń konfiguracji aplikacji platformy Azure do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -44,7 +43,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
-Zamień `<appconfig_name>` na unikatową nazwę magazynu konfiguracji oraz `<resource_group_name>` utworzoną wcześniej grupę zasobów. Nazwa musi być unikatowa, ponieważ jest używana jako nazwa DNS.
+Zamień na `<appconfig_name>` unikatową nazwę magazynu konfiguracji oraz `<resource_group_name>` utworzoną wcześniej grupę zasobów. Nazwa musi być unikatowa, ponieważ jest używana jako nazwa DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -121,7 +120,7 @@ Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu
 }]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli planujesz kontynuować pracę z tą konfiguracją aplikacji i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuowania pracy, użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 Zamień `<resource_group_name>` na utworzoną powyżej grupę zasobów.

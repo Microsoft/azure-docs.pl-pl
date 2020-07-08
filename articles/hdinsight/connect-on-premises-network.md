@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78897917"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Łączenie usługi HDInsight z siecią lokalną
@@ -69,7 +68,7 @@ Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy u�
 
     ![Tworzenie maszyny wirtualnej Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Wybierz pozycję **Oblicz** > **maszynę wirtualną** , aby przejść do strony **Tworzenie maszyny wirtualnej** .
+1. Wybierz pozycję **Oblicz**  >  **maszynę wirtualną** , aby przejść do strony **Tworzenie maszyny wirtualnej** .
 
 1. Na karcie __podstawowe__ wprowadź następujące informacje:  
   
@@ -180,7 +179,7 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    Ten `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` tekst jest __sufiksem DNS__ dla tej sieci wirtualnej. Zapisz tę wartość, ponieważ jest ona używana później.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net`Ten tekst jest __sufiksem DNS__ dla tej sieci wirtualnej. Zapisz tę wartość, ponieważ jest ona używana później.
 
 5. Aby skonfigurować powiązanie do rozpoznawania nazw DNS dla zasobów w sieci wirtualnej, użyj następującego tekstu jako zawartości `/etc/bind/named.conf.local` pliku:
 
@@ -215,9 +214,9 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
     ```
 
     > [!IMPORTANT]  
-    > Zamień `dns.mynetwork.net` na w pełni kwalifikowaną nazwę domeny (FQDN) zasobu w sieci lokalnej.
+    > Zamień na w `dns.mynetwork.net` pełni kwalifikowaną nazwę domeny (FQDN) zasobu w sieci lokalnej.
     >
-    > Zamień `10.0.0.4` na __wewnętrzny adres IP__ niestandardowego serwera DNS w sieci wirtualnej.
+    > Zamień na `10.0.0.4` __wewnętrzny adres IP__ niestandardowego serwera DNS w sieci wirtualnej.
 
     Odpowiedź będzie wyglądać podobnie do następującego tekstu:
 
@@ -234,7 +233,7 @@ Po utworzeniu maszyny wirtualnej otrzymasz powiadomienie o **pomyślnym wdrożen
 
 Aby skonfigurować sieć wirtualną do korzystania z niestandardowego serwera DNS zamiast programu rozpoznawania cyklicznego Azure, wykonaj następujące kroki w [Azure Portal](https://portal.azure.com):
 
-1. W menu po lewej stronie przejdź do **wszystkich usług** > **Networking** > sieci**wirtualne sieci wirtualnych**.
+1. W menu po lewej stronie przejdź do **wszystkich usług**  >  **sieci**  >  **wirtualne sieci wirtualnych**.
 
 2. Z listy wybierz sieć wirtualną, która spowoduje otwarcie widoku domyślnego dla sieci wirtualnej.  
 
@@ -269,7 +268,7 @@ Po skonfigurowaniu lokalnego serwera DNS można użyć `nslookup` programu z sie
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.4
 ```
 
-Ten przykład używa lokalnego serwera DNS pod adresem 196.168.0.4, aby rozpoznać nazwę niestandardowego serwera DNS. Zastąp adres IP serwerem lokalnym DNS. Zastąp `dnsproxy` adres z w pełni kwalifikowaną nazwą domeny NIESTANDARDOWEGO serwera DNS.
+Ten przykład używa lokalnego serwera DNS pod adresem 196.168.0.4, aby rozpoznać nazwę niestandardowego serwera DNS. Zastąp adres IP serwerem lokalnym DNS. Zastąp `dnsproxy` adres z w pełni kwalifikowaną nazwą domeny niestandardowego serwera DNS.
 
 ## <a name="optional-control-network-traffic"></a>Opcjonalne: sterowanie ruchem sieciowym
 

@@ -4,10 +4,9 @@ description: Dowiedz się, jak uaktualnić agenta Microsoft Azure Recovery Servi
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 49daf438b855d19961519d93b6c3ec535de4756f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78672897"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Uaktualnij agenta Microsoft Azure Recovery Services (MARS)
@@ -60,7 +59,7 @@ Po zidentyfikowaniu serwerów, które wymagają aktualizacji agenta Azure Backup
     -- | ---
     Azure Cloud (Publiczny) |   `https://login.windows.net`
     Azure Chiny — chmura 21Vianet   | `https://login.chinacloudapi.cn`
-    Chmura dla instytucji rządowych USA platformy Azure |   `https://login.microsoftonline.us`
+    Chmura platformy Azure dla instytucji rządowych USA |   `https://login.microsoftonline.us`
     Chmura w języku niemieckim platformy Azure  |  `https://login.microsoftonline.de`
 
 1. Skopiuj do serwera Instalatora aktualizacji agenta usługi Azure Backup.

@@ -4,10 +4,9 @@ description: Szczegółowe informacje na temat efektywnego zarządzania rozmiare
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78403342"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Usuwanie obrazów kontenera w Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -101,7 +100,7 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): 
 ```
 
-`acr-helloworld:v2` Obraz jest usuwany z rejestru, podobnie jak wszystkie dane warstwy, które są unikatowe dla tego obrazu. Jeśli manifest jest skojarzony z wieloma tagami, wszystkie skojarzone Tagi również zostaną usunięte.
+`acr-helloworld:v2`Obraz jest usuwany z rejestru, podobnie jak wszystkie dane warstwy, które są unikatowe dla tego obrazu. Jeśli manifest jest skojarzony z wieloma tagami, wszystkie skojarzone Tagi również zostaną usunięte.
 
 ## <a name="delete-digests-by-timestamp"></a>Usuń Skróty według sygnatury czasowej
 
@@ -114,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-Po zidentyfikowaniu starych szyfrowanych manifestów można uruchomić następujący skrypt bash, aby usunąć skróty manifestu starsze niż określona sygnatura czasowa. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na `true` , aby włączyć usuwanie obrazu.
+Po zidentyfikowaniu starych szyfrowanych manifestów można uruchomić następujący skrypt bash, aby usunąć skróty manifestu starsze niż określona sygnatura czasowa. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na, aby `true` włączyć usuwanie obrazu.
 
 > [!WARNING]
 > Użyj następującego przykładowego skryptu z przestrogą — usunięte dane obrazu są NIEODWRACALNe. Jeśli masz systemy, które pobierają obrazy za pomocą skrótu manifestu (w przeciwieństwie do nazwy obrazu), nie należy uruchamiać tych skryptów. Usunięcie skrótu manifestu uniemożliwi tym systemom ściąganie obrazów z rejestru. Zamiast ściągania według manifestu należy rozważyć przyjęcie *unikatowego schematu znakowania* , [zalecane najlepsze rozwiązanie](container-registry-image-tag-version.md). 
@@ -199,7 +198,7 @@ Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#
    ]
    ```
 
-Jak widać w danych wyjściowych ostatniego kroku sekwencji, istnieje teraz oddzielony manifest, którego `"tags"` właściwość jest pustą listą. Ten manifest nadal istnieje w rejestrze wraz ze wszystkimi unikatowymi danymi warstwy, do których się odwołuje. **Aby usunąć obrazy oddzielone i ich dane warstwowe, należy usunąć je za pomocą skrótu manifestu**.
+Jak widać w danych wyjściowych ostatniego kroku sekwencji, istnieje teraz oddzielony manifest, którego `"tags"` Właściwość jest pustą listą. Ten manifest nadal istnieje w rejestrze wraz ze wszystkimi unikatowymi danymi warstwy, do których się odwołuje. **Aby usunąć obrazy oddzielone i ich dane warstwowe, należy usunąć je za pomocą skrótu manifestu**.
 
 ## <a name="delete-all-untagged-images"></a>Usuń wszystkie obrazy nieoznakowane
 
@@ -216,7 +215,7 @@ Korzystając z tego polecenia w skrypcie, można usunąć wszystkie nieoznaczone
 
 **Interfejs wiersza polecenia platformy Azure w bash**
 
-Poniższy skrypt bash usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na `true` , aby włączyć usuwanie obrazu.
+Poniższy skrypt bash usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga interfejsu wiersza polecenia platformy Azure i **xargs**. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `ENABLE_DELETE` wartość na, aby `true` włączyć usuwanie obrazu.
 
 ```bash
 #!/bin/bash
@@ -246,7 +245,7 @@ fi
 
 **Interfejs wiersza polecenia platformy Azure w programie PowerShell**
 
-Poniższy skrypt programu PowerShell usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga programu PowerShell i interfejsu wiersza polecenia platformy Azure. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `$enableDelete` wartość na `$TRUE` , aby włączyć usuwanie obrazu.
+Poniższy skrypt programu PowerShell usuwa wszystkie nieoznakowane obrazy z repozytorium. Wymaga programu PowerShell i interfejsu wiersza polecenia platformy Azure. Domyślnie skrypt nie wykonuje operacji usuwania. Zmień `$enableDelete` wartość na, aby `$TRUE` włączyć usuwanie obrazu.
 
 ```powershell
 # WARNING! This script deletes data!

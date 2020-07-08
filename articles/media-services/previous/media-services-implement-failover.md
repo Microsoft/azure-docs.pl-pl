@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78939223"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
@@ -62,8 +61,8 @@ Obowiązują następujące zastrzeżenia:
 W tej sekcji utworzysz i skonfigurujesz projekt aplikacji konsolowej C#.
 
 1. Użyj programu Visual Studio, aby utworzyć nowe rozwiązanie, które zawiera projekt aplikacji konsolowej C#. Wprowadź **HandleRedundancyForOnDemandStreaming** jako nazwę, a następnie kliknij przycisk **OK**.
-2. Utwórz folder **SupportFiles** na tym samym poziomie co plik projektu **HandleRedundancyForOnDemandStreaming. csproj** . W folderze **SupportFiles** Utwórz foldery **OutputFiles** i **MP4Files** . Skopiuj plik MP4 do folderu **MP4Files** . (W tym przykładzie jest używany plik " **zapłon. mp4** "). 
-3. Użyj narzędzia **NuGet** , aby dodać odwołania do bibliotek DLL związanych z Media Services. W **menu głównym programu Visual Studio**wybierz kolejno pozycje **Narzędzia** > **Menedżer** > pakietów NuGet**konsola Menedżera pakietów**. W oknie konsoli wpisz **install-package windowsazure. MediaServices**, a następnie naciśnij klawisz ENTER.
+2. Utwórz folder **SupportFiles** na tym samym poziomie co plik projektu **HandleRedundancyForOnDemandStreaming. csproj** . W folderze **SupportFiles** Utwórz foldery **OutputFiles** i **MP4Files** . Skopiuj plik MP4 do folderu **MP4Files** . (W tym przykładzie używany jest plik **ignite.mp4** ). 
+3. Użyj narzędzia **NuGet** , aby dodać odwołania do bibliotek DLL związanych z Media Services. W **menu głównym programu Visual Studio**wybierz kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **konsola Menedżera pakietów**. W oknie konsoli wpisz **install-package windowsazure. MediaServices**, a następnie naciśnij klawisz ENTER.
 4. Dodaj inne odwołania, które są wymagane dla tego projektu: System. Runtime. Serialization i system. Web.
 5. Zastąp instrukcje **using** , które zostały dodane do pliku **Programs.cs** domyślnie przy użyciu następujących elementów:
 
@@ -763,6 +762,6 @@ Za pomocą Menedżera ruchu można teraz kierować żądania między dwoma centr
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
