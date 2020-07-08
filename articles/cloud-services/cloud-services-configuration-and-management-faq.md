@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c418ed87bd74471ce8c2e8186bd6244eaf6f21de
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921584"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy związane z konfiguracją i zarządzaniem w usłudze Azure Cloud Services: często zadawane pytania
 
@@ -97,11 +96,13 @@ CSR jest tylko plikiem tekstowym. Nie trzeba go tworzyć na komputerze, na któr
 
 Aby odnowić certyfikaty zarządzania, można użyć następujących poleceń programu PowerShell:
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
-Element **Get-AzurePublishSettingsFile** utworzy nowy certyfikat zarządzania w ramach**certyfikatów zarządzania** **subskrypcjami** > w Azure Portal. Nazwa nowego certyfikatu wygląda jak "YourSubscriptionNam]-[CurrentDate]-Credentials".
+Element **Get-AzurePublishSettingsFile** utworzy nowy certyfikat zarządzania w ramach **Subscription**  >  **certyfikatów zarządzania** subskrypcjami w Azure Portal. Nazwa nowego certyfikatu wygląda jak "YourSubscriptionNam]-[CurrentDate]-Credentials".
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Jak zautomatyzować instalację głównego certyfikatu TLS/SSL (pfx) i certyfikatu pośredniego (. p7b)?
 
@@ -111,7 +112,7 @@ Można zautomatyzować to zadanie przy użyciu skryptu uruchamiania (Batch/cmd/P
 
 Ten certyfikat służy do szyfrowania kluczy komputera w rolach sieci Web platformy Azure. Aby dowiedzieć się więcej, zapoznaj się z [tym poradnikiem](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Typowe zadania uruchamiania usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -189,7 +190,7 @@ Firma Microsoft stale monitoruje serwery, sieci i aplikacje w celu wykrywania za
 
 Systemy Windows 10 i Windows Server 2016 są dostarczane z obsługą protokołu HTTP/2 zarówno po stronie klienta, jak i serwera. Jeśli klient (przeglądarka) nawiązuje połączenie z serwerem IIS za pośrednictwem protokołu TLS, który negocjuje protokół HTTP/2 za pośrednictwem rozszerzeń TLS, nie trzeba wprowadzać żadnych zmian po stronie serwera. Wynika to z faktu, że za pośrednictwem protokołu TLS jest domyślnie wysyłany nagłówek H2-14 określający użycie protokołu HTTP/2. Jeśli z drugiej strony klient wysyła nagłówek uaktualnienia w celu uaktualnienia do protokołu HTTP/2, należy wprowadzić zmianę poniżej na stronie serwera, aby upewnić się, że uaktualnienie działa i zostanie zakończone połączenie HTTP/2. 
 
-1. Uruchom regedit. exe.
+1. Uruchom regedit.exe.
 2. Przejdź do klucza rejestru: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Utwórz nową wartość DWORD o nazwie **DuoEnabled**.
 4. Ustaw jej wartość na 1.
@@ -253,7 +254,7 @@ Aby uzyskać więcej informacji na temat włączania rejestrowania Diagnostyka A
 ## <a name="generic"></a>Ogólny
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Jak mogę dodać "nowykrywanie" do mojej witryny sieci Web?
-Aby uniemożliwić klientom wykrywanie typów MIME, Dodaj ustawienie w pliku *Web. config* .
+Aby uniemożliwić klientom wykrywanie typów MIME, Dodaj ustawienie w pliku *web.config* .
 
 ```xml
 <configuration>
@@ -282,7 +283,7 @@ Zobacz [limity dotyczące usługi](../azure-resource-manager/management/azure-su
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Dlaczego dysk na maszynie wirtualnej usługi w chmurze pokazuje bardzo mało wolnego miejsca na dysku?
 Jest to oczekiwane zachowanie i nie powinno spowodować jakiegokolwiek problemu dla aplikacji. Funkcja rejestrowania jest włączona dla dysku% głównego aplikacji% na maszynach wirtualnych usługi Azure PaaS, które zasadniczo zużywają dwukrotnie ilość miejsca, w którym zwykle zajmują się pliki. Należy jednak pamiętać o kilku kwestiach, które zasadniczo przenoszą tę funkcję na nieemisyjną.
 
-Rozmiar dysku% głównego aplikacji% jest obliczany jako \<rozmiar. cspkg + maksymalny rozmiar dziennika + margines wolnego miejsca> lub 1,5 GB, w zależności od tego, który jest większy. Rozmiar maszyny wirtualnej nie ma znaczenia dla tego obliczenia. Rozmiar maszyny wirtualnej ma wpływ tylko na rozmiar dysku tymczasowego C:. 
+Rozmiar dysku% głównego aplikacji% jest obliczany jako \<size of .cspkg + max journal size + a margin of free space> lub 1,5 GB, w zależności od tego, który jest większy. Rozmiar maszyny wirtualnej nie ma znaczenia dla tego obliczenia. Rozmiar maszyny wirtualnej ma wpływ tylko na rozmiar dysku tymczasowego C:. 
 
 Zapis na dysku% głównego aplikacji% nie jest obsługiwany. Jeśli piszesz na maszynę wirtualną platformy Azure, musisz to zrobić w tymczasowym zasobie LocalStorage (lub innej opcji, takiej jak BLOB Storage, Azure Files itp.). Ilość wolnego miejsca w folderze% głównego aplikacji% jest niezrozumiała. Jeśli nie masz pewności, czy aplikacja zapisuje się na dysku% głównego aplikacji%, zawsze możesz pozwolić, aby usługa działała przez kilka dni, a następnie porównać rozmiary "Before" i "After". 
 
@@ -306,9 +307,11 @@ SNI można włączyć w Cloud Services przy użyciu jednej z następujących met
 **Metoda 1. Korzystanie z programu PowerShell**
 
 Powiązanie SNI można skonfigurować przy użyciu polecenia cmdlet **New-Webbinding** programu PowerShell w zadaniu uruchamiania dla wystąpienia roli usługi w chmurze poniżej:
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 Zgodnie z opisem w [tym miejscu](https://technet.microsoft.com/library/ee790567.aspx)$sslFlags może być jedną z następujących wartości:
 
 |Wartość|Znaczenie|
@@ -322,14 +325,15 @@ Zgodnie z opisem w [tym miejscu](https://technet.microsoft.com/library/ee790567.
 
 Powiązanie SNI można również skonfigurować za pomocą kodu podczas uruchamiania roli, zgodnie z opisem w tym [wpisie w blogu](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 Korzystając z dowolnych z powyższych metod, odpowiednie certyfikaty (*. pfx) dla określonych nazw hostów muszą być najpierw zainstalowane w wystąpieniach roli przy użyciu zadania uruchamiania lub kodu, aby powiązanie SNI było skuteczne.
 
@@ -341,7 +345,9 @@ Usługa w chmurze jest zasobem klasycznym. Tylko zasoby utworzone za pomocą Azu
 
 Pracujemy nad wprowadzeniem tej funkcji na Azure Portal. W tym celu można użyć następujących poleceń programu PowerShell w celu uzyskania wersji zestawu SDK:
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Chcę zamknąć usługę w chmurze przez kilka miesięcy. Jak zmniejszyć koszt rozliczania usługi w chmurze bez utraty adresu IP?
 

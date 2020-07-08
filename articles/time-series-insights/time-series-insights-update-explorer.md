@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 06f235b7f1c20681beee1f5be4c18de60d53a690
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75861765"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037311"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Eksplorator Azure Time Series Insights w wersji zapoznawczej
 
@@ -75,11 +74,11 @@ Wersja zapoznawcza Azure Time Series Insights obsługuje operacje pełnego tworz
 * **Hierarchia modelu szeregów czasowych**: hierarchie są systematycznie organizacjami danych. Hierarchie przedstawiają relacje między różnymi jednostkami w danych Time Series Insights.
 * **Wystąpienie modelu szeregów czasowych**: wystąpienia są same dla szeregów czasowych. W większości przypadków są to **DeviceID** lub **AssetID**, który jest unikatowym identyfikatorem zasobu w środowisku.
 
-Aby dowiedzieć się więcej na temat modelu szeregów czasowych, należy zapoznać się z modelami [serii godzin](./time-series-insights-update-tsm.md).
+Aby dowiedzieć się więcej na temat modelu szeregów czasowych, należy zapoznać się z modelami [serii godzin](./concepts-model-overview.md).
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. drzewo hierarchii i panel wyszukiwania
 
-Drzewo hierarchii i panel wyszukiwania umożliwiają łatwe wyszukiwanie i nawigowanie w hierarchii [modelu szeregów czasowych](./time-series-insights-update-tsm.md) , aby znaleźć określone wystąpienia szeregów czasowych, które mają być wyświetlane na wykresie. Po wybraniu wystąpień nie są one dodawane tylko do bieżącego wykresu, ale również są dodawane do obszaru dane. 
+Drzewo hierarchii i panel wyszukiwania umożliwiają łatwe wyszukiwanie i nawigowanie w hierarchii [modelu szeregów czasowych](./concepts-model-overview.md) , aby znaleźć określone wystąpienia szeregów czasowych, które mają być wyświetlane na wykresie. Po wybraniu wystąpień nie są one dodawane tylko do bieżącego wykresu, ale również są dodawane do obszaru dane. 
 
 [![Drzewo hierarchii i panel wyszukiwania](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -240,8 +239,10 @@ Możesz pokazać i ukryć elementy w panelu wykresu, wybierając ikonę widoczne
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [magazynie i przychodzących danych](./time-series-insights-update-storage-ingress.md) w wersji zapoznawczej Azure Time Series Insights.
+- Dowiedz się więcej na temat pozyskiwania [danych](./concepts-ingestion-overview.md) w środowisku.
 
-- Przeczytaj dokument Time Series Insights w wersji zapoznawczej dotyczące [modelowania danych](./time-series-insights-update-tsm.md).
+- Zapoznaj się z artykułem dotyczącym [magazynu](concepts-storage.md)
+
+- Przeczytaj dokument Time Series Insights w wersji zapoznawczej dotyczące [modelowania danych](./concepts-model-overview.md).
 
 - Dowiedz się [, jak diagnozować i rozwiązywać problemy](./time-series-insights-update-how-to-troubleshoot.md) z wystąpieniem Time Series Insights.

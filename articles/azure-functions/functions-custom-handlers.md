@@ -6,10 +6,9 @@ ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
 ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052580"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
@@ -56,7 +55,7 @@ Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plik�
 | host.json
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Aplikacja jest konfigurowana za pośrednictwem *host.js* pliku. Ten plik informuje hosta funkcji, gdzie wysyłać żądania, wskazując na serwer sieci Web, który może przetwarzać zdarzenia HTTP.
 

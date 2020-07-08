@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988062"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Omówienie konfiguracji urządzeń partnerskiej sieci VPN
@@ -32,7 +31,7 @@ Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania pojedynczego tun
 ### <a name="connection-parameters"></a>Parametry połączenia
 Ta sekcja zawiera listę parametrów, które zostały opisane w poprzednich sekcjach.
 
-| **Konstruktora**                | **Wartość**                    |
+| **Parametr**                | **Wartość**                    |
 | ---                          | ---                          |
 | Prefiksy adresów sieci wirtualnej        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Adres IP bramy sieci VPN platformy Azure         | Adres IP VPN Gateway platformy Azure         |

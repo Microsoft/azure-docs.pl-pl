@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
 ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85412699"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
@@ -40,7 +39,7 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Czas trwania i limity przechowywania
+## <a name="run-duration-and-retention-limits"></a>Limity czasu trwania i przechowywania przebiegu
 
 Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
@@ -190,7 +189,7 @@ Poniżej przedstawiono limity dla aplikacji logiki, która rozpoczyna się od wy
 
 <a name="custom-connector-limits"></a>
 
-## <a name="custom-connector-limits"></a>Limity łączników niestandardowych
+## <a name="custom-connector-limits"></a>Limity łącznika niestandardowego
 
 Poniżej przedstawiono limity łączników niestandardowych, które można tworzyć z interfejsów API sieci Web.
 
@@ -202,7 +201,7 @@ Poniżej przedstawiono limity łączników niestandardowych, które można tworz
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>Zarządzane tożsamości
+## <a name="managed-identities"></a>Tożsamości zarządzane
 
 | Nazwa | Limit |
 |------|-------|
@@ -212,7 +211,7 @@ Poniżej przedstawiono limity łączników niestandardowych, które można tworz
 
 <a name="integration-account-limits"></a>
 
-## <a name="integration-account-limits"></a>Limity kont integracji
+## <a name="integration-account-limits"></a>Limity konta integracji
 
 Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont integracji:
 
@@ -222,7 +221,7 @@ Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont i
 
 * Każdy ISE, niezależnie od tego, czy [deweloper lub Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), jest ograniczony do 5 łącznych kont integracji:
 
-  | JEDNOSTKA SKU ISE | Limity kont integracji |
+  | JEDNOSTKA SKU ISE | Limity konta integracji |
   |---------|----------------------------|
   | **Premium** | 5 — tylko [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) konta, łącznie z jednym kontem standardowym. Nie są dozwolone żadne konta bezpłatne ani podstawowe. |
   | **Deweloper** | 5 łączne [bezpłatnie](../logic-apps/logic-apps-pricing.md#integration-accounts) (ograniczone do 1 konta) i [standardowe](../logic-apps/logic-apps-pricing.md#integration-accounts) łącznie lub wszystkie konta w warstwie Standardowa. Nie są dozwolone żadne konta podstawowe. Użyj [jednostki SKU dla deweloperów](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) na potrzeby eksperymentowania, programowania i testowania, ale nie na potrzeby testowania wydajności lub produkcji. |

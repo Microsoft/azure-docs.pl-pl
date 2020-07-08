@@ -8,10 +8,9 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85336842"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw Service Bus przy użyciu szablonu Azure Resource Manager
@@ -79,7 +78,7 @@ Azure PowerShell służy do wdrażania szablonu w tym samouczku. Aby poznać inn
 * Za [pomocą interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md).
 * Za [pomocą interfejsu API REST](../azure-resource-manager/templates/deploy-rest.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Jeśli usługa Cloud Shell jest nadal otwarta, nie musisz kopiować/uruchamiać pierwszego i drugiego wiersza następującego skryptu.
 

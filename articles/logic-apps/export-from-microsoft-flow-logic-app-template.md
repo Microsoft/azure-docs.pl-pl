@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324864"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
@@ -120,13 +119,13 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    ![Tworzenie projektu grupy zasobów platformy Azure](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. Po utworzeniu rozwiązania w Eksplorator rozwiązań otwórz plik **LogicApp. JSON** , jeśli plik nie jest jeszcze otwarty.
+1. Po utworzeniu rozwiązania w Eksplorator rozwiązań Otwórz **LogicApp.js** pliku, jeśli plik nie jest jeszcze otwarty.
 
-1. Skopiuj zawartość z wyeksportowanego szablonu i Zastąp zawartość w pliku **LogicApp. JSON** .
+1. Skopiuj zawartość z wyeksportowanego szablonu i Zastąp zawartość w **LogicApp.js** pliku.
 
 1. Przed wdrożeniem aplikacji logiki Autoryzuj nowe połączenia, wykonując następujące czynności:
 
-   1. Otwórz menu skrótów **LogicApp. JSON** , a następnie wybierz polecenie **Otwórz za pomocą projektanta aplikacji logiki**.
+   1. Otwórz **LogicApp.jsw** menu skrótów, a następnie wybierz polecenie **Otwórz za pomocą projektanta aplikacji logiki**.
 
       ![Otwieranie szablonu przy użyciu projektanta aplikacji logiki](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759600"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -33,10 +32,10 @@ W dziennikach diagnostycznych zostanie wyświetlony wzorzec urządzeń odłącza
 Żądania do IoT Hub kończą się niepowodzeniem z jednym z następujących komunikatów o błędach:
 
 * Brak nagłówka autoryzacji
-* IotHub "\*" nie zawiera określonego urządzenia "\*"
-* Reguła autoryzacji '\*' nie zezwala na dostęp dla '\*'
+* IotHub " \* " nie zawiera określonego urządzenia " \* "
+* Reguła autoryzacji ' \* ' nie zezwala na dostęp dla ' \* '
 * Uwierzytelnianie na tym urządzeniu nie powiodło się, Odnów token lub certyfikat i ponownie nawiąż połączenie
-* Odcisk palca nie jest zgodny z konfiguracją:\*odcisk palca\*: SHA1Hash =, SHA2Hash =; Konfiguracja: PrimaryThumbprint =\*, SecondaryThumbprint =\*
+* Odcisk palca nie jest zgodny z konfiguracją: odcisk palca: SHA1Hash = \* , SHA2Hash = \* ; Konfiguracja: PrimaryThumbprint = \* , SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Przyczyna
 

@@ -16,10 +16,9 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85077932"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Przejrzyj dostęp do swoich grup lub aplikacji w przeglądach dostępu usługi Azure AD
@@ -103,7 +102,7 @@ Nowe środowisko można wypróbować za pomocą zaktualizowanego interfejsu uży
 
 4. Kontynuuj w sekcji **Przeprowadź przegląd dostępu**
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 
 >[!IMPORTANT]
 > W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.

@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710035"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie i usuwanie sieci wirtualnej
@@ -139,7 +138,7 @@ Wszystkie maszyny wirtualne, które są połączone z siecią wirtualną, są za
 3. W obszarze **Ustawienia**wybierz pozycję **serwery DNS**.
 4. Wybierz jedną z następujących opcji:
    - **Domyślne (udostępniane przez platformę Azure)**: wszystkie nazwy zasobów i prywatne adresy IP są automatycznie rejestrowane na serwerach Azure DNS. Można rozwiązać nazwy między dowolnymi zasobami połączonymi z tą samą siecią wirtualną. Nie można użyć tej opcji do rozpoznawania nazw w sieciach wirtualnych. Aby rozwiązać nazwy w sieciach wirtualnych, należy użyć niestandardowego serwera DNS.
-   - **Niestandardowo**: można dodać jeden lub więcej serwerów, do limitu platformy Azure dla sieci wirtualnej. Aby dowiedzieć się więcej na temat limitów serwera DNS, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Do wyboru są następujące opcje:
+   - **Niestandardowo**: można dodać jeden lub więcej serwerów, do limitu platformy Azure dla sieci wirtualnej. Aby dowiedzieć się więcej na temat limitów serwera DNS, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Możesz wybrać następujące opcje:
    - **Dodaj adres**: dodaje serwer do listy serwerów DNS sieci wirtualnej. Ta opcja powoduje także zarejestrowanie serwera DNS na platformie Azure. Jeśli serwer DNS został już zarejestrowany na platformie Azure, możesz wybrać ten serwer DNS z listy.
    - **Usuń adres**: obok serwera, który chcesz usunąć, wybierz pozycję **...**, a następnie **Usuń**. Usunięcie serwera spowoduje usunięcie serwera tylko z tej listy sieci wirtualnych. Serwer DNS pozostaje zarejestrowany na platformie Azure dla innych sieci wirtualnych do użycia.
    - **Zmienianie kolejności adresów serwera DNS**: ważne jest, aby sprawdzić, czy serwery DNS są w odpowiedniej kolejności w danym środowisku. Listy serwerów DNS są używane w kolejności, w jakiej zostały określone. Nie działają one jako Konfiguracja działania okrężnego. Jeśli na liście można osiągnąć pierwszy serwer DNS, klient korzysta z tego serwera DNS, niezależnie od tego, czy serwer DNS działa prawidłowo. Usuń wszystkie wymienione serwery DNS, a następnie dodaj je ponownie w podanej kolejności.

@@ -13,10 +13,9 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669005"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi SQL Server na platformie Azure przy użyciu Azure Portal
@@ -59,7 +58,7 @@ Aby uzyskać dostęp do zasobu **maszyny wirtualne SQL** , wykonaj następujące
 ## <a name="access-the-sql-server-configuration-tab"></a>Dostęp do karty konfiguracja SQL Server
 Karta **konfiguracja SQL Server** była przestarzała. W tej chwili jest jedyną metodą zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszynami wirtualnymi, a SQL Server maszyn wirtualnych, które nie zostały [zarejestrowane w dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
 
-Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące czynności:
+Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące kroki:
 
 1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
 1. Wybierz pozycję **wszystkie usługi**. 

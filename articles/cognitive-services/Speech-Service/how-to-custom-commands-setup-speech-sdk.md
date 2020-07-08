@@ -1,7 +1,7 @@
 ---
 title: Integracja z aplikacją kliencką przy użyciu zestawu SDK usługi Mowa
 titleSuffix: Azure Cognitive Services
-description: W tym artykule dowiesz się, jak wykonywać żądania do opublikowanej aplikacji poleceń niestandardowych z zestawu Speech SDK działającego w aplikacji platformy UWP.
+description: Jak wprowadzać żądania do opublikowanej aplikacji poleceń niestandardowych z zestawu Speech SDK działającego w aplikacji platformy UWP.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,16 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414367"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027634"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
 
-W tym artykule dowiesz się, jak wykonywać żądania do opublikowanej aplikacji poleceń niestandardowych z zestawu Speech SDK działającego w aplikacji platformy UWP. Aby nawiązać połączenie z aplikacją poleceń niestandardowych, wykonaj następujące zadania:
+W tym artykule dowiesz się, jak wykonywać żądania do opublikowanej aplikacji poleceń niestandardowych z zestawu Speech SDK działającego w aplikacji platformy UWP. Aby można było nawiązać połączenie z aplikacją poleceń niestandardowych, potrzebne są:
 
 - Publikowanie aplikacji poleceń niestandardowych i Pobieranie identyfikatora aplikacji (Identyfikator aplikacji)
 - Tworzenie aplikacji klienckiej platforma uniwersalna systemu Windows (platformy UWP) przy użyciu zestawu Speech SDK, aby umożliwić rozmowę z aplikacją poleceń niestandardowych
@@ -32,13 +31,19 @@ Do wykonania tego artykułu jest wymagana aplikacja poleceń niestandardowych. J
 
 Wymagane są również:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) lub nowszy. Ten przewodnik jest oparty na programie Visual Studio 2019.
 > * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
 > * [Włącz Programowanie na urządzeniu](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
 
-1. Otwórz wcześniej utworzone aplikacje niestandardowe poleceń i wybierz pozycję **Publikuj** .
+1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych
+1. Przejdź do pozycji **Ustawienia**, wybierz pozycję **zasób Luis**
+1. Jeśli nie przypisano **zasobu przewidywania** , wybierz klucz predykcyjny zapytania lub Utwórz nowy.
+
+    Klucz przewidywania zapytania jest zawsze wymagany przed opublikowaniem aplikacji. Aby uzyskać więcej informacji na temat zasobów LUIS, Utwórz odwołanie do [zasobu Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Wróć do edycji poleceń, wybierz pozycję **Publikuj**
 
    > [!div class="mx-imgBorder"]
    > ![Publikowanie aplikacji](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -131,11 +136,8 @@ Dodaj źródło związane z kodem w następujący sposób:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -324,7 +326,7 @@ Dodaj źródło związane z kodem w następujący sposób:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

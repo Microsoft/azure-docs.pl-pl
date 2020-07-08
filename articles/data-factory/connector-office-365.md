@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513295"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Skopiuj dane z pakietu Office 365 do platformy Azure przy użyciu Azure Data Factory
@@ -65,7 +64,7 @@ Jeśli w ramach aplikacji zarządzanej jest tworzony automatyczny ADF i przypisa
 Można utworzyć potok z działaniem kopiowania przy użyciu jednego z następujących narzędzi lub zestawów SDK. Wybierz link, aby przejść do samouczka z instrukcjami krok po kroku, aby utworzyć potok z działaniem kopiowania. 
 
 - [Azure Portal](quickstart-create-data-factory-portal.md)
-- [Zestaw SDK .NET](quickstart-create-data-factory-dot-net.md)
+- [Zestaw SDK platformy .NET](quickstart-create-data-factory-dot-net.md)
 - [Zestaw SDK dla języka Python](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
 - [Interfejs API REST](quickstart-create-data-factory-rest-api.md)

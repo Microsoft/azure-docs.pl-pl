@@ -13,10 +13,9 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/03/2020
 ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84331903"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
@@ -40,9 +39,9 @@ Można zainstalować zarówno bezpłatne, nielicencjonowane składniki i płatne
 
 Następujące ograniczenia mają zastosowanie tylko do standardowych konfiguracji niestandardowych:
 
-- Jeśli chcesz użyć *Gacutil. exe* w skrypcie do instalacji zestawów w globalnej pamięci podręcznej zestawów (GAC), musisz podać *Gacutil. exe* jako część konfiguracji niestandardowej. Możesz też użyć kopii podanej w naszym kontenerze *publicznej wersji zapoznawczej* , omówionej dalej w sekcji "instrukcje".
+- Jeśli chcesz użyć *gacutil.exe* w skrypcie do zainstalowania zestawów w globalnej pamięci podręcznej zestawów (GAC), musisz podać *gacutil.exe* w ramach konfiguracji niestandardowej. Możesz też użyć kopii podanej w naszym kontenerze *publicznej wersji zapoznawczej* , omówionej dalej w sekcji "instrukcje".
 
-- Jeśli chcesz odwołać się do podfolderu w skrypcie, *msiexec. exe* nie obsługuje `.\` notacji, aby odwołać się do folderu głównego. Użyj polecenia, takiego jak `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` zamiast `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
+- Jeśli chcesz odwołać się do podfolderu w skrypcie, *msiexec.exe* nie obsługuje `.\` notacji, aby odwołać się do folderu głównego. Użyj polecenia, takiego jak `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` zamiast `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
 - Udziały administracyjne lub ukryte udziały sieciowe, które są tworzone automatycznie przez system Windows, nie są obecnie obsługiwane w Azure-SSIS IR.
 
@@ -72,7 +71,7 @@ Aby zainicjować lub zmienić konfigurację Azure-SSIS IR przy użyciu standardo
 
    * Musisz mieć plik skryptu o nazwie *Main. cmd*, który jest punktem wejścia konfiguracji niestandardowej.  
    * Aby upewnić się, że skrypt może być wykonywany w trybie dyskretnym, zalecamy najpierw przetestowanie go na komputerze lokalnym.  
-   * Jeśli chcesz, aby dodatkowe dzienniki wygenerowane przez inne narzędzia (na przykład *msiexec. exe*) zostały przekazane do kontenera, określ wstępnie zdefiniowaną zmienną środowiskową, `CUSTOM_SETUP_SCRIPT_LOG_DIR` jako folder dziennika w skryptach (na przykład *msiexec/i XXX. msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
+   * Jeśli chcesz, aby dodatkowe dzienniki wygenerowane przez inne narzędzia (na przykład *msiexec.exe*) zostały przekazane do kontenera, określ wstępnie zdefiniowaną zmienną środowiskową, `CUSTOM_SETUP_SCRIPT_LOG_DIR` jako folder dziennika w skryptach (na przykład *msiexec/i xxx.msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
 
 1. Pobierz, zainstaluj i Otwórz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
@@ -251,7 +250,7 @@ Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfig
 
    d. W lewym okienku wybierz kontener podłączony **publicpreview** , a następnie kliknij dwukrotnie folder *CustomSetupScript* . W tym folderze znajdują się następujące elementy:
 
-      * *Przykładowy* folder zawierający niestandardową konfigurację służącą do instalowania podstawowego zadania na każdym węźle Azure-SSIS IR. Zadanie nie wykonuje żadnych operacji, ale w stanie uśpienia przez kilka sekund. Folder zawiera również folder *Gacutil* , którego cała zawartość (*Gacutil. exe*, *Gacutil. exe. config*i *1033 \ gacutlrc. dll*) może zostać skopiowana do kontenera.
+      * *Przykładowy* folder zawierający niestandardową konfigurację służącą do instalowania podstawowego zadania na każdym węźle Azure-SSIS IR. Zadanie nie wykonuje żadnych operacji, ale w stanie uśpienia przez kilka sekund. Folder zawiera również folder *Gacutil* , którego cała zawartość (*gacutil.exe*, *gacutil.exe.config*i *1033\gacutlrc.dll*) może zostać skopiowana do kontenera.
 
       * Folder *UserScenarios* , który zawiera kilka przykładów instalacji niestandardowej z scenariuszy użytkowników rzeczywistych.
 
@@ -261,55 +260,55 @@ Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfig
 
       * Folder *programu .NET FRAMEWORK 3,5* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*), aby zainstalować wcześniejszą wersję .NET Framework, która może być wymagana dla składników niestandardowych w każdym węźle Azure-SSIS IR.
 
-      * Folder *BCP* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania SQL Server narzędzi wiersza polecenia (*MsSqlCmdLnUtils. msi*), w tym programu do kopiowania zbiorczego (*BCP*), na każdym węźle Azure-SSIS IR.
+      * Folder *BCP* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania SQL Server narzędzi wiersza polecenia (*MsSqlCmdLnUtils.msi*), w tym programu do kopiowania zbiorczego (*BCP*), na każdym węźle Azure-SSIS IR.
 
       * Folder *programu Excel* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) do instalowania zestawów i bibliotek języka C#, których można użyć w zadaniach skryptów do dynamicznego odczytywania i zapisywania plików programu EXCEL w każdym węźle Azure-SSIS IR. 
       
-        Najpierw pobierz [*ExcelDataReader. dll*](https://www.nuget.org/packages/ExcelDataReader/) i [*DocumentFormat. OPENXML. dll*](https://www.nuget.org/packages/DocumentFormat.OpenXml/), a następnie Przekaż je wszystkie razem z *Main. cmd* do kontenera. Alternatywnie, jeśli chcesz używać tylko standardowego Menedżera połączeń programu Excel, źródła programu Excel i miejsca docelowego programu Excel, wymagany pakiet redystrybucyjny dostępu jest już wstępnie zainstalowany na Azure-SSIS IR, więc nie jest potrzebna żadna Konfiguracja niestandardowa.
+        Najpierw pobierz [*ExcelDataReader.dll*](https://www.nuget.org/packages/ExcelDataReader/) i [*DocumentFormat.OpenXml.dll*](https://www.nuget.org/packages/DocumentFormat.OpenXml/), a następnie Przekaż je wszystkie wraz z *Main. cmd* do kontenera. Alternatywnie, jeśli chcesz używać tylko standardowego Menedżera połączeń programu Excel, źródła programu Excel i miejsca docelowego programu Excel, wymagany pakiet redystrybucyjny dostępu jest już wstępnie zainstalowany na Azure-SSIS IR, więc nie jest potrzebna żadna Konfiguracja niestandardowa.
       
       * Folder *ODBC programu MySQL* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania sterowników ODBC MYSQL na każdym węźle Azure-SSIS IR. Ta konfiguracja umożliwia nawiązanie połączenia z serwerem MySQL za pomocą Menedżera połączeń ODBC, źródła i miejsca docelowego. 
      
-        Najpierw [Pobierz najnowszą wersję 64-bitową i 32-bitową instalatorów sterowników ODBC MySQL](https://dev.mysql.com/downloads/connector/odbc/) (na przykład *MySQL-Connector-ODBC-8.0.13-Winx64. msi* i *MySQL-Connector-ODBC-8.0.13-Win32. msi*), a następnie Przekaż je wszystkie razem z *głównym. cmd* do kontenera.
+        Najpierw należy [pobrać najnowszą wersję 64-bitową i 32-bitową instalatorów sterowników ODBC MySQL](https://dev.mysql.com/downloads/connector/odbc/) (na przykład *mysql-connector-odbc-8.0.13-winx64.msi* i *mysql-connector-odbc-8.0.13-win32.msi*), a następnie przekazać je razem z *Main. cmd* do kontenera.
 
       * Folder *Oracle Enterprise* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) i plik konfiguracji instalacji dyskretnej (*Client. rsp*) w celu zainstalowania łączników Oracle i sterownika OCI na każdym węźle Azure-SSIS IR Enterprise Edition. Ta konfiguracja umożliwia nawiązanie połączenia z serwerem Oracle przy użyciu Menedżera połączeń Oracle, źródła i miejsca docelowego. 
       
-        Najpierw pobierz łączniki firmy Microsoft w wersji 5.0 dla programu Oracle (*AttunitySSISOraAdaptersSetup. msi* i *AttunitySSISOraAdaptersSetup64. msi*) z [Centrum pobierania Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) i najnowszego klienta Oracle (na przykład *Winx64_12102_client. zip*) z [bazy danych Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), a następnie Przekaż je wszystkie wraz z *Main. cmd* i *Client. rsp* do kontenera. Jeśli używasz TNS do łączenia się z bazą danych Oracle, musisz również pobrać plik *pliku tnsnames. ora*, edytować go i przekazać do kontenera, aby można go było skopiować do folderu instalacyjnego programu Oracle podczas instalacji.
+        Najpierw pobierz łączniki Microsoft Connector w wersji 5.0 for Oracle (*AttunitySSISOraAdaptersSetup.msi* i *AttunitySSISOraAdaptersSetup64.msi*) z [Centrum pobierania Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) i najnowszego klienta Oracle (na przykład *winx64_12102_client.zip*) z [bazy danych Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), a następnie Przekaż je wszystkie wraz z programem *Main. cmd* i *Client. rsp* do kontenera. Jeśli używasz TNS do łączenia się z bazą danych Oracle, musisz również pobrać plik *pliku tnsnames. ora*, edytować go i przekazać do kontenera, aby można go było skopiować do folderu instalacyjnego programu Oracle podczas instalacji.
 
       * Folder *standard ADO.NET firmy Oracle* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania sterownika Oracle ODP.NET na każdym węźle Azure-SSIS IR. Ta konfiguracja umożliwia łączenie się z serwerem Oracle przy użyciu Menedżera połączeń ADO.NET, źródła i miejsca docelowego. 
       
-        Najpierw [Pobierz najnowszy sterownik Oracle ODP.NET](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) (na przykład *Odp. NET_Managed_ODAC122cR1. zip*), a następnie Przekaż go wraz z *Main. cmd* do kontenera.
+        Najpierw [Pobierz najnowszy sterownik Oracle ODP.NET](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) (na przykład *ODP.NET_Managed_ODAC122cR1.zip*), a następnie Przekaż go wraz z *Main. cmd* do kontenera.
        
       * *Standardowy folder ODBC programu Oracle* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*), aby zainstalować sterownik Oracle ODBC i skonfigurować nazwę źródła danych (DSN) w każdym węźle Azure-SSIS IR. Ta konfiguracja umożliwia użycie Menedżera połączeń ODBC, źródła i miejsca docelowego lub Power Query Menedżera połączeń i źródła z typem źródła danych ODBC, aby połączyć się z serwerem Oracle. 
       
         Najpierw pobierz najnowszą wersję programu Oracle Instant Client (pakiet podstawowy lub podstawowy pakiet w języku Basic) i pakiet ODBC, a następnie Przekaż je razem z *głównym programem. cmd* do kontenera:
-        * [Pobierz pakiety 64-bitowe](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pakiet podstawowy: *instantclient-Basic-Windows. x64-18.3.0.0.0 dbru. zip*; Podstawowy pakiet w wersji Lite: *instantclient-basiclite-Windows. x64-18.3.0.0.0 dbru. zip*; Pakiet ODBC: *instantclient-ODBC-Windows. x64-18.3.0.0.0 dbru. zip*) 
-        * [Pobierz pakiety 32-bitowe](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pakiet podstawowy: *instantclient-Basic-NT-18.3.0.0.0 dbru. zip*; Podstawowy pakiet w wersji Lite: *instantclient-basiclite-NT-18.3.0.0.0 dbru. zip*; Pakiet ODBC: *instantclient-ODBC-NT-18.3.0.0.0 dbru. zip*)
+        * [Pobierz pakiety 64-bitowe](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pakiet podstawowy: *instantclient-basic-windows.x64-18.3.0.0.0dbru.zip*; Podstawowy pakiet w wersji Lite: *instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip*; Pakiet ODBC: *instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip*) 
+        * [Pobierz pakiety 32-bitowe](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pakiet podstawowy: *instantclient-basic-nt-18.3.0.0.0dbru.zip*; Podstawowy pakiet w wersji Lite: *instantclient-basiclite-nt-18.3.0.0.0dbru.zip*; Pakiet ODBC: *instantclient-odbc-nt-18.3.0.0.0dbru.zip*)
 
       * *Standardowy folder OLEDB firmy Oracle* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*), aby zainstalować sterownik Oracle OLEDB na każdym węźle Azure-SSIS IR. Ta konfiguracja umożliwia łączenie się z serwerem Oracle przy użyciu Menedżera połączeń OLEDB, źródła i miejsca docelowego. 
      
-        Najpierw [Pobierz najnowszy sterownik Oracle OLEDB](https://www.oracle.com/partners/campaign/index-090165.html) (na przykład *ODAC122010Xcopy_x64. zip*), a następnie Przekaż go wraz z *Main. cmd* do kontenera.
+        Najpierw [Pobierz najnowszy sterownik Oracle OLEDB](https://www.oracle.com/partners/campaign/index-090165.html) (na przykład *ODAC122010Xcopy_x64.zip*), a następnie Przekaż go wraz z *Main. cmd* do kontenera.
 
       * Folder *POSTGRESQL ODBC* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania sterowników ODBC POSTGRESQL na każdym węźle Azure-SSIS IR. Ta konfiguracja umożliwia łączenie się z serwerem PostgreSQL za pomocą Menedżera połączeń ODBC, źródła i miejsca docelowego. 
      
-        Najpierw [Pobierz najnowszą wersję 64-bitową i 32-bitową instalatorów sterowników ODBC PostgreSQL](https://www.postgresql.org/ftp/odbc/versions/msi/) (na przykład *psqlodbc_x64. msi* i *psqlodbc_x86. msi*), a następnie Przekaż je wszystkie wraz z *Main. cmd* do kontenera.
+        Najpierw [Pobierz najnowsze 64-bitowe i 32-bitowe wersje instalatorów sterowników ODBC PostgreSQL](https://www.postgresql.org/ftp/odbc/versions/msi/) (na przykład *psqlodbc_x64.msi* i *psqlodbc_x86.msi*), a następnie Przekaż je wszystkie razem z *Main. cmd* do kontenera.
 
-      * Folder *SAP BW* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania zestawu SAP .NET Connector (*librfc32. dll*) w każdym węźle Azure-SSIS IR Enterprise Edition. Ta konfiguracja umożliwia nawiązanie połączenia z serwerem SAP BW przy użyciu Menedżera połączeń SAP Business Warehouse (BW), źródła i miejsca docelowego. 
+      * Folder *SAP BW* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) do zainstalowania zestawu łączników SAP .NET (*librfc32.dll*) w każdym węźle Azure-SSIS IR Enterprise Edition. Ta konfiguracja umożliwia nawiązanie połączenia z serwerem SAP BW przy użyciu Menedżera połączeń SAP Business Warehouse (BW), źródła i miejsca docelowego. 
       
-        Najpierw przekaż 64-bitową lub 32-bitową wersję *librfc32. dll* z folderu instalacji SAP wraz z *Main. cmd* do kontenera. Skrypt następnie kopiuje zestaw SAP do folderu *%windir%\syswow64* lub *%windir%\system32* podczas instalacji.
+        Najpierw przekaż 64-bitową lub 32-bitową wersję *librfc32.dll* z folderu instalacji SAP wraz z *Main. cmd* do kontenera. Skrypt następnie kopiuje zestaw SAP do folderu *%windir%\syswow64* lub *%windir%\system32* podczas instalacji.
 
       * Folder *magazynu* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) w celu zainstalowania Azure PowerShell na każdym węźle Azure-SSIS IR. Dzięki tej konfiguracji można wdrażać i uruchamiać pakiety usług SSIS, które uruchamiają [skrypty programu PowerShell w celu manipulowania kontem usługi Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). 
       
-        Skopiuj plik *Main. cmd*, przykład *AzurePowerShell. msi* (lub użyj najnowszej wersji) i *Storage. ps1* do kontenera. Użyj *programu PowerShell. dtsx* jako szablonu dla pakietów. Szablon pakietu łączy [zadanie pobierania obiektów blob platformy Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), które pobiera *Magazyn. ps1* jako modyfikowalny skrypt programu PowerShell i [zadanie wykonywania procesu](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), które wykonuje skrypt w każdym węźle.
+        Skopiuj *Main. cmd*, przykładową *AzurePowerShell.msi* (lub użyj najnowszej wersji) i *storage.ps1* do kontenera. Użyj *programu PowerShell. dtsx* jako szablonu dla pakietów. Szablon pakietu łączy [zadanie pobierania obiektów blob platformy Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), które pobiera *storage.ps1* jako modyfikowalny skrypt programu PowerShell i [zadanie wykonywania procesu](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), które wykonuje skrypt w każdym węźle.
 
       * Folder programu *Teradata* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*), skojarzony z nim plik (*install. cmd*) i pakiety Instalatora (*MSI*). Te pliki instalują łączniki programu Teradata, interfejs API Parallel transportowy (TPT) programu Teradata i sterownik ODBC na każdym węźle Azure-SSIS IR Enterprise Edition. Ta konfiguracja umożliwia nawiązanie połączenia z serwerem Teradata przy użyciu Menedżera połączeń programu Teradata, źródła i miejsca docelowego. 
       
-        Najpierw [Pobierz narzędzia programu Teradata i pliki zip 15. x](http://partnerintelligence.teradata.com) (na przykład *TeradataToolsAndUtilitiesBase__windows_indep. 15.10.22.00. zip*), a następnie Przekaż je wraz z wymienionymi wcześniej plikami *cmd* i *MSI* do kontenera.
+        Najpierw [Pobierz narzędzia programu Teradata oraz plik zip 15. x](http://partnerintelligence.teradata.com) (na przykład *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*), a następnie Przekaż go wraz z wcześniej wymienionymi plikami *. cmd* i *. msi* do kontenera.
 
       * Folder *TLS 1,2* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) do korzystania z mocnej kryptografii/bezpieczniejszego protokołu sieciowego (TLS 1,2) i Wyłącz starsze wersje protokołu SSL/TLS w każdym węźle Azure-SSIS IR.
 
-      * Folder *Zulu OPENJDK* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) i plik programu PowerShell (*install_openjdk. ps1*), aby zainstalować Zulu OPENJDK na każdym węźle Azure-SSIS IR. Ta konfiguracja pozwala używać Azure Data Lake Store i elastycznych łączników plików do przetwarzania plików ORC i Parquet. Aby uzyskać więcej informacji, zobacz [pakiet Azure Feature Pack dla usług Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
+      * Folder *Zulu OPENJDK* , który zawiera niestandardowy skrypt instalacyjny (*Main. cmd*) i plik programu PowerShell (*install_openjdk.ps1*), aby zainstalować OPENJDK Zulu na każdym węźle Azure-SSIS IR. Ta konfiguracja pozwala używać Azure Data Lake Store i elastycznych łączników plików do przetwarzania plików ORC i Parquet. Aby uzyskać więcej informacji, zobacz [pakiet Azure Feature Pack dla usług Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
       
-        Najpierw [Pobierz najnowszą Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (na przykład *Zulu 8.33.0.1-jdk 8.0.192-win_x64. zip*), a następnie Przekaż go razem z *Main. cmd* i *install_openjdk. ps1* do kontenera.
+        Najpierw [Pobierz najnowszą Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (na przykład *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), a następnie Przekaż go wraz z *Main. cmd* i *install_openjdk.ps1* do kontenera.
 
         ![Foldery w folderze scenariusze użytkownika](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

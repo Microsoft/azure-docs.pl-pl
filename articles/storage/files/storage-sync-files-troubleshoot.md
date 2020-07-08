@@ -8,14 +8,13 @@ ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512055"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
-Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego protokołu, który jest dostępny w systemie Windows Server, aby uzyskać dostęp do danych lokalnie, w tym SMB, NFS i FTPS. Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
+Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
 
 Ten artykuł ma na celu pomoc w rozwiązywaniu problemów i rozwiązywaniu problemów, które mogą wystąpić podczas wdrażania Azure File Sync. Opisano również sposób zbierania ważnych dzienników z systemu w przypadku, gdy jest wymagane szczegółowe badanie problemu. Jeśli nie widzisz odpowiedzi na pytanie, możesz skontaktować się z nami za pomocą następujących kanałów (w kolejności eskalacji):
 
@@ -204,7 +203,7 @@ Na serwerze, który jest wyświetlany jako "pojawia się w trybie offline" w por
     ```
 <a id="endpoint-noactivity-sync"></a>**Punkt końcowy serwera ma stan kondycji "brak działania", a stan serwera w bloku zarejestrowane serwery to "online"**  
 
-Stan kondycji punktu końcowego serwera "brak działania" oznacza, że punkt końcowy serwera nie zarejestrował działania synchronizacji w ciągu ostatnich dwóch godzin.
+Stan kondycji punktu końcowego serwera „Brak działania” oznacza, że punkt końcowy serwera nie zarejestrował działania synchronizacji w ciągu ostatnich dwóch godzin.
 
 Aby sprawdzić bieżącą aktywność synchronizacji na serwerze, zobacz [Jak mogę monitorować postęp bieżącej sesji synchronizacji?](#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
@@ -259,7 +258,7 @@ Czasami synchronizacja sesji kończy się niepowodzeniem lub mieć PerItemErrorC
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Jak monitorować postęp bieżącej sesji synchronizacji?
 # <a name="portal"></a>[Portal](#tab/portal1)
-W ramach grupy synchronizacji przejdź do punktu końcowego serwera, a następnie zapoznaj się z sekcją aktywność synchronizacji, aby zobaczyć liczbę plików przekazanych lub pobranych w bieżącej sesji synchronizacji. Należy pamiętać, że ten stan zostanie opóźniony o około 5 minut. Jeśli sesja synchronizacji jest wystarczająco mała, aby mogła zostać zakończona w tym okresie, może nie zostać zgłoszona w portalu. 
+W ramach grupy synchronizacji przejdź do punktu końcowego serwera, a następnie zapoznaj się z sekcją aktywność synchronizacji, aby zobaczyć liczbę plików przekazanych lub pobranych w bieżącej sesji synchronizacji. Pamiętaj, że ten stan zostanie opóźniony o około 5 minut. Jeśli sesja synchronizacji jest wystarczająco mała, aby mogła zostać zakończona w tym okresie, może nie zostać zgłoszona w portalu. 
 
 # <a name="server"></a>[Serwer](#tab/server)
 Zapoznaj się z najnowszym zdarzeniem 9302 w dzienniku telemetrii na serwerze (w Podgląd zdarzeń przejdź do pozycji aplikacje i usługi Logs\Microsoft\FileSync\Agent\Telemetry). To zdarzenie wskazuje stan bieżącej sesji synchronizacji. TotalItemCount wskazuje, ile plików ma być synchronizowanych, AppliedItemCount liczbę plików, które zostały zsynchronizowane do tej pory, i PerItemErrorCount liczbę plików, które nie są synchronizowane (zobacz poniżej, aby dowiedzieć się, jak to zrobić).
@@ -1284,7 +1283,7 @@ W przypadku agenta w wersji V10 i starszych:
 5. Odtwórz problem. Po zakończeniu wprowadź **D**.
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

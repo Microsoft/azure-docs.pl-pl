@@ -14,10 +14,9 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83660581"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedura przechodzenia w tryb failover odzyskiwania po awarii
@@ -56,7 +55,7 @@ Jeśli chcesz mieć wiele wystąpień SAP HANA do przetestowania, uruchom skrypt
 
       W danych wyjściowych powinien być widoczny proces **hdbdaemon** w stanie zatrzymania i nie ma żadnych innych procesów Hana w stanie uruchomionym lub uruchomionym.
 1. Określ nazwę migawki lub SAP HANA identyfikator kopii zapasowej, do której ma zostać przywrócona lokacja odzyskiwania po awarii. W przypadku rzeczywistych przypadków odzyskiwania po awarii ta migawka jest zwykle najnowszą migawką. Jeśli musisz odzyskać utracone dane, wybierz wcześniejszą migawkę.
-1. Skontaktuj się z pomocą techniczną platformy Azure w ramach żądania wsparcia o wysokim priorytecie. Zażądaj przywrócenia tej migawki przy użyciu nazwy i daty migawki lub identyfikatora kopii zapasowej HANA w witrynie odzyskiwania po awarii. Domyślnie strona operacje przywraca tylko wolumin/Hana/Data. Jeśli chcesz, aby/Hana/logbackups woluminy, należy zastanowić się, że. *Nie przywracaj woluminu/Hana/Shared.* Zamiast tego należy wybrać określone pliki, takie jak Global. ini z katalogu **. snapshot** i jego podkatalogach, po ponownym zainstalowaniu woluminu/Hana/Shared dla PRD. 
+1. Skontaktuj się z pomocą techniczną platformy Azure w ramach żądania wsparcia o wysokim priorytecie. Zażądaj przywrócenia tej migawki przy użyciu nazwy i daty migawki lub identyfikatora kopii zapasowej HANA w witrynie odzyskiwania po awarii. Domyślnie strona operacje przywraca tylko wolumin/Hana/Data. Jeśli chcesz, aby/Hana/logbackups woluminy, należy zastanowić się, że. *Nie przywracaj woluminu/Hana/Shared.* Zamiast tego należy wybrać określone pliki, takie jak global.ini poza katalogiem **. snapshot** i jego podkatalogach, po ponownym zainstalowaniu woluminu/Hana/Shared dla PRD. 
 
    Na stronie operacje wykonywane są następujące czynności:
 
