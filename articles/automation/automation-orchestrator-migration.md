@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: b6778c4eab4dee382ec38d6218aa647e8aedc4cc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836757"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)

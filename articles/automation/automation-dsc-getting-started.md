@@ -10,10 +10,9 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836961"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Wprowadzenie do konfiguracji stanu Azure Automation
@@ -59,7 +58,7 @@ Można utworzyć prostą [konfigurację DSC](/powershell/scripting/dsc/configura
         }
     }
     ```
-1. Zapisz plik jako **TestConfig. ps1**.
+1. Zapisz plik jako **TestConfig.ps1**.
 
 Ta konfiguracja wywołuje jeden zasób w każdym bloku węzła, [zasobu WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). Ten zasób zapewnia obecność lub brak funkcji **serwera sieci Web** .
 

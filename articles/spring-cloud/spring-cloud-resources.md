@@ -7,10 +7,9 @@ ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
 ms.openlocfilehash: d65bd76fbef66f741f51292b24483e7df5da7c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836247"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Zasoby deweloperów chmury ze sprężyną na platformie Azure

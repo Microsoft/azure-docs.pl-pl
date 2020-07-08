@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: a4ee2679da5065ab9e9b02d4ddb313fab75e78f7
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83845139"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Chroniony internetowy interfejs API: weryfikowanie zakresów i ról aplikacji

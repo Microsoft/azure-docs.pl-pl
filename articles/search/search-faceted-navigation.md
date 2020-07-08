@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836094"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Jak wdrożyć nawigację aspektową na platformie Azure Wyszukiwanie poznawcze
@@ -321,7 +320,7 @@ W pewnych okolicznościach można stwierdzić, że liczba aspektów nie jest zgo
 
 Liczby aspektów mogą być niedokładne ze względu na architekturę fragmentowania. Każdy indeks wyszukiwania ma wiele fragmentów, a każdy fragmentu raportuje pierwsze N zestawów reguł, które są następnie połączone w jeden wynik. Jeśli niektóre fragmentów mają wiele pasujących wartości, a inne mają mniejszą liczbę, może się okazać, że brakuje niektórych wartości aspektów lub są one zliczane w wynikach.
 
-Mimo że takie zachowanie może się zmienić w dowolnym momencie, jeśli wystąpi takie zachowanie, można obejść ten problem, przeciągając sztucznie niepłaską liczbę: \< number> do dużej liczby, aby wymusić pełne raportowanie z każdego fragmentuu. Jeśli wartość Count: jest większa lub równa liczbie unikatowych wartości w polu, są gwarantowane dokładne wyniki. Jeśli jednak liczba dokumentów jest wysoka, nastąpi spadek wydajności, dlatego należy użyć tej opcji w rozsądny sposób.
+Chociaż takie zachowanie może się zmienić w dowolnym momencie, jeśli takie zachowanie zostanie już dzisiaj, można obejść je przez sztucznie niepłaską \<number> liczbę: do dużej liczby, aby wymusić pełne raportowanie z każdego fragmentuu. Jeśli wartość Count: jest większa lub równa liczbie unikatowych wartości w polu, są gwarantowane dokładne wyniki. Jeśli jednak liczba dokumentów jest wysoka, nastąpi spadek wydajności, dlatego należy użyć tej opcji w rozsądny sposób.
 
 ### <a name="user-interface-tips"></a>Wskazówki dotyczące interfejsu użytkownika
 **Dodaj etykiety dla każdego pola w nawigacji aspektu**
@@ -395,7 +394,7 @@ Podczas pracy z wynikami wyszukiwania Obejrzyj adres URL pod kątem zmian w kons
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 Obejrzyj [platformę Azure wyszukiwanie poznawcze głębokie szczegółowe](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Na 45:25 znajduje się pokaz dotyczący implementacji aspektów.
 
 Aby uzyskać więcej szczegółowych informacji na temat zasad projektowania dla nawigacji aspektowej, zalecamy następujące linki:

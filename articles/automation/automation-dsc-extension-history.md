@@ -10,10 +10,9 @@ ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836927"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
@@ -30,7 +29,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
   - 9 maja 2018 (Azure) | 21 czerwca 2018 (Vianet platformy Azure — Chiny 21, Azure Government)
 - **Obsługa systemu operacyjnego:**
   - Windows Server 2016
-  - Windows Server 2012 R2
+  - Windows Server 2012 z dodatkiem R2
   - Windows Server 2012
   - Windows Server 2008 R2 SP1
   - Klient z systemem Windows 7/8.1/10

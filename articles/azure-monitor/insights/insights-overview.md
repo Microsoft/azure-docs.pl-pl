@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
 ms.openlocfilehash: ecd66500fdf968a773d3bc4f3d93363bfe86c763
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836043"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Przegląd szczegółowych informacji w Azure Monitor
@@ -20,7 +19,7 @@ Szczegółowe informacje zapewniają dostosowane środowisko monitorowania dla o
 Poniższe sekcje zawierają Krótki opis szczegółowych informacji, które są obecnie dostępne w Azure Monitor. Aby uzyskać szczegółowe informacje na temat każdej z nich, zobacz szczegółową dokumentację.
 
 ## <a name="application-insights"></a>Application Insights
-Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node. js i Java EE, hostowanych lokalnie, hybrydowych lub dowolnej chmurze publicznej. Integruje się ona również z procesem DevOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
+Usługa Application Insights jest rozszerzalną usługą zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i Java EE, hostowanych lokalnie, hybrydowych lub dowolnej chmurze publicznej. Integruje się ona również z procesem DevOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
 
 Zobacz [co to jest Application Insights?](../app/app-insights-overview.md).
 
@@ -41,7 +40,7 @@ Zobacz [monitorowanie grup zasobów przy użyciu Azure monitor (wersja zapoznawc
 ![Azure Monitor dla grup zasobów](media/insights-overview/resource-group-insights.png)
 
 ## <a name="azure-monitor-for-vms-preview"></a>Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
-Azure Monitor dla maszyn wirtualnych monitoruje maszyny wirtualne platformy Azure i zestawy skalowania maszyn wirtualnych na dużą skalę. Analizuje ona wydajność i kondycję Twoich maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów oraz procesów zewnętrznych.
+Usługa Azure Monitor dla maszyn wirtualnych monitoruje Twoje maszyny wirtualne platformy Azure oraz zestawy skalowania maszyn wirtualnych na dużą skalę. Analizuje ona wydajność i kondycję Twoich maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów oraz procesów zewnętrznych.
 
 Zobacz [co to jest Azure monitor dla maszyn wirtualnych?](vminsights-overview.md)
 

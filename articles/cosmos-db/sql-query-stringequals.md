@@ -8,10 +8,9 @@ ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 57d124421082e1c38fab4d982687a8e6c970505e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83853799"
 ---
 # <a name="stringequals-azure-cosmos-db"></a>STRINGEQUALS (Azure Cosmos DB)

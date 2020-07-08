@@ -8,10 +8,9 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83835805"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
@@ -113,7 +112,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 3. Sprawdź, czy połączenie zostało nawiązane pomyślnie.
 
 
-**Łączność** | **Szczegóły** | **Akcja**
+**Połączenia** | **Szczegóły** | **Akcja**
 --- | --- | ---
 **Wybran** | Program Telnet wyświetla pusty ekran, a serwer przetwarzania jest osiągalny. | Nie są wymagane żadne dalsze działania.
 **Niepomyślnych** | Nie można nawiązać połączenia | Upewnij się, że na serwerze przetwarzania jest dozwolony port 9443 dla ruchu przychodzącego. Na przykład jeśli masz sieć obwodową lub podsieć z osłoną. Sprawdź połączenie ponownie.
@@ -168,18 +167,18 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
 
   1. Na serwerze przetwarzania Otwórz Menedżera zadań (naciśnij klawisze CTRL + SHIFT + ESC).
   2. Wybierz kartę **wydajność** > **Otwórz Monitor zasobów**.
-  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywnością sieci**Sprawdź, czy program pliku cbengine. exe aktywnie wysyła dużą ilość danych.
+  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywność sieci**Sprawdź, czy cbengine.exe aktywnie wysyła dużą ilość danych.
 
        ![Woluminy w ramach procesów z aktywnością sieciową](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
-  Jeśli pliku cbengine. exe nie wysyła dużej ilości danych, wykonaj kroki opisane w poniższych sekcjach.
+  Jeśli cbengine.exe nie wysyła dużej ilości danych, wykonaj kroki opisane w poniższych sekcjach.
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Krok 9. sprawdzenie połączenia serwera przetwarzania z usługą Azure Blob Storage
 
-1. W Monitor zasobów wybierz pozycję **pliku cbengine. exe**.
+1. W Monitor zasobów wybierz pozycję **cbengine.exe**.
 2. W obszarze **połączenia protokołu TCP**Sprawdź, czy istnieje łączność z serwerem przetwarzania do usługi Azure Storage.
 
-  ![Łączność między pliku cbengine. exe i adresem URL usługi Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Łączność między cbengine.exe i adresem URL usługi Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Sprawdź usługi
 

@@ -4,10 +4,9 @@ description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Function
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83848743"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
@@ -87,15 +86,15 @@ public static class QueueFunctions
 Ta metoda pozwala włączać i wyłączać funkcję przez zmianę ustawienia aplikacji, bez ponownej kompilacji lub ponownego wdrożenia. Zmiana ustawienia aplikacji powoduje, że aplikacja funkcji zostanie ponownie uruchomiona, więc zmiana stanu wyłączenia zostanie natychmiast rozpoznana.
 
 > [!IMPORTANT]
-> Ten `Disabled` atrybut jest jedynym sposobem wyłączenia funkcji biblioteki klas. Nie można bezpośrednio edytować pliku generated *Function. JSON* dla funkcji biblioteki klas. Jeśli edytujesz ten plik, nie `disabled` ma to żadnego wpływu na właściwość.
+> Ten `Disabled` atrybut jest jedynym sposobem wyłączenia funkcji biblioteki klas. Wygenerowany *function.jsw* pliku dla funkcji biblioteki klas nie jest przeznaczony do edycji bezpośrednio. Jeśli edytujesz ten plik, nie `disabled` ma to żadnego wpływu na właściwość.
 >
-> Ta sama wartość dotyczy przełącznika **stanu funkcji** na karcie **Zarządzanie** , ponieważ działa przez zmianę pliku *Function. JSON* .
+> To samo dotyczy przełącznika **stanu funkcji** na karcie **Zarządzanie** , ponieważ działa przez zmianę *function.jsw* pliku.
 >
 > Należy również pamiętać, że w portalu może wskazywać, że funkcja jest wyłączona, gdy nie jest.
 
 ### <a name="functions-1x---scripting-languages"></a>Functions 1. x — Języki obsługi skryptów
 
-W wersji 1. x można także użyć `disabled` właściwości pliku *Function. JSON* , aby poinformować, że środowisko uruchomieniowe nie wyzwala funkcji. Ta metoda działa tylko w przypadku języków skryptów, takich jak skrypt C# i JavaScript. `disabled`Właściwość może mieć wartość `true` lub na nazwę ustawienia aplikacji:
+W wersji 1. x można także użyć `disabled` właściwości *function.jsw* pliku, aby poinformować, że środowisko uruchomieniowe nie wyzwala funkcji. Ta metoda działa tylko w przypadku języków skryptów, takich jak skrypt C# i JavaScript. `disabled`Właściwość może mieć wartość `true` lub na nazwę ustawienia aplikacji:
 
 ```json
 {
@@ -123,7 +122,7 @@ lub
 W drugim przykładzie funkcja jest wyłączona, gdy istnieje ustawienie aplikacji o nazwie IS_DISABLED i jest ustawione na `true` lub 1.
 
 >[!IMPORTANT]  
->Portal używa teraz ustawień aplikacji do wyłączenia funkcji v1. x. Gdy ustawienie aplikacji powoduje konflikt z plikiem Function. JSON, może wystąpić błąd. Należy usunąć `disabled` Właściwość z pliku Function. JSON, aby uniknąć błędów. 
+>Portal używa teraz ustawień aplikacji do wyłączenia funkcji v1. x. Gdy ustawienia aplikacji powodują konflikt z function.jsw pliku, może wystąpić błąd. Należy usunąć `disabled` Właściwość z function.jsw pliku, aby uniknąć błędów. 
 
 
 ## <a name="next-steps"></a>Następne kroki

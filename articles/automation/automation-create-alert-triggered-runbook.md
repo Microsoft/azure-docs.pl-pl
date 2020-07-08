@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837114"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Użyj alertu, aby wyzwolić Azure Automation element Runbook
@@ -52,7 +51,7 @@ Użyj tego przykładu, aby utworzyć element Runbook o nazwie **stop-AzureVmInRe
 1. Przejdź do swojego konta Azure Automation.
 2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook**.
 3. W górnej części listy elementów Runbook wybierz pozycję **+ Utwórz element Runbook**.
-4. Na stronie **Dodawanie elementu Runbook** wprowadź polecenie **stop-AzureVmInResponsetoVMAlert** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Create** (Utwórz).  
+4. Na stronie **Dodawanie elementu Runbook** wprowadź polecenie **stop-AzureVmInResponsetoVMAlert** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz pozycję **Utwórz**.  
 5. Skopiuj poniższy przykład programu PowerShell do strony **Edycja** .
 
     ```powershell-interactive
