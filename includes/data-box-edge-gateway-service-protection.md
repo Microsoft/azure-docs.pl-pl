@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 727b2985711b51f1474fecb014906b08d18437cb
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82562133"
 ---
 - Aby uzyskać dostęp do usługi Azure Stack Edge, organizacja musi mieć subskrypcję Umowa Enterprise (EA) lub dostawcę rozwiązań w chmurze (CSP). Aby uzyskać więcej informacji, zobacz [Rejestrowanie się w celu uzyskania subskrypcji platformy Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).

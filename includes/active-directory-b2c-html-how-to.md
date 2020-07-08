@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80117152"
 ---
 ## <a name="use-custom-page-content"></a>Użyj niestandardowej zawartości strony
@@ -89,7 +89,7 @@ Poniżej przedstawiono omówienie procesu:
 
 Utwórz niestandardową zawartość strony z nazwą marki produktu w tytule.
 
-1. Skopiuj poniższy fragment kodu HTML. Jest to poprawnie sformułowany plik HTML5 z pustym elementem o nazwie * \< DIV ID = "API" \> \< /DIV \> * znajdującym się w tagach * \< treści \> * . Ten element wskazuje, gdzie Azure AD B2C zawartość ma zostać wstawiona.
+1. Skopiuj poniższy fragment kodu HTML. Jest to dobrze sformułowany plik HTML5 z pustym elementem o nazwie *\<div id="api"\>\</div\>* znajdującym się w *\<body\>* tagach. Ten element wskazuje, gdzie Azure AD B2C zawartość ma zostać wstawiona.
 
    ```html
    <!DOCTYPE html>

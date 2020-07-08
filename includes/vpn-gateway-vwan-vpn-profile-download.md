@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 05/13/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650660"
 ---
 ## <a name="1-download-the-file"></a>1. Pobierz plik
@@ -35,7 +35,7 @@ Wyodrębnij plik ZIP. Plik zawiera następujące foldery:
 
 ## <a name="3-retrieve-information"></a>3. Pobieranie informacji
 
-W folderze **AzureVPN** przejdź do pliku ***azurevpnconfig. XML*** i otwórz go w Notatniku. Zanotuj tekst między następującymi tagami.
+W folderze **AzureVPN** przejdź do pliku ***azurevpnconfig.xml*** i otwórz go w Notatniku. Zanotuj tekst między następującymi tagami.
 
 ```
 <audience>          </audience>
@@ -57,6 +57,6 @@ Po dodaniu połączenia użyj informacji zebranych w poprzednim kroku dla strony
 
 ## <a name="folder-contents"></a>Zawartość folderu
 
-* **Folder ogólny** zawiera publiczny certyfikat serwera i plik VpnSettings. XML. Plik VpnSettings. xml zawiera informacje, które są konieczne do skonfigurowania klienta ogólnego.
+* **Folder ogólny** zawiera publiczny certyfikat serwera i plik VpnSettings.xml. Plik VpnSettings.xml zawiera informacje, które są konieczne do skonfigurowania klienta ogólnego.
 
 * Pobrany plik zip może również zawierać foldery **WindowsAmd64** i **WindowsX86** . Foldery te zawierają Instalatora protokołu SSTP i IKEv2 dla klientów z systemem Windows. Aby je zainstalować, musisz mieć uprawnienia administratora na kliencie.

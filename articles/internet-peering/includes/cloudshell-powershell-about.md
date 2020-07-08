@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81678473"
 ---
 Aby uruchomić polecenia cmdlet, można użyć Azure Cloud Shell, bezpłatnej powłoki interaktywnej. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Wybierz pozycję **Kopiuj** , aby skopiować kod i wkleić go do Cloud Shell. Następnie wybierz klawisz **Enter** , aby go uruchomić. Istnieje kilka sposobów uruchamiania Cloud Shell:

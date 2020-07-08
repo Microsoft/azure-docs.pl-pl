@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: Uwzględnij plik tekstowy dla kontraktu Microsoft Commercial Marketplace Standard
 documentationcenter: partner-center-commercial-marketplace
 author: dsindona
@@ -10,17 +10,17 @@ ms.date: 01/22/2020
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: e7692d8c90d71e76628ecb44ade529eabedfa909
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691508"
 ---
 Firma Microsoft udostępnia standardowy szablon kontraktu dla komercyjnej witryny Marketplace.
 
 - **Używasz standardowej umowy dotyczącej komercyjnej witryny Microsoft Marketplace?**
 
-Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardową umowę dotyczącą komercyjnego portalu Microsoft Marketplace, aby ułatwić obsługę transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, Komercyjni wydawcy portalu Marketplace mogą zaoferować swoje oprogramowanie zgodnie z umową standardową, której klienci muszą jedynie Zweryfikuj i akceptować. Kontrakt standardowy można znaleźć tutaj: https://go.microsoft.com/fwlink/?linkid=2041178.
+Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardową umowę dotyczącą komercyjnego portalu Microsoft Marketplace, aby ułatwić obsługę transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, Komercyjni wydawcy portalu Marketplace mogą zaoferować swoje oprogramowanie zgodnie z umową standardową, której klienci muszą jedynie Zweryfikuj i akceptować. Kontrakt standardowy można znaleźć tutaj: https://go.microsoft.com/fwlink/?linkid=2041178 .
 
 Możesz wybrać opcję użycia kontraktu standardowego zamiast podawania własnych warunków i postanowień, wybierając opcję "Użyj standardowej umowy dla portalu komercyjnego".
 

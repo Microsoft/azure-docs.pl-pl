@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82131093"
 ---
 Opublikowanie oferty w portalu Marketplace za pośrednictwem Centrum partnerskiego wymaga połączenia oferty z systemem CRM. W ten sposób możesz otrzymywać informacje kontaktowe klienta bezpośrednio, gdy klient wyraża zainteresowanie lub wdroży produkt.
@@ -22,7 +22,7 @@ Opublikowanie oferty w portalu Marketplace za pośrednictwem Centrum partnerskie
 
     * [Dynamics 365](../commercial-marketplace-lead-management-instructions-dynamics.md) dla zaangażowania klienta
     * [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md)
-    * [SalesForce](../commercial-marketplace-lead-management-instructions-salesforce.md)
+    * [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md)
 
     Jeśli system CRM nie jest jawnie obsługiwany na tej liście, możesz przechowywać dane lidera klienta przy użyciu następujących opcji. Następnie można eksportować lub importować te dane do systemu CRM.
 

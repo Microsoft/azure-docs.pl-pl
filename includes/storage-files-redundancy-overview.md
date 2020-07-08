@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 87457bb103f49be4ca3e7bf9f463c5bf63f3a119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77597841"
 ---
 Aby chronić dane w udziałach plików platformy Azure przed utratą lub uszkodzeniem danych, wszystkie udziały plików platformy Azure przechowują wiele kopii każdego pliku podczas ich pisania. W zależności od wymagań obciążenia można wybrać dodatkowe stopnie nadmiarowości. Azure Files obecnie obsługuje następujące opcje nadmiarowości danych:
