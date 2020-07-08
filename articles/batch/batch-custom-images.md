@@ -1,21 +1,23 @@
 ---
-title: Inicjowanie obsługi administracyjnej puli z obrazu zarządzanego
-description: Utwórz pulę usługi Batch z zasobu obrazu zarządzanego, aby udostępnić węzłom obliczeniowym oprogramowanie i dane aplikacji.
+title: Tworzenie niestandardowej puli obrazów przy użyciu obrazu zarządzanego
+description: Utwórz niestandardową pulę obrazów usługi Batch z zarządzanego obrazu, aby udostępnić węzłom obliczeniowym oprogramowanie i dane aplikacji.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/01/2020
+ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847994"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851288"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Tworzenie puli maszyn wirtualnych przy użyciu obrazu zarządzanego
+# <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Tworzenie niestandardowej puli obrazów przy użyciu obrazu zarządzanego
 
-Aby utworzyć niestandardowy obraz dla maszyn wirtualnych puli usługi Batch, możesz użyć zarządzanego obrazu do utworzenia [galerii obrazów udostępnionych](batch-sig-images.md). Obsługiwane jest również korzystanie tylko z obrazu zarządzanego, ale tylko w przypadku wersji interfejsu API do i włącznie z 2019-08-01.
+Aby utworzyć niestandardową pulę obrazów dla maszyn wirtualnych puli usługi Batch, możesz użyć zarządzanego obrazu do utworzenia [obrazu galerii obrazów udostępnionych](batch-sig-images.md). Obsługiwane jest również korzystanie tylko z obrazu zarządzanego, ale tylko w przypadku wersji interfejsu API do i włącznie z 2019-08-01. 
 
 > [!IMPORTANT]
 > W większości przypadków należy utworzyć obrazy niestandardowe przy użyciu galerii obrazów udostępnionych. Za pomocą galerii obrazów udostępnionych można udostępniać pule szybciej, skalować większe ilości maszyn wirtualnych i zwiększyć niezawodność podczas aprowizacji maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych](batch-sig-images.md).
+
+W tym temacie wyjaśniono, jak utworzyć niestandardową pulę obrazów przy użyciu tylko obrazu zarządzanego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,7 +28,7 @@ Aby utworzyć niestandardowy obraz dla maszyn wirtualnych puli usługi Batch, mo
 
 - **Uwierzytelnianie Azure Active Directory (Azure AD)**. Interfejs API klienta usługi Batch musi korzystać z uwierzytelniania w usłudze Azure AD. Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
-## <a name="prepare-a-custom-image"></a>Przygotowywanie obrazu niestandardowego
+## <a name="prepare-a-managed-image"></a>Przygotowywanie zarządzanego obrazu
 
 Na platformie Azure można przygotować zarządzany obraz z:
 
@@ -57,7 +59,7 @@ Migawka to pełna kopia tylko do odczytu dysku VHD. Aby utworzyć migawkę syste
 
 Aby utworzyć obraz zarządzany na podstawie migawki, użyj narzędzi wiersza polecenia platformy Azure, takich jak polecenie [AZ Image Create](/cli/azure/image) . Można utworzyć obraz, określając migawkę dysku systemu operacyjnego i opcjonalnie jedną lub więcej migawek dysków danych.
 
-## <a name="create-a-pool-from-a-custom-image"></a>Tworzenie puli na podstawie obrazu niestandardowego
+## <a name="create-a-pool-from-a-managed-image"></a>Tworzenie puli na podstawie obrazu zarządzanego
 
 Po znalezieniu identyfikatora zasobu zarządzanego obrazu Utwórz niestandardową pulę obrazów na podstawie tego obrazu. Poniższe kroki pokazują, jak utworzyć niestandardową pulę obrazów przy użyciu usługi Batch lub zarządzania partiami.
 

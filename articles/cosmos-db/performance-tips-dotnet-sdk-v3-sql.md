@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: ce0bc73fd21210e7cd5cd48c8134abd5f014b026
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850262"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
 > [!div class="op_single_selector"]
-> * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK 2](performance-tips.md)
+> * [Zestaw SDK .NET w wersji 3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Zestaw .NET SDK w wersji 2](performance-tips.md)
 > * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
@@ -99,7 +99,7 @@ Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przyp
 
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Zasady połączenia Azure Cosmos DB" border="false":::
 
-**Tymczasowe wyczerpanie portów**
+**Wyczerpanie portów efemerycznych**
 
 Jeśli w wystąpieniach jest wyświetlany wysoki poziom połączenia lub wysokie użycie portów, należy najpierw sprawdzić, czy wystąpienia klienta są pojedynczymi. Innymi słowy, wystąpienia klienta powinny być unikatowe w okresie istnienia aplikacji.
 
@@ -247,9 +247,11 @@ Opłata za żądanie zwrócona w tym nagłówku jest częścią alokowanej przep
 
 Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i żadne użycie wydajności przepływności wykracza poza poziom zarezerwowany. Serwer będzie zapobiegawczo żądanie z RequestRateTooLarge (kod stanu HTTP 429). Spowoduje to zwrócenie nagłówka [x-MS-retry-After-MS](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , który wskazuje ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
 
+```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
+```
 
 Zestaw SDK niejawnie przechwytuje tę odpowiedź, przestrzegając określonego przez serwer nagłówka retry-After i ponów próbę wykonania żądania. O ile Twoje konto nie jest dostępne współbieżnie przez wielu klientów, kolejna próba powiodła się.
 

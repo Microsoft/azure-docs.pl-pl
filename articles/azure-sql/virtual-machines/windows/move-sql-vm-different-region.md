@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bc65e34fa16312b54fc8a346c561ab128424ab26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851805"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Przenoszenie SQL Server maszyny wirtualnej do innego regionu na platformie Azure z Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Przygotuj zarówno źródłową, SQL Server maszynę wirtualną, jak i region do
     - Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć sieć i przypisać ją do maszyny wirtualnej w przepływie użytkownika w celu włączenia replikacji. Należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym.
 - Aby utworzyć najczęściej używane zasoby sieciowe, które są odpowiednie dla Ciebie na podstawie konfiguracji źródłowej maszyny wirtualnej, zapoznaj się z następującą dokumentacją: 
     - [Grupy zabezpieczeń sieci](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Moduł równoważenia obciążenia](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Moduł równoważenia obciążenia](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Publiczny adres IP](../../../virtual-network/virtual-network-public-ip-address.md)
     - Dodatkowe składniki sieci można znaleźć w dokumentacji dotyczącej [sieci](../../../virtual-network/virtual-networks-overview.md).
 - Ręcznie Utwórz sieć nieprodukcyjną w regionie docelowym, jeśli chcesz przetestować konfigurację przed przeprowadzeniem ostatniego przejścia do regionu docelowego. Zalecamy wykonanie tej czynności, ponieważ zapewnia ona minimalne zakłócenia w sieci produkcyjnej. 

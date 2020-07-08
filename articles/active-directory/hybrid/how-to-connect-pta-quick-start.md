@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61e772d7a55577c263edc83ccface31932f5b2dd
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85358365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849889"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -153,13 +153,17 @@ Następnie można utworzyć i uruchomić skrypt wdrożenia nienadzorowanego. Jes
 1. Uruchom następujące polecenie, aby zainstalować agenta uwierzytelniania: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q` .
 2. Agenta uwierzytelniania można zarejestrować za pomocą naszej usługi przy użyciu programu Windows PowerShell. Utwórz obiekt poświadczeń programu PowerShell `$cred` , który zawiera nazwę użytkownika i hasło administratora globalnego dla dzierżawy. Uruchom następujące polecenie, zastępując *\<username\>* i *\<password\>* :
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```powershell
+  $User = "<username>"
+  $PlainPassword = '<password>'
+  $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+  $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
+  ```
 3. Przejdź do **folderu C:\Program Files\Microsoft Azure AD Connect Authentication Agent** i uruchom następujący skrypt przy użyciu `$cred` utworzonego obiektu:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```powershell
+  RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 >[!IMPORTANT]
 >Jeśli na maszynie wirtualnej jest zainstalowany agent uwierzytelniania, nie można sklonować maszyny wirtualnej w celu skonfigurowania innego agenta uwierzytelniania. Ta metoda nie jest **obsługiwana**.

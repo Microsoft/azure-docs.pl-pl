@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 961e5a0febc0212b8a747b052b3fd6f696689351
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 2d52287d1c343ada58ed4f7e5e1d3e85a4e7162e
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850436"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
@@ -38,13 +38,13 @@ Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i 
 Ten interfejs umożliwia wyciągom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), które działają według stawek za HBv2, EDR stawek za HB, HC, FDR dla H16r, H16mr i funkcji RDMA, które obsługują maszyny wirtualne z serii N, i szybkość QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface). Aby uzyskać więcej informacji na temat szybkości, zobacz szczegóły w tabelach na tej stronie.
 
 > [!NOTE]
-> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC i seria NCV3. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie obsługują funkcji SR-IOV.
+> W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie obsługują funkcji SR-IOV.
 > Funkcja RDMA przez IB jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
 > Protokół IP over IB jest obsługiwany tylko na maszynach wirtualnych z włączoną funkcją SR-IOV.
 
-- **System operacyjny** — Linux jest bardzo dobrze obsługiwany w przypadku maszyn wirtualnych HPC, dystrybucje takich jak CentOS, RHEL, Ubuntu, SUSE są wspólne. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 jest obsługiwany na wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV.
+- **System operacyjny** — Linux jest bardzo dobrze obsługiwany dla maszyn wirtualnych HPC; dystrybucje, takie jak CentOS, RHEL, Ubuntu, SUSE są powszechnie używane. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 i nowsze wersje są obsługiwane we wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV (H16r, H16mr, A8 i A9). Należy pamiętać, że [system Windows Server 2012 R2 nie jest obsługiwany na HBv2 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **MPI** — rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure (HBV2, HB, HC, Seria NCV3) umożliwiają użycie niemal wszystkich wersji MPI do użycia z Mellanox OFED.
+- **MPI** — rozmiary maszyn wirtualnych z obsługą wirtualizacji SR-IOV na platformie Azure (HBV2, HB, HC, Seria NCV3, NDv2) pozwalają na używanie niemal wszelkich wersji MPI do użycia z interfejsem Mellanox OFED.
 W przypadku maszyn wirtualnych z obsługą funkcji SR-IOV obsługiwane implementacje MPI używają interfejsu Microsoft Network Direct (ND) do komunikacji między maszynami wirtualnymi. W związku z tym obsługiwane są tylko programy Microsoft MPI (MS-MPI) 2012 R2 lub nowsze i Intel MPI 5. x. Nowsze wersje (2017, 2018) biblioteki środowiska uruchomieniowego Intel MPI mogą być niezgodne ze sterownikami usługi Azure RDMA.
 
 - **InfiniBandDriver<Linux | Rozszerzenie maszyny wirtualnej z systemem Windows>** — na maszynach wirtualnych z obsługą funkcji RDMA Dodaj InfiniBandDriver<Linux | Rozszerzenie> systemu Windows umożliwiające włączenie InfiniBand. W systemie Linux rozszerzenie maszyny wirtualnej InfiniBandDriverLinux instaluje sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA. W systemie Windows rozszerzenie maszyny wirtualnej InfiniBandDriverWindows instaluje sterowniki bezpośrednie sieci systemu Windows (na maszynach wirtualnych innych niż SR-IOV) lub sterowniki Mellanox OFED (na maszynach wirtualnych SR-IOV) na potrzeby łączności RDMA.

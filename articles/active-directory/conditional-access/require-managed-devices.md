@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 690582638451f1691b2ed7a4d0d4d6a7880fd80a
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253209"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849934"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zarządzanych urządzeń dla dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -95,6 +95,28 @@ W przypadku urządzenia oznaczonego jako zgodnego można założyć, że:
 - Zarządzanie aplikacjami mobilnymi używanymi przez pracowników
 - Informacje o firmie są chronione przez pomoc w kontroli sposobu, w jaki pracownicy uzyskują do nich dostęp i udostępniają ją
 - Urządzenie i jego aplikacje są zgodne z wymaganiami firmy dotyczącymi zabezpieczeń
+
+### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scenariusz: wymaganie rejestracji urządzenia dla urządzeń z systemami iOS i Android
+
+W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów pakietu Office 365 muszą używać zarejestrowanego urządzenia. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+
+Aby wymagać korzystania z zarejestrowanego urządzenia przenośnego, organizacje muszą wykonać następujące czynności.
+
+1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Wybierz pozycję **nowe zasady**.
+1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
+1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
+   1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
+   1. Wybierz pozycję **Gotowe**.
+1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
+1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
+   1. Ustaw **wartość** **tak**.
+   1. Uwzględnij **systemy Android** i **iOS**.
+1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
+   - **Wymagaj, aby urządzenie było oznaczone jako zgodne**
+1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
+1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
 
 ### <a name="known-behavior"></a>Znane zachowanie
 

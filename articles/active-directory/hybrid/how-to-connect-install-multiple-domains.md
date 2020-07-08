@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f252eac53f3aab2263f2019c9d4b13b0f68dce
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85358892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849955"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Obsługa wielu domen do federowania w usłudze Azure AD
 Poniższa dokumentacja zawiera wskazówki dotyczące korzystania z wielu domen najwyższego poziomu i poddomen, gdy federowanie z pakietem Office 365 lub domenami usługi Azure AD.
@@ -73,7 +73,9 @@ Na przykład, jeśli nazwa UPN użytkownika to bsimon@bmcontoso.com , element Is
 
 Poniżej przedstawiono dostosowaną regułę, która implementuje tę logikę:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
 
 > [!IMPORTANT]
@@ -144,7 +146,9 @@ Aby obejść ten problem, należy zaktualizować AD FS zaufania jednostki uzale�
 
 Następujące zgłoszenie spowoduje to:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```    
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
 [!NOTE]
 Ostatni numer w wyrażeniu regularnym to liczba domen nadrzędnych w domenie głównej. W tym miejscu bmcontoso.com jest używany, więc wymagane są dwie domeny nadrzędne. Jeśli zostały zachowane trzy domeny nadrzędne (tj.: corp.bmcontoso.com), liczba ta byłaby trzy. Ostatecznie można wskazywać zakres, a dopasowanie będzie zawsze wykonywane w celu dopasowania do maksymalnej liczby domen. " {2,3} " będzie pasować do dwóch do trzech domen (tj.: bmfabrikam.com i Corp.bmcontoso.com).
@@ -156,11 +160,14 @@ Wykonaj poniższe kroki, aby dodać niestandardową wartość do obsługi poddom
 3. Wybierz trzecią regułę zgłoszenia i Zastąp wartość ![ Edytuj zgłoszenie](./media/how-to-connect-install-multiple-domains/sub1.png)
 4. Zastąp bieżące to:
 
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   ```
+    with
 
-       with
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
+   c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+   ```
 
     ![Zastąp wierzytelność](./media/how-to-connect-install-multiple-domains/sub2.png)
 

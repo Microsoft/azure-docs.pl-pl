@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: e6b4126d3d1c2a7413a43779e0da0cd3f5347a5a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 9167df9c763f4004324a3435ba1a2b0fd0171ac4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263707"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851687"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
@@ -99,7 +99,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="mongodb-api"></a><a id="dotnet-cassandra"></a>Interfejs API usługi MongoDB
+### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>Interfejs API usługi MongoDB
 
 ```csharp
 // refer to MongoDB .NET Driver

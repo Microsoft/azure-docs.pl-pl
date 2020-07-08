@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: d4e21e03770591229416c1f70bbd5a715b43362c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c6ff105a03181b588a9074675c97930696ac5e87
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850199"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Wskazówki dotyczące wydajności dla Azure Cosmos DB Java SDK v4
 
@@ -20,8 +20,8 @@ ms.locfileid: "85263470"
 > * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
-> * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [.NET SDK 2](performance-tips.md)
+> * [Zestaw SDK .NET w wersji 3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Zestaw .NET SDK w wersji 2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -65,7 +65,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
         .buildAsyncClient();
     ```
 
-    #### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+    #### <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-sync-api"></a><a id="java4-connection-policy-sync"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -146,7 +146,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientAsync)]
 
-    # <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+    # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
     Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -296,7 +296,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
-    # <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+    # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
     Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -312,7 +312,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
-    # <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+    # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
     Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -359,7 +359,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
-    # <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+    # <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
     Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
 
@@ -374,9 +374,11 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i nie będzie korzystać z wydajności przepływności poza poziomem zarezerwowanym. Serwer zapobiegawczo zakończyć żądanie z RequestRateTooLarge (kod stanu HTTP 429) i zwróci nagłówek [x-MS-retry-After-MS](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) wskazujący ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
 
+    ```xml
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
+    ```
 
     Zestaw SDK niejawnie przechwytuje tę odpowiedź, przestrzegając określonego przez serwer nagłówka retry-After i ponów próbę wykonania żądania. O ile Twoje konto nie jest dostępne współbieżnie przez wielu klientów, kolejna próba powiodła się.
 

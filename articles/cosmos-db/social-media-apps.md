@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: df48be038635799c08be409f7f1600e324cd8380
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850703"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
 
@@ -39,22 +39,24 @@ Możesz użyć nieolbrzymiego wystąpienia SQL z wystarczającą ilością mocy,
 
 W tym artykule opisano sposób modelowania danych platformy społecznościowej przy użyciu usługi Azure NoSQL [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Database. Informuje również, jak używać innych funkcji Azure Cosmos DB, takich jak [interfejs API Gremlin](../cosmos-db/graph-introduction.md). Przy użyciu podejścia [NoSQL](https://en.wikipedia.org/wiki/NoSQL) , zapisywania danych w formacie JSON i stosowania [denormalizacji](https://en.wikipedia.org/wiki/Denormalization)wcześniej skomplikowany wpis może być przekształcony w jeden [dokument](https://en.wikipedia.org/wiki/Document-oriented_database):
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["https://myfirstimage.png","https://mysecondimage.png"],
-        "videos":[
-            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```json
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["https://myfirstimage.png","https://mysecondimage.png"],
+    "videos":[
+        {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"https://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 Może to być jedna kwerenda i bez sprzężeń. To zapytanie jest bardzo proste i proste, a i nie jest dostępne, ale wymaga mniejszej ilości zasobów, aby osiągnąć lepszy wynik.
 
@@ -62,39 +64,45 @@ Azure Cosmos DB upewnij się, że wszystkie właściwości są indeksowane przy 
 
 Komentarze na wpisie mogą być traktowane jako inne wpisy z właściwością nadrzędną. (Ta metoda upraszcza mapowanie obiektu).
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":User2,
-        "parent":"ew12-res2-234e-544f"
-    }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":User2,
+    "parent":"ew12-res2-234e-544f"
+}
 
-    {
-        "id":"asd2-fee4-23gc-jh67",
-        "title":"Ditto!",
-        "date":"2016-01-03",
-        "createdBy":User3,
-        "parent":"ew12-res2-234e-544f"
-    }
+{
+    "id":"asd2-fee4-23gc-jh67",
+    "title":"Ditto!",
+    "date":"2016-01-03",
+    "createdBy":User3,
+    "parent":"ew12-res2-234e-544f"
+}
+```
 
 Wszystkie interakcje społecznościowe mogą być przechowywane na osobnym obiekcie jako liczniki:
 
-    {
-        "id":"dfe3-thf5-232s-dse4",
-        "post":"ew12-res2-234e-544f",
-        "comments":2,
-        "likes":10,
-        "points":200
-    }
+```json
+{
+    "id":"dfe3-thf5-232s-dse4",
+    "post":"ew12-res2-234e-544f",
+    "comments":2,
+    "likes":10,
+    "points":200
+}
+```
 
 Tworzenie źródeł danych jest kwestią tworzenia dokumentów, które mogą zawierać listę identyfikatorów wpisów z określoną kolejnością istotności:
 
-    [
-        {"relevance":9, "post":"ew12-res2-234e-544f"},
-        {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
-        {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
-    ]
+```json
+[
+    {"relevance":9, "post":"ew12-res2-234e-544f"},
+    {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
+    {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
+]
+```
 
 Można utworzyć "najnowszy" strumień z wpisami uporządkowanymi według daty utworzenia. Możesz też mieć strumień "okienko" z tymi wpisami o większej liczbie polubień w ciągu ostatnich 24 godzin. Można nawet zaimplementować niestandardowy strumień dla każdego użytkownika na podstawie logiki, takiej jak obserwatorzy i zainteresowania. Nadal będzie to lista wpisów. Jest to kwestia, w jaki sposób można kompilować te listy, ale wydajność odczytu pozostaje niezakłócona. Po uzyskaniu jednej z tych list możesz wydać pojedyncze zapytanie, aby Cosmos DB za pomocą [słowa kluczowego in w](sql-query-keywords.md#in) celu pobrania stron wpisów w danym momencie.
 
@@ -104,28 +112,32 @@ Punkty i polubienia na wpisie mogą być przetwarzane w sposób odroczony za pom
 
 Obserwatorzy są trickier. Cosmos DB ma limit rozmiaru dokumentu, a odczyt/zapis dużych dokumentów może mieć wpływ na skalowalność aplikacji. Możesz zastanowić się nad przechowywaniem obserwatorów jako dokumentu w tej strukturze:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "followersOf": "dse4-qwe2-ert4-aad2",
-        "followers":[
-            "ewr5-232d-tyrg-iuo2",
-            "qejh-2345-sdf1-ytg5",
-            //...
-            "uie0-4tyg-3456-rwjh"
-        ]
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "followersOf": "dse4-qwe2-ert4-aad2",
+    "followers":[
+        "ewr5-232d-tyrg-iuo2",
+        "qejh-2345-sdf1-ytg5",
+        //...
+        "uie0-4tyg-3456-rwjh"
+    ]
+}
+```
 
 Ta struktura może być poprawna dla użytkownika, który ma kilka tysięcy obserwatorów. Jeśli niektóre osobistości przyłączają się do rang, jednak takie podejście będzie prowadzić do dużego rozmiaru dokumentu i ostatecznie osiągnie limit rozmiaru dokumentu.
 
 Aby rozwiązać ten problem, można użyć podejścia mieszanego. W ramach dokumentu statystyki użytkownika można przechowywać liczbę obserwatorów:
 
-    {
-        "id":"234d-sd23-rrf2-552d",
-        "user": "dse4-qwe2-ert4-aad2",
-        "followers":55230,
-        "totalPosts":452,
-        "totalPoints":11342
-    }
+```json
+{
+    "id":"234d-sd23-rrf2-552d",
+    "user": "dse4-qwe2-ert4-aad2",
+    "followers":55230,
+    "totalPosts":452,
+    "totalPoints":11342
+}
+```
 
 Możesz przechowywać rzeczywisty Graf obserwatorów przy użyciu Azure Cosmos DB [interfejsu API Gremlin](../cosmos-db/graph-introduction.md) do tworzenia [wierzchołków](http://mathworld.wolfram.com/GraphVertex.html) dla każdego użytkownika i [krawędzi](http://mathworld.wolfram.com/GraphEdge.html) , które utrzymują relacje "A-po-B". Za pomocą interfejsu API Gremlin można uzyskać obserwatorów określonego użytkownika i utworzyć bardziej złożone zapytania, aby zasugerować wspólne osoby. Jeśli dodasz do grafu Kategorie zawartości, które lubię lub cieszą się, możesz zacząć korzystać z funkcji odtwarzania, które obejmują funkcję inteligentnego odnajdywania zawartości, sugerując zawartość, do której Ci się odnoszą, lub znalezienie osób, które mogą być często bardzo popularne.
 
@@ -141,19 +153,21 @@ Należy rozwiązać ten problem, identyfikując kluczowe atrybuty użytkownika, 
 
 Przechodźmy na przykład informacje o użytkowniku:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "address":"742 Evergreen Terrace",
-        "birthday":"1983-05-07",
-        "email":"john@doe.com",
-        "twitterHandle":"\@john",
-        "username":"johndoe",
-        "password":"some_encrypted_phrase",
-        "totalPoints":100,
-        "totalPosts":24
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "address":"742 Evergreen Terrace",
+    "birthday":"1983-05-07",
+    "email":"john@doe.com",
+    "twitterHandle":"\@john",
+    "username":"johndoe",
+    "password":"some_encrypted_phrase",
+    "totalPoints":100,
+    "totalPosts":24
+}
+```
 
 Przeglądając te informacje, można szybko wykryć, które są krytycznymi informacjami, a tym samym nie, tworząc "drabinę":
 
@@ -167,26 +181,30 @@ Największym jest rozszerzonym użytkownikiem. Zawiera ona najważniejsze inform
 
 Dlaczego należy podzielić użytkownika, a nawet przechowywać te informacje w różnych miejscach? Ze względu na wydajność punktu widzenia większe dokumenty, costlier zapytania. Zachowaj dokumenty w Slim i z właściwymi informacjami, aby wykonać wszystkie zapytania zależne od wydajności dla sieci społecznościowej. Przechowuj inne dodatkowe informacje na potrzeby scenariuszy, takich jak pełne modyfikacje profilów, logowania i wyszukiwanie danych na potrzeby analizy użycia i inicjatyw dotyczących danych Big Data. Naprawdę nie należy uważać, że zbieranie danych na potrzeby wyszukiwania danych jest wolniejsze, ponieważ jest ono uruchomione na Azure SQL Database. Użytkownik ma problemy, chociaż użytkownicy mają szybkie i Slim środowisko. Użytkownik zapisany na Cosmos DB będzie wyglądać podobnie do tego kodu:
 
-    {
-        "id":"dse4-qwe2-ert4-aad2",
-        "name":"John",
-        "surname":"Doe",
-        "username":"johndoe"
-        "email":"john@doe.com",
-        "twitterHandle":"\@john"
-    }
+```json
+{
+    "id":"dse4-qwe2-ert4-aad2",
+    "name":"John",
+    "surname":"Doe",
+    "username":"johndoe"
+    "email":"john@doe.com",
+    "twitterHandle":"\@john"
+}
+```
 
 A wpis będzie wyglądać następująco:
 
-    {
-        "id":"1234-asd3-54ts-199a",
-        "title":"Awesome post!",
-        "date":"2016-01-02",
-        "createdBy":{
-            "id":"dse4-qwe2-ert4-aad2",
-            "username":"johndoe"
-        }
+```json
+{
+    "id":"1234-asd3-54ts-199a",
+    "title":"Awesome post!",
+    "date":"2016-01-02",
+    "createdBy":{
+        "id":"dse4-qwe2-ert4-aad2",
+        "username":"johndoe"
     }
+}
+```
 
 Gdy Edycja nastąpi w przypadku, gdy ma to na przykład atrybut fragmentu, można łatwo znaleźć odpowiednie dokumenty. Po prostu Użyj zapytań wskazujących atrybuty indeksowane, takie jak `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"` , a następnie zaktualizuj fragmenty.
 
@@ -212,7 +230,7 @@ Ale co można się uczyć? Oto kilka łatwych przykładów: [Analiza tonacji](ht
 
 Teraz, gdy nastąpiło przełączenie, prawdopodobnie będziesz potrzebować pewnych doktora w nauce matematycznej, aby wyodrębnić te wzorce oraz informacje z prostych baz danych i plików, ale nie są one prawidłowe.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), część [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), to w pełni zarządzana usługa w chmurze, która umożliwia tworzenie przepływów pracy przy użyciu algorytmów w prostym interfejsie przeciągania i upuszczania, koduje własne algorytmy w języku [R](https://en.wikipedia.org/wiki/R_\(programming_language\))lub użycie niektórych już wbudowanych i gotowych do użycia interfejsów API, takich jak [Analiza tekstu](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content moderator lub [zalecenia](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), część [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), to w pełni zarządzana usługa w chmurze, która umożliwia tworzenie przepływów pracy przy użyciu algorytmów w prostym interfejsie przeciągania i upuszczania, koduje własne algorytmy w języku [R](https://en.wikipedia.org/wiki/R_\(programming_language\))lub użycie niektórych już wbudowanych i gotowych do użycia interfejsów api, takich jak [Analiza tekstu](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content moderator lub [rekomendacje](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Aby osiągnąć dowolne z tych Machine Learning scenariuszy, można użyć [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) do pozyskiwania informacji z różnych źródeł. Możesz również użyć [języka U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) do przetwarzania informacji i generowania danych wyjściowych, które mogą być przetwarzane przez Azure Machine Learning.
 

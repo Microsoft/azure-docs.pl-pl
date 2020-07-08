@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10e6d3a419bdf8b14675f0edabd63ed4b4f4b86f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 86e7f1fc18738eef39f8ec29da8763b862cdcc2b
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849964"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
@@ -329,19 +329,25 @@ Agenta programu Azure AD Connect Health możesz skonfigurować na potrzeby korzy
 
 Ustawienia serwera HTTP programu Internet Explorer można zaimportować do użycia przez agentów programu Azure AD Connect Health. Na wszystkich serwerach z uruchomionym agentem programu Health wykonaj następujące polecenie programu PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+```
 
 ##### <a name="import-from-winhttp"></a>Importowanie z usług WinHTTP
 
 Ustawienia serwera proxy WinHTTP można zaimportować do użycia przez agentów programu Azure AD Connect Health. Na wszystkich serwerach z uruchomionym agentem programu Health wykonaj następujące polecenie programu PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```powershell
+Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+```
 
 #### <a name="specify-proxy-addresses-manually"></a>Ręczne określanie adresów serwerów proxy
 
 Serwer proxy możesz określić ręcznie na każdym serwerze, na którym jest uruchomiony agent kondycji, wykonując następujące polecenie programu PowerShell:
 
-    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```powershell
+Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+```
 
 Przykład: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress mojserwerproxy: 443*
 
@@ -352,15 +358,17 @@ Przykład: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress mojserwerpr
 
 Istniejącą konfigurację serwera proxy możesz wyczyścić, uruchamiając następujące polecenie:
 
-    Set-AzureAdConnectHealthProxySettings -NoProxy
-
+```powershell
+Set-AzureAdConnectHealthProxySettings -NoProxy
+```
 
 ### <a name="read-current-proxy-settings"></a>Odczytywanie bieżących ustawień serwera proxy
 
 Możesz odczytać aktualnie skonfigurowane ustawienia serwera proxy, wykonując następujące polecenie:
 
-    Get-AzureAdConnectHealthProxySettings
-
+```powershell
+Get-AzureAdConnectHealthProxySettings
+```
 
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Testowanie łączności z usługą Azure AD Connect Health
 
@@ -368,7 +376,9 @@ Mogą wystąpić problemy powodujące utratę łączności agenta programu Azure
 
 Jeśli agent nie może wysyłać danych do programu Azure AD Connect Health przez ponad 2 godziny, w portalu zostanie wyświetlony alert o treści „Dane usługi kondycji są nieaktualne”. Możesz sprawdzić, czy agent programu Azure AD Connect Health, którego dotyczy alert, jest w stanie przekazywać dane do usługi Azure AD Connect Health, wykonując następujące polecenie programu PowerShell:
 
-    Test-AzureADConnectHealthConnectivity -Role ADFS
+```powershell
+Test-AzureADConnectHealthConnectivity -Role ADFS
+```
 
 Parametr roli obecnie przyjmuje następujące wartości:
 

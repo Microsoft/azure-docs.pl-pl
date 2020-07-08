@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0f0b3488bd34a31002449b9b7635064d5d835072
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851270"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
@@ -81,6 +81,8 @@ Jeśli nazwy obiektów BLOB są nastawiane przy użyciu ogranicznika, możesz wy
 Domyślnie operacja tworzenia listy zwraca obiekty blob w postaci płaskiej listy. W przypadku płaskiej listy obiekty blob nie są zorganizowane według katalogu wirtualnego.
 
 Poniższy przykład wyświetla listę obiektów BLOB w określonym kontenerze przy użyciu płaskiej listy z określonym opcjonalnym rozmiarem segmentu i zapisuje nazwę obiektu BLOB w oknie konsoli.
+
+Jeśli włączono funkcję hierarchicznej przestrzeni nazw na Twoim koncie, katalogi nie są wirtualne. Zamiast tego są one konkretnymi, niezależnymi obiektami. W związku z tym katalogi są wyświetlane na liście jako obiekty blob o zerowej długości.
 
 # <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
 

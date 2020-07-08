@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7fafd556add81d089dc67f0a4f9428de6d1b5e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850162"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
 Opcja **Ustawienia niestandardowe** programu Azure AD Connect umożliwia skorzystanie z większej liczby opcji instalacji. Jest używana w przypadku występowania wielu lasów lub w celu skonfigurowania funkcji opcjonalnych, których nie obejmuje instalacja ekspresowa. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
@@ -230,12 +230,7 @@ Na komputerze, na którym są zainstalowane narzędzia do zarządzania zasadami 
 1.  Otwórz narzędzia do zarządzania zasadami grupy.
 2.  Poddaj edycji zasady grupy, które zostaną zastosowane do wszystkich użytkowników. Mogą to być na przykład domyślne zasady domeny.
 3.  Przejdź do obszaru **Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Internet Explorer\Internetowy panel sterowania\Strona zabezpieczeń** i wybierz pozycję **Lista przypisywanie witryn do stref** (jak na poniższym obrazie).
-4.  Włącz zasady, a następnie wprowadź poniższy element w oknie dialogowym.
-
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-
-
+4.  Włącz zasady, a następnie wprowadź nazwę `https://autologon.microsoftazuread-sso.com` i wartość wartości `1` w oknie dialogowym.
 5.  Zawartość okna powinna wyglądać mniej więcej tak:  
 ![Strefy intranetowe](./media/how-to-connect-install-custom/sitezone.png)
 

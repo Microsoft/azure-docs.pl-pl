@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851165"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikowanie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -113,12 +113,13 @@ Można modyfikować domyślne ustawienia docelowe używane przez Site Recovery.
     - Jeśli chcesz, aby maszyny wirtualne z systemem Linux były częścią grupy replikacji, upewnij się, że ruch wychodzący na porcie 20004 został ręcznie otwarty zgodnie ze wskazówkami dotyczącymi konkretnej wersji systemu Linux.
 ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
-5. Kliknij pozycję **Utwórz zasób** > docelowy**Włącz replikację**.
+5. Kliknij pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 6. Po włączeniu maszyn wirtualnych do replikacji można sprawdzić stan kondycji maszyny wirtualnej w obszarze **zreplikowane elementy**
 
 >[!NOTE]
->Podczas replikacji początkowej stan może zająć trochę czasu, bez postępu. Kliknij przycisk **Odśwież** , aby uzyskać najnowszy stan.
 >
+> - Podczas replikacji początkowej stan może zająć trochę czasu, bez postępu. Kliknij przycisk **Odśwież** , aby uzyskać najnowszy stan.
+> - Jeśli punkt odzyskiwania nie został wygenerowany w ciągu ostatnich 60 minut, kondycja replikacji maszyny wirtualnej stanie się krytyczna.
 
 ## <a name="next-steps"></a>Następne kroki
 
