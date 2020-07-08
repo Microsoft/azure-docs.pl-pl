@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
 ms.openlocfilehash: 82234719320f1ac707147c7c8393c0464956dd99
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85378567"
 ---
 | Docelowy zasób obliczeniowy | Sposób użycia | Obsługa procesora GPU | Obsługa FPGA | Opis |

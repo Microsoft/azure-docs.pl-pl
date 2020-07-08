@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85363006"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
@@ -138,7 +138,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | wiek | Wszystkie systemy |
 | Dysk z danymi | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
-| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Potrzebuje plików platformy Azure w warstwie Premium lub innej firmy |
@@ -196,7 +196,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nie działa | - |
 | Dysk z danymi | wiek | Wszystkie systemy  |
-| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Wymaga innej firmy |

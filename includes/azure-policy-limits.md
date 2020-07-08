@@ -19,7 +19,7 @@ Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zak
 |---|---|---|
 | Zakres | Definicje zasad | 500 |
 | Zakres | Definicje inicjatyw | 100 |
-| Dzierżawca | Definicje inicjatyw | 2500 |
+| Dzierżawa | Definicje inicjatyw | 2500 |
 | Zakres | Zasady lub przypisania inicjatywy | 100 |
 | Definicja zasad | Parametry | 20 |
 | Definicja inicjatywy | Zasady | 100 |

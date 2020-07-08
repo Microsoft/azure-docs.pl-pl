@@ -4,10 +4,10 @@ description: Zapoznaj się z zaleceniami dotyczącymi integracji wdrożenia prog
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 82937e04fc0a5101c353702b92b6b068d027d7ad
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85375048"
 ---
 # <a name="integrate-azure-vmware-solution-avs-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązania Azure VMware (Automatyczna synchronizacja) w architekturze gwiazdy i szprych

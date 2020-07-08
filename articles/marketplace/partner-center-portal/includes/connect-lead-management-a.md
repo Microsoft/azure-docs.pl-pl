@@ -10,10 +10,10 @@ ms.date: 06/01/2020
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: 8d868d7d231f6dbe1952756917e5a7965d6cea2e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84686354"
 ---
 Połącz się z klientami bezpośrednio, wymieniając swoją ofertę na rynku Marketplace i łącząc system zarządzania relacjami z klientami (CRM, Customer Relationship Management), dzięki czemu możesz otrzymywać informacje o kontakcie z klientem bezpośrednio po wprowadzeniu przez klienta zainteresowania lub wdrożeniu produktu.

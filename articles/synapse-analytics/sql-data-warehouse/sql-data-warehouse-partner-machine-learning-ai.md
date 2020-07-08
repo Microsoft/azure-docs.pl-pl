@@ -12,10 +12,10 @@ ms.author: procha
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4d45343c071a6a01981f8de87ee0efea409241b0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85368162"
 ---
 # <a name="azure-synapse-analytics-machine-learning-and-ai-partners"></a>Usługa Azure Synapse Analytics Machine Learning i partnerzy AI

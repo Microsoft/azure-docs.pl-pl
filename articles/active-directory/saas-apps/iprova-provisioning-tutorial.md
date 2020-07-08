@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85367618"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie iProva na potrzeby automatycznego aprowizacji użytkowników
@@ -122,34 +122,34 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Wartość logiczna|
-   |displayName|Ciąg|
-   |tytuł|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |preferredLanguage|Ciąg|
-   |userName|Ciąg|
-   |addresss [Type EQ "Work"]. Country|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |externalId|Ciąg|
-   |role [podstawowa EQ "true"]. Display|Ciąg|
-   |role [podstawowa EQ "true"]. Type|Ciąg|
-   |role [podstawowa EQ "true"]. Value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |aktywne|Boolean|
+   |displayName|String|
+   |tytuł|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |preferredLanguage|String|
+   |userName|String|
+   |addresss [Type EQ "Work"]. Country|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |adresy [Type EQ "Other"]. sformatowane|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. sformatowana|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |externalId|String|
+   |role [podstawowa EQ "true"]. Display|String|
+   |role [podstawowa EQ "true"]. Type|String|
+   |role [podstawowa EQ "true"]. Value|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
@@ -159,7 +159,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
+      |displayName|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
