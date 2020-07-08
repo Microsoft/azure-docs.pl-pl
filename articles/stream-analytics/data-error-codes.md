@@ -3,17 +3,17 @@ title: Kody błędów danych — Azure Stream Analytics
 description: Rozwiązywanie problemów Azure Stream Analytics z kodami błędów danych.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f7383a56a11ac9b567c80e73cc84944174c30ac8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597016"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037328"
 ---
-# <a name="azure-stream-analytics-configuration-error-codes"></a>Kody błędów konfiguracji Azure Stream Analytics
+# <a name="azure-stream-analytics-data-error-codes"></a>Kody błędów danych Azure Stream Analytics
 
 Dzienników aktywności i dzienników zasobów można używać do debugowania nieoczekiwanych zachowań z zadania Azure Stream Analytics. W tym artykule przedstawiono opis każdego kodu błędu błędu. Błędy danych występują, gdy w strumieniu znajdują się złe dane, takie jak schemat nieoczekiwanego rekordu.
 

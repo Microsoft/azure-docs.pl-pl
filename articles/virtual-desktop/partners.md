@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 332ce90de334a384ee6017a12781d0ddb2ed4158
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126148"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038059"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -255,7 +255,7 @@ Drukowanie to podstawowe zadanie w zaledwie na każdym biurze i w małym środow
 
 RDPSoft to partner pulpitu wirtualnego systemu Windows, który zapewnia zaawansowane i niedrogie rozwiązania do monitorowania, zarządzania i raportowania. Oferty dowódców Pulpit zdalny umożliwiają specjalistom IT uzyskanie wglądu w kondycję, wydajność, aktywność użytkowników, Licencjonowanie i bezpieczeństwo wdrożeń pulpitów wirtualnych systemu Windows. 
  
-Rozwiązania dowódców Pulpit zdalny RDPSoft ulepszają administrację pulpitów wirtualnych systemu Windows. Funkcje zarządzania w warstwie Premium upraszczają delegowanie zadań związanych z zarządzaniem pulpitem wirtualnym systemu Windows do pomocy technicznej personelowi, zapewniając pomoc zdalną, sesję użytkownika i zarządzanie procesami. W tym samym czasie pakiet dowódców Pulpit zdalny zbiera bogate metryki dotyczące wydajności i obciążenia użytkownika, działania i inspekcji, a następnie zapewnia jakość połączenia pulpitu wirtualnego systemu Windows (opóźnienie i przepustowość), Licencjonowanie i zabezpieczenia w centralnym wystąpieniu usługi Azure SQL Database do przeglądu. Dzięki RDPSoft bogate raporty historyczne i kompleksowe pulpity nawigacyjne są po prostu kliknięciami.
+Rozwiązania dowódców Pulpit zdalny RDPSoft ulepszają administrację pulpitów wirtualnych systemu Windows. Funkcje zarządzania w warstwie Premium upraszczają delegowanie zadań związanych z zarządzaniem pulpitem wirtualnym systemu Windows do pomocy technicznej personelowi, zapewniając pomoc zdalną, sesję użytkownika i zarządzanie procesami. W tym samym czasie pakiet dowódców Pulpit zdalny zbiera bogate metryki dotyczące wydajności i obciążenia użytkownika, działań i inspekcji, a następnie zapewnia jakość połączenia pulpitu wirtualnego systemu Windows (opóźnienie i przepustowość), Licencjonowanie i zabezpieczenia w wystąpieniu Azure SQL Database centralnej do przeglądu. Dzięki RDPSoft bogate raporty historyczne i kompleksowe pulpity nawigacyjne są po prostu kliknięciami.
 
 - [Przejdź do witryny sieci Web partnera](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
