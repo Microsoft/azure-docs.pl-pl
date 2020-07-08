@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85209882"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Wersja aplikacji Azure łańcucha bloków Workbench Preview

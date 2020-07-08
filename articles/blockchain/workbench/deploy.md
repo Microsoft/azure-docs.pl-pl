@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: aaef42f715c9f4fa2550f4a2468b42c5077af14c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210778"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
@@ -181,7 +181,7 @@ Wdrożenie łańcucha bloków Workbench wymaga rejestracji aplikacji usługi Azu
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do odpowiedniej dzierżawy usługi Azure AD. Dzierżawa powinna być dzierżawą subskrypcji administratora subskrypcji, w której wdrożono usługę Azure łańcucha bloków Workbench i masz wystarczające uprawnienia do rejestrowania aplikacji.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
-    ![Rejestracja aplikacji](media/deploy/app-registration.png)
+    ![Rejestrowanie aplikacji](media/deploy/app-registration.png)
 
 1. Podaj **nazwę** wyświetlaną i wybierz **konta w tym katalogu organizacji**.
 

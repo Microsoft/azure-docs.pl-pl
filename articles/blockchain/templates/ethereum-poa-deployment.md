@@ -5,10 +5,10 @@ ms.date: 06/04/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85210120"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
@@ -78,11 +78,11 @@ W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** w 
 
 Wybierz pozycję **łańcucha bloków**  >  **Ethereum weryfikacji urzędu certyfikacji (wersja zapoznawcza)**.
 
-### <a name="basics"></a>Podstawy
+### <a name="basics"></a>Informacje podstawowe
 
 W obszarze **podstawowe**Określ wartości parametrów standardowych dla każdego wdrożenia.
 
-![Podstawy](./media/ethereum-poa-deployment/basic-blade.png)
+![Informacje podstawowe](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------

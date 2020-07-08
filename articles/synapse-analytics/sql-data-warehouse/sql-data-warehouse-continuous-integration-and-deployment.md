@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213571"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Ciągła integracja i wdrażanie na potrzeby magazynowania danych
@@ -62,5 +62,5 @@ W tym momencie istnieje proste środowisko, w którym każde ewidencjonowanie ga
 
 - Eksplorowanie [architektury MPP puli SQL Synapse](massively-parallel-processing-mpp-architecture.md)
 - Szybkie [Tworzenie puli SQL](create-data-warehouse-portal.md)
-- [Ładowanie przykładowych danych](load-data-from-azure-blob-storage-using-polybase.md)
+- [Ładowanie danych przykładowych](load-data-from-azure-blob-storage-using-polybase.md)
 - Eksploruj [wideo](sql-data-warehouse-videos.md)

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85207553"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
@@ -147,7 +147,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Typ serwera    | Aparat bazy danych                            | Ta wartość jest wymagana                                       |
     | Nazwa serwera    | W pełni kwalifikowana nazwa serwera            | Nazwa powinna wyglądać następująco: **mynewserver-20180430.Database.Windows.NET**. |
-    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+    | Authentication | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
     | Zaloguj się          | Konto administratora serwera                   | To konto określono podczas tworzenia serwera. |
     | Hasło       | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 

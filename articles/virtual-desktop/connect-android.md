@@ -9,10 +9,10 @@ ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a7ca15a301de3c54195c0978aa31121c3624a98a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85209457"
 ---
 # <a name="connect-with-the-android-client"></a>Łączenie się z klientem systemu Android

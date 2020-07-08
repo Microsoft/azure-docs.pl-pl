@@ -9,10 +9,10 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6fa3a120788bf6b196409491584e068609b65e60
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85209058"
 ---
 # <a name="connect-with-the-ios-client"></a>Nawiązywanie połączenia z klientem systemu iOS
