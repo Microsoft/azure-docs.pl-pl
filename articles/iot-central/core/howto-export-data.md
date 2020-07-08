@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 manager: corywink
 ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483928"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Eksportowanie danych IoT do miejsc docelowych na platformie Azure

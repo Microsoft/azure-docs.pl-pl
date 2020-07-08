@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.author: dsindona
 ms.openlocfilehash: 093348d8eeb5d83831ec0bedd8c542f1a2d5a064
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482602"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki komercyjnej platformy handlowej

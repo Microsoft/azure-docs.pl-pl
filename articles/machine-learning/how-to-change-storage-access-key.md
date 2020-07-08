@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
 ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483316"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu

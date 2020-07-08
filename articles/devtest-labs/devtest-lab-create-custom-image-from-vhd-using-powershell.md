@@ -4,10 +4,10 @@ description: Automatyzowanie tworzenia niestandardowego obrazu w Azure DevTest L
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2ae2a6b6b2f904915a51b94ad931d6c97996d27b
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483996"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Tworzenie obrazu niestandardowego z pliku VHD przy użyciu programu PowerShell

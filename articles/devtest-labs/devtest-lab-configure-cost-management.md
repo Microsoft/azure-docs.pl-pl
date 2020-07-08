@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje na temat sposobu śledzenia kosztó
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482772"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Śledź koszty związane z laboratorium w Azure DevTest Labs
@@ -28,7 +28,7 @@ Aby wyświetlić wykres trendu szacowanych miesięcznych kosztów, wykonaj nast�
 
     **Szacowana wartość kosztu** jest szacowanym kosztem bieżącego miesiąca kalendarzowego. **Przewidywany koszt** jest szacowanym kosztem całego miesiąca kalendarzowego, obliczonym przy użyciu kosztu Lab dla ostatnich pięciu dni.
 
-    Kwoty kosztów są zaokrąglane w górę do najbliższej liczby całkowitej. Na przykład: 
+    Kwoty kosztów są zaokrąglane w górę do najbliższej liczby całkowitej. Przykład: 
 
    * 5,01 zaokrągla do 6 
    * 5,50 zaokrągla do 6

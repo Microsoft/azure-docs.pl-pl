@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504359"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
-AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob lub plików do lub z konta magazynu. Ten artykuł ułatwia wykonywanie zaawansowanych zadań konfiguracyjnych i pomaga w rozwiązywaniu problemów, które mogą wystąpić podczas korzystania z AzCopy.
+AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować obiekty blob lub pliki do lub z konta magazynu. W tym artykule zawarto informacje, które pomogą Ci wykonać zaawansowane zadania konfiguracji oraz rozwiązać problemy związane z używaniem narzędzia AzCopy.
 
 > [!NOTE]
 > Jeśli szukasz zawartości ułatwiającej rozpoczęcie pracy z usługą AzCopy, zobacz dowolny z następujących artykułów:
@@ -49,7 +49,7 @@ Jeśli uruchamiasz program AzCopy w systemie Windows i chcesz powiedzieć, że w
 
 W innych systemach operacyjnych, należy po prostu pozostawić zmienną HTTPS_PROXY tak, aby nie był używany żaden serwer proxy.
 
-## <a name="optimize-performance"></a>Optymalizowanie wydajności
+## <a name="optimize-performance"></a>Optymalizacja wydajności
 
 Możesz przeprowadzić test wydajności, a następnie użyć poleceń i zmiennych środowiskowych, aby znaleźć optymalną kompromis między wydajnością i użyciem zasobów.
 
@@ -124,7 +124,7 @@ Polecenie [copy AzCopy](storage-ref-azcopy-copy.md) nie usuwa plików z lokaliza
 
 ## <a name="troubleshoot-issues"></a>Rozwiązywanie problemów
 
-AzCopy tworzy dziennik i planowanie plików dla każdego zadania. Możesz użyć dzienników, aby zbadać i rozwiązać ewentualne potencjalne problemy. 
+Narzędzie AzCopy tworzy pliki dziennika i planu dla każdego zadania. Przy użyciu dzienników możesz zbadać i rozwiązać potencjalne problemy. 
 
 Dzienniki będą zawierać stan niepowodzeń ( `UPLOADFAILED` , `COPYFAILED` , i `DOWNLOADFAILED` ), pełną ścieżkę i przyczynę niepowodzenia.
 

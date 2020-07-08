@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505294"
 ---
 # <a name="cluster-tuning"></a>Dostosowywanie klastra
@@ -34,7 +34,7 @@ Te zmiany mogą być zalecane na podstawie jakości zestawu danych lub stylu prz
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Optymalizacje NAS lub Cloud Gateway w chmurze
 
-W scenariuszu serwera NAS lub bramy w chmurze klaster vFXT zapewnia dostęp w stylu NAS do kontenera chmury. Aby wykorzystać wyższe szybkości danych między klastrem vFXT i magazynem w chmurze, przedstawiciel może zalecić zmianę ustawień w celu bardziej agresywnego wypychania danych do woluminu magazynu z pamięci podręcznej. Na przykład:
+W scenariuszu serwera NAS lub bramy w chmurze klaster vFXT zapewnia dostęp w stylu NAS do kontenera chmury. Aby wykorzystać wyższe szybkości danych między klastrem vFXT i magazynem w chmurze, przedstawiciel może zalecić zmianę ustawień w celu bardziej agresywnego wypychania danych do woluminu magazynu z pamięci podręcznej. Przykład:
 
 * Zwiększ liczbę połączeń TCP między klastrem a kontenerem magazynu
 

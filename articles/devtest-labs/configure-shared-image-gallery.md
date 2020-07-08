@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować galerię obrazów udostępnionych 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483792"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurowanie galerii obrazów udostępnionych w usłudze Azure DevTest Labs
@@ -25,7 +25,7 @@ Jeśli masz dużą liczbę zarządzanych obrazów, które chcesz zachować i chc
 > [!NOTE]
 > Aby dowiedzieć się więcej o kosztach związanych z usługą galerii obrazów udostępnionych, zobacz [rozliczenia dla udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md#billing).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 - W danym momencie możesz dołączyć tylko jedną galerię udostępnionych obrazów do laboratorium. Jeśli chcesz dołączyć kolejną galerię, musisz odłączyć istniejącą i dołączyć inną. 
 - DevTest Labs obecnie nie obsługuje przekazywania obrazów do galerii za pomocą laboratorium. 
 - Podczas tworzenia maszyny wirtualnej przy użyciu obrazu udostępnionej galerii obrazów DevTest Labs zawsze używa najnowszej opublikowanej wersji tego obrazu. Jeśli jednak obraz ma wiele wersji, użytkownik może wybrać opcję utworzenia maszyny ze starszej wersji, przechodząc do karty Ustawienia zaawansowane podczas tworzenia maszyny wirtualnej.  

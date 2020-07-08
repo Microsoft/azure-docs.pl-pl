@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483605"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files

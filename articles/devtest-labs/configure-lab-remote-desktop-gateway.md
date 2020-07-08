@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium w Azure DevTest Labs 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483843"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w Azure DevTest Labs, aby można było korzystać z bramy usług pulpitu zdalnego

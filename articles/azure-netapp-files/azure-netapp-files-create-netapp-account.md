@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483673"
 ---
 # <a name="create-a-netapp-account"></a>Tworzenie konta usługi NetApp
@@ -31,7 +31,7 @@ Ponadto należy zarejestrować swoją subskrypcję do korzystania z dostawcy zas
 
 ## <a name="steps"></a>Kroki 
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się do witryny Azure Portal. 
 2. Przejdź do bloku usługi Azure NetApp Files za pomocą jednej z następujących metod:  
    * Wyszukaj usługę **Azure NetApp Files** w polu wyszukiwania witryny Azure Portal.  
    * Kliknij przycisk **Wszystkie usługi** w obszarze nawigacji, a następnie wprowadź nazwę usługi Azure NetApp Files w filtrze.  

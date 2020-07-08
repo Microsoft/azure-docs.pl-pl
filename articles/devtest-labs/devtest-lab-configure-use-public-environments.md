@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób konfigurowania i używania środowis
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 61cabdb296c3fff75137c7ce7e87652241fd2926
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482670"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Konfigurowanie i używanie środowisk publicznych w programie Azure DevTest Labs

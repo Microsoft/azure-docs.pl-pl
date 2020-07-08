@@ -4,10 +4,10 @@ description: DevTest Labs teraz integrują się z usługą Azure bastionu, jako 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85484132"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Włącz połączenie przeglądarki na maszynach wirtualnych laboratorium 

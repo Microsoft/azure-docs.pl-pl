@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie lub przenoszenie danych do usługi Azure Storage za pomocą AzCopy v10 | Microsoft Docs
-description: AzCopy to narzędzie wiersza polecenia, za pomocą którego można kopiować dane do, z lub między kontami magazynu. Ten artykuł pomaga pobrać AzCopy, nawiązać połączenie z kontem magazynu, a następnie przenieść pliki.
+description: AzCopy to narzędzie wiersza polecenia, za pomocą którego można kopiować dane do, z lub między kontami magazynu. Ten artykuł zawiera informacje, które pomogą Ci pobrać narzędzie AzCopy, nawiązać połączenie z kontem magazynu, a następnie przenieść pliki.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,15 +8,15 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85504478"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
-AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob lub plików do lub z konta magazynu. Ten artykuł pomaga pobrać AzCopy, nawiązać połączenie z kontem magazynu, a następnie przenieść pliki.
+AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować obiekty blob lub pliki do lub z konta magazynu. Ten artykuł zawiera informacje, które pomogą Ci pobrać narzędzie AzCopy, nawiązać połączenie z kontem magazynu, a następnie przenieść pliki.
 
 > [!NOTE]
 > AzCopy **v10** jest obecnie obsługiwaną wersją AzCopy.
@@ -40,9 +40,9 @@ Te pliki są kompresowane jako plik zip (Windows i Mac) lub plik tar (Linux). Ab
 > Jeśli chcesz skopiować dane do i z usługi [Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) , zainstaluj program [AzCopy w wersji 7,3](https://aka.ms/downloadazcopynet).
 
 
-## <a name="run-azcopy"></a>Uruchom AzCopy
+## <a name="run-azcopy"></a>Uruchamianie narzędzia AzCopy
 
-Dla wygody należy rozważyć dodanie lokalizacji katalogu wykonywalnego AzCopy do ścieżki systemowej w celu ułatwienia użycia. W ten sposób można wpisać `azcopy` z dowolnego katalogu w systemie.
+Dla wygody rozważ dodanie lokalizacji katalogu pliku wykonywalnego narzędzia AzCopy do ścieżki systemowej w celu ułatwienia użytkowania. W ten sposób można wpisać `azcopy` z dowolnego katalogu w systemie.
 
 Jeśli nie dodasz katalogu AzCopy do ścieżki, trzeba będzie zmienić katalogi do lokalizacji pliku wykonywalnego AzCopy i wpisać `azcopy` lub w wierszach `.\azcopy` polecenia programu Windows PowerShell.
 

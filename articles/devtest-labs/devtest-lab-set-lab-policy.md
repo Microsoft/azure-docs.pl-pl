@@ -4,10 +4,10 @@ description: Dowiedz się, jak definiować zasady laboratorium, takie jak rozmia
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483401"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzaj wszystkimi zasadami dla laboratorium w Azure DevTest Labs

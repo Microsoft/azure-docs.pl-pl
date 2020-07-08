@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482517"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL

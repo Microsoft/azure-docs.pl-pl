@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483639"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Tworzenie woluminu NFS dla usługi Azure NetApp Files
@@ -31,7 +31,7 @@ Potrzebujesz skonfigurowanej puli pojemności.
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
 [Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="considerations"></a>Zagadnienia do rozważenia 
+## <a name="considerations"></a>Istotne zagadnienia 
 
 * Wybór wersji systemu plików NFS do użycia  
   NFSv3 może obsługiwać wiele różnych przypadków użycia i jest często wdrażany w większości aplikacji dla przedsiębiorstw. Należy sprawdzić poprawność wersji (NFSv3 lub NFSv 4.1) wymaganej przez aplikację i utworzyć wolumin przy użyciu odpowiedniej wersji. Jeśli na przykład używasz platformy [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), zalecane jest blokowanie plików z nfsv 4.1 w NFSv3. 

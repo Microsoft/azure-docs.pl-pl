@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85505447"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Instalowanie klastra Avere vFXT

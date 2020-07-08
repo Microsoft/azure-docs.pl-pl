@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482551"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure

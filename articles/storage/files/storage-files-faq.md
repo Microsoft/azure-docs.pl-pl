@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482874"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
@@ -425,7 +425,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

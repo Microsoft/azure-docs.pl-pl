@@ -4,10 +4,10 @@ description: Dowiedz się, jak dodać repozytorium artefaktów do laboratorium w
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85483911"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w DevTest Labs
@@ -48,7 +48,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
    2. Z listy **organizacja** wybierz pozycję **wszystkie dostępne organizacje**.
    3. Na liście **wygaśnięcie (UTC)** wybierz pozycję **90 dni**lub niestandardowy okres ważności.
    4. Wybierz opcję **pełny dostęp** dla zakresów.
-   5. Wybierz przycisk **Utwórz**.
+   5. Wybierz pozycję **Utwórz**.
 9. Nowy token zostanie wyświetlony na liście **osobiste tokeny dostępu** . Wybierz pozycję **Kopiuj token**, a następnie Zapisz wartość tokenu do późniejszego użycia.
 10. Przejdź do sekcji Łączenie laboratorium z repozytorium.
 
