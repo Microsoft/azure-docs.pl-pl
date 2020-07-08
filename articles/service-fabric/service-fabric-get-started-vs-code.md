@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692602"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric Visual Studio Code
@@ -52,7 +51,7 @@ Następujące wymagania wstępne muszą być zainstalowane na potrzeby programow
 
 ## <a name="setup"></a>Konfigurowanie
 
-1. Otwórz VS Code.
+1. Otwórz program VS Code.
 2. Kliknij ikonę rozszerzenia na **pasku działania** po lewej stronie vs Code. Wyszukaj ciąg "Service Fabric". Kliknij przycisk **Instaluj** dla rozszerzenia Service Fabric Reliable Services.
 
 ## <a name="commands"></a>Polecenia

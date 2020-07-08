@@ -9,13 +9,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691762"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Tworzenie kont integracji dla integracji z przedsiębiorstwem B2B i zarządzanie nimi w Azure Logic Apps
+# <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Tworzenie kont integracji na potrzeby integracji przedsiębiorstw B2B i zarządzanie nimi w usłudze Azure Logic Apps
 
 Zanim będzie możliwe utworzenie [rozwiązań integracji dla przedsiębiorstw i B2B](../logic-apps/logic-apps-enterprise-integration-overview.md) przy użyciu usługi [Azure Logic Apps](../logic-apps/logic-apps-overview.md), należy utworzyć konto integracji, czyli osobny zasób platformy Azure, który zapewnia bezpieczny, skalowalny i możliwy do zarządzania kontener na artefakty integracji, które są definiowane i używane z przepływami pracy aplikacji logiki.
 

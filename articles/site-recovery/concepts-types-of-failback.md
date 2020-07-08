@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691088"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Powrót po awarii maszyn wirtualnych VMware po odzyskiwaniu po awarii na platformę Azure

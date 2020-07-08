@@ -9,10 +9,9 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 3b58a0aef4df71649e657c04b44c31b6bbfe019c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689575"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Traffic Manager przesłonięcia podsieci przy użyciu programu Azure PowerShell

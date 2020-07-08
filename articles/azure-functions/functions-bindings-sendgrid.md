@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697361"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions powiązania SendGrid
@@ -350,7 +349,7 @@ Adnotacja [SendGridOutput](https://github.com/Azure/azure-functions-java-library
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne w *function.jsw* pliku oraz `SendGrid` atrybut/adnotacja.
 

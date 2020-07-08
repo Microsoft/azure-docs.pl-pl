@@ -8,10 +8,9 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699434"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
@@ -68,7 +67,7 @@ Szablon zawiera właściwości konfiguracji serwera źródłowego.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby wyeksportować szablon przy użyciu Azure Portal:
+Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -190,13 +189,13 @@ Aby wdrożyć nowy zasób serwera w innym regionie, użyjesz **template.jsna** w
 
 1. W portalu wybierz pozycję **Utwórz zasób**.
 
-2. W obszarze **Przeszukaj witrynę Marketplace** wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **ENTER**.
+2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 
-3. Wybierz pozycję **Wdrożenie szablonu**.
+3. Wybierz **Template Deployment**.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
-5. Wybierz pozycję **Utwórz własny szablon w edytorze**.
+5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** eksportowanego i zmodyfikowanego pliku.
 
@@ -279,7 +278,7 @@ Opcjonalnie: [Alm Toolkit](http://alm-toolkit.com/) to narzędzie *Open Source* 
 
 :::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Zestaw narzędzi ALM Toolkit":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po sprawdzeniu, czy aplikacje klienckie mogą nawiązywać połączenie z nowym serwerem, a wszystkie skrypty automatyzacji są wykonywane prawidłowo, Usuń serwer źródłowy. 
 

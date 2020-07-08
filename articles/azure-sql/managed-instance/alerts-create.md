@@ -12,10 +12,9 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
 ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695712"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal

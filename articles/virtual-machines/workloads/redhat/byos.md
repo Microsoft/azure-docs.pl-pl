@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
 ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84694386"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Przenieś własne obrazy z subskrypcji na platformę Azure

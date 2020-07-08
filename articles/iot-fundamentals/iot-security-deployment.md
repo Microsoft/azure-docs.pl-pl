@@ -9,16 +9,15 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f0fbb1214015c088e7e1585840213faba06b59f3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699264"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Zabezpiecz wdrożenie Internet rzeczy (IoT)
 
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Przeczytaj informacje o IoT Hub zabezpieczeniach w programie [kontroli dostępu do IoT Hub](../iot-hub/iot-hub-devguide-security.md) w przewodniku dewelopera IoT Hub. 

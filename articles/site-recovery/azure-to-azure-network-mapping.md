@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
 ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691207"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurowanie mapowania sieci i adresowania IP dla sieci wirtualnych

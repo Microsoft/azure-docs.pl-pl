@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 71d00da5cc0021aacbe849a541ff386cc6414ff2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84694641"
 ---
 # <a name="dv2-and-dsv2-series"></a>Serie Dv2 i DSv2

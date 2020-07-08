@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84687807"
 ---
 # <a name="test-vm-network-latency"></a>Testowanie opóźnienia sieci maszyn wirtualnych

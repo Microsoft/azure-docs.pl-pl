@@ -8,10 +8,9 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690380"
 ---
 # <a name="monitor-server-metrics"></a>Monitorowanie metryk serwera

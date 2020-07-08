@@ -4,10 +4,9 @@ description: Opisuje sposób definiowania i używania funkcji zdefiniowanych prz
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84672939"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funkcje zdefiniowane przez użytkownika w szablonie Azure Resource Manager

@@ -8,10 +8,9 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688980"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości

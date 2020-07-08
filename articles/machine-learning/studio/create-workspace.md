@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: ede84fefed7db9d2afcc0ad65833ab2c0fefbc03
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696528"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Tworzenie i udostępnianie obszaru roboczego Azure Machine Learning Studio (klasyczny)

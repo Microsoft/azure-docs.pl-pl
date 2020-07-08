@@ -12,10 +12,9 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: 87e73ed25ac33777c19c561223f0361d589282b9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697004"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Usuń podsieć po usunięciu zarządzanego wystąpienia wystąpienia zarządzanego SQL

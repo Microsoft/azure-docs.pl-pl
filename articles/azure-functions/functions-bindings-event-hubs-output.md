@@ -7,10 +7,9 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 5d1fecddd2c82e4b0d2d67ad14d93d3459f57fb8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84697580"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych Event Hubs platformy Azure dla Azure Functions

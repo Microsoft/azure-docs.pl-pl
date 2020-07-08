@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 85b38b58884c05f9f6ced938df1b7e4f51bb9d09
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84694624"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 i Dsv3

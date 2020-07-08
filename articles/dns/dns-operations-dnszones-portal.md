@@ -12,17 +12,16 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689167"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Jak zarządzać Strefy DNS w Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
-> * [PowerShell](dns-operations-dnszones.md)
+> * [Program PowerShell](dns-operations-dnszones.md)
 > * [Klasyczny interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 

@@ -8,10 +8,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84686668"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
@@ -29,7 +28,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 ### <a name="windows-agents"></a>Agenci dla systemu Windows
 
-| | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>Odczynnik | Zależność<br>Odczynnik |
+| | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|
 | Obsługiwane środowiska | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | 
 | Wymagania dotyczące agenta  | Brak | Brak | Wymaga agenta Log Analytics |
@@ -39,7 +38,7 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 ### <a name="linux-agents"></a>Agenci dla systemu Linux
 
-| | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>Odczynnik | Log Analytics<br>Odczynnik | Zależność<br>Odczynnik |
+| | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|
 | Obsługiwane środowiska | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie |
 | Wymagania dotyczące agenta  | Brak | Brak | Brak | Wymaga agenta Log Analytics |

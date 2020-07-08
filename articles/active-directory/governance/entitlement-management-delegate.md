@@ -17,10 +17,9 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84692142"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
@@ -86,7 +85,7 @@ Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu ma
 
 | Prawe | Opis |
 | --- | --- |
-| Approver | Autoryzowany przez zasady do zatwierdzania lub odrzucania żądań dostępu do pakietów, chociaż nie mogą zmieniać definicji pakietów dostępu. |
+| Osoby zatwierdzającej | Autoryzowany przez zasady do zatwierdzania lub odrzucania żądań dostępu do pakietów, chociaż nie mogą zmieniać definicji pakietów dostępu. |
 | Requestor | Autoryzowane przez zasady pakietu dostępu, aby zażądać tego pakietu dostępu. |
 
 Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role zarządzania uprawnieniem.

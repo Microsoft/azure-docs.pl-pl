@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84670922"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory

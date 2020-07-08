@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690018"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
@@ -29,7 +28,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)

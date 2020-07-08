@@ -4,10 +4,9 @@ description: Wyszukiwanie i filtrowanie nieprzetworzonej telemetrii wysyłanej p
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695661"
 ---
 # <a name="using-search-in-application-insights"></a>Korzystanie z wyszukiwania w Application Insights
@@ -92,7 +91,7 @@ Może zajść potrzeba ustawienia zakresu czasu, ponieważ wyszukiwanie w króts
 
 Wyszukaj kompletne słowa, nie podciągi. Znaki specjalne należy ująć w cudzysłów.
 
-| Ciąg | *Nie* znaleziono | Znaleziono |
+| String | *Nie* znaleziono | Znaleziono |
 | --- | --- | --- |
 | HomeController. informacje |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stany Zjednoczone|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

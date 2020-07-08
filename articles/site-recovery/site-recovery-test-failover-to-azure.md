@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84699060"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Uruchamianie testu pracy w trybie failover (do testowania odzyskiwania po awarii) na platformie Azure 

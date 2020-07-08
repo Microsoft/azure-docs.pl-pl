@@ -8,10 +8,9 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
 ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84668002"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager

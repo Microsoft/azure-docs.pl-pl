@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84694712"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Zoptymalizowane pod kątem pamięci Dv2 i Dsv2

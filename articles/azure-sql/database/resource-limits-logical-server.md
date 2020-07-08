@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 06/10/2020
 ms.openlocfilehash: eac5814eb977a01135ad2fcd9551b3475673dbca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691764"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
@@ -61,7 +60,7 @@ W przypadku wystąpienia dużej mocy obliczeniowej opcje ograniczenia obejmują:
 - Zwiększenie rozmiaru obliczeniowego bazy danych lub puli elastycznej w celu zapewnienia bazy danych większej ilości zasobów obliczeniowych. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
 - Optymalizowanie zapytań w celu zmniejszenia użycia zasobów procesora CPU przez poszczególne zapytania. Aby uzyskać więcej informacji, zobacz [dostrajanie/podpowiedzi zapytań](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 Gdy używane miejsce na bazę danych osiągnie limit rozmiaru, wstawia i aktualizuje bazę danych, która zwiększa niepowodzenie rozmiaru danych, a klienci odbierają [komunikat o błędzie](troubleshoot-common-errors-issues.md). Instrukcje SELECT i DELETE kontynuują się pomyślnie.
 

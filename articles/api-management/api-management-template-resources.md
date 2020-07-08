@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689991"
 ---
 # <a name="azure-api-management-template-resources"></a>Zasoby szablonów API Management platformy Azure
@@ -353,7 +352,7 @@ Obsługiwane są następujące opcje lokalizacji:
   
 |Nazwa|Tekst|  
 |----------|----------|  
-|WebIssuesIndexTitle|Problemy|  
+|WebIssuesIndexTitle|Issues (Problemy)|  
 |WebIssuesNoActiveSubscriptions|Nie masz aktywnych subskrypcji. Musisz subskrybować produkt, aby zgłosić problem.|  
 |WebIssuesNotSignin|Użytkownik nie jest zalogowany. {0}Aby zgłosić problem lub opublikować komentarz.|  
 |WebIssuesReportIssueButton|Zgłoś problem|  
@@ -432,7 +431,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |WebAuthenticationEmailHasBeenRevertedNotice|Adres e-mail już istnieje. Żądanie zostało cofnięte|  
 |ValidationErrorEmailAlreadyExists|Adres e-mail już istnieje|  
 |ValidationErrorEmailInvalid|Nieprawidłowy adres e-mail|  
-|TextboxLabelEmail|E-mail|  
+|TextboxLabelEmail|Poczta e-mail|  
 |ValidationErrorEmailRequired|Adres e-mail jest wymagany.|  
 |WebAuthenticationErrorNoticeHeader|Błąd|  
 |WebAuthenticationFieldLengthErrorMessage|{0}musi mieć maksymalną długość równą{1}|  
@@ -577,7 +576,7 @@ Obsługiwane są następujące opcje lokalizacji:
 |ButtonLabelChangeAccountInfo|Zmień informacje o koncie|  
 |ButtonLabelChangePassword|Zmień hasło|  
 |ButtonLabelCloseAccount|Zamknij konto|  
-|TextboxLabelEmail|E-mail|  
+|TextboxLabelEmail|Poczta e-mail|  
 |TextboxLabelEmailFirstName|Imię|  
 |TextboxLabelEmailLastName|Nazwisko|  
 |TextboxLabelNotificationsSenderEmail|Adres e-mail nadawcy powiadomień|  

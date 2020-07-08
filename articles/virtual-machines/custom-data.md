@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
 ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84678362"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Usługa Cloud-init w usłudze Azure Virtual Machines

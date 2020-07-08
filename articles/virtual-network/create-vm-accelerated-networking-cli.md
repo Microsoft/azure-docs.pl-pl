@@ -17,10 +17,9 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688624"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą przyspieszonej sieci przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -35,7 +34,7 @@ Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego masz
 
 Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której jest włączona. Aby uzyskać najlepsze wyniki, najlepszym rozwiązaniem jest włączenie tej funkcji na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikacji między usługą sieci wirtualnych lub połączeniem lokalnym ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 * **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS):** Usunięcie przełącznika wirtualnego ze ścieżki datapath usuwa pakiety czasu spędzane przez hosta w celu przetworzenia zasad i zwiększa liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
 * **Ograniczone wahania:** Przetwarzanie przełącznika wirtualnego zależy od ilości zasad, które należy zastosować, oraz obciążenia procesora, które przetwarza. Odciążanie wymuszania zasad sprzętowo eliminuje te zmienności, dostarczając pakiety bezpośrednio do maszyny wirtualnej, usuwając hosta do komunikacji z maszyną wirtualną oraz wszystkie przerwy w oprogramowaniu i przełączenia kontekstu.
 * **Zmniejszone użycie procesora CPU:** Obejście przełącznika wirtualnego na hoście prowadzi do mniejszego użycia procesora CPU do przetwarzania ruchu sieciowego.

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696970"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Rozwiązywanie problemów za pomocą Diagnostyki Azure
@@ -205,14 +204,14 @@ Oto przykład:
 ```
 Ten kod generuje cztery tabele:
 
-| Zdarzenie | Nazwa tabeli |
+| Wydarzenie | Nazwa tabeli |
 | --- | --- |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "2" eventDestination = "dest1"/&gt; |WADdest1 |
 | Provider = "prov1" &lt; DefaultEvents/&gt; |WADDefault + MD5 ("prov1") |
 | Provider = "prov2" &lt; DefaultEvents eventDestination = "dest2"/&gt; |WADdest2 |
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Jak sprawdzić konfigurację rozszerzenia diagnostyki
 Najprostszym sposobem sprawdzenia konfiguracji rozszerzenia jest przejście do [Azure Resource Explorer](https://resources.azure.com), a następnie przejście do maszyny wirtualnej lub usługi w chmurze, w której znajduje się rozszerzenie Diagnostyka Azure (IaaSDiagnostics/PaaDiagnostics).

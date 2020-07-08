@@ -18,10 +18,9 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b08a5e63bc78b5b86b1802e7c8f334bad43167fd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688368"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Kierowanie ruchu sieciowego za pomocą tabeli tras przy użyciu programu PowerShell

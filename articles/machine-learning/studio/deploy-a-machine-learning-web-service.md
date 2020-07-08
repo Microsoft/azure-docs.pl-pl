@@ -11,10 +11,9 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696392"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning Studio (klasycznej)
@@ -40,7 +39,7 @@ Z punktu widzenia wysokiego poziomu można wdrożyć model w trzech krokach:
 
 Aby przeprowadzić uczenie modelu analizy predykcyjnej, należy użyć Azure Machine Learning Studio (klasyczny) do utworzenia eksperymentu szkoleniowego, w którym można uwzględnić różne moduły do ładowania danych szkoleniowych, przygotować dane w razie potrzeby, zastosować algorytmy uczenia maszynowego i oszacować wyniki. Możesz wykonywać iterację eksperymentu i próbować użyć różnych algorytmów uczenia maszynowego, aby porównać i oszacować wyniki.
 
-Proces tworzenia eksperymentów szkoleniowych i zarządzania nimi został szczegółowo omówiony w innym miejscu. Więcej informacji można znaleźć w tych artykułach:
+Proces tworzenia eksperymentów szkoleniowych i zarządzania nimi został szczegółowo omówiony w innym miejscu. Więcej informacji można znaleźć w następujących artykułach:
 
 * [Tworzenie prostego eksperymentu w Azure Machine Learning Studio (klasyczny)](create-experiment.md)
 * [Opracowywanie rozwiązania predykcyjnego za pomocą Azure Machine Learning Studio (klasyczny)](tutorial-part1-credit-risk.md)

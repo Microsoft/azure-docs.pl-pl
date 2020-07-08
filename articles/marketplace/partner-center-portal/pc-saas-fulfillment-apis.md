@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: dsindona
 ms.openlocfilehash: 70515ca04e870fa435f8e9f46122a8e0dcb9b588
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84691360"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace

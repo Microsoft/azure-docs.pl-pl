@@ -14,10 +14,9 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
 ms.openlocfilehash: 6599963b216409103f72b4e46a30961c6d60e32c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84695559"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Wprowadzenie do inspekcji wystąpienia zarządzanego usługi Azure SQL

@@ -18,10 +18,9 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688301"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure

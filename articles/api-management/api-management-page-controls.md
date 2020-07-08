@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84690187"
 ---
 # <a name="azure-api-management-page-controls"></a>Kontrolki strony API Management platformy Azure
@@ -187,7 +186,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
  `subscribe-button`Kontrolka może być używana w następujących szablonach portalu dla deweloperów:  
   
--   [Produkt](api-management-product-templates.md#Product)  
+-   [Product](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a>subskrypcja — Anuluj  
  `subscription-cancel`Formant umożliwia kontrolowanie anulowania subskrypcji produktu na stronie profilu użytkownika w portalu dla deweloperów.  
@@ -212,7 +211,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
 ### <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów  
  `subscription-cancel`Kontrolka może być używana w następujących szablonach portalu dla deweloperów:  
   
--   [Produkt](api-management-product-templates.md#Product)
+-   [Product](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](api-management-developer-portal-templates.md).

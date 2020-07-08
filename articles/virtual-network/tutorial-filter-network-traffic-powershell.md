@@ -18,10 +18,9 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 3b941b81feb54ae6eed0333a9dcb4863cc885686
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688140"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu programu PowerShell

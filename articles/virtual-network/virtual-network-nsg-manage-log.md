@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696035"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Rejestrowanie zasobów dla sieciowej grupy zabezpieczeń
@@ -137,7 +136,7 @@ Dane diagnostyczne mogą być następujące:
 
 Dane w formacie JSON są zapisywane dla następujących kategorii dzienników:
 
-### <a name="event"></a>Zdarzenie
+### <a name="event"></a>Wydarzenie
 
 Dziennik zdarzeń zawiera informacje o tym, które reguły sieciowej grupy zabezpieczeń są stosowane do maszyn wirtualnych na podstawie adresu MAC. Dla każdego zdarzenia rejestrowane są następujące dane. W poniższym przykładzie dane są rejestrowane dla maszyny wirtualnej z adresem IP 192.168.1.4 i adresem MAC 00-0D-3A-92-6A-7C:
 
