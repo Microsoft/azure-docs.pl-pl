@@ -11,10 +11,9 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
 ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83849216"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania Spark w Azure Data Factory
@@ -61,13 +60,13 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 
 | Właściwość              | Opis                              | Wymagane |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nazwa działania w potoku.    | Yes      |
-| description (opis)           | Tekst opisujący działanie działania.  | Nie       |
-| typ                  | Dla działania platformy Spark typem działania jest HDInsightSpark. | Yes      |
-| linkedServiceName     | Nazwa połączonej usługi HDInsight Spark, na której jest uruchamiany program Spark. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Yes      |
+| name                  | Nazwa działania w potoku.    | Tak      |
+| description           | Tekst opisujący działanie działania.  | Nie       |
+| typ                  | Dla działania platformy Spark typem działania jest HDInsightSpark. | Tak      |
+| linkedServiceName     | Nazwa połączonej usługi HDInsight Spark, na której jest uruchamiany program Spark. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
 | SparkJobLinkedService | Połączona usługa Azure Storage, która przechowuje plik zadania platformy Spark, zależności i dzienniki. W tym miejscu są obsługiwane tylko połączone usługi **[BLOB Storage platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** i **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Jeśli nie określisz wartości tej właściwości, zostanie użyty magazyn skojarzony z klastrem usługi HDInsight. Wartością tej właściwości może być tylko połączona usługa Azure Storage. | Nie       |
-| Właściwość RootPath              | Kontener i folder obiektów blob platformy Azure, który zawiera plik Spark. W nazwie pliku rozróżniana jest wielkość liter. Szczegółowe informacje na temat struktury tego folderu można znaleźć w sekcji struktury folderów (w następnej sekcji). | Yes      |
-| entryFilePath         | Ścieżka względna do folderu głównego kodu/pakietu platformy Spark. Plik wejściowy musi być plikiem w języku Python lub plikiem jar. | Yes      |
+| Właściwość RootPath              | Kontener i folder obiektów blob platformy Azure, który zawiera plik Spark. W nazwie pliku rozróżniana jest wielkość liter. Szczegółowe informacje na temat struktury tego folderu można znaleźć w sekcji struktury folderów (w następnej sekcji). | Tak      |
+| entryFilePath         | Ścieżka względna do folderu głównego kodu/pakietu platformy Spark. Plik wejściowy musi być plikiem w języku Python lub plikiem jar. | Tak      |
 | Nazwą             | Główna Klasa środowiska Java/Spark aplikacji      | Nie       |
 | argumentu             | Lista argumentów wiersza polecenia do programu Spark. | Nie       |
 | proxyUser             | Konto użytkownika służące do personifikacji w celu wykonania programu Spark | Nie       |
@@ -81,8 +80,8 @@ Utwórz następującą strukturę folderów w magazynie obiektów blob platformy
 
 | Ścieżka                  | Opis                              | Wymagany | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`pierwiastek            | Ścieżka katalogu głównego zadania platformy Spark w połączonej usłudze Storage | Yes      | Folder |
-| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka wskazująca plik wpisu zadania Spark | Yes      | Plik   |
+| `.`pierwiastek            | Ścieżka katalogu głównego zadania platformy Spark w połączonej usłudze Storage | Tak      | Folder |
+| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka wskazująca plik wpisu zadania Spark | Tak      | Plik   |
 | ./jars                | Wszystkie pliki w tym folderze są przekazywane i umieszczane na ścieżce klas Java klastra | Nie       | Folder |
 | ./pyFiles             | Wszystkie pliki w tym folderze są przekazywane i umieszczane w PYTHONPATH klastra | Nie       | Folder |
 | ./files               | Wszystkie pliki w tym folderze są przekazywane i umieszczane w katalogu roboczym wykonującym | Nie       | Folder |

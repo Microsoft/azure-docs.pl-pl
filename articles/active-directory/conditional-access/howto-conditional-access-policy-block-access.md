@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995313"
 ---
 # <a name="conditional-access-block-access"></a>Dostęp warunkowy: Blokuj dostęp
@@ -49,7 +48,7 @@ Pierwsze zasady blokują dostęp do wszystkich aplikacji z wyjątkiem aplikacji 
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz następujące opcje:
    1. W obszarze **dołączanie**wybierz pozycję **wszystkie aplikacje w chmurze**.
    1. W obszarze **Wyklucz**wybierz pozycję **Office 365 (wersja zapoznawcza)**, wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
@@ -58,7 +57,7 @@ Pierwsze zasady blokują dostęp do wszystkich aplikacji z wyjątkiem aplikacji 
       1. Ustaw **wartość** **tak**
       1. W obszarze **dołączanie**wybierz **dowolną lokalizację**.
       1. W obszarze **Wyklucz**wybierz opcję **wszystkie Zaufane lokalizacje**.
-      1. Wybierz pozycję **Done** (Gotowe).
+      1. Wybierz pozycję **Gotowe**.
    1. W obszarze **aplikacje klienckie (wersja zapoznawcza)** **Ustaw wartość** **tak**, **a następnie wybierz**pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Blokuj dostęp**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** **tylko na raport**.
@@ -71,12 +70,12 @@ Poniżej utworzono drugie zasady, które wymagają uwierzytelniania wieloskładn
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**wybierz pozycję **Wybierz aplikacje**, wybierz **Office 365 (wersja zapoznawcza)** i wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Udziel dostępu**.
    1. Wybierz opcję **Wymagaj uwierzytelniania wieloskładnikowego** i **Wymagaj, aby urządzenie było oznaczone jako zgodne** wybierz pozycję **Wybierz**.
    1. Upewnij się, że wybrano **wszystkie wybrane kontrolki** .
-   1. Wybierz przycisk **Wybierz**.
+   1. Wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** **tylko na raport**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

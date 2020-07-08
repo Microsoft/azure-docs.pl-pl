@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83871918"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
@@ -81,11 +80,11 @@ Następujące właściwości są obsługiwane dla połączonej usługi programu 
 
 | **Właściwość**        | **Opis**                                              | **Wymagane** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Yes          |
-| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Yes          |
-| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Yes          |
-| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
-| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Yes          |
+| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Tak          |
+| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Tak          |
+| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Tak          |
+| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak          |
+| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Tak          |
 | Właściwością connectvia          | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Więcej informacji znajduje się w sekcji [wymagania wstępne](#prerequisites)w tym artykule. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie           |
 
 **Przykład:**
@@ -114,10 +113,10 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Yes |
-| listName | Nazwa listy usługi SharePoint Online. | Yes |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Tak |
+| listName | Nazwa listy usługi SharePoint Online. | Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -147,11 +146,11 @@ Aby skopiować dane z listy usługi SharePoint Online, w sekcji **Źródło** dz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Yes |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Tak |
 | query | Niestandardowe opcje zapytania OData dotyczące filtrowania danych. Przykład: `"$top=10&$select=Title,Number"`. | Nie |
 | httpRequestTimeout | Limit czasu (w drugim) żądania HTTP w celu uzyskania odpowiedzi. Wartość domyślna to 300 (5 minut). | Nie |
 
-**Przyklad**
+**Przykład**
 
 ```json
 "activities":[
@@ -189,16 +188,16 @@ Podczas kopiowania danych z listy usługi SharePoint Online następujące mapowa
 
 | **Typ danych usługi SharePoint Online**                 | **Typ danych OData**                                  | **Azure Data Factory typ danych pośrednich** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Pojedynczy wiersz tekstu                             | Edm.String                                           | String (ciąg)                                   |
-| Wiele wierszy tekstu                          | Edm.String                                           | String (ciąg)                                   |
-| Wybór (menu do wyboru)                    | Edm.String                                           | String (ciąg)                                   |
+| Pojedynczy wiersz tekstu                             | Edm.String                                           | String                                   |
+| Wiele wierszy tekstu                          | Edm.String                                           | String                                   |
+| Wybór (menu do wyboru)                    | Edm.String                                           | String                                   |
 | Liczba (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
 | Waluta ($, ¥, €)                              | Edm.Double                                           | Double                                   |
-| Data i godzina                                   | EDM. DateTime                                         | Data/godzina                                 |
+| Data i godzina                                   | EDM. DateTime                                         | DateTime                                 |
 | Odnośnik (informacje znajdujące się już w tej lokacji)       | Edm.Int32                                            | Int32                                    |
-| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Boolean (wartość logiczna)                                  |
+| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Boolean                                  |
 | Osoba lub grupa                                 | Edm.Int32                                            | Int32                                    |
-| Hiperłącze lub obraz                            | Edm.String                                           | String (ciąg)                                   |
+| Hiperłącze lub obraz                            | Edm.String                                           | String                                   |
 | Obliczone (obliczanie na podstawie innych kolumn) | EDM. String/EDM. Double/EDM. DateTime/EDM. Boolean | Ciąg/Double/DateTime/wartość logiczna     |
 | Załącznik                                      | Nieobsługiwane                                        |                                          |
 | Wynik zadania                                    | Nieobsługiwane                                        |                                          |

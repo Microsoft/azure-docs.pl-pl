@@ -4,10 +4,9 @@ description: Azure Functions obsługuje wiele wersji środowiska uruchomienioweg
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996724"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Przegląd wersji środowiska uruchomieniowego Azure Functions
@@ -27,7 +26,7 @@ Poniższa tabela wskazuje, które języki programowania są obecnie obsługiwane
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Więcej informacji, zobacz [Obsługiwane języki](supported-languages.md).
+Aby uzyskać więcej informacji, zobacz [obsługiwane języki](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Uruchom w określonej wersji
 
@@ -43,7 +42,7 @@ Chociaż można przeprowadzić uaktualnienie "w miejscu", ręcznie aktualizując
 
 Począwszy od wersji 2. x, należy zainstalować rozszerzenia dla określonych wyzwalaczy i powiązań używanych przez funkcje w aplikacji. Jedyny wyjątek dla tych wyzwalaczy HTTP i Timer, które nie wymagają rozszerzenia.  Aby uzyskać więcej informacji, zobacz [Rejestrowanie i instalowanie rozszerzeń powiązań](./functions-bindings-register.md).
 
-Istnieją także pewne zmiany w *funkcji Function. JSON* lub atrybuty funkcji między wersjami. Na przykład właściwość centrum zdarzeń `path` jest teraz `eventHubName` . W [istniejącej tabeli powiązań](#bindings) znajdziesz linki do dokumentacji dla każdego powiązania.
+Istnieją także pewne zmiany w *function.js* lub atrybuty funkcji między wersjami. Na przykład właściwość centrum zdarzeń `path` jest teraz `eventHubName` . W [istniejącej tabeli powiązań](#bindings) znajdziesz linki do dokumentacji dla każdego powiązania.
 
 ### <a name="changes-in-features-and-functionality-after-version-1x"></a>Zmiany w funkcjach i funkcjach po wersji 1. x
 
@@ -55,15 +54,15 @@ W wersji 2. x wprowadzono następujące zmiany:
 
 * Środowisko uruchomieniowe w wersji 2. x nie obejmuje wbudowanej obsługi dostawców elementu webhook. Ta zmiana została wprowadzona w celu zwiększenia wydajności. Można nadal używać wyzwalaczy HTTP jako punktów końcowych dla elementów webhook.
 
-* Plik konfiguracji hosta (host. JSON) powinien być pusty lub mieć ciąg `"version": "2.0"` .
+* Plik konfiguracji hosta (host.json) powinien być pusty lub mieć ciąg `"version": "2.0"` .
 
 * Aby poprawić monitorowanie, pulpit nawigacyjny zadań WebJob w portalu, który użył tego [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) Ustawienia, jest zastępowany Application Insights platformy Azure, która używa tego [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) Ustawienia. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md).
 
-* Wszystkie funkcje w aplikacji funkcji muszą korzystać z tego samego języka. Podczas tworzenia aplikacji funkcji należy wybrać stos środowiska uruchomieniowego dla aplikacji. Stos środowiska uruchomieniowego jest określany przez [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) wartość w ustawieniach aplikacji. Ten wymóg został dodany w celu poprawy rozmiaru i czasu uruchamiania. Podczas programowania lokalnego należy również uwzględnić to ustawienie w [pliku Local. Settings. JSON](functions-run-local.md#local-settings-file).
+* Wszystkie funkcje w aplikacji funkcji muszą korzystać z tego samego języka. Podczas tworzenia aplikacji funkcji należy wybrać stos środowiska uruchomieniowego dla aplikacji. Stos środowiska uruchomieniowego jest określany przez [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) wartość w ustawieniach aplikacji. Ten wymóg został dodany w celu poprawy rozmiaru i czasu uruchamiania. Podczas programowania lokalnego należy również uwzględnić to ustawienie w [local.settings.jsna pliku](functions-run-local.md#local-settings-file).
 
-* Domyślny limit czasu dla funkcji w planie App Service został zmieniony na 30 minut. Limit czasu można zmienić ręcznie na nieograniczony przy użyciu ustawienia [functionTimeout](functions-host-json.md#functiontimeout) w pliku host. JSON.
+* Domyślny limit czasu dla funkcji w planie App Service został zmieniony na 30 minut. Limit czasu można zmienić ręcznie na nieograniczony przy użyciu ustawienia [functionTimeout](functions-host-json.md#functiontimeout) w host.jsna.
 
-* Ograniczenia współbieżności HTTP są implementowane domyślnie dla funkcji planu zużycia, z wartością domyślną 100 współbieżnych żądań na wystąpienie. Można to zmienić w [`maxConcurrentRequests`](functions-host-json.md#http) ustawieniach w pliku host. JSON.
+* Ograniczenia współbieżności HTTP są implementowane domyślnie dla funkcji planu zużycia, z wartością domyślną 100 współbieżnych żądań na wystąpienie. Możesz zmienić to [`maxConcurrentRequests`](functions-host-json.md#http) ustawienie w host.jsna pliku.
 
 * Ze względu na [ograniczenia programu .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), obsługa funkcji skryptów F # (FSX) została usunięta. Skompilowane funkcje języka F # (. FS) są nadal obsługiwane.
 
@@ -87,7 +86,7 @@ Poniżej znajdują się informacje o zmianach, które należy znać przed uaktua
 
 * Nie można już uzyskać dostępu do ładunku żądania HTTP za pośrednictwem `context.bindingData.req` .  Nadal można uzyskać do niego dostęp jako parametr wejściowy, `context.req` i w `context.bindings` .
 
-* Program Node. js 8 nie jest już obsługiwany i nie zostanie uruchomiony w funkcjach 3. x.
+* Node.js 8 nie jest już obsługiwana i nie będzie działać w funkcjach 3. x.
 
 #### <a name="net"></a>.NET
 

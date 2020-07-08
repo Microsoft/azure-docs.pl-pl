@@ -8,10 +8,9 @@ ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83874000"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Sprawdź stan szyfrowania dla systemu Linux 
@@ -280,7 +279,7 @@ az storage account list --query [].[id] -o tsv
 ```
 Identyfikatory kont magazynu są wymienione w następującej postaci:
 
-\<Identyfikator subskrypcji/subscriptions/>/ResourceGroups/ \< Nazwa grupy zasobów>/Providers/Microsoft.Storage/storageaccounts/ \< nazwa konta magazynu>
+/subscriptions/ \<subscription id> /ResourceGroups/ \<resource group name> /providers/Microsoft.Storage/storageAccounts/\<storage account name>
 
 Wybierz odpowiedni identyfikator i Zapisz go na zmiennej:
 ```bash

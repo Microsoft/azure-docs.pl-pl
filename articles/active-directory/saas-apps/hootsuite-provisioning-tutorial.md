@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: 1adbb0961ab610db936107f2fff210f4acecf2ed
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83883100"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie HootSuite na potrzeby automatycznego aprowizacji użytkowników
@@ -106,14 +105,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String (ciąg)|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String (ciąg)|
-   |aktywne|Boolean (wartość logiczna)|
-   |displayName|String (ciąg)|
-   |preferredLanguage|String (ciąg)|
-   |TimeZone|String (ciąg)|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: organizationIds|String (ciąg)|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: teamIds|String (ciąg)|
+   |userName|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |aktywne|Boolean|
+   |displayName|String|
+   |preferredLanguage|String|
+   |TimeZone|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: organizationIds|String|
+   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: teamIds|String|
 
 10. Aby włączyć usługę Azure AD Provisioning dla HootSuite, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
