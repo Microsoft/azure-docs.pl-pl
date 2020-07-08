@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: inhenkel
 ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84765016"
 ---
 # <a name="live-transcription-preview"></a>Transkrypcja dynamiczna (wersja zapoznawcza)

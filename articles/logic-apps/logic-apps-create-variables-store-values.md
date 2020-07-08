@@ -7,13 +7,13 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753266"
 ---
-# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w Azure Logic Apps
+# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w usłudze Azure Logic Apps
 
 W tym artykule przedstawiono sposób tworzenia i pracy ze zmiennymi używanymi do przechowywania wartości w aplikacji logiki. Na przykład zmienne mogą pomóc w śledzeniu, ile razy działa pętla. Aby wykonać iterację tablicy lub sprawdzić tablicę dla określonego elementu, można użyć zmiennej, aby odwołać się do numeru indeksu dla każdego elementu tablicy.
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
 ms.openlocfilehash: c64e7988094612077131029547682c7ae3d25c98
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753143"
 ---
 # <a name="working-with-user-vpn-client-profiles"></a>Praca z profilami klienta sieci VPN użytkownika

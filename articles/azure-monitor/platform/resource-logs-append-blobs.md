@@ -8,10 +8,10 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 582e7ea4e954a1aa5ee27314d038601f7e26c61e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803941"
 ---
 # <a name="format-of-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Format dzienników zasobów Azure Monitor archiwizowanych na koncie magazynu

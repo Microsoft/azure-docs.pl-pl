@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: a83a050b65f5673a86dd07ec13842f6009d2c8dc
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84753337"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Wybór ścieżki platformy Azure dla wielu linków usługodawcy internetowego

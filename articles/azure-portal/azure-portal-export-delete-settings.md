@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: mblythe
 ms.openlocfilehash: 248c643c5f1865451abbe201e7033efedb8a7e39
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763945"
 ---
 # <a name="export-or-delete-user-settings"></a>Eksportowanie i usuwanie ustawień użytkownika

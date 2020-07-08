@@ -9,10 +9,10 @@ ms.date: 04/28/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 362c13771e7382ead1ba5aebd99a69fd86cd718c
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84793317"
 ---
 <!-- operation names for the diag logs for IoT Hub -->

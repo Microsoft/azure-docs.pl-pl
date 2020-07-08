@@ -10,10 +10,10 @@ ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84749928"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo
@@ -114,7 +114,7 @@ Aby odtworzyć zawartość, musi być obecny strumień audio i wideo. Odtwarzani
 > [!IMPORTANT]
 > Obejrzyj fizyczny stan maszyny (procesor CPU/pamięć/itp.), ponieważ przekazywanie fragmentów do chmury obejmuje operacje procesora i operacji we/wy. Jeśli zmienisz dowolne ustawienia w koderze, zresetuj zdarzenie/kanał na żywo, aby zmiany zaczęły obowiązywać.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Przesyłanie strumieniowe na żywo z Media Services v3](live-streaming-overview.md)
 

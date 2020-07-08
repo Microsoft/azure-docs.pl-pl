@@ -9,10 +9,10 @@ ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84793331"
 ---
 [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) w interfejsie API REST zapewnia stan kondycji punktów końcowych, a także ostatni znany błąd, aby zidentyfikować przyczynę, w której punkt końcowy nie jest w dobrej kondycji. W poniższej tabeli wymieniono najbardziej typowe błędy.

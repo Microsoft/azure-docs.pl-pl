@@ -10,10 +10,10 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: 967df2022166936df71b30fbe9d49798663ce962
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84783603"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4

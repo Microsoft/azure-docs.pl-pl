@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763027"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
@@ -68,7 +68,7 @@ Aby włączyć ograniczenia dzierżawy za pomocą infrastruktury serwera proxy, 
 
 - Ta funkcja jest uwzględniona w subskrypcjach pakietu Office 365, ale jeśli chcesz użyć ograniczeń dzierżawy do kontrolowania dostępu do innych aplikacji SaaS, wówczas wymagane są Azure AD — wersja Premium 1 licencji.
 
-#### <a name="configuration"></a>Konfiguracja
+#### <a name="configuration"></a>Konfigurowanie
 
 Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
 

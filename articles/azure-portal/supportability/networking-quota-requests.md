@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764269"
 ---
 # <a name="networking-limit-increase"></a>Zwiększanie limitu sieci
@@ -21,7 +21,7 @@ Użyj [Azure Portal](https://portal.azure.com) , aby zwiększyć limit przydzia�
 Aby wyświetlić bieżące użycie sieci i limit przydziału w Azure Portal, Otwórz swoją subskrypcję, a następnie wybierz pozycję **użycie + przydziały**. Możesz również użyć poniższych opcji, aby wyświetlić użycie sieci i limity.
 
 * [Interfejs wiersza polecenia użycia](/cli/azure/network#az-network-list-usages)
-* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+* [Program PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 * [Interfejs API użycia sieci](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
 Możesz poprosić o zwiększenie, korzystając z **pomocy i obsługi technicznej** oraz **przydziałów** w portalu.
@@ -39,7 +39,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
 1. Wybierz pozycję **Nowe żądanie obsługi**.
 
-    ![Nowe żądanie pomocy technicznej](./media/networking-quota-request/new-support-request.png)
+    ![Nowy wniosek o pomoc techniczną](./media/networking-quota-request/new-support-request.png)
 
 1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
 
