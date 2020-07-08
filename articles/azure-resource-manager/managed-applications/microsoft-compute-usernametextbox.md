@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651906"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft. COMPUTE. UserNameTextBox — element interfejsu użytkownika
@@ -50,8 +49,8 @@ Kontrolka pola tekstowego z wbudowaną walidacją nazw użytkowników systemu Wi
 - Jeśli `constraints.required` ma wartość **true**, pole tekstowe musi mieć wartość, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **true**.
 - `osPlatform`musi być określony i może być w **systemie Windows** lub **Linux**.
 - `constraints.regex`jest wzorcem wyrażenia regularnego JavaScript. Jeśli jest określony, wartość pola tekstowego musi być zgodna ze wzorcem, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **null**.
-- `constraints.validationMessage`jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się `constraints.regex`walidacji określonej przez. Jeśli nie zostanie określony, będą używane wbudowane komunikaty weryfikacyjne pola tekstowego. Wartość domyślna to **null**.
-- Ten element ma wbudowaną weryfikację opartą na wartości określonej dla `osPlatform`parametru. Wbudowanej walidacji można używać razem z niestandardowym wyrażeniem regularnym. Jeśli określono wartość dla `constraints.regex` parametru, wyzwalane są zarówno wbudowane, jak i niestandardowe walidacje.
+- `constraints.validationMessage`jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się walidacji określonej przez `constraints.regex` . Jeśli nie zostanie określony, będą używane wbudowane komunikaty weryfikacyjne pola tekstowego. Wartość domyślna to **null**.
+- Ten element ma wbudowaną weryfikację opartą na wartości określonej dla parametru `osPlatform` . Wbudowanej walidacji można używać razem z niestandardowym wyrażeniem regularnym. Jeśli określono wartość dla parametru `constraints.regex` , wyzwalane są zarówno wbudowane, jak i niestandardowe walidacje.
 
 ## <a name="next-steps"></a>Następne kroki
 

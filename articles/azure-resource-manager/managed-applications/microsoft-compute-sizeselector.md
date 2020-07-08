@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652049"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft. COMPUTE. SizeSelector — element interfejsu użytkownika
@@ -69,11 +68,11 @@ Po wybraniu kontrolki użytkownik zobaczy rozwinięty widok dostępnych rozmiar�
 
 - `recommendedSizes`powinien mieć co najmniej jeden rozmiar. Pierwszy zalecany rozmiar jest używany jako domyślny. Lista dostępnych rozmiarów nie jest posortowana według zalecanego stanu. Użytkownik może wybrać tę kolumnę, aby posortować według zalecanego stanu.
 - Jeśli zalecany rozmiar nie jest dostępny w wybranej lokalizacji, rozmiar jest automatycznie pomijany. Zamiast tego jest używany następny zalecany rozmiar.
-- `constraints.allowedSizes`i `constraints.excludedSizes` są opcjonalne, ale nie mogą być używane jednocześnie. Listę dostępnych rozmiarów można określić, wywołując [listę dostępnych rozmiarów maszyn wirtualnych w ramach subskrypcji](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Dowolny rozmiar nieokreślony w elemencie `constraints.allowedSizes` jest ukryty, a każdy rozmiar nieokreślony w `constraints.excludedSizes` polu jest wyświetlany.
+- `constraints.allowedSizes`i `constraints.excludedSizes` są opcjonalne, ale nie mogą być używane jednocześnie. Listę dostępnych rozmiarów można określić, wywołując [listę dostępnych rozmiarów maszyn wirtualnych w ramach subskrypcji](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Dowolny rozmiar nieokreślony w elemencie `constraints.allowedSizes` jest ukryty, a każdy rozmiar nieokreślony w polu `constraints.excludedSizes` jest wyświetlany.
 - `osPlatform`musi być określony i może być w **systemie Windows** lub **Linux**. Służy do określania kosztów sprzętu maszyn wirtualnych.
 - `imageReference`jest pomijany dla obrazów pierwszej firmy, ale udostępniany dla obrazów innych firm. Służy do określania kosztów oprogramowania maszyn wirtualnych.
-- `count`służy do ustawiania odpowiedniego mnożnika dla elementu. Obsługuje ona wartość statyczną, taką jak **2**, lub wartość dynamiczną z innego elementu, `[steps('step1').vmCount]`na przykład. Wartość domyślna to **1**.
-- Może `numAvailabilityZonesRequired` to być 1, 2 lub 3.
+- `count`służy do ustawiania odpowiedniego mnożnika dla elementu. Obsługuje ona wartość statyczną, taką jak **2**, lub wartość dynamiczną z innego elementu, na przykład `[steps('step1').vmCount]` . Wartość domyślna to **1**.
+- `numAvailabilityZonesRequired`Może to być 1, 2 lub 3.
 - Domyślnie `hideDiskTypeFilter` ma **wartość false**. Filtr typ dysku umożliwia użytkownikowi wyświetlanie wszystkich typów dysku lub tylko dysków SSD.
 
 ## <a name="next-steps"></a>Następne kroki

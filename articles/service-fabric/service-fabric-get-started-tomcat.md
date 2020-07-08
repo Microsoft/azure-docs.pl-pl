@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614421"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Tworzenie kontenera Service Fabric z systemem Apache Tomcat Server w systemie Linux
@@ -58,7 +57,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby utworzyć obraz platformy Doc
    docker build . -t tomcattest
    ```
 
-   To polecenie kompiluje nowy obraz przy użyciu instrukcji z pliku dockerfile, nazywania (-t tagowania) obrazu `tomcattest`. Aby skompilować obraz kontenera, podstawowy obraz jest najpierw pobierany z usługi Docker Hub, a aplikacja zostanie dodana do niej. 
+   To polecenie kompiluje nowy obraz przy użyciu instrukcji z pliku dockerfile, nazywania (-t tagowania) obrazu `tomcattest` . Aby skompilować obraz kontenera, podstawowy obraz jest najpierw pobierany z usługi Docker Hub, a aplikacja zostanie dodana do niej. 
 
    Po zakończeniu działania polecenia budowania uruchom polecenie `docker images`, aby wyświetlić informacje o nowym obrazie:
 
@@ -79,7 +78,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby utworzyć obraz platformy Doc
    * `-p`Określa mapowanie portów między kontenerem i systemem operacyjnym hosta. 
 
    > [!Note]
-   > Port otwarty za pomocą `-p` parametru powinien być portem, na którym aplikacja Tomcat nasłuchuje żądań. W bieżącym przykładzie istnieje łącznik skonfigurowany w pliku *ApacheTomcat/conf/Server. XML* do nasłuchiwania na porcie 8080 dla żądań HTTP. Ten port jest mapowany na port 8080 na hoście. 
+   > Port otwarty za pomocą `-p` parametru powinien być portem, na którym aplikacja Tomcat nasłuchuje żądań. W bieżącym przykładzie istnieje łącznik skonfigurowany w pliku *ApacheTomcat/conf/server.xml* do nasłuchiwania na porcie 8080 dla żądań HTTP. Ten port jest mapowany na port 8080 na hoście. 
 
    Aby dowiedzieć się więcej o innych parametrach, zobacz [dokumentację platformy Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
@@ -139,7 +138,7 @@ Teraz, gdy obraz Tomcat został wypchnięci do rejestru kontenerów, można skom
 
    ![Generator Yeoman usługi Service Fabric dla kontenerów](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
-10. W manifeście usługi (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/servicemanifest. XML*) Dodaj następujący kod XML pod głównym tagiem **ServiceManfest** , aby otworzyć port, na którym aplikacja nasłuchuje żądań. Tag **punktu końcowego** deklaruje protokół i Port punktu końcowego. W tym artykule Usługa kontenerów nasłuchuje na porcie 8080: 
+10. W manifeście usługi (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*) Dodaj następujący kod XML w głównym tagu **ServiceManfest** , aby otworzyć port, na którym aplikacja nasłuchuje żądań. Tag **punktu końcowego** deklaruje protokół i Port punktu końcowego. W tym artykule Usługa kontenerów nasłuchuje na porcie 8080: 
 
    ```xml
    <Resources>
@@ -152,7 +151,7 @@ Teraz, gdy obraz Tomcat został wypchnięci do rejestru kontenerów, można skom
    </Resources>
    ```
 
-11. W manifeście aplikacji (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest. XML*) pod tagiem **ServiceManifestImport** Dodaj następujący kod XML. Zastąp wartości **AccountName** i **Password** w tagu **RepositoryCredentials** nazwą rejestru kontenera i hasłem wymaganym do zalogowania się do niego.
+11. W manifeście aplikacji (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*) pod tagiem **ServiceManifestImport** Dodaj następujący kod XML. Zastąp wartości **AccountName** i **Password** w tagu **RepositoryCredentials** nazwą rejestru kontenera i hasłem wymaganym do zalogowania się do niego.
 
    ```xml
    <Policies>
@@ -182,7 +181,7 @@ Teraz, gdy obraz Tomcat został wypchnięci do rejestru kontenerów, można skom
      ```bash
      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
      ```
-     W poprzednim poleceniu Zastąp `your-certificate.pem` wartość nazwą pliku certyfikatu klienta. W środowiskach deweloperskich i testowych certyfikat klastra jest często używany jako certyfikat klienta. Jeśli certyfikat nie jest podpisany z podpisem własnym, Pomiń `-no-verify` ten parametr. 
+     W poprzednim poleceniu Zastąp `your-certificate.pem` wartość nazwą pliku certyfikatu klienta. W środowiskach deweloperskich i testowych certyfikat klastra jest często używany jako certyfikat klienta. Jeśli certyfikat nie jest podpisany z podpisem własnym, Pomiń ten `-no-verify` parametr. 
        
      Certyfikaty klastra są zwykle pobierane lokalnie jako pliki PFX. Jeśli nie masz jeszcze certyfikatu w formacie PEM, możesz uruchomić następujące polecenie, aby utworzyć plik PEM z pliku PFX:
 
@@ -202,7 +201,7 @@ Teraz, gdy obraz Tomcat został wypchnięci do rejestru kontenerów, można skom
    Po uruchomieniu skryptu instalacji Otwórz przeglądarkę i przejdź do Service Fabric Explorer:
     
    * W klastrze lokalnym Użyj opcji `http://localhost:19080/Explorer` (Zastąp *localhost* jako prywatny adres IP maszyny wirtualnej, jeśli używasz Vagrant na Mac OS X).
-   * W zabezpieczonym klastrze platformy Azure Użyj `https://PublicIPorFQDN:19080/Explorer`programu. 
+   * W zabezpieczonym klastrze platformy Azure Użyj programu `https://PublicIPorFQDN:19080/Explorer` . 
     
    Rozwiń węzeł **aplikacje** i zwróć uwagę, że istnieje teraz wpis dla typu aplikacji, **ServiceFabricTomcatType**i drugiego dla pierwszego wystąpienia tego typu. Aby aplikacja mogła zostać całkowicie wdrożona, może upłynąć kilka minut.
 

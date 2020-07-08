@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ms.openlocfilehash: 74ed55e1d460495bfa8d3d4c00bd37bb7f05260e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552869"
 ---
 # <a name="protect-azure-data-and-storage-services"></a>Ochrona usług Azure Data and Storage
@@ -55,7 +54,7 @@ Aby zapoznać się z pełną listą zaleceń, które mogą zostać wyświetlone 
 
 2. Kliknij zalecenie. Zostanie otwarta strona rekomendacja i zostanie wyświetlona **procedura korygowania** służąca do zaimplementowania zalecenia.
 
-   ![Kroki zaradcze](./media/security-center-monitoring/remediate1.png)
+   ![Instrukcje rozwiązania problemu](./media/security-center-monitoring/remediate1.png)
 
 3. Kliknij przycisk **podejmij akcję**. Zostanie wyświetlona strona Ustawienia zasobów.
 

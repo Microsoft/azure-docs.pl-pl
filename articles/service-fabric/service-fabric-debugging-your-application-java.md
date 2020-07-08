@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614489"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Debugowanie aplikacji Java Service Fabric przy użyciu programu zaćmienie
@@ -20,7 +19,7 @@ ms.locfileid: "75614489"
 
 1. Uruchom lokalny klaster programistyczny, wykonując czynności opisane w sekcji [Konfigurowanie środowiska deweloperskiego Service Fabric](service-fabric-get-started-linux.md).
 
-2. Zaktualizuj entryPoint.sh usługi, którą chcesz debugować, aby uruchomić proces języka Java z parametrami zdalnego debugowania. Ten plik można znaleźć w następującej lokalizacji: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. W tym przykładzie na potrzeby debugowania ustawiono port 8001.
+2. Zaktualizuj entryPoint.sh usługi, którą chcesz debugować, aby uruchomić proces języka Java z parametrami zdalnego debugowania. Ten plik można znaleźć w następującej lokalizacji: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh` . W tym przykładzie na potrzeby debugowania ustawiono port 8001.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
@@ -37,7 +36,7 @@ ms.locfileid: "75614489"
    ```
 6.  Ustaw punkty przerwania w żądanych punktach i Debuguj aplikację.
 
-Jeśli aplikacja uległa awarii, możesz również włączyć coredumps. Wykonaj `ulimit -c` w powłoce i jeśli zwraca wartość 0, coredumps nie są włączone. Aby włączyć nieograniczony coredumps, wykonaj następujące polecenie: `ulimit -c unlimited`. Możesz również sprawdzić stan przy użyciu polecenia `ulimit -a`.  Jeśli chcesz zaktualizować ścieżkę generacji CoreDump, wykonaj `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`polecenie. 
+Jeśli aplikacja uległa awarii, możesz również włączyć coredumps. Wykonaj `ulimit -c` w powłoce i jeśli zwraca wartość 0, coredumps nie są włączone. Aby włączyć nieograniczony coredumps, wykonaj następujące polecenie: `ulimit -c unlimited` . Możesz również sprawdzić stan przy użyciu polecenia `ulimit -a` .  Jeśli chcesz zaktualizować ścieżkę generacji CoreDump, wykonaj polecenie `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern` . 
 
 ### <a name="next-steps"></a>Następne kroki
 

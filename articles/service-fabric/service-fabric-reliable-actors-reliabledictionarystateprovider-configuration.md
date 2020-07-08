@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609744"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurowanie Reliable Actors--ReliableDictionaryActorStateProvider
-Domyślną konfigurację ReliableDictionaryActorStateProvider można zmodyfikować, zmieniając plik Settings. XML wygenerowany w katalogu głównym pakietu programu Visual Studio w folderze config dla określonego aktora.
+Domyślną konfigurację ReliableDictionaryActorStateProvider można zmodyfikować, zmieniając plik settings.xml wygenerowany w katalogu głównym pakietu programu Visual Studio w folderze config dla określonego aktora.
 
-Środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings. XML i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
+Środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku settings.xml i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
 
 > [!NOTE]
-> Nie usuwaj ani **nie** Modyfikuj nazw sekcji następujących konfiguracji w pliku Settings. XML, który jest generowany w rozwiązaniu programu Visual Studio.
+> Nie usuwaj ani **nie** Modyfikuj nazw sekcji następujących konfiguracji w pliku settings.xml, który jest generowany w rozwiązaniu programu Visual Studio.
 > 
 > 
 
@@ -27,14 +26,14 @@ Istnieją również ustawienia globalne, które mają wpływ na konfigurację Re
 ## <a name="global-configuration"></a>Konfiguracja globalna
 Konfiguracja globalna została określona w manifeście klastra dla klastra w sekcji KtlLogger. Umożliwia ona konfigurację udostępnionej lokalizacji i rozmiaru dziennika oraz globalne limity pamięci używane przez rejestratora. Należy pamiętać, że zmiany w manifeście klastra mają wpływ na wszystkie usługi korzystające z ReliableDictionaryActorStateProvider i niezawodnych usług stanowych.
 
-Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest. XML. Manifest klastra dla klastra można wyświetlić za pomocą polecenia programu PowerShell Get-ServiceFabricClusterManifest.
+Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest.xml. Manifest klastra dla klastra można wyświetlić za pomocą polecenia programu PowerShell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobajtach |8388608 |Minimalna liczba KB do przydzielenia w trybie jądra dla puli pamięci buforu zapisu rejestratora. Ta Pula pamięci jest używana do buforowania informacji o stanie przed zapisaniem na dysku. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobajtach |Bez ograniczeń |Maksymalny rozmiar, do którego można zwiększyć pulę pamięci buforu zapisu rejestratora. |
-| SharedLogId |Identyfikator GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania domyślnego udostępnionego pliku dziennika używanego przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, które nie określają SharedLogId w konfiguracji specyficznej dla usługi. Jeśli SharedLogId jest określony, należy również określić SharedLogPath. |
+| SharedLogId |GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania domyślnego udostępnionego pliku dziennika używanego przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, które nie określają SharedLogId w konfiguracji specyficznej dla usługi. Jeśli SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której udostępniony plik dziennika używany przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, który nie określa SharedLogPath w swojej konfiguracji specyficznej dla usługi. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SharedLogSizeInMB |Megabajtach |8192 |Określa liczbę MB miejsca na dysku do alokacji statycznej dla dziennika udostępnionego. Wartość musi być równa 2048 lub większa. |
 
@@ -52,7 +51,7 @@ Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracj
 ### <a name="remarks"></a>Uwagi
 Rejestrator ma globalną pulę pamięci przydzieloną z niestronicowanej pamięci jądra, która jest dostępna dla wszystkich niezawodnych usług w węźle do buforowania danych stanu przed zapisaniem w dedykowanym dzienniku skojarzonym z niezawodną repliką usługi. Rozmiar puli jest kontrolowany przez ustawienia WriteBufferMemoryPoolMinimumInKB i WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB określa początkowy rozmiar tej puli pamięci i najniższy rozmiar, do którego może zostać zmniejszony Pula pamięci. WriteBufferMemoryPoolMaximumInKB jest największym rozmiarem, do którego może rosnąć Pula pamięci. Każda otwarta niezawodna replika usługi może zwiększyć rozmiar puli pamięci przez system o określonej wielkości do WriteBufferMemoryPoolMaximumInKB. Jeśli ilość pamięci z puli pamięci jest większa niż dostępna, żądania dotyczące pamięci zostaną opóźnione do momentu udostępnienia pamięci. W związku z tym, jeśli Pula pamięci buforu zapisu jest za mała dla konkretnej konfiguracji, może to mieć wpływ na wydajność.
 
-Ustawienia SharedLogId i SharedLogPath są zawsze używane razem do definiowania identyfikatora GUID i lokalizacji dla domyślnego dziennika udostępnionego dla wszystkich węzłów w klastrze. Domyślny dziennik udostępniony jest używany dla wszystkich niezawodnych usług, które nie określają ustawień w pliku XML określonej usługi. Aby zapewnić najlepszą wydajność, udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację.
+Ustawienia SharedLogId i SharedLogPath są zawsze używane razem do definiowania identyfikatora GUID i lokalizacji dla domyślnego dziennika udostępnionego dla wszystkich węzłów w klastrze. Domyślny dziennik udostępniony jest używany dla wszystkich niezawodnych usług, które nie określają ustawień w settings.xml dla określonej usługi. Aby zapewnić najlepszą wydajność, udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację.
 
 SharedLogSizeInMB określa ilość miejsca na dysku do wstępnego przydzielenia dla domyślnego dziennika udostępnionego we wszystkich węzłach.  Nie trzeba określać SharedLogId i SharedLogPath, aby można było określić SharedLogSizeInMB.
 
@@ -65,14 +64,14 @@ Domyślnie pusta sekcja konfiguracji zabezpieczeń uniemożliwia zabezpieczenia 
 > 
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;&gt;ServiceReplicatorSecurityConfig aktora
+&lt;ServiceReplicatorSecurityConfig aktora &gt;
 
 ## <a name="replicator-configuration"></a>Konfiguracja replikatora
 Konfiguracje replikatora służą do konfigurowania replikatora, który jest odpowiedzialny za zapewnianie niezawodnego stanu dostawcy stanu aktora przez replikowanie i utrwalanie stanu lokalnie.
 Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i powinna być wystarczająca. W tej sekcji omówiono dodatkowe konfiguracje, które są dostępne w celu dostrojenia replikatora.
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;&gt;ServiceReplicatorConfig aktora
+&lt;ServiceReplicatorConfig aktora &gt;
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
@@ -84,7 +83,7 @@ Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i po
 | MaxSecondaryReplicationQueueSize |Liczba operacji |16384 |Maksymalna liczba operacji w kolejce pomocniczej. Operacja zostanie zwolniona po przeprowadzeniu wysokiej dostępności stanu przez trwałość. Ta wartość musi być większa niż 64 i potęgą 2. |
 | CheckpointThresholdInMB |MB |200 |Ilość miejsca w pliku dziennika, po którym stan jest tworzony w punkcie kontrolnym. |
 | MaxRecordSizeInKB |KB |1024 |Największy rozmiar rekordu, który Replikator może zapisać w dzienniku. Ta wartość musi być wielokrotnością 4 i większa niż 16. |
-| OptimizeLogForLowerDiskUsage |Wartość logiczna |true |Jeśli wartość jest równa true, dziennik jest skonfigurowany tak, aby dedykowany plik dziennika repliki został utworzony przy użyciu pliku rozrzedzonego NTFS. Zmniejsza to rzeczywiste użycie miejsca na dysku dla pliku. W przypadku wartości false plik jest tworzony ze stałymi alokacjami, co zapewnia najlepszą wydajność zapisu. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Jeśli wartość jest równa true, dziennik jest skonfigurowany tak, aby dedykowany plik dziennika repliki został utworzony przy użyciu pliku rozrzedzonego NTFS. Zmniejsza to rzeczywiste użycie miejsca na dysku dla pliku. W przypadku wartości false plik jest tworzony ze stałymi alokacjami, co zapewnia najlepszą wydajność zapisu. |
 | SharedLogId |guid |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania udostępnionego pliku dziennika używanego z tą repliką. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 

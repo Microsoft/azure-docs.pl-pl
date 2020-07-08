@@ -4,10 +4,9 @@ description: Dowiedz się, jak wdrażać aplikacje i usługi w klastrze Service 
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610254"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Zarządzanie aplikacjami i usługami jako zasobami Azure Resource Manager
@@ -244,7 +243,7 @@ Poniższy fragment kodu przedstawia różne rodzaje zasobów, którymi można za
    ```
 
    > [!NOTE] 
-   > Wartość *apiVersion* musi być ustawiona na `"2019-03-01"`wartość. Ten szablon można również wdrożyć niezależnie od klastra, o ile klaster został już wdrożony.
+   > Wartość *apiVersion* musi być ustawiona na wartość `"2019-03-01"` . Ten szablon można również wdrożyć niezależnie od klastra, o ile klaster został już wdrożony.
 
 5. Wdrażanie! 
 

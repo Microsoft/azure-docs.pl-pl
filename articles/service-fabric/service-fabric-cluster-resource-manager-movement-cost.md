@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75563347"
 ---
 # <a name="service-movement-cost"></a>Koszt przeniesienia usługi
@@ -94,7 +93,7 @@ Program MoveCost ułatwia znalezienie rozwiązań, które powodują, że najtań
 Aby bardziej szczegółowo MoveCosts wziąć pod uwagę, MoveCost musi być włączona w klastrze. Bez tego ustawienia domyślny tryb obliczeń jest używany do obliczania MoveCost, a raporty MoveCost są ignorowane.
 
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">
@@ -102,7 +101,7 @@ ClusterManifest. XML:
         </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [

@@ -4,10 +4,9 @@ description: Dowiedz się więcej na temat testów jednostkowych w usłudze Azur
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639840"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Tworzenie testów jednostkowych dla usług stanowych
@@ -22,15 +21,15 @@ W tym artykule przyjęto założenie, że [testy jednostkowe usług stanowych w 
 ## <a name="the-servicefabricmocks-library"></a>Biblioteka servicefabric. imitacje
 W wersji 3.3.0, [servicefabric. makiety](https://www.nuget.org/packages/ServiceFabric.Mocks/) udostępniają interfejs API do tworzenia aranżacji replik i zarządzania stanem. Ta wartość zostanie użyta w przykładach.
 
-[Pakiet NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
+Pakiet [NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/) 
+ [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *Webfabric. imitacje nie należą do firmy Microsoft ani nie są przez nią obsługiwane. Jest to jednak obecnie zalecana Biblioteka firmy Microsoft do testowania jednostkowego usług stanowych.*
 
 ## <a name="set-up-the-mock-orchestration-and-state"></a>Konfigurowanie aranżacji i stanu makiety
-W ramach części porządkowanie testu zostanie utworzony zestaw replik i Menedżer stanu. Zestaw replik będzie tworzyć wystąpienie przetestowanej usługi dla każdej repliki. Będzie on również wykonywał wykonywanie zdarzeń cyklu życia, `OnChangeRole` takich `RunAsync`jak i. Menedżer stanu makiety zapewni, że wszystkie operacje wykonywane względem menedżera stanu zostaną uruchomione i zachowane jako rzeczywisty Menedżer stanu.
+W ramach części porządkowanie testu zostanie utworzony zestaw replik i Menedżer stanu. Zestaw replik będzie tworzyć wystąpienie przetestowanej usługi dla każdej repliki. Będzie on również wykonywał wykonywanie zdarzeń cyklu życia, takich jak `OnChangeRole` i `RunAsync` . Menedżer stanu makiety zapewni, że wszystkie operacje wykonywane względem menedżera stanu zostaną uruchomione i zachowane jako rzeczywisty Menedżer stanu.
 
-1. Utwórz delegata fabryki usługi, który będzie tworzyć wystąpienia testowanej usługi. Powinno to być podobne lub takie samo jak wywołanie zwrotne fabryki usługi zwykle `Program.cs` dostępne w usłudze dla Service Fabric lub aktora. Powinno to być zgodne z następującym podpisem:
+1. Utwórz delegata fabryki usługi, który będzie tworzyć wystąpienia testowanej usługi. Powinno to być podobne lub takie samo jak wywołanie zwrotne fabryki usługi zwykle dostępne w `Program.cs` usłudze dla Service Fabric lub aktora. Powinno to być zgodne z następującym podpisem:
    ```csharp
    MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
    ```
@@ -90,7 +89,7 @@ PromoteNewReplicaToPrimaryAsync(4)
 ```
 
 ## <a name="putting-it-all-together"></a>Zebranie wszystkich elementów
-Poniższy test pokazuje skonfigurowanie zestawu replik z trzema węzłami i sprawdzanie, czy dane są dostępne z poziomu pomocniczego po zmianie roli. Typowym problemem może być to, że dane dodane podczas `InsertAsync` zapisywania zostały zapisane w pamięci lub w niezawodnej kolekcji bez uruchamiania `CommitAsync`programu. W obu przypadkach pomocnicza nie jest zsynchronizowana z serwerem podstawowym. Mogłoby to spowodować niespójne odpowiedzi po przeniesieniu usługi.
+Poniższy test pokazuje skonfigurowanie zestawu replik z trzema węzłami i sprawdzanie, czy dane są dostępne z poziomu pomocniczego po zmianie roli. Typowym problemem może być to, że dane dodane podczas `InsertAsync` zapisywania zostały zapisane w pamięci lub w niezawodnej kolekcji bez uruchamiania programu `CommitAsync` . W obu przypadkach pomocnicza nie jest zsynchronizowana z serwerem podstawowym. Mogłoby to spowodować niespójne odpowiedzi po przeniesieniu usługi.
 
 ```csharp
 [TestMethod]

@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650398"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure
@@ -18,7 +17,7 @@ W tym artykule opisano wymagania i najlepsze rozwiązania dotyczące tworzenia p
 
 ## <a name="how-to-define-an-action-endpoint"></a>Jak zdefiniować punkt końcowy akcji
 
-**Punkt końcowy** jest adresem URL, który wskazuje na usługę, która implementuje podstawowy kontrakt między działem IT i platformą Azure. Punkt końcowy jest zdefiniowany w dostawcy zasobów niestandardowych i może być dowolnym publicznie dostępnym adresem URL. Poniższy przykład zawiera **akcję** o nazwie `myCustomAction` zaimplementowane przez `endpointURL`.
+**Punkt końcowy** jest adresem URL, który wskazuje na usługę, która implementuje podstawowy kontrakt między działem IT i platformą Azure. Punkt końcowy jest zdefiniowany w dostawcy zasobów niestandardowych i może być dowolnym publicznie dostępnym adresem URL. Poniższy przykład zawiera **akcję** o nazwie `myCustomAction` zaimplementowane przez `endpointURL` .
 
 Przykład **ResourceProvider**:
 
@@ -81,7 +80,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -130,7 +129,7 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
 action | *opcję* | Nazwa akcji zdefiniowanej w **ResourceProvider**.
 identyfikatory | *opcję* | Identyfikator zasobu **ResourceProvider**.
@@ -184,7 +183,7 @@ Przykładowy szablon Azure Resource Manager:
 }
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
 resourceIdentifier | *opcję* | Identyfikator zasobu **ResourceProvider**.
 apiVersion | *opcję* | Wersja interfejsu API środowiska uruchomieniowego zasobu. Powinno to być zawsze "2018-09-01-Preview".

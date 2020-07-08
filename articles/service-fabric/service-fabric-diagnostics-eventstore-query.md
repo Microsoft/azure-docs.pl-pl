@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614404"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Wykonywanie zapytań dotyczących interfejsów API EventStore dla zdarzeń klastra
@@ -44,14 +43,14 @@ Każda jednostka w klastrze może być kwerendą dla zdarzeń. Można także wys
 * Niesiona`/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
->W przypadku odwoływania się do nazwy aplikacji lub usługi zapytanie nie musi zawierać "sieci szkieletowej:/" prefiks. Ponadto, jeśli nazwy aplikacji lub usług mają w nich "/", przełącz je na "~", aby zachować działanie zapytania. Jeśli na przykład aplikacja jest wyświetlana jako "Sieć szkieletowa:/APP1/FrontendApp", zapytania specyficzne dla aplikacji byłyby uporządkowane `/EventsStore/Applications/App1~FrontendApp/$/Events`jako.
+>W przypadku odwoływania się do nazwy aplikacji lub usługi zapytanie nie musi zawierać "sieci szkieletowej:/" prefiks. Ponadto, jeśli nazwy aplikacji lub usług mają w nich "/", przełącz je na "~", aby zachować działanie zapytania. Jeśli na przykład aplikacja jest wyświetlana jako "Sieć szkieletowa:/APP1/FrontendApp", zapytania specyficzne dla aplikacji byłyby uporządkowane jako `/EventsStore/Applications/App1~FrontendApp/$/Events` .
 >Ponadto raporty kondycji dotyczące usług są wyświetlane dzisiaj w ramach odpowiedniej aplikacji, więc należy wykonać zapytanie o `DeployedServiceHealthReportCreated` zdarzenia dla odpowiedniej jednostki aplikacji. 
 
 ## <a name="query-the-eventstore-via-rest-api-endpoints"></a>Wysyłanie zapytań do EventStore za pośrednictwem punktów końcowych interfejsu API REST
 
-Możesz wysyłać zapytania do EventStore bezpośrednio za pośrednictwem punktu końcowego REST, `GET` wykonując żądania do `<your cluster address>/EventsStore/<entity>/Events/`:.
+Możesz wysyłać zapytania do EventStore bezpośrednio za pośrednictwem punktu końcowego REST, wykonując `GET` żądania do: `<your cluster address>/EventsStore/<entity>/Events/` .
 
-Na przykład w celu zbadania wszystkich zdarzeń klastra między `2018-04-03T18:00:00Z` i `2018-04-04T18:00:00Z`, żądanie będzie wyglądać następująco:
+Na przykład w celu zbadania wszystkich zdarzeń klastra między `2018-04-03T18:00:00Z` i `2018-04-04T18:00:00Z` , żądanie będzie wyglądać następująco:
 
 ```
 Method: GET 
@@ -106,7 +105,7 @@ Body:
 ]
 ```
 
-W tym miejscu można zobaczyć, `2018-04-03T18:00:00Z` że `2018-04-04T18:00:00Z`między `"CurrentClusterVersion": "0.0.0.0:"` programem i, ten klaster pomyślnie zakończył swoje pierwsze uaktualnienie, gdy został po `"TargetClusterVersion": "6.2:1.0"`raz pierwszy `"OverallUpgradeElapsedTimeInMs": "120196.5212"`postawiliśmy w programie do wersji.
+W tym miejscu można zobaczyć, że między `2018-04-03T18:00:00Z` `2018-04-04T18:00:00Z` programem i, ten klaster pomyślnie zakończył swoje pierwsze uaktualnienie, gdy został po raz pierwszy postawiliśmy `"CurrentClusterVersion": "0.0.0.0:"` `"TargetClusterVersion": "6.2:1.0"` w programie do wersji `"OverallUpgradeElapsedTimeInMs": "120196.5212"` .
 
 ## <a name="query-the-eventstore-programmatically"></a>EventStore programowo zapytania
 
@@ -114,7 +113,7 @@ Można również programowo zbadać EventStore za pomocą [biblioteki klienta Se
 
 Po skonfigurowaniu klienta Service Fabric możesz wysyłać zapytania o zdarzenia, uzyskując dostęp do EventStore w następujący sposób:`sfhttpClient.EventStore.<request>`
 
-Oto przykładowe żądanie dla wszystkich zdarzeń klastra między `2018-04-03T18:00:00Z` i `2018-04-04T18:00:00Z`, za pomocą `GetClusterEventListAsync` funkcji.
+Oto przykładowe żądanie dla wszystkich zdarzeń klastra między `2018-04-03T18:00:00Z` i `2018-04-04T18:00:00Z` , za pomocą `GetClusterEventListAsync` funkcji.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -187,7 +186,7 @@ Możesz również śledzić najnowsze wdrożenia i uaktualnienia aplikacji. Uży
 
 *Historyczna kondycja dla aplikacji:*
 
-Oprócz tylko wyświetlania zdarzeń cyklu życia aplikacji można także zobaczyć historyczne dane dotyczące kondycji określonej aplikacji. Można to zrobić, określając nazwę aplikacji, dla której chcesz zebrać dane. Użyj tego zapytania, aby pobrać wszystkie zdarzenia dotyczące kondycji `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`aplikacji:. Jeśli chcesz uwzględnić zdarzenia dotyczące kondycji, które mogły wygasnąć (przeszedł czas wygaśnięcia (TTL)), Dodaj `,ApplicationHealthReportExpired` do końca zapytania, aby odfiltrować dwa typy zdarzeń.
+Oprócz tylko wyświetlania zdarzeń cyklu życia aplikacji można także zobaczyć historyczne dane dotyczące kondycji określonej aplikacji. Można to zrobić, określając nazwę aplikacji, dla której chcesz zebrać dane. Użyj tego zapytania, aby pobrać wszystkie zdarzenia dotyczące kondycji aplikacji: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport` . Jeśli chcesz uwzględnić zdarzenia dotyczące kondycji, które mogły wygasnąć (przeszedł czas wygaśnięcia (TTL)), Dodaj `,ApplicationHealthReportExpired` do końca zapytania, aby odfiltrować dwa typy zdarzeń.
 
 *Historyczna kondycja wszystkich usług w "MojaApl":*
 

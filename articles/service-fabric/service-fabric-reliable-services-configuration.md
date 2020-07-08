@@ -6,24 +6,23 @@ ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645518"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurowanie niezawodnych usług stanowych
 Istnieją dwa zestawy ustawień konfiguracji dla niezawodnych usług. Jeden zestaw jest globalny dla wszystkich niezawodnych usług w klastrze, podczas gdy drugi zestaw jest specyficzny dla konkretnej niezawodnej usługi.
 
 ## <a name="global-configuration"></a>Konfiguracja globalna
-Globalna konfiguracja niezawodnej usługi jest określona w manifeście klastra dla klastra w sekcji KtlLogger. Umożliwia ona konfigurację udostępnionej lokalizacji i rozmiaru dziennika oraz globalne limity pamięci używane przez rejestratora. Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest. XML. Manifest klastra dla klastra można wyświetlić za pomocą polecenia programu PowerShell Get-ServiceFabricClusterManifest.
+Globalna konfiguracja niezawodnej usługi jest określona w manifeście klastra dla klastra w sekcji KtlLogger. Umożliwia ona konfigurację udostępnionej lokalizacji i rozmiaru dziennika oraz globalne limity pamięci używane przez rejestratora. Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest.xml. Manifest klastra dla klastra można wyświetlić za pomocą polecenia programu PowerShell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobajtach |8388608 |Minimalna liczba KB do przydzielenia w trybie jądra dla puli pamięci buforu zapisu rejestratora. Ta Pula pamięci jest używana do buforowania informacji o stanie przed zapisaniem na dysku. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobajtach |Bez ograniczeń |Maksymalny rozmiar, do którego można zwiększyć pulę pamięci buforu zapisu rejestratora. |
-| SharedLogId |Identyfikator GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania domyślnego udostępnionego pliku dziennika używanego przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, które nie określają SharedLogId w konfiguracji specyficznej dla usługi. Jeśli SharedLogId jest określony, należy również określić SharedLogPath. |
+| SharedLogId |GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania domyślnego udostępnionego pliku dziennika używanego przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, które nie określają SharedLogId w konfiguracji specyficznej dla usługi. Jeśli SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której udostępniony plik dziennika używany przez wszystkie niezawodne usługi we wszystkich węzłach w klastrze, który nie określa SharedLogPath w swojej konfiguracji specyficznej dla usługi. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SharedLogSizeInMB |Megabajtach |8192 |Określa liczbę MB miejsca na dysku do alokacji statycznej dla dziennika udostępnionego. Wartość musi być równa 2048 lub większa. |
 
@@ -38,7 +37,7 @@ W poniższym przykładzie dla usługi Azure ARM lub lokalnego szablonu JSON poka
     }]
 
 ### <a name="sample-local-developer-cluster-manifest-section"></a>Przykładowa lokalna sekcja manifestu lokalnego klastra
-Jeśli chcesz zmienić to w lokalnym środowisku programistycznym, musisz edytować lokalny plik clustermanifest. XML.
+Jeśli chcesz zmienić to w lokalnym środowisku programistycznym, musisz edytować plik clustermanifest.xml lokalnego.
 
 ```xml
    <Section Name="KtlLogger">
@@ -53,20 +52,20 @@ Jeśli chcesz zmienić to w lokalnym środowisku programistycznym, musisz edytow
 ### <a name="remarks"></a>Uwagi
 Rejestrator ma globalną pulę pamięci przydzieloną z niestronicowanej pamięci jądra, która jest dostępna dla wszystkich niezawodnych usług w węźle do buforowania danych stanu przed zapisaniem w dedykowanym dzienniku skojarzonym z niezawodną repliką usługi. Rozmiar puli jest kontrolowany przez ustawienia WriteBufferMemoryPoolMinimumInKB i WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB określa początkowy rozmiar tej puli pamięci i najniższy rozmiar, do którego może zostać zmniejszony Pula pamięci. WriteBufferMemoryPoolMaximumInKB jest największym rozmiarem, do którego może rosnąć Pula pamięci. Każda otwarta niezawodna replika usługi może zwiększyć rozmiar puli pamięci przez system o określonej wielkości do WriteBufferMemoryPoolMaximumInKB. Jeśli ilość pamięci z puli pamięci jest większa niż dostępna, żądania dotyczące pamięci zostaną opóźnione do momentu udostępnienia pamięci. W związku z tym, jeśli Pula pamięci buforu zapisu jest za mała dla konkretnej konfiguracji, może to mieć wpływ na wydajność.
 
-Ustawienia SharedLogId i SharedLogPath są zawsze używane razem do definiowania identyfikatora GUID i lokalizacji dla domyślnego dziennika udostępnionego dla wszystkich węzłów w klastrze. Domyślny dziennik udostępniony jest używany dla wszystkich niezawodnych usług, które nie określają ustawień w pliku XML określonej usługi. Aby zapewnić najlepszą wydajność, udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację.
+Ustawienia SharedLogId i SharedLogPath są zawsze używane razem do definiowania identyfikatora GUID i lokalizacji dla domyślnego dziennika udostępnionego dla wszystkich węzłów w klastrze. Domyślny dziennik udostępniony jest używany dla wszystkich niezawodnych usług, które nie określają ustawień w settings.xml dla określonej usługi. Aby zapewnić najlepszą wydajność, udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację.
 
 SharedLogSizeInMB określa ilość miejsca na dysku do wstępnego przydzielenia dla domyślnego dziennika udostępnionego we wszystkich węzłach.  Nie trzeba określać SharedLogId i SharedLogPath, aby można było określić SharedLogSizeInMB.
 
 ## <a name="service-specific-configuration"></a>Konfiguracja specyficzna dla usługi
 Można modyfikować stanowe Reliable Services "konfiguracje domyślne przy użyciu pakietu konfiguracyjnego (konfiguracji) lub implementacji usługi (kod).
 
-* Konfiguracja **konfiguracji za** pośrednictwem pakietu konfiguracji jest realizowana przez zmianę pliku Settings. XML, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla każdej usługi w aplikacji.
+* Konfiguracja **konfiguracji za** pośrednictwem pakietu konfiguracyjnego jest realizowana przez zmianę pliku Settings.xml, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla każdej usługi w aplikacji.
 * **Kod** — konfiguracja za pośrednictwem kodu jest realizowana przez utworzenie ReliableStateManager przy użyciu obiektu ReliableStateManagerConfiguration z odpowiednimi zestawami opcji.
 
-Domyślnie środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings. XML i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
+Domyślnie środowisko uruchomieniowe platformy Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings.xml i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
 
 > [!NOTE]
-> **Nie** usuwaj nazw sekcji następujących konfiguracji w pliku Settings. XML, który jest generowany w rozwiązaniu programu Visual Studio, chyba że planujesz skonfigurować usługę za pomocą kodu.
+> **Nie** usuwaj nazw sekcji następujących konfiguracji w pliku Settings.xml, który jest generowany w rozwiązaniu programu Visual Studio, chyba że planujesz skonfigurować usługę za pomocą kodu.
 > Zmiana nazwy pakietu lub sekcji konfiguracji wymaga zmiany kodu podczas konfigurowania ReliableStateManager.
 > 
 > 
@@ -112,7 +111,7 @@ ReplicatorConfig
 | TruncationThresholdFactor |1U |2 |Określa rozmiar dziennika, który zostanie wyzwolony. Próg obcinania jest określany przez MinLogSizeInMB pomnożony przez TruncationThresholdFactor. Wartość TruncationThresholdFactor musi być większa niż 1. MinLogSizeInMB * TruncationThresholdFactor musi być mniejsze niż MaxStreamSizeInMB. |
 | ThrottlingThresholdFactor |1U |4 |Określa, jaki rozmiar dziennika rozpocznie się dla repliki. Próg ograniczania przepustowości (w MB) jest określany przez funkcję Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Próg ograniczania (w MB) musi być większy niż próg obcinania (w MB). Próg obcinania (w MB) musi być mniejszy niż MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |Maksymalny rozmiar skumulowany (w MB) dzienników kopii zapasowej w danym łańcuchu dzienników kopii zapasowych. Przyrostowe żądania kopii zapasowej zakończą się niepowodzeniem, jeśli przyrostowa kopia zapasowa wygeneruje dziennik kopii zapasowej, który mógłby spowodować zebrane dzienniki kopii zapasowej, ponieważ odpowiednia pełna kopia zapasowa będzie większa niż ten rozmiar. W takich przypadkach użytkownik musi wykonać pełną kopię zapasową. |
-| SharedLogId |Identyfikator GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania udostępnionego pliku dziennika używanego z tą repliką. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogId jest określony, należy również określić SharedLogPath. |
+| SharedLogId |GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania udostępnionego pliku dziennika używanego z tą repliką. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SlowApiMonitoringDuration |Sekundy |300 |Ustawia interwał monitorowania dla wywołań zarządzanych interfejsów API. Przykład: użytkownik podał funkcję wywołania zwrotnego kopii zapasowej. Po upływie interwału Raport kondycji ostrzeżeń zostanie wysłany do Menedżera kondycji. |
 | LogTruncationIntervalSeconds |Sekundy |0 |Konfigurowalny interwał, w którym zostanie zainicjowane obcinanie dziennika dla każdej repliki. Jest on używany do zapewnienia, że dziennik jest również obcinany w oparciu o czas, a nie tylko rozmiar dziennika. To ustawienie wymusza także przeczyszczanie usuniętych wpisów w niezawodnym słowniku. W związku z tym można go użyć w celu zapewnienia, że usunięte elementy są czyszczone w odpowiednim czasie. |

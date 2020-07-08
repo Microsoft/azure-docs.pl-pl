@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552716"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizowanie dzienników witryn sieci Web przy użyciu niestandardowej biblioteki języka Python z klastrem Apache Spark w usłudze HDInsight
@@ -25,11 +24,11 @@ Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [Twor
 
 ## <a name="save-raw-data-as-an-rdd"></a>Zapisz dane pierwotne jako RDD
 
-W tej sekcji używamy notesu [Jupyter](https://jupyter.org) skojarzonego z klastrem Apache Spark w usłudze HDInsight w celu uruchamiania zadań przetwarzających pierwotne dane przykładowe i zapisując je jako tabelę programu Hive. Przykładowe dane to plik CSV (HVAC. csv) domyślnie dostępny dla wszystkich klastrów.
+W tej sekcji używamy notesu [Jupyter](https://jupyter.org) skojarzonego z klastrem Apache Spark w usłudze HDInsight w celu uruchamiania zadań przetwarzających pierwotne dane przykładowe i zapisując je jako tabelę programu Hive. Przykładowe dane to plik CSV (hvac.csv) domyślnie dostępny dla wszystkich klastrów.
 
 Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łączyć się z tabelą programu Hive przy użyciu narzędzi analizy biznesowej, takich jak Power BI i Tableau.
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
 1. Utwórz nowy notes. Wybierz pozycję **Nowy**, a następnie **PySpark**.
 
@@ -46,7 +45,7 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
     from pyspark.sql.types import *
     ```
 
-1. Utwórz RDD za pomocą przykładowych danych dziennika, które są już dostępne w klastrze. Możesz uzyskać dostęp do danych na domyślnym koncie magazynu skojarzonym z klastrem w `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`lokalizacji. Wykonaj następujący kod:
+1. Utwórz RDD za pomocą przykładowych danych dziennika, które są już dostępne w klastrze. Możesz uzyskać dostęp do danych na domyślnym koncie magazynu skojarzonym z klastrem w lokalizacji `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . Wykonaj następujący kod:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -70,15 +69,15 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analizowanie danych dzienników przy użyciu niestandardowej biblioteki języka Python
 
-1. W danych wyjściowych powyżej pierwsze dwa wiersze zawierają informacje nagłówka, a każdy pozostały wiersz jest zgodny ze schematem opisanym w tym nagłówku. Analizowanie takich dzienników może być skomplikowane. Dlatego używamy niestandardowej biblioteki języka Python (**iislogparser.py**), która znacznie ułatwia analizowanie takich dzienników. Domyślnie ta biblioteka jest dołączona do klastra Spark w usłudze HDInsight pod adresem `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`.
+1. W danych wyjściowych powyżej pierwsze dwa wiersze zawierają informacje nagłówka, a każdy pozostały wiersz jest zgodny ze schematem opisanym w tym nagłówku. Analizowanie takich dzienników może być skomplikowane. Dlatego używamy niestandardowej biblioteki języka Python (**iislogparser.py**), która znacznie ułatwia analizowanie takich dzienników. Domyślnie ta biblioteka jest dołączona do klastra Spark w usłudze HDInsight pod adresem `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` .
 
-    Jednak ta biblioteka nie jest w tej `PYTHONPATH` bibliotece, dlatego nie można jej używać przy użyciu instrukcji import `import iislogparser`, takiej jak. Aby można było korzystać z tej biblioteki, musimy ją rozpowszechnić do wszystkich węzłów procesu roboczego. Uruchom Poniższy fragment kodu.
+    Jednak ta biblioteka nie jest w tej bibliotece, `PYTHONPATH` dlatego nie można jej używać przy użyciu instrukcji import, takiej jak `import iislogparser` . Aby można było korzystać z tej biblioteki, musimy ją rozpowszechnić do wszystkich węzłów procesu roboczego. Uruchom Poniższy fragment kodu.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
     ```
 
-1. `iislogparser`zapewnia funkcję `parse_log_line` , która zwraca `None` , jeśli wiersz dziennika jest wierszem nagłówka i zwraca wystąpienie `LogLine` klasy, jeśli napotka wiersz dziennika. Użyj klasy `LogLine` , aby wyodrębnić tylko wiersze dziennika z RDD:
+1. `iislogparser`zapewnia funkcję `parse_log_line` , która zwraca `None` , jeśli wiersz dziennika jest wierszem nagłówka i zwraca wystąpienie `LogLine` klasy, jeśli napotka wiersz dziennika. Użyj `LogLine` klasy, aby wyodrębnić tylko wiersze dziennika z RDD:
 
     ```pyspark
     def parse_line(l):
@@ -100,7 +99,7 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
     2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
     ```
 
-1. `LogLine` Klasa z kolei ma kilka przydatnych metod, takich jak `is_error()`, które zwracają, czy wpis dziennika ma kod błędu. Użyj tej klasy, aby obliczyć liczbę błędów w wyodrębnionych wierszach dziennika, a następnie Rejestruj wszystkie błędy w innym pliku.
+1. `LogLine`Klasa z kolei ma kilka przydatnych metod, takich jak `is_error()` , które zwracają, czy wpis dziennika ma kod błędu. Użyj tej klasy, aby obliczyć liczbę błędów w wyodrębnionych wierszach dziennika, a następnie Rejestruj wszystkie błędy w innym pliku.
 
     ```pyspark
     errors = logLines.filter(lambda p: p.is_error())
@@ -110,7 +109,7 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    Dane wyjściowe powinny być `There are 30 errors and 646 log entries`stanu.
+    Dane wyjściowe powinny być stanu `There are 30 errors and 646 log entries` .
 
 1. Możesz również użyć **matplotlib** do konstruowania wizualizacji danych. Na przykład jeśli chcesz odizolować przyczynę żądań, które są uruchamiane przez długi czas, możesz chcieć znaleźć pliki, które najprawdopodobniej przekroczą średnią. Poniższy fragment kodu pobiera 25 najpopularniejszych zasobów, które miały najwięcej czasu na przekazanie żądania.
 
@@ -172,15 +171,15 @@ Po zapisaniu danych jako tabeli Apache Hive w następnej sekcji będziemy łącz
     SELECT * FROM AverageTime
     ```
 
-   `%%sql` Magiczna `-o averagetime` Metoda polega na tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **averagetime**.
+   Magiczna Metoda polega na `%%sql` `-o averagetime` tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **averagetime**.
 
    Powinny pojawić się dane wyjściowe podobne do poniższej:
 
    ![dane wyjściowe zapytania SQL usługi HDInsight Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Dane wyjściowe zapytania SQL")
 
-   Aby uzyskać więcej informacji na `%%sql` temat Magic, zobacz [Parametry obsługiwane za pomocą Magic%% SQL](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Aby uzyskać więcej informacji na temat `%%sql` Magic, zobacz [Parametry obsługiwane za pomocą Magic%% SQL](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-1. Teraz możesz użyć matplotlib, biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **averagetime** , fragment kodu musi rozpoczynać się `%%local` od Magic. Dzięki temu kod jest uruchamiany lokalnie na serwerze Jupyter.
+1. Teraz możesz użyć matplotlib, biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **averagetime** , fragment kodu musi rozpoczynać się od `%%local` Magic. Dzięki temu kod jest uruchamiany lokalnie na serwerze Jupyter.
 
     ```pyspark
     %%local

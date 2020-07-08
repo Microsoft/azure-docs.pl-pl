@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652140"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft. COMPUTE. CredentialsCombo — element interfejsu użytkownika
@@ -114,8 +113,8 @@ Jeśli `osPlatform` jest **systemem Linux** , a użytkownik podał klucz publicz
 - `osPlatform`musi być określony i może być w **systemie Windows** lub **Linux**.
 - Jeśli `constraints.required` jest ustawiona na **true**, hasło lub pola tekstowe klucza publicznego SSH muszą mieć wartości, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **true**.
 - Jeśli `options.hideConfirmation` jest ustawiona na **wartość true**, drugie pole tekstowe potwierdzające hasło użytkownika jest ukryte. Wartość domyślna to **fałsz**.
-- Jeśli `options.hidePassword` jest ustawiona na **true**, opcja używania uwierzytelniania hasła jest ukryta. Może być używana tylko wtedy, `osPlatform` gdy jest to system **Linux**. Wartość domyślna to **fałsz**.
-- Dodatkowe ograniczenia dotyczące dozwolonych haseł można zaimplementować przy użyciu `customPasswordRegex` właściwości. Ciąg w jest `customValidationMessage` wyświetlany w przypadku niepowodzenia niestandardowej walidacji hasła. Wartość domyślna dla obu właściwości jest **równa null**.
+- Jeśli `options.hidePassword` jest ustawiona na **true**, opcja używania uwierzytelniania hasła jest ukryta. Może być używana tylko wtedy, gdy `osPlatform` jest to system **Linux**. Wartość domyślna to **fałsz**.
+- Dodatkowe ograniczenia dotyczące dozwolonych haseł można zaimplementować przy użyciu `customPasswordRegex` właściwości. Ciąg w `customValidationMessage` jest wyświetlany w przypadku niepowodzenia niestandardowej walidacji hasła. Wartość domyślna dla obu właściwości jest **równa null**.
 
 ## <a name="next-steps"></a>Następne kroki
 

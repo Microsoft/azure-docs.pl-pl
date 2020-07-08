@@ -4,10 +4,9 @@ description: Dowiedz się więcej na temat serializacji niezawodnych kolekcji ob
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639551"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializacja niezawodnych obiektów kolekcji na platformie Azure Service Fabric
@@ -44,7 +43,7 @@ Niezawodny Menedżer stanu ma wbudowany serializator dla następujących typów:
 
 Niestandardowe serializatory są często używane do zwiększania wydajności lub szyfrowania danych za pośrednictwem sieci i na dysku. Z tego względu niestandardowe serializatory są zwykle bardziej wydajne niż serializator ogólny, ponieważ nie muszą serializować informacji o typie. 
 
-[IReliableStateManager. TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) służy do rejestrowania niestandardowego serializatora dla danego typu T. Ta rejestracja powinna wystąpić w przygotowaniu StatefulServiceBase, aby upewnić się, że przed rozpoczęciem odzyskiwania wszystkie niezawodne kolekcje mają dostęp do odpowiedniego serializatora w celu odczytania danych utrwalonych.
+[IReliableStateManager. TryAddStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) służy do rejestrowania niestandardowego serializatora dla danego typu T. Ta rejestracja powinna wystąpić w przygotowaniu StatefulServiceBase, aby upewnić się, że przed rozpoczęciem odzyskiwania wszystkie niezawodne kolekcje mają dostęp do odpowiedniego serializatora w celu odczytania danych utrwalonych.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +61,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Jak zaimplementować serializator niestandardowy
 
-Serializator niestandardowy musi implementować interfejs [\<IStateSerializer T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Niestandardowy serializator musi implementować interfejs [IStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
 
 > [!NOTE]
-> IStateSerializer\<T> zawiera Przeciążenie do zapisu i odczytu, który przyjmuje dodatkową wartość T o nazwie bazowej. Ten interfejs API jest przeznaczony do serializacji różnicowej. Obecnie funkcja serializacji różnicowej nie jest udostępniona. W związku z tym te dwa przeciążenia nie są wywoływane, dopóki Serializacja różnicowa nie zostanie udostępniona i włączona.
+> IStateSerializer \<T> zawiera Przeciążenie do zapisu i odczytu, który przyjmuje dodatkową wartość T o nazwie bazowej. Ten interfejs API jest przeznaczony do serializacji różnicowej. Obecnie funkcja serializacji różnicowej nie jest udostępniona. W związku z tym te dwa przeciążenia nie są wywoływane, dopóki Serializacja różnicowa nie zostanie udostępniona i włączona.
 
 Poniżej znajduje się przykładowy typ niestandardowy o nazwie OrderKey, który zawiera cztery właściwości
 
@@ -85,7 +84,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Poniżej znajduje się Przykładowa implementacja IStateSerializer\<OrderKey>.
+Poniżej znajduje się Przykładowa implementacja IStateSerializer \<OrderKey> .
 Należy pamiętać, że przeciążenia odczytu i zapisu, które są wykonywane w baseValue, wywołują odpowiednie przeciążenia w celu zapewnienia zgodności.
 
 ```csharp

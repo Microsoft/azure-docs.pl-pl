@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75563364"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentacja metryk i obciążenia w Service Fabric
@@ -58,7 +57,7 @@ Eksperymentowanie jest wymagane do określenia dokładnej konfiguracji. Zalecamy
 ## <a name="configuring-defragmentation-metrics"></a>Konfigurowanie metryk defragmentacji
 Konfigurowanie metryk defragmentacji jest globalną decyzją w klastrze, a poszczególne metryki można wybrać do defragmentacji. Poniższe fragmenty konfiguracji pokazują, jak skonfigurować metryki na potrzeby defragmentacji. W tym przypadku "Metric1" jest skonfigurowany jako Metryka defragmentacji, podczas gdy "Metric2" będzie nadal zrównoważony. 
 
-ClusterManifest. XML:
+ClusterManifest.xml:
 
 ```xml
 <Section Name="DefragmentationMetrics">
@@ -67,7 +66,7 @@ ClusterManifest. XML:
 </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [

@@ -8,10 +8,9 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552121"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji Threat Modeling Tool
@@ -54,14 +53,14 @@ Symbole są skrótami dla menu najwyższego poziomu:
 | --------------------------------------- | ------------ |
 | **Otwórz** | Otwiera nowy plik. |
 | **Zapisz** | Zapisuje bieżący plik. |
-| **Projektowanie** | Otwiera widok **projekt** , w którym można tworzyć modele. |
+| **Projekt** | Otwiera widok **projekt** , w którym można tworzyć modele. |
 | **Analiza** | Pokazuje wygenerowane zagrożenia i ich właściwości. |
 | **Dodaj diagram** | Dodaje nowy diagram (podobny do nowych kart w programie Excel). |
 | **Usuń diagram** | Usuwa bieżący diagram. |
 | **Kopiuj/Wytnij/Wklej** | Kopiuje, wycina i wkleja elementy. |
 | **Cofnij/ponów** | Cofa i wykonuje akcje. |
 | **Powiększ/Pomniejsz** | Powiększa i zmniejsza diagram, aby uzyskać lepszy widok. |
-| **Opinie** | Otwiera forum MSDN. |
+| **Opinia** | Otwiera forum MSDN. |
 
 ### <a name="canvas"></a>Kanwa
 
@@ -81,7 +80,7 @@ W oparciu o wybrany szablon można znaleźć wszystkie wzorniki dostępne do uż
 
 | Nazwa wzornika                               | Szczegóły      |
 | --------------------------------------- | ------------ |
-| **Podstawowych** | Aplikacje, wtyczki przeglądarki, wątki, maszyny wirtualne |
+| **Proces** | Aplikacje, wtyczki przeglądarki, wątki, maszyny wirtualne |
 | **Zewnętrzna aktor** | Dostawcy uwierzytelniania, przeglądarki, użytkownicy, aplikacje sieci Web |
 | **Magazyn danych** | Pamięć podręczna, magazyn, pliki konfiguracji, bazy danych, rejestr |
 | **Przepływ danych** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, nazwany potok, RPC/DCOM, SMB, UDP |
@@ -146,13 +145,13 @@ Elementy można łączyć na dwa sposoby:
 
  Aby wyświetlić właściwości, które można zmodyfikować w wzornikach, wybierz wzornik, a informacje są wypełniane odpowiednio. Poniższy przykład ukazuje przed i po przeciągnięciu wzornika **bazy danych** na diagram:
 
-#### <a name="before"></a>Przed
+#### <a name="before"></a>Stary adres
 
-![Przed](./media/threat-modeling-tool-feature-overview/properties1.png)
+![Stary adres](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Po
+#### <a name="after"></a>Nowy adres
 
-![Po](./media/threat-modeling-tool-feature-overview/properties2.png)
+![Nowy adres](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Komunikaty
 
@@ -174,7 +173,7 @@ Po skompilowaniu diagramu wybierz symbol **analizy** (Lupa) na pasku narzędzi s
 
 Po wybraniu zagrożenia można użyć trzech odrębnych funkcji:
 
-| Funkcja                               | Informacje      |
+| Cecha                               | Informacje      |
 | --------------------------------------- | ------------ |
 | **Wskaźnik odczytu** | <p>Zagrożenie jest oznaczone jako przeczytane, co pomaga śledzić przeglądane elementy.</p><p>![Wskaźnik odczytu/odczytania](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Fokus interakcji** | <p>Wyróżniono interakcje na diagramie należącym do zagrożenia.</p><p>![Fokus interakcji](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
@@ -194,11 +193,11 @@ Jak widać na poprzedniej ilustracji, można zmienić informacje wygenerowane pr
 
 ## <a name="reports"></a>Raporty
 
-Po zakończeniu zmieniania priorytetów i aktualizacji stanu każdego z wygenerowanych zagrożeń można zapisać plik i/lub wydrukować raport. Przejdź do pozycji **raport** > **Utwórz pełny raport**. Nadaj raportowi nazwę i zobacz coś podobnego do poniższej ilustracji:
+Po zakończeniu zmieniania priorytetów i aktualizacji stanu każdego z wygenerowanych zagrożeń można zapisać plik i/lub wydrukować raport. Przejdź do pozycji **raport**  >  **Utwórz pełny raport**. Nadaj raportowi nazwę i zobacz coś podobnego do poniższej ilustracji:
 
 ![Raport](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wyślij swoje pytania, komentarze i wątpliwości do tmtextsupport@microsoft.comprogramu. **[Pobierz](https://aka.ms/threatmodelingtool)** Threat Modeling Tool, aby rozpocząć pracę.
+- Wyślij swoje pytania, komentarze i wątpliwości do programu tmtextsupport@microsoft.com . **[Pobierz](https://aka.ms/threatmodelingtool)** Threat Modeling Tool, aby rozpocząć pracę.
 - Aby współtworzyć szablon dla społeczności, przejdź do naszej strony serwisu [GitHub](https://github.com/Microsoft/threat-modeling-templates) .

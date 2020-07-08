@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75500079"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Łączenie narzędzi do skalowania i platformy Spark w usłudze HDInsight
@@ -29,7 +28,7 @@ W procedurach przedstawionych w tym dokumencie przyjęto założenie, że masz p
 
 ## <a name="the-airline-and-weather-datasets"></a>Zestawy danych linii lotniczych i pogody
 
-Dane dotyczące lotu są dostępne z [archiwów rządowych Stanów Zjednoczonych](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Jest on również dostępny jako plik zip z [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Dane dotyczące lotu są dostępne z [archiwów rządowych Stanów Zjednoczonych](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Jest on również dostępny jako plik zip z [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
 Dane o pogodzie mogą być pobierane jako pliki zip w postaci nieprzetworzonej według miesiąca, z [krajowego repozytorium administracji oceanicznej i atmosferycznej](https://www.ncdc.noaa.gov/orders/qclcd/). Na potrzeby tego przykładu Pobierz dane dla maja 2007 – grudzień 2012. Użyj godzinnych plików danych i `YYYYMMMstation.txt` plików w ramach każdego z Zips.
 
@@ -506,7 +505,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Ocenianie w innym miejscu
 
-Możemy również użyć modelu do oceniania danych na innej platformie. Zapisanie go do pliku usług pulpitu zdalnego, a następnie przetransferowanie i importowanie tego pulpitu zdalnego do docelowego środowiska oceniania, takiego jak MIcrosoft SQL Server R Services. Ważne jest, aby zapewnić, że poziomy współczynnika danych mają być oceniane jako zgodne z tymi, na których modelu został skompilowany. Takie dopasowanie można osiągnąć poprzez wyodrębnienie i zapisanie informacji o kolumnach skojarzonych z danymi modelowania za pośrednictwem `rxCreateColInfo()` funkcji skalowania, a następnie zastosowanie informacji o tej kolumnie do źródła danych wejściowych w celu przewidywania. W poniższym przykładzie zapiszemy kilka wierszy zestawu danych testowych i wyodrębnisz i użyjesz informacji o kolumnie z tego przykładu w skrypcie przewidywania:
+Możemy również użyć modelu do oceniania danych na innej platformie. Zapisanie go do pliku usług pulpitu zdalnego, a następnie przetransferowanie i importowanie tego pulpitu zdalnego do docelowego środowiska oceniania, takiego jak MIcrosoft SQL Server R Services. Ważne jest, aby zapewnić, że poziomy współczynnika danych mają być oceniane jako zgodne z tymi, na których modelu został skompilowany. Takie dopasowanie można osiągnąć poprzez wyodrębnienie i zapisanie informacji o kolumnach skojarzonych z danymi modelowania za pośrednictwem funkcji skalowania `rxCreateColInfo()` , a następnie zastosowanie informacji o tej kolumnie do źródła danych wejściowych w celu przewidywania. W poniższym przykładzie zapiszemy kilka wierszy zestawu danych testowych i wyodrębnisz i użyjesz informacji o kolumnie z tego przykładu w skrypcie przewidywania:
 
 ```
 # save the model and a sample of the test dataset 

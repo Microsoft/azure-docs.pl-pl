@@ -4,10 +4,9 @@ description: W tym artykule wyjaśniono, jak udzielić zarządzanej tożsamości
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614797"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Udzielanie zarządzanej tożsamości aplikacji Service Fabric do zasobów platformy Azure (wersja zapoznawcza)
@@ -24,7 +23,7 @@ Możesz użyć zarządzanej tożsamości aplikacji Service Fabric (w tym przypad
 3. obowiązkowe Sprawdź istniejący dostęp: Wybierz zarządzaną tożsamość systemową lub przypisaną przez użytkownika w kontrolce "Znajdź"; Wybierz odpowiednią tożsamość z listy wyników wynikowych
 4. Kliknij pozycję + Dodaj przypisanie roli w górnej części strony, aby dodać nowe przypisanie roli dla tożsamości aplikacji.
 W obszarze Rola, z listy rozwijanej wybierz pozycję czytnik danych magazynu obiektów BLOB.
-5. Na następnej liście rozwijanej w obszarze Przypisz dostęp do wybierz `User assigned managed identity`opcję.
+5. Na następnej liście rozwijanej w obszarze Przypisz dostęp do wybierz opcję `User assigned managed identity` .
 6. Następnie upewnij się, że odpowiednia subskrypcja znajduje się na liście rozwijanej Subskrypcja, po czym ustaw opcję Grupa zasobów na wartość Wszystkie grupy zasobów.
 7. W obszarze Wybierz Wybierz UAI odpowiadający aplikacji Service Fabric a następnie kliknij przycisk Zapisz.
 

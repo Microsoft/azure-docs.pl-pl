@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610152"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informacje o konfiguracji okresowej kopii zapasowej na platformie Azure Service Fabric
@@ -45,7 +44,7 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
         ```
 
     2. **Harmonogram tworzenia kopii zapasowych na podstawie czasu**: ten typ harmonogramu powinien być używany, jeśli konieczne jest wykonanie kopii zapasowej danych w określonych porach dnia lub tygodnia. Typ częstotliwości harmonogramu może być codzienny lub co tydzień.
-        1. ** _Dzienny_ harmonogram tworzenia kopii zapasowych**: ten typ harmonogramu powinien być używany, jeśli potrzebny identyfikator ma wykonywać kopię zapasową danych w określonych porach dnia. Aby to określić, ustaw `ScheduleFrequencyType` na _codziennie_. i ustaw `RunTimes` na listę żądanego czasu w ciągu dnia w formacie ISO8601, a Data określona wraz z godziną zostanie zignorowana. Na przykład program `0001-01-01T18:00:00` przedstawia _6:00 PM_ codziennie, ignorując część daty _0001-01-01_. Poniższy przykład ilustruje konfigurację wyzwalającą codzienne kopie zapasowe o godzinie _9:00 am_ i _6:00 PM_ .
+        1. ** _Dzienny_ harmonogram tworzenia kopii zapasowych**: ten typ harmonogramu powinien być używany, jeśli potrzebny identyfikator ma wykonywać kopię zapasową danych w określonych porach dnia. Aby określić tę wartość, ustaw `ScheduleFrequencyType` na _codziennie_i ustaw `RunTimes` na listę żądany czas w dniu w formacie ISO8601, a Data określona wraz z godziną zostanie zignorowana. Na przykład program `0001-01-01T18:00:00` przedstawia _6:00 PM_ codziennie, ignorując część daty _0001-01-01_. Poniższy przykład ilustruje konfigurację wyzwalającą codzienne kopie zapasowe o godzinie _9:00 am_ i _6:00 PM_ .
 
             ```json
             {
@@ -58,7 +57,7 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
             }
             ```
 
-        2. ** _Tygodniowy_ harmonogram tworzenia kopii zapasowych**: ten typ harmonogramu powinien być używany, jeśli potrzebny identyfikator ma wykonywać kopię zapasową danych w określonych porach dnia. Aby to określić, ustaw `ScheduleFrequencyType` na _co tydzień_. Ustaw `RunDays` listę dni w tygodniu, gdy kopia zapasowa ma zostać wyzwolona i ustawiona `RunTimes` na listę żądanych godzin w ciągu dnia w formacie ISO8601, Data określona wraz z godziną zostanie zignorowana. Lista dni tygodnia, w których ma być wyzwalana okresowa kopia zapasowa. Poniższy przykład ilustruje konfigurację, aby wyzwolić codzienne kopie zapasowe o godzinie _9:00 am_ i _6:00 PM_ w poniedziałek do piątku.
+        2. ** _Tygodniowy_ harmonogram tworzenia kopii zapasowych**: ten typ harmonogramu powinien być używany, jeśli potrzebny identyfikator ma wykonywać kopię zapasową danych w określonych porach dnia. Aby to określić, ustaw `ScheduleFrequencyType` na _tydzień_; Ustaw `RunDays` na listę dni w tygodniu, gdy kopia zapasowa ma zostać wyzwolona i ustawiona `RunTimes` na listę żądanego czasu w ciągu dnia w formacie ISO8601, Data określona wraz z godziną zostanie zignorowana. Lista dni tygodnia, w których ma być wyzwalana okresowa kopia zapasowa. Poniższy przykład ilustruje konfigurację, aby wyzwolić codzienne kopie zapasowe o godzinie _9:00 am_ i _6:00 PM_ w poniedziałek do piątku.
 
             ```json
             {
@@ -119,7 +118,7 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
 >
 
 * **Zasady przechowywania**: określa zasady zachowywania kopii zapasowych w skonfigurowanym magazynie. Obsługiwane są tylko podstawowe zasady przechowywania.
-    1. **Podstawowe zasady przechowywania**: te zasady przechowywania umożliwiają zapewnienie optymalnego wykorzystania magazynu przez usunięcie plików kopii zapasowej, które nie są już wymagane. `RetentionDuration`można określić, aby ustawić przedział czasu, dla którego kopie zapasowe muszą być przechowywane w magazynie. `MinimumNumberOfBackups`jest opcjonalnym parametrem, który może być określony w celu upewnienia się, że określona liczba kopii zapasowych jest `RetentionDuration`zawsze zachowywana niezależnie od. Poniższy przykład ilustruje konfigurację, aby zachować kopie zapasowe przez _10_ dni i nie zezwalać na przekroczenie liczby kopii zapasowych poniżej _20_.
+    1. **Podstawowe zasady przechowywania**: te zasady przechowywania umożliwiają zapewnienie optymalnego wykorzystania magazynu przez usunięcie plików kopii zapasowej, które nie są już wymagane. `RetentionDuration`można określić, aby ustawić przedział czasu, dla którego kopie zapasowe muszą być przechowywane w magazynie. `MinimumNumberOfBackups`jest opcjonalnym parametrem, który może być określony w celu upewnienia się, że określona liczba kopii zapasowych jest zawsze zachowywana niezależnie od `RetentionDuration` . Poniższy przykład ilustruje konfigurację, aby zachować kopie zapasowe przez _10_ dni i nie zezwalać na przekroczenie liczby kopii zapasowych poniżej _20_.
 
         ```json
         {
@@ -140,7 +139,7 @@ Może istnieć scenariusz, w którym dla wszystkich usług aplikacji jest wymaga
 
 ### <a name="example"></a>Przykład
 
-W tym przykładzie używa się Instalatora z dwiema aplikacjami, _MyApp_A_ i _MyApp_B_. Aplikacja _MyApp_A_ zawiera dwie niezawodne usługi stanowe, _SvcA1_ & _SvcA3_i jedną niezawodną usługę aktora, _ActorA2_. _SvcA1_ zawiera trzy partycje, podczas gdy _ActorA2_ i _SvcA3_ zawierają dwie partycje.  Aplikacja _MyApp_B_ zawiera trzy niezawodne usługi stanowe, _SvcB1_, _SvcB2_i _SvcB3_. _SvcB1_ i _SvcB2_ zawierają dwie partycje, podczas gdy _SvcB3_ zawiera trzy partycje.
+W tym przykładzie używa się Instalatora z dwiema aplikacjami, _MyApp_A_ i _MyApp_B_. Aplikacja _MyApp_A_ zawiera dwie niezawodne usługi stanowe, _SvcA1_  &  _SvcA3_i jedną niezawodną usługę aktora, _ActorA2_. _SvcA1_ zawiera trzy partycje, podczas gdy _ActorA2_ i _SvcA3_ zawierają dwie partycje.  Aplikacja _MyApp_B_ zawiera trzy niezawodne usługi stanowe, _SvcB1_, _SvcB2_i _SvcB3_. _SvcB1_ i _SvcB2_ zawierają dwie partycje, podczas gdy _SvcB3_ zawiera trzy partycje.
 
 Załóżmy, że wymagania dotyczące tworzenia kopii zapasowych tych aplikacji są następujące:
 
@@ -182,7 +181,7 @@ Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby two
 
 * Wyłączenie zasad tworzenia kopii zapasowej dla _partycji_ powoduje zatrzymanie wszystkich okresowych kopii zapasowych danych z powodu zasad tworzenia kopii zapasowych na partycji.
 
-* Podczas wyłączania kopii zapasowej dla jednostki (aplikacji/usługi/ `CleanBackup` partycji) można ustawić _wartość true_ , aby usunąć wszystkie kopie zapasowe w skonfigurowanym magazynie.
+* Podczas wyłączania kopii zapasowej dla jednostki (aplikacji/usługi/partycji) `CleanBackup` można ustawić _wartość true_ , aby usunąć wszystkie kopie zapasowe w skonfigurowanym magazynie.
     ```json
     {
         "CleanBackup": true 
@@ -214,7 +213,7 @@ Wyłączenie może być wywoływane tylko na poziomie, który został wcześniej
 ## <a name="auto-restore-on-data-loss"></a>Autoprzywracanie po utracie danych
 Partycja usługi może utracić dane z powodu nieoczekiwanych błędów. Na przykład dysk dla dwóch z trzech replik partycji (łącznie z repliką podstawową) jest uszkodzony lub wyczyszczony.
 
-Gdy Service Fabric wykryje, że partycja jest w utracie danych `OnDataLossAsync` , wywołuje metodę interfejsu na partycji i oczekuje, że partycja może wykonać wymaganą akcję, aby wyczerpać utratę danych. W takiej sytuacji, jeśli obowiązujące zasady tworzenia kopii zapasowych na partycji `AutoRestoreOnDataLoss` mają ustawioną `true` flagę, przywracanie zostanie wyzwolone automatycznie przy użyciu najnowszej dostępnej kopii zapasowej dla tej partycji.
+Gdy Service Fabric wykryje, że partycja jest w utracie danych, wywołuje `OnDataLossAsync` metodę interfejsu na partycji i oczekuje, że partycja może wykonać wymaganą akcję, aby wyczerpać utratę danych. W takiej sytuacji, jeśli obowiązujące zasady tworzenia kopii zapasowych na partycji mają `AutoRestoreOnDataLoss` ustawioną flagę `true` , przywracanie zostanie wyzwolone automatycznie przy użyciu najnowszej dostępnej kopii zapasowej dla tej partycji.
 
 ## <a name="get-backup-configuration"></a>Pobierz konfigurację kopii zapasowej
 Dostępne są oddzielne interfejsy API do uzyskiwania informacji o konfiguracji kopii zapasowych w ramach _aplikacji_, _usługi_i zakresu _partycji_ . [Pobierz informacje o konfiguracji kopii](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)zapasowej aplikacji, [Pobierz informacje o konfiguracji kopii zapasowej usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)i [Pobierz informacje o konfiguracji kopii zapasowej partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) są odpowiednio opisane. Głównie te interfejsy API zwracają odpowiednie zasady tworzenia kopii zapasowych, zakres, w którym są stosowane zasady tworzenia kopii zapasowych, oraz szczegóły zawieszenia kopii zapasowej. Poniżej znajduje się krótki opis zwracanych wyników tych interfejsów API.

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75552614"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Zbiorcze ładowanie danych do oprogramowania Apache Phoenix za pomocą programu psql
@@ -21,19 +20,19 @@ ms.locfileid: "75552614"
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Ładowanie zbiorcze z Apache Phoenix
 
-Istnieje wiele sposobów na uzyskanie danych do HBase, w tym Używanie interfejsów API klienta, zadania MapReduce z TableOutputFormat lub wprowadzanie danych ręcznie przy użyciu powłoki HBase. Phoenix oferuje dwie metody ładowania danych CSV do tabel w Phoenix: narzędzia ładowania klienta o nazwie `psql`i narzędzia ładowania zbiorczego opartego na MapReduce.
+Istnieje wiele sposobów na uzyskanie danych do HBase, w tym Używanie interfejsów API klienta, zadania MapReduce z TableOutputFormat lub wprowadzanie danych ręcznie przy użyciu powłoki HBase. Phoenix oferuje dwie metody ładowania danych CSV do tabel w Phoenix: narzędzia ładowania klienta o nazwie `psql` i narzędzia ładowania zbiorczego opartego na MapReduce.
 
-`psql` Narzędzie jest jednowątkowe i najlepiej nadaje się do ładowania megabajtów lub gigabajtów danych. Wszystkie pliki CSV do załadowania muszą mieć rozszerzenie pliku CSV.  Możesz również określić pliki skryptów SQL w wierszu `psql` polecenia z rozszerzeniem pliku ". SQL".
+`psql`Narzędzie jest jednowątkowe i najlepiej nadaje się do ładowania megabajtów lub gigabajtów danych. Wszystkie pliki CSV do załadowania muszą mieć rozszerzenie pliku CSV.  Możesz również określić pliki skryptów SQL w `psql` wierszu polecenia z rozszerzeniem pliku ". SQL".
 
 Ładowanie zbiorcze z MapReduce jest używane dla znacznie większych woluminów danych, zwykle w scenariuszach produkcyjnych, ponieważ MapReduce używa wielu wątków.
 
-Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona i że ustawienia limitu czasu zapytania są zgodnie z oczekiwaniami.  Uzyskaj dostęp do pulpitu nawigacyjnego [Apache Ambari](https://ambari.apache.org/) klastra usługi HDInsight, wybierz pozycję HBase, a następnie kartę Konfiguracja.  Przewiń w dół, aby sprawdzić, czy Apache Phoenix `enabled` jest ustawiona na tak, jak pokazano:
+Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona i że ustawienia limitu czasu zapytania są zgodnie z oczekiwaniami.  Uzyskaj dostęp do pulpitu nawigacyjnego [Apache Ambari](https://ambari.apache.org/) klastra usługi HDInsight, wybierz pozycję HBase, a następnie kartę Konfiguracja.  Przewiń w dół, aby sprawdzić, czy Apache Phoenix jest ustawiona na `enabled` tak, jak pokazano:
 
 ![Apache Phoenix ustawień klastra usługi HDInsight](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Użyj `psql` do ładowania zbiorczego tabel
 
-1. Utwórz plik o nazwie `createCustomersTable.sql`i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
+1. Utwórz plik o nazwie `createCustomersTable.sql` i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +43,13 @@ Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona 
         Country varchar);
     ```
 
-1. Utwórz plik o nazwie `listCustomers.sql`i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
+1. Utwórz plik o nazwie `listCustomers.sql` i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. Utwórz plik o nazwie `customers.csv`i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
+1. Utwórz plik o nazwie `customers.csv` i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +57,7 @@ Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona 
     3,Anton,550150.0,42,Norway
     ```
 
-1. Utwórz plik o nazwie `customers2.csv`i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
+1. Utwórz plik o nazwie `customers2.csv` i Skopiuj poniższy kod do pliku. Następnie zapisz i zamknij plik.
 
     ```txt
     4,Nicolle,180000.0,22,US
@@ -90,7 +89,7 @@ Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona 
     python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
     ```
 
-    Po zakończeniu `psql` operacji powinien zostać wyświetlony komunikat podobny do poniższego:
+    Po `psql` zakończeniu operacji powinien zostać wyświetlony komunikat podobny do poniższego:
 
     ```output
     csv columns from database.
@@ -116,7 +115,7 @@ Przed rozpoczęciem ładowania danych upewnij się, że Phoenix jest włączona 
 
 Aby obciążać obciążenie wyższego poziomu przepływności za pośrednictwem klastra, użyj narzędzia ładowania MapReduce. Ten moduł ładujący najpierw konwertuje wszystkie dane do HFiles, a następnie tworzy HFiles do HBase.
 
-1. Ta sekcja kontynuuje pracę z sesją SSH i utworzone wcześniej obiekty. Utwórz tabelę **Customers** i **Customers. csv** w razie konieczności, korzystając z powyższych kroków. W razie potrzeby ponownie Ustanów połączenie SSH.
+1. Ta sekcja kontynuuje pracę z sesją SSH i utworzone wcześniej obiekty. Utwórz tabelę **Customers** i plik **customers.csv** w razie konieczności, wykonując kroki opisane powyżej. W razie potrzeby ponownie Ustanów połączenie SSH.
 
 1. Obetnij zawartość tabeli **Customers** . Z otwartej sesji SSH wykonaj następujące polecenia:
 
@@ -138,7 +137,7 @@ Aby obciążać obciążenie wyższego poziomu przepływności za pośrednictwem
     cd /usr/hdp/current/phoenix-client
     ```
 
-1. Uruchom moduł ładujący MapReduce woluminów CSV przy `hadoop` użyciu polecenia z JAR klienta w Phoenix:
+1. Uruchom moduł ładujący MapReduce woluminów CSV przy użyciu `hadoop` polecenia z JAR klienta w Phoenix:
 
     ```bash
     HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar phoenix-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /tmp/customers.csv
@@ -155,7 +154,7 @@ Aby obciążać obciążenie wyższego poziomu przepływności za pośrednictwem
     19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Removing output directory /tmp/50254426-aba6-400e-88eb-8086d3dddb6
     ```
 
-1. Aby użyć MapReduce z Azure Data Lake Storage, Zlokalizuj Data Lake Storage katalog główny, który jest `hbase.rootdir` wartością w. `hbase-site.xml` W poniższym poleceniu Data Lake Storage katalog główny `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. W tym poleceniu Określ Data Lake Storage wejściowe i wyjściowe folderów jako parametry:
+1. Aby użyć MapReduce z Azure Data Lake Storage, Zlokalizuj Data Lake Storage katalog główny, który jest `hbase.rootdir` wartością w `hbase-site.xml` . W poniższym poleceniu Data Lake Storage katalog główny `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1` . W tym poleceniu Określ Data Lake Storage wejściowe i wyjściowe folderów jako parametry:
 
     ```bash
     cd /usr/hdp/current/phoenix-client

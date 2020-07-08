@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75610050"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Opracowywanie aplikacji Service Fabric Java za pomocą Visual Studio Code
@@ -25,7 +24,7 @@ W tym artykule opisano sposób kompilowania, wdrażania i debugowania aplikacji 
 
 W tym artykule przyjęto założenie, że zainstalowano już VS Code, Service Fabric Reliable Services rozszerzenia dla VS Code oraz wszystkie zależności wymagane dla środowiska deweloperskiego. Aby dowiedzieć się więcej, zobacz [wprowadzenie](./service-fabric-get-started-vs-code.md#prerequisites).
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 W tym artykule jest stosowana aplikacja do głosowania w [przykładowym repozytorium usługi Service Fabric Java z przewodnikiem Szybki Start](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
 
 Aby sklonować repozytorium do komputera deweloperskiego, uruchom następujące polecenie w oknie terminalu (okno polecenia w systemie Windows):
@@ -36,7 +35,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Otwórz aplikację w VS Code
 
-Otwórz VS Code.  Kliknij ikonę Eksploratora na **pasku działania** , a następnie kliknij pozycję **Otwórz folder**lub kliknij pozycję **plik-> Otwórz folder**. Przejdź do katalogu *./Service-Fabric-Java-QuickStart/Voting* w folderze, do którego zostało Sklonowane repozytorium, a następnie kliknij przycisk **OK**. Obszar roboczy powinien zawierać te same pliki, jak pokazano na poniższym zrzucie ekranu.
+Otwórz program VS Code.  Kliknij ikonę Eksploratora na **pasku działania** , a następnie kliknij pozycję **Otwórz folder**lub kliknij pozycję **plik-> Otwórz folder**. Przejdź do katalogu *./Service-Fabric-Java-QuickStart/Voting* w folderze, do którego zostało Sklonowane repozytorium, a następnie kliknij przycisk **OK**. Obszar roboczy powinien zawierać te same pliki, jak pokazano na poniższym zrzucie ekranu.
 
 ![Aplikacja do głosowania w języku Java w obszarze roboczym](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
@@ -57,11 +56,11 @@ Po skompilowaniu aplikacji można wdrożyć ją w klastrze lokalnym.
 
    ![Polecenie wdrażania aplikacji w VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: `http://localhost:19080/Explorer`. Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
+4. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: `http://localhost:19080/Explorer` . Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
 
    ![Aplikacja do głosowania w Service Fabric Explorer](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. Po zweryfikowaniu, że aplikacja jest uruchomiona, uruchom przeglądarkę i Otwórz Tę stronę: `http://localhost:8080`. Jest to fronton sieci Web aplikacji. Możesz dodawać elementy i klikać je w celu głosowania.
+4. Po zweryfikowaniu, że aplikacja jest uruchomiona, uruchom przeglądarkę i Otwórz Tę stronę: `http://localhost:8080` . Jest to fronton sieci Web aplikacji. Możesz dodawać elementy i klikać je w celu głosowania.
 
    ![Aplikacja do głosowania w przeglądarce](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
@@ -82,19 +81,19 @@ Skomentuj polecenie w wierszu 6 (Użyj "#") i Dodaj następujące polecenie do d
    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Zaktualizuj plik *głosowania/VotingApplication/ApplicationManifest. XML* . Ustaw atrybuty **MinReplicaSetSize** i **wartość targetreplicasetsize** na wartość "1" w elemencie **klasy statefulservice** :
+2. Zaktualizuj plik *głosu/VotingApplication/ApplicationManifest.xml* . Ustaw atrybuty **MinReplicaSetSize** i **wartość targetreplicasetsize** na wartość "1" w elemencie **klasy statefulservice** :
    
    ```xml
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
    ```
 
-3. Kliknij ikonę debugowania na **pasku działania** , aby otworzyć widok debugera w vs Code. Kliknij ikonę koła zębatego w górnej części widoku debuger i wybierz pozycję **Java** z menu środowisko listy rozwijanej. Zostanie otwarty plik Launch. JSON. 
+3. Kliknij ikonę debugowania na **pasku działania** , aby otworzyć widok debugera w vs Code. Kliknij ikonę koła zębatego w górnej części widoku debuger i wybierz pozycję **Java** z menu środowisko listy rozwijanej. Zostanie otwarty launch.jspliku. 
 
    ![Ikona debugowania w obszarze roboczym VS Code](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
-3. W pliku Launch. JSON ustaw wartość portu w konfiguracji o nazwie **debug (Dołącz)** do **8001**. Zapisz plik.
+3. W launch.jsw pliku ustaw wartość portu w konfiguracji o nazwie **debug (Dołącz)** do **8001**. Zapisz plik.
 
-   ![Konfiguracja debugowania dla pliku Launch. JSON](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
+   ![Konfiguracja debugowania dla launch.jsna](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
 4. Wdróż aplikację w klastrze lokalnym za pomocą polecenia **Service Fabric: Deploy Application (localhost)** . Sprawdź, czy aplikacja działa w Service Fabric Explorer. Aplikacja jest teraz gotowa do debugowania.
 
@@ -105,7 +104,7 @@ Aby ustawić punkt przerwania, wykonaj następujące czynności:
    ![Ustaw punkt przerwania w usłudze danych do głosowania](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-set.png)
 
    > [!IMPORTANT]
-   > Upewnij się, że punkty przerwania są ustawiane na wierszach wykonywalnych kodu. Dla przykładowych punktów przerwania ustawionych dla deklaracji `try` metody, instrukcji `catch` lub instrukcji zostanie pominięte przez debuger.
+   > Upewnij się, że punkty przerwania są ustawiane na wierszach wykonywalnych kodu. Dla przykładowych punktów przerwania ustawionych dla deklaracji metody, `try` instrukcji lub `catch` instrukcji zostanie pominięte przez debuger.
 2. Aby rozpocząć debugowanie, kliknij ikonę debugowania na **pasku działania**, wybierz konfigurację **debugowania (dołączania)** z menu Debuguj, a następnie kliknij przycisk Run (zielona strzałka).
 
    ![Debuguj (Dołącz) konfigurację](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)

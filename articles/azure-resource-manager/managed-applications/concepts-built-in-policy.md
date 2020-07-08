@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650944"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Wdróż skojarzenia dla aplikacji zarządzanej przy użyciu Azure Policy
@@ -39,7 +38,7 @@ Aby użyć wbudowanych zasad, Utwórz przypisanie zasad i przypisz skojarzenia w
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
-Jeśli masz pytania dotyczące programowania niestandardowych dostawców zasobów platformy Azure, spróbuj zadawać je na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Na podobnej pytanie mogły już zostać odebrane odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag ```azure-custom-providers``` , aby uzyskać szybką odpowiedź!
+Jeśli masz pytania dotyczące programowania niestandardowych dostawców zasobów platformy Azure, spróbuj zadawać je na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Na podobnej pytanie mogły już zostać odebrane odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag, ```azure-custom-providers``` Aby uzyskać szybką odpowiedź!
 
 ## <a name="next-steps"></a>Następne kroki
 

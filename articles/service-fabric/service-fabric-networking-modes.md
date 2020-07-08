@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75639806"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric tryby sieci kontenera
@@ -201,7 +200,7 @@ Po ponownym uruchomieniu lub przeniesieniu usługi kontenera do innego węzła w
    |Akcja | Zezwalaj  | |
    | | |
 
-4. Określ tryb sieci w manifeście aplikacji dla każdej usługi: `<NetworkConfig NetworkType="Open">`. **Otwórz** tryb sieci wyniki w usłudze przy użyciu dedykowanego adresu IP. Jeśli tryb nie jest określony, domyślnie jest używany tryb **translatora adresów sieciowych** . W poniższym przykładzie manifestu usługi `NodeContainerServicePackage1` i `NodeContainerServicePackage2` mogą nasłuchiwać każdego nasłuchiwania na tym samym porcie (obie usługi nasłuchują `Endpoint1`na). W przypadku określenia trybu otwierania sieci należy `PortBinding` określić konfiguracje.
+4. Określ tryb sieci w manifeście aplikacji dla każdej usługi: `<NetworkConfig NetworkType="Open">` . **Otwórz** tryb sieci wyniki w usłudze przy użyciu dedykowanego adresu IP. Jeśli tryb nie jest określony, domyślnie jest używany tryb **translatora adresów sieciowych** . W poniższym przykładzie manifestu `NodeContainerServicePackage1` `NodeContainerServicePackage2` usługi i mogą nasłuchiwać każdego nasłuchiwania na tym samym porcie (obie usługi nasłuchują na `Endpoint1` ). W przypadku określenia trybu otwierania sieci należy `PortBinding` określić konfiguracje.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

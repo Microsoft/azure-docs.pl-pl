@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645433"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Kontrolki zabezpieczeń dla usługi Azure Service Fabric
@@ -39,7 +38,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |
+| Authentication| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |
 | Autoryzacja| Tak | Zarządzanie tożsamościami i dostępem (IAM) dla wywołań za pośrednictwem usługi SFRP. Wywołania bezpośrednio do punktu końcowego klastra obsługują dwie role: użytkownik i administrator. Klient może mapować interfejsy API na jedną rolę. |
 
 ## <a name="data-protection"></a>Ochrona danych

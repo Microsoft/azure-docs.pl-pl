@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651971"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Element interfejsu użytkownika Microsoft. Network. VirtualNetworkCombo
@@ -105,12 +104,12 @@ Gdy użytkownik wybiera istniejącą sieć wirtualną, użytkownik musi zmapowa�
 
 ## <a name="remarks"></a>Uwagi
 
-- Jeśli ta wartość `defaultValue.addressPrefixSize` jest określona, pierwszy nienakładający się prefiks adresu jest ustalany automatycznie na podstawie istniejących sieci wirtualnych w ramach subskrypcji użytkownika.
+- Jeśli ta wartość jest określona, pierwszy nienakładający się prefiks adresu `defaultValue.addressPrefixSize` jest ustalany automatycznie na podstawie istniejących sieci wirtualnych w ramach subskrypcji użytkownika.
 - Wartość domyślna dla `defaultValue.name` i `defaultValue.addressPrefixSize` ma wartość **null**.
 - `constraints.minAddressPrefixSize`musi być określony. Wszystkie istniejące sieci wirtualne z przestrzenią adresową mniejszą niż określona wartość są niedostępne do wybrania.
 - `subnets`musi być określona i `constraints.minAddressPrefixSize` musi być określona dla każdej podsieci.
-- Podczas tworzenia nowej sieci wirtualnej prefiks adresu każdej podsieci jest obliczany automatycznie na podstawie prefiksu adresu sieci wirtualnej i odpowiednich `addressPrefixSize`.
-- W przypadku korzystania z istniejącej sieci wirtualnej wszystkie podsieci mniejsze niż odpowiednie `constraints.minAddressPrefixSize` nie są dostępne do wyboru. Ponadto w przypadku wybrania opcji podsieci, które nie mają co `minAddressCount` najmniej dostępnych adresów, nie są dostępne do wyboru. Wartość domyślna to **0**. Aby upewnić się, że dostępne adresy są ciągłe, określ `requireContiguousAddresses` **wartość true** dla. Wartość domyślna to **true**.
+- Podczas tworzenia nowej sieci wirtualnej prefiks adresu każdej podsieci jest obliczany automatycznie na podstawie prefiksu adresu sieci wirtualnej i odpowiednich `addressPrefixSize` .
+- W przypadku korzystania z istniejącej sieci wirtualnej wszystkie podsieci mniejsze niż odpowiednie nie `constraints.minAddressPrefixSize` są dostępne do wyboru. Ponadto w przypadku wybrania opcji podsieci, które nie mają co najmniej `minAddressCount` dostępnych adresów, nie są dostępne do wyboru. Wartość domyślna to **0**. Aby upewnić się, że dostępne adresy są ciągłe, określ **wartość true** dla `requireContiguousAddresses` . Wartość domyślna to **true**.
 - Tworzenie podsieci w istniejącej sieci wirtualnej nie jest obsługiwane.
 - Jeśli `options.hideExisting` ma **wartość true**, użytkownik nie może wybrać istniejącej sieci wirtualnej. Wartość domyślna to **fałsz**.
 

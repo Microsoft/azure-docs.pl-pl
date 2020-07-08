@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551798"
 ---
 # <a name="networking"></a>Networking
@@ -51,7 +50,7 @@ Skalowanie w górę infrastruktury jest wymagane do włączenia przyspieszonej s
 
 * Klastry Service Fabric można wdrożyć w istniejącej sieci wirtualnej, wykonując czynności opisane w temacie [Service Fabric wzorców sieci](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są zalecane w przypadku typów węzłów, które ograniczają ruch przychodzący i wychodzący do klastra. Upewnij się, że wymagane porty są otwarte w sieciowej grupy zabezpieczeń. Na przykład: ![Service Fabric reguł sieciowej grupy zabezpieczeń][NSGSetup]
+* Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są zalecane w przypadku typów węzłów, które ograniczają ruch przychodzący i wychodzący do klastra. Upewnij się, że wymagane porty są otwarte w sieciowej grupy zabezpieczeń. Na przykład: ![ Service Fabric reguł sieciowej grupy zabezpieczeń][NSGSetup]
 
 * Typ węzła podstawowego, który zawiera Service Fabric usług systemu nie musi być narażony za pośrednictwem zewnętrznego modułu równoważenia obciążenia i może być narażony przez [wewnętrzny moduł równoważenia obciążenia](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 

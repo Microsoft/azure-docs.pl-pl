@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497967"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Instalowanie wysokiej dostępności Service Fabric niezawodnego woluminu opartego na dyskach w aplikacji Service Fabric siatki 
@@ -21,11 +20,11 @@ Service Fabric niezawodny dysk zapewnia woluminy do odczytu lokalnego z zapisami
 
 W tym przykładzie aplikacja licznika ma usługę ASP.NET Core ze stroną sieci Web, która wyświetla wartość licznika w przeglądarce.
 
-`counterService` Okresowo odczytuje wartość licznika z pliku, zwiększa ją i zapisuje z powrotem do pliku. Plik jest przechowywany w folderze, który jest instalowany na woluminie, Service Fabric niezawodny dysk.
+`counterService`Okresowo odczytuje wartość licznika z pliku, zwiększa ją i zapisuje z powrotem do pliku. Plik jest przechowywany w folderze, który jest instalowany na woluminie, Service Fabric niezawodny dysk.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać to zadanie, można użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Aby użyć interfejsu wiersza polecenia platformy Azure z tym artykułem `az --version` , upewnij się `azure-cli (2.0.43)`, że program zwraca co najmniej.  Zainstaluj (lub zaktualizuj) moduł rozszerzenia interfejsu wiersza polecenia usługi Azure Service Fabric siatka, wykonując te [instrukcje](service-fabric-mesh-howto-setup-cli.md).
+Aby wykonać to zadanie, można użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure. Aby użyć interfejsu wiersza polecenia platformy Azure z tym artykułem, upewnij się, że program `az --version` zwraca co najmniej `azure-cli (2.0.43)` .  Zainstaluj (lub zaktualizuj) moduł rozszerzenia interfejsu wiersza polecenia usługi Azure Service Fabric siatka, wykonując te [instrukcje](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -46,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Następujące polecenie wdraża aplikację systemu Linux przy użyciu [szablonu Counter. sfreliablevolume. Linux. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Aby wdrożyć aplikację systemu Windows, użyj [szablonu Counter. sfreliablevolume. Windows. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Należy pamiętać, że wdrażanie większych obrazów kontenerów może trwać dłużej.
+Następujące polecenie wdraża aplikację systemu Linux przy użyciu [counter.sfreliablevolume.linux.jsna szablonie](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Aby wdrożyć aplikację systemu Windows, użyj [counter.sfreliablevolume.windows.jsna szablonie](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Należy pamiętać, że wdrażanie większych obrazów kontenerów może trwać dłużej.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/counter/counter.sfreliablevolume.linux.json
@@ -58,7 +57,7 @@ Możesz również zobaczyć stan wdrożenia za pomocą polecenia
 az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
-Zwróć uwagę na nazwę zasobu bramy, który ma typ zasobu `Microsoft.ServiceFabricMesh/gateways`jako. Ta wartość zostanie użyta w celu uzyskania publicznego adresu IP aplikacji.
+Zwróć uwagę na nazwę zasobu bramy, który ma typ zasobu jako `Microsoft.ServiceFabricMesh/gateways` . Ta wartość zostanie użyta w celu uzyskania publicznego adresu IP aplikacji.
 
 ## <a name="open-the-application"></a>Otwieranie aplikacji
 
@@ -71,7 +70,7 @@ Dane wyjściowe powinny mieć właściwość `ipAddress` , która jest publiczny
 
 ## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Sprawdź, czy aplikacja może korzystać z woluminu
 
-Aplikacja tworzy plik o nazwie `counter.txt` w folderze woluminu wewnątrz. `counter/counterService` Zawartość tego pliku jest wartością licznika wyświetlaną na stronie sieci Web.
+Aplikacja tworzy plik o nazwie `counter.txt` w folderze woluminu wewnątrz `counter/counterService` . Zawartość tego pliku jest wartością licznika wyświetlaną na stronie sieci Web.
 
 ## <a name="delete-the-resources"></a>Usuwanie zasobów
 

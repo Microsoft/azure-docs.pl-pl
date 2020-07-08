@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: 6fc0d4cfe29e0fb189c44b307576bd08d2da8a31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75638888"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Uruchamianie obciążeń Azure Machine Learning przy użyciu automatycznego uczenia maszynowego na Apache Spark w usłudze HDInsight
@@ -71,7 +70,7 @@ Możesz również zarejestrować magazyn danych z obszarem roboczym przy użyciu
 
 ## <a name="experiment-submission"></a>Przesyłanie eksperymentu
 
-W [zautomatyzowanej konfiguracji usługi Machine Learning](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)Właściwość `spark_context` powinna być ustawiona, aby pakiet był uruchamiany w trybie rozproszonym. Właściwość `concurrent_iterations`, która jest maksymalną liczbą iteracji wykonywanych równolegle, powinna być ustawiona na liczbę mniejszą niż rdzenie wykonawcze dla aplikacji Spark.
+W [zautomatyzowanej konfiguracji usługi Machine Learning](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)Właściwość `spark_context` powinna być ustawiona, aby pakiet był uruchamiany w trybie rozproszonym. Właściwość `concurrent_iterations` , która jest maksymalną liczbą iteracji wykonywanych równolegle, powinna być ustawiona na liczbę mniejszą niż rdzenie wykonawcze dla aplikacji Spark.
 
 ## <a name="next-steps"></a>Następne kroki
 
