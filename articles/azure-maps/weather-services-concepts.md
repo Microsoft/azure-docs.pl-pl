@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333813"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
@@ -52,31 +51,31 @@ Niektóre interfejsy API usługi pogodowej umożliwiają użytkownikowi określe
 
 ## <a name="weather-icons"></a>Ikony pogody
 
-Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `iconCode` Jest to wartość liczbowa służąca do definiowania ikony. Nie łącz bezpośrednio z tymi obrazami z aplikacji, adresy URL mogą i zmienią się.
+Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `iconCode`Jest to wartość liczbowa służąca do definiowania ikony. Nie łącz bezpośrednio z tymi obrazami z aplikacji, adresy URL mogą i zmienią się.
 
-| Numer ikony |Ikona| Day | Godzinach | Tekst |
+| Numer ikony |Ikona| Dzień | Godzinach | Tekst |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Tak |  Nie    | Sunny|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Tak |  Nie    | W większości Sunny|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Tak |  Nie    | Częściowo Sunny|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Tak |  Nie    | Przerwy w chmurze|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Tak |  Nie    | Hazy słońca |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Tak |  Nie    | W większości w chmurze|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  Nie    | Sunny|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  Nie    | W większości Sunny|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  Nie    | Częściowo Sunny|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  Nie    | Przerwy w chmurze|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Yes |  Nie    | Hazy słońca |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Yes |  Nie    | W większości w chmurze|
 | 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Tak |  Tak   | Chmura |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Tak |  Tak   | Dreary (Overcast)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Tak |  Tak   | Przeciwmgielnych|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Tak |  Tak   | Natrysk|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Tak |  Nie    | W większości w chmurze z prysznicami|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Tak |  Nie    | Częściowo Sunny z prysznicami|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Yes |  Nie    | W większości w chmurze z prysznicami|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Yes |  Nie    | Częściowo Sunny z prysznicami|
 | 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Tak |  Tak   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Tak |  Nie    | W większości chmur z Thunderstorms|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Tak |  Nie    | Częściowo Sunny z Thunderstorms|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Yes |  Nie    | W większości chmur z Thunderstorms|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Yes |  Nie    | Częściowo Sunny z Thunderstorms|
 | 18           |![](./media/weather-services-concepts/rain-i.png)                      | Tak |  Tak   | Fartuch|
 | 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Tak |  Tak   | Flurries|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Tak |  Nie    | W większości chmur z Flurries|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Tak |  Nie    | Częściowo Sunny z Flurries|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Yes |  Nie    | W większości chmur z Flurries|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Yes |  Nie    | Częściowo Sunny z Flurries|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Tak |  Tak   | Krab|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Tak |  Nie    | W większości chmur z śniegiem|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Yes |  Nie    | W większości chmur z śniegiem|
 | 24           |![](./media/weather-services-concepts/ice-i.png)                       | Tak |  Tak   | Ice |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Tak |  Tak   | Sleet|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Tak |  Tak   | Zamrażanie deszczu|
@@ -84,11 +83,11 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Tak |  Tak   | Gorąca|
 | 31           |![](./media/weather-services-concepts/cold-i.png)                      | Tak |  Tak   | Chłodne|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Tak |  Tak   | Wiatr|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Nie  |  Tak   | Clear|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Nie  |  Tak   | Przede wszystkim|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Nie  |  Tak   | Częściowo chmura|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Nie  |  Tak   | Przerwy w chmurze|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Nie  |  Tak   | Hazy Moonlight|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | Nie  |  Yes   | Czyste|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Nie  |  Yes   | Przede wszystkim|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Nie  |  Yes   | Częściowo chmura|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Nie  |  Yes   | Przerwy w chmurze|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Nie  |  Yes   | Hazy Moonlight|
 | 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Nie  |  Tak   | W większości w chmurze|
 | 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Nie  |  Tak   | Częściowo chmura z prysznicami|
 | 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Nie  |  Tak   | W większości w chmurze z prysznicami|

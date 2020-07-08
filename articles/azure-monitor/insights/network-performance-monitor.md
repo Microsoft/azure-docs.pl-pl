@@ -7,10 +7,9 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480882"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
@@ -84,7 +83,7 @@ Użyj podstawowych procesów, aby zainstalować agentów na [komputerach z syste
 
 Network Performance Monitor używa transakcji syntetycznych do monitorowania wydajności sieci między agentami źródłowymi i docelowymi. Można wybrać między portami TCP i ICMP jako protokół do monitorowania w ramach funkcji monitorowania wydajności i monitora łączności usług. Tylko protokół TCP jest dostępny jako protokół monitorowania dla monitora ExpressRoute. Upewnij się, że zapora zezwala na komunikację między agentami Log Analytics używanymi do monitorowania w wybranym protokole. 
 
-* **Protokół TCP**: w przypadku wybrania na potrzeby monitorowania protokołu TCP jako protokołu należy otworzyć port zapory na agentach używanych do Network Performance Monitor i monitor ExpressRoute, aby upewnić się, że agenci mogą się ze sobą łączyć. Aby otworzyć port, uruchom skrypt programu PowerShell [skrypt enablerules. ps1](https://aka.ms/npmpowershellscript) bez żadnych parametrów w oknie programu PowerShell z uprawnieniami administracyjnymi.
+* **Protokół TCP**: w przypadku wybrania na potrzeby monitorowania protokołu TCP jako protokołu należy otworzyć port zapory na agentach używanych do Network Performance Monitor i monitor ExpressRoute, aby upewnić się, że agenci mogą się ze sobą łączyć. Aby otworzyć port, uruchom skrypt [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell bez żadnych parametrów w oknie programu PowerShell z uprawnieniami administracyjnymi.
 
     Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły zapory systemu Windows, aby umożliwić agentom tworzenie połączeń TCP ze sobą. Klucze rejestru utworzone przez skrypt określają, czy Dzienniki debugowania i ścieżka pliku dzienników mają być rejestrowane. Skrypt definiuje również port TCP agenta używany do komunikacji. Wartości tych kluczy są automatycznie ustawiane przez skrypt. Nie zmieniaj ręcznie tych kluczy. Port otwarty domyślnie to 8084. Możesz użyć portu niestandardowego, dostarczając parametr numer_portu do skryptu. Użyj tego samego portu na wszystkich komputerach, na których jest uruchomiony skrypt. 
 
@@ -92,7 +91,7 @@ Network Performance Monitor używa transakcji syntetycznych do monitorowania wyd
     > Skrypt konfiguruje tylko zaporę systemu Windows lokalnie. Jeśli masz zaporę sieciową, upewnij się, że zezwala ona na ruch przeznaczony dla portu TCP używanego przez Network Performance Monitor.
 
     >[!NOTE]
-    > Nie trzeba uruchamiać skryptu programu PowerShell [skrypt enablerules. ps1](https://aka.ms/npmpowershellscript ) dla monitora łączności usług.
+    > Nie musisz uruchamiać skryptu [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell dla monitora łączności usług.
 
     
 
@@ -280,7 +279,7 @@ Opłaty za powiadomienia są naliczone osobno zgodnie z [cennikiem za powiadomie
 
 Informacje o cenach są dostępne w [trybie online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Przekazywanie opinii 
+## <a name="provide-feedback"></a>Wyraź opinię 
 
 * **UserVoice:** Możesz publikować swoje pomysły dotyczące Network Performance Monitor funkcji, nad którymi chcesz, nad którymi pracujemy. Odwiedź [stronę usługi UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

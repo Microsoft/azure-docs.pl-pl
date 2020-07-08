@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479590"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for go (wersja zapoznawcza)
@@ -34,9 +33,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 W lokalizacji ZMIENNĄ GOPATH Uruchom polecenie`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
-Najpierw należy uwierzytelnić zestaw SDK w ramach subskrypcji platformy Azure.  Postępuj zgodnie z poniższym przykładem, aby utworzyć nazwę główną usługi i użyć jej do uwierzytelnienia. Po wykonaniu tej czynności będziesz mieć wystąpienie a `ClustersClient`, które zawiera wiele funkcji (opisanych w poniższych sekcjach), które mogą być używane do wykonywania operacji zarządzania.
+Najpierw należy uwierzytelnić zestaw SDK w ramach subskrypcji platformy Azure.  Postępuj zgodnie z poniższym przykładem, aby utworzyć nazwę główną usługi i użyć jej do uwierzytelnienia. Po wykonaniu tej czynności będziesz mieć wystąpienie a `ClustersClient` , które zawiera wiele funkcji (opisanych w poniższych sekcjach), które mogą być używane do wykonywania operacji zarządzania.
 
 > [!NOTE]  
 > Istnieją inne sposoby uwierzytelniania oprócz poniższego przykładu, które mogą być lepiej dopasowane do Twoich potrzeb. Wszystkie funkcje są opisane tutaj: [funkcje uwierzytelniania w Azure SDK dla języka go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
@@ -100,7 +99,7 @@ Informacje o jednostce usługi są wyświetlane jako dane JSON.
 }
 ```
 
-Skopiuj poniższy fragment kodu i wypełnij pola `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`, i `SUBSCRIPTION_ID` z ciągami z kodu JSON, które zostały zwrócone po uruchomieniu polecenia, aby utworzyć jednostkę usługi.
+Skopiuj poniższy fragment kodu i wypełnij `TENANT_ID` pola, `CLIENT_ID` , `CLIENT_SECRET` , i `SUBSCRIPTION_ID` z ciągami z kodu JSON, które zostały zwrócone po uruchomieniu polecenia, aby utworzyć jednostkę usługi.
 
 ```golang
 package main
@@ -136,11 +135,11 @@ func main() {
 ## <a name="cluster-management"></a>Zarządzanie klastrami
 
 > [!NOTE]  
-> W tej sekcji założono, że masz już uwierzytelnione `ClusterClient` i skonstruowane wystąpienie i zapisujesz je w `client`zmiennej o nazwie. Instrukcje dotyczące uwierzytelniania i uzyskiwania `ClusterClient` można znaleźć w powyższej sekcji uwierzytelniania.
+> W tej sekcji założono, że masz już uwierzytelnione i skonstruowane `ClusterClient` wystąpienie i zapisujesz je w zmiennej o nazwie `client` . Instrukcje dotyczące uwierzytelniania i uzyskiwania `ClusterClient` można znaleźć w powyższej sekcji uwierzytelniania.
 
 ### <a name="create-a-cluster"></a>Tworzenie klastra
 
-Nowy klaster można utworzyć przez wywołanie `client.Create()`. 
+Nowy klaster można utworzyć przez wywołanie `client.Create()` . 
 
 #### <a name="example"></a>Przykład
 
@@ -296,7 +295,7 @@ client.ListByResourceGroup("<Resource Group Name>")
 ```
 
 > [!NOTE]  
-> Obie `List()` i `ListByResourceGroup()` zwracają `ClusterListResultPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()`. Można to powtórzyć do `ClusterListResultPage.NotDone()` momentu pokazywania `false`, jak pokazano w poniższym przykładzie.
+> Obie `List()` i `ListByResourceGroup()` zwracają `ClusterListResultPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()` . Można to powtórzyć do momentu `ClusterListResultPage.NotDone()` `false` pokazywania, jak pokazano w poniższym przykładzie.
 
 #### <a name="example"></a>Przykład
 
@@ -352,7 +351,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 Zestawu SDK zarządzania usługi HDInsight można także użyć do zarządzania monitorowaniem w klastrach za pomocą pakietu Operations Management Suite (OMS).
 
-Podobnie jak `ClusterClient` w przypadku operacji zarządzania, należy utworzyć element `ExtensionClient` do użycia na potrzeby operacji monitorowania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ExtensionClient` podobny do tego:
+Podobnie jak w `ClusterClient` przypadku operacji zarządzania, należy utworzyć element `ExtensionClient` do użycia na potrzeby operacji monitorowania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć podobny do tego `ExtensionClient` :
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -360,7 +359,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> W poniższych przykładach monitorowania założono, że został `ExtensionClient` on `extClient` już zainicjowany i `Authorizer` ustawił go tak jak pokazano powyżej.
+> W poniższych przykładach monitorowania założono, że został on już zainicjowany `ExtensionClient` `extClient` i ustawił go `Authorizer` tak jak pokazano powyżej.
 
 ### <a name="enable-oms-monitoring"></a>Włącz monitorowanie pakietu OMS
 
@@ -405,7 +404,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-W przypadku operacji "Usuń skrypt akcji" i "Wyświetlaj utrwalone akcje skryptu" należy utworzyć obiekt `ScriptActionsClient`, podobnie jak `ClusterClient` w przypadku operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ScriptActionsClient` podobny do tego:
+W przypadku operacji "Usuń skrypt akcji" i "Wyświetlaj utrwalone akcje skryptu" należy utworzyć obiekt `ScriptActionsClient` , podobnie jak w przypadku `ClusterClient` operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć podobny do tego `ScriptActionsClient` :
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -413,7 +412,7 @@ scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> W poniższych akcjach skryptu założono, że `ScriptActionsClient` zainicjowano `scriptActionsClient` już wywołanie metody `Authorizer` wywoływanej i ustawimy ją jak pokazano powyżej.
+> W poniższych akcjach skryptu założono, że zainicjowano już `ScriptActionsClient` wywołanie metody wywoływanej `scriptActionsClient` i ustawimy ją `Authorizer` jak pokazano powyżej.
 
 ### <a name="delete-script-action"></a>Akcja usuwania skryptu
 
@@ -426,7 +425,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 ### <a name="list-persisted-script-actions"></a>Wyświetl listę utrwalonych akcji skryptów
 
 > [!NOTE]  
-> Oba `ListByCluster()` zwracają `ScriptActionsListPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()`. Można to powtórzyć do `ClusterListResultPage.NotDone()` momentu pokazywania `false`, jak pokazano w poniższym przykładzie.
+> Oba `ListByCluster()` zwracają `ScriptActionsListPage` strukturę. Aby uzyskać następną stronę, możesz wywołać metodę `Next()` . Można to powtórzyć do momentu `ClusterListResultPage.NotDone()` `false` pokazywania, jak pokazano w poniższym przykładzie.
 
 Aby wyświetlić listę wszystkich akcji utrwalonego skryptu dla określonego klastra:
 ```golang
@@ -453,7 +452,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Wyświetl listę wszystkich historii wykonywania skryptów
 
-W przypadku tej operacji należy utworzyć obiekt `ScriptExecutionHistoryClient`, podobnie jak `ClusterClient` w przypadku operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć `ScriptActionsClient` podobny do tego:
+W przypadku tej operacji należy utworzyć obiekt `ScriptExecutionHistoryClient` , podobnie jak w `ClusterClient` przypadku operacji zarządzania. Po zakończeniu powyższej sekcji uwierzytelniania można utworzyć podobny do tego `ScriptActionsClient` :
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
@@ -461,7 +460,7 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
 > [!NOTE]  
-> W poniższym przykładzie przyjęto, że został `ScriptExecutionHistoryClient` już `scriptExecutionHistoryClient` zainicjowany obiekt wywoływany i ustawiony `Authorizer` powyżej.
+> W poniższym przykładzie przyjęto, że został już zainicjowany obiekt `ScriptExecutionHistoryClient` wywoływany `scriptExecutionHistoryClient` i ustawiony `Authorizer` powyżej.
 
 Aby wyświetlić listę wszystkich skryptów wykonywania dla określonego klastra:
 

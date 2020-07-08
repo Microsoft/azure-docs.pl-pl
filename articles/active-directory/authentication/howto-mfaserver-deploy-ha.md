@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e7b5f6bef5358acf0709f994b85215e505fa4db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653385"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurowanie usługi Azure Serwer Multi-Factor Authentication w celu zapewnienia wysokiej dostępności
@@ -66,7 +65,7 @@ Zwróć uwagę na następujące elementy dla odpowiadającego im obszaru podaneg
    ![Serwer Azure MFA — App Server HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Ponieważ usługa RPC korzysta z portów dynamicznych, nie zaleca się otwierania zapór do zakresu portów dynamicznych, które mogą być używane przez usługę RPC. W przypadku zapory **między** serwerami aplikacji MFA należy skonfigurować serwer usługi MFA do komunikowania się z portem statycznym dla ruchu związanego z replikacją między serwerami podrzędnymi i głównymi, a następnie otworzyć ten port w zaporze. Aby wymusić port statyczny, można utworzyć wartość rejestru DWORD ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` o ```Pfsvc_ncan_ip_tcp_port``` nazwie i ustawić wartość dostępnego portu statycznego. Połączenia są zawsze inicjowane przez podrzędne serwery usługi MFA do serwera głównego. port statyczny jest wymagany tylko w przypadku serwera głównego, ale ponieważ w dowolnym momencie można podwyższyć poziom podwładnego jako główny, należy ustawić port statyczny na wszystkich serwerach usługi MFA.
+   > Ponieważ usługa RPC korzysta z portów dynamicznych, nie zaleca się otwierania zapór do zakresu portów dynamicznych, które mogą być używane przez usługę RPC. W przypadku zapory **między** serwerami aplikacji MFA należy skonfigurować serwer usługi MFA do komunikowania się z portem statycznym dla ruchu związanego z replikacją między serwerami podrzędnymi i głównymi, a następnie otworzyć ten port w zaporze. Aby wymusić port statyczny, można utworzyć wartość rejestru DWORD o ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` nazwie ```Pfsvc_ncan_ip_tcp_port``` i ustawić wartość dostępnego portu statycznego. Połączenia są zawsze inicjowane przez podrzędne serwery usługi MFA do serwera głównego. port statyczny jest wymagany tylko w przypadku serwera głównego, ale ponieważ w dowolnym momencie można podwyższyć poziom podwładnego jako główny, należy ustawić port statyczny na wszystkich serwerach usługi MFA.
 
 2. Dwa serwery aplikacji mobilnej Portal użytkowników/MFA (MFA-UP-MAS1 i MFA-UP-MAS2) są zrównoważone obciążenie w konfiguracji **stanowej** (MFA.contoso.com). Odwołaj te sesje, które są wymagane do równoważenia obciążenia aplikacji Portal użytkowników usługi MFA i App Service Mobile.
    ![Serwer usługi Azure MFA — Portal użytkowników i urządzenia przenośne App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

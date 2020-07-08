@@ -14,10 +14,9 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79478801"
 ---
 # <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
@@ -48,7 +47,7 @@ W tym artykule przedstawiono sposób tworzenia konta usługi Media Services przy
 ### <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/).
-1. Kliknij pozycję **+ Utwórz** > **nośnik** > zasobów**Media Services**.
+1. Kliknij pozycję **+ Utwórz**  >  **nośnik**zasobów  >  **Media Services**.
 1. W sekcji **Tworzenie konta Media Services** wprowadź wymagane wartości.
     
     | Nazwa | Opis |

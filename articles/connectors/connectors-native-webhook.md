@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656277"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Tworzenie i uruchamianie zautomatyzowanych przepływów zadań opartych na zdarzeniach za pomocą elementów webhook protokołu HTTP w Azure Logic Apps
@@ -81,14 +80,14 @@ Ten wbudowany wyzwalacz wywołuje punkt końcowy subskrypcji w usłudze docelowe
 
    ![Wprowadź parametry wyzwalacza elementu webhook protokołu HTTP](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Subskrypcja — Metoda** | Tak | Metoda do użycia podczas subskrybowania docelowego punktu końcowego |
    | **Subskrypcja — identyfikator URI** | Tak | Adres URL, który ma być używany do subskrybowania docelowego punktu końcowego |
-   | **Subskrypcja — treść** | Nie | Każda treść komunikatu do uwzględnienia w żądaniu subskrybowania. Ten przykład zawiera adres URL wywołania zwrotnego, który jednoznacznie identyfikuje subskrybenta, który jest aplikacją logiki, przy `@listCallbackUrl()` użyciu wyrażenia w celu pobrania adresu URL wywołania zwrotnego aplikacji logiki. |
+   | **Subskrypcja — treść** | Nie | Każda treść komunikatu do uwzględnienia w żądaniu subskrybowania. Ten przykład zawiera adres URL wywołania zwrotnego, który jednoznacznie identyfikuje subskrybenta, który jest aplikacją logiki, przy użyciu `@listCallbackUrl()` wyrażenia w celu pobrania adresu URL wywołania zwrotnego aplikacji logiki. |
    | **Unsubskrybuj — Metoda** | Nie | Metoda do użycia podczas anulowania subskrypcji z docelowego punktu końcowego |
    | **Anulowanie subskrypcji — identyfikator URI** | Nie | Adres URL, który będzie używany do anulowania subskrypcji z docelowego punktu końcowego |
-   | **Anulowanie subskrypcji — treść** | Nie | Opcjonalna treść komunikatu do uwzględnienia w żądaniu anulowania subskrypcji <p><p>**Uwaga**: Ta właściwość nie obsługuje korzystania z `listCallbackUrl()` funkcji. Jednak wyzwalacz automatycznie uwzględnia i wysyła nagłówki, `x-ms-client-tracking-id` a `x-ms-workflow-operation-name`także, których usługa docelowa może użyć do unikatowego identyfikowania abonenta. |
+   | **Anulowanie subskrypcji — treść** | Nie | Opcjonalna treść komunikatu do uwzględnienia w żądaniu anulowania subskrypcji <p><p>**Uwaga**: Ta właściwość nie obsługuje korzystania z `listCallbackUrl()` funkcji. Jednak wyzwalacz automatycznie uwzględnia i wysyła nagłówki, `x-ms-client-tracking-id` a także `x-ms-workflow-operation-name` , których usługa docelowa może użyć do unikatowego identyfikowania abonenta. |
    ||||
 
 1. Aby dodać inne właściwości wyzwalacza, Otwórz listę **Dodaj nowy parametr** .
@@ -113,7 +112,7 @@ Ta wbudowana akcja wywołuje punkt końcowy subskrypcji w usłudze docelowej i r
 
 1. W kroku, w którym chcesz dodać akcję elementu webhook protokołu HTTP, wybierz pozycję **nowy krok**.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania projektanta wprowadź `http webhook` jako filtr. Z listy **Akcje** wybierz akcję **element webhook protokołu HTTP** .
 
@@ -127,14 +126,14 @@ Ta wbudowana akcja wywołuje punkt końcowy subskrypcji w usłudze docelowej i r
 
    ![Wprowadź parametry akcji elementu webhook protokołu HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Subskrypcja — Metoda** | Tak | Metoda do użycia podczas subskrybowania docelowego punktu końcowego |
    | **Subskrypcja — identyfikator URI** | Tak | Adres URL, który ma być używany do subskrybowania docelowego punktu końcowego |
-   | **Subskrypcja — treść** | Nie | Każda treść komunikatu do uwzględnienia w żądaniu subskrybowania. Ten przykład zawiera adres URL wywołania zwrotnego, który jednoznacznie identyfikuje subskrybenta, który jest aplikacją logiki, przy `@listCallbackUrl()` użyciu wyrażenia w celu pobrania adresu URL wywołania zwrotnego aplikacji logiki. |
+   | **Subskrypcja — treść** | Nie | Każda treść komunikatu do uwzględnienia w żądaniu subskrybowania. Ten przykład zawiera adres URL wywołania zwrotnego, który jednoznacznie identyfikuje subskrybenta, który jest aplikacją logiki, przy użyciu `@listCallbackUrl()` wyrażenia w celu pobrania adresu URL wywołania zwrotnego aplikacji logiki. |
    | **Unsubskrybuj — Metoda** | Nie | Metoda do użycia podczas anulowania subskrypcji z docelowego punktu końcowego |
    | **Anulowanie subskrypcji — identyfikator URI** | Nie | Adres URL, który będzie używany do anulowania subskrypcji z docelowego punktu końcowego |
-   | **Anulowanie subskrypcji — treść** | Nie | Opcjonalna treść komunikatu do uwzględnienia w żądaniu anulowania subskrypcji <p><p>**Uwaga**: Ta właściwość nie obsługuje korzystania z `listCallbackUrl()` funkcji. Jednak akcja automatycznie uwzględnia i wysyła nagłówki `x-ms-client-tracking-id` oraz `x-ms-workflow-operation-name`, których usługa docelowa może użyć do unikatowego identyfikowania abonenta. |
+   | **Anulowanie subskrypcji — treść** | Nie | Opcjonalna treść komunikatu do uwzględnienia w żądaniu anulowania subskrypcji <p><p>**Uwaga**: Ta właściwość nie obsługuje korzystania z `listCallbackUrl()` funkcji. Jednak akcja automatycznie uwzględnia i wysyła nagłówki oraz `x-ms-client-tracking-id` `x-ms-workflow-operation-name` , których usługa docelowa może użyć do unikatowego identyfikowania abonenta. |
    ||||
 
 1. Aby dodać inne właściwości akcji, Otwórz listę **Dodaj nowy parametr** .
@@ -157,15 +156,15 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 
 | Nazwa właściwości | Typ | Opis |
 |---------------|------|-------------|
-| nagłówka | obiekt | Nagłówki żądania |
-| body | obiekt | Obiekt JSON | Obiekt z zawartością treści z żądania |
+| nagłówka | object | Nagłówki żądania |
+| body | object | Obiekt JSON | Obiekt z zawartością treści z żądania |
 | kod stanu | int | Kod stanu z żądania |
 |||
 
 | Kod stanu | Opis |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Zaakceptowane |
+| 202 | Zaakceptowano |
 | 400 | Złe żądanie |
 | 401 | Brak autoryzacji |
 | 403 | Forbidden |

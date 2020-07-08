@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471034"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurowanie środowiska przejściowego w chmurze Azure wiosennej
@@ -67,10 +66,10 @@ Przejdź do wystąpienia usługi w Azure Portal i wybierz pozycję **Zarządzani
 
 >[!TIP]
 > * Upewnij się, że punkt końcowy testu jest zakończony ukośnikiem (/), aby upewnić się, że plik CSS został załadowany poprawnie.  
-> * Jeśli przeglądarka wymaga wprowadzenia poświadczeń logowania w celu wyświetlenia strony, użyj [dekodowania adresu URL](https://www.urldecoder.org/) , aby zdekodować punkt końcowy testu. Dekodowanie adresu URL zwraca adres URL w postaci "\<https://username>\<: Password>\<@ Nazwa klastra>. test.azureapps.IO/Gateway/Green".  Ten formularz służy do uzyskiwania dostępu do punktu końcowego.
+> * Jeśli przeglądarka wymaga wprowadzenia poświadczeń logowania w celu wyświetlenia strony, użyj [dekodowania adresu URL](https://www.urldecoder.org/) , aby zdekodować punkt końcowy testu. Dekodowanie adresu URL zwraca adres URL w postaci "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.IO/Gateway/Green".  Ten formularz służy do uzyskiwania dostępu do punktu końcowego.
 
 >[!NOTE]    
-> Ustawienia serwera konfiguracji dotyczą zarówno środowiska przejściowego, jak i produkcyjnego. Na przykład jeśli ustawisz ścieżkę kontekstu`server.servlet.context-path`() dla bramy aplikacji na serwerze konfiguracji jako *somepath*, ścieżka do zielonego wdrożenia zmieni się na "https://\<username>:\<hasło> @\<Nazwa klastra>. test.azureapps.IO/Gateway/Green/somepath/...".
+> Ustawienia serwera konfiguracji dotyczą zarówno środowiska przejściowego, jak i produkcyjnego. Na przykład jeśli ustawisz ścieżkę kontekstu ( `server.servlet.context-path` ) dla bramy aplikacji na serwerze konfiguracji jako *somepath*, ścieżka do zielonego wdrożenia zmieni się na "https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.IO/Gateway/Green/somepath/...".
  
  Jeśli w tym momencie odwiedzasz swoją publiczną bramę aplikacji, powinna zostać wyświetlona stara strona bez nowej zmiany.
     

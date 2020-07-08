@@ -7,10 +7,9 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80657135"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
@@ -44,7 +43,7 @@ W Azure Logic Apps lokalna Brama danych obsługuje [Łączniki lokalne](../conne
 * Baza danych Oracle
 * PostgreSQL
 * SAP
-* Oprogramowanie SharePoint Server
+* SharePoint Server
 * SQL Server
 * Teradata
 
@@ -79,11 +78,11 @@ Po zainstalowaniu bramy na komputerze lokalnym Utwórz zasób platformy Azure dl
 
    ![Dodawanie nowego zasobu platformy Azure dla bramy danych](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
-1. W obszarze **Utwórz bramę połączenia**podaj te informacje dla zasobu bramy. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. W obszarze **Utwórz bramę połączenia**podaj te informacje dla zasobu bramy. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    | Właściwość | Opis |
    |----------|-------------|
-   | **Nazwa zasobu** | Podaj`-`nazwę zasobu bramy, która zawiera tylko litery, cyfry, łączniki (), znaki podkreślenia (`_`), nawiasy (`(`, `)`) lub kropki (`.`). |
+   | **Nazwa zasobu** | Podaj nazwę zasobu bramy, która zawiera tylko litery, cyfry, łączniki ( `-` ), znaki podkreślenia ( `_` ), nawiasy ( `(` , `)` ) lub kropki ( `.` ). |
    | **Subskrypcja** | Wybierz subskrypcję platformy Azure dla konta platformy Azure, która była używana na potrzeby instalacji bramy. Domyślna subskrypcja jest oparta na koncie platformy Azure użytym do zalogowania się. |
    | **Grupa zasobów** | [Grupa zasobów platformy Azure](../azure-resource-manager/management/overview.md) , której chcesz użyć |
    | **Lokalizacja** | Ten sam region lub lokalizacja, która została wybrana dla usługi bramy w chmurze podczas [instalacji bramy](../logic-apps/logic-apps-gateway-install.md). W przeciwnym razie instalacja bramy nie zostanie wyświetlona na liście **Nazwa instalacji** . Lokalizacja aplikacji logiki może różnić się od lokalizacji zasobów bramy. |
@@ -121,7 +120,7 @@ Po utworzeniu zasobu bramy i skojarzeniu subskrypcji platformy Azure z tym zasob
 
    ![Utwórz połączenie między aplikacją logiki a bramą danych](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
 Połączenie bramy jest teraz gotowe do użycia przez aplikację logiki.
 
@@ -140,7 +139,7 @@ Aby zaktualizować ustawienia dla połączenia bramy, można edytować połącze
 
 Aby znaleźć wszystkie połączenia interfejsu API skojarzone z subskrypcją platformy Azure:
 
-* Z menu Azure Portal wybierz pozycję **wszystkie usługi** > **Web** > **połączenia internetowego interfejsu API**.
+* Z menu Azure Portal wybierz pozycję **wszystkie usługi**  >  **Web**  >  **połączenia internetowego interfejsu API**.
 * Lub z menu Azure Portal wybierz pozycję **wszystkie zasoby**. Ustaw filtr **typu** dla **połączenia interfejsu API**.
 
 <a name="change-delete-gateway-resource"></a>

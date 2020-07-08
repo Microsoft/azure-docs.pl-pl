@@ -4,10 +4,9 @@ description: Użyj Azure Resource Manager, aby przenieść zasoby App Service do
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80655783"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Wskazówki dotyczące przenoszenia dla App Service zasobów
@@ -19,7 +18,7 @@ W tym artykule opisano czynności, które należy wykonać, aby przenieść App 
 Podczas przemieszczania aplikacji sieci Web w ramach subskrypcji są stosowane następujące wskazówki:
 
 - Docelowa Grupa zasobów nie może mieć żadnych istniejących zasobów App Service. App Service zasoby obejmują:
-    - Aplikacje internetowe
+    - Web Apps
     - Plany usługi App Service
     - Przekazano lub zaimportowano certyfikaty TLS/SSL
     - Środowiska usługi App Service

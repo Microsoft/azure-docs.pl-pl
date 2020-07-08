@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79458073"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Przewodnik Szybki Start dla usługi Bash w Azure Cloud Shell
@@ -35,7 +34,7 @@ Ten dokument zawiera szczegółowe informacje dotyczące używania bash w Azure 
 > Użytkownik jest automatycznie uwierzytelniany dla interfejsu wiersza polecenia platformy Azure w każdej sesji.
 
 ### <a name="select-the-bash-environment"></a>Wybierz środowisko bash
-Upewnij się, że lista rozwijana środowiska z lewej strony okna powłoki ma wartość `Bash`. <br>
+Upewnij się, że lista rozwijana środowiska z lewej strony okna powłoki ma wartość `Bash` . <br>
 ![](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Ustawianie subskrypcji
@@ -50,7 +49,7 @@ az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
-> Twoja subskrypcja zostanie zapamiętana na potrzeby przyszłych sesji przy `/home/<user>/.azure/azureProfile.json`użyciu usługi.
+> Twoja subskrypcja zostanie zapamiętana na potrzeby przyszłych sesji przy użyciu usługi `/home/<user>/.azure/azureProfile.json` .
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz nową grupę zasobów w zachodnim regionie o nazwie "Mojagz".
@@ -66,16 +65,16 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Użycie `--generate-ssh-keys` powoduje, że interfejs wiersza polecenia platformy Azure tworzy i konfiguruje klucze publiczne i prywatne w `$Home` maszynie wirtualnej i katalogu. Klucze domyślne są umieszczane w Cloud Shell w `/home/<user>/.ssh/id_rsa` i `/home/<user>/.ssh/id_rsa.pub`. `.ssh` Folder jest utrwalany w dołączonym obrazie 5 GB udziału plików, który będzie używany `$Home`do utrwalania.
+> Użycie `--generate-ssh-keys` powoduje, że interfejs wiersza polecenia platformy Azure tworzy i konfiguruje klucze publiczne i prywatne w maszynie wirtualnej i `$Home` katalogu. Klucze domyślne są umieszczane w Cloud Shell w `/home/<user>/.ssh/id_rsa` i `/home/<user>/.ssh/id_rsa.pub` . `.ssh`Folder jest utrwalany w dołączonym obrazie 5 GB udziału plików, który będzie używany do utrwalania `$Home` .
 
-Nazwa użytkownika na tej maszynie wirtualnej będzie używana w Cloud Shell ($User@Azure:).
+Nazwa użytkownika na tej maszynie wirtualnej będzie używana w Cloud Shell ($ User@Azure: ).
 
 ### <a name="ssh-into-your-linux-vm"></a>Użyj protokołu SSH na maszynie wirtualnej z systemem Linux
 1. Wyszukaj nazwę maszyny wirtualnej na pasku wyszukiwania Azure Portal.
 2. Kliknij przycisk "Połącz", aby uzyskać nazwę i publiczny adres IP maszyny wirtualnej. <br>
    ![](media/quickstart/sshcmd-copy.png)
 
-3. Za pomocą `ssh` polecenia SSH do maszyny wirtualnej.
+3. Za pomocą polecenia SSH do maszyny wirtualnej `ssh` .
    ```
    ssh username@ipaddress
    ```

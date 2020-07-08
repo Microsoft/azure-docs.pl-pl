@@ -8,13 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656329"
 ---
-# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Tworzenie i monitorowanie plików FTP oraz zarządzanie nimi za pomocą Azure Logic Apps
+# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Tworzenie i monitorowanie plików FTP oraz zarządzanie nimi za pomocą usługi Azure Logic Apps
 
 Za pomocą Azure Logic Apps i łącznika FTP można tworzyć automatyczne zadania i przepływy pracy, które tworzą, monitorują, wysyłają i odbierają pliki przy użyciu konta na serwerze FTP oraz z innymi akcjami, na przykład:
 
@@ -45,8 +44,8 @@ Wyzwalacze FTP działają przez sondowanie systemu plików FTP i wyszukiwanie ws
 
 | Klient SFTP | Akcja |
 |-------------|--------|
-| WinSCP | Przejdź do pozycji **Opcje** > **Preferencje** > **transfer** > **Edycja** > **Zachowaj sygnaturę czasową** > **Wyłącz** |
-| FileZilla | Przejdź do **transferu** > **Zachowaj sygnatury czasowe transferowanych plików** > **wyłączone** |
+| WinSCP | Przejdź do pozycji **Opcje**  >  **Preferencje**  >  **transfer**  >  **Edycja**  >  **Zachowaj sygnaturę czasową**  >  **Wyłącz** |
+| FileZilla | Przejdź do **transferu**  >  **Zachowaj sygnatury czasowe transferowanych plików**  >  **wyłączone** |
 |||
 
 Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakończony i nie jest częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć powrotu częściowo zapisywanego pliku, wyzwalacz odnotowuje sygnaturę czasową dla pliku, który ma ostatnio wprowadzone zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko wtedy, gdy ponownie sonduje serwer. Czasami takie zachowanie może spowodować opóźnienie, który jest maksymalnie dwa razy interwał sondowania wyzwalacza.
@@ -71,11 +70,11 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
 
 1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź `ftp` jako filtr. Z listy **wyzwalacze** Wybierz wyzwalacz, który chcesz.
 
-   — lub —
+   -lub-
 
    W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**, a następnie wybierz pozycję **Dodaj akcję**. W polu wyszukiwania wprowadź `ftp` jako filtr. Z listy **Akcje** wybierz żądaną akcję.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. Podaj informacje o połączeniu i wybierz pozycję **Utwórz**.
 
@@ -105,7 +104,7 @@ Oto przykład, który pokazuje, w jaki sposób używać **po dodaniu lub zmodyfi
 
    ![Utwórz połączenie z serwerem FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. W polu **folder** wybierz ikonę folderu, aby wyświetlić listę. Aby znaleźć folder, który ma być monitorowany dla nowych lub edytowanych plików, wybierz strzałkę w prawo**>**(), przejdź do tego folderu, a następnie wybierz folder.
+1. W polu **folder** wybierz ikonę folderu, aby wyświetlić listę. Aby znaleźć folder, który ma być monitorowany dla nowych lub edytowanych plików, wybierz strzałkę w prawo ( **>** ), przejdź do tego folderu, a następnie wybierz folder.
 
    ![Znajdź i wybierz folder do monitorowania](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 

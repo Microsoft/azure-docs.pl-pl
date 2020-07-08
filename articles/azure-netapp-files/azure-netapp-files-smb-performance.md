@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
 ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79460453"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Często zadawane pytania dotyczące wydajności protokołu SMB dla Azure NetApp Files
@@ -44,7 +43,7 @@ System Windows obsługuje Wielokanałowość protokołu SMB od systemu Windows 2
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Czy moja maszyna wirtualna platformy Azure obsługuje funkcję RSS?
 
-Aby sprawdzić, czy karty sieciowe maszyn wirtualnych platformy Azure obsługują funkcję RSS, `Get-SmbClientNetworkInterface` Uruchom polecenie w następujący sposób i `RSS Capable`zaznacz pole: 
+Aby sprawdzić, czy karty sieciowe maszyn wirtualnych platformy Azure obsługują funkcję RSS, uruchom polecenie `Get-SmbClientNetworkInterface` w następujący sposób i zaznacz pole `RSS Capable` : 
 
 ![Obsługa funkcji RSS dla maszyny wirtualnej platformy Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
@@ -60,7 +59,7 @@ Funkcja wielokanałowego protokołu SMB umożliwia klientowi protokołu SMB3 ust
 
 Nie. Klient SMB będzie pasował do liczby kart sieciowych zwracanych przez serwer SMB.  Każdy wolumin magazynu jest dostępny z jednego i tylko jednego punktu końcowego magazynu.  Oznacza to, że tylko jedna karta sieciowa będzie używana dla danej relacji protokołu SMB.  
 
-Jak pokazano `Get-SmbClientNetworkInterace` poniżej, maszyna wirtualna ma dwa interfejsy sieciowe — 15 i 12.  Jak pokazano poniżej w poleceniu `Get-SmbMultichannelConnection`, chociaż istnieją dwie karty sieciowe z obsługą funkcji RSS, w połączeniu z udziałem SMB jest używany tylko interfejs 12. Interfejs 15 nie jest używany.
+Jak `Get-SmbClientNetworkInterace` pokazano poniżej, maszyna wirtualna ma dwa interfejsy sieciowe — 15 i 12.  Jak pokazano poniżej w poleceniu `Get-SmbMultichannelConnection` , chociaż istnieją dwie karty sieciowe z obsługą funkcji RSS, w połączeniu z udziałem SMB jest używany tylko interfejs 12, a interfejs 15 nie jest używany.
 
 ![Karty sieciowe z obsługą funkcji RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
@@ -74,9 +73,9 @@ Poniższe testy i wykresy przedstawiają moc wielokanałowe protokołu SMB w prz
 
 ### <a name="random-io"></a>Losowe we/wy  
 
-W przypadku korzystania z funkcji wielokanałowości SMB wyłączonej na kliencie czyste testy odczytu i zapisu KiB zostały wykonane przy użyciu FIO i zestawu roboczego 40-GiB.  Udział SMB został odłączony między każdym testem, z `1`przyrostami liczby połączeń klienta SMB na ustawienia interfejsu sieciowego RSS,`4``8``16`,,. `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` Testy pokazują, że ustawienie domyślne jest wystarczające `4` dla obciążeń intensywnie korzystających z operacji we/wy; zwiększenie `8` i `16` brak efektu. 
+W przypadku korzystania z funkcji wielokanałowości SMB wyłączonej na kliencie czyste testy odczytu i zapisu KiB zostały wykonane przy użyciu FIO i zestawu roboczego 40-GiB.  Udział SMB został odłączony między każdym testem, z przyrostami liczby połączeń klienta SMB na ustawienia interfejsu sieciowego RSS,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testy pokazują, że ustawienie domyślne `4` jest wystarczające dla obciążeń intensywnie korzystających z operacji we/wy; zwiększa się `8` i `16` nie ma żadnego efektu. 
 
-Polecenie `netstat -na | findstr 445` udowodniono, że nastąpiło ustanowienie dodatkowych połączeń z przyrostami `4` z `8` `1` do i `16`do.  Cztery rdzenie procesora CPU zostały w pełni wykorzystane do SMB podczas każdego testu, zgodnie z potwierdzeniem przez statystykę monitora wydajności `Per Processor Network Activity Cycles` (nieuwzględnioną w tym artykule).
+Polecenie `netstat -na | findstr 445` udowodniono, że nastąpiło ustanowienie dodatkowych połączeń z przyrostami z `1` do `4` `8` i do `16` .  Cztery rdzenie procesora CPU zostały w pełni wykorzystane do SMB podczas każdego testu, zgodnie z potwierdzeniem przez `Per Processor Network Activity Cycles` statystykę monitora wydajności (nieuwzględnioną w tym artykule).
 
 ![Losowe testy we/wy](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 

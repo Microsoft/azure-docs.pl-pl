@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 9eba6f2c47629b708dde4a5a2888b76dbd24b4e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79455897"
 ---
 # <a name="split-data-module"></a>Moduł Split Data
@@ -87,7 +86,7 @@ W poniższych przykładach pokazano, jak podzielić zestaw danych za pomocą opc
 
 ### <a name="single-whole-word"></a>Pojedyncze całe słowo 
 
-Ten przykład umieszcza w pierwszym zestawie danych wszystkie wiersze, które zawierają tekst `Gryphon` w kolumnie `Text`. Umieszcza inne wiersze w drugim danych wyjściowych z **podziałów**.
+Ten przykład umieszcza w pierwszym zestawie danych wszystkie wiersze, które zawierają tekst `Gryphon` w kolumnie `Text` . Umieszcza inne wiersze w drugim danych wyjściowych z **podziałów**.
 
 ```text
     \"Text" Gryphon  
@@ -101,7 +100,7 @@ Ten przykład szuka określonego ciągu w każdej pozycji w drugiej kolumnie zes
 (\1) ^[a-f]
 ```
 
-Pierwszy wynikowy zestaw danych zawiera wszystkie wiersze, w których kolumna indeksu zaczyna się od jednego z `a`następujących `b`znaków `c`: `d`, `e`, `f`,,. Wszystkie inne wiersze są kierowane do drugiego danych wyjściowych.
+Pierwszy wynikowy zestaw danych zawiera wszystkie wiersze, w których kolumna indeksu zaczyna się od jednego z następujących znaków: `a` ,,,, `b` `c` `d` `e` `f` . Wszystkie inne wiersze są kierowane do drugiego danych wyjściowych.
 
 ## <a name="select-a-relative-expression"></a>Wybierz wyrażenie względne
 
@@ -114,12 +113,12 @@ Pierwszy wynikowy zestaw danych zawiera wszystkie wiersze, w których kolumna in
    Dla **kolumny liczbowej**:
    - Kolumna zawiera numery dowolnego typu danych liczbowych, w tym typy danych daty i godziny.
    - Wyrażenie może odwoływać się do maksymalnie jednej nazwy kolumny.
-   - Użyj znaku `&`handlowego "i" dla operacji i. Użyj znaku potoku, `|`dla operacji lub.
-   - `<`Obsługiwane są następujące operatory:, `>`, `<=` `>=`,, `==`,. `!=`
-   - Nie można grupować operacji za pomocą `(` i `)`.
+   - Użyj znaku handlowego " `&` i" dla operacji i. Użyj znaku potoku, `|` dla operacji lub.
+   - Obsługiwane są następujące operatory: `<` ,,,, `>` `<=` `>=` `==` , `!=` .
+   - Nie można grupować operacji za pomocą `(` i `)` .
    
    Dla **kolumny ciągów**:
-   - Obsługiwane są następujące operatory: `==`,. `!=`
+   - Obsługiwane są następujące operatory: `==` , `!=` .
 
 1. Prześlij potok.
 
@@ -129,7 +128,7 @@ W poniższych przykładach pokazano, jak podzielić zestaw danych za pomocą opc
 
 ### <a name="calendar-year"></a>Rok kalendarzowy
 
-Typowym scenariuszem jest dzielenie zestawu danych według lat. Poniższe wyrażenie wybiera wszystkie wiersze, w których wartości w kolumnie `Year` są większe niż. `2010`
+Typowym scenariuszem jest dzielenie zestawu danych według lat. Poniższe wyrażenie wybiera wszystkie wiersze, w których wartości w kolumnie `Year` są większe niż `2010` .
 
 ```text
 \"Year" > 2010
@@ -137,7 +136,7 @@ Typowym scenariuszem jest dzielenie zestawu danych według lat. Poniższe wyraż
 
 Wyrażenie Date musi uwzględniać wszystkie części daty, które są uwzględnione w kolumnie dane. Format dat w kolumnie danych musi być spójny. 
 
-Na przykład w kolumnie daty używającej formatu `mmddyyyy`wyrażenie powinno wyglądać następująco:
+Na przykład w kolumnie daty używającej formatu `mmddyyyy` wyrażenie powinno wyglądać następująco:
 
 ```text
 \"Date" > 1/1/2010

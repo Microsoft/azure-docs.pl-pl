@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 1afd931249d4dbeda2b4b25f822837e2a564f959
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656323"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Rozwiązywanie problemów z instalacją wypychaną usługi mobilności
@@ -41,7 +40,7 @@ W przypadku systemu Windows (**błąd 95107**) Upewnij się, że konto użytkown
 * Aby ręcznie dodać klucz rejestru, który wyłącza kontrolę dostępu użytkowników zdalnych:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Dodaj nową `DWORD`:`LocalAccountTokenFilterPolicy`
+  * Dodaj nową `DWORD` :`LocalAccountTokenFilterPolicy`
   * Ustaw wartość na`1`
 
 * Aby dodać klucz rejestru, w wierszu polecenia Uruchom następujące polecenie:
@@ -51,9 +50,9 @@ W przypadku systemu Windows (**błąd 95107**) Upewnij się, że konto użytkown
 W przypadku systemu Linux (**błąd 95108**) należy wybrać konto **Główne** dla pomyślnej instalacji agenta usługi mobilności. Ponadto należy uruchomić usługi SSH protokół transferu plików (SFTP). Aby włączyć podsystem SFTP i uwierzytelnianie hasłem w pliku _sshd_config_ :
 
 1. Zaloguj się jako użytkownik **root**.
-1. Przejdź do _pliku/etc/ssh/sshd_config_, Znajdź wiersz zaczynający się od `PasswordAuthentication`.
-1. Usuń komentarz z wiersza i zmień wartość na `yes`.
-1. Znajdź wiersz zaczynający się od `Subsystem`i Usuń komentarz z wiersza.
+1. Przejdź do _pliku/etc/ssh/sshd_config_, Znajdź wiersz zaczynający się od `PasswordAuthentication` .
+1. Usuń komentarz z wiersza i zmień wartość na `yes` .
+1. Znajdź wiersz zaczynający się od `Subsystem` i Usuń komentarz z wiersza.
 1. Uruchom ponownie `sshd` usługę.
 
 Jeśli chcesz zmodyfikować poświadczenia wybranego konta użytkownika, postępuj zgodnie z [tymi instrukcjami](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
@@ -97,7 +96,7 @@ Ten błąd występuje, gdy serwery logowania nie są dostępne na maszynie źró
 
 Usługa logowania nie jest uruchomiona na maszynie źródłowej i spowodowała błąd żądania logowania. Nie można zainstalować agenta mobilności. Aby rozwiązać ten problem, użyj jednej z następujących metod, aby uruchomić `Netlogon` usługę na maszynie źródłowej:
 
-* Aby uruchomić `Netlogon` usługę z wiersza polecenia, uruchom polecenie `net start Netlogon`.
+* Aby uruchomić `Netlogon` usługę z wiersza polecenia, uruchom polecenie `net start Netlogon` .
 * W Menedżerze zadań Uruchom `Netlogon` usługę.
 
 ## <a name="connectivity-failure-errorid-95117--97118"></a>Niepowodzenie łączności (ErrorID: 95117 & 97118)
@@ -108,7 +107,7 @@ Aby rozwiązać ten problem:
 
 * Upewnij się, że można wysłać polecenie ping do maszyny źródłowej z serwera konfiguracji. Jeśli podczas włączania replikacji wybrano serwer przetwarzania skalowalny w poziomie, upewnij się, że można wysłać polecenie ping do maszyny źródłowej z serwera przetwarzania.
 
-* W wierszu polecenia komputera źródłowego należy użyć `Telnet` usługi do pingowania serwera konfiguracji lub skalowalnego w poziomie serwera przetwarzania na porcie https 135, jak pokazano w poniższym poleceniu. To polecenie sprawdza, czy występują problemy z łącznością sieciową lub problemy z blokowaniem portów zapory.
+* W wierszu polecenia komputera źródłowego należy użyć usługi `Telnet` do pingowania serwera konfiguracji lub skalowalnego w poziomie serwera przetwarzania na porcie HTTPS 135, jak pokazano w poniższym poleceniu. To polecenie sprawdza, czy występują problemy z łącznością sieciową lub problemy z blokowaniem portów zapory.
 
   `telnet <CS/ scale-out PS IP address> <135>`
 
@@ -118,9 +117,9 @@ Aby rozwiązać ten problem:
   * Usługa SFTP powinna być uruchomiona. Aby włączyć podsystem SFTP i uwierzytelnianie hasłem w pliku _sshd_config_ :
 
     1. Zaloguj się jako użytkownik **root**.
-    1. Przejdź do pliku _/etc/ssh/sshd_config_ , Znajdź wiersz zaczynający się od `PasswordAuthentication`.
-    1. Usuń komentarz z wiersza i zmień wartość na `yes`.
-    1. Znajdź wiersz zaczynający się od `Subsystem`i usuń znaczniki komentarza z wiersza
+    1. Przejdź do pliku _/etc/ssh/sshd_config_ , Znajdź wiersz zaczynający się od `PasswordAuthentication` .
+    1. Usuń komentarz z wiersza i zmień wartość na `yes` .
+    1. Znajdź wiersz zaczynający się od `Subsystem` i usuń znaczniki komentarza z wiersza
     1. Uruchom ponownie `sshd` usługę.
 
 * Próba nawiązania połączenia nie powiodła się w przypadku braku odpowiednich odpowiedzi po upływie określonego czasu lub nawiązane połączenie nie powiodło się z powodu niepowodzenia odpowiedzi podłączonego hosta.
@@ -137,18 +136,18 @@ Po sprawdzeniu łączności Sprawdź, czy na maszynie wirtualnej jest włączona
 W przypadku **systemu Windows 2008 R2 i wcześniejszych wersji**:
 
 * Aby włączyć udostępnianie plików i drukarek za poorednictwem zapory systemu Windows,
-  1. Otwórz **panel** > **sterowania system i zabezpieczenia** > **zapory systemu Windows**. W okienku po lewej stronie wybierz pozycję **Ustawienia** > zaawansowane**reguły ruchu przychodzącego** w drzewie konsoli.
+  1. Otwórz **Panel sterowania**  >  **system i zabezpieczenia**  >  **zapory systemu Windows**. W okienku po lewej stronie wybierz pozycję **Ustawienia zaawansowane**  >  **reguły ruchu przychodzącego** w drzewie konsoli.
   1. Zlokalizuj reguły udostępniania plików i drukarek (NB — sesja-in) i udostępnianie plików i drukarek (ruch przychodzący SMB).
   1. Dla każdej reguły kliknij prawym przyciskiem myszy regułę, a następnie kliknij polecenie **Włącz regułę**.
 
 * Aby włączyć udostępnianie plików zasady grupy:
-  1. Przejdź do **menu Start**, `gpmc.msc` wpisz i Wyszukaj.
-  1. W okienku nawigacji otwórz następujące foldery:**Konfiguracja** > **Administrative Templates** > użytkownika >  **zasady komputera lokalnego**Szablony administracyjne > **składniki systemu Windows****udostępnianie sieci**.
+  1. Przejdź do **menu Start**, wpisz `gpmc.msc` i Wyszukaj.
+  1. W okienku nawigacji otwórz następujące foldery: Konfiguracja użytkownika **zasady komputera lokalnego**  >  **User Configuration**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **udostępnianie sieci**.
   1. W okienku szczegółów kliknij dwukrotnie pozycję **uniemożliwiaj użytkownikom udostępnianie plików w ramach ich profilu**.
 
      Aby wyłączyć ustawienie zasady grupy i umożliwić użytkownikowi udostępnianie plików, wybierz pozycję **wyłączone**.
 
-  1. Aby zapisać zmiany, wybierz pozycję **OK**.
+  1. Wybierz przycisk **OK**, aby zapisać zmiany.
 
   Aby dowiedzieć się więcej, zobacz [Włączanie lub wyłączanie udostępniania plików przy użyciu zasady grupy](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
@@ -160,7 +159,7 @@ Po sprawdzeniu usług plików i drukarek należy włączyć usługę WMI dla pro
 
 Aby włączyć usługę WMI:
 
-1. Przejdź do pozycji **panel** > sterowania**zabezpieczenia** i wybierz opcję **Zapora systemu Windows**.
+1. Przejdź do pozycji **Panel sterowania**  >  **zabezpieczenia** i wybierz opcję **Zapora systemu Windows**.
 1. Wybierz pozycję **Zmień ustawienia** , a następnie wybierz kartę **wyjątki** .
 1. W oknie **wyjątki** zaznacz pole wyboru dla INSTRUMENTACJA zarządzania Windows (WMI), aby włączyć ruch usługi WMI przez zaporę.
 
@@ -221,7 +220,7 @@ Przykład:
 
 Nazwy urządzeń należy zamienić na odpowiednie identyfikatory UUID.
 
-1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid \<device name>`.
+1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid \<device name>` .
 
    Przykład:
 
@@ -232,7 +231,7 @@ Nazwy urządzeń należy zamienić na odpowiednie identyfikatory UUID.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Teraz Zastąp nazwę urządzenia identyfikatorem UUID w formacie takim jak `root=UUID=\<UUID>`. Na przykład jeśli zamienimy nazwy urządzeń z identyfikatorem UUID dla certyfikatu głównego i wznowienia wymienionego w plikach _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_lub _/etc/default/grub_ , wówczas wiersze w plikach wyglądają jak w następującym wierszu:
+1. Teraz Zastąp nazwę urządzenia identyfikatorem UUID w formacie takim jak `root=UUID=\<UUID>` . Na przykład jeśli zamienimy nazwy urządzeń z identyfikatorem UUID dla certyfikatu głównego i wznowienia wymienionego w plikach _/Boot/grub2/grub.cfg_, _/Boot/grub2/grub.cfg_lub _/etc/default/grub_ , wówczas wiersze w plikach wyglądają jak w następującym wierszu:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -250,7 +249,7 @@ Usługa mobilności Site Recovery ma wiele składników, z których jeden jest n
 
 ## <a name="lvm-support-from-920-version"></a>Obsługa LVM w wersji 9,20
 
-Przed wersją 9,20, Menedżer woluminów logicznych (LVM) był obsługiwany tylko w przypadku dysków z danymi. `/boot` Partycja powinna znajdować się na partycji dysku, a nie woluminie LVM.
+Przed wersją 9,20, Menedżer woluminów logicznych (LVM) był obsługiwany tylko w przypadku dysków z danymi. `/boot`Partycja powinna znajdować się na partycji dysku, a nie woluminie LVM.
 
 Począwszy od [wersji 9,20](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery), jest obsługiwany [dysk systemu operacyjnego w LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) .
 
@@ -321,7 +320,7 @@ Aby określić przyczynę błędu, należy wykonać poniższą procedurę.
     - Exit code: 802
     ```
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Skontaktuj się z [zespołem platformy Microsoft Windows](https://aka.ms/Windows_Support) , aby uzyskać pomoc w rozwiązywaniu problemu z modelem DCOM.
 
@@ -362,13 +361,13 @@ Ten problem powoduje niepowodzenie instalacji agenta mobilności Azure Site Reco
 
 ### <a name="to-identify-the-issue"></a>Aby zidentyfikować problem
 
-W dzienniku znajdującym się na serwerze konfiguracji o godzinie _\<C:\ProgramData\ASRSetupLogs\UploadedLogs data/godzina>UA_InstallLogFile. log_ znajdziesz następujący wyjątek:
+W dzienniku znajdującym się na serwerze konfiguracji w _C:\ProgramData\ASRSetupLogs\UploadedLogs \<date-time> UA_InstallLogFile. log_ znajdziesz następujący wyjątek:
 
 ```plaintext
 COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
 ```
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 1. Sprawdź, czy maszyna nie jest maszyną klastra i czy składniki klastra nie są używane.
 1. Jeśli składniki nie są używane, Usuń składniki klastra z komputera.
@@ -377,9 +376,9 @@ Aby rozwiązać ten problem:
 
 Jeśli instalacja agenta mobilności nie powiedzie się, Sprawdź dzienniki w obszarze _C:\ProgramData\ASRSetupLogs_ , aby ustalić, czy w niektórych zestawach kontroli brakuje niektórych wymaganych sterowników.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
-1. Korzystając z edytora rejestru, takiego `regedit.msc`jak, Otwórz Rejestr.
+1. Korzystając z edytora rejestru, takiego jak `regedit.msc` , Otwórz Rejestr.
 1. Otwórz `HKEY_LOCAL_MACHINE\SYSTEM` węzeł.
 1. W `SYSTEM` węźle Znajdź zestawy kontrolek.
 1. Otwórz każdy zestaw kontrolek i sprawdź, czy są obecne następujące sterowniki systemu Windows:

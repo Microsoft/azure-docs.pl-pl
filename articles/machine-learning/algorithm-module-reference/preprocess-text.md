@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
 ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477497"
 ---
 # <a name="preprocess-text"></a>Wstępne przetwarzanie tekstu
@@ -51,7 +50,7 @@ Moduł **tekstu przetwarzania wstępnego** obsługuje obecnie tylko język angie
 
 1. **Wykryj zdania**: zaznacz tę opcję, jeśli chcesz, aby moduł wstawiał znak graniczny zdania podczas przeprowadzania analizy.
 
-    Ten moduł używa serii trzech znaków `|||` potoku do reprezentowania terminatora zdania.
+    Ten moduł używa serii trzech znaków potoku `|||` do reprezentowania terminatora zdania.
 
 1. Wykonaj opcjonalne operacje znajdowania i zamieniania przy użyciu wyrażeń regularnych.
 
@@ -70,18 +69,18 @@ Moduł **tekstu przetwarzania wstępnego** obsługuje obecnie tylko język angie
     
     * **Usuń zduplikowane znaki**: zaznacz tę opcję, aby usunąć dodatkowe znaki w każdej sekwencji powtarzanej przez więcej niż dwa razy. Na przykład sekwencja, taka jak "AAAAA", zostanie zredukowana do "AA".
     
-    * **Usuń adresy e-mail**— wybierz tę opcję, aby usunąć dowolną sekwencję formatu `<string>@<string>`.  
-    * **Usuń adresy URL**: zaznacz tę opcję, aby usunąć sekwencję zawierającą następujące PREFIKSY adresów `http`URL `https`: `ftp`,,,`www`
+    * **Usuń adresy e-mail**— wybierz tę opcję, aby usunąć dowolną sekwencję formatu `<string>@<string>` .  
+    * **Usuń adresy URL**: zaznacz tę opcję, aby usunąć sekwencję zawierającą następujące PREFIKSY adresów URL: `http` , `https` , `ftp` ,`www`
     
 1. **Rozwiń kontrakty czasownikowe**: Ta opcja ma zastosowanie tylko do języków, które używają umów czasownikowych; obecnie tylko w języku angielskim. 
 
     Na przykład po wybraniu tej opcji można zastąpić frazę " *nie*Zostań *tam"* ".
 
-1. **Normalizowanie ukośników odwrotnych do ukośników**: Wybierz tę opcję, aby zmapować wszystkie `\\` wystąpienia `/`elementu do.
+1. **Normalizowanie ukośników odwrotnych do ukośników**: Wybierz tę opcję, aby zmapować wszystkie wystąpienia elementu `\\` do `/` .
 
-1. **Podziel tokeny na znaki specjalne**: zaznacz tę opcję, jeśli chcesz przerwać słowa na znakach, `&`takich `-`jak, i tak dalej. Ta opcja może również zmniejszyć liczbę znaków specjalnych, gdy powtarza się więcej niż dwa razy. 
+1. **Podziel tokeny na znaki specjalne**: zaznacz tę opcję, jeśli chcesz przerwać słowa na znakach, takich jak `&` , `-` i tak dalej. Ta opcja może również zmniejszyć liczbę znaków specjalnych, gdy powtarza się więcej niż dwa razy. 
 
-    `MS---WORD` Na przykład ciąg zostałby podzielony na trzy `MS`tokeny,, `-`, i. `WORD`
+    Na przykład ciąg `MS---WORD` zostałby podzielony na trzy tokeny, `MS` , `-` , i `WORD` .
 
 1. Prześlij potok.
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480525"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Wyłącz monitorowanie maszyn wirtualnych w Azure Monitor dla maszyn wirtualnych
@@ -24,7 +23,7 @@ Azure Monitor dla maszyn wirtualnych opiera się na następujących składnikach
 * Obszar roboczy Log Analytics, w którym są przechowywane dane monitorowania z maszyn wirtualnych i innych źródeł.
 * Kolekcja liczników wydajności skonfigurowanych w obszarze roboczym. Kolekcja aktualizuje konfigurację monitorowania na wszystkich maszynach wirtualnych podłączonych do obszaru roboczego.
 * `VMInsights`, czyli rozwiązanie do monitorowania skonfigurowane w obszarze roboczym. To rozwiązanie aktualizuje konfigurację monitorowania na wszystkich maszynach wirtualnych podłączonych do obszaru roboczego.
-* `MicrosoftMonitoringAgent`i `DependencyAgent`, które są rozszerzeniami maszyny wirtualnej platformy Azure. Te rozszerzenia zbierają i przesyłają dane do obszaru roboczego.
+* `MicrosoftMonitoringAgent`i `DependencyAgent` , które są rozszerzeniami maszyny wirtualnej platformy Azure. Te rozszerzenia zbierają i przesyłają dane do obszaru roboczego.
 
 Przygotowując się do wyłączenia monitorowania maszyn wirtualnych, pamiętaj o następujących kwestiach:
 
@@ -36,7 +35,7 @@ Przygotowując się do wyłączenia monitorowania maszyn wirtualnych, pamiętaj 
 
 ## <a name="remove-azure-monitor-for-vms-completely"></a>Usuń Azure Monitor dla maszyn wirtualnych całkowicie
 
-Jeśli nadal potrzebujesz obszaru roboczego Log Analytics, wykonaj następujące kroki, aby całkowicie usunąć Azure Monitor dla maszyn wirtualnych. `VMInsights` Rozwiązanie zostanie usunięte z obszaru roboczego.  
+Jeśli nadal potrzebujesz obszaru roboczego Log Analytics, wykonaj następujące kroki, aby całkowicie usunąć Azure Monitor dla maszyn wirtualnych. Rozwiązanie zostanie usunięte `VMInsights` z obszaru roboczego.  
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu wpisywania lista filtruje sugestie w oparciu o dane wejściowe. Wybierz pozycję **Log Analytics**.

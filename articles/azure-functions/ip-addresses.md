@@ -4,10 +4,9 @@ description: Dowiedz się, jak znaleźć przychodzące i wychodzące adresy IP d
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656782"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresy IP w Azure Functions
@@ -39,7 +38,7 @@ Aby znaleźć wychodzące adresy IP dostępne dla aplikacji funkcji:
 1. Zaloguj się do [Azure Resource Explorer](https://resources.azure.com).
 2. Wybierz pozycję **subskrypcje > {Twoja subskrypcja} > dostawcami > witryny Microsoft. Web >**.
 3. W panelu JSON Znajdź witrynę z `id` właściwością kończącą się nazwą aplikacji funkcji.
-4. Zobacz `outboundIpAddresses` i `possibleOutboundIpAddresses`. 
+4. Zobacz `outboundIpAddresses` i `possibleOutboundIpAddresses` . 
 
 Zestaw `outboundIpAddresses` jest obecnie dostępny dla aplikacji funkcji. Zestaw `possibleOutboundIpAddresses` zawiera adresy IP, które będą dostępne tylko wtedy, gdy aplikacja funkcji jest [skalowana w inne warstwy cenowe](#outbound-ip-address-changes).
 
@@ -95,7 +94,7 @@ Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#co
 Zestaw dostępnych wychodzących adresów IP dla aplikacji funkcji może ulec zmianie, gdy:
 
 * Wykonaj wszelkie akcje, które mogą zmienić przychodzące adresy IP.
-* Zmień warstwę cenową planu App Service. Lista wszystkich możliwych wychodzących adresów IP, które mogą być używane przez aplikację dla wszystkich warstw cenowych, znajduje `possibleOutboundIPAddresses` się we właściwości. Zobacz [Znajdź wychodzące adresy IP](#find-outbound-ip-addresses).
+* Zmień warstwę cenową planu App Service. Lista wszystkich możliwych wychodzących adresów IP, które mogą być używane przez aplikację dla wszystkich warstw cenowych, znajduje się we `possibleOutboundIPAddresses` właściwości. Zobacz [Znajdź wychodzące adresy IP](#find-outbound-ip-addresses).
 
 Po uruchomieniu aplikacji funkcji w [planie zużycia](functions-scale.md#consumption-plan)wychodzący adres IP może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
 
@@ -126,7 +125,7 @@ Alternatywnie można użyć [Cloud Shell](../cloud-shell/quickstart.md):
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
 
-App Service Environment `sku` to `Isolated`.
+App Service Environment `sku` to `Isolated` .
 
 ## <a name="next-steps"></a>Następne kroki
 

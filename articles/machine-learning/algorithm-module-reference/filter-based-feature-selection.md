@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477599"
 ---
 # <a name="filter-based-feature-selection"></a>Wybór funkcji oparty na filtrze
@@ -40,7 +39,7 @@ Moduł wyboru funkcji oparty na filtrach zawiera różne metryki do oceny warto�
 
 -   **Korelacja Pearsona**  
 
-    Statystyka korelacji Pearsona lub współczynnik korelacji Pearsona są również znane w modelach statystycznych `r` jako wartość. Dla każdej dwóch zmiennych zwraca wartość wskazującą siłę korelacji.
+    Statystyka korelacji Pearsona lub współczynnik korelacji Pearsona są również znane w modelach statystycznych jako `r` wartość. Dla każdej dwóch zmiennych zwraca wartość wskazującą siłę korelacji.
 
     Współczynnik korelacji Pearsona jest obliczany przez przejęcie kowariancji dwóch zmiennych i podzielenie przez iloczyn standardowych odchyleń. Zmiany skali w dwóch zmiennych nie wpływają na współczynnik.  
 
@@ -120,7 +119,7 @@ Jeśli używasz korelacji Pearsona dla funkcji liczbowej i etykiety kategorii, w
 
 -   Jeśli spróbujesz użyć metody oceniania z kolumną typu danych, która nie jest obsługiwana przez tę metodę, moduł zgłosi błąd. Lub do kolumny zostanie przypisany wynik zerowy.  
 
--   Jeśli kolumna zawiera wartości logiczne (prawda/fałsz), są one przetwarzane jako `True = 1` i. `False = 0`  
+-   Jeśli kolumna zawiera wartości logiczne (prawda/fałsz), są one przetwarzane jako `True = 1` i `False = 0` .  
 
 -   Kolumna nie może być funkcją, jeśli została wyoznaczona jako **etykieta** lub **wynik**.  
 

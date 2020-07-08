@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456747"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
@@ -32,11 +31,11 @@ Po zdefiniowaniu operacji i uruchomieniu potoku wartości są dodawane do zestaw
 
 Poszukaj potrzebnych operacji w następujących kategoriach:  
 
-- [Podstawowy](#basic-math-operations)  
+- [Podstawowe](#basic-math-operations)  
   
      Funkcje w kategorii **Basic** mogą służyć do manipulowania pojedynczą wartością lub kolumną wartości. Na przykład możesz uzyskać wartość bezwzględną wszystkich liczb w kolumnie lub obliczyć pierwiastek kwadratowy dla każdej wartości w kolumnie.  
   
--   [Porównanie](#comparison-operations)  
+-   [Porównaniu](#comparison-operations)  
   
       Funkcje w kategorii **porównywania** są używane do porównania: można wykonać porównanie par wartości w dwóch kolumnach lub porównać każdą wartość w kolumnie z określoną stałą. Na przykład można porównać kolumny, aby określić, czy wartości były takie same w dwóch zestawach danych. Lub można użyć stałej, na przykład maksymalnej dozwolonej wartości, aby znaleźć elementy odstające w kolumnie liczbowej.  
   
@@ -72,7 +71,7 @@ Każde wystąpienie tego modułu może wykonywać tylko jeden typ operacji jedno
 1.  Wybierz co najmniej jedną kolumnę źródłową, w której ma zostać wykonane obliczenie.   
   
     - Każda wybrana kolumna musi być typem danych liczbowych. 
-    - Zakres danych musi być prawidłowy dla wybranej operacji matematycznej. W przeciwnym razie może wystąpić błąd lub NaN (nie liczba). Na przykład ln (-1,0) jest nieprawidłową operacją, a wynikiem jest wartość `NaN`.
+    - Zakres danych musi być prawidłowy dla wybranej operacji matematycznej. W przeciwnym razie może wystąpić błąd lub NaN (nie liczba). Na przykład ln (-1,0) jest nieprawidłową operacją, a wynikiem jest wartość `NaN` .
   
 1.  Kliknij pozycję **Kategoria** , aby wybrać **Typ** operacji matematycznej do wykonania.
     
@@ -253,12 +252,12 @@ Kolejność, w której wybierasz kolumny do dzielenia i odejmowania, może wydaw
 
 Operacja|Num1|Num2|Kolumna wyników|Wartość wyniku|
 ----|----|----|----|----
-|Dodawanie|1|5|Dodaj (Num2_Num1)| 4|
-|Mnożenie|1|5|Wiele (Num2_Num1)|5|
+|Znak dodawania|1|5|Dodaj (Num2_Num1)| 4|
+|Znak mnożenia|1|5|Wiele (Num2_Num1)|5|
 |Odejmowanie|1|5|Odejmij (Num2_Num1)|4|
 |Odejmowanie|0|1|Odejmij (Num2_Num1)|0|
-|Dzielenie|1|5|Podziel (Num2_Num1)|5|
-|Dzielenie|0|1|Podziel (Num2_Num1)|Nieskończoność|
+|Dział|1|5|Podziel (Num2_Num1)|5|
+|Dział|0|1|Podziel (Num2_Num1)|Nieskończoność|
 
 ### <a name="add"></a>Dodaj
 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477514"
 ---
 # <a name="partition-and-sample-module"></a>Partycja i Przykładowa moduł
@@ -75,7 +74,7 @@ Ta opcja obsługuje proste Próbkowanie losowe lub losowe próbkowanie stratifie
 
 1. **Częstotliwość próbkowania**: wprowadź wartość z zakresu od 0 do 1. Ta wartość określa wartość procentową wierszy ze źródłowego zestawu danych, która powinna być uwzględniona w wyjściowym zestawie danych.
 
-   Na przykład, jeśli chcesz tylko połowę oryginalnego zestawu danych, wpisz `0.5` , aby wskazać, że częstotliwość próbkowania powinna wynosić 50%.
+   Na przykład, jeśli chcesz tylko połowę oryginalnego zestawu danych, wpisz, `0.5` Aby wskazać, że częstotliwość próbkowania powinna wynosić 50%.
 
    Wiersze wejściowego zestawu danych są rozłożone i wybiórczo umieszczane w wyjściowym zestawie danych, zgodnie z określonym wskaźnikiem.
 

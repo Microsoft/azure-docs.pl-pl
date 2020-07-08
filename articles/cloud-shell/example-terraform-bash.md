@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
 ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79458158"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Wdrażanie za pomocą Terraform z bash w Azure Cloud Shell
@@ -62,7 +61,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 Zapisz plik i Zamknij Edytor tekstu.
 
 ### <a name="terraform-init"></a>Terraform init
-Zacznij od uruchomienia `terraform init`.
+Zacznij od uruchomienia `terraform init` .
 
 ```
 justin@Azure:~$ terraform init
@@ -90,10 +89,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-[Polecenie init Terraform](https://www.terraform.io/docs/commands/init.html) służy do inicjowania katalogu roboczego zawierającego pliki konfiguracji Terraform. `terraform init` Polecenie to pierwsze polecenie, które powinno być uruchamiane po zapisaniu nowej konfiguracji Terraform lub klonowania istniejącej z kontroli wersji. Można bezpiecznie uruchomić to polecenie wiele razy.
+[Polecenie init Terraform](https://www.terraform.io/docs/commands/init.html) służy do inicjowania katalogu roboczego zawierającego pliki konfiguracji Terraform. `terraform init`Polecenie to pierwsze polecenie, które powinno być uruchamiane po zapisaniu nowej konfiguracji Terraform lub klonowania istniejącej z kontroli wersji. Można bezpiecznie uruchomić to polecenie wiele razy.
 
 ### <a name="terraform-plan"></a>Terraform plan
-Wyświetl podgląd zasobów, które zostaną utworzone przez szablon Terraform za `terraform plan`pomocą programu.
+Wyświetl podgląd zasobów, które zostaną utworzone przez szablon Terraform za pomocą programu `terraform plan` .
 
 ```
 justin@Azure:~$ terraform plan
@@ -129,7 +128,7 @@ can't guarantee that exactly these actions will be performed if
 [Polecenie terraform plan](https://www.terraform.io/docs/commands/plan.html) służy do tworzenia planu wykonania. Terraform wykonuje odświeżanie, chyba że zostanie jawnie wyłączone, a następnie określa, jakie akcje są niezbędne do osiągnięcia żądanego stanu określonego w plikach konfiguracji. Plan może być zapisany przy użyciu, a następnie dostarczany do terraform ma mieć zastosowanie tylko w celu zapewnienia, że wykonywane są tylko wstępnie zaplanowane akcje.
 
 ### <a name="terraform-apply"></a>Terraform apply
-Inicjowanie obsługi administracyjnej zasobów platformy `terraform apply`Azure za pomocą programu.
+Inicjowanie obsługi administracyjnej zasobów platformy Azure za pomocą programu `terraform apply` .
 
 ```
 justin@Azure:~$ terraform apply

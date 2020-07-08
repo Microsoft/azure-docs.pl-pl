@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480457"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
@@ -100,7 +99,7 @@ Aby dołączyć dane z innych obszarów roboczych Log Analytics lub z określone
 
 ### <a name="advanced-analytic-query-settings"></a>Zaawansowane ustawienia zapytania analitycznego
 
-Każda sekcja ma własne ustawienia zaawansowane, które są dostępne w sekcji skoroszyty ![ustawień edytowanie ikon kontrolek](media/vminsights-workbooks/006-settings.png) znajdujących się po prawej stronie przycisku **Dodaj parametry** .
+Każda sekcja ma własne ustawienia zaawansowane, które są dostępne w ![ sekcji skoroszyty ustawień edytowanie ikon kontrolek ](media/vminsights-workbooks/006-settings.png) znajdujących się po prawej stronie przycisku **Dodaj parametry** .
 
 ![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -147,7 +146,7 @@ Poniżej znajduje się przykład danych maszyny wirtualnej, które są ściągan
 
 Parametry skoroszytu umożliwiają zmianę wartości w skoroszycie bez konieczności ręcznej edycji sekcji zapytania lub tekstu. Eliminuje to konieczność zrozumienia bazowego języka zapytań analitycznych i znacząco rozszerza potencjalną grupę raportów opartych na skoroszycie.
 
-Wartości parametrów są zamieniane w kwerendy, tekst lub inne sekcje parametrów przez umieszczenie nazwy parametru w nawiasach klamrowych, na przykład ``{parameterName}``. Nazwy parametrów są ograniczone do podobnych reguł, takich jak identyfikatory JavaScript, znaki alfabetu lub podkreślenia, po których następuje znaki alfanumeryczne lub podkreślenia. Na przykład **a1** jest dozwolony, ale **1a** nie jest dozwolone.
+Wartości parametrów są zamieniane w kwerendy, tekst lub inne sekcje parametrów przez umieszczenie nazwy parametru w nawiasach klamrowych, na przykład ``{parameterName}`` . Nazwy parametrów są ograniczone do podobnych reguł, takich jak identyfikatory JavaScript, znaki alfabetu lub podkreślenia, po których następuje znaki alfanumeryczne lub podkreślenia. Na przykład **a1** jest dozwolony, ale **1a** nie jest dozwolone.
 
 Parametry są liniowe, zaczynając od góry skoroszytu i przepływają w dół do kolejnych kroków.  Parametry zadeklarowane w dalszej części skoroszytu mogą przesłaniać wcześniej zadeklarowane parametry. Umożliwia to również parametry, które używają zapytań do uzyskiwania dostępu do wartości z parametrów zdefiniowanych wcześniej. W samym kroku parametru parametry są również liniowe, od lewej do prawej, gdzie parametry po prawej stronie mogą zależeć od parametru zadeklarowanego wcześniej w tym samym kroku.
  
