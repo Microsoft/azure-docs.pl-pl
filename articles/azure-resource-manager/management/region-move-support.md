@@ -6,12 +6,11 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 71c5c5881ab34dd9bc1a4da9e097b46ec21dcea1
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
-ms.translationtype: MT
+ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124225"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057691"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -256,7 +255,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | oparty | Nie <br/><br/> Usługa Azure Batch AI zostanie [wycofana](https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
+> | oparty | Nie <br/><br/> Usługa Azure Batch AI zostanie [wycofana](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | Nie | 
 > | zadania | Nie | 
 > | obszary robocze | Nie | 
@@ -1011,7 +1010,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | magazynów | Nie.<br/><br/> Przeniesienie Recovery Services magazynów dla Azure Backup w regionach platformy Azure nie jest obsługiwane.<br/><br/> W Recovery Services magazynach Azure Site Recovery można [wyłączyć i utworzyć ponownie magazyn](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) w regionie docelowym. | 
+> | magazynów | Nie.<br/><br/> Przeniesienie Recovery Services magazynów dla Azure Backup w regionach platformy Azure nie jest obsługiwane.<br/><br/> W Recovery Services magazynach Azure Site Recovery można [wyłączyć i utworzyć ponownie magazyn](../../site-recovery/move-vaults-across-regions.md) w regionie docelowym. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay

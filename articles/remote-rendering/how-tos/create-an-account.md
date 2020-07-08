@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844509"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057674"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Tworzenie konta usługi Azure Remote Rendering
 
@@ -28,20 +27,24 @@ Następujące kroki są wymagane do utworzenia konta dla usługi zdalnego render
     1. Ustaw wartość "nazwa zasobu" na nazwę konta
     1. W razie konieczności zaktualizuj element "Subscription"
     1. Ustaw grupę zasobów na wybraną grupę zasobów
+    1. Wybierz region z listy rozwijanej "lokalizacja", w której ma zostać utworzony ten zasób. Zobacz uwagi dotyczące [regionów kont](create-an-account.md#account-regions) poniżej.
 1. Po utworzeniu konta przejdź do niego i:
     1. Na karcie *Przegląd* Zanotuj wartość "Identyfikator konta"
     1. Na karcie *ustawienia > klucze dostępu* Zanotuj klucz podstawowy. to jest klucz konta tajnego konta.
 
+### <a name="account-regions"></a>Regiony konta
+Lokalizacja określona podczas tworzenia konta konta określa region, do którego jest przypisany zasób konta. Nie można go zmienić po utworzeniu. Konto może być jednak używane do nawiązywania połączenia z sesją renderowania zdalnego w dowolnym [obsługiwanym regionie](./../reference/regions.md), niezależnie od lokalizacji konta.
+
 ### <a name="retrieve-the-account-information"></a>Pobierz informacje o koncie
 
-Przykłady i samouczki wymagają podania identyfikatora konta i klucza. Na przykład w pliku **arrconfig. JSON** , który jest używany dla przykładowych skryptów programu PowerShell:
+Przykłady i samouczki wymagają podania identyfikatora konta i klucza. Na przykład w **arrconfig.js** pliku używanym dla przykładowych skryptów programu PowerShell:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 Zapoznaj się z [listą dostępnych regionów](../reference/regions.md) w celu wypełniania opcji *region* .
@@ -89,6 +92,7 @@ Teraz zakładasz, że masz konto magazynu. Przejdź do konta magazynu w portalu 
 > Jeśli konto renderowania zdalnego nie znajduje się na liście, zapoznaj się z [sekcją rozwiązywania problemów](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Powtórz Dodaj nowe role dwa razy dla odpowiednich opcji z listy rozwijanej **rola** :
+
 * **Współautor konta magazynu**
 * **Współautor danych obiektu blob magazynu**
 

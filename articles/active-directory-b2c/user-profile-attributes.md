@@ -11,10 +11,9 @@ ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738561"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
@@ -37,7 +36,7 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](https://docs.
 
 |Nazwa     |Typ     |Opis|Azure Portal|Przepływy użytkowników|Zasady niestandardowe|
 |---------|---------|----------|------------|----------|-------------|
-|accountEnabled  |Wartość logiczna|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Yes|Nie|Utrwalony, wyjściowy|
+|accountEnabled  |Boolean|Niezależnie od tego, czy konto użytkownika jest włączone, czy wyłączone: **prawda** , jeśli konto jest włączone, w przeciwnym razie **false**.|Yes|Nie|Utrwalony, wyjściowy|
 |grupa_wiekowa        |String|Grupa wiekowa użytkownika. Możliwe wartości: null, undefined, moll, dorosły, NotAdult.|Yes|Nie|Utrwalony, wyjściowy|
 |alternativeSecurityId ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|String|Tożsamość pojedynczego użytkownika od zewnętrznego dostawcy tożsamości.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
 |alternativeSecurityIds ([tożsamości](manage-user-accounts-graph-api.md#identities-property))|Alternatywna kolekcja securityId|Kolekcja tożsamości użytkowników od zewnętrznych dostawców tożsamości.|Nie|Nie|Utrwalony, wyjściowy|
@@ -106,9 +105,9 @@ Podczas definiowania właściwości w rozszerzeniu schematu obsługiwane są nas
 
 |Typ właściwości |Uwagi  |
 |--------------|---------|
-|Wartość logiczna    | Możliwe wartości: **true** lub **false**. |
+|Boolean    | Możliwe wartości: **true** lub **false**. |
 |DateTime   | Musi być określony w formacie ISO 8601. Będą przechowywane w formacie UTC.   |
-|Liczba całkowita    | 32 — wartość bitowa.               |
+|Integer    | 32 — wartość bitowa.               |
 |String     | maksymalnie 256 znaków.     |
 
 ## <a name="next-steps"></a>Następne kroki

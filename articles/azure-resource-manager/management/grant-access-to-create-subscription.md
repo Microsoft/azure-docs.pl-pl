@@ -6,16 +6,15 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75478879"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057623"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Udzielanie dostępu do tworzenia subskrypcji platformy Azure Enterprise (wersja zapoznawcza)
 
-Jako klient platformy Azure w [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)można przyznać innemu użytkownikowi lub uprawnienia głównej usługi do tworzenia subskrypcji rozliczanych z Twoim kontem. W tym artykule dowiesz się, jak używać [Access Control opartej na rolach (RBAC)](../../active-directory/role-based-access-control-configure.md) do udostępniania możliwości tworzenia subskrypcji i przeprowadzania inspekcji tworzenia subskrypcji. Musisz mieć rolę właściciela na koncie, które chcesz udostępnić.
+Jako klient platformy Azure w [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)można przyznać innemu użytkownikowi lub uprawnienia głównej usługi do tworzenia subskrypcji rozliczanych z Twoim kontem. W tym artykule dowiesz się, jak używać [Access Control opartej na rolach (RBAC)](../../role-based-access-control/role-assignments-portal.md) do udostępniania możliwości tworzenia subskrypcji i przeprowadzania inspekcji tworzenia subskrypcji. Musisz mieć rolę właściciela na koncie, które chcesz udostępnić.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,9 +59,9 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
     }
     ```
 
-    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do konta SignUpEngineering@contoso.com rejestracji, skopiujesz. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId`.
+    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do SignUpEngineering@contoso.com konta rejestracji, skopiujesz ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId` .
 
-    # <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
     Użyj polecenia cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) , aby wyświetlić listę wszystkich kont rejestracji, do których masz dostęp. Wybierz pozycję **Wypróbuj,** aby otworzyć [Azure Cloud Shell](https://shell.azure.com/). Aby wkleić kod, kliknij prawym przyciskiem myszy okna powłoki i wybierz polecenie **Wklej**.
 
@@ -78,7 +77,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `ObjectId` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do konta SignUpEngineering@contoso.com rejestracji, skopiujesz. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Wklej ten identyfikator obiektu w miejscu, aby można było go użyć w następnym kroku jako `enrollmentAccountObjectId`.
+    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `ObjectId` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do SignUpEngineering@contoso.com konta rejestracji, skopiujesz ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . Wklej ten identyfikator obiektu w miejscu, aby można było go użyć w następnym kroku jako `enrollmentAccountObjectId` .
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -109,14 +108,14 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
     ---
 
-    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do konta SignUpEngineering@contoso.com rejestracji, skopiujesz. ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId`.
+    Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do SignUpEngineering@contoso.com konta rejestracji, skopiujesz ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId` .
 
 1. <a id="userObjectId"></a>Pobierz identyfikator obiektu użytkownika lub grupy, do której chcesz przypisać rolę właściciela RBAC
 
     1. W Azure Portal Wyszukaj **Azure Active Directory**.
     1. Jeśli chcesz udzielić użytkownikowi dostępu, kliknij opcję **Użytkownicy** w menu po lewej stronie. Jeśli chcesz udzielić dostępu do grupy, kliknij przycisk **grupy**.
     1. Wybierz użytkownika lub grupę, do której chcesz przypisać rolę właściciela RBAC.
-    1. W przypadku wybrania użytkownika na stronie profil znajdziesz identyfikator obiektu. Jeśli wybrano grupę, identyfikator obiektu będzie się znajdować na stronie Przegląd. Skopiuj identyfikator **objectid** , klikając ikonę po prawej stronie pola tekstowego. Wklej ten element w miejscu, aby można było go używać w następnym kroku `userObjectId`jako.
+    1. W przypadku wybrania użytkownika na stronie profil znajdziesz identyfikator obiektu. Jeśli wybrano grupę, identyfikator obiektu będzie się znajdować na stronie Przegląd. Skopiuj identyfikator **objectid** , klikając ikonę po prawej stronie pola tekstowego. Wklej ten element w miejscu, aby można było go używać w następnym kroku jako `userObjectId` .
 
 1. Przyznaj użytkownikowi lub grupie rolę właściciela RBAC na koncie rejestracji
 
@@ -124,7 +123,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
-    Uruchom następujące polecenie, zastępując ```<enrollmentAccountObjectId>``` je `name` skopiowanym w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Zamień ```<userObjectId>``` na identyfikator obiektu skopiowanego z drugiego kroku.
+    Uruchom następujące polecenie, zastępując ```<enrollmentAccountObjectId>``` je `name` skopiowanym w pierwszym kroku ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Zamień na ```<userObjectId>``` Identyfikator obiektu skopiowanego z drugiego kroku.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -156,9 +155,9 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
     }
     ```
 
-    # <a name="powershell"></a>[Narzędzia](#tab/azure-powershell-2)
+    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-2)
 
-    Uruchom następujące polecenie [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) , zastępując ```<enrollmentAccountObjectId>``` je `ObjectId` zebranym w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Zamień ```<userObjectId>``` na identyfikator obiektu zebrany w drugim kroku.
+    Uruchom następujące polecenie [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) , zastępując ```<enrollmentAccountObjectId>``` je `ObjectId` zebranym w pierwszym kroku ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Zamień na ```<userObjectId>``` Identyfikator obiektu zebrany w drugim kroku.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -166,7 +165,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-2)
 
-    Uruchom następujące polecenie [AZ role przypisanie Create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) , zastępując ```<enrollmentAccountObjectId>``` je `name` skopiowanym w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Zamień ```<userObjectId>``` na identyfikator obiektu zebrany w drugim kroku.
+    Uruchom następujące polecenie [AZ role przypisanie Create](../../role-based-access-control/role-assignments-cli.md) , zastępując ```<enrollmentAccountObjectId>``` je `name` skopiowanym w pierwszym kroku ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Zamień na ```<userObjectId>``` Identyfikator obiektu zebrany w drugim kroku.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -180,7 +179,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
 Aby śledzić subskrypcje utworzone za pośrednictwem tego interfejsu API, użyj [interfejsu API dziennika aktywności dzierżawcy](/rest/api/monitor/tenantactivitylogs). Nie jest obecnie możliwe używanie programu PowerShell, interfejsu wiersza polecenia lub Azure Portal do śledzenia tworzenia subskrypcji.
 
-1. Jako administrator dzierżawy usługi Azure Active Directory [podnieś poziom dostępu](../../active-directory/role-based-access-control-tenant-admin-access.md), a następnie przypisz rolę Czytelnika dla zakresu `/providers/microsoft.insights/eventtypes/management` do użytkownika wykonującego inspekcję.
+1. Jako administrator dzierżawy usługi Azure Active Directory [podnieś poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md), a następnie przypisz rolę Czytelnika dla zakresu `/providers/microsoft.insights/eventtypes/management` do użytkownika wykonującego inspekcję.
 1. Jako użytkownik inspekcji Wywołaj [interfejs API dziennika aktywności dzierżawców](/rest/api/monitor/tenantactivitylogs) , aby zobaczyć działania związane z tworzeniem subskrypcji. Przykład:
 
     ```

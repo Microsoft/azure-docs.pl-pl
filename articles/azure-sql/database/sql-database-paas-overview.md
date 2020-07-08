@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
 ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343255"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
@@ -111,7 +110,7 @@ Strefy dostępności platformy Azure próbuje chronić przed awarią pojedynczeg
 
 W rzeczywistości umowa dotycząca poziomu usług [(SLA)](https://azure.microsoft.com/support/legal/sla/) platformy Azure, obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić, że aplikacja działa 24/7. Platforma Azure w pełni zarządza każdą bazą danych i nie gwarantuje utraty danych i dużej wartości procentowej dostępności danych. Platforma Azure automatycznie obsługuje stosowanie poprawek, kopii zapasowych, replikacji, wykrywania awarii, bazowego potencjalnego sprzętu, błędów oprogramowania lub sieci, wdrażania poprawek błędów, przełączeń do trybu failover, uaktualnień baz danych i innych zadań konserwacyjnych. Dostępność w warstwie Standardowa jest osiągana przez oddzielenie warstw obliczeń i magazynu. Dostępność w warstwie Premium uzyskuje się przez integrację zasobów obliczeniowych i magazynu w jednym węźle w celu uzyskania wydajności, a następnie zaimplementowanie technologii podobnej do zawsze dostępnych grup dostępności. Pełne omówienie możliwości wysokiej dostępności Azure SQL Database można znaleźć w temacie [SQL Database Availability (dostępność](high-availability-sla.md)). 
 
-Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Należą do nich:
+Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Są to moduły:
 
 - [Automatyczne kopie zapasowe](automated-backups-overview.md):
 
@@ -198,7 +197,7 @@ Dzięki usłudze SQL Database tworzenie i konserwowanie aplikacji jest łatwiejs
 |[Narzędzia danych SQL Server w programie Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, baz danych w Azure SQL Database, pakietów usług Integration Services, Analysis Services modeli danych i raportów usług Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i Azure SQL Data Warehouse.|
 
-SQL Database obsługuje Kompilowanie aplikacji za pomocą języków Python, Java, Node. js, PHP, Ruby i .NET w systemach macOS, Linux i Windows. Usługa SQL Database obsługuje te same [biblioteki połączeń](connect-query-content-reference-guide.md#libraries) co program SQL Server.
+SQL Database obsługuje Kompilowanie aplikacji za pomocą języków Python, Java, Node.js, PHP, Ruby i .NET w systemach macOS, Linux i Windows. Usługa SQL Database obsługuje te same [biblioteki połączeń](connect-query-content-reference-guide.md#libraries) co program SQL Server.
 
 [!INCLUDE [sql-database-create-manage-portal](../includes/sql-database-create-manage-portal.md)]
 

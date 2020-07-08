@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443404"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
@@ -67,7 +66,7 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
    d. Ustaw **system operacyjny** zgodnie z typem obrazu podstawowego wybranego podczas tworzenia laboratorium.  
    e. Ustaw zestaw **narzędzi cuda** na wymaganą wersję sterownika cuda.  
    f. Wybierz pozycję **Wyszukaj** , aby wyszukać sterowniki.  
-   g. Wybierz pozycję **Pobierz** , aby pobrać Instalatora.  
+   przykład Wybierz pozycję **Pobierz** , aby pobrać Instalatora.  
    h. Uruchom Instalatora, aby zainstalować sterowniki na maszynie wirtualnej z szablonem.  
 1. Sprawdź, czy sterowniki są poprawnie zainstalowane, postępując zgodnie z instrukcjami w sekcji [Sprawdzanie zainstalowanych sterowników](how-to-setup-lab-gpu.md#validate-the-installed-drivers) . 
 1. Po zainstalowaniu sterowników i innego oprogramowania, które są wymagane dla danej klasy, wybierz pozycję **Publikuj** , aby utworzyć maszyny wirtualne uczniów.

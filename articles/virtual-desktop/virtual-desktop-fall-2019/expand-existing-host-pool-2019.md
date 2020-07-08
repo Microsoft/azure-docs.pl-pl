@@ -9,10 +9,9 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214285"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
@@ -76,7 +75,7 @@ Oto jak ponownie wdrożyć szablon Azure Resource Manager, aby rozszerzyć pulę
 
 Postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów za pomocą witryny Azure Marketplace](create-host-pools-azure-marketplace-2019.md) do momentu osiągnięcia [oferty usługi Azure Marketplace w celu aprowizacji nowej puli hostów](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Po uzyskaniu tego punktu należy wprowadzić następujące informacje dla każdej karty:
 
-### <a name="basics"></a>Podstawy
+### <a name="basics"></a>Informacje podstawowe
 
 Wszystkie wartości w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji, z wyjątkiem *domyślnego użytkownika pulpitu*:
 

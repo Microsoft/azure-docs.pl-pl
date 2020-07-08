@@ -1,5 +1,5 @@
 ---
-title: Importowanie wyrażenia długości przy użyciu środowiska Node. js-LUIS
+title: Importowanie wyrażenia długości przy użyciu polecenia Node.js-LUIS
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak utworzyć aplikację LUIS programowo z istniejących danych w formacie CSV przy użyciu interfejsu API tworzenia LUIS.
 services: cognitive-services
@@ -11,14 +11,13 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7b9646f2bab4c17449c6683ae7924af87b184167
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340185"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057742"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Programistyczne tworzenie aplikacji LUIS przy użyciu środowiska Node. js
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Programistyczne Kompilowanie aplikacji LUIS przy użyciu Node.js
 
 Usługa LUIS udostępnia programistyczny interfejs API, który robi wszystko, co witryna sieci Web [Luis](luis-reference-regions.md) . Pozwala to zaoszczędzić czas, gdy masz wstępnie istniejące dane i szybciej utworzyć aplikację LUIS programowo niż przez wprowadzanie informacji.
 
@@ -26,10 +25,10 @@ Usługa LUIS udostępnia programistyczny interfejs API, który robi wszystko, co
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zaloguj się do witryny sieci Web [Luis](luis-reference-regions.md) i Znajdź swój [klucz tworzenia](luis-concept-keys.md#authoring-key) w ustawieniach konta. Ten klucz służy do wywoływania interfejsów API tworzenia.
+* Zaloguj się do witryny sieci Web [Luis](luis-reference-regions.md) i Znajdź swój [klucz tworzenia](luis-how-to-azure-subscription.md#authoring-key) w ustawieniach konta. Ten klucz służy do wywoływania interfejsów API tworzenia.
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ten artykuł rozpoczyna się od pliku CSV dla hipotetycznych plików dziennika żądań użytkowników. Pobierz je [tutaj](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* Zainstaluj najnowszą wersję środowiska Node. js z NPM. Pobierz go [stąd](https://nodejs.org/en/download/).
+* Zainstaluj najnowszą Node.js z NPM. Pobierz go [stąd](https://nodejs.org/en/download/).
 * **[Zalecane]** Visual Studio Code do IntelliSense i debugowania, pobierz ją z tego [miejsca](https://code.visualstudio.com/) bezpłatnie.
 
 Cały kod w tym artykule jest dostępny w [repozytorium Azure-samples Language Understanding GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
@@ -118,17 +117,17 @@ Po zdefiniowaniu jednostek i intencji w aplikacji LUIS można dodać wyrażenia 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
 
-### <a name="install-nodejs-dependencies"></a>Zainstaluj zależności Node. js
-Zainstaluj zależności Node. js z NPM w terminalu/wierszu polecenia.
+### <a name="install-nodejs-dependencies"></a>Zainstaluj zależności Node.js
+Zainstaluj zależności Node.js z NPM w terminalu/wierszu polecenia.
 
 ```console
 > npm install
 ```
 
 ### <a name="change-configuration-settings"></a>Zmień ustawienia konfiguracji
-Aby można było korzystać z tej aplikacji, należy zmienić wartości w pliku index. js na własny klucz punktu końcowego i podać nazwę, która ma mieć aplikacja. Możesz również ustawić kulturę aplikacji lub zmienić numer wersji.
+Aby można było korzystać z tej aplikacji, należy zmienić wartości w pliku index.js na własny klucz punktu końcowego i podać nazwę, która ma mieć aplikacja. Możesz również ustawić kulturę aplikacji lub zmienić numer wersji.
 
-Otwórz plik index. js i Zmień te wartości w górnej części pliku.
+Otwórz plik index.js i Zmień te wartości w górnej części pliku.
 
 
 ```javascript
@@ -140,7 +139,7 @@ const LUIS_versionId = "0.1";
 ```
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
-Uruchom skrypt z terminalu/wiersza polecenia przy użyciu środowiska Node. js.
+Uruchom skrypt z terminalu/wiersza polecenia z Node.js.
 
 ```console
 > node index.js

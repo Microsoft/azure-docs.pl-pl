@@ -9,10 +9,9 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85242158"
 ---
 | Zasób | Podstawowa | Standardowa (Standard) | Premium |
@@ -25,11 +24,11 @@ ms.locfileid: "85242158"
 | Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
 | Przepustowość przekazywania<sup>2</sup> MB/s | 10 | 20 | 50 |
 | Elementy webhook | 2 | 10 | 500 |
-| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwał][geo-replication] |
-| Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwał][content-trust] |
-| Prywatny link z prywatnymi punktami końcowymi | Nie dotyczy | Nie dotyczy | [Obsługiwał][plink] |
+| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwane][geo-replication] |
+| Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwane][content-trust] |
+| Prywatny link z prywatnymi punktami końcowymi | Nie dotyczy | Nie dotyczy | [Obsługiwane][plink] |
 | Dostęp do sieci wirtualnej punktu końcowego usługi | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][vnet] |
-| Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Obsługiwał][cmk] |
+| Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Obsługiwane][cmk] |
 | Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][token]|
 | &bull;Żeton | Nie dotyczy | Nie dotyczy | 20 000 |
 | &bull;Mapy zakresu | Nie dotyczy | Nie dotyczy | 20 000 |

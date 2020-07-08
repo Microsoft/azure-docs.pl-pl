@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445002"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Konfigurowanie laboratorium do uczenia programu MATLAB
@@ -34,7 +33,7 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Aby utworzyć nowe laboratorium, postępuj zgodnie z [samouczkiem dotyczącym laboratorium zajęć](tutorial-setup-classroom-lab.md).  Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Image (Obraz) |
+| Rozmiar maszyny wirtualnej | Obraz |
 | -------------------- | ----- |
 | Średniaa | Windows 10 |
 

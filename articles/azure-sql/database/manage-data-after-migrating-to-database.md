@@ -13,10 +13,9 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249282"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
@@ -65,7 +64,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 
 |Warstwa usług|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowa|7|
+|Podstawowy|7|
 |Standardowa (Standard)|35|
 |Premium|35|
 |||
@@ -125,7 +124,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>Zapora
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -214,7 +213,7 @@ Na poniższym diagramie przedstawiono opcje magazynu kluczy dla kluczy głównyc
 Ruch sieciowy między organizacją a SQL Database będzie ogólnie kierowany przez sieć publiczną. Jeśli jednak zdecydujesz się zoptymalizować tę ścieżkę i zwiększyć jej bezpieczeństwo, możesz przyjrzeć się do usługi Azure ExpressRoute. ExpressRoute pozwala na przełączenie sieci firmowej na platformę Azure za pośrednictwem połączenia prywatnego. Dzięki temu nie możesz przejść przez publiczny Internet. Uzyskuje się również wyższe zabezpieczenia, niezawodność i optymalizację routingu, które tłumaczą się na mniejsze opóźnienia sieci i znacznie szybciej niż zwykle w przypadku korzystania z publicznej sieci Internet. Jeśli planujesz transfer znaczących fragmentów danych między organizacją i platformą Azure, korzystanie z usługi ExpressRoute może przynieść oszczędności kosztów. Możesz wybrać spośród trzech różnych modeli łączności dla połączenia z organizacji do platformy Azure:
 
 - [Współpraca między lokacjami w chmurze](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Dowolny z](../../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Dowolny z dowolnym](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Punkt-punkt](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 ExpressRoute umożliwia również przekroczenie limitu liczby przydziałów przepustowości, która nie ma dodatkowej opłaty. Istnieje również możliwość skonfigurowania łączności między regionami przy użyciu ExpressRoute. Aby wyświetlić listę dostawców połączeń ExpressRoute, zobacz: [partnerzy ExpressRoute i lokalizacje komunikacji równorzędnej](../../expressroute/expressroute-locations.md). W poniższych artykułach szczegółowo opisano trasę Express:

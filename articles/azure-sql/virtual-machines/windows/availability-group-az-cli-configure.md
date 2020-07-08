@@ -14,10 +14,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3366438012ecc3395e7f4ae3774316ef1ddcd3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669345"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Użyj interfejsu wiersza polecenia platformy Azure, aby skonfigurować zawsze włączona Grupa dostępności dla SQL Server na maszynie wirtualnej platformy Azure
@@ -128,7 +127,7 @@ Po ręcznym utworzeniu grupy dostępności odbiornik można utworzyć za pomocą
    1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com). 
    1. Wybierz zasób sieci wirtualnej. 
    1. W okienku **Ustawienia** wybierz pozycję **Właściwości** . 
-   1. Zidentyfikuj identyfikator zasobu dla sieci wirtualnej i Dołącz `/subnets/<subnetname>` go do końca, aby utworzyć identyfikator zasobu podsieci. Na przykład:
+   1. Zidentyfikuj identyfikator zasobu dla sieci wirtualnej i Dołącz `/subnets/<subnetname>` go do końca, aby utworzyć identyfikator zasobu podsieci. Przykład:
       - Identyfikator zasobu sieci wirtualnej to:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - Nazwa podsieci:`default`
       - W związku z tym identyfikator zasobu podsieci:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

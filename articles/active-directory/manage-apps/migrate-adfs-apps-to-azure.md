@@ -14,12 +14,11 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03fe49456ac49e0e81c108198584a2c4d8eab884
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608555"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
 
@@ -398,7 +397,7 @@ Aby zaimplementować wbudowane zasady w usłudze Azure AD, można użyć [nowych
 W tej tabeli wymieniono niektóre użyteczne zezwolenia i opcje, z wyjątkiem opcji i sposobu mapowania na usługę Azure AD. 
 
 
-| | Jak skonfigurować opcję zezwalania w usłudze Azure AD?| Jak skonfigurować opcję oprócz opcji w usłudze Azure AD? |
+| Opcja | Jak skonfigurować opcję zezwalania w usłudze Azure AD?| Jak skonfigurować opcję oprócz opcji w usłudze Azure AD? |
 | - | - | - |
 | Z określonych sieci| Mapowanie do [nazwanej lokalizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) w usłudze Azure AD| Użyj opcji **exclude** dla [zaufanych lokalizacji](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | Z określonych grupy| [Ustawianie przypisania użytkownika/grup](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Użyj opcji **Wyklucz** w obszarze Użytkownicy i grupy |
@@ -463,7 +462,7 @@ W zależności od sposobu skonfigurowania aplikacji Sprawdź, czy logowanie jedn
 ‎ |
 | Logowanie jednokrotne oparte na hasłach| Pobierz i zainstaluj rozszerzenie " [bezpieczne logowanie do aplikacji](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)" [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). To rozszerzenie ułatwia rozpoczęcie pracy z aplikacjami w chmurze w organizacji, które wymagają korzystania z procesu rejestracji jednokrotnej.  
 ‎ |
-| Serwer proxy aplikacji| Upewnij się, że łącznik jest uruchomiony i przypisany do aplikacji. Więcej informacji można znaleźć w[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) [przewodniku rozwiązywania problemów z serwerem proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) .  
+| Serwer proxy aplikacji| Upewnij się, że łącznik jest uruchomiony i przypisany do aplikacji. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów z serwerem proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) .  
 ‎ |
 
 > [!NOTE]

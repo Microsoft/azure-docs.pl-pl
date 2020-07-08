@@ -5,12 +5,11 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726846"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956665"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -28,8 +27,8 @@ W tym przykładzie utworzymy potok kompilacji i wydania w celu wdrożenia infras
 
 Aby wykonać kroki opisane w tym artykule, potrzebna jest organizacja usługi Azure DevOps i projekt zespołowy.
 
-* [Tworzenie organizacji usługi Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Tworzenie projektu na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Tworzenie organizacji usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* [Tworzenie projektu na platformie Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>Kontrola źródła dla danego środowiska
 
@@ -48,7 +47,7 @@ Struktura codebase użyta w tym przykładzie jest podobna do następującej:
 
 W tej sekcji założono, że znasz kontrolę wersji i projektujesz szablony Menedżer zasobów. Jeśli nie znasz tych pojęć, zobacz następujące strony, aby uzyskać więcej informacji.
 
-* [Co to jest kontrola źródła?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
+* [Co to jest kontrola źródła?](/azure/devops/user-guide/source-control?view=azure-devops)
 * [Understand the structure and syntax of Azure Resource Manager Templates (Omówienie struktury i składni szablonów usługi Azure Resource Manager)](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
@@ -58,11 +57,11 @@ Ten przykład wykorzystuje wiele szablonów Menedżer zasobów do wdrożenia nas
 * Podstawowymi szablonami możliwości mogą być pojedyncze testy jednostkowe.
 * Podstawowe szablony możliwości można definiować jako standardowe wewnątrz organizacji i być ponownie używane w wielu rozwiązaniach.
 
-W tym przykładzie istnieje szablon kompleksowego rozwiązania (Deployment. JSON), który wdraża trzy szablony. Podstawowe szablony są szablonami możliwości odpowiedzialnymi za wdrażanie określonego aspektu rozwiązania.
+W tym przykładzie istnieje szablon kompleksowego rozwiązania (deployment.json), który wdraża trzy szablony. Podstawowe szablony są szablonami możliwości odpowiedzialnymi za wdrażanie określonego aspektu rozwiązania.
 
 ![Przykład struktury połączonego szablonu przy użyciu szablonów Azure Resource Manager](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
-Pierwszy szablon, który będzie wyglądał dla konta usługi Azure Storage. Nasze rozwiązanie wymaga konta magazynu do wdrożenia aplikacji na naszym koncie w usłudze Batch. Podczas kompilowania szablonów Menedżer zasobów dla kont magazynu warto pamiętać o [Menedżer zasobów przewodniku odwołania do szablonów dla typów zasobów Microsoft. Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) .
+Pierwszy szablon, który będzie wyglądał dla konta usługi Azure Storage. Nasze rozwiązanie wymaga konta magazynu do wdrożenia aplikacji na naszym koncie w usłudze Batch. Podczas kompilowania szablonów Menedżer zasobów dla kont magazynu warto pamiętać o [Menedżer zasobów przewodniku odwołania do szablonów dla typów zasobów Microsoft. Storage](/azure/templates/microsoft.storage/allversions) .
 
 ```json
 {
@@ -102,7 +101,7 @@ Pierwszy szablon, który będzie wyglądał dla konta usługi Azure Storage. Nas
 }
 ```
 
-Następnie sprawdzimy szablon konta Azure Batch. Konto Azure Batch działa jako platforma do uruchamiania wielu aplikacji w pulach (grupowanie maszyn). Warto pamiętać, że podczas kompilowania szablonów Menedżer zasobów dla kont usługi Batch [Menedżer zasobów Przewodnik referencyjny szablonów dla Microsoft. Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) .
+Następnie sprawdzimy szablon konta Azure Batch. Konto Azure Batch działa jako platforma do uruchamiania wielu aplikacji w pulach (grupowanie maszyn). W przypadku tworzenia szablonów Menedżer zasobów dla kont usługi Batch warto pamiętać o [Menedżer zasobów przewodniku odwoływania szablonów dla Microsoft.Batch](/azure/templates/microsoft.batch/allversions) .
 
 ```json
 {
@@ -141,7 +140,7 @@ Następnie sprawdzimy szablon konta Azure Batch. Konto Azure Batch działa jako 
 }
 ```
 
-Następny szablon pokazuje przykład tworzenia puli Azure Batch (maszyny zaplecza do przetwarzania aplikacji). Warto pamiętać, że podczas kompilowania szablonów Menedżer zasobów dla pul kont usługi Batch jest uwzględniana [Przewodnik referencyjny szablonu Menedżer zasobów dla typów zasobów Microsoft. Batch](https://docs.microsoft.com/azure/templates/microsoft.batch/allversions) .
+Następny szablon pokazuje przykład tworzenia puli Azure Batch (maszyny zaplecza do przetwarzania aplikacji). W przypadku tworzenia szablonów Menedżer zasobów dla pul kont usługi Batch warto pamiętać o [Menedżer zasobów przewodniku odwoływania szablonów dla Microsoft.Batch](/azure/templates/microsoft.batch/allversions) .
 
 ```json
 {
@@ -309,7 +308,7 @@ Teraz, gdy kod źródłowy został skonfigurowany, możemy rozpocząć pierwszą
 
 ## <a name="continuous-integration"></a>Ciągła integracja
 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=azure-devops), w Azure DevOps Services, pomaga zaimplementować potok kompilacji, testowania i wdrażania aplikacji.
+[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), w Azure DevOps Services, pomaga zaimplementować potok kompilacji, testowania i wdrażania aplikacji.
 
 Na tym etapie potoku testy są zwykle uruchamiane w celu weryfikacji kodu i tworzenia odpowiednich fragmentów oprogramowania. Liczba i typy testów oraz wszelkie dodatkowe zadania, które są uruchamiane, zależą od szerszej strategii kompilowania i wydawania.
 
@@ -323,9 +322,9 @@ W tym przykładzie nastąpi skoncentrowanie na folderze **HPC-Application** . **
 
 1. Do utworzenia potoku kompilacji są dostępne dwie opcje:
 
-    a. [Przy użyciu projektanta wizualnego](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Aby użyć tego polecenia, kliknij pozycję "Użyj projektanta wizualizacji" na stronie **Nowy potok** .
+    a. [Przy użyciu projektanta wizualnego](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Aby użyć tego polecenia, kliknij pozycję "Użyj projektanta wizualizacji" na stronie **Nowy potok** .
 
-    b. [Korzystanie z kompilacji YAML](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=azure-devops). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
+    b. [Korzystanie z kompilacji YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,11 +356,11 @@ W tym przykładzie nastąpi skoncentrowanie na folderze **HPC-Application** . **
     ![Wyświetlanie danych wyjściowych na żywo z kompilacji](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Jeśli używasz aplikacji klienckiej do wykonywania aplikacji wsadowej HPC, musisz utworzyć oddzielną definicję kompilacji dla tej aplikacji. W dokumentacji [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) można znaleźć kilka przewodników związanych z założeniami.
+> Jeśli używasz aplikacji klienckiej do wykonywania aplikacji wsadowej HPC, musisz utworzyć oddzielną definicję kompilacji dla tej aplikacji. W dokumentacji [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops) można znaleźć kilka przewodników związanych z założeniami.
 
 ## <a name="continuous-deployment"></a>Ciągłe wdrażanie
 
-Azure Pipelines również używany do wdrażania aplikacji i podstawowej infrastruktury. [Potoki wersji](https://docs.microsoft.com/azure/devops/pipelines/release) to składnik, który umożliwia ciągłe wdrażanie i automatyzuje proces tworzenia wersji.
+Azure Pipelines również używany do wdrażania aplikacji i podstawowej infrastruktury. [Potoki wersji](/azure/devops/pipelines/release) to składnik, który umożliwia ciągłe wdrażanie i automatyzuje proces tworzenia wersji.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Wdrażanie aplikacji i podstawowej infrastruktury
 
@@ -416,7 +415,7 @@ Istnieje kilka kroków związanych z wdrażaniem infrastruktury. W przypadku uż
     * **Akcja**: Utwórz lub Zaktualizuj grupę zasobów
     * **Grupa zasobów**: $ (resourceGroupName)
     * **Lokalizacja**: $ (lokalizacja)
-    * **Szablon**: $ (System. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/ARM-templates/storageAccount.JSON
+    * **Szablon**: $ (System. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/ARM-templates/storageAccount.json
     * **Przesłoń parametry szablonu**:-AccountName $ (storageAccountName)
 
 1. Przekaż artefakty z kontroli źródła do konta magazynu. Istnieje zadanie potoku platformy Azure do wykonania tej akcji. W ramach tego zadania, adres URL kontenera konta magazynu i token sygnatury dostępu współdzielonego można wypróbować do zmiennej w Azure Pipelines. Oznacza to, że można go ponownie wykorzystać w ramach tej fazy agenta.
@@ -439,7 +438,7 @@ Istnieje kilka kroków związanych z wdrażaniem infrastruktury. W przypadku uż
     * **Akcja**: Utwórz lub Zaktualizuj grupę zasobów
     * **Grupa zasobów**: $ (resourceGroupName)
     * **Lokalizacja**: $ (lokalizacja)
-    * **Szablon**: $ (System. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/ARM-templates/Deployment.JSON
+    * **Szablon**: $ (System. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/ARM-templates/deployment.json
     * **Przesłoń parametry szablonu**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Typowym sposobem jest użycie zadań Azure Key Vault. Jeśli nazwa główna usługi (połączenie z subskrypcją platformy Azure) ma odpowiednie zasady dostępu, można pobrać klucze tajne z Azure Key Vault i używać ich jako zmiennych w potoku. Nazwa wpisu tajnego zostanie ustawiona z skojarzoną wartością. Na przykład wpis tajny sshPassword może być przywoływany przy użyciu $ (sshPassword) w definicji wydania.

@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: ff996a096cddbb85f1e1c84cd051c18a7ab4ad79
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444985"
 ---
 # <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Skonfiguruj laboratorium, aby nauczyć się opracowywania aplikacji mobilnych dla danych za pomocą Android Studio
@@ -23,7 +22,7 @@ Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskryp
 
 Postępuj zgodnie z [samouczkiem Konfigurowanie laboratorium klasy](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium, a następnie Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Image (Obraz) |
+| Rozmiar maszyny wirtualnej | Obraz |
 | -------------------- | ----- |
 | Średni (Wirtualizacja zagnieżdżona) | Windows Server 2019 Datacenter |
 

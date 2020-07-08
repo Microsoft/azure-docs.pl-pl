@@ -15,10 +15,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8b16551abf5b52a9b848988a50fe556d364907b2
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669294"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
@@ -56,7 +55,7 @@ Podczas tworzenia maszyny wirtualnej SQL Server można wybrać jeden z kilku wst
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 
 ## <a name="1-configure-basic-settings"></a>1. Skonfiguruj ustawienia podstawowe
@@ -136,7 +135,7 @@ Na karcie **monitorowanie** Skonfiguruj monitorowanie i automatyczne zamykanie.
 Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymalizacje dla SQL Server. Dla SQL Server można skonfigurować następujące ustawienia:
 
 - [Połączenia](#connectivity)
-- [Uwierzytelnianie](#authentication)
+- [Authentication](#authentication)
 - [Integracja magazynu kluczy Azure](#azure-key-vault-integration)
 - [Konfiguracja magazynu](#storage-configuration)
 - [Automatyczne stosowanie poprawek](#automated-patching)
@@ -162,7 +161,7 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 
 Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Wszystkie opcje są zabezpieczane za pomocą reguł grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) i uwierzytelniania SQL/systemu Windows. Po utworzeniu maszyny wirtualnej można edytować sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](security-considerations-best-practices.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Jeśli wymagane jest uwierzytelnianie SQL Server, wybierz pozycję **Włącz** w obszarze **uwierzytelnianie SQL** na karcie **Ustawienia SQL Server** .
 
