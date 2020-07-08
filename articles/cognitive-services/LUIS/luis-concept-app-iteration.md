@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/06/2020
 ms.author: diberry
-ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683111"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057878"
 ---
 # <a name="iterative-app-design-for-luis"></a>Projekt aplikacji iteracyjnej dla LUIS
 
 Aplikacja Language Understanding (LUIS) uczy się i wydajniej wykonuje iteracje. Oto typowy cykl iteracji:
 
 * Utwórz nową wersję
-* Edytuj schemat aplikacji LUIS. Obejmuje to:
+* Edytuj schemat aplikacji LUIS. Obejmuje on:
     * Intencje z przykładem wyrażenia długości
     * Jednostki
     * Funkcje
@@ -107,11 +107,22 @@ Możesz publikować na etapie i/lub w gniazdach produkcyjnych. Każde gniazdo mo
 
 Przeszkolone wersje nie są automatycznie dostępne w [punkcie końcowym](luis-glossary.md#endpoint)aplikacji Luis. Musisz [opublikować](luis-how-to-publish-app.md) lub ponownie opublikować wersję, aby była dostępna w punkcie końcowym aplikacji Luis. Możesz publikować w ramach **przemieszczania** i **produkcji**, udostępniając dwie wersje aplikacji dostępnych w punkcie końcowym. Jeśli więcej wersji aplikacji musi być dostępnych w punkcie końcowym, należy wyeksportować wersję i ponownie zaimportować ją do nowej aplikacji. Nowa aplikacja ma inny identyfikator aplikacji.
 
-### <a name="import-and-export-a-version"></a>Importowanie i eksportowanie wersji
+### <a name="import-a-version"></a>Importuj wersję
 
-Wersję można zaimportować na poziomie aplikacji. Ta wersja jest wersją aktywną i używa identyfikatora wersji we `versionId` właściwości pliku aplikacji. Możesz również zaimportować do istniejącej aplikacji na poziomie wersji. Nowa wersja zostanie uaktywniona.
+Wersję można **zaimportować** jako nową:
+* Aplikacja z nowym IDENTYFIKATORem aplikacji
+* Wersja istniejącej aplikacji
 
-Wersję można wyeksportować również na poziomie aplikacji lub wersji. Jedyną różnicą jest to, że wersja wyeksportowana na poziomie aplikacji jest obecnie aktywna, a na poziomie wersji można wybrać dowolną wersję do eksportowania na stronie **[Ustawienia](luis-how-to-manage-versions.md)** .
+Ta wersja jest wersją aktywną i używa identyfikatora wersji we `versionId` właściwości pliku aplikacji.
+
+### <a name="export-a-version"></a>Eksportowanie wersji
+
+Wersję można **wyeksportować** z portalu Luis na poziomie aplikacji lub wersji:
+
+* Poziom aplikacji — wybierz pozycję Aplikacja na stronie **Moje aplikacje** , a następnie wybierz pozycję **Eksportuj** .
+* Poziom wersji — wybierz link aplikacji na stronie **Moje aplikacje** , wybierz pozycję **Zarządzaj**, wybierz pozycję **wersje**
+
+Jedyną różnicą jest to, że poziom aplikacji, wyeksportowana wersja jest aktualnie aktywna wersja na poziomie wersji, można wybrać dowolną wersję do eksportowania na stronie **[Ustawienia](luis-how-to-manage-versions.md)** .
 
 Wyeksportowany plik **nie** zawiera:
 
@@ -132,7 +143,7 @@ Zacznij od [klonowania](luis-how-to-manage-versions.md#clone-a-version) z wersji
 
 Każdy autor wprowadza zmiany w swojej wersji aplikacji. Gdy autor jest zadowolony z modelu, wyeksportuj nowe wersje do plików JSON.
 
-Wyeksportowane aplikacje (pliki JSON lub Lu) można porównać ze zmianami. Połącz pliki, aby utworzyć jeden plik nowej wersji. Zmień właściwość tak, `versionId` Aby oznacza nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji.
+Wyeksportowane aplikacje `.json` lub `.lu` pliki można porównać ze zmianami. Połącz pliki, aby utworzyć jeden plik nowej wersji. Zmień właściwość tak, `versionId` Aby oznacza nową scaloną wersję. Zaimportuj tę wersję do oryginalnej aplikacji.
 
 Ta metoda umożliwia posiadanie jednej aktywnej wersji, jednej wersji etapu i jednej opublikowanej wersji. Wyniki aktywnej wersji można porównać z opublikowaną wersją (etap lub produkcja) w [okienku testowanie interaktywne](luis-interactive-test.md).
 
@@ -150,4 +161,4 @@ Po zakończeniu cyklu iteracji można powtórzyć ten proces. Zacznij od [przejr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z pojęciami dotyczącymi [współpracy](luis-concept-keys.md).
+Zapoznaj się z pojęciami dotyczącymi [współpracy](luis-how-to-azure-subscription.md).

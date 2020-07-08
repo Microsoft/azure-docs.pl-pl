@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74900300"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058014"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics 
 ## <a name="overview"></a>Omówienie
@@ -38,7 +38,7 @@ Spowoduje to wygenerowanie redagowane MP4 automatycznie bez żadnych ręcznych d
 | --- | --- | --- |
 | Zasób wejściowy |foo. bar |Wideo w formacie WMV, MOV lub MP4 |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "połączony"}} |
-| Wyjściowy element zawartości |foo_redacted. mp4 |Film wideo z zastosowanym rozmyciem |
+| Wyjściowy element zawartości |foo_redacted.mp4 |Film wideo z zastosowanym rozmyciem |
 
 #### <a name="input-example"></a>Przykład danych wejściowych:
 [Obejrzyj to wideo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
@@ -53,8 +53,8 @@ Spowoduje to wygenerowanie redagowane MP4 automatycznie bez żadnych ręcznych d
 | --- | --- | --- |
 | Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4 |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Analizuj"}} |
-| Wyjściowy element zawartości |plik foo_annotations. JSON |Dane adnotacji lokalizacji czołowych w formacie JSON. Może to być edytowane przez użytkownika w celu zmodyfikowania pól związanych z rozmyciem. Zobacz przykład poniżej. |
-| Wyjściowy element zawartości |foo_thumb %0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |Przycięta jpg każdej wykrytej klasy, gdzie liczba wskazuje labelId |
+| Wyjściowy element zawartości |foo_annotations.jsna |Dane adnotacji lokalizacji czołowych w formacie JSON. Może to być edytowane przez użytkownika w celu zmodyfikowania pól związanych z rozmyciem. Zobacz przykład poniżej. |
+| Wyjściowy element zawartości |foo_thumb% 06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Przycięta jpg każdej wykrytej klasy, gdzie liczba wskazuje labelId |
 
 #### <a name="output-example"></a>Przykładowe dane wyjściowe:
 
@@ -117,21 +117,23 @@ Dane wyjściowe z przebiegu analizy nie obejmują oryginalnego wideo. Film wideo
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
 | Zasób wejściowy |foo. bar |Wideo w formacie WMV, MPV lub MP4. To samo wideo jak w kroku 1. |
-| Zasób wejściowy |plik foo_annotations. JSON |plik metadanych adnotacji z fazy pierwszej, z opcjonalnymi modyfikacjami. |
-| Zasób wejściowy |foo_IDList. txt (opcjonalnie) |Opcjonalna lista oddzielonych od nowa linia identyfikatorów kroju do redagowania. Jeśli pole pozostanie puste, rozmycie wszystkie twarze. |
+| Zasób wejściowy |foo_annotations.jsna |plik metadanych adnotacji z fazy pierwszej, z opcjonalnymi modyfikacjami. |
+| Zasób wejściowy |foo_IDList.txt (opcjonalnie) |Opcjonalna lista oddzielonych od nowa linia identyfikatorów kroju do redagowania. Jeśli pole pozostanie puste, rozmycie wszystkie twarze. |
 | Konfiguracja wejściowa |Ustawienie wstępne konfiguracji zadania |{"Version": "1.0", "Options": {"Mode": "Zredaguj"}} |
-| Wyjściowy element zawartości |foo_redacted. mp4 |Wideo z rozmyciem stosowane na podstawie adnotacji |
+| Wyjściowy element zawartości |foo_redacted.mp4 |Wideo z rozmyciem stosowane na podstawie adnotacji |
 
 #### <a name="example-output"></a>Przykładowe dane wyjściowe
 Jest to wyjście z IDList z wybranym IDENTYFIKATORem.
 
 [Obejrzyj to wideo](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Przykład foo_IDList. txt
+Przykład foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## <a name="blur-types"></a>Typy rozmycia
 
@@ -153,9 +155,9 @@ Przykłady typów rozmycia można znaleźć poniżej.
 
 ![Komitetem](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Wysoka
+#### <a name="high"></a>Wysoki
 
-![Wysoka](./media/media-services-face-redaction/blur3.png)
+![Wysoki](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 
@@ -367,10 +369,10 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Powiązane linki
+## <a name="related-links"></a>Linki pokrewne
 [Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

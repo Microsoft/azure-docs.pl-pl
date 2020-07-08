@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 0f01da074423a45b30e6c386852e88798e55938b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888795"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057555"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określaj
 
      ![Utwórz grupę zasobów](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Wybieranie opcji **Recenzja + tworzenie**
-6. Wybierz przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka sekund.
+6. Wybierz pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka sekund.
 7. Wybierz pozycję **Odśwież** z górnego menu, aby odświeżyć listę grup zasobów, a następnie wybierz nowo utworzoną grupę zasobów, aby ją otworzyć. Lub wybierz pozycję **powiadomienie**(ikona dzwonka) u góry, a następnie wybierz pozycję **Przejdź do grupy zasobów** , aby otworzyć nowo utworzoną grupę zasobów.
 
     ![Przejdź do grupy zasobów](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
@@ -111,5 +111,5 @@ Aby uzyskać informacje na temat eksportowania szablonów, zobacz [jeden i wiele
 
 - Aby dowiedzieć się Azure Resource Manager, zobacz [Omówienie usługi Azure Resource Manager](overview.md).
 - Aby poznać składnię szablonu Menedżer zasobów, zobacz [Opis struktury i składni Azure Resource Manager szablonów](../templates/template-syntax.md).
-- Aby dowiedzieć się, jak opracowywać szablony, zobacz [Samouczki krok po kroku](/azure/azure-resource-manager/).
+- Aby dowiedzieć się, jak opracowywać szablony, zobacz [Samouczki krok po kroku](../index.yml).
 - Aby wyświetlić Azure Resource Manager Schematy szablonów, zobacz [Dokumentacja szablonu](/azure/templates/).

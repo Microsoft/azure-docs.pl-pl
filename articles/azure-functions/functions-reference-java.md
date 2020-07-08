@@ -3,12 +3,12 @@ title: Dokumentacja dla deweloperów Java dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: b3404920dda9225b289d82013d29c35a1297ec32
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340338"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057606"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -50,20 +50,6 @@ mvn archetype:generate \
 
 Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## <a name="create-kotlin-functions-preview"></a>Tworzenie funkcji Kotlin (wersja zapoznawcza)
-
-Istnieje również Maven Archetype do generowania funkcji Kotlin. Ta Archetype, obecnie w wersji zapoznawczej, jest publikowana w następującej grupie _GroupID_:_artifactId_: [com. Microsoft. Azure: Azure-Functions-Kotlin-Archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-Następujące polecenie generuje nowy projekt funkcji Java przy użyciu tego Archetype:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start Kotlin](functions-create-first-kotlin-maven.md).
-
 ## <a name="folder-structure"></a>Struktura folderów
 
 Oto struktura folderów projektu Java Azure Functions:
@@ -90,9 +76,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-_* Projekt Kotlin wygląda bardzo podobnie, ponieważ jest nadal Maven_
-
-Aby skonfigurować aplikację funkcji, można użyć udostępnionego pliku [host. JSON](functions-host-json.md) . Każda funkcja ma własny plik kodu (. Java) i plik konfiguracji powiązania (Function. JSON).
+Aby skonfigurować aplikację funkcji, można użyć udostępnionej [host.js](functions-host-json.md) pliku. Każda funkcja ma własny plik kodu (. Java) i plik konfiguracji powiązania (function.json).
 
 W projekcie można umieścić więcej niż jedną funkcję. Unikaj umieszczania funkcji w osobnych jarsach. `FunctionApp`Katalog docelowy jest wdrażany w aplikacji funkcji na platformie Azure.
 
@@ -103,7 +87,7 @@ W projekcie można umieścić więcej niż jedną funkcję. Unikaj umieszczania 
 Użyj adnotacji języka Java zawartych w pakiecie [com. Microsoft. Azure. Functions. Annotation. *](/java/api/com.microsoft.azure.functions.annotation) , aby powiązać dane wejściowe i wyjściowe z metodami. Aby uzyskać więcej informacji, zobacz [dokumenty referencyjne języka Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Musisz skonfigurować konto usługi Azure Storage w pliku [Local. Settings. JSON](/azure/azure-functions/functions-run-local#local-settings-file) , aby uruchamiać lokalnie usługi Azure Blob Storage, Azure queue storage lub Azure Table Storage.
+> Należy skonfigurować konto usługi Azure Storage w [local.settings.jsna](/azure/azure-functions/functions-run-local#local-settings-file) potrzeby lokalnego uruchamiania usługi Azure Blob Storage, Azure queue storage lub Azure Table Storage.
 
 Przykład:
 
@@ -203,7 +187,7 @@ Do konwertowania danych wejściowych na POJO, [Azure-Functions-Java-Worker](http
 
 ### <a name="binary-data"></a>Dane binarne
 
-Powiąż binarne dane wejściowe lub wyjściowe z `byte[]` , ustawiając `dataType` pole w funkcji Function. JSON `binary` :
+Powiąż binarne dane wejściowe lub wyjściowe z `byte[]` , ustawiając `dataType` pole w function.jsna `binary` :
 
 ```java
    @FunctionName("BlobTrigger")

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8b8362a4d5ad742f29637ed03133bc6983bd5dd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80285150"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057963"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych
 
@@ -37,20 +37,29 @@ Gdy wszystko będzie gotowe do opublikowania zaktualizowanej oferty, wybierz poz
 > [!IMPORTANT]
 > Musisz przejrzeć podgląd oferty, gdy jest ona dostępna, a następnie wybierz pozycję Przejdź do usługi **Live** , aby opublikować zaktualizowaną ofertę dla zamierzonych odbiorców (publiczna lub prywatna).
 
+## <a name="add-a-plan-to-an-existing-offer"></a>Dodaj plan do istniejącej oferty
+
+Aby dodać nowy plan w ramach istniejącej oferty, która została już opublikowana:
+
+1. Na stronie **Przegląd oferty** dla istniejącej oferty przejdź do strony **Przegląd planu** , a następnie wybierz pozycję **Utwórz nowy plan**.
+1. Utwórz nowy plan zgodnie z [wytycznymi](./create-new-saas-offer.md#plan-overview) , korzystając z **istniejącego modelu cen planów**.
+1. Po zmianie nazwy planu wybierz pozycję **Zapisz wersję roboczą** . 
+1. Wybierz pozycję **Opublikuj** , gdy wszystko będzie gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](#review-and-publish-an-updated-offer)** , która zawiera informacje o stanie ukończenia aktualizacji.
+
 ## <a name="update-a-plan-within-an-existing-offer"></a>Aktualizowanie planu w ramach istniejącej oferty
 
 Aby wprowadzić zmiany w planie w ramach istniejącej oferty, która została już opublikowana:
 
-- Na stronie **Przegląd oferty** otwartej dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany**.
-- Możesz wybrać opcję **Nazwa**planu, **model cen**lub **dostępność**. *Obecnie plany są dostępne tylko w języku angielskim (Stany Zjednoczone)*.
-- Wybierz pozycję **Zapisz** po wprowadzeniu wszelkich niezbędnych zmian w polu Nazwa, opis, Cennik lub dostępność odbiorcy. 
-- Wybierz pozycję **Opublikuj** , gdy wszystko będzie gotowe do opublikowania aktualizacji. Strona **[Przegląd i publikacja](#review-and-publish-an-updated-offer)** zostanie otwarta i będzie mieć stan ukończenia dla aktualizacji.
+1. Na stronie **Przegląd oferty** dla istniejącej oferty wybierz plan, który chcesz zmienić. Jeśli plan nie jest dostępny z listy **Przegląd planu** , wybierz pozycję **Zobacz wszystkie plany**.
+1. Możesz wybrać opcję **Nazwa**planu, **model cen**lub **dostępność**. *Obecnie plany są dostępne tylko w języku angielskim (Stany Zjednoczone)*.
+1. Wybierz pozycję **Zapisz** po wprowadzeniu wszelkich niezbędnych zmian w polu Nazwa, opis lub dostępność odbiorcy. 
+1. Wybierz pozycję **Opublikuj** , gdy wszystko będzie gotowe do opublikowania aktualizacji. Zostanie otwarta strona **[przeglądanie i publikowanie](#review-and-publish-an-updated-offer)** , która zawiera informacje o stanie ukończenia aktualizacji.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Porównaj zmiany z ofertami w witrynie Marketplace
 
-Można przeprowadzać inspekcję zmian wprowadzonych w [opublikowanej](#compare-changes-to-published-offer) ofercie lub [wersji zapoznawczej](#compare-changes-to-a-preview-offer) przed udostępnieniem ich na żywo przy użyciu funkcji **PORÓWNAJ**.
+Można przeprowadzać inspekcję zmian wprowadzonych w [opublikowanej](#compare-changes-to-published-offer) ofercie lub [wersji zapoznawczej](#compare-changes-to-a-preview-offer) przed wprowadzeniem ich na żywo przy użyciu funkcji **PORÓWNAJ**.
 
->[!NOTE]
+> [!NOTE]
 > Opublikowana oferta to oferta, która została pomyślnie opublikowana w wersji zapoznawczej lub stanu na żywo.
 
 Ogólne informacje dotyczące inspekcji można znaleźć poniżej:
@@ -122,9 +131,9 @@ Po upewnieniu się, że chcesz usunąć wersję roboczą planu, plan nie będzie
 
 Aby anulować ofertę ze stanem **publikowania w toku** :
 
-- Wybierz nazwę oferty, aby otworzyć stronę **przeglądu oferty** .
-- Wybierz pozycję **Anuluj publikowanie** w prawym górnym rogu strony.
-- Potwierdź, że chcesz zatrzymać publikowanie oferty.
+1. Wybierz nazwę oferty, aby otworzyć stronę **przeglądu oferty** .
+1. Wybierz pozycję **Anuluj publikowanie** w prawym górnym rogu strony.
+1. Potwierdź, że chcesz zatrzymać publikowanie oferty.
 
 Jeśli chcesz opublikować ofertę w późniejszym czasie, musisz rozpocząć proces publikowania w trybie.
 

@@ -3,12 +3,12 @@ title: Eksportuj szablon w Azure Portal
 description: Użyj Azure Portal, aby wyeksportować szablon Azure Resource Manager z zasobów w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273737"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057708"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Eksport jednego i kilku zasobów do szablonu w Azure Portal
 
@@ -72,7 +72,7 @@ Aby wyeksportować jeden lub więcej zasobów z grupy zasobów:
 
    Domyślnie wybrane są **Parametry include** .  Po wybraniu tego szablonu zostaną uwzględnione wszystkie parametry szablonu, gdy szablon zostanie wygenerowany. Jeśli chcesz utworzyć własne parametry, przełącz to pole wyboru, aby je nie uwzględnić.
 
-## <a name="export-template-from-a-resource"></a>Eksportuj szablon z zasobu
+## <a name="export-template-from-a-resource"></a>Eksportowanie szablonu z zasobu
 
 Aby wyeksportować jeden zasób:
 
@@ -121,5 +121,5 @@ Możesz wyeksportować szablon, który został użyty do wdrożenia istniejącyc
 
 - Dowiedz się, jak eksportować szablony przy użyciu interfejsu [wiersza polecenia platformy Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)lub [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Aby poznać składnię szablonu Menedżer zasobów, zobacz [Opis struktury i składni Azure Resource Manager szablonów](template-syntax.md).
-- Aby dowiedzieć się, jak opracowywać szablony, zobacz [Samouczki krok po kroku](/azure/azure-resource-manager/).
+- Aby dowiedzieć się, jak opracowywać szablony, zobacz [Samouczki krok po kroku](../index.yml).
 - Aby wyświetlić Azure Resource Manager Schematy szablonów, zobacz [Dokumentacja szablonu](/azure/templates/).

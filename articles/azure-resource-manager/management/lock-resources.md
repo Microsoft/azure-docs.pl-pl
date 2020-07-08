@@ -3,12 +3,12 @@ title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: e9591c8b32808c3b11eb478b7f52a171cefc587d
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 7fe735cf523758f51fd9d6751de8507b2af46737
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975609"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057589"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -226,22 +226,26 @@ az lock delete --ids $lockid
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](https://docs.microsoft.com/rest/api/resources/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
+Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
 
 Aby utworzyć blokadę, uruchom polecenie:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 Zakresem może być subskrypcja, Grupa zasobów lub zasób. Nazwa blokady jest taka, którą chcesz wywołać blokadę. W przypadku interfejsu API-Version należy użyć **2016-09-01**.
 
 W żądaniu Dołącz obiekt JSON, który określa właściwości blokady.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    }
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

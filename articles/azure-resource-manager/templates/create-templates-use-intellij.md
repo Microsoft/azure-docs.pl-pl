@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80153356"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057453"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
@@ -86,4 +86,4 @@ Głównym celem tego artykułu jest użycie IntelliJ pomysł do wdrożenia istni
 > [Samouczki dla początkujących](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Odwiedź stronę Java w centrum deweloperów Azure](https://docs.microsoft.com/azure/java)
+> [Odwiedź stronę Java w centrum deweloperów Azure](/azure/java)

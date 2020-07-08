@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 07/07/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47546ae5ae964d1ed915ee42b1a2cafec58a805a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84727640"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057759"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmień przypisania licencji dla użytkownika lub grupy w Azure Active Directory
 
@@ -49,7 +49,7 @@ Na stronie **Aktualizowanie przypisań licencji** , Jeśli zobaczysz, że niekt�
 1. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**, a następnie otwórz stronę **profilu** dla użytkownika.
 1. Wybierz pozycję **licencje**.
 1. Wybierz pozycję **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy. Na stronie **przypisania** można rozwiązać konflikty przypisywania licencji.
-1. Zaznacz pole wyboru dla pakietu Office 366 E3 i upewnij się, że wybrano co najmniej wszystkie usługi E1 przypisane do użytkownika.
+1. Zaznacz pole wyboru dla pakietu Office 365 E3 i upewnij się, że wybrano co najmniej wszystkie usługi E1 przypisane do użytkownika.
 1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
     ![Strona przypisania licencji dla użytkownika pokazującego wyczyszczone pakiet Office 365 E1 i zaznaczona opcja pakiet Office 365 E3](media/licensing-groups-change-licenses/update-user-license-assignments.png)
@@ -64,7 +64,7 @@ Usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie w ce
 1. Wybierz pozycję **Azure Active Directory**  >  **grupy**, a następnie otwórz stronę **Przegląd** dla grupy.
 1. Wybierz pozycję **licencje**.
 1. Wybierz polecenie **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy.
-1. Zaznacz pole wyboru dla pakietu Office 366 E3. Aby zachować ciągłość działania usługi, upewnij się, że wybrano wszystkie usługi E1, które są już przypisane do użytkownika.
+1. Zaznacz pole wyboru dla pakietu Office 365 E3. Aby zachować ciągłość działania usługi, upewnij się, że wybrano wszystkie usługi E1, które są już przypisane do użytkownika.
 1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
     ![Wybierz polecenie przypisania na stronie licencji użytkownika lub grupy](media/licensing-groups-change-licenses/update-group-license-assignments.png)

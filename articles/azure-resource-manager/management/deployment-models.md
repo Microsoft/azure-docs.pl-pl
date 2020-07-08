@@ -3,12 +3,12 @@ title: Wdrażanie za pomocą usługi Resource Manager i klasyczne
 description: W tym artykule opisano różnice między modelem wdrażania przy użyciu usługi Resource Manager a modelem klasycznym (lub przy użyciu zarządzania usługami).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: a2deddfff595feee429aa1be942e2f4651700f54
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 9e44128da9b6e180bd2857f4574c0b384fdffef2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763792"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057572"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Wdrożenie przy użyciu usługi Azure Resource Manager a wdrożenie klasyczne: omówienie modeli wdrażania i stanu zasobów
 
@@ -125,7 +125,7 @@ Jeśli wszystko jest gotowe do migracji zasobów z klasycznego wdrożenia do Men
 1. [Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
 2. [Obsługiwana przez platformę migracja zasobów rozwiązania IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu programu Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+4. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -152,4 +152,3 @@ Kompleksowy zestaw szablonów startowych można znaleźć na stronie [Szablony s
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby wyświetlić polecenia dotyczące wdrażania szablonu, zobacz [Wdrażanie aplikacji za pomocą szablonu usługi Azure Resource Manager](../templates/deploy-powershell.md).
-

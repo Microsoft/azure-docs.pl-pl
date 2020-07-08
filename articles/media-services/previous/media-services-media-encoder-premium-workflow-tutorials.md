@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712432"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057470"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Zaawansowane samouczki dotyczące usługi Media Encoder Premium Workflow
 ## <a name="overview"></a>Omówienie
@@ -187,7 +187,7 @@ Aby przepływ pracy automatycznie określił Właściwość nazwy pliku wyjścio
 
 Edytor wyrażeń umożliwia wprowadzanie dowolnych wartości literału, mieszanych z jedną lub większą liczbą zmiennych. Zmienne zaczynają się od znaku dolara. Po osiągnięciu klucza $, Edytor pokazuje pole listy rozwijanej z wyborem dostępnych zmiennych. W naszym przypadku użyjemy kombinacji zmiennej katalogu wyjściowego i zmiennej Nazwa podstawowego pliku wejściowego:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4`
 
 ![Wypełniony Edytor wyrażeń](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
@@ -265,16 +265,16 @@ Do wyjściowego elementu zawartości został dodany więcej niż jeden plik. Jes
 
 Nazwy wyjściowe plików można kontrolować za pomocą wyrażeń w projektancie. Otwórz okienko właściwości dla jednego z składników wyjściowych plików i Otwórz Edytor wyrażeń dla właściwości plik. Pierwszy plik wyjściowy został skonfigurowany za pośrednictwem następującego wyrażenia (zobacz Samouczek dotyczący przechodzenia z [MXF do pojedynczego wyjścia MP4 o szybkości transmisji bitów](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4`
 
 Oznacza to, że nasza nazwa pliku jest określana przez dwie zmienne: katalog wyjściowy do zapisu i nazwa podstawowa pliku źródłowego. Dawniej jest uwidoczniony jako właściwość w katalogu głównym przepływu pracy, a drugi jest określany przez plik przychodzący. Katalog wyjściowy jest używany do testowania lokalnego; Ta właściwość zostanie przesłonięta przez aparat przepływu pracy, gdy przepływ pracy jest wykonywany przez procesor multimediów oparty na chmurze w Azure Media Services.
 Aby nadać obu plików wyjściowych spójną nazwę wyjściową, Zmień pierwsze wyrażenie nazewnictwa plików na:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 a drugi do:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Wykonaj pośredni przebieg testu, aby upewnić się, że oba pliki wyjściowe MP4 są prawidłowo generowane.
 
@@ -287,7 +287,7 @@ Ponieważ będziemy widzieć później, gdy wygenerujemy plik. ISM, aby przejś�
 
 Utwórz trzeci składnik wyjściowy pliku do wyprowadzania strumienia wychodzącego z muxer i skonfiguruj wyrażenie nazewnictwa plików jako:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4`
 
 ![Muxer audio — Tworzenie pliku wyjściowego](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -319,7 +319,7 @@ Generowanie pliku manifestu dla naszego zestawu MP4's można wykonać za pomocą
 
 Podobnie jak w przypadku innych składników danych wyjściowych plików, skonfiguruj nazwę danych wyjściowych. ISM z wyrażeniem:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism`
 
 Nasz zakończony przepływ pracy wygląda podobnie do poniższego:
 
@@ -342,11 +342,11 @@ W poprzednim przepływie pracy określono proste wyrażenie jako podstawę do ge
 
 Na przykład nasz składnik wyjściowy pliku dla pierwszego pliku wideo jest skonfigurowany przy użyciu tego wyrażenia:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4`
 
 W przypadku drugiego wyjściowego wideo mamy wyrażenie takie jak:
 
-    ${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+`${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4`
 
 Nie byłoby to przejrzyste, mniej podatne na błędy i bardziej wygodne, jeśli możemy usunąć część tego duplikatu i zwiększyć możliwości konfiguracji? Na szczęście możemy: możliwości wyrażenia projektanta w połączeniu z możliwością tworzenia właściwości niestandardowych w naszym głównym przepływie pracy zapewniają dodaną warstwę wygody.
 
@@ -391,7 +391,7 @@ Zmiana dowolnych z tych trzech wartości powoduje również ponowne skonfigurowa
 ### <a name="have-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Wygenerowane nazwy plików wyjściowych są zależne od opublikowanych wartości właściwości
 Zamiast zakodowana naszych wygenerowanych nazw plików, możemy teraz zmienić wyrażenie filename dla każdego z składników danych wyjściowych, aby polegać na właściwościach bitów opublikowanych w głównym grafie. Rozpoczynając od pierwszego pliku wyjściowego, Znajdź właściwość pliku i zmodyfikuj wyrażenie podobne do tego:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4`
 
 Różne parametry w tym wyrażeniu są dostępne i wprowadzane przez naciśnięcie znaku dolara na klawiaturze w oknie wyrażenia. Jednym z dostępnych parametrów jest nasza Właściwość video1bitrate, która została opublikowana wcześniej.
 
@@ -401,11 +401,11 @@ Różne parametry w tym wyrażeniu są dostępne i wprowadzane przez naciśnięc
 
 Wykonaj te same czynności dla plików wyjściowych dla drugiego wideo:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4`
 
 i dla plików wyjściowych tylko audio:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4`
 
 Jeśli teraz zmienimy szybkość transmisji bitów dla dowolnego pliku wideo lub audio, odpowiedni koder zostanie ponownie skonfigurowany, a konwencja nazw plików oparta na szybkości transmisji bitów zostanie wykorzystana automatycznie.
 
@@ -462,11 +462,11 @@ W porównaniu z naszym wideo MP4 składnik programu JPG Encoder wyprowadza więc
 
 *Wprowadzenie do edytora plików JPG przeszukiwania sceny*
 
-Skonfiguruj Właściwość ścieżki folderu wyjściowego przy użyciu wyrażenia: $ {ROOT_outputWriteDirectory}
+Skonfiguruj Właściwość ścieżki folderu danych wyjściowych za pomocą wyrażenia:`${ROOT_outputWriteDirectory}`
 
 i Właściwość prefiksu filename z:
 
-    ${ROOT_sourceFileBaseName}_thumb_
+`${ROOT_sourceFileBaseName}_thumb_`
 
 Prefiks określa sposób nazywania plików miniatur. Są one sufiksem o liczbie wskazującej położenie miniatury w strumieniu.
 
@@ -551,11 +551,11 @@ Teraz otwórz właściwości przycinania z elementu dostosowujący audio i skonf
 
 W przypadku czasu rozpoczęcia przycinania audio:
 
-    ${ROOT_TrimmingStartTime}
+`${ROOT_TrimmingStartTime}`
 
 i na czas zakończenia:
 
-    ${ROOT_TrimmingEndTime}
+`${ROOT_TrimmingEndTime}`
 
 ### <a name="finished-workflow"></a><a id="time_based_trim_finish"></a>Zakończony przepływ pracy
 ![Zakończony przepływ pracy](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
@@ -591,7 +591,7 @@ Skrypty są zapisywane w Groovy, dynamicznie skompilowanym języku skryptowym dl
 
 Napiszmy prosty skrypt Hello World Groovy w kontekście naszego realizeScript. W edytorze wprowadź następujące elementy:
 
-    node.log("hello world");
+`node.log("hello world");`
 
 Wykonaj teraz lokalne uruchomienie testu. Po wykonaniu tego działania Sprawdź, czy na karcie system w składniku skryptowym jest właściwość logs.
 

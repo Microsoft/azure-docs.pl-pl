@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: dd3b9b8eca4f1eab66f8982b22be5941d082b229
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9eceb9643a5e8f8eab6b68bb04b322a099b715f3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506178"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057436"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -22,11 +22,16 @@ Ten artykuł zawiera podsumowanie często zadawanych pytań dotyczących Azure S
 ## <a name="general"></a>Ogólne
 
 ### <a name="what-does-site-recovery-do"></a>Do czego służy usługa Site Recovery?
+
 Site Recovery współdziałanie z strategią zachowania ciągłości działania i odzyskiwania po awarii (BCDR), przez organizowanie i automatyzowanie replikacji maszyn wirtualnych platformy Azure między regionami, lokalnymi maszynami wirtualnymi i serwerami fizycznymi do platformy Azure oraz na maszynach lokalnych do dodatkowego centrum danych. [Dowiedz się więcej](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Czy mogę chronić maszynę wirtualną z dyskiem Docker?
 
 Nie, ten scenariusz jest nieobsługiwany.
+
+### <a name="what-does-site-recovery-do-to-ensure-data-integrity"></a>Co Site Recovery zrobić, aby zapewnić integralność danych?
+
+Istnieją różne miary podejmowane przez Site Recovery w celu zapewnienia integralności danych. Nawiązywane jest bezpieczne połączenie między wszystkimi usługami przy użyciu protokołu HTTPS. Gwarantuje to, że żadne złośliwe oprogramowanie lub jednostki zewnętrzne nie mogą naruszać danych. Inna miara jest używana przy użyciu sum kontrolnych. Transfer danych między źródłem a celem jest wykonywany przez Obliczanie sum kontrolnych danych między nimi. Zapewnia to spójność transferowanych danych.
 
 ## <a name="service-providers"></a>Dostawcy usług
 

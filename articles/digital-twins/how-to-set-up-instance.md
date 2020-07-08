@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392288"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057487"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
@@ -24,19 +24,19 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
-Następnie uruchom następujące polecenia, aby utworzyć nową grupę zasobów platformy Azure do użycia w ramach tej procedury, a następnie utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tej grupie zasobów.
+Następnie utworzysz nową grupę zasobów platformy Azure do użycia w tej metodzie. Następnie można **utworzyć nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji** w ramach tej grupy zasobów. 
+
+Należy również podać nazwę wystąpienia i wybrać region dla wdrożenia. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [usługi Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+
+>[!NOTE]
+> Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu (co oznacza, że jeśli inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tym regionie już używa wybranej nazwy, należy wybrać inną nazwę).
+
+Utwórz grupę zasobów i wystąpienie przy użyciu następujących poleceń:
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
-
-> [!TIP]
-> Aby uzyskać listę nazw regionów platformy Azure, które mogą być przekazywane do poleceń w interfejsie wiersza polecenia platformy Azure, uruchom następujące polecenie:
-> ```azurecli
-> az account list-locations -o table
-> ```
-> Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [usługi Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 Wyniki tych poleceń wyglądają podobnie jak w przypadku podania informacji o utworzonych zasobach:
 
@@ -55,9 +55,11 @@ Aby móc używać usługi Azure Digital bliźniaczych reprezentacji z aplikacją
 
 #### <a name="assign-yourself-a-role"></a>Przypisywanie siebie do roli
 
-Utwórz przypisanie roli dla siebie, używając poczty e-mail skojarzonej z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. 
+Utwórz przypisanie roli dla siebie w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, używając adresu e-mail skojarzonego z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. 
 
-Najpierw upewnij się, że jesteś sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. Można to sprawdzić za pomocą `az role assignment list --assignee <your-Azure-email>` polecenia i sprawdzając, czy wartość *RoleDefinitionName* jest *właścicielem*. Jako właściciel subskrypcji możesz użyć następującego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia bliźniaczych reprezentacji Digital Azure:
+Aby to umożliwić, musisz być sklasyfikowane jako właściciel w ramach subskrypcji platformy Azure. Można to sprawdzić, uruchamiając `az role assignment list --assignee <your-Azure-email>` polecenie i sprawdzając w danych wyjściowych wartość *roleDefinitionName* . *Owner* Jeśli okaże się, że wartość jest *współautorem* lub coś innym niż *właściciel*, skontaktuj się z administratorem subskrypcji, aby udzielić uprawnień w ramach subskrypcji w celu podniesienia poziomu roli.
+
+Jako właściciel subskrypcji możesz użyć następującego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia bliźniaczych reprezentacji Digital Azure:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

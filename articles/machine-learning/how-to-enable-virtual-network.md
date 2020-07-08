@@ -9,23 +9,21 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/22/2020
+ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 3189fec114ca68dfd862c0973b289b9eff25fed5
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445563"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057810"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak zabezpieczyć cykl życia uczenia maszynowego, izolując Azure Machine Learning zadania szkoleniowe i wnioskowania w ramach usługi Azure Virtual Network (VNET). Azure Machine Learning bazują na innych usługach platformy Azure dla zasobów obliczeniowych, nazywanych również [celami obliczeniowymi](concept-compute-target.md), do uczenia i wdrażania modeli. Obiekty docelowe można tworzyć w ramach sieci wirtualnej. Na przykład można użyć obliczeń Azure Machine Learning do uczenia modelu, a następnie wdrożenia modelu w usłudze Azure Kubernetes Service (AKS). 
+W tym artykule dowiesz się, jak zabezpieczyć cykl życia uczenia maszynowego, izolując Azure Machine Learning zadania szkoleniowe i wnioskowania w ramach usługi Azure Virtual Network (VNET). Azure Machine Learning opiera się na innych usługach platformy Azure dla zasobów obliczeniowych, nazywanych również [celami obliczeniowymi](concept-compute-target.md), do uczenia i wdrażania modeli. Obiekty docelowe można tworzyć w ramach sieci wirtualnej. Na przykład można użyć obliczeń Azure Machine Learning do uczenia modelu, a następnie wdrożenia modelu w usłudze Azure Kubernetes Service (AKS). 
 
-**Sieć wirtualna** działa jako granica zabezpieczeń, izolowanie zasobów platformy Azure od publicznego Internetu. Możesz również dołączyć do sieci wirtualnej platformy Azure do sieci lokalnej. Dzięki dołączeniu sieci można bezpiecznie uczenie modeli i uzyskać dostęp do wdrożonych modeli w celu wnioskowania.
-
-Jeśli **podstawowy magazyn znajduje się w sieci wirtualnej, użytkownicy nie będą mogli korzystać z środowiska sieci Web programu Azure Machine Learning Studio**, w tym z projektanta przeciągnij-n-upuść lub interfejsu użytkownika w celu automatycznego uczenia maszynowego, etykietowania danych i zestawów danych lub zintegrowanych notesów.  Jeśli spróbujesz, zostanie wyświetlony komunikat podobny do następującego błędu:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+__Sieć wirtualna__ działa jako granica zabezpieczeń, izolowanie zasobów platformy Azure od publicznego Internetu. Możesz również dołączyć do sieci wirtualnej platformy Azure do sieci lokalnej. Dzięki dołączeniu sieci można bezpiecznie uczenie modeli i uzyskać dostęp do wdrożonych modeli w celu wnioskowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,16 +55,176 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > 
 
 > [!WARNING]
-> Azure Machine Learning wystąpienia obliczeniowe w wersji zapoznawczej nie są obsługiwane w obszarze roboczym, w którym włączono link prywatny.
 > 
+> Azure Machine Learning wystąpienia obliczeniowe w wersji zapoznawczej nie są obsługiwane w obszarze roboczym, w którym włączono link prywatny.
+>
 > Azure Machine Learning nie obsługuje korzystania z usługi Azure Kubernetes, która ma włączone łącze prywatne. Zamiast tego można użyć usługi Azure Kubernetes w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie eksperymentów i zadań wnioskowania usługi Azure ml w ramach Virtual Network platformy Azure](how-to-enable-virtual-network.md).
 
 
 <a id="amlcompute"></a>
 
+## <a name="machine-learning-studio"></a>Machine Learning Studio
+
+Jeśli dane są przechowywane w sieci wirtualnej, należy użyć [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w obszarze roboczym, aby udzielić dostępu do danych w programie Studio.
+
+Jeśli uzyskanie dostępu do programu Studio nie powiedzie się, zostanie wyświetlony `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` następujący błąd i wyłączono następujące operacje:
+
+* Podgląd danych w Studio.
+* Wizualizowanie danych w projektancie.
+* Prześlij eksperyment AutoML.
+* Rozpocznij projekt etykietowania.
+
+Program Virtual Machines obsługuje odczytywanie danych z następujących typów magazynów w sieci wirtualnej:
+
+* Obiekt bob Azure
+* Usługa Azure Data Lake Storage 1. generacji
+* Usługa Azure Data Lake Storage 2. generacji
+* Azure SQL Database
+
+### <a name="add-resources-to-the-virtual-network"></a>Dodawanie zasobów do sieci wirtualnej 
+
+Dodaj obszar roboczy i konto magazynu do tej samej sieci wirtualnej, aby umożliwić im dostęp do siebie nawzajem.
+
+1. Aby połączyć obszar roboczy z siecią wirtualną, [Włącz łącze prywatne platformy Azure](how-to-configure-private-link.md).
+
+1. Aby połączyć konto magazynu z siecią wirtualną, [Skonfiguruj ustawienia zapory i sieci wirtualnych](#use-a-storage-account-for-your-workspace).
+
+### <a name="configure-a-datastore-to-use-managed-identity"></a>Konfigurowanie magazynu danych do korzystania z tożsamości zarządzanej
+
+Po dodaniu obszaru roboczego i konta usługi magazynu do sieci wirtualnej należy skonfigurować magazyny danych do korzystania z tożsamości zarządzanej w celu uzyskania dostępu do Twoich potrzeb. Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu kontroli dostępu opartej na zasobach (RBAC) platformy Azure. Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
+
+1. W programie Studio wybierz pozycję __magazyny__danych.
+
+1. Aby utworzyć nowy magazyn danych, wybierz pozycję __+ nowy magazyn__danych. Aby zaktualizować istniejący, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__.
+
+1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej w obszarze roboczym__.
+
+> [!NOTE]
+> Wprowadzenie zmian może potrwać do 10 minut.
+
+### <a name="azure-blob-storage-blob-data-reader"></a>Czytnik danych obiektów blob magazynu obiektów blob platformy Azure
+
+W przypadku __usługi Azure Blob Storage__tożsamość zarządzana w obszarze roboczym jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
+
+
+### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 kontroli dostępu
+
+Do kontrolowania dostępu do danych wewnątrz sieci wirtualnej można użyć list kontroli dostępu (ACL) typu RBAC i POSIX.
+
+Aby użyć RBAC, należy dodać tożsamość zarządzaną obszaru roboczego do roli [czytnika danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Aby uzyskać więcej informacji, zobacz [Kontrola dostępu na podstawie ról](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+
+Aby używać list ACL, tożsamość zarządzana obszaru roboczego może być przypisana, podobnie jak jakakolwiek inna reguła zabezpieczeń. Aby uzyskać więcej informacji, zobacz [listy kontroli dostępu do plików i katalogów](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+
+### <a name="azure-data-lake-storage-gen1-access-control"></a>Azure Data Lake Storage Gen1 kontroli dostępu
+
+Azure Data Lake Storage Gen1 obsługuje tylko listy kontroli dostępu w stylu POSIX. Można przypisać dostęp do tożsamości zarządzanego obszaru roboczego do zasobów tak samo jak w przypadku każdej innej zasady zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+
+### <a name="azure-sql-database-contained-user"></a>Azure SQL Database zawarty użytkownik
+
+Aby uzyskać dostęp do danych przechowywanych w Azure SQL Database przy użyciu tożsamości zarządzanej, należy utworzyć użytkownika programu SQL Server, który jest mapowany na tożsamość zarządzaną. Aby uzyskać więcej informacji na temat tworzenia użytkownika od dostawcy zewnętrznego, zobacz [Tworzenie zawartych użytkowników mapowanych na tożsamości usługi Azure AD](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+
+Po utworzeniu użytkownika zawartego w programie SQL Udziel uprawnień do niego przy użyciu [polecenia Udziel T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+
+### <a name="connect-to-the-studio"></a>Nawiązywanie połączenia z programem Studio
+
+Jeśli uzyskujesz dostęp do programu Studio z zasobu w sieci wirtualnej (na przykład wystąpienie obliczeniowe lub maszyna wirtualna), musisz zezwolić na ruch wychodzący z sieci wirtualnej do programu Studio. 
+
+Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__.
+
+## <a name="use-a-storage-account-for-your-workspace"></a>Korzystanie z konta magazynu dla obszaru roboczego
+
+> [!IMPORTANT]
+> _Konto magazynu domyślnego_ można umieścić dla Azure Machine Learning lub _kont magazynu innych niż domyślne_ w sieci wirtualnej.
+>
+> Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
+>
+> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
+
+Aby użyć usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
+
+1. Utwórz zasób obliczeniowy (na przykład wystąpienie obliczeniowe Machine Learning lub klaster) za siecią wirtualną lub Dołącz zasób obliczeniowy do obszaru roboczego (na przykład klaster usługi HDInsight, maszyna wirtualna lub klaster usług Azure Kubernetes). Zasób obliczeniowy może być przeznaczony do eksperymentowania lub wdrażania modelu.
+
+   Aby uzyskać więcej informacji, zobacz sekcję [Korzystanie z Machine Learning obliczeń](#amlcompute), [Używanie maszyny wirtualnej lub klastra usługi HDInsight](#vmorhdi)oraz korzystanie z sekcji [Azure Kubernetes Service](#aksvnet) w tym artykule.
+
+1. W Azure Portal przejdź do usługi magazynu, która ma być używana w obszarze roboczym.
+
+   [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__.
+
+   ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
+    - Wybierz pozycję __Wybrane sieci__.
+    - W obszarze __sieci wirtualne__wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
+
+        > [!IMPORTANT]
+        > Konto magazynu musi znajdować się w tej samej sieci wirtualnej i podsieci co wystąpienia obliczeniowe lub klastry używane do uczenia lub wnioskowania.
+
+    - Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ .
+
+    > [!IMPORTANT]
+    > Podczas pracy z zestawem SDK Azure Machine Learning środowisko programistyczne musi mieć możliwość nawiązania połączenia z kontem usługi Azure Storage. Gdy konto magazynu znajduje się w sieci wirtualnej, zapora musi zezwalać na dostęp ze swojego adresu IP środowiska deweloperskiego.
+    >
+    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim*. Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__. Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
+
+   [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="use-datastores-and-datasets"></a>Korzystanie z magazynów danych i DataSets
+
+W tej sekcji omówiono użycie magazynu danych i zestawu elementów DataSet dla środowiska zestawu SDK. Aby uzyskać więcej informacji na temat środowiska Studio, zapoznaj się z sekcją [Machine Learning Studio](#machine-learning-studio).
+
+Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie poświadczeń podczas próby dostępu do danych za pomocą zestawu SDK. Jeśli dane znajdują się za siecią wirtualną, Azure Machine Learning nie mogą uzyskać dostępu do danych i przetworzyć ich testy. Aby tego uniknąć, należy utworzyć magazyny danych i zestawy DataSet, które pomijają weryfikację.
+
+### <a name="use-a-datastore"></a>Korzystanie z magazynu danych
+
+ Azure Data Lake Store Gen1 i Azure Data Lake Store Gen2 Pomijaj walidację domyślnie, więc nie są wymagane żadne dalsze działania. Jednak dla następujących usług można użyć podobnej składni, aby pominąć walidację magazynu danych:
+
+- Azure Blob Storage
+- Udział plików platformy Azure
+- PostgreSQL
+- Azure SQL Database
+
+Poniższy przykład kodu tworzy nowy magazyn danych obiektów blob platformy Azure `skip_validation=True` .
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### <a name="use-a-dataset"></a>Korzystanie z zestawu danych
+
+Składnia do pomijania walidacji zestawu danych jest podobna do następujących typów zestawów danych:
+- Rozdzielany plik
+- JSON 
+- Parquet
+- SQL
+- Plik
+
+Poniższy kod tworzy nowy zestaw danych JSON i zestawy `validate=False` .
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Wystąpienia klastrów obliczeniowych & 
 
-Aby można było użyć [zarządzanego **obiektu docelowego obliczeń** Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) lub [ **wystąpienia** obliczeniowego Azure Machine Learning](concept-compute-instance.md) w sieci wirtualnej, należy spełnić następujące wymagania dotyczące sieci:
+Aby można było użyć [zarządzanego __obiektu docelowego obliczeń__ Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) lub [ __wystąpienia__ obliczeniowego Azure Machine Learning](concept-compute-instance.md) w sieci wirtualnej, należy spełnić następujące wymagania dotyczące sieci:
 
 > [!div class="checklist"]
 > * Sieć wirtualna musi znajdować się w tej samej subskrypcji i regionie co obszar roboczy Azure Machine Learning.
@@ -246,50 +404,11 @@ except ComputeTargetException:
 
 Po zakończeniu procesu tworzenia nauczysz model przy użyciu klastra w eksperymentie. Aby uzyskać więcej informacji, zobacz [Wybieranie i używanie elementu docelowego obliczeń do szkoleń](how-to-set-up-training-targets.md).
 
-## <a name="use-a-storage-account-for-your-workspace"></a>Korzystanie z konta magazynu dla obszaru roboczego
+### <a name="access-data-in-a-compute-instance-notebook"></a>Dostęp do danych w notesie wystąpienia obliczeniowego
 
-Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
+Jeśli używasz notesów w wystąpieniu obliczeniowym platformy Azure, musisz się upewnić, że Notes jest uruchomiony w zasobie obliczeniowym za tą samą siecią wirtualną i podsiecią, co dane. 
 
-1. Utwórz zasób obliczeniowy (na przykład wystąpienie obliczeniowe Machine Learning lub klaster) za siecią wirtualną lub Dołącz zasób obliczeniowy do obszaru roboczego (na przykład klaster usługi HDInsight, maszyna wirtualna lub klaster usług Azure Kubernetes). Zasób obliczeniowy może być przeznaczony do eksperymentowania lub wdrażania modelu.
-
-   Aby uzyskać więcej informacji, zobacz sekcję [Korzystanie z Machine Learning obliczeń](#amlcompute), [Używanie maszyny wirtualnej lub klastra usługi HDInsight](#vmorhdi)oraz korzystanie z sekcji [Azure Kubernetes Service](#aksvnet) w tym artykule.
-
-1. W Azure Portal przejdź do magazynu dołączonego do obszaru roboczego.
-
-   [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. Na stronie **Magazyn platformy Azure** wybierz pozycję __zapory i sieci wirtualne__.
-
-   ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    - Wybierz pozycję __Wybrane sieci__.
-    - W obszarze __sieci wirtualne__wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
-
-        > [!IMPORTANT]
-        > Konto magazynu musi znajdować się w tej samej sieci wirtualnej i podsieci co wystąpienia obliczeniowe lub klastry używane do uczenia lub wnioskowania.
-
-    - Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ .
-
-    > [!IMPORTANT]
-    > Podczas pracy z zestawem SDK Azure Machine Learning środowisko programistyczne musi mieć możliwość nawiązania połączenia z kontem usługi Azure Storage. Gdy konto magazynu znajduje się w sieci wirtualnej, zapora musi zezwalać na dostęp ze swojego adresu IP środowiska deweloperskiego.
-    >
-    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim*. Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__. Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
-
-   [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-> [!IMPORTANT]
-> _Konto magazynu domyślnego_ można umieścić dla Azure Machine Learning lub _kont magazynu innych niż domyślne_ w sieci wirtualnej.
->
-> Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
->
-> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
-
-## <a name="machine-learning-studio"></a>Machine Learning Studio
-
-Podczas uzyskiwania dostępu do programu Studio z zasobu w sieci wirtualnej (na przykład wystąpienie obliczeniowe lub maszyna wirtualna) należy zezwolić na ruch wychodzący z sieci wirtualnej do programu Studio. 
-
-Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__.
+Wystąpienie obliczeniowe należy skonfigurować tak, aby znajdować się w tej samej sieci wirtualnej podczas tworzenia w obszarze **Ustawienia zaawansowane**  >  **Skonfiguruj sieć wirtualną**. Nie można dodać istniejącego wystąpienia obliczeniowego do sieci wirtualnej.
 
 <a id="aksvnet"></a>
 
@@ -361,7 +480,7 @@ Prywatny adres IP jest włączony przez skonfigurowanie AKS do korzystania z _we
 > [!IMPORTANT]
 > Nie można włączyć prywatnego adresu IP podczas tworzenia klastra usługi Azure Kubernetes. Musi być włączona jako aktualizacja istniejącego klastra.
 
-Poniższy fragment kodu przedstawia sposób **tworzenia nowego klastra AKS**, a następnie aktualizowania go do korzystania z prywatnego modułu równoważenia obciążenia IP/wewnętrznego:
+Poniższy fragment kodu przedstawia sposób __tworzenia nowego klastra AKS__, a następnie aktualizowania go do korzystania z prywatnego modułu równoważenia obciążenia IP/wewnętrznego:
 
 ```python
 import azureml.core
@@ -425,9 +544,59 @@ Zawartość `body.json` pliku, do którego odwołuje się polecenie, jest podobn
 } 
 ```
 
-> [!NOTE]
-> Obecnie nie można skonfigurować modułu równoważenia obciążenia podczas wykonywania operacji __Attach__ w istniejącym klastrze. Najpierw należy dołączyć klaster, a następnie wykonać operację aktualizacji w celu zmiany usługi równoważenia obciążenia.
+W przypadku __dołączania istniejącego klastra__ do obszaru roboczego należy poczekać, aż po zakończeniu operacji dołączania usługa równoważenia obciążenia zostanie skonfigurowana.
 
+Aby uzyskać informacje na temat dołączania klastra, zobacz [dołączanie istniejącego klastra AKS](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
+
+Po dołączeniu istniejącego klastra można zaktualizować klaster tak, aby korzystał z prywatnego adresu IP.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+__Rola współautor sieci__
+
+> [!IMPORTANT]
+> Jeśli utworzysz lub dołączysz klaster AKS, dostarczając wcześniej utworzoną sieć wirtualną, należy przyznać jednostce usługi (SP) lub tożsamość zarządzaną dla klastra AKS rolę _współautor sieci_ do grupy zasobów zawierającej sieć wirtualną. Należy to zrobić przed podjęciem próby zmiany wewnętrznego modułu równoważenia obciążenia na prywatny adres IP.
+>
+> Aby dodać tożsamość jako współautor sieci, wykonaj następujące czynności:
+
+1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Jeśli to polecenie zwróci wartość `msi` , użyj następującego polecenia, aby zidentyfikować Identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Aby dodać nazwę główną usługi lub tożsamość zarządzaną jako współautor sieci, użyj następującego polecenia. Zamień na `<SP-or-managed-identity>` Identyfikator zwrócony dla jednostki usługi lub tożsamości zarządzanej. Zamień na `<resource-group-id>` Identyfikator zwrócony dla grupy zasobów zawierającej sieć wirtualną:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
 Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równoważenia obciążenia z programem AKS, zobacz [Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service](/azure/aks/internal-lb).
 
 ## <a name="use-azure-container-instances-aci"></a>Użyj Azure Container Instances (ACI)
@@ -435,7 +604,9 @@ Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równow
 Azure Container Instances są tworzone dynamicznie podczas wdrażania modelu. Aby umożliwić Azure Machine Learning tworzenia ACI wewnątrz sieci wirtualnej, należy włączyć __delegowanie podsieci__ dla podsieci używanej przez wdrożenie.
 
 > [!WARNING]
-> Aby można było używać Azure Container Instances wewnątrz sieci wirtualnej, Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
+> W przypadku korzystania z Azure Container Instances w sieci wirtualnej Sieć wirtualna musi znajdować się w tej samej grupie zasobów co obszar roboczy Azure Machine Learning.
+>
+> W przypadku korzystania z Azure Container Instances wewnątrz sieci wirtualnej Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
 
 Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czynności:
 
@@ -548,22 +719,6 @@ Aby uzyskać informacje na temat używania Azure Machine Learning z zaporą plat
     ]
     }
     ```
-    
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
-
-Azure Data Lake Storage Gen 2 to zestaw funkcji do analizy danych Big Data, opartych na usłudze Azure Blob Storage. Może służyć do przechowywania danych używanych do uczenia modeli przy użyciu Azure Machine Learning. 
-
-Aby użyć Data Lake Storage generacji 2 w sieci wirtualnej obszaru roboczego Azure Machine Learning, wykonaj następujące czynności:
-
-1. Utwórz konto Azure Data Lake Storage Gen 2. Aby uzyskać więcej informacji, zobacz [Tworzenie konta magazynu Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
-1. Wykonaj kroki 2-4 w poprzedniej sekcji, [Użyj konta magazynu dla obszaru roboczego](#use-a-storage-account-for-your-workspace), aby umieścić konto w sieci wirtualnej.
-
-Korzystając z Azure Machine Learning z Data Lake Storage Gen 2 w sieci wirtualnej, należy użyć następujących wskazówek:
-
-* Jeśli używasz __zestawu SDK do tworzenia zestawu danych__, a system z uruchomionym kodem __nie znajduje się w sieci wirtualnej__, użyj `validate=False` parametru. Ten parametr pomija walidację, która kończy się niepowodzeniem, jeśli system nie znajduje się w tej samej sieci wirtualnej co konto magazynu. Aby uzyskać więcej informacji, zobacz metodę [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
-
-* W przypadku używania wystąpienia obliczeniowego Azure Machine Learning lub klastra obliczeniowego do uczenia modelu przy użyciu zestawu danych musi on znajdować się w tej samej sieci wirtualnej co konto magazynu.
 
 ## <a name="key-vault-instance"></a>Wystąpienie magazynu kluczy 
 
@@ -578,7 +733,7 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 
    [![Magazyn kluczy skojarzony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. Na stronie **Key Vault** w lewym okienku wybierz pozycję __zapory i sieci wirtualne__.
+1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __zapory i sieci wirtualne__.
 
    ![Sekcja "zapory i sieci wirtualne" w okienku Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
