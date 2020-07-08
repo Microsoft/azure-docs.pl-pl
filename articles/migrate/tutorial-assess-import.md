@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: d9300d3bbc5e6432e16f7656c7b4764df9b759cb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114214"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
 
@@ -73,7 +73,7 @@ Aby skonfigurować nowy projekt Azure Migrate:
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz pozycję **Dalej**.
+7. Wybierz opcję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
@@ -183,7 +183,7 @@ Za pomocą oceny serwera można utworzyć dwa typy ocen.
 **Typ oceny** | **Szczegóły**
 --- | --- 
 **Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. (concepts-assessment-calculation.md)
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### <a name="sizing-criteria"></a>Kryteria ustalania wielkości
 
@@ -252,7 +252,7 @@ Informacje na temat oceny maszyn wirtualnych platformy Azure:
 
 ### <a name="review-cost-details"></a>Przejrzyj szczegóły kosztów
 
-Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Można:
+Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Możesz:
 
 - Zapoznaj się z miesięcznymi kosztami obliczeniowymi i magazynem. Koszty są agregowane dla wszystkich serwerów w ocenianej grupie.
 

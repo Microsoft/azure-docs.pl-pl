@@ -6,11 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 80692cce114b18148340cfbe9070123c6990b708
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055787"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118515"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu Menedżer zasobów
 
@@ -35,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
 

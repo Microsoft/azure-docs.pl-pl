@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120640"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Samouczek: Migrowanie danych lokalnych do magazynu w chmurze za pomocą usługi AzCopy
 
@@ -84,7 +84,7 @@ Za pomocą narzędzia AzCopy możesz przekazać wszystkie pliki w folderze do ma
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Zastąp `<local-folder-path>` symbol zastępczy ścieżką do folderu, który zawiera pliki (na przykład `C:\myFolder` : `/mnt/myFolder`lub).
+* Zastąp `<local-folder-path>` symbol zastępczy ścieżką do folderu, który zawiera pliki (na przykład: `C:\myFolder` lub `/mnt/myFolder` ).
 
 * Zastąp symbol zastępczy `<storage-account-name>` nazwą konta magazynu.
 
@@ -96,19 +96,19 @@ Aby przekazać zawartość określonego katalogu cyklicznie do magazynu obiektó
 
 Narzędzia AzCopy można użyć do przekazania plików na podstawie daty ich ostatniej modyfikacji. 
 
-Aby z tego skorzystać, zmodyfikuj pliki lub utwórz nowe pliki w katalogu źródłowym do celów testowych. Następnie użyj polecenia AzCopy `sync` .
+Aby z tego skorzystać, zmodyfikuj pliki lub utwórz nowe pliki w katalogu źródłowym do celów testowych. Następnie użyj `sync` polecenia AzCopy.
 
 ```AzCopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Zastąp `<local-folder-path>` symbol zastępczy ścieżką do folderu, który zawiera pliki (na przykład `C:\myFolder` : `/mnt/myFolder`lub.
+* Zastąp `<local-folder-path>` symbol zastępczy ścieżką do folderu, który zawiera pliki (na przykład `C:\myFolder` : lub `/mnt/myFolder` .
 
 * Zastąp symbol zastępczy `<storage-account-name>` nazwą konta magazynu.
 
 * Zastąp `<container-name>` symbol zastępczy nazwą utworzonego kontenera.
 
-Aby dowiedzieć się więcej `sync` na temat tego polecenia, zobacz [Synchronizing Files](storage-use-azcopy-blobs.md#synchronize-files).
+Aby dowiedzieć się więcej na temat tego `sync` polecenia, zobacz [Synchronizing Files](storage-use-azcopy-blobs.md#synchronize-files).
 
 ## <a name="create-a-scheduled-task"></a>Tworzenie zaplanowanego zadania
 
@@ -116,18 +116,22 @@ Możliwe jest utworzenie zaplanowanego zadania lub zadania cron służącego do 
 
 Skopiuj polecenia narzędzia AzCopy do edytora tekstu. Zaktualizuj wartości parametrów polecenia narzędzia AzCopy na odpowiednie wartości. Zapisz plik jako `script.sh` (system Linux) lub `script.bat` (system Windows) na potrzeby narzędzia AzCopy. 
 
-`myFolder`W tych przykładach przyjęto założenie, że folder ma nazwę, `mystorageaccount` nazwa konta magazynu to i `mycontainer`nazwa kontenera.
+W tych przykładach przyjęto założenie, że folder ma nazwę `myFolder` , nazwa konta magazynu to `mystorageaccount` i nazwa kontenera `mycontainer` .
 
 > [!NOTE]
 > Przykład systemu Linux dołącza token SAS. Musisz podać ją w poleceniu. Bieżąca wersja programu AzCopy v10 nie obsługuje autoryzacji usługi Azure AD w zadaniach firmy cronus.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+```bash
+azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
+```
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-    azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+```bash
+azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+```
 
 ---
 

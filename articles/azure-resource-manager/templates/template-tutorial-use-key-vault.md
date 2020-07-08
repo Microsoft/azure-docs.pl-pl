@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185017"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119280"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integrowanie Azure Key Vault w rozmieszczeniu szablonu ARM
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Edytowanie pliku parametrów
 > * Wdrożenie szablonu
 > * Weryfikowanie wdrożenia
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Oto przykład dla generowania hasła:
 
     ```console
@@ -49,7 +49,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 W tej sekcji utworzysz Magazyn kluczy i dodasz do niego klucz tajny, aby można było pobrać klucz tajny podczas wdrażania szablonu. Istnieje wiele sposobów tworzenia magazynu kluczy. W tym samouczku użyjesz Azure PowerShell do wdrożenia [szablonu ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Ten szablon wykonuje dwie czynności:
 
-* Tworzy magazyn kluczy z włączoną `enabledForTemplateDeployment` właściwością. Ta właściwość musi mieć *wartość true* , aby proces wdrażania szablonu mógł uzyskać dostęp do wpisów tajnych, które są zdefiniowane w magazynie kluczy.
+* Tworzy magazyn kluczy z `enabledForTemplateDeployment` włączoną właściwością. Ta właściwość musi mieć *wartość true* , aby proces wdrażania szablonu mógł uzyskać dostęp do wpisów tajnych, które są zdefiniowane w magazynie kluczy.
 * Dodaje wpis tajny do magazynu kluczy. Wpis tajny przechowuje hasło administratora maszyny wirtualnej.
 
 > [!NOTE]
@@ -99,7 +99,7 @@ Teraz przygotowano Magazyn kluczy i wpis tajny. W poniższych sekcjach pokazano,
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku jest nazywany [wdrożeniem prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 
 1. W polu **Nazwa pliku** wklej następujący adres URL: 
 
@@ -119,9 +119,9 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
    Warto mieć podstawowe informacje na temat szablonu przed jego dostosowaniem.
 
-1. Wybierz pozycję **plik** > **Zapisz jako**, a następnie Zapisz kopię pliku na komputerze lokalnym przy użyciu nazwy *azuredeploy. JSON*.
+1. Wybierz pozycję **plik**  >  **Zapisz jako**, a następnie Zapisz kopię pliku na komputerze lokalnym o nazwie *azuredeploy.jsna*.
 
-1. Powtórz kroki 1-3, aby otworzyć następujący adres URL, a następnie Zapisz plik jako *azuredeploy. Parameters. JSON*.
+1. Powtórz kroki 1-3, aby otworzyć następujący adres URL, a następnie Zapisz plik jako *azuredeploy.parameters.js*.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -131,7 +131,7 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
 Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych zmian w pliku szablonu. Pobieranie wartości klucza tajnego jest wykonywane przez skonfigurowanie pliku parametrów szablonu.
 
-1. W Visual Studio Code Otwórz plik *azuredeploy. Parameters. JSON* , jeśli nie jest jeszcze otwarty.
+1. W Visual Studio Code Otwórz *azuredeploy.parameters.jsna* , jeśli nie jest jeszcze otwarty.
 1. Zaktualizuj `adminPassword` parametr do:
 
     ```json
@@ -167,7 +167,7 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Przekaż zarówno *azuredeploy. JSON* , jak i *azuredeploy. Parameters. JSON* do Cloud Shell. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Przekaż *azuredeploy.js* i *azuredeploy.parameters.js* do Cloud Shell. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
@@ -192,11 +192,11 @@ Po pomyślnym wdrożeniu maszyny wirtualnej Przetestuj poświadczenia logowania 
 
 1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **grupy** > **\<zasobów*YourResourceGroupName*>****simpleWinVM**simpleWinVM. > 
+1. Wybierz pozycję **grupy zasobów**  >  **\<*YourResourceGroupName*>**  >  **simpleWinVM**.
 1. Wybierz pozycję **Połącz** w górnej części.
 1. Wybierz pozycję **Pobierz plik RDP**, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do maszyny wirtualnej przy użyciu hasła przechowywanego w magazynie kluczy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby platformy Azure nie są już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

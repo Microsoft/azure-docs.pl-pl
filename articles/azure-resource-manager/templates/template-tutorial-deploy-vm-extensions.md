@@ -5,11 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d44fb593cda60c8cc556ffeb5cb3b36163c6bcc3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120130"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
@@ -29,7 +30,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console

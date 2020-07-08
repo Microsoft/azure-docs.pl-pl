@@ -1,20 +1,20 @@
 ---
 title: Samouczek — używanie zdarzeń IoT Hub do wyzwalania Azure Logic Apps
 description: W tym samouczku przedstawiono sposób korzystania z usługi routingu zdarzeń Azure Event Grid, tworzenia zautomatyzowanych procesów w celu wykonywania Azure Logic Apps akcji opartych na zdarzeniach IoT Hub.
-services: iot-hub
+services: iot-hub, event-grid
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457069"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120487"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu Event Grid i Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Samouczek: Wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu usług Event Grid i Logic Apps
 
 Usługa Azure Event Grid pozwala reagować na zdarzenia usługi IoT Hub dzięki akcjom wyzwalanym w podrzędnych aplikacjach biznesowych.
 
@@ -47,7 +47,7 @@ Najpierw Utwórz aplikację logiki i Dodaj wyzwalacz usługi Event Grid monitoru
 
    ![Pola dla tworzenia aplikacji logiki](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po utworzeniu zasobu przejdź do aplikacji logiki. W tym celu wybierz pozycję **grupy zasobów**, a następnie wybierz grupę zasobów utworzoną dla tego samouczka. Następnie znajdź aplikację logiki na liście zasobów i wybierz ją. 
 
@@ -249,7 +249,7 @@ Aby przetestować aplikację logiki, utwórz nowe urządzenie w celu wyzwolenia 
 
 Nie musisz korzystać z witryny Azure Portal — kroki w centrum IoT Hub możesz wykonać przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użycie zasobów w tym samouczku powoduje naliczanie opłat w ramach Twojej subskrypcji platformy Azure. Po zakończeniu próby wykonania samouczka i przetestowaniu wyników należy wyłączyć lub usunąć zasoby, które nie mają być zachowywane. 
 

@@ -1,20 +1,14 @@
 ---
 title: 'Samouczek: wysyłanie zdarzeń niestandardowych do połączenia hybrydowego — Event Grid'
 description: 'Samouczek: publikowanie tematu za pomocą Azure Event Grid i interfejsu wiersza polecenia platformy Azure oraz subskrybowanie tego zdarzenia. Połączenie hybrydowe jest używane dla punktu końcowego.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
+ms.date: 07/07/2020
 ms.topic: tutorial
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 208d8584736a0d7ff591c3a8ed7a08bcbf6dcba4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720705"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114894"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Samouczek: kierowanie zdarzeń niestandardowych do Azure Relay Połączenia hybrydowe za pomocą interfejsu wiersza polecenia platformy Azure i Event Grid
 
@@ -110,7 +104,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 Aplikacja odbiornika powinna odebrać komunikat zdarzenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie użyj poniższego polecenia, aby usunąć zasoby utworzone w ramach tego artykułu.
 
 ```azurecli-interactive

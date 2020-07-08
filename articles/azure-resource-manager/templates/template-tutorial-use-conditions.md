@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185034"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119314"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: użycie warunku w szablonach ARM
 
@@ -26,7 +26,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Otwieranie szablonu szybkiego startu
 > * Modyfikowanie szablonu
 > * Wdrożenie szablonu
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Ten samouczek obejmuje tylko podstawowy scenariusz użycia warunków. Aby uzyskać więcej informacji, zobacz:
 
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora maszyny wirtualnej. Poniżej przedstawiono przykład służący do generowania hasła:
 
     ```console
@@ -54,7 +54,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik**>**Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -73,7 +73,7 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
     Warto zapoznać się z dokumentacją szablonu przed przystąpieniem do dostosowywania szablonu.
 
-1. Wybierz pozycję **plik**>**Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym przy użyciu nazwy **azuredeploy. JSON**.
+1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna**.
 
 ## <a name="modify-the-template"></a>Modyfikowanie szablonu
 
@@ -176,7 +176,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
 Spróbuj wprowadzić inne wdrożenie z **newOrExistingem** ustawionym na wartość "istniejący" i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
 

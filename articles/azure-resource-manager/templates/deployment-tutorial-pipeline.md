@@ -4,11 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 55fd66a002584a5181eacebc84cbd1b732510120
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055753"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118923"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
 
@@ -39,7 +40,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 * **Konto usługi GitHub**, za pomocą którego można utworzyć repozytorium dla szablonów. Jeśli nie masz takiego konta, możesz [je utworzyć bezpłatnie](https://github.com). Aby uzyskać więcej informacji o korzystaniu z repozytoriów usługi GitHub, zobacz [Tworzenie repozytoriów GitHub](/azure/devops/pipelines/repos/github).
 * **Zainstaluj narzędzie git**. W tej instrukcji samouczka jest stosowana funkcja *git bash* lub *powłoka git*. Aby uzyskać instrukcje, zobacz [Instalowanie usługi git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Organizacja usługi Azure DevOps**. Jeśli nie masz takiego konta, możesz je utworzyć bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. [Aby utworzyć szablony Azure Resource Manager, zobacz temat używanie Visual Studio Code](use-vs-code-to-create-template.md).
+* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Przygotowywanie repozytorium GitHub
 

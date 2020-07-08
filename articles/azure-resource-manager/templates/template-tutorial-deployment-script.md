@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184983"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119331"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym (wersja zapoznawcza) za pomocą skryptów wdrażania
 
-Dowiedz się, jak używać skryptów wdrażania w szablonach zarządzania zasobami platformy Azure (ARM). Skrypty wdrażania mogą służyć do wykonywania czynności niestandardowych, które nie mogą być wykonywane przez szablony ARM. Na przykład utworzenie certyfikatu z podpisem własnym.  W tym samouczku utworzysz szablon służący do wdrażania magazynu kluczy platformy Azure, a następnie do utworzenia `Microsoft.Resources/deploymentScripts` certyfikatu zostanie użyty zasób z tego samego szablonu, a następnie zostanie dodany certyfikat do magazynu kluczy. Aby dowiedzieć się więcej na temat skryptu wdrażania, zobacz [Korzystanie ze skryptów wdrażania w szablonach ARM](./deployment-script-template.md).
+Dowiedz się, jak używać skryptów wdrażania w szablonach zarządzania zasobami platformy Azure (ARM). Skrypty wdrażania mogą służyć do wykonywania czynności niestandardowych, które nie mogą być wykonywane przez szablony ARM. Na przykład utworzenie certyfikatu z podpisem własnym.  W tym samouczku utworzysz szablon służący do wdrażania magazynu kluczy platformy Azure, a następnie `Microsoft.Resources/deploymentScripts` do utworzenia certyfikatu zostanie użyty zasób z tego samego szablonu, a następnie zostanie dodany certyfikat do magazynu kluczy. Aby dowiedzieć się więcej na temat skryptu wdrażania, zobacz [Korzystanie ze skryptów wdrażania w szablonach ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Dwa zasoby skryptu wdrożenia, konto magazynu i wystąpienie kontenera są tworzone w tej samej grupie zasobów na potrzeby wykonywania skryptu i rozwiązywania problemów. Te zasoby są zwykle usuwane przez usługę skryptów, gdy wykonywanie skryptu jest pobierane w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby dowiedzieć się więcej, zobacz [Oczyszczanie zasobów skryptu wdrażania](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -34,13 +34,13 @@ Ten samouczek obejmuje następujące zadania:
 > * Edytowanie szablonu
 > * Wdrożenie szablonu
 > * Debuguj uszkodzony skrypt
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* ** [Visual Studio Code](https://code.visualstudio.com/) z rozszerzeniem narzędzi Menedżer zasobów Tools**. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](./use-vs-code-to-create-template.md).
+* ** [Visual Studio Code](https://code.visualstudio.com/) z rozszerzeniem narzędzi Menedżer zasobów Tools**. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji**. Ta tożsamość jest używana do wykonywania skryptów wdrażania. Aby go utworzyć, zobacz [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
 
@@ -62,7 +62,7 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
 Szablon używany w tym przewodniku szybki start ma nazwę [Create a Azure Key Vault i wpis tajny](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Szablon tworzy magazyn kluczy, a następnie dodaje wpis tajny do magazynu kluczy.
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik**>**Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -70,7 +70,7 @@ Szablon używany w tym przewodniku szybki start ma nazwę [Create a Azure Key Va
     ```
 
 3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. Wybierz pozycję **plik**>**Zapisz jako,** aby zapisać plik AS **azuredeploy. JSON** na komputerze lokalnym.
+4. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać plik jako **azuredeploy.jsna** komputerze lokalnym.
 
 ## <a name="edit-the-template"></a>Edytowanie szablonu
 
@@ -253,7 +253,7 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
     }
     ```
 
-    Zasób `deploymentScripts` jest zależny od zasobu magazynu kluczy i zasobu przypisania roli.  Ma następujące właściwości:
+    `deploymentScripts`Zasób jest zależny od zasobu magazynu kluczy i zasobu przypisania roli.  Ma następujące właściwości:
 
     * **tożsamość**: skrypt wdrażania używa tożsamości zarządzanej przypisanej przez użytkownika do wykonywania skryptów.
     * **rodzaj**: Określ typ skryptu. Obecnie obsługiwane są tylko skrypty programu PowerShell.
@@ -280,7 +280,7 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
     Poprawne polecenie to **Write-Output** zamiast **Write-Output1**.
 
-1. Wybierz pozycję **plik**>**Zapisz** , aby zapisać plik.
+1. Wybierz pozycję **plik** > **Zapisz** , aby zapisać plik.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -335,13 +335,13 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
 1. Wybierz konto magazynu z sufiksem **azscripts** .
 1. Wybierz kafelek **udziały plików** . Zobaczysz folder **azscripts** .  Folder zawiera pliki wykonywania skryptu wdrożenia.
-1. Wybierz pozycję **azscripts**. Zobaczysz dwa foldery **azscriptinput** i **azscriptoutput**.  Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Folder wyjściowy zawiera plik **ExecutionResult. JSON** i skrypt. Komunikat o błędzie można zobaczyć w pliku **ExecutionResult. JSON**. Plik wyjściowy nie istnieje, ponieważ wykonywanie nie powiodło się.
+1. Wybierz pozycję **azscripts**. Zobaczysz dwa foldery **azscriptinput** i **azscriptoutput**.  Folder wejściowy zawiera systemowy plik skryptu programu PowerShell i pliki skryptów wdrażania użytkownika. Folder wyjściowy zawiera **executionresult.js** i plik wyjściowy skryptu. Komunikat o błędzie można zobaczyć w **executionresult.js**. Plik wyjściowy nie istnieje, ponieważ wykonywanie nie powiodło się.
 
 Usuń wiersz **Write-Output1 i ponownie** Wdróż szablon.
 
 Po pomyślnym uruchomieniu drugiego wdrożenia zasoby skryptu wdrożenia są usuwane przez usługę skryptów, ponieważ właściwość **cleanupPreference** ma wartość **onSuccess**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

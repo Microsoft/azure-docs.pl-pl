@@ -4,20 +4,20 @@ description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fiz
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ed648458416bacb091212bb569a27ecdf13fe8ee
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771278"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113255"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
 W tym artykule opisano sposób przygotowania do oceny lokalnych serwerów fizycznych za pomocą [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
+[Azure Migrate](./migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać serwery fizyczne przy użyciu Azure Migrate. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać serwery fizyczne przy użyciu Azure Migrate. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure. Skonfiguruj uprawnienia dla konta i zasobów platformy Azure do pracy z Azure Migrate.
@@ -75,11 +75,11 @@ Dzierżawy/Administrator globalny mogą udzielić uprawnień w następujący spo
     ![Uprawnienia usługi Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### <a name="assign-application-developer-role"></a>Przypisywanie roli Deweloper aplikacji
 
-Dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## <a name="prepare-azure-for-physical-server-migration"></a>Przygotowanie platformy Azure do migracji serwera fizycznego

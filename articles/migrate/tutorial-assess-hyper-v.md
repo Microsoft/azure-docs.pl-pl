@@ -4,19 +4,19 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114248"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Ocenianie maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera Azure Migrate
 
 W tym artykule przedstawiono sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia do [oceny serwera Azure Migrate](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
@@ -100,13 +100,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
     - W przypadku chmury publicznej platformy Azure:
 
-        **Scenariusz** | **Pobierz** | **SHA256**
+        **Scenariusz** | **Pobieranie** | **SHA256**
         --- | --- | ---
         Funkcja Hyper-V (8,93 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - Dla Azure Government:
 
-        **Scenariusz*** | **Pobierz** | **SHA256**
+        **Scenariusz*** | **Pobieranie** | **SHA256**
         --- | --- | ---
         Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 
@@ -130,7 +130,7 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 2. W obszarze **Wybierz typ importu**kliknij pozycję **Kopiuj maszynę wirtualną (Utwórz nowy unikatowy identyfikator)**. Następnie kliknij przycisk **Dalej**.
 3. W obszarze **Wybierz lokalizację docelową**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
 4. W obszarze **foldery magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
-5. W obszarze **Wybierz sieć**Określ przełącznik wirtualny, który będzie używany przez maszynę wirtualną. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) na temat tworzenia przełącznika wirtualnego.
+5. W obszarze **Wybierz sieć**Określ przełącznik wirtualny, który będzie używany przez maszynę wirtualną. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure. [Dowiedz się więcej](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) na temat tworzenia przełącznika wirtualnego.
 6. W obszarze **Podsumowanie**przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
 7. W Menedżerze funkcji Hyper-V > **Virtual Machines**Uruchom maszynę wirtualną.
 
@@ -223,7 +223,7 @@ Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoc
 
 Istnieją dwa typy ocen, które można uruchomić za pomocą Azure Migrate oceny serwera.
 
-**Stopnia** | **Szczegóły** | **Dane**
+**Ocena** | **Szczegóły** | **Dane**
 --- | --- | ---
 **Oparta na wydajności** | Oceny oparte na zebranych danych wydajności | **Zalecany rozmiar maszyny wirtualnej**: na podstawie danych użycia procesora CPU i pamięci.<br/><br/> **Zalecany typ dysku (dysk zarządzany w warstwie Standardowa lub Premium)**: w zależności od liczby operacji we/wy na sekundę i przepływności dysków lokalnych.
 **Jako lokalne** | Oceny oparte na wymiarach lokalnych. | **Zalecany rozmiar maszyny wirtualnej**: na podstawie rozmiaru lokalnego maszyny wirtualnej<br/><br> **Zalecany typ dysku**: na podstawie ustawienia typu magazynu wybieranego do oceny.

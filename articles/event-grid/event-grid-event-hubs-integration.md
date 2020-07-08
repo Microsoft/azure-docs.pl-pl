@@ -1,19 +1,14 @@
 ---
 title: 'Samouczek: wysyłanie danych Event Hubs do magazynu danych — Event Grid'
 description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do SQL Data Warehouse. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.author: spelluru
-ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/07/2020
+ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117563"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. W tym [przykładzie integracji usług Event Hubs i Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazano, jak bezproblemowo przeprowadzić migrację przechwyconych danych usługi Event Hubs z magazynu obiektów blob do usługi SQL Data Warehouse przy użyciu usług Event Hubs i Event Grid.
