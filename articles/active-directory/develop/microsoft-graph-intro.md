@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
 ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479517"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
@@ -53,7 +53,7 @@ Przewodniki Szybki Start obejmują cztery kroki:
 
 Po zakończeniu przewodnika Szybki Start masz aplikację, która jest gotowa do uruchomienia. Aby uzyskać więcej informacji, zobacz [Microsoft Graph szybki start — często zadawane pytania](https://docs.microsoft.com/graph/quick-start-faq). Aby rozpocząć pracę z przykładami, zobacz [Microsoft Graph przewodnika Szybki Start](https://developer.microsoft.com/graph/quick-start).
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 
 Microsoft Graph Explorer to narzędzie oparte na sieci Web, za pomocą którego można tworzyć i testować żądania przy użyciu Microsoft Graph interfejsów API. Dostęp do Microsoft Graph Explorer można uzyskać w: `https://developer.microsoft.com/graph/graph-explorer` .
 

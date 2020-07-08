@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478335"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
@@ -243,7 +243,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 1. Wybieranie **żądania dodania grup**
 1. Wybierz typy grup do zwrócenia (**wszystkie grupy**, **zabezpieczenia**lub **DirectoryRole**). Opcja **wszystkie grupy** zawiera pozycje **Security**Group, **DirectoryRole**i **DistributionList**
 1. Opcjonalnie: wybierz właściwości określonego typu tokenu, aby zmodyfikować wartość roli role, aby zawierała atrybuty grupy lokalnej lub aby zmienić typ zgłoszenia na rolę
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
@@ -260,7 +260,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - Grupy securitygroup
    - "DirectoryRole"
 
-   Na przykład:
+   Przykład:
 
     ```json
     "groupMembershipClaims": "SecurityGroup"

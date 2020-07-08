@@ -4,10 +4,10 @@ description: Dowiedz się, jak dodać maszynę wirtualną z możliwością docho
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85481310"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Twórz i Zarządzaj maszynami wirtualnymi z możliwością domagania w Azure DevTest Labs

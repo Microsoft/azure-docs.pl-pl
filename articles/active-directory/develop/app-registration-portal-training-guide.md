@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478165"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji Azure Portal

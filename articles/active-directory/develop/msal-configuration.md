@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479423"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
@@ -32,8 +32,8 @@ Ten artykuł pomoże zrozumieć różne ustawienia w pliku konfiguracji oraz spo
 
 | Właściwość | Typ danych | Wymagane | Uwagi |
 |-----------|------------|-------------|-------|
-| `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | String | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Staw\<Authority> | Nie | Lista urzędów, których potrzebuje aplikacja |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i`read_timeout` |
@@ -103,17 +103,17 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 | Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|-----------|--------|
-| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD` ,`B2C` |
+| `type` | String | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD` ,`B2C` |
 | `audience` | Obiekt | Nie | Stosuje się tylko wtedy, gdy typ = `AAD` . Określa tożsamość, która jest przeznaczona dla aplikacji. Użyj wartości z rejestracji aplikacji |
-| `authority_url` | Ciąg | Tak | Wymagane tylko wtedy, gdy typ = `B2C` . Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
+| `authority_url` | String | Tak | Wymagane tylko wtedy, gdy typ = `B2C` . Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
 | `default` | wartość logiczna | Tak | Jeden `"default":true` jest wymagany w przypadku określenia co najmniej jednego urzędu. |
 
 #### <a name="audience-properties"></a>Właściwości odbiorców
 
 | Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|------------|-------|
-| `type` | Ciąg | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
-| `tenant_id` | Ciąg | Tak | Wymagane tylko wtedy, gdy `"type":"AzureADMyOrg"` . Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka jak `contoso.com` lub identyfikator dzierżawy, taki jak `72f988bf-86f1-41af-91ab-2d7cd011db46` ). |
+| `type` | String | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | String | Tak | Wymagane tylko wtedy, gdy `"type":"AzureADMyOrg"` . Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka jak `contoso.com` lub identyfikator dzierżawy, taki jak `72f988bf-86f1-41af-91ab-2d7cd011db46` ). |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -341,7 +341,7 @@ Poniższy przykład ilustruje podstawową konfigurację, która określa identyf
 ## <a name="how-to-use-a-configuration-file"></a>Jak używać pliku konfiguracji
 
 1. Utwórz plik konfiguracji. Zalecamy utworzenie niestandardowego pliku konfiguracji w programie `res/raw/auth_config.json` . Ale możesz ją umieścić w dowolnym miejscu.
-2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację podczas konstruowania `PublicClientApplication` . Na przykład:
+2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację podczas konstruowania `PublicClientApplication` . Przykład:
 
    ```java
    //On Worker Thread

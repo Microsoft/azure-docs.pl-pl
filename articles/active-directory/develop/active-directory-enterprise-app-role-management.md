@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478624"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
@@ -88,7 +88,7 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
       ![Zapytanie dotyczące pobierania jednostki usługi, którą należy zmodyfikować](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
+    przykład Wyodrębnij Właściwość **appRoles** z obiektu jednostki usługi.
 
       ![Szczegóły właściwości appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 

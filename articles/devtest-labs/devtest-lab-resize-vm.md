@@ -4,10 +4,10 @@ description: Dowiedz się, jak zmienić rozmiar maszyny wirtualnej (VM) w Azure 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 592be0862bc33ead86fe43d37753fb72fde120c6
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85482024"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Zmiana rozmiaru maszyny wirtualnej w laboratorium w Azure DevTest Labs

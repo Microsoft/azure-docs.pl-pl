@@ -14,10 +14,10 @@ ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 57efe11f0c44d7dfe6d35f2e56d512d6e2e2fa98
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85479287"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serializacja niestandardowego buforu tokenów w MSAL dla języka Python
