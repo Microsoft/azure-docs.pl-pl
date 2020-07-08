@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662182"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregacje zaawansowane w zapytaniach dziennika Azure Monitor
@@ -23,7 +22,7 @@ ms.locfileid: "77662182"
 W tym artykule opisano niektóre bardziej zaawansowane opcje agregacji dostępne dla Azure Monitor zapytań.
 
 ## <a name="generating-lists-and-sets"></a>Generowanie list i zestawów
-Możesz użyć `makelist` , aby przestawić dane według kolejności wartości w określonej kolumnie. Na przykład możesz chcieć poznać najczęściej występujące zdarzenia dotyczące zamówienia na Twoich komputerach. Dane można zasadniczo przestawiać według kolejności EventIDs na poszczególnych komputerach. 
+Możesz użyć, `makelist` Aby przestawić dane według kolejności wartości w określonej kolumnie. Na przykład możesz chcieć poznać najczęściej występujące zdarzenia dotyczące zamówienia na Twoich komputerach. Dane można zasadniczo przestawiać według kolejności EventIDs na poszczególnych komputerach. 
 
 ```Kusto
 Event
@@ -38,9 +37,9 @@ Event
 | KOMPUTER2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`generuje listę w kolejności, w której przekazano dane. Aby sortować zdarzenia od najstarszych do najnowszych, `asc` Użyj w instrukcji Order zamiast `desc`. 
+`makelist`generuje listę w kolejności, w której przekazano dane. Aby sortować zdarzenia od najstarszych do najnowszych, użyj `asc` w instrukcji Order zamiast `desc` . 
 
-Warto również utworzyć listę tylko odrębnych wartości. Jest to tzw. _zestaw_ , który można wygenerować za `makeset`pomocą:
+Warto również utworzyć listę tylko odrębnych wartości. Jest to tzw. _zestaw_ , który można wygenerować za pomocą `makeset` :
 
 ```Kusto
 Event
@@ -55,10 +54,10 @@ Event
 | KOMPUTER2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-Podobnie `makelist`jak `makeset` , działa również z danymi uporządkowanymi i generuje tablice na podstawie kolejności wierszy, które są do niego przenoszone.
+Podobnie jak `makelist` , `makeset` działa również z danymi uporządkowanymi i generuje tablice na podstawie kolejności wierszy, które są do niego przenoszone.
 
 ## <a name="expanding-lists"></a>Rozwijanie list
-Operacja odwrotna `makelist` lub `makeset` jest `mvexpand`, która rozwija listę wartości do oddzielnych wierszy. Może ona zostać rozszerzona na dowolną liczbę kolumn dynamicznych, zarówno JSON, jak i tablicę. Można na przykład sprawdzić tabelę *pulsu* dla rozwiązań wysyłających dane z komputerów, które wysłały puls w ciągu ostatniej godziny:
+Operacja odwrotna `makelist` lub `makeset` jest `mvexpand` , która rozwija listę wartości do oddzielnych wierszy. Może ona zostać rozszerzona na dowolną liczbę kolumn dynamicznych, zarówno JSON, jak i tablicę. Można na przykład sprawdzić tabelę *pulsu* dla rozwiązań wysyłających dane z komputerów, które wysłały puls w ciągu ostatniej godziny:
 
 ```Kusto
 Heartbeat
@@ -130,7 +129,7 @@ Heartbeat
 | Agent bezpośredni | 2017 — 06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
-W tych rezultatach brakuje zasobnika skojarzonego z "2017-06-06T19:00:00Z", ponieważ nie ma żadnych danych pulsu dla tej godziny. Użyj funkcji `make-series` , aby przypisać wartość domyślną do pustych zasobników. Spowoduje to wygenerowanie wiersza dla każdej kategorii zawierającej dwie dodatkowe kolumny tablicowe, jedną dla wartości i jeden dla zgodnych przedziałów czasu:
+W tych rezultatach brakuje zasobnika skojarzonego z "2017-06-06T19:00:00Z", ponieważ nie ma żadnych danych pulsu dla tej godziny. Użyj `make-series` funkcji, aby przypisać wartość domyślną do pustych zasobników. Spowoduje to wygenerowanie wiersza dla każdej kategorii zawierającej dwie dodatkowe kolumny tablicowe, jedną dla wartości i jeden dla zgodnych przedziałów czasu:
 
 ```Kusto
 Heartbeat
@@ -142,7 +141,7 @@ Heartbeat
 | Agent bezpośredni | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000 Z", "2017-06-06T18:00:00.0000000 Z", "2017-06-06T19:00:00.0000000 Z", "2017-06-06T20:00:00.0000000 Z", "2017-06-06T21:00:00.0000000 Z",...] |
 | ... | ... | ... |
 
-Trzeci element tablicy *count_* ma wartość 0 zgodnie z oczekiwaniami i istnieje zgodna sygnatura czasowa "2017-06-06T19:00:00.0000000 z" w tablicy _TimeGenerated_ . Ten format tablicy jest trudny do odczytania. Użyj `mvexpand` , aby rozwinąć tablice i wygenerować ten sam format danych wyjściowych, `summarize`które zostały wygenerowane przez:
+Trzeci element tablicy *count_* ma wartość 0 zgodnie z oczekiwaniami i istnieje zgodna sygnatura czasowa "2017-06-06T19:00:00.0000000 z" w tablicy _TimeGenerated_ . Ten format tablicy jest trudny do odczytania. Użyj, `mvexpand` Aby rozwinąć tablice i wygenerować ten sam format danych wyjściowych, które zostały wygenerowane przez `summarize` :
 
 ```Kusto
 Heartbeat
@@ -163,7 +162,7 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Zawężanie wyników do zestawu elementów: `let`, `makeset`,, `toscalar``in`
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Zawężanie wyników do zestawu elementów: `let` , `makeset` , `toscalar` ,`in`
 Typowym scenariuszem jest wybranie nazw niektórych określonych jednostek na podstawie zestawu kryteriów, a następnie odfiltrowanie innych danych do tego zestawu jednostek. Na przykład można znaleźć komputery, na których wiadomo, że brakuje aktualizacji i zidentyfikować adresy IP, do których te komputery wezwały:
 
 

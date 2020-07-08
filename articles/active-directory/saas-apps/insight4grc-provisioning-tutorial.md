@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
 ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77621511"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Insight4GRC na potrzeby automatycznego aprowizacji użytkowników
@@ -90,7 +89,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź adres URL punktu końcowego Standard scim w **adresie URL dzierżawy**. Adres URL Enpoint powinien mieć format `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` , w którym **nazwa domeny Insight4GRC** jest wartością pobieraną w poprzednich krokach. Wprowadź wartość tokenu okaziciela pobranego wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Insight4GRC. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Insight4GRC ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź adres URL punktu końcowego Standard scim w **adresie URL dzierżawy**. Adres URL Enpoint powinien mieć format, w `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` którym **nazwa domeny Insight4GRC** jest wartością pobieraną w poprzednich krokach. Wprowadź wartość tokenu okaziciela pobranego wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Insight4GRC. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Insight4GRC ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![aprowizacji](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
@@ -106,14 +105,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |externalId|Ciąg|
-   |aktywne|Wartość logiczna|
-   |title|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |userName|String|
+   |externalId|String|
+   |aktywne|Boolean|
+   |tytuł|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do Insight4GRC**.
 
@@ -121,8 +120,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |externalId|Ciąg|
+      |displayName|String|
+      |externalId|String|
       |elementy członkowskie|Dokumentacja|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

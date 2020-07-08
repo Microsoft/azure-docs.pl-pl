@@ -8,10 +8,9 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670886"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debuguj aplikacje za pomocą usługi Azure Application Insights w programie Visual Studio
@@ -81,7 +80,7 @@ Aby znaleźć anomalie w danych, wybierz jedną z opcji anomalii w menu rozwijan
 [Więcej informacji na temat narzędzia Trends](../../azure-monitor/app/visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitorowanie lokalne
-(Z programu Visual Studio 2015 Update 2) Jeśli zestaw SDK nie został skonfigurowany do wysyłania telemetrii do portalu Application Insights (tak, że w pliku ApplicationInsights. config nie ma klucza Instrumentacji), w oknie Diagnostyka zostanie wyświetlona wartość telemetrii z najnowszej sesji debugowania. 
+(Z programu Visual Studio 2015 Update 2) Jeśli zestaw SDK nie został skonfigurowany do wysyłania telemetrii do portalu Application Insights (tak, że w ApplicationInsights.config nie ma klucza Instrumentacji), w oknie Diagnostyka zostanie wyświetlona wartość telemetrii z najnowszej sesji debugowania. 
 
 Jest to pożądane, jeśli poprzednia wersji aplikacji została już opublikowana. Lepiej, aby telemetria z sesji debugowania nie była mieszana z telemetrią z opublikowanej aplikacji w portalu Application Insights.
 
@@ -90,7 +89,7 @@ Jest to również przydatne, jeśli masz trochę [niestandardowej telemetrii](..
 * *W pierwszej kolejności Application Insights, aby wysyłać dane telemetryczne do portalu. Ale teraz chcę widzieć telemetrię tylko w programie Visual Studio.*
   
   * W ustawieniach okna wyszukiwania istnieje możliwość wyszukiwania lokalnych danych diagnostycznych, nawet jeśli aplikacja wysyła telemetrię do portalu.
-  * Aby zatrzymać wysyłanie danych telemetrycznych do portalu, Skomentuj wiersz `<instrumentationkey>...` z pliku ApplicationInsights. config. Gdy wszystko będzie gotowe do ponownego wysłania telemetrii do portalu, Usuń komentarz.
+  * Aby zatrzymać wysyłanie danych telemetrycznych do portalu, Skomentuj wiersz `<instrumentationkey>...` od ApplicationInsights.config. Gdy wszystko będzie gotowe do ponownego wysłania telemetrii do portalu, Usuń komentarz.
 
 
 ## <a name="next-steps"></a>Następne kroki

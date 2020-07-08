@@ -4,10 +4,9 @@ description: Zmniejsz ruch telemetrii, filtrując zdarzenia, które nie muszą b
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659921"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
@@ -27,7 +26,7 @@ Dostępne są następujące filtry:
 
 ## <a name="setting-filters"></a>Filtry ustawień
 
-W ApplicationInsights. XML Dodaj `TelemetryProcessors` sekcję podobną do tego przykładu:
+W ApplicationInsights.xml Dodaj `TelemetryProcessors` sekcję podobną do tego przykładu:
 
 
 ```XML
@@ -190,7 +189,7 @@ Filtruje ślady dziennika (rejestrowane przy użyciu [TrackTrace ()](../../azure
 
 ### <a name="1-code-your-filter"></a>1. Zakoduj filtr
 
-W kodzie, Utwórz klasę, która implementuje `TelemetryProcessor`:
+W kodzie, Utwórz klasę, która implementuje `TelemetryProcessor` :
 
 ```Java
 
@@ -229,7 +228,7 @@ W kodzie, Utwórz klasę, która implementuje `TelemetryProcessor`:
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Wywołaj filtr w pliku konfiguracji
 
-W ApplicationInsights. XML:
+W ApplicationInsights.xml:
 
 ```XML
 
@@ -257,7 +256,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Aby przekazać te parametry do niestandardowego filtru, należy utworzyć `application.properties` własne parametry filtru w i wykorzystać zewnętrzną strukturę rozruchu sprężyny. 
+Aby przekazać te parametry do niestandardowego filtru, należy utworzyć własne parametry filtru w `application.properties` i wykorzystać zewnętrzną strukturę rozruchu sprężyny. 
 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

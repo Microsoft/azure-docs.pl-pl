@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670308"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregacje w zapytaniach dziennika Azure Monitor
@@ -20,7 +19,7 @@ ms.locfileid: "77670308"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-W tym artykule opisano funkcje agregacji w zapytaniach dziennika Azure Monitor, które oferują przydatne metody analizowania danych. Wszystkie te funkcje współpracują `summarize` z operatorem, który tworzy tabelę z zagregowanymi wynikami tabeli wejściowej.
+W tym artykule opisano funkcje agregacji w zapytaniach dziennika Azure Monitor, które oferują przydatne metody analizowania danych. Wszystkie te funkcje współpracują z `summarize` operatorem, który tworzy tabelę z zagregowanymi wynikami tabeli wejściowej.
 
 ## <a name="counts"></a>Liczby
 
@@ -55,7 +54,7 @@ Dane wyjściowe z tego przykładu przedstawiają Trend liczby rekordów wydajno�
 
 
 ### <a name="dcount-dcountif"></a>DCount, dcountif
-Użyj `dcount` i `dcountif` , aby zliczyć różne wartości w określonej kolumnie. Następujące zapytanie szacuje, ile różnych komputerów wysłało pulsy w ciągu ostatniej godziny:
+Użyj `dcount` i, `dcountif` Aby zliczyć różne wartości w określonej kolumnie. Następujące zapytanie szacuje, ile różnych komputerów wysłało pulsy w ciągu ostatniej godziny:
 
 ```Kusto
 Heartbeat 
@@ -63,7 +62,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Aby zliczać tylko komputery z systemem Linux, które wysłały `dcountif`pulsy, należy użyć:
+Aby zliczać tylko komputery z systemem Linux, które wysłały pulsy, należy użyć `dcountif` :
 
 ```Kusto
 Heartbeat 
@@ -85,7 +84,7 @@ Heartbeat
 |Stany Zjednoczone    | 19                  |
 |Kanada           | 3                   |
 |Irlandia          | 0                   |
-|Wielka Brytania   | 0                   |
+|Zjednoczone Królestwo   | 0                   |
 |Holandia      | 2                   |
 
 
@@ -98,7 +97,7 @@ Heartbeat
 ```
 
 ## <a name="percentiles-and-variance"></a>Percentyle i Wariancja
-Podczas oceniania wartości liczbowych typowym celem jest uśrednianie ich przy `summarize avg(expression)`użyciu. Na średnie mają wpływ wartości skrajne, które opisują tylko kilka przypadków. Aby rozwiązać ten problem, można użyć mniej wrażliwych funkcji, takich `median` jak `variance`lub.
+Podczas oceniania wartości liczbowych typowym celem jest uśrednianie ich przy użyciu `summarize avg(expression)` . Na średnie mają wpływ wartości skrajne, które opisują tylko kilka przypadków. Aby rozwiązać ten problem, można użyć mniej wrażliwych funkcji, takich jak `median` lub `variance` .
 
 ### <a name="percentile"></a>Percentyl
 Aby znaleźć wartość mediana, użyj `percentile` funkcji z wartością, aby określić percentyl:

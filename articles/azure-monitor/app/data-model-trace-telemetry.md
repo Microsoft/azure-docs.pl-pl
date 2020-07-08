@@ -5,17 +5,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671957"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Dane telemetryczne śledzenia: Application Insights model danych
 
-Dane telemetryczne [Application Insights](../../azure-monitor/app/app-insights-overview.md)śledzenia (w `printf` Application Insights) reprezentują instrukcje śledzenia stylów, które są przeszukiwane przez tekst. `Log4Net`, `NLog`i inne wpisy pliku dziennika na podstawie tekstu są tłumaczone na wystąpienia tego typu. Ślad nie ma pomiarów jako rozszerzalności.
+Dane telemetryczne śledzenia (w [Application Insights](../../azure-monitor/app/app-insights-overview.md)) reprezentują `printf` instrukcje śledzenia stylów, które są przeszukiwane przez tekst. `Log4Net`, `NLog` i inne wpisy pliku dziennika na podstawie tekstu są tłumaczone na wystąpienia tego typu. Ślad nie ma pomiarów jako rozszerzalności.
 
-## <a name="message"></a>Wiadomość
+## <a name="message"></a>Komunikat
 
 Komunikat śledzenia.
 
@@ -23,7 +22,7 @@ Maksymalna długość: 32768 znaków
 
 ## <a name="severity-level"></a>Poziom ważności
 
-Poziom ważności śledzenia. Wartość może być `Verbose`, `Information`, `Warning` `Error`,, `Critical`.
+Poziom ważności śledzenia. Wartość może być `Verbose` , `Information` ,,, `Warning` `Error` `Critical` .
 
 ## <a name="custom-properties"></a>Właściwości niestandardowe
 

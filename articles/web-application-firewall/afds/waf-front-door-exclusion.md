@@ -8,10 +8,9 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925932"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Zapora aplikacji sieci Web (WAF) z listami wykluczeń usługi front-drzwi 
@@ -20,10 +19,10 @@ Czasami zapora aplikacji sieci Web (WAF) może blokować żądanie, które ma by
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Konfigurowanie list wykluczeń przy użyciu Azure Portal
 **Zarządzanie wykluczeniami** jest dostępne z portalu WAF w ramach **zarządzanych reguł**
 
-![Zarządzaj exclusion_add](../media/waf-front-door-exclusion/exclusion1.png)
-![zarządzanie wykluczeniami](../media/waf-front-door-exclusion/exclusion2.png)
+![Zarządzaj ](../media/waf-front-door-exclusion/exclusion1.png)
+ ![ exclusion_add zarządzanie wykluczeniami](../media/waf-front-door-exclusion/exclusion2.png)
 
- Przykładowa lista wykluczeń: ![zarządzanie exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
+ Przykładowa lista wykluczeń: ![ zarządzanie exclusion_define](../media/waf-front-door-exclusion/exclusion3.png)
 
 Ten przykład wyklucza wartość w polu nagłówka *użytkownika* . Prawidłowe żądanie może zawierać pole *użytkownika* zawierające ciąg, który wyzwala regułę iniekcji SQL. W tym przypadku można wykluczyć parametr *użytkownika* , aby reguła WAF nie była szacowana w tym polu.
 

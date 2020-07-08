@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667792"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Rejestruj zapytania alertów w Azure Monitor
@@ -38,9 +37,9 @@ union * | where ObjectName == "Memory"
 Chociaż `search` i `union` są przydatne podczas eksploracji danych, wyszukiwanie w całym modelu danych jest mniej wydajne niż użycie tabeli, ponieważ muszą one być skanowane w wielu tabelach. Ponieważ zapytania w regułach alertów są uruchamiane w regularnych odstępach czasu, może to spowodować nadmierne obciążenie Dodawanie opóźnień do alertu. Z powodu tego kosztu zapytania dotyczące reguł alertów dziennika na platformie Azure powinny zawsze rozpoczynać się od tabeli w celu zdefiniowania jasnego zakresu, co poprawia wydajność zapytań i istotność wyników.
 
 ## <a name="unsupported-queries"></a>Nieobsługiwane zapytania
-Od 11 stycznia 2019 roku Tworzenie lub modyfikowanie reguł alertów dziennika, które `search`używają lub `union` operatory nie będzie obsługiwane w Azure Portal. Użycie tych operatorów w regule alertu zwróci komunikat o błędzie. Ta zmiana nie wpłynie na istniejące reguły alertów i reguły alertów utworzone i edytowane za pomocą interfejsu API Log Analytics. Mimo to należy rozważyć zmianę wszelkich reguł alertów korzystających z tych typów zapytań, aby zwiększyć ich wydajność.  
+Od 11 stycznia 2019 roku Tworzenie lub modyfikowanie reguł alertów dziennika, które używają `search` lub `union` Operatory nie będzie obsługiwane w Azure Portal. Użycie tych operatorów w regule alertu zwróci komunikat o błędzie. Ta zmiana nie wpłynie na istniejące reguły alertów i reguły alertów utworzone i edytowane za pomocą interfejsu API Log Analytics. Mimo to należy rozważyć zmianę wszelkich reguł alertów korzystających z tych typów zapytań, aby zwiększyć ich wydajność.  
 
-Ta zmiana nie ma wpływ na reguły alertów dziennika używające [zapytań obejmujących wiele zasobów](../log-query/cross-workspace-query.md) `union`, które ograniczają zakres zapytania do określonych zasobów. Nie jest to odpowiednik `union *` , którego nie można użyć.  Poniższy przykład będzie prawidłowy w regule alertu dziennika:
+Ta zmiana nie ma wpływ na reguły alertów dziennika używające [zapytań obejmujących wiele zasobów](../log-query/cross-workspace-query.md) `union` , które ograniczają zakres zapytania do określonych zasobów. Nie jest to odpowiednik `union *` , którego nie można użyć.  Poniższy przykład będzie prawidłowy w regule alertu dziennika:
 
 ```Kusto
 union 
@@ -56,7 +55,7 @@ workspace('Contoso-workspace1').Perf
 Poniższe przykłady obejmują zapytania dziennika, które używają `search` i `union` i udostępniają kroki, których można użyć do modyfikacji tych zapytań do użycia z regułami alertów.
 
 ### <a name="example-1"></a>Przykład 1
-Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy `search`użyciu: 
+Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy użyciu `search` : 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -86,7 +85,7 @@ Perf
 
 
 ### <a name="example-2"></a>Przykład 2
-Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy `search`użyciu: 
+Chcesz utworzyć regułę alertu dziennika za pomocą następującego zapytania, które pobiera informacje o wydajności przy użyciu `search` : 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -137,7 +136,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 
 Wynik tego zapytania pokazuje, że wszystkie te właściwości pochodzą z tabeli _wydajności_ . 
 
-Teraz Użyj `union` polecenia `withsource` with, aby zidentyfikować tabelę źródłową, która ma udział w każdym wierszu.
+Teraz Użyj `union` `withsource` polecenia with, aby zidentyfikować tabelę źródłową, która ma udział w każdym wierszu.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671838"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights model danych telemetrii
@@ -30,11 +29,11 @@ Do monitorowania wykonywania aplikacji służą następujące typy telemetrii. N
 
     **Operacja** jest wątkiem wykonywania, który przetwarza żądanie. Możesz również [napisać kod](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) do monitorowania innych typów operacji, takich jak "Wake up" w zadaniu lub funkcji sieci Web, która okresowo przetwarza dane.  Każda operacja ma identyfikator. Ten identyfikator, który może służyć do [grupowania](../../azure-monitor/app/correlation.md) wszystkich danych telemetrycznych generowanych podczas przetwarzania żądania przez aplikację. Każda operacja zakończy się powodzeniem lub kończy się niepowodzeniem i ma czas trwania.
 * [**Exception**](data-model-exception-telemetry.md) — zazwyczaj reprezentuje wyjątek, który powoduje niepowodzenie operacji.
-* [**Zależność**](data-model-dependency-telemetry.md) — reprezentuje wywołanie z aplikacji do zewnętrznej usługi lub magazynu, takiego jak interfejs API REST lub SQL. W ASP.NET, wywołania zależności do SQL są definiowane przez `System.Data`. Wywołania punktów końcowych HTTP są definiowane `System.Net`przez. 
+* [**Zależność**](data-model-dependency-telemetry.md) — reprezentuje wywołanie z aplikacji do zewnętrznej usługi lub magazynu, takiego jak interfejs API REST lub SQL. W ASP.NET, wywołania zależności do SQL są definiowane przez `System.Data` . Wywołania punktów końcowych HTTP są definiowane przez `System.Net` . 
 
 Application Insights udostępnia trzy dodatkowe typy danych telemetrii niestandardowej:
 
-* [Śledzenie](data-model-trace-telemetry.md) — używane bezpośrednio lub za pośrednictwem karty w celu zaimplementowania rejestrowania diagnostyki przy użyciu struktury instrumentacji, która jest dla Ciebie `Log4Net` znana `System.Diagnostics`, na przykład lub.
+* [Śledzenie](data-model-trace-telemetry.md) — używane bezpośrednio lub za pośrednictwem karty w celu zaimplementowania rejestrowania diagnostyki przy użyciu struktury instrumentacji, która jest dla Ciebie znana, na przykład `Log4Net` lub `System.Diagnostics` .
 * [Event](data-model-event-telemetry.md) — zwykle służy do przechwytywania interakcji użytkownika z usługą w celu przeanalizowania wzorców użycia.
 * [Metryka](data-model-metric-telemetry.md) — służy do raportowania okresowe pomiary skalarne.
 

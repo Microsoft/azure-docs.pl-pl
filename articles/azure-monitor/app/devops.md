@@ -4,15 +4,14 @@ description: Jak Application Insights pasuje do cyklu devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669696"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Szczegółowa diagnostyka dla aplikacji internetowych i usług dzięki usłudze Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Dlaczego potrzebuję Application Insights?
-Application Insights monitoruje uruchomioną aplikację sieci Web. Zawiera informacje o błędach i problemach z wydajnością oraz ułatwia analizowanie sposobu korzystania z aplikacji przez klientów. Działa w przypadku aplikacji uruchamianych na wielu platformach (ASP.NET, Java EE, Node. js,...) i jest hostowana w chmurze lub lokalnie. 
+Application Insights monitoruje uruchomioną aplikację sieci Web. Zawiera informacje o błędach i problemach z wydajnością oraz ułatwia analizowanie sposobu korzystania z aplikacji przez klientów. Działa w przypadku aplikacji uruchamianych na wielu platformach (ASP.NET, Java EE, Node.js,...) i jest hostowana w chmurze lub lokalnie. 
 
 ![Aspekty złożoności dostarczania aplikacji sieci Web](./media/devops/010.png)
 
@@ -150,7 +149,7 @@ Gdy zostanie zgłoszony alert, Application Insights może automatycznie utworzy�
 * [Cennik](../../azure-monitor/app/pricing.md) — możesz zacząć korzystać bezpłatnie i kontynuować pracę w trakcie korzystania z niskiego wolumenu.
 
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
@@ -158,6 +157,6 @@ Gdy zostanie zgłoszony alert, Application Insights może automatycznie utworzy�
 Wprowadzenie do Application Insights jest proste. Główne opcje są następujące:
 
 * [Serwery IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), a także dla [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumentacja projektu podczas opracowywania. Można to zrobić dla aplikacji [ASP.NET](../../azure-monitor/app/asp-net.md) lub [Java](../../azure-monitor/app/java-get-started.md) , a także środowiska [Node. js](../../azure-monitor/app/nodejs.md) i hosta [innych typów](../../azure-monitor/app/platforms.md). 
+* Instrumentacja projektu podczas opracowywania. Można to zrobić dla aplikacji [ASP.NET](../../azure-monitor/app/asp-net.md) lub [Java](../../azure-monitor/app/java-get-started.md) , a także [Node.js](../../azure-monitor/app/nodejs.md) i hosta [innych typów](../../azure-monitor/app/platforms.md). 
 * Instrumentacja [dowolnej strony sieci Web](../../azure-monitor/app/javascript.md) przez dodanie krótkiego fragmentu kodu.
 

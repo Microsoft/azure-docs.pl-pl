@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657587"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnozuj opuszczone powiadomienia w usłudze Azure Notification Hubs
@@ -116,7 +115,7 @@ Jeśli usługa powiadomień wypychanych próbuje dostarczyć powiadomienie, ale 
 
 Każda aplikacja przechowuje tylko jedno ostatnie powiadomienie. W przypadku wysyłania wielu powiadomień, gdy urządzenie jest w trybie offline, każde nowe powiadomienie spowoduje odrzucenie ostatniego z nich. Tylko najnowsze powiadomienia są nazywane *łączeniami* w usłudze APNs i *zwijane* w FCM. (FCM używa klucza zwijanego). Gdy urządzenie pozostanie w trybie offline przez dłuższy czas, powiadomienia, które były przechowywane na urządzeniu, są odrzucane. Aby uzyskać więcej informacji, zobacz [Omówienie usługi APNs] i [Informacje o komunikatach FCM].
 
-Za pomocą Notification Hubs można przekazać klucz łączenia za pośrednictwem nagłówka HTTP przy użyciu ogólnego interfejsu API SendNotification. Na przykład dla zestawu .NET SDK można użyć `SendNotificationAsync`. Interfejs API SendNotification pobiera również nagłówki HTTP, które są przekazywane w postaci, do odpowiedniej usługi powiadomień wypychanych.
+Za pomocą Notification Hubs można przekazać klucz łączenia za pośrednictwem nagłówka HTTP przy użyciu ogólnego interfejsu API SendNotification. Na przykład dla zestawu .NET SDK można użyć `SendNotificationAsync` . Interfejs API SendNotification pobiera również nagłówki HTTP, które są przekazywane w postaci, do odpowiedniej usługi powiadomień wypychanych.
 
 ## <a name="self-diagnosis-tips"></a>Porady dotyczące samodiagnostyki
 
@@ -215,9 +214,9 @@ var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-Po zakończeniu wykonywania — `result.State` po prostu Stany. `Enqueued` Wyniki nie zapewniają wglądu w to, co się stało z powiadomieniem wypychanym.
+Po zakończeniu wykonywania — `result.State` po prostu Stany `Enqueued` . Wyniki nie zapewniają wglądu w to, co się stało z powiadomieniem wypychanym.
 
-Następnie można użyć właściwości `EnableTestSend` Boolean. Użyj `EnableTestSend` właściwości podczas inicjowania `NotificationHubClient` , aby uzyskać szczegółowy stan błędów usługi powiadomień wypychanych, które występują podczas wysyłania powiadomienia. Wysyłanie wywołania trwa dodatkowy czas, ponieważ najpierw musi Notification Hubs dostarczyć powiadomienia do usługi powiadomień wypychanych.
+Następnie można użyć `EnableTestSend` właściwości Boolean. Użyj `EnableTestSend` właściwości podczas inicjowania, `NotificationHubClient` Aby uzyskać szczegółowy stan błędów usługi powiadomień wypychanych, które występują podczas wysyłania powiadomienia. Wysyłanie wywołania trwa dodatkowy czas, ponieważ najpierw musi Notification Hubs dostarczyć powiadomienia do usługi powiadomień wypychanych.
 
 ```csharp
     bool enableTestSend = true;
@@ -288,7 +287,7 @@ Aby uzyskać więcej informacji o dostępie programistycznym, zobacz [dostęp pr
 <!-- LINKS -->
 [Przegląd Notification Hubs]: notification-hubs-push-notification-overview.md
 [Wprowadzenie do usługi Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Przystawki]: https://msdn.microsoft.com/library/dn530748.aspx
+[Szablony]: https://msdn.microsoft.com/library/dn530748.aspx
 [Omówienie usługi APNs]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Informacje o komunikatach FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx

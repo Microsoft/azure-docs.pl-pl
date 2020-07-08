@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919468"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Usługi pulpitu zdalnego nie jest uruchamiane na maszynie wirtualnej platformy Azure
@@ -63,7 +62,7 @@ Aby rozwiązać ten problem, użyj konsoli szeregowej. Lub w przeciwnym razie [n
 
 ### <a name="use-serial-console"></a>Korzystanie z konsoli szeregowej
 
-1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów** > **konsola szeregowa**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
+1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów**  >  **konsola szeregowa**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
 
 2. Utwórz nowy kanał dla wystąpienia CMD. Wprowadź **polecenie cmd** w celu uruchomienia kanału i pobrania nazwy kanału.
 
@@ -94,7 +93,7 @@ Aby rozwiązać ten problem, użyj konsoli szeregowej. Lub w przeciwnym razie [n
    ```
 8. Jeśli uruchomienie usługi nie powiedzie się, postępuj zgodnie z rozwiązaniem na podstawie otrzymanego błędu:
 
-    |  Error |  Sugestia |
+    |  Błąd |  Sugestia |
     |---|---|
     |5 — ODMOWA DOSTĘPU |Zobacz, [że Usługa TermService została zatrzymana z powodu błędu odmowy dostępu](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 — ERROR_SERVICE_REQUEST_TIMEOUT  |Zobacz [Usługa TermService jest wyłączona](#termservice-service-is-disabled).  |  

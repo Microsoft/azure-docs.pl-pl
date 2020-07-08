@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658630"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Konwersje kafelków projektanta widoków Azure Monitor
@@ -23,13 +22,13 @@ ms.locfileid: "77658630"
 Ponowne tworzenie kafelka listy & pierścieni w skoroszytach obejmuje dwie osobne wizualizacje. W przypadku części pierścieniowej dostępne są dwie opcje.
 Dla obu startu wybierz pozycję **Dodaj zapytanie** i wklej oryginalne zapytanie z projektanta widoku do komórki.
 
-**Opcja 1:** Wybierz **Wykres kołowy** z listy rozwijanej ![ **Wizualizacja** : menu wizualizacji wykresu kołowego](media/view-designer-conversion-tiles/pie-chart.png)
+**Opcja 1:** Wybierz **Wykres kołowy** z listy rozwijanej **Wizualizacja** : ![ menu wizualizacji wykresu kołowego](media/view-designer-conversion-tiles/pie-chart.png)
 
 **Opcja 2:** Wybierz pozycję **Ustaw według zapytania** z listy rozwijanej **Wizualizacja** i Dodaj `| render piechart` do zapytania:
 
  ![Menu wizualizacji](media/view-designer-conversion-tiles/set-by-query.png)
 
-**Przyklad**
+**Przykład**
 
 Oryginalne zapytanie
 ```KQL
@@ -79,7 +78,7 @@ Dostępne są dwie opcje wizualizacji wykresu liniowego.
 
  ![Menu wizualizacji](media/view-designer-conversion-tiles/set-by-query.png)
 
-**Przyklad**
+**Przykład**
 
 ```KQL
 search * 
@@ -146,7 +145,7 @@ search *
 
 Dostępne są dwie opcje wizualizacji zapytania jako wykres słupkowy:
 
-**Opcja 1:** Wybierz **Wykres słupkowy** z listy rozwijanej ![ **Wizualizacja** : wizualizacja BarChart](media/view-designer-conversion-tiles/bar-visualization.png)
+**Opcja 1:** Wybierz **Wykres słupkowy** z listy rozwijanej **Wizualizacja** : ![ Wizualizacja BarChart](media/view-designer-conversion-tiles/bar-visualization.png)
  
 **Opcja 2:** Wybierz pozycję **Ustaw według zapytania** z listy rozwijanej **Wizualizacja** i Dodaj `| render barchart` do zapytania:
 

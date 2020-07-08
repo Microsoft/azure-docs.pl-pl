@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918210"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Nie można nawiązać połączenia RDP z maszyną wirtualną, ponieważ maszyna wirtualna jest uruchamiana w trybie awaryjnym
@@ -84,7 +83,7 @@ Dziennik zrzutu i konsola szeregowa mogą pomóc nam w dalszej rozwiązywaniu pr
 Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący skrypt.
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (**Uruchom jako administrator**).
-2. Uruchom następujący skrypt:
+2. Uruchom poniższy skrypt:
 
     W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp tę literę dysku odpowiednią wartością dla maszyny wirtualnej.
 

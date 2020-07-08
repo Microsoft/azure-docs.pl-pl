@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77655382"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Praca z wartościami daty i godziny w zapytaniach dziennika Azure Monitor
@@ -38,14 +37,14 @@ Wartości TimeSpan są wyrażone jako liczba dziesiętna, po której następuje 
 |mikrosekundowych | mikrosekundowych  |
 |Investor        | nanosekund   |
 
-Daty i godziny mogą być tworzone przez rzutowanie ciągu przy `todatetime` użyciu operatora. Na przykład aby przejrzeć pulsy maszyny wirtualnej wysyłane w określonym przedziale czasu, należy `between` użyć operatora, aby określić zakres godzin.
+Daty i godziny mogą być tworzone przez rzutowanie ciągu przy użyciu `todatetime` operatora. Na przykład aby przejrzeć pulsy maszyny wirtualnej wysyłane w określonym przedziale czasu, należy użyć `between` operatora, aby określić zakres godzin.
 
 ```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
-Inny typowy scenariusz polega na porównaniu typu DateTime z obecnym. Na przykład aby wyświetlić wszystkie pulsy w ciągu ostatnich dwóch minut, można użyć `now` operatora razem z przedziałem czasu, który reprezentuje dwie minuty:
+Inny typowy scenariusz polega na porównaniu typu DateTime z obecnym. Na przykład aby wyświetlić wszystkie pulsy w ciągu ostatnich dwóch minut, można użyć operatora razem z przedziałem czasu `now` , który reprezentuje dwie minuty:
 
 ```Kusto
 Heartbeat
@@ -58,7 +57,7 @@ Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
-Najkrótszą i najbardziej czytelną metodą, `ago` chociaż używa operatora:
+Najkrótszą i najbardziej czytelną metodą, chociaż używa `ago` operatora:
 ```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
@@ -84,7 +83,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-`timeAgo` Kolumna zawiera wartości, takie jak: "00:09:31.5118992", co oznacza, że są sformatowane jako hh: mm: SS. fffffff. Jeśli chcesz sformatować te wartości w `numver` minutach od czasu rozpoczęcia, Podziel tę wartość przez "1 minutę":
+`timeAgo`Kolumna zawiera wartości, takie jak: "00:09:31.5118992", co oznacza, że są sformatowane jako hh: mm: SS. fffffff. Jeśli chcesz sformatować te wartości w `numver` minutach od czasu rozpoczęcia, Podziel tę wartość przez "1 minutę":
 
 ```Kusto
 Event
@@ -117,7 +116,7 @@ To zapytanie tworzy poniższą tabelę:
 |2018 r-08-01T09:50:00.000|41|
 |2018 r-08-01T09:55:00.000|16|
 
-Innym sposobem tworzenia zasobników wyników jest użycie funkcji, takich jak `startofday`:
+Innym sposobem tworzenia zasobników wyników jest użycie funkcji, takich jak `startofday` :
 
 ```Kusto
 Event

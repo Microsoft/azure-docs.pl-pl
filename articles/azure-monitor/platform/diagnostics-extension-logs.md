@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672399"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Zbierz dane z rozszerzenia diagnostyki platformy Azure do dzienników Azure Monitor
@@ -24,13 +23,13 @@ Rozszerzenie diagnostyki platformy Azure przechowuje dane na koncie usługi Azur
 
 | Typ dziennika | Typ zasobu | Lokalizacja |
 | --- | --- | --- |
-| Dzienniki usług IIS |Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |funkcji wad-IIS-LogFiles (Blob Storage) |
-| Dziennik systemu |Maszyny wirtualne |LinuxsyslogVer2v0 (Table Storage) |
+| Dzienniki usług IIS |Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |funkcji wad-IIS-LogFiles (Blob Storage) |
+| Dziennik systemu |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Service Fabric zdarzenia operacyjne |Service Fabric węzły |WADServiceFabricSystemEventTable |
 | Service Fabric niezawodne zdarzenia aktora |Service Fabric węzły |WADServiceFabricReliableActorEventTable |
 | Service Fabric niezawodne zdarzenia usługi |Service Fabric węzły |WADServiceFabricReliableServiceEventTable |
-| Dzienniki zdarzeń systemu Windows |Service Fabric węzły <br> Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |WADWindowsEventLogsTable (Table Storage) |
-| Dzienniki funkcji ETW systemu Windows |Service Fabric węzły <br> Maszyny wirtualne <br> Role sieci Web <br> Role procesu roboczego |WADETWEventTable (Table Storage) |
+| Dzienniki zdarzeń systemu Windows |Service Fabric węzły <br> Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |WADWindowsEventLogsTable (Table Storage) |
+| Dzienniki funkcji ETW systemu Windows |Service Fabric węzły <br> Virtual Machines <br> Role sieci Web <br> Role procesu roboczego |WADETWEventTable (Table Storage) |
 
 ## <a name="data-types-not-supported"></a>Typy danych nie są obsługiwane
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77651386"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Dostęp do zasobów IBM DB2 i zarządzanie nimi przy użyciu Azure Logic Apps
@@ -80,12 +79,12 @@ W przykładach w tym artykule użyto wyzwalacza **cyklu** .
 
 Aby skonfigurować połączenie, podaj te szczegóły połączenia po wyświetleniu monitu, wybierz pozycję **Utwórz**, a następnie Zapisz aplikację logiki:
 
-| Właściwość | Wymagany | Opis |
+| Właściwość | Wymagane | Opis |
 |----------|----------|-------------|
 | **Łączenie za pośrednictwem bramy lokalnej** | Nie | Dotyczy tylko połączeń lokalnych. |
 | **Nazwa połączenia** | Tak | Nazwa połączenia, na przykład "MyLogicApp-DB2-Connection" |
 | **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server.cloudapp.net:50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
-| **Database** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
+| **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Uż** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
 ||||
@@ -100,13 +99,13 @@ Przykład:
 
 Przed utworzeniem połączenia należy zainstalować lokalną bramę danych. W przeciwnym razie nie można zakończyć konfigurowania połączenia. Jeśli masz instalację bramy, Kontynuuj, podając te szczegóły połączenia, a następnie wybierz pozycję **Utwórz**.
 
-| Właściwość | Wymagany | Opis |
+| Właściwość | Wymagane | Opis |
 |----------|----------|-------------|
 | **Łączenie za pośrednictwem bramy lokalnej** | Tak | Ma zastosowanie, gdy chcesz połączyć lokalne i wyświetlić właściwości połączenia lokalnego. |
 | **Nazwa połączenia** | Tak | Nazwa połączenia, na przykład "MyLogicApp-DB2-Connection" | 
 | **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server: 50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
-| **Database** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
-| **Uwierzytelnianie** | Tak | Typ uwierzytelniania dla połączenia, na przykład "podstawowa" <p><p>**Uwaga**: Wybierz tę wartość z listy, która zawiera podstawowe lub Windows (Kerberos). |
+| **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
+| **Authentication** | Tak | Typ uwierzytelniania dla połączenia, na przykład "podstawowa" <p><p>**Uwaga**: Wybierz tę wartość z listy, która zawiera podstawowe lub Windows (Kerberos). |
 | **Uż** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
 | **Punkt** | Tak | Nazwa zainstalowanej lokalnej bramy danych <p><p>**Uwaga**: Wybierz tę wartość z listy, która obejmuje wszystkie zainstalowane bramy danych w ramach subskrypcji i grupy zasobów platformy Azure. |
@@ -141,7 +140,7 @@ Rozwiń akcję **Pobierz tabele** .
 
 ## <a name="get-row"></a>Pobierz wiersz
 
-Aby pobrać jeden rekord z tabeli bazy danych DB2, użyj akcji **Pobierz wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `SELECT WHERE` , na przykład `SELECT FROM AREA WHERE AREAID = '99999'`.
+Aby pobrać jeden rekord z tabeli bazy danych DB2, użyj akcji **Pobierz wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `SELECT WHERE` , na przykład `SELECT FROM AREA WHERE AREAID = '99999'` .
 
 1. Jeśli w aplikacji logiki nigdy nie były używane akcje programu DB2, przejrzyj kroki w sekcji [Dodawanie akcji programu DB2 — Pobierz tabele](#add-db2-action) , ale zamiast tego Dodaj akcję **Pobierz wiersz** , a następnie wróć tutaj, aby kontynuować.
 
@@ -151,7 +150,7 @@ Aby pobrać jeden rekord z tabeli bazy danych DB2, użyj akcji **Pobierz wiersz*
 
 1. Określ wartości wszystkich wymaganych właściwości (*). Po wybraniu tabeli akcja pokazuje odpowiednie właściwości, które są specyficzne dla rekordów w tej tabeli.
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa tabeli** | Tak | Tabela zawierająca żądany rekord, taka jak "obszar" w tym przykładzie |
    | **Identyfikator obszaru** | Tak | Identyfikator żądanego rekordu, na przykład "99999" w tym przykładzie |
@@ -182,7 +181,7 @@ Rozwiń akcję **Pobierz wiersz** .
 
 ## <a name="get-rows"></a>Pobierz wiersze
 
-Aby pobrać wszystkie rekordy z tabeli bazy danych DB2, użyj akcji **Pobierz wiersze** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `SELECT` , na przykład `SELECT * FROM AREA`.
+Aby pobrać wszystkie rekordy z tabeli bazy danych DB2, użyj akcji **Pobierz wiersze** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `SELECT` , na przykład `SELECT * FROM AREA` .
 
 1. Jeśli w aplikacji logiki nigdy nie były używane akcje programu DB2, przejrzyj kroki w sekcji [Dodawanie akcji programu DB2 — Pobierz tabele](#add-db2-action) , ale zamiast tego Dodaj akcję **Pobierz wiersze** , a następnie wróć tutaj, aby kontynuować.
 
@@ -219,7 +218,7 @@ Rozwiń akcję **Pobierz wiersze** .
 
 ## <a name="insert-row"></a>Wstaw wiersz
 
-Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `INSERT` , na przykład `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `INSERT` , na przykład `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)` .
 
 1. Jeśli w aplikacji logiki nigdy nie były używane akcje programu DB2, przejrzyj kroki w sekcji [Dodawanie akcji programu DB2 — Pobierz tabele](#add-db2-action) , ale zamiast tego Dodaj akcję **Wstaw wiersz** , a następnie wróć tutaj, aby kontynuować.
 
@@ -231,7 +230,7 @@ Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wier
 
    Na potrzeby tego przykładu są następujące właściwości:
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa tabeli** | Tak | Tabela, w której ma zostać dodany rekord, taki jak "obszar" |
    | **Identyfikator obszaru** | Tak | Identyfikator obszaru do dodania, na przykład "99999" |
@@ -266,7 +265,7 @@ Rozwiń akcję **Wstaw wiersz** .
 
 ## <a name="update-row"></a>Aktualizuj wiersz
 
-Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Aktualizuj wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `UPDATE` , na przykład `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Aktualizuj wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `UPDATE` , na przykład `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)` .
 
 1. Jeśli w aplikacji logiki nigdy nie były używane akcje programu DB2, przejrzyj kroki w sekcji [Dodawanie akcji programu DB2 — Pobierz tabele](#add-db2-action) , ale zamiast tego Dodaj akcję **Aktualizuj wiersz** , a następnie wróć tutaj, aby kontynuować.
 
@@ -278,7 +277,7 @@ Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Akt
 
    Na potrzeby tego przykładu są następujące właściwości:
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa tabeli** | Tak | Tabela, w której ma zostać zaktualizowany rekord, na przykład "obszar" |
    | **Identyfikator wiersza** | Tak | Identyfikator rekordu do zaktualizowania, na przykład "99999" |
@@ -314,7 +313,7 @@ Rozwiń akcję **Aktualizuj wiersz** .
 
 ## <a name="delete-row"></a>Usuń wiersz
 
-Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `DELETE` , na przykład `DELETE FROM AREA WHERE AREAID = '99999'`.
+Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wiersz** w aplikacji logiki. Ta akcja uruchamia instrukcję DB2 `DELETE` , na przykład `DELETE FROM AREA WHERE AREAID = '99999'` .
 
 1. Jeśli w aplikacji logiki nigdy nie były używane akcje programu DB2, przejrzyj kroki w sekcji [Dodawanie akcji programu DB2 — Pobierz tabele](#add-db2-action) , ale zamiast tego Dodaj akcję **Usuń wiersz** , a następnie wróć tutaj, aby kontynuować.
 
@@ -326,7 +325,7 @@ Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wie
 
    Na potrzeby tego przykładu są następujące właściwości:
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa tabeli** | Tak | Tabela, w której ma zostać usunięty rekord, na przykład "obszar" |
    | **Identyfikator wiersza** | Tak | Identyfikator rekordu do usunięcia, na przykład "99999" |

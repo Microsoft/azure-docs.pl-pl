@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77624136"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)
@@ -23,7 +22,7 @@ ms.locfileid: "77624136"
 Możesz zaoszczędzić czas i pieniądze, wdrażając i debugując aplikację Service Fabric platformy Azure w klastrze tworzenia komputerów lokalnych. Program Visual Studio 2019 lub 2015 może wdrożyć aplikację w klastrze lokalnym i automatycznie połączyć debuger ze wszystkimi wystąpieniami aplikacji. Program Visual Studio musi być uruchomiony jako administrator, aby podłączyć debuger.
 
 1. Uruchom lokalny klaster programistyczny, wykonując czynności opisane w sekcji [Konfigurowanie środowiska deweloperskiego Service Fabric](service-fabric-get-started.md).
-2. Naciśnij klawisz **F5** lub kliknij pozycję **Debuguj** > **Rozpocznij debugowanie**.
+2. Naciśnij klawisz **F5** lub kliknij pozycję **Debuguj**  >  **Rozpocznij debugowanie**.
    
     ![Rozpocznij debugowanie aplikacji][startdebugging]
 3. Ustaw punkty przerwania w kodzie i przechodząc przez aplikację, klikając polecenie polecenia w menu **Debuguj** .
@@ -56,7 +55,7 @@ Możesz zaoszczędzić czas i pieniądze, wdrażając i debugując aplikację Se
 ### <a name="running-a-script-as-part-of-debugging"></a>Uruchamianie skryptu w ramach debugowania
 W niektórych scenariuszach może być konieczne uruchomienie skryptu w ramach uruchamiania sesji debugowania (np. gdy nie są używane domyślne usługi).
 
-W programie Visual Studio można dodać plik o nazwie **Start-Service. ps1** w folderze **skryptów** projektu aplikacji Service Fabric (. sfproj). Ten skrypt zostanie wywołany po utworzeniu aplikacji w klastrze lokalnym.
+W programie Visual Studio można dodać plik o nazwie **Start-Service.ps1** w folderze **skrypty** projektu aplikacji Service Fabric (sfproj). Ten skrypt zostanie wywołany po utworzeniu aplikacji w klastrze lokalnym.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

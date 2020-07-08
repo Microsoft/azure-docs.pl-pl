@@ -12,10 +12,9 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77648516"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorowanie aktywności migracji przy użyciu Azure Database Migration Service
@@ -63,7 +62,7 @@ W poniższej tabeli wymieniono pola w bloku na poziomie bazy danych i opisano r�
       <td>Potok DMS jest uruchomiony i przeprowadza migrację.</td>
     </tr>
     <tr>
-      <td>Complete</td>
+      <td>Ukończ</td>
       <td>Migracja została zakończona.</td>
     </tr>
     <tr>

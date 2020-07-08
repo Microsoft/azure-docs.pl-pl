@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920148"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Szczegółowe procedury rozwiązywania problemów z połączeniem pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure
@@ -114,7 +113,7 @@ Aby sprawdzić, czy punkt końcowy jest źródłem problemu, Usuń bieżący pun
 ## <a name="source-4-network-security-groups"></a>Źródło 4: sieciowe grupy zabezpieczeń
 Sieciowe grupy zabezpieczeń umożliwiają bardziej szczegółową kontrolę nad dozwolonym ruchem przychodzącym i wychodzącym. Można tworzyć reguły obejmujące podsieci i usługi w chmurze w sieci wirtualnej platformy Azure.
 
-Użyj funkcji [weryfikacji przepływu adresu IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) w celu potwierdzenia, że reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące zasady grupy zabezpieczeń, aby upewnić się, że przychodząca reguła sieciowej grupy zabezpieczeń "Zezwalaj" istnieje i ma priorytet dla portu RDP (domyślnie 3389). Aby uzyskać więcej informacji, zobacz Używanie obowiązujących [reguł zabezpieczeń w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Użyj [weryfikacji przepływu IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) , aby potwierdzić, czy reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące zasady grupy zabezpieczeń, aby upewnić się, że przychodząca reguła sieciowej grupy zabezpieczeń "Zezwalaj" istnieje i ma priorytet dla portu RDP (domyślnie 3389). Aby uzyskać więcej informacji, zobacz Używanie obowiązujących [reguł zabezpieczeń w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Źródło 5: maszyna wirtualna platformy Azure oparta na systemie Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
@@ -131,11 +130,11 @@ Spróbuj ponownie nawiązać połączenie z komputera. Jeśli nadal nie można n
 * Zapora systemu Windows lub inna zapora lokalna ma regułę ruchu wychodzącego uniemożliwiającą Pulpit zdalny ruchem.
 * Wykrywanie intruza lub oprogramowanie do monitorowania sieci działające na maszynie wirtualnej platformy Azure uniemożliwia połączenia Pulpit zdalny.
 
-W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania można użyć zdalnej sesji Azure PowerShell do maszyny wirtualnej platformy Azure. Najpierw należy zainstalować certyfikat dla usługi hostingu w chmurze maszyny wirtualnej. Przejdź do pozycji [Skonfiguruj Bezpieczny zdalny dostęp do usługi Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) i Pobierz plik skryptu **InstallWinRMCertAzureVM. ps1** na komputer lokalny.
+W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania można użyć zdalnej sesji Azure PowerShell do maszyny wirtualnej platformy Azure. Najpierw należy zainstalować certyfikat dla usługi hostingu w chmurze maszyny wirtualnej. Przejdź do pozycji [Skonfiguruj Bezpieczny zdalny dostęp do usługi Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) i Pobierz plik skryptu **InstallWinRMCertAzureVM.ps1** na komputer lokalny.
 
 Następnie Zainstaluj Azure PowerShell, jeśli jeszcze tego nie zrobiono. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-Następnie otwórz wiersz polecenia Azure PowerShell i Zmień bieżący folder na lokalizację pliku skryptu **InstallWinRMCertAzureVM. ps1** . Aby uruchomić skrypt Azure PowerShell, należy ustawić odpowiednie zasady wykonywania. Uruchom polecenie **Get-ExecutionPolicy** , aby określić bieżący poziom zasad. Aby uzyskać informacje na temat ustawiania odpowiedniego poziomu, zobacz [Set-executionpolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Następnie otwórz wiersz polecenia Azure PowerShell i Zmień bieżący folder na lokalizację pliku skryptu **InstallWinRMCertAzureVM.ps1** . Aby uruchomić skrypt Azure PowerShell, należy ustawić odpowiednie zasady wykonywania. Uruchom polecenie **Get-ExecutionPolicy** , aby określić bieżący poziom zasad. Aby uzyskać informacje na temat ustawiania odpowiedniego poziomu, zobacz [Set-executionpolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
 Następnie wprowadź nazwę subskrypcji platformy Azure, nazwę usługi w chmurze i nazwę maszyny wirtualnej (usuwając < i > znaki), a następnie Uruchom te polecenia.
 
@@ -193,7 +192,7 @@ Exit-PSSession
 
 Sprawdź, czy punkt końcowy Pulpit zdalny dla maszyny wirtualnej platformy Azure używa również portu TCP 3398 jako portu wewnętrznego. Uruchom ponownie maszynę wirtualną platformy Azure i spróbuj ponownie nawiązać połączenie Pulpit zdalny.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Jak zresetować hasło lub usługę Pulpit zdalny dla maszyn wirtualnych z systemem Windows](../windows/reset-rdp.md)
 
 [How to install and configure Azure PowerShell](/powershell/azure/overview)

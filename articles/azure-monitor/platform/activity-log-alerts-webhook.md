@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669050"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
@@ -23,7 +22,7 @@ Aby uzyskać informacje na temat grup akcji, zobacz How to [Create Action Groups
 
 
 ## <a name="authenticate-the-webhook"></a>Uwierzytelnianie elementu webhook
-Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potrzeby uwierzytelniania. Identyfikator URI elementu webhook jest zapisywany z IDENTYFIKATORem tokenu, na `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`przykład.
+Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potrzeby uwierzytelniania. Identyfikator URI elementu webhook jest zapisywany z IDENTYFIKATORem tokenu, na przykład `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue` .
 
 ## <a name="payload-schema"></a>Schemat ładunku
 Ładunek JSON zawarty w operacji POST różni się w zależności od pola Data. Context. activityLog. eventSource.
@@ -261,13 +260,13 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | resourceProviderName |Dostawca zasobów zasobu, którego to dotyczy. |
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
-| id |Identyfikator zasobu alertu. |
+| identyfikator |Identyfikator zasobu alertu. |
 | description |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
 | resourceGroupName |Nazwa grupy zasobów dla zasobu, którego dotyczy problem. |
-| properties |Zestaw `<Key, Value>` par (czyli `Dictionary<String, String>`), który zawiera szczegółowe informacje o zdarzeniu. |
+| properties |Zestaw `<Key, Value>` par (czyli `Dictionary<String, String>` ), który zawiera szczegółowe informacje o zdarzeniu. |
 | event |Element, który zawiera metadane dotyczące zdarzenia. |
 | autoryzacja |Właściwości Access Control oparte na rolach zdarzenia. Te właściwości zazwyczaj obejmują akcję, rolę i zakres. |
 | category |Kategoria zdarzenia. Obsługiwane wartości to: administracyjne, alert, zabezpieczenia, servicehealth i rekomendacja. |

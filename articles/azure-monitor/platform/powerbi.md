@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
 ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659289"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importuj Azure Monitor dane dziennika do Power BI
@@ -29,7 +28,7 @@ Aby zaimportować dane z [obszaru roboczego log Analytics](manage-access.md) w A
 Zacznij od utworzenia [zapytania dziennika](../log-query/log-query-overview.md) , które zwraca dane, które mają zostać wypełnione Power BI zestawu danych.  Następnie należy wyeksportować to zapytanie do [języka Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) , który może być używany przez Power BI Desktop.
 
 1. [Utwórz zapytanie dziennika w log Analytics](../log-query/get-started-portal.md) , aby wyodrębnić dane dla zestawu danych.
-2. Wybierz pozycję **Eksportuj** > **Power BI zapytanie (M)**.  Spowoduje to wyeksportowanie zapytania do pliku tekstowego o nazwie **PowerBIQuery. txt**. 
+2. Wybierz pozycję **Eksportuj**  >  **Power BI zapytanie (M)**.  Spowoduje to wyeksportowanie zapytania do pliku tekstowego o nazwie **PowerBIQuery.txt**. 
 
     ![Eksportowanie przeszukiwania dzienników](media/powerbi/export-analytics.png)
 
@@ -39,7 +38,7 @@ Zacznij od utworzenia [zapytania dziennika](../log-query/log-query-overview.md) 
 Power BI Desktop to aplikacja klasyczna, która umożliwia tworzenie zestawów danych i raportów, które mogą być publikowane w programie Power BI.  Można go również użyć do utworzenia zapytania przy użyciu języka Power Query wyeksportowanego z Azure Monitor. 
 
 1. Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/desktop/) , jeśli jeszcze tego nie zrobiono, a następnie otwórz aplikację.
-2. Wybierz pozycję **Pobierz dane** > **puste zapytanie** , aby otworzyć nowe zapytanie.  Następnie wybierz pozycję **Edytor zaawansowany** i wklej zawartość wyeksportowanego pliku do zapytania. Kliknij pozycję **Gotowe**.
+2. Wybierz pozycję **Pobierz dane**  >  **puste zapytanie** , aby otworzyć nowe zapytanie.  Następnie wybierz pozycję **Edytor zaawansowany** i wklej zawartość wyeksportowanego pliku do zapytania. Kliknij pozycję **Gotowe**.
 
     ![Zapytanie Power BI Desktop](media/powerbi/desktop-new-query.png)
 
@@ -62,7 +61,7 @@ Po opublikowaniu do Power BI zostanie utworzony zestaw danych i raport.  Jeśli 
 1. Po zakończeniu publikowania kliknij pozycję **Otwórz w Power BI** , aby otworzyć Power BI z nowym zestawem danych.
 
 
-### <a name="configure-scheduled-refresh"></a>Konfigurowanie zaplanowanego odświeżania
+### <a name="configure-scheduled-refresh"></a>Konfigurowanie odświeżania zaplanowanego
 Zestaw danych utworzony w Power BI będzie miał te same dane, które wcześniej były znajdowane w Power BI Desktop.  Należy okresowo odświeżyć zestaw danych, aby ponownie uruchomić zapytanie i wypełnić je najnowszymi danymi z Azure Monitor.  
 
 1. Kliknij obszar roboczy, do którego został przekazany raport, a następnie wybierz menu **zestawy danych** . 

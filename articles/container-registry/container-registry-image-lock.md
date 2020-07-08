@@ -4,10 +4,9 @@ description: Ustaw atrybuty dla obrazu kontenera lub repozytorium, aby nie możn
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77659700"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Blokowanie obrazu kontenera w usłudze Azure Container Registry
@@ -69,7 +68,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Zablokuj obraz przez podsumowanie manifestu
 
-Aby zablokować obraz z *repozytorium/* obrazu identyfikowany przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...`), uruchom następujące polecenie. (Aby znaleźć podsumowanie manifestu skojarzone z co najmniej jednym tagiem obrazu, uruchom polecenie [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests] .)
+Aby zablokować obraz z *repozytorium/* obrazu identyfikowany przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...` ), uruchom następujące polecenie. (Aby znaleźć podsumowanie manifestu skojarzone z co najmniej jednym tagiem obrazu, uruchom polecenie [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests] .)
 
 ```azurecli
 az acr repository update \

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77662165"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Zbieranie niestandardowych źródeł danych JSON przy użyciu agenta Log Analytics dla systemu Linux w systemie Azure Monitor
@@ -22,13 +21,13 @@ Niestandardowe źródła danych JSON można zbierać do [Azure monitor](data-pla
 > [!NOTE]
 > Agent Log Analytics dla systemu Linux v 1.1.0-217 + jest wymagany w przypadku niestandardowych danych JSON
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="configure-input-plugin"></a>Konfigurowanie wtyczki wejściowej
 
-Aby zebrać dane JSON w Azure Monitor, należy `oms.api.` dodać do początku taga Fluent w wtyczki wejściowej.
+Aby zebrać dane JSON w Azure Monitor, należy dodać `oms.api.` do początku taga Fluent w wtyczki wejściowej.
 
-Na przykład poniżej znajduje się oddzielny plik `exec-json.conf` konfiguracji `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`w programie.  Powoduje to użycie pozostałej `exec` wtyczki do uruchomienia polecenia zwinięcie co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę wyjściową JSON.
+Na przykład poniżej znajduje się oddzielny plik konfiguracji `exec-json.conf` w programie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` .  Powoduje to użycie pozostałej wtyczki `exec` do uruchomienia polecenia zwinięcie co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę wyjściową JSON.
 
 ```
 <source>
@@ -52,7 +51,7 @@ Na przykład poniżej znajduje się oddzielny plik `exec-json.conf` konfiguracji
   retry_wait 30s
 </match>
 ```
-Dodany `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` plik konfiguracji musi mieć zmienioną własność przy użyciu następującego polecenia.
+Dodany plik konfiguracji musi `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` mieć zmienioną własność przy użyciu następującego polecenia.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
@@ -80,13 +79,13 @@ Uruchom ponownie usługę Log Analytics Agent dla systemu Linux przy użyciu nas
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Dane wyjściowe
-Dane będą zbierane w Azure Monitor z typem rekordu `<FLUENTD_TAG>_CL`.
+Dane będą zbierane w Azure Monitor z typem rekordu `<FLUENTD_TAG>_CL` .
 
-Na przykład tag `tag oms.api.tomcat` niestandardowy w Azure monitor z typem rekordu `tomcat_CL`.  Można pobrać wszystkie rekordy tego typu z następującym zapytaniem dziennika.
+Na przykład tag niestandardowy `tag oms.api.tomcat` w Azure monitor z typem rekordu `tomcat_CL` .  Można pobrać wszystkie rekordy tego typu z następującym zapytaniem dziennika.
 
     Type=tomcat_CL
 
-Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane z zapytania dziennika jako `tag_s : "[{ "a":"1", "b":"2" }]`.
+Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane z zapytania dziennika jako `tag_s : "[{ "a":"1", "b":"2" }]` .
 
 ```
 {

@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
 ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661674"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Wycofanie odzyskiwania po awarii między lokacjami zarządzanymi przez klienta (z programem VMM) przy użyciu Azure Site Recovery
@@ -42,7 +41,7 @@ Poniżej znajdują się alternatywy, które klient może wybrać, aby upewnić s
 - Opcja 2: Wybierz, aby kontynuować replikację między lokacjami przy użyciu podstawowego [rozwiązania funkcji Hyper-V Replica](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), ale nie będziesz w stanie zarządzać konfiguracjami Dr przy użyciu Azure Site Recovery w Azure Portal. 
 
 
-## <a name="remediation-steps"></a>Kroki zaradcze
+## <a name="remediation-steps"></a>Instrukcje rozwiązania problemu
 
 W przypadku wybrania opcji 1 wykonaj następujące czynności:
 
@@ -57,7 +56,7 @@ W przypadku wybrania opcji 1 wykonaj następujące czynności:
 
 W przypadku wybrania opcji 2 z funkcji Hyper-V Replica wykonaj następujące czynności:
 
-1. W obszarze **chronione elementy** > **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę > **Wyłącz replikację**.
+1. W obszarze **chronione elementy**  >  **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę > **Wyłącz replikację**.
 2. W obszarze **Wyłącz replikację**wybierz pozycję **Usuń**.
 
     Spowoduje to usunięcie zreplikowanego elementu z Azure Site Recovery (rozliczenia są zatrzymane). Konfiguracja replikacji na lokalnej maszynie wirtualnej **nie zostanie** wyczyszczona. 

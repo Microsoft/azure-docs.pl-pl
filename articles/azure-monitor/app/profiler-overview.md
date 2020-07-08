@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671651"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilowanie aplikacji produkcyjnych na platformie Azure za pomocą Application Insights
@@ -53,19 +52,19 @@ Program Microsoft Service Profiler używa kombinacji metod próbkowania i instru
 
 Stos wywołań, który jest wyświetlany w widoku oś czasu jest wynikiem próbkowania i instrumentacji. Ponieważ każdy przykład przechwytuje cały stos wywołań wątku, zawiera kod z Microsoft .NET Framework oraz z innych struktur, do których się odwołuje.
 
-### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Alokacja obiektu (CLR! Kompilator\_JIT New lub CLR! Newarr1\_JIT)
+### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Alokacja obiektu (CLR! Kompilator JIT \_ New lub CLR! \_NEWARR1 JIT)
 
-**CLR! New\_** i CLR języka JIT ** Newarr1\_JIT** to funkcje pomocnika w .NET Framework przydzielania pamięci z sterty zarządzanej. **środowisko CLR! Nowy\_JIT** jest wywoływany po przydzieleniu obiektu. **środowisko CLR! Newarr1\_JIT** jest wywoływana, gdy przydzielono tablicę obiektów. Te dwie funkcje są zwykle szybkie i stosunkowo małe. Jeśli **CLR! Kompilator\_JIT New** lub **CLR! Newarr1\_JIT** zajmuje dużo czasu na osi czasu, kod może przydzielić wiele obiektów i zużywać znaczną ilość pamięci.
+**środowisko CLR! \_New** i CLR języka JIT ** \_NEWARR1 JIT** to funkcje pomocnika w .NET Framework przydzielania pamięci z sterty zarządzanej. **środowisko CLR! \_Nowy JIT** jest wywoływany po przydzieleniu obiektu. **środowisko CLR! \_NEWARR1 JIT** jest wywoływana, gdy przydzielono tablicę obiektów. Te dwie funkcje są zwykle szybkie i stosunkowo małe. Jeśli **CLR! Kompilator JIT \_ New** lub **CLR! \_NEWARR1 JIT** zajmuje dużo czasu na osi czasu, kod może przydzielić wiele obiektów i zużywać znaczną ilość pamięci.
 
 ### <a name="loading-code-clrtheprestub"></a><a id="theprestub"></a>Ładowanie kodu (CLR! ThePreStub)
 
 **środowisko CLR! ThePreStub** jest funkcją pomocnika w .NET Framework, która przygotowuje kod do wykonania po raz pierwszy. To wykonanie zwykle obejmuje, ale nie jest ograniczone do, kompilacja just-in-Time (JIT). Dla każdej metody C#, **CLR! ThePreStub** powinien być wywoływany co najwyżej raz podczas procesu.
 
-Jeśli **CLR! ThePreStub** zajmuje dużo czasu na żądanie, żądanie jest pierwszym z nich, aby wykonać tę metodę. Czas ładowania pierwszej metody przez środowisko uruchomieniowe .NET Framework jest znaczący. Rozważ użycie procesu rozgrzewania, który wykonuje tę część kodu, zanim użytkownicy uzyskają do niego dostęp, lub Rozważ uruchomienie natywnego generatora obrazu (Ngen. exe) w Twoich zestawach.
+Jeśli **CLR! ThePreStub** zajmuje dużo czasu na żądanie, żądanie jest pierwszym z nich, aby wykonać tę metodę. Czas ładowania pierwszej metody przez środowisko uruchomieniowe .NET Framework jest znaczący. Rozważ użycie procesu rozgrzewania, który wykonuje tę część kodu, zanim użytkownicy uzyskają do niego dostęp, lub Rozważ uruchomienie generatora obrazu natywnego (ngen.exe) w zestawach.
 
-### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Zablokuj rywalizację (CLR! JITutil\_MonContention lub CLR! JITutil\_MonEnterWorker)
+### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Zablokuj rywalizację (CLR! JITutil \_ MonContention lub CLR! JITutil \_ MonEnterWorker)
 
-**CLR! JITutil\_MonContention** lub **CLR! JITutil\_MonEnterWorker** wskazuje, że bieżący wątek oczekuje na zwolnienie blokady. Ten tekst jest często wyświetlany podczas wykonywania instrukcji **Lock** języka C#, wywoływanie metody **monitor. Enter** lub Invoke metody z atrybutem **MethodImplOptions. Synchronized** . Rywalizacja o blokadę zwykle występuje, gdy wątek _a_ uzyskuje blokadę, a wątek _B_ próbuje uzyskać tę samą blokadę przed _jej wydaniem przez wątek_ .
+**środowisko CLR! JITutil \_ MonContention** lub **CLR! JITutil \_ MonEnterWorker** wskazuje, że bieżący wątek oczekuje na zwolnienie blokady. Ten tekst jest często wyświetlany podczas wykonywania instrukcji **Lock** języka C#, wywoływanie metody **monitor. Enter** lub Invoke metody z atrybutem **MethodImplOptions. Synchronized** . Rywalizacja o blokadę zwykle występuje, gdy wątek _a_ uzyskuje blokadę, a wątek _B_ próbuje uzyskać tę samą blokadę przed _jej wydaniem przez wątek_ .
 
 ### <a name="loading-code-cold"></a><a id="ngencold"></a>Ładowanie kodu ([ZIMNy])
 
@@ -79,11 +78,11 @@ Metody, takie jak **HttpClient. Send** wskazują, że kod oczekuje na ukończeni
 
 ### <a name="database-operation"></a><a id="sqlcommand"></a>Operacja bazy danych
 
-Metody takie jak **SqlCommand. Execute** wskazują, że kod oczekuje na zakończenie operacji bazy danych.
+Metody takie jak **SqlCommand.Exeurocze** wskazują, że kod oczekuje na zakończenie operacji bazy danych.
 
-### <a name="waiting-await_time"></a><a id="await"></a>Oczekiwanie (\_czas oczekiwania)
+### <a name="waiting-await_time"></a><a id="await"></a>Oczekiwanie ( \_ czas oczekiwania)
 
-Czas oczekiwania wskazuje, że kod oczekuje na zakończenie innego zadania. **\_** To opóźnienie zwykle odbywa się przy użyciu instrukcji języka C# **AWAIT** . Gdy kod wykonuje polecenie C# **AWAIT**, wątek cofa i zwraca kontrolę do puli wątków i nie istnieje wątek, który jest zablokowany oczekujący **na zakończenie** oczekiwania. Jednak logicznie wątek, **który został oczekiwał, jest zablokowany** , i oczekuje na zakończenie operacji. Instrukcja **AWAIT\_Time** wskazuje zablokowany czas oczekiwania na zakończenie zadania.
+**Oczekiwanie \_ CZAS** wskazuje, że kod oczekuje na zakończenie innego zadania. To opóźnienie zwykle odbywa się przy użyciu instrukcji języka C# **AWAIT** . Gdy kod wykonuje polecenie C# **AWAIT**, wątek cofa i zwraca kontrolę do puli wątków i nie istnieje wątek, który jest zablokowany oczekujący **na zakończenie** oczekiwania. Jednak logicznie wątek, **który został oczekiwał, jest zablokowany** , i oczekuje na zakończenie operacji. Instrukcja **AWAIT \_ Time** wskazuje zablokowany czas oczekiwania na zakończenie zadania.
 
 ### <a name="blocked-time"></a><a id="block"></a>Czas blokowania
 

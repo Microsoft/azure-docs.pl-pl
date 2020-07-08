@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919434"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Uruchamianie maszyny wirtualnej platformy Azure jest zablokowane w usłudze Windows Update
@@ -53,7 +52,7 @@ W zależności od liczby aktualizacji, które są instalowane lub wycofywane, pr
     Na przykład jeśli dołączony dysk systemu operacyjnego to dysk F, uruchom następujące polecenie:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Otwórz plik lokalizacji c:\Temp\ Patch_level. txt, a następnie przeczytaj go od dołu. Znajdź aktualizację, która jest w stanie oczekiwania na **instalację** lub **odinstalowanie** .  Poniżej znajduje się przykład stanu aktualizacji:
+5. Otwórz plik C:\temp\Patch_level.txt, a następnie przeczytaj go od dołu do góry. Znajdź aktualizację, która jest w stanie oczekiwania na **instalację** lub **odinstalowanie** .  Poniżej znajduje się przykład stanu aktualizacji:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

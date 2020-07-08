@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665004"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Tworzenie reguł alertów i zarządzanie nimi w Log Analytics z interfejsem API REST 
@@ -122,7 +121,7 @@ Użyj metody Delete z IDENTYFIKATORem akcji, aby usunąć akcję.
 ### <a name="alert-actions"></a>Akcje alertów
 Harmonogram powinien mieć jedną i tylko jedną akcję alertu.  Akcje alertów mają co najmniej jedną sekcję z poniższej tabeli.  Każdy z nich został szczegółowo opisany poniżej.
 
-| Sekcja | Opis | Sposób użycia |
+| Sekcja | Opis | Użycie |
 |:--- |:--- |:--- |
 | Próg |Kryteria dla momentu uruchomienia akcji.| Wymagane dla każdego alertu, przed lub po rozszerzeniu na platformę Azure. |
 | Ważność |Etykieta używana do klasyfikowania alertu po wyzwoleniu.| Wymagane dla każdego alertu, przed lub po rozszerzeniu na platformę Azure. |
@@ -267,7 +266,7 @@ Użyj metody PUT z istniejącym IDENTYFIKATORem akcji, aby zmodyfikować grupę 
 Domyślnie akcje są zgodne z szablonem standardowym i formatem powiadomień. Jednak użytkownik może dostosować niektóre akcje, nawet jeśli są kontrolowane przez grupy akcji. Obecnie jest możliwe dostosowanie tematu wiadomości E-mail i ładunku elementu webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Dostosuj temat wiadomości E-Mail dla grupy akcji
-Domyślnie temat wiadomości e-mail dotyczący alertów to: powiadomienie `<AlertName>` o alercie `<WorkspaceName>`dla. Można go jednak dostosować, aby można było używać określonych słów lub tagów — aby można było łatwo zastosować reguły filtru w skrzynce odbiorczej. Szczegóły dotyczące dostosowywania nagłówka wiadomości e-mail muszą być wysyłane wraz ze szczegółami akcji, jak w poniższym przykładzie.
+Domyślnie temat wiadomości e-mail dotyczący alertów to: powiadomienie o alercie `<AlertName>` dla `<WorkspaceName>` . Można go jednak dostosować, aby można było używać określonych słów lub tagów — aby można było łatwo zastosować reguły filtru w skrzynce odbiorczej. Szczegóły dotyczące dostosowywania nagłówka wiadomości e-mail muszą być wysyłane wraz ze szczegółami akcji, jak w poniższym przykładzie.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

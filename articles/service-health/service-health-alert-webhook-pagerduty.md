@@ -4,10 +4,9 @@ description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usłu
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654073"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi PagerDuty przy użyciu elementów webhook
@@ -27,7 +26,7 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 
     a. **Typ integracji**: Microsoft Azure
 
-    b. **Nazwa integracji**: \<nazwa\>
+    b. **Nazwa integracji**:\<Name\>
 
     !["Ustawienia integracji" w usługi PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -80,7 +79,7 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 
     BODY        <service health payload>
     ```
-1. Powinna zostać wyświetlona wiadomość `202 Accepted` z komunikatem zawierającym identyfikator zdarzenia.
+1. Powinna zostać wyświetlona `202 Accepted` wiadomość z komunikatem zawierającym identyfikator zdarzenia.
 
 1. Przejdź do [usługi PagerDuty](https://www.pagerduty.com/) , aby upewnić się, że integracja została pomyślnie skonfigurowana.
 

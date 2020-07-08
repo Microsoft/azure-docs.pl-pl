@@ -4,10 +4,9 @@ description: Monitorowanie wydajności aplikacji dla maszyn wirtualnych platform
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77661332"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Wdrażanie agenta Application Insights Azure Monitor na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure
@@ -32,7 +31,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji dla maszyn wirtualnych
 
     * Agent Application Insights wykonuje autozbieranie informacji o tej samej zależności, co oznacza, że jest to zestaw .NET SDK. Zobacz [autozbieranie zależności](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) , aby dowiedzieć się więcej.
         > [!NOTE]
-        > Obecnie obsługiwane są tylko aplikacje obsługiwane przez program .NET IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node. js hostowanych na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
+        > Obecnie obsługiwane są tylko aplikacje obsługiwane przez program .NET IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node.js hostowanych na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
 
 * **Oparte na kodzie** za pośrednictwem zestawu SDK
 
@@ -168,7 +167,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Znajdź wskazówki dotyczące rozwiązywania problemów Application Insights rozszerzenia agenta monitorowania dla aplikacji platformy .NET działających na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych.
 
 > [!NOTE]
-> Aplikacje .NET Core, Java i Node. js są obsługiwane tylko w maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure za pośrednictwem usługi Instrumentacja ręcznego zestawu SDK, dlatego poniższe kroki nie mają zastosowania do tych scenariuszy.
+> Aplikacje .NET Core, Java i Node.js są obsługiwane tylko na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych platformy Azure za pośrednictwem usługi Instrumentacja ręcznego zestawu SDK, w związku z czym poniższe kroki nie mają zastosowania do tych scenariuszy.
 
 Dane wyjściowe wykonania rozszerzenia są rejestrowane w plikach znalezionych w następujących katalogach:
 ```Windows

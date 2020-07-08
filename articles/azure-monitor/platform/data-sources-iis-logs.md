@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670580"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Zbieranie dzienników usług IIS w Azure Monitor
@@ -43,7 +42,7 @@ Rekordy dziennika usług IIS mają typ **W3CIISLog** i mają właściwości w po
 | csUserName |Nazwa uwierzytelnionego użytkownika, który uzyskał dostęp do serwera. Użytkownicy anonimowi są wskazywani przez łącznik. |
 | csUriStem |Miejsce docelowe żądania, takie jak strona sieci Web. |
 | csUriQuery |Zapytanie (jeśli istnieje), które klient próbował wykonać. |
-| ManagementGroupName |Nazwa grupy zarządzania dla agentów Operations Manager.  W przypadku innych agentów jest to AOI —\<identyfikator obszaru roboczego\> |
+| ManagementGroupName |Nazwa grupy zarządzania dla agentów Operations Manager.  W przypadku innych agentów jest to AOI-\<workspace ID\> |
 | RemoteIPCountry |Kraj/region adresu IP klienta. |
 | RemoteIPLatitude |Szerokość geograficzna adresu IP klienta. |
 | RemoteIPLongitude |Długość adresu IP klienta. |
@@ -65,7 +64,7 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 | W3CIISLog |Wszystkie rekordy dziennika usług IIS. |
 | W3CIISLog &#124;, gdzie scStatus = = 500 |Wszystkie rekordy dziennika IIS ze stanem powrotu 500. |
 | W3CIISLog &#124; Sumuj liczbę () według przelewu |Liczba wpisów dziennika IIS według adresu IP klienta. |
-| W3CIISLog &#124;, gdzie csHost = = "\.www contoso.com" &#124; Sumuj liczbę () przez csUriStem |Liczba wpisów dziennika IIS wg adresu URL dla hosta contoso.com www\.. |
+| W3CIISLog &#124;, gdzie csHost = = "www \. contoso.com" &#124; Sumuj liczbę () przez csUriStem |Liczba wpisów dziennika IIS wg adresu URL dla hosta contoso.com www \. . |
 | &#124; W3CIISLog podsumowania sum (csBytes) przez komputer &#124; Take 500000 |Łączna liczba bajtów odebranych przez każdy komputer IIS. |
 
 ## <a name="next-steps"></a>Następne kroki

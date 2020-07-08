@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77918227"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Remote Desktop disconnects frequently in Azure VM (Pulpit zdalny często rozłącza się na maszynie wirtualnej platformy Azure)
@@ -90,8 +89,8 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial lub [naprawić masz
 1. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](../windows/troubleshoot-recovery-disks-portal.md).
 2. Po dołączeniu dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania upewnij się, że dysk jest oznaczony jako **online** w konsoli Zarządzanie dyskami. Zanotuj literę dysku przypisaną do dołączonego dysku systemu operacyjnego.
 3. Na dołączonym dysku systemu operacyjnego przejdź do folderu **\Windows\System32\Config** . Skopiuj wszystkie pliki w tym folderze jako kopię zapasową, w przypadku gdy wymagane jest wycofanie.
-4. Uruchom Edytor rejestru (regedit. exe).
-5. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz pozycję**Załaduj** **plik** > Hive:
+4. Uruchom Edytor rejestru (regedit.exe).
+5. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz pozycję **File**  >  **Załaduj plik Hive**:
 6. Przejdź do folderu **\windows\system32\config\SYSTEM** na dysku systemu operacyjnego, który został podłączony. W polu Nazwa gałęzi wpisz **BROKENSYSTEM**. W kluczu **HKEY_LOCAL_MACHINE** zostanie wyświetlona nowa gałąź rejestru. Następnie załaduj **\windows\system32\config\SOFTWARE** Hive oprogramowania w kluczu **HKEY_LOCAL_MACHINE** . W polu Nazwa oprogramowania Hive wprowadź **BROKENSOFTWARE**. 
 7. Otwórz okno wiersza polecenia z podwyższonym poziomem uprawnień (**Uruchom jako administrator**) i uruchom polecenia w pozostałych krokach, aby zresetować konfiguracje protokołu RDP. 
 8. Obniż poziom warstwy zabezpieczeń protokołu RDP do wartości 0, aby komunikacja między serwerem a klientem była używana przez natywne szyfrowanie RDP:

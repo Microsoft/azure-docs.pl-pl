@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658493"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor
@@ -51,7 +50,7 @@ Opcje są opisane w poniższej tabeli:
 
 | Opcja | Opis |
 |:--|:--|
-| Odświeżanie   | Odświeża widok przy użyciu najnowszych danych. | 
+| Odśwież   | Odświeża widok przy użyciu najnowszych danych. | 
 | Dzienniki      | Otwiera [log Analytics](../log-query/portals.md) , aby analizować dane przy użyciu zapytań dzienników. |
 | Edytuj       | Otwiera widok w projektancie widoków, aby edytować jego zawartość i konfigurację.  |
 | Klonowanie      | Tworzy nowy widok i otwiera go w projektancie widoków. Nazwa nowego widoku jest taka sama jak oryginalna nazwa, ale z dołączoną do niej *kopią* . |
@@ -98,10 +97,10 @@ W poniższej tabeli opisano opcje pracy z widokami w trybie edycji.
 | Opcja | Opis |
 |:--|:--|
 | Zapisz        | Zapisuje zmiany i zamyka widok. |
-| Cancel      | Odrzuca zmiany i zamyka widok. |
+| Anuluj      | Odrzuca zmiany i zamyka widok. |
 | Usuń widok | Usuwa widok. |
 | Eksportowanie      | Eksportuje widok do [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , który można zaimportować do innego obszaru roboczego. Nazwa pliku to nazwa widoku, która ma rozszerzenie *omsview* . |
-| Import      | Importuje plik *omsview* wyeksportowany z innego obszaru roboczego. Ta akcja zastępuje konfigurację istniejącego widoku. |
+| Importuj      | Importuje plik *omsview* wyeksportowany z innego obszaru roboczego. Ta akcja zastępuje konfigurację istniejącego widoku. |
 | Klonowanie       | Tworzy nowy widok i otwiera go w projektancie widoków. Nazwa nowego widoku jest taka sama jak oryginalna nazwa, ale z dołączoną do niej *kopią* . |
 
 ## <a name="next-steps"></a>Następne kroki

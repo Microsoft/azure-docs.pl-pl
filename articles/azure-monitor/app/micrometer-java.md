@@ -6,17 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670070"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
 Micrometer do monitorowania aplikacji miaruje metryki dla kodu aplikacji opartego na JVM i umożliwia eksportowanie danych do ulubionych systemów monitorowania. W tym artykule opisano, jak używać Micrometer z Application Insights zarówno dla aplikacji rozruchowych z systemem sprężyny, jak i bez sprężyny.
 
 ## <a name="using-spring-boot-15x"></a>Korzystanie z usługi sprężynowego rozruchu 1,5 x
-Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle: 
+Dodaj następujące zależności do pliku pom.xml lub Build. Gradle: 
 * [Application Insights sprężyny rozruchu — Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 lub nowszego
 * Micrometer Azure Registry 1.1.0 lub nowszy
 * [Micrometer sprężyny ze starszą](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 lub wyższą (to spowoduje Przeportowanie kodu autokonfiguracji w strukturze sprężynowej).
@@ -24,7 +23,7 @@ Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
 
 Kroki
 
-1. Zaktualizuj plik pliku pom. XML aplikacji rozruchowej wiosennej i Dodaj do niej następujące zależności:
+1. Zaktualizuj plik pom.xml aplikacji do rozruchu ze sprężyną i Dodaj do niej następujące zależności:
 
     ```XML
     <dependency>
@@ -54,7 +53,7 @@ Kroki
 
 ## <a name="using-spring-2x"></a>Korzystanie z sprężyny 2. x
 
-Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
+Dodaj następujące zależności do pliku pom.xml lub Build. Gradle:
 
 * Application Insights sprężynowego rozruchu — Starter 2.1.2 lub nowszego
 * Azure-sprężynowe-Boot-Metrics-restarters 2.0.7 lub nowszy
@@ -62,7 +61,7 @@ Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
 
 Kroki:
 
-1. Zaktualizuj plik pliku pom. XML aplikacji rozruchowej wiosennej i Dodaj do niej następującą zależność:
+1. Zaktualizuj plik pom.xml aplikacji rozruchowej wiosennej i Dodaj do niej następującą zależność:
 
     ```XML
     <dependency> 
@@ -113,7 +112,7 @@ Jak wyłączyć automatyczne zbieranie metryk:
 
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Korzystanie z Micrometer z niesprężynnymi aplikacjami sieci Web
 
-Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
+Dodaj następujące zależności do pliku pom.xml lub Build. Gradle:
 
 * Application Insights Web 2.5.0 lub nowsza
 * Micrometer Azure Registry 1.1.0 lub nowszy
@@ -121,7 +120,7 @@ Dodaj następujące zależności do pliku pliku pom. XML lub Build. Gradle:
 
 Kroki:
 
-1. Dodaj następujące zależności w pliku pliku pom. XML lub Build. Gradle:
+1. Dodaj następujące zależności w pliku pom.xml lub Build. Gradle:
 
     ```XML
         <dependency>

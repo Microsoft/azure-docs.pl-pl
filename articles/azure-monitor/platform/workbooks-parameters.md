@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658221"
 ---
 # <a name="workbook-parameters"></a>Parametry skoroszytu
@@ -63,7 +62,7 @@ W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu, w stylu "Pills"
 ### <a name="in-kql"></a>W KQL
 1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
 2. W KQL Wprowadź filtr zakresu czasu przy użyciu parametru:`| where timestamp {TimeRange}`
-3. Spowoduje to rozwinięcie czasu oceny zapytania do `| where timestamp > ago(1d)`, który jest wartością zakresu czasu parametru.
+3. Spowoduje to rozwinięcie czasu oceny zapytania do `| where timestamp > ago(1d)` , który jest wartością zakresu czasu parametru.
 4. Uruchom zapytanie, aby zobaczyć wyniki
 
     ![Obraz przedstawiający zakres czasu przywoływany w KQL](./media/workbooks-parameters/time-in-code.png)
