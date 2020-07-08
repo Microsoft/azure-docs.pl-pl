@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602588"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -123,7 +123,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
 
    a.    Wybierz **sieć wirtualną** i **podsieć** , którą chcesz połączyć z zasobami Azure monitor. 
  
-   b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS**i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. 
+   b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS**i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. Rzeczywiste strefy DNS mogą się różnić od tego, co pokazano na poniższym zrzucie ekranu. 
  
    c.    Kliknij pozycję **Przegląd + utwórz**.
  
