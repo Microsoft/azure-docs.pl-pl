@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84424469"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Rozwiązanie Wire Data 2.0 (wersja zapoznawcza) w Azure Monitor
@@ -54,7 +53,7 @@ Warto jednak podkreślić, że prezentowane są metadane, a więc niekoniecznie 
 
 Rozwiązanie Dane o komunikacji sieciowej pobiera swoje dane z agenta Microsoft Dependency Agent. Agent zależności zależy od agenta Log Analytics do połączeń Azure Monitor. Oznacza to, że na serwerze musi być zainstalowany i skonfigurowany Agent Log Analytics przy użyciu agenta zależności. W poniższej tabeli opisano połączone źródła obsługiwane przez rozwiązanie Dane o komunikacji sieciowej.
 
-| **Połączone źródło** | **Obsługiwał** | **Opis** |
+| **Połączone źródło** | **Obsługiwane** | **Opis** |
 | --- | --- | --- |
 | Agenci dla systemu Windows | Tak | Rozwiązanie Dane o komunikacji sieciowej analizuje i gromadzi dane z komputerów z agentami systemu Windows. <br><br> Oprócz [agenta log Analytics dla systemu Windows](../platform/agent-windows.md)agenci systemu Windows wymagają programu Microsoft Dependency Agent. Zobacz [obsługiwane systemy operacyjne](vminsights-enable-overview.md#supported-operating-systems), gdzie znajdziesz pełną listę wersji systemu operacyjnego. |
 | Agenci dla systemu Linux | Tak | Rozwiązanie Dane o komunikacji sieciowej analizuje i gromadzi dane z komputerów z agentami systemu Linux.<br><br> Oprócz [agenta log Analytics dla systemu Linux](../learn/quick-collect-linux-computer.md)agenci z systemem Linux wymagają programu Microsoft Dependency Agent. Zobacz [obsługiwane systemy operacyjne](vminsights-enable-overview.md#supported-operating-systems), gdzie znajdziesz pełną listę wersji systemu operacyjnego. |
@@ -92,7 +91,7 @@ W poniższych sekcjach wymieniono obsługiwane systemy operacyjne dla agenta zal
 - Windows Server 2019
 - System Windows Server 2016 1803
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 z dodatkiem R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
@@ -178,7 +177,7 @@ Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Dane o komunikacji siec
 
 Aby zainstalować lub odinstalować agenta, wymagane są uprawnienia administratora.
 
-Agent zależności jest instalowany na komputerach z systemem Windows za pomocą programu InstallDependencyAgent-Windows. exe. Uruchomienie tego pliku wykonywalnego bez żadnych opcji powoduje uruchomienie kreatora, którego polecenia należy wykonywać w celu przeprowadzenia interaktywnej instalacji.
+Agent zależności jest instalowany na komputerach z systemem Windows za pomocą InstallDependencyAgent-Windows.exe. Uruchomienie tego pliku wykonywalnego bez żadnych opcji powoduje uruchomienie kreatora, którego polecenia należy wykonywać w celu przeprowadzenia interaktywnej instalacji.
 
 Wykonaj następujące kroki, aby zainstalować agenta zależności na każdym komputerze z systemem Windows:
 
@@ -321,7 +320,7 @@ Skorzystaj z poniższych sekcji, aby usunąć agenta zależności.
 
 Administrator może odinstalować agenta zależności dla systemu Windows za pomocą panelu sterowania.
 
-Administrator może również uruchomić element%Programfiles%\Microsoft Dependency Agent\Uninstall.exe w celu odinstalowania agenta zależności.
+Administrator może również uruchomić Agent\Uninstall.exe zależności w celu odinstalowania agenta zależności.
 
 #### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstalowywanie agenta zależności w systemie Linux
 

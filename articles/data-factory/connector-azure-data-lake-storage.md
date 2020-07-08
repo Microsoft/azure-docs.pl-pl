@@ -12,19 +12,18 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 52a99763e345096dcf379d2e4fd00fa4687ebcd1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84727113"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Lake Storage Gen2 (ADLS Gen2) to zestaw funkcji przeznaczonych do analizy danych Big Data, które są wbudowane w [usługę Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Można jej używać do interfejsów z danymi przy użyciu zarówno odmian systemu plików, jak i magazynu obiektów.
+Azure Data Lake Storage Gen2 (ADLS Gen2) to zestaw funkcji przeznaczonych do analizy danych Big Data, które są wbudowane w [usługę Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Można ją wykorzystać do połączenia interfejsem z danymi przy użyciu zarówno paradygmatów systemu plików, jak i magazynu obiektów.
 
-W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z i do Azure Data Lake Storage Gen2 oraz do przekształcania danych w Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
+W tym artykule opisano sposób używania działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do usługi Azure Data Lake Storage Gen2 oraz używania przepływu danych do przekształcania danych w usłudze Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
 >[!TIP]
 >Aby uzyskać informacje na temat scenariusza migracji usługi Data Lake lub magazynu danych, Dowiedz się więcej na temat [używania Azure Data Factory migracji danych z usług Data Lake lub hurtowni danych do platformy Azure](data-migration-guidance-overview.md).

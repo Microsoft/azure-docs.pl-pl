@@ -16,10 +16,9 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84342599"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure

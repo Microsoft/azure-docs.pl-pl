@@ -5,10 +5,9 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418764"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
@@ -67,14 +66,14 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |DscNodeStatus|Stan węzła DSC|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
 |ServiceLog|Dzienniki usług|
 
 
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft. Batchai Job/obszary robocze
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/obszary robocze
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
@@ -297,7 +296,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Operacje serviceoperations|Operacje usługi|
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|

@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
 ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418147"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
@@ -80,7 +79,7 @@ Transkrypcja dynamiczna to funkcja, której można używać w przypadku wydarze�
 Aby zrozumieć przepływ pracy przesyłania strumieniowego na żywo w Media Services v3, należy najpierw przejrzeć i zrozumieć następujące pojęcia: 
 
 - [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md)
-- [Zdarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md)
+- [Zdarzenia na żywo i dane wyjściowe na żywo](live-events-outputs-concept.md)
 - [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Ogólne kroki

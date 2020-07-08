@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
 ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84418715"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
@@ -26,7 +25,7 @@ Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na któr
 
 Media Services nie zapobiegawczo do skanowania danych wejściowych w celu wygenerowania metadanych. Metadane wejściowe są generowane tylko jako artefakt, gdy wejściowy element zawartości jest przetwarzany w zadaniu. W związku z tym ten artefakt jest zapisywana w elemencie zawartości wyjściowej. Do generowania metadanych dla wejściowych zasobów i elementów zawartości wyjściowej są używane różne narzędzia. W związku z tym metadane wejściowe mają nieco inny schemat niż metadane wyjściowe.
 
-W tym artykule omówiono elementy i typy schematu JSON, na których oparto metadane wyjściowe ( &lt; source_file_name &gt; _manifest. JSON). <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
+W tym artykule omówiono elementy i typy schematu JSON, na których bazują metadane wyjściowe ( &lt; source_file_name &gt;_manifest.js). <!--For information about the file that contains metadata about the input asset, see [Input metadata](input-metadata-schema.md).  -->
 
 Pełny kod schematu i przykład JSON można znaleźć na końcu tego artykułu.  
 

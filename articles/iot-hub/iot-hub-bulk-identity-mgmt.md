@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84417943"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Zbiorcze importowanie i eksportowanie tożsamości urządzeń usługi IoT Hub
@@ -133,7 +132,7 @@ while(true)
 }
 ```
 
-Zadanie przechowuje dane wyjściowe w udostępnionym kontenerze obiektów BLOB jako blokowy obiekt BLOB o nazwie **Devices. txt**. Dane wyjściowe składają się z serializowanych danych w formacie JSON przy użyciu jednego urządzenia w każdym wierszu.
+Zadanie przechowuje dane wyjściowe w udostępnionym kontenerze obiektów BLOB jako blokowy obiekt BLOB o nazwie **devices.txt**. Dane wyjściowe składają się z serializowanych danych w formacie JSON przy użyciu jednego urządzenia w każdym wierszu.
 
 W poniższym przykładzie przedstawiono dane wyjściowe:
 
@@ -219,7 +218,7 @@ Należy zachować ostrożność przy użyciu metody **ImportDevicesAsync** , pon
 
 Metoda **ImportDevicesAsync** przyjmuje dwa parametry:
 
-* *Ciąg* zawierający identyfikator URI kontenera obiektów BLOB [usługi Azure Storage](../storage/index.yml) , który ma być używany jako *dane wejściowe* do zadania. Ten identyfikator URI musi zawierać token SAS, który przyznaje dostęp do odczytu do kontenera. Ten kontener musi zawierać obiekt BLOB o nazwie **Devices. txt** zawierający serializowane dane urządzenia do zaimportowania do rejestru tożsamości. Dane importu muszą zawierać informacje o urządzeniu w tym samym formacie JSON, którego używa zadanie **ExportImportDevice** podczas tworzenia obiektu BLOB **Devices. txt** . Token sygnatury dostępu współdzielonego musi zawierać następujące uprawnienia:
+* *Ciąg* zawierający identyfikator URI kontenera obiektów BLOB [usługi Azure Storage](../storage/index.yml) , który ma być używany jako *dane wejściowe* do zadania. Ten identyfikator URI musi zawierać token SAS, który przyznaje dostęp do odczytu do kontenera. Ten kontener musi zawierać obiekt BLOB o nazwie **devices.txt** zawierający serializowane dane urządzenia do zaimportowania do rejestru tożsamości. Dane importowania muszą zawierać informacje o urządzeniu w tym samym formacie JSON, którego używa zadanie **ExportImportDevice** podczas tworzenia obiektu BLOB **devices.txt** . Token sygnatury dostępu współdzielonego musi zawierać następujące uprawnienia:
 
    ```csharp
    SharedAccessBlobPermissions.Read

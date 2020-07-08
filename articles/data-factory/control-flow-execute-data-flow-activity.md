@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
 ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84726977"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
@@ -61,7 +60,7 @@ integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danyc
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
 przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi SQL DW, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
-przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi SQL DW, ścieżka folderu w ramach konta usługi BLOB Storage używanego do przemieszczania podstawowego | Ciąg | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
+przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi SQL DW, ścieżka folderu w ramach konta usługi BLOB Storage używanego do przemieszczania podstawowego | String | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
 
 ![Wykonaj przepływ danych](media/data-flow/activity-data-flow.png "Wykonaj przepływ danych")
 

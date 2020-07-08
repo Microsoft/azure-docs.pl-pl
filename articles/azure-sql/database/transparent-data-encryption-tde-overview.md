@@ -13,10 +13,9 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
 ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986972"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Przezroczyste szyfrowanie danych dla SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
@@ -85,7 +84,7 @@ Należy ustawić klucz główny TDE, znany jako funkcja ochrony TDE na poziomie 
 
 ![Niewidoczne szyfrowanie danych z obsługą Bring Your Own Key](./media/transparent-data-encryption-tde-overview/tde-byok-support.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Zarządzanie TDE przy użyciu programu PowerShell.
 
