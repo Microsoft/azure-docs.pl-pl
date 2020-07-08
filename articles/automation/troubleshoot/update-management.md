@@ -2,27 +2,23 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/17/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801890"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
 W tym artykule omówiono problemy, które można napotkać podczas wdrażania funkcji Update Management na maszynach. Istnieje narzędzie do rozwiązywania problemów z agentem dla agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](update-agent-issues.md) i [Rozwiązywanie problemów z usługą Linux Update Agent](update-agent-issues-linux.md). Inne problemy z wdrażaniem funkcji można znaleźć w temacie [Rozwiązywanie problemów z wdrażaniem funkcji](onboarding.md).
 
 >[!NOTE]
->W przypadku napotkania problemów podczas wdrażania Update Management na maszynie wirtualnej Sprawdź dziennik **Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Wyszukaj zdarzenia o IDENTYFIKATORze 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
+>W przypadku napotkania problemów podczas wdrażania Update Management na komputerze z systemem Windows otwórz Podgląd zdarzeń Windows, a następnie sprawdź dziennik zdarzeń **Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Wyszukaj zdarzenia o IDENTYFIKATORze 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
 
-## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scenariusz: zostanie wyświetlony komunikat o błędzie "nie można włączyć rozwiązania aktualizacji"
+## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenariusz: zostanie wyświetlony komunikat o błędzie "nie można włączyć rozwiązania aktualizacji"
 
 ### <a name="issue"></a>Problem
 
@@ -48,9 +44,7 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Przejdź do pozycji [Konfiguracja sieci](../automation-hybrid-runbook-worker.md#network-planning) , aby dowiedzieć się, które adresy i porty muszą być dozwolone, aby Update Management działały.  
 
-* Przejdź do pozycji [Konfiguracja sieci](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) , aby dowiedzieć się, które adresy i porty muszą być dozwolone do działania agenta log Analytics.
-
-* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-scope-configurations-update-management.md) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w portalu Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-scope-configurations-update-management.md) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Usuń konfigurację procesu roboczego, wykonując czynności opisane w sekcji [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera z systemem Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) lub [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)z systemem Linux. 
 

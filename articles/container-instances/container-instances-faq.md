@@ -4,12 +4,11 @@ description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure Con
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 64dcd3da42083401d7086c1db6f3f930beb9a76d
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806605"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
@@ -27,7 +26,7 @@ Rozmiar obrazu kontenera ma wpływ na czas wdrażania, dlatego na ogół chcesz 
 
 Ponieważ jednym z głównych wyznaczników czasu wdrożenia jest rozmiar obrazu, poszukaj sposobów zmniejszenia rozmiaru. Usuń niepotrzebne warstwy lub Zmniejsz rozmiar warstw obrazu (poprzez wybranie jaśniejszego obrazu podstawowego systemu operacyjnego). Na przykład jeśli używasz kontenerów systemu Linux, rozważ użycie Alpine jako obrazu podstawowego, a nie całego serwera Ubuntu. Podobnie w przypadku kontenerów systemu Windows, jeśli jest to możliwe, należy użyć podstawowego obrazu serwera nano Server. 
 
-Należy również sprawdzić listę wstępnie zbuforowanych obrazów w usłudze Azure Container images, która jest dostępna za pośrednictwem interfejsu API [buforowania list obrazów](/rest/api/container-instances/listcachedimages) . Może być możliwe przełączenie warstwy obrazu dla jednego z wstępnie zbuforowanych obrazów. 
+Należy również sprawdzić listę wstępnie zbuforowanych obrazów w usłudze Azure Container images, która jest dostępna za pośrednictwem interfejsu API [buforowania list obrazów](/rest/api/container-instances/location/listcachedimages) . Może być możliwe przełączenie warstwy obrazu dla jednego z wstępnie zbuforowanych obrazów. 
 
 Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) dotyczące skracania czasu uruchamiania kontenera.
 

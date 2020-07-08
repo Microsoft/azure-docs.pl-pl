@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions
 ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194829"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights Przesłanianie domyślnych punktów końcowych
@@ -25,7 +24,7 @@ Aby wysłać dane z Application Insights do określonych regionów, należy zast
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> Plik ApplicationInsights. config jest automatycznie zastępowany podczas uaktualniania zestawu SDK. Po uaktualnieniu zestawu SDK Pamiętaj o ponownym wprowadzeniu wartości punktu końcowego specyficznego dla regionu.
+> Plik applicationinsights.config jest automatycznie zastępowany podczas uaktualniania zestawu SDK. Po uaktualnieniu zestawu SDK Pamiętaj o ponownym wprowadzeniu wartości punktu końcowego specyficznego dla regionu.
 
 ```xml
 <ApplicationInsights>
@@ -49,7 +48,7 @@ Aby wysłać dane z Application Insights do określonych regionów, należy zast
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Zmodyfikuj plik appSettings. JSON w projekcie w następujący sposób, aby dostosować główny punkt końcowy:
+Zmodyfikuj appsettings.jsw pliku w projekcie w następujący sposób, aby dostosować główny punkt końcowy:
 
 ```json
 "ApplicationInsights": {
@@ -83,7 +82,7 @@ Nazwa: `APPLICATIONINSIGHTS_CONNECTION_STRING` wartość:`Connection String Valu
 
 # <a name="java"></a>[Java](#tab/java)
 
-Zmodyfikuj plik ApplicationInsights. XML, aby zmienić domyślny adres punktu końcowego.
+Zmodyfikuj plik applicationinsights.xml, aby zmienić domyślny adres punktu końcowego.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -11,10 +11,9 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252274"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Przykłady Azure PowerShell dla Azure Data Factory
@@ -25,7 +24,7 @@ Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla 
 
 | |  |
 |---|---|
-|**Kopiowanie danych**||
+|**Kopiuj dane**||
 |[Kopiowanie obiektów blob z folderu do innego folderu w usłudze Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell kopiuje obiekty blob z folderu na platformie Azure Blob Storage do innego folderu w tej samej Blob Storage. |
 |[Kopiowanie danych z SQL Server na platformę Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell kopiuje dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure. |
 |[Kopia Zbiorcza](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten przykładowy skrypt programu PowerShell kopiuje dane z wielu tabel w bazie danych w Azure SQL Database do usługi Azure SQL Data Warehouse. |

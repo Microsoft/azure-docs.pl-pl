@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 06/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: fe223030b98f95036f01cf69babdeb8a9a84dc2d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: b317c2a43352a750d4700fad56d5f7d741b2cc7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85805693"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -23,7 +22,7 @@ ms.locfileid: "85242108"
 |Minimalny rozmiar AzureFirewallSubnet |/26|
 |Zakres portów w regułach sieci i aplikacji|1 - 65535|
 |Publiczne adresy IP|250 maksymalnie. Wszystkie publiczne adresy IP mogą być używane w regułach DNAT i wszystkie współtworzą dostęp do dostępnych portów.|
-|Adresy IP w grupach IP|50 grup adresów IP lub mniej: Maksymalna 5000 pojedynczych adresów IP dla każdego wystąpienia zapory.<br>51 – 100 grup adresów IP: 500 poszczególne adresy IP dla każdego wystąpienia zapory.<br><br>Aby uzyskać więcej informacji, zobacz [grupy IP (wersja zapoznawcza) w zaporze platformy Azure](../articles/firewall/ip-groups.md#ip-address-limits)
+|Adresy IP w grupach IP|Maksymalnie 100 grup adresów IP na zaporę.<br>Maksymalna 5000 pojedynczych adresów IP lub prefiksów IP dla każdej grupy adresów IP.<br><br>Aby uzyskać więcej informacji, zobacz [grupy adresów IP w zaporze platformy Azure](../articles/firewall/ip-groups.md#ip-address-limits).
 |Tabela tras|Domyślnie AzureFirewallSubnet ma trasę 0.0.0.0/0 z wartością NextHopType ustawioną na wartość **Internet**.<br><br>Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić wartość przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** , aby zachować bezpośrednią łączność z Internetem. Domyślnie Zapora platformy Azure nie obsługuje wymuszonego tunelowania do sieci lokalnej.<br><br>Jeśli jednak konfiguracja wymaga wymuszonego tunelowania do sieci lokalnej, firma Microsoft będzie obsługiwać ją w przypadku poszczególnych przypadków. Skontaktuj się z pomocą techniczną, aby umożliwić nam zapoznanie się z Twoim przypadkiem. Jeśli zostanie zaakceptowana, zezwolimy na subskrypcję i upewnimy się, że jest utrzymywana wymagana łączność internetowa zapory.|
 
 <sup>1</sup> Jeśli musisz zwiększyć te limity, skontaktuj się z pomocą techniczną platformy Azure.

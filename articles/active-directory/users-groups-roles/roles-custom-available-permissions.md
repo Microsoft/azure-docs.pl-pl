@@ -14,10 +14,9 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84732110"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Podtypy rejestracji aplikacji i uprawnienia w Azure Active Directory
@@ -91,7 +90,7 @@ Przyznaje dostęp do odczytu standardowych właściwości rejestracji aplikacji.
 
 Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/Standard/Read, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
-### <a name="update"></a>Aktualizowanie
+### <a name="update"></a>Aktualizacja
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
 

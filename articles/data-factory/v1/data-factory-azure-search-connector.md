@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194915"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
@@ -99,12 +98,12 @@ W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy 
 
 | Typ danych Wyszukiwanie poznawcze platformy Azure | Obsługiwane w usłudze Azure Wyszukiwanie poznawcze sink |
 | ---------------------- | ------------------------------ |
-| String (ciąg) | Y |
-| Int32 | Y |
-| Int64 | Y |
-| Double | Y |
-| Boolean (wartość logiczna) | Y |
-| DataTimeOffset | Y |
+| String | Tak |
+| Int32 | Tak |
+| Int64 | Tak |
+| Double | Tak |
+| Boolean | Tak |
+| DataTimeOffset | Tak |
 | Tablica ciągów | N |
 | GeographyPoint względem | N |
 

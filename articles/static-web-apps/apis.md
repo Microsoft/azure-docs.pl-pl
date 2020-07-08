@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791626"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w usłudze Azure static Web Apps Preview przy użyciu Azure Functions
@@ -23,7 +22,7 @@ Statyczne Web Apps platformy Azure udostępnia bezserwerowe punkty końcowe inte
 - **Azure Functions** wersja 3 zgodna z Node.js 12.
 - **Wyzwalacze protokołu HTTP** i powiązania wyjściowe.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Punkty końcowe interfejsu API są dostępne dla aplikacji sieci Web za pomocą trasy _interfejsu API_ . Po naprawieniu tej trasy masz kontrolę nad folderem, w którym znajduje się skojarzona aplikacja Azure Functions. Tę lokalizację można zmienić, [edytując plik YAML przepływu pracy](github-actions-workflow.md#build-and-deploy) znajdujący się w folderze _. GitHub/_ Workflows repozytorium.
 
