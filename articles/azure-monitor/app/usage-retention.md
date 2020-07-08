@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 654dba968ba4efec1c30c94082726da04059adc0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797731"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analiza przechowywania użytkowników dla aplikacji sieci Web za pomocą Application Insights
@@ -42,7 +41,7 @@ Aby uzyskać najbardziej przydatną analizę przechowywania, należy mierzyć zd
 
 Na przykład wielu użytkowników może otworzyć stronę w aplikacji bez odtwarzania widocznej gry. Śledzenie tylko wyświetleń stron spowodowałoby niedokładne oszacowanie liczby osób, które zwracają grę, gdy wcześniej cieszą się. Aby uzyskać jasne zdjęcie dla zwracanych odtwarzaczy, aplikacja powinna wysyłać niestandardowe zdarzenie, gdy użytkownik rzeczywiście się odtwarza.  
 
-Dobrym sposobem jest kod zdarzeń niestandardowych, które reprezentują kluczowe akcje biznesowe i służą do analizy przechowywania. Aby przechwycić wynik gry, należy napisać wiersz kodu w celu wysłania niestandardowego zdarzenia do Application Insights. Jeśli napiszesz go w kodzie strony sieci Web lub w Node. JS, wygląda to następująco:
+Dobrym sposobem jest kod zdarzeń niestandardowych, które reprezentują kluczowe akcje biznesowe i służą do analizy przechowywania. Aby przechwycić wynik gry, należy napisać wiersz kodu w celu wysłania niestandardowego zdarzenia do Application Insights. Jeśli napiszesz go w kodzie strony sieci Web lub w Node.JS, będzie to wyglądać następująco:
 
 ```JavaScript
     appinsights.trackEvent("won game");

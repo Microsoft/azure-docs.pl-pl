@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830042"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurowanie parametrów wejściowych elementu runbook
@@ -277,7 +276,7 @@ W tej sekcji jest używany przykład, w którym skrypt programu PowerShell wywo�
 
 ### <a name="create-the-json-file"></a>Utwórz plik JSON
 
-Wpisz następujący kod w pliku tekstowym i Zapisz go jako **test. JSON** w dowolnym miejscu na komputerze lokalnym.
+Wpisz następujący kod w pliku tekstowym i Zapisz go jako **test.jsna** komputerze lokalnym.
 
 ```json
 {

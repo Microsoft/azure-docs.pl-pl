@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827560"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Dzienniki zapytań z rozwiązania Start/Stop VMs during off-hours
@@ -35,7 +34,7 @@ Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics ob
 |SourceSystem | Określa system źródłowy dla przesłanych danych. W przypadku usługi Automation wartością jest OpsManager|
 |StreamType | Określa typ zdarzenia. Możliwe wartości:<br>— Pełne<br>— Dane wyjściowe<br>— Błąd<br>— Ostrzeżenie|
 |SubscriptionId | Określa identyfikator subskrypcji zadania.
-|Time | Data i godzina dla wykonania zadania elementu Runbook.|
+|Godzina | Data i godzina dla wykonania zadania elementu Runbook.|
 
 ## <a name="job-streams"></a>Strumienie zadania
 
@@ -54,7 +53,7 @@ Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics ob
 |RunbookName | Nazwa elementu Runbook.|
 |SourceSystem | Określa system źródłowy dla przesłanych danych. W przypadku usługi Automation wartością jest OpsManager.|
 |StreamType | Typ strumienia zadania. Możliwe wartości:<br>— Postęp<br>— Dane wyjściowe<br>— Ostrzeżenie<br>— Błąd<br>— Debugowanie<br>— Pełne|
-|Time | Data i godzina dla wykonania zadania elementu Runbook.|
+|Godzina | Data i godzina dla wykonania zadania elementu Runbook.|
 
 Gdy wykonujesz każde wyszukiwanie w dzienniku, które zwraca rekordy kategorii **JobLogs** lub **JobStreams**, możesz wybrać widok **JobLogs** lub **JobStreams** , który wyświetla zestaw kafelków podsumowujących aktualizacje zwrócone przez wyszukiwanie.
 

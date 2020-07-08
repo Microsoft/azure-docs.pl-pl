@@ -4,10 +4,9 @@ description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83816102"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
@@ -23,7 +22,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |---|
 |<ul><li>Czy usługa API Management jest uruchomiona i działa?</li></ul>|
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy konto w usłudze Batch jest uruchomione?</li><li>Czy limit przydziału puli został przekroczony dla tego konta usługi Batch?</li></ul>|
@@ -104,7 +103,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |---|
 |<ul><li>Czy Centrum IoT jest uruchomione?</li></ul>|
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy nie zostały obsłużone żadne żądania bazy danych lub kolekcji z powodu niedostępności usługi Azure Cosmos DB?</li><li>Czy nie zostały obsłużone żadne żądania dokumentu z powodu niedostępności usługi Azure Cosmos DB?</li></ul>|

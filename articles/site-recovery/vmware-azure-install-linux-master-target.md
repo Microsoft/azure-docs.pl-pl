@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829787"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
@@ -244,7 +243,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 
     ![Identyfikator wielu ścieżek](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/ \< Identyfikator wielościeżkowy dysku przechowywania>**.
+3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
     
     ![System plików](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +260,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
     
     Wybierz pozycję **Wstaw** , aby rozpocząć edycję pliku. Utwórz nowy wiersz, a następnie Wstaw poniższy tekst. Edytuj identyfikator wielościeżkowy dysku na podstawie wyróżnionego identyfikatora wielościeżkowego z poprzedniego polecenia.
 
-    **\<Identyfikator wielościeżkowego przechowywania/dev/mapper/>/mnt/Retention ext4 rw 0 0**
+    **/dev/mapper/ \<Retention disks multipath id> /mnt/Retention ext4 rw 0 0**
 
     Wybierz **klawisz ESC**, a następnie wpisz **: WQ** (Zapisz i Wyjdź), aby zamknąć okno edytora.
 
@@ -274,7 +273,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 > [!NOTE]
 > Przed zainstalowaniem głównego serwera docelowego Sprawdź, czy plik **/etc/hosts** na maszynie wirtualnej zawiera wpisy, które mapują lokalną nazwę hosta na adresy IP skojarzone ze wszystkimi kartami sieciowymi.
 
-1. Skopiuj hasło z **witryny C:\ProgramData\Microsoft Azure Site Recovery\private\connection.Passphrase** na serwerze konfiguracji. Następnie zapisz go jako **hasło. txt** w tym samym katalogu lokalnym, uruchamiając następujące polecenie:
+1. Skopiuj hasło z **witryny C:\ProgramData\Microsoft Azure Site Recovery\private\connection.Passphrase** na serwerze konfiguracji. Następnie zapisz go jako **passphrase.txt** w tym samym katalogu lokalnym, uruchamiając następujące polecenie:
 
     `echo <passphrase> >passphrase.txt`
 

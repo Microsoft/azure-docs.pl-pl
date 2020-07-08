@@ -6,10 +6,9 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83830586"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Śledzenie zaktualizowanych plików przy użyciu zadania obserwatora
@@ -47,7 +46,7 @@ Ten samouczek używa elementu Runbook obserwatora o nazwie **Watch-NewFile** , a
 
 Ten proces importowania można wykonać za pomocą [Galeria programu PowerShell](https://www.powershellgallery.com).
 
-1. Przejdź do strony Galeria dla [Watch-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
+1. Przejdź do strony Galeria, aby uzyskać [Watch-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
 2. Na karcie **Azure Automation** kliknij pozycję **wdróż, aby Azure Automation**.
 
 Możesz również zaimportować ten element Runbook do konta usługi Automation z portalu, wykonując poniższe kroki.
@@ -74,7 +73,7 @@ Element Runbook akcji jest używany w zadaniu obserwatora do działania na danyc
 
 Aby utworzyć element Runbook akcji:
 
-1. Przejdź do strony Galeria dla [Process-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
+1. Przejdź do strony Galeria, aby uzyskać [Process-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
 2. Na karcie **Azure Automation** kliknij pozycję **wdróż, aby Azure Automation**.
 
 Możesz również zaimportować ten element Runbook do konta usługi Automation z Azure Portal:
