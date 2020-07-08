@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451994"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Zarządzanie zużyciem zasobów i obciążeniem Service Fabric przy użyciu metryk
@@ -26,8 +25,8 @@ Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie 
 
 | Metryka | Obciążenie wystąpienia bezstanowego | Pomocnicze obciążenie stanowe | Stanowe obciążenie podstawowe | Waga |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |Wysoka |
-| ReplicaCount |0 |1 |1 |Medium |
+| PrimaryCount |0 |0 |1 |Wysoki |
+| ReplicaCount |0 |1 |1 |Średniaa |
 | Liczba |1 |1 |1 |Małe |
 
 
@@ -183,7 +182,7 @@ Lista metryk skojarzonych z usługą i właściwości tych metryk można aktuali
   - Włączanie nowej metryki tylko po jej wdrożeniu i sprawdzeniu poprawności za pośrednictwem innych mechanizmów
   - zmiana domyślnego obciążenia dla usługi na podstawie zaobserwowanego zachowania i zużycia
 
-Główne interfejsy API służące do zmiany konfiguracji `FabricClient.ServiceManagementClient.UpdateServiceAsync` metryk są w `Update-ServiceFabricService` języku C# i w programie PowerShell. Wszelkie informacje określone za pomocą tych interfejsów API zastępują natychmiast istniejące informacje o metrykach usługi. 
+Główne interfejsy API służące do zmiany konfiguracji metryk są `FabricClient.ServiceManagementClient.UpdateServiceAsync` w języku C# i `Update-ServiceFabricService` w programie PowerShell. Wszelkie informacje określone za pomocą tych interfejsów API zastępują natychmiast istniejące informacje o metrykach usługi. 
 
 ## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Mieszanie domyślnych wartości ładowania i dynamicznych raportów ładowania
 Dla tej samej usługi można użyć domyślnych obciążeń ładowania i dynamicznego. Gdy usługa korzysta zarówno z domyślnych, jak i dynamicznych raportów ładowania, obciążenie domyślne służy jako oszacowanie do momentu wyświetlenia raportów dynamicznych. Domyślne obciążenie jest dobrym sposobem, ponieważ umożliwia klastrowi Menedżer zasobów działanie. Domyślne obciążenie umożliwia klastrowi Menedżer zasobów umieszczenie obiektów usługi w dobrych lokalizacjach podczas ich tworzenia. Jeśli nie zostaną podane żadne domyślne informacje o ładowaniu, rozmieszczenie usług jest skutecznie losowe. Gdy ładowanie raportów zostanie rozpoczęte później, początkowe losowe położenie jest często błędne i klaster Menedżer zasobów ma przenieść usługi.

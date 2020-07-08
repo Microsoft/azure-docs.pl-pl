@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445739"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Zalecenia dotyczące tagowania i przechowywania wersji obrazów kontenerów
@@ -53,11 +52,11 @@ Unikatowe znakowanie oznacza po prostu, że każdy obraz wypychany do rejestru m
 * **Szyfrowanie manifestu** — każdy obraz kontenera wypychany do rejestru kontenerów jest skojarzony z manifestem, identyfikowanym przez unikatowy skrót SHA-256 lub skrótem. Chociaż unikatowy, skrót jest długi, trudny do odczytania i nieskorelowany ze środowiskiem kompilacji.
 * **Identyfikator kompilacji** — ta opcja może być Najlepsza, ponieważ jest najprawdopodobniej przyrostowa i umożliwia korelację z powrotem z konkretną kompilacją w celu znalezienia wszystkich artefaktów i dzienników. Jednak takie jak szyfrowanie manifestu może być trudne do odczytania przez człowieka.
 
-  Jeśli organizacja ma kilka systemów kompilacji, poprzedź tag nazwą systemu kompilacji jest odmianą tej opcji: `<build-system>-<build-id>`. Na przykład można odróżnić kompilacje od systemu kompilacji Jenkins zespołu interfejsu API i systemu kompilacji Azure Pipelines zespołu internetowego.
+  Jeśli organizacja ma kilka systemów kompilacji, poprzedź tag nazwą systemu kompilacji jest odmianą tej opcji: `<build-system>-<build-id>` . Na przykład można odróżnić kompilacje od systemu kompilacji Jenkins zespołu interfejsu API i systemu kompilacji Azure Pipelines zespołu internetowego.
 
 ### <a name="lock-deployed-image-tags"></a>Zablokuj wdrożone znaczniki obrazu
 
-Najlepszym rozwiązaniem jest [zablokowanie](container-registry-image-lock.md) dowolnego wdrożonego znacznika obrazu przez ustawienie jego `write-enabled` atrybutu na. `false` Takie rozwiązanie zapobiega przypadkowemu usunięciu obrazu z rejestru i prawdopodobnie zakłócania wdrożeń. Możesz dołączyć krok blokowania w potoku wydania.
+Najlepszym rozwiązaniem jest [zablokowanie](container-registry-image-lock.md) dowolnego wdrożonego znacznika obrazu przez ustawienie jego `write-enabled` atrybutu na `false` . Takie rozwiązanie zapobiega przypadkowemu usunięciu obrazu z rejestru i prawdopodobnie zakłócania wdrożeń. Możesz dołączyć krok blokowania w potoku wydania.
 
 Zablokowanie wdrożonego obrazu nadal pozwala usunąć inne, Niewdrożone obrazy z rejestru przy użyciu funkcji Azure Container Registry do obsługi rejestru. Na przykład [autoprzeczyszczaj](container-registry-auto-purge.md) niejawnie manifestu lub odblokowane obrazy starsze niż określony czas lub ustaw [zasady przechowywania](container-registry-retention-policy.md) dla nieoznakowanych manifestów.
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377909"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Przywracanie kopii zapasowej na platformie Azure Service Fabric
@@ -34,7 +33,7 @@ Można na przykład skonfigurować usługę do tworzenia kopii zapasowych danych
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Upewnij się, że klaster jest połączony przy `Connect-SFCluster` użyciu polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
+- Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
 ```powershell
 
@@ -152,7 +151,7 @@ W przypadku interfejsu API przywracania należy podać szczegóły dotyczące _B
 
 Należy również wybrać partycję docelową w klastrze alternatywnym, zgodnie z opisem w [schemacie partycji](service-fabric-concepts-partitioning.md#get-started-with-partitioning). Alternatywna kopia zapasowa klastra jest przywracana do partycji określonej w schemacie partycji z oryginalnego utraconego klastra.
 
-Jeśli identyfikator partycji w klastrze alternatywnym to `1c42c47f-439e-4e09-98b9-88b8f60800c6`, można go zmapować na oryginalny identyfikator `974bd92a-b395-4631-8a7f-53bd4ae9cf22` partycji klastra, porównując klucz wysoki i niski dla _partycjonowania z podziałem na partycje (UniformInt64Partition)_.
+Jeśli identyfikator partycji w klastrze alternatywnym to `1c42c47f-439e-4e09-98b9-88b8f60800c6` , można go zmapować na oryginalny identyfikator partycji klastra, `974bd92a-b395-4631-8a7f-53bd4ae9cf22` porównując klucz wysoki i niski dla _partycjonowania z podziałem na partycje (UniformInt64Partition)_.
 
 W przypadku _nazwanego partycjonowania_wartość nazwy jest porównywana z rozpoznawaniem partycji docelowej w alternatywnym klastrze.
 
@@ -201,7 +200,7 @@ Możesz wyzwolić przywracanie z Service Fabric Explorer. Upewnij się, że tryb
 
     ![Wyzwól udziały przywracania partycji][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Przywracanie danych na potrzeby_utraty danych_ dotyczących _uszkodzenia_/danych
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Przywracanie danych na _data corruption_potrzeby / _utraty danych_ dotyczących uszkodzenia danych
 
 W przypadku _utraty danych_ lub _uszkodzenia danych_kopie zapasowe partycji dla niezawodnej usługi stanowej i partycji Reliable Actors mogą zostać przywrócone do dowolnej z wybranych kopii zapasowych.
 
@@ -209,7 +208,7 @@ Poniższy przykład to kontynuacja [włączania okresowych kopii zapasowych dla 
 
 Wybierz kopię zapasową z danych wyjściowych [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). W tym scenariuszu kopia zapasowa jest generowana z tego samego klastra co poprzednio.
 
-Aby wyzwolić przywracanie, wybierz kopię zapasową z listy. W przypadku bieżącego/_uszkodzenia danych_ _utraty danych_wybierz następujące kopie zapasowe:
+Aby wyzwolić przywracanie, wybierz kopię zapasową z listy. W przypadku bieżącego _data loss_ / _uszkodzenia danych_utraty danych wybierz następujące kopie zapasowe:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4

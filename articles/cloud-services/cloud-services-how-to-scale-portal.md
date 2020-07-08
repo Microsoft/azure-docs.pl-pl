@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360841"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
@@ -21,7 +20,7 @@ Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwal
 > [!NOTE]
 > Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](../virtual-machines/windows/classic/configure-availability-classic.md) i ręcznie ją włączać lub wyłączać.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:
 
 * Na skalowanie ma wpływ podstawowe użycie.

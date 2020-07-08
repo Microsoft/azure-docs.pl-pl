@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Dowiedz się, jak używać wpisów tajnych Kubernetes w czasie uruchamiania lub kompilowania podczas opracowywania aplikacji przy użyciu Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75438463"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Zarządzanie wpisami tajnymi podczas pracy z obszarem dev platformy Azure
@@ -18,14 +17,14 @@ Twoje usługi mogą wymagać pewnych haseł, parametrów połączenia i innych w
 
 ## <a name="storing-and-using-runtime-secrets"></a>Przechowywanie i używanie wpisów tajnych środowiska uruchomieniowego
 
-Azure Dev Spaces oferuje dwie zalecane, Usprawnione opcje przechowywania wpisów tajnych na wykresach Helm generowanych przez narzędzia klienta Azure Dev Spaces: w `values.dev.yaml` pliku i wbudowane bezpośrednio w programie `azds.yaml`. Nie zaleca się przechowywania wpisów tajnych w `values.yaml`programie.
+Azure Dev Spaces oferuje dwie zalecane, Usprawnione opcje przechowywania wpisów tajnych na wykresach Helm generowanych przez narzędzia klienta Azure Dev Spaces: w `values.dev.yaml` pliku i wbudowane bezpośrednio w programie `azds.yaml` . Nie zaleca się przechowywania wpisów tajnych w programie `values.yaml` .
 
 > [!NOTE]
 > Poniższe podejścia pokazują, jak przechowywać klucze tajne dla wykresów Helm generowanych przez narzędzia klienta i korzystać z nich. W przypadku tworzenia własnego wykresu Helm można użyć wykresu Helm bezpośrednio do zarządzania wpisami tajnymi i ich przechowywania.
 
 ### <a name="using-valuesdevyaml"></a>Korzystanie z wartości. dev. YAML
 
-W projekcie, który został już przygotowany przy użyciu Azure Dev Spaces, Utwórz `values.dev.yaml` plik w tym samym folderze `azds.yaml` , w którym można zdefiniować klucze tajne i wartości. Przykład:
+W projekcie, który został już przygotowany przy użyciu Azure Dev Spaces, Utwórz `values.dev.yaml` plik w tym samym folderze, w którym można `azds.yaml` zdefiniować klucze tajne i wartości. Przykład:
 
 ```yaml
 secrets:
@@ -35,7 +34,7 @@ secrets:
     key: "secretkeyhere"
 ```
 
-Sprawdź odwołania `azds.yaml` `values.dev.yaml` do pliku jako opcjonalne przy użyciu `?`. Przykład:
+Sprawdź `azds.yaml` odwołania do pliku `values.dev.yaml` jako opcjonalne przy użyciu `?` . Przykład:
 
 ```yaml
 install:
@@ -54,7 +53,7 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-Uruchom zaktualizowane usługi przy użyciu `azds up`programu.
+Uruchom zaktualizowane usługi przy użyciu programu `azds up` .
 
 ```console
 azds up
@@ -67,11 +66,11 @@ kubectl get secret --namespace default -o yaml
 ```
 
 > [!IMPORTANT]
-> Nie zaleca się przechowywania wpisów tajnych w kontroli źródła. W przypadku korzystania z usługi `values.dev.yaml` git Dodaj `.gitignore` do pliku, aby uniknąć zatwierdzania wpisów tajnych w kontroli źródła.
+> Nie zaleca się przechowywania wpisów tajnych w kontroli źródła. W przypadku korzystania z usługi git Dodaj `values.dev.yaml` do `.gitignore` pliku, aby uniknąć zatwierdzania wpisów tajnych w kontroli źródła.
 
 ### <a name="using-azdsyaml"></a>Korzystanie z azds. YAML
 
-W projekcie, który został już przygotowany przy użyciu Azure Dev Spaces, Dodaj klucze tajne i wartość przy użyciu składni *$PlaceHolder* w obszarze *konfiguracje. programowanie. Install. Set* in `azds.yaml`. Przykład:
+W projekcie, który został już przygotowany przy użyciu Azure Dev Spaces, Dodaj klucze tajne i wartość przy użyciu składni *$PlaceHolder* w obszarze *konfiguracje. programowanie. Install. Set* in `azds.yaml` . Przykład:
 
 ```yaml
 configurations:
@@ -87,7 +86,7 @@ configurations:
 ```
 
 > [!NOTE]
-> Wartości tajne można wprowadzać bezpośrednio bez używania składni *$PlaceHolder* w `azds.yaml`programie. Jednakże takie podejście nie jest zalecane, ponieważ `azds.yaml` jest przechowywane w kontroli źródła.
+> Wartości tajne można wprowadzać bezpośrednio bez używania składni *$PlaceHolder* w programie `azds.yaml` . Jednakże takie podejście nie jest zalecane, ponieważ `azds.yaml` jest przechowywane w kontroli źródła.
      
 Utwórz `.env` plik w tym samym folderze, co `azds.yaml` w celu zdefiniowania wartości *$PlaceHolder* . Przykład:
 
@@ -98,7 +97,7 @@ REDIS_KEY=myrediskey
 ```
 
 > [!IMPORTANT]
-> Nie zaleca się przechowywania wpisów tajnych w kontroli źródła. W przypadku korzystania z usługi `.env` git Dodaj `.gitignore` do pliku, aby uniknąć zatwierdzania wpisów tajnych w kontroli źródła.
+> Nie zaleca się przechowywania wpisów tajnych w kontroli źródła. W przypadku korzystania z usługi git Dodaj `.env` do `.gitignore` pliku, aby uniknąć zatwierdzania wpisów tajnych w kontroli źródła.
 
 Zaktualizuj lub sprawdź, czy usługa odwołuje się do wpisów tajnych jako zmiennych środowiskowych. Przykład:
 
@@ -108,7 +107,7 @@ var host = process.env.REDIS_HOST
 var theKey = process.env.REDIS_KEY
 ```
     
-Uruchom zaktualizowane usługi przy użyciu `azds up`programu.
+Uruchom zaktualizowane usługi przy użyciu programu `azds up` .
 
 ```console
 azds up
@@ -122,9 +121,9 @@ kubectl get secret --namespace default -o yaml
 
 ## <a name="using-secrets-as-build-arguments"></a>Używanie wpisów tajnych jako argumentów kompilacji
 
-W poprzedniej sekcji pokazano, jak przechowywać klucze tajne i używać ich do użycia w czasie wykonywania kontenera. Można również użyć dowolnego wpisu tajnego w czasie kompilacji kontenera, takiego jak hasło dla prywatnego NuGet, przy użyciu `azds.yaml`.
+W poprzedniej sekcji pokazano, jak przechowywać klucze tajne i używać ich do użycia w czasie wykonywania kontenera. Można również użyć dowolnego wpisu tajnego w czasie kompilacji kontenera, takiego jak hasło dla prywatnego NuGet, przy użyciu `azds.yaml` .
 
-W `azds.yaml`programie Ustaw wpisy tajne czasu kompilacji w *konfiguracjach. opracowywać. Build. args* przy użyciu `<variable name>: ${secret.<secret name>.<secret key>}` składni. Przykład:
+W programie `azds.yaml` Ustaw wpisy tajne czasu kompilacji w *konfiguracjach. opracowywać. Build. args* przy użyciu `<variable name>: ${secret.<secret name>.<secret key>}` składni. Przykład:
 
 ```yaml
 configurations:
@@ -140,7 +139,7 @@ configurations:
 W powyższym przykładzie *mynugetsecret* jest istniejącym wpisem tajnym, a *pattoken* jest istniejącym kluczem.
 
 >[!NOTE]
-> Nazwy i klucze tajne mogą zawierać `.` znak. Użyj `\` do ucieczki `.` podczas przekazywania wpisów tajnych jako argumentów kompilacji. Na przykład, aby przekazać wpis tajny o nazwie *foo. bar* z kluczem *tokenu*: `MYTOKEN: ${secret.foo\.bar.token}`. Ponadto wpisy tajne można ocenić przy użyciu prefiksu i przyrostka tekstu. Na przykład `MYURL: eus-${secret.foo\.bar.token}-version1`. Ponadto klucze tajne dostępne w obszarze nadrzędnym i nadrzędnym mogą być przekazane jako argumenty kompilacji.
+> Nazwy i klucze tajne mogą zawierać `.` znak. Użyj `\` do ucieczki `.` podczas przekazywania wpisów tajnych jako argumentów kompilacji. Na przykład, aby przekazać wpis tajny o nazwie *foo. bar* z kluczem *tokenu*: `MYTOKEN: ${secret.foo\.bar.token}` . Ponadto wpisy tajne można ocenić przy użyciu prefiksu i przyrostka tekstu. Na przykład `MYURL: eus-${secret.foo\.bar.token}-version1`. Ponadto klucze tajne dostępne w obszarze nadrzędnym i nadrzędnym mogą być przekazane jako argumenty kompilacji.
 
 W pliku dockerfile Użyj dyrektywy *ARG* , aby użyć klucza tajnego, a następnie użyj tej samej zmiennej w dalszej części pliku dockerfile. Przykład:
 

@@ -11,15 +11,14 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 3a06db1afd130d936af868d0d20632c3ec4fbfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75358530"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Rozwiązywanie nieoczekiwanych ponownych uruchomień maszyn wirtualnych z dołączonymi dyskami VHD
 
-Jeśli maszyna wirtualna platformy Azure ma dużą liczbę dołączonych wirtualnych dysków twardych, które znajdują się na tym samym koncie magazynu, może przekroczyć elementy docelowe skalowalności dla poszczególnych kont magazynu, co spowoduje nieoczekiwane ponowne uruchomienie maszyny wirtualnej. Sprawdź metryki minut dla konta magazynu (**TotalRequests**/**TotalIngress**/**TotalEgress**), które przekraczają elementy docelowe skalowalności dla konta magazynu. Zobacz [metryki pokazują wzrost wzrost percentthrottlingerror,](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) Aby uzyskać pomoc w ustaleniu, czy na koncie magazynu nastąpiło ograniczenie przepustowości.
+Jeśli maszyna wirtualna platformy Azure ma dużą liczbę dołączonych wirtualnych dysków twardych, które znajdują się na tym samym koncie magazynu, może przekroczyć elementy docelowe skalowalności dla poszczególnych kont magazynu, co spowoduje nieoczekiwane ponowne uruchomienie maszyny wirtualnej. Sprawdź metryki minut dla konta magazynu (**TotalRequests** / **TotalIngress** / **TotalEgress**), które przekraczają elementy docelowe skalowalności dla konta magazynu. Zobacz [metryki pokazują wzrost wzrost percentthrottlingerror,](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) Aby uzyskać pomoc w ustaleniu, czy na koncie magazynu nastąpiło ograniczenie przepustowości.
 
 Ogólnie rzecz biorąc każda operacja wejścia lub wyjścia na wirtualnym dysku twardym z maszyny wirtualnej tłumaczy się, aby **pobrać** operacje na stronie lub **umieścić stronę** na bazowym obiekcie blob strony. W związku z tym możesz użyć szacowanej liczby IOPS dla danego środowiska, aby dostroić, ile wirtualnych dysków twardych może znajdować się na jednym koncie magazynu na podstawie określonego zachowania aplikacji. Firma Microsoft zaleca korzystanie z 40 lub mniej dysków na jednym koncie magazynu. Aby uzyskać więcej informacji o skalowalności dla kont magazynu w warstwie Standardowa, zobacz [elementy docelowe skalowalności dla kont magazynu w warstwie Standardowa](../../storage/common/scalability-targets-standard-account.md). Aby uzyskać więcej informacji na temat celów skalowalności dla kont usługi BLOB Storage na stronie Premium, zobacz [elementy docelowe skalowalności dla kont usługi BLOB Storage na stronie Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 4e485463f41cdfbadeb166ecbb3a86d4a32c1589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75348939"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfizm w Reliable Actors Framework
@@ -20,8 +19,8 @@ Struktura Reliable Actors wymaga zdefiniowania co najmniej jednego interfejsu, k
 
 ![Hierarchia interfejsów dla aktorów kształtów][shapes-interface-hierarchy]
 
-## <a name="types"></a>Types
-Można również utworzyć hierarchię typów aktorów, które pochodzą z podstawowej klasy aktora dostarczonej przez platformę. W przypadku kształtów może istnieć typ podstawowy `Shape`(C#) lub `ShapeImpl`(Java):
+## <a name="types"></a>Typy
+Można również utworzyć hierarchię typów aktorów, które pochodzą z podstawowej klasy aktora dostarczonej przez platformę. W przypadku kształtów może istnieć `Shape` Typ podstawowy (C#) lub `ShapeImpl` (Java):
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -40,7 +39,7 @@ public abstract class ShapeImpl extends FabricActor implements Shape
 }
 ```
 
-Podtypy `Shape`(C#) lub `ShapeImpl`(Java) mogą przesłonić metody z bazy.
+Podtypy `Shape` (C#) lub `ShapeImpl` (Java) mogą przesłonić metody z bazy.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -83,7 +82,7 @@ public class Circle extends ShapeImpl implements Circle
 }
 ```
 
-Zwróć uwagę `ActorService` na atrybut typu aktora. Ten atrybut informuje niezawodną strukturę aktora, że powinna automatycznie utworzyć usługę do hostingu aktorów tego typu. W niektórych przypadkach można utworzyć typ podstawowy, który jest przeznaczony wyłącznie do udostępniania funkcjonalności z podtypem i nigdy nie będzie używany do wystąpienia konkretnych aktorów. W takich przypadkach należy użyć `abstract` słowa kluczowego, aby wskazać, że nigdy nie utworzysz aktora na podstawie tego typu.
+Zwróć uwagę na `ActorService` atrybut typu aktora. Ten atrybut informuje niezawodną strukturę aktora, że powinna automatycznie utworzyć usługę do hostingu aktorów tego typu. W niektórych przypadkach można utworzyć typ podstawowy, który jest przeznaczony wyłącznie do udostępniania funkcjonalności z podtypem i nigdy nie będzie używany do wystąpienia konkretnych aktorów. W takich przypadkach należy użyć `abstract` słowa kluczowego, aby wskazać, że nigdy nie utworzysz aktora na podstawie tego typu.
 
 ## <a name="next-steps"></a>Następne kroki
 * Zobacz, [jak struktura Reliable Actors wykorzystuje platformę Service Fabric](service-fabric-reliable-actors-platform.md) , aby zapewnić niezawodność, skalowalność i spójny stan.

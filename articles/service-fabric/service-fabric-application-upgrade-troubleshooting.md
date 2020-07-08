@@ -4,10 +4,9 @@ description: W tym artykule opisano niektóre typowe problemy związane z uaktua
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377926"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Rozwiązywanie problemów z uaktualnieniami aplikacji
@@ -190,7 +189,7 @@ Uaktualnienie jest kontynuowane z domeny uaktualnienia, w której został on ost
 
 Możliwa przyczyna 1:
 
-Service Fabric tłumaczy wszystkie wartości procentowe na rzeczywistą liczbę jednostek (na przykład repliki, partycje i usługi) na potrzeby oceny kondycji i zawsze zaokrągla do całych jednostek. Jeśli na przykład maksymalna *MaxPercentUnhealthyReplicasPerPartition* wynosi 21%, a istnieje pięć replik, Service Fabric może mieć do dwóch replik w złej kondycji (to oznacza,`Math.Ceiling (5*0.21)`). W związku z tym należy odpowiednio ustawić zasady kondycji.
+Service Fabric tłumaczy wszystkie wartości procentowe na rzeczywistą liczbę jednostek (na przykład repliki, partycje i usługi) na potrzeby oceny kondycji i zawsze zaokrągla do całych jednostek. Jeśli na przykład maksymalna *MaxPercentUnhealthyReplicasPerPartition* wynosi 21%, a istnieje pięć replik, Service Fabric może mieć do dwóch replik w złej kondycji (to oznacza, `Math.Ceiling (5*0.21)` ). W związku z tym należy odpowiednio ustawić zasady kondycji.
 
 Możliwa przyczyna 2:
 
@@ -200,7 +199,7 @@ Jednak podczas uaktualniania D może stać się w dobrej kondycji, a C staje si�
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Nie określono zasad dotyczących kondycji na potrzeby uaktualniania aplikacji, ale uaktualnienie nadal kończy się niepowodzeniem przez niektóre przekroczenia limitu czasu, które nigdy nie zostały określone
 
-Gdy zasady dotyczące kondycji nie są dostarczane do żądania uaktualnienia, są pobierane z *ApplicationManifest. XML* bieżącej wersji aplikacji. Na przykład Jeśli uaktualniasz aplikację X z wersji 1,0 do wersji 2,0, używane są zasady dotyczące kondycji aplikacji określone dla programu w wersji 1,0. Jeśli dla uaktualnienia należy zastosować różne zasady dotyczące kondycji, należy określić zasady w ramach wywołania interfejsu API uaktualniania aplikacji. Zasady określone jako część wywołania interfejsu API są stosowane tylko podczas uaktualniania. Po zakończeniu uaktualniania są używane zasady określone w *ApplicationManifest. XML* .
+Gdy zasady dotyczące kondycji nie są dostarczane do żądania uaktualnienia, są pobierane z *ApplicationManifest.xml* bieżącej wersji aplikacji. Na przykład Jeśli uaktualniasz aplikację X z wersji 1,0 do wersji 2,0, używane są zasady dotyczące kondycji aplikacji określone dla programu w wersji 1,0. Jeśli dla uaktualnienia należy zastosować różne zasady dotyczące kondycji, należy określić zasady w ramach wywołania interfejsu API uaktualniania aplikacji. Zasady określone jako część wywołania interfejsu API są stosowane tylko podczas uaktualniania. Po zakończeniu uaktualniania zostaną użyte zasady określone w *ApplicationManifest.xml* .
 
 ### <a name="incorrect-time-outs-are-specified"></a>Określono nieprawidłowe limity czasu
 
@@ -212,9 +211,9 @@ Czas na zakończenie uaktualniania zależy od sprawdzania kondycji i określonyc
 
 Poniżej znajduje się szybki odświeżacz, w jaki sposób czas pracy z czasem uaktualniania zależy od czasu.
 
-Uaktualnienia dla domeny uaktualnienia nie mogą zakończyć się krócej niż *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Uaktualnienia dla domeny uaktualnienia nie mogą zakończyć się krócej niż *HealthCheckWaitDuration*  +  *HealthCheckStableDuration*.
 
-Niepowodzenie uaktualniania nie może wystąpić szybciej niż *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+Niepowodzenie uaktualniania nie może wystąpić szybciej niż *HealthCheckWaitDuration*  +  *HealthCheckRetryTimeout*.
 
 Czas uaktualnienia dla domeny uaktualnienia jest ograniczony przez *UpgradeDomainTimeout*.  Jeśli *HealthCheckRetryTimeout* i *HealthCheckStableDuration* są zarówno niezerowe, jak i kondycja aplikacji nadal przełączają się z powrotem i do przodu, uaktualnienie jest ostatecznie przemnożone na *UpgradeDomainTimeout*. *UpgradeDomainTimeout* rozpoczyna zliczanie w dół po rozpoczęciu uaktualniania bieżącej domeny uaktualnienia.
 

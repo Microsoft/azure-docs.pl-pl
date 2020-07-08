@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
 ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451680"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Interfejsy API klienta Java Service Fabric platformy Azure
@@ -114,14 +113,14 @@ Wykonaj kroki opisane poniżej, aby wygenerować Service Fabric kod klienta Java
         ```
 
 ## <a name="understanding-the-generated-code"></a>Zrozumienie wygenerowanego kodu
-Dla każdego interfejsu API znajdują się cztery przeciążenia implementacji. Jeśli istnieją parametry opcjonalne, można znaleźć cztery więcej wariantów, w tym te parametry opcjonalne. Na przykład rozważmy Interfejs ``removeReplica``API.
+Dla każdego interfejsu API znajdują się cztery przeciążenia implementacji. Jeśli istnieją parametry opcjonalne, można znaleźć cztery więcej wariantów, w tym te parametry opcjonalne. Na przykład rozważmy interfejs API ``removeReplica`` .
  1. **Public void removeReplica (ciąg nodename, UUID partitionId, String replicaId, Boolean forceRemove, długi limit czasu)**
     * Jest to synchroniczny wariant wywołania interfejsu API removeReplica
- 2. **Public servicefuture\<void> RemoveReplicaAsync (ciąg nodename, UUID PartitionID, String ReplicaId, Boolean ForceRemove, długi limit czasu, końcowego servicecallback\<void> servicecallback)**
+ 2. **Public servicefuture \<Void> removeReplicaAsync (ciąg nodename, UUID partitionId, String replicaId, Boolean forceRemove, długi limit czasu, końcowe servicecallback servicecallback \<Void> )**
     * Tego wariantu wywołania interfejsu API można użyć, jeśli chcesz wykorzystać przyszłe programowanie asynchroniczne i użyć wywołania zwrotnego
- 3. **publiczne zauważalne\<> RemoveReplicaAsync (ciąg nodename, UUID PartitionID, ciąg replicaId)**
+ 3. **publiczny zauważalny \<Void> removeReplicaAsync (ciąg nodename, UUID partitionId, ciąg replicaId)**
     * Tego wariantu wywołania interfejsu API można użyć, jeśli chcesz użyć reaktywnego programowania asynchronicznego
- 4. **\<publiczny widoczny dla serviceresponse\<void>> removeReplicaWithServiceResponseAsync (ciąg nodename, UUID partitionId, ciąg replicaId)**
+ 4. **publiczne zauważalne \<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync (ciąg nodename, UUID partitionId, ciąg replicaId)**
     * Tego wariantu wywołania interfejsu API można użyć, jeśli chcesz używać reaktywnego programowania asynchronicznego i obsługiwać niesformatowaną odpowiedź REST
 
 ## <a name="next-steps"></a>Następne kroki

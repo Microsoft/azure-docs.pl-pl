@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434717"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Jak udostępnić starsze urządzenia przy użyciu kluczy symetrycznych
@@ -201,7 +200,7 @@ Urządzenie użyje pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem re
 
 ## <a name="create-a-device-image-to-provision"></a>Tworzenie obrazu urządzenia do aprowizacji
 
-W tej sekcji zostanie zaktualizowany przykład aprowizacji o nazwie **Prov\_\_dev Client\_Sample** ZNAJDUJĄCy się w wcześniej skonfigurowanym zestawie SDK języka C usługi Azure IoT. 
+W tej sekcji zostanie zaktualizowany przykład aprowizacji o nazwie **Prov \_ dev \_ Client \_ Sample** znajdujący się w wcześniej skonfigurowanym zestawie SDK języka C usługi Azure IoT. 
 
 Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żądanie aprowizacji do wystąpienia usługi Device Provisioning. Sekwencja rozruchu spowoduje, że urządzenie zostanie rozpoznane i przypisane do centrum IoT, które zostało skonfigurowane w grupie rejestracji.
 
@@ -250,7 +249,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
 7. Kliknij prawym przyciskiem myszy projekt **prov\_dev\_client\_sample**, a następnie wybierz pozycję **Ustaw jako projekt startowy**. 
 
-8. W menu programu Visual Studio wybierz kolejno opcje **Debuguj** > **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W monicie o ponowne skompilowanie projektu kliknij przycisk **Tak**, aby ponownie skompilować projekt przed uruchomieniem.
+8. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W monicie o ponowne skompilowanie projektu kliknij przycisk **Tak**, aby ponownie skompilować projekt przed uruchomieniem.
 
     Następujące dane wyjściowe to przykład pomyślnego uruchomienia urządzenia symulowanego i połączenia z wystąpieniem usługi aprowizowania w celu przypisania do centrum IoT:
 

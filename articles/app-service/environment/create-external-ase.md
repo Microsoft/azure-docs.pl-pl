@@ -8,10 +8,9 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75430515"
 ---
 # <a name="create-an-external-app-service-environment"></a>Tworzenie zewnętrznego środowiska App Service
@@ -59,7 +58,7 @@ Plan App Service jest kontenerem aplikacji. Podczas tworzenia aplikacji w App Se
 
 Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
-1. W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **aplikacji sieci Web**.
+1. W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Utwórz zasób**  >  **Sieć Web + aplikacje mobilne**  >  **aplikacji sieci Web**.
 
     ![Tworzenie aplikacji sieci Web][1]
 
@@ -83,13 +82,13 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
     ![Nazwa nowego planu App Service][4]
 
-9. Określ szczegóły sieci wirtualnej platformy Azure. Wybierz opcję **Utwórz nową** lub **Wybierz istniejącą**. Opcja wyboru istniejącej sieci wirtualnej jest dostępna tylko wtedy, gdy w wybranym regionie znajduje się sieć wirtualna. W przypadku wybrania opcji **Utwórz nową**wprowadź nazwę sieci wirtualnej. Zostanie utworzona nowa Menedżer zasobów Sieć wirtualna o tej nazwie. Używa przestrzeni `192.168.250.0/23` adresowej w wybranym regionie. W przypadku wybrania opcji **Wybierz istniejący**należy:
+9. Określ szczegóły sieci wirtualnej platformy Azure. Wybierz opcję **Utwórz nową** lub **Wybierz istniejącą**. Opcja wyboru istniejącej sieci wirtualnej jest dostępna tylko wtedy, gdy w wybranym regionie znajduje się sieć wirtualna. W przypadku wybrania opcji **Utwórz nową**wprowadź nazwę sieci wirtualnej. Zostanie utworzona nowa Menedżer zasobów Sieć wirtualna o tej nazwie. Używa przestrzeni adresowej `192.168.250.0/23` w wybranym regionie. W przypadku wybrania opcji **Wybierz istniejący**należy:
 
     a. Wybierz blok adresów sieci wirtualnej, jeśli masz więcej niż jeden.
 
     b. Wprowadź nową nazwę podsieci.
 
-    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać wystarczająco duży rozmiar, aby uwzględnić przyszły rozwój środowiska ASE.* Zalecane `/24`jest, które mają 128 adresów i obsługujące środowisko ASE o maksymalnym rozmiarze. Nie zalecamy `/28`, na przykład, ponieważ dostępne są tylko 16 adresów. Infrastruktura używa co najmniej siedmiu adresów i sieci platformy Azure używa innej 5. W `/28` podsieci pozostało maksymalne skalowanie wystąpień planu 4 App Service dla zewnętrznego środowiska ASE i tylko 3 App Service wystąpienia planu dla środowiska ILB ASE.
+    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać wystarczająco duży rozmiar, aby uwzględnić przyszły rozwój środowiska ASE.* Zalecane jest `/24` , które mają 128 adresów i obsługujące środowisko ASE o maksymalnym rozmiarze. Nie zalecamy `/28` , na przykład, ponieważ dostępne są tylko 16 adresów. Infrastruktura używa co najmniej siedmiu adresów i sieci platformy Azure używa innej 5. W `/28` podsieci pozostało maksymalne skalowanie wystąpień planu 4 App Service dla zewnętrznego środowiska ASE i tylko 3 App Service wystąpienia planu dla środowiska ILB ASE.
 
     d. Wybierz zakres adresów IP podsieci.
 
@@ -97,7 +96,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Tworzenie aplikacji sieci Web środowiska ASE i systemu Linux przy użyciu niestandardowego obrazu platformy Docker
 
-1. W [Azure Portal](https://portal.azure.com/) **Utwórz** > **Sieć Web + aplikacje mobilne** > zasobów**Web App for Containers.** 
+1. W [Azure Portal](https://portal.azure.com/)Utwórz sieć Web + aplikacje mobilne **zasobów**  >  **Web + Mobile**  >  **Web App for Containers.** 
 
     ![Tworzenie aplikacji sieci Web][7]
 
@@ -119,13 +118,13 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
     ![Nazwa nowego planu App Service][4]
 
-1. Określ szczegóły sieci wirtualnej platformy Azure. Wybierz opcję **Utwórz nową** lub **Wybierz istniejącą**. Opcja wyboru istniejącej sieci wirtualnej jest dostępna tylko wtedy, gdy w wybranym regionie znajduje się sieć wirtualna. W przypadku wybrania opcji **Utwórz nową**wprowadź nazwę sieci wirtualnej. Zostanie utworzona nowa Menedżer zasobów Sieć wirtualna o tej nazwie. Używa przestrzeni `192.168.250.0/23` adresowej w wybranym regionie. W przypadku wybrania opcji **Wybierz istniejący**należy:
+1. Określ szczegóły sieci wirtualnej platformy Azure. Wybierz opcję **Utwórz nową** lub **Wybierz istniejącą**. Opcja wyboru istniejącej sieci wirtualnej jest dostępna tylko wtedy, gdy w wybranym regionie znajduje się sieć wirtualna. W przypadku wybrania opcji **Utwórz nową**wprowadź nazwę sieci wirtualnej. Zostanie utworzona nowa Menedżer zasobów Sieć wirtualna o tej nazwie. Używa przestrzeni adresowej `192.168.250.0/23` w wybranym regionie. W przypadku wybrania opcji **Wybierz istniejący**należy:
 
     a. Wybierz blok adresów sieci wirtualnej, jeśli masz więcej niż jeden.
 
     b. Wprowadź nową nazwę podsieci.
 
-    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać wystarczająco duży rozmiar, aby uwzględnić przyszły rozwój środowiska ASE.* Zalecane `/24`jest, które mają 128 adresów i obsługujące środowisko ASE o maksymalnym rozmiarze. Nie zalecamy `/28`, na przykład, ponieważ dostępne są tylko 16 adresów. Infrastruktura używa co najmniej siedmiu adresów i sieci platformy Azure używa innej 5. W `/28` podsieci pozostało maksymalne skalowanie wystąpień planu 4 App Service dla zewnętrznego środowiska ASE i tylko 3 App Service wystąpienia planu dla środowiska ILB ASE.
+    c. Wybierz rozmiar podsieci. *Pamiętaj, aby wybrać wystarczająco duży rozmiar, aby uwzględnić przyszły rozwój środowiska ASE.* Zalecane jest `/24` , które mają 128 adresów i obsługujące środowisko ASE o maksymalnym rozmiarze. Nie zalecamy `/28` , na przykład, ponieważ dostępne są tylko 16 adresów. Infrastruktura używa co najmniej siedmiu adresów i sieci platformy Azure używa innej 5. W `/28` podsieci pozostało maksymalne skalowanie wystąpień planu 4 App Service dla zewnętrznego środowiska ASE i tylko 3 App Service wystąpienia planu dla środowiska ILB ASE.
 
     d. Wybierz zakres adresów IP podsieci.
 
@@ -141,7 +140,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 Jeśli tworzysz autonomiczną aplikację ASE, nie ma nic w nim. Pusta środowisko ASE nadal jest miesięczną opłatą za infrastrukturę. Wykonaj następujące kroki, aby utworzyć środowisko ASE z ILB lub utworzyć środowisko ASE w jego własnej grupie zasobów. Po utworzeniu środowiska ASE można tworzyć w nim aplikacje przy użyciu normalnego procesu. Wybierz nowy środowisko ASE jako lokalizację.
 
-1. Wyszukaj **App Service Environment**portalu Azure Marketplace, a następnie wybierz pozycję **Utwórz zasób** > **Sieć Web** > **App Service Environment**Mobile. 
+1. Wyszukaj **App Service Environment**portalu Azure Marketplace, a następnie wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **App Service Environment**Mobile. 
 
 1. Wprowadź nazwę środowiska ASE. Ta nazwa jest używana dla aplikacji utworzonych w środowisku ASE. Jeśli nazwa to *mynewdemoase*, nazwa domeny podrzędnej to *. mynewdemoase.p.azurewebsites.NET*. Jeśli utworzysz aplikację o nazwie *MojaAplikacja*, adresowanie jest możliwe pod adresem mytestapp.mynewdemoase.p.azurewebsites.NET. Nie można użyć odstępu w nazwie. Jeśli używasz wielkich liter, nazwa domeny to łączna mała wersja nazwy. Jeśli używasz ILB, Nazwa środowiska ASE nie jest używana w poddomenie, ale zamiast tego jest jawnie określona podczas tworzenia ASE.
 

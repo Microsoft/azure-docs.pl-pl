@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451303"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Włączanie i wyłączanie konsoli szeregowej platformy Azure
@@ -34,7 +33,7 @@ Konsolę szeregową można wyłączyć dla określonej maszyny wirtualnej lub ze
 ## <a name="subscription-level-enabledisable"></a>Włączanie/wyłączanie poziomu subskrypcji
 
 > [!NOTE]
-> Przed uruchomieniem tego polecenia upewnij się, że jesteś w odpowiedniej chmurze (chmura publiczna Azure, chmura dla instytucji rządowych Stanów Zjednoczonych). Możesz sprawdzić `az cloud list` i ustawić chmurę za pomocą `az cloud set -n <Name of cloud>`usługi.
+> Przed uruchomieniem tego polecenia upewnij się, że jesteś w odpowiedniej chmurze (chmura publiczna Azure, chmura dla instytucji rządowych Stanów Zjednoczonych). Możesz sprawdzić `az cloud list` i ustawić chmurę za pomocą usługi `az cloud set -n <Name of cloud>` .
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

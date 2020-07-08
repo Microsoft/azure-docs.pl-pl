@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975673"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Wybieranie kolumn dystrybucji w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
@@ -28,18 +27,18 @@ Architektura wielu dzierżawców korzysta z formy modelowania hierarchicznej baz
 
 Funkcja wieloskalowania (Citus) sprawdza zapytania, aby zobaczyć, który identyfikator dzierżawy obejmuje i znajduje pasującą tabelę fragmentu. Kieruje zapytanie do jednego węzła procesu roboczego, który zawiera fragmentu. Uruchomienie zapytania ze wszystkimi odpowiednimi danymi umieszczonymi w tym samym węźle nosi nazwę wspólnej lokalizacji.
 
-Poniższy diagram ilustruje współlokalizowanie w modelu danych wielodostępnych. Zawiera dwie tabele, konta i kampanie, z których każdy `account_id`jest dystrybuowany przez program. Zacienione pola reprezentują fragmentów. Zielona fragmentów są przechowywane razem w jednym węźle procesu roboczego, a niebieskie fragmentów są przechowywane w innym węźle procesu roboczego. Zwróć uwagę, jak zapytanie sprzężenia między kontami i kampaniami zawiera wszystkie niezbędne dane razem w jednym węźle, gdy obie tabele są ograniczone\_do tego samego identyfikatora konta.
+Poniższy diagram ilustruje współlokalizowanie w modelu danych wielodostępnych. Zawiera dwie tabele, konta i kampanie, z których każdy jest dystrybuowany przez program `account_id` . Zacienione pola reprezentują fragmentów. Zielona fragmentów są przechowywane razem w jednym węźle procesu roboczego, a niebieskie fragmentów są przechowywane w innym węźle procesu roboczego. Zwróć uwagę, jak zapytanie sprzężenia między kontami i kampaniami zawiera wszystkie niezbędne dane razem w jednym węźle, gdy obie tabele są ograniczone do tego samego \_ identyfikatora konta.
 
 ![Współlokalizacja z wieloma dzierżawcami](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Aby zastosować ten projekt we własnym schemacie, należy określić, co stanowi dzierżawcę w aplikacji. Typowe wystąpienia to firma, konto, organizacja lub klient. Nazwa kolumny będzie wyglądać następująco `company_id` lub. `customer_id` Sprawdź poszczególne zapytania i zadawaj siebie, czy będą one działały, jeśli miały dodatkowe klauzule WHERE, aby ograniczyć wszystkie tabele do wierszy z tym samym IDENTYFIKATORem dzierżawy?
+Aby zastosować ten projekt we własnym schemacie, należy określić, co stanowi dzierżawcę w aplikacji. Typowe wystąpienia to firma, konto, organizacja lub klient. Nazwa kolumny będzie wyglądać następująco `company_id` lub `customer_id` . Sprawdź poszczególne zapytania i zadawaj siebie, czy będą one działały, jeśli miały dodatkowe klauzule WHERE, aby ograniczyć wszystkie tabele do wierszy z tym samym IDENTYFIKATORem dzierżawy?
 Zapytania w modelu z wieloma dzierżawcami są objęte zakresem dzierżawy. Na przykład zapytania dotyczące sprzedaży lub spisu są objęte zakresem w ramach określonego magazynu.
 
 #### <a name="best-practices"></a>Najlepsze rozwiązania
 
--   **Partycjonowanie tabel rozproszonych za pomocą\_wspólnej kolumny identyfikatora dzierżawy.** Na przykład w aplikacji SaaS, w której znajdują się dzierżawcy są firmy\_, identyfikator dzierżawy może być identyfikatorem firmy\_.
+-   **Partycjonowanie tabel rozproszonych za pomocą wspólnej \_ kolumny identyfikatora dzierżawy.** Na przykład w aplikacji SaaS, w której znajdują się dzierżawcy są firmy, identyfikator dzierżawy \_ może być \_ identyfikatorem firmy.
 -   **Konwertuj małe tabele obejmujące wiele dzierżawców na tabele referencyjne.** Gdy wiele dzierżawców udostępnia małą tabelę informacji, należy ją rozpowszechnić jako tabelę referencyjną.
--   **Ogranicz filtrowanie wszystkich zapytań aplikacji według identyfikatora\_dzierżawy.** Każde zapytanie powinno zażądać informacji dla jednej dzierżawy w danym momencie.
+-   **Ogranicz filtrowanie wszystkich zapytań aplikacji według identyfikatora dzierżawy \_ .** Każde zapytanie powinno zażądać informacji dla jednej dzierżawy w danym momencie.
 
 Zapoznaj się z [samouczkiem z wieloma dzierżawcami](./tutorial-design-database-hyperscale-multi-tenant.md) , aby zapoznać się z przykładem tworzenia tego rodzaju aplikacji.
 

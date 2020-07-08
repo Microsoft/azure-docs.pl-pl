@@ -1,6 +1,6 @@
 ---
-title: Nawiązywanie połączenia z interfejsem API programu Azure Media Services v3 — Node. js
-description: W tym artykule pokazano, jak nawiązać połączenie z interfejsem API programu Media Services v3 przy użyciu środowiska Node. js.
+title: Nawiązywanie połączenia z interfejsem API Azure Media Services v3 — Node.js
+description: W tym artykule pokazano, jak nawiązać połączenie z interfejsem API programu Media Services v3 przy użyciu Node.js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,26 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896097"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Nawiązywanie połączenia z interfejsem API programu Media Services v3 — Node. js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Node.js
 
-W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK środowiska Node. js Azure Media Services v3 przy użyciu głównej metody logowania.
+W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK node.js Azure Media Services v3 przy użyciu metody logowania jednostki usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstaluj program [Node. js](https://nodejs.org/en/download/).
+- Zainstaluj [Node.js](https://nodejs.org/en/download/).
 - [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 
 > [!IMPORTANT]
 > Zapoznaj się z [konwencjami nazewnictwa](media-services-apis-overview.md#naming-conventions).
 
-## <a name="create-packagejson"></a>Utwórz plik Package. JSON
+## <a name="create-packagejson"></a>Utwórz package.jsna
 
-1. Utwórz plik Package. JSON przy użyciu ulubionego edytora.
+1. Utwórz package.jsw pliku przy użyciu ulubionego edytora.
 1. Otwórz plik i wklej następujący kod:
 
 ```json
@@ -66,7 +65,7 @@ Możesz uruchomić następujące polecenie, aby upewnić się, że używasz najn
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Łączenie z klientem Node. js
+## <a name="connect-to-nodejs-client"></a>Nawiązywanie połączenia z klientem Node.js
 
 1. Utwórz plik js przy użyciu ulubionego edytora.
 1. Otwórz plik i wklej następujący kod.

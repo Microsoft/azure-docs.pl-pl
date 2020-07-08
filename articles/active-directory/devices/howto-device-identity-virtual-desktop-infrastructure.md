@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900368"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
@@ -51,11 +50,11 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 | Zarejestrowane w usłudze Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 
 \*Środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.
@@ -73,7 +72,7 @@ Administratorzy powinni zapoznać się z następującymi artykułami, na podstaw
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md)
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
-Jeśli korzystasz z narzędzia przygotowywania systemu (Sysprep. exe) i używasz obrazu sprzed systemu Windows 10 1809 do instalacji, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
+Jeśli korzystasz z narzędzia przygotowywania systemu (sysprep.exe) i jeśli do instalacji używasz obrazu sprzed systemu Windows 10 1809, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
 
 Jeśli korzystasz z migawki maszyny wirtualnej w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
 
@@ -81,7 +80,7 @@ W przypadku wdrażania nietrwałego infrastruktury VDI Administratorzy IT powinn
 
 - Utwórz i użyj prefiksu dla nazwy wyświetlanej komputera, który wskazuje pulpit jako oparty na infrastrukturze VDI.
 - Zaimplementuj poniższe polecenie jako część skryptu wylogowywania. To polecenie spowoduje wyzwolenie najlepszego wywołania usługi Azure AD w celu usunięcia urządzenia.
-   - W przypadku urządzeń niższego poziomu systemu Windows — automiejscem pracy. exe/Leave
+   - W przypadku urządzeń niższego poziomu systemu Windows — autoworkplace.exe/Leave
 - Zdefiniuj i Implementuj proces [zarządzania przestarzałymi urządzeniami](manage-stale-devices.md).
    - Gdy masz strategię do identyfikowania nietrwałych hybrydowych urządzeń z usługą Azure AD, możesz bardziej agresywnie czyścić te urządzenia, aby upewnić się, że katalog nie jest używany z wieloma przestarzałymi urządzeniami.
  

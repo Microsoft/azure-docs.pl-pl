@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75429155"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować usługę Azure IoT Hub do innego regionu
@@ -107,7 +106,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące migracji centrum.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Znajdź oryginalny centrum i wyeksportuj go do szablonu zasobu.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. Przejdź do pozycji **grupy zasobów** i wybierz grupę zasobów zawierającą centrum, które chcesz przenieść. Możesz również przejść do **zasobów** i znaleźć centrum. Wybierz centrum.
 
@@ -121,7 +120,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące migracji centrum.
 
 ### <a name="view-the-template"></a>Wyświetlanie szablonu 
 
-1. Przejdź do folderu pliki do pobrania (lub do folderu, który został użyty podczas eksportowania szablonu) i Znajdź plik zip. Otwórz plik zip i Znajdź plik o nazwie `template.json`. Wybierz go, a następnie naciśnij klawisze CTRL + C, aby skopiować szablon. Przejdź do innego folderu, który nie znajduje się w pliku zip, i wklej plik (Ctrl + V). Teraz można go edytować.
+1. Przejdź do folderu pliki do pobrania (lub do folderu, który został użyty podczas eksportowania szablonu) i Znajdź plik zip. Otwórz plik zip i Znajdź plik o nazwie `template.json` . Wybierz go, a następnie naciśnij klawisze CTRL + C, aby skopiować szablon. Przejdź do innego folderu, który nie znajduje się w pliku zip, i wklej plik (Ctrl + V). Teraz można go edytować.
  
     Poniższy przykład dotyczy centrum ogólnego bez konfiguracji routingu. Jest to koncentrator warstwy S1 (z 1 jednostką) o nazwie **ContosoTestHub29358** w regionie **zachodnie**. Oto wyeksportowany szablon.
 
@@ -347,13 +346,13 @@ Teraz masz szablon, który spowoduje utworzenie nowego centrum, które będzie w
 
 Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. W przypadku zasobów routingu, które mają zostać przeniesione, zasoby powinny zostać skonfigurowane w nowej lokalizacji, a odwołania w szablonie zaktualizowane do dopasowania. Jeśli nie przenosisz zasobów routingu, powinny one znajdować się w szablonie z zaktualizowanymi kluczami.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **Utwórz zasób**. 
 
 1. W polu wyszukiwania wprowadź ciąg "wdrożenie szablonu" i wybierz polecenie wprowadź.
 
-1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz przycisk **Utwórz**. Zostanie wyświetlony następujący ekran:
+1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz pozycję **Utwórz**. Zostanie wyświetlony następujący ekran:
 
    ![Zrzut ekranu przedstawiający polecenie tworzenia własnego szablonu](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -549,7 +548,7 @@ Możesz wyświetlić urządzenia w [Azure Portal](https://portal.azure.com) i sp
 
 1. Przejdź do nowego centrum przy użyciu [Azure Portal](https://portal.azure.com). Wybierz centrum, a następnie wybierz pozycję **urządzenia IoT**. Na sklonowanym centrum są widoczne właśnie skopiowane urządzenia ze starego centrum. Możesz również wyświetlić właściwości sklonowanego centrum. 
 
-1. Sprawdź błędy importowania/eksportowania, przechodząc do konta usługi Azure Storage w [Azure Portal](https://portal.azure.com) i szukając `devicefiles` kontenera `ImportErrors.log`. Jeśli ten plik jest pusty (rozmiar wynosi 0), nie wystąpiły żadne błędy. Próba zaimportowania tego samego urządzenia więcej niż raz powoduje odrzucanie urządzenia po raz drugi i dodanie komunikatu o błędzie do pliku dziennika.
+1. Sprawdź błędy importowania/eksportowania, przechodząc do konta usługi Azure Storage w [Azure Portal](https://portal.azure.com) i szukając `devicefiles` kontenera `ImportErrors.log` . Jeśli ten plik jest pusty (rozmiar wynosi 0), nie wystąpiły żadne błędy. Próba zaimportowania tego samego urządzenia więcej niż raz powoduje odrzucanie urządzenia po raz drugi i dodanie komunikatu o błędzie do pliku dziennika.
 
 ### <a name="committing-the-changes"></a>Zatwierdzanie zmian 
 

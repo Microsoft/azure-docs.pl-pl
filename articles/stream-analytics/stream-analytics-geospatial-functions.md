@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75426221"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do Stream Analytics funkcji geoprzestrzennych
@@ -30,7 +29,7 @@ Język zapytań Stream Analytics ma siedem wbudowanych funkcji geoprzestrzennych
 
 ## <a name="createlinestring"></a>CreateLineString
 
-`CreateLineString` Funkcja akceptuje punkty i zwraca LineString GEOJSON, który można wykreślić jako linię na mapie. Musisz mieć co najmniej dwa punkty, aby utworzyć LineString. Punkty LineString zostaną połączone w pożądanej kolejności.
+`CreateLineString`Funkcja akceptuje punkty i zwraca LineString GEOJSON, który można wykreślić jako linię na mapie. Musisz mieć co najmniej dwa punkty, aby utworzyć LineString. Punkty LineString zostaną połączone w pożądanej kolejności.
 
 Poniższe zapytanie używa `CreateLineString` do tworzenia LineString przy użyciu trzech punktów. Pierwszy punkt jest tworzony na podstawie danych wejściowych przesyłanych strumieniowo, a pozostałe dwa są tworzone ręcznie.
 
@@ -57,7 +56,7 @@ Aby dowiedzieć się więcej, odwiedź odwołanie [CreateLineString](https://doc
 
 ## <a name="createpoint"></a>CreatePoint
 
-`CreatePoint` Funkcja akceptuje szerokość geograficzną i długość i zwraca punkt GEOJSON, który można wykreślić na mapie. Latitudes i Długość geograficzna muszą być typu **zmiennoprzecinkowego** .
+`CreatePoint`Funkcja akceptuje szerokość geograficzną i długość i zwraca punkt GEOJSON, który można wykreślić na mapie. Latitudes i Długość geograficzna muszą być typu **zmiennoprzecinkowego** .
 
 Poniższe przykładowe zapytanie używa `CreatePoint` do tworzenia punktu przy użyciu Latitudes i długości geograficznej danych wejściowych przesyłanych strumieniowo.
 
@@ -84,7 +83,7 @@ Aby dowiedzieć się więcej, odwiedź odwołanie do [punktu](https://docs.micro
 
 ## <a name="createpolygon"></a>CreatePolygon
 
-`CreatePolygon` Funkcja akceptuje punkty i zwraca rekord wielokąta GEOJSON. Kolejność punktów musi następować po prawej stronie lub w prawo. Wyobraź sobie, że jest to idące od jednego punktu do drugiego w kolejności, w jakiej zostały zgłoszone. Środek wielokąta będzie znajdował się w lewej i cały czas.
+`CreatePolygon`Funkcja akceptuje punkty i zwraca rekord wielokąta GEOJSON. Kolejność punktów musi następować po prawej stronie lub w prawo. Wyobraź sobie, że jest to idące od jednego punktu do drugiego w kolejności, w jakiej zostały zgłoszone. Środek wielokąta będzie znajdował się w lewej i cały czas.
 
 Poniższe przykładowe zapytanie używa `CreatePolygon` do tworzenia wielokąta z trzech punktów. Pierwsze dwa punkty są tworzone ręcznie, a ostatni punkt jest tworzony na podstawie danych wejściowych.
 
@@ -111,7 +110,7 @@ Aby dowiedzieć się więcej, odwiedź odwołanie do [wielokąta](https://docs.m
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-`ST_DISTANCE` Funkcja zwraca odległość między dwoma punktami w licznikach. 
+`ST_DISTANCE`Funkcja zwraca odległość między dwoma punktami w licznikach. 
 
 Poniższe zapytanie używa `ST_DISTANCE` do generowania zdarzenia, gdy stacja gazowa jest mniejsza niż 10 km od samochodu.
 
@@ -124,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) .
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-`ST_OVERLAPS` Funkcja porównuje dwa wielokąty. Jeśli wielokąty nakładają się, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się. 
+`ST_OVERLAPS`Funkcja porównuje dwa wielokąty. Jeśli wielokąty nakładają się, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się. 
 
 Poniższe zapytanie używa `ST_OVERLAPS` do generowania zdarzenia, gdy kompilacja znajduje się w możliwej oblewania strefy.
 
@@ -145,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) .
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-`ST_INTERSECTS` Funkcja porównuje dwie LineString. Jeśli LineString Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli LineString nie przecina.
+`ST_INTERSECTS`Funkcja porównuje dwie LineString. Jeśli LineString Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli LineString nie przecina.
 
 Poniższe przykładowe zapytanie używa `ST_INTERSECTS` do określenia, czy ukryte Road przecina drogę.
 
@@ -171,7 +170,7 @@ FROM input
 Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) .
 
 ## <a name="st_within"></a>ST_WITHIN
-`ST_WITHIN` Funkcja określa, czy punkt lub Wielokąt znajduje się w obrębie wielokąta. Jeśli Wielokąt zawiera punkt lub Wielokąt, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli punkt lub Wielokąt nie znajdują się w obrębie zadeklarowanego wielokąta.
+`ST_WITHIN`Funkcja określa, czy punkt lub Wielokąt znajduje się w obrębie wielokąta. Jeśli Wielokąt zawiera punkt lub Wielokąt, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli punkt lub Wielokąt nie znajdują się w obrębie zadeklarowanego wielokąta.
 
 Poniższy Przykładowa kwerenda służy `ST_WITHIN` do określenia, czy punkt docelowy dostawy znajduje się w obrębie danego wielokąta magazynu.
 

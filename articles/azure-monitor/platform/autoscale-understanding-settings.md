@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364309"
 ---
 # <a name="understand-autoscale-settings"></a>Omówienie ustawień automatycznego skalowania
@@ -106,7 +105,7 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
 | metricTrigger | timeAggregation | Metoda agregacji używana do agregowania metryk próbkowanych. Na przykład **TimeAggregation = "Average"** powinna agregować metryki próbkowane, pobierając średnią. W poprzednim przypadku należy wziąć dziesięć próbek 1-minutowych i obliczyć ich średnią. |
 | Rule | scaleAction | Akcja, która ma zostać podjęta po wyzwoleniu metricTrigger reguły. |
 | scaleAction | kierunek | "Zwiększ", aby skalować w poziomie lub "Zmniejsz" w celu skalowania w poziomie.|
-| scaleAction | value | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
+| scaleAction | wartość | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
 | scaleAction | cooldown | Czas oczekiwania po operacji skalowania przed ponownym skalowaniem. Na przykład jeśli **cooldown = "PT10M"**, funkcja automatycznego skalowania nie próbuje ponownie skalować przez kolejne 10 minut. Cooldown to umożliwienie ustabilizowania metryk po dodaniu lub usunięciu wystąpień. |
 
 ## <a name="autoscale-profiles"></a>Profile skalowania automatycznego
@@ -301,7 +300,7 @@ Załóżmy na przykład, że istnieje zestaw skalowania maszyn wirtualnych z akt
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat automatycznego skalowania można znaleźć w następujących tematach:
 
-* [Omówienie automatycznego skalowania](../../azure-monitor/platform/autoscale-overview.md)
+* [Omówienie skalowania automatycznego](../../azure-monitor/platform/autoscale-overview.md)
 * [Azure Monitor metryki automatycznego skalowania](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Najlepsze rozwiązania dotyczące skalowania automatycznego w usłudze Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Używanie akcji skalowania automatycznego do wysyłania powiadomień o alertach dotyczących wiadomości e-mail i elementów webhook](../../azure-monitor/platform/autoscale-webhook-email.md)

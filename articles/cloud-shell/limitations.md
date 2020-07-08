@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74951483"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Ograniczenia Azure Cloud Shell
@@ -31,9 +30,9 @@ Azure Cloud Shell ma następujące znane ograniczenia:
 
 Komputer, na którym jest dostępna sesja Cloud Shell, jest tymczasowy i jest odtwarzany po upływie 20 minut aktywności. Cloud Shell wymaga zainstalowania udziału plików platformy Azure. W związku z tym subskrypcja musi mieć możliwość skonfigurowania zasobów magazynu w celu uzyskania dostępu do Cloud Shell. Inne zagadnienia obejmują:
 
-* W przypadku zainstalowanego magazynu utrwalane są tylko `$Home` modyfikacje znajdujące się w katalogu.
+* W przypadku zainstalowanego magazynu utrwalane są tylko modyfikacje znajdujące `$Home` się w katalogu.
 * Udziały plików platformy Azure można instalować tylko z poziomu [przypisanego regionu](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * W programie bash Uruchom `env` polecenie, aby znaleźć swój region `ACC_LOCATION`ustawiony jako.
+  * W programie bash Uruchom polecenie, `env` Aby znaleźć swój region ustawiony jako `ACC_LOCATION` .
 
 ### <a name="browser-support"></a>Obsługa przeglądarki
 
@@ -45,7 +44,7 @@ Cloud Shell obsługuje najnowsze wersje programu Microsoft Edge, programu Micros
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Dla danego użytkownika można uaktywnić tylko jedną powłokę.
 
-Użytkownicy mogą uruchamiać tylko jeden typ powłoki naraz, **bash** lub **PowerShell**. Może jednak istnieć wiele wystąpień bash lub PowerShell uruchomionych jednocześnie. Zamiana między bash lub PowerShell przy użyciu menu powoduje ponowne uruchomienie Cloud Shell, co kończy istniejące sesje. Alternatywnie można uruchomić bash wewnątrz programu PowerShell, wpisując `bash`polecenie, a następnie można uruchomić program PowerShell wewnątrz bash, `pwsh`wpisując.
+Użytkownicy mogą uruchamiać tylko jeden typ powłoki naraz, **bash** lub **PowerShell**. Może jednak istnieć wiele wystąpień bash lub PowerShell uruchomionych jednocześnie. Zamiana między bash lub PowerShell przy użyciu menu powoduje ponowne uruchomienie Cloud Shell, co kończy istniejące sesje. Alternatywnie można uruchomić bash wewnątrz programu PowerShell `bash` , wpisując polecenie, a następnie można uruchomić program PowerShell wewnątrz bash, wpisując `pwsh` .
 
 ### <a name="usage-limits"></a>Limity użycia
 
@@ -65,11 +64,11 @@ Należy zachować ostrożność podczas edycji pliku. bashrc lub $PROFILE progra
 
 ### <a name="azuread-module-name"></a>`AzureAD`Nazwa modułu
 
-Nazwa `AzureAD` modułu jest obecnie `AzureAD.Standard.Preview`w tej samej funkcji.
+`AzureAD`Nazwa modułu jest obecnie w `AzureAD.Standard.Preview` tej samej funkcji.
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer`funkcje modułu
 
-`SqlServer` Moduł zawarty w Cloud Shell ma tylko wstępne wsparcie dla programu PowerShell Core. W szczególności nie `Invoke-SqlCmd` jest jeszcze dostępna.
+`SqlServer`Moduł zawarty w Cloud Shell ma tylko wstępne wsparcie dla programu PowerShell Core. W szczególności `Invoke-SqlCmd` nie jest jeszcze dostępna.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Domyślna lokalizacja pliku podczas tworzenia z dysku platformy Azure:
 
@@ -77,7 +76,7 @@ Przy użyciu poleceń cmdlet programu PowerShell użytkownicy nie mogą tworzyć
 
 ### <a name="gui-applications-are-not-supported"></a>Aplikacje graficznego interfejsu użytkownika nie są obsługiwane
 
-Jeśli użytkownik uruchamia polecenie, które może utworzyć okno dialogowe systemu Windows, zostanie wyświetlony komunikat o błędzie, taki jak: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Jeśli użytkownik uruchamia polecenie, które może utworzyć okno dialogowe systemu Windows, zostanie wyświetlony komunikat o błędzie, taki jak: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` .
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Duża przerwa po wyświetleniu paska postępu
 

@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75445129"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB
@@ -33,7 +32,7 @@ Zapytania odczytujące dane z co najmniej jednej partycji powodują wyższe opó
 
 Po zapisaniu danych w kontenerach usługi Azure Cosmos można użyć Eksplorator danych w Azure Portal do konstruowania i uruchamiania zapytań. Koszt zapytań można również uzyskać za pomocą Eksploratora danych. Ta metoda zapewnia zrozumienie rzeczywistych opłat związanych z typowymi zapytaniami i operacjami obsługiwanymi przez system.
 
-Koszt zapytań można również uzyskać programowo przy użyciu zestawów SDK. Aby zmierzyć obciążenie związane z dowolną operacją, taką jak tworzenie, aktualizowanie lub usuwanie, `x-ms-request-charge` należy przeprowadzić inspekcję nagłówka podczas korzystania z interfejsu API REST. Jeśli używasz platformy .NET lub zestawu Java SDK, `RequestCharge` właściwość jest równoważną właściwością do uzyskania opłaty za żądanie, a ta właściwość jest obecna w ResourceResponse lub FeedResponse.
+Koszt zapytań można również uzyskać programowo przy użyciu zestawów SDK. Aby zmierzyć obciążenie związane z dowolną operacją, taką jak tworzenie, aktualizowanie lub usuwanie, należy przeprowadzić inspekcję `x-ms-request-charge` nagłówka podczas korzystania z interfejsu API REST. Jeśli używasz platformy .NET lub zestawu Java SDK, `RequestCharge` Właściwość jest równoważną właściwością do uzyskania opłaty za żądanie, a ta właściwość jest obecna w ResourceResponse lub FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 

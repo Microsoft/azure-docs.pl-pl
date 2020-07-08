@@ -11,10 +11,9 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74900051"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Przykłady dotyczące Virtual Machines analizy danych na platformie Azure
@@ -46,7 +45,7 @@ Aby można było uruchomić te przykłady, musisz mieć zainicjowany Data Scienc
 
 ## <a name="access-jupyter"></a>Dostęp do Jupyter 
 
-Aby uzyskać dostęp do Jupyter, wybierz ikonę **Jupyter** w menu pulpitu lub aplikacji. Możesz również uzyskać dostęp do Jupyter w wersji systemu Linux DSVM. Aby uzyskać dostęp zdalnie z przeglądarki sieci Web, przejdź `https://<Full Domain Name or IP Address of the DSVM>:8000` do strony w witrynie Ubuntu.
+Aby uzyskać dostęp do Jupyter, wybierz ikonę **Jupyter** w menu pulpitu lub aplikacji. Możesz również uzyskać dostęp do Jupyter w wersji systemu Linux DSVM. Aby uzyskać dostęp zdalnie z przeglądarki sieci Web, przejdź do strony `https://<Full Domain Name or IP Address of the DSVM>:8000` w witrynie Ubuntu.
 
 Aby dodać wyjątki i udostępnić Jupyter dostęp za pośrednictwem przeglądarki, Skorzystaj z następujących wskazówek:
 

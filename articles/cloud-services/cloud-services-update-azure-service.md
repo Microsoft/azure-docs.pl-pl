@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360348"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Jak zaktualizować usługę w chmurze
@@ -53,7 +52,7 @@ W poniższej tabeli przedstawiono dozwolone zmiany usługi w trakcie aktualizacj
 | Ustawienia magazynu lokalnego |Zwiększ tylko<sup>2</sup> |Tak |Tak |
 | Dodawanie lub usuwanie ról w usłudze |Tak |Tak |Tak |
 | Liczba wystąpień określonej roli |Tak |Tak |Tak |
-| Liczba lub typ punktów końcowych dla usługi |Tak<sup>2</sup> |Nie |Tak |
+| Liczba lub typ punktów końcowych dla usługi |Tak<sup>2</sup> |Nie |Yes |
 | Nazwy i wartości ustawień konfiguracji |Tak |Tak |Tak |
 | Wartości (ale nie nazwy) ustawień konfiguracji |Tak |Tak |Tak |
 | Dodaj nowe certyfikaty |Tak |Tak |Tak |
@@ -124,7 +123,7 @@ Platforma Azure zapewnia elastyczność zarządzania usługami w trakcie aktuali
 Wycofanie aktualizacji w toku ma następujące skutki dla wdrożenia:
 
 * Wszystkie wystąpienia roli, które nie zostały jeszcze zaktualizowane lub uaktualnione do nowej wersji, nie są aktualizowane ani uaktualniane, ponieważ te wystąpienia mają już uruchomioną wersję docelową usługi.
-* Wszystkie wystąpienia roli, które zostały już zaktualizowane lub uaktualnione do nowej wersji pliku pakietu usługi (\*. cspkg) lub pliku konfiguracji usługi (\*. cscfg), są przywracane do wersji sprzed uaktualnienia tych plików.
+* Wszystkie wystąpienia roli, które zostały już zaktualizowane lub uaktualnione do nowej wersji pliku pakietu usługi ( \* . cspkg) lub pliku konfiguracji usługi ( \* . cscfg), są przywracane do wersji sprzed uaktualnienia tych plików.
 
 Ta funkcja jest zapewniana przez następujące funkcje:
 

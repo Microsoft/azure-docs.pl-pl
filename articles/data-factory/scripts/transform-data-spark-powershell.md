@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74932064"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Skrypt programu PowerShell — Przekształcanie danych w chmurze przy użyciu Azure Data Factory
@@ -54,7 +53,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca d
     if __name__ == "__main__":
         main()
     ```
-2. Zastąp ** &lt;storageAccountName&gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
+2. Zastąp ** &lt; storageAccountName &gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 4. Utwórz folder o nazwie **spark**.
 5. Utwórz podfolder o nazwie **script** w folderze **spark**. 

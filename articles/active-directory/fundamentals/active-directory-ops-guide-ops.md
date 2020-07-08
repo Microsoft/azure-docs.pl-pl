@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75422947"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
@@ -127,7 +126,7 @@ Jeśli w danej organizacji nie ma obecnie żadnego programu do monitorowania zmi
 
 Firma Microsoft wysyła wiadomości e-mail do administratorów w celu powiadomienia różnych zmian w usłudze, wymaganych aktualizacji konfiguracji i błędów wymagających interwencji administratora. Należy pamiętać, że klienci ustawiają adresy e-mail powiadomień, aby powiadomienia były wysyłane do odpowiednich członków zespołu, którzy będą mogli potwierdzić i korzystać ze wszystkich powiadomień. Zalecamy dodanie wielu odbiorców do [centrum wiadomości pakietu Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) i zażądanie, aby powiadomienia (w tym powiadomienia o Azure AD Connect Healthach) były wysyłane do listy dystrybucyjnej lub udostępnionej skrzynki pocztowej. Jeśli masz tylko jedno konto administratora globalnego z adresem e-mail, pamiętaj, aby skonfigurować co najmniej dwa konta z obsługą poczty e-mail.
 
-Istnieją dwa adresy "od" używane przez usługę Azure AD: <o365mc@email2.microsoft.com>, które wysyła powiadomienia centrum komunikatów pakietu Office 365. i <azure-noreply@microsoft.com>, które wysyła powiadomienia związane z:
+Istnieją dwa adresy "od" używane przez usługę Azure AD: <o365mc@email2.microsoft.com> , które wysyła powiadomienia centrum komunikatów pakietu Office 365, a <azure-noreply@microsoft.com> następnie wysyłające powiadomienia powiązane z:
 
 - [Przeglądy dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
@@ -166,9 +165,9 @@ Active Directory model warstwy administracyjnej został zaprojektowany tak, aby 
 
 [Model warstwowy](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) składa się z trzech poziomów i zawiera tylko konta administracyjne, a nie konta użytkowników standardowych.
 
-- **Warstwa 0** — bezpośrednia kontrola tożsamości przedsiębiorstwa w środowisku. Warstwa 0 obejmuje konta, grupy i inne zasoby, które mają bezpośrednią lub pośrednią kontrolę administracyjną nad lasem usługi Active Directory, domenami, kontrolerami domeny i wszystkimi zasobami znajdującymi się w tym lesie. Czułość zabezpieczeń wszystkich zasobów warstwy 0 jest równoważna ich wzajemnej, efektywnej kontroli.
-- **Warstwa 1** — kontrola nad serwerami i aplikacjami przedsiębiorstwa. Zasoby warstwy 1 obejmują systemy operacyjne serwerów, usługi w chmurze i aplikacje używane w przedsiębiorstwie. Konta administratorów w warstwie 1 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane w tych zasobach. Typowym przykładem takiej roli są administratorzy serwerów, którzy obsługują te systemy operacyjne i mogą zmieniać działanie wszystkich usług w przedsiębiorstwie.
-- **Warstwa 2** — kontrola nad stacjami roboczymi i urządzeniami użytkowników. Konta administratorów w warstwie 2 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane na urządzeniach i stacjach roboczych użytkowników. Przykłady obejmują administratorów pomocy technicznej, którzy mają wpływ na spójność prawie wszystkich danych użytkowników.
+- **Warstwa 0**   — Bezpośrednią kontrolę nad tożsamościami przedsiębiorstwa w środowisku. Warstwa 0 obejmuje konta, grupy i inne zasoby, które mają bezpośrednią lub pośrednią kontrolę administracyjną nad lasem usługi Active Directory, domenami, kontrolerami domeny i wszystkimi zasobami znajdującymi się w tym lesie. Czułość zabezpieczeń wszystkich zasobów warstwy 0 jest równoważna ich wzajemnej, efektywnej kontroli.
+- **Warstwa 1**   — Kontrola nad serwerami i aplikacjami przedsiębiorstwa. Zasoby warstwy 1 obejmują systemy operacyjne serwerów, usługi w chmurze i aplikacje używane w przedsiębiorstwie. Konta administratorów w warstwie 1 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane w tych zasobach. Typowym przykładem takiej roli są administratorzy serwerów, którzy obsługują te systemy operacyjne i mogą zmieniać działanie wszystkich usług w przedsiębiorstwie.
+- **Warstwa 2**   Kontrola nad stacjami roboczymi i urządzeniami użytkowników. Konta administratorów w warstwie 2 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane na urządzeniach i stacjach roboczych użytkowników. Przykłady obejmują administratorów pomocy technicznej, którzy mają wpływ na spójność prawie wszystkich danych użytkowników.
 
 Zablokuj dostęp do lokalnych składników tożsamości, takich jak Azure AD Connect, AD FS i usługi SQL w taki sam sposób, jak w przypadku kontrolerów domeny.
 

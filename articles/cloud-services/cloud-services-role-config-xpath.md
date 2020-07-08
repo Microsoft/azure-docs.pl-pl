@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386089"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Uwidacznianie ustawień konfiguracji roli jako zmiennej środowiskowej przy użyciu wyrażenia XPath
@@ -24,96 +23,96 @@ Wskazuje, że aplikacja działa w emulatorze.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/Deployment/@emulated" |
-| Code |var x = RoleEnvironment. isemulowane; |
+| XPath |XPath = " /RoleEnvironment/Deployment/@emulated " |
+| Kod |var x = RoleEnvironment. isemulowane; |
 
 ## <a name="deployment-id"></a>Identyfikator wdrożenia
 Pobiera identyfikator wdrożenia dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/Deployment/@id" |
-| Code |var deploymentId = RoleEnvironment. DeploymentId; |
+| XPath |XPath = " /RoleEnvironment/Deployment/@id " |
+| Kod |var deploymentId = RoleEnvironment. DeploymentId; |
 
 ## <a name="role-id"></a>Identyfikator roli
 Pobiera bieżący identyfikator roli dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/@id" |
-| Code |Identyfikator var = RoleEnvironment.CurrentRoleInstance.Id; |
+| XPath |XPath = " /RoleEnvironment/CurrentInstance/@id " |
+| Kod |Identyfikator var = RoleEnvironment.CurrentRoleInstance.Id; |
 
 ## <a name="update-domain"></a>Aktualizowanie domeny
 Pobiera domenę aktualizacji wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/@updateDomain" |
-| Code |var ud = RoleEnvironment. CurrentRoleInstance. UpdateDomain; |
+| XPath |XPath = " /RoleEnvironment/CurrentInstance/@updateDomain " |
+| Kod |var ud = RoleEnvironment. CurrentRoleInstance. UpdateDomain; |
 
 ## <a name="fault-domain"></a>Domena błędów
 Pobiera domenę błędów wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/@faultDomain" |
-| Code |var FD = RoleEnvironment. CurrentRoleInstance. FaultDomain; |
+| XPath |XPath = " /RoleEnvironment/CurrentInstance/@faultDomain " |
+| Kod |var FD = RoleEnvironment. CurrentRoleInstance. FaultDomain; |
 
 ## <a name="role-name"></a>Nazwa roli
 Pobiera nazwę roli wystąpień.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/@roleName" |
-| Code |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
+| XPath |XPath = " /RoleEnvironment/CurrentInstance/@roleName " |
+| Kod |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>Ustawienia konfiguracji
 Pobiera wartość określonego ustawienia konfiguracji.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting [@name=" Setting1 "]/@value" |
-| Code |ustawienie var = RoleEnvironment. GetConfigurationSettingValue ("Setting1"); |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting [ @name =" Setting1 "] /@value " |
+| Kod |ustawienie var = RoleEnvironment. GetConfigurationSettingValue ("Setting1"); |
 
 ## <a name="local-storage-path"></a>Ścieżka do magazynu lokalnego
 Pobiera lokalną ścieżkę magazynu dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name=" LocalStore1 "]/@path" |
-| Code |var localResourcePath = RoleEnvironment. GetLocalResource ("LocalStore1"). Właściwość RootPath |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/LocalResources/LocalResource [ @name =" LocalStore1 "] /@path " |
+| Kod |var localResourcePath = RoleEnvironment. GetLocalResource ("LocalStore1"). Właściwość RootPath |
 
 ## <a name="local-storage-size"></a>Rozmiar magazynu lokalnego
 Pobiera rozmiar lokalnego magazynu dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/LocalResources/LocalResource [@name=" LocalStore1 "]/@sizeInMB" |
-| Code |var localResourceSizeInMB = RoleEnvironment. GetLocalResource ("LocalStore1"). MaximumSizeInMegabytes; |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/LocalResources/LocalResource [ @name =" LocalStore1 "] /@sizeInMB " |
+| Kod |var localResourceSizeInMB = RoleEnvironment. GetLocalResource ("LocalStore1"). MaximumSizeInMegabytes; |
 
 ## <a name="endpoint-protocol"></a>Protokół punktu końcowego
 Pobiera protokół punktu końcowego dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [@name=" Endpoint1 "]/@protocol" |
-| Code |var Prot = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. Protokol |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [ @name =" Endpoint1 "] /@protocol " |
+| Kod |var Prot = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. Protokol |
 
 ## <a name="endpoint-ip"></a>Adres IP punktu końcowego
 Pobiera adres IP określonego punktu końcowego.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [@name=" Endpoint1 "]/@address" |
-| Code |var Address = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. IPEndpoint. Address |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [ @name =" Endpoint1 "] /@address " |
+| Kod |var Address = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. IPEndpoint. Address |
 
 ## <a name="endpoint-port"></a>Port punktu końcowego
 Pobiera Port punktu końcowego dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
-| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [@name=" Endpoint1 "]/@port" |
-| Code |var port = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. IPEndpoint. Port; |
+| XPath |XPath = "/RoleEnvironment/CurrentInstance/Endpoints/Endpoint [ @name =" Endpoint1 "] /@port " |
+| Kod |var port = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. IPEndpoint. Port; |
 
 ## <a name="example"></a>Przykład
 Poniżej przedstawiono przykład roli procesu roboczego, która tworzy zadanie uruchamiania z zmienną środowiskową o nazwie `TestIsEmulated` Set na [ @emulated wartość XPath](#app-running-in-emulator). 

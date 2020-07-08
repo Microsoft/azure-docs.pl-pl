@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974891"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Jak wycofać certyfikaty urządzeń X. 509
@@ -94,7 +93,7 @@ Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i m
 
 1. Kliknij pozycję **rejestracje indywidualne**i kliknij wpis Identyfikator rejestracji na liście. 
 
-2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij pozycję **Zapisz**.
 
     ![Zarządzanie rejestracjami indywidualnymi przy użyciu certyfikatu pomocniczego](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +176,7 @@ Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i m
 
 1. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście. 
 
-2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij pozycję **Zapisz**.
 
     Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi aprowizacji. Aby uzyskać więcej informacji, zobacz [certyfikaty X. 509](concepts-security.md#x509-certificates).
 
