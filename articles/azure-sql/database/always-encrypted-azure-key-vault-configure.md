@@ -12,11 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 2ff3df74c4cf3175fbbec5097a98c51e7f97ac16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84190512"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078021"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
 
@@ -102,6 +103,8 @@ az keyvault create --name $vaultName --resource-group $resourceGroupName --locat
 az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
+
+---
 
 ## <a name="connect-with-ssms"></a>Nawiązywanie połączenia z programem SSMS
 
@@ -589,8 +592,9 @@ Następnie Dodaj *ustawienie szyfrowanie kolumn = włączone* parametr podczas p
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     Teraz można zobaczyć dane w postaci zwykłego tekstu w zaszyfrowanych kolumnach.
-     ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   Teraz można zobaczyć dane w postaci zwykłego tekstu w zaszyfrowanych kolumnach.
+   
+   ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

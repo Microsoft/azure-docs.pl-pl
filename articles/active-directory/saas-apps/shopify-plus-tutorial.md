@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd71789d6c2fb54007f3d6623ba8d14f98383b5a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027651"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078157"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Shopify Plus
 
@@ -102,7 +103,8 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | ---------------| --------------- | --------- |
     | poczta e-mail | | user.mail |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Zmień format **identyfikatora nazwy** na **trwały**. Wybierz opcję **unikatowy identyfikator użytkownika (identyfikator nazwy)** , a następnie wybierz format **identyfikatora nazwy** . Wybierz opcję **persistent** dla tej opcji. Zapisz zmiany.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 

@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791490"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078429"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -218,3 +219,7 @@ Nie, przeniesienie grupy adresów IP do innej grupy zasobów nie jest obecnie ob
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Jaki jest limit czasu bezczynności TCP dla zapory platformy Azure?
 
 Standardowe zachowanie zapory sieciowej polega na zapewnieniu aktywności połączeń TCP i niezwłocznego ich zamknięcia w przypadku braku aktywności. Limit czasu bezczynności protokołu TCP zapory platformy Azure to cztery minuty. Tego ustawienia nie można skonfigurować. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana. Typowym zastosowaniem jest utrzymywanie aktywności protokołu TCP. Ta metoda utrzymuje, że połączenie jest aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz [przykłady dla platformy .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Czy mogę wdrożyć zaporę platformy Azure bez publicznego adresu IP?
+
+Nie. obecnie należy wdrożyć zaporę platformy Azure z publicznym adresem IP.

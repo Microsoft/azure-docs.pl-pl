@@ -16,11 +16,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 82c9f6f0797a4d863e04b45c918d649250157a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4b63735509c0d1c755eced8277d18b2a535457b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078446"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)
 > [!div class="op_single_selector"]
@@ -52,7 +53,9 @@ W tej samej usłudze w chmurze można utworzyć wiele maszyn wirtualnych. Aby zr
 
 **W tym** scenariuszu można nawiązać połączenie przy użyciu **nazwy** maszyny wirtualnej (podanej **także w portalu** ). Jest to nazwa podana dla maszyny wirtualnej podczas jej tworzenia. Jeśli na przykład nazwa maszyny wirtualnej SQL **mysqlvm**, maszyna wirtualna w tej samej usłudze w chmurze może użyć następujących parametrów połączenia do nawiązania połączenia:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Nawiązywanie połączenia z SQL Server za pośrednictwem Internetu
 Jeśli chcesz nawiązać połączenie z aparatem bazy danych SQL Server z Internetu, musisz utworzyć punkt końcowy maszyny wirtualnej dla przychodzącej komunikacji TCP. Ten krok konfiguracji platformy Azure powoduje kierowanie przychodzącego ruchu portów TCP do portu TCP, który jest dostępny dla maszyny wirtualnej.
@@ -61,7 +64,9 @@ Aby nawiązać połączenie za pośrednictwem Internetu, należy użyć nazwy DN
 
 Rozważmy na przykład klasyczną maszynę wirtualną o nazwie **mysqlvm** z nazwą DNS **mysqlvm7777.cloudapp.NET** i punktem końcowym maszyny wirtualnej **57500**. Przy założeniu prawidłowo skonfigurowanej łączności następujące parametry połączenia mogą służyć do uzyskiwania dostępu do maszyny wirtualnej z dowolnego miejsca w Internecie:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```config
+"Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 Chociaż te parametry połączenia umożliwiają łączność klientów przez Internet, nie oznacza to, że każdy może nawiązać połączenie z SQL Server. Klienci zewnętrzni muszą mieć poprawną nazwę użytkownika i hasło. Aby uzyskać dodatkowe zabezpieczenia, nie używaj dobrze znanego portu 1433 dla punktu końcowego publicznej maszyny wirtualnej. A jeśli to możliwe, rozważ dodanie listy ACL w punkcie końcowym, aby ograniczyć ruch tylko do klientów, którym zezwalasz. Aby uzyskać instrukcje dotyczące korzystania z list ACL z punktami końcowymi, zobacz [Zarządzanie listą kontroli dostępu w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -77,7 +82,9 @@ Sieci wirtualne umożliwiają również dołączanie maszyn wirtualnych platform
 
 Jeśli planujesz skonfigurowanie środowiska domeny i uwierzytelniania systemu Windows, nie musisz konfigurować publicznego punktu końcowego ani uwierzytelniania i logowania SQL. W tym scenariuszu można nawiązać połączenie z wystąpieniem SQL Server, określając nazwę maszyny wirtualnej SQL Server w parametrach połączenia. W poniższym przykładzie przyjęto założenie, że uwierzytelnianie systemu Windows zostało skonfigurowane i że użytkownik uzyskał dostęp do wystąpienia SQL Server.
 
-    "Server=mysqlvm;Integrated Security=true"
+```config
+"Server=mysqlvm;Integrated Security=true"
+```
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Kroki konfigurowania SQL Server łączności na maszynie wirtualnej platformy Azure
 Poniższe kroki pokazują, jak nawiązać połączenie z wystąpieniem SQL Server za pośrednictwem Internetu przy użyciu SQL Server Management Studio (SSMS). Jednak te same kroki mają zastosowanie do udostępnienia SQL Server maszynie wirtualnej dla aplikacji, działającej zarówno lokalnie, jak i na platformie Azure.
