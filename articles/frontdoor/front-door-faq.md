@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
 ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84809477"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
@@ -123,7 +123,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 

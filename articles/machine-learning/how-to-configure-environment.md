@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84816720"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning

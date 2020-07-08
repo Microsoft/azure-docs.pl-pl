@@ -11,10 +11,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: f69301bdbc0af9334858940fbfd3d7d0a0a63153
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807645"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 6f1beea12b33dcc3c0111e26d79daf096c1eedcb
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808428"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB przy użyciu platformy .NET

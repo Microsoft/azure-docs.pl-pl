@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73903702"
 ---
 Jeśli jednak chcesz udostępniać obrazy poza dzierżawcą platformy Azure, należy utworzyć rejestrację aplikacji w celu ułatwienia udostępniania.  Korzystanie z rejestracji aplikacji może umożliwić bardziej złożone scenariusze udostępniania, takie jak: 
@@ -28,7 +28,7 @@ Utwórz rejestrację aplikacji, która będzie używana przez obie dzierżawy do
 1. Wybierz pozycję **Nowa rejestracja** w menu w górnej części strony.
 1. W polu **Nazwa**wpisz *myGalleryApp*.
 1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft**.
-1. W polu **Identyfikator URI przekierowania**wpisz *https://www.microsoft.com* , a następnie wybierz pozycję **zarejestruj**. Po utworzeniu rejestracji aplikacji zostanie otwarta strona przegląd.
+1. W polu **Identyfikator URI przekierowania**wpisz, *https://www.microsoft.com* a następnie wybierz pozycję **zarejestruj**. Po utworzeniu rejestracji aplikacji zostanie otwarta strona przegląd.
 1. Na stronie Przegląd Skopiuj **Identyfikator aplikacji (klienta)** i Zapisz go do użycia później.   
 1. Wybierz pozycję **certyfikaty & wpisy tajne**, a następnie wybierz pozycję **nowy klucz tajny klienta**.
 1. W polu **Opis**wpisz wpis *tajny galerii obrazów udostępnionych dla wielu dzierżawców*.
@@ -46,7 +46,7 @@ Nadaj uprawnienia do rejestracji aplikacji, aby korzystać z galerii obrazów ud
 
 ## <a name="give-tenant-2-access"></a>Udzielanie dostępu do dzierżawy 2
 
-Przyznaj dzierżawcom 2 dostęp do aplikacji, żądając logowania przy użyciu przeglądarki. Zastąp * \<identyfikator Tenant2>* identyfikatorem dzierżawy dzierżawy, do której chcesz udostępnić galerię obrazów. Zastąp * \<identyfikator aplikacji (klienta)>* identyfikatorem aplikacji utworzonej przez Ciebie rejestracji aplikacji. Po dokonaniu zamiany, wklej adres URL do przeglądarki i postępuj zgodnie z monitami logowania, aby zalogować się do dzierżawy 2.
+Przyznaj dzierżawcom 2 dostęp do aplikacji, żądając logowania przy użyciu przeglądarki. Zamień na *\<Tenant2 ID>* Identyfikator dzierżawy dla dzierżawy, z którą chcesz udostępnić galerię obrazów. Zamień na *\<Application (client) ID>* Identyfikator aplikacji utworzonej przez Ciebie rejestracji aplikacji. Po dokonaniu zamiany, wklej adres URL do przeglądarki i postępuj zgodnie z monitami logowania, aby zalogować się do dzierżawy 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

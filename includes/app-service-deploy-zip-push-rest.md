@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75769674"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Wdróż plik ZIP przy użyciu interfejsów API REST 
@@ -19,13 +19,13 @@ W przypadku uwierzytelniania podstawowego HTTP wymagane są poświadczenia wdra�
 
 ### <a name="with-curl"></a>Z zwinięciem
 
-W poniższym przykładzie za pomocą narzędzia zwinięcie można wdrożyć plik. zip. Zastąp symbole `<deployment_user>`zastępcze `<zip_file_path>`, i `<app_name>`. Po wyświetleniu monitu przez zwinięcie wpisz hasło.
+W poniższym przykładzie za pomocą narzędzia zwinięcie można wdrożyć plik. zip. Zastąp symbole zastępcze `<deployment_user>` , `<zip_file_path>` i `<app_name>` . Po wyświetleniu monitu przez zwinięcie wpisz hasło.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-To żądanie wyzwala wdrożenie wypychane z przekazanego pliku zip. Bieżące i wcześniejsze wdrożenia można przejrzeć przy użyciu `https://<app_name>.scm.azurewebsites.net/api/deployments` punktu końcowego, jak pokazano w poniższym przykładzie. Ponownie Zastąp `<app_name>` ciąg nazwą swojej aplikacji i `<deployment_user>` nazwę użytkownika poświadczeń wdrożenia.
+To żądanie wyzwala wdrożenie wypychane z przekazanego pliku zip. Bieżące i wcześniejsze wdrożenia można przejrzeć przy użyciu `https://<app_name>.scm.azurewebsites.net/api/deployments` punktu końcowego, jak pokazano w poniższym przykładzie. Ponownie Zastąp ciąg `<app_name>` nazwą swojej aplikacji i nazwę `<deployment_user>` użytkownika poświadczeń wdrożenia.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Z programem PowerShell
 
-Poniższy przykład używa [publikowania-AzWebapp](/powershell/module/az.websites/publish-azwebapp) Przekaż plik. zip. Zastąp symbole `<group-name>`zastępcze `<app-name>`, i `<zip-file-path>`.
+Poniższy przykład używa [publikowania-AzWebapp](/powershell/module/az.websites/publish-azwebapp) Przekaż plik. zip. Zastąp symbole zastępcze `<group-name>` , `<app-name>` i `<zip-file-path>` .
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 To żądanie wyzwala wdrożenie wypychane z przekazanego pliku zip. 
 
-Aby przejrzeć bieżące i wcześniejsze wdrożenia, uruchom następujące polecenia. Ponownie Zastąp symbole `<deployment-user>`zastępcze `<deployment-password>`, `<app-name>` i.
+Aby przejrzeć bieżące i wcześniejsze wdrożenia, uruchom następujące polecenia. Ponownie Zastąp `<deployment-user>` `<deployment-password>` `<app-name>` symbole zastępcze, i.
 
 ```bash
 $username = "<deployment-user>"

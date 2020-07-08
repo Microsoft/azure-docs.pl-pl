@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807899"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Ponowne zapisywanie nagłówków żądań i odpowiedzi HTTP przy użyciu usługi Azure Application Gateway — Azure Portal
@@ -67,7 +67,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Wprowadź nazwę zestawu do ponownego zapisu w polu **Nazwa** .
    - Wybierz co najmniej jedną regułę podaną na liście **skojarzone reguły routingu** . Można wybrać tylko reguły, które nie zostały skojarzone z innymi zestawami ponownego zapisywania. Reguły, które zostały już skojarzone z innymi zestawami ponownego zapisywania, są wygaszone.
-   - Wybierz przycisk **Dalej**.
+   - Wybierz pozycję **Dalej**.
    
      ![Dodaj nazwę i skojarzenie](media/rewrite-http-headers-portal/name-and-association.png)
 

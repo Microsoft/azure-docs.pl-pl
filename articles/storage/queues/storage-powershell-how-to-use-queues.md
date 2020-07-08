@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808987"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Queue Storage przy użyciu programu Azure PowerShell
@@ -170,7 +170,7 @@ Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj p
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć wszystkie zasoby utworzone w tym ćwiczeniu, Usuń grupę zasobów. Spowoduje to również usunięcie wszystkich zasobów znajdujących się w grupie. W tym przypadku usuwa utworzone konto magazynu i grupę zasobów.
 

@@ -4,10 +4,10 @@ description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fa
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808912"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje

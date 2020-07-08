@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 74f5b22ccc822a188059b29d9c661a15cf8412bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77594020"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Pobierz i zainstaluj dane binarne klienta Istio istioctl
@@ -21,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-Dane `istioctl` binarne klienta są uruchamiane na komputerze klienckim i umożliwiają współdziałanie z siatką usługi Istio. Użyj następujących poleceń, aby zainstalować dane binarne `istioctl` klienta Istio w powłoce opartym na bash na MacOS. Te polecenia kopiują `istioctl` dane binarne klienta do lokalizacji standardowego programu użytkownika w programie `PATH`.
+Dane `istioctl` binarne klienta są uruchamiane na komputerze klienckim i umożliwiają współdziałanie z siatką usługi Istio. Użyj następujących poleceń, aby zainstalować dane `istioctl` binarne klienta Istio w powłoce opartym na bash na MacOS. Te polecenia kopiują dane `istioctl` binarne klienta do lokalizacji standardowego programu użytkownika w programie `PATH` .
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -29,7 +29,7 @@ sudo cp ./bin/istioctl /usr/local/bin/istioctl
 sudo chmod +x /usr/local/bin/istioctl
 ```
 
-Jeśli chcesz, aby dane binarne klienta Istio `istioctl` były uzupełniane, skonfiguruj je w następujący sposób:
+Jeśli chcesz, aby dane binarne klienta Istio były uzupełniane `istioctl` , skonfiguruj je w następujący sposób:
 
 ```bash
 # Generate the bash completion file and source it in your current shell

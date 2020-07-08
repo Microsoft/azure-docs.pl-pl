@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 152f3c3254ab01c8aa61acd12c39bd98c8f55038
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808053"
 ---
 # <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurowanie App Service z Application Gateway przy użyciu programu PowerShell

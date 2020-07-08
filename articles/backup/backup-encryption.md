@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat sposobu, w jaki funkcje szyfrowania w
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807735"
 ---
 # <a name="encryption-in-azure-backup"></a>Szyfrowanie w Azure Backup

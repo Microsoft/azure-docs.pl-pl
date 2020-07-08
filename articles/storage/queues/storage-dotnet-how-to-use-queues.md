@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84808837"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
@@ -50,7 +50,7 @@ W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. 
 1. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**
 2. Wybierz **Platform**  >  **okna** platformy
 3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
-4. Wybierz pozycję **dalej**
+4. Wybierz pozycję **Dalej**
 5. W polu **Nazwa projektu** wprowadź nazwę aplikacji
 6. Wybierz pozycję **Utwórz**
 

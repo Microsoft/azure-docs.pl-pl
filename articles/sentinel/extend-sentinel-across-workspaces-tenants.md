@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
 ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84816452"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80986696"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Klienci z systemem Windows
@@ -25,12 +25,12 @@ ms.locfileid: "80986696"
    * Instrukcje [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
    * Instrukcje dotyczące [wirtualnej sieci WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Wyodrębnij klucz prywatny i odcisk palca Base64 z pliku *PFX*. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na maszynie jest jednym ze sposobów. Plik *ProfileInfo. txt* zawiera klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
+5. Wyodrębnij klucz prywatny i odcisk palca Base64 z pliku *PFX*. Istnieje wiele sposobów, aby to zrobić. Korzystanie z OpenSSL na maszynie jest jednym ze sposobów. Plik *profileinfo.txt* zawiera klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Otwórz *ProfileInfo. txt* w Notatniku. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst (w tym i między) "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
+6. Otwórz *profileinfo.txt* w Notatniku. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst (w tym i między) "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
 7. Przejdź do pliku *vpnconfig. ovpn* , który został otwarty w Notatniku, z kroku 3. Znajdź sekcję pokazaną poniżej i Zastąp wszystko "CERT" i "/CERT".
 
    ```
@@ -40,7 +40,7 @@ ms.locfileid: "80986696"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Otwórz *ProfileInfo. txt* w Notatniku. Aby uzyskać klucz prywatny, zaznacz tekst (w tym i między) "-----Rozpocznij-----klucza prywatnego" i "-----Zakończ klucz prywatny-----" i skopiuj go.
+8. Otwórz *profileinfo.txt* w Notatniku. Aby uzyskać klucz prywatny, zaznacz tekst (w tym i między) "-----Rozpocznij-----klucza prywatnego" i "-----Zakończ klucz prywatny-----" i skopiuj go.
 9. Wróć do pliku vpnconfig. ovpn w Notatniku i znajdź tę sekcję. Wklej klucz prywatny, zastępując wszystkie elementy od i "Key" i "/Key".
 
    ```
@@ -132,9 +132,9 @@ ms.locfileid: "80986696"
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   Plik *ProfileInfo. txt* będzie zawierać klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
+   Plik *profileinfo.txt* będzie zawierać klucz prywatny i odcisk palca urzędu certyfikacji oraz certyfikat klienta. Upewnij się, że używasz odcisku palca certyfikatu klienta.
 
-6. Otwórz *ProfileInfo. txt* w edytorze tekstu. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst obejmujący między innymi "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
+6. Otwórz *profileinfo.txt* w edytorze tekstu. Aby uzyskać odcisk palca certyfikatu klienta (elementu podrzędnego), zaznacz tekst obejmujący między innymi "-----BEGIN CERTIFICATE-----" i "----------certyfikatu" dla certyfikatu podrzędnego i skopiuj go. Certyfikat podrzędny można zidentyfikować, przeglądając temat subject =/line.
 
 7. Otwórz plik *vpnconfig. ovpn* i Znajdź sekcję pokazaną poniżej. Zastąp wszystko "certyfikatem" i "/CERT".
 
@@ -145,7 +145,7 @@ ms.locfileid: "80986696"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Otwórz ProfileInfo. txt w edytorze tekstu. Aby uzyskać klucz prywatny, zaznacz tekst, w tym między innymi "-----Rozpocznij klucz prywatny-----" i "-----Zakończ klucz prywatny-----" i skopiuj go.
+8. Otwórz profileinfo.txt w edytorze tekstu. Aby uzyskać klucz prywatny, zaznacz tekst, w tym między innymi "-----Rozpocznij klucz prywatny-----" i "-----Zakończ klucz prywatny-----" i skopiuj go.
 
 9. Otwórz plik vpnconfig. ovpn w edytorze tekstów i znajdź tę sekcję. Wklej klucz prywatny, zastępując wszystkie elementy od i "Key" i "/Key".
 

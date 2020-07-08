@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807762"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: Słownik terminologii w chmurze na platformie Azure
@@ -153,7 +153,7 @@ Zobacz [przegląd Virtual Network](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Aplikacja internetowa
 Inna nazwa [aplikacji App Service](#app-service-app).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Rozpoczynanie pracy z platformą Azure](https://azure.microsoft.com/get-started/)
 * [Centrum zasobów w chmurze](https://azure.microsoft.com/resources/)  

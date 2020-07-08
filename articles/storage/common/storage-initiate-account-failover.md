@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807590"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicjowanie trybu failover konta magazynu
@@ -55,7 +55,7 @@ Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover":::
 
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Funkcja trybu failover konta jest ogólnie dostępna, ale nadal bazuje na module w wersji zapoznawczej dla programu PowerShell. Aby można było zainicjować tryb failover konta przy użyciu programu PowerShell, należy najpierw zainstalować moduł AZ. Storage [1.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/1.1.1-preview) . Wykonaj następujące kroki, aby zainstalować moduł:
 

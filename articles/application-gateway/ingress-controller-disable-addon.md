@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: fe4da0435731c536a723cb2cb43428166456360b
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84807956"
 ---
 # <a name="disable-and-re-enable-agic-add-on-for-your-aks-cluster"></a>Wyłączenie i ponowne włączenie dodatku AGIC dla klastra AKS
