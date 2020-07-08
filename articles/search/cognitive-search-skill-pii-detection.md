@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080754"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Umiejętność wykrywania przez dane OSOBowe
@@ -136,7 +135,7 @@ Jeśli tekst jest większy niż 50 000 znaków, przeanalizowane zostaną tylko p
 
 Jeśli umiejętność zwróci ostrzeżenie, dane wyjściowe `maskedText` mogą być puste.  Oznacza to, że Jeśli spodziewasz się, że dane wyjściowe mają być dostępne do późniejszej umiejętności, nie będą działały zgodnie z oczekiwaniami. Należy pamiętać o tym podczas pisania definicji zestawu umiejętności.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

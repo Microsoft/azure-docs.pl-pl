@@ -10,10 +10,9 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 548cd488bc811ad16cd84950ce3819f2e1f3ddbb
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080717"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Uaktualnianie do Azure Search .NET SDK w wersji 3

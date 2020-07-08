@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080039"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Wbudowane umiejętności poznawcze do przetwarzania tekstu i obrazów podczas indeksowania (Azure Wyszukiwanie poznawcze)
@@ -53,7 +52,7 @@ Kilka umiejętności jest elastycznych do użycia lub produkcji. Ogólnie rzecz 
 
 Aby uzyskać wskazówki dotyczące tworzenia [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md), zobacz [jak zdefiniować niestandardowy interfejs](cognitive-search-custom-skill-interface.md) i [przykład: Tworzenie NIESTANDARDOWEJ umiejętności dla wzbogacania AI](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Niestandardowa definicja interfejsu umiejętności](cognitive-search-custom-skill-interface.md)

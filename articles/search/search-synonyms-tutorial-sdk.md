@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85079445"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #

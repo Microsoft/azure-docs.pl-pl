@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b35af58141dc46e0cc36efe009023c1bf52850e7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080063"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Umiejętność tłumaczenia tekstu
@@ -148,7 +147,7 @@ Jeśli podano nieobsługiwany kod języka dla języka "from" lub "do", zostanie 
 Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie.
 Jeśli tekst jest większy niż 50 000 znaków, zostaną przetłumaczone tylko pierwsze 50 000 znaków i zostanie wygenerowane ostrzeżenie.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

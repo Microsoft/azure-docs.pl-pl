@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85080661"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
