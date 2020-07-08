@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
 ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75832458"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie usługi Azure Cloud Shell
@@ -55,7 +54,7 @@ Cloud Shell jest zarządzany przez firmę Microsoft, dzięki czemu zawiera popul
 Zapoznaj się z pełną [listą narzędzi zainstalowanych w programie Cloud Shell.](features.md#tools)
 
 ### <a name="integrated-cloud-shell-editor"></a>Zintegrowany edytor Cloud Shell
-Cloud Shell oferuje zintegrowany edytor tekstu graficznego w oparciu o Edytor Monako "open source". Po prostu Twórz i edytuj pliki konfiguracji, `code .` uruchamiając je w celu bezproblemowego wdrożenia za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Cloud Shell oferuje zintegrowany edytor tekstu graficznego w oparciu o Edytor Monako "open source". Po prostu Twórz i edytuj pliki konfiguracji, uruchamiając je `code .` w celu bezproblemowego wdrożenia za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
 [Dowiedz się więcej o edytorze Cloud Shell](using-cloud-shell-editor.md).
 
@@ -73,7 +72,7 @@ Cloud Shell to elastyczne narzędzie, które może być używane z:
 * [Visual Studio Code rozszerzenie konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Łączenie magazynu plików Microsoft Azure
-Maszyny Cloud Shell są tymczasowe, ale pliki są utrwalane na dwa sposoby: za pomocą obrazu dysku, a przez zainstalowany udział plików o nazwie `clouddrive`.  Podczas pierwszego uruchomienia usługa Cloud Shell monituje o utworzenie grupy zasobów, konta magazynu i udziału usługi Azure Files w Twoim imieniu. Jest to krok jednorazowy, który zostanie automatycznie dołączony do wszystkich sesji. Pojedynczy udział plików może być mapowany i będzie używany przez programy bash i PowerShell w Cloud Shell.
+Maszyny Cloud Shell są tymczasowe, ale pliki są utrwalane na dwa sposoby: za pomocą obrazu dysku, a przez zainstalowany udział plików o nazwie `clouddrive` .  Podczas pierwszego uruchomienia usługa Cloud Shell monituje o utworzenie grupy zasobów, konta magazynu i udziału usługi Azure Files w Twoim imieniu. Jest to krok jednorazowy, który zostanie automatycznie dołączony do wszystkich sesji. Pojedynczy udział plików może być mapowany i będzie używany przez programy bash i PowerShell w Cloud Shell.
 
 Przeczytaj więcej, aby dowiedzieć się, jak zainstalować [nowe lub istniejące konto magazynu](persisting-shell-storage.md) lub poznać [mechanizmy trwałości używane w Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 

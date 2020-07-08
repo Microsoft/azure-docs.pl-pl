@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645637"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Dostęp, zapisywanie i usuwanie stanu Reliable Actors
@@ -26,9 +25,9 @@ Dostęp do stanu jest uzyskiwany za pomocą menedżera stanu według klucza. Met
 
 * Metoda aktor zgłasza nieobsługiwany wyjątek po pobraniu obiektu z menedżera stanu.
 * Aktor jest ponownie uaktywniany, Po zdezaktywowaniu lub po wystąpieniu błędu.
-* Stan strony dostawcy stanu na dysk. To zachowanie zależy od implementacji dostawcy stanu. Domyślnym dostawcą stanu dla tego `Persisted` ustawienia jest to zachowanie.
+* Stan strony dostawcy stanu na dysk. To zachowanie zależy od implementacji dostawcy stanu. Domyślnym dostawcą stanu dla tego `Persisted` Ustawienia jest to zachowanie.
 
-Stan można pobrać przy użyciu standardowej operacji *pobierania* , która zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), Jeśli wpis nie istnieje dla klucza:
+Stan można pobrać przy użyciu standardowej operacji *pobierania* , która zgłasza `KeyNotFoundException` (C#) lub `NoSuchElementException` (Java), Jeśli wpis nie istnieje dla klucza:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -139,7 +138,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Stan można dodać za pomocą metody *Add* . Ta metoda zgłasza `InvalidOperationException`(C#) lub `IllegalStateException`(Java), gdy próbuje dodać klucz, który już istnieje.
+Stan można dodać za pomocą metody *Add* . Ta metoda zgłasza `InvalidOperationException` (C#) lub `IllegalStateException` (Java), gdy próbuje dodać klucz, który już istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -239,7 +238,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Usuń stan
-Stan można trwale usunąć z menedżera stanu aktora, wywołując metodę *Remove* . Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), gdy próbuje usunąć klucz, który nie istnieje.
+Stan można trwale usunąć z menedżera stanu aktora, wywołując metodę *Remove* . Ta metoda zgłasza `KeyNotFoundException` (C#) lub `NoSuchElementException` (Java), gdy próbuje usunąć klucz, który nie istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
 ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645739"
 ---
 # <a name="eventstore-overview"></a>EventStore — Omówienie
@@ -48,13 +47,13 @@ Usługa EventStore może być kwerendą dla zdarzeń, które są dostępne dla k
 
 Aby dowiedzieć się więcej na temat interfejsu API, zobacz [Dokumentacja interfejsu API EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
-Usługa EventStore ma także możliwość skorelowania zdarzeń w klastrze. Przeglądając zdarzenia, które zostały zapisaną w tym samym czasie od różnych jednostek, które mogły mieć wpływ na siebie, usługa EventStore może połączyć te zdarzenia, aby pomóc w identyfikowaniu przyczyn działań w klastrze. Na przykład jeśli jedna z aplikacji stanie się zła w złej kondycji bez żadnych niewywołanych zmian, EventStore będzie również przeglądać inne zdarzenia uwidocznione przez platformę i mogły je skorelować ze zdarzeniem `Error` lub. `Warning` Dzięki temu szybciej wykrywaj awarie i główne przyczyny analizy.
+Usługa EventStore ma także możliwość skorelowania zdarzeń w klastrze. Przeglądając zdarzenia, które zostały zapisaną w tym samym czasie od różnych jednostek, które mogły mieć wpływ na siebie, usługa EventStore może połączyć te zdarzenia, aby pomóc w identyfikowaniu przyczyn działań w klastrze. Na przykład jeśli jedna z aplikacji stanie się zła w złej kondycji bez żadnych niewywołanych zmian, EventStore będzie również przeglądać inne zdarzenia uwidocznione przez platformę i mogły je skorelować ze `Error` `Warning` zdarzeniem lub. Dzięki temu szybciej wykrywaj awarie i główne przyczyny analizy.
 
 ## <a name="enable-eventstore-on-your-cluster"></a>Włączanie EventStore w klastrze
 
 ### <a name="local-cluster"></a>Klaster lokalny
 
-W pliku [fabricSettings. JSON w klastrze](service-fabric-cluster-fabric-settings.md)Dodaj EventStoreService jako funkcję dodatku i wykonaj uaktualnienie klastra.
+W [fabricSettings.jsw klastrze](service-fabric-cluster-fabric-settings.md)Dodaj EventStoreService jako funkcję dodatku i wykonaj uaktualnienie klastra.
 
 ```json
     "addOnFeatures": [
@@ -76,7 +75,7 @@ Jeśli klaster platformy Azure zostanie uaktualniony do wersji 6,5 lub nowszej, 
 
 ### <a name="azure-cluster-version-64"></a>Klaster platformy Azure w wersji 6,4
 
-Jeśli używasz wersji 6,4, możesz edytować szablon Azure Resource Manager, aby włączyć usługę EventStore. W tym celu należy wykonać [uaktualnienie konfiguracji klastra](service-fabric-cluster-config-upgrade-azure.md) i dodać następujący kod, można użyć PlacementConstraints, aby umieścić repliki usługi EventStore na określonym NodeType, np. NodeType dedykowanym dla usług systemowych. `upgradeDescription` Sekcja konfiguruje uaktualnienie konfiguracji, aby wyzwolić ponowne uruchomienie w węzłach. Sekcję w innej aktualizacji można usunąć.
+Jeśli używasz wersji 6,4, możesz edytować szablon Azure Resource Manager, aby włączyć usługę EventStore. W tym celu należy wykonać [uaktualnienie konfiguracji klastra](service-fabric-cluster-config-upgrade-azure.md) i dodać następujący kod, można użyć PlacementConstraints, aby umieścić repliki usługi EventStore na określonym NodeType, np. NodeType dedykowanym dla usług systemowych. `upgradeDescription`Sekcja konfiguruje uaktualnienie konfiguracji, aby wyzwolić ponowne uruchomienie w węzłach. Sekcję w innej aktualizacji można usunąć.
 
 ```json
     "fabricSettings": [

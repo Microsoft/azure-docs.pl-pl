@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645688"
 ---
 # <a name="service-fabric-environment-variables"></a>Zmienne środowiskowe Service Fabric
@@ -19,13 +18,13 @@ Service Fabric ma wbudowane zmienne środowiskowe ustawione dla każdego wystąp
 | Zmienna środowiskowa                         | Opis                                                            | Przykład                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nazwa identyfikatora URI sieci szkieletowej aplikacji                                 | Sieć szkieletowa:/moja aplikacja                                                |
-| Fabric_CodePackageName                       | Nazwa pakietu kodu, do którego należy proces              | Code                                                                 |
-| Fabric_Endpoint\_IPOrFQDN\_*serviceendpointname*     | Adres IP lub nazwa FQDN punktu końcowego                                 | 10.0.0.1                                                     |
-| Sieć\_szkieletowa punktu\_końcowego punktu*końcowego*              | Numer portu punktu końcowego                                  | 8234                                                                 |
-| Fabric_Folder_App_Log                        | Folder dziennika                                                             | C:\\\\\\\\_App\\\\danych _Node_0\\dziennika\\MyApplicationType_App12\\\\      |
-| Fabric_Folder_App_Temp                       | Folder tymczasowy                                                            | C:\\\\\\\\_App\\\\danych _Node_0\\MyApplicationType_App12\\temp\\\\     |
-| Fabric_Folder_App_Work                       | Folder roboczy                                                            | C:\\\\\\\\_App\\\\danych _Node_0\\MyApplicationType_App12\\pracy\\\\     |
-| Fabric_Folder_Application                    | Folder macierzysty aplikacji                                           | C:\\\\\\\\_App\\danych _Node_0\\MyApplicationType_App12\\\\             |
+| Fabric_CodePackageName                       | Nazwa pakietu kodu, do którego należy proces              | Kod                                                                 |
+| Fabric_Endpoint \_ IPOrFQDN \_ *serviceendpointname*     | Adres IP lub nazwa FQDN punktu końcowego                                 | 10.0.0.1                                                     |
+| Sieć szkieletowa punktu końcowego punktu \_ \_ *końcowego*              | Numer portu punktu końcowego                                  | 8234                                                                 |
+| Fabric_Folder_App_Log                        | Folder dziennika                                                             | C: \\ \\ \\ \\ _App danych \\ \\ _Node_0 \\ \\ \\ \\ dziennika MyApplicationType_App12      |
+| Fabric_Folder_App_Temp                       | Folder tymczasowy                                                            | C: \\ \\ \\ \\ _App danych \\ \\ _Node_0 \\ \\ MyApplicationType_App12 \\ \\ temp     |
+| Fabric_Folder_App_Work                       | Folder roboczy                                                            | C: \\ \\ \\ \\ _App danych \\ \\ _Node_0 \\ \\ MyApplicationType_App12 \\ \\ pracy     |
+| Fabric_Folder_Application                    | Folder macierzysty aplikacji                                           | C: \\ \\ \\ \\ _App danych \\ \\ _Node_0 \\ \\ MyApplicationType_App12             |
 | Fabric_IsContainerHost                       | Wartość logiczna określająca, czy proces jest kontenerem                   | fałsz                                                                |
 | Fabric_NodeId                                | IDENTYFIKATOR węzła, w którym jest uruchomiony proces                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | Adres IP lub nazwa FQDN węzła, jak określono w pliku manifestu klastra. | localhost lub 10.0.0.1                                                |

@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75864285"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Zadania dla zespołu liderzy zespołu ds. procesów naukowych
@@ -77,7 +76,7 @@ Nazwy określone dla repozytoriów i katalogów w tym samouczku założono, że 
 - Niewielka grupa nauki o danych, która nie ma wielu zespołów do nauki o danych. 
 - Większa grupa nauki o danych z wieloma zespołami nauki danych, które jednak chcą zoptymalizować współpracę między zespołami z działaniami, takimi jak planowanie przebiegu na poziomie grupy. 
 
-Jeśli zespoły zdecydują się na posiadanie repozytoriów specyficznych dla zespołu w ramach pojedynczego projektu grupy, liderzy zespołu powinni utworzyć repozytoria z nazwami, takimi jak * \<TeamName>Template* i * \<TeamName>Utilities*. Na przykład: *TeamATemplate* i *TeamAUtilities*. 
+Jeśli zespoły zdecydują się na posiadanie repozytoriów specyficznych dla zespołu w ramach pojedynczego projektu grupy, liderzy zespołu powinni utworzyć repozytoria z nazwami, takimi jak * \<TeamName> szablon* i * \<TeamName> Narzędzia*. Na przykład: *TeamATemplate* i *TeamAUtilities*. 
 
 W każdym przypadku liderzy zespołu muszą pozwolić, aby członkowie zespołu wiedzieli, które szablony i narzędzia są repozytoriami do konfigurowania i klonowania. Potencjalni klienci projektu powinni postępować zgodnie z [zadaniami lidera projektu dla zespołu ds. analizy danych](project-lead-tasks.md) w celu tworzenia repozytoriów projektów, niezależnie od tego, czy są w różnych projektach czy pojedynczym projekcie. 
 
@@ -85,7 +84,7 @@ W każdym przypadku liderzy zespołu muszą pozwolić, aby członkowie zespołu 
 
 Aby utworzyć oddzielny projekt dla zespołu:
 
-1. W przeglądarce internetowej przejdź do strony głównej organizacji usługi Azure DevOps w grupie na adres URL *https\//\<: Nazwa serwera>/\<nazwa organizacji>*, a następnie wybierz pozycję **Nowy projekt**. 
+1. W przeglądarce internetowej przejdź do strony głównej organizacji usługi Azure DevOps w grupie pod adresem URL *https: \/ / \<server name> / \<organization name> *, a następnie wybierz pozycję **Nowy projekt**. 
    
    ![Wybierz nowy projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +94,7 @@ Aby utworzyć oddzielny projekt dla zespołu:
    
    ![Tworzenie projektu](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Zostanie otwarta strona **Podsumowanie** projektu zespołowego z adresem URL *strony https\//\<: Nazwa serwera>\</nazwa organizacji>\</Nazwa zespołu>*.
+Zostanie otwarta strona **Podsumowanie** projektu zespołowego z adresem URL strony *https \/ / \<server name> / \<organization name> / \<team name> :*.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Zmień nazwę repozytorium domyślnego Webteam na TeamUtilities
 
@@ -140,7 +139,7 @@ Aby wypełnić repozytoria zespołu zawartością grup wspólnych repozytoriów,
    
    ![Wybierz pozycję Importuj](./media/team-lead-tasks/import-repo.png)
    
-1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium wspólnych szablonów grupy w obszarze **Klonowanie adresu URL**. Adres URL to *https:\//\<nazwa serwera>/\<nazwa organizacji>/_git/\<Nazwa repozytorium>*. Na przykład: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium wspólnych szablonów grupy w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Na przykład: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Wybierz pozycję **Import**. Zawartość repozytorium szablonów grup jest zaimportowana do repozytorium szablonów zespołu. 
    
@@ -199,7 +198,7 @@ Aby sklonować repozytoria:
    
 1. Przejdź do utworzonego katalogu.
    
-1. W narzędziu git bash Uruchom polecenie `git clone <clone URL>`, gdzie \<adres URL klonowania> to adres URL skopiowany z okna dialogowego **klonowania** .
+1. W narzędziu git bash Uruchom polecenie `git clone <clone URL>` , gdzie \<clone URL> jest adresem URL skopiowanym z okna dialogowego **klonowania** .
    
    Na przykład użyj jednego z poniższych poleceń, aby sklonować repozytorium **TeamUtilities** do katalogu *Webteam* na komputerze lokalnym. 
    

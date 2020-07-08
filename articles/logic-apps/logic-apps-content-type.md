@@ -7,17 +7,16 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666877"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Obsługa typów zawartości w Azure Logic Apps
 
 Różne typy zawartości mogą przepływać za pomocą aplikacji logiki, na przykład JSON, XML, plików prostych i danych binarnych. Chociaż Logic Apps obsługuje wszystkie typy zawartości, niektóre mają natywną obsługę i nie wymagają rzutowania ani konwersji na aplikacje logiki. Inne typy mogą wymagać rzutowania lub konwersji w razie potrzeby. W tym artykule opisano, jak Logic Apps obsługuje typy zawartości i jak można prawidłowo rzutować lub konwertować te typy w razie potrzeby.
 
-Aby określić odpowiedni sposób obsługi typów zawartości, Logic Apps opiera się `Content-Type` na wartości nagłówka w wywołaniach http, na przykład:
+Aby określić odpowiedni sposób obsługi typów zawartości, Logic Apps opiera się na `Content-Type` wartości nagłówka w wywołaniach http, na przykład:
 
 * [Application/JSON](#application-json) (typ natywny)
 * [Text/zwykły](#text-plain) (typ natywny)
@@ -99,7 +98,7 @@ Logic Apps oferuje możliwość generowania tokenów przyjaznych dla użytkownik
      }
      ```
 
-  3. W żądaniu upewnij się, że dołączysz `Content-Type` nagłówek i ustawisz wartość nagłówka na `application/json`.
+  3. W żądaniu upewnij się, że dołączysz `Content-Type` Nagłówek i ustawisz wartość nagłówka na `application/json` .
 
 * **Analiza akcji JSON**
 
@@ -113,14 +112,14 @@ Logic Apps oferuje możliwość generowania tokenów przyjaznych dla użytkownik
 
 ## <a name="textplain"></a>tekst/zwykły
 
-Gdy aplikacja logiki otrzymuje komunikaty HTTP z `Content-Type` nagłówkiem ustawionym na `text/plain`, aplikacja logiki przechowuje te komunikaty w postaci nieprzetworzonej. Jeśli te komunikaty są uwzględniane w kolejnych akcjach bez rzutowania, żądania są przekazywane `Content-Type` z nagłówkiem `text/plain`ustawionym na. 
+Gdy aplikacja logiki otrzymuje komunikaty HTTP z `Content-Type` nagłówkiem ustawionym na `text/plain` , aplikacja logiki przechowuje te komunikaty w postaci nieprzetworzonej. Jeśli te komunikaty są uwzględniane w kolejnych akcjach bez rzutowania, żądania są przekazywane z `Content-Type` nagłówkiem ustawionym na `text/plain` . 
 
-Na przykład podczas pracy z plikiem prostym można uzyskać żądanie HTTP z `Content-Type` nagłówkiem ustawionym na `text/plain` typ zawartości:
+Na przykład podczas pracy z plikiem prostym można uzyskać żądanie HTTP z `Content-Type` nagłówkiem ustawionym na `text/plain` Typ zawartości:
 
 `Date,Name,Address`</br>
 `Oct-1,Frank,123 Ave`
 
-Jeśli następnie wyślesz to żądanie w późniejszej akcji jako treść innego żądania, na przykład `@body('flatfile')`, to drugie żądanie ma również `Content-Type` nagłówek, który jest ustawiony na. `text/plain` Jeśli pracujesz z danymi, które są zwykłym tekstem, ale nie określono nagłówka, możesz ręcznie rzutować te dane na tekst za pomocą [funkcji String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , takiej jak to wyrażenie: 
+Jeśli następnie wyślesz to żądanie w późniejszej akcji jako treść innego żądania, na przykład, `@body('flatfile')` to drugie żądanie ma również `Content-Type` nagłówek, który jest ustawiony na `text/plain` . Jeśli pracujesz z danymi, które są zwykłym tekstem, ale nie określono nagłówka, możesz ręcznie rzutować te dane na tekst za pomocą [funkcji String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , takiej jak to wyrażenie: 
 
 `@string(triggerBody())`
 
@@ -128,11 +127,11 @@ Jeśli następnie wyślesz to żądanie w późniejszej akcji jako treść inneg
 
 ## <a name="applicationxml-and-applicationoctet-stream"></a>Aplikacja/XML i aplikacja/strumień oktetu
 
-Logic Apps zawsze zachowuje `Content-Type` w odebranym żądaniu HTTP lub odpowiedzi. Tak więc jeśli aplikacja logiki otrzymuje zawartość z `Content-Type` ustawionym `application/octet-stream`na, a zawartość zostanie uwzględniona w późniejszej akcji bez rzutowania, żądanie wychodzące `Content-Type` również `application/octet-stream`ma ustawioną wartość. Dzięki temu Logic Apps mogą zagwarantować, że dane nie zostaną utracone podczas przechodzenia przez przepływ pracy. Jednak stan akcji lub dane wejściowe i wyjściowe są przechowywane w obiekcie JSON, podczas gdy stan przechodzi przez przepływ pracy. 
+Logic Apps zawsze zachowuje `Content-Type` w odebranym ŻĄDANIU http lub odpowiedzi. Tak więc jeśli aplikacja logiki otrzymuje zawartość z `Content-Type` ustawionym na `application/octet-stream` , a zawartość zostanie uwzględniona w późniejszej akcji bez rzutowania, żądanie wychodzące również ma `Content-Type` ustawioną wartość `application/octet-stream` . Dzięki temu Logic Apps mogą zagwarantować, że dane nie zostaną utracone podczas przechodzenia przez przepływ pracy. Jednak stan akcji lub dane wejściowe i wyjściowe są przechowywane w obiekcie JSON, podczas gdy stan przechodzi przez przepływ pracy. 
 
 ## <a name="converter-functions"></a>Funkcje konwertera
 
-Aby zachować niektóre typy danych, Logic Apps konwertuje zawartość na binarny ciąg szyfrowany algorytmem Base64 z odpowiednimi metadanymi, które zachowują `$content` zarówno ładunek, `$content-type`jak i, które są automatycznie konwertowane. 
+Aby zachować niektóre typy danych, Logic Apps konwertuje zawartość na binarny ciąg szyfrowany algorytmem Base64 z odpowiednimi metadanymi, które zachowują zarówno `$content` ładunek, jak i `$content-type` , które są automatycznie konwertowane. 
 
 Ta lista zawiera opis sposobu, w jaki Logic Apps konwertuje zawartość podczas korzystania z tych [funkcji](../logic-apps/workflow-definition-language-functions-reference.md):
 
@@ -147,20 +146,20 @@ Ta lista zawiera opis sposobu, w jaki Logic Apps konwertuje zawartość podczas 
 * `dataUriToBinary()`: Konwertuje identyfikator URI danych na ciąg binarny
 * `dataUriToString()`: Konwertuje identyfikator URI danych na ciąg
 
-Na przykład, jeśli otrzymasz żądanie HTTP `Content-Type` `application/xml`, w którym ustawiono wartość, np.:
+Na przykład, jeśli otrzymasz żądanie HTTP, w którym `Content-Type` ustawiono wartość `application/xml` , np.:
 
 ```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Tę zawartość można rzutować za pomocą `@xml(triggerBody())` wyrażenia z funkcjami `xml()` i `triggerBody()` , a następnie później używać tej zawartości. Można też użyć `@xpath(xml(triggerBody()), '/CustomerName')` wyrażenia z funkcjami `xpath()` i. `xml()` 
+Tę zawartość można rzutować za pomocą `@xml(triggerBody())` wyrażenia z `xml()` `triggerBody()` funkcjami i, a następnie później używać tej zawartości. Można też użyć `@xpath(xml(triggerBody()), '/CustomerName')` wyrażenia z `xpath()` `xml()` funkcjami i. 
 
 ## <a name="other-content-types"></a>Inne typy zawartości
 
 Logic Apps współpracuje z innymi typami zawartości i obsługuje je, ale mogą wymagać ręcznego pobrania treści komunikatu przez odkodowanie `$content` zmiennej.
 
-Załóżmy na przykład, że aplikacja logiki zostanie wyzwolona przez żądanie z typem `application/x-www-url-formencoded` zawartości. Aby zachować wszystkie dane, `$content` zmienna w treści żądania ma ładunek, który jest zakodowany jako ciąg Base64:
+Załóżmy na przykład, że aplikacja logiki zostanie wyzwolona przez żądanie z `application/x-www-url-formencoded` typem zawartości. Aby zachować wszystkie dane, `$content` zmienna w treści żądania ma ładunek, który jest zakodowany jako ciąg Base64:
 
 `CustomerName=Frank&Address=123+Avenue`
 
@@ -184,4 +183,4 @@ Lub można ręcznie uzyskać dostęp do danych przy użyciu wyrażenia, takiego 
 
 `@string(body('formdataAction'))` 
 
-Jeśli chcesz, aby żądanie wychodzące miało `application/x-www-url-formencoded` ten sam nagłówek typu zawartości, możesz dodać żądanie do treści akcji bez żadnego rzutowania przy użyciu wyrażenia, takiego jak `@body('formdataAction')`. Jednakże ta metoda działa tylko wtedy, gdy treść jest jedynym parametrem w `body` danych wejściowych. Jeśli spróbujesz użyć `@body('formdataAction')` wyrażenia w `application/json` żądaniu, zostanie wyświetlony komunikat o błędzie środowiska uruchomieniowego, ponieważ treść jest wysyłana jako zakodowana.
+Jeśli chcesz, aby żądanie wychodzące miało ten sam `application/x-www-url-formencoded` Nagłówek typu zawartości, możesz dodać żądanie do treści akcji bez żadnego rzutowania przy użyciu wyrażenia, takiego jak `@body('formdataAction')` . Jednakże ta metoda działa tylko wtedy, gdy treść jest jedynym parametrem w `body` danych wejściowych. Jeśli spróbujesz użyć `@body('formdataAction')` wyrażenia w `application/json` żądaniu, zostanie wyświetlony komunikat o błędzie środowiska uruchomieniowego, ponieważ treść jest wysyłana jako zakodowana.

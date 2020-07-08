@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652257"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft. Common. Section — element interfejsu użytkownika
@@ -45,11 +44,11 @@ Kontrolka, która grupuje co najmniej jeden element w ramach nagłówka.
 
 ## <a name="remarks"></a>Uwagi
 
-- `elements`musi zawierać co najmniej jeden element i może zawierać wszystkie typy elementów z wyjątkiem `Microsoft.Common.Section`.
+- `elements`musi zawierać co najmniej jeden element i może zawierać wszystkie typy elementów z wyjątkiem `Microsoft.Common.Section` .
 - Ten element nie obsługuje `toolTip` właściwości.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
-Aby uzyskać dostęp do wartości wyjściowych elementów `elements`w, należy użyć [podstawowych ()](create-uidefinition-functions.md#basics) lub [czynności ()](create-uidefinition-functions.md#steps) i notacji kropkowej:
+Aby uzyskać dostęp do wartości wyjściowych elementów w `elements` , należy użyć [podstawowych ()](create-uidefinition-functions.md#basics) lub [czynności ()](create-uidefinition-functions.md#steps) i notacji kropkowej:
 
 ```json
 steps('configuration').section1.text1

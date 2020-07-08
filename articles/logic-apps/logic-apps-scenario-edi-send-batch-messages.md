@@ -8,10 +8,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666673"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Komunikaty programu Exchange EDI jako partie lub grupy między partnerami handlowymi w Azure Logic Apps
@@ -98,7 +97,7 @@ W przypadku tego odbiorcy usługi Batch należy określić tryb wsadowy, nazwę,
       | **Nazwa umowy X12** | Otwórz listę i wybierz istniejącą umowę. <p>Jeśli lista jest pusta, upewnij się, że [Twoja aplikacja logiki jest połączona z kontem integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) , dla którego chcesz uzyskać umowę. | 
       | **Partia zadań** | Kliknij wewnątrz tego pola i po wyświetleniu listy zawartości dynamicznej wybierz token **nazwy wsadu** . | 
       | **PartitionName** | Kliknij wewnątrz tego pola i po wyświetleniu listy zawartości dynamicznej wybierz token **nazwy partycji** . | 
-      | **Items** | Zamknij pole szczegóły elementu, a następnie kliknij wewnątrz tego pola. Po wyświetleniu listy zawartości dynamicznej wybierz token **elementy wsadowe** . | 
+      | **Elementy** | Zamknij pole szczegóły elementu, a następnie kliknij wewnątrz tego pola. Po wyświetleniu listy zawartości dynamicznej wybierz token **elementy wsadowe** . | 
       ||| 
 
       ![Szczegóły akcji kodowania partii](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)

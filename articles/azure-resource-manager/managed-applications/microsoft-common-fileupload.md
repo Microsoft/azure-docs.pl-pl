@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652491"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft. Common. FileUpload — element interfejsu użytkownika
@@ -82,10 +81,10 @@ Podczas testowania CreateUiDefinition, niektóre przeglądarki (na przykład Goo
 
 - `constraints.accept`Określa typy plików, które są wyświetlane w oknie dialogowym pliku przeglądarki. Aby uzyskać dozwolone wartości, zobacz [specyfikację HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) . Wartość domyślna to **null**.
 - Jeśli `options.multiple` jest ustawiona na **true**, użytkownik może wybrać więcej niż jeden plik w oknie dialogowym pliku przeglądarki. Wartość domyślna to **fałsz**.
-- Ten element obsługuje przekazywanie plików w dwóch trybach na podstawie wartości `options.uploadMode`. Jeśli **plik** jest określony, dane wyjściowe mają zawartość pliku jako obiekt BLOB. Jeśli określono **adres URL** , plik zostanie przekazany do tymczasowej lokalizacji, a dane wyjściowe zawierają adres URL obiektu BLOB. Tymczasowe obiekty blob zostaną przeczyszczone po 24 godzinach. Wartość domyślna to **plik**.
+- Ten element obsługuje przekazywanie plików w dwóch trybach na podstawie wartości `options.uploadMode` . Jeśli **plik** jest określony, dane wyjściowe mają zawartość pliku jako obiekt BLOB. Jeśli określono **adres URL** , plik zostanie przekazany do tymczasowej lokalizacji, a dane wyjściowe zawierają adres URL obiektu BLOB. Tymczasowe obiekty blob zostaną przeczyszczone po 24 godzinach. Wartość domyślna to **plik**.
 - Przekazany plik jest chroniony. Wyjściowy adres URL zawiera [token SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) służący do uzyskiwania dostępu do pliku podczas wdrażania.
 - Wartość `options.openMode` określa, jak odczytywany jest plik. Jeśli oczekujesz, że plik ma być zwykłym tekstem, określ **tekst**; w przeciwnym razie Określ dane **binarne**. Wartość domyślna to **Text**.
-- Jeśli `options.uploadMode` jest ustawiona na **file** wartość File `options.openMode` i jest ustawiona na wartość **binarną**, dane wyjściowe są kodowane algorytmem Base64.
+- Jeśli `options.uploadMode` jest ustawiona na wartość **File** i `options.openMode` jest ustawiona na wartość **binarną**, dane wyjściowe są kodowane algorytmem Base64.
 - `options.encoding`Określa kodowanie, które ma być używane podczas odczytywania pliku. Wartość domyślna to **UTF-8**i jest używana tylko wtedy, gdy `options.openMode` jest ustawiona na **Text**.
 
 ## <a name="next-steps"></a>Następne kroki

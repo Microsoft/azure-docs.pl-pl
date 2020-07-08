@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75647717"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Często zadawane pytania dotyczące akceleratorów rozwiązań IoT
@@ -30,7 +29,7 @@ Kod źródłowy jest przechowywany w następujących repozytoriach usługi GitHu
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Jakich zestawów SDK można używać do tworzenia klientów urządzeń dla akceleratorów rozwiązań?
 
-Linki do różnych zestawów SDK urządzeń (C, .NET, Java, Node. js, Python) IoT można znaleźć w ramach repozytoriów usługi [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) .
+Linki do różnych zestawów SDK urządzeń (C, .NET, Java, Node.js, Python) IoT można znaleźć w Microsoft Azure repozytoriów GitHub [zestawów SDK usługi IoT](https://github.com/Azure/azure-iot-sdks) .
 
 Jeśli używasz urządzenia DevKit, możesz znaleźć zasoby i przykłady w repozytorium usługi [IoT DEVKIT SDK](https://github.com/Microsoft/devkit-sdk) w witrynie GitHub.
 
@@ -65,7 +64,7 @@ Jeśli masz pewność, że masz subskrypcję platformy Azure, sprawdź poprawno�
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Gdzie można znaleźć informacje o poprzedniej wersji rozwiązania do zdalnego monitorowania?
 
-Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Czy nowy akcelerator rozwiązania jest dostępny w tym samym regionie geograficznym co istniejące rozwiązanie?
 
@@ -108,6 +107,6 @@ Zobacz przewodnik po wpisie w blogu Eric golpe [, aby usunąć dzierżawę usłu
 Możesz także wypróbować niektóre inne funkcje i możliwości akceleratorów rozwiązań IoT:
 
 * [Poznaj możliwości akceleratora rozwiązania do monitorowania zdalnego](quickstart-remote-monitoring-deploy.md)
-* [Omówienie akceleratora rozwiązań do konserwacji zapobiegawczej](iot-accelerators-predictive-overview.md)
+* [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](iot-accelerators-predictive-overview.md)
 * [Wdróż Akcelerator rozwiązania połączonej fabryki](quickstart-connected-factory-deploy.md)
 * [Zabezpieczenia IoT od podstaw](/azure/iot-fundamentals/iot-security-ground-up)

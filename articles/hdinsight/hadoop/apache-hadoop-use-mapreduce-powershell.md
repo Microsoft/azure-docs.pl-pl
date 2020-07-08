@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75830075"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Uruchamianie zadań MapReduce w Apache Hadoop usłudze HDInsight przy użyciu programu PowerShell
@@ -43,11 +42,11 @@ Następujące polecenia cmdlet są używane podczas uruchamiania zadań MapReduc
 
 Poniższe kroki pokazują, jak używać tych poleceń cmdlet do uruchamiania zadania w klastrze usługi HDInsight.
 
-1. Za pomocą edytora Zapisz następujący kod jako **mapreducejob. ps1**.
+1. Za pomocą edytora Zapisz Poniższy kod jako **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Otwórz nowy wiersz polecenia **Azure PowerShell** . Zmień katalogi na lokalizację pliku **mapreducejob. ps1** , a następnie użyj następującego polecenia, aby uruchomić skrypt:
+2. Otwórz nowy wiersz polecenia **Azure PowerShell** . Zmień katalogi na lokalizację pliku **mapreducejob.ps1** , a następnie użyj następującego polecenia, aby uruchomić skrypt:
 
         .\mapreducejob.ps1
 
@@ -70,18 +69,18 @@ Poniższe kroki pokazują, jak używać tych poleceń cmdlet do uruchamiania zad
     > [!NOTE]  
     > Jeśli **ExitCode** jest wartością inną niż 0, zobacz [Rozwiązywanie problemów](#troubleshooting).
 
-    W tym przykładzie przechowywane są również pobrane pliki do pliku **Output. txt** w katalogu, w którym uruchamiany jest skrypt.
+    W tym przykładzie przechowywane są również pobrane pliki do pliku **output.txt** w katalogu, w którym uruchamiany jest skrypt.
 
 ### <a name="view-output"></a>Wyświetl dane wyjściowe
 
-Aby zobaczyć słowa i liczby wygenerowane przez zadanie, Otwórz plik **Output. txt** w edytorze tekstu.
+Aby zobaczyć słowa i liczby wygenerowane przez zadanie, Otwórz plik **output.txt** w edytorze tekstów.
 
 > [!NOTE]  
 > Pliki wyjściowe zadania MapReduce są niezmienne. Dlatego w przypadku ponownego uruchomienia tego przykładu należy zmienić nazwę pliku wyjściowego.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli po zakończeniu zadania nie zostaną zwrócone żadne informacje, Wyświetl błędy dla tego zadania. Aby wyświetlić informacje o błędzie dla tego zadania, Dodaj następujące polecenie na końcu pliku **mapreducejob. ps1** . Następnie Zapisz plik i ponownie uruchom skrypt.
+Jeśli po zakończeniu zadania nie zostaną zwrócone żadne informacje, Wyświetl błędy dla tego zadania. Aby wyświetlić informacje o błędzie dla tego zadania, Dodaj następujące polecenie na końcu pliku **mapreducejob.ps1** . Następnie Zapisz plik i ponownie uruchom skrypt.
 
 ```powershell
 # Print the output of the WordCount job.

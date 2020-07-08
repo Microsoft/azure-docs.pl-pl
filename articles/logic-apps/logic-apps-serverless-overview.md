@@ -9,10 +9,9 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75666554"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Bez serwera platformy Azure: omówienie tworzenia aplikacji i rozwiązań opartych na chmurze z użyciem Azure Logic Apps i Azure Functions
@@ -33,7 +32,7 @@ Aby rozpocząć pracę z Logic Apps, Zacznij od [utworzenia pierwszej aplikacji 
 
 ## <a name="what-is-azure-functions"></a>Co to jest usługa Azure Functions?
 
-Azure Functions to usługa służąca do łatwego uruchamiania fragmentów kodu lub "Functions" w chmurze. Można napisać tylko kod niezbędny dla bieżącego problemu, bez obaw o całą aplikację lub wymaganą infrastrukturę. Funkcje mogą jeszcze bardziej zwiększyć produktywność i można korzystać z wybranego języka programowania, takiego jak C#, F #, Node. js, Python lub PHP. Płacisz tylko za czas działania kodu i skalowanie systemu Azure w razie potrzeby.
+Azure Functions to usługa służąca do łatwego uruchamiania fragmentów kodu lub "Functions" w chmurze. Można napisać tylko kod niezbędny dla bieżącego problemu, bez obaw o całą aplikację lub wymaganą infrastrukturę. Funkcje mogą jeszcze bardziej zwiększyć produktywność i można korzystać z wybranego języka programowania, takiego jak C#, F #, Node.js, Python lub PHP. Płacisz tylko za czas działania kodu i skalowanie systemu Azure w razie potrzeby.
 
 Aby rozpocząć pracę z Azure Functions, Zacznij od [utworzenia pierwszej funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md). Aby uzyskać więcej informacji technicznych na temat funkcji, zobacz [Dokumentacja dla deweloperów](../azure-functions/functions-reference.md).
 

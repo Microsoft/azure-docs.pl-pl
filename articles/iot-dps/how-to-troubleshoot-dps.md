@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75646476"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Rozwiązywanie problemów z usługą Azure IoT Hub Device Provisioning Service
@@ -69,7 +68,7 @@ Aby dowiedzieć się więcej, zobacz [co to są klasyczne alerty w Microsoft Azu
 
 8. Kliknij przycisk **Uruchom** , aby wyświetlić ostatnie zdarzenia.
 
-9. Jeśli istnieją wyniki, `OperationName`Wyszukaj, `ResultType`, `ResultSignature`i `ResultDescription` (komunikat o błędzie), aby uzyskać więcej szczegółów dotyczących błędu.
+9. Jeśli istnieją wyniki, Wyszukaj `OperationName` , `ResultType` , `ResultSignature` i `ResultDescription` (komunikat o błędzie), aby uzyskać więcej szczegółów dotyczących błędu.
 
 
 ## <a name="common-error-codes"></a>Typowe kody błędów

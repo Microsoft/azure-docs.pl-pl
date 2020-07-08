@@ -4,10 +4,9 @@ description: W tym artykule Odkryj rozwiązania problemów, które mogą wystąp
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75664746"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Rozwiązywanie problemów z programem System Center Data Protection Manager
@@ -32,7 +31,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 - Aby usunąć stan niespójności, Uruchom sprawdzanie spójności ręcznie lub Zaplanuj codzienne sprawdzanie spójności.
 - Upewnij się, że korzystasz z najnowszej wersji programu Microsoft Azure Backup Server i Data Protection Manager.
 - Upewnij się, że ustawienie **spójności automatycznej** jest włączone.
-- Spróbuj ponownie uruchomić usługi przy użyciu wiersza polecenia. Użyj `net stop dpmra` polecenia po `net start dpmra`.
+- Spróbuj ponownie uruchomić usługi przy użyciu wiersza polecenia. Użyj `net stop dpmra` polecenia po `net start dpmra` .
 - Upewnij się, że spełniasz wymagania dotyczące łączności sieciowej i przepustowości.
 - Sprawdź, czy maszyna źródłowa została nieoczekiwanie zamknięta.
 - Upewnij się, że dysk jest w dobrej kondycji i że jest wystarczająca ilość miejsca na replikę.
@@ -58,7 +57,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 - Upewnij się, że korzystasz z najnowszej wersji agenta Azure Backup.
 - Upewnij się, że istnieje połączenie (sieć/Zapora/serwer proxy) między serwerem Data Protection Manager a serwerem chronionym.
-- W przypadku ochrony programu SQL Server należy się upewnić, że właściwość **logowania właściwości** > grupy**NT** wykaże włączenie ustawienia **sysadmin** .
+- W przypadku ochrony programu SQL Server należy się upewnić, że właściwość **logowania właściwości**grupy  >  **NT** wykaże włączenie ustawienia **sysadmin** .
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Błąd: serwer nie jest zarejestrowany jako określony w pliku poświadczeń magazynu
 
