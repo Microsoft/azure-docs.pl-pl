@@ -10,17 +10,17 @@ ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
 ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391914"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK dla interfejsu API SQL: informacje o wersji i zasoby
 
 > [!div class="op_single_selector"]
-> * [Zestaw .NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK 2](sql-api-sdk-dotnet.md)
+> * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
+> * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
 > * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -96,11 +96,11 @@ ms.locfileid: "85391914"
 
 * Wersja 4.0.0 B2 to druga iteracja w naszych wysiłkach w celu skompilowania biblioteki klienckiej, która odpowiada najlepszym praktykom języka Python.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 * Połączenie klienta zostało dostosowane do korzystania z potoku HTTP zdefiniowanego w `azure.core.pipeline` .
 
-* Nazwy obiektów interaktywnych zostały teraz zmienione jako serwery proxy. Obejmuje to:
+* Nazwy obiektów interaktywnych zostały teraz zmienione jako serwery proxy. Obejmuje on:
 
   * `Database` -> `DatabaseProxy`
   * `User` -> `UserProxy`

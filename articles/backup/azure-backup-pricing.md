@@ -4,10 +4,10 @@ description: Dowiedz się, jak oszacować koszty związane z budżetem Azure Bac
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391115"
 ---
 # <a name="azure-backup-pricing"></a>Cennik usługi Azure Backup

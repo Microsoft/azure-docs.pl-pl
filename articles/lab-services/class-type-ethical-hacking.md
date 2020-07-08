@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure La
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85443999"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurowanie laboratorium do uczenia się klasy działanie hakerskie etycznych 
@@ -22,7 +22,7 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium, a następnie Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Image (Obraz) |
+| Rozmiar maszyny wirtualnej | Obraz |
 | -------------------- | ----- | 
 | Średni (Wirtualizacja zagnieżdżona) | Windows Server 2019 Datacenter |
 

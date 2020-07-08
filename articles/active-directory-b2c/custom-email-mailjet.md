@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2b66ef1a28faf97759045d40ea0f649282b2d837
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392916"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Niestandardowa Weryfikacja poczty e-mail za pomocą Mailjet
@@ -47,13 +47,13 @@ Następnie Zapisz klucz interfejsu API Mailjet w kluczu zasad Azure AD B2C, aby 
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetApiKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany **klucz interfejsu API** Mailjet.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
 1. W obszarze **Opcje**wybierz pozycję **Ręczne**.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MailjetSecretKey`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany **klucz tajny** Mailjet.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-mailjet-template"></a>Tworzenie szablonu Mailjet
 

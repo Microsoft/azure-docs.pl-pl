@@ -8,10 +8,10 @@ ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85413165"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
@@ -94,7 +94,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
 > | Application Gateway | Konfiguracja aplikacji | Usługa Azure Blockchain |
 > | Azure Backup | App Service | Azure Blueprints |
-> | Azure Cosmos DB | Automatyzacja | Azure Database for MariaDB |
+> | Azure Cosmos DB | Automation | Azure Database for MariaDB |
 > | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Dedykowany moduł HSM platformy Azure |
 > | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
 > | Azure SQL Database | Azure Bastion | Azure Digital Twins |
@@ -111,14 +111,14 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
 > | Service Bus | Azure Firewall | Data Box Heavy |
 > | Service Fabric | Azure Functions | Data Catalog |
-> | Zestawy skali maszyn wirtualnych | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Maszyny wirtualne | Azure IoT Hub | Data Lake Analytics |
+> | Virtual Machine Scale Sets | Azure HPC Cache | Data Factory: Data Factory v1 |
+> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
 > | Virtual Machines: Seria Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
 > | Virtual Machines: BS — seria | Azure Machine Learning | Microsoft Genomics |
 > | Virtual Machines: Seria DSv2 | Link prywatny platformy Azure | Remote Rendering |
 > | Virtual Machines: Seria DSv3 | Azure Red Hat OpenShift | Spatial Anchors |
-> | Virtual Machines: Seria Dv2 | Azure Site Recovery | Magazyn StorSimple |
-> | Virtual Machines: Seria Dv3 | Usługa w chmurze Azure wiosny | Indeksator wideo |
+> | Virtual Machines: Seria Dv2 | Azure Site Recovery | StorSimple |
+> | Virtual Machines: Seria Dv3 | Usługa w chmurze Azure wiosny | Video Indexer |
 > | Virtual Machines: Seria ESv3 | Azure Stack Hub | Virtual Machines: A8-A11 (intensywnie korzystające z obliczeń) |
 > | Virtual Machines: Seria EV3 | Usługa Azure Stream Analytics | Virtual Machines: Seria DASv4 |
 > | Virtual Machines: Seria F | Azure Synapse Analytics | Virtual Machines: Seria DAv4 |
@@ -148,7 +148,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > |  | Ultra Disk Storage |  |
 > |  | Virtual Machines: Seria Fsv2 |  |
 > |  | Virtual Machines: Seria M |  |
-> |  | Wirtualna sieć WAN |  |
+> |  | Virtual WAN |  |
 
 ###  <a name="services-resiliency"></a>Odporność usług
 

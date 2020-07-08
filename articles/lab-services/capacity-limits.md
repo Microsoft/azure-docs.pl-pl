@@ -4,16 +4,16 @@ description: Więcej informacji na temat limitów pojemności (limitów maszyn w
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444101"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Limity pojemności w Azure Lab Services
 Azure Lab Services ma domyślne limity pojemności dla subskrypcji platformy Azure, które są zgodne z ograniczeniami przydziału obliczeń platformy Azure i ograniczają oszustwo. Wszystkie subskrypcje platformy Azure będą miały początkowy limit pojemności, który może się różnić w zależności od typu subskrypcji, liczby standardowych rdzeni obliczeniowych i rdzeni procesora GPU dostępnych wewnątrz Azure Lab Services. Ogranicza liczbę maszyn wirtualnych, które można utworzyć w laboratoriach, zanim będzie konieczne zażądanie wzrostu limitu.  
 
-Jeśli zbliżasz się do lub osiągniesz limit rdzeni maszyn wirtualnych subskrypcji, zobaczysz komunikaty z Azure Lab Services podczas próby wykonania akcji tworzących dodatkowe maszyny wirtualne. Na przykład: 
+Jeśli zbliżasz się do lub osiągniesz limit rdzeni maszyn wirtualnych subskrypcji, zobaczysz komunikaty z Azure Lab Services podczas próby wykonania akcji tworzących dodatkowe maszyny wirtualne. Przykład: 
 
 - Tworzenie laboratorium
 - Publikowanie laboratorium
@@ -37,7 +37,7 @@ Jeśli osiągnięto limit rdzeni, możesz poprosić o zwiększenie limitu, aby n
 
 Komunikaty o limicie rdzeni maszyn wirtualnych w portalu Azure Lab Services zawierają link umożliwiający zwiększenie limitu. Link zostanie otwarta nowa karta przeglądarki, na której można utworzyć nowe żądanie obsługi. Informacje o typie problemu, subskrypcji i typie przydziału zostaną automatycznie wypełnione dla Ciebie, jak pokazano na poniższej ilustracji: 
 
-![Nowe żądanie pomocy technicznej](./media/capacity-limits/new-support-request.png)
+![Nowy wniosek o pomoc techniczną](./media/capacity-limits/new-support-request.png)
 
 
 Następnie zostanie wyświetlony monit o podanie dodatkowych informacji o zwiększeniu limitu. W polu **Opis** podaj następujące informacje:

@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy A
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391098"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia
