@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84170770"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service
@@ -152,7 +151,7 @@ Ponadto możesz uruchomić aplikację w więcej niż jednym wystąpieniu. Skalow
 Skalowanie można ustawić jako ręczne lub automatyczne.
 
 #### <a name="use-autoheal"></a>Użyj autozabliźnione
-Autozabliźnione odtwarza proces roboczy aplikacji w oparciu o wybrane ustawienia (na przykład zmiany konfiguracji, żądania, limity pamięci lub czas wymagany do wykonania żądania). W większości przypadków odtwarzanie procesu jest najszybszym sposobem na odzyskanie sprawności po wystąpieniu problemu. Mimo że zawsze możesz ponownie uruchomić aplikację bezpośrednio w Azure Portal, autozabliźnione robi automatycznie. Wystarczy dodać niektóre Wyzwalacze w głównym pliku Web. config aplikacji. Te ustawienia będą działały w taki sam sposób, nawet jeśli aplikacja nie jest aplikacją platformy .NET.
+Autozabliźnione odtwarza proces roboczy aplikacji w oparciu o wybrane ustawienia (na przykład zmiany konfiguracji, żądania, limity pamięci lub czas wymagany do wykonania żądania). W większości przypadków odtwarzanie procesu jest najszybszym sposobem na odzyskanie sprawności po wystąpieniu problemu. Mimo że zawsze możesz ponownie uruchomić aplikację bezpośrednio w Azure Portal, autozabliźnione robi automatycznie. Wszystko, co musisz zrobić, to dodanie wyzwalaczy w web.config głównym aplikacji. Te ustawienia będą działały w taki sam sposób, nawet jeśli aplikacja nie jest aplikacją platformy .NET.
 
 Aby uzyskać więcej informacji, zobacz [Funkcja autonaprawy witryn sieci Web systemu Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

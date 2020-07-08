@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84188303"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
@@ -180,8 +179,8 @@ Brama używa serwera proxy w celu nawiązania połączenia z usługą w chmurze.
 Dostępne są trzy opcje konfiguracji:
 
 * **Nie używaj serwera proxy**: Brama nie używa jawnie serwera proxy do nawiązywania połączenia z usługami w chmurze.
-* **Użyj systemowego serwera proxy**: Brama używa ustawień serwera proxy skonfigurowanych w diahost. exe. config i diawp. exe. config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost. exe. config i diawp. exe. config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
-* **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP, które ma być używane dla bramy, zamiast używać konfiguracji w diahost. exe. config i diawp. exe. config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
+* **Użyj systemowego serwera proxy**: Brama używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost.exe.config i diawp.exe.config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
+* **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP do użycia dla bramy, zamiast używać konfiguracji w diahost.exe.config i diawp.exe.config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
 
 Usługa hosta bramy zarządzania danymi jest uruchamiana automatycznie po zapisaniu zaktualizowanych ustawień serwera proxy.
 
@@ -202,10 +201,10 @@ Serwer proxy HTTP można wyświetlić i zaktualizować za pomocą narzędzia Con
 >
 
 ### <a name="configure-proxy-server-settings"></a>Skonfiguruj ustawienia serwera proxy
-W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy HTTP brama używa ustawienia proxy w diahost. exe. config i diawp. exe. config. Jeśli żaden serwer proxy nie został określony w diahost. exe. config i diawp. exe. config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost. exe. config.
+W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy HTTP brama używa ustawienia proxy w diahost.exe.config i diawp.exe.config. Jeśli w diahost.exe.config i diawp.exe.config nie określono żadnego serwera proxy, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost.exe.config.
 
-1. W Eksploratorze plików wykonaj bezpieczną kopię *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\ diahost. exe. config* , aby utworzyć kopię zapasową oryginalnego pliku.
-2. Uruchom Notepad. exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\ diahost. exe. config*. Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
+1. W Eksploratorze plików wykonaj bezpieczną kopię *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config* , aby utworzyć kopię zapasową oryginalnego pliku.
+2. Uruchom Notepad.exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config*. Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
 
     ```
     <system.net>
@@ -231,7 +230,7 @@ W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy
 3. Zapisz plik konfiguracji w oryginalnej lokalizacji, a następnie uruchom ponownie usługę hosta bramy Zarządzanie danymi, która pobiera zmiany. Aby ponownie uruchomić usługę: użyj apletu usługi w panelu sterowania lub **Configuration Manager zarządzanie danymi bramy** , > kliknij przycisk **Zatrzymaj usługę** , a następnie kliknij przycisk **Uruchom usługę**. Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML do pliku konfiguracji aplikacji, który był edytowany.
 
 > [!IMPORTANT]
-> Nie zapomnij zaktualizować **obu** diahost. exe. config i diawp. exe. config.
+> Nie zapomnij zaktualizować **obu** diahost.exe.config i diawp.exe.config.
 
 Oprócz tych punktów należy również upewnić się, że Microsoft Azure znajduje się w dozwolonych firmy. Listę prawidłowych adresów IP Microsoft Azure można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -309,7 +308,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
 Po zainstalowaniu bramy można uruchomić Zarządzanie danymi Configuration Manager bramy w jeden z następujących sposobów:
 
 1. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia.
-2. Uruchom plik wykonywalny *config. exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared*.
+2. Uruchom plik wykonywalny *ConfigManager.exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared*.
 
 ### <a name="home-page"></a>Strona główna
 Strona główna umożliwia wykonywanie następujących czynności:
@@ -510,7 +509,7 @@ W tej sekcji opisano sposób tworzenia i rejestrowania bramy przy użyciu polece
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *. Uruchom polecenie *RegisterGateway. ps1* skojarzone ze zmienną lokalną **$Key** jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
+1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *. Uruchom *RegisterGateway.ps1* skojarzone ze zmienną lokalną **$Key** , jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -9,10 +9,9 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ms.openlocfilehash: b0df0fc43fcd125c6fc96fd2abbe3857d0d23afa
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84141980"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Linux i dystrybuowanie go do galerii obrazów udostępnionych 
@@ -20,7 +19,7 @@ ms.locfileid: "84141980"
 W tym artykule pokazano, jak można użyć konstruktora obrazów platformy Azure i interfejsu wiersza polecenia platformy Azure, aby utworzyć wersję obrazu w [galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), a następnie dystrybuować obraz globalnie. Można to również zrobić przy użyciu [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Aby skonfigurować obraz, będziemy używać szablonu przykład. JSON. Używany plik JSON jest tutaj: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 W celu rozesłania obrazu do galerii obrazów udostępnionych szablon używa [sharedImage](image-builder-json.md#distribute-sharedimage) jako wartości `distribute` sekcji szablonu.
 

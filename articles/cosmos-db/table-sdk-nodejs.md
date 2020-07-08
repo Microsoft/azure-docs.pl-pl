@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB interfejs API tabel dla środowiska Node. js
+title: Azure Cosmos DB interfejs API tabel Node.js
 description: Dowiedz się więcej na temat Azure Cosmos DB interfejs API tabel w tym daty wydania, daty wycofania i zmiany wprowadzone między każdą wersją.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,13 +9,12 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84167982"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel dla środowiska Node. js: informacje o wersji i zasoby
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel do Node.js: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -27,7 +26,7 @@ ms.locfileid: "84167982"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API środowiska Node. js](https://azure.github.io/azure-storage-node/)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu APINode.js](https://azure.github.io/azure-storage-node/)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

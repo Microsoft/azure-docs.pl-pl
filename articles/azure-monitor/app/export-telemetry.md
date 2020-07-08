@@ -4,10 +4,9 @@ description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Az
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84147974"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
@@ -61,7 +60,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](../../azure-monitor/app/asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.

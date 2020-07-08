@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 05/27/2020
 ms.openlocfilehash: fcd1c20ea2ecb5cbeb87fb8f703593453b5f85bb
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84122395"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Nawiązywanie połączenia z usługą Apache Z usługi Beeline w usłudze HDInsight lub instalowanie jej lokalnie

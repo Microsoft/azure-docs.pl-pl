@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84116310"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migracja usług SSIS z wystąpieniem zarządzanym usługi Azure SQL Server jako miejscem docelowym obciążenia bazy danych

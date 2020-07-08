@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 3b270b8ae4e9729d2c0f8ae99a3c19c68561df95
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84119251"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Korzystanie z klienta Apache Beeline z usługą Apache Hive

@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168203"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabelę .NET Standard interfejs API: pobieranie i informacje o wersji
@@ -27,7 +26,7 @@ ms.locfileid: "84168203"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Northwind**|[Przykład Cosmos DB interfejs API tabel .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Przykład**|[Przykład Cosmos DB interfejs API tabel .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Szybki start**|[Szybki start](create-table-dotnet.md)|
 |**Samouczek**|[Samouczek](tutorial-develop-table-dotnet.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -40,10 +39,10 @@ Seria 2.0.0 jest zależna od [Microsoft. Azure. Cosmos](https://www.nuget.org/pa
 * wstępna wersja zapoznawcza zestawu SDK tabeli 2.0.0, która jest zależna od elementu [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)z ulepszeniami wydajności i konsolidacją przestrzeni nazw do Cosmos DBego punktu końcowego. Publiczny interfejs API pozostaje taki sam.
 
 ## <a name="release-notes-for-100-series"></a>Informacje o wersji dla serii 1.0.0
-Seria 1.0.0 jest zależna od [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+Seria 1.0.0 przyjmuje zależność od [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
-* Zwiększenie wydajności przez ustawienie domyślnego poziomu śledzenia zestawu SDK tabeli na SourceLevels. off, który można wybrać za pomocą pliku App. config
+* Zwiększenie wydajności przez ustawienie domyślnego poziomu śledzenia zestawu SDK tabeli na SourceLevels. off, który można włączyć za pomocą app.config
 
 ### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Wprowadź nową konfigurację w obszarze TableClientConfiguration, aby używać modułu wykonawczego REST do komunikowania się z Cosmos DB interfejs API tabel

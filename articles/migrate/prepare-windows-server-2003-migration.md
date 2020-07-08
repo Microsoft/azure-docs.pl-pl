@@ -4,10 +4,9 @@ description: Dowiedz się, jak przygotować serwery z systemem Windows Server 20
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: 33519764b138c7711e6c03a85aa33ec6f936a748
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84172284"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Przygotowywanie maszyn z systemem Windows Server 2003 do migracji
@@ -38,7 +37,7 @@ Przed rozpoczęciem migracji Sprawdź, czy usługi integracji funkcji Hyper-V s�
 3. Skopiuj folder instalacyjny na maszynę wirtualną programu VMware.
 4. W wierszu polecenia na maszynie wirtualnej Uruchom polecenie ```gpedit.msc``` .
 5. Otwórz **konfigurację komputera**  >  skrypty**ustawień systemu Windows**  >  **(uruchamianie/zamykanie)**.
-6. W polu **Start**  >  **Dodaj**  >  **nazwę skryptu**wpisz adres Setup. exe.
+6. W polu **Start**  >  **Dodaj**  >  **nazwę skryptu**wpisz adres setup.exe.
 7. Po migracji na platformę Azure skrypt jest uruchamiany podczas pierwszego uruchomienia maszyny wirtualnej platformy Azure.
 8. Ręcznie uruchom ponownie maszynę wirtualną platformy Azure. W celu wskazania, że wymagane jest ponowne uruchomienie, znajduje się okno podręczne diagnostyki rozruchu.
 9. Po uruchomieniu skryptu i usług integracji funkcji Hyper-V na maszynie wirtualnej platformy Azure można usunąć skrypt z uruchamiania.

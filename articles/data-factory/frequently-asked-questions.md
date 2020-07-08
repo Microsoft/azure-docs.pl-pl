@@ -10,10 +10,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84187292"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
@@ -266,7 +265,7 @@ Przepływ danych przetwarzanie obsługuje następujące typy danych w programie 
 * bigint
 * długi
 * tekst
-* data
+* date
 * datetime
 * datetime2
 * smalldatetime

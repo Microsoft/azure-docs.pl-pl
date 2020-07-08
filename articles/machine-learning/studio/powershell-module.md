@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
 ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84117556"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Moduły programu PowerShell dla Azure Machine Learning Studio (klasyczne)

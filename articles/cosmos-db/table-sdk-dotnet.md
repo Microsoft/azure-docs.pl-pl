@@ -9,10 +9,9 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84168152"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
@@ -50,11 +49,11 @@ ms.locfileid: "84168152"
 ### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * Dodano obsługę zapisu dla wieloregionu
-* Stałe zależności pakietów NuGet w witrynie Microsoft. Azure. DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. przestrzenny
+* Stałe zależności pakietów NuGet na Microsoft.Azure.DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. przestrzenny
 
 ### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
-* Stałe zależności pakietów NuGet w programie Microsoft. Azure. Storage. Common i Microsoft. Azure. DocumentDB.
+* Stałe zależności pakietów NuGet w witrynie Microsoft. Azure. Storage. Common i Microsoft.Azure.DocumentDB.
 * Poprawki podczas serializacji tabeli podczas konfigurowania JsonConvert. DefaultSettings.
 
 ### <a name="111"></a><a name="1.1.1"></a>ppkt

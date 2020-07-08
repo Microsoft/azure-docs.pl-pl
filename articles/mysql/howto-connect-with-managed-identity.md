@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84141725"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Połącz się z tożsamością zarządzaną, aby Azure Database for MySQL
