@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80132109"
 ---
 Jeśli użytkownik nie ma wymaganego dostępu do stosowania tagów, można przypisać rolę **współautor tagu** do użytkownika. Aby uzyskać więcej informacji, zobacz [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure Portal](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).

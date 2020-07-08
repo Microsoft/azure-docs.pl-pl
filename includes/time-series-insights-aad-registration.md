@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -10,13 +10,13 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76984593"
 ---
-1. W [Azure Portal](https://ms.portal.azure.com/)wybierz pozycję **Azure Active Directory** > **rejestracje aplikacji** > **Nowa rejestracja**.
+1. W [Azure Portal](https://ms.portal.azure.com/)wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
    [![Rejestracja nowej aplikacji w Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
 
@@ -66,11 +66,11 @@ ms.locfileid: "76984593"
    > [!NOTE]
    > Możesz zamiast tego zaimportować certyfikat. W celu zwiększenia bezpieczeństwa zaleca się używanie certyfikatu. Aby użyć certyfikatu, wybierz opcję **Przekaż certyfikat**.
 
-1. Skojarz aplikację Azure Active Directory usługą Azure TIme Series Insights.  > Wybierz pozycję **uprawnienia interfejsu API****Dodawanie uprawnień** > **interfejsy API, które są wykorzystywane przez moją organizację**. 
+1. Skojarz aplikację Azure Active Directory usługą Azure TIme Series Insights. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodawanie uprawnień**interfejsy API, które są  >  **wykorzystywane przez moją organizację**. 
 
     [![Kojarzenie interfejsu API z aplikacją Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 
-   Wpisz `Azure Time Series Insights` na pasku wyszukiwania, a następnie `Azure Time Series Insights`wybierz pozycję.
+   Wpisz `Azure Time Series Insights` na pasku wyszukiwania, a następnie wybierz pozycję `Azure Time Series Insights` .
 
 1. Następnie określ rodzajowe uprawnienia interfejsu API wymagane przez aplikację. Domyślnie zostaną wyróżnione **uprawnienia delegowane** . Wybierz typ uprawnienia, a następnie wybierz pozycję **Dodaj uprawnienia**.
 

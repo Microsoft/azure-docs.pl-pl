@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 16ad8d7fd0f46381f2e2e7076015af65bd4bddcd
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84806148"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Tworzenie bramy aplikacji z zakończeniem protokołu TLS przy użyciu interfejsu wiersza polecenia platformy Azure

@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 40e5a1bf940e46aed566a1e3fa6dcb4e6b2d9230
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77135134"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Obsługiwane systemy operacyjne i sterowniki
@@ -28,7 +28,7 @@ Sterowniki NVIDIA Tesla (CUDA) dla maszyn wirtualnych z serii NC, NCv2, Seria NC
 | System operacyjny | Sterownik |
 | -------- |------------- |
 | Windows Server 2016 | [398,75](https://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2016-international.exe) (. exe) |
-| Windows Server 2012 R2 | [398,75](https://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (. exe) |
+| Windows Server 2012 z dodatkiem R2 | [398,75](https://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (. exe) |
 
 ### <a name="nvidia-grid-drivers"></a>Sterowniki sieci NVIDIA
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183127"
 ---
 Teraz, gdy znasz już podstawowe informacje o usłudze Azure Table Storage, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej złożonych zadaniach magazynu.

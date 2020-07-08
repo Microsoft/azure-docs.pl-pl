@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84806194"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą programu Azure PowerShell

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84806437"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Utwórz bramę aplikacji i Zapisz ponownie nagłówki HTTP

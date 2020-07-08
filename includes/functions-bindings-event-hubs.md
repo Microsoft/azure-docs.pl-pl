@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 47e9e37676a4afa9ec29393bf970c368f3f9e5be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77586136"
 ---
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
-### <a name="functions-2x-and-higher"></a>Funkcje 2. x i nowsze
+### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 

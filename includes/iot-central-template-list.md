@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,10 +9,10 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2eda1fc8595962849b6a24cc272f6604d0be9175
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82744537"
 ---
 **Szablony aplikacji**

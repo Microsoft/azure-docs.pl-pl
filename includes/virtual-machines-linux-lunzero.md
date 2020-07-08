@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09fa612e7e5c681da16bf19e94c626ae14a3b8a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77590732"
 ---
-Podczas dodawania dysków danych do maszyny wirtualnej z systemem Linux mogą wystąpić błędy, jeśli dysk nie istnieje na numerze LUN 0. W przypadku ręcznego dodawania dysku przy użyciu `az vm disk attach -new` polecenia i określania numeru LUN (`--lun`) zamiast zezwalania na platformę Azure w celu ustalenia odpowiedniej jednostki LUN należy zadbać o to, że dysk już istnieje/będzie istnieć na numerze LUN 0. 
+Podczas dodawania dysków danych do maszyny wirtualnej z systemem Linux mogą wystąpić błędy, jeśli dysk nie istnieje na numerze LUN 0. W przypadku ręcznego dodawania dysku przy użyciu `az vm disk attach -new` polecenia i określania numeru LUN ( `--lun` ) zamiast zezwalania na platformę Azure w celu ustalenia odpowiedniej jednostki LUN należy zadbać o to, że dysk już istnieje/będzie istnieć na numerze LUN 0. 
 
-Rozważmy następujący przykład pokazujący fragment danych wyjściowych z `lsscsi`:
+Rozważmy następujący przykład pokazujący fragment danych wyjściowych z `lsscsi` :
 
 ```bash
 [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc 
 [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
 ```
 
-Dwa dyski danych istnieją w jednostkach LUN 0 i LUN 1 (pierwsza kolumna w szczegółach `lsscsi` `[host:channel:target:lun]`wyjściowych). Oba dyski powinny być dostępne z poziomu maszyny wirtualnej. Jeśli ręcznie określono pierwszy dysk, który ma zostać dodany przy użyciu jednostki LUN 1, i drugi dysk o numerze LUN 2, dyski mogą nie być poprawnie widoczne z poziomu maszyny wirtualnej.
+Dwa dyski danych istnieją w jednostkach LUN 0 i LUN 1 (pierwsza kolumna w `lsscsi` szczegółach wyjściowych `[host:channel:target:lun]` ). Oba dyski powinny być dostępne z poziomu maszyny wirtualnej. Jeśli ręcznie określono pierwszy dysk, który ma zostać dodany przy użyciu jednostki LUN 1, i drugi dysk o numerze LUN 2, dyski mogą nie być poprawnie widoczne z poziomu maszyny wirtualnej.
 
 > [!NOTE]
-> W tych `host` przykładach wartość platformy Azure to 5, ale może się to różnić w zależności od wybranego typu magazynu.
+> `host`W tych przykładach wartość platformy Azure to 5, ale może się to różnić w zależności od wybranego typu magazynu.
 > 
 > 
 

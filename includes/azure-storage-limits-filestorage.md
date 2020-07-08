@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d6f56f3500ab9c6b4482d2ade892dfdb46ccacb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67503374"
 ---
 Pliki Premium używają unikatowego konta magazynu o nazwie **FileStorage**. Ten typ konta jest przeznaczony do obsługi obciążeń o dużej liczbie operacji we/wy i dużej przepływności z niską ilością opóźnień. Magazyn plików w warstwie Premium jest skalowany przy użyciu udostępnionego rozmiaru udziału.
@@ -21,6 +21,6 @@ Pliki Premium używają unikatowego konta magazynu o nazwie **FileStorage**. Ten
 |---------|---------|
 |Maksymalny rozmiar aprowizacji     |100 TiB     |
 |Udziały   |Nieograniczona liczba  |
-|Liczba operacji we/wy na sekundę     |100 000    |
+|Liczba operacji we/wy na sekundę     |100 000    |
 |Ruch przychodzący|4 136 MiB/s     |
 |Ruch wychodzący|6 204 MiB/s |

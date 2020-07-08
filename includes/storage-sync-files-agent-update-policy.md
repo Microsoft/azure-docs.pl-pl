@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77123221"
 ---
 Agent Azure File Sync jest regularnie aktualizowany, aby można było dodać nowe funkcje i rozwiązać problemy. Zalecamy skonfigurowanie Microsoft Update do pobierania aktualizacji dla agenta Azure File Sync, gdy są one dostępne.
@@ -21,8 +21,8 @@ Agent Azure File Sync jest regularnie aktualizowany, aby można było dodać now
 Istnieją cztery zatwierdzone i przetestowane sposoby instalowania aktualizacji agenta Azure File Sync. 
 1. **Wybiera Skonfiguruj Microsoft Update, aby automatycznie pobierać i instalować aktualizacje agentów.**  
     Zawsze zalecamy pobranie każdej Azure File Sync aktualizacji, aby upewnić się, że masz dostęp do najnowszych poprawek dla agenta serwera. Microsoft Update ten proces bezproblemowo, pobierając i instalując aktualizacje.
-2. **Pobierz i zainstaluj aktualizacje agentów przy użyciu programu AfsUpdater. exe.**  
-    AfsUpdater. exe znajduje się w katalogu instalacyjnym agenta. Kliknij dwukrotnie plik wykonywalny, aby pobrać i zainstalować aktualizacje agenta. 
+2. **Użyj AfsUpdater.exe, aby pobrać i zainstalować aktualizacje agentów.**  
+    AfsUpdater.exe znajduje się w katalogu instalacji agenta. Kliknij dwukrotnie plik wykonywalny, aby pobrać i zainstalować aktualizacje agenta. 
 3. **Poprawka istniejącego agenta Azure File Sync przy użyciu pliku poprawki Microsoft Update lub plik wykonywalny msp. Najnowszy pakiet aktualizacji Azure File Sync można pobrać z [katalogu Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Uruchomienie pliku wykonywalnego. msp spowoduje uaktualnienie instalacji Azure File Sync przy użyciu tej samej metody, która została użyta automatycznie przez Microsoft Update w poprzedniej ścieżce uaktualnienia. Zastosowanie poprawki Microsoft Update spowoduje przeprowadzenie uaktualnienia w miejscu Azure File Sync instalacji.
 4. **Pobierz najnowszą wersję Instalatora agenta Azure File Sync z [Centrum pobierania Microsoft](https://go.microsoft.com/fwlink/?linkid=858257).**  
