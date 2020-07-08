@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340870"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debugowanie lokalnego wyzwalacza siatki zdarzeń funkcji platformy Azure
@@ -101,7 +100,7 @@ Gdy Event Grid rozpoznaje nowy plik zostanie przekazany do kontenera magazynu, p
 
 ![Uruchom ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym artykule, Usuń kontener **testowy** na koncie magazynu.
 

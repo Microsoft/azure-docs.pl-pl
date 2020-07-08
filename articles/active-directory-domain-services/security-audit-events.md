@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e79156e6e9f1283dfc7b8801820e3335f31afa9
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734303"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039895"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services
 
@@ -159,11 +158,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Przykładowe zapytanie 2
 
-Wyświetl wszystkie zdarzenia blokady konta (*4740*) od 3 lutego 2020 o godzinie 9 i 10 lutego 2020 północy, posortowane rosnąco według daty i godziny:
+Wyświetl wszystkie zdarzenia blokady konta (*4740*) od 3 czerwca 2020 o godzinie 9. i 10 czerwca 2020 północy, posortowane rosnąco według daty i godziny:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

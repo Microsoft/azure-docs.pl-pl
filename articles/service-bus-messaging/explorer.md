@@ -4,10 +4,9 @@ description: Ten artykuł zawiera informacje dotyczące korzystania z Eksplorato
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340547"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Używanie Service Bus Explorer do wykonywania operacji na danych na Service Bus (wersja zapoznawcza)

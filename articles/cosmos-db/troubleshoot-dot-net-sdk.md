@@ -8,12 +8,11 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b24c0b045bc7d894496a59eda00f0e8835ea6a8d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799269"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
@@ -87,7 +86,7 @@ To opóźnienie może mieć wiele przyczyn:
 
 ### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Wyczerpanie portów (z) na platformie Azure
 
-Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez publicznego adresu IP](../load-balancer/load-balancer-outbound-connections.md#defaultsnat), domyślnie [porty usługi Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) IPSec ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych między maszyną wirtualną a punktem końcowym Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure translatora adresów sieciowych](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Ta sytuacja może prowadzić do ograniczenia połączeń, zamknięcia połączenia lub powyżej wspomnianych [limitów czasu żądania](#request-timeouts).
+Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez publicznego adresu IP](../load-balancer/load-balancer-outbound-connections.md), domyślnie [porty usługi Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) IPSec ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych między maszyną wirtualną a punktem końcowym Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure translatora adresów sieciowych](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Ta sytuacja może prowadzić do ograniczenia połączeń, zamknięcia połączenia lub powyżej wspomnianych [limitów czasu żądania](#request-timeouts).
 
  Porty protokołu IPSec platformy Azure są używane tylko wtedy, gdy maszyna wirtualna ma prywatny adres IP łączący się z publicznym adresem IP. Istnieją dwa obejścia, aby uniknąć ograniczenia dotyczącego translatora adresów sieciowych platformy Azure (pod warunkiem, że korzystasz już z pojedynczego wystąpienia klienta w całej aplikacji):
 
@@ -109,16 +108,16 @@ W przeciwnym razie nastąpiły problemy z połączeniem.
 * Jeśli zapytanie zaplecza próbuje [zoptymalizować zapytanie](optimize-cost-queries.md) i przeszukać bieżące [zasady indeksowania](index-overview.md) 
 
 ### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: podpis MAC znaleziony w żądaniu HTTP nie jest taki sam jak obliczony podpis
-Jeśli otrzymasz następujący komunikat o błędzie 401: "podpis MAC znaleziony w żądaniu HTTP nie jest taki sam jak obliczony podpis". może to być spowodowane następującymi scenariuszami.
+Jeśli został wyświetlony następujący komunikat o błędzie 401: „Podpis MAC znaleziony w żądaniu HTTP nie jest taki sam, jak podpis obliczony”, może to być spowodowane następującymi scenariuszami.
 
-1. Klucz został obrócony i nie przestrzega [najlepszych](secure-access-to-data.md#key-rotation)rozwiązań. Zwykle jest to przypadek. Rotacja kluczy konta Cosmos DB może potrwać od kilku sekund do prawdopodobnie dni, w zależności od rozmiaru konta Cosmos DB.
-   1. Sygnatura 401 MAC jest widoczna wkrótce po rotacji kluczy i ostatecznie zatrzyma się bez wprowadzania jakichkolwiek zmian. 
-1. Klucz jest nieprawidłowo skonfigurowany w aplikacji, więc klucz nie jest zgodny z kontem.
-   1. problem z sygnaturą 401 dla komputerów MAC będzie spójny i występuje dla wszystkich wywołań
+1. Klucz został wymieniony i nie zastosowano [najlepszych rozwiązań](secure-access-to-data.md#key-rotation). Jest to najczęstsza przyczyna tego błędu. Wymiana kluczy konta usługi Cosmos DB może potrwać od kilku sekund do kilku dni, w zależności od rozmiaru konta usługi Cosmos DB.
+   1. Komunikat o błędzie 401 dotyczącym podpisu MAC jest wyświetlany krótko po wymianie kluczy i przestaje być wyświetlany bez wprowadzania jakichkolwiek zmian. 
+1. Klucz został nieprawidłowo skonfigurowany w aplikacji, w związku z czym nie jest zgodny z kontem.
+   1. Błąd 401 dotyczący podpisu MAC będzie spójny i będzie występować dla wszystkich wywołań
 1. Aplikacja używa [kluczy tylko do odczytu](secure-access-to-data.md#master-keys) dla operacji zapisu.
-   1. problem z sygnaturą komputera MAC 401 będzie występować tylko wtedy, gdy aplikacja wykonuje żądania zapisu, ale żądania odczytu zakończą się powodzeniem.
-1. Istnieje sytuacja wyścigu z tworzeniem kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowym scenariuszem, jeśli aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie o tej samej nazwie, gdy aplikacja jest uruchomiona. Zestaw SDK podejmie próbę użycia nowego kontenera, ale Tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
-   1. problem z podpisem MAC 401 jest widoczny wkrótce po utworzeniu kontenera i występuje tylko do momentu zakończenia tworzenia kontenera.
+   1. Błąd 401 dotyczący podpisu MAC będzie występować tylko wtedy, gdy aplikacja będzie wykonywać żądania zapisu — żądania odczytu będą wykonywane pomyślnie.
+1. Istnieje sytuacja wyścigu dotycząca tworzenia kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowy scenariusz w tej sytuacji polega na tym, że aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie z tą samą nazwą, gdy aplikacja działa. Zestaw SDK podejmie próbę użycia nowego kontenera, ale tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
+   1. Błąd 401 dotyczący podpisu MAC jest widoczny wkrótce po utworzeniu kontenera i występuje tylko do momentu zakończenia tworzenia kontenera.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Błąd HTTP 400. Rozmiar nagłówków żądania jest zbyt długi.
  Rozmiar nagłówka zwiększył się do dużego i przekracza maksymalny dozwolony rozmiar. Zawsze zaleca się użycie najnowszego zestawu SDK. Upewnij się, że używasz co najmniej wersji [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) lub [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), która dodaje śledzenie rozmiaru nagłówka do komunikatu o wyjątku.

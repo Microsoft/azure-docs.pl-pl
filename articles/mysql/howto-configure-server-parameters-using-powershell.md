@@ -8,10 +8,9 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 4/29/2020
 ms.openlocfilehash: 6c91f1494e56e9176f8bbf79387144aea5942787
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725175"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL przy użyciu programu PowerShell

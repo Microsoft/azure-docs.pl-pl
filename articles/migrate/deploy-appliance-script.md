@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate za pomoc
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052460"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurowanie urządzenia za pomocą skryptu
@@ -49,7 +48,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 3. Sprawdź najnowszą wersję i skrypt dla chmury publicznej platformy Azure:
 
-    **Algorytm** | **Pobierz** | **SHA256**
+    **Algorytm** | **Pobieranie** | **SHA256**
     --- | --- | ---
     VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
@@ -98,7 +97,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 3. Sprawdź najnowszą wersję i skrypt dla chmury publicznej platformy Azure:
 
-    **Scenariusz** | **Pobierz** | **SHA256**
+    **Scenariusz** | **Pobieranie** | **SHA256**
     --- | --- | ---
     Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2105112) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 

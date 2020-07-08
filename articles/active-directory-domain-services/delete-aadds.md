@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 5844fca371680ce02e6628d9cacbf50ebe4c8ed0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734830"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040116"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Usuwanie Azure Active Directory Domain Services domeny zarządzanej przy użyciu Azure Portal
 
-Jeśli domena zarządzana nie jest już potrzebna, można usunąć domenę zarządzaną Azure Active Directory Domain Services (AD DS platformy Azure). Nie ma możliwości wyłączenia lub tymczasowego wyłączenia domeny zarządzanej AD DS platformy Azure. Usunięcie domeny zarządzanej nie powoduje usunięcia lub w inny sposób niekorzystnego wpływu na dzierżawę usługi Azure AD. W tym artykule pokazano, jak za pomocą Azure Portal usunąć domenę zarządzaną.
+Jeśli nie potrzebujesz już domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS), możesz ją usunąć. Nie ma możliwości wyłączenia lub tymczasowego wyłączenia domeny zarządzanej AD DS platformy Azure. Usunięcie domeny zarządzanej nie powoduje usunięcia lub w inny sposób niekorzystnego wpływu na dzierżawę usługi Azure AD.
+
+W tym artykule pokazano, jak za pomocą Azure Portal usunąć domenę zarządzaną.
 
 > [!WARNING]
 > **Usuwanie jest trwałe i nie można go cofnąć.**
+> 
 > Po usunięciu domeny zarządzanej są wykonywane następujące czynności:
 >   * Kontrolery domeny dla domeny zarządzanej są nieobsługiwane i usuwane z sieci wirtualnej.
 >   * Dane w domenie zarządzanej są trwale usuwane. Te dane obejmują niestandardowe jednostki organizacyjne, obiekty zasad grupy, niestandardowe rekordy DNS, nazwy główne usług, kont gMSA itp.

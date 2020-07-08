@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848022"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957345"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Table Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -26,11 +25,11 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
     1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie. **Nowe** okienko pojawia się po prawej stronie.
     1. Wybierz pozycję **Magazyn** w **nowym** okienku. Lista **Proponowana** pojawia się po prawej stronie.
-    1. Wybierz pozycję **konto magazynu** , aby rozpocząć tworzenie konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Wybierz pozycję **konto magazynu** , aby rozpocząć tworzenie konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Procedura tworzenia konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        Aby uzyskać więcej informacji na temat kont magazynu, zobacz [samouczek szybki start](https://docs.microsoft.com/azure/storage/). Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
+        Aby uzyskać więcej informacji na temat kont magazynu, zobacz [samouczek szybki start](../../storage/index.yml). Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Zaczekaj na zainicjowanie obsługi konta magazynu. Ten proces zazwyczaj trwa kilka minut. 
 
@@ -71,7 +70,7 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
    ![Moje przepływy + zaplanowano — z pustej](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz przycisk **Utwórz**.
+1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz pozycję **Utwórz**.
 
    >[!NOTE]
    >Mimo że w tym przykładzie używany jest interwał jednogodzinny, można wybrać interwał i częstotliwość, które najlepiej odpowiadają potrzebom biznesowym.
@@ -107,7 +106,7 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
    Po wybraniu opcji **Utwórz**zostanie wyświetlone okno **pobieranie jednostek** . W tym miejscu wybierz pozycję **Pokaż opcje zaawansowane**i podaj informacje dla następujących pól:
 
-   * **Tabela**: wybierz nazwę tabeli (z [tabeli Utwórz tabelę](#create-a-table-in-your-storage-account)). Na poniższej ilustracji przedstawiono monit, gdy w tym przykładzie wybrano tabelę "marketplaceleads".
+   * **Tabela**: wybierz nazwę tabeli (z [tabeli Utwórz tabelę](#create-a-table-in-your-storage-account)). Na poniższej ilustracji przedstawiono monit po `marketplaceleads` wybraniu tabeli dla tego przykładu.
 
      ![Pobierz okno jednostek](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

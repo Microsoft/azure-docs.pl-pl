@@ -10,10 +10,9 @@ ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
 ms.openlocfilehash: 74c0f5be7998450b0fb868ff4969e412fdaa4788
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414474"
 ---
 # <a name="azure-compute-unit-acu"></a>Jednostka obliczeniowa platformy Azure (ACU)
@@ -63,12 +62,12 @@ Funkcja Hyper-Threading i możliwość uruchamiania wirtualizacji zagnieżdżone
 | [F1s — F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [G1-G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 — GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [C](h-series.md) |290 - 300* | 1:1 |
+| [H](h-series.md) |290 - 300* | 1:1 |
 | [HB](hb-series.md) |199 – 216 * * | 1:1 |
 | [WĘGLOWODOR](hc-series.md) |297 – 315 * | 1:1 |
 | [L4s — L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 — L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
-| [Mol](m-series.md) | 160 – 180 | 2:1\*\*\* |
+| [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
 
 Poniżej znajdują się linki do dodatkowych informacji o różnych rozmiarach:
 

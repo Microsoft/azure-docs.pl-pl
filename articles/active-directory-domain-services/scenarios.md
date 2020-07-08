@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 68d41e14806a74dfc0b6e58cec9629704bad928c
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: ba4761a2b7893fd894f62b7e2252005d7afd1c91
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734490"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039980"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Typowe przypadki użycia i scenariusze dla Azure Active Directory Domain Services
 
@@ -28,20 +27,22 @@ W tym artykule opisano niektóre typowe scenariusze biznesowe, w których usług
 
 Aby można było używać jednego zestawu poświadczeń usługi AD, maszyny wirtualne platformy Azure można przyłączyć do domeny zarządzanej AD DS platformy Azure. Takie podejście zmniejsza problemy związane z zarządzaniem poświadczeniami, takie jak obsługa kont administratorów lokalnych na każdej maszynie wirtualnej lub oddzielne konta i hasła między środowiskami.
 
-Maszyny wirtualne, które są przyłączone do domeny zarządzanej, mogą być również zarządzane i zabezpieczone przy użyciu zasad grupy. Wymagane linie bazowe zabezpieczeń mogą być stosowane do maszyn wirtualnych w celu zablokowania ich zgodnie z wytycznymi dotyczącymi zabezpieczeń firmy. Można na przykład użyć funkcji zarządzania zasadami grupy, aby ograniczyć typy aplikacji, które można uruchomić na maszynie wirtualnej.
+Maszyny wirtualne, które są przyłączone do domeny zarządzanej, mogą być również administrowane i zabezpieczone przy użyciu zasad grupy. Wymagane linie bazowe zabezpieczeń mogą być stosowane do maszyn wirtualnych w celu zablokowania ich zgodnie z wytycznymi dotyczącymi zabezpieczeń firmy. Można na przykład użyć funkcji zarządzania zasadami grupy, aby ograniczyć typy aplikacji, które można uruchomić na maszynie wirtualnej.
 
 ![Usprawnione administrowanie maszynami wirtualnymi platformy Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Przyjrzyjmy się typowym przykładowym scenariuszom. Ponieważ serwery i inne infrastruktury osiągają koniec życia, firma Contoso chce przenieść aplikacje aktualnie hostowane lokalnie do chmury. Ich bieżąca wersja standardu IT, która umożliwia serwerom hostującym aplikacje firmowe, musi być przyłączona do domeny i zarządzana przy użyciu zasad grupy. Administrator IT firmy Contoso woli przyłączyć do domeny maszyny wirtualne wdrożone na platformie Azure, aby ułatwić administrację, ponieważ użytkownicy mogą logować się przy użyciu swoich poświadczeń firmowych. Po przyłączeniu do domeny maszyny wirtualne można również skonfigurować tak, aby spełniały wymagane linie bazowe zabezpieczeń przy użyciu obiektów zasad grupy (GPO). Firma Contoso woli nie wdrażać i monitorować własnych kontrolerów domeny na platformie Azure oraz zarządzać nimi.
+Przyjrzyjmy się typowym przykładowym scenariuszom. Ponieważ serwery i inne infrastruktury osiągają koniec życia, firma Contoso chce przenieść aplikacje aktualnie hostowane lokalnie do chmury. Ich bieżąca wersja standardu IT, która umożliwia serwerom hostującym aplikacje firmowe, musi być przyłączona do domeny i zarządzana przy użyciu zasad grupy.
 
-Usługa Azure AD DS to doskonałe rozwiązanie dla tego przypadku użycia. Domena zarządzana umożliwia przyłączanie do domeny maszyn wirtualnych, korzystanie z jednego zestawu poświadczeń i stosowanie zasad grupy. Jako domena zarządzana nie trzeba samodzielnie konfigurować i obsługiwać kontrolerów domeny.
+Administrator IT firmy Contoso woli przyłączyć do domeny maszyny wirtualne wdrożone na platformie Azure, aby ułatwić administrację, ponieważ użytkownicy mogą logować się przy użyciu swoich poświadczeń firmowych. Po przyłączeniu do domeny maszyny wirtualne można również skonfigurować tak, aby spełniały wymagane linie bazowe zabezpieczeń przy użyciu obiektów zasad grupy (GPO). Firma Contoso woli nie wdrażać i monitorować własnych kontrolerów domeny na platformie Azure oraz zarządzać nimi.
+
+Usługa Azure AD DS to doskonałe rozwiązanie dla tego przypadku użycia. Domena zarządzana umożliwia przyłączanie do domeny maszyn wirtualnych, korzystanie z jednego zestawu poświadczeń i stosowanie zasad grupy. I ponieważ jest to domena zarządzana, nie trzeba samodzielnie konfigurować kontrolerów domeny i nimi zarządzać.
 
 ### <a name="deployment-notes"></a>Uwagi dotyczące wdrażania
 
 Następujące zagadnienia dotyczące wdrażania dotyczą tego przykładowego przypadku użycia:
 
-* Domeny zarządzane domyślnie korzystają z jednej, płaskiej struktury jednostki organizacyjnej (OU). Wszystkie maszyny wirtualne przyłączone do domeny znajdują się w jednej jednostce organizacyjnej. W razie potrzeby można utworzyć niestandardowe jednostki organizacyjne.
-* Usługa Azure AD DS używa wbudowanego obiektu zasad grupy dla kontenerów Użytkownicy i komputery. Aby uzyskać dodatkową kontrolę, można utworzyć niestandardowe obiekty zasad grupy i kierować je do niestandardowych jednostek organizacyjnych.
+* Domeny zarządzane domyślnie korzystają z jednej, płaskiej struktury jednostki organizacyjnej (OU). Wszystkie maszyny wirtualne przyłączone do domeny znajdują się w jednej jednostce organizacyjnej. W razie potrzeby można utworzyć [niestandardowe jednostki organizacyjne][custom-ou].
+* Usługa Azure AD DS używa wbudowanego obiektu zasad grupy dla kontenerów Użytkownicy i komputery. Aby uzyskać dodatkową kontrolę, można [utworzyć niestandardowe obiekty zasad grupy][create-gpo] i kierować je do niestandardowych jednostek organizacyjnych.
 * Usługa Azure AD DS obsługuje podstawowy schemat obiektów komputera usługi AD. Nie można rozłożyć schematu obiektu komputera.
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>Aplikacje lokalne podnoszenia i przesunięcia korzystające z uwierzytelniania powiązania LDAP
@@ -59,7 +60,7 @@ W tym scenariuszu usługa Azure AD DS umożliwia aplikacjom wykonywanie powiąza
 Następujące zagadnienia dotyczące wdrażania dotyczą tego przykładowego przypadku użycia:
 
 * Upewnij się, że aplikacja nie musi modyfikować/zapisywać w katalogu. Dostęp do zapisu LDAP do domeny zarządzanej nie jest obsługiwany.
-* Nie można zmienić haseł bezpośrednio w domenie zarządzanej. Użytkownicy końcowi mogą zmieniać swoje hasła przy użyciu samoobsługowego mechanizmu zmiany hasła w usłudze Azure AD lub w katalogu lokalnym. Te zmiany są następnie automatycznie synchronizowane i dostępne w domenie zarządzanej.
+* Nie można zmienić haseł bezpośrednio w domenie zarządzanej. Użytkownicy końcowi mogą zmieniać swoje hasła przy użyciu samoobsługowego [mechanizmu zmiany hasła w usłudze Azure AD][sspr] lub w katalogu lokalnym. Te zmiany są następnie automatycznie synchronizowane i dostępne w domenie zarządzanej.
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Aplikacje lokalne, które używają odczytu z protokołu LDAP do uzyskiwania dostępu do katalogu
 
@@ -91,11 +92,13 @@ W tym scenariuszu serwery obsługujące fronton internetowy, program SQL Server 
 Następujące zagadnienia dotyczące wdrażania dotyczą tego przykładowego przypadku użycia:
 
 * Upewnij się, że aplikacje używają nazwy użytkownika i hasła na potrzeby uwierzytelniania. Certyfikat lub uwierzytelnianie oparte na karcie inteligentnej nie są obsługiwane przez usługę Azure AD DS.
-* Nie można zmienić haseł bezpośrednio w domenie zarządzanej. Użytkownicy końcowi mogą zmieniać swoje hasła przy użyciu samoobsługowego mechanizmu zmiany hasła w usłudze Azure AD lub w katalogu lokalnym. Te zmiany są następnie automatycznie synchronizowane i dostępne w domenie zarządzanej.
+* Nie można zmienić haseł bezpośrednio w domenie zarządzanej. Użytkownicy końcowi mogą zmieniać swoje hasła przy użyciu samoobsługowego [mechanizmu zmiany hasła w usłudze Azure AD][sspr] lub w katalogu lokalnym. Te zmiany są następnie automatycznie synchronizowane i dostępne w domenie zarządzanej.
 
 ## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Wdrożenia usług pulpitu zdalnego systemu Windows Server na platformie Azure
 
-Usługa Azure AD DS umożliwia udostępnianie usług domenowych zarządzanej na serwerach usług pulpitu zdalnego wdrożonych na platformie Azure. Aby uzyskać więcej informacji o tym scenariuszu wdrażania, zobacz [Jak zintegrować Azure AD Domain Services z wdrożeniem usług pulpitu zdalnego][windows-rds].
+Usługa Azure AD DS umożliwia udostępnianie usług domenowych zarządzanej na serwerach usług pulpitu zdalnego wdrożonych na platformie Azure.
+
+Aby uzyskać więcej informacji o tym scenariuszu wdrażania, zobacz [Jak zintegrować Azure AD Domain Services z wdrożeniem usług pulpitu zdalnego][windows-rds].
 
 ## <a name="domain-joined-hdinsight-clusters"></a>Przyłączone do domeny klastry usługi HDInsight
 
@@ -105,11 +108,14 @@ Aby uzyskać więcej informacji o tym scenariuszu wdrażania, zobacz [jak skonfi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, [Utwórz i skonfiguruj domenę zarządzaną Azure Active Directory Domain Services][tutorial-create-instance]
+Aby rozpocząć, [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
 [tutorial-create-instance]: tutorial-create-instance.md
+[custom-ou]: create-ou.md
+[create-gpo]: manage-group-policy.md
+[sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

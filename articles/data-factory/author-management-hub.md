@@ -10,10 +10,9 @@ ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
 ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84346045"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centrum zarządzania w Azure Data Factory
@@ -46,7 +45,7 @@ Wyświetlanie i edytowanie skonfigurowanych ustawień repozytorium Git w centrum
 
 ### <a name="parameterization-template"></a>Szablon parametryzacja
 
-Aby zastąpić wygenerowane parametry szablonu Menedżer zasobów podczas publikowania z gałęzi współpracy, można wygenerować lub edytować plik parametrów niestandardowych. Aby uzyskać więcej informacji, Dowiedz się, jak [używać niestandardowych parametrów w szablonie Menedżer zasobów](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). Szablon parametryzacja jest dostępny tylko podczas pracy w repozytorium git. Jeśli plik *ARM-template-parameters-Definition. JSON* nie istnieje w gałęzi roboczej, edytowanie szablonu domyślnego spowoduje jego wygenerowanie.
+Aby zastąpić wygenerowane parametry szablonu Menedżer zasobów podczas publikowania z gałęzi współpracy, można wygenerować lub edytować plik parametrów niestandardowych. Aby uzyskać więcej informacji, Dowiedz się, jak [używać niestandardowych parametrów w szablonie Menedżer zasobów](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). Szablon parametryzacja jest dostępny tylko podczas pracy w repozytorium git. Jeśli *arm-template-parameters-definition.jsw* pliku nie istnieje w gałęzi roboczej, edytowanie szablonu domyślnego spowoduje jego wygenerowanie.
 
 ![Zarządzaj niestandardowymi paramsmi](media/author-management-hub/management-hub-custom-parameters.png)
 

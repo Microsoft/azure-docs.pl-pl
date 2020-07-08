@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85414151"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
@@ -65,7 +64,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/serwery    | Mójserwersql |
 |**Azure Database for MariaDB** | Microsoft. DBforMariaDB/serwery    | mariadbServer |
 |**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
-|**Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
+|**W usłudze Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
 |**Usługa Azure Kubernetes Service — interfejs API Kubernetes** | Microsoft. ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft. ContainerRegistry/rejestry    | registry |

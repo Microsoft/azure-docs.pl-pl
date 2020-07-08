@@ -10,10 +10,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 1f591e52ba0c54dcf3242d11f7e81e8e73a570c0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988625"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Zabezpieczanie aplikacji sieci Web przy użyciu logowania użytkownika

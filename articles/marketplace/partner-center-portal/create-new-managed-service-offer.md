@@ -8,16 +8,15 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 3099c73849a63ebf490d026db95cedfd1278d735
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373458"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957583"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
-Usługa zarządzana oferuje pomoc w włączaniu scenariuszy [usługi Azure Lighthouse](../../lighthouse/overview.md) . Gdy klient zaakceptuje ofertę usługi zarządzanej, może później dołączyć zasoby do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Usługa zarządzana oferuje pomoc w włączaniu scenariuszy [usługi Azure Lighthouse](../../lighthouse/overview.md) . Gdy klient zaakceptuje ofertę usługi zarządzanej, może później dołączyć zasoby do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kompetencji](https://partner.microsoft.com/membership/cloud-platform-competency) lub [specjalistą dla chmury platformy Azure](https://partner.microsoft.com/membership/azure-expert-msp) .
 
@@ -162,7 +161,7 @@ Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
-- [Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](../gtm-offer-listing-best-practices.md)
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 

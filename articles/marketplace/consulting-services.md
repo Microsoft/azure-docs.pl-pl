@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: fb2031072ce93fcacdf52f8f0fad68f836049b22
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.openlocfilehash: 1267225f6b8557efc7ce36a973daef0a46aaba2d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560907"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957991"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,11 +21,11 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma sklepami, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma sklepami, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 
-Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Microsoft Azure mogą być wymienione w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty usługi Azure Consulting Service](./partner-center-portal/create-consulting-service-offer.md) i [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Microsoft Azure mogą być wymienione w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty usługi Azure Consulting Service](./partner-center-portal/create-consulting-service-offer.md) i [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Usługi doradcze w witrynie Azure Marketplace powinny skupić się na ofertach dla odbiorców technicznych i wyróżnić rozwiązania techniczne i usługi platformy Azure.
@@ -72,7 +71,7 @@ Aby uzyskać więcej informacji na temat kompetencji, przejdź do strony [Micros
 
 Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 20 krajów/regionów:
 
-|   |   |   |   |
+| Kraje  | (ciąg dalszy)   | (ciąg dalszy)  | (ciąg dalszy)  |
 |---------|----------|----------|----------|
 | Australia | Belgia | Kanada | Dania |
 | Finlandia  | Francja | Niemcy  | Indie   |
@@ -83,7 +82,7 @@ Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dl
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Zarejestruj się w celu uzyskania usług doradczych na rynku komercyjnym
 
-Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
 Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
@@ -152,7 +151,7 @@ Gdy zespół przeglądający zawartość przegląda opisy ofert i oferuje podsum
 
 |Typ oferty  |Wymagane |Zalecane  |
 |---------|---------|---------|
-|**Stopnia**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
+|**Ocena**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Briefing**    |   Ideach, którego elementu dostarcza klient może oczekiwać. Należy pamiętać, że należy podać *krótkie* dane. Jeśli dostarczasz usługę wirtualną, wybierz inny typ oferty.    |  Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.       |
 |**Implementacja**    |  Zapoznaj się ze szczegółowym porządkiem obejmującym wiele dni lub wielotygodniowe implementacje oraz ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatów zaangażowania.       |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Weryfikacja koncepcji**    |    Ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatu zaangażowania.     | Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.        |

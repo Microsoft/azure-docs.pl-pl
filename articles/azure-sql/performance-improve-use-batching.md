@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343833"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Korzystanie z usługi Batch w celu usprawnienia Azure SQL Database i wydajności aplikacji wystąpienia zarządzanego Azure SQL
@@ -212,7 +211,7 @@ Aby uzyskać więcej informacji na temat parametrów z wartościami przechowywan
 
 ### <a name="sql-bulk-copy"></a>Kopia Zbiorcza SQL
 
-Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **bcp. exe**lub instrukcji języka Transact-SQL **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable**do tabeli docelowej, MyTable.
+Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe**lub instrukcji języka Transact-SQL, **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable**do tabeli docelowej, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))

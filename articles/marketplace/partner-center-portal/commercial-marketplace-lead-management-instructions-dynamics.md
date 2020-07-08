@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: 555002284b2665a357a28319a400710d66be4604
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847954"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957243"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
 
@@ -60,7 +59,7 @@ Aby napisać potencjalni klienci do wystąpienia zaangażowania klienta Dynamics
 Wykonaj następujące kroki, aby utworzyć konto usługi i przypisać uprawnienia. Możesz użyć Azure Active Directory lub pakietu Office 365.
 
 >[!NOTE]
->Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) lub [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
+>Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](#azure-active-directory) lub [Office 365](#office-365).
 
 ### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 

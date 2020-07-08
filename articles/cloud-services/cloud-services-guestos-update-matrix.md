@@ -13,10 +13,9 @@ ms.workload: tbd
 ms.date: 6/3/2020
 ms.author: yohaddad
 ms.openlocfilehash: 2d4e6054b1e5626b42bb662ac57fc0323d190aa8
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343969"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK
@@ -186,7 +185,7 @@ Wydano system operacyjny gościa w trybie gościnnym.
 |~~WA-GOŚĆ-OS-5.23 _201809-01~~ |12 października 2018 |14 grudnia 2018 |
 
 ## <a name="family-4-releases"></a>Wydania z rodziny 4
-**System Windows Server 2012 R2**
+**Windows Server 2012 z dodatkiem R2**
 
 .NET Framework zainstalowane: 3,5, 4.5.1, 4.5.2
 

@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fa94b7461907a2337ba448a91d67fe93c5ab2f8f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612261"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957566"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Zestaw SDK REST serwera Apache Phoenix Query
 
@@ -27,11 +26,13 @@ Aby uzyskać więcej informacji, zobacz artykuł dotyczący [buforów protokołu
 
 Sterownik Microsoft .NET dla programu Apache Phoenix Query Server jest dostarczany jako pakiet NuGet, który można zainstalować z **konsoli Menedżera pakietów NuGet** programu Visual Studio za pomocą następującego polecenia:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Tworzenie wystąpienia nowego obiektu PhoenixClient
 
-Aby rozpocząć korzystanie z biblioteki, Utwórz wystąpienie nowego `PhoenixClient` obiektu, przekazując `ClusterCredentials` element `Uri` do klastra i nazwę użytkownika i hasło klastra Apache Hadoop.
+Aby rozpocząć korzystanie z biblioteki, Utwórz wystąpienie nowego `PhoenixClient` obiektu, przekazując element `ClusterCredentials` `Uri` do klastra i nazwę użytkownika i hasło klastra Apache Hadoop.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -48,11 +49,11 @@ Aby wysłać co najmniej jedno żądanie do PQS, należy dołączyć unikatowy i
 string connId = Guid.NewGuid().ToString();
 ```
 
-Każdy przykład najpierw wywołuje `OpenConnectionRequestAsync` metodę, przekazując unikatowy identyfikator połączenia. Następnie zdefiniuj `ConnectionProperties` i `RequestOptions`przekazanie tych obiektów oraz wygenerowanego identyfikatora połączenia do `ConnectionSyncRequestAsync` metody. `ConnectionSyncRequest` Obiekt PQS gwarantuje, że zarówno klient, jak i serwer mają spójny widok Właściwości bazy danych.
+Każdy przykład najpierw wywołuje `OpenConnectionRequestAsync` metodę, przekazując unikatowy identyfikator połączenia. Następnie zdefiniuj `ConnectionProperties` i `RequestOptions` przekazanie tych obiektów oraz wygenerowanego identyfikatora połączenia do `ConnectionSyncRequestAsync` metody. Obiekt PQS gwarantuje `ConnectionSyncRequest` , że zarówno klient, jak i serwer mają spójny widok Właściwości bazy danych.
 
 ## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest i jego ConnectionProperties
 
-Aby wywołać `ConnectionSyncRequestAsync`metodę, Przekaż `ConnectionProperties` obiekt.
+Aby wywołać metodę `ConnectionSyncRequestAsync` , Przekaż `ConnectionProperties` obiekt.
 
 ```csharp
 ConnectionProperties connProperties = new ConnectionProperties
@@ -73,7 +74,7 @@ Oto pewne właściwości:
 
 | Właściwość | Opis |
 | -- | -- |
-| Automatycznego zatwierdzania | Wartość logiczna określająca, `autoCommit` czy włączono obsługę transakcji w Phoenix. |
+| Automatycznego zatwierdzania | Wartość logiczna określająca, czy `autoCommit` włączono obsługę transakcji w Phoenix. |
 | ReadOnly | Wartość logiczna określająca, czy połączenie jest tylko do odczytu. |
 | TransactionIsolation | Liczba całkowita oznaczająca poziom izolacji transakcji na specyfikację JDBC — Zobacz poniższą tabelę.|
 | Wykaz | Nazwa katalogu do użycia podczas pobierania właściwości połączenia. |
@@ -94,7 +95,7 @@ Oto `TransactionIsolation` wartości:
 
 HBase, podobnie jak wszystkie inne RDBMS, przechowuje dane w tabelach. Phoenix używa standardowych zapytań SQL do tworzenia nowych tabel podczas definiowania typów klucza podstawowego i kolumny.
 
-Ten przykład i wszystkie późniejsze przykłady, użyj `PhoenixClient` obiektu z utworzonymi wystąpieniami, tak jak zdefiniowano [wystąpienie nowego obiektu PhoenixClient](#instantiate-new-phoenixclient-object).
+Ten przykład i wszystkie późniejsze przykłady, użyj obiektu z utworzonymi wystąpieniami, `PhoenixClient` tak jak zdefiniowano [wystąpienie nowego obiektu PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -160,17 +161,17 @@ finally
 }
 ```
 
-Poprzedni przykład tworzy nową tabelę o nazwie `Customers` przy użyciu `IF NOT EXISTS` opcji. `CreateStatementRequestAsync` Wywołanie tworzy nową instrukcję na serwerze AVITICA (PQS). `finally` Blok zamyka zwrócone `CreateStatementResponse` i `OpenConnectionResponse` obiekty.
+Poprzedni przykład tworzy nową tabelę o nazwie `Customers` przy użyciu `IF NOT EXISTS` opcji. `CreateStatementRequestAsync`Wywołanie tworzy nową instrukcję na serwerze Avitica (PQS). `finally`Blok zamyka zwrócone `CreateStatementResponse` i `OpenConnectionResponse` obiekty.
 
 ## <a name="insert-data-individually"></a>Wstaw dane pojedynczo
 
-Ten przykład pokazuje pojedyncze Wstawianie danych, odwołujące `List<string>` się do kolekcji skrótów stanu i regionu:
+Ten przykład pokazuje pojedyncze Wstawianie danych, odwołujące się do `List<string>` kolekcji skrótów stanu i regionu:
 
 ```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-Wartość `StateProvince` kolumny tabeli zostanie użyta w późniejszej operacji SELECT.
+`StateProvince`Wartość kolumny tabeli zostanie użyta w późniejszej operacji SELECT.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -281,7 +282,7 @@ Struktura wykonywania instrukcji INSERT jest podobna do tworzenia nowej tabeli. 
 
 ## <a name="batch-insert-data"></a>Wstaw dane wsadowe
 
-Poniższy kod jest niemal identyczny z kodem do wstawiania pojedynczych danych. W tym przykładzie używa `UpdateBatch` obiektu w wywołaniu `ExecuteBatchRequestAsync`, zamiast wielokrotnie wywoływanie `ExecuteRequestAsync` z przygotowaną instrukcją.
+Poniższy kod jest niemal identyczny z kodem do wstawiania pojedynczych danych. W tym przykładzie używa `UpdateBatch` obiektu w wywołaniu `ExecuteBatchRequestAsync` , zamiast wielokrotnie wywoływanie `ExecuteRequestAsync` z przygotowaną instrukcją.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -492,9 +493,9 @@ finally
 }
 ```
 
-Wynik `select` instrukcji powinien być następujący:
+`select`Wynik instrukcji powinien być następujący:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

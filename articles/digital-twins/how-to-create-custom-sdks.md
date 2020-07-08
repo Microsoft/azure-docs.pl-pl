@@ -7,17 +7,13 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3d6fa1660f5204137dbebeae36f6d06852d88412
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84725804"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji za pomocą AutoRest
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
 
@@ -50,7 +46,7 @@ AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
 Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Ponieważ jednak prawdopodobnie potrzebujesz zestawu SDK usługi Azure Digital bliźniaczych reprezentacji w kilku oddzielnych projektach (aplikacje klienckie, aplikacje Azure Functions itd.), zalecamy utworzenie osobnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do innych rozwiązań jako odwołanie do projektu.
 
-Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Oto kroki do wykonania:
+Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Oto odpowiednie kroki:
 
 1. Tworzenie nowego rozwiązania programu Visual Studio dla biblioteki klas
 2. Użyj nazwy "ADTApi" jako nazwy projektu

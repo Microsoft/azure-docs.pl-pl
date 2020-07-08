@@ -14,10 +14,9 @@ ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
 ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84674282"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
@@ -203,7 +202,7 @@ Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych a
 
 Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezwolenia na adres IP żądań przychodzących oznaczony przy użyciu **szablonu globalnego** musi być listy dozwolonych wraz z adresem IP specyficznym dla **regionu** .
 
-| **Środowisko platformy Azure**|   **Region**|  **Adres IP**|
+| **Środowisko platformy Azure**|   **Okolicy**|  **Adres IP**|
 |-----------------|-------------------------|---------------|
 | Azure — publiczna| Południowo-środkowe stany USA (globalne)| 104.214.19.224|
 | Azure — publiczna| Północno-środkowe stany USA (globalne)| 52.162.110.80|

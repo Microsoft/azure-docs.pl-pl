@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161787"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957379"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu 
 
@@ -48,7 +47,7 @@ Poniższa tabela zawiera podsumowanie natywnej obsługi technologii DRM na róż
 | **Klient platforma** | **Natywna platforma DRM** | **EME** |
 | --- | --- | --- |
 | **Inteligentne telewizory, STBs** | PlayReady, Widevine i/lub inne | Osadzona przeglądarka/EME dla oprogramowania PlayReady i/lub Widevine|
-| **System Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
+| **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Urządzenia z systemem Android (telefon, tablet, telewizja)** |Widevine |Chrome dla Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (od systemu iOS 11,2) |
 | **macOS** | FairPlay | Safari for FairPlay (od przeglądarki Safari 9 + na Mac OS X 10.11 + El Capitan)|
@@ -193,7 +192,7 @@ Implementacja obejmuje następujące kroki:
    * Install-package Microsoft. Azure. ActiveDirectory. GraphClient
    * Install-package Microsoft. Owin. Security. OpenIdConnect
    * Install-package Microsoft. Owin. Security. cookies
-   * Install-package Microsoft. Owin. host. SystemWeb
+   * Install-package Microsoft.Owin.Host.SystemWeb
    * Install-package Microsoft. IdentityModel. clients. ActiveDirectory
 
 8. Utwórz odtwarzacz przy użyciu [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Użyj [interfejsu API Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) , aby określić technologię DRM, która ma być używana na różnych platformach DRM.
@@ -222,8 +221,10 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Adres URL wystawcy musi kończyć się znakiem "/". Odbiorcy muszą być IDENTYFIKATORem klienta aplikacji odtwarzacza. Należy również dodać znak "/" na końcu adresu URL wystawcy.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     W [dekoderze JWT](http://jwt.calebb.net/)zobaczysz **AUD** i **ISS**, jak pokazano w tokenie JWT:
 
@@ -235,11 +236,15 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Podczas konfigurowania dynamicznej ochrony CENC należy użyć właściwego wystawcy.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     Następujące elementy nie działają:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     Ten identyfikator GUID jest IDENTYFIKATORem dzierżawy usługi Azure AD. Identyfikator GUID można znaleźć w menu podręcznym **punkty końcowe** w Azure Portal.
 
@@ -249,7 +254,7 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Ustaw odpowiedni TokenType podczas tworzenia wymagań dotyczących ograniczeń.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    `objTokenRestrictionTemplate.TokenType = TokenType.JWT;`
 
     Ponieważ oprócz usługi SWT (ACS) dodano obsługę tokenu JWT (Azure AD), domyślnym ustawieniem TokenType jest TokenType. JWT. W przypadku korzystania z usługi SWT/ACS należy ustawić token na wartość TokenType. SWT.
 
@@ -276,7 +281,7 @@ Mimo że na platformie Azure zezwolono na dostęp tylko do konto Microsoft użyt
 
 Ponieważ usługa Azure AD ufa domenie konto Microsoft, można dodać dowolne konta z dowolnej z następujących domen do niestandardowej dzierżawy usługi Azure AD i użyć konta do logowania:
 
-| **Nazwa domeny** | **Domain** |
+| **Nazwa domeny** | **Domeny** |
 | --- | --- |
 | **Niestandardowa domena dzierżawy usługi Azure AD** |somename.onmicrosoft.com |
 | **Domena firmowa** |microsoft.com |

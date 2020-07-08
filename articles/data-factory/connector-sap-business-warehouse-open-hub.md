@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771023"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
@@ -235,14 +234,14 @@ Podczas kopiowania danych z SAP BW otwartego centrum następujące mapowania są
 
 | Typ SAP ABAP | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
-| C (ciąg) | Ciąg |
+| C (ciąg) | String |
 | I (liczba całkowita) | Int32 |
 | F (float) | Double |
-| D (Data) | Ciąg |
-| T (godzina) | Ciąg |
+| D (Data) | String |
+| T (godzina) | String |
 | P (spakowane, walutowe, dziesiętne, ilość) | Wartość dziesiętna |
-| N (NUMC) | Ciąg |
-| X (binarny i nieprzetworzony) | Ciąg |
+| N (NUMC) | String |
+| X (binarny i nieprzetworzony) | String |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

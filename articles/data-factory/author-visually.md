@@ -11,10 +11,9 @@ ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
 ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343121"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie wizualne w Azure Data Factory
@@ -63,7 +62,7 @@ Spowoduje to otwarcie **konstruktora wyrażeń Data Factory** , w którym można
 
 Aby uzyskać informacje na temat języka wyrażeń, zobacz [Expressions and Functions in Azure Data Factory](control-flow-expression-language-functions.md).
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Wybierz **opinię** , aby skomentować informacje o funkcjach lub powiadomić firmę Microsoft o problemach z narzędziem:
 
