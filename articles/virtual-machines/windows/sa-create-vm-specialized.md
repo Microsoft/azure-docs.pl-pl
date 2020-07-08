@@ -10,10 +10,9 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
 ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232826"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego na koncie magazynu

@@ -13,10 +13,9 @@ ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
 ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234896"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
@@ -85,4 +84,4 @@ TransformOutput[] output = new TransformOutput[]
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST](stream-files-tutorial-with-rest.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — interfejs wiersza polecenia](stream-files-cli-quickstart.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — .NET](stream-files-dotnet-quickstart.md)
-* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node. js](stream-files-nodejs-quickstart.md)
+* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node.js](stream-files-nodejs-quickstart.md)

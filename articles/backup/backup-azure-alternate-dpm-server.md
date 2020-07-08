@@ -4,10 +4,9 @@ description: Odzyskaj dane chronione do magazynu Recovery Services z dowolnego A
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84249080"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Odzyskiwanie danych z usługi Azure Backup Server

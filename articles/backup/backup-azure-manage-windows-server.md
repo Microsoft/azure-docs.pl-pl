@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak monitorować magazyny Recovery Ser
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234613"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi

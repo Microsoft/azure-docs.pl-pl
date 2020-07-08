@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 6ba1568e5fb05954313f50e63364a2e475dfbab7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195272"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Rozwiązywanie problemów z replikacją i przełączaniem w tryb failover z funkcji Hyper-V do platformy Azure
@@ -53,8 +52,8 @@ Rozwiązywanie problemów ze wstępną i trwającą replikacją:
     - Jeśli przeprowadzasz replikację przy użyciu programu VMM w środowisku, sprawdź, czy są uruchomione następujące usługi:
         - Na hoście funkcji Hyper-V Sprawdź, czy jest uruchomiona usługa zarządzania maszynami wirtualnymi, agent Microsoft Azure Recovery Services i usługa hosta dostawcy WMI.
         - Upewnij się, że usługa System Center Virtual Machine Manager jest uruchomiona na serwerze programu VMM.
-4. Sprawdź łączność między serwerem funkcji Hyper-V a platformą Azure. Aby sprawdzić łączność, Otwórz Menedżera zadań na hoście funkcji Hyper-V. Na karcie **wydajność** kliknij pozycję **Otwórz Monitor zasobów**. Na karcie **sieć** > **procesu z działaniem w sieci**Sprawdź, czy program pliku cbengine. exe aktywnie wysyła duże ilości danych (MB).
-5. Sprawdź, czy hosty funkcji Hyper-V mogą łączyć się z adresem URL obiektów BLOB usługi Azure Storage. Aby sprawdzić, czy hosty mogą się łączyć, zaznacz i sprawdź **pliku cbengine. exe**. Wyświetl **połączenia TCP** , aby zweryfikować łączność z hosta do obiektu BLOB usługi Azure Storage.
+4. Sprawdź łączność między serwerem funkcji Hyper-V a platformą Azure. Aby sprawdzić łączność, Otwórz Menedżera zadań na hoście funkcji Hyper-V. Na karcie **wydajność** kliknij pozycję **Otwórz Monitor zasobów**. Na karcie **sieć** > **procesu z aktywnością sieci**Sprawdź, czy cbengine.exe aktywnie wysyła duże ilości danych (MB).
+5. Sprawdź, czy hosty funkcji Hyper-V mogą łączyć się z adresem URL obiektów BLOB usługi Azure Storage. Aby sprawdzić, czy hosty mogą się łączyć, zaznacz i sprawdź **cbengine.exe**. Wyświetl **połączenia TCP** , aby zweryfikować łączność z hosta do obiektu BLOB usługi Azure Storage.
 6. Sprawdź problemy z wydajnością, zgodnie z poniższym opisem.
     
 ### <a name="performance-issues"></a>Problemy z wydajnością
@@ -135,7 +134,7 @@ Migawka spójna na poziomie aplikacji to migawka danych aplikacji znajdujących 
 
 ### <a name="common-errors"></a>Typowe błędy
 
-**Kod błędu** | **Komunikat** | **Uzyskać**
+**Kod błędu** | **Wiadomość** | **Szczegóły**
 --- | --- | ---
 **0x800700EA** | "Funkcja Hyper-V nie może wygenerować zestawu migawek VSS dla maszyny wirtualnej: dostępne są więcej danych. (0x800700EA). Generowanie zestawu migawek VSS może zakończyć się niepowodzeniem, jeśli operacja tworzenia kopii zapasowej jest w toku.<br/><br/> Operacja replikacji maszyny wirtualnej nie powiodła się: dostępne są więcej danych ". | Sprawdź, czy na maszynie wirtualnej jest włączony dysk dynamiczny. Ta funkcja nie jest obsługiwana.
 **0x80070032** | "Obiekt żądający kopiowania woluminów w tle funkcji Hyper-V nie może nawiązać połączenia z maszyną wirtualną <./VMname>, ponieważ wersja nie jest zgodna z wersją oczekiwaną przez funkcję Hyper-V | Sprawdź, czy są zainstalowane najnowsze aktualizacje systemu Windows.<br/><br/> [Uaktualnij](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) do najnowszej wersji usług Integration Services.
@@ -157,7 +156,7 @@ Wszystkie zdarzenia replikacji funkcji Hyper-V są rejestrowane w dzienniku Hype
 
 ### <a name="event-log-locations"></a>Lokalizacje dzienników zdarzeń
 
-**Dziennik zdarzeń** | **Uzyskać** |
+**Dziennik zdarzeń** | **Szczegóły** |
 --- | ---
 **Dzienniki aplikacji i usług/Microsoft/VirtualMachineManager/serwer/administrator** (serwer VMM) | Dzienniki służące do rozwiązywania problemów z programem VMM.
 **Dzienniki aplikacji i usług/MicrosoftAzureRecoveryServices/replikacja** (host funkcji Hyper-V) | Dzienniki umożliwiające rozwiązywanie problemów z agentem Microsoft Azure Recovery Services. 

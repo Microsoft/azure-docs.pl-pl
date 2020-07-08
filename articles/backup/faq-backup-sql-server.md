@@ -5,10 +5,9 @@ ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248264"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
@@ -32,8 +31,8 @@ W pewnych okolicznościach usługa Azure Backup wyzwala odtworzenie kopii zapaso
 
 Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników; Jednak w przypadku wybrania opcji rezygnacji z niej wykonaj następujące czynności:
 
-- Na wystąpieniu SQL Server w folderze *C:\Program Files\Azure Backup\bin obciążenia* Utwórz lub edytuj plik **ExtensionSettingsOverrides. JSON** .
-- W pliku **ExtensionSettingsOverrides. JSON**Ustaw *{"EnableAutoHealer": false}*.
+- Na wystąpieniu SQL Server w folderze *C:\Program Files\Azure Backup\bin obciążenie* Utwórz lub Edytuj **ExtensionSettingsOverrides.jsna** pliku.
+- W **ExtensionSettingsOverrides.jsna**, ustaw *{"EnableAutoHealer": false}*.
 - Zapisz zmiany i zamknij plik.
 - Na wystąpieniu SQL Server Otwórz **zadanie Zarządzaj** , a następnie uruchom ponownie usługę **AzureWLBackupCoordinatorSvc** .
 
@@ -41,8 +40,8 @@ Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników; Je
 
 Tak. Można ograniczyć szybkość uruchamiania zasad tworzenia kopii zapasowych, aby zminimalizować wpływ na wystąpienie SQL Server. Aby zmienić ustawienie:
 
-1. W wystąpieniu SQL Server, w folderze *C:\Program Files\Azure obciążenia Backup\bin* Utwórz plik *ExtensionSettingsOverrides. JSON* .
-2. W pliku *ExtensionSettingsOverrides. JSON* Zmień ustawienie **DefaultBackupTasksThreshold** na niższą wartość (na przykład 5). <br>
+1. W wystąpieniu SQL Server w folderze *C:\Program Files\Azure obciążenie Backup\bin* Utwórz *ExtensionSettingsOverrides.jsna* pliku.
+2. W *ExtensionSettingsOverrides.jsna* pliku Zmień ustawienie **DefaultBackupTasksThreshold** na niższą wartość (na przykład 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 Wartość domyślna DefaultBackupTasksThreshold wynosi **20**.

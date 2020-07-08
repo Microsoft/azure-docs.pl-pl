@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84216389"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiowanie danych z Netezza za pomocą Azure Data Factory
@@ -67,7 +66,7 @@ Typowe parametry połączenia to `Server=<server>;Port=<port>;Database=<database
 | SecurityLevel | Poziom zabezpieczeń wykorzystywany przez sterownik do nawiązywania połączenia z magazynem danych. Sterownik obsługuje połączenia SSL z uwierzytelnianiem jednokierunkowym przy użyciu protokołu SSL w wersji 3. <br>Przykład: `SecurityLevel=preferredSecured`. Obsługiwane są następujące wartości:<br/>- **Tylko niezabezpieczone** (**onlyUnSecured**): sterownik nie używa protokołu SSL.<br/>- **Preferowana niezabezpieczona (preferredUnSecured) (domyślnie)**: Jeśli serwer zawiera wybór, sterownik nie używa protokołu SSL. <br/>- **Preferowany zabezpieczony (preferredSecured)**: Jeśli serwer zawiera wybór, sterownik używa protokołu SSL. <br/>- **Zabezpieczone tylko (onlySecured)**: sterownik nie jest połączony, chyba że dostępne jest połączenie SSL. | Nie |
 | PlikCertUC | Pełna ścieżka do certyfikatu SSL, który jest używany przez serwer. Przykład: `CaCertFile=<cert path>;`| Tak, jeśli jest włączony protokół SSL |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -126,7 +125,7 @@ Aby skopiować dane z Netezza, ustaw właściwość **Type** zestawu danych na *
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {

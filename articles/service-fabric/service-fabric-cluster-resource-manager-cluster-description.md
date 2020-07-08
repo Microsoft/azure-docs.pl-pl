@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259477"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
@@ -247,7 +246,7 @@ W poprzednim układzie, jeśli wartość **wartość targetreplicasetsize** jest
 ## <a name="configuring-fault-and-upgrade-domains"></a>Konfigurowanie błędów i domen uaktualnienia
 W przypadku wdrożeń Service Fabric hostowanych na platformie Azure domeny błędów i domeny uaktualnień są definiowane automatycznie. Service Fabric pobiera i używa informacji o środowisku z platformy Azure.
 
-Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w programowaniu), możesz samodzielnie udostępnić domenę błędów i informacje o domenie uaktualnienia. W tym przykładzie definiujemy lokalny klaster programistyczny z dziewięcioma węzłami, który obejmuje trzy centra danych (z trzema stojakami). Ten klaster ma również trzy domeny uaktualnienia rozłożone na te trzy centra danych. Oto przykład konfiguracji w ClusterManifest. XML:
+Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w programowaniu), możesz samodzielnie udostępnić domenę błędów i informacje o domenie uaktualnienia. W tym przykładzie definiujemy lokalny klaster programistyczny z dziewięcioma węzłami, który obejmuje trzy centra danych (z trzema stojakami). Ten klaster ma również trzy domeny uaktualnienia rozłożone na te trzy centra danych. Oto przykład konfiguracji w ClusterManifest.xml:
 
 ```xml
   <Infrastructure>
@@ -268,7 +267,7 @@ Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w p
   </Infrastructure>
 ```
 
-Ten przykład używa ClusterConfig. JSON dla wdrożeń autonomicznych:
+Ten przykład używa ClusterConfig.jsna potrzeby wdrożeń autonomicznych:
 
 ```json
 "nodes": [
@@ -401,7 +400,7 @@ Poniżej przedstawiono kilka przykładów podstawowych instrukcji ograniczeń:
 
 Tylko węzły, w których ogólna instrukcja ograniczenia położenia ma wartość "true", mogą mieć w niej umieszczony usługi. Węzły, które nie mają zdefiniowanej właściwości, nie pasują do żadnego ograniczenia umieszczania, które zawiera właściwość.
 
-Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla typu węzła w ClusterManifest. XML:
+Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla typu węzła w ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,7 +412,7 @@ Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla t
     </NodeType>
 ```
 
-W poniższym przykładzie przedstawiono właściwości węzła zdefiniowane za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych na platformie Azure. 
+W poniższym przykładzie przedstawiono właściwości węzła zdefiniowane przez ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure. 
 
 > [!NOTE]
 > W szablonie Azure Resource Manager typ węzła jest zwykle sparametryzowane. `"[parameters('vmNodeType1Name')]"`Zamiast NodeType01.
@@ -505,7 +504,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład dla ClusterManifest. XML:
+Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład dla ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +514,7 @@ Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład 
     </NodeType>
 ```
 
-Oto przykład pojemności zdefiniowanych za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych na platformie Azure: 
+Oto przykład pojemności zdefiniowanych za pośrednictwem ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure: 
 
 ```json
 "nodeTypes": [
@@ -548,7 +547,7 @@ Buforowana pojemność jest kolejną funkcją Menedżer zasobów klastrów. Umo�
 
 Buforowana pojemność jest określana globalnie na metrykę dla wszystkich węzłów. Wartość, którą wybierasz dla zarezerwowanej pojemności, to funkcja liczby domen błędów i uaktualniania znajdujących się w klastrze. Więcej domen błędów i uaktualnień oznacza, że można wybrać mniejszą liczbę dla buforowanej pojemności. Jeśli masz więcej domen, możesz oczekiwać, że mniejsza ilość klastra będzie niedostępna podczas uaktualniania i niepowodzeń. Określanie pojemności buforowanej ma sens tylko wtedy, gdy określono również pojemność węzła dla metryki.
 
-Oto przykład sposobu określania pojemności buforowanej w ClusterManifest. XML:
+Oto przykład sposobu określania buforowanej pojemności w ClusterManifest.xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +556,7 @@ Oto przykład sposobu określania pojemności buforowanej w ClusterManifest. XML
         </Section>
 ```
 
-Oto przykład sposobu określania pojemności pamięci podręcznej za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub pliku Template. JSON dla klastrów hostowanych na platformie Azure:
+Poniżej przedstawiono przykład sposobu określania buforowanej pojemności za pośrednictwem ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure:
 
 ```json
 "fabricSettings": [

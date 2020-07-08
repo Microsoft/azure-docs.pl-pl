@@ -4,10 +4,9 @@ description: W tym artykule opisano przydziały i ograniczenia dotyczące usług
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261051"
 ---
 # <a name="quotas-and-limitations"></a>Limity przydziału i ograniczenia

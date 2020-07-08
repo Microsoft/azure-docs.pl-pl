@@ -10,10 +10,9 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220290"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorowanie wdrożeń IoT Edge

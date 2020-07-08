@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84219303"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z SAP HANA przy użyciu Azure Data Factory
@@ -271,31 +270,31 @@ Podczas kopiowania danych z SAP HANA następujące mapowania są używane z SAP 
 
 | Typ danych SAP HANA | Typ danych pośrednich fabryki danych |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String (ciąg)                         |
+| ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
 | BINARNY             | Byte []                         |
-| Dwuntext            | String (ciąg)                         |
+| Dwuntext            | String                         |
 | TWORZENIA               | Byte []                         |
 | LOGICZNA               | Byte                           |
-| OBIEKTÓW CLOB               | String (ciąg)                         |
+| OBIEKTÓW CLOB               | String                         |
 | DATE               | DateTime                       |
 | DOKŁADNOŚCI            | Wartość dziesiętna                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | LICZBA CAŁKOWITA            | Int32                          |
-| NCLOB              | String (ciąg)                         |
-| NVARCHAR           | String (ciąg)                         |
-| LICZBA RZECZYWISTA               | Single                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
+| LICZBA RZECZYWISTA               | Pojedyncze                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | String (ciąg)                         |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Wartość dziesiętna                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte []                         |
 | STPOINTTYPE        | Byte []                         |
-| TEKST               | String (ciąg)                         |
+| TEKST               | String                         |
 | CZAS               | przedział_czasu                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String (ciąg)                         |
+| VARCHAR            | String                         |
 | ZNACZNIK czasu          | DateTime                       |
 | LICZBY          | Byte []                         |
 

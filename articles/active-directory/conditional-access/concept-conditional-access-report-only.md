@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204195"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportowania dostępu warunkowego?

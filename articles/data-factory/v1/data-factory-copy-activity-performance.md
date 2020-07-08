@@ -13,10 +13,9 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196102"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copy Activity performance and tuning guide (Przewodnik dotyczący wydajności i dostosowywania działania kopiowania)
@@ -262,7 +261,7 @@ Zalecamy wykonanie następujących kroków, aby dostroić wydajność usługi Da
      * [Jednostki przenoszenia danych w chmurze](#cloud-data-movement-units)
      * [Kopia przygotowana](#staged-copy)
      * [Skalowalność bramy Zarządzanie danymi](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Brama zarządzania danymi](#considerations-for-data-management-gateway)
+   * [Zarządzanie danymi Gateway](#considerations-for-data-management-gateway)
    * [Element źródłowy](#considerations-for-the-source)
    * [Ujście](#considerations-for-the-sink)
    * [Serializacja i deserializacja](#considerations-for-serialization-and-deserialization)

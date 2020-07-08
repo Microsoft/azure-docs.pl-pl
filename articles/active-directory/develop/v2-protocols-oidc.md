@@ -14,10 +14,9 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263282"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity platform i OpenID Connect Connect Protocol
@@ -101,7 +100,7 @@ Gdy aplikacja sieci Web wymaga uwierzytelnienia użytkownika, może kierować u�
 > [!IMPORTANT]
 > Aby pomyślnie zażądać tokenu identyfikatora z punktu końcowego/Authorization, Rejestracja aplikacji w [portalu rejestracji](https://portal.azure.com) musi mieć niejawne przyznanie id_tokens włączony na karcie uwierzytelnianie (która ustawia `oauth2AllowIdTokenImplicitFlow` flagę w [manifeście aplikacji](reference-app-manifest.md) na `true` ). Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: "podana wartość parametru wejściowego" response_type "nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code" "
 
-Na przykład:
+Przykład:
 
 ```HTTP
 // Line breaks are for legibility only.

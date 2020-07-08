@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259273"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Skonfiguruj lokalne Programowanie dla usługi Azure static Web Apps Preview
@@ -122,7 +121,7 @@ W ramach procesu tworzenia interfejsu API konfiguracja uruchamiania jest tworzon
 
 ### <a name="debugging-the-api"></a>Debugowanie interfejsu API
 
-1. Otwórz plik _API/GetMessage/index. js_ w Visual Studio Code.
+1. Otwórz plik _API/GetMessage/index.js_ w Visual Studio Code.
 
 1. Kliknij lewy margines w wierszu 2, aby ustawić punkt przerwania. Zostanie wyświetlona czerwona kropka, która wskazuje, że punkt przerwania jest ustawiony.
 

@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195991"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy Zarządzanie danymi
@@ -104,7 +103,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 
     ![Brama — Konfigurowanie strony](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    W ten sposób najłatwiejszym sposobem (jednym kliknięciem) jest pobranie, zainstalowanie, skonfigurowanie i zarejestrowanie bramy w jednym kroku. Na komputerze jest zainstalowana aplikacja **Configuration Manager Microsoft zarządzanie danymi Gateway** . Plik wykonywalny **ConfigManager. exe** można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**.
+    W ten sposób najłatwiejszym sposobem (jednym kliknięciem) jest pobranie, zainstalowanie, skonfigurowanie i zarejestrowanie bramy w jednym kroku. Na komputerze jest zainstalowana aplikacja **Configuration Manager Microsoft zarządzanie danymi Gateway** . **ConfigManager.exe** pliku wykonywalnego można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**.
 
     Możesz również ręcznie pobrać i zainstalować bramę, korzystając z linków na tej stronie i rejestrując je przy użyciu klucza podanego w polu tekstowym **nowy klucz** .
 
@@ -117,7 +116,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 5. Poczekaj kilka minut lub zaczekaj, aż zobaczysz następujący komunikat powiadomienia:
 
     ![Pomyślnie zainstalowano bramę](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Uruchom aplikację **Zarządzanie danymi Gateway Configuration Manager** na swoim komputerze. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia. Plik wykonywalny **ConfigManager. exe** można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**
+6. Uruchom aplikację **Zarządzanie danymi Gateway Configuration Manager** na swoim komputerze. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia. **ConfigManager.exe** pliku wykonywalnego można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**
 
     ![Configuration Manager bramy](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Potwierdź, że zobaczysz `adftutorialgateway is connected to the cloud service` komunikat. Na dolnej liście wyświetlany jest pasek stanu **połączony z usługą w chmurze** z **zielonym znacznikiem wyboru**.
@@ -279,7 +278,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
    * **folderPath** jest ustawiona na **adftutorial/outfromonpremdf** , gdzie outfromonpremdf jest folderem w kontenerze adftutorial. Utwórz kontener **adftutorial** , jeśli jeszcze nie istnieje.
    * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory generuje wycinek danych wyjściowych co godzinę w tabeli **EMP** w Azure SQL Database.
 
-   Jeśli nie określisz **nazwy pliku** dla **tabeli wyjściowej**, wygenerowane pliki w **folderPath** są nazywane w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt).
+   Jeśli nie określisz **nazwy pliku** dla **tabeli wyjściowej**, wygenerowane pliki w **folderPath** są nazywane w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości partitionedBy. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2014-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2014/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv.
 

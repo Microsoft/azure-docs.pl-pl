@@ -4,10 +4,9 @@ description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions l
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 5a0201eeed1678299ec16ff268062463b9c75e5c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235348"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
@@ -16,7 +15,7 @@ Ustawienia aplikacji w aplikacji funkcji zawierają globalne opcje konfiguracji,
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-W pliku [host. JSON](functions-host-json.md) znajdują się inne opcje konfiguracji globalnej oraz plik [Local. Settings. JSON](functions-run-local.md#local-settings-file) .
+Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) plik i w [local.settings.js](functions-run-local.md#local-settings-file) pliku.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -40,7 +39,7 @@ W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji program s
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji ustawienia aplikacji mogą zastąpić ustawienia pliku [host. JSON](functions-host-json.md) w bieżącym środowisku. Te zastąpienia są wyrażane jako ustawienia aplikacji o nazwie `AzureFunctionsJobHost__path__to__setting` . Aby uzyskać więcej informacji, zobacz [przesłanianie wartości hosta. JSON](functions-host-json.md#override-hostjson-values).
+W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji ustawienia aplikacji mogą zastąpić [host.jsw](functions-host-json.md) ustawieniach w bieżącym środowisku. Te zastąpienia są wyrażane jako ustawienia aplikacji o nazwie `AzureFunctionsJobHost__path__to__setting` . Aby uzyskać więcej informacji, zobacz [Zastąp host.jswartościami](functions-host-json.md#override-hostjson-values).
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -87,7 +86,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Pliki|
+|AzureWebJobsSecretStorageType|Files|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -181,7 +180,7 @@ Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w p
 ## <a name="website_node_default_version"></a>\_DEFAULT_VERSION węzła witryny sieci Web \_
 
 _Tylko system Windows._  
-Ustawia wersję środowiska Node. js do użycia podczas uruchamiania aplikacji funkcji w systemie Windows. Należy użyć tyldy (~), aby środowisko uruchomieniowe używało najnowszej dostępnej wersji wersji głównej. Na przykład gdy jest ustawiona na `~10` , używana jest Najnowsza wersja środowiska Node. js 10. W przypadku wersji głównej, której celem jest tylda, nie trzeba ręcznie aktualizować wersji pomocniczej. 
+Ustawia wersję Node.js, która ma być używana podczas uruchamiania aplikacji funkcji w systemie Windows. Należy użyć tyldy (~), aby środowisko uruchomieniowe używało najnowszej dostępnej wersji wersji głównej. Na przykład po ustawieniu na wartość `~10` zostanie użyta Najnowsza wersja Node.js 10. W przypadku wersji głównej, której celem jest tylda, nie trzeba ręcznie aktualizować wersji pomocniczej. 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -218,7 +217,7 @@ To ustawienie określa, czy% 2F jest dekodowane jako ukośniki w parametrach tra
 
 ### <a name="example"></a>Przykład
 
-Oto przykład proxy. JSON w aplikacji funkcji pod adresem URL myfunction.com
+Oto przykład proxies.jsw aplikacji funkcji pod adresem URL myfunction.com
 
 ```JSON
 {
@@ -243,6 +242,6 @@ Oto przykład proxy. JSON w aplikacji funkcji pod adresem URL myfunction.com
 
 [Dowiedz się, jak zaktualizować ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Zobacz ustawienia globalne w pliku host. JSON](functions-host-json.md)
+[Zobacz ustawienia globalne w host.jspliku](functions-host-json.md)
 
 [Zobacz inne ustawienia aplikacji dla aplikacji App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

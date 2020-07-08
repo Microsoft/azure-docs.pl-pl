@@ -7,10 +7,9 @@ ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197065"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchronizowanie repozytorium GitHub z konfiguracją aplikacji
@@ -209,11 +208,11 @@ jobs:
 ```
 
 ## <a name="use-azure-key-vault-with-github-action"></a>Używanie Azure Key Vault z akcją GitHub
-Deweloperzy korzystający z Azure Key Vault z AppConfiguration powinni używać dwóch oddzielnych plików, zwykle pliku appSettings. JSON i pliku secretreferences. JSON. Plik secretreferences. JSON będzie zawierać adres URL klucza tajnego magazynu kluczy.
+Deweloperzy korzystający z Azure Key Vault z AppConfiguration powinni używać dwóch oddzielnych plików, zazwyczaj appsettings.jsw i secretreferences.jsw systemie. secretreferences.json będzie zawierać adres URL klucza tajnego magazynu kluczy.
 
 {"Tajemnica": "{ \" URI \" : \" https://myKeyVault.vault.azure.net/secrets/mySecret "} "}
 
-Akcję GitHub można następnie skonfigurować tak, aby przeprowadzać ścisłą synchronizację w pliku appSettings. JSON, a następnie nieścisłą synchronizację w pliku secretreferences. JSON. Poniższy przykład wywoła synchronizację, gdy plik zostanie zaktualizowany:
+Akcję GitHub można następnie skonfigurować tak, aby przeprowadzać ścisłą synchronizację na appsettings.js, a następnie nieścisłą synchronizację na secretreferences.js. Poniższy przykład wywoła synchronizację, gdy plik zostanie zaktualizowany:
 
 ```json
 on:

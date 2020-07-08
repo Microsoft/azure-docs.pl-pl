@@ -6,10 +6,9 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204926"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Włączanie rozwiązania Update Management w witrynie Azure Portal

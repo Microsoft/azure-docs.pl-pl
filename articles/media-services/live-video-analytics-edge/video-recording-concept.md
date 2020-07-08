@@ -4,10 +4,9 @@ description: W kontekście systemu zarządzania wideo dla kamer CCTV nagranie wi
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84260946"
 ---
 # <a name="video-recording"></a>Nagrywanie wideo
@@ -18,7 +17,7 @@ W kontekście systemu zarządzania wideo dla kamer CCTV nagranie wideo odnosi si
 
 Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rejestrowania całego wideo przechwytywanego ze źródła wideo. CVR gwarantuje, że wszystkie filmy wideo są dostępne (podyktowane [zasadami rejestrowania](#recording-policy)) do analizowania i/lub inspekcji w późniejszym czasie.
 
-## <a name="event-based-video-recording"></a>Rejestrowanie wideo oparte na zdarzeniach  
+## <a name="event-based-video-recording"></a>Nagrywanie wideo oparte na zdarzeniach  
 
 Nagrywanie wideo oparte na zdarzeniach (EVR) odnosi się do procesu nagrywania wideo wyzwalanego przez zdarzenie. Dane zdarzenie może pochodzić z powodu przetwarzania samego sygnału wideo lub z niezależnego źródła (na przykład z czujnika drzwi). Rejestrowanie wideo oparte na zdarzeniach (EVR) może powodować oszczędności magazynu, ale wymaga dodatkowych składników, które generują zdarzenia i wyzwalają nagranie wideo (zgodnie ze wstępnie zdefiniowanymi zasadami). Innymi słowy, EVR wymaga podejmowania dodatkowych decyzji dotyczących zdarzeń, które powinny wyzwalać nagranie wideo, oraz zasad skojarzonych z nagrywaniem wideo (nazywanego również zasadami rejestrowania). Przykładem zasad może być coś: nagrywanie filmu wideo przez 2 minuty, począwszy od 30 sekund przed czasem zdarzenia. Zdarzenia, które mogą pochodzić z powodu przetwarzania wideo w aparacie. Przykładowo kilka kamer obsługuje generowanie zdarzeń sygnału wykrywania ruchu, gdy ruch zostanie wykryty w ramach wstępnie skonfigurowanej strefy interesującej w okienku ekranu aparatu. Zdarzenia mogą być również generowane przez przetwarzanie wideo na innym urządzeniu, które przechwytuje wideo z aparatu i analizuje je przy użyciu prostych technik przetwarzania obrazu lub zaawansowanych modeli uczenia maszynowego. 
 
@@ -32,6 +31,6 @@ Zasady rejestrowania odwołują się do zasad, które określają czas rozpoczę
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wykrywaj ruch, nagrywaj klipy wideo do Azure Media Services](detect-motion-record-video-clips-media-services-quickstart.md)
+* [Wykrywanie ruchu, nagrywanie klipów wideo na platformie Azure Media Services](detect-motion-record-video-clips-media-services-quickstart.md)
 * [Wykrywaj ruch, nagrywaj klipy wideo na urządzeniach brzegowych](detect-motion-record-video-clips-edge-devices-quickstart.md)
 

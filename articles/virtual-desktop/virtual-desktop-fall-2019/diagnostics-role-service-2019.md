@@ -9,10 +9,9 @@ ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235565"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identyfikowanie i diagnozowanie problemów

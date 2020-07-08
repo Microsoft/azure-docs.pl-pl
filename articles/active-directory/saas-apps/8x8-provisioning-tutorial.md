@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196209"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
@@ -122,19 +121,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|Uwagi|
    |---|---|---|
-   |userName|String (ciąg)|Ustawia nazwę użytkownika i identyfikator Federacji|
-   |externalId|String (ciąg)||
-   |aktywne|Boolean (wartość logiczna)||
-   |title|String (ciąg)||
-   |wiadomości e-mail [Type EQ "Work"]. Value|String (ciąg)||
-   |Nazwa. imię|String (ciąg)||
-   |Nazwa. rodzina|String (ciąg)||
-   |numer telefonu [typ EQ "Mobile"]. Value|String (ciąg)|Osobisty numer osoby kontaktowej|
-   |numer telefonu [typ EQ "Work"]. wartość|String (ciąg)|Osobisty numer osoby kontaktowej|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String (ciąg)||
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|String (ciąg)|Nie można zaktualizować po utworzeniu użytkownika|
-   |locale|String (ciąg)|Domyślnie Niemapowane|
-   |TimeZone|String (ciąg)|Domyślnie Niemapowane|
+   |userName|String|Ustawia nazwę użytkownika i identyfikator Federacji|
+   |externalId|String||
+   |aktywne|Boolean||
+   |tytuł|String||
+   |wiadomości e-mail [Type EQ "Work"]. Value|String||
+   |Nazwa. imię|String||
+   |Nazwa. rodzina|String||
+   |numer telefonu [typ EQ "Mobile"]. Value|String|Osobisty numer osoby kontaktowej|
+   |numer telefonu [typ EQ "Work"]. wartość|String|Osobisty numer osoby kontaktowej|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String||
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|String|Nie można zaktualizować po utworzeniu użytkownika|
+   |locale|String|Domyślnie Niemapowane|
+   |TimeZone|String|Domyślnie Niemapowane|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

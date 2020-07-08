@@ -4,10 +4,9 @@ description: Ten temat zawiera informacje o wersji analizy wideo na żywo na tem
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: fd607ee027b46cf386180338440e6530da911302
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261037"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
@@ -21,7 +20,7 @@ Ten artykuł zawiera informacje na temat:
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
-## <a name="june-1-2020"></a>1 czerwca 2020
+## <a name="june-1-2020"></a>1 czerwca 2020 r.
 
 Ta wersja to pierwsza publiczna wersja zapoznawcza usługi Live Video Analytics na IoT Edge. Tag wersji to
 

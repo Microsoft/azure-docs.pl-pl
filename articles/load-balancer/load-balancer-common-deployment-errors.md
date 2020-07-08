@@ -11,10 +11,9 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
 ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221012"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Rozwiązywanie typowych błędów wdrażania platformy Azure za pomocą Azure Load Balancer

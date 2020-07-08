@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84234688"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
@@ -31,7 +30,7 @@ Klaster Service Fabric na platformie Azure to zasób platformy Azure, który uż
 ![Klaster Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Maszyna wirtualna
-[Maszyna wirtualna](/azure/virtual-machines/) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję Autostart, *elemencie fabrichost określono. exe*, która uruchamia się w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric. exe* i *FabricGateway. exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na jednej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień programu *Fabric. exe* i *FabricGateway. exe*.
+[Maszyna wirtualna](/azure/virtual-machines/) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma usługę Autostart *FabricHost.exe*, która rozpoczyna pracę w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric.exe* i *FabricGateway.exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień *Fabric.exe* i *FabricGateway.exe*.
 
 Każda maszyna wirtualna jest skojarzona z kartą sieci wirtualnej (NIC), a każda karta sieciowa ma przypisany prywatny adres IP.  Maszyna wirtualna jest przypisana do sieci wirtualnej i lokalnego modułu równoważenia obciążenia za pomocą karty sieciowej.
 
@@ -98,7 +97,7 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 
 | System operacyjny | Najwcześniejsza obsługiwana wersja Service Fabric |
 | --- | --- |
-| Windows Server 2012 R2 | Wszystkie wersje |
+| Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
 | System Windows Server 1709 | 6.0 |
 | System Windows Server 1803 | 6.4 |

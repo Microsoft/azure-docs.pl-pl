@@ -5,10 +5,9 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248281"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
@@ -31,9 +30,9 @@ Nowy model do natychmiastowego przywracania zapewnia następujące udoskonalenia
 Obecnie zadanie tworzenia kopii zapasowej składa się z dwóch faz:
 
 1. Tworzenie migawki maszyny wirtualnej.
-2. Przenoszenie migawki maszyny wirtualnej do magazynu usługi Azure Recovery Services.
+2. Przesyłanie migawki maszyny wirtualnej do magazynu usługi Azure Recovery Services.
 
-Punkt odzyskiwania jest uznawany za tworzony dopiero po zakończeniu faz 1 i 2. W ramach tego uaktualnienia punkt odzyskiwania jest tworzony zaraz po zakończeniu migawki, a ten punkt odzyskiwania typu migawki może służyć do wykonywania przywracania przy użyciu tego samego przepływu przywracania. Ten punkt odzyskiwania można zidentyfikować w Azure Portal przy użyciu "migawek" jako typu punktu odzyskiwania, a po przeniesieniu migawki do magazynu typ punktu odzyskiwania zmieni się na "migawka i magazyn".
+Punkt odzyskiwania uznaje się za utworzony dopiero po zakończeniu fazy 1 i fazy 2. W ramach tego uaktualnienia punkt odzyskiwania jest tworzony zaraz po zakończeniu tworzenia migawki i ten punkt odzyskiwania typu migawka może służyć do wykonywania przywracania przy użyciu tego samego przepływu przywracania. Ten punkt odzyskiwania można zidentyfikować w Azure Portal przy użyciu "migawek" jako typu punktu odzyskiwania, a po przeniesieniu migawki do magazynu typ punktu odzyskiwania zmieni się na "migawka i magazyn".
 
 ![Zadanie tworzenia kopii zapasowej w stosie kopii zapasowych maszyny wirtualnej Menedżer zasobów model wdrażania — magazyn i magazynu](./media/backup-azure-vms/instant-rp-flow.png)
 

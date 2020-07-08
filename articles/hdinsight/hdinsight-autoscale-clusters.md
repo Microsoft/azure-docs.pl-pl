@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248638"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
@@ -66,18 +65,18 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 ### <a name="cluster-compatibility"></a>Zgodność klastra
 
 > [!Important]
-> Funkcja automatycznego skalowania usługi Azure HDInsight została udostępniona w celu uzyskania ogólnej dostępności w dniu 7 listopada 2019 dla klastrów Spark i Hadoop i uwzględnionych ulepszeń nie jest dostępna w wersji zapoznawczej tej funkcji. Jeśli klaster Spark został utworzony przed 7 listopada, 2019 i chcą korzystać z funkcji automatycznego skalowania w klastrze, zalecaną ścieżką jest utworzenie nowego klastra i włączenie automatycznego skalowania w nowym klastrze.
+> Funkcja automatycznego skalowania usługi Azure HDInsight została ogólnie udostępniona 7 listopada 2019 r. dla klastrów Spark i Hadoop. Zawiera ona ulepszenia niedostępne w wersji zapoznawczej tej funkcji. Jeśli chcesz korzystać z funkcji automatycznego skalowania w klastrze Spark utworzonym przed 7 listopada 2019 r., zalecaną ścieżką jest utworzenie nowego klastra i włączenie automatycznego skalowania w nowym klastrze.
 >
-> Funkcja automatycznego skalowania dla klastrów interakcyjnych (LLAP) i HBase jest nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
+> Funkcja automatycznego skalowania dla klastrów Interactive Query (LLAP) i HBase jest nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
 | Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 3,6 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 
 \*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 

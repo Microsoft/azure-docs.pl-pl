@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220133"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
@@ -63,19 +62,19 @@ azcopy copy [source] [destination] [flags]
 
 Przekaż pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli jeszcze nie zalogowano się w usłudze AzCopy, uruchom polecenie logowania AzCopy przed uruchomieniem następującego polecenia.
 
-- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"
+- AzCopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"
 
 Analogicznie jak powyżej, ale ten czas również oblicza skrót MD5 zawartości pliku i zapisuje go jako właściwość Content-MD5 obiektu BLOB:
 
-- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"--Put-MD5
+- AzCopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]"--Put-MD5
 
 Przekaż pojedynczy plik przy użyciu tokenu sygnatury dostępu współdzielonego:
 
-- AzCopy CP "/Path/to/File.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [SAS] "
+- AzCopy CP "/Path/to/file.txt" "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [SAS] "
 
 Przekaż pojedynczy plik przy użyciu tokenu SAS i potoków (tylko blokowe obiekty blob):
   
-- Kot "/Path/to/File.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "
+- Kot "/Path/to/file.txt" | AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] "
 
 Przekaż cały katalog przy użyciu tokenu sygnatury dostępu współdzielonego:
   
@@ -95,15 +94,15 @@ Przekaż pliki i katalogi, używając tokenu SAS i symboli wieloznacznych (*):
 
 Pobierz pojedynczy plik przy użyciu uwierzytelniania OAuth. Jeśli jeszcze nie zalogowano się w usłudze AzCopy, uruchom polecenie logowania AzCopy przed uruchomieniem następującego polecenia.
 
-- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]" ""/Path/to/File.txt "
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]" "/Path/to/file.txt"
 
 Pobieranie pojedynczego pliku przy użyciu tokenu SAS:
 
-- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ""/Path/to/File.txt "
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ""/Path/to/file.txt "
 
 Pobieranie pojedynczego pliku przy użyciu tokenu SAS, a następnie przekazanie danych wyjściowych do pliku (tylko blokowe obiekty blob):
   
-- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ">"/Path/to/File.txt "
+- AzCopy CP "https://[Account]. blob. Core. Windows. NET/[Container]/[ścieżka/do/BLOB]? [SAS] ">"/Path/to/file.txt "
 
 Pobierz cały katalog przy użyciu tokenu sygnatury dostępu współdzielonego:
   
@@ -197,7 +196,7 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--exclude-BLOB-Type** , opcjonalnie określa typ obiektu BLOB (BlockBlob/PageBlob/AppendBlob) do wykluczenia podczas kopiowania obiektów blob z kontenera lub konta. Użycie tej flagi nie ma zastosowania do kopiowania danych z usług spoza usługi Azure do usługi. Więcej niż jeden obiekt BLOB powinien być oddzielony znakiem ";".
 
-**--exclude-Path** ciąg Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: Moja folder; folder/subDirName/plik. PDF). W przypadku użycia w połączeniu z przechodzeniem konta ścieżki nie uwzględniają nazwy kontenera.
+**--exclude-Path** ciąg Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: moje folderu; folder/subDirName/file.pdf). W przypadku użycia w połączeniu z przechodzeniem konta ścieżki nie uwzględniają nazwy kontenera.
 
 **--wykluczanie-wzorzec** ciąg Wyklucz te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*)
 
@@ -209,7 +208,7 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--include — ciąg atrybutów** (tylko system Windows) Uwzględnij pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
 
-**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: Moja folder; folder/subDirName/plik. PDF).
+**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: moje folderu; folder/subDirName/file.pdf).
 
 **--ciąg include-Pattern** zawiera tylko te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*). Oddziel pliki przy użyciu ";".
 

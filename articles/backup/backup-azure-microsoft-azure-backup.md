@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak przygotować środowisko do ochron
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247278"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
@@ -147,7 +146,7 @@ Aby edytować ustawienia replikacji magazynu:
 
 ### <a name="extracting-the-software-package"></a>Wyodrębnianie pakietu oprogramowania
 
-Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller. exe**. Spowoduje to uruchomienie **Kreatora instalacji Microsoft Azure Backup** w celu wyodrębnienia plików instalacyjnych do lokalizacji określonej przez użytkownika. Kontynuuj pracę kreatora i kliknij przycisk **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
+Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller.exe**. Spowoduje to uruchomienie **Kreatora instalacji Microsoft Azure Backup** w celu wyodrębnienia plików instalacyjnych do lokalizacji określonej przez użytkownika. Kontynuuj pracę kreatora i kliknij przycisk **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
 
 > [!WARNING]
 > Do wyodrębnienia plików instalacyjnych wymagane jest co najmniej 4 GB wolnego miejsca.
@@ -156,7 +155,7 @@ Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller.
 
 ![Kreator instalacji Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Po zakończeniu procesu wyodrębniania zaznacz pole wyboru, aby uruchomić świeżo wyodrębniony *plik Setup. exe* , aby rozpocząć instalację serwera Microsoft Azure Backup i kliknij przycisk **Zakończ** .
+Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia świeżo wyodrębnionego *setup.exe* , aby rozpocząć instalowanie programu Microsoft Azure Backup Server i kliknij przycisk **Zakończ** .
 
 ### <a name="installing-the-software-package"></a>Instalowanie pakietu oprogramowania
 

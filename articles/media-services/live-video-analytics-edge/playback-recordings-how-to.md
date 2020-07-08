@@ -4,10 +4,9 @@ description: Korzystając z usługi Analiza filmów wideo na żywo, możesz IoT 
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261079"
 ---
 # <a name="playback-of-recordings"></a>Odtwarzanie nagrań 
@@ -16,7 +15,7 @@ ms.locfileid: "84261079"
 
 * [Odtwarzanie wideo](video-playback-concept.md)
 * [Ciągłe nagrywanie wideo](continuous-video-recording-concept.md)
-* [Rejestrowanie wideo oparte na zdarzeniach](event-based-video-recording-concept.md)
+* [Nagrywanie wideo oparte na zdarzeniach](event-based-video-recording-concept.md)
 
 ## <a name="background"></a>Tło  
 

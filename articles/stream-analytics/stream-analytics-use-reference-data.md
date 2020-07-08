@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
 ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196438"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
@@ -45,11 +44,11 @@ Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe 
 |Konto magazynu   | Nazwa konta magazynu, w którym znajdują się obiekty blob. Jeśli znajduje się w tej samej subskrypcji co zadanie Stream Analytics, możesz wybrać ją z listy rozwijanej.   |
 |Klucz konta magazynu   | Klucz tajny skojarzony z kontem magazynu. Ta wartość zostanie wypełniona automatycznie, jeśli konto magazynu znajduje się w tej samej subskrypcji co zadanie Stream Analytics.   |
 |Kontener magazynu   | Kontenery zapewniają logiczne grupowanie obiektów BLOB przechowywanych w Blob service Microsoft Azure. Po przekazaniu obiektu BLOB do Blob service należy określić kontener dla tego obiektu BLOB.   |
-|Wzorzec ścieżki   | Jest to właściwość wymagana, która służy do lokalizowania obiektów BLOB w określonym kontenerze. W ścieżce możesz określić jedno lub więcej wystąpień następujących dwóch zmiennych:<BR>{Date}, {Time}<BR>Przykład 1: produkty/{Date}/{Time}/Product-List. csv<BR>Przykład 2: produkty/{Date}/Product-List. csv<BR>Przykład 3: Product-List. csv<BR><br> Jeśli obiekt BLOB nie istnieje w określonej ścieżce, zadanie Stream Analytics będzie oczekiwać, że obiekt BLOB stanie się nieokreślony.   |
+|Wzorzec ścieżki   | Jest to właściwość wymagana, która służy do lokalizowania obiektów BLOB w określonym kontenerze. W ścieżce możesz określić jedno lub więcej wystąpień następujących dwóch zmiennych:<BR>{Date}, {Time}<BR>Przykład 1: produkty/{Date}/{Time}/product-list.csv<BR>Przykład 2: produkty/{Date}/product-list.csv<BR>Przykład 3: product-list.csv<BR><br> Jeśli obiekt BLOB nie istnieje w określonej ścieżce, zadanie Stream Analytics będzie oczekiwać, że obiekt BLOB stanie się nieokreślony.   |
 |Format daty [opcjonalnie]   | Jeśli używasz {Date} w określonym wzorcu ścieżki, możesz wybrać format daty, w którym obiekty blob są zorganizowane z listy rozwijanej obsługiwanych formatów.<BR>Przykład: RRRR/MM/DD, MM/DD/RRRR itd.   |
 |Format czasu [opcjonalnie]   | Jeśli użyto {Time} w określonym wzorcu ścieżki, można wybrać format czasu, w którym obiekty blob są zorganizowane z listy rozwijanej obsługiwanych formatów.<BR>Przykład: gg, HH/mm lub HH-mm.  |
 |Format serializacji zdarzeń   | Aby upewnić się, że zapytania działają w oczekiwany sposób, Stream Analytics należy wiedzieć, który format serializacji jest używany w przypadku przychodzących strumieni danych. W przypadku danych referencyjnych obsługiwane formaty to CSV i JSON.  |
-|Kodowanie   | W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.  |
+|Encoding   | W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.  |
 
 ### <a name="static-reference-data"></a>Statyczne dane referencyjne
 
@@ -102,7 +101,7 @@ Aby skonfigurować dane referencyjne SQL Database, musisz najpierw utworzyć dan
 |---------|---------|
 |Alias danych wejściowych|Przyjazna nazwa, która zostanie użyta w zapytaniu zadania, aby odwołać się do tego danych wejściowych.|
 |Subskrypcja|Wybierz subskrypcję|
-|Baza danych|Azure SQL Database, który zawiera dane referencyjne. W przypadku wystąpienia zarządzanego SQL wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342*|
+|baza danych|Azure SQL Database, który zawiera dane referencyjne. W przypadku wystąpienia zarządzanego SQL wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342*|
 |Nazwa użytkownika|Nazwa użytkownika skojarzona z Azure SQL Database.|
 |Hasło|Hasło skojarzone z Twoim Azure SQL Database.|
 |Odświeżaj okresowo|Ta opcja pozwala wybrać częstotliwość odświeżania. Wybranie opcji "włączone" pozwoli określić częstotliwość odświeżania w DD: HH: MM.|

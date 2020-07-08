@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84263894"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiowanie danych z Xero za pomocą Azure Data Factory
@@ -52,10 +51,10 @@ Dla połączonej usługi Xero są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi mieć wartość: **Xero** | Yes |
-| host | Punkt końcowy serwera Xero ( `api.xero.com` ).  | Yes |
-| consumerKey | Klucz klienta skojarzony z aplikacją Xero. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga: **generowanie PrivateKey. pem z numbitsem 512** przy użyciu polecenia `openssl genrsa -out privatekey.pem 512` ; 1024 nie jest obsługiwane. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| typ | Właściwość Type musi mieć wartość: **Xero** | Tak |
+| host | Punkt końcowy serwera Xero ( `api.xero.com` ).  | Tak |
+| consumerKey | Klucz klienta skojarzony z aplikacją Xero. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga: **generowanie PrivateKey. pem z numbitsem 512** przy użyciu polecenia `openssl genrsa -out privatekey.pem 512` ; 1024 nie jest obsługiwane. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta jest wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
@@ -98,10 +97,10 @@ Aby skopiować dane z Xero, ustaw właściwość Type zestawu danych na **XeroOb
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **XeroObject** | Yes |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **XeroObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -128,7 +127,7 @@ Aby skopiować dane z Xero, ustaw typ źródła w działaniu Copy na **XeroSourc
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **XeroSource** | Yes |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **XeroSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Contacts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
@@ -173,7 +172,7 @@ Poniższe tabele zawierają te same informacje w schemacie minimalnej i kompletn
 
 - Bank_Transactions
 - Contact_Groups 
-- Contacts (Kontakty) 
+- Kontakty 
 - Contacts_Sales_Tracking_Categories 
 - Contacts_Phones 
 - Contacts_Addresses 

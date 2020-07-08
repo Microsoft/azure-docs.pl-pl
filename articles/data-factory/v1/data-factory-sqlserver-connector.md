@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195923"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Przenoszenie danych do i z SQL Server przy użyciu Azure Data Factory
@@ -655,9 +654,9 @@ Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Boolean |
 | char |String, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -671,7 +670,7 @@ Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 | ntext |String, Char [] |
 | numeryczne |Wartość dziesiętna |
 | nvarchar |String, Char [] |
-| liczba rzeczywista |Single |
+| liczba rzeczywista |Pojedyncze |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

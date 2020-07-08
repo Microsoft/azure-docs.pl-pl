@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197042"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją dla maszyn wirtualnych VMware i serwerów fizycznych
@@ -71,7 +70,7 @@ Możliwe przyczyny:
 - Współczynnik zmian danych (bajty zapisu/s) na wymienionych dyskach maszyny wirtualnej jest większy niż [Azure Site Recovery obsługiwane limity](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) dla typu konta magazynu docelowego replikacji.
 - Występuje nagłe zwiększenie współczynnika zmian, ze względu na to, które duże ilości danych oczekuje na przekazanie.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 - Upewnij się, że docelowy typ konta magazynu (w warstwie Standardowa lub Premium) jest obsługiwany zgodnie z wymaganiami dotyczącymi współczynnika zmian w źródle.
 - Jeśli przeprowadzasz już replikację do dysku zarządzanego w warstwie Premium (typ asrseeddisk), upewnij się, że rozmiar dysku obsługuje zaobserwowany współczynnik zmian zgodnie z limitami Site Recovery. W razie potrzeby można zwiększyć rozmiar asrseeddisk. Wykonaj poniższe czynności:
     - Przejdź do bloku dyski zagrożonej replikowanej maszyny i skopiuj nazwę dysku repliki

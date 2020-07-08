@@ -5,10 +5,9 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248825"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor

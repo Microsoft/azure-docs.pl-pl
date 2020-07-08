@@ -4,10 +4,9 @@ description: Ten temat zawiera odpowiedzi na żywo analizy wideo na IoT Edge cz�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261324"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Często zadawane pytania
@@ -31,17 +30,17 @@ Czy mogę wdrożyć moduł Media Edge na urządzeniu z systemem Windows 10?
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Przechwyć z ustawień aparatu IP i RTSP
 
-* Czy muszę użyć specjalnego zestawu SDK na urządzeniu, aby wysłać w strumieniu wideo?
+* Czy muszę użyć specjalnego zestawu SDK na urządzeniu, aby wysyłać strumień wideo?
     * Nie. Analiza filmów wideo na żywo na IoT Edge obsługuje przechwytywanie multimediów przy użyciu protokołu przesyłania strumieniowego RTSP wideo (który jest obsługiwany przez większość kamer IP).
 * Czy można wypchnąć multimedia do analizy wideo na żywo na IoT Edge przy użyciu protokołu RTMP lub Wygładź (na przykład zdarzenia Media Services na żywo)?
     * Nie. LVA obsługują tylko protokół RTSP do przechwytywania wideo z kamer IP.
     * Wszystkie aparaty obsługujące przesyłanie strumieniowe RTSP za pośrednictwem protokołu TCP/HTTP powinny funkcjonować. 
-* Czy mogę zresetować lub zaktualizować źródłowy adres URL RTSP w wystąpieniu wykresu?
+* Czy mogę zresetować lub zaktualizować adres URL źródła RTSP w wystąpieniu grafu?
     * Tak, gdy wystąpienie grafu jest w stanie nieaktywnym.  
 * Czy jest dostępny symulator RTSP do użycia podczas testowania i opracowywania?
-    * Tak. Dostępny jest moduł brzegowy [symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do użycia w przewodnikach Szybki Start i samouczkach do obsługi procesu nauki. Ten moduł jest dostępny jako najlepszy nakład pracy i może nie być zawsze dostępny. Zdecydowanie zaleca się, aby nie używać go przez więcej niż kilka godzin. Przed utworzeniem planów dla wdrożenia produkcyjnego należy zainwestować w testy z rzeczywistym źródłem RTSP.
-* Czy są obsługiwane ONVIF odnajdywania kamer IP na brzegu?
-    * Nie, nie ma obsługi odnajdywania urządzeń ONVIF na krawędzi.
+    * Tak. Dostępny jest moduł brzegowy [symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do użycia w przewodnikach Szybki Start i samouczkach do obsługi procesu nauki. Ten moduł jest udostępniany w miarę możliwości i może nie być zawsze dostępny. Zdecydowanie zaleca się, aby nie używać go przez więcej niż kilka godzin. Przed utworzeniem planów dla wdrożenia produkcyjnego należy zainwestować w testy z rzeczywistym źródłem RTSP.
+* Czy jest obsługiwane odnajdywanie kamer IP zgodne ze standardem ONVIF w sieci brzegowej?
+    * Nie, odnajdywanie urządzeń w sieci brzegowej zgodne ze standardem ONVIF nie jest obsługiwane.
 
 ## <a name="streaming-and-playback"></a>Przesyłanie strumieniowe i odtwarzanie
 
@@ -54,9 +53,9 @@ Czy mogę wdrożyć moduł Media Edge na urządzeniu z systemem Windows 10?
     Zalecane gracze do testowania obejmują:
 
     * [Azure Media Player](../latest/use-azure-media-player.md)
-    * [HLS. js](https://hls-js.netlify.app/demo/)
-    * [Wideo. js](https://videojs.com/)
-    * [Łącznik. js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
+    * [HLS.js](https://hls-js.netlify.app/demo/)
+    * [Video.js](https://videojs.com/)
+    * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
     * [Shaka Player](https://github.com/google/shaka-player)
     * [ExoPlayer](https://github.com/google/ExoPlayer)
     * [Natywna HTTP Live Streaming firmy Apple](https://developer.apple.com/streaming/)

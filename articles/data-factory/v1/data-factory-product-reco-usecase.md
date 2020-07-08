@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195888"
 ---
 # <a name="use-case---product-recommendations"></a>Przypadek użycia — zalecenia dotyczące produktu
@@ -53,7 +52,7 @@ System rekomendacji używany na potrzeby uczenia maszynowego w tym przykładzie 
 
 Na koniec zestaw wyników spersonalizowanych rekomendacji dotyczących produktów jest przenoszony do składni danych relacyjnych w celu użycia przez witrynę sieci Web sprzedawcy detalicznego.  Zestaw wyników może być również dostępny bezpośrednio z usługi BLOB Storage przez inną aplikację lub przeniesiony do dodatkowych magazynów dla innych odbiorców i przypadków użycia.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 Przez optymalizację strategii zaleceń dotyczących produktów i dostosowanie jej do celów gospodarczych, rozwiązanie spełnia cele marketingowe i docelowe sprzedaży w trybie online. Ponadto mogli operacjonalizować i zarządzać przepływem pracy zaleceń dotyczących produktu w sposób efektywny, niezawodny i ekonomiczny. Podejście ułatwiające aktualizowanie modelu i dostosowanie jego skuteczności w oparciu o miary sukcesów operacji kliknięcia i konwersji sprzedaży. Korzystając z Azure Data Factory, mogli porzucić czasochłonne i kosztowne ręczne zarządzanie zasobami w chmurze oraz przejść na żądanie zarządzania zasobami w chmurze. W związku z tym mogły zaoszczędzić czas, pieniądze i skrócić czas wdrożenia rozwiązania. Widoki i kondycja usługi operacyjnej danych były łatwe do wizualizacji i rozwiązywania problemów przy użyciu intuicyjnego interfejsu użytkownika Data Factory monitorowania i zarządzania dostępnego z Azure Portal. Rozwiązanie może być teraz zaplanowane i zarządzane, aby gotowe dane były niezawodne i dostarczane do użytkowników, a zależności między danymi i przetwarzaniem są automatycznie zarządzane bez interwencji człowieka.
 
 Dzięki udostępnieniu tego spersonalizowanego środowiska sprzedaży detalicznej sprzedaż w trybie online stworzyła bardziej konkurencyjne, atrakcyjne środowisko klienta i w związku z tym zwiększają sprzedaż i ogólną zadowolenie klientów.

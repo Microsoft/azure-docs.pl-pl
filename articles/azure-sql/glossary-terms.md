@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
 ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221391"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database słownik terminów
@@ -45,7 +44,7 @@ ms.locfileid: "84221391"
 |:---|:---|:---|
 |Usługa platformy Azure|Wystąpienie zarządzane Azure SQL|[Wystąpienie zarządzane SQL](managed-instance/sql-managed-instance-paas-overview.md)|
 |Model zakupu|Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
-|Opcja wdrażania |Jedno wystąpienie|[Jedno wystąpienie](managed-instance/sql-managed-instance-paas-overview.md)|
+|Opcja wdrażania |Jedno wystąpienie|[Pojedyncze wystąpienie](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pula wystąpień (wersja zapoznawcza)|[Pule wystąpień](managed-instance/instance-pools-overview.md)|
 |Warstwa usług|Ogólnego przeznaczenia, Krytyczne dla działania firmy|[Warstwy usługi wystąpienia zarządzanego SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Warstwa obliczeniowa|Zainicjowane obliczenie|[Zainicjowane obliczenie](database/service-tiers-vcore.md#compute-tiers)|

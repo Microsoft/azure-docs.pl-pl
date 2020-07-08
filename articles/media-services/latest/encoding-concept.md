@@ -14,10 +14,9 @@ ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84220157"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
@@ -60,7 +59,7 @@ Podczas przesyłania zadań w celu przetworzenia filmów wideo musisz powiedzie�
 * [Kodowanie z adresu URL HTTPS za pomocą platformy .NET](stream-files-dotnet-quickstart.md)
 * [Kodowanie z adresu URL protokołu HTTPS za pomocą interfejsu REST](stream-files-tutorial-with-rest.md)
 * [Kodowanie z adresu URL HTTPS za pomocą interfejsu wiersza polecenia](stream-files-cli-quickstart.md)
-* [Kodowanie z adresu URL HTTPS za pomocą środowiska Node. js](stream-files-nodejs-quickstart.md)
+* [Koduj z adresu URL HTTPS za pomocą Node.js](stream-files-nodejs-quickstart.md)
 
 ### <a name="creating-job-input-from-a-local-file"></a>Tworzenie danych wejściowych zadania z pliku lokalnego
 

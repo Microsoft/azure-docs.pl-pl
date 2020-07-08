@@ -10,17 +10,16 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233279"
 ---
 # <a name="sql-database-dac-packages-in-sql-edge"></a>SQL Database pakietów DAC w programie SQL Edge
 
 Usługa Azure SQL Edge (wersja zapoznawcza) to zoptymalizowany aparat relacyjnej bazy danych umożliwiający wdrażanie IoT i Edge. Jest on oparty na najnowszych wersjach aparatu bazy danych Microsoft SQL Server, który zapewnia wiodące w branży funkcje, zabezpieczenia i przetwarzanie zapytań. Dzięki wiodącym w branży funkcjom zarządzania relacyjnymi bazami danych SQL Server usługa Azure SQL Edge zapewnia wbudowaną funkcję przesyłania strumieniowego na potrzeby analiz w czasie rzeczywistym i złożonych zdarzeń.
 
-Usługa Azure SQL Edge oferuje również natywną implementację programu sqlpackage. exe, która umożliwia wdrożenie pakietu [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) podczas wdrażania programu SQL Edge. SQL Database dacpacs można wdrożyć w usłudze SQL Edge przy użyciu parametru sqlpackage dostępnego za pośrednictwem `module twin's desired properties` opcji modułu programu SQL Edge:
+Usługa Azure SQL Edge oferuje również natywną implementację SqlPackage.exe, która umożliwia wdrożenie pakietu [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) podczas wdrażania programu SQL Edge. SQL Database dacpacs można wdrożyć w usłudze SQL Edge przy użyciu parametru sqlpackage dostępnego za pośrednictwem `module twin's desired properties` opcji modułu programu SQL Edge:
 
 ```json
 {

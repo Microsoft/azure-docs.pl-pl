@@ -13,10 +13,9 @@ ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 36efd3e90731e7659f023ad99df1eb9cb3c0198f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247448"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie offline za pomocą usługi DMS

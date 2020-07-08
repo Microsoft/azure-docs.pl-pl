@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233070"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys. external_streaming_jobs (Transact-SQL)
@@ -29,8 +28,8 @@ Zwraca wiersz dla każdego zadania przesyłania strumieniowego zewnętrznego utw
 |**parent_object_id**|**#c1**| Numer identyfikacyjny obiektu dla obiektu nadrzędnego dla tego strumienia. W bieżącej implementacji ta wartość jest zawsze równa null.|
 |**Wprowadź**|**char (2)**|Typ obiektu. Dla obiektów strumienia typem jest zawsze "EJ"|
 |**type_desc**|**nvarchar (60)**| Opis typu obiektu. W przypadku obiektów strumienia typ jest zawsze "EXTERNAL_STREAMING_JOB"|
-|**create_date**|**datę**| Data utworzenia obiektu.|
-|**modify_date**|**datę**| W bieżącej implementacji ta wartość jest taka sama jak create_date obiektu Stream |
+|**create_date**|**datetime**| Data utworzenia obiektu.|
+|**modify_date**|**datetime**| W bieżącej implementacji ta wartość jest taka sama jak create_date obiektu Stream |
 |**is_ms_shipped**|**bit**| Obiekt utworzony przez składnik wewnętrzny.|  
 |**is_published**|**bit**| Obiekt został opublikowany.|  
 |**is_schema_published**|**bit**|Tylko schemat obiektu jest publikowany.|

@@ -4,13 +4,12 @@ description: Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdraża
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261072"
 ---
-# <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze praktyki
+# <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze rozwiązania
 
 Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych. Należy również zapoznać [się z tematem przygotowanie do wdrożenia rozwiązania IoT Edge w artykule produkcyjnym](https://docs.microsoft.com/azure/iot-edge/production-checklist) dotyczącym przygotowywania IoT Edge rozwiązania. 
 
@@ -107,7 +106,7 @@ Następnie w obszarze Utwórz opcje dla modułu Edge w manifeście wdrożenia mo
 
 Jeśli zobaczysz przykładowe wykresy multimedialne dla przewodnika Szybki Start i samouczków, takie jak [ciągłe nagrywanie filmów wideo](continuous-video-recording-tutorial.md), należy zauważyć, że Katalog pamięci podręcznej multimediów (localMediaCachePath) używa podkatalogu w applicationDataDirectory. Jest to zalecane podejście, ponieważ pamięć podręczna zawiera dane przejściowe.
 
-### <a name="naming-video-assets-or-files"></a>Nazywanie zasobów wideo lub plików
+### <a name="naming-video-assets-or-files"></a>Nazywanie elementów zawartości lub plików wideo
 
 Wykresy multimediów umożliwiają tworzenie zasobów w chmurze lub plików MP4 na brzegu. Zasoby multimedialne mogą być generowane przez [ciągłe nagrywanie wideo](continuous-video-recording-tutorial.md) lub [Rejestrowanie wideo oparte na zdarzeniach](event-based-video-recording-tutorial.md). Chociaż te zasoby i pliki mogą być nazwane zgodnie z oczekiwaniami, zalecaną strukturą nazewnictwa dla zasobów multimediów ciągłego nagrywania wideo jest " &lt; anytext &gt; -$ {System. GraphTopologyName}-$ {system. GraphInstanceName}". Na przykład można ustawić assetNamePattern w ujścia zasobów w następujący sposób:
 

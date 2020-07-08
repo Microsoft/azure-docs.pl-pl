@@ -10,10 +10,9 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 9e1f672a62ee7687fec9cea96ca03240c893ba95
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84233332"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
@@ -118,7 +117,7 @@ Parametry:
 - Dane wejściowe lub wyjściowe
   - Alias 
   - Format serializacji zdarzeń 
-  - Kodowanie 
+  - Encoding 
 - Tylko dane wejściowe: 
   - Typ kompresji zdarzenia 
 
@@ -253,7 +252,7 @@ Parametry:
   - Format daty 
   - Format czasu 
   - Format serializacji zdarzeń 
-  - Kodowanie 
+  - Encoding 
 - Tylko dane wejściowe: 
   - Partycje (dane wejściowe) 
   - Typ kompresji zdarzenia (dane wejściowe) 
@@ -315,7 +314,7 @@ Parametry:
   - Nazwa zasad centrum zdarzeń 
   - Klucz zasad centrum zdarzeń 
   - Format serializacji zdarzeń 
-  - Kodowanie 
+  - Encoding 
 - Tylko dane wejściowe: 
   - Grupa konsumentów centrum zdarzeń 
   - Typ kompresji zdarzenia 
@@ -376,7 +375,7 @@ Parametry:
 - Klucz zasad dostępu współdzielonego 
 - Grupa konsumentów 
 - Format serializacji zdarzeń 
-- Kodowanie 
+- Encoding 
 - Typ kompresji zdarzenia 
 
 Składnia:
@@ -417,7 +416,7 @@ WITH
 Typ: dane wyjściowe<br>
 Parametry:
 - Alias danych wyjściowych 
-- Baza danych 
+- baza danych 
 - Serwer 
 - Nazwa użytkownika 
 - Hasło 
@@ -501,7 +500,7 @@ Parametry:
 - Kolumny właściwości 
 - Kolumny właściwości systemu 
 - Format serializacji zdarzeń 
-- Kodowanie 
+- Encoding 
 
 Składnia:
 
@@ -547,7 +546,7 @@ Parametry:
 - Alias danych wyjściowych 
 - Identyfikator konta 
 - Klucz konta 
-- Baza danych 
+- baza danych 
 - Nazwa kontenera 
 - Identyfikator dokumentu 
 

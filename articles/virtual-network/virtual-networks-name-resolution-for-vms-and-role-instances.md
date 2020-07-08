@@ -14,10 +14,9 @@ ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204773"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure
@@ -38,7 +37,7 @@ Używany typ rozpoznawania nazw zależy od tego, w jaki sposób zasoby muszą ko
 > [!NOTE]
 > Jeśli używasz systemu DNS z systemem Azure, odpowiedni sufiks DNS zostanie automatycznie zastosowany do maszyn wirtualnych. W przypadku wszystkich innych opcji należy użyć w pełni kwalifikowanych nazw domen (FQDN) lub ręcznie zastosować odpowiedni sufiks DNS do maszyn wirtualnych.
 
-| **Scenariusz** | **Narzędzie** | **Sufiks DNS** |
+| **Scenariusz** | **Rozwiązanie** | **Sufiks DNS** |
 | --- | --- | --- |
 | Rozpoznawanie nazw między maszynami wirtualnymi znajdującymi się w tej samej sieci wirtualnej lub wystąpieniami roli Cloud Services platformy Azure w tej samej usłudze w chmurze. | [Azure DNS stref prywatnych](../dns/private-dns-overview.md) lub [rozpoznawania nazw udostępnianych przez platformę Azure](#azure-provided-name-resolution) |Nazwa hosta lub nazwa FQDN |
 | Rozpoznawanie nazw między maszynami wirtualnymi w różnych sieciach wirtualnych lub wystąpieniach ról w różnych usługach w chmurze. |[Azure DNS strefy prywatne](../dns/private-dns-overview.md) lub serwery DNS zarządzane przez klienta przekazujące zapytania między sieciami wirtualnymi w celu rozpoznania ich przez platformę Azure (DNS proxy). Zobacz [rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-that-uses-your-own-dns-server). |Tylko nazwa FQDN |

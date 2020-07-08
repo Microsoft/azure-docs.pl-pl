@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84199000"
 ---
-# <a name="bring-your-own-key-specification"></a>Wprowadzanie własnych specyfikacji klucza
+# <a name="bring-your-own-key-specification"></a>Specyfikacja używania własnego klucza
 
 W tym dokumencie opisano specyfikacje dotyczące importowania kluczy chronionych przez moduł HSM z sprzętowych modułów zabezpieczeń lokalnego klientów do Key Vault.
 

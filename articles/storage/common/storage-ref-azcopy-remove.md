@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: ab085b9a41120a9f56c1c2e39a89def8c3893747
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221082"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
@@ -91,7 +90,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--Usuń ciąg migawek** domyślnie, operacja usuwania kończy się niepowodzeniem, jeśli obiekt BLOB ma migawki. Określ element "include", aby usunąć główny obiekt BLOB i wszystkie jego migawki; Alternatywnie można określić tylko wartość "tylko", aby usunąć tylko migawki, ale zachować główny obiekt BLOB.
 
-**--exclude-Path** ciąg Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: folder. webfolders/subDirName/plik. PDF.
+**--exclude-Path** ciąg Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: moje folderu; folder/subDirName/file.pdf.
 
 **--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: *. jpg;*. PDF; exactname
 
@@ -99,7 +98,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **-h,--** Pomoc dotycząca usuwania
 
-**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: Moja folder; folder/subDirName/plik. PDF
+**--include-Path** ciąg Uwzględnij tylko te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: moje folderu; folder/subDirName/file.pdf
 
 **--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: *. jpg;*. PDF; exactname
 

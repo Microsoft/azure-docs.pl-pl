@@ -9,10 +9,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247482"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
@@ -47,17 +46,17 @@ Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpiecze
 
     | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych         | Usługa zaufana     | Statyczny zakres adresów IP | Tagi usługi | Zezwalaj na usługi platformy Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|
-    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                             | -                   | Yes             | -            | Yes                  |
+    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                             | -                   | Tak             | -            | Yes                  |
     |                              | Azure Data Explorer                                         | -                   | Tak*            | Tak*         | -                    |
-    |                              | Azure Data Lake Gen1                                        | -                   | Yes             | -            | Yes                  |
-    |                              | Azure Database for MariaDB, MySQL, PostgreSQL               | -                   | Yes             | -            | Yes                  |
-    |                              | Azure File Storage                                          | -                   | Yes             | -            | .                    |
-    |                              | Azure Storage (blog, ADLS Gen2)                             | Tak (tylko uwierzytelnianie MSI) | Yes             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | -                   | Yes             | -            | Yes                  |
-    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Yes                 | Yes             | -            | -                    |
-    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.            | -                   | Yes             | -            | -                    |
-    | Azure laaS                   | SQL Server, Oracle itd.                                  | -                   | Yes             | Yes          | -                    |
-    | Lokalna laaS              | SQL Server, Oracle itd.                                  | -                   | Yes             | -            | -                    |
+    |                              | Azure Data Lake Gen1                                        | -                   | Tak             | -            | Yes                  |
+    |                              | Azure Database for MariaDB, MySQL, PostgreSQL               | -                   | Tak             | -            | Yes                  |
+    |                              | Azure File Storage                                          | -                   | Tak             | -            | .                    |
+    |                              | Azure Storage (blog, ADLS Gen2)                             | Tak (tylko uwierzytelnianie MSI) | Tak             | -            | .                    |
+    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | -                   | Tak             | -            | Yes                  |
+    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Tak                 | Yes             | -            | -                    |
+    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.            | -                   | Tak             | -            | -                    |
+    | Azure laaS                   | SQL Server, Oracle itd.                                  | -                   | Tak             | Yes          | -                    |
+    | Lokalna laaS              | SQL Server, Oracle itd.                                  | -                   | Tak             | -            | -                    |
     
     **Dotyczy tylko sytuacji, gdy usługa Azure Eksplorator danych jest wstrzykiwana przez sieć wirtualną i zakres adresów IP można zastosować do sieciowej grupy zabezpieczeń/zapory.* 
 
@@ -65,16 +64,16 @@ Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpiecze
     
     | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych         | Statyczny adres IP | Usługi zaufane  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
-    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                               | Yes       | -                   |
+    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                               | Tak       | -                   |
     |                                | Azure Data Explorer                                           | -         | -                   |
-    |                                | Azure Data Lake Gen1                                          | Yes       | -                   |
-    |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | Yes       | -                   |
-    |                                | Azure File Storage                                            | Yes       | -                   |
-    |                                | Azure Storage (blog, ADLS Gen2)                             | Yes       | Tak (tylko uwierzytelnianie MSI) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Yes       | -                   |
-    |                                | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Yes       | Yes                 |
-    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.              | Yes       | -                   |
-    | Azure laaS                     | SQL Server, Oracle itd.                                  | Yes       | -                   |
+    |                                | Azure Data Lake Gen1                                          | Tak       | -                   |
+    |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | Tak       | -                   |
+    |                                | Azure File Storage                                            | Tak       | -                   |
+    |                                | Azure Storage (blog, ADLS Gen2)                             | Tak       | Tak (tylko uwierzytelnianie MSI) |
+    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Tak       | -                   |
+    |                                | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Tak       | Yes                 |
+    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.              | Tak       | -                   |
+    | Azure laaS                     | SQL Server, Oracle itd.                                  | Tak       | -                   |
     | Lokalna laaS              | SQL Server, Oracle itd.                                  | Tak       | -                   |    
 
 ## <a name="next-steps"></a>Następne kroki

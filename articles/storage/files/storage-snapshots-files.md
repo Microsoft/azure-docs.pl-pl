@@ -8,29 +8,28 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d415ef165da18312a458d7d14fba18acd1bf44cf
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84235605"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overview of share snapshots for Azure Files (Omówienie migawek udziałów w usłudze Azure Files)
 
-Azure Files zapewnia możliwość tworzenia migawek udziałów plików. Migawki udziału przechwytują stan udziału w tym momencie. W tym artykule opisano, jakie funkcje są udostępniane przez migawki i jak można je wykorzystać w przypadku niestandardowego przypadku użycia.
+Usługa Azure Files umożliwia tworzenia migawek udziałów plików. Migawki udziału przechwytują stan udziału w konkretnym momencie. W tym artykule opisano funkcje oferowane przez migawki udziałów i sposób ich wykorzystania w przypadku konkretnego klienta.
 
-## <a name="when-to-use-share-snapshots"></a>Kiedy używać migawek udziałów
+## <a name="when-to-use-share-snapshots"></a>Kiedy skorzystać z migawek udziałów
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Ochrona przed błędami aplikacji i uszkodzeniem danych
 
-Aplikacje korzystające z udziałów plików wykonują operacje, takie jak zapisywanie, odczytywanie, przechowywanie, przesyłanie i przetwarzanie. Jeśli aplikacja jest nieprawidłowo skonfigurowana lub wprowadzono niezamierzoną usterkę, przypadkowe zastępowanie lub uszkodzenia mogą wystąpić do kilku bloków. Aby ułatwić ochronę przed takimi scenariuszami, można wykonać migawkę udziału przed wdrożeniem nowego kodu aplikacji. W przypadku wprowadzenia usterki lub błędu aplikacji z nowym wdrożeniem można wrócić do poprzedniej wersji danych w tym udziale plików. 
+Aplikacje korzystające z udziałów plików wykonują operacje, takie jak zapisywanie, odczytywanie, przechowywanie, przesyłanie i przetwarzanie. Jeśli aplikacja jest nieprawidłowo skonfigurowana lub wprowadzono do niej niezamierzoną usterkę, kilka bloków może zostać przypadkowo zastąpionych lub uszkodzonych. Aby ułatwić ochronę przed takimi scenariuszami, można wykonać migawkę udziału przed wdrożeniem nowego kodu aplikacji. Jeśli wraz z nowym wdrożeniem zostanie wprowadzona usterka lub błąd aplikacji, można w takim udziale plików przywrócić wcześniejszą wersję danych. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Ochrona przed przypadkowym usunięciem lub niezamierzonymi zmianami
 
-Załóżmy, że pracujesz nad plikiem tekstowym w udziale plików. Gdy plik tekstowy zostanie zamknięty, utracisz możliwość cofnięcia zmian. W takich przypadkach należy odzyskać poprzednią wersję pliku. Migawek udziałów można użyć do odzyskania poprzednich wersji pliku, jeśli zostaną przypadkowo zmienione lub usunięte.
+Załóżmy, że pracujesz nad plikiem tekstowym w udziale plików. Po zamknięciu pliku tekstowego tracisz możliwość cofnięcia zmian. W takich przypadkach jedyną możliwością jest odzyskanie poprzedniej wersji pliku. Za pomocą migawek udziałów można odzyskać poprzednie wersje pliku, jeśli został on przypadkowo usunięty lub zmieniono jego nazwę.
 
-### <a name="general-backup-purposes"></a>Ogólne cele tworzenia kopii zapasowej
+### <a name="general-backup-purposes"></a>Tworzenie kopii zapasowych
 
-Po utworzeniu udziału plików można okresowo utworzyć migawkę udziału udziału plików, która będzie używana do tworzenia kopii zapasowych danych. Migawka udziału, gdy okresowo jest pobierana, pomaga zachować poprzednie wersje danych, które mogą być używane na potrzeby przyszłych wymagań inspekcji lub odzyskiwania po awarii. Zalecamy używanie [kopii zapasowej udziału plików platformy Azure](../../backup/azure-file-share-backup-overview.md) jako rozwiązania do tworzenia kopii zapasowych w celu wykonywania migawek i zarządzania nimi. Możesz również samodzielnie tworzyć migawki i zarządzać nimi przy użyciu interfejsu wiersza polecenia lub programu PowerShell.
+Po utworzeniu udziału plików można okresowo tworzyć migawki tego udziału i traktować je jako kopie zapasowe danych. Okresowo wykonywana migawka udziału pomaga zachować poprzednie wersje danych, które mogą być używane na potrzeby przyszłych wymagań dotyczących inspekcji lub odzyskiwania po awarii. Zalecamy używanie [kopii zapasowej udziału plików platformy Azure](../../backup/azure-file-share-backup-overview.md) jako rozwiązania do tworzenia kopii zapasowych w celu wykonywania migawek i zarządzania nimi. Możesz również samodzielnie tworzyć migawki i zarządzać nimi przy użyciu interfejsu wiersza polecenia lub programu PowerShell.
 
 ## <a name="capabilities"></a>Możliwości
 
@@ -71,15 +70,15 @@ Nie ma żadnego limitu jednoczesnych wywołań tworzenia migawek udziałów. Nie
 
 Obecnie nie jest możliwe Instalowanie migawek udziałów w systemie Linux. Jest to spowodowane tym, że klient SMB systemu Linux nie obsługuje instalowania migawek takich jak Windows.
 
-## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiowanie danych z powrotem do udziału z migawki udziału
+## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiowanie danych z migawki udziału z powrotem do udziału
 
-Operacje kopiowania obejmujące pliki i migawki udziałów są zgodne z następującymi regułami:
+Operacje kopiowania obejmujące pliki i migawki udziałów przebiegają zgodnie z następującymi regułami:
 
-Można skopiować pojedyncze pliki do udziału plików migawki w udziale podstawowym lub w dowolnej innej lokalizacji. Można przywrócić wcześniejszą wersję pliku lub przywrócić pełny udział plików przez skopiowanie pliku przez plik z migawki udziału. Nie można podwyższyć poziomu migawki udziału do udziału podstawowego. 
+Pojedyncze pliki z migawki udziału plików można kopiować do udziału bazowego lub do dowolnej innej lokalizacji. Można przywrócić wcześniejszą wersję pliku lub przywrócić cały udział plików, kopiując poszczególne pliki z migawki udziału. Nie można podwyższyć poziomu migawki udziału do udziału bazowego. 
 
-Migawka udziału pozostaje niezmieniona po skopiowaniu, ale podstawowy udział plików jest zastępowany kopią danych, które były dostępne w migawce udziału. Wszystkie przywrócone pliki są w kierunku "zmieniona zawartość".
+Migawka udziału pozostaje niezmieniona po skopiowaniu, ale bazowy udział plików jest zastępowany kopią danych, które były dostępne w migawce udziału. Wszystkie przywrócone pliki będą uwzględnione w „zmienionej zawartości”.
 
-Można skopiować plik w migawce udziału do innego miejsca docelowego o innej nazwie. Utworzony plik docelowy jest plikiem zapisywalnym, a nie migawką udziału. W takim przypadku podstawowy udział plików pozostanie nienaruszony.
+Plik z migawki udziału można skopiować ze zmieniona nazwą do innego miejsca docelowego. Wynikowy plik docelowy jest plikiem zapisywalnym, a nie migawką udziału. W takim przypadku bazowy udział plików pozostanie nienaruszony.
 
 Gdy plik docelowy zostanie zastąpiony kopią, wszystkie migawki udziałów skojarzone z oryginalnym plikiem docelowym pozostaną nienaruszone.
 

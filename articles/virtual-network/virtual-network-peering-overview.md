@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232951"
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne

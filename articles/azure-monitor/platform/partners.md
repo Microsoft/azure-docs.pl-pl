@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248975"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
@@ -140,7 +139,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 Więcej tutaj
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Pobierz](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
 
 

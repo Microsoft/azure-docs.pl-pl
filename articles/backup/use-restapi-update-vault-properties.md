@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84248230"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
@@ -85,8 +84,8 @@ Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API R
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   String (ciąg)      |  Opcjonalny element eTag       |
-|location     |  true       |String (ciąg)         |   Lokalizacja zasobu      |
+|Element ETag     |         |   String      |  Opcjonalny element eTag       |
+|location     |  true       |String         |   Lokalizacja zasobu      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |tags     |         | Obiekt        |     Tagi zasobów    |
 

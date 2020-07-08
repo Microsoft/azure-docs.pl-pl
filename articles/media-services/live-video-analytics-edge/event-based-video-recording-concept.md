@@ -4,13 +4,12 @@ description: Nagrywanie wideo oparte na zdarzeniach (EVR) odnosi się do procesu
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261331"
 ---
-# <a name="event-based-video-recording"></a>Rejestrowanie wideo oparte na zdarzeniach  
+# <a name="event-based-video-recording"></a>Nagrywanie wideo oparte na zdarzeniach  
  
 ## <a name="suggested-pre-reading"></a>Sugerowane przed odczytem  
 

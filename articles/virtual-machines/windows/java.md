@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84232969"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Java

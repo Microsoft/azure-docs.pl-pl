@@ -4,13 +4,12 @@ description: W tym temacie wyjaśniono, jak zarządzać zasadami rejestrowania.
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 321e68087bfe2a8b3e1354e49585a89f9d3af295
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261317"
 ---
-# <a name="manage-recording-policy"></a>Zarządzanie zasadami rejestrowania
+# <a name="manage-recording-policy"></a>Zarządzanie zasadami nagrywania
 
 Korzystając z usługi Analiza filmów wideo na żywo, możesz IoT Edge na potrzeby [ciągłego nagrywania wideo](continuous-video-recording-concept.md), dzięki czemu możesz nagrać wideo w chmurze przez tygodnie lub miesiące. Możesz zarządzać długością (w dniach) tego archiwum chmury, korzystając z narzędzi do [zarządzania cyklem życia](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) wbudowanych w usługę Azure Storage.  
 

@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204739"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure

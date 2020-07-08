@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: tomfitz
 ms.openlocfilehash: fa5e59b96aada06c2dd486094d9be6a52c79e43e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84261289"
 ---
 # <a name="use-existing-virtual-network-with-azure-managed-applications"></a>Użyj istniejącej sieci wirtualnej z Azure Managed Applications
@@ -18,7 +17,7 @@ W tym artykule opisano sposób definiowania aplikacji zarządzanej przez platfor
 
 ## <a name="main-template"></a>Szablon główny
 
-Najpierw przyjrzyjmy się plikowi **mainTemplate. JSON** . Poniżej przedstawiono cały szablon służący do wdrażania maszyny wirtualnej i skojarzonych z nią zasobów. Później przeanalizuje się części szablonu, które są związane z używaniem istniejącej sieci wirtualnej.
+Najpierw przyjrzyjmy się **mainTemplate.js** pliku. Poniżej przedstawiono cały szablon służący do wdrażania maszyny wirtualnej i skojarzonych z nią zasobów. Później przeanalizuje się części szablonu, które są związane z używaniem istniejącej sieci wirtualnej.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -38,7 +37,7 @@ Interfejs sieciowy jest ustawiony na zmienną identyfikatora podsieci.
 
 ## <a name="ui-definition"></a>Definicja interfejsu użytkownika
 
-Teraz przyjrzyjmy się plikowi **createUiDefinition. JSON** . Cały plik to:
+Teraz przyjrzyjmy się **createUiDefinition.js** pliku. Cały plik to:
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 
@@ -59,4 +58,4 @@ W danych wyjściowych należy uwzględnić wartość wskazującą, czy konsument
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat tworzenia pliku definicji interfejsu użytkownika, zobacz [CreateUiDefinition. JSON dla środowiska tworzenia aplikacji zarządzanej przez platformę Azure](create-uidefinition-overview.md).
+Aby dowiedzieć się więcej na temat tworzenia pliku definicji interfejsu użytkownika, zobacz [CreateUiDefinition.jsna potrzeby tworzenia środowiska aplikacji zarządzanej przez platformę Azure](create-uidefinition-overview.md).

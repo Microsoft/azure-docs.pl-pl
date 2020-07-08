@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247803"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
@@ -117,7 +116,7 @@ Punkt odzyskiwania jest identyfikowany z `{name}` polem w powyższej odpowiedzi.
 
 ## <a name="restore-disks"></a>Przywróć dyski
 
-Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn usługi Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig. JSON") będą przechowywane na danym koncie magazynu.
+Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn usługi Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu.
 
 Wyzwalanie dysków przywracania to żądanie *post* . Aby dowiedzieć się więcej o operacji przywracania dysków, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -229,7 +228,7 @@ X-Powered-By: ASP.NET
 
 Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, powinno być śledzone w sposób opisany w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-Po zakończeniu długotrwałego zadania dyski i Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig. JSON") będą obecne na danym koncie magazynu.
+Po zakończeniu długotrwałego zadania dyski i Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig.json") będą obecne na danym koncie magazynu.
 
 ## <a name="restore-as-another-virtual-machine"></a>Przywróć jako inną maszynę wirtualną
 

@@ -4,10 +4,9 @@ description: Informacje dotyczące rozwiązywania problemów dotyczących tworze
 ms.topic: troubleshooting
 ms.date: 06/18/2019
 ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84247958"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
@@ -50,9 +49,9 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 1. Wyklucz następujące trzy procesy działające w ramach maszyny wirtualnej ze skanowania oprogramowania antywirusowego:
 
-    - IaasWLPluginSvc. exe
-    - IaasWorkloadCoordinaorService. exe
-    - TriggerExtensionJob. exe
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
 
 1. SQL zawiera również pewne wskazówki dotyczące pracy z programami antywirusowymi. Zobacz [ten artykuł](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) , aby uzyskać szczegółowe informacje.
 
@@ -209,7 +208,7 @@ Teraz Rozmieść je w następującym formacie:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Oto przykład:
+Przykład:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -238,7 +237,7 @@ Zawartość pliku powinna mieć następujący format:
 ]
 ```
 
-Oto przykład:
+Przykład:
 
 ```json
 [

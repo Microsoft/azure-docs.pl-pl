@@ -9,10 +9,9 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84204688"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Zapobiegaj przypadkowemu usunięciu udziałów plików platformy Azure

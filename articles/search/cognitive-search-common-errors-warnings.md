@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221311"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
@@ -34,7 +33,7 @@ Począwszy od wersji interfejsu API `2019-05-06` , błędy indeksatora na poziom
 
 | Właściwość | Opis | Przykład |
 | --- | --- | --- |
-| key | Identyfikator dokumentu dokumentu, którego dotyczy błąd lub ostrzeżenie. | https: \/ /coromsearch.blob.Core.Windows.NET/JFK-1K/DocId-32112954.PDF |
+| key | Identyfikator dokumentu dokumentu, którego dotyczy błąd lub ostrzeżenie. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | Nazwa operacji opisująca miejsce wystąpienia błędu lub ostrzeżenia. Ta wartość jest generowana przez następującą strukturę: [Kategoria]. [Podkategoria]. [ResourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName wzbogacanie. WebApiSkill. Moja umiejętność projekcji. SearchIndex. OutputFieldMapping. myOutputFieldName projekcji. SearchIndex. MergeOrUpload. Indeksname. KnowledgeStore. Table. webtablename |
 | message | Ogólny opis błędu lub ostrzeżenia. | Nie można wykonać umiejętności, ponieważ żądanie interfejsu API sieci Web nie powiodło się. |
 | uzyskać | Wszelkie dodatkowe szczegóły, które mogą być pomocne w diagnozowaniu problemu, takie jak odpowiedź WebApi w przypadku niepowodzenia wykonywania niestandardowej umiejętności. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 Źródło, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Pozostałe ślady stosu... |
@@ -334,7 +333,7 @@ Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepusty
 
 [Tryby analizowania indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) muszą wiedzieć, jak kodowanie tekstu przed jego przeanalizą. Dwa najczęstsze sposoby kodowania tekstu to UTF-16 i UTF-8. UTF-8 to kodowanie o zmiennej długości, gdzie każdy znak ma długość od 1 do 4 bajtów. UTF-16 to kodowanie o stałej długości, gdzie każdy znak ma długość 2 bajtów. UTF-16 ma dwa różne warianty, "big endian" i "little endian". Kodowanie tekstu jest określane na podstawie "znacznika kolejności bajtów", serii bajtów przed tekstem.
 
-| Kodowanie | Znacznik kolejności bajtów |
+| Encoding | Znacznik kolejności bajtów |
 | --- | --- |
 | Big endian UTF-16 | 0xFE 0xFF |
 | Little endian UTF-16 | 0xFF 0xFE |

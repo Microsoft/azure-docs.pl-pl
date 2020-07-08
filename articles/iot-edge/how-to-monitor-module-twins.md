@@ -10,22 +10,21 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84221405"
 ---
-# <a name="monitor-module-twins"></a>Monitorowanie modułu bliźniaczych reprezentacji
+# <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
 
 Bliźniaczych reprezentacji modułów na platformie Azure IoT Hub umożliwia monitorowanie łączności i kondycji wdrożeń IoT Edge. Moduł bliźniaczych reprezentacji przechowuje przydatne informacje w usłudze IoT Hub dotyczące wydajności uruchomionych modułów. [IoT Edge Agent](iot-edge-runtime.md#iot-edge-agent) i moduły środowiska uruchomieniowego [Centrum IoT Edge](iot-edge-runtime.md#iot-edge-hub) każdy z nich utrzymuje bliźniaczych reprezentacji modułów `$edgeAgent` i `$edgeHub` , odpowiednio:
 
 * `$edgeAgent`zawiera dane o kondycji i łączności dotyczące modułów IoT Edge Agent i IoT Edge Hub oraz modułów niestandardowych. Agent IoT Edge jest odpowiedzialny za wdrażanie modułów, monitorowanie ich i raportowanie stanu połączenia do usługi Azure IoT Hub.
 * `$edgeHub`zawiera dane dotyczące komunikacji między centrum IoT Edge działającym na urządzeniu a usługą Azure IoT Hub. Obejmuje to przetwarzanie komunikatów przychodzących z urządzeń podrzędnych. Centrum IoT Edge jest odpowiedzialne za przetwarzanie komunikacji między usługą Azure IoT Hub i urządzeniami IoT Edge i modułami.
 
-Dane są zorganizowane w metadane, znaczniki, wraz z żądanymi i zgłoszonymi zestawami właściwości w strukturach JSON modułu bliźniaczych reprezentacji. Żądane właściwości określone w pliku Deployment. JSON są kopiowane do modułu bliźniaczych reprezentacji. Agent IoT Edge i centrum IoT Edge każda aktualizuje raportowane właściwości dla swoich modułów.
+Dane są zorganizowane w metadane, znaczniki, wraz z żądanymi i zgłoszonymi zestawami właściwości w strukturach JSON modułu bliźniaczych reprezentacji. Żądane właściwości określone w deployment.jsw pliku są kopiowane do modułu bliźniaczych reprezentacji. Agent IoT Edge i centrum IoT Edge każda aktualizuje raportowane właściwości dla swoich modułów.
 
-Analogicznie, żądane właściwości określone dla modułów niestandardowych w pliku Deployment. JSON są kopiowane do sznurka modułowego, ale rozwiązanie jest odpowiedzialne za dostarczenie jego raportowanych wartości właściwości.
+Podobnie wymagane właściwości określone dla modułów niestandardowych w deployment.jsw pliku są kopiowane do postaci sznurka modułowego, ale rozwiązanie jest odpowiedzialne za dostarczanie wartości właściwości, które zostały zgłoszone.
 
 W tym artykule opisano sposób przeglądania modułu bliźniaczych reprezentacji w Azure Portal, interfejsu wiersza polecenia platformy Azure i Visual Studio Code. Aby uzyskać informacje na temat monitorowania sposobu, w jaki urządzenia odbierają wdrożenia, zobacz [monitorowanie wdrożeń IoT Edge](how-to-monitor-iot-edge-deployments.md). Aby zapoznać się z omówieniem koncepcji modułu bliźniaczych reprezentacji, zobacz temat Omówienie [i Używanie modułu bliźniaczych reprezentacji w IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -83,7 +82,7 @@ KOD JSON można opisać w poniższych sekcjach, zaczynając od początku:
 
 * Metadata — zawiera dane łączności. W interesujący sposób stan połączenia agenta IoT Edge jest zawsze w stanie rozłączenia: `"connectionState": "Disconnected"` . Powód stanu połączenia odnosi się do komunikatów z urządzenia do chmury (D2C), a agent IoT Edge nie wysyła komunikatów D2C.
 * Właściwości — zawiera `desired` `reported` podsekcje i.
-* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w pliku Deployment. JSON.
+* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w deployment.jspliku.
 * Właściwości. zgłoszono najnowsze wartości właściwości zgłoszone przez agenta IoT Edge.
 
 Obie `properties.desired` sekcje i `properties.reported` mają podobną strukturę i zawierają dodatkowe metadane dotyczące schematu, wersji i informacji o środowisku uruchomieniowym. Uwzględniona jest także `modules` sekcja dla wszystkich modułów niestandardowych (takich jak `SimulatedTemperatureSensor` ) i `systemModules` sekcja dla `$edgeAgent` i `$edgeHub` modułów środowiska uruchomieniowego.
@@ -159,14 +158,14 @@ KOD JSON można opisać w poniższych sekcjach, zaczynając od początku:
 * Metadata — zawiera dane łączności.
 
 * Właściwości — zawiera `desired` `reported` podsekcje i.
-* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w pliku Deployment. JSON.
+* Properties. żądana — (pokazana zwinięte) oczekiwano wartości właściwości ustawionych przez operatora w deployment.jspliku.
 * Properties. zgłosiło najnowsze wartości właściwości zgłoszone przez Centrum IoT Edge.
 
 Jeśli występują problemy z urządzeniami podrzędnymi, badanie tych danych byłoby dobrym miejscem do rozpoczęcia.
 
 ## <a name="monitor-custom-module-twins"></a>Monitorowanie niestandardowego modułu bliźniaczych reprezentacji
 
-Informacje o łączności modułów niestandardowych są utrzymywane w wieloosiowym module agenta IoT Edge. Sznurek modułu dla modułu niestandardowego jest używany głównie do obsługi danych dla rozwiązania. Odpowiednie właściwości zdefiniowane w pliku Deployment. JSON są odzwierciedlane w postaci sznurka modułowego, a moduł może aktualizować raportowane wartości właściwości zgodnie z potrzebami.
+Informacje o łączności modułów niestandardowych są utrzymywane w wieloosiowym module agenta IoT Edge. Sznurek modułu dla modułu niestandardowego jest używany głównie do obsługi danych dla rozwiązania. Żądane właściwości zdefiniowane w deployment.jsw pliku są odzwierciedlane w postaci sznurka modułowego, a moduł może aktualizować raportowane wartości właściwości zgodnie z potrzebami.
 
 Możesz użyć preferowanego języka programowania z zestawami [SDK urządzeń IoT Hub platformy Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) , aby zaktualizować raportowane wartości właściwości w postaci sznurka modułu na podstawie kodu aplikacji modułu. Poniższa procedura korzysta z zestawu Azure SDK dla platformy .NET w tym celu przy użyciu kodu z modułu [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 

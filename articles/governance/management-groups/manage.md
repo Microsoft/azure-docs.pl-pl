@@ -4,10 +4,9 @@ description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwa
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259409"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
@@ -93,7 +92,7 @@ Aby można było usunąć grupę zarządzania, muszą zostać spełnione następ
 
    :::image type="content" source="./media/delete_confirm.png" alt-text="Okno potwierdzania usuwania grupy" border="false":::
 
-1. Wybierz pozycję **tak**.
+1. Wybierz pozycję **Tak**.
 
 ### <a name="delete-in-powershell"></a>Usuwanie w programie PowerShell
 

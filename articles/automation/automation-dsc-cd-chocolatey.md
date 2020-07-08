@@ -7,10 +7,9 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
 ms.openlocfilehash: 1bab503004876a2680286204de28631ce26b9069
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84197103"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania za pomocą narzędzia Chocolatey
@@ -82,7 +81,7 @@ Konto usługi Automation można umieścić w dowolnym z następujących regionó
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>Krok 2. naczynienie rozszerzenia maszyny wirtualnej do szablonu Menedżer zasobów
 
 Szczegóły dotyczące rejestracji maszyny wirtualnej (przy użyciu rozszerzenia maszyny wirtualnej DSC programu PowerShell) dostępnego w tym [szablonie szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
-Ten krok rejestruje nową maszynę wirtualną na serwerze ściągania z listy węzłów konfiguracji stanu. Częścią tej rejestracji jest określenie konfiguracji węzła, która ma zostać zastosowana do węzła. Ta konfiguracja węzła nie musi jeszcze istnieć na serwerze ściągania, więc warto wykonać krok 4, aby to zrobić po raz pierwszy. Ale w kroku 2 należy podjąć decyzję o nazwie węzła i nazwie konfiguracji. W tym przykładzie użycia węzeł ma wartość "isvbox", a konfiguracja to "ISVBoxConfig". W związku z tym nazwa konfiguracji węzła (do określenia w DeploymentTemplate. JSON) to "ISVBoxConfig. isvbox".
+Ten krok rejestruje nową maszynę wirtualną na serwerze ściągania z listy węzłów konfiguracji stanu. Częścią tej rejestracji jest określenie konfiguracji węzła, która ma zostać zastosowana do węzła. Ta konfiguracja węzła nie musi jeszcze istnieć na serwerze ściągania, więc warto wykonać krok 4, aby to zrobić po raz pierwszy. Ale w kroku 2 należy podjąć decyzję o nazwie węzła i nazwie konfiguracji. W tym przykładzie użycia węzeł ma wartość "isvbox", a konfiguracja to "ISVBoxConfig". W związku z tym nazwa konfiguracji węzła (do określenia w DeploymentTemplate.json) ma wartość "ISVBoxConfig. isvbox".
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>Krok 3. Dodawanie wymaganych zasobów DSC do serwera ściągania
 
@@ -126,7 +125,7 @@ W dołączonym przykładzie są implementowane następujące kroki dla cChoco i 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Krok 4. Dodawanie konfiguracji węzła do serwera ściągania
 
-Nie ma żadnych specjalnych informacji o tym, jak po raz pierwszy zaimportować konfigurację do serwera ściągania i skompilować. Wszystkie późniejsze Importy lub kompilacje tej samej konfiguracji wyglądają dokładnie tak samo. Za każdym razem, gdy aktualizujesz pakiet i konieczne jest wypchnięcie go do środowiska produkcyjnego, wykonaj ten krok po upewnieniu się, że plik konfiguracji jest prawidłowy — w tym nowej wersji pakietu. Oto plik konfiguracyjny **ISVBoxConfig. ps1**:
+Nie ma żadnych specjalnych informacji o tym, jak po raz pierwszy zaimportować konfigurację do serwera ściągania i skompilować. Wszystkie późniejsze Importy lub kompilacje tej samej konfiguracji wyglądają dokładnie tak samo. Za każdym razem, gdy aktualizujesz pakiet i konieczne jest wypchnięcie go do środowiska produkcyjnego, wykonaj ten krok po upewnieniu się, że plik konfiguracji jest prawidłowy — w tym nowej wersji pakietu. Oto **ISVBoxConfig.ps1**pliku konfiguracji:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -171,7 +170,7 @@ Configuration ISVBoxConfig
 }
 ```
 
-Oto skrypt **New-ConfigurationScript. ps1** (zmodyfikowany do korzystania z AZ module):
+Oto skrypt **New-ConfigurationScript.ps1** (zmodyfikowany do korzystania z AZ module):
 
 ```powershell
 Import-AzAutomationDscConfiguration `

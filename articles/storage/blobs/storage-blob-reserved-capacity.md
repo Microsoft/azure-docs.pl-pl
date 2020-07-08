@@ -9,10 +9,9 @@ ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84259205"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optymalizowanie kosztów magazynu obiektów blob przy użyciu pojemności zarezerwowanej
@@ -82,7 +81,7 @@ Wykonaj następujące kroki, aby zakupić zastrzeżoną pojemność:
    |---------|---------|
    |**Zakres**   |  Wskazuje, ile subskrypcji może korzystać z zalet rozliczeń skojarzonych z rezerwacją. Kontroluje również sposób zastosowania rezerwacji do określonych subskrypcji. <br/><br/> W przypadku wybrania opcji **udostępnione**rabat zostanie zastosowany do pojemności usługi Azure Storage w dowolnej subskrypcji w kontekście rozliczania. Kontekst rozliczania jest oparty na sposobie rejestracji w usłudze Azure. W przypadku klientów korporacyjnych zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z systemem płatność zgodnie z rzeczywistym użyciem zakres udostępniony obejmuje wszystkie poszczególne subskrypcje z opłatami z rabatem zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.  <br/><br/>  W przypadku wybrania opcji **Pojedyncza subskrypcja**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji. <br/><br/> W przypadku wybrania opcji **pojedynczy zasób**rabat zostanie zastosowany do pojemności usługi Azure Storage w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach tej subskrypcji. <br/><br/> Można zmienić zakres rezerwacji po zakupie rezerwacji.  |
    |**Subskrypcja**  | Subskrypcja, która jest używana do płacenia za rezerwację usługi Azure Storage. Metoda płatności w ramach wybranej subskrypcji jest używana w celu naliczania kosztów. Subskrypcja musi być jednym z następujących typów: <br/><br/>  Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P): w przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od salda zobowiązania pieniężnego rejestracji lub opłaty są naliczane jako nadwyżkowe. <br/><br/> Indywidualna subskrypcja z stawką płatności zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P): w przypadku pojedynczej subskrypcji z stawką płatności zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.    |
-   | **Region** | Region, w którym rezerwacja jest obowiązująca. |
+   | **Okolicy** | Region, w którym rezerwacja jest obowiązująca. |
    | **Warstwa dostępu** | Warstwa dostępu, w której obowiązuje rezerwacja. Dostępne opcje to *gorąca*, *chłodna*lub *archiwalna*. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md). |
    | **Nadmiarowość** | Opcja nadmiarowości dla rezerwacji. Dostępne opcje to: *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*i *RA-GZRS*. Aby uzyskać więcej informacji na temat opcji nadmiarowości, zobacz [nadmiarowość usługi Azure Storage](../common/storage-redundancy.md). |
    | **Częstotliwość rozliczeń** | Wskazuje, jak często konto jest rozliczane dla rezerwacji. Opcje obejmują *co miesiąc* lub z *góry*. |

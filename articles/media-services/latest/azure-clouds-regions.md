@@ -13,10 +13,9 @@ ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196238"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje Azure Media Services v3
@@ -25,7 +24,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 ## <a name="feature-availability-in-azure-clouds"></a>Dostępność funkcji w chmurach platformy Azure
 
-| Cechy|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
+| Cecha|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure Event Grid](reacting-to-media-services-events.md) | Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
