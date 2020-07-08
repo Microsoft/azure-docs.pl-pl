@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 3eb429c4981cbc548c7d68c788008b841ff5d33e
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85484081"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025594"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
@@ -20,10 +20,6 @@ Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta dla Azure Datab
 Szyfrowanie danych z kluczami zarządzanymi przez klienta dla Azure Database for PostgreSQL pojedynczego serwera, jest ustawiany na poziomie serwera. Dla danego serwera klucz zarządzany przez klienta o nazwie klucz szyfrowania klucza (KEK) jest używany do szyfrowania klucza szyfrowania danych używanego przez usługę. KEK jest kluczem asymetrycznym przechowywanym w wystąpieniu [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) klienta i zarządzanym przez klienta. Klucz szyfrowania klucza (KEK) i klucz szyfrowania danych (w tym artykule) opisano szczegółowo w dalszej części tego artykułu.
 
 Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest ona wysoce dostępna i zapewnia skalowalny, bezpieczny magazyn dla kluczy kryptograficznych RSA, opcjonalnie obsługiwane przez program FIPS 140-2 Level 2 sprawdzone sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania i odszyfrowywania do autoryzowanych jednostek. Key Vault może wygenerować klucz, zaimportować go lub [przetransferować z lokalnego urządzenia HSM](../key-vault/key-Vault-hsm-protected-keys.md).
-
-
-> [!NOTE]
-> Ta funkcja jest obecnie wdrażana globalnie i wkrótce będzie dostępna we wszystkich regionach. Jeśli nie widzisz go w Twoim regionie, skontaktuj się z firmą AskAzureDBforPostgreSQL@service.microsoft.com .
 
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL jeden serwer obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
@@ -136,22 +132,13 @@ Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych
 W przypadku Azure Database for PostgreSQL obsługa szyfrowania danych magazynowanych przy użyciu klucza zarządzanego przez klientów (CMK) ma kilka ograniczeń —
 
 * Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
-* Ta funkcja jest obsługiwana tylko w regionach i serwerach, które obsługują magazyn o pojemności do 16TB. Listę regionów świadczenia usługi Azure obsługujących magazyn o wartości do 16TB można znaleźć w sekcji magazyn w dokumentacji [poniżej](concepts-pricing-tiers.md#storage) .
+* Ta funkcja jest obsługiwana tylko w regionach i na serwerach, które obsługują magazyn o pojemności do 16 TB. Listę regionów świadczenia usługi Azure obsługujących magazyn o wartości do 16TB można znaleźć w sekcji magazyn w dokumentacji [poniżej](concepts-pricing-tiers.md#storage) .
 
     > [!NOTE]
     > - Wszystkie nowe serwery PostgreSQL utworzone w wymienionych powyżej regionach obsługują szyfrowanie z kluczami Menedżera **klienta.** Serwer przywrócony do punktu w czasie (kopie) lub odczytana replika nie będzie kwalifikować, chociaż w teorii są "nowe".
     > - Aby sprawdzić, czy serwer aprowizacji obsługuje do 16TB, możesz przejść do bloku warstwa cenowa w portalu i zobaczyć maksymalny rozmiar magazynu obsługiwany przez serwer aprowizacji. Jeśli można przenieść suwak do 4 TB, serwer może nie obsługiwać szyfrowania z użyciem kluczy zarządzanych przez klienta. Jednak dane są szyfrowane przy użyciu kluczy zarządzanych przez usługę przez cały czas. AskAzureDBforPostgreSQL@service.microsoft.comJeśli masz jakieś pytania, skontaktuj się z Tobą.
 
 * Szyfrowanie jest obsługiwane tylko przy użyciu klucza kryptograficznego RSA 2048.
-
-## <a name="infrastructure-double-encryption"></a>Podwójne szyfrowanie infrastruktury
-Azure Database for PostgreSQL korzysta [z szyfrowania magazynu danych w usłudze REST](concepts-security.md#at-rest) dla danych przy użyciu kluczy zarządzanych przez firmę Microsoft. Dane, w tym kopie zapasowe, są szyfrowane na dysku, a szyfrowanie jest zawsze włączone i nie można go wyłączyć. Szyfrowanie używa zatwierdzonego modułu kryptograficznego FIPS 140-2 i szyfru AES 256-bit dla szyfrowania usługi Azure Storage. 
-
-Podwójne szyfrowanie infrastruktury dodaje drugą warstwę szyfrowania przy użyciu zatwierdzonego modułu kryptograficznego FIPS 140-2 i innego algorytmu szyfrowania, który zapewnia dodatkową warstwę ochrony danych przechowywanych. Klucz używany w przypadku szyfrowania podwójnego infrastruktury jest również zarządzany przez usługę. Ta wartość nie jest domyślnie *włączona* , ponieważ będzie mieć wpływ na wydajność z powodu dodatkowej warstwy szyfrowania. 
-
-   > [!NOTE]
-   > - Ta funkcja nadal nie jest dostępna globalnie. 
-   > - Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
 
 ## <a name="next-steps"></a>Następne kroki
 
