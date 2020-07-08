@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
 ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266478"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Uruchom Azure IoT Edge w systemie Windows Server Virtual Machines

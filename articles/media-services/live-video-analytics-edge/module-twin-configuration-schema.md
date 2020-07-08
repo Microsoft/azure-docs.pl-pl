@@ -4,10 +4,9 @@ description: W tym temacie opisano schemat kodu JSON w module dla analizy filmó
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266818"
 ---
 # <a name="module-twin-json-schema"></a>Schemat JSON

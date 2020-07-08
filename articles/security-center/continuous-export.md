@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
 ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299948"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
@@ -143,5 +142,5 @@ W przypadku pokrewnego materiału zapoznaj się z następującą dokumentacją:
 
 - [Dokumentacja usługi Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentacja usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/)
-- [Dokumentacja usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Dokumentacja Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - [Schematy automatyzacji przepływu pracy i typy danych eksportu ciągłego](https://aka.ms/ASCAutomationSchemas)

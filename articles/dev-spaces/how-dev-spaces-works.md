@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Opisuje procesy, które Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: dca9f1246a093471cd9538d010bf78116be1b3c7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307371"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Jak działa usługa Azure Dev Spaces
@@ -22,13 +21,13 @@ Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie ap
 
 Azure Dev Spaces zmniejsza nakład pracy, aby opracowywać, testować i iterować aplikację Kubernetes w kontekście klastra AKS. To zmniejszenie nakładu pracy pozwala deweloperom skupić się na logice biznesowej aplikacji i nie konfigurować usług do uruchamiania w Kubernetes.
 
-### <a name="local-process-with-kubernetes"></a>Proces lokalny z Kubernetes
+### <a name="local-process-with-kubernetes"></a>Proces lokalny z platformą Kubernetes
 
 Przy użyciu procesu lokalnego z usługą Kubernetes można połączyć komputer deweloperski z klastrem Kubernetes, co pozwala na uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Azure Dev Spaces przekierowuje ruch między podłączonym klastrem przez uruchomienie go w klastrze, który działa jako agent zdalny do przekierowywania ruchu między komputerem deweloperskim i klastrem. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze, aby komunikować się tak, jakby znajdowały się w tym samym klastrze. Aby uzyskać więcej informacji na temat łączenia komputera deweloperskiego z klastrem Kubernetes, zobacz [jak działa proces lokalny z Kubernetes][how-it-works-local-process-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Uruchamianie kodu w AKS
 
-Oprócz przekierowywania ruchu między komputerem deweloperskim i klastrem AKS, za pomocą Azure Dev Spaces można skonfigurować i szybko uruchomić kod bezpośrednio w AKS. Dzięki programowi Visual Studio, Visual Studio Code lub interfejsie wiersza polecenia Azure Dev Spaces usługa Azure dev Spaces przekaże kod do klastra, a następnie skompiluje go i uruchomi. Usługa Azure dev Spaces umożliwia również inteligentne synchronizowanie zmian kodu i ponowne uruchomienie usługi w celu odzwierciedlenia zmian w razie potrzeby. Podczas uruchamiania kodu dzienniki kompilacji i ślady HTTP są przesyłane strumieniowo z powrotem do klienta, dzięki czemu można monitorować postęp i diagnozować problemy. Możesz również użyć Azure Dev Spaces, aby dołączyć debuger w programie Visual Studio i Visual Studio Code do usług Java, Node. js i .NET Core. Aby uzyskać więcej informacji, zobacz [jak przygotowywanie projektu dla Azure dev Spaces działa][how-it-works-prep], [jak uruchomić swój kod przy użyciu Azure dev Spaces Works][how-it-works-up]oraz [jak zdalne debugowanie kodu za pomocą Azure dev Spaces działa][how-it-works-remote-debugging].
+Oprócz przekierowywania ruchu między komputerem deweloperskim i klastrem AKS, za pomocą Azure Dev Spaces można skonfigurować i szybko uruchomić kod bezpośrednio w AKS. Dzięki programowi Visual Studio, Visual Studio Code lub interfejsie wiersza polecenia Azure Dev Spaces usługa Azure dev Spaces przekaże kod do klastra, a następnie skompiluje go i uruchomi. Usługa Azure dev Spaces umożliwia również inteligentne synchronizowanie zmian kodu i ponowne uruchomienie usługi w celu odzwierciedlenia zmian w razie potrzeby. Podczas uruchamiania kodu dzienniki kompilacji i ślady HTTP są przesyłane strumieniowo z powrotem do klienta, dzięki czemu można monitorować postęp i diagnozować problemy. Możesz również użyć Azure Dev Spaces, aby dołączyć debuger w programie Visual Studio i Visual Studio Code do usług Java, Node.js i .NET Core. Aby uzyskać więcej informacji, zobacz [jak przygotowywanie projektu dla Azure dev Spaces działa][how-it-works-prep], [jak uruchomić swój kod przy użyciu Azure dev Spaces Works][how-it-works-up]oraz [jak zdalne debugowanie kodu za pomocą Azure dev Spaces działa][how-it-works-remote-debugging].
 
 ## <a name="team-development"></a>Programowanie zespołowe
 

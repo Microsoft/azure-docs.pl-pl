@@ -4,10 +4,9 @@ description: W tym artykule opisano sposób aktualizowania Azure Monitor dla kon
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298265"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Jak zaktualizować usługę Azure Monitor dla kontenerów w celu włączenia metryk
@@ -90,7 +89,7 @@ Wykonaj następujące kroki, aby zaktualizować konkretny klaster w ramach subsk
 
 Wykonaj następujące kroki, aby zaktualizować wszystkie klastry w subskrypcji przy użyciu Azure PowerShell.
 
-1. [Pobierz](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding_atscale.ps1) skrypt **mdm_onboarding_atscale. ps1** i Zapisz go w folderze lokalnym z naszego repozytorium GitHub.
+1. [Pobierz](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding_atscale.ps1) skrypt **mdm_onboarding_atscale.ps1** i Zapisz go w folderze lokalnym z naszego repozytorium GitHub.
 2. Uruchom następujące polecenie, używając Azure PowerShell.  Edytuj wartość identyfikatora **subskrypcji** przy użyciu wartości ze strony **Przegląd AKS** dla klastra AKS.
 
     ```powershell
@@ -106,7 +105,7 @@ Wykonaj następujące kroki, aby zaktualizować wszystkie klastry w subskrypcji 
 
 Wykonaj następujące kroki, aby zaktualizować konkretny klaster przy użyciu Azure PowerShell.
 
-1. [Pobierz](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) skrypt **mdm_onboarding. ps1** i Zapisz go w folderze lokalnym z naszego repozytorium GitHub.
+1. [Pobierz](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) skrypt **mdm_onboarding.ps1** i Zapisz go w folderze lokalnym z naszego repozytorium GitHub.
 
 2. Uruchom następujące polecenie, używając Azure PowerShell. Edytuj wartości identyfikatora **subskrypcji**, **resourceGroupName**i **ClusterName** przy użyciu wartości na stronie **Przegląd AKS** dla klastra AKS.
 

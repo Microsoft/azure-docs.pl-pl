@@ -9,10 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298231"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Tworzenie urządzeń Plug and Play IoT za pomocą programu Visual Studio i Visual Studio Code
@@ -69,7 +68,7 @@ Generator kodu próbuje użyć DCM i plików interfejsu znajdujących się w fol
 
 Po zakończeniu generowania kodu rozszerzenie otwiera nowe okno VS Code z kodem. Jeśli otworzysz wygenerowany plik, taki jak **Main. c**, może się okazać, że technologia IntelliSense nie może otworzyć plików źródłowych zestawu c SDK. Aby włączyć poprawną funkcję IntelliSense i nawigowanie po kodzie, wykonaj następujące kroki, aby dołączyć źródło zestawu SDK języka C:
 
-1. W VS Code Użyj **kombinacji klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wpisz i wybierz **C/C++: Edit Configurations (JSON)** , aby otworzyć plik **c_cpp_properties. JSON** .
+1. W VS Code **naciśnij kombinację klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wpisz i wybierz **C/C++: Edit Configurations (JSON)** , aby otworzyć **c_cpp_properties.jsna** pliku.
 
 1. Dodaj ścieżkę zestawu SDK urządzenia w `includePath` sekcji:
 

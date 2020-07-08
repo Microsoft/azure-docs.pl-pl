@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266597"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów autoryzacji i uwierzytelniania usługi Azure AD
@@ -308,7 +307,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource — zasób nie jest skonfigurowany do akceptowania tokenów tylko dla urządzeń. |
 | AADSTS240001 | BulkAADJTokenUnauthorized — użytkownik nie ma uprawnień do rejestrowania urządzeń w usłudze Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing — id_token nie może być używana jako `urn:ietf:params:oauth:grant-type:jwt-bearer` Grant.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy — Administrator dzierżawy skonfigurował zasadę zabezpieczeń, która blokuje to żądanie. Sprawdź zasady zabezpieczeń zdefiniowane na poziomie dzierżawy, aby określić, czy żądanie spełnia wymagania zasad. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy — Administrator dzierżawy skonfigurował zasadę zabezpieczeń, która blokuje to żądanie. Sprawdź zasady zabezpieczeń zdefiniowane na poziomie dzierżawy, aby ustalić, czy żądanie spełnia wymagania zasad. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest — aplikacja nie została znaleziona w katalogu/dzierżawie. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Być może nieprawidłowo skonfigurowano wartość identyfikatora aplikacji lub wysyłano żądanie uwierzytelniania do niewłaściwej dzierżawy. |
 | AADSTS700020 | InteractionRequired — udzielanie dostępu wymaga interakcji. |
 | AADSTS700022 | InvalidMultipleResourcesScope — podana wartość zakresu parametru wejściowego jest nieprawidłowa, ponieważ zawiera więcej niż jeden zasób. |

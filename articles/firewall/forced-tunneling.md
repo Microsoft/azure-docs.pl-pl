@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: victorh
 ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267702"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Wymuszone tunelowanie zapory platformy Azure

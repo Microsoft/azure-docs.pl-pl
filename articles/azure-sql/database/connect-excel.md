@@ -13,10 +13,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267515"
 ---
 # <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Łączenie programu Excel z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL i Tworzenie raportu
@@ -80,10 +79,10 @@ Aby trwale zapisać szczegóły połączenia, można utworzyć plik odc i wybra�
 
       ![Nowe połączenie — okno dialogowe](./media/connect-excel/new-connection.png)
 
-2. W **Kreatorze połączenia danych**wpisz nazwę serwera i poświadczenia SQL Database. Wybierz opcję **Dalej**.
+2. W **Kreatorze połączenia danych**wpisz nazwę serwera i poświadczenia SQL Database. Wybierz pozycję **Dalej**.
    1. Wybierz z listy rozwijanej bazę danych zawierającą dane.
    2. Wybierz tabelę lub widok, który Cię interesuje. Wybrano vGetAllCategories.
-   3. Wybierz opcję **Dalej**.
+   3. Wybierz pozycję **Dalej**.
 
       ![Kreator połączenia danych](./media/connect-excel/data-connection-wizard.png)
 

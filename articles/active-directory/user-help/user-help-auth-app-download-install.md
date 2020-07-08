@@ -13,10 +13,9 @@ ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266223"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Pobieranie i instalowanie aplikacji Microsoft Authenticator

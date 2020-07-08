@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: bec5e68b334cada7f83c5dbeb9ba50203835d770
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84265322"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać wtyczki Microsoft Smooth Streaming dla środowiska multimedialnego firmy Adobe typu open source  
@@ -334,7 +333,7 @@ Smooth Streaming dla wtyczki dynamicznej OSMF jest zgodna z [lampą odtwarzania 
 2. Ustaw element src na źródło Smooth Streaming, (np. http: \/ /devplatem.VO.msecnd.NET/Sintel/Sintel_H264.ISM/manifest) 
 3. Wprowadź żądane zmiany konfiguracji i kliknij przycisk Podgląd i zaktualizuj.
    
-   **Uwaga** Serwer sieci Web zawartości wymaga prawidłowego pliku crossdomain. XML. 
+   **Uwaga** Serwer sieci Web zawartości wymaga prawidłowego crossdomain.xml. 
 4. Skopiuj i wklej kod do prostej strony HTML przy użyciu ulubionego edytora tekstu, takiego jak w poniższym przykładzie:
 
         <html>
@@ -388,7 +387,7 @@ Aby uzyskać więcej informacji na temat ogólnej OSMF projektowania, zobacz ofi
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

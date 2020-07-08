@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 6/2/2020
 ms.subservice: alerts
 ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299325"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Tworzenie alertu metryki za pomocą szablonu usługi Resource Manager
@@ -34,7 +33,7 @@ Podstawowe kroki są następujące:
 
 Aby utworzyć alert przy użyciu szablonu Menedżer zasobów, utworzysz zasób typu `Microsoft.Insights/metricAlerts` i Wypełnij wszystkie powiązane właściwości. Poniżej znajduje się przykładowy szablon, który tworzy regułę alertu metryki.
 
-Zapisz Poniższy kod JSON jako simplestaticmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako simplestaticmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -208,7 +207,7 @@ Informacje o schemacie i właściwościach reguły alertu [są dostępne tutaj](
 
 Można ustawić wartości parametrów w wierszu polecenia lub za pomocą pliku parametrów. Poniżej przedstawiono przykładowy plik parametrów.
 
-Zapisz Poniższy kod JSON jako simplestaticmetricalert. Parameters. JSON i zmodyfikuj go zgodnie z potrzebami.
+Zapisz Poniższy kod JSON jako simplestaticmetricalert.parameters.jsna i zmodyfikuj go zgodnie z potrzebami.
 
 ```json
 {
@@ -283,7 +282,7 @@ az group deployment create \
 
 Aby utworzyć alert przy użyciu szablonu Menedżer zasobów, utworzysz zasób typu `Microsoft.Insights/metricAlerts` i Wypełnij wszystkie powiązane właściwości. Poniżej znajduje się przykładowy szablon, który tworzy regułę alertu metryki.
 
-Zapisz Poniższy kod JSON jako simpledynamicmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako simpledynamicmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -481,7 +480,7 @@ Informacje o schemacie i właściwościach reguły alertu [są dostępne tutaj](
 
 Można ustawić wartości parametrów w wierszu polecenia lub za pomocą pliku parametrów. Poniżej przedstawiono przykładowy plik parametrów. 
 
-Zapisz Poniższy kod JSON jako simpledynamicmetricalert. Parameters. JSON i zmodyfikuj go zgodnie z potrzebami.
+Zapisz Poniższy kod JSON jako simpledynamicmetricalert.parameters.jsna i zmodyfikuj go zgodnie z potrzebami.
 
 ```json
 {
@@ -572,7 +571,7 @@ Należy pamiętać o następujących ograniczeniach w przypadku używania wymiar
     - W poniższym przykładzie, ponieważ metryki **transakcji** i **SuccessE2ELatency** mają wymiar **ApiName** , a *criterion1* określa wartość *"GetBlob"* dla wymiaru **ApiName** , a następnie *criterion2* musi także ustawić wartość *"GetBlob* " dla wymiaru **ApiName** .
 
 
-Zapisz Poniższy kod JSON jako advancedstaticmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako advancedstaticmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -707,7 +706,7 @@ Zapisz Poniższy kod JSON jako advancedstaticmetricalert. JSON na potrzeby tego 
 
 Możesz użyć powyższego szablonu wraz z plikiem parametru podanym poniżej. 
 
-Zapisz i zmodyfikuj poniższy kod JSON jako advancedstaticmetricalert. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako advancedstaticmetricalert.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -816,7 +815,7 @@ Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę re
 - Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
 - Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
 
-Zapisz Poniższy kod JSON jako multidimensionalstaticmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako multidimensionalstaticmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -943,7 +942,7 @@ Zapisz Poniższy kod JSON jako multidimensionalstaticmetricalert. JSON na potrze
 
 Możesz użyć powyższego szablonu wraz z plikiem parametru podanym poniżej. 
 
-Zapisz i zmodyfikuj poniższy kod JSON jako multidimensionalstaticmetricalert. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako multidimensionalstaticmetricalert.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1036,7 +1035,7 @@ Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę re
 - Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
 - Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
 
-Zapisz Poniższy kod JSON jako advanceddynamicmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako advanceddynamicmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1158,7 +1157,7 @@ Zapisz Poniższy kod JSON jako advanceddynamicmetricalert. JSON na potrzeby tego
 
 Możesz użyć powyższego szablonu wraz z plikiem parametru podanym poniżej. 
 
-Zapisz i zmodyfikuj poniższy kod JSON jako advanceddynamicmetricalert. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako advanceddynamicmetricalert.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1252,7 +1251,7 @@ Aby dowiedzieć się więcej na temat metryk niestandardowych w Azure Monitor, z
 
 Podczas tworzenia reguły alertu dla metryki niestandardowej należy określić zarówno nazwę metryki, jak i przestrzeń nazw metryki. Należy również upewnić się, że Metryka niestandardowa jest już raportowana, ponieważ nie można utworzyć reguły alertu na niestandardową metrykę, która jeszcze nie istnieje.
 
-Zapisz Poniższy kod JSON jako customstaticmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako customstaticmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1432,7 +1431,7 @@ Zapisz Poniższy kod JSON jako customstaticmetricalert. JSON na potrzeby tego pr
 
 Możesz użyć powyższego szablonu wraz z plikiem parametru podanym poniżej. 
 
-Zapisz i zmodyfikuj poniższy kod JSON jako customstaticmetricalert. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako customstaticmetricalert.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1527,7 +1526,7 @@ W tej sekcji opisano Azure Resource Manager szablonów dla trzech scenariuszy s�
 
 Ten szablon spowoduje utworzenie reguły alertu metryki statycznej progowej, która monitoruje procentowe użycie procesora dla wszystkich maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w co najmniej jednej grupie zasobów.
 
-Zapisz Poniższy kod JSON jako wszystkie-VM-in-Resource-Group-static. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako all-vms-in-resource-group-static.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1760,7 +1759,7 @@ Zapisz Poniższy kod JSON jako wszystkie-VM-in-Resource-Group-static. JSON na po
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj poniższy kod JSON jako wszystkie-VM-in-Resource-Group-static. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako all-vms-in-resource-group-static.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1839,7 +1838,7 @@ az group deployment create \
 
 Ten szablon spowoduje utworzenie reguły alertu metryki dynamicznej progu, która monitoruje procentowe użycie procesora dla wszystkich maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w co najmniej jednej grupie zasobów.
 
-Zapisz Poniższy kod JSON jako wszystkie-VM-in-Resource-Group-Dynamic. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako all-vms-in-resource-group-dynamic.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2089,7 +2088,7 @@ Zapisz Poniższy kod JSON jako wszystkie-VM-in-Resource-Group-Dynamic. JSON na p
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj poniższy kod JSON jako wszystkie-VM-in-Resource-Group-Dynamic. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako all-vms-in-resource-group-dynamic.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2174,7 +2173,7 @@ az group deployment create \
 
 Ten szablon spowoduje utworzenie reguły alertu metryki statycznej progowej, która monitoruje procentowe użycie procesora dla wszystkich maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji.
 
-Zapisz Poniższy kod JSON jako wszystkie-VM-in-Subscription-static. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako all-vms-in-subscription-static.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2408,7 +2407,7 @@ Zapisz Poniższy kod JSON jako wszystkie-VM-in-Subscription-static. JSON na potr
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj kod JSON poniżej jako All-VM-in-Subscription-static. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako all-vms-in-subscription-static.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2484,7 +2483,7 @@ az group deployment create \
 
 Ten szablon spowoduje utworzenie reguły alertu metryki dynamicznej progu, która monitoruje procentowy procesor CPU dla wszystkich maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji.
 
-Zapisz Poniższy kod JSON jako wszystkie-VM-in-Subscription-Dynamic. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako all-vms-in-subscription-dynamic.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2734,7 +2733,7 @@ Zapisz Poniższy kod JSON jako wszystkie-VM-in-Subscription-Dynamic. JSON na pot
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj poniższy kod JSON jako wszystkie-VM-in-Subscription-Dynamic. Parameters. JSON na potrzeby tego instruktażu.
+Zapisz i zmodyfikuj poniższy kod JSON jako all-vms-in-subscription-dynamic.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -2816,7 +2815,7 @@ az group deployment create \
 
 Ten szablon spowoduje utworzenie reguły alertu metryki statycznej progowej, która monitoruje procentowe użycie procesora dla listy maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji.
 
-Zapisz Poniższy kod JSON jako listę listy maszyn wirtualnych-static. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako list-of-vms-static.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -3050,7 +3049,7 @@ Zapisz Poniższy kod JSON jako listę listy maszyn wirtualnych-static. JSON na p
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj poniższy kod JSON jako listę listy maszyn wirtualnych — static. Parameters. JSON na potrzeby tego przewodnika.
+Zapisz i zmodyfikuj poniższy kod JSON jako list-of-vms-static.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -3129,7 +3128,7 @@ az group deployment create \
 
 Ten szablon spowoduje utworzenie reguły alertu metryki dynamicznej progu, która monitoruje procentowy procesor CPU w celu wyświetlenia listy maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji.
 
-Zapisz Poniższy kod JSON jako listę z maszyn wirtualnych — Dynamic. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako list-of-vms-dynamic.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -3379,7 +3378,7 @@ Zapisz Poniższy kod JSON jako listę z maszyn wirtualnych — Dynamic. JSON na 
 ```
 
 Możesz użyć powyższego szablonu z plikiem parametrów poniżej.
-Zapisz i zmodyfikuj poniższy kod JSON jako listę listy maszyn wirtualnych — Dynamic. Parameters. JSON na potrzeby tego przewodnika.
+Zapisz i zmodyfikuj poniższy kod JSON jako list-of-vms-dynamic.parameters.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -3465,7 +3464,7 @@ az group deployment create \
 [Application Insights testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md) ułatwiają monitorowanie dostępności witryny sieci Web lub aplikacji z różnych lokalizacji na całym świecie. Alerty testu dostępności powiadamiają użytkownika, gdy testy dostępności zakończą się niepowodzeniem z określonej liczby lokalizacji.
 Alerty testów dostępności tego samego typu zasobu co alerty metryk (Microsoft. Insights/metricAlerts). Następujący przykładowy szablon Azure Resource Manager można użyć do skonfigurowania prostego testu dostępności i powiązanego alertu.
 
-Zapisz Poniższy kod JSON jako availabilityalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako availabilityalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -3573,7 +3572,7 @@ Można ustawić wartości parametrów w wierszu polecenia lub za pomocą pliku p
 >
 > `&amp`; jest odwołaniem do jednostki HTML dla &. Parametry adresu URL są nadal oddzielone pojedynczym &, ale jeśli adres URL jest wymieniany w formacie HTML, należy go zakodować. Tak więc, jeśli masz jakiekolwiek "&" w wartości parametru pingURL, musisz je zmienić na " `&amp` ;"
 
-Zapisz Poniższy kod JSON jako availabilityalert. Parameters. JSON i zmodyfikuj go zgodnie z potrzebami.
+Zapisz Poniższy kod JSON jako availabilityalert.parameters.jsna i zmodyfikuj go zgodnie z potrzebami.
 
 ```json
 {

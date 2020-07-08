@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 05/27/2020
 ms.author: dbradish
 ms.openlocfilehash: 404022b13f44174e4b647f0430a58fac5eeb81df
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300619"
 ---
 # <a name="azure-cli-for-azure-data-share"></a>Interfejs wiersza polecenia platformy Azure dla udziału danych platformy Azure

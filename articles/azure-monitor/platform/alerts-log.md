@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84298475"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor
@@ -207,7 +206,7 @@ Poniżej znajduje się Struktura szablonu zasobów opartego na [tworzeniu reguł
 
 ```
 
-Przykładowy plik JSON powyżej można zapisać jako plik (powiedzieć) sampleScheduledQueryRule. JSON na potrzeby tego przewodnika i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Przykładowy kod JSON można zapisać jako (Powiedz) sampleScheduledQueryRule.jsna potrzeby tego przechodzenia przez program i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Rejestruj alert za pomocą zapytania między zasobami przy użyciu szablonu zasobów platformy Azure
@@ -304,7 +303,7 @@ Poniżej znajduje się struktura szablonów zasobów opartych na [tworzeniu zapl
 > [!IMPORTANT]
 > W przypadku korzystania z zapytania między zasobami w alercie dziennika użycie [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) jest obowiązkowe, a użytkownik musi mieć dostęp do listy podanych zasobów
 
-Przykładowy plik JSON powyżej można zapisać jako plik (powiedzieć) sampleScheduledQueryRule. JSON na potrzeby tego przewodnika i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Przykładowy kod JSON można zapisać jako (Powiedz) sampleScheduledQueryRule.jsna potrzeby tego przechodzenia przez program i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell"></a>Zarządzanie alertami dzienników przy użyciu programu PowerShell
 
@@ -353,7 +352,7 @@ Azure Monitor — [interfejs API reguł zaplanowanych zapytań](https://docs.mic
 > [!NOTE]
 > Alerty dzienników dla Log Analytics mogą być również zarządzane przy użyciu starszego [interfejsu API alertów log Analytics](api-alerts.md) i starszych szablonów [log Analytics zapisanych wyszukiwań i alertów](../insights/solutions-resources-searches-alerts.md) . Aby uzyskać więcej informacji na temat domyślnego użycia nowego interfejsu API ScheduledQueryRules, zobacz [przełączanie do nowego interfejsu API na potrzeby alertów log Analytics](alerts-log-api-switch.md).
 
-Alerty dzienników nie mają obecnie dedykowanych poleceń interfejsu wiersza polecenia. ale jak pokazano poniżej, można użyć polecenia Azure Resource Manager CLI dla przykładowego szablonu zasobu pokazanego wcześniej (sampleScheduledQueryRule. JSON) w sekcji szablonu zasobu:
+Alerty dzienników nie mają obecnie dedykowanych poleceń interfejsu wiersza polecenia. ale jak pokazano poniżej, można użyć polecenia Azure Resource Manager CLI dla przykładowego szablonu zasobu pokazanego wcześniej (sampleScheduledQueryRule.json) w sekcji szablon zasobu:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

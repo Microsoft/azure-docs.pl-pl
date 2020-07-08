@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266699"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
@@ -323,7 +322,7 @@ Poniższy obraz przedstawia przykład renderowania alternatywnych tras z określ
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Korzystanie z usługi routingu w aplikacji sieci Web
 
-Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Ten moduł jest biblioteką pomocników ułatwiającą korzystanie z Azure Maps interfejsów API REST w aplikacjach sieci Web lub Node. js przy użyciu języka JavaScript lub TypeScript. Moduł usługi może służyć do renderowania zwracanych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
+Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Ten moduł jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps interfejsów API REST w aplikacjach sieci Web lub Node.js za pomocą języka JavaScript lub TypeScript. Moduł usługi może służyć do renderowania zwracanych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
 
 ## <a name="next-steps"></a>Następne kroki
 

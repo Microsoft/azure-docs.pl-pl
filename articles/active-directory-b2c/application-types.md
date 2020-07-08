@@ -12,10 +12,9 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84295426"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Typy aplikacji, które mogą być używane w Active Directory B2C
@@ -42,7 +41,7 @@ Te kroki mogą się nieco różnić w zależności od typu kompilowanej aplikacj
 
 ## <a name="web-applications"></a>Aplikacje internetowe
 
-W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node. js), które są hostowane na serwerze i dostępne za pomocą przeglądarki, Azure AD B2C obsługuje [OpenID Connect Connect](protocols-overview.md) dla wszystkich środowisk użytkownika. W Azure AD B2C implementacji OpenID Connect Connect aplikacja sieci Web inicjuje środowisko użytkownika przez wystawienie żądań uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
+W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node.js), które są hostowane na serwerze i dostępne za pomocą przeglądarki, Azure AD B2C obsługuje [OpenID Connect Connect](protocols-overview.md) dla wszystkich środowisk użytkownika. W Azure AD B2C implementacji OpenID Connect Connect aplikacja sieci Web inicjuje środowisko użytkownika przez wystawienie żądań uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
 
 ```json
 // Partial raw id_token

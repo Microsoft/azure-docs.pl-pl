@@ -4,10 +4,9 @@ description: Utwórz grupę kontenerów w sieci wirtualnej i Użyj usługi Azure
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84299166"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Uwidacznianie statycznego adresu IP dla grupy kontenerów
@@ -29,7 +28,7 @@ Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny
 
 W typowym przypadku może już istnieć Sieć wirtualna platformy Azure. Jeśli go nie masz, utwórz taki, jak pokazano w następujących przykładowych poleceniach. Sieć wirtualna wymaga oddzielnych podsieci dla bramy aplikacji i grupy kontenerów.
 
-Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Na przykład:
+Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Przykład:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -71,7 +70,7 @@ az network public-ip create \
 
 Uruchom następujące [AZ Container Create][az-container-create] , aby utworzyć grupę kontenerów w sieci wirtualnej skonfigurowanej w poprzednim kroku. 
 
-Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie o nazwie *APPCONTAINER* , które pobiera `aci-helloworld` obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz zawiera niewielką aplikację sieci Web w języku Node. js, która obsługuje statyczną stronę HTML. 
+Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie o nazwie *APPCONTAINER* , które pobiera `aci-helloworld` obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz zawiera niewielką aplikację sieci Web zapisaną w Node.js, która obsługuje statyczną stronę HTML. 
 
 ```azurecli
 az container create \

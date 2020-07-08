@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
 ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300526"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Rozwiązywanie problemów z błędem rozruchu — Wystąpił błąd odczytu dysku
@@ -58,7 +57,7 @@ Ten komunikat o błędzie wskazuje, że struktura dysku jest uszkodzona i nie mo
 
 Maszyny wirtualne generacji 1 powinny najpierw sprawdzić, czy partycja systemu operacyjnego z magazynem BCD jest oznaczona jako **aktywna**. Jeśli masz maszynę wirtualną generacji 2, przejdź z wyprzedzeniem, aby [naprawić partycję dysku](#fix-the-disk-partition), ponieważ Flaga stanu była przestarzała w późniejszej generacji.
 
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd. exe).
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd.exe).
 1. Wprowadź polecenie **diskpart** , aby uruchomić narzędzie **diskpart** .
 1. Wprowadź **dysk listy** , aby wyświetlić listę dysków w systemie i zidentyfikować podłączony wirtualny dysk twardy systemu operacyjnego (VHD).
 1. Po zlokalizowaniu wirtualnego dysku twardego systemu operacyjnego wprowadź **wartość SEL Disk #** , aby wybrać dysk. Na poniższym obrazie przedstawiono przykład miejsca, w którym dysk 1 jest dołączonym wirtualnym dyskiem twardym systemu operacyjnego.
@@ -86,7 +85,7 @@ Maszyny wirtualne generacji 1 powinny najpierw sprawdzić, czy partycja systemu 
 
 ### <a name="fix-the-disk-partition"></a>Napraw partycję dysku
 
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd. exe).
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd.exe).
 1. Użyj następującego polecenia, aby uruchomić **program CHKDSK** na dysku i wykonać poprawki błędów:
 
    `chkdsk <DRIVE LETTER>: /f`

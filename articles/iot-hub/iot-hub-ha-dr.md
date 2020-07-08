@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
 ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267634"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub
@@ -131,7 +130,7 @@ Poniżej znajduje się podsumowanie opcji HA/DR przedstawionych w tym artykule, 
 | HA/DR — opcja | RTO | CEL PUNKTU ODZYSKIWANIA | Czy wymaga ręcznej interwencji? | Złożoność implementacji | Dodatkowy wpływ na koszty|
 | --- | --- | --- | --- | --- | --- |
 | Tryb failover zainicjowany przez firmę Microsoft |2-26 godzin|Odwołaj się do tabeli celu punktu odzyskiwania|Nie|Brak|Brak|
-| Ręczne przełączenie w tryb failover |10 min-2 godz.|Odwołaj się do tabeli celu punktu odzyskiwania|Yes|Bardzo niska. Musisz tylko wyzwolić tę operację z portalu.|Brak|
+| Ręczne przełączenie w tryb failover |10 min-2 godz.|Odwołaj się do tabeli celu punktu odzyskiwania|Tak|Bardzo niska. Musisz tylko wyzwolić tę operację z portalu.|Brak|
 | HA w różnych regionach |< 1 min|Zależy od częstotliwości replikacji niestandardowego rozwiązania o wysokiej dostępności|Nie|Wysoki|> 1x koszt 1 IoT Hub|
 
 ## <a name="next-steps"></a>Następne kroki
