@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77462109"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Omówienie wyzwalaczy i powiązań HTTP Azure Functions
@@ -25,7 +24,7 @@ Kod w tym artykule jest domyślnie używany w przypadku składni .NET Core używ
 
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
-### <a name="functions-2x-and-higher"></a>Funkcje 2. x i nowsze
+### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 

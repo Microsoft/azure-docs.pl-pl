@@ -7,15 +7,14 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595369"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Akcje GitHub dotyczące wdrażania w usłudze Kubernetes Service
 
-Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Akcja [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) Kubernetes ułatwia wdrażanie klastrów usługi Azure Kubernetes Service. Akcja ustawia docelowy kontekst klastra AKS, który może być używany przez inne akcje, takie jak [Azure/k8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/k8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) itp. lub uruchomić dowolne polecenia polecenia kubectl.
+Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions) można tworzyć zautomatyzowane przepływy pracy tworzenia oprogramowania. Akcja Kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) ułatwia wdrażanie klastrów usługi Azure Kubernetes Service. Akcja ustawia docelowy kontekst klastra AKS, który może być używany przez inne akcje, takie jak [Azure/k8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/k8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) itp. lub uruchomić dowolne polecenia polecenia kubectl.
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
 
@@ -23,9 +22,9 @@ Dla przepływu pracy AKS, plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Uwierzytelnianie** | Zaloguj się do prywatnego rejestru kontenerów (ACR) |
+|**Authentication** | Zaloguj się do prywatnego rejestru kontenerów (ACR) |
 |**Kompilacja** | Kompilowanie & wypychanie obrazu kontenera  |
-|**Wdróż** | 1. Ustaw docelowy klaster AKS |
+|**Wdrażanie** | 1. Ustaw docelowy klaster AKS |
 | |2. tworzenie wpisu tajnego rejestru ogólnego/Docker w klastrze Kubernetes  |
 ||3. Wdróż w klastrze Kubernetes|
 
@@ -73,9 +72,9 @@ Postępuj zgodnie z instrukcjami, aby skonfigurować wpisy tajne:
 
 Kompilacja i wypychanie obrazów kontenera odbywa się przy użyciu `Azure/docker-login@v1` akcji. Aby wdrożyć obraz kontenera w AKS, musisz użyć `Azure/k8s-deploy@v1` akcji. Ta akcja ma pięć parametrów:
 
-| **Konstruktora**  | **Wyjaśnienie**  |
+| **Parametr**  | **Objaśnienie**  |
 |---------|---------|
-| **namespace** | Obowiązkowe Wybierz docelową przestrzeń nazw Kubernetes. Jeśli przestrzeń nazw nie zostanie podana, polecenia zostaną uruchomione w domyślnej przestrzeni nazw | 
+| **obszaru** | Obowiązkowe Wybierz docelową przestrzeń nazw Kubernetes. Jeśli przestrzeń nazw nie zostanie podana, polecenia zostaną uruchomione w domyślnej przestrzeni nazw | 
 | **manifesty** |  Potrzeb Ścieżka do plików manifestu, która będzie używana do wdrażania |
 | **rastrow** | Obowiązkowe W pełni kwalifikowany adres URL zasobów przeznaczonych do podstawiania plików manifestu |
 | **imagepullsecrets** | Obowiązkowe Nazwa wpisu tajnego rejestru platformy Docker, który został już skonfigurowany w klastrze. Każda z tych nazw tajnych jest dodawana w polu imagePullSecrets dla obciążeń znalezionych w wejściowych plikach manifestu |

@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564588"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Użyj usługi Azure AD jako dostawcy tożsamości dla programu vCenter w chmurze prywatnej CloudSimple
@@ -83,16 +82,16 @@ Opcjonalnie można skonfigurować inne funkcje usługi Azure AD.  Nie są one wy
 1. [Eskalacja uprawnień](escalate-private-cloud-privileges.md) do chmury prywatnej dla programu vCenter.
 2. Zbierz parametry konfiguracji wymagane do skonfigurowania źródła tożsamości.
 
-    | **Zaznaczyć** | **Opis** |
+    | **Opcja** | **Opis** |
     |------------|-----------------|
     | **Nazwa** | Nazwa źródła tożsamości. |
-    | **Podstawowa nazwa wyróżniająca dla użytkowników** | Podstawowa nazwa wyróżniająca dla użytkowników.  W przypadku usługi Azure AD Użyj `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` : przykład `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`:.|
+    | **Podstawowa nazwa wyróżniająca dla użytkowników** | Podstawowa nazwa wyróżniająca dla użytkowników.  W przypadku usługi Azure AD Użyj: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` przykład: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Nazwa domeny** | Nazwa FQDN domeny, na przykład example.com. W tym polu tekstowym nie należy podawać adresu IP. |
     | **Alias domeny** | *(opcjonalnie)* Nazwa NetBIOS domeny. Dodaj nazwę NetBIOS domeny Active Directory jako alias źródła tożsamości, jeśli używasz uwierzytelniania SSPI. |
-    | **Podstawowa nazwa wyróżniająca dla grup** | Podstawowa nazwa wyróżniająca dla grup. W przypadku usługi Azure AD Użyj `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` : przykład:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu `ldaps://hostname:port`. Port jest zazwyczaj 636 dla połączeń LDAPs. <br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPS serwera Active Directory, jest wymagany w przypadku użycia `ldaps://` w podstawowym lub pomocniczym adresie URL LDAP. |
+    | **Podstawowa nazwa wyróżniająca dla grup** | Podstawowa nazwa wyróżniająca dla grup. W przypadku usługi Azure AD Użyj: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` przykład:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldaps://hostname:port` . Port jest zazwyczaj 636 dla połączeń LDAPs. <br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
     | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
-    | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPS z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu `ldaps://` w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
+    | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
     | **Uż** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
     | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 

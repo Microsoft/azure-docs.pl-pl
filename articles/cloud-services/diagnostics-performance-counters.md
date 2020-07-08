@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469531"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Zbieranie liczników wydajności dla usługi w chmurze platformy Azure
@@ -46,7 +45,7 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 #... results cut to save space ...
 ```
 
-`CounterSetName` Właściwość reprezentuje zestaw (lub kategorię) i jest dobrym wskaźnikiem, z jakim są powiązane liczniki wydajności. `Paths` Właściwość reprezentuje kolekcję liczników dla zestawu. Możesz również uzyskać właściwość, `Description` Aby uzyskać więcej informacji na temat zestawu liczników.
+`CounterSetName`Właściwość reprezentuje zestaw (lub kategorię) i jest dobrym wskaźnikiem, z jakim są powiązane liczniki wydajności. `Paths`Właściwość reprezentuje kolekcję liczników dla zestawu. Możesz również uzyskać właściwość, `Description` Aby uzyskać więcej informacji na temat zestawu liczników.
 
 Aby uzyskać wszystkie liczniki dla zestawu, użyj `CounterSetName` wartości i rozwiń `Paths` kolekcję. Każdy element ścieżki jest licznik, który można zbadać. Aby na przykład uzyskać dostępne liczniki dotyczące `Processor` zestawu, rozwiń `Paths` kolekcję:
 
@@ -78,9 +77,9 @@ Licznik wydajności może zostać dodany do usługi w chmurze dla Diagnostyka Az
 
 ### <a name="application-insights"></a>Application Insights
 
-Usługa Azure Application Insights dla Cloud Services pozwala określić, jakie liczniki wydajności mają być zbierane. Po [dodaniu Application Insights do projektu](../azure-monitor/app/cloudservices.md#sdk)plik konfiguracji o nazwie **ApplicationInsights. config** zostanie dodany do projektu programu Visual Studio. Ten plik konfiguracji definiuje typ informacji Application Insights zbieranych i wysyłanych na platformę Azure.
+Usługa Azure Application Insights dla Cloud Services pozwala określić, jakie liczniki wydajności mają być zbierane. Po [dodaniu Application Insights do projektu](../azure-monitor/app/cloudservices.md#sdk)plik konfiguracji o nazwie **ApplicationInsights.config** zostanie dodany do projektu programu Visual Studio. Ten plik konfiguracji definiuje typ informacji Application Insights zbieranych i wysyłanych na platformę Azure.
 
-Otwórz plik **ApplicationInsights. config** i Znajdź element **ApplicationInsights** > **TelemetryModules** . Każdy `<Add>` element podrzędny definiuje typ danych telemetrycznych do zebrania wraz z konfiguracją. Typem modułu telemetrii licznika wydajności `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`jest. Jeśli ten element jest już zdefiniowany, nie należy go dodawać po raz drugi. Każdy licznik wydajności do zebrania jest zdefiniowany w węźle o `<Counters>`nazwie. Oto przykład, który zbiera liczniki wydajności dysku:
+Otwórz plik **ApplicationInsights.config** i Znajdź element **ApplicationInsights**  >  **TelemetryModules** . Każdy `<Add>` element podrzędny definiuje typ danych telemetrycznych do zebrania wraz z konfiguracją. Typem modułu telemetrii licznika wydajności jest `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector` . Jeśli ten element jest już zdefiniowany, nie należy go dodawać po raz drugi. Każdy licznik wydajności do zebrania jest zdefiniowany w węźle o nazwie `<Counters>` . Oto przykład, który zbiera liczniki wydajności dysku:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -99,7 +98,7 @@ Otwórz plik **ApplicationInsights. config** i Znajdź element **ApplicationInsi
 <!-- ... cut to save space ... -->
 ```
 
-Każdy licznik wydajności jest reprezentowany jako `<Add>` element poniżej. `<Counters>` Ten `PerformanceCounter` atrybut definiuje licznik wydajności do zbierania. Ten `ReportAs` atrybut jest tytułem, który ma być wyświetlany w Azure Portal dla licznika wydajności. Każdy zbierany licznik wydajności jest umieszczany w kategorii o nazwie **Custom** w portalu. W przeciwieństwie do Diagnostyka Azure, nie można ustawić interwału, które te liczniki wydajności są zbierane i wysyłane na platformę Azure. Za pomocą Application Insights liczniki wydajności są zbierane i wysyłane co minutę. 
+Każdy licznik wydajności jest reprezentowany jako `<Add>` element poniżej `<Counters>` . Ten `PerformanceCounter` atrybut definiuje licznik wydajności do zbierania. Ten `ReportAs` atrybut jest tytułem, który ma być wyświetlany w Azure Portal dla licznika wydajności. Każdy zbierany licznik wydajności jest umieszczany w kategorii o nazwie **Custom** w portalu. W przeciwieństwie do Diagnostyka Azure, nie można ustawić interwału, które te liczniki wydajności są zbierane i wysyłane na platformę Azure. Za pomocą Application Insights liczniki wydajności są zbierane i wysyłane co minutę. 
 
 Application Insights automatycznie zbiera następujące liczniki wydajności:
 
@@ -119,11 +118,11 @@ Aby uzyskać więcej informacji, zobacz [liczniki wydajności systemu w Applicat
 
 Rozszerzenie Diagnostyka Azure dla Cloud Services pozwala określić, jakie liczniki wydajności mają być zbierane. Aby skonfigurować Diagnostyka Azure, zobacz [Omówienie monitorowania usługi w chmurze](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Liczniki wydajności, które mają być zbierane, są zdefiniowane w pliku **Diagnostics. wadcfgx** . Otwórz ten plik (zdefiniowany dla roli) w programie Visual Studio i Znajdź element **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **liczniki wydajności** . Dodaj nowy element **PerformanceCounterConfiguration** jako element podrzędny. Ten element ma dwa atrybuty: `counterSpecifier` i `sampleRate`. Ten `counterSpecifier` atrybut definiuje zestaw liczników wydajności systemu (opisany w poprzedniej sekcji) do zebrania. `sampleRate` Wartość wskazuje częstotliwość sondowania wartości. Jako całość wszystkie liczniki wydajności są transferowane do platformy Azure zgodnie z wartością `PerformanceCounters` `scheduledTransferPeriod` atrybutu elementu nadrzędnego.
+Liczniki wydajności, które mają być zbierane, są zdefiniowane w pliku **Diagnostics. wadcfgx** . Otwórz ten plik (zdefiniowany dla roli) w programie Visual Studio i Znajdź element **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **liczniki wydajności** . Dodaj nowy element **PerformanceCounterConfiguration** jako element podrzędny. Ten element ma dwa atrybuty: `counterSpecifier` i `sampleRate` . Ten `counterSpecifier` atrybut definiuje zestaw liczników wydajności systemu (opisany w poprzedniej sekcji) do zebrania. `sampleRate`Wartość wskazuje częstotliwość sondowania wartości. Jako całość wszystkie liczniki wydajności są transferowane do platformy Azure zgodnie z `PerformanceCounters` `scheduledTransferPeriod` wartością atrybutu elementu nadrzędnego.
 
-Aby uzyskać więcej informacji na `PerformanceCounters` temat elementu schematu, zobacz [schemat Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
+Aby uzyskać więcej informacji na temat `PerformanceCounters` elementu schematu, zobacz [schemat Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
-Okres zdefiniowany przez `sampleRate` atrybut używa typu danych czas trwania XML do wskazania, jak często licznik wydajności jest sondowany. W poniższym przykładzie stawka jest ustawiona na `PT3M`, co oznacza `[P]eriod[T]ime[3][M]inutes`, że: co trzy minuty.
+Okres zdefiniowany przez `sampleRate` atrybut używa typu danych czas trwania XML do wskazania, jak często licznik wydajności jest sondowany. W poniższym przykładzie stawka jest ustawiona na `PT3M` , co oznacza, że `[P]eriod[T]ime[3][M]inutes` : co trzy minuty.
 
 Aby uzyskać więcej informacji na temat `sampleRate` sposobu `scheduledTransferPeriod` definiowania i, zobacz sekcję **Typ danych czas trwania** w samouczku dotyczącym [typów daty i godziny w kodzie XML platformy W3](https://www.w3schools.com/XML/schema_dtypes_date.asp) .
 
@@ -161,9 +160,9 @@ Aby uzyskać więcej informacji na temat `sampleRate` sposobu `scheduledTransfer
 
 ## <a name="create-a-new-perf-counter"></a>Utwórz nowy licznik wydajności
 
-Nowy licznik wydajności może być tworzony i używany przez swój kod. Kod, który tworzy nowy licznik wydajności musi mieć podwyższony poziom, w przeciwnym razie zakończy się niepowodzeniem. Kod uruchomienia usługi `OnStart` w chmurze może utworzyć licznik wydajności, co wymaga uruchomienia roli w kontekście z podwyższonym poziomem uprawnień. Można też utworzyć zadanie uruchamiania, które uruchamia podwyższony poziom i tworzy licznik wydajności. Aby uzyskać więcej informacji na temat zadań uruchamiania, zobacz [jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](cloud-services-startup-tasks.md).
+Nowy licznik wydajności może być tworzony i używany przez swój kod. Kod, który tworzy nowy licznik wydajności musi mieć podwyższony poziom, w przeciwnym razie zakończy się niepowodzeniem. `OnStart`Kod uruchomienia usługi w chmurze może utworzyć licznik wydajności, co wymaga uruchomienia roli w kontekście z podwyższonym poziomem uprawnień. Można też utworzyć zadanie uruchamiania, które uruchamia podwyższony poziom i tworzy licznik wydajności. Aby uzyskać więcej informacji na temat zadań uruchamiania, zobacz [jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](cloud-services-startup-tasks.md).
 
-Aby skonfigurować rolę do uruchamiania podwyższonego poziomu uprawnień, `<Runtime>` Dodaj element do pliku [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) .
+Aby skonfigurować rolę do uruchamiania podwyższonego poziomu uprawnień, Dodaj `<Runtime>` element do pliku [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) .
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -181,7 +180,7 @@ Aby skonfigurować rolę do uruchamiania podwyższonego poziomu uprawnień, `<Ru
 </ServiceDefinition>
 ```
 
-Nowy licznik wydajności można utworzyć i zarejestrować za pomocą kilku wierszy kodu. Użyj przeciążenia `System.Diagnostics.PerformanceCounterCategory.Create` metody, które tworzy zarówno kategorię, jak i licznik. Poniższy kod najpierw sprawdza, czy kategoria istnieje, i jeśli nie ma, tworzy zarówno kategorię, jak i licznik.
+Nowy licznik wydajności można utworzyć i zarejestrować za pomocą kilku wierszy kodu. Użyj `System.Diagnostics.PerformanceCounterCategory.Create` przeciążenia metody, które tworzy zarówno kategorię, jak i licznik. Poniższy kod najpierw sprawdza, czy kategoria istnieje, i jeśli nie ma, tworzy zarówno kategorię, jak i licznik.
 
 ```csharp
 using System.Diagnostics;
@@ -224,7 +223,7 @@ namespace WorkerRoleWithSBQueue1
 }
 ```
 
-Jeśli chcesz użyć licznika, wywołaj metodę `Increment` lub. `IncrementBy`
+Jeśli chcesz użyć licznika, wywołaj `Increment` `IncrementBy` metodę lub.
 
 ```csharp
 // Increase the counter by 1
@@ -236,7 +235,7 @@ Teraz, gdy aplikacja korzysta z licznika niestandardowego, należy skonfigurowa�
 
 ### <a name="application-insights"></a>Application Insights
 
-Jak wspomniano wcześniej, liczniki wydajności dla Application Insights są zdefiniowane w pliku **ApplicationInsights. config** . Otwórz **plik ApplicationInsights. config** i Znajdź element **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters** . Utwórz element `<Add>` podrzędny i ustaw dla `PerformanceCounter` atrybutu kategorię i nazwę licznika wydajności utworzonego w kodzie. Ustaw `ReportAs` atrybut na przyjazną nazwę, która ma zostać wyświetlona w portalu.
+Jak wspomniano wcześniej, liczniki wydajności dla Application Insights są zdefiniowane w pliku **ApplicationInsights.config** . Otwórz **ApplicationInsights.config** i Znajdź element **ApplicationInsights**  >  **TelemetryModules**  >  **Add**  >  **Counters** . Utwórz `<Add>` element podrzędny i ustaw dla `PerformanceCounter` atrybutu kategorię i nazwę licznika wydajności utworzonego w kodzie. Ustaw `ReportAs` atrybut na przyjazną nazwę, która ma zostać wyświetlona w portalu.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -259,7 +258,7 @@ Jak wspomniano wcześniej, liczniki wydajności dla Application Insights są zde
 
 ### <a name="azure-diagnostics"></a>Diagnostyka Azure
 
-Jak wspomniano wcześniej, liczniki wydajności, które mają być zbierane, są zdefiniowane w pliku **Diagnostics. wadcfgx** . Otwórz ten plik (zdefiniowany dla roli) w programie Visual Studio i Znajdź element **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **liczniki wydajności** . Dodaj nowy element **PerformanceCounterConfiguration** jako element podrzędny. Ustaw `counterSpecifier` atrybut na kategorię i nazwę licznika wydajności utworzonego w kodzie. 
+Jak wspomniano wcześniej, liczniki wydajności, które mają być zbierane, są zdefiniowane w pliku **Diagnostics. wadcfgx** . Otwórz ten plik (zdefiniowany dla roli) w programie Visual Studio i Znajdź element **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **liczniki wydajności** . Dodaj nowy element **PerformanceCounterConfiguration** jako element podrzędny. Ustaw `counterSpecifier` atrybut na kategorię i nazwę licznika wydajności utworzonego w kodzie. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
 ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77591357"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP
@@ -147,7 +146,7 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Zainstaluj wystąpienie ASCS/SCS w pierwszym węźle klastra ASCS/SCS
 
-1. Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do: **Product** > **DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > pierwszym węźle klastra.  
+1. Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do: **Product**  >  **DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > pierwszym węźle klastra.  
 
 2. Wybierz opcję **klaster udziałów plików** jako konfigurację udziału klastra w SWPM.  
 3. Po wyświetleniu monitu w kroku **Parametry klastra systemowego SAP**wprowadź nazwę hosta dla Azure NETAPP Files udziału SMB, który został już utworzony jako **Nazwa hosta udziału plików**.  W tym przykładzie nazwą hosta udziału SMB jest **anfsmb-9562**. 
@@ -158,11 +157,11 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 > [!TIP]
 > Jeśli narzędzie sprawdzania wymagań wstępnych w programie SWPM pokazuje, że nie jest spełniony warunek zmiany rozmiaru, można dostosować rozmiar wymiany, przechodząc do obszaru mój komputer>właściwości systemu>ustawienia wydajności> zaawansowaną zmianę> pamięci wirtualnej>.  
 
-4. Skonfiguruj zasób klastra SAP, port `SAP-SID-IP` sondy przy użyciu programu PowerShell. Tę konfigurację należy wykonać na jednym z węzłów klastra SAP ASCS/SCS, zgodnie z opisem w temacie [Konfigurowanie portu sondowania](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
+4. Skonfiguruj zasób klastra SAP, `SAP-SID-IP` port sondy przy użyciu programu PowerShell. Tę konfigurację należy wykonać na jednym z węzłów klastra SAP ASCS/SCS, zgodnie z opisem w temacie [Konfigurowanie portu sondowania](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalowanie wystąpienia ASCS/SCS w drugim węźle klastra ASCS/SCS
 
-1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu** > system**DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > dodatkowego węzła klastra.  
+1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu**  >  system**DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > dodatkowego węzła klastra.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalowanie wystąpienia systemu DBMS i serwerów aplikacji SAP
 
@@ -177,9 +176,9 @@ Ukończ instalację oprogramowania SAP, instalując następujące polecenie:
 ### <a name="fail-over-from-cluster-node-a-to-cluster-node-b-and-back"></a>Przechodzenie w tryb failover z węzła klastra A do węzła klastra B i z powrotem
 W tym scenariuszu testowym będziemy odwoływać się do węzła klastra sapascs1 jako węzeł A i do węzła klastra sapascs2 jako węzeł B.
 
-1. Sprawdź, czy zasoby klastra działają w węźle A. ![rysunek 1: zasoby klastra trybu failover systemu Windows Server uruchomione w węźle a przed testem trybu failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
+1. Sprawdź, czy zasoby klastra działają w węźle A. ![ Rysunek 1. zasoby klastra trybu failover systemu Windows Server uruchomione w węźle A przed testem trybu failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
 
-2. Uruchom ponownie węzeł klastra A. Zasoby klastra SAP zostaną przeniesione do węzła klastra B. ![rysunek 2: zasoby klastra trybu failover systemu Windows Server uruchomione w węźle B po teście trybu failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
+2. Uruchom ponownie węzeł klastra A. Zasoby klastra SAP zostaną przeniesione do węzła klastra B. ![ Rysunek 2. zasoby klastra trybu failover systemu Windows Server uruchomione w węźle B po przejściu do trybu failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
 ## <a name="lock-entry-test"></a>Test zapisu blokady

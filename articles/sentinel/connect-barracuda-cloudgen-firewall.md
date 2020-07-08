@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588505"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Łączenie z rozwiązaniem Barracuda CloudGen Firewall
@@ -36,7 +35,7 @@ ms.locfileid: "77588505"
 
 ## <a name="connect-azure-sentinel-to-barracuda-cloudgen-firewall"></a>Łączenie z platformą Azure do Barracuda CloudGen firewall
 
-1. W Azure Portal przejdź do > **łączników danych** **wskaźnikowych platformy Azure**, a następnie wybierz łącznik **zapory Barracuda CloudGen** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **zapory Barracuda CloudGen** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 

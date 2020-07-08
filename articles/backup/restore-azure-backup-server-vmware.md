@@ -4,10 +4,9 @@ description: Użyj Azure Backup Server (serwera usługi MAB), aby przywrócić m
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77212350"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Przywróć maszyny wirtualne VMware

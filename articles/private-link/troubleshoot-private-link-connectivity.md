@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539471"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Rozwiązywanie problemów z łącznością usługi Azure Private Link
@@ -81,7 +80,7 @@ Jeśli występują problemy z łącznością z konfiguracją linku prywatnego, z
 
        ![Weryfikuj informacje o widoczności](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    g. Przejrzyj informacje dotyczące usługi **równoważenia obciążenia** na karcie **Przegląd** .
+    przykład Przejrzyj informacje dotyczące usługi **równoważenia obciążenia** na karcie **Przegląd** .
      - Możesz przejść do modułu równoważenia obciążenia, wybierając link modułu równoważenia obciążenia.
 
        ![Weryfikuj informacje modułu równoważenia obciążenia](./media/private-link-tsg/pls-overview-pane-ilb.png)

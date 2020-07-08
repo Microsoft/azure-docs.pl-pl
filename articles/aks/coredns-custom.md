@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: 78132a53313f4a8ee5c10af340c8dab08c3e42c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595828"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Dostosowywanie serwera CoreDNS w usłudze Azure Kubernetes Service
@@ -34,7 +33,7 @@ Obsługiwane są wszystkie wbudowane wtyczki CoreDNS. Nie są obsługiwane wtycz
 
 ## <a name="rewrite-dns"></a>Zapisz ponownie system DNS
 
-Jednym z scenariuszy jest wykonanie na bieżąco nazw DNS. W poniższym przykładzie Zastąp `<domain to be written>` wartość własną w pełni kwalifikowaną nazwą domeny. Utwórz plik o nazwie `corednsms.yaml` i wklej następujący Przykładowa konfiguracja:
+Jednym z scenariuszy jest wykonanie na bieżąco nazw DNS. W poniższym przykładzie Zastąp wartość `<domain to be written>` własną w pełni kwalifikowaną nazwą domeny. Utwórz plik o nazwie `corednsms.yaml` i wklej następujący Przykładowa konfiguracja:
 
 ```yaml
 apiVersion: v1
@@ -71,7 +70,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> Powyższe polecenie jest poprawne. Gdy zmieniamy `coredns`, wdrożenie jest pod nazwą **polecenia-DNS** .
+> Powyższe polecenie jest poprawne. Gdy zmieniamy `coredns` , wdrożenie jest pod nazwą **polecenia-DNS** .
 
 ## <a name="custom-forward-server"></a>Serwer niestandardowego przesyłania dalej
 

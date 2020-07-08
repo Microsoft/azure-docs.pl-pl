@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425888"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Replikowanie tematów platformy Apache Kafka przy użyciu platformy Kafka w usłudze HDInsight za pomocą narzędzia MirrorMaker
@@ -90,8 +89,8 @@ Ta architektura zawiera dwa klastry w różnych grupach zasobów i sieci wirtual
 
 Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się przy użyciu adresów IP brokera zamiast nazw domen.
 
-1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra podstawowego: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-1. Wybierz pozycję **usługi** > **Kafka**. CliSelectck kartę **konfiguracje** .
+1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra podstawowego: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
+1. Wybierz pozycję **usługi**  >  **Kafka**. CliSelectck kartę **konfiguracje** .
 1. Dodaj następujące wiersze konfiguracji do dolnej sekcji **szablonu Kafka-ENV** . Wybierz pozycję **Zapisz**.
 
     ```
@@ -105,13 +104,13 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 1. Wprowadź uwagę na ekranie **Zapisywanie konfiguracji** i kliknij przycisk **Zapisz**.
 1. Jeśli zostanie wyświetlony monit z ostrzeżeniem o konfiguracji, kliknij przycisk **Kontynuuj mimo to**.
 1. W obszarze **Zapisz zmiany konfiguracji**wybierz pozycję **OK** .
-1. Wybierz pozycję **Uruchom ponownie** > **Uruchom ponownie wszystkie zmiany, których dotyczy** powiadomienie **wymagane do ponownego uruchomienia** . Wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
+1. Wybierz pozycję **Uruchom ponownie**  >  **Uruchom ponownie wszystkie zmiany, których dotyczy** powiadomienie **wymagane do ponownego uruchomienia** . Wybierz pozycję **Potwierdź ponowne uruchomienie wszystkich**.
 
     ![System Apache Ambari](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Skonfiguruj Kafka do nasłuchiwania na wszystkich interfejsach sieciowych.
     
-1. Pozostań na **karcie konfiguracje w** obszarze **usługi** > **Kafka**. W sekcji **brokera Kafka** ustaw właściwość **detektory** na `PLAINTEXT://0.0.0.0:9092`.
+1. Pozostań na **karcie konfiguracje w** obszarze **usługi**  >  **Kafka**. W sekcji **brokera Kafka** ustaw właściwość **detektory** na `PLAINTEXT://0.0.0.0:9092` .
 1. Wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Uruchom ponownie**i **Potwierdź wszystkie ponowne uruchomienie**.
 
@@ -136,14 +135,14 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Użyj następującego polecenia, aby utworzyć zmienną z hostami Apache dozorcy dla klastra podstawowego. Ciągi takie jak `ZOOKEEPER_IP_ADDRESS1` muszą zostać zastąpione rzeczywistymi zarejestrowanymi adresami IP, `10.23.0.11` takimi `10.23.0.7`jak i. Jeśli używasz rozpoznawania nazwy FQDN z niestandardowym serwerem DNS, wykonaj [następujące kroki](apache-kafka-get-started.md#getkafkainfo) , aby uzyskać nazwy brokera i dozorcy.:
+1. Użyj następującego polecenia, aby utworzyć zmienną z hostami Apache dozorcy dla klastra podstawowego. Ciągi takie jak `ZOOKEEPER_IP_ADDRESS1` muszą zostać zastąpione rzeczywistymi zarejestrowanymi adresami IP, takimi jak `10.23.0.11` i `10.23.0.7` . Jeśli używasz rozpoznawania nazwy FQDN z niestandardowym serwerem DNS, wykonaj [następujące kroki](apache-kafka-get-started.md#getkafkainfo) , aby uzyskać nazwy brokera i dozorcy.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Aby utworzyć temat o nazwie `testtopic`, użyj następującego polecenia:
+1. Aby utworzyć temat o nazwie `testtopic` , użyj następującego polecenia:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
@@ -155,7 +154,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-    Odpowiedź zawiera `testtopic`.
+    Odpowiedź zawiera `testtopic` .
 
 1. Aby wyświetlić informacje o hoście dozorcy dla tego ( **podstawowego**) klastra, wykonaj następujące czynności:
 
@@ -181,7 +180,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
     Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. `consumer.properties` Plik jest używany do konfigurowania komunikacji z klastrem **podstawowym** . Aby utworzyć plik, użyj następującego polecenia:
+1. `consumer.properties`Plik jest używany do konfigurowania komunikacji z klastrem **podstawowym** . Aby utworzyć plik, użyj następującego polecenia:
 
     ```bash
     nano consumer.properties
@@ -210,7 +209,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. `producer.properties` Plik jest używany do komunikacji z klastrem **pomocniczym** . Aby utworzyć plik, użyj następującego polecenia:
+1. `producer.properties`Plik jest używany do komunikacji z klastrem **pomocniczym** . Aby utworzyć plik, użyj następującego polecenia:
 
     ```bash
     nano producer.properties
@@ -250,9 +249,9 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
         Aby skonfigurować klaster pomocniczy do automatycznego tworzenia tematów, wykonaj następujące kroki:
 
-        1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra pomocniczego `https://SECONDARYCLUSTERNAME.azurehdinsight.net`:.
-        1. Kliknij pozycję **usługi** > **Kafka**. Kliknij kartę **konfiguracje** .
-        1. W polu __Filtr__ wprowadź wartość `auto.create`. Spowoduje to przefiltrowanie listy właściwości i wyświetlenie `auto.create.topics.enable` ustawienia.
+        1. Przejdź do pulpitu nawigacyjnego Ambari dla klastra pomocniczego: `https://SECONDARYCLUSTERNAME.azurehdinsight.net` .
+        1. Kliknij pozycję **usługi**  >  **Kafka**. Kliknij kartę **konfiguracje** .
+        1. W polu __Filtr__ wprowadź wartość `auto.create` . Spowoduje to przefiltrowanie listy właściwości i wyświetlenie `auto.create.topics.enable` Ustawienia.
         1. Zmień wartość `auto.create.topics.enable` na true, a następnie wybierz pozycję __Zapisz__. Dodaj notatkę, a następnie wybierz pozycję __Zapisz__ ponownie.
         1. Wybierz usługę __Kafka__ , wybierz pozycję __Uruchom ponownie__, a następnie wybierz pozycję __Uruchom ponownie wszystkie uwzględnione__. Po wyświetleniu monitu wybierz pozycję __Potwierdź ponowne uruchomienie wszystkich__.
 
@@ -270,8 +269,8 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
 
     |Parametr |Opis |
     |---|---|
-    |--Consumer. config|Określa plik, który zawiera właściwości konsumenta. Te właściwości są używane do tworzenia konsumenta, który odczytuje z *podstawowego* klastra Kafka.|
-    |--Producer. config|Określa plik, który zawiera właściwości producenta. Te właściwości są używane do tworzenia producenta, który zapisuje dane do *pomocniczego* klastra Kafka.|
+    |--consumer.config|Określa plik, który zawiera właściwości konsumenta. Te właściwości są używane do tworzenia konsumenta, który odczytuje z *podstawowego* klastra Kafka.|
+    |--producer.config|Określa plik, który zawiera właściwości producenta. Te właściwości są używane do tworzenia producenta, który zapisuje dane do *pomocniczego* klastra Kafka.|
     |--dozwolonych|Lista tematów, które narzędzia MirrorMaker replikuje z klastra podstawowego do pomocniczego.|
     |--NUM. strumieni|Liczba wątków klienta do utworzenia.|
 
@@ -292,7 +291,7 @@ Skonfiguruj anonsowanie adresów IP, aby umożliwić klientowi łączenie się p
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Lista tematów zawiera `testtopic`teraz, które są tworzone, gdy MirrorMaster odzwierciedla temat z podstawowego klastra do pomocniczego. Komunikaty pobrane z tematu są takie same jak te wprowadzone w klastrze podstawowym.
+    Lista tematów zawiera teraz `testtopic` , które są tworzone, gdy MirrorMaster odzwierciedla temat z podstawowego klastra do pomocniczego. Komunikaty pobrane z tematu są takie same jak te wprowadzone w klastrze podstawowym.
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

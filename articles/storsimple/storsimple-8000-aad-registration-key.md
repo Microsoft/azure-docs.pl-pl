@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77470908"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Użyj nowego uwierzytelniania StorSimple
@@ -39,7 +38,7 @@ Aby zapewnić, że usługa korzysta z uwierzytelniania opartego na usłudze AAD,
 
 W przypadku korzystania z serii StorSimple 8000 upewnij się, że w regułach zapory uwzględniono następujący adres URL:
 
-| Wzorzec adresu URL                         | Chmurowa | Składnik/funkcjonalność         |
+| Wzorzec adresu URL                         | Chmura | Składnik/funkcjonalność         |
 |------------------------------------|-------|----------------------------------|
 | `https://login.windows.net`        | Azure — publiczna |Usługa uwierzytelniania usługi AAD      |
 | `https://login.microsoftonline.us` | US Government |Usługa uwierzytelniania usługi AAD      |
@@ -54,9 +53,9 @@ Jeśli korzystasz z urządzenia z serii StorSimple 8000, Skorzystaj z poniższej
 
 | Jeśli urządzenie jest uruchomione| Wykonaj następujące czynności                                    |
 |--------------------------|------------------------|
-| Aktualizacja Update 5 lub nowsza, a urządzenie jest w trybie offline. <br> Zostanie wyświetlony alert informujący o tym, że adres URL nie jest listy dozwolonych.|1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania. Zobacz [adresy URL uwierzytelniania](#url-changes-for-aad-authentication).<br>2. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys).<br>3. [Połącz się z interfejsem programu Windows PowerShell dla urządzenia z serii StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Aby `Redo-DeviceRegistration` zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
+| Aktualizacja Update 5 lub nowsza, a urządzenie jest w trybie offline. <br> Zostanie wyświetlony alert informujący o tym, że adres URL nie jest listy dozwolonych.|1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania. Zobacz [adresy URL uwierzytelniania](#url-changes-for-aad-authentication).<br>2. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys).<br>3. [Połącz się z interfejsem programu Windows PowerShell dla urządzenia z serii StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. `Redo-DeviceRegistration` Aby zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
 | Aktualizacja Update 5 lub nowsza oraz urządzenie w trybie online.| Nie jest wymagana żadna akcja.                                       |
-| Aktualizacja Update 4 lub wcześniejsza, a urządzenie jest w trybie offline. |1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania.<br>2. [Pobierz aktualizację Update 5 za poorednictwem serwera wykazu](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Zastosuj aktualizację Update 5 za pomocą metody hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys).<br>5. [Połącz się z interfejsem programu Windows PowerShell dla urządzenia z serii StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Aby `Redo-DeviceRegistration` zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
+| Aktualizacja Update 4 lub wcześniejsza, a urządzenie jest w trybie offline. |1. zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania.<br>2. [Pobierz aktualizację Update 5 za poorednictwem serwera wykazu](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Zastosuj aktualizację Update 5 za pomocą metody hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Pobierz klucz rejestracji AAD z usługi](#aad-based-registration-keys).<br>5. [Połącz się z interfejsem programu Windows PowerShell dla urządzenia z serii StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. `Redo-DeviceRegistration` Aby zarejestrować urządzenie za pomocą programu Windows PowerShell, użyj polecenia cmdlet. Podaj klucz uzyskany w poprzednim kroku.|
 | Aktualizacja Update 4 lub wcześniejsza, a urządzenie jest w trybie online. |Zmodyfikuj reguły zapory w taki sposób, aby zawierały adres URL uwierzytelniania.<br> Zainstaluj aktualizację Update 5 za pomocą Azure Portal.              |
 | Resetowanie do wersji fabrycznej przed aktualizacją Update 5.      |W portalu jest wyświetlany klucz rejestracji oparty na usłudze AAD, gdy na urządzeniu jest uruchomione starsze oprogramowanie. Wykonaj kroki opisane w poprzednim scenariuszu, jeśli na urządzeniu jest uruchomiona Aktualizacja Update 4 lub wcześniejsza wersja.              |
 

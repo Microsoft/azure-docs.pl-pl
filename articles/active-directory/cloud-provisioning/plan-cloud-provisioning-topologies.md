@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77620873"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect obsługiwane topologie i scenariusze aprowizacji w chmurze
@@ -50,7 +49,7 @@ Wspólna topologia to wiele lasów usługi AD, z co najmniej jedną domeną i je
 Ten scenariusz jest podobny do scenariusza obejmującego wiele lasów, jednak ten element obejmuje istniejące środowisko Azure AD Connect, a następnie umieszcza je w nowym lesie przy użyciu Azure AD Connect aprowizacji w chmurze.  Aby zapoznać się z przykładem tego scenariusza, zobacz [Samouczek: istniejący Las z pojedynczą dzierżawą usługi Azure AD](tutorial-existing-forest.md)
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>Pilotażowe Azure AD Connect aprowizacji w chmurze w istniejącym hybrydowym lesie usługi AD
-![Topologia jednego lasu i pojedynczej dzierżawy](media/plan-cloud-provisioning-topologies/migrate.png) scenariusz pilotażowy obejmuje istnienie zarówno Azure AD Connect, jak i Azure AD Connect aprowizacji w chmurze w tym samym lesie i odpowiednie określanie zakresu dla użytkowników i grup. Uwaga: obiekt powinien znajdować się w zakresie tylko w jednym z narzędzi. 
+![Topologia jednego lasu i pojedynczej dzierżawy ](media/plan-cloud-provisioning-topologies/migrate.png) scenariusz pilotażowy obejmuje istnienie zarówno Azure AD Connect, jak i Azure AD Connect aprowizacji w chmurze w tym samym lesie i odpowiednie określanie zakresu dla użytkowników i grup. Uwaga: obiekt powinien znajdować się w zakresie tylko w jednym z narzędzi. 
 
 Aby zapoznać się z przykładem tego scenariusza, zobacz [Samouczek: pilotaż Azure AD Connect aprowizacji w chmurze w istniejącym synchronizowanym lesie usługi AD](tutorial-pilot-aadc-aadccp.md)
 

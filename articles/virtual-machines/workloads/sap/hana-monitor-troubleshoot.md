@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617074"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
@@ -70,7 +69,7 @@ Szczegółowe instrukcje dotyczące rozwiązywania problemów można znaleźć w
 
 Jednym z najważniejszych testów dla SAP HANA w systemie Linux jest upewnienie się, że przezroczyste ogromne strony są wyłączone, zobacz [uwagi dotyczące oprogramowania SAP #2131662 – transparenty ogromne strony (THP) na serwerach SAP HANA](https://launchpad.support.sap.com/#/notes/2131662).
 
-- Możesz sprawdzić, czy w następujących poleceniach systemu Linux włączono przezroczyste ogromne strony: **Cat\_/sys/kernel/mm/transparent hugepage/Enabled**
+- Możesz sprawdzić, czy w następujących poleceniach systemu Linux włączono przezroczyste ogromne strony: **Cat/sys/kernel/mm/transparent \_ hugepage/Enabled**
 - Jeśli jest _zawsze_ ujęty w nawiasy klamrowe, oznacza to, że przezroczyste ogromne strony są włączone: [zawsze] madvise nigdy; Jeśli _nigdy nie_ jest ujęty w nawiasy klamrowe, oznacza to, że przezroczyste ogromne strony są wyłączone: zawsze madvise [nigdy]
 
 Następujące polecenie systemu Linux nie zwraca niczego: **RPM-pytań i odpowiedzi grep ulimit.** Jeśli zostanie wyświetlona, _ulimit_ jest zainstalowana, odinstaluj ją natychmiast.
@@ -93,10 +92,10 @@ Szczegółowe kroki rozwiązywania problemów można znaleźć w witrynie [SAP H
 Zapoznaj się z uwagą do programu [sap #2081065 — Rozwiązywanie problemów z siecią SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) i wykonywanie kroków rozwiązywania problemów z siecią w tej notatce SAP.
 
 1. Analizowanie czasu rundy między serwerem a klientem.
-  A. Uruchom [_klientów sieciowych\_\__](https://launchpad.support.sap.com/#/notes/1969700)programu SQL Script Hana _._
+  A. Uruchom [_ \_ \_ klientów sieciowych_](https://launchpad.support.sap.com/#/notes/1969700)programu SQL Script Hana _._
   
 2. Analizowanie komunikacji między węzłami.
-  A. Uruchom [_usługę sieciową\_\_Hana_](https://launchpad.support.sap.com/#/notes/1969700)skryptu SQL _._
+  A. Uruchom [_ \_ \_ usługę sieciową Hana_](https://launchpad.support.sap.com/#/notes/1969700)skryptu SQL _._
 
 3. Uruchom polecenie systemu Linux **ifconfig** (dane wyjściowe wskazuje, czy występują jakiekolwiek straty pakietu).
 4. Uruchom polecenie systemu Linux **tcpdump**.
@@ -119,15 +118,15 @@ Zapoznaj się z [SAP HANA rozwiązywania problemów: główne przyczyny i rozwi�
 
 ## <a name="diagnostic-tools"></a>narzędzia diagnostyczne
 
-Wykonaj SAP HANA Sprawdzanie kondycji przy użyciu\_konfiguracji\_Hana Minichecks. To narzędzie zwraca potencjalnie krytyczne problemy techniczne, które zostały już zgłoszone jako alerty w programie SAP HANA Studio.
+Wykonaj SAP HANA Sprawdzanie kondycji przy użyciu \_ konfiguracji Hana \_ Minichecks. To narzędzie zwraca potencjalnie krytyczne problemy techniczne, które zostały już zgłoszone jako alerty w programie SAP HANA Studio.
 
-Zapoznaj się z [instrukcją SAP uwagi #1969700 — kolekcji instrukcji SQL dla SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) i Pobierz plik zip instrukcji SQL dołączony do tej notatki. Zapisz ten plik zip na lokalnym dysku twardym.
+Zapoznaj się z [instrukcją SAP uwagi #1969700 — kolekcją instrukcji SQL dla SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) i pobierz plik Statements.zip SQL dołączony do tej notatki. Zapisz ten plik zip na lokalnym dysku twardym.
 
 W SAP HANA Studio na karcie **Informacje o systemie** kliknij prawym przyciskiem myszy w kolumnie **Nazwa** i wybierz polecenie **Importuj instrukcje SQL**.
 
 ![W programie SAP HANA Studio na karcie Informacje o systemie kliknij prawym przyciskiem myszy w kolumnie Nazwa i wybierz polecenie Importuj instrukcje SQL](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
-Wybierz plik zip instrukcji SQL przechowywany lokalnie, a folder z odpowiednimi instrukcjami SQL zostanie zaimportowany. W tym momencie wiele różnych testów diagnostycznych można uruchomić za pomocą tych instrukcji SQL.
+Wybierz plik Statements.zip SQL przechowywany lokalnie, a folder z odpowiednimi instrukcjami SQL zostanie zaimportowany. W tym momencie wiele różnych testów diagnostycznych można uruchomić za pomocą tych instrukcji SQL.
 
 Na przykład, aby przetestować wymagania dotyczące przepustowości replikacji systemu SAP HANA, kliknij prawym przyciskiem myszy instrukcję **przepustowości** w obszarze **replikacja: przepustowość** i wybierz polecenie **Otwórz** w konsoli SQL.
 
@@ -143,29 +142,29 @@ Powoduje to informacje pomocne w rozwiązywaniu problemów:
 
 ![Spowoduje to wyświetlenie informacji, które pomogą w rozwiązywaniu problemów](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-Wykonaj te same czynności w\_przypadku\_konfiguracji Hana Minichecks i sprawdź, czy w kolumnie _C_ (krytyczne) nie ma żadnych znaków _X_ .
+Wykonaj te same czynności w przypadku \_ konfiguracji Hana \_ Minichecks i sprawdź, czy w kolumnie _C_ (krytyczne) nie ma żadnych znaków _X_ .
 
 Przykładowe dane wyjściowe:
 
-**\_Konfiguracja\_Hana MiniChecks\_Rev 102.01 + 1** na potrzeby testów ogólnych SAP HANA.
+**Hana \_ Configuration \_ MiniChecks \_ Rev 102.01 + 1** na potrzeby testów ogólnych SAP HANA.
 
-![Konfiguracja\_\_Hana MiniChecks\_Rev 102.01 + 1 na potrzeby testów ogólnych SAP HANA](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
+![\_Konfiguracja Hana \_ MiniChecks \_ Rev 102.01 + 1 na potrzeby testów ogólnych SAP HANA](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
-**\_Usługi\_Hana — Omówienie** dotyczące obecnie uruchomionych usług SAP HANA.
+**Hana \_ \_Omówienie usług** , w których są obecnie uruchomione usługi SAP HANA.
 
-![Usługi\_\_Hana — Omówienie dotyczące obecnie uruchomionych usług SAP HANA](./media/troubleshooting-monitoring/image12-services-overview.png)
+![\_Usługi Hana \_ — Omówienie dotyczące obecnie uruchomionych usług SAP HANA](./media/troubleshooting-monitoring/image12-services-overview.png)
 
-**Statystyki\_usług\_Hana** dla SAP HANA informacji o usłudze (procesor CPU, pamięć itp.).
+**Hana \_ \_Statystyka usług** dla SAP HANA informacji o usłudze (procesor CPU, pamięć itp.).
 
-![Statystyki\_usług\_Hana dla SAP HANA informacji o usłudze](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![\_Statystyki usług Hana \_ dla SAP HANA informacji o usłudze](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**\_Omówienie\_konfiguracji\_platformy Hana Rev110 +** , aby uzyskać ogólne informacje o wystąpieniu SAP HANA.
+**Hana \_ \_Przegląd konfiguracji \_ Rev110 +** , aby uzyskać ogólne informacje o wystąpieniu SAP HANA.
 
-![Omówienie\_\_konfiguracji\_platformy Hana Rev110 +, aby uzyskać ogólne informacje na temat wystąpienia SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+![\_Omówienie konfiguracji platformy Hana \_ \_ Rev110 +, aby uzyskać ogólne informacje na temat wystąpienia SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**\_Parametry\_konfiguracji\_platformy Hana Rev70 +** , aby sprawdzić SAP HANA parametrów.
+**Hana \_ \_Parametry konfiguracji \_ Rev70 +** aby sprawdzić SAP HANA parametrów.
 
-![Parametry\_\_konfiguracji\_platformy Hana Rev70 + aby sprawdzić SAP HANA parametry](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+![\_Parametry konfiguracji platformy Hana \_ \_ Rev70 + aby sprawdzić SAP HANA parametry](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 
 **Następne kroki**
 

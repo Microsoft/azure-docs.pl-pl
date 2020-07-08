@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77468766"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
@@ -95,20 +94,20 @@ Adres URL używany do powiadamiania klienta (za pomocą żądania POST) o nastę
     
         |Nazwa|Opis|
         |---|---|
-        |id|Identyfikator wideo|
+        |identyfikator|Identyfikator wideo|
         |state|Stan wideo|  
-    - Przykład: https:\//test.com/NotifyMe?projectName=MyProject&ID = 1234abcd&State = przetworzone
+    - Przykład: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&State = przetworzone
 - Osoba rozpoznana na filmie wideo:
   - Właściwości
     
       |Nazwa|Opis|
       |---|---|
-      |id| Identyfikator wideo|
+      |identyfikator| Identyfikator wideo|
       |faceId|Identyfikator Face ID w indeksie wideo|
       |knownPersonId|Identyfikator osoby, unikatowy w ramach danego modelu twarzy|
       |personName|Imię i nazwisko osoby|
         
-    - Przykład: https:\//test.com/NotifyMe?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
+    - Przykład: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
 
 ##### <a name="notes"></a>Uwagi
 
@@ -126,7 +125,7 @@ Tego parametru należy użyć, jeśli nagrania nieprzetworzone lub zewnętrzne z
 
 > [!NOTE]
 > Video Indexer obejmuje dwie ścieżki audio. Jeśli plik zawiera więcej ścieżek audio, będą one traktowane jako jedna ścieżka.<br/>
-Aby zindeksować ścieżki oddzielnie, należy wyodrębnić odpowiedni plik audio i indeksować go jako `AudioOnly`.
+Aby zindeksować ścieżki oddzielnie, należy wyodrębnić odpowiedni plik audio i indeksować go jako `AudioOnly` .
 
 Cena zależy od wybranej opcji indeksowania.  
 
@@ -164,9 +163,9 @@ Po skopiowaniu tego kodu na platformę programistyczną należy podać dwa param
 
     Aby uzyskać klucz interfejsu API, przejdź przez ten przepływ:
 
-    * Przejdź dohttps://api-portal.videoindexer.ai/
-    * Logowanie
-    * Przejdź do **produktu** -> **Authorization** -> **subskrypcja autoryzacji** autoryzacji
+    * Przejdź do strony https://api-portal.videoindexer.ai/
+    * Zaloguj się
+    * Przejdź do **produktu**  ->  **Authorization**  ->  **subskrypcja autoryzacji** autoryzacji
     * Kopiuj **klucz podstawowy**
 * Adres URL wideo — adres URL pliku wideo/audio, który ma być indeksowany. Ten adres URL musi wskazywać plik multimedialny (strony HTML nie są obsługiwane). Plik może być chroniony przez token dostępu podany w ramach identyfikatora URI, a punkt końcowy obsługujący plik musi być zabezpieczony za pomocą protokołu TLS 1.2 lub nowszej wersji. Adres URL musi być zakodowany.
 

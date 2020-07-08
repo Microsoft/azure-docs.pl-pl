@@ -15,10 +15,9 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588029"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Łącz zabezpieczenia Trend Micro głęboki
@@ -32,7 +31,7 @@ ms.locfileid: "77588029"
 
 ## <a name="connect-azure-sentinel-to-trend-micro-deep-security"></a>Łączenie z platformą Azure wskaźnikiem do Trend Micro głębokiego bezpieczeństwa
 
-1. W Azure Portal przejdź do > **łączników danych** **wskaźnikowych platformy Azure**, a następnie wybierz łącznik **zabezpieczeń Trend Micro głębokiego** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **zabezpieczeń Trend Micro głębokiego** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 

@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617332"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalowanie rozwiązania SAP NetWeaver o wysokiej dostępności w klastrze trybu failover systemu Windows i udziału plików dla wystąpień SAP ASCS/SCS na platformie Azure
@@ -231,13 +230,13 @@ Nie ma specjalnych zagadnień, w przypadku których różne usługi DBMS współ
 
 Utwórz następujący wolumin i udział plików w klastrze SOFS:
 
-* Struktura plików `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST w udostępnionym woluminie klastra SOFS (CSV)
+* Struktura plików SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` w udostępnionym woluminie klastra SOFS (CSV)
 
 * SAPMNT udział plików
 
 * Ustaw zabezpieczenia dla udziału plików SAPMNT i folderu z pełną kontrolą dla:
-    * \<Domena> \ SAP_\<SID>_GlobalAdmin grupy użytkowników
-    * Węzeł klastra SAP ASCS/SCS w \<domenie> \clusternode1 $ i \<domena> \clusternode2 $
+    * \<DOMAIN> \<SID> Grupa użytkowników _GlobalAdmin \ SAP_
+    * Węzeł klastra SAP ASCS/SCS nie \<DOMAIN> \ClusterNode1 $ i \<DOMAIN> \ClusterNode2 $
 
 Aby utworzyć wolumin CSV z odpornością dublowania, należy wykonać następujące polecenie cmdlet programu PowerShell na jednym z węzłów klastra SOFS:
 
@@ -299,7 +298,7 @@ Utwórz nazwę sieci klastra SAP ASCS/SCS (na przykład **PR1-ASCS [10.0.6.7]**)
 
 Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Aby zainstalować wystąpienie, w narzędziu instalacji SAP SWPM przejdź do:
 
-**\<Produkt>**  >  >  **DBMS \<>** >  **Installation** > **ASCS/SCS instance** **Java** **High-Availability System****Application Server ABAP** **First cluster node**instalacji aplikacji serwer ABAP (lub Java) > pierwszym węźle klastra o wysokiej dostępności ASCS/SCS.  > 
+**\<Product>** > **\<DBMS>** > **Instalacja**  >  **Serwer aplikacji ABAP** (lub **Java**) > wystąpienie pierwszego klastra **o wysokiej dostępności**  >  **ASCS/SCS**  >  **First cluster node**.
 
 ### <a name="add-a-probe-port"></a>Dodaj port sondy
 
@@ -309,12 +308,12 @@ Skonfiguruj zasób klastra SAP, port sondy SAP-SID-IP przy użyciu programu Powe
 
 Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Aby zainstalować wystąpienie, w narzędziu instalacji SAP SWPM przejdź do:
 
-**\<Produkt>**  >  >  ** \<DBMS>**  >  **Installation**instalacji > **aplikacji serwer ABAP** (lub **Java**) >**dodatkowym węźle klastra** **o wysokiej dostępności** > **ASCS/SCS**.
+**\<Product>** > **\<DBMS>** > **Instalacja**  >  **Serwer aplikacji ABAP** (lub **Java**) > **High-Availability System**  >  **ASCS/SCS instance**  >  **dodatkowym węźle klastra**o wysokiej dostępności ASCS/SCS.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Aktualizowanie profilu wystąpienia SAP ASCS/SCS
 
-Zaktualizuj parametry w identyfikatorze SID profilu \<wystąpienia SAP ASCS/SCS>_ASCS/\<SCS Nr>_ \<hosta>.
+Zaktualizuj parametry w profilu wystąpienia SAP ASCS/SCS \<SID> _ASCS/SCS \<Nr> _ \<Host> .
 
 
 | Nazwa parametru | Wartość parametru |
@@ -323,7 +322,7 @@ Zaktualizuj parametry w identyfikatorze SID profilu \<wystąpienia SAP ASCS/SCS>
 | umieścić/encni/set_so_keepalive  | **oznacza** |
 | Usługa/ha_check_node | **1** |
 
-Uruchom ponownie wystąpienie SAP ASCS/SCS. Ustaw `KeepAlive` parametry w węzłach klastra SAP ASCS/SCS postępuj zgodnie z instrukcjami, aby [ustawić wpisy rejestru w węzłach klastra wystąpienia SAP ASCS/SCS][high-availability-guide]. 
+Uruchom ponownie wystąpienie SAP ASCS/SCS. Ustaw `KeepAlive` Parametry w węzłach klastra SAP ASCS/SCS postępuj zgodnie z instrukcjami, aby [ustawić wpisy rejestru w węzłach klastra wystąpienia SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalowanie wystąpienia systemu DBMS i serwerów aplikacji SAP
 

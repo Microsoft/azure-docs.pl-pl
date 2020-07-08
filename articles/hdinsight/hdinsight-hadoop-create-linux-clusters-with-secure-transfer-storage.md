@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: c1e5ca8b0bb828e5e8ce896bba6a5278266b118e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77560086"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop klastrów z kontami magazynu Secure transfer w usłudze Azure HDInsight
@@ -32,13 +31,13 @@ Aby zaktualizować istniejące konto magazynu za pomocą Azure Portal, zobacz [W
 
 ### <a name="powershell"></a>PowerShell
 
-W przypadku polecenia cmdlet programu PowerShell [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)upewnij `-EnableHttpsTrafficOnly` się, że `1`parametr jest ustawiony na.
+W przypadku polecenia cmdlet programu PowerShell [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)upewnij się, że parametr `-EnableHttpsTrafficOnly` jest ustawiony na `1` .
 
 Aby zaktualizować istniejące konto magazynu za pomocą programu PowerShell, zobacz [Wymagaj bezpiecznego transferu przy użyciu programu PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W przypadku polecenia Azure CLI polecenie [AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)upewnij się `--https-only` , że parametr `true`jest ustawiony na.
+W przypadku polecenia Azure CLI polecenie [AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)upewnij się, że parametr `--https-only` jest ustawiony na `true` .
 
 Aby zaktualizować istniejące konto magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Wymagaj bezpiecznego transferu przy użyciu interfejsu wiersza polecenia platformy Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

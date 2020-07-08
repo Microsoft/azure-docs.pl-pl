@@ -14,10 +14,9 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425548"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Co nowego w Azure Active Directory w Microsoft 365 instytucji rządowych
@@ -34,9 +33,9 @@ Ten artykuł nie ma zastosowania do Microsoft 365 instytucji rządowych — w pr
 
 ## <a name="changes-to-the-initial-domain-name"></a>Zmiany początkowej nazwy domeny
 
-Podczas początkowego rejestrowania w organizacji dla Microsoft 365ej usługi online dla instytucji rządowych zostanie wyświetlony monit o wybranie nazwy domeny w organizacji `<your-domain-name>.onmicrosoft.com`. Jeśli masz już nazwę domeny z sufiksem. com, nic się nie zmieni.
+Podczas początkowego rejestrowania w organizacji dla Microsoft 365ej usługi online dla instytucji rządowych zostanie wyświetlony monit o wybranie nazwy domeny w organizacji `<your-domain-name>.onmicrosoft.com` . Jeśli masz już nazwę domeny z sufiksem. com, nic się nie zmieni.
 
-Jeśli jednak rejestrujesz się w celu skorzystania z nowej usługi Microsoft 365 instytucji rządowych, zostanie wyświetlony monit o wybranie nazwy domeny przy `.us` użyciu sufiksu. Tak więc będzie `<your-domain-name>.onmicrosoft.us`.
+Jeśli jednak rejestrujesz się w celu skorzystania z nowej usługi Microsoft 365 instytucji rządowych, zostanie wyświetlony monit o wybranie nazwy domeny przy użyciu `.us` sufiksu. Tak więc będzie `<your-domain-name>.onmicrosoft.us` .
 
 >[!Note]
 >Ta zmiana nie dotyczy żadnych klientów, którzy są zarządzani przez dostawców usług w chmurze (CSP).
@@ -63,7 +62,7 @@ W poniższej tabeli przedstawiono punkty końcowe dla wszystkich klientów:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji można znaleźć w tych artykułach:
+Więcej informacji można znaleźć w następujących artykułach:
 
 - [Co to jest platforma Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 

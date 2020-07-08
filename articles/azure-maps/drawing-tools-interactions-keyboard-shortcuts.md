@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77198296"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Typy interakcji i skróty klawiaturowe w module narzędzi do rysowania
@@ -38,15 +37,15 @@ Gdy Menedżer rysowania jest w `draw-point` trybie rysowania, można wykonać na
 **Rozpocznij rysowanie**
  - Kliknij lewy przycisk myszy lub dotknij mapy, aby dodać punkt do mapy. 
  - Jeśli wskaźnik myszy znajduje się nad mapą, naciśnij klawisz `F` , a punkt zostanie dodany na współrzędnych wskaźnika myszy. Ta metoda zapewnia większą dokładność dodawania punktu do mapy. Na myszy będzie mniej ruchu z powodu naciskania lewego przycisku myszy.
- - Kontynuuj klikanie, dotknięcie lub naciskanie `F` , aby dodać więcej punktów do mapy.
+ - Kontynuuj klikanie, dotknięcie lub naciskanie, `F` Aby dodać więcej punktów do mapy.
  
 **Zakończ rysowanie**
  - Kliknij dowolny przycisk na pasku narzędzi Rysowanie. 
  - Programowo Ustaw tryb rysowania. 
- - `C` Naciśnij klawisz.
+ - Naciśnij klawisz `C` .
 
 **Anuluj rysowanie**
- - `Escape` Naciśnij klawisz.
+ - Naciśnij klawisz `Escape` .
 
 ### <a name="how-to-draw-a-line"></a>Jak narysować linię
 
@@ -58,7 +57,7 @@ Gdy Menedżer rysowania jest w `draw-line` trybie, można wykonać następujące
    * Jeśli wskaźnik myszy znajduje się nad mapą, naciśnij klawisz `F` , a punkt zostanie dodany na współrzędnych wskaźnika myszy. Ta metoda zapewnia większą dokładność dodawania punktu do mapy. Na myszy będzie mniej ruchu z powodu naciskania lewego przycisku myszy.
    * Kontynuuj klikaj do momentu dodania do wiersza odpowiednich punktów.
  - Tryb FreeHand
-   * Naciśnij przycisk myszy w dół, a następnie przeciągnięcie na mapę i przeciągnij myszą lub wskaż punkt dotykowy. Współrzędne są dodawane do wiersza, ponieważ mysz lub punkt dotykowy przesuwa się wokół mapy. Gdy tylko zostanie wyzwolone zdarzenie myszy lub dotknięcia, rysunek zostanie ukończony. Częstotliwość dodawania współrzędnych jest definiowana przez opcję menedżerów `freehandInterval` rysowania.
+   * Naciśnij przycisk myszy w dół, a następnie przeciągnięcie na mapę i przeciągnij myszą lub wskaż punkt dotykowy. Współrzędne są dodawane do wiersza, ponieważ mysz lub punkt dotykowy przesuwa się wokół mapy. Gdy tylko zostanie wyzwolone zdarzenie myszy lub dotknięcia, rysunek zostanie ukończony. Częstotliwość dodawania współrzędnych jest definiowana przez opcję menedżerów rysowania `freehandInterval` .
  - Tryb hybrydowy
    * Alternatywa między metodami klikania i odfreehand podczas rysowania pojedynczego wiersza. Na przykład kliknij kilka punktów, następnie przytrzymaj i przeciągnij myszą, aby dodać wiele punktów, a następnie kliknij kilka więcej. 
 
@@ -69,10 +68,10 @@ Gdy Menedżer rysowania jest w `draw-line` trybie, można wykonać następujące
    * Programowo Ustaw tryb rysowania. 
  - Tryb FreeHand
    * Zwolnij przycisk myszy lub punkt dotykowy.
- - `C` Naciśnij klawisz.
+ - Naciśnij klawisz `C` .
 
 **Anuluj rysowanie**
- - `Escape` Naciśnij klawisz.
+ - Naciśnij klawisz `Escape` .
 
 ### <a name="how-to-draw-a-polygon"></a>Jak narysować Wielokąt
 
@@ -84,7 +83,7 @@ Gdy Menedżer rysowania jest w `draw-polygon` trybie, można wykonać następuj�
    * Jeśli wskaźnik myszy znajduje się nad mapą, naciśnij klawisz `F` , a punkt zostanie dodany na współrzędnych wskaźnika myszy. Ta metoda zapewnia większą dokładność dodawania punktu do mapy. Na myszy będzie mniej ruchu z powodu naciskania lewego przycisku myszy.
    * Kontynuuj klikaj do momentu, aż wszystkie żądane punkty zostaną dodane do wielokąta.
  - Tryb FreeHand
-   * Naciśnij przycisk myszy w dół, a następnie przeciągnięcie na mapę i przeciągnij myszą lub wskaż punkt dotykowy. Współrzędne są dodawane do wielokąta, ponieważ mysz lub punkt dotykowy porusza się wokół mapy. Gdy tylko zostanie wyzwolone zdarzenie myszy lub dotknięcia, rysunek zostanie ukończony. Częstotliwość dodawania współrzędnych jest definiowana przez opcję menedżerów `freehandInterval` rysowania.
+   * Naciśnij przycisk myszy w dół, a następnie przeciągnięcie na mapę i przeciągnij myszą lub wskaż punkt dotykowy. Współrzędne są dodawane do wielokąta, ponieważ mysz lub punkt dotykowy porusza się wokół mapy. Gdy tylko zostanie wyzwolone zdarzenie myszy lub dotknięcia, rysunek zostanie ukończony. Częstotliwość dodawania współrzędnych jest definiowana przez opcję menedżerów rysowania `freehandInterval` .
  - Tryb hybrydowy
    * Alternatywa między metodami klikania i odfreehand, jak to konieczne, podczas rysowania pojedynczego wielokąta. Na przykład kliknij kilka punktów, następnie przytrzymaj i przeciągnij myszą, aby dodać wiele punktów, a następnie kliknij kilka więcej. 
 
@@ -96,10 +95,10 @@ Gdy Menedżer rysowania jest w `draw-polygon` trybie, można wykonać następuj�
    * Programowo Ustaw tryb rysowania. 
  - Tryb FreeHand
    * Zwolnij przycisk myszy lub punkt dotykowy.
- - `C` Naciśnij klawisz.
+ - Naciśnij klawisz `C` .
 
 **Anuluj rysowanie**
- - `Escape` Naciśnij klawisz.
+ - Naciśnij klawisz `Escape` .
 
 ### <a name="how-to-draw-a-rectangle"></a>Jak narysować prostokąt
 
@@ -111,10 +110,10 @@ Gdy Menedżer rysowania jest w `draw-rectangle` trybie, można wykonać następu
 **Zakończ rysowanie**
  - Zwolnij przycisk myszy lub punkt dotykowy.
  - Programowo Ustaw tryb rysowania. 
- - `C` Naciśnij klawisz.
+ - Naciśnij klawisz `C` .
 
 **Anuluj rysowanie**
- - `Escape` Naciśnij klawisz.
+ - Naciśnij klawisz `Escape` .
 
 ### <a name="how-to-draw-a-circle"></a>Jak narysować okrąg
 
@@ -126,16 +125,16 @@ Gdy Menedżer rysowania jest w `draw-circle` trybie, można wykonać następują
 **Zakończ rysowanie**
  - Zwolnij przycisk myszy lub punkt dotykowy.
  - Programowo Ustaw tryb rysowania. 
- - `C` Naciśnij klawisz.
+ - Naciśnij klawisz `C` .
 
 **Anuluj rysowanie**
- - `Escape` Naciśnij klawisz.
+ - Naciśnij klawisz `Escape` .
 
 ## <a name="keyboard-shortcuts"></a>Skróty klawiaturowe
 
 Narzędzia do rysowania obsługują skróty klawiaturowe. Te skróty klawiaturowe są funkcjonalne, gdy mapa jest fokus.
 
-| Key      | Akcja                            |
+| Klucz      | Akcja                            |
 |----------|-----------------------------------|
 | `C` | Kończy wszystkie rysunki, które są w toku i ustawia tryb rysowania jako bezczynny. Fokus zostanie przeniesiony do elementu mapy najwyższego poziomu.  |
 | `Escape` | Anuluje wszystkie rysunki, które są w toku i ustawia tryb rysowania na bezczynny. Fokus zostanie przeniesiony do elementu mapy najwyższego poziomu.  |

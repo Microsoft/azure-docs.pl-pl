@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425123"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Wprowadzenie do automatycznego skalowania według metryki niestandardowej na platformie Azure
@@ -23,7 +22,7 @@ W tym artykule przyjęto założenie, że masz aplikację sieci Web z skonfiguro
 - Otwórz [Azure Portal][2]
 - Kliknij ikonę Azure Monitor w okienku nawigacji po lewej stronie.
   ![Azure Monitor uruchamiania][3]
-- Kliknij ustawienie skalowania automatycznego, aby wyświetlić wszystkie zasoby, dla których ma zastosowanie Autoskalowanie, wraz z bieżącym stanem ![automatycznego skalowania odnajdywanie automatyczne skalowanie w usłudze Azure monitor][4]
+- Kliknij ustawienie skalowania automatycznego, aby wyświetlić wszystkie zasoby, dla których ma zastosowanie Autoskalowanie, wraz z bieżącym stanem automatycznego skalowania ![ odnajdywanie automatyczne skalowanie w usłudze Azure monitor][4]
 - Otwórz blok "Skalowanie automatyczne" w Azure Monitor i wybierz zasób, który chcesz skalować
   > Uwaga: poniższe kroki używają planu usługi App Service skojarzonego z aplikacją sieci Web, dla której skonfigurowano usługę App Insights.
 - W bloku ustawienia skalowania zasobu Zwróć uwagę, że bieżąca liczba wystąpień to 1. Kliknij pozycję "Włącz Skalowanie automatyczne".

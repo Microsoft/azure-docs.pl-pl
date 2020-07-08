@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77539114"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenariusz: usługa Apache Ambari nieodświeżone alerty w usłudze Azure HDInsight
@@ -74,7 +73,7 @@ Aby odrzucić nieodświeżony alert, Wyłącz, a następnie włącz go ponownie:
 
 Istnieje okres prolongaty, po upływie którego Agent Ambari raportuje, że skonfigurowany alert został pominięty. Jeśli alert minął zaplanowaną godzinę, ale upłynął w okresie prolongaty, nieaktualny alert nie jest generowany.
 
-Wartość domyślna `alert_grace_period` to 5 sekund. To ustawienie można skonfigurować w/etc/Ambari-Agent/conf/Ambari-Agent.ini. W przypadku hostów, na których występują nieodświeżone alerty w regularnych odstępach czasu, spróbuj zwiększyć wartość do 10. Następnie ponownie uruchom agenta Ambari.
+Wartość domyślna `alert_grace_period` to 5 sekund. To ustawienie można skonfigurować w ambari-agent.ini/etc/Ambari-Agent/conf/. W przypadku hostów, na których występują nieodświeżone alerty w regularnych odstępach czasu, spróbuj zwiększyć wartość do 10. Następnie ponownie uruchom agenta Ambari.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -82,7 +81,7 @@ Jeśli Twój problem nie został określony w tym miejscu lub nie możesz go roz
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure w ramach [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z usługą w serwisie Twitter. Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się z usługą [@AzureSupport](https://twitter.com/azuresupport) w serwisie Twitter. Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, Prześlij żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Aby to zrobić, wybierz pozycję Pomoc (**?**) w menu portalu lub Otwórz okienko **Pomoc i obsługa techniczna** . Aby uzyskać więcej informacji, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
 

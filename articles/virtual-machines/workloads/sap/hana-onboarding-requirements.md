@@ -14,10 +14,9 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617001"
 ---
 # <a name="onboarding-requirements"></a>Wymagania dotyczące dołączania
@@ -50,7 +49,7 @@ Ta lista składa wymagania dotyczące uruchamiania SAP HANA na platformie Azure 
 - Red Hat Subscription Manager wdrożony na platformie Azure na maszynie wirtualnej. Program Red Hat Subscription Manager oferuje możliwość SAP HANA na platformie Azure (duże wystąpienia), które mają zostać zarejestrowane i odpowiednio zaktualizowane przez firmę Red Hat. (Nie ma bezpośredniego dostępu do Internetu z dzierżawy wdrożonej w sygnaturze dużej instancji platformy Azure).
 - SAP wymaga również posiadania kontraktu pomocy technicznej dotyczącej dostawcy systemu Linux. To wymaganie nie jest usuwane przez rozwiązanie dużego wystąpienia HANA lub fakt, że jest uruchamiany system Linux na platformie Azure. W przeciwieństwie do niektórych obrazów z galerii systemu Linux Azure opłata za usługę *nie* jest uwzględniana w ofercie rozwiązania dla dużych wystąpień Hana. Ponosisz odpowiedzialność za spełnienie wymagań SAP dotyczących umów pomocy technicznej z dystrybutorem systemu Linux. 
    - W przypadku systemu SUSE Linux zapoznaj się z wymaganiami umów pomocy technicznej w temacie [SAP uwaga #1984787-SUSE Linux Enterprise Server 12: uwagi dotyczące instalacji](https://launchpad.support.sap.com/#/notes/1984787) i [SAP Uwaga #1056161-SUSE Priority support for SAP Applications](https://launchpad.support.sap.com/#/notes/1056161).
-   - W systemie Red Hat Linux należy dysponować prawidłowymi poziomami subskrypcji obejmującymi aktualizacje pomocy technicznej i usługi do systemów operacyjnych z dużym wystąpieniem usługi HANA. Red Hat zaleca Red Hat Enterprise Linux subskrypcję rozwiązania SAP. Odwołaj https://access.redhat.com/solutions/3082481się do. 
+   - W systemie Red Hat Linux należy dysponować prawidłowymi poziomami subskrypcji obejmującymi aktualizacje pomocy technicznej i usługi do systemów operacyjnych z dużym wystąpieniem usługi HANA. Red Hat zaleca Red Hat Enterprise Linux subskrypcję rozwiązania SAP. Odwołaj się do https://access.redhat.com/solutions/3082481 . 
 
 Aby uzyskać macierz pomocy technicznej dla różnych wersji SAP HANA z różnymi wersjami systemu Linux, zobacz [uwagi dotyczące oprogramowania SAP #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
@@ -61,7 +60,7 @@ Aby uzyskać informacje na temat macierzy zgodności systemów operacyjnych i op
 > W tym momencie jest obsługiwana tylko wersja systemu operacyjnego SLES 12 SP2. 
 
 
-**Database**
+**Baza danych**
 
 - Licencje i składniki instalacji oprogramowania dla SAP HANA (platforma lub Enterprise Edition).
 

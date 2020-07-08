@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
 ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77604677"
 ---
 # <a name="adaptive-application-controls"></a>Funkcje adaptacyjnego sterowania aplikacjami
@@ -67,7 +66,7 @@ Sekcja **Grupy maszyn wirtualnych** zawiera trzy karty:
 
    ![Zalecane](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-   Lista zawiera:
+   Lista zawiera następujące pozycje:
 
    - **Nazwa grupy**: Nazwa subskrypcji i grupy
    - **Maszyny wirtualne i komputery**: liczba maszyn wirtualnych w grupie
@@ -105,7 +104,7 @@ Sekcja **Grupy maszyn wirtualnych** zawiera trzy karty:
 
    ![Grupy](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-   Lista zawiera:
+   Lista zawiera następujące pozycje:
 
    - **Nazwa grupy**: Nazwa subskrypcji i grupy
    - **Maszyny wirtualne i komputery**: liczba maszyn wirtualnych w grupie
@@ -114,7 +113,7 @@ Sekcja **Grupy maszyn wirtualnych** zawiera trzy karty:
 
 2. Kliknij grupę, aby wprowadzić zmiany na stronie **Edytowanie zasad kontroli aplikacji** .
 
-   ![Protection](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Ochrona](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. W obszarze **Tryb ochrony** do wyboru są następujące opcje:
 
@@ -164,11 +163,11 @@ Azure Security Center umożliwia zdefiniowanie zasad listy dozwolonych aplikacji
 1. Kliknij pozycję **skonfigurowane maszyny wirtualne i komputery**.
 1. Kliknij trzy kropki w wierszu maszyny wirtualnej, aby przenieść, a następnie kliknij przycisk **Przenieś**. Zostanie otwarte okno **Przenieś komputer do innej grupy** .
 
-    ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+    ![Ochrona](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
  1. Wybierz grupę, do której chcesz przenieść maszynę wirtualną, a następnie kliknij pozycję **Przenieś komputer**, a następnie kliknij przycisk **Zapisz**.
 
-    ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+    ![Ochrona](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
  > [!NOTE]
 > Pamiętaj, aby kliknąć przycisk **Zapisz** po kliknięciu pozycji **Przenieś komputer**. Jeśli nie klikniesz przycisku **Zapisz**, komputer nie zostanie przeniesiony.

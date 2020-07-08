@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77605223"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Przewodnik dla deweloperów modelu IoT Plug and Play w wersji zapoznawczej
@@ -63,7 +62,7 @@ Każdy wpis na liście interfejsów w sekcji Implements ma:
 
 Istnieją dodatkowe pola opcjonalne, za pomocą których można dodać więcej szczegółów do modelu możliwości, takich jak wyświetlana nazwa i opis. Interfejsy, które są zadeklarowane w ramach modelu możliwości, można traktować jako składniki urządzenia. W publicznej wersji zapoznawczej lista interfejsów może zawierać tylko jeden wpis na schemat.
 
-## <a name="interface"></a>Interface
+## <a name="interface"></a>Interfejs
 
 Dzięki DTDL można opisać możliwości urządzenia przy użyciu interfejsów. Interfejsy opisują _Właściwości_, dane _telemetryczne_i _polecenia_ , które są implementowane przez część urządzenia:
 
@@ -97,7 +96,7 @@ Interfejs ma niektóre wymagane pola:
 
 W tym prostym przykładzie istnieje tylko jedno pole telemetrii. Minimalny opis pola ma:
 
-- `@type`: określa typ możliwości: `Telemetry`, `Property`, lub. `Command`
+- `@type`: określa typ możliwości: `Telemetry` , `Property` , lub `Command` .
 - `name`: zawiera nazwę wartości telemetrii.
 - `schema`: określa typ danych telemetrii. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
 
@@ -127,11 +126,11 @@ Polecenia są synchroniczne lub asynchroniczne. Polecenie synchroniczne musi by�
 
 Korzystaj z poleceń asynchronicznych dla długotrwałych operacji. Urządzenie wysyła informacje o postępie przy użyciu komunikatów telemetrycznych. Te komunikaty postępu mają następujące właściwości nagłówka:
 
-- `iothub-command-name`: nazwa polecenia, na przykład `UpdateFirmware`.
+- `iothub-command-name`: nazwa polecenia, na przykład `UpdateFirmware` .
 - `iothub-command-request-id`: Identyfikator żądania wygenerowany po stronie serwera i wysyłany do urządzenia w wywołaniu początkowym.
-- `iothub-interface-id`: Identyfikator interfejsu, na którym jest zdefiniowane to polecenie, na przykład `urn:example:AssetTracker:1`.
- `iothub-interface-name`: nazwa wystąpienia tego interfejsu, na przykład `myAssetTracker`.
-- `iothub-command-statuscode`: kod stanu zwrócony z urządzenia, na przykład `202`.
+- `iothub-interface-id`: Identyfikator interfejsu, na którym jest zdefiniowane to polecenie, na przykład `urn:example:AssetTracker:1` .
+ `iothub-interface-name`: nazwa wystąpienia tego interfejsu, na przykład `myAssetTracker` .
+- `iothub-command-statuscode`: kod stanu zwrócony z urządzenia, na przykład `202` .
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
@@ -182,29 +181,29 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 Plug and Play IoT umożliwia korzystanie z urządzeń zarejestrowanych w usłudze IoT Hub. Można na przykład uzyskać dostęp do właściwości i poleceń urządzenia bezpośrednio.
 
-Aby użyć urządzenia Plug and Play IoT, które jest połączone z Centrum IoT, użyj interfejsu API REST IoT Hub lub jednego z zestawów SDK języka IoT. W poniższych przykładach użyto interfejsu API REST IoT Hub. Bieżąca wersja interfejsu API to `2019-07-01-preview`. Dołącz `?api-version=2019-07-01-preview` do wywołań pi Rest.
+Aby użyć urządzenia Plug and Play IoT, które jest połączone z Centrum IoT, użyj interfejsu API REST IoT Hub lub jednego z zestawów SDK języka IoT. W poniższych przykładach użyto interfejsu API REST IoT Hub. Bieżąca wersja interfejsu API to `2019-07-01-preview` . Dołącz `?api-version=2019-07-01-preview` do wywołań pi Rest.
 
-Aby uzyskać wartość właściwości urządzenia, taką jak wersja oprogramowania układowego (`fwVersion`) w `DeviceInformation` interfejsie termostatu, należy użyć interfejsu API REST Digital bliźniaczych reprezentacji.
+Aby uzyskać wartość właściwości urządzenia, taką jak wersja oprogramowania układowego ( `fwVersion` ) w `DeviceInformation` interfejsie termostatu, należy użyć interfejsu API REST Digital bliźniaczych reprezentacji.
 
-Jeśli urządzenie z termostatem zostanie `t-123`wywołane, uzyskasz wszystkie właściwości wszystkich interfejsów zaimplementowanych przez urządzenie przy użyciu interfejsu API REST Get:
+Jeśli urządzenie z termostatem zostanie wywołane `t-123` , uzyskasz wszystkie właściwości wszystkich interfejsów zaimplementowanych przez urządzenie przy użyciu interfejsu API REST Get:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-Ogólnie rzecz biorąc, wszystkie właściwości wszystkich interfejsów są dostępne przy użyciu tego szablonu interfejsu API `{device-id}` REST, gdzie jest identyfikatorem urządzenia:
+Ogólnie rzecz biorąc, wszystkie właściwości wszystkich interfejsów są dostępne przy użyciu tego szablonu interfejsu API REST, gdzie `{device-id}` jest identyfikatorem urządzenia:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Jeśli znasz nazwę interfejsu, na przykład `deviceInformation`, i chcesz uzyskać właściwości dla tego konkretnego interfejsu, przenosząc żądanie do określonego interfejsu według nazwy:
+Jeśli znasz nazwę interfejsu, na przykład `deviceInformation` , i chcesz uzyskać właściwości dla tego konkretnego interfejsu, przenosząc żądanie do określonego interfejsu według nazwy:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
-Bardziej ogólnie rzecz biorąc, można uzyskać dostęp do właściwości dla określonego interfejsu za pomocą tego szablonu `device-id` interfejsu API REST, gdzie jest identyfikatorem urządzenia i `{interface-name}` jest nazwą interfejsu:
+Bardziej ogólnie rzecz biorąc, można uzyskać dostęp do właściwości dla określonego interfejsu za pomocą tego szablonu interfejsu API REST, gdzie `device-id` jest identyfikatorem urządzenia i `{interface-name}` jest nazwą interfejsu:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}

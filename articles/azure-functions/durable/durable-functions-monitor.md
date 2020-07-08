@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562126"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenariusz monitorowania w przykładowym monitorze Durable Functions-Pogoda
@@ -28,7 +27,7 @@ Ten przykład służy do monitorowania bieżących warunków pogodowych lokaliza
 * Monitory są skalowalne. Ponieważ każdy monitor jest wystąpieniem aranżacji, można utworzyć wiele monitorów bez konieczności tworzenia nowych funkcji lub definiowania dalszych kodów.
 * Monitory można łatwo zintegrować z większymi przepływami pracy. Monitor może być jedną sekcją bardziej złożonej funkcji aranżacji lub [aranżacją podrzędną](durable-functions-sub-orchestrations.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="configuring-twilio-integration"></a>Konfigurowanie integracji Twilio
 
@@ -38,7 +37,7 @@ Ten przykład służy do monitorowania bieżących warunków pogodowych lokaliza
 
 Ten przykład obejmuje użycie podziemnego interfejsu API Pogoda do sprawdzenia bieżących warunków pogodowych dla lokalizacji.
 
-Pierwszym z nich jest konto podziemne. Możesz go utworzyć bezpłatnie o [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Po utworzeniu konta należy uzyskać klucz interfejsu API. Możesz to zrobić, odwiedzając [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), a następnie wybierając pozycję Ustawienia klucza. Plan dewelopera Stratus jest bezpłatny i wystarczający do uruchomienia tego przykładu.
+Pierwszym z nich jest konto podziemne. Możesz go utworzyć bezpłatnie o [https://www.wunderground.com/signup](https://www.wunderground.com/signup) . Po utworzeniu konta należy uzyskać klucz interfejsu API. Możesz to zrobić [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1) , odwiedzając, a następnie wybierając pozycję Ustawienia klucza. Plan dewelopera Stratus jest bezpłatny i wystarczający do uruchomienia tego przykładu.
 
 Gdy masz klucz interfejsu API, Dodaj następujące **ustawienie aplikacji** do aplikacji funkcji.
 
@@ -50,21 +49,21 @@ Gdy masz klucz interfejsu API, Dodaj następujące **ustawienie aplikacji** do a
 
 W tym artykule wyjaśniono następujące funkcje w przykładowej aplikacji:
 
-* `E3_Monitor`: [Funkcja programu Orchestrator](durable-functions-bindings.md#orchestration-trigger) , która `E3_GetIsClear` okresowo wywołuje. Jest wywoływana `E3_SendGoodWeatherAlert` , `E3_GetIsClear` jeśli zwraca wartość true.
+* `E3_Monitor`: [Funkcja programu Orchestrator](durable-functions-bindings.md#orchestration-trigger) , która `E3_GetIsClear` okresowo wywołuje. Jest wywoływana, `E3_SendGoodWeatherAlert` Jeśli `E3_GetIsClear` zwraca wartość true.
 * `E3_GetIsClear`: [Funkcja działania](durable-functions-bindings.md#activity-trigger) , która sprawdza bieżące warunki pogodowe dla lokalizacji.
 * `E3_SendGoodWeatherAlert`: Funkcja działania, która wysyła wiadomość SMS za pośrednictwem Twilio.
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor funkcja programu Orchestrator
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-Usługa Orchestrator wymaga lokalizacji do monitorowania i numeru telefonu, aby wysłać komunikat do momentu, gdy zostanie on wyczyszczony w lokalizacji. Te dane są przesyłane do programu Orchestrator jako `MonitorRequest` obiekt silnie określony.
+Usługa Orchestrator wymaga lokalizacji do monitorowania i numeru telefonu, aby wysłać komunikat do momentu, gdy zostanie on wyczyszczony w lokalizacji. Te dane są przesyłane do programu Orchestrator jako obiekt silnie określony `MonitorRequest` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funkcja **E3_Monitor** używa standardowego pliku *Function. JSON* dla funkcji programu Orchestrator.
+Funkcja **E3_Monitor** używa standardowego *function.jsna* potrzeby funkcji programu Orchestrator.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
@@ -87,15 +86,15 @@ Jednocześnie można uruchamiać wiele wystąpień programu Orchestrator, wywoł
 
 ### <a name="e3_getisclear-activity-function"></a>Funkcja działania E3_GetIsClear
 
-Podobnie jak w przypadku innych próbek, funkcje działania pomocnika są regularnymi funkcjami `activityTrigger` , które używają powiązania wyzwalacza. Funkcja **E3_GetIsClear** pobiera bieżące warunki pogodowe przy użyciu podziemnego interfejsu API Pogoda i określa, czy ta wartość jest wyczyszczona.
+Podobnie jak w przypadku innych próbek, funkcje działania pomocnika są regularnymi funkcjami, które używają `activityTrigger` powiązania wyzwalacza. Funkcja **E3_GetIsClear** pobiera bieżące warunki pogodowe przy użyciu podziemnego interfejsu API Pogoda i określa, czy ta wartość jest wyczyszczona.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-*Funkcja. JSON* jest definiowana w następujący sposób:
+*function.json* został zdefiniowany w następujący sposób:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
@@ -109,16 +108,16 @@ A oto implementacja.
 
 Funkcja **E3_SendGoodWeatherAlert** używa powiązania Twilio do wysyłania wiadomości SMS z powiadomieniem użytkownika końcowego, że jest to dobry czas na przeprowadzenie.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> Musisz zainstalować pakiet NuGet, `Microsoft.Azure.WebJobs.Extensions.Twilio` aby uruchomić przykładowy kod.
+> Musisz zainstalować `Microsoft.Azure.WebJobs.Extensions.Twilio` pakiet NuGet, aby uruchomić przykładowy kod.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Jego *Funkcja Function. JSON* jest prosta:
+*function.json* jest prosty:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
@@ -169,7 +168,7 @@ Działanie aranżacji można zobaczyć, przeglądając dzienniki funkcji w porta
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Aranżacja zostanie [zakończona](durable-functions-instance-management.md) po osiągnięciu limitu czasu lub wykryciu Skies. Można również `TerminateAsync` użyć (.NET) `terminate` lub (JavaScript) wewnątrz innej funkcji lub wywołać element webhook **terminatePostUri** http, do którego odwołuje się powyżej 202 powyżej, `{text}` zastępując z powód zakończenia:
+Aranżacja zostanie [zakończona](durable-functions-instance-management.md) po osiągnięciu limitu czasu lub wykryciu Skies. Można również użyć `TerminateAsync` (.NET) lub `terminate` (JavaScript) wewnątrz innej funkcji lub wywołać element webhook **terminatePostUri** http, do którego odwołuje się powyżej 202 powyżej, zastępując `{text}` z powód zakończenia:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

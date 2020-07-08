@@ -4,10 +4,9 @@ description: Dowiedz się, jak wdrożyć usługę Azure Container Instances, aby
 ms.topic: article
 ms.date: 02/19/2020
 ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77525292"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Wdrażanie wystąpień kontenerów korzystających z zasobów procesora GPU
@@ -116,7 +115,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Przykład szablonu Menedżer zasobów
 
-Innym sposobem wdrożenia grupy kontenerów z zasobami procesora GPU jest użycie [szablonu Menedżer zasobów](container-instances-multi-container-group.md). Zacznij od utworzenia pliku o nazwie `gpudeploy.json`, a następnie skopiuj do niego Poniższy kod JSON. W tym przykładzie wdrożono wystąpienie kontenera z procesorem GPU V100, który uruchamia zadanie szkolenia [TensorFlow](https://www.tensorflow.org/) z zestawem danych mnist ręcznie. Żądania zasobów są wystarczające do uruchomienia obciążenia.
+Innym sposobem wdrożenia grupy kontenerów z zasobami procesora GPU jest użycie [szablonu Menedżer zasobów](container-instances-multi-container-group.md). Zacznij od utworzenia pliku o nazwie `gpudeploy.json` , a następnie skopiuj do niego Poniższy kod JSON. W tym przykładzie wdrożono wystąpienie kontenera z procesorem GPU V100, który uruchamia zadanie szkolenia [TensorFlow](https://www.tensorflow.org/) z zestawem danych mnist ręcznie. Żądania zasobów są wystarczające do uruchomienia obciążenia.
 
 ```JSON
 {
@@ -207,7 +206,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ponieważ korzystanie z zasobów procesora GPU może być kosztowne, należy się upewnić, że kontenery nie działają nieoczekiwanie przez długi czas. Monitoruj kontenery w Azure Portal lub Sprawdź stan grupy kontenerów za pomocą polecenia [AZ Container show][az-container-show] . Przykład:
 

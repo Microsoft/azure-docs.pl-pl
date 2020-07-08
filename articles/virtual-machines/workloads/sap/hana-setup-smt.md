@@ -14,10 +14,9 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77616995"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurowanie serwera SMT dla systemu SUSE Linux
@@ -34,7 +33,7 @@ Wymagania wstępne dotyczące instalowania serwera z systemem SMT, który spełn
 
 Najpierw Zaloguj się do [centrum klient SUSE](https://scc.suse.com/).
 
-Przejdź do pozycji**poświadczenia organizacji** **organizacji** > . W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
+Przejdź do **Organization**pozycji  >  **poświadczenia organizacji**organizacji. W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
 
 Następnie zainstaluj maszynę wirtualną w systemie SUSE Linux w sieci wirtualnej platformy Azure. Aby wdrożyć maszynę wirtualną, zapoznaj się z obrazem galerii SLES 12 z dodatkiem SP2 (wybierz pozycję obraz BYOS SUSE). W procesie wdrażania nie należy definiować nazwy DNS i nie należy używać statycznych adresów IP.
 
@@ -83,7 +82,7 @@ Możesz również użyć narzędzia YAST, aby zainstalować pakiety SMT. W YAST,
 ![Zrzut ekranu elementu SMT w YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Zaakceptuj wybór na potrzeby instalacji na smtserver. Po zakończeniu instalacji przejdź do konfiguracji serwera SMT. Wprowadź poświadczenia organizacji z centrum klient SUSE, które zostało pobrane wcześniej. Wprowadź również nazwę hosta maszyny wirtualnej platformy Azure jako adres URL serwera w formacie SMT. W tej prezentacji jest to https:\//smtserver.
+Zaakceptuj wybór na potrzeby instalacji na smtserver. Po zakończeniu instalacji przejdź do konfiguracji serwera SMT. Wprowadź poświadczenia organizacji z centrum klient SUSE, które zostało pobrane wcześniej. Wprowadź również nazwę hosta maszyny wirtualnej platformy Azure jako adres URL serwera w formacie SMT. W tej prezentacji jest to https: \/ /smtserver.
 
 ![Zrzut ekranu przedstawiający konfigurację serwera w liczbie SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

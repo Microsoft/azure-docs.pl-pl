@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617122"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Weryfikowanie i rozwiązywanie problemów SAP HANA skalowalnej w poziomie konfiguracji wysokiej dostępności w SLES 12 SP3 
@@ -91,7 +90,7 @@ Poniższe zalecenia dotyczące sieci SAP HANA, trzy podsieci zostały utworzone 
 - 10.0.1.0/24 na potrzeby replikacji systemu SAP HANA (HSR)
 - 10.0.0.0/24 dla wszystkiego innego
 
-Aby uzyskać informacje dotyczące konfiguracji SAP HANA związanej z korzystaniem z wielu sieci, zobacz [SAP HANA Global. ini](#sap-hana-globalini).
+Aby uzyskać informacje dotyczące konfiguracji SAP HANA związanej z korzystaniem z wielu sieci, zobacz [SAP HANA global.ini](#sap-hana-globalini).
 
 Każda maszyna wirtualna w klastrze ma trzy vNICs, które odpowiadają liczbie podsieci. [Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure z wieloma kartami interfejsu sieciowego][azure-linux-multiple-nics] opis potencjalnego problemu dotyczącego routingu na platformie Azure podczas wdrażania maszyny wirtualnej z systemem Linux. Ten konkretny artykuł routingu ma zastosowanie tylko do użycia wielu vNICs. Problem jest rozwiązany przez SUSE na domyślne w SLES 12 SP3. Aby uzyskać więcej informacji, zobacz [wiele kart sieciowych z chmurą w usłudze EC2 i platformie Azure][suse-cloud-netconfig].
 
@@ -656,7 +655,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Tryb failover lub przejmowanie
 
-Jak opisano w [ważnych uwagach](#important-notes), nie należy używać standardowego bezpiecznego zamykania do testowania pracy w trybie failover klastra ani SAP HANA przejmowania HSR. Zamiast tego zaleca się wyzwolenie awaryjnego jądra, wymuszenie migracji zasobów lub prawdopodobnie zamknięcie wszystkich sieci na poziomie systemu operacyjnego maszyny wirtualnej. Inną metodą jest polecenie **przestanów \<węzła\> programu CRM** . Zapoznaj się z [dokumentem SUSE][sles-12-ha-paper]. 
+Jak opisano w [ważnych uwagach](#important-notes), nie należy używać standardowego bezpiecznego zamykania do testowania pracy w trybie failover klastra ani SAP HANA przejmowania HSR. Zamiast tego zaleca się wyzwolenie awaryjnego jądra, wymuszenie migracji zasobów lub prawdopodobnie zamknięcie wszystkich sieci na poziomie systemu operacyjnego maszyny wirtualnej. Inną metodą jest polecenie **CRM \<node\> Standby** . Zapoznaj się z [dokumentem SUSE][sles-12-ha-paper]. 
 
 Następujące trzy przykładowe polecenia mogą wymusić przełączenie klastra w tryb failover:
 
@@ -682,7 +681,7 @@ Pomaga również sprawdzić stan SAP HANA krajobrazu pochodzący ze skryptu SAP 
 
 Istnieje kilka ponownych prób, aby uniknąć niepotrzebnych przełączeń w tryb failover. Klaster reaguje tylko wtedy, gdy stan zmieni się z **OK**, wartość zwracana **4**, na **błąd**, zwraca wartość **1**. Jest to poprawne, jeśli dane wyjściowe z **SAPHanaSR-showAttr** pokazują maszynę wirtualną z stanem **offline**. Nie ma jeszcze działania, aby przełączać podstawowe i pomocnicze. Żadna aktywność klastra nie zostanie wyzwolona, dopóki SAP HANA nie zwróci błędu.
 
-Można monitorować stan SAP HANA poziom kondycji jako użytkownik ** \<Hana SID\>adm** , wywołując skrypt SAP Python w następujący sposób. Może być konieczne dostosowanie ścieżki:
+Możesz monitorować SAP HANA stan kondycji poziomej jako użytkownik ** \<HANA SID\> adm** , wywołując skrypt SAP Python w następujący sposób. Może być konieczne dostosowanie ścieżki:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -900,10 +899,10 @@ Sep 13 07:38:02 [4184] hso-hana-vm-s2-0       crmd:     info: pcmk_cpg_membershi
 
 
 
-## <a name="sap-hana-globalini"></a>SAP HANA pliku Global. ini
+## <a name="sap-hana-globalini"></a>SAP HANA global.ini
 
 
-Poniższe fragmenty pochodzą z pliku SAP HANA **Global. ini** w lokacji klastra 2. W tym przykładzie przedstawiono wpisy rozpoznawania nazwy hosta dla różnych sieci SAP HANA komunikacji między węzłami i HSR:
+Poniższe fragmenty pochodzą z pliku SAP HANA **global.ini** w lokacji klastra 2. W tym przykładzie przedstawiono wpisy rozpoznawania nazwy hosta dla różnych sieci SAP HANA komunikacji między węzłami i HSR:
 
 <pre><code>
 [communication]
@@ -945,7 +944,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 Rozwiązanie klastrowe udostępnia interfejs przeglądarki, który oferuje graficznego interfejsu użytkownika dla użytkowników, którzy preferują menu i grafikę, aby wszystkie polecenia były dostępne na poziomie powłoki.
-Aby użyć interfejsu przeglądarki, Zastąp ** \<węzeł\> węzłem** o rzeczywistej SAP HANA w następującym adresie URL. Następnie wprowadź poświadczenia klastra ( **klaster**użytkownika):
+Aby użyć interfejsu przeglądarki, Zastąp **\<node\>** wartość rzeczywistym węzłem SAP HANA w poniższym adresie URL. Następnie wprowadź poświadczenia klastra ( **klaster**użytkownika):
 
 <pre><code>
 https://&ltnode&gt:7630

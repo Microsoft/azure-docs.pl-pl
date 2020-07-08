@@ -14,10 +14,9 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77611894"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konta i profile dzierżaw (Android)
@@ -32,7 +31,7 @@ Konto na platformie tożsamości firmy Microsoft składa się z:
 - Co najmniej jedno poświadczenie używane do zademonstrowania własności/kontroli konta.
 - Co najmniej jeden profil składający się z atrybutów, takich jak:
   - Zdjęcie, imię i nazwisko, tytuł, Lokalizacja biura
-- Konto ma źródło urzędu lub systemu rekordów. Jest to system, w którym konto zostanie utworzone, i miejsce, w którym są przechowywane poświadczenia skojarzone z tym kontem. W systemach z wieloma dzierżawcami, takimi jak platforma tożsamości firmy Microsoft, system rekordów `tenant` to miejsce, w którym konto zostało utworzone. Ta dzierżawa jest również nazywana `home tenant`.
+- Konto ma źródło urzędu lub systemu rekordów. Jest to system, w którym konto zostanie utworzone, i miejsce, w którym są przechowywane poświadczenia skojarzone z tym kontem. W systemach z wieloma dzierżawcami, takimi jak platforma tożsamości firmy Microsoft, system rekordów to miejsce, w `tenant` którym konto zostało utworzone. Ta dzierżawa jest również nazywana `home tenant` .
 - Konta na platformie tożsamości firmy Microsoft mają następujące systemy rekordów:
   - Azure Active Directory, w tym Azure Active Directory B2C.
   - Konto Microsoft (na żywo).
@@ -43,7 +42,7 @@ Konto na platformie tożsamości firmy Microsoft składa się z:
 - Platforma tożsamości firmy Microsoft umożliwia korzystanie z jednego konta do uzyskiwania dostępu do zasobów należących do wielu organizacji (Azure Active Directory dzierżawców).
   - Aby zarejestrować konto z jednego systemu rekordu (dzierżawa usługi AAD A) miało dostęp do zasobu w innym systemie rekordów (dzierżawa usługi AAD B), konto musi być reprezentowane w dzierżawie, w której jest zdefiniowany zasób. Jest to realizowane przez utworzenie lokalnego rekordu konta z systemu A w systemie B.
   - Ten rekord lokalny, który jest reprezentacją konta, jest powiązany z oryginalnym kontem.
-  - MSAL uwidacznia ten rekord lokalny jako `Tenant Profile`.
+  - MSAL uwidacznia ten rekord lokalny jako `Tenant Profile` .
   - Profil dzierżawy może mieć różne atrybuty, które są odpowiednie dla kontekstu lokalnego, takie jak stanowisko, Lokalizacja biura, informacje kontaktowe itp.
 - Ponieważ konto może być obecne w co najmniej jednej dzierżawie, konto może mieć więcej niż jeden profil.
 
@@ -82,7 +81,7 @@ Pamięć podręczna tokenów MSAL przechowuje *pojedynczy token odświeżania* d
 
 Identyfikator konta MSAL nie jest IDENTYFIKATORem obiektu konta. Nie ma potrzeby przeanalizować i/lub opierać się na przekazaniem informacji innych niż unikatowość w ramach platformy tożsamości firmy Microsoft.
 
-Aby zapewnić zgodność z biblioteką uwierzytelniania usługi Azure AD (ADAL), a także ułatwić migrację z biblioteki ADAL do MSAL, usługa MSAL może wyszukiwać konta przy użyciu dowolnego prawidłowego identyfikatora konta dostępnego w pamięci podręcznej MSAL.  Na przykład następujące elementy będą zawsze pobierać ten sam obiekt konta dla tom@live.com , ponieważ każdy z identyfikatorów jest prawidłowy:
+Aby zapewnić zgodność z biblioteką uwierzytelniania usługi Azure AD (ADAL), a także ułatwić migrację z biblioteki ADAL do MSAL, usługa MSAL może wyszukiwać konta przy użyciu dowolnego prawidłowego identyfikatora konta dostępnego w pamięci podręcznej MSAL.  Na przykład następujące elementy będą zawsze pobierać ten sam obiekt konta dla, tom@live.com ponieważ każdy z identyfikatorów jest prawidłowy:
 
 ```java
 // The following would always retrieve the same account object for tom@live.com because each identifier is valid
@@ -125,7 +124,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Dostęp do oświadczeń profilu dzierżawy
 
-Aby uzyskać dostęp do oświadczeń dotyczących konta, które są wyświetlane w innych dzierżawcach, należy najpierw rzutować obiekt konta na `IMultiTenantAccount`. Wszystkie konta mogą być wielodostępne, ale liczba profilów dzierżawy dostępnych za pośrednictwem usługi MSAL jest oparta na tym, z których dzierżawców żądali tokenów przy użyciu bieżącego konta.  Przykład:
+Aby uzyskać dostęp do oświadczeń dotyczących konta, które są wyświetlane w innych dzierżawcach, należy najpierw rzutować obiekt konta na `IMultiTenantAccount` . Wszystkie konta mogą być wielodostępne, ale liczba profilów dzierżawy dostępnych za pośrednictwem usługi MSAL jest oparta na tym, z których dzierżawców żądali tokenów przy użyciu bieżącego konta.  Przykład:
 
 ```java
 // Psuedo Code
@@ -140,7 +139,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Tokeny odświeżania dla konta nie są współużytkowane przez zasady B2Cymi. W związku z tym nie jest możliwe logowanie jednokrotne przy użyciu tokenów. Nie oznacza to, że logowanie jednokrotne nie jest możliwe. Oznacza to, że logowanie jednokrotne musi korzystać z interaktywnego środowiska, w którym jest dostępny plik cookie umożliwiający logowanie jednokrotne.
 
-Oznacza to również, że w przypadku MSAL, Jeśli uzyskujesz tokeny przy użyciu różnych zasad B2C, są one traktowane jako osobne konta — z ich własnymi identyfikatorami. Jeśli chcesz użyć konta do żądania tokenu przy użyciu `acquireTokenSilent`, musisz wybrać konto z listy kont, które są zgodne z zasadami używanymi z żądaniem tokenu. Przykład:
+Oznacza to również, że w przypadku MSAL, Jeśli uzyskujesz tokeny przy użyciu różnych zasad B2C, są one traktowane jako osobne konta — z ich własnymi identyfikatorami. Jeśli chcesz użyć konta do żądania tokenu przy użyciu `acquireTokenSilent` , musisz wybrać konto z listy kont, które są zgodne z zasadami używanymi z żądaniem tokenu. Przykład:
 
 ```java
 // Get Account For Policy

@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77587927"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
@@ -38,7 +37,7 @@ To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby s
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **usługi Azure wskaźnik** > **konfiguracji** > **analizy**
+2. Przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analizy**
 
 3. Wybierz pozycję **aktywne reguły** i Znajdź **Zaawansowane wykrywanie ataków potokach wieloetapowych** w kolumnie **Nazwa** . Sprawdź kolumnę **stan** , aby sprawdzić, czy to wykrywanie jest włączone czy wyłączone.
 
@@ -49,7 +48,7 @@ To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby s
 Szablony reguł nie mają zastosowania w przypadku zaawansowanego wykrywania ataków potokach wieloetapowych.
 
 > [!NOTE]
-> Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik** \> **konfiguracji** \> ** \> analizy \> ** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
+> Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik**   \>  **konfiguracji**   \>  **analizy \> \> ** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
 
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Łączenie przy użyciu sieci Palo Alto i usługi Microsoft Defender ATP
 
@@ -89,7 +88,7 @@ Przy użyciu zaawansowanego wykrywania ataków potokach wieloetapowych usługa A
 
 Konieczne jest posiadanie [łącznika danych Azure AD Identity Protection](connect-azure-ad-identity-protection.md) i skonfigurowanych łączników [Cloud App Security](connect-cloud-app-security.md) .
 
-W opisach, które obserwują, wskaźnik na platformie Azure będzie wyświetlał rzeczywistą wartość z danych przedstawionych na tej stronie jako zmienne w nawiasach. Na przykład rzeczywista nazwa wyświetlana konta, a nie \< *nazwa konta*> i rzeczywista liczba, a nie \< *Liczba*>.
+W opisach, które obserwują, wskaźnik na platformie Azure będzie wyświetlał rzeczywistą wartość z danych przedstawionych na tej stronie jako zmienne w nawiasach. Na przykład rzeczywista nazwa wyświetlana konta zamiast \<*account name*> i rzeczywista liczba zamiast \<*number*> .
 
 ### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Niemożliwa podróż do nietypowej lokalizacji, po której następuje nietypowe działanie związane z pakietem Office 365
 
@@ -97,45 +96,45 @@ Istnieje siedem możliwych zdarzeń na platformie Azure, które łączą niemoż
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do eksfiltracji skrzynek pocztowych pakietu Office 365**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji, po której nastąpi podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
+    Ten alert jest wskaźnikiem zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji, a po niej została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>.
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> .
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji.
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji.
     
-    Następnie \< *nazwa konta* konta> przeprowadzona przez \< *liczbę*> działania administracyjne w ramach jednej sesji.
+    Następnie konto \<*account name*> wykonywane przez \<*number*> działania administracyjne w ramach jednej sesji.
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do usunięcia pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> do \< *lokalizacji*>, nietypowej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program do, czyli nietypowej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do pobrania pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do personifikacji pakietu Office 365**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> wykonywania nietypowej\<*ilości działań personifikacji (>* ) w ramach jednej sesji.
+    Następnie konto \<*account name*> wykonał nietypową ilość ( \<*number of activities*> ) działań personifikacji w ramach jednej sesji.
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do masowego udostępniania plików**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Niemożliwa podróż do nietypowych lokalizacji prowadzących do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> od niemożliwego przejazdu do \< *lokalizacji*>, nietypowej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
     
     Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
@@ -146,45 +145,45 @@ Istnieje siedem możliwych zdarzeń związanych z platformą Azure, które łąc
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usługi Exchange Online Skrzynka pocztowa eksfiltracji**
     
-    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji, a po niej została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
+    Ten alert to wskazanie zdarzenia logowania \<*account name*> z programu \<*location*> , nieznanej lokalizacji, po czym została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
+    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usunięcia pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do pobrania pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do personifikacji pakietu Office 365**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji.
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji.
     
-    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
+    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do masowego udostępniania plików**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *lokalizacji*>, nieznanej lokalizacji. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
     
-    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
     
     Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
@@ -194,45 +193,45 @@ Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łącz�
 
 - **Zdarzenie logowania z zainfekowanego urządzenia wiodącego w skrzynce pocztowej usługi Office 365 eksfiltracji**
     
-    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem, po czym została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z urządzenia, które może być zainfekowane złośliwym oprogramowaniem, a następnie ustawiona została podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
 
 - **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem.
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem.
     
-    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
+    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
 
 - **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do usunięcia pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
     
-    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
 
 - **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do pobrania pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
     
-    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do personifikacji pakietu Office 365**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
     
-    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
+    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
 
 - **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do masowego udostępniania plików**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
     
-    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z urządzenia potencjalnie zainfekowanego złośliwym oprogramowaniem. 
+    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
     
-    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
     
     Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
@@ -242,45 +241,45 @@ Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łącz�
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzącego do skrzynki pocztowej pakietu Office 365 eksfiltracji**
     
-    Ten alert to wskazanie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>, po którym ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
+    Ten alert to wskazanie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> , a następnie ustawienie zasady przekazywania podejrzanej skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
     
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
+    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzące do usunięcia pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzące do pobierania pliku masowego**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzącego do personifikacji pakietu Office 365**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
+    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
 
 - **Zdarzenie logowania z anonimowego adresu IP, które prowadzi do masowego udostępniania plików**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z anonimowego adresu IP do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert to oznaczenie zdarzenia logowania według \< *nazwy konta*> z \< *adresu IP* anonimowego adresu IP serwera proxy>. 
+    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
     
-    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
     
     Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 
@@ -290,45 +289,45 @@ Dostępne są siedem zdarzeń wskaźnikowych platformy Azure, które łączą dz
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do eksfiltracji skrzynek pocztowych pakietu Office 365**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń, a następnie ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika. 
+    Ten alert wskazuje na to, że zdarzenie logowania przy użyciu \<*account name*> nieujawnionych poświadczeń, a po nich ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika. 
     
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. \< *Nazwa konta* użytkownika> utworzyć lub zaktualizować regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na \< *adres e-mail* adresu zewnętrznego>. 
+    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
 
 - **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanych działań administracyjnych aplikacji w chmurze**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
     
-    Następnie \< *nazwa konta* konta> wykonana \< *na> działania administracyjne w ramach jednej* sesji.
+    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do usunięcia pliku masowego**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
     
-    Następnie \< *nazwa konta* konta> usunięta \< *Liczba*> unikatowych plików w ramach jednej sesji.
+    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do pobierania pliku masowego**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
     
-    Następnie \< *nazwa konta* konta> pobrana przez \< *liczbę*> unikatowych plików w ramach jednej sesji.
+    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do personifikacji pakietu Office 365**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń. 
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń. 
     
-    Następnie \< *nazwa konta* konta> personifikowana przez \< *liczbę*> różnych kont w ramach jednej sesji.
+    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
 
 - **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do masowego udostępniania plików**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń.
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
     
-    Następnie \< *nazwa konta* konta> współużytkowana przez \< *wiele*> unikatowych plików w ramach jednej sesji.
+    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
 - **Zdarzenie logowania użytkownika z nieujawnionymi poświadczeniami do oprogramowania wymuszającego okup w aplikacji w chmurze**
     
-    Ten alert wskazuje na to, że zdarzenie logowania według \< *nazwy konta*> używało przecieków poświadczeń. 
+    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń. 
     
-    Następnie \< *nazwa konta* konta> przekazana \< *Liczba* plików> i usunięto łączną \< *liczbę* plików>. 
+    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
     
     Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
 

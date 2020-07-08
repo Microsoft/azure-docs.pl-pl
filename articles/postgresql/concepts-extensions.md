@@ -7,26 +7,25 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77201275"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — pojedynczy serwer
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia rozszerzają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych programu rozszerzenia działają jak wbudowane funkcje.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Jak używać rozszerzeń PostgreSQL
-Rozszerzenia PostgreSQL muszą być zainstalowane w bazie danych, zanim będzie można z nich korzystać. Aby zainstalować określone rozszerzenie, uruchom polecenie [Utwórz rozszerzenie](https://www.postgresql.org/docs/current/sql-createextension.html) z narzędzia PSQL w celu załadowania spakowanych obiektów do bazy danych.
+Rozszerzenia PostgreSQL muszą być zainstalowane w bazie danych, zanim będzie można z nich korzystać. Aby zainstalować określone rozszerzenie, uruchom polecenie [Utwórz rozszerzenie](https://www.postgresql.org/docs/current/sql-createextension.html)   z narzędzia PSQL w celu załadowania spakowanych obiektów do bazy danych.
 
-Azure Database for PostgreSQL obsługuje podzestaw rozszerzeń kluczy, jak pokazano poniżej. Te informacje są również dostępne po uruchomieniu `SELECT * FROM pg_available_extensions;`programu. Rozszerzenia poza wymienionymi listami nie są obsługiwane. Nie można utworzyć własnego rozszerzenia w Azure Database for PostgreSQL.
+Azure Database for PostgreSQL obsługuje podzestaw rozszerzeń kluczy, jak pokazano poniżej. Te informacje są również dostępne po uruchomieniu programu `SELECT * FROM pg_available_extensions;` . Rozszerzenia poza wymienionymi listami nie są obsługiwane. Nie można utworzyć własnego rozszerzenia w Azure Database for PostgreSQL.
 
 ## <a name="postgres-11-extensions"></a>Rozszerzenia Postgres 11
 
 Następujące rozszerzenia są dostępne na serwerach Azure Database for PostgreSQL, które mają Postgres w wersji 11. 
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
+> | **Rozszerzenie**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Przykład dotyczący zestawu danych standaryzacji z nami|
@@ -71,7 +70,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 Następujące rozszerzenia są dostępne na serwerach Azure Database for PostgreSQL z Postgres wersja 10.
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
+> | **Rozszerzenie**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Przykład dotyczący zestawu danych standaryzacji z nami|
@@ -117,7 +116,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 Następujące rozszerzenia są dostępne na serwerach Azure Database for PostgreSQL, które mają Postgres w wersji 9,6.
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
+> | **Rozszerzenie**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Przykład dotyczący zestawu danych standaryzacji z nami|
@@ -163,7 +162,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 Następujące rozszerzenia są dostępne na serwerach Azure Database for PostgreSQL, które mają Postgres w wersji 9,5.
 
 > [!div class="mx-tableFixed"]
-> | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
+> | **Rozszerzenie**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Przykład dotyczący zestawu danych standaryzacji z nami|
@@ -205,9 +204,9 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg_stat_statements rozszerzenie](https://www.postgresql.org/docs/current/pgstatstatements.html) jest wstępnie załadowane na każdym serwerze Azure Database for PostgreSQL, aby zapewnić możliwość śledzenia statystyk wykonywania instrukcji SQL.
-Ustawienie `pg_stat_statements.track`, które kontroluje, jakie instrukcje są zliczane przez rozszerzenie, domyślnie to `top`, oznacza, że wszystkie instrukcje wydawane bezpośrednio przez klientów są śledzone. Dwa inne poziomy śledzenia to `none` i. `all` To ustawienie można skonfigurować jako parametr serwera za pomocą [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Ustawienie `pg_stat_statements.track` , które kontroluje, jakie instrukcje są zliczane przez rozszerzenie, domyślnie to `top` , oznacza, że wszystkie instrukcje wydawane bezpośrednio przez klientów są śledzone. Dwa inne poziomy śledzenia to `none` i `all` . To ustawienie można skonfigurować jako parametr serwera za pomocą [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statements zapewnia i wpływ na wydajność serwera podczas rejestrowania każdej instrukcji SQL. Jeśli nie korzystasz aktywnie z rozszerzenia pg_stat_statements, zalecamy ustawienie wartości `pg_stat_statements.track` `none`. Zwróć uwagę na to, że niektóre usługi monitorowania innych firm mogą polegać na pg_stat_statements w celu dostarczenia szczegółowych informacji o wydajności zapytań, więc Potwierdź, czy tak się dzieje.
+Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statements zapewnia i wpływ na wydajność serwera podczas rejestrowania każdej instrukcji SQL. Jeśli nie korzystasz aktywnie z rozszerzenia pg_stat_statements, zalecamy ustawienie wartości `pg_stat_statements.track` `none` . Zwróć uwagę na to, że niektóre usługi monitorowania innych firm mogą polegać na pg_stat_statements w celu dostarczenia szczegółowych informacji o wydajności zapytań, więc Potwierdź, czy tak się dzieje.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink i postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego za pośrednictwem jego zapory. Korzystając z tych rozszerzeń do łączenia się między serwerami Azure Database for PostgreSQL, można to zrobić przez ustawienie opcji "Zezwalaj na dostęp do usług platformy Azure" na wartość włączone. Jest to również wymagane, jeśli chcesz użyć rozszerzeń do zapętlenia z powrotem do tego samego serwera. Ustawienie "Zezwalaj na dostęp do usług platformy Azure" można znaleźć na stronie Azure Portal serwera Postgres, w obszarze zabezpieczenia połączeń. Włączenie opcji "Zezwalaj na dostęp do usług platformy Azure" spowoduje umieszczenie wszystkich adresów IP platformy Azure na liście dozwolonych.
@@ -223,7 +222,7 @@ Jeśli planujesz użyć `uuid_generate_v4()` z [rozszerzenia UUID-OSSP](https://
 ## <a name="pg_prewarm"></a>pg_prewarm
 Rozszerzenie pg_prewarm ładuje dane relacyjne do pamięci podręcznej. Przedgrzane pamięci podręczne oznacza, że zapytania mają większe czasy reakcji podczas pierwszego uruchomienia po ponownym uruchomieniu. W Postgres 10 i poniżej, przedgrzane jest wykonywane ręcznie przy użyciu [funkcji przedgrzanej](https://www.postgresql.org/docs/10/pgprewarm.html).
 
-W Postgres 11 i nowszych można skonfigurować [Automatyczne](https://www.postgresql.org/docs/current/pgprewarm.html)rozgrzewanie. Musisz dołączyć pg_prewarm na liście `shared_preload_libraries` parametrów i ponownie uruchomić serwer, aby zastosować zmianę. Parametry można ustawić na podstawie szablonu [Azure Portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), interfejsu API REST lub usługi ARM. 
+W Postgres 11 i nowszych można skonfigurować [Automatyczne](https://www.postgresql.org/docs/current/pgprewarm.html)rozgrzewanie. Musisz dołączyć pg_prewarm na `shared_preload_libraries` liście parametrów i ponownie uruchomić serwer, aby zastosować zmianę. Parametry można ustawić na podstawie szablonu [Azure Portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), interfejsu API REST lub usługi ARM. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB to baza danych szeregów czasowych spakowana jako rozszerzenie dla PostgreSQL. TimescaleDB zapewnia funkcje analityczne zorientowane czasowo, optymalizacje oraz skaluje Postgres dla obciążeń szeregów czasowych.
@@ -258,7 +257,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 Teraz można utworzyć tabelę TimescaleDB [od podstaw](https://docs.timescale.com/getting-started/creating-hypertables) lub migrować [istniejące dane szeregów czasowych w PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 ### <a name="restoring-a-timescale-database"></a>Przywracanie bazy danych skali czasu
-Aby przywrócić bazę danych skali czasu przy użyciu pg_dump i pg_restore, należy uruchomić dwa procedury pomocnika w docelowej bazie danych `timescaledb_pre_restore()` : `timescaledb_post restore()`i.
+Aby przywrócić bazę danych skali czasu przy użyciu pg_dump i pg_restore, należy uruchomić dwa procedury pomocnika w docelowej bazie danych: `timescaledb_pre_restore()` i `timescaledb_post restore()` .
 
 Najpierw Przygotuj docelową bazę danych:
 
