@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
 ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983374"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
@@ -115,7 +114,7 @@ Dodano obsługę następujących nowych zalecanych koderów partnerów dla przes
 
 - Ramki kluczowe wyodrębnione przy użyciu ustawień wstępnych VideoAnalyzer są teraz w oryginalnej rozdzielczości wideo zamiast zmiany rozmiaru. Funkcja wyodrębniania klatek kluczowych o wysokiej rozdzielczości zapewnia oryginalne obrazy z jakością i pozwala korzystać z sztucznych modeli analizy opartych na obrazach udostępnianych przez usługi Microsoft przetwarzanie obrazów i Custom Vision, aby uzyskać jeszcze więcej szczegółowych informacji na temat wideo.
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -131,7 +130,7 @@ Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji z
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -149,7 +148,7 @@ Ogłaszamy przestarzałe procesory nośników z *systemami Windows Azure Media E
 
 Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) i [Migrowanie azwa do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="content-protection"></a>Ochrona zawartości
 
@@ -191,7 +190,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Usprawnienia wydajności
+### <a name="performance-improvements"></a>Ulepszenia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -205,7 +204,7 @@ Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) został dodany do wbudowanych ustawień wstępnych analizatora.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) został dodany do wbudowanych ustawień wstępnych kodera. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md). 
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
@@ -217,7 +216,7 @@ Media Services wersja 3 jest teraz obsługiwana w chmurach narodowych platformy 
 
 Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) .
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Pliki Media Encoder Standard i MPI 
 
@@ -225,7 +224,7 @@ Gdy kodowanie przy użyciu Media Encoder Standard do tworzenia plików MP4, nowy
 
 Nie należy modyfikować ani usuwać pliku MPI ani korzystać z jakichkolwiek zależności w usłudze w przypadku istnienia takiego pliku.
 
-## <a name="december-2018"></a>Grudzień 2018 r.
+## <a name="december-2018"></a>Grudzień 2018
 
 Aktualizacje z wersji GA interfejsu API v3 obejmują:
        
@@ -234,7 +233,7 @@ Aktualizacje z wersji GA interfejsu API v3 obejmują:
 * Rozszerzalność wyliczenia została włączona jeszcze raz. Ta funkcja została włączona w wersji zapoznawczej zestawu SDK i została przypadkowo wyłączona w wersji GA.
 * Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming**.
 
-## <a name="november-2018"></a>Listopad 2018 r.
+## <a name="november-2018"></a>Listopad 2018
 
 Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Services v3 ga](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
@@ -339,7 +338,7 @@ Można wyświetlić następujące ulepszenia Event Grid wsparcia:
 
 Obsługa szyfrowania CMAF i "cbcs" dla odtwarzaczy Apple HLS (iOS 11 +) i MPEG-PAUZ, które obsługują CMAF.
 
-### <a name="video-indexer"></a>Indeksator wideo
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer wersja GA została ogłoszona w sierpniu. Aby uzyskać nowe informacje o aktualnie obsługiwanych funkcjach, zobacz [co to jest Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
@@ -376,7 +375,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

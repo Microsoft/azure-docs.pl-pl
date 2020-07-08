@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709066"
 ---
 # <a name="generate-maps"></a>Generowanie map

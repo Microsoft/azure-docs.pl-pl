@@ -4,10 +4,9 @@ description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej p
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709882"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
@@ -41,7 +40,7 @@ Zainstaluj na serwerze kopii zapasowej | Po skonfigurowaniu programu DPM lub ser
 
 W celu utworzenia kopii zapasowej danych przy użyciu agenta MARS Agent tworzy migawkę danych i zapisuje ją w folderze lokalnego pamięci podręcznej, zanim wyśle dane do platformy Azure. Folder pamięci podręcznej (Scratch) ma kilka wymagań:
 
-**Pamięć podręczna** | **Szczegóły**
+**Cache** | **Szczegóły**
 --- | ---
 Rozmiar |  Ilość wolnego miejsca w folderze pamięci podręcznej powinna wynosić co najmniej 5 do 10 procent całkowitego rozmiaru danych kopii zapasowej.
 Lokalizacja | Folder pamięci podręcznej musi być przechowywany lokalnie na komputerze, na którym jest wykonywana kopia zapasowa, i musi być w trybie online. Folder pamięci podręcznej nie powinien znajdować się w udziale sieciowym na nośniku wymiennym ani w woluminie w trybie offline.

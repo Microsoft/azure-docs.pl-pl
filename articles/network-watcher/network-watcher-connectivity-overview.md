@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708947"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów dotyczących połączeń w usłudze Azure Network Watcher

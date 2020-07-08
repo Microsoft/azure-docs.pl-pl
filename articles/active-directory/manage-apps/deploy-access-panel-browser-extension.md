@@ -16,10 +16,9 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763435"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Instrukcje: Wdrażanie rozszerzenia panelu dostępu dla programu Internet Explorer przy użyciu zasad grupy
@@ -166,7 +165,7 @@ Wykonaj poniższe kroki, aby sprawdzić, czy wdrożenie rozszerzenia zakończył
 
    ![Sprawdź, czy rozszerzenie panelu dostępu jest zainstalowane i włączone](./media/deploy-access-panel-browser-extension/verify-install.png)
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory](what-is-single-sign-on.md)
 * [Rozwiązywanie problemów z rozszerzeniem panelu dostępu dla programu Internet Explorer](manage-access-panel-browser-extension.md)

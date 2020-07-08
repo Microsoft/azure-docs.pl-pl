@@ -11,10 +11,9 @@ ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: 7d17a956faf4080f419bc859c8259018b98626a5
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764064"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Włącz duży kontrast lub Zmień motyw w Azure Portal

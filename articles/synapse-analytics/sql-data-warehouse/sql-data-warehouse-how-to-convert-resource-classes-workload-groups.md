@@ -12,10 +12,9 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212058"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń

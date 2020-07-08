@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361340"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027396"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -31,7 +30,7 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
@@ -62,7 +61,7 @@ Aby utworzyć udział plików:
 
 3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 ## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
@@ -81,12 +80,12 @@ Następnie należy włączyć uwierzytelnianie Active Directory (AD). Aby włąc
 
 Wszyscy użytkownicy, którzy muszą mieć profile FSLogix przechowywane na koncie magazynu, muszą mieć przypisaną rolę współautora udziału SMB danych pliku magazynu.
 
-Użytkownicy logujący się na hostach sesji usług pulpitu wirtualnego systemu Windows potrzebują uprawnień dostępu, aby uzyskać dostęp do udziału plików. Przyznanie dostępu do udziału plików platformy Azure obejmuje skonfigurowanie uprawnień zarówno na poziomie udziału, jak i na poziomie systemu plików NTFS, podobnie jak w przypadku tradycyjnego udziału systemu Windows.
+Użytkownicy logujący się do hostów sesji usługi Windows Virtual Desktop potrzebują uprawnień dostępu, aby uzyskiwać dostęp do udziału plików. Udzielenie dostępu do udziału plików platformy Azure obejmuje skonfigurowanie uprawnień zarówno na poziomie udziału, jak i na poziomie systemu plików NTFS, podobnie jak w przypadku tradycyjnego udziału systemu Windows.
 
 Aby skonfigurować uprawnienia na poziomie udziału, przypisz każdemu użytkownikowi rolę z odpowiednimi uprawnieniami dostępu. Uprawnienia można przypisać do poszczególnych użytkowników lub grupy usługi Azure AD. Aby dowiedzieć się więcej, zobacz [przypisywanie uprawnień dostępu do tożsamości](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 >[!NOTE]
->Konta lub grupy, do których przypisano uprawnienia, powinny być utworzone w domenie i zsynchronizowane z usługą Azure AD. Konta utworzone w usłudze Azure AD nie będą działały.
+>Konta lub grupy, którym przypisujesz uprawnienia, powinny zostać utworzone w domenie i zsynchronizowane z usługą Azure AD. Konta utworzone w usłudze Azure AD nie działają.
 
 Aby przypisać uprawnienia kontroli dostępu opartej na rolach (RBAC):
 
@@ -94,19 +93,21 @@ Aby przypisać uprawnienia kontroli dostępu opartej na rolach (RBAC):
 
 2. Otwórz konto magazynu utworzone w obszarze [Skonfiguruj konto magazynu](#set-up-a-storage-account).
 
-3. Wybierz pozycję **Access Control (IAM)**.
+3. Wybierz pozycję **udziały plików**, a następnie wybierz nazwę udziału plików, którego planujesz użyć.
 
-4. Wybierz pozycję **Dodaj przypisanie roli**.
+4. Wybierz pozycję **Access Control (IAM)**.
 
-5. Na karcie **Dodaj przypisanie roli** wybierz pozycję **plik magazynu dane współautora udziału SMB** dla konta administratora.
+5. Wybierz pozycję **Dodaj przypisanie roli**.
 
-     Aby przypisać uprawnienia użytkowników do swoich profilów FSLogix, wykonaj te same instrukcje. Jednak po przekroczeniu kroku 5 Wybierz opcję **plik magazynu dane współautor udział SMB** .
+6. Na karcie **Dodaj przypisanie roli** wybierz pozycję **plik magazynu dane współautora udziału SMB** dla konta administratora.
 
-6. Wybierz pozycję **Zapisz**.
+     Aby przypisać użytkownikom uprawnienia do ich profilów FSLogix, wykonaj te same instrukcje. Jednak po przekroczeniu kroku 5 Wybierz opcję **plik magazynu dane współautor udział SMB** .
+
+7. Wybierz pozycję **Zapisz**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Przypisywanie uprawnień użytkowników w udziale plików platformy Azure
 
-Po przypisaniu uprawnień RBAC użytkownikom należy skonfigurować uprawnienia systemu plików NTFS.
+Po przypisaniu użytkownikom uprawnień kontroli dostępu na podstawie ról należy skonfigurować uprawnienia systemu plików NTFS.
 
 Aby rozpocząć pracę, musisz znać dwie rzeczy z Azure Portal:
 
@@ -151,7 +152,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
 
 1. Otwórz wiersz polecenia na maszynie wirtualnej przyłączonej do domeny.
 
-2. Uruchom następujące polecenie cmdlet, aby zainstalować udział plików platformy Azure i przypisać mu literę dysku:
+2. Uruchom następujące polecenie cmdlet, aby zainstalować udział plików platformy Azure i przypisać mu literę dysku: 
 
      ```powershell
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
@@ -192,15 +193,15 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurowanie FSLogix na maszynach wirtualnych hosta sesji
 
-W tej sekcji pokazano, jak skonfigurować maszynę wirtualną za pomocą FSLogix. Należy wykonać te instrukcje za każdym razem, gdy konfigurujesz hosta sesji. Przed rozpoczęciem konfigurowania postępuj zgodnie z instrukcjami podanymi w temacie [pobieranie i Instalowanie FSLogix](/fslogix/install-ht). Dostępnych jest kilka opcji, które zapewniają, że klucze rejestru są ustawione na wszystkich hostach sesji. Można ustawić te opcje w obrazie lub skonfigurować zasady grupy.
+W tej sekcji pokazano, jak skonfigurować maszynę wirtualną przy użyciu produktu FSLogix. Należy wykonać te instrukcje przy każdym konfigurowaniu hosta sesji. Przed rozpoczęciem konfigurowania postępuj zgodnie z instrukcjami podanymi w temacie [pobieranie i Instalowanie FSLogix](/fslogix/install-ht). Dostępnych jest kilka opcji, które zapewniają skonfigurowanie kluczy rejestru na wszystkich hostach sesji. Możesz określić te opcje w obrazie lub skonfigurować zasady grupy.
 
-Aby skonfigurować FSLogix na maszynie wirtualnej hosta sesji:
+Aby skonfigurować produkt FSLogix na maszynie wirtualnej hosta sesji:
 
 1. RDP z maszyną wirtualną hosta sesji puli hostów Windows Virtual Desktop.
 
 2. [Pobierz i zainstaluj FSLogix](/fslogix/install-ht).
 
-5. Postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie ustawień rejestru kontenera kontenerów](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+5. Wykonaj instrukcje podane w temacie [Konfigurowanie ustawień rejestru kontenera profilów](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >  **oprogramowania**  >  **FSLogix**.
 

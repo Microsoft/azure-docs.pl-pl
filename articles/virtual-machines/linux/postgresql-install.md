@@ -10,10 +10,9 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759335"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalowanie i Konfigurowanie PostgreSQL na platformie Azure
@@ -58,7 +57,7 @@ Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomoc
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Jeśli chcesz skompilować wszystko, co można skompilować, łącznie z dokumentacją (strony HTML i Man) i dodatkowymi modułami (`contrib`), zamiast tego Uruchom następujące polecenie:
+5. Jeśli chcesz skompilować wszystko, co można skompilować, łącznie z dokumentacją (strony HTML i Man) i dodatkowymi modułami ( `contrib` ), zamiast tego Uruchom następujące polecenie:
    
         # gmake install-world
    
@@ -119,7 +118,7 @@ Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomoc
    
     Powinny pojawić się następujące dane wyjściowe:
 
-![image](./media/postgresql-install/no1.png)
+![image (obraz)](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Konfigurowanie PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -136,7 +135,7 @@ Zmodyfikuj dwie zmienne w pliku/etc/init.d/PostgreSQL. Prefiks jest ustawiany na
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/postgresql-install/no2.png)
+![image (obraz)](./media/postgresql-install/no2.png)
 
 Zmień plik w taki sposób, aby był on wykonywalny:
 
@@ -152,7 +151,7 @@ Sprawdź, czy punkt końcowy elementu PostgreSQL jest włączony:
 
 Powinny zostać wyświetlone następujące dane wyjściowe:
 
-![image](./media/postgresql-install/no3.png)
+![image (obraz)](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Łączenie z bazą danych Postgres
 Ponownie Przełącz do Postgres użytkownika:
@@ -183,11 +182,11 @@ Teraz można skonfigurować tabelę z czterema kolumnami z następującymi nazwa
 
 Jeśli tabela została pomyślnie utworzona, powinny zostać wyświetlone następujące elementy:
 
-![image](./media/postgresql-install/no4.png)
+![image (obraz)](./media/postgresql-install/no4.png)
 
 Możesz również sprawdzić strukturę tabeli przy użyciu następującego polecenia:
 
-![image](./media/postgresql-install/no5.png)
+![image (obraz)](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Dodawanie danych do tabeli
 Najpierw Wstaw informacje do wiersza:
@@ -196,7 +195,7 @@ Najpierw Wstaw informacje do wiersza:
 
 Powinny być widoczne następujące dane wyjściowe:
 
-![image](./media/postgresql-install/no6.png)
+![image (obraz)](./media/postgresql-install/no6.png)
 
 Możesz również dodać kilka więcej osób do tabeli. Poniżej przedstawiono niektóre opcje lub można utworzyć własne:
 
@@ -213,7 +212,7 @@ Użyj następującego polecenia, aby wyświetlić tabelę:
 
 Dane wyjściowe wyglądają następująco:
 
-![image](./media/postgresql-install/no7.png)
+![image (obraz)](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Usuwanie danych w tabeli
 Użyj następującego polecenia, aby usunąć dane w tabeli:
@@ -222,7 +221,7 @@ Użyj następującego polecenia, aby usunąć dane w tabeli:
 
 Spowoduje to usunięcie wszystkich informacji w wierszu "Jan". Dane wyjściowe wyglądają następująco:
 
-![image](./media/postgresql-install/no8.png)
+![image (obraz)](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Aktualizowanie danych w tabeli
 Użyj następującego polecenia, aby zaktualizować dane w tabeli. W takim przypadku Piaskowobrązowy potwierdził, że uczestniczą, więc zmienimy wartość RSVP z "N" na "Y":

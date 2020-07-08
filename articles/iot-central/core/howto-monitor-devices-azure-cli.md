@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756671"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -25,7 +24,7 @@ Użyj rozszerzenia usługi IoT dla interfejsu wiersza polecenia platformy Azure,
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.7 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version`. Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.7 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version` . Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Konto służbowe na platformie Azure, które zostało dodane jako użytkownik w aplikacji IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Zainstaluj rozszerzenie IoT Central
@@ -50,9 +49,9 @@ az extension update --name azure-iot
 
 ## <a name="using-the-extension"></a>Przy użyciu rozszerzenia
 
-W poniższych sekcjach opisano typowe polecenia i opcje, których można użyć podczas uruchamiania `az iot central`programu. Aby wyświetlić pełen zestaw poleceń i opcji, Przekaż `--help` do `az iot central` lub dowolne z jego podpoleceń.
+W poniższych sekcjach opisano typowe polecenia i opcje, których można użyć podczas uruchamiania programu `az iot central` . Aby wyświetlić pełen zestaw poleceń i opcji, Przekaż `--help` do `az iot central` lub dowolne z jego podpoleceń.
 
-### <a name="login"></a>Logowanie
+### <a name="login"></a>Zaloguj się
 
 Zacznij od zalogowania się do interfejsu wiersza polecenia platformy Azure. 
 

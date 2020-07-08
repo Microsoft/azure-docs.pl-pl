@@ -13,10 +13,9 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682427"
 ---
 # <a name="publisher-verification-preview"></a>Weryfikacja wydawcy (wersja zapoznawcza)
@@ -27,7 +26,7 @@ Niebieski wskaźnik "sprawdzony" pojawia się w monicie o zgodę usługi Azure A
 
 Ta funkcja jest przeznaczony głównie dla deweloperów tworzących aplikacje z wieloma dzierżawcami, które korzystają z protokołu [OAuth 2,0 i OpenID Connect](active-directory-v2-protocols.md) z [platformą tożsamości firmy Microsoft](v2-overview.md). Te aplikacje mogą logować użytkowników przy użyciu usługi OpenID Connect Connect lub mogą używać protokołu OAuth 2,0 do żądania dostępu do danych przy użyciu interfejsów API, takich jak [Microsoft Graph](https://developer.microsoft.com/graph/).
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 Weryfikacja wydawcy zapewnia następujące korzyści:
 - **Zwiększone przejrzystości i zmniejszanie ryzyka dla klientów**— ta funkcja pomaga klientom zrozumieć, które aplikacje są używane w organizacjach, są publikowane przez deweloperów, którym ufają. 
 

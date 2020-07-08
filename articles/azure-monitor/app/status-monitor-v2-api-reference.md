@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733676"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Dokumentacja interfejsu API agenta Application Insights Azure Monitor
@@ -47,7 +46,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>Parametry
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Opcjonalny.** Ten przełącznik umożliwia zaakceptowanie licencji i zasad zachowania poufności informacji w instalacjach bezobsługowych.
+**Obowiązkowe.** Ten przełącznik umożliwia zaakceptowanie licencji i zasad zachowania poufności informacji w instalacjach bezobsługowych.
 
 #### <a name="-verbose"></a>-Verbose
 **Wspólny parametr.** Ten przełącznik umożliwia wyprowadzanie szczegółowych dzienników.
@@ -66,8 +65,8 @@ Configuring registry for instrumentation engine...
 
 Włącza bezkodowe monitorowanie aplikacji usług IIS na komputerze docelowym.
 
-To polecenie cmdlet zmodyfikuje plik applicationHost. config usług IIS i ustawi niektóre klucze rejestru.
-Utworzy również plik ApplicationInsights. iKey. config, który definiuje klucz Instrumentacji używany przez poszczególne aplikacje.
+To polecenie cmdlet zmodyfikuje applicationHost.config IIS i ustawi niektóre klucze rejestru.
+Utworzy również plik applicationinsights.ikey.config, który definiuje klucz Instrumentacji używany przez poszczególne aplikacje.
 Usługi IIS będą ładować RedfieldModule przy uruchamianiu, co spowoduje wstrzyknięcie zestawu SDK Application Insights do aplikacji w miarę uruchamiania aplikacji.
 Uruchom ponownie usługi IIS, aby zmiany zaczęły obowiązywać.
 
@@ -85,7 +84,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 #### <a name="example-with-an-instrumentation-key-map"></a>Przykład z mapą kluczy Instrumentacji
 W tym przykładzie:
 - `MachineFilter`dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
-- `AppFilter='WebAppExclude'`udostępnia klucz `null` Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
+- `AppFilter='WebAppExclude'`udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
 - `AppFilter='WebAppOne'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - `AppFilter='WebAppTwo'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - Na koniec `AppFilter` używa również `'.*'` symboli wieloznacznych, aby dopasować wszystkie aplikacje sieci Web, które nie są zgodne ze starszymi regułami i przypisać domyślny klucz Instrumentacji.
@@ -108,7 +107,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Wymagane.** Użyj tego parametru, aby podać wiele kluczy Instrumentacji i mapowanie kluczy Instrumentacji używanych przez poszczególne aplikacje.
-Można utworzyć pojedynczy skrypt instalacyjny dla kilku komputerów przez ustawienie `MachineFilter`.
+Można utworzyć pojedynczy skrypt instalacyjny dla kilku komputerów przez ustawienie `MachineFilter` .
 
 > [!IMPORTANT]
 > Aplikacje będą zgodne z regułami w kolejności, w jakiej są udostępniane reguły. Dlatego należy najpierw określić najbardziej szczegółowe reguły i najbardziej ogólne reguły.
@@ -127,12 +126,12 @@ Można utworzyć pojedynczy skrypt instalacyjny dla kilku komputerów przez usta
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Opcjonalny.** Użyj tego przełącznika, aby umożliwić aparatowi Instrumentacji zbieranie zdarzeń i komunikatów na temat tego, co się dzieje w trakcie wykonywania procesu zarządzanego. Te zdarzenia i komunikaty obejmują kody wyników zależności, zlecenia HTTP i tekst polecenia SQL.
+**Obowiązkowe.** Użyj tego przełącznika, aby umożliwić aparatowi Instrumentacji zbieranie zdarzeń i komunikatów na temat tego, co się dzieje w trakcie wykonywania procesu zarządzanego. Te zdarzenia i komunikaty obejmują kody wyników zależności, zlecenia HTTP i tekst polecenia SQL.
 
 Aparat Instrumentacji dodaje obciążenie i jest domyślnie wyłączony.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Opcjonalny.** Ten przełącznik umożliwia zaakceptowanie licencji i zasad zachowania poufności informacji w instalacjach bezobsługowych.
+**Obowiązkowe.** Ten przełącznik umożliwia zaakceptowanie licencji i zasad zachowania poufności informacji w instalacjach bezobsługowych.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 W przypadku klastra serwerów sieci Web może być używana [Konfiguracja udostępniona](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -213,7 +212,7 @@ Configuring registry for instrumentation engine...
 ## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Wyłącza monitorowanie na komputerze docelowym.
-To polecenie cmdlet spowoduje usunięcie zmian w pliku applicationHost. config usług IIS i usunięciu kluczy rejestru.
+To polecenie cmdlet spowoduje usunięcie zmian applicationHost.config usług IIS i usunięcie kluczy rejestru.
 
 ### <a name="examples"></a>Przykłady
 
@@ -290,7 +289,7 @@ To polecenie cmdlet będzie zgłaszać informacje o wersji i informacje o plikac
 
 #### <a name="example-application-status"></a>Przykład: stan aplikacji
 
-Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus` , aby wyświetlić stan monitorowania witryn sieci Web.
+Uruchom polecenie, `Get-ApplicationInsightsMonitoringStatus` Aby wyświetlić stan monitorowania witryn sieci Web.
 
 ```powershell
 
@@ -335,7 +334,7 @@ W tym przykładzie:
 
 #### <a name="example-powershell-module-information"></a>Przykład: informacje o module programu PowerShell
 
-Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` , aby wyświetlić informacje o bieżącym module:
+Uruchom polecenie, `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` Aby wyświetlić informacje o bieżącym module:
 
 ```powershell
 
@@ -392,7 +391,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Możesz sprawdzić proces na komputerze z instrumentacją, aby sprawdzić, czy wszystkie biblioteki DLL zostały załadowane. Jeśli monitorowanie działa, należy załadować co najmniej 12 bibliotek DLL.
 
-Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
 
 
 ```
@@ -446,9 +445,9 @@ Zostaną również pobrane zewnętrzne narzędzia, aby określić, czy wymagane 
 
 
 Jeśli ten proces nie powiedzie się z jakiegokolwiek powodu, można uruchomić następujące polecenia ręcznie:
-- iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
+- iisreset.exe/status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -477,7 +476,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 #### <a name="example-with-an-instrumentation-key-map"></a>Przykład z mapą kluczy Instrumentacji
 W tym przykładzie:
 - `MachineFilter`dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
-- `AppFilter='WebAppExclude'`udostępnia klucz `null` Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
+- `AppFilter='WebAppExclude'`udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
 - `AppFilter='WebAppOne'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - `AppFilter='WebAppTwo'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - Na koniec `AppFilter` używa również `'.*'` symboli wieloznacznych, aby dopasować wszystkie aplikacje sieci Web, które nie są zgodne ze starszymi regułami i przypisać domyślny klucz Instrumentacji.
@@ -498,7 +497,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Wymagane.** Użyj tego parametru, aby podać wiele kluczy Instrumentacji i mapowanie kluczy Instrumentacji używanych przez poszczególne aplikacje.
-Można utworzyć pojedynczy skrypt instalacyjny dla kilku komputerów przez ustawienie `MachineFilter`.
+Można utworzyć pojedynczy skrypt instalacyjny dla kilku komputerów przez ustawienie `MachineFilter` .
 
 > [!IMPORTANT]
 > Aplikacje będą zgodne z regułami w kolejności, w jakiej są udostępniane reguły. Dlatego należy najpierw określić najbardziej szczegółowe reguły i najbardziej ogólne reguły.
@@ -556,7 +555,7 @@ Zbiera [zdarzenia ETW](https://docs.microsoft.com/windows/desktop/etw/event-trac
 
 Zebrane zdarzenia będą drukowane w konsoli programu w czasie rzeczywistym i zapisane w pliku ETL. Wyjściowy plik ETL może być otwarty przez [Narzędzia PerfView](https://github.com/microsoft/perfview) do dalszej analizy.
 
-To polecenie cmdlet zostanie uruchomione do momentu osiągnięcia limitu czasu trwania (domyślnie 5 minut) lub zostanie zatrzymane ręcznie (`Ctrl + C`).
+To polecenie cmdlet zostanie uruchomione do momentu osiągnięcia limitu czasu trwania (domyślnie 5 minut) lub zostanie zatrzymane ręcznie ( `Ctrl + C` ).
 
 ### <a name="examples"></a>Przykłady
 
@@ -567,17 +566,17 @@ Zwykle będziemy zbierać zdarzenia w celu zbadania, Dlaczego aplikacja nie jest
 Środowisko uruchomieniowe dołączania bezkodowego będzie emitować zdarzenia ETW podczas uruchamiania usług IIS i uruchamiania aplikacji.
 
 Aby zebrać te zdarzenia:
-1. W konsoli cmd z uprawnieniami administratora wykonaj `iisreset /stop` polecenie, aby wyłączyć usługi IIS i wszystkie aplikacje sieci Web.
+1. W konsoli cmd z uprawnieniami administratora wykonaj polecenie, `iisreset /stop` Aby wyłączyć usługi IIS i wszystkie aplikacje sieci Web.
 2. Wykonaj to polecenie cmdlet
-3. W konsoli cmd z uprawnieniami administratora uruchom polecenie, `iisreset /start` aby uruchomić usługi IIS.
+3. W konsoli cmd z uprawnieniami administratora uruchom polecenie, `iisreset /start` Aby uruchomić usługi IIS.
 4. Spróbuj przejść do swojej aplikacji.
-5. Po zakończeniu ładowania aplikacji można ją zatrzymać ręcznie (`Ctrl + C`) lub poczekać na przekroczenie limitu czasu.
+5. Po zakończeniu ładowania aplikacji można ją zatrzymać ręcznie ( `Ctrl + C` ) lub poczekać na przekroczenie limitu czasu.
 
 #### <a name="what-events-to-collect"></a>Jakie zdarzenia należy zebrać
 
 Podczas zbierania zdarzeń są dostępne trzy opcje:
-1. Użyj przełącznika `-CollectSdkEvents` , aby zbierać zdarzenia emitowane z zestawu SDK Application Insights.
-2. Użyj przełącznika `-CollectRedfieldEvents` , aby zbierać zdarzenia emitowane przez Monitor stanu i środowisko uruchomieniowe Redfield. Te dzienniki są przydatne podczas diagnozowania usług IIS i uruchamiania aplikacji.
+1. Użyj przełącznika, `-CollectSdkEvents` Aby zbierać zdarzenia emitowane z zestawu SDK Application Insights.
+2. Użyj przełącznika, `-CollectRedfieldEvents` Aby zbierać zdarzenia emitowane przez Monitor stanu i środowisko uruchomieniowe Redfield. Te dzienniki są przydatne podczas diagnozowania usług IIS i uruchamiania aplikacji.
 3. Użyj obu przełączników do zbierania obu typów zdarzeń.
 4. Domyślnie, jeśli nie określono żadnego przełącznika, zostaną zebrane oba typy zdarzeń.
 
@@ -585,17 +584,17 @@ Podczas zbierania zdarzeń są dostępne trzy opcje:
 ### <a name="parameters"></a>Parametry
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Opcjonalny.** Użyj tego parametru, aby określić, jak długo ten skrypt ma zbierać zdarzenia. Wartość domyślna to 5 minut.
+**Obowiązkowe.** Użyj tego parametru, aby określić, jak długo ten skrypt ma zbierać zdarzenia. Wartość domyślna to 5 minut.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**Opcjonalny.** Użyj tego przełącznika, aby ustawić katalog wyjściowy pliku ETL. Domyślnie ten plik zostanie utworzony w katalogu modułów programu PowerShell. Pełna ścieżka zostanie wyświetlona podczas wykonywania skryptu.
+**Obowiązkowe.** Użyj tego przełącznika, aby ustawić katalog wyjściowy pliku ETL. Domyślnie ten plik zostanie utworzony w katalogu modułów programu PowerShell. Pełna ścieżka zostanie wyświetlona podczas wykonywania skryptu.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Opcjonalny.** Ten przełącznik umożliwia zbieranie zdarzeń Application Insights SDK.
+**Obowiązkowe.** Ten przełącznik umożliwia zbieranie zdarzeń Application Insights SDK.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Opcjonalny.** Ten przełącznik służy do zbierania zdarzeń z monitor stanu i środowiska uruchomieniowego Redfield.
+**Obowiązkowe.** Ten przełącznik służy do zbierania zdarzeń z monitor stanu i środowiska uruchomieniowego Redfield.
 
 #### <a name="-verbose"></a>-Verbose
 **Wspólny parametr.** Ten przełącznik umożliwia wyprowadzanie szczegółowych dzienników.

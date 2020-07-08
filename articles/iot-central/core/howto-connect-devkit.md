@@ -9,10 +9,9 @@ ms.service: iot-central
 services: iot-central
 manager: jeffya
 ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81756811"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją usługi Azure IoT Central
@@ -46,7 +45,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
     ![Nowe urządzenie](media/howto-connect-devkit/new-device.png)
 
-1. W oknie podręcznym wprowadź **Identyfikator urządzenia** `SampleDevKit` i **nazwę urządzenia** jako `MXChip IoT DevKit - Sample`. Upewnij się, że **symulowana** opcja jest wyłączona. Następnie wybierz pozycję **Utwórz**.
+1. W oknie podręcznym wprowadź **Identyfikator urządzenia** `SampleDevKit` i **nazwę urządzenia** jako `MXChip IoT DevKit - Sample` . Upewnij się, że **symulowana** opcja jest wyłączona. Następnie wybierz pozycję **Utwórz**.
 
     ![Identyfikator i nazwa urządzenia](media/howto-connect-devkit/device-id-name.png)
 
@@ -69,7 +68,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 1. Na komputerze lub tablecie Połącz się z nazwą sieci Wi-Fi widoczną na ekranie urządzenia. Sieć Wi-Fi zaczyna się od **AZ-** a po nim adresu Mac. Po nawiązaniu połączenia z tą siecią nie masz dostępu do Internetu. Ten stan jest oczekiwany, a połączenie z tą siecią jest nawiązywane przez krótki czas podczas konfigurowania urządzenia.
 
-1. Otwórz przeglądarkę internetową i przejdź do [http://192.168.0.1/](http://192.168.0.1/). Zostanie wyświetlona następująca strona sieci Web:
+1. Otwórz przeglądarkę internetową i przejdź do [http://192.168.0.1/](http://192.168.0.1/) . Zostanie wyświetlona następująca strona sieci Web:
 
     ![Interfejs użytkownika konfiguracji](media/howto-connect-devkit/config-ui.png)
 

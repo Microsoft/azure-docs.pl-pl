@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684017"
 ---
 # <a name="sensor-partner-integration"></a>Integracja z partnerami obsługującymi czujniki
@@ -101,7 +100,7 @@ Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub f
 
 **Żądania interfejsu API**
 
-Aby wykonać żądanie interfejsu API REST, należy połączyć metodę HTTP (GET, POST lub PUT), adres URL usługi interfejsu API, Uniform Resource Identifier (URI) do zasobu, aby wykonać zapytanie, przesłać dane do, zaktualizować lub usunąć oraz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi API Service to punkt końcowy interfejsu API, który jest udostępniany. Oto przykład: https:// \< yourdatahub-Website-name>. azurewebsites.NET
+Aby wykonać żądanie interfejsu API REST, należy połączyć metodę HTTP (GET, POST lub PUT), adres URL usługi interfejsu API, Uniform Resource Identifier (URI) do zasobu, aby wykonać zapytanie, przesłać dane do, zaktualizować lub usunąć oraz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi API Service to punkt końcowy interfejsu API, który jest udostępniany. Oto przykład: https:// \<yourdatahub-website-name> . azurewebsites.NET
 
 Opcjonalnie można uwzględnić parametry zapytania dla wywołań GET do filtrowania, ograniczyć rozmiar i sortować dane w odpowiedziach.
 

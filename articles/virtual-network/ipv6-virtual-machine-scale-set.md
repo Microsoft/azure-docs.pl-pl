@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710001"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Wdrażanie zestawów skalowania maszyn wirtualnych przy użyciu protokołu IPv6 na platformie Azure

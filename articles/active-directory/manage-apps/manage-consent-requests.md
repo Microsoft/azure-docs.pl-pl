@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763197"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Zarządzanie zgodą na aplikacje i ocenianie żądań zgody

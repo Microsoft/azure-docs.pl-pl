@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763622"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)

@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e387d5f7ee0b1926457717b30b03bbfeb8d70a1c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718484"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027430"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Przetwarzanie danych maszyny wirtualnej programu SQL Server na platformie Azure
 W tym dokumencie opisano, jak eksplorować dane i generować funkcje dla danych przechowywanych na maszynie wirtualnej SQL Server na platformie Azure. Ten cel może być wykonany przez przetwarzanie danych przy użyciu programu SQL lub języka programowania, takiego jak Python.
@@ -68,16 +67,19 @@ W tej sekcji opisano sposoby generowania funkcji przy użyciu programu SQL:
 ### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Generowanie funkcji na podstawie liczby
 W poniższych przykładach pokazano dwa sposoby generowania funkcji count. W pierwszej metodzie jest używana suma warunkowa, a druga metoda używa klauzuli "Where". Te wyniki mogą następnie być sprzężone z oryginalną tabelą (przy użyciu kolumn klucza podstawowego) w celu uzyskania funkcji count wraz z oryginalnymi danymi.
 
-    select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
+```sql
+select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
-    select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
-    where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
+select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
+where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
+```
 
 ### <a name="binning-feature-generation"></a><a name="sql-binningfeature"></a>Generowanie funkcji pakowania
 Poniższy przykład pokazuje, jak generować funkcje binned przez pakowania (przy użyciu pięciu zasobników) kolumny liczbowej, która może być używana jako funkcja:
 
-    `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
-
+```sql
+SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>
+```
 
 ### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Wdrażanie funkcji z pojedynczej kolumny
 W tej sekcji pokazano, jak wdrożyć pojedynczą kolumnę w tabeli w celu wygenerowania dodatkowych funkcji. W przykładzie przyjęto założenie, że w tabeli znajduje się kolumna Latitude lub długość geograficzna, z której próbujesz generować funkcje.
@@ -97,16 +99,18 @@ Poniżej znajduje się krótki początek danych lokalizacji Latitude/długości 
 
 Informacje o lokalizacji można featurized w następujący sposób, oddzielając informacje o regionie, lokalizacji i miejscowości. Możesz również wywołać punkt końcowy REST, taki jak interfejs API usługi mapy Bing dostępny w miejscu [wyszukiwania lokalizacji przez punkt](https://msdn.microsoft.com/library/ff701710.aspx) , aby uzyskać informacje o regionie/okręgu.
 
-    select 
-        <location_columnname>
-        ,round(<location_columnname>,0) as l1        
-        ,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end     
-        ,l3=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 2 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),2,1) else '0' end     
-        ,l4=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 3 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),3,1) else '0' end     
-        ,l5=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 4 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),4,1) else '0' end     
-        ,l6=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 5 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),5,1) else '0' end     
-        ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
-    from <tablename>
+```sql
+select 
+    <location_columnname>
+    ,round(<location_columnname>,0) as l1        
+    ,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end     
+    ,l3=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 2 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),2,1) else '0' end     
+    ,l4=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 3 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),3,1) else '0' end     
+    ,l5=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 4 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),4,1) else '0' end     
+    ,l6=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 5 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),5,1) else '0' end     
+    ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
+from <tablename>
+```
 
 Te funkcje oparte na lokalizacji mogą być dodatkowo używane do generowania dodatkowych funkcji zliczania zgodnie z wcześniejszym opisem. 
 
@@ -125,14 +129,18 @@ Używanie języka Python do eksplorowania danych i generowania funkcji, gdy dane
 
 Następujący format parametrów połączenia może służyć do nawiązywania połączenia z bazą danych SQL Server z poziomu języka Python przy użyciu moduł pyodbc (Zastąp wartości ServerName, dbname, username i Password) określonymi wartościami.
 
-    #Set up the SQL Azure connection
-    import pyodbc    
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```python
+#Set up the SQL Azure connection
+import pyodbc    
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+```
 
 [Biblioteka Pandas](https://pandas.pydata.org/) w języku Python oferuje bogaty zestaw struktur danych i narzędzi do analizy danych na potrzeby manipulowania danymi na potrzeby programowania w języku Python. Poniższy kod odczytuje wyniki zwrócone z SQL Server Database do ramki danych Pandas:
 
-    # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
+```python
+# Query database and load the returned results in pandas data frame
+data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
+```
 
 Teraz możesz współpracować z ramką danych Pandas, jak opisano w artykule [przetwarzanie danych obiektów blob platformy Azure w środowisku nauki danych](data-blob.md).
 

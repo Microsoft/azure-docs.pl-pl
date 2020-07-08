@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733214"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Wskazówki dotyczące komunikacji między urządzeniami i chmurą
@@ -38,7 +37,7 @@ Poniżej przedstawiono szczegółowe porównanie różnych opcji komunikacji mi�
 | Magazynowanie i pobieranie | Tymczasowo przechowywane przez IoT Hub, do 7 dni. Tylko Odczyt sekwencyjny. | Przechowywane przez IoT Hub w bliźniaczych urządzeniach. Pobieranie przy użyciu [języka zapytań IoT Hub](iot-hub-devguide-query-language.md). | Przechowywane na koncie usługi Azure Storage dostarczonego przez użytkownika. |
 | Rozmiar | Do 256-KB komunikatów. | Maksymalny rozmiar raportowanych właściwości to 32 KB. | Maksymalny rozmiar pliku obsługiwany przez Blob Storage platformy Azure. |
 | Częstotliwość | Wysoka. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Średnia. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Niski. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). |
-| Protocol (Protokół) | Dostępne we wszystkich protokołach. | Dostępne za pomocą MQTT lub AMQP. | Dostępne w przypadku korzystania z dowolnego protokołu, ale wymaga protokołu HTTPS na urządzeniu. |
+| Protokół | Dostępne we wszystkich protokołach. | Dostępne za pomocą MQTT lub AMQP. | Dostępne w przypadku korzystania z dowolnego protokołu, ale wymaga protokołu HTTPS na urządzeniu. |
 
 Aplikacja może wymagać wysłania informacji zarówno jako szeregów czasowych lub alertów telemetrycznych. W tym scenariuszu można wybrać jedną z następujących opcji:
 

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324151"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikacja do Azure SQL Database
@@ -54,11 +53,11 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Yes | 
-| [**Migawka**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Yes|
+| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak | 
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
-| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Yes|
+| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
 | [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
 

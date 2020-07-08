@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733436"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Łączenie urządzeń IoT z platformą Azure: IoT Hub i Event Hubs

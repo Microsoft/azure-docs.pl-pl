@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
 ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757859"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cykl życia i Stany maszyn wirtualnych

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984788"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurowanie połączenia typu punkt-lokacja przy użyciu uwierzytelniania certyfikatu (wersja klasyczna)
@@ -22,7 +21,7 @@ W tym artykule pokazano, jak utworzyć sieć wirtualną z połączeniem typu pun
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 

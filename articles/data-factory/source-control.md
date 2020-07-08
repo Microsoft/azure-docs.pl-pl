@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
 ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83674598"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory

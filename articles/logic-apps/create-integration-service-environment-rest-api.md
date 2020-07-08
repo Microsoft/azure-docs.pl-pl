@@ -7,15 +7,14 @@ ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84656539"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) za pomocą interfejsu API REST Logic Apps
 
-W tym artykule przedstawiono sposób tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps w scenariuszach, w których aplikacje logiki i konta integracji muszą mieć dostęp do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). ISE to dedykowane środowisko, które używa dedykowanego magazynu i innych zasobów, które są oddzielone od "globalnej" Logic Apps wielodostępnej usługi. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
+W tym artykule przedstawiono sposób tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps w scenariuszach, w których aplikacje logiki i konta integracji muszą mieć dostęp do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
 
 Możesz również utworzyć ISE za pomocą [przykładowego Azure Resource Manager szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) lub przy użyciu [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 

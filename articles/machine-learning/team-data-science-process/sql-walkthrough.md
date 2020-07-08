@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a47f30cf00624faf098c8b605534cf355eacadee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710477"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027481"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
 W tym samouczku przedstawiono proces kompilowania i wdrażania modelu uczenia maszynowego przy użyciu SQL Server i publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Procedura jest zgodna ze standardowym przepływem nauki o danych: pozyskiwanie i Eksplorowanie danych, inżynierów w celu ułatwienia uczenia się, a następnie kompilowania i wdrażania modelu.
@@ -26,20 +25,31 @@ Dane dotyczące rejsu z NYC taksówkami dotyczą 20 GB skompresowanych plików C
 
 1. Wolumin CSV "trip_data" zawiera szczegóły dotyczące podróży, takie jak liczba pasażerów, punkty odbioru i Dropoff, czas trwania podróży i długość podróży. Oto kilka przykładowych rekordów:
    
-        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+    `medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude`
+
+    `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171`
+
+    `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066`
+
+    `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002`
+
+    `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388`
+
+    `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
+
 2. Wolumin CSV "trip_fare" zawiera szczegółowe informacje o opłatach za każdą podróż, takie jak typ płatności, kwota opłaty, opłata dodatkowa i podatki, porady i opłaty, a także łączną kwotę płatną. Oto kilka przykładowych rekordów:
    
-        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
+    `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
+
+    `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7`
+
+    `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7`
+
+    `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7`
+
+    `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6`
+
+    `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5`
 
 Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z pól: Medallion, \_ licencja na hakera i \_ Data i godzina pobrania.
 
@@ -48,12 +58,17 @@ Będziemy formułować trzy problemy z przewidywaniami na podstawie * \_ kwoty P
 
 * Klasyfikacja binarna: przewidywanie, czy Porada została zapłacona za podróż, to oznacza, że jest to $0 *dodatnia \_ * * \_ wartość* , która jest większa niż $0
 * Klasyfikacja wieloklasowa: przewidywanie zakresu porady dla podróży. Podziel * \_ kwotę* na pięć przedziałów lub klas:
-   
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+
+   `Class 0 : tip_amount = $0`
+
+   `Class 1 : tip_amount > $0 and tip_amount <= $5`
+
+   `Class 2 : tip_amount > $5 and tip_amount <= $10`
+
+   `Class 3 : tip_amount > $10 and tip_amount <= $20`
+
+   `Class 4 : tip_amount > $20`
+
 * Zadanie regresji: przewidywanie kwoty Porada płatnej dla podróży.  
 
 ## <a name="setting-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Konfigurowanie środowiska nauki o danych Azure na potrzeby zaawansowanej analizy
@@ -89,9 +104,11 @@ Aby skopiować dane przy użyciu AzCopy:
 1. Zaloguj się do maszyny wirtualnej (VM)
 2. Utwórz nowy katalog na dysku danych maszyny wirtualnej (Uwaga: nie używaj dysku tymczasowego, który jest dostarczany z maszyną wirtualną jako dysk danych).
 3. W oknie wiersza polecenia uruchom następujący wiersz polecenia AzCopy, zastępując <path_to_data_folder> z folderem danych utworzonym w (2):
-   
-        "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
-   
+
+    ```console
+    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
+    ```
+
     Po zakończeniu AzCopy, w folderze dane musi znajdować się łączna liczba 24 plików CSV (12 dla \_ danych podróży i 12 dla \_ taryfy za podróż).
 4. Rozpakuj pobrane pliki. Zwróć uwagę na folder, w którym znajdują się nieskompresowane pliki. Ten folder będzie określany jako ścieżka <\_ do \_ \_ plików danych \> .
 
@@ -157,77 +174,87 @@ W tej sekcji zapiszemy ostateczną kwerendę, aby wyodrębnić i próbkować dan
 
 Aby uzyskać szybką weryfikację liczby wierszy i kolumn w tabelach wypełnionych wcześniej przy użyciu równoległego importowania zbiorczego,
 
-    -- Report number of rows in table nyctaxi_trip without table scan
-    SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
-
-    -- Report number of columns in table nyctaxi_trip
-    SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
+- Zgłoś liczbę wierszy w tabeli nyctaxi_trip bez skanowania tabeli:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Raportuj liczbę kolumn w tabeli nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Eksploracja: dystrybucja podróży według Medallion
 W tym przykładzie zidentyfikowano Medallion (liczby taksówki) z ponad 100 podróży w danym okresie. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu ** \_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
 
-    SELECT medallion, COUNT(*)
-    FROM nyctaxi_fare
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-    GROUP BY medallion
-    HAVING COUNT(*) > 100
+```sql
+SELECT medallion, COUNT(*)
+FROM nyctaxi_fare
+WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+GROUP BY medallion
+HAVING COUNT(*) > 100
+```
 
 #### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Eksploracja: dystrybucja podróży według Medallion i hack_license
-    SELECT medallion, hack_license, COUNT(*)
-    FROM nyctaxi_fare
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
-    GROUP BY medallion, hack_license
-    HAVING COUNT(*) > 100
+
+```sql
+SELECT medallion, hack_license, COUNT(*)
+FROM nyctaxi_fare
+WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
+GROUP BY medallion, hack_license
+HAVING COUNT(*) > 100
+```
 
 #### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Ocena jakości danych: Weryfikuj rekordy z nieprawidłową długością geograficzną i/lub szerokością geograficzną
 Ten przykład sprawdza, czy którekolwiek z pól długości geograficznej i/lub szerokości zawiera nieprawidłową wartość (w radianach stopni powinna należeć do zakresu od-90 do 90), czy ma (0, 0) współrzędnych.
 
-    SELECT COUNT(*) FROM nyctaxi_trip
-    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
-    OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
-    OR    (pickup_longitude = '0' AND pickup_latitude = '0')
-    OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+```sql
+SELECT COUNT(*) FROM nyctaxi_trip
+WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
+OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
+OR    (pickup_longitude = '0' AND pickup_latitude = '0')
+OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+```
 
 #### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Eksploracja: rozchylony a przechylony
 Ten przykład wyszukuje liczbę podróży, które zostały przechylone i nie zostały przechylone w danym okresie (lub w pełnym zestawie danych, jeśli obejmują cały rok). Ta dystrybucja odzwierciedla rozkład etykiet binarnych, który będzie później używany do modelowania klasyfikacji binarnej.
 
-    SELECT tipped, COUNT(*) AS tip_freq FROM (
-      SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
-      FROM nyctaxi_fare
-      WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-    GROUP BY tipped
+```sql
+SELECT tipped, COUNT(*) AS tip_freq FROM (
+  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
+  FROM nyctaxi_fare
+  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+GROUP BY tipped
+```
 
 #### <a name="exploration-tip-classrange-distribution"></a>Eksploracja: rozmieszczenie klasy/zakresu etykiet
 Ten przykład oblicza rozkład zakresów etykiet w danym okresie (lub w pełnym zestawie danych, jeśli obejmują cały rok). Ta dystrybucja klas etykiet zostanie później użyta w przypadku modelowania klasyfikacji wieloklasowej.
 
-    SELECT tip_class, COUNT(*) AS tip_freq FROM (
-        SELECT CASE
-            WHEN (tip_amount = 0) THEN 0
-            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-            ELSE 4
-        END AS tip_class
-    FROM nyctaxi_fare
-    WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-    GROUP BY tip_class
+```sql
+SELECT tip_class, COUNT(*) AS tip_freq FROM (
+    SELECT CASE
+        WHEN (tip_amount = 0) THEN 0
+        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+        ELSE 4
+    END AS tip_class
+FROM nyctaxi_fare
+WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+GROUP BY tip_class
+```
 
 #### <a name="exploration-compute-and-compare-trip-distance"></a>Eksploracja: Obliczanie i porównywanie odległości podróży
 Ten przykład konwertuje czas odbioru i Dropoff oraz szerokość geograficzną na punkty geograficzne SQL, oblicza odległość podróży przy użyciu różnic punktów geograficznych SQL i zwraca losową próbkę wyników do porównania. Przykład ogranicza wyniki do prawidłowych współrzędnych tylko przy użyciu zapytania oceny jakości danych pokrytego wcześniej.
 
-    SELECT
-    pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
-    ,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
-    ,trip_distance
-    ,computedist=round(geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326).STDistance(geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326))/1000, 2)
-    FROM nyctaxi_trip
-    tablesample(0.01 percent)
-    WHERE CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-    AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-    AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+```sql
+SELECT
+pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
+,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
+,trip_distance
+,computedist=round(geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326).STDistance(geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326))/1000, 2)
+FROM nyctaxi_trip
+tablesample(0.01 percent)
+WHERE CAST(pickup_latitude AS float) BETWEEN -90 AND 90
+AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
+AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Inżynieria funkcji w zapytaniach SQL
 Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mogą również służyć do generowania etykiet/funkcji przez usunięcie części zliczania. Dodatkowe przykłady SQL dla inżynierów funkcji są dostępne w sekcji [eksplorowanie i opracowywanie funkcji w notesie IPython](#ipnb) . Bardziej wydajne jest uruchamianie zapytań generacji funkcji na pełnym zestawie danych lub w dużym podzestawie przy użyciu zapytań SQL, które są uruchamiane bezpośrednio w wystąpieniu bazy danych SQL Server. Zapytania mogą być wykonywane w **SQL Server Management Studio**, IPython notesie lub dowolnym narzędziu programistycznym lub środowisku, które może uzyskać dostęp do bazy danych lokalnie lub zdalnie.
@@ -235,21 +262,22 @@ Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mo
 #### <a name="preparing-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
 Następujące zapytanie sprzęga **nyctaxie \_ ** i **nyctaxi opłaty za \_ przejazd** , generuje binarną etykietę klasyfikacji, ** \_ klasę**etykietki klasyfikacji z wieloklasową **, a**następnie wyodrębnia losowo 1% próbek z pełnego dołączonego zestawu danych. To zapytanie można skopiować, a następnie wkleić bezpośrednio do modułu [Azure Machine Learning Studio](https://studio.azureml.net) [Importowanie danych][import-data] w celu bezpośredniego pozyskiwania danych z wystąpienia bazy danych SQL Server na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
 
-    SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
-        CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
-        CASE WHEN (tip_amount = 0) THEN 0
-            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-            ELSE 4
-        END AS tip_class
-    FROM nyctaxi_trip t, nyctaxi_fare f
-    TABLESAMPLE (1 percent)
-    WHERE t.medallion = f.medallion
-    AND   t.hack_license = f.hack_license
-    AND   t.pickup_datetime = f.pickup_datetime
-    AND   pickup_longitude != '0' AND dropoff_longitude != '0'
-
+```sql
+SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
+    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
+    CASE WHEN (tip_amount = 0) THEN 0
+        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+        ELSE 4
+    END AS tip_class
+FROM nyctaxi_trip t, nyctaxi_fare f
+TABLESAMPLE (1 percent)
+WHERE t.medallion = f.medallion
+AND   t.hack_license = f.hack_license
+AND   t.pickup_datetime = f.pickup_datetime
+AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+```
 
 ## <a name="data-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Eksploracja danych i inżynieria funkcji w notesie IPython
 W tej sekcji będziemy przetwarzać eksplorację danych i generować funkcję przy użyciu zapytań Python i SQL dla utworzonej wcześniej bazy danych SQL Server. Przykładowy Notes IPython o nazwie **Machine-Learning-Data-nauka-Process-SQL-historie. ipynb** jest dostępny w folderze **Sample notesy IPython** . Ten Notes jest również dostępny w witrynie [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
@@ -272,53 +300,64 @@ Poniżej przedstawiono kilka przykładów eksploracji danych, wizualizacji danyc
 #### <a name="initialize-database-credentials"></a>Zainicjuj poświadczenia bazy danych
 Zainicjuj ustawienia połączenia z bazą danych w następujących zmiennych:
 
-    SERVER_NAME=<server name>
-    DATABASE_NAME=<database name>
-    USERID=<user name>
-    PASSWORD=<password>
-    DB_DRIVER = <database server>
+```sql
+SERVER_NAME=<server name>
+DATABASE_NAME=<database name>
+USERID=<user name>
+PASSWORD=<password>
+DB_DRIVER = <database server>
+```
 
 #### <a name="create-database-connection"></a>Utwórz połączenie z bazą danych
-    CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
-    conn = pyodbc.connect(CONNECTION_STRING)
+
+```sql
+CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
+conn = pyodbc.connect(CONNECTION_STRING)
+```
 
 #### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Liczba raportów o liczbie wierszy i kolumn w tabeli nyctaxi_trip
-    nrows = pd.read_sql('''
-        SELECT SUM(rows) FROM sys.partitions
-        WHERE object_id = OBJECT_ID('nyctaxi_trip')
-    ''', conn)
 
-    print 'Total number of rows = %d' % nrows.iloc[0,0]
+```sql
+nrows = pd.read_sql('''
+    SELECT SUM(rows) FROM sys.partitions
+    WHERE object_id = OBJECT_ID('nyctaxi_trip')
+''', conn)
 
-    ncols = pd.read_sql('''
-        SELECT COUNT(*) FROM information_schema.columns
-        WHERE table_name = ('nyctaxi_trip')
-    ''', conn)
+print 'Total number of rows = %d' % nrows.iloc[0,0]
 
-    print 'Total number of columns = %d' % ncols.iloc[0,0]
+ncols = pd.read_sql('''
+    SELECT COUNT(*) FROM information_schema.columns
+    WHERE table_name = ('nyctaxi_trip')
+''', conn)
+
+print 'Total number of columns = %d' % ncols.iloc[0,0]
+```
 
 * Łączna liczba wierszy = 173179759  
 * Łączna liczba kolumn = 14
 
 #### <a name="read-in-a-small-data-sample-from-the-sql-server-database"></a>Zapoznaj się z niewielką próbką danych z bazy danych SQL Server
-    t0 = time.time()
 
-    query = '''
-        SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
-            f.tolls_amount, f.total_amount, f.tip_amount
-        FROM nyctaxi_trip t, nyctaxi_fare f
-        TABLESAMPLE (0.05 PERCENT)
-        WHERE t.medallion = f.medallion
-        AND   t.hack_license = f.hack_license
-        AND   t.pickup_datetime = f.pickup_datetime
-    '''
+```sql
+t0 = time.time()
 
-    df1 = pd.read_sql(query, conn)
+query = '''
+    SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+        f.tolls_amount, f.total_amount, f.tip_amount
+    FROM nyctaxi_trip t, nyctaxi_fare f
+    TABLESAMPLE (0.05 PERCENT)
+    WHERE t.medallion = f.medallion
+    AND   t.hack_license = f.hack_license
+    AND   t.pickup_datetime = f.pickup_datetime
+'''
 
-    t1 = time.time()
-    print 'Time to read the sample table is %f seconds' % (t1-t0)
+df1 = pd.read_sql(query, conn)
 
-    print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
+t1 = time.time()
+print 'Time to read the sample table is %f seconds' % (t1-t0)
+
+print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
+```
 
 Czas odczytu tabeli przykładowej to 6,492000 sekund  
 Liczba pobranych wierszy i kolumn = (84952, 21)
@@ -326,52 +365,68 @@ Liczba pobranych wierszy i kolumn = (84952, 21)
 #### <a name="descriptive-statistics"></a>Statystyki opisowe
 Teraz możesz eksplorować dane próbkowane. Zaczynamy od przejrzenia statystyk opisowych dla ** \_ odległości podróży** (lub dowolnego innego) pola:
 
-    df1['trip_distance'].describe()
+```sql
+df1['trip_distance'].describe()
+```
 
 #### <a name="visualization-box-plot-example"></a>Wizualizacja: przykład wykresu skrzynkowego
 Następnie Spójrzmy na wykres w polu odległość podróży, aby wizualizować quantiles
 
-    df1.boxplot(column='trip_distance',return_type='dict')
+```sql
+df1.boxplot(column='trip_distance',return_type='dict')
+```
 
 ![#1 wykresu][1]
 
 #### <a name="visualization-distribution-plot-example"></a>Wizualizacja: przykład wykresu dystrybucji
-    fig = plt.figure()
-    ax1 = fig.add_subplot(1,2,1)
-    ax2 = fig.add_subplot(1,2,2)
-    df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
-    df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
+
+```sql
+fig = plt.figure()
+ax1 = fig.add_subplot(1,2,1)
+ax2 = fig.add_subplot(1,2,2)
+df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
+df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
+```
 
 ![#2 wykresu][2]
 
 #### <a name="visualization-bar-and-line-plots"></a>Wizualizacja: wykresy słupkowe i liniowe
 W tym przykładzie przedziały czas podróży do pięciu pojemników i wizualizacji wyników pakowania.
 
-    trip_dist_bins = [0, 1, 2, 4, 10, 1000]
-    df1['trip_distance']
-    trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
-    trip_dist_bin_id
+```sql
+trip_dist_bins = [0, 1, 2, 4, 10, 1000]
+df1['trip_distance']
+trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
+trip_dist_bin_id
+```
 
 Można wykreślić powyższą dystrybucję pojemników na słupku lub linii liniowych jak poniżej
 
-    pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
+```sql
+pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
+```
 
 ![#3 wykresu][3]
 
-    pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
-
+```sql
+pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
+```
 ![#4 wykresu][4]
 
 #### <a name="visualization-scatterplot-example"></a>Wizualizacja: przykład Scatterplot
 Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i ** \_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
 
-    plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
+```sql
+plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
+```
 
 ![#6 wykresu][6]
 
 Podobnie możemy sprawdzić relację między ** \_ kodem częstotliwości** i ** \_ odległością podróży**.
 
-    plt.scatter(df1['passenger_count'], df1['trip_distance'])
+```sql
+plt.scatter(df1['passenger_count'], df1['trip_distance'])
+```
 
 ![#8 wykresu][8]
 
@@ -383,47 +438,55 @@ W tej sekcji utworzymy nową tabelę do przechowywania danych próbkowanych i pr
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Utwórz przykładową tabelę i wypełnij ją 1% sprzężonych tabel. Najpierw Porzuć tabelę, jeśli istnieje.
 W tej sekcji dołączymy tabele **nyctaxie \_ ** i ** \_ opłaty za nyctaxi**, Wyodrębnij losową próbę z 1% i Utrwalaj dane przykładowe w nowej tabeli o nazwie **nyctaxi 1 \_ \_ procent**:
 
-    cursor = conn.cursor()
+```sql
+cursor = conn.cursor()
 
-    drop_table_if_exists = '''
-        IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
-    '''
+drop_table_if_exists = '''
+    IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
+'''
 
-    nyctaxi_one_percent_insert = '''
-        SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-        INTO nyctaxi_one_percent
-        FROM nyctaxi_trip t, nyctaxi_fare f
-        TABLESAMPLE (1 PERCENT)
-        WHERE t.medallion = f.medallion
-        AND   t.hack_license = f.hack_license
-        AND   t.pickup_datetime = f.pickup_datetime
-        AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
-    '''
+nyctaxi_one_percent_insert = '''
+    SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
+    INTO nyctaxi_one_percent
+    FROM nyctaxi_trip t, nyctaxi_fare f
+    TABLESAMPLE (1 PERCENT)
+    WHERE t.medallion = f.medallion
+    AND   t.hack_license = f.hack_license
+    AND   t.pickup_datetime = f.pickup_datetime
+    AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
+'''
 
-    cursor.execute(drop_table_if_exists)
-    cursor.execute(nyctaxi_one_percent_insert)
-    cursor.commit()
+cursor.execute(drop_table_if_exists)
+cursor.execute(nyctaxi_one_percent_insert)
+cursor.commit()
+```
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Eksploracja danych przy użyciu zapytań SQL w notesie IPython
 W tej sekcji eksplorujemy dystrybucje danych przy użyciu danych z próbką 1%, które są utrwalane w nowo utworzonej tabeli. Podobne eksploracje mogą być wykonywane przy użyciu oryginalnych tabel, **opcjonalnie przy użyciu** tabeli odnoszącej, aby ograniczyć próbkę eksploracji lub ograniczając wyniki do danego przedziału czasu przy użyciu partycji ** \_ DateTime odbioru** , jak pokazano w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .
 
 #### <a name="exploration-daily-distribution-of-trips"></a>Eksploracja: codzienne rozpowszechnianie podróży
-    query = '''
-        SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
-        FROM nyctaxi_one_percent
-        GROUP BY CONVERT(date, dropoff_datetime)
-    '''
 
-    pd.read_sql(query,conn)
+```sql
+query = '''
+    SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+    FROM nyctaxi_one_percent
+    GROUP BY CONVERT(date, dropoff_datetime)
+'''
+
+pd.read_sql(query,conn)
+```
 
 #### <a name="exploration-trip-distribution-per-medallion"></a>Eksploracja: rozkład podróży na Medallion
-    query = '''
-        SELECT medallion,count(*) AS c
-        FROM nyctaxi_one_percent
-        GROUP BY medallion
-    '''
 
-    pd.read_sql(query,conn)
+```sql
+query = '''
+    SELECT medallion,count(*) AS c
+    FROM nyctaxi_one_percent
+    GROUP BY medallion
+'''
+
+pd.read_sql(query,conn)
+```
 
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Generowanie funkcji przy użyciu zapytań SQL w notesie IPython
 W tej sekcji wygenerujemy nowe etykiety i funkcje bezpośrednio przy użyciu zapytań SQL, które działają w tabeli przykładowej 1% utworzonej w poprzedniej sekcji.
@@ -433,116 +496,127 @@ W poniższym przykładzie Wygenerowano dwa zestawy etykiet do użycia podczas mo
 
 1. Przerzucane **tipped** etykiety klas binarnych (przewidywanie, jeśli zostanie podaną wskazówką)
 2. ** \_ Klasa** etykiet dla wielu klas (przewidywanie pojemnika lub zakresu końcówki)
+
+```sql   
+    nyctaxi_one_percent_add_col = '''
+        ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
+    '''
    
-        nyctaxi_one_percent_add_col = '''
-            ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
-        '''
+    cursor.execute(nyctaxi_one_percent_add_col)
+    cursor.commit()
    
-        cursor.execute(nyctaxi_one_percent_add_col)
-        cursor.commit()
+    nyctaxi_one_percent_update_col = '''
+        UPDATE nyctaxi_one_percent
+        SET
+           tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
+           tip_class = CASE WHEN (tip_amount = 0) THEN 0
+                            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+                            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+                            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+                            ELSE 4
+                        END
+    '''
    
-        nyctaxi_one_percent_update_col = '''
-            UPDATE nyctaxi_one_percent
-            SET
-               tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-               tip_class = CASE WHEN (tip_amount = 0) THEN 0
-                                WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-                                WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-                                WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-                                ELSE 4
-                            END
-        '''
-   
-        cursor.execute(nyctaxi_one_percent_update_col)
-        cursor.commit()
+    cursor.execute(nyctaxi_one_percent_update_col)
+    cursor.commit()
+```
 
 #### <a name="feature-engineering-count-features-for-categorical-columns"></a>Inżynieria funkcji: liczba funkcji dla kolumn kategorii
 Ten przykład przekształca pole kategorii w pole liczbowe, zastępując każdą kategorię liczbą wystąpień w danych.
 
-    nyctaxi_one_percent_insert_col = '''
-        ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
-    '''
+```sql
+nyctaxi_one_percent_insert_col = '''
+    ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
+'''
 
-    cursor.execute(nyctaxi_one_percent_insert_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_insert_col)
+cursor.commit()
 
-    nyctaxi_one_percent_update_col = '''
-        WITH B AS
-        (
-            SELECT medallion, hack_license,
-                SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
-                SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-            FROM nyctaxi_one_percent
-            GROUP BY medallion, hack_license
-        )
+nyctaxi_one_percent_update_col = '''
+    WITH B AS
+    (
+        SELECT medallion, hack_license,
+            SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
+            SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
+        FROM nyctaxi_one_percent
+        GROUP BY medallion, hack_license
+    )
 
-        UPDATE nyctaxi_one_percent
-        SET nyctaxi_one_percent.cmt_count = B.cmt_count,
-            nyctaxi_one_percent.vts_count = B.vts_count
-        FROM nyctaxi_one_percent A INNER JOIN B
-        ON A.medallion = B.medallion AND A.hack_license = B.hack_license
-    '''
+    UPDATE nyctaxi_one_percent
+    SET nyctaxi_one_percent.cmt_count = B.cmt_count,
+        nyctaxi_one_percent.vts_count = B.vts_count
+    FROM nyctaxi_one_percent A INNER JOIN B
+    ON A.medallion = B.medallion AND A.hack_license = B.hack_license
+'''
 
-    cursor.execute(nyctaxi_one_percent_update_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_update_col)
+cursor.commit()
+```
 
 #### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Inżynieria funkcji: funkcje bin dla kolumn liczbowych
 Ten przykład przekształca ciągłe pole liczbowe do wstępnie ustawionych zakresów kategorii, czyli Przekształć pole numeryczne w pole kategorii.
 
-    nyctaxi_one_percent_insert_col = '''
-        ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
-    '''
+```sql
+nyctaxi_one_percent_insert_col = '''
+    ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
+'''
 
-    cursor.execute(nyctaxi_one_percent_insert_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_insert_col)
+cursor.commit()
 
-    nyctaxi_one_percent_update_col = '''
-        WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
-        (
-            SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
-            NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
-        )
+nyctaxi_one_percent_update_col = '''
+    WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
+    (
+        SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
+        NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
+    )
 
-        UPDATE nyctaxi_one_percent
-        SET trip_time_bin = B.BinNumber
-        FROM nyctaxi_one_percent A INNER JOIN B
-        ON A.medallion = B.medallion
-        AND A.hack_license = B.hack_license
-        AND A.pickup_datetime = B.pickup_datetime
-    '''
+    UPDATE nyctaxi_one_percent
+    SET trip_time_bin = B.BinNumber
+    FROM nyctaxi_one_percent A INNER JOIN B
+    ON A.medallion = B.medallion
+    AND A.hack_license = B.hack_license
+    AND A.pickup_datetime = B.pickup_datetime
+'''
 
-    cursor.execute(nyctaxi_one_percent_update_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_update_col)
+cursor.commit()
+```
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Inżynieria funkcji: Wyodrębnij funkcje lokalizacji z dziesiętnej szerokości/długości geograficznej
 Ten przykład dzieli dziesiętną reprezentację pola szerokości geograficznej i/lub długości geograficznej na kilka regionów pól o różnych stopnia szczegółowości, takich jak kraj/region, miasto, miejscowość, blok itp. Nowe pola geograficzne nie są zamapowane na rzeczywiste lokalizacje. Aby uzyskać informacje na temat mapowania lokalizacji geokodu, zobacz [usługi Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
-    nyctaxi_one_percent_insert_col = '''
-        ALTER TABLE nyctaxi_one_percent
-        ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
-            l5 varchar(3), l6 varchar(3), l7 varchar(3)
-    '''
+```sql
+nyctaxi_one_percent_insert_col = '''
+    ALTER TABLE nyctaxi_one_percent
+    ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
+        l5 varchar(3), l6 varchar(3), l7 varchar(3)
+'''
 
-    cursor.execute(nyctaxi_one_percent_insert_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_insert_col)
+cursor.commit()
 
-    nyctaxi_one_percent_update_col = '''
-        UPDATE nyctaxi_one_percent
-        SET l1=round(pickup_longitude,0)
-            , l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
-            , l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
-            , l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
-            , l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
-            , l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-            , l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
-    '''
+nyctaxi_one_percent_update_col = '''
+    UPDATE nyctaxi_one_percent
+    SET l1=round(pickup_longitude,0)
+        , l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
+        , l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
+        , l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
+        , l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
+        , l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
+        , l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
+'''
 
-    cursor.execute(nyctaxi_one_percent_update_col)
-    cursor.commit()
+cursor.execute(nyctaxi_one_percent_update_col)
+cursor.commit()
+```
 
 #### <a name="verify-the-final-form-of-the-featurized-table"></a>Sprawdź ostateczną formę tabeli featurized
-    query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
-    pd.read_sql(query,conn)
+
+```sql
+query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
+pd.read_sql(query,conn)
+```
 
 Teraz możemy przystąpić do tworzenia modeli i wdrażania modeli w [Azure Machine Learning](https://studio.azureml.net). Dane są gotowe do dowolnego z wymienionych wcześniej problemów przewidywania, mianowicie:
 
@@ -621,7 +695,7 @@ Do Podsumowanie w tym samouczku przedstawiono tworzenie środowiska nauki o dany
 ### <a name="license-information"></a>Informacje o licencji
 Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zapoznaj się z plikiem LICENSE.txt w katalogu przykładowego kodu w witrynie GitHub.
 
-### <a name="references"></a>Dokumentacja
+### <a name="references"></a>Odwołania
 • [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
 • [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

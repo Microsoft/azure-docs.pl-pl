@@ -12,10 +12,9 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 889168782acabaafa4200a8ebd097e431a68ede3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764574"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurowanie monitorowania dostępu do aplikacji w czasie rzeczywistym przy użyciu Microsoft Cloud App Security i Azure Active Directory

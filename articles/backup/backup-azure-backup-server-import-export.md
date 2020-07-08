@@ -3,12 +3,11 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
-ms.translationtype: MT
+ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921263"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -102,9 +101,7 @@ Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy 
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Przygotowanie dysków SATA i dostarczenie do platformy Azure
 
-Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysyłane do najbliższego centrum danych platformy Azure. To narzędzie jest dostępne w katalogu instalacji agenta Azure Backup (w następującej ścieżce):
-
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysyłane do najbliższego centrum danych platformy Azure. To narzędzie jest dostępne w katalogu instalacji agenta Azure Backup (w następującej ścieżce):`*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Przejdź do katalogu i Skopiuj katalog **AzureOfflineBackupDiskPrep** do innego komputera, na którym są połączone stacje dysków SATA. Na komputerze z podłączonymi dyskami SATA upewnij się, że:
 
@@ -119,9 +116,9 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
 
 1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na komputerze kopiowania przy użyciu katalogu narzędzi *AzureOfflineBackupDiskPrep* jako bieżący katalog. Uruchom następujące polecenie:
 
-        ```cmd
-        .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
-        ```
+    ```console
+    .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
+    ```
 
     | Parametr | Opis |
     | --- | --- |

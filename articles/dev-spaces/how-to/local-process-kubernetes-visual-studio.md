@@ -1,18 +1,17 @@
 ---
-title: Używanie procesu lokalnego z programem Kubernetes z programem Visual Studio (wersja zapoznawcza)
+title: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Dowiedz się, jak używać procesu lokalnego z programem Kubernetes z programem Visual Studio, aby połączyć komputer deweloperski z klastrem Kubernetes przy użyciu Azure Dev Spaces
 keywords: Proces lokalny z Kubernetes, Azure Dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
 ms.openlocfilehash: 8e89baeac8d9042a87685ed1268ed694db8d9455
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84316803"
 ---
-# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Używanie procesu lokalnego z programem Kubernetes z programem Visual Studio (wersja zapoznawcza)
+# <a name="use-local-process-with-kubernetes-with-visual-studio-preview"></a>Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
 
 Proces lokalny z programem Kubernetes umożliwia uruchamianie i debugowanie kodu na komputerze deweloperskim, przy jednoczesnym połączeniu z klastrem Kubernetes z pozostałą częścią aplikacji lub usług. Na przykład jeśli masz dużą architekturę mikrousług z wieloma zależnymi usługami i bazami danych, replikowanie tych zależności na komputerze deweloperskim może być trudne. Ponadto Kompilowanie i wdrażanie kodu w klastrze Kubernetes dla każdej zmiany kodu podczas programowania w pętli wewnętrznej może być powolne, czasochłonne i trudne do użycia z debugerem.
 

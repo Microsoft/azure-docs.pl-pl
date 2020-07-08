@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 63919d7770746025189f3d6e578919b2fc2799c3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921154"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Używanie Azure CDN z mechanizmem CORS
 ## <a name="what-is-cors"></a>Co to jest mechanizm CORS?
@@ -82,7 +81,9 @@ Istnieją dwa sposoby wykonania tej czynności za pomocą aparatu reguł Premium
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Jedno wyrażenie regularne ze wszystkimi prawidłowymi źródłami
 W tym przypadku utworzysz wyrażenie regularne zawierające wszystkie źródła, które mają być dozwolone: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **Azure CDN Premium from Verizon** używa [wyrażeń regularnych zgodnych](https://pcre.org/) ze standardem Perl jako aparat dla wyrażeń regularnych.  Aby zweryfikować wyrażenie regularne, można użyć narzędzia, takiego jak [wyrażenia regularne 101](https://regex101.com/) .  Należy zauważyć, że znak "/" jest prawidłowy w wyrażeniach regularnych i nie musi być zmieniony, ale ucieczki, że znak jest uznawany za najlepsze rozwiązanie i jest oczekiwany przez niektóre walidacje wyrażenia regularnego.

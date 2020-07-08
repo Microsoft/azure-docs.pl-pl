@@ -9,10 +9,9 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: a5c0e9bf94a9953e107de148792af2e39f8bac24
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85512290"
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu

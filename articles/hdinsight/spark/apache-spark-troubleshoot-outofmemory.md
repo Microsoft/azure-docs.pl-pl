@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709049"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError wyjątki dla Apache Spark w usłudze Azure HDInsight

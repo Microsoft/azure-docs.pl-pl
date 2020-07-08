@@ -8,10 +8,9 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.openlocfilehash: 8d7db5fe88890b7f807263e50757e637ad808eb1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759325"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Przykłady programu PowerShell dla maszyny wirtualnej platformy Azure
@@ -22,9 +21,9 @@ Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell, kt
 |---|---|
 |**Tworzenie maszyn wirtualnych**||
 | [Tworzenie w pełni skonfigurowanej maszyny wirtualnej](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.|
-| [Tworzenie maszyny wirtualnej z włączonym platformą Docker](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną, konfiguruje tę MASZYNę wirtualną jako hosta platformy Docker i uruchamia kontener NGINX. |
-| [Tworzenie maszyny wirtualnej i uruchamianie skryptu konfiguracyjnego](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną i używa rozszerzenia niestandardowego skryptu platformy Azure do zainstalowania NGINX. |
-| [Tworzenie maszyny wirtualnej z zainstalowaną usługą WordPress](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną i używa rozszerzenia niestandardowego skryptu platformy Azure do zainstalowania oprogramowania WordPress. |
+| [Tworzenie maszyny wirtualnej z włączoną platformą Docker](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną, konfiguruje tę MASZYNę wirtualną jako hosta platformy Docker i uruchamia kontener NGINX. |
+| [Tworzenie maszyny wirtualnej i uruchamianie skryptu konfiguracji](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną i używa rozszerzenia niestandardowego skryptu platformy Azure do zainstalowania NGINX. |
+| [Tworzenie maszyny wirtualnej z zainstalowaną platformą WordPress](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną i używa rozszerzenia niestandardowego skryptu platformy Azure do zainstalowania oprogramowania WordPress. |
 | [Tworzenie maszyny wirtualnej na podstawie zarządzanego dysku systemu operacyjnego](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną przez dołączenie istniejącego dysku zarządzanego jako dysku systemu operacyjnego. |
 | [Tworzenie maszyny wirtualnej na podstawie migawki](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną na podstawie migawki, tworząc najpierw dysk zarządzany na podstawie migawki, a następnie dołączając nowy dysk zarządzany jako dysk systemu operacyjnego. |
 |**Zarządzanie magazynem**||
@@ -35,7 +34,7 @@ Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell, kt
 | [Tworzenie migawki z dysku VHD](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy migawkę z dysku VHD, a następnie używa tej migawki do szybkiego tworzenia wielu identycznych dysków zarządzanych.  |
 | [Kopiowanie migawki do tej samej lub innej subskrypcji](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Kopiuje migawkę do tej samej lub innej subskrypcji, która znajduje się w tym samym regionie co migawka nadrzędna. |
 |**Monitorowanie maszyn wirtualnych**||
-| [Monitorowanie maszyny wirtualnej za pomocą dzienników Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną, instaluje agenta Log Analytics i rejestruje maszynę wirtualną w obszarze roboczym Log Analytics.  |
+| [Monitorowanie maszyny wirtualnej za pomocą dzienników usługi Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy maszynę wirtualną, instaluje agenta Log Analytics i rejestruje maszynę wirtualną w obszarze roboczym Log Analytics.  |
 | [Kopiowanie dysku zarządzanego do tej samej lub innej subskrypcji](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Kopiuje dysk zarządzany do tej samej lub innej subskrypcji, która znajduje się w tym samym regionie co nadrzędny dysk zarządzany.
-| [Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji przy użyciu programu PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy wolumin CSV, który zawiera nazwę maszyny wirtualnej, nazwę grupy zasobów, region, Virtual Network, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w podanej subskrypcji.
+| [Zbieranie szczegółów dotyczących wszystkich maszyn wirtualnych w ramach subskrypcji przy użyciu programu PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy wolumin CSV, który zawiera nazwę maszyny wirtualnej, nazwę grupy zasobów, region, Virtual Network, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w podanej subskrypcji.
 | | |

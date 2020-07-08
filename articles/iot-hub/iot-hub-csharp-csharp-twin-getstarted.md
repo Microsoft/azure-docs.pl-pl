@@ -11,10 +11,9 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733130"
 ---
 # <a name="get-started-with-device-twins-net"></a>Wprowadzenie do bliźniaczych reprezentacji urządzeń (.NET)
@@ -79,7 +78,7 @@ W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, któr
     using Microsoft.Azure.Devices;
     ```
 
-1. Dodaj następujące pola do klasy **Program**: Zamień `{iot hub connection string}` na IoT Hub parametry połączenia, które zostały skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
+1. Dodaj następujące pola do klasy **Program**: Zamień na `{iot hub connection string}` IoT Hub parametry połączenia, które zostały skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
@@ -141,7 +140,7 @@ W następnej sekcji utworzysz aplikację urządzenia, która zgłosi informacje 
 
 W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się z centrum jako **myDeviceId**, a następnie aktualizuje raportowane właściwości w taki sposób, aby zawierała informacje, które są połączone z siecią komórkową.
 
-1. W programie Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
 1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę **ReportConnectivity**. W obszarze **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
 
@@ -159,7 +158,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
     using Newtonsoft.Json;
     ```
 
-1. Dodaj następujące pola do klasy **Program**: Zamień `{device connection string}` na parametry połączenia urządzenia zanotowane w [zarejestrowaniu nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).
+1. Dodaj następujące pola do klasy **Program**: Zamień na `{device connection string}` Parametry połączenia urządzenia zanotowane w [zarejestrowaniu nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
@@ -234,7 +233,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W polu**projekt uruchomieniowy** **typowych właściwości** > wybierz pozycję **wiele projektów startowych**. Dla **ReportConnectivity**wybierz pozycję **Rozpocznij** jako **akcję**. Aby zapisać zmiany, wybierz pozycję **OK**.  
+1. W **Common Properties**polu  >  **projekt uruchomieniowy**typowych właściwości wybierz pozycję **wiele projektów startowych**. Dla **ReportConnectivity**wybierz pozycję **Rozpocznij** jako **akcję**. Wybierz przycisk **OK**, aby zapisać zmiany.  
 
 1. Uruchom tę aplikację, klikając prawym przyciskiem myszy projekt **ReportConnectivity** i wybierając polecenie **Debuguj**, a następnie **Rozpocznij nowe wystąpienie**. Powinna zostać wyświetlona aplikacja, która pobiera informacje o bliźniaczych, a następnie wysyła łączność jako ***raportowaną Właściwość***.
 
@@ -242,7 +241,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
 
    Po zgłoszeniu informacji o łączności przez urządzenie powinno ono pojawić się w obu zapytaniach.
 
-1. Kliknij prawym przyciskiem myszy projekt **AddTagsAndQuery** i wybierz polecenie **Debuguj** > **Uruchom nowe wystąpienie** , aby ponownie uruchomić zapytania. Tym razem **myDeviceId** powinien pojawić się w obu wynikach zapytania.
+1. Kliknij prawym przyciskiem myszy projekt **AddTagsAndQuery** i wybierz polecenie **Debuguj**  >  **Uruchom nowe wystąpienie** , aby ponownie uruchomić zapytania. Tym razem **myDeviceId** powinien pojawić się w obu wynikach zapytania.
 
     ![Pomyślnie zgłoszono łączność urządzenia](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 

@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733454"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Rozpoczynanie pracy z modułem IoT Hub tożsamość modułu i sznurki modułowe (C)

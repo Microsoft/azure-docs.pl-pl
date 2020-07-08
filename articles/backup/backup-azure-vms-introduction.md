@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopi
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84322913"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
@@ -76,21 +75,21 @@ Azure Backup wykonuje migawki zgodnie z harmonogramem tworzenia kopii zapasowych
 
 W poniższej tabeli objaśniono różne typy spójności migawek:
 
-**Migawka** | **Szczegóły** | **Odzyskiwanie** | **Zagadnienie**
+**Snapshot** | **Szczegóły** | **Odzyskiwanie** | **Zagadnienie**
 --- | --- | --- | ---
 **Spójna na poziomie aplikacji** | Kopie zapasowe spójne z aplikacjami przechwytują zawartość pamięci i oczekujące operacje we/wy. Migawki spójne z aplikacjami używają składnika zapisywania usługi VSS (lub skryptów pre/post dla systemu Linux), aby zapewnić spójność danych aplikacji przed wystąpieniem kopii zapasowej. | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej na poziomie aplikacji maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje są uruchamiane w spójnym stanie. | System Windows: wszystkie składniki zapisywania usługi VSS zostały pomyślnie zakończone<br/><br/> Linux: skrypty poprzedzające i końcowe zostały skonfigurowane i zakończyły się powodzeniem
 **Spójny system plików** | Spójne kopie zapasowe systemu plików zapewniają spójność, pobierając migawkę wszystkich plików w tym samym czasie.<br/><br/> | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej z systemem plików, maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje muszą implementować własny mechanizm naprawy, aby upewnić się, że przywrócone dane są spójne. | System Windows: niepowodzenie niektórych składników zapisywania usługi VSS <br/><br/> Linux: wartość domyślna (Jeśli skrypty pre/post nie są skonfigurowane lub zakończyły się niepowodzeniem)
 **Spójny na poziomie awarii** | Migawki spójne z awarią są zwykle wykonywane, gdy maszyna wirtualna platformy Azure jest zamykana w momencie tworzenia kopii zapasowej. Przechwytywane i tworzone są kopie zapasowe tylko danych istniejących na dysku w momencie tworzenia kopii zapasowej. | Rozpoczyna się od procesu rozruchu maszyny wirtualnej, po którym następuje sprawdzenie dysku, aby naprawić błędy uszkodzeń. Wszelkie operacje dotyczące danych w pamięci lub zapisu, które nie zostały przekazane do dysku przed utratą awarii. Aplikacje implementują własne weryfikacje danych. Na przykład aplikacja bazy danych może użyć dziennika transakcji do weryfikacji. Jeśli w dzienniku transakcji znajdują się wpisy, które nie znajdują się w bazie danych, oprogramowanie bazy danych przenosi transakcje z powrotem do momentu spójności danych. | Maszyna wirtualna jest w stanie zamykania (zatrzymano/cofnięto przydział).
 
-## <a name="backup-and-restore-considerations"></a>Uwagi dotyczące tworzenia kopii zapasowych i przywracania
+## <a name="backup-and-restore-considerations"></a>Zagadnienia dotyczące tworzenia kopii zapasowych i przywracania
 
 **Zagadnienie** | **Szczegóły**
 --- | ---
 **Dysk** | Tworzenie kopii zapasowych dysków maszyny wirtualnej jest równoległe. Na przykład jeśli maszyna wirtualna ma cztery dyski, usługa tworzenia kopii zapasowych próbuje wykonać kopię zapasową wszystkich czterech dysków równolegle. Kopia zapasowa jest przyrostowa (dotyczy tylko zmienionych danych).
-**Planowanie** |  Aby zmniejszyć ruch kopii zapasowych, wykonaj kopię zapasową różnych maszyn wirtualnych w różnych porach dnia i upewnij się, że czasy nie nakładają się na siebie. Tworzenie kopii zapasowych maszyn wirtualnych w tym samym czasie powoduje wyczyszczenie ruchu.
-**Przygotowywanie kopii zapasowych** | Należy pamiętać o czasie potrzebnym do przygotowania kopii zapasowej. Czas przygotowania obejmuje zainstalowanie lub zaktualizowanie rozszerzenia kopii zapasowej oraz wyzwolenie migawki zgodnie z harmonogramem tworzenia kopii zapasowych.
-**Transfer danych** | Należy wziąć pod uwagę czas wymagany do Azure Backup identyfikować przyrostowe zmiany z poprzedniej kopii zapasowej.<br/><br/> W przyrostowej kopii zapasowej Azure Backup określa zmiany, obliczając sumę kontrolną bloku. Jeśli blok zostanie zmieniony, zostanie oznaczony do przeniesienia do magazynu. Usługa analizuje zidentyfikowane bloki i próbuje bardziej zminimalizować ilość danych do przesłania. Po dokonaniu oceny wszystkich zmienionych bloków Azure Backup przenosi zmiany do magazynu.<br/><br/> Podczas tworzenia migawki i kopiowania jej do magazynu może wystąpić opóźnienie. W godzinach szczytu przekazanie migawek do magazynu może trwać do ośmiu godzin. Czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny na codzienne wykonywanie kopii zapasowej.
-**Początkowa kopia zapasowa** | Mimo że łączny czas wykonywania kopii zapasowych przyrostowych jest krótszy niż 24 godziny, ale może to nie być przypadek dla pierwszej kopii zapasowej. Czas wymagany do początkowej kopii zapasowej będzie zależeć od rozmiaru danych i czasu przetwarzania kopii zapasowej.
+**Planowanie** |  Aby zmniejszyć ruch kopii zapasowych, wykonaj kopię zapasową różnych maszyn wirtualnych w różnych porach dnia i upewnij się, że czasy nie nakładają się na siebie. Tworzenie kopii zapasowych maszyn wirtualnych w tym samym czasie powoduje korki.
+**Przygotowywanie kopii zapasowych** | Należy pamiętać o czasie potrzebnym do przygotowania kopii zapasowej. Czas przygotowania obejmuje instalowanie lub aktualizowanie rozszerzenia kopii zapasowej oraz wyzwolenie migawki zgodnie z harmonogramem tworzenia kopii zapasowych.
+**Transfer danych** | Należy wziąć pod uwagę czas wymagany do Azure Backup identyfikować przyrostowe zmiany z poprzedniej kopii zapasowej.<br/><br/> W przyrostowej kopii zapasowej usługa Azure Backup określa zmiany, obliczając sumę kontrolną bloku. Jeśli blok ulegnie zmianie, zostanie oznaczony do przesłania do magazynu. Usługa analizuje zidentyfikowane bloki i próbuje jeszcze bardziej zminimalizować ilość danych do przesłania. Po dokonaniu oceny wszystkich zmienionych bloków usługa Azure Backup przesyła zmiany do magazynu.<br/><br/> Może wystąpić opóźnienie między tworzeniem migawki i kopiowaniem jej do magazynu. W godzinach szczytu przekazanie migawek do magazynu może trwać do ośmiu godzin. Czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny w przypadku codziennie wykonywanej kopii zapasowej.
+**Początkowa kopia zapasowa** | Mimo że łączny czas wykonywania przyrostowych kopii zapasowych jest krótszy niż 24 godziny, może to nie dotyczyć pierwszej kopii zapasowej. Czas wymagany na utworzenie początkowej kopii zapasowej będzie zależeć od rozmiaru danych i terminu przetwarzania kopii zapasowej.
 **Przywróć kolejkę** | Azure Backup przetwarza zadania przywracania z wielu kont magazynu w tym samym czasie i umieszcza żądania przywracania w kolejce.
 **Przywróć kopię** | Podczas przywracania dane są kopiowane z magazynu do konta magazynu.<br/><br/> Łączny czas przywracania zależy od operacji we/wy na sekundę (IOPS) i przepływności konta magazynu.<br/><br/> Aby skrócić czas kopiowania, wybierz konto magazynu, które nie jest załadowane z innymi zapisami i odczytami aplikacji.
 
@@ -105,12 +104,12 @@ Te typowe scenariusze mogą mieć wpływ na łączny czas wykonywania kopii zapa
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Podczas konfigurowania kopii zapasowych maszyn wirtualnych Sugerujemy następujące rozwiązania:
+Podczas konfigurowania kopii zapasowych maszyn wirtualnych sugerujemy następujące rozwiązania:
 
-- Zmodyfikuj domyślne czasy harmonogramu, które są ustawiane w ramach zasad. Na przykład jeśli domyślny czas w zasadach wynosi 12:00, Zwiększ czas trwania o kilka minut, aby zasoby były optymalnie używane.
+- Zmodyfikuj domyślne godziny harmonogramu ustawiane w ramach zasad. Na przykład jeśli domyślna godzina w zasadach to 12:00, zwiększ czas o kilka minut, aby zoptymalizować użycie zasobów.
 - Jeśli przywracasz maszyny wirtualne z jednego magazynu, zdecydowanie zalecamy użycie różnych [kont magazynu ogólnego przeznaczenia w wersji 2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) , aby upewnić się, że docelowe konto magazynu nie zostanie ograniczone. Na przykład każda maszyna wirtualna musi mieć inne konto magazynu. Na przykład jeśli zostaną przywrócone 10 maszyn wirtualnych, użyj 10 różnych kont magazynu.
-- W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywróceniem zaleca się alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej
-- Limit liczby dysków na konto magazynu jest określany względem tego, w jakim stopniu uzyskuje się dostęp do dysków przez aplikacje działające na maszynie wirtualnej infrastruktura jako usługa (IaaS). Ogólnie rzecz biorąc, jeśli na jednym koncie magazynu znajdują się od 5 do 10 dysków lub więcej, należy zrównoważyć obciążenie przez przeniesienie niektórych dysków do oddzielnych kont magazynu.
+- W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywróceniem zaleca się alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. 50% wolnego miejsca nie jest wymagane dla kopii zapasowych po wykonaniu pierwszej kopii zapasowej
+- Limit liczby dysków na konto magazynu jest określany względem tego, w jakim stopniu aplikacje działające na maszynie wirtualnej w modelu infrastruktura jako usługa (IaaS) uzyskują dostęp do dysków. Zgodnie z ogólną praktyką, jeśli na jednym koncie magazynu znajduje się od 5 do 10 dysków lub więcej, należy zrównoważyć obciążenie przez przeniesienie niektórych dysków do oddzielnych kont magazynu.
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 

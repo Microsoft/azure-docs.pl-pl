@@ -8,10 +8,9 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
 ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759256"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania sąsiedztwa przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -22,7 +21,7 @@ Grupa umieszczania bliskości jest grupą logiczną używaną w celu upewnienia 
 
 
 ## <a name="create-the-proximity-placement-group"></a>Tworzenie grupy umieszczania zbliżeniowe
-Utwórz grupę umieszczania sąsiedztwa [`az ppg create`](/cli/azure/ppg#az-ppg-create)przy użyciu. 
+Utwórz grupę umieszczania sąsiedztwa przy użyciu [`az ppg create`](/cli/azure/ppg#az-ppg-create) . 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus

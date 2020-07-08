@@ -10,13 +10,12 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681005"
 ---
-# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook
+# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z Azure Automation hybrydowych procesów roboczych elementów Runbook. Aby uzyskać ogólne informacje, zobacz [Omówienie hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md).
 
@@ -234,17 +233,17 @@ Dzienniki są przechowywane lokalnie na każdym hybrydowym procesie roboczym w w
 
 Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runbook](../automation-runbook-output-and-messages.md) do Azure Automation w taki sam sposób, jak zadania elementu Runbook działające w chmurze wysyłają dane wyjściowe i komunikaty. Możesz włączyć strumienie pełnych i postępów tak samo jak w przypadku elementów Runbook.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenariusz: program Orchestrator. sandbox. exe nie może nawiązać połączenia z pakietem Office 365 za poorednictwem serwera proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenariusz: Orchestrator.Sandbox.exe nie może nawiązać połączenia z pakietem Office 365 przy użyciu serwera proxy
 
 #### <a name="issue"></a>Problem
 
 Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
 
-W przypadku dostosowania programu **Orchestrator. sandbox. exe. config** w celu ustawienia serwera proxy i listy pomijania piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise. exe. config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda tak, jak oczekujesz. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
+W przypadku dostosowania **Orchestrator.Sandbox.exe.config** , aby ustawić serwer proxy i listę pomijania, Piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise.exe.config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda prawdopodobnie zgodnie z oczekiwaniami. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
 
 #### <a name="cause"></a>Przyczyna
 
-Połączenie z Active Directory Federation Services (AD FS) na serwerze nie może obejść serwera proxy. Pamiętaj, że piaskownica programu PowerShell jest uruchamiana jako zalogowany użytkownik. Jednak piaskownicy programu Orchestrator są znacznie dostosowane i mogą ignorować ustawienia pliku **Orchestrator. sandbox. exe. config** . Ma specjalny kod do obsługi ustawień serwera proxy agenta komputera lub Log Analytics, ale nie do obsługi innych niestandardowych ustawień serwera proxy. 
+Połączenie z Active Directory Federation Services (AD FS) na serwerze nie może obejść serwera proxy. Pamiętaj, że piaskownica programu PowerShell jest uruchamiana jako zalogowany użytkownik. Jednak piaskownica programu Orchestrator jest w dużym stopniu dostosowana i może ignorować ustawienia plików **Orchestrator.Sandbox.exe.config** . Ma specjalny kod do obsługi ustawień serwera proxy agenta komputera lub Log Analytics, ale nie do obsługi innych niestandardowych ustawień serwera proxy. 
 
 #### <a name="resolution"></a>Rozwiązanie
 

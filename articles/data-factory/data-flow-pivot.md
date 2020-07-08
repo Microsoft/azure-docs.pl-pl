@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683300"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Przekształcenie tabeli przestawnej w mapowaniu przepływu danych
@@ -21,7 +20,7 @@ ms.locfileid: "83683300"
 
 Użyj transformacji przestawnej, aby utworzyć wiele kolumn z unikatowych wartości wierszy pojedynczej kolumny. Pivot to transformacja agregacji, w której wybiera się pozycję Grupuj według kolumn i generuje kolumny tabeli przestawnej przy użyciu [funkcji agregujących](data-flow-expression-functions.md#aggregate-functions).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Przekształcenie przestawne wymaga trzech różnych danych wejściowych: Grupuj według kolumn, klucz przestawny i sposób generowania kolumn przestawnych
 

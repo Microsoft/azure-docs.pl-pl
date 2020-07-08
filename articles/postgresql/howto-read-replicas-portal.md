@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: c7d55a7b10f0c874fd84f32db1dcf21fb60c231f
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84636651"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze z Azure Portal

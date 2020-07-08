@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710273"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizowanie raportu Planista wdrażania usługi Azure Site Recovery

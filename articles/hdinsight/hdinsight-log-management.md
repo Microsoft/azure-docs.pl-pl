@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709253"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight

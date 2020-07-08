@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733240"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Wskazówki dotyczące komunikacji między chmurą i urządzeniem
@@ -40,7 +39,7 @@ Poniżej przedstawiono szczegółowe porównanie różnych opcji komunikacji mi�
 | Obiekty docelowe | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze **urządzenie według identyfikator**urządzenia. |
 | Rozmiar | Maksymalny rozmiar ładunku metody bezpośredniej to 128 KB. | Maksymalny rozmiar żądanych właściwości to 32 KB. | Do 64 KB komunikatów. |
 | Częstotliwość | Wysoka. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Średnia. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Niski. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). |
-| Protocol (Protokół) | Dostępne za pomocą MQTT lub AMQP. | Dostępne za pomocą MQTT lub AMQP. | Dostępne we wszystkich protokołach. Urządzenie musi sondować przy użyciu protokołu HTTPS. |
+| Protokół | Dostępne za pomocą MQTT lub AMQP. | Dostępne za pomocą MQTT lub AMQP. | Dostępne we wszystkich protokołach. Urządzenie musi sondować przy użyciu protokołu HTTPS. |
 
 Dowiedz się, jak korzystać z metod bezpośrednich, wymaganych właściwości i komunikatów z chmury do urządzeń w następujących samouczkach:
 

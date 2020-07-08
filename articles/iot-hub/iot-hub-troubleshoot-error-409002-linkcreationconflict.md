@@ -10,10 +10,9 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758743"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict

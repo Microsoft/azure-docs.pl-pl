@@ -12,10 +12,9 @@ ms.date: 07/10/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763503"
 ---
 # <a name="configure-password-single-sign-on"></a>Konfigurowanie logowania jednokrotnego przy użyciu hasła

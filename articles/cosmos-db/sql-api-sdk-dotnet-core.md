@@ -9,16 +9,15 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.openlocfilehash: fdc3d4244daa1f3b3d12898d6de42128ae1670ec
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392050"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestaw .NET Core SDK V2 dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
-> * [Zestaw .NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK 2](sql-api-sdk-dotnet.md)
+> * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
+> * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
 > * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -41,7 +40,7 @@ ms.locfileid: "85392050"
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Bieżąca obsługiwana platforma**|[.NET Standard 1,6 i .NET Standard 1,5](https://www.nuget.org/packages/NETStandard.Library)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 > [!NOTE]
 > W przypadku korzystania z platformy .NET Core zapoznaj się z najnowszą wersją 3. x [zestawu SDK platformy .NET](sql-api-sdk-dotnet-standard.md), która jest przeznaczona dla .NET Standard. 

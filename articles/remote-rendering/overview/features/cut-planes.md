@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021368"
 ---
 # <a name="cut-planes"></a>Wycięte płaszczyzny

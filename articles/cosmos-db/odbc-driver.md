@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 250bb5c7bec9cb68ba3236d0cb43938566b60fa8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392509"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027243"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
 
@@ -196,7 +195,7 @@ Możesz definiować i tworzyć widoki w ramach procesu pobierania próbek. Te wi
 
 Aby utworzyć widok dla danych, w oknie **Edytor schematu** w kolumnie **Definicje widoku** kliknij przycisk **Dodaj** w wierszu kontenera do przykładu. 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Tworzenie widoku danych":::
 
 
 Następnie w oknie **Definicje widoku** wykonaj następujące czynności:
@@ -226,7 +225,7 @@ Możesz użyć nowego DSN do łączenia się z Azure Cosmos DB przy użyciu dowo
 
 1. W oknie **z ODBC** Wybierz utworzoną nazwę źródła danych, a następnie kliknij przycisk **OK**. Możesz pozostawić puste pozycje **opcji zaawansowana** .
 
-    ![Wybierz nazwę źródła danych (DSN) w Power BI Pobierz dane](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Wybierz nazwę źródła danych (DSN) w Power BI Pobierz dane":::
 
 1. W oknie **dostęp do źródła danych przy użyciu sterownika ODBC** wybierz opcję **domyślne lub niestandardowe** , a następnie kliknij przycisk **Połącz**. Nie trzeba dołączać **właściwości parametrów połączenia poświadczeń**.
 
@@ -244,7 +243,10 @@ Możesz użyć nowego DSN do łączenia się z Azure Cosmos DB przy użyciu dowo
 
 Jeśli zostanie wyświetlony następujący błąd, upewnij się, że wartości **klucza** **hosta** i dostępu zostały skopiowane Azure Portal w [kroku 2](#connect) są poprawne, a następnie ponów próbę. Użyj przycisków kopiowania po prawej stronie wartości **hosta** i **klucz dostępu** w Azure Portal, aby skopiować wartości błędne.
 
-    [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```output
+[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 

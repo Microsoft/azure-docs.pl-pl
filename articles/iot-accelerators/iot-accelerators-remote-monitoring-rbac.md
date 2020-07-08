@@ -9,12 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920713"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
@@ -50,9 +49,9 @@ Domyślnie użytkownik, który wdrożył rozwiązanie, ma automatycznie przypisa
 
 ## <a name="add-or-remove-users"></a>Dodawanie lub usuwanie użytkowników
 
-Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal do dodania lub usunięcia użytkownika do roli z rozwiązania do zdalnego monitorowania. W poniższych krokach użyto [aplikacji Azure Active Directory Enterprise](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) , która została utworzona podczas wdrażania rozwiązania do monitorowania zdalnego.
+Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal do dodania lub usunięcia użytkownika do roli z rozwiązania do zdalnego monitorowania. W poniższych krokach użyto [aplikacji Azure Active Directory Enterprise](../active-directory/manage-apps/view-applications-portal.md) , która została utworzona podczas wdrażania rozwiązania do monitorowania zdalnego.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Sprawdź, czy [użytkownik znajduje się w katalogu](../active-directory/fundamentals/add-users-azure-active-directory.md) , którego używasz. Należy wybrać katalog, który ma być używany podczas logowania do witryny [Microsoft Azure IoT Solution Accelerator](https://www.azureiotsolutions.com/Accelerators) . Nazwa katalogu jest widoczna w prawym górnym rogu [strony](https://www.azureiotsolutions.com/Accelerators).
 
@@ -72,7 +71,7 @@ Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal d
 
 1. Aby przypisać użytkownika do roli, kliknij pozycję **Wybierz rolę, brak wybranych** i wybierz dla użytkownika rolę **administratora** lub **tylko do odczytu** . Kliknij pozycję **Wybierz**, a następnie kliknij pozycję **Przypisz**.
 
-    ![Wybór roli](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
+    ![Wybierz rolę](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
 
 1. Użytkownik może teraz uzyskiwać dostęp do rozwiązania do zdalnego monitorowania z uprawnieniami zdefiniowanymi przez rolę.
 
@@ -92,7 +91,7 @@ Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Acti
 
 1. Znajdź w Azure Portal **rejestrację aplikacji** dla Twojego rozwiązania. Nazwa aplikacji jest nazwą Twojego rozwiązania do monitorowania zdalnego. Na poniższym zrzucie ekranu nazwa wyświetlana rozwiązania i aplikacji to **contoso-RM4**.
 
-    ![Rejestracja aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
+    ![Rejestrowanie aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
 
@@ -139,11 +138,11 @@ Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Acti
 
 ### <a name="define-a-policy-for-the-new-role"></a>Zdefiniuj zasady dla nowej roli
 
-Po dodaniu roli do aplikacji w Azure Portal należy zdefiniować zasady w pliku [Roles. JSON](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) dla roli, która przypisuje uprawnienia wymagane do zarządzania urządzeniami.
+Po dodaniu roli do aplikacji w Azure Portal należy zdefiniować zasady w [roles.jsna](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) dla roli, która przypisuje uprawnienia wymagane do zarządzania urządzeniami.
 
 1. Sklonuj repozytorium [mikrousług monitorowania zdalnego z usługi](https://github.com/Azure/remote-monitoring-services-dotnet) GitHub na komputerze lokalnym.
 
-1. Edytuj plik **AUTH/Services/Data/Policy/role. JSON** , aby dodać zasady dla roli **ManageDevices** , jak pokazano w poniższym fragmencie kodu. Wartości **ID** i **role** muszą być zgodne z definicją roli w manifeście aplikacji z poprzedniej sekcji. Lista dozwolonych akcji umożliwia komuś w roli **ManageDevices** tworzenie, aktualizowanie i usuwanie urządzeń podłączonych do rozwiązania:
+1. Edytuj plik **AUTH/Services/Data/Policy/roles.jsw** pliku, aby dodać zasady dla roli **ManageDevices** , jak pokazano w poniższym fragmencie kodu. Wartości **ID** i **role** muszą być zgodne z definicją roli w manifeście aplikacji z poprzedniej sekcji. Lista dozwolonych akcji umożliwia komuś w roli **ManageDevices** tworzenie, aktualizowanie i usuwanie urządzeń podłączonych do rozwiązania:
 
     ```json
     {
@@ -185,7 +184,7 @@ Po dodaniu roli do aplikacji w Azure Portal należy zdefiniować zasady w pliku 
     }
     ```
 
-1. Po zakończeniu edycji pliku **Services/Data/policies/Roles. JSON** należy ponownie skompilować i wdrożyć mikrousługę uwierzytelniania i autoryzacji do akceleratora rozwiązania.
+1. Po zakończeniu edycji **usługi/danych/zasad/roles.jsw** pliku należy ponownie skompilować i wdrożyć mikrousługę uwierzytelniania i autoryzacji do akceleratora rozwiązania.
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Jak interfejs użytkownika sieci Web wymusza uprawnienia
 
@@ -213,7 +212,7 @@ W przypadku użytkownika o nazwie **Menedżer urządzeń** w roli **ManageDevice
 }
 ```
 
-Poniższy fragment kodu z [deviceDelete. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) w [interfejsie użytkownika sieci Web](https://github.com/Azure/pcs-remote-monitoring-webui/) pokazuje, w jaki sposób uprawnienia są wymuszane deklaratywnie:
+Poniższy fragment kodu z [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) w [interfejsie użytkownika sieci Web](https://github.com/Azure/pcs-remote-monitoring-webui/) pokazuje, w jaki sposób uprawnienia są wymuszane deklaratywnie:
 
 ```json
 <FlyoutContent>
@@ -225,7 +224,7 @@ Poniższy fragment kodu z [deviceDelete. js](https://github.com/Azure/pcs-remote
 </FlyoutContent>
 ```
 
-Aby uzyskać więcej informacji, zobacz [składniki chronione](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Można zdefiniować dodatkowe uprawnienia w pliku [authModel. js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) .
+Aby uzyskać więcej informacji, zobacz [składniki chronione](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). W pliku [authModel.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) można zdefiniować dodatkowe uprawnienia.
 
 ### <a name="how-the-microservices-enforce-permissions"></a>Jak są wymuszane uprawnienia dla mikrousług
 

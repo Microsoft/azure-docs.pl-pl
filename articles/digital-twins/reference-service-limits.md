@@ -8,10 +8,9 @@ ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
 ms.openlocfilehash: 6b29937e53fd58886d770ec15c803fb814a155ae
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391812"
 ---
 # <a name="service-limits-in-public-preview"></a>Limity usługi w publicznej wersji zapoznawczej
