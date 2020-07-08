@@ -2,19 +2,19 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 1ae0512f1d82da09c9e77b43ba57acb0cde11f5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/06/2020
+ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391200"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981660"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
 Przy każdym wdrożeniu szablonu informacje o wdrożeniu są zapisywane w historii wdrażania. Każda grupa zasobów jest ograniczona do 800 wdrożeń w swojej historii wdrażania.
 
-Azure Resource Manager wkrótce rozpocznie automatyczne usuwanie wdrożeń z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów.
+Azure Resource Manager wkrótce rozpocznie automatyczne usuwanie wdrożeń z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów. **Ta funkcja nie została jeszcze dodana do platformy Azure. Powiadamiamy Cię o tej nadchodzącej zmianie, w przypadku której chcesz zrezygnować.**
 
 > [!NOTE]
 > Usunięcie wdrożenia z historii nie ma wpływu na żadne wdrożone zasoby.
@@ -38,7 +38,7 @@ Jeśli nastąpi wdrożenie o takiej samej nazwie jak jedna w historii, zresetuj 
 
 Można zrezygnować z automatycznego usuwania z historii. **Tej opcji należy używać tylko wtedy, gdy chcesz samodzielnie zarządzać historią wdrożenia.** Obowiązuje limit 800 wdrożeń w historii. W przypadku przekroczenia 800 wdrożeń zostanie wyświetlony komunikat o błędzie, a wdrożenie zakończy się niepowodzeniem.
 
-Aby wyłączyć automatyczne usuwanie, zarejestruj `Microsoft.Resources/DisableDeploymentGrooming` flagę funkcji. Po zarejestrowaniu flagi funkcji można zrezygnować z automatycznego usuwania dla całej subskrypcji platformy Azure. Nie można zrezygnować tylko dla określonej grupy zasobów.
+Aby wyłączyć automatyczne usuwanie, zarejestruj `Microsoft.Resources/DisableDeploymentGrooming` flagę funkcji. Po zarejestrowaniu flagi funkcji można zrezygnować z automatycznego usuwania dla całej subskrypcji platformy Azure. Nie można zrezygnować tylko dla określonej grupy zasobów. Aby ponownie włączyć automatyczne usuwanie, Wyrejestruj flagę funkcji.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -54,6 +54,8 @@ Aby wyświetlić bieżący stan subskrypcji, użyj:
 Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName DisableDeploymentGrooming
 ```
 
+Aby ponownie włączyć automatyczne usuwanie, użyj interfejsu API REST platformy Azure lub wiersza polecenia platformy Azure.
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register).
@@ -68,6 +70,12 @@ Aby wyświetlić bieżący stan subskrypcji, użyj:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
+Aby ponownie włączyć automatyczne usuwanie, użyj polecenie [AZ Feature Unregister](/cli/azure/feature#az-feature-unregister).
+
+```azurecli-interactive
+az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
+```
+
 # <a name="rest"></a>[REST](#tab/rest)
 
 W przypadku interfejsu API REST Użyj [funkcji Register](/rest/api/resources/features/register).
@@ -80,6 +88,12 @@ Aby wyświetlić bieżący stan subskrypcji, użyj:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
+```
+
+Aby ponownie włączyć automatyczne usuwanie, użyj [funkcji-Unregister](/rest/api/resources/features/unregister)
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01
 ```
 
 ---

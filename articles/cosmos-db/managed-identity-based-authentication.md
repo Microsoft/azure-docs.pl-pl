@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391863"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970964"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -43,7 +43,7 @@ W tym kroku przypiszesz rolę do tożsamości zarządzanej przypisanej do system
 |Wbudowana rola  |Opis  |
 |---------|---------|
 |[Współautor konta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Może zarządzać kontami Azure Cosmos DB. Umożliwia pobieranie kluczy do odczytu i zapisu. |
-|[Cosmos DB czytelnika konta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Może odczytywać Azure Cosmos DB dane konta. Umożliwia pobieranie kluczy odczytu. |
+|[Rola czytnika konta Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Może odczytywać Azure Cosmos DB dane konta. Umożliwia pobieranie kluczy odczytu. |
 
 > [!IMPORTANT]
 > Obsługa kontroli dostępu opartej na rolach w Azure Cosmos DB ma zastosowanie tylko do operacji na płaszczyźnie kontroli. Operacje płaszczyzny danych są zabezpieczane za poorednictwem kluczy głównych lub tokenów zasobów. Aby dowiedzieć się więcej, zobacz artykuł [bezpieczny dostęp do danych](secure-access-to-data.md) .

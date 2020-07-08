@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 0a247626566a4b0156d879954bf6734d248f01d8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/17/2020
+ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513513"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980355"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Tworzenie aplikacji Power BI dla Microsoft AppSource
 
 W tym artykule opisano sposób tworzenia i publikowania oferty aplikacji Power BI w programie Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
@@ -53,12 +53,12 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
-- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Jeśli nie ukończono wylogowania wydawcy — [Anulowanie publikowania](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
+- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval))
+- Jeśli nie ukończono wylogowania wydawcy — [Anulowanie publikowania](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
@@ -68,12 +68,12 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) dla zaangażowania klienta
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
+    > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](commercial-marketplace-lead-management-instructions-azure-table.md) lub [punktu końcowego HTTPS](commercial-marketplace-lead-management-instructions-https.md) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
 3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
@@ -81,9 +81,9 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Zarządzanie potencjalnymi klientami — często zadawane pytania](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
@@ -94,33 +94,16 @@ Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania of
 
 ### <a name="category"></a>Kategoria
 
-Wybierz co najmniej jedną i maksymalnie trzy kategorie. Te kategorie służą do umieszczania oferty w odpowiednich obszarach wyszukiwania w witrynie Marketplace i są wyświetlane na stronie szczegółów oferty. W opisie oferty Wyjaśnij, w jaki sposób oferta obsługuje te kategorie.
+Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
+
+- Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+
+Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industry"></a>Branża
 
-Opcjonalnie możesz wybrać maksymalnie dwie branże i dwie pionowe w poszczególnych branżach. Chociaż kategorie są używane do wyświetlania oferty, branżowe i pionowe są używane w filtrach wyszukiwania i są stosowane w sklepie. Jeśli Twoja oferta jest przeznaczona dla określonej branży i/lub w pionie, Skorzystaj z opisu oferty, aby wyjaśnić, w jaki sposób oferta obsługuje wybrane branże lub pionowo. Jeśli Twoja oferta nie jest zależna od branży, pozostaw tę sekcję pustą.
-
-> [!NOTE]
-> Gdy pracujemy nad wprowadzeniem nowych branż i pionowych w celu usprawnienia funkcji odnajdywania ofert, niektóre branże lub pionowe mogą jeszcze nie być widoczne w witrynie sklepu. Branże i pionowe z oznaczeniem (*) będą dostępne w przyszłości. Wszystkie opublikowane oferty są wykrywalne za pośrednictwem wyszukiwania słów kluczowych.
-<p>&nbsp;
-
-| **Branża** | **Podbranża** |
-| --- | --- |
-| * Motoryzacyjne | * Motoryzacyjne |
-| Rolnictwo | * Inne — niesegmentacja |
-| Dystrybucja | * Sprzedaż hurtowa<br>Paczka i wysyłka pakietu |
-| Education | *Szkolnictwo <br> wyższe* Edukacja podstawowa i dodatkowa/K-12<br>* Biblioteki i muzea |
-| Usługi finansowe | *Bankowość i rynki <br> kapitałowe* Zakład |
-| Instytucje rządowe | *Obronność i analiza (używana do nazywania bezpieczeństwa narodowego i publicznego <br> )* Bezpieczeństwo publiczne i wymiar sprawiedliwości<br>* Rząd cywilny |
-| Opieka zdrowotna (używana do nazywania kondycji) | *Płatnik <br> kondycji* Dostawca kondycji<br>* Środki farmaceutyczne |
-| Produkcja i zasoby (używane do wywoływania produkcji) | *Chemiczne i Agrochemical <br> * Produkcja dyskretna<br>* Energia |
-| Sprzedaż detaliczna i towary konsumenckie (używane do nazywania sprzedaży detalicznej) | *Towary <br> konsumenckie* Detalicznych |
-| * Multimedia i komunikacja (używane do nazywania multimediów i rozrywki) | *Multimedia i rozrywka <br> * Komunikacyjny |
-| Usługi specjalistyczne | *Informacje <br> prawne* Profesjonalne usługi partnerskie |
-| * Architektura i konstrukcja (używana do nazywania inżynierii architektury) | * Inne — niesegmentacja |
-| * Hotelarstwo i podróż | *Hotele i wypoczynek <br> * Podróże i transport<br>* Usługi dla restauracji i żywności |
-| * Inne branże sektora publicznego | *Leśnictwo i rybołówstwo <br> * Organizacji niedochodowych |
-| * Nieruchomości | * Inne — niesegmentacja |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="legal"></a>Informacje prawne
 
@@ -240,7 +223,7 @@ Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Wprowadź 
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
-Aby dowiedzieć się więcej na temat tworzenia list ofert, zobacz [najlepsze rozwiązania dotyczące oferty](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Aby dowiedzieć się więcej na temat tworzenia list ofert, zobacz [najlepsze rozwiązania dotyczące oferty](../gtm-offer-listing-best-practices.md).
 
 ## <a name="technical-configuration"></a>Konfiguracja techniczna
 

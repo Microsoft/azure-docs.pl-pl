@@ -1,14 +1,14 @@
 ---
 title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 944d0f2676f1a82c80be33a6c1a91d34bc8a32f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654455"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970454"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -17,16 +17,17 @@ Język zapytań dla wykresu zasobów platformy Azure obsługuje wiele operatoró
 W tym artykule omówiono składniki językowe obsługiwane przez program Resource Graph:
 
 - [Tabele grafu zasobów](#resource-graph-tables)
+- [Niestandardowe elementy języka grafu zasobów](#resource-graph-custom-language-elements)
 - [Obsługiwane elementy języka KQL](#supported-kql-language-elements)
 - [Znaki ucieczki](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabele grafu zasobów
 
-Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typach zasobów Menedżer zasobów i ich właściwościach. Te tabele mogą być używane z `join` `union` operatorami or lub do pobierania właściwości z powiązanych typów zasobów. Poniżej znajduje się lista tabel dostępnych na wykresie zasobów:
+Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typach zasobów Azure Resource Manager i ich właściwościach. Te tabele mogą być używane z `join` `union` operatorami or lub do pobierania właściwości z powiązanych typów zasobów. Poniżej znajduje się lista tabel dostępnych na wykresie zasobów:
 
 |Tabele grafu zasobów |Opis |
 |---|---|
-|Resources |Domyślna tabela, jeśli żadna nie została zdefiniowana w zapytaniu. Większość Menedżer zasobów typów zasobów i właściwości jest tutaj. |
+|Zasoby |Domyślna tabela, jeśli żadna nie została zdefiniowana w zapytaniu. Większość Menedżer zasobów typów zasobów i właściwości jest tutaj. |
 |ResourceContainers |Obejmuje subskrypcję (w wersji zapoznawczej-- `Microsoft.Resources/subscriptions` ) i grupy zasobów ( `Microsoft.Resources/subscriptions/resourcegroups` ) oraz typy zasobów i dane. |
 |AdvisorResources |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
 |AlertsManagementResources |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
@@ -61,6 +62,33 @@ Resources
 
 > [!NOTE]
 > W przypadku ograniczania `join` wyników przy użyciu `project` właściwości, która jest używana przez program `join` do powiązania dwóch tabel, identyfikator _subskrypcji_ w powyższym przykładzie, musi być uwzględniona w `project` .
+
+## <a name="resource-graph-custom-language-elements"></a>Niestandardowe elementy języka grafu zasobów
+
+### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>Składnia zapytania udostępnionego (wersja zapoznawcza)
+
+Jako funkcja w wersji zapoznawczej można uzyskać dostęp do [udostępnionego zapytania](../tutorials/create-share-query.md) bezpośrednio w zapytaniu wykresu zasobów. W tym scenariuszu można utworzyć standardowe zapytania jako zapytania udostępnione i użyć ich ponownie. Aby wywołać udostępnione zapytanie wewnątrz zapytania grafu zasobów, użyj `{{shared-query-uri}}` składni. Identyfikator URI zapytania udostępnionego jest adresem _zasobu_ zapytania udostępnionego na stronie **Ustawienia** dla tego zapytania. W tym przykładzie nasz udostępniony identyfikator URI zapytania to `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS` .
+Ten identyfikator URI wskazuje na subskrypcję, grupę zasobów i pełną nazwę zapytania udostępnionego, do którego chcemy się odwołać w innym zapytaniu. To zapytanie jest takie samo jak utworzone w [samouczku: Tworzenie i udostępnianie zapytania](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> Nie można zapisać zapytania, które odwołuje się do zapytania udostępnionego jako zapytania udostępnionego.
+
+Przykład 1: Użyj tylko zapytania udostępnionego
+
+Wyniki tego zapytania grafu zasobów są takie same, jak zapytanie przechowywane w zapytaniu udostępnionym.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Przykład 2: Dołącz udostępnione zapytanie jako część większego zapytania
+
+To zapytanie najpierw używa udostępnionej kwerendy, a następnie używa `limit` w celu ograniczenia wyników.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## <a name="supported-kql-language-elements"></a>Obsługiwane elementy języka KQL
 

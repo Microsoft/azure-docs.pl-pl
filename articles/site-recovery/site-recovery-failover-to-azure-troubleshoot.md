@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834734"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971083"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformę Azure
 
@@ -74,6 +74,10 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Nie można nawiązać połączenia/RDP/SSH z maszyną wirtualną w trybie failover ze względu na szary przycisk Połącz na maszynie wirtualnej
 
+Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem RDP można znaleźć w [naszej dokumentacji.](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+
+Szczegółowe instrukcje dotyczące rozwiązywania problemów z protokołem SSH można znaleźć w [naszej dokumentacji.](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)
+
 Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest wyszarzony i nie masz połączenia z platformą Azure za pośrednictwem usługi Express Route lub sieci VPN typu lokacja-lokacja, a następnie
 
 1. Przejdź do **sieci maszyn wirtualnych**  >  **Networking**, kliknij nazwę wymaganego interfejsu sieciowego.  ![Interfejs sieciowy](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -130,7 +134,7 @@ Ten problem jest wskazywany, gdy nie można wyświetlić magazynu danych w usłu
 
 Aby uzyskać więcej informacji na temat ponownej ochrony maszyny wirtualnej, zobacz Ponowne [Włączanie ochrony i przywracanie maszyn w lokacji lokalnej po przejściu do trybu failover na platformie Azure](vmware-azure-reprotect.md).
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Ręcznie Utwórz główny element docelowy w programie vCenter, który zarządza maszyną źródłową. Magazyn danych będzie dostępny po następnej operacji odnajdywania vCenter i odświeżania sieci szkieletowej.
 
@@ -148,7 +152,7 @@ Ten błąd jest wskazywany przez następujące ciągi w dzienniku instalacji:
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
 ```
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
  
 1. Na maszynie wirtualnej serwera konfiguracji Otwórz wiersz polecenia i sprawdź ustawienia serwera proxy przy użyciu następujących poleceń:
 

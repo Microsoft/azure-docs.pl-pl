@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a70534f91584f72ad81b71913c48062e51a324d3
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052737"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971117"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -603,9 +603,9 @@ Wszystkie [funkcje szablonu Menedżer zasobów](../../../azure-resource-manager/
 > [!NOTE]
 > Te funkcje są nadal dostępne w `details.deployment.properties.template` części wdrożenia szablonu w definicji zasad **deployIfNotExists** .
 
-Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się od użycia w szablonie Azure Resource Manager:
+Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się od użycia w szablonie Azure Resource Manager (szablon ARM):
 
-- `utcNow()`— W przeciwieństwie do szablonu Menedżer zasobów, ta właściwość może być używana poza elementem _DefaultValue_.
+- `utcNow()`— W przeciwieństwie do szablonu ARM, ta właściwość może być używana poza _DefaultValue_.
   - Zwraca ciąg, który jest ustawiony na bieżącą datę i godzinę w formacie uniwersalnego ISO 8601 DateTime-MM-DDTgg: mm: SS. fffffffZ
 
 Następujące funkcje są dostępne tylko w regułach zasad:

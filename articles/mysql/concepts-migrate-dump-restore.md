@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: bc3411a926e71c88f0b4e4f84fcdf083b519f46a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c30faa31f6f733f80d4bfd5184c09d9fdbd6f389
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323556"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971185"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
 W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MySQL
@@ -67,7 +67,11 @@ Parametry, które należy podać:
 - [backupfile. SQL] nazwa pliku kopii zapasowej bazy danych 
 - [--opt] Opcja mysqldump 
 
-Na przykład, aby utworzyć kopię zapasową bazy danych o nazwie "TestDB" na serwerze MySQL przy użyciu nazwy użytkownika "Użytkownik testowy" i bez hasła do pliku testdb_backup. SQL, użyj następującego polecenia. Polecenie tworzy kopię zapasową `testdb` bazy danych w pliku o nazwie `testdb_backup.sql` , który zawiera wszystkie instrukcje SQL wymagane do ponownego utworzenia bazy danych. 
+Na przykład, aby utworzyć kopię zapasową bazy danych o nazwie "TestDB" na serwerze MySQL przy użyciu nazwy użytkownika "Użytkownik testowy" i bez hasła do pliku testdb_backup. SQL, użyj następującego polecenia. Polecenie tworzy kopię zapasową `testdb` bazy danych w pliku o nazwie `testdb_backup.sql` , który zawiera wszystkie instrukcje SQL wymagane do ponownego utworzenia bazy danych. Upewnij się, że nazwa użytkownika "Użytkownik testowy" ma co najmniej uprawnienie Wybieranie dla tabel z zrzutem, Pokaż widok dla widoków z zrzutem, WYZWÓL wyzwalacze wyzwalane i Zablokuj tabele, jeśli opcja--Single-Transaction nie jest używana.
+
+```bash
+GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
+```
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql

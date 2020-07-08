@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255164"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970488"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -27,7 +27,7 @@ W magazynie można zarejestrować maksymalnie 1000 maszyn wirtualnych platformy 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Ile źródeł danych / elementów można objąć ochroną w magazynie?
 
 Ochroną można objąć maksymalnie 2000 źródeł danych / elementów we wszystkich obciążeniach (maszyna wirtualna IaaS, SQL, AFS itp.) w magazynie.
-Jeśli na przykład chronionych jest już 500 maszyn wirtualnych i 400 udziałów w usłudze Azure Files w magazynie, można objąć ochroną maksymalnie 1100 baz danych SQL.
+Jeśli na przykład masz już chronione 500 maszyn wirtualnych i 400 Azure Files w magazynie, możesz chronić tylko do 1100 baz danych SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Ile zasad można utworzyć dla danego magazynu?
 
@@ -47,12 +47,16 @@ Nie. Danych kopii zapasowej przechowywanych w magazynie nie można przenieść d
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Czy po utworzeniu kopii zapasowej można zmienić magazyn geograficznie nadmiarowy (GRS) na magazyn lokalnie nadmiarowy (LRS)?
 
-Nie. Opcje magazynu usług Recovery Services można zmienić tylko przed zapisaniem jakichkolwiek kopii zapasowych.
+Domyślnie typ replikacji magazynu to magazyn Geograficznie nadmiarowy (GRS). Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona i nie można jej zmienić.
+
+![Typ replikacji magazynu](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z GRS do LRS, zobacz [jak zmienić z GRS na LRS po skonfigurowaniu kopii zapasowej](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Czy można wykonać przywracanie na poziomie elementu (ILR) dla maszyn wirtualnych, których kopia zapasowa jest wykonywana w magazynie usług Recovery Services?
 
 - Przywracanie na poziomie elementu jest obsługiwane w przypadku maszyn wirtualnych platformy Azure, których kopia zapasowa jest wykonywana przez kopię zapasową maszyny wirtualnej platformy Azure. Więcej informacji znajduje się w tym [artykule](backup-azure-restore-files-from-vm.md)
-- Przywracanie na poziomie elementu nie jest obsługiwane w przypadku punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez serwer usługi Azure Backup lub program System Center DPM.
+- Usługa ILR nie jest obsługiwana dla punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez serwer usługi Azure Backup lub program System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

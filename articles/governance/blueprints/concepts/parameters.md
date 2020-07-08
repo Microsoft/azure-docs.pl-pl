@@ -3,16 +3,16 @@ title: Używanie parametrów do tworzenia planów dynamicznych
 description: Poznaj parametry statyczne i dynamiczne oraz sposób ich używania do tworzenia bezpiecznych i dynamicznych planów.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458492"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970641"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Tworzenie dynamicznych planów za poorednictwem parametrów
 
-W pełni zdefiniowany plan z różnymi artefaktami (takimi jak grupy zasobów, szablony Menedżer zasobów, zasady lub przypisania ról) umożliwia szybkie tworzenie i spójne Tworzenie obiektów na platformie Azure. Aby umożliwić elastyczne korzystanie z tych wzorców i kontenerów projektu wielokrotnego użytku, plany platformy Azure obsługują parametry. Parametr tworzy elastyczność podczas definiowania i przypisywania, aby zmienić właściwości artefaktów wdrożonych przez plan.
+W pełni zdefiniowany plan z różnymi artefaktami, takimi jak grupy zasobów, szablony Azure Resource Manager (szablony ARM), zasady lub przypisania ról, umożliwia szybkie tworzenie i spójność tworzenia obiektów na platformie Azure. Aby umożliwić elastyczne korzystanie z tych wzorców i kontenerów projektu wielokrotnego użytku, plany platformy Azure obsługują parametry. Parametr tworzy elastyczność podczas definiowania i przypisywania, aby zmienić właściwości artefaktów wdrożonych przez plan.
 
 Prostym przykładem jest artefakt grupy zasobów. Po utworzeniu grupy zasobów muszą być podane dwie wymagane wartości: Nazwa i lokalizacja. W przypadku dodawania grupy zasobów do planu, jeśli parametry nie istnieją, należy zdefiniować tę nazwę i lokalizację dla każdego użycia planu. To powtórzenie spowodowałoby każde użycie planu do tworzenia artefaktów w tej samej grupie zasobów. Zasoby znajdujące się w tej grupie zasobów byłyby zduplikowane i powodują konflikt.
 
@@ -28,7 +28,7 @@ Za pomocą interfejsu API REST, parametry można tworzyć na podstawie samego pl
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Używanie parametrów secureString i secureobject
 
-Ponieważ _artefakt_ szablonu Menedżer zasobów obsługuje parametry typu **secureString** i **secureobject** , plany platformy Azure wymagają, aby każdy z nich był połączony z Azure Key Vault. Ta miara zabezpieczeń zapobiega niebezpiecznemu wykorzystaniu wpisów tajnych wraz z planem i zachęcaniu do pracy z bezpiecznymi wzorcami. Plany platformy Azure wspierają ten środek zabezpieczeń, co umożliwia wykrywanie dołączania dowolnego bezpiecznego parametru w _artefaktie_szablonu Menedżer zasobów. Podczas przypisywania zostanie wyświetlony komunikat o następujących właściwościach Key Vault na wykryty bezpieczny parametr:
+Chociaż _artefakt_ szablonu ARM obsługuje parametry typu **secureString** i **secureobject** , plany platformy Azure wymagają, aby każdy z nich był połączony z Azure Key vaultem. Ta miara zabezpieczeń zapobiega niebezpiecznemu wykorzystaniu wpisów tajnych wraz z planem i zachęcaniu do pracy z bezpiecznymi wzorcami. Plany platformy Azure wspierają ten pomiar zabezpieczeń, co umożliwia wykrywanie dołączania dowolnego zabezpieczonego parametru w _artefaktie_szablonu ARM. Podczas przypisywania zostanie wyświetlony komunikat o następujących właściwościach Key Vault na wykryty bezpieczny parametr:
 
 - Identyfikator zasobu Key Vault
 - Key Vault nazwa klucza tajnego
@@ -130,7 +130,7 @@ Poniższy przykład interfejsu API REST tworzy artefakt przypisania roli w plani
   }
   ```
 
-W tym przykładzie właściwość **principalIds** używa parametru poziomu strategii **właściciele** przy użyciu wartości `[parameters('owners')]`. Ustawienie parametru na artefaktie przy użyciu parametru poziomu planu jest nadal przykładem **parametru statycznego**. Nie można ustawić parametru poziomu planu podczas przypisywania planu i będzie on taki sam jak wartość w każdym przypisaniu.
+W tym przykładzie właściwość **principalIds** używa parametru poziomu strategii **właściciele** przy użyciu wartości `[parameters('owners')]` . Ustawienie parametru na artefaktie przy użyciu parametru poziomu planu jest nadal przykładem **parametru statycznego**. Nie można ustawić parametru poziomu planu podczas przypisywania planu i będzie on taki sam jak wartość w każdym przypisaniu.
 
 ##### <a name="artifact-level-parameter"></a>Parametr poziomu artefaktu
 
@@ -180,7 +180,7 @@ Przeciwieństwem parametru statycznego jest **parametr dynamiczny**. Ten paramet
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ustawianie parametrów dynamicznych z interfejsu API REST
 
-Ustawienie **parametrów dynamicznych** podczas przypisywania jest wykonywane przez bezpośrednie wprowadzenie wartości. Zamiast używać funkcji, takiej jak [Parametry ()](../reference/blueprint-functions.md#parameters), podana wartość jest odpowiednim ciągiem. Artefakty dla grupy zasobów są definiowane przy użyciu właściwości "Nazwa szablonu", **Nazwa**i **Lokalizacja** . Wszystkie inne parametry dla dołączonego artefaktu są zdefiniowane w **parametrach** z parą kluczy ** \<Name\> ** i **Value** . Jeśli plan jest skonfigurowany dla parametru dynamicznego, który nie jest dostarczany podczas przypisywania, przypisanie zakończy się niepowodzeniem.
+Ustawienie **parametrów dynamicznych** podczas przypisywania jest wykonywane przez bezpośrednie wprowadzenie wartości. Zamiast używać funkcji, takiej jak [Parametry ()](../reference/blueprint-functions.md#parameters), podana wartość jest odpowiednim ciągiem. Artefakty dla grupy zasobów są definiowane przy użyciu właściwości "Nazwa szablonu", **Nazwa**i **Lokalizacja** . Wszystkie inne parametry dla dołączonego artefaktu są zdefiniowane w **parametrach** z **\<name\>** parą kluczy i. **value** Jeśli plan jest skonfigurowany dla parametru dynamicznego, który nie jest dostarczany podczas przypisywania, przypisanie zakończy się niepowodzeniem.
 
 - Identyfikator URI interfejsu API REST
 

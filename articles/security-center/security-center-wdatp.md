@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 99c9a9ac742981734daf107d73c9cec8777dc642
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85257537"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970811"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender przy użyciu Azure Security Center
 
@@ -46,8 +46,14 @@ Dzięki integracji usługi Defender ATP z Azure Security Center można także sk
 
 Usługa Microsoft Defender ATP w Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 z dodatkiem SP1. W przypadku maszyn wirtualnych platformy Azure potrzebna jest subskrypcja warstwy Standardowa i dla maszyn wirtualnych innych niż platformy Azure potrzebna jest warstwa standardowa tylko na poziomie obszaru roboczego.
 
-> [!NOTE]
-> W przypadku korzystania z Azure Security Center do monitorowania serwerów usługa Microsoft Defender ATP zostanie automatycznie utworzona, a dane z witryny Microsoft Defender ATP są domyślnie przechowywane w Europie. Jeśli musisz przenieść dane do innej lokalizacji, musisz skontaktować się z pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy. Monitorowanie punktu końcowego serwera korzystające z tej integracji zostało wyłączone dla klientów korzystających z pakietu Office 365 w zatoce.
+Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów usługi Office 365 w zatoce.
+
+## <a name="data-storage-location"></a>Lokalizacja przechowywania danych
+
+W przypadku korzystania z Azure Security Center do monitorowania serwerów usługa Microsoft Defender ATP zostanie utworzona automatycznie. Dane zbierane przez usługę Microsoft Defender ATP są przechowywane w lokalizacji geograficznej dzierżawy, która została zidentyfikowana podczas aprowizacji. Dane klienta w formie pseudonimów mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
+
+Po skonfigurowaniu nie można zmienić lokalizacji, w której są przechowywane dane. Jeśli musisz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
+
 
 ## <a name="onboarding-servers-to-security-center"></a>Dołączanie serwerów do usługi Security Center 
 

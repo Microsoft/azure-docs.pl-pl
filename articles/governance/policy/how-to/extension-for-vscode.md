@@ -1,14 +1,14 @@
 ---
 title: Azure Policy rozszerzenie dla Visual Studio Code
-description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Menedżer zasobów.
+description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Azure Resource Manager.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 94d865e4a810fbebd8495153f97f9d1e3227e8af
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888504"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970760"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
@@ -121,7 +121,7 @@ Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, 
 
 ## <a name="discover-aliases-for-resource-properties"></a>Odnajdź aliasy dla właściwości zasobów
 
-Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania lub wybierając go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON reprezentujący ten zasób i wszystkie jego Menedżer zasobów wartości właściwości.
+Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania lub wybierając go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON reprezentujący ten zasób i wszystkie jego Azure Resource Manager wartości właściwości.
 
 Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest `Microsoft.Compute/virtualMachines` typem zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
 

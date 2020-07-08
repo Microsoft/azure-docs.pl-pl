@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 868b8c53a120ebdb6a35806538e02af39e25c338
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234188"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970845"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -28,7 +28,7 @@ Lokalizacja szczegółów błędu zależy od akcji, która powoduje błąd.
 
 #### <a name="issue"></a>Problem
 
-Azure Policy używa [aliasów](../concepts/definition-structure.md#aliases) do mapowania na Menedżer zasobów właściwości.
+Azure Policy używa [aliasów](../concepts/definition-structure.md#aliases) do mapowania na Azure Resource Manager właściwości.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -103,7 +103,7 @@ Komunikat o błędzie z przypisania zasad Odmów obejmuje definicję zasad i ide
 
 #### <a name="issue"></a>Problem
 
-Azure Policy obsługuje wiele funkcji szablonu Menedżer zasobów i funkcji, które są dostępne tylko w definicji zasad. Menedżer zasobów przetwarza te funkcje jako część wdrożenia, a nie jako część definicji zasad.
+Azure Policy obsługuje kilka funkcji i funkcji szablonu Azure Resource Manager (szablon ARM), które są dostępne tylko w definicji zasad. Menedżer zasobów przetwarza te funkcje jako część wdrożenia, a nie jako część definicji zasad.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -152,6 +152,6 @@ Postępuj zgodnie z instrukcjami, aby [usunąć Azure Policy dodatku Kubernetes]
 
 Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-- Uzyskaj odpowiedzi od ekspertów za pośrednictwem usługi [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+- Uzyskaj odpowiedzi od ekspertów za pośrednictwem usługi [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) — oficjalne konto Microsoft Azure, aby usprawnić obsługę klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 - Jeśli potrzebujesz więcej pomocy, możesz obsłużyć zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

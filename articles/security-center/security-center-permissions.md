@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: e0988c60629cab2c6d7312e5067c31153b24e2dc
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 953881b0c576ad6ce12a4dc44bb0980edd7bcd50
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688725"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970556"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -43,6 +43,7 @@ W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 |Akcja|Czytelnik zabezpieczeń/ <br> Czytelnik |Administrator zabezpieczeń  |Współautor grupy zasobów/ <br> Właściciel grupy zasobów  |Współautor subskrypcji  |Właściciel subskrypcji  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edytuj zasady zabezpieczeń|-|✔|-|-|✔|
+|Dodaj/Przypisz inicjatywy (w tym) normy zgodności z przepisami)|-|-|-|-|✔|
 |Zmień warstwę cenową subskrypcji|-|✔|-|-|✔|
 |Włącz/Wyłącz funkcję autoaprowizacji|-|✔|✔|-|✔|
 |Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (i Użyj [szybkiej poprawki!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|

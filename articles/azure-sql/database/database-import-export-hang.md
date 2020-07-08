@@ -3,18 +3,19 @@ title: Importowanie i eksportowanie bazy danych zajmuje dużo czasu
 description: Importowanie lub eksportowanie bazy danych usługi Azure SQL instance Managed/Export nie potrwa dużo czasu Azure SQL Database
 ms.custom: seo-lt-2019, sqldbrb=1
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: e7df5f2ed484a2425e97423fbbdd396fc4eb1eb0
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253481"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982314"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Importowanie lub eksportowanie bazy danych za pomocą usługi importu/eksportu wystąpienia zarządzanego Azure SQL Database
 

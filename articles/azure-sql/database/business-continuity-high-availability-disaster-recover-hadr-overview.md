@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Dowiedz się, w jaki sposób usługa Azure SQL Database i wystąpienie zarządzane SQL obsługują ciągłość biznesową i odzyskiwanie bazy danych, a następnie Pomóż w działaniu aplikacji w chmurze o znaczeniu strategicznym
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 8312fe1370ded990bd3523d531d168fd2cac5564
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189761"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982476"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Omówienie zagadnień dotyczących ciągłości działalności biznesowej zapewnianej przez usługę Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,14 +65,14 @@ Jeśli maksymalny obsługiwany okres przechowywania kopii zapasowej dla operacji
 
 |                                              | Replikacja geograficzna | Grupy trybu failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Automatyczne przełączanie w tryb failover                           |     Nie          |      Yes         |
-| Równoczesne przełączanie wielu baz danych  |     Nie          |      Yes         |
-| Użytkownik musi zaktualizować parametry połączenia po przejściu w tryb failover      |     Yes         |      Nie          |
-| Obsługa wystąpienia zarządzanego SQL                   |     Nie          |      Yes         |
-| Może znajdować się w tym samym regionie co podstawowa             |     Yes         |      Nie          |
-| Wiele replik                            |     Yes         |      Nie          |
-| Obsługuje skalę odczytu                          |     Tak         |      Tak         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Automatyczne przełączanie w tryb failover**                          |     Nie          |      Yes         |
+| **Równoczesne przełączanie wielu baz danych**  |     Nie          |      Yes         |
+| **Użytkownik musi zaktualizować parametry połączenia po przejściu w tryb failover**      |     Yes         |      Nie          |
+| **Obsługa wystąpienia zarządzanego SQL**                   |     Nie          |      Yes         |
+| **Może znajdować się w tym samym regionie co podstawowa**             |     Yes         |      Nie          |
+| **Wiele replik**                            |     Yes         |      Nie          |
+| **Obsługuje skalę odczytu**                          |     Tak         |      Tak         |
+
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Odzyskiwanie bazy danych na istniejący serwer
 
