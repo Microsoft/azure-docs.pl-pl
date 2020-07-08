@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 7805e65b3f49a69d4667180715a58585767ddf5a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080979"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure subscription and service limits, quotas, and constraints (Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure)
 
 Ten dokument zawiera listę najbardziej typowych limitów Microsoft Azure, które są również czasami nazywane przydziałami.
 
-Aby dowiedzieć się więcej na temat cen platformy Azure, zobacz [Omówienie cen platformy Azure](https://azure.microsoft.com/pricing/). W tym miejscu możesz oszacować swoje koszty za pomocą [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/). Możesz również przejść do strony szczegóły cennika dla konkretnej usługi, na przykład [maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Aby uzyskać porady ułatwiające zarządzanie kosztami, zobacz [zapobieganie nieoczekiwanym kosztom w rozliczeniach i zarządzaniu kosztami platformy Azure](../../billing/billing-getting-started.md).
+Aby dowiedzieć się więcej na temat cen platformy Azure, zobacz [Omówienie cen platformy Azure](https://azure.microsoft.com/pricing/). W tym miejscu możesz oszacować swoje koszty za pomocą [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/). Możesz również przejść do strony szczegóły cennika dla konkretnej usługi, na przykład [maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Aby uzyskać porady ułatwiające zarządzanie kosztami, zobacz [zapobieganie nieoczekiwanym kosztom w rozliczeniach i zarządzaniu kosztami platformy Azure](../../cost-management-billing/manage/getting-started.md).
 
 ## <a name="managing-limits"></a>Zarządzanie limitami
 
@@ -29,7 +29,7 @@ Aby dowiedzieć się więcej na temat cen platformy Azure, zobacz [Omówienie ce
 >
 > Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, [Otwórz żądanie obsługi klienta online bez dodatkowych opłat](../templates/error-resource-quota.md).
 
-[Bezpłatna subskrypcja wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikuje się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie subskrypcji bezpłatnej wersji próbnej platformy Azure do subskrypcji płatnej zgodnie z rzeczywistym](../../billing/billing-upgrade-azure-subscription.md) użyciem i [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
+[Bezpłatna subskrypcja wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikuje się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie subskrypcji bezpłatnej wersji próbnej platformy Azure do subskrypcji płatnej zgodnie z rzeczywistym](../../cost-management-billing/manage/upgrade-azure-subscription.md) użyciem i [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
 
 Niektóre ograniczenia są zarządzane na poziomie regionalnym.
 
@@ -259,7 +259,7 @@ W poniższej tabeli przedstawiono funkcje i limity [warstw usług](../../contain
 
 ### <a name="media-services-v2-legacy"></a>Media Services w wersji 2 (starsza wersja)
 
-Aby uzyskać ograniczenia dotyczące Media Services V2 (starsza wersja), zobacz [Media Services V2 (starsza wersja)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+Aby uzyskać ograniczenia dotyczące Media Services V2 (starsza wersja), zobacz [Media Services V2 (starsza wersja)](../../media-services/previous/media-services-quotas-and-limitations.md)
 
 ## <a name="mobile-services-limits"></a>Limity Mobile Services
 
@@ -332,11 +332,11 @@ W poniższej tabeli przedstawiono jednostki SKU V1, v2, standard i WAF, chyba ż
 
 ## <a name="sql-database-limits"></a>Limity SQL Database
 
-Aby uzyskać SQL Database limitów, zobacz [SQL Database limitów zasobów dla pojedynczych baz danych](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database limitów zasobów dla pul elastycznych i baz danych w puli](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), a następnie [limity zasobów SQL Database dla wystąpień zarządzanych](../../azure-sql/managed-instance/resource-limits.md).
+Aby uzyskać SQL Database limitów, zobacz [SQL Database limitów zasobów dla pojedynczych baz danych](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database limitów zasobów dla pul elastycznych i baz danych w puli](../../azure-sql/database/resource-limits-vcore-elastic-pools.md)oraz [limity zasobów SQL Database dla wystąpienia zarządzanego SQL](../../azure-sql/managed-instance/resource-limits.md).
 
-## <a name="sql-data-warehouse-limits"></a>Limity SQL Data Warehouse
+## <a name="azure-synapse-analytics-limits"></a>Limity usługi Azure Synapse Analytics
 
-Aby uzyskać SQL Data Warehouse limitów, zobacz [SQL Data Warehouse limitów zasobów](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Ograniczenia dotyczące usługi Azure Synapse Analytics można znaleźć w temacie [limity zasobów usługi Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limity magazynu
 

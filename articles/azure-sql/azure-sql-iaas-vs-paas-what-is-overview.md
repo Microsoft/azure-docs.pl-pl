@@ -13,11 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ad7dc2452cdc2756413db1a07da74e2a1dc3fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080180"
 ---
 # <a name="what-is-azure-sql"></a>Co to jest usługa Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -58,7 +59,7 @@ Platforma Azure stale monitoruje dane pod kątem zagrożeń. Za pomocą usługi 
 Istnieje kilka czynników, które mogą wpływać na decyzję o wyborze między różnymi ofertami dotyczącymi danych:
 
 - [Koszt](#cost): opcja PaaS i IaaS obejmuje podstawową cenę obejmującą podstawową infrastrukturę i Licencjonowanie. Jednak w przypadku opcji IaaS należy zainwestować dodatkowy czas i zasoby w celu zarządzania bazą danych, a w programie PaaS te funkcje administracyjne zawarte w cenie. Usługa IaaS umożliwia zamykanie zasobów, gdy nie są używane w celu obniżenia kosztów, podczas gdy PaaS jest zawsze uruchomiona, chyba że zostaną usunięte i ponownie utworzone zasoby, gdy są potrzebne.
-- [Administracja](#administration): opcje PaaS zmniejszają ilość czasu potrzebną do zainwestowania w celu administrowania bazą danych. Jednak ogranicza także zakres niestandardowych zadań administracyjnych i skryptów, które można wykonać lub uruchomić. Na przykład środowisko CLR nie jest obsługiwane w przypadku baz danych z pojedynczym lub pulą, ale jest obsługiwane dla wystąpienia wystąpienia zarządzanego SQL. Ponadto żadne opcje wdrażania w programie PaaS nie obsługują używania flag śledzenia.
+- [Administracja](#administration): opcje PaaS zmniejszają ilość czasu potrzebną do zainwestowania w celu administrowania bazą danych. Jednak ogranicza także zakres niestandardowych zadań administracyjnych i skryptów, które można wykonać lub uruchomić. Na przykład środowisko CLR nie jest obsługiwane w przypadku SQL Database, ale jest obsługiwane dla wystąpienia wystąpienia zarządzanego SQL. Ponadto żadne opcje wdrażania w programie PaaS nie obsługują używania flag śledzenia.
 - [Umowa dotycząca poziomu usług](#service-level-agreement-sla): zarówno IaaS, jak i PaaS zapewniają wysoką, branżową umowę SLA. Opcja PaaS gwarantuje dostępność na 99,99% umowy SLA, podczas gdy IaaS gwarantuje gwarancję zgodności z 99,95% dla infrastruktury, co oznacza, że konieczne jest zaimplementowanie dodatkowych mechanizmów w celu zapewnienia dostępności baz danych. Możesz uzyskać dostęp do 99,99% umowy SLA, tworząc dodatkową maszynę wirtualną SQL i implementując rozwiązanie o wysokiej dostępności w usłudze SQL Server. 
 - [Czas przejścia na platformę Azure](#market): SQL Server na maszynie wirtualnej platformy Azure to dokładne dopasowanie środowiska, dlatego migracja z lokalizacji lokalnej do maszyny wirtualnej platformy Azure nie jest inna niż przenoszenie baz danych z jednego serwera lokalnego do drugiego. Wystąpienie zarządzane SQL umożliwia również łatwą migrację; mogą jednak wystąpić pewne zmiany, które należy zastosować przed rozpoczęciem migracji. 
 

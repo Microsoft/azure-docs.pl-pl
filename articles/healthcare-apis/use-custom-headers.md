@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 068af40ed42d0211eed6e1a315016bb8ecc40d05
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081847"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Dodawanie danych do dzienników inspekcji przy użyciu niestandardowych nagłówków HTTP
 
@@ -26,7 +26,7 @@ Ten przepływ danych można zobaczyć na poniższym diagramie:
 
 :::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram niestandardowych nagłówków":::
 
-Możesz użyć niestandardowych nagłówków do przechwytywania kilku typów informacji. Na przykład:
+Możesz użyć niestandardowych nagłówków do przechwytywania kilku typów informacji. Przykład:
 
 * Informacje o tożsamości lub autoryzacji
 * Pochodzenie obiektu wywołującego
@@ -36,15 +36,15 @@ Możesz użyć niestandardowych nagłówków do przechwytywania kilku typów inf
 > [!IMPORTANT]
 > Należy pamiętać, że informacje wysyłane w nagłówkach niestandardowych są przechowywane w wewnętrznym systemie rejestrowania firmy Microsoft przez 30 dni od momentu udostępnienia go w ramach monitorowania dzienników platformy Azure. Zalecamy szyfrowanie wszelkich informacji przed dodaniem ich do niestandardowych nagłówków. Nie należy przekazywać żadnych informacji o usłudze PHI w nagłówkach klientów.
 
-Należy użyć następującej konwencji nazewnictwa dla nagłówków HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT- \<name> .
+Należy użyć następującej konwencji nazewnictwa dla nagłówków HTTP: X-MS-AZUREFHIR-AUDIT- \<name> .
 
-Te nagłówki HTTP znajdują się w zbiorze właściwości, który jest dodawany do dziennika. Na przykład:
+Te nagłówki HTTP znajdują się w zbiorze właściwości, który jest dodawany do dziennika. Przykład:
 
 * X-MS-AZUREFHIR-AUDIT-USERID: 1234 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: XXXX
 * X-MS-AZUREFHIR-AUDIT-XYZ: 1234
 
-Te informacje są następnie serializowane do formatu JSON, gdy zostanie on dodany do kolumny właściwości w dzienniku. Na przykład:
+Te informacje są następnie serializowane do formatu JSON, gdy zostanie on dodany do kolumny właściwości w dzienniku. Przykład:
 
 ```json
 { "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
@@ -52,12 +52,12 @@ Te informacje są następnie serializowane do formatu JSON, gdy zostanie on doda
 "X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
 ```
  
-Podobnie jak w przypadku dowolnego nagłówka HTTP, taka sama nazwa nagłówka może być powtórzona przy użyciu różnych wartości. Na przykład:
+Podobnie jak w przypadku dowolnego nagłówka HTTP, taka sama nazwa nagłówka może być powtórzona przy użyciu różnych wartości. Przykład:
 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: szpitale
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: nagły
 
-Po dodaniu do dziennika wartości są łączone z listą rozdzielaną przecinkami. Na przykład:
+Po dodaniu do dziennika wartości są łączone z listą rozdzielaną przecinkami. Przykład:
 
 {"X-MS-AZUREFHIR-AUDIT-USERLOCATION": "szpitale, awaryjne"}
  

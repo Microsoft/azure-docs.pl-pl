@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure B
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628446"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081064"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -26,9 +27,8 @@ W tym artykule wyjaśniono, jak:
 - Sprawdź, czy korzystasz z wersji programu vCenter/ESXi, która jest obsługiwana na potrzeby tworzenia kopii zapasowych. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Upewnij się, że skonfigurowano Azure Backup Server. Jeśli jeszcze tego nie zrobiono, [zrób to](backup-azure-microsoft-azure-backup.md) przed rozpoczęciem. Należy uruchomić Azure Backup Server z najnowszymi aktualizacjami.
 - Upewnij się, że następujące porty sieciowe są otwarte:
-    - TCP 443 między serwera usługi MAB i vCenter
-    - TCP 443 i TCP 902 między serwera usługi MAB i hostem ESXi
-
+  - TCP 443 między serwera usługi MAB i vCenter
+  - TCP 443 i TCP 902 między serwera usługi MAB i hostem ESXi
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Utwórz bezpieczne połączenie z vCenter Server
 
@@ -133,72 +133,75 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
 ### <a name="role-permissions"></a>Uprawnienia roli
 
-| Uprawnienia dla konta użytkownika vCenter 6,7                     | Uprawnienia dla konta użytkownika vCenter 6,5                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Magazyn danych cluster.Configuruj klaster datatstore            | Magazyn danych cluster.Configuruj klaster datatstore            |
-| Magazyn danych. AllocateSpace                                      | Magazyn danych. AllocateSpace                                      |
-| Magazyn danych. Przeglądaj magazyn danych                                   | Magazyn danych. Przeglądaj magazyn danych                                   |
-| Magazyn danych. operacje na plikach niskiego poziomu                          | Magazyn danych. operacje na plikach niskiego poziomu                          |
-| Global. Disable, metody                                       | Global. Disable, metody                                       |
-| Global. Enable — metody                                        | Global. Enable — metody                                        |
-| Globalne. licencje                                              | Globalne. licencje                                              |
-| Zdarzenie globalne. log                                             | Zdarzenie globalne. log                                             |
-| Global. Zarządzaj atrybutami niestandardowymi                              | Global. Zarządzaj atrybutami niestandardowymi                              |
-| Global. Set — atrybut niestandardowy                                  | Global. Set — atrybut niestandardowy                                  |
-| Operacje hosta. local. Utwórz maszynę wirtualną                | Operacje hosta. local. Utwórz maszynę wirtualną                |
-| Sieć. Przypisywanie sieci                                       | Sieć. Przypisywanie sieci                                       |
-| Zasoby. Przypisz maszynę wirtualną do puli zasobów           | Zasoby. Przypisz maszynę wirtualną do puli zasobów           |
-| vApp. Dodaj maszynę wirtualną                                     | vApp. Dodaj maszynę wirtualną                                     |
-| vApp. Przypisz pulę zasobów                                    | vApp. Przypisz pulę zasobów                                    |
-| vApp. Unregister                                              | vApp. Unregister                                              |
-| VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie          | VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie          |
-| Wersja Virtual machine.Config. Pozyskiwanie dzierżawy dysku            | Wersja Virtual machine.Config. Dzierżawa dysku                     |
-| Wersja Virtual machine.Config. Dodaj nowy dysk                   | Wersja Virtual machine.Config. Dodaj nowy dysk                   |
-| Wersja Virtual machine.Config. Konfiguracja zaawansowana        | Wersja Virtual machine.Config. Doświadczonych                       |
-| Wersja Virtual machine.Config. Przełącz śledzenie zmian dysku   | Wersja Virtual machine.Config. Śledzenie zmian dysku          |
-| Wirtualne urządzenie USB hosta uruj machine.Configuration.Config     | Wersja Virtual machine.Config. Urządzenie hosta USB               |
-| Wersja Virtual machine.Config. Zwiększ dysk wirtualny           | Wersja Virtual machine.Config. Zwiększ dysk wirtualny           |
-| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika           | Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika           |
-| Wersja Virtual machine.Config. Zmień umieszczanie swapfile     | Wersja Virtual machine.Config. Swapfile            |
-| Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa |
-| Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa |
-| Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    |
-| Maszyna wirtualna. Udziału. Połączenie z urządzeniem             | Maszyna wirtualna. Udziału. Połączenie z urządzeniem             |
+W poniższej tabeli przedstawiono uprawnienia, które należy przypisać do tworzonego konta użytkownika:
+
+| Uprawnienia dla konta użytkownika vCenter 6,5                          | Uprawnienia dla konta użytkownika vCenter 6,7                            |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Magazyn danych cluster.Configuruj klaster magazynu danych                           | Magazyn danych cluster.Configuruj klaster magazynu danych                           |
+| Magazyn danych. AllocateSpace                                                    | Magazyn danych. AllocateSpace                                                    |
+| Magazyn danych. Przeglądaj magazyn danych                                                 | Magazyn danych. Przeglądaj magazyn danych                                                 |
+| Magazyn danych. operacje na plikach niskiego poziomu                                        | Magazyn danych. operacje na plikach niskiego poziomu                                        |
+| Global. Disable, metody                                                     | Global. Disable, metody                                                     |
+| Global. Enable — metody                                                      | Global. Enable — metody                                                      |
+| Globalne. licencje                                                            | Globalne. licencje                                                            |
+| Zdarzenie globalne. log                                                           | Zdarzenie globalne. log                                                           |
+| Global. Zarządzaj atrybutami niestandardowymi                                            | Global. Zarządzaj atrybutami niestandardowymi                                            |
+| Global. Set — atrybut niestandardowy                                                | Global. Set — atrybut niestandardowy                                                |
+| Operacje hosta. local. Utwórz maszynę wirtualną                               | Operacje hosta. local. Utwórz maszynę wirtualną                               |
+| Sieć. Przypisywanie sieci                                                     | Sieć. Przypisywanie sieci                                                     |
+| Zasoby. Przypisz maszynę wirtualną do puli zasobów                          | Zasoby. Przypisz maszynę wirtualną do puli zasobów                          |
+| vApp. Dodaj maszynę wirtualną                                                   | vApp. Dodaj maszynę wirtualną                                                   |
+| vApp. Przypisz pulę zasobów                                                  | vApp. Przypisz pulę zasobów                                                  |
+| vApp. Unregister                                                            | vApp. Unregister                                                            |
+| VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie                         | VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie                         |
+| Wersja Virtual machine.Config. Dzierżawa dysku                                   | Wersja Virtual machine.Config. Pozyskiwanie dzierżawy dysku                           |
+| Wersja Virtual machine.Config. Dodaj nowy dysk                                 | Wersja Virtual machine.Config. Dodaj nowy dysk                                 |
+| Wersja Virtual machine.Config. Doświadczonych                                     | Wersja Virtual machine.Config. Konfiguracja zaawansowana                       |
+| Wersja Virtual machine.Config. Śledzenie zmian dysku                         | Wersja Virtual machine.Config. Przełącz śledzenie zmian dysku                  |
+| Wersja Virtual machine.Config. Urządzenie hosta USB                              | Wirtualne urządzenie USB hosta uruj machine.Configuration.Config                    |
+| Wersja Virtual machine.Config. Zwiększ dysk wirtualny                          | Wersja Virtual machine.Config. Zwiększ dysk wirtualny                          |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika                          | Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika                          |
+| Wersja Virtual machine.Config. Swapfile                           | Wersja Virtual machine.Config. Zmień umieszczanie swapfile                    |
+| Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa         | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa         |
+| Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa             | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa             |
+| Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa                   | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa                   |
+| Maszyna wirtualna. Udziału. Połączenie z urządzeniem                            | Maszyna wirtualna. Udziału. Połączenie z urządzeniem                            |
 | Maszyna wirtualna. Udziału. Zarządzanie systemem operacyjnym gościa za pomocą interfejsu API VIX | Maszyna wirtualna. Udziału. Zarządzanie systemem operacyjnym gościa za pomocą interfejsu API VIX |
-| Maszyna wirtualna. Udziału. Zasilanie wyłączone                      | Maszyna wirtualna. Udziału. Zasilanie wyłączone                      |
-| Maszyna wirtualna. Spis. Utwórz nowy                        | Maszyna wirtualna. Spis. Utwórz nowy                        |
-| Maszyna wirtualna. Spis. Remove                            | Maszyna wirtualna. Spis. Remove                            |
-| Maszyna wirtualna. Spis. Rejestr                          | Maszyna wirtualna. Spis. Rejestr                          |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku             | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików             | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu   | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu   |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej |
-| Maszyna wirtualna. Zarządzanie migawkami.  Tworzenie migawki       | Maszyna wirtualna. Zarządzanie migawkami.  Tworzenie migawki       |
-| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę        | Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę        |
-| Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę     | Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę     |
+| Maszyna wirtualna. Udziału. Zasilanie wyłączone                                    | Maszyna wirtualna. Udziału. Zasilanie wyłączone                                    |
+| Maszyna wirtualna. Spis. Utwórz nowy                                      | Maszyna wirtualna. Spis. Utwórz nowy                                      |
+| Maszyna wirtualna. Spis. Remove                                          | Maszyna wirtualna. Spis. Remove                                          |
+| Maszyna wirtualna. Spis. Rejestr                                        | Maszyna wirtualna. Spis. Rejestr                                        |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku                            | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku                            |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików                            | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików                            |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu                  | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu                  |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej               | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej               |
+| Maszyna wirtualna. Zarządzanie migawkami. Tworzenie migawki                      | Maszyna wirtualna. Zarządzanie migawkami. Tworzenie migawki                      |
+| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę                       | Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę                       |
+| Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę                    | Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę                    |
 
-<br>
+> [!NOTE]
+> W poniższej tabeli wymieniono uprawnienia dla kont użytkowników vCenter 6,0 i vCenter 5,5.
 
-| **Uprawnienia dla konta użytkownika vCenter 6,0**                | **Uprawnienia dla konta użytkownika vCenter 5,5** |
-| ---------------------------------------------------------- | ------------------------------------------- |
-| Magazyn danych. AllocateSpace                                    | Network. Assign                              |
-| Global. Zarządzaj atrybutami niestandardowymi                           | Magazyn danych. AllocateSpace                     |
-| Global. Set — atrybut niestandardowy                               | VirtualMachine.Config. Śledzenia zmian        |
-| Operacje hosta. local. Utwórz maszynę wirtualną              | VirtualMachine. State. RemoveSnapshot         |
-| NFS.  Przypisywanie sieci                                   | VirtualMachine. State. issnapshot         |
-| Zasoby.  Przypisz maszynę wirtualną do puli zasobów         | VirtualMachine. Provisioning. DiskRandomRead  |
-| Wersja Virtual machine.Config. Dodaj nowy dysk                | VirtualMachine. współdziała. wyłączenie            |
-| Wersja Virtual machine.Config. Doświadczonych                    | VirtualMachine. Inventory. Create             |
-| Wersja Virtual machine.Config. Śledzenie zmian dysku        | VirtualMachine.Config. AddNewDisk            |
-| Wersja Virtual machine.Config. Urządzenie hosta USB             | VirtualMachine.Config. HostUSBDevice         |
-| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika         | VirtualMachine.Config. AdvancedConfig        |
-| Wersja Virtual machine.Config. Swapfile          | VirtualMachine.Config. SwapPlacement         |
-| Maszyna wirtualna. Interakcja. Zasilanie wyłączone                     | Global. ManageCustomFields                   |
-| Maszyna wirtualna. Towar. Tworzenie nowego elementu                     |                                             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku            |                                             |
-| Maszyna wirtualna. Aprowizacji. Zezwalaj na dostęp do dysku tylko do odczytu |                                             |
-| Maszyna wirtualna. Zarządzanie migawkami. Utwórz migawkę       |                                             |
-| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę       |                                             |
+| Uprawnienia dla konta użytkownika vCenter 6,0 | Uprawnienia dla konta użytkownika vCenter 5,5 |
+| --- | --- |
+| Magazyn danych. AllocateSpace | Network. Assign |
+| Global. Zarządzaj atrybutami niestandardowymi | Magazyn danych. AllocateSpace |
+| Global. Set — atrybut niestandardowy | VirtualMachine.Config. Śledzenia zmian |
+| Operacje hosta. local. Utwórz maszynę wirtualną | VirtualMachine. State. RemoveSnapshot |
+| NFS. Przypisywanie sieci | VirtualMachine. State. issnapshot |
+| Zasoby. Przypisz maszynę wirtualną do puli zasobów | VirtualMachine. Provisioning. DiskRandomRead |
+| Wersja Virtual machine.Config. Dodaj nowy dysk | VirtualMachine. współdziała. wyłączenie |
+| Wersja Virtual machine.Config. Doświadczonych | VirtualMachine. Inventory. Create |
+| Wersja Virtual machine.Config. Śledzenie zmian dysku | VirtualMachine.Config. AddNewDisk |
+| Wersja Virtual machine.Config. Urządzenie hosta USB | VirtualMachine.Config. HostUSBDevice |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika | VirtualMachine.Config. AdvancedConfig |
+| Wersja Virtual machine.Config. Swapfile | VirtualMachine.Config. SwapPlacement |
+| Maszyna wirtualna. Interakcja. Zasilanie wyłączone | Global. ManageCustomFields |
+| Maszyna wirtualna. Towar. Tworzenie nowego elementu |   |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku |   |
+| Maszyna wirtualna. Aprowizacji. Zezwalaj na dostęp do dysku tylko do odczytu |   |
+| Maszyna wirtualna. Zarządzanie migawkami. Utwórz migawkę |   |
+| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę |   |
 
 ## <a name="create-a-vmware-account"></a>Utwórz konto VMware
 

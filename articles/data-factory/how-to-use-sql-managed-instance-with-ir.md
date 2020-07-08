@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: f53c7ccec5e82b79966807f12978adfb00940354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195382"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082288"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
@@ -40,8 +41,8 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
     - Za pośrednictwem prywatnego punktu końcowego (preferowany)
 
         1. Wybierz sieć wirtualną, dla której chcesz dołączyć Azure-SSIS IR:
-            - W tej samej sieci wirtualnej co wystąpienie zarządzane SQL z **inną podsiecią**.
-            - W innej sieci wirtualnej niż wystąpienie zarządzane SQL za pośrednictwem komunikacji równorzędnej sieci wirtualnych (ograniczone do tego samego regionu ze względu na globalne ograniczenia wirtualnych sieci równorzędnej) lub połączenie z sieci wirtualnej z siecią wirtualną.
+            - W tej samej sieci wirtualnej co wystąpienie zarządzane z **inną podsiecią**.
+            - Wewnątrz innej sieci wirtualnej niż wystąpienia zarządzanej za pośrednictwem komunikacji równorzędnej sieci wirtualnej (ograniczonej do tego samego regionu ze względu na globalne ograniczenia wirtualnych sieci równorzędnych) lub połączenia z sieci wirtualnej z siecią wirtualną.
 
             Aby uzyskać więcej informacji na temat łączności wystąpienia zarządzanego SQL, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
@@ -115,7 +116,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Zezwalaj na ruch wychodzący do wystąpienia zarządzanego SQL. Jeśli dla zasad połączenia ustawiono wartość **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z tematem [Korzystanie z usługi Azure ExpressRoute lub trasy zdefiniowanej przez użytkownika (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
-        | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+        | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
         |||||||
 
         1. **Wymagania przychodzące Azure-SSIS IR**, aby zezwolić na ruch wymagany przez Azure-SSIS IR.

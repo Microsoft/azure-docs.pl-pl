@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81314284"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079653"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Samouczek: kierowanie ruchem sieciowym za pomocą tabeli tras z użyciem witryny Azure Portal
 
@@ -34,7 +34,7 @@ Platforma Azure domyślnie kieruje ruchem między wszystkimi podsieciami w sieci
 
 Ten samouczek używa [Azure Portal](https://portal.azure.com). Możesz również użyć [interfejsu wiersza polecenia platformy Azure](tutorial-create-route-table-cli.md) lub [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-nva"></a>Tworzenie urządzenia NVA
 
@@ -42,7 +42,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
 1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
 
-1. Wybierz pozycję **zabezpieczenia** > **systemu Windows Server 2016 Datacenter**.
+1. Wybierz pozycję **zabezpieczenia**  >  **systemu Windows Server 2016 Datacenter**.
 
     ![System Windows Server 2016 Datacenter, Tworzenie maszyny wirtualnej, Azure Portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
 
@@ -81,8 +81,8 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
         | Nazwa podsieci | Zakres adresów |
         | ----------- | ------------- |
-        | *Społeczeństwo* | *10.0.0.0/24* |
-        | *Użytek* | *10.0.1.0/24* |
+        | *Publiczne* | *10.0.0.0/24* |
+        | *Prywatne* | *10.0.1.0/24* |
         | *DMZ* | *10.0.2.0/24* |
 
     1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe.
@@ -103,7 +103,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
         | ------- | ----- |
         | Nazwa | *mynvastorageaccount* |
         | Rodzaj konta | **Storage (ogólnego przeznaczenia w wersji 1)** |
-        | Wydajność | **Standardowa** |
+        | Wydajność | **Standardowa (Standard)** |
         | Replikacja | **Magazyn lokalnie nadmiarowy (LRS)** |
     
     1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe.
@@ -132,11 +132,11 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | Subskrypcja | Twoja subskrypcja |
     | Grupa zasobów | **myResourceGroup** |
     | Lokalizacja | **Prześlij Wschodnie stany USA** |
-    | Propagacja trasy bramy sieci wirtualnej | **Dostępny** |
+    | Propagacja trasy bramy sieci wirtualnej | **Włączone** |
 
     ![Tworzenie tabeli tras, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
 
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-route"></a>Tworzenie trasy
 
@@ -144,7 +144,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
 1. Wybierz nazwę tabeli tras (**myRouteTablePublic**).
 
-1. Wybierz pozycję **trasy** > **Dodaj**.
+1. Wybierz pozycję **trasy**  >  **Dodaj**.
 
     ![Dodawanie trasy, tabeli tras, Azure Portal](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -157,7 +157,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | Typ następnego skoku | **Urządzenie wirtualne** |
     | Adres następnego skoku | *10.0.2.4* (adres w zakresie adresów podsieci *DMZ* ) |
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Kojarzenie tabeli tras z podsiecią
 
@@ -205,11 +205,11 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 | Tab | Ustawienie | Wartość |
 | --- | ------- | ----- |
-| Podstawy | Grupa zasobów | **myResourceGroup** |
+| Informacje podstawowe | Grupa zasobów | **myResourceGroup** |
 | | Nazwa maszyny wirtualnej | *myVmPublic* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Networking | Sieć wirtualna | **myVirtualNetwork** |
+| Sieć | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Public (10.0.0.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -218,11 +218,11 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 | Tab | Ustawienie | Wartość |
 | --- | ------- | ----- |
-| Podstawy | Grupa zasobów | **myResourceGroup** |
+| Informacje podstawowe | Grupa zasobów | **myResourceGroup** |
 | | Nazwa maszyny wirtualnej | *myVmPrivate* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Networking | Sieć wirtualna | **myVirtualNetwork** |
+| Sieć | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Prywatny (10.0.1.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -239,9 +239,9 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 1. Na stronie **Połącz z** protokołem RDP wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
 
-1. Otwórz pobrany plik *rdp*. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wybierz opcję **więcej opcji** > ,**Użyj innego konta**, a następnie wprowadź nazwę użytkownika i hasło określone podczas tworzenia prywatnej maszyny wirtualnej.
+1. Otwórz pobrany plik *rdp*. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wybierz opcję **więcej opcji**  >  ,**Użyj innego konta**, a następnie wprowadź nazwę użytkownika i hasło określone podczas tworzenia prywatnej maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 1. Jeśli podczas logowania zostanie wyświetlone ostrzeżenie dotyczące certyfikatu, wybierz pozycję **tak** , aby nawiązać połączenie z maszyną wirtualną.
 
@@ -275,7 +275,7 @@ W kolejnym kroku przetestujesz routing przy użyciu narzędzia śledzenia trasy.
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Uruchom ponownie maszynę wirtualną *myVmNva* : z paska zadań wybierz pozycję **Uruchom** > **energię**, **inne (zaplanowane)** > **Kontynuuj**.
+1. Uruchom ponownie maszynę wirtualną *myVmNva* : z paska zadań wybierz pozycję **Uruchom**  >  **energię**, **inne (zaplanowane)**  >  **Kontynuuj**.
 
     Spowoduje to również odłączenie sesji pulpitu zdalnego.
 
@@ -339,7 +339,7 @@ Najpierw przetestuj routing ruchu sieciowego z maszyny wirtualnej *myVmPublic* d
 
 1. Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli grupa zasobów nie jest już wymagana, Usuń grupę *zasobów* i wszystkie jej zasoby:
 
@@ -359,3 +359,6 @@ Chociaż możesz wdrożyć wiele zasobów platformy Azure w ramach sieci wirtual
 
 > [!div class="nextstepaction"]
 > [Ograniczanie dostępu sieciowego do zasobów PaaS](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Opłaty za usługi platformy Azure. Azure Cost Management ułatwia ustawianie budżetów i Konfigurowanie alertów w celu utrzymywania wydatków pod kontrolą. Analizowanie i optymalizowanie kosztów platformy Azure oraz zarządzanie nimi za pomocą Cost Management. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący analizowania kosztów](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

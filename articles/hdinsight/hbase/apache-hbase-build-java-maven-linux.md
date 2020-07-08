@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495783"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079517"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Tworzenie aplikacji Java dla platformy Apache HBase
 
@@ -57,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    To polecenie tworzy katalog o nazwie `hbaseapp` w bieżącej lokalizacji, który zawiera podstawowy projekt Maven. Drugie polecenie zmienia katalog roboczy na `hbaseapp`. Trzecie polecenie tworzy nowy katalog, `conf`który będzie później używany. `hbaseapp` Katalog zawiera następujące elementy:
+    To polecenie tworzy katalog o nazwie `hbaseapp` w bieżącej lokalizacji, który zawiera podstawowy projekt Maven. Drugie polecenie zmienia katalog roboczy na `hbaseapp` . Trzecie polecenie tworzy nowy katalog, `conf` który będzie później używany. `hbaseapp`Katalog zawiera następujące elementy:
 
     * `pom.xml`: Model obiektów projektu ([pliku pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) zawiera informacje i szczegóły konfiguracji używane do kompilowania projektu.
     * `src\main\java\com\microsoft\examples`: Zawiera kod aplikacji.
     * `src\test\java\com\microsoft\examples`: Zawiera testy dla aplikacji.
 
-2. Usuń wygenerowany przykładowy kod. Usuń wygenerowane pliki `AppTest.java`testowe i aplikacje, a `App.java` następnie wprowadź poniższe polecenia:
+2. Usuń wygenerowany przykładowy kod. Usuń wygenerowane pliki testowe i aplikacje `AppTest.java` , a następnie `App.java` Wprowadź poniższe polecenia:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -72,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Aktualizowanie modelu obiektów projektu
 
-Pełne odwołanie do pliku pliku pom. XML można znaleźć w temacie https://maven.apache.org/pom.html.  Otwórz `pom.xml` , wprowadzając następujące polecenie:
+Pełne odwołanie do pliku pom.xml można znaleźć w temacie https://maven.apache.org/pom.html .  Otwórz `pom.xml` , wprowadzając następujące polecenie:
 
 ```cmd
 notepad pom.xml
@@ -80,7 +80,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Dodaj zależności
 
-W `pom.xml`programie Dodaj następujący tekst do `<dependencies>` sekcji:
+W programie `pom.xml` Dodaj następujący tekst do `<dependencies>` sekcji:
 
 ```xml
 <dependency>
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji na temat wersji i składników usługi HDInsight
 
 Wtyczki Maven umożliwiają dostosowanie etapów kompilacji projektu. Ta sekcja służy do dodawania dodatków plug-in, zasobów i innych opcji konfiguracji kompilacji.
 
-Dodaj następujący kod do `pom.xml` pliku, a następnie Zapisz i zamknij plik. Ten tekst musi znajdować się `<project>...</project>` wewnątrz tagów w pliku, na przykład między `</dependencies>` i. `</project>`
+Dodaj następujący kod do `pom.xml` pliku, a następnie Zapisz i zamknij plik. Ten tekst musi znajdować się wewnątrz `<project>...</project>` tagów w pliku, na przykład między `</dependencies>` i `</project>` .
 
 ```xml
 <build>
@@ -158,7 +158,7 @@ Dodaj następujący kod do `pom.xml` pliku, a następnie Zapisz i zamknij plik. 
 </build>
 ```
 
-Ta sekcja służy do konfigurowania zasobu`conf/hbase-site.xml`(), który zawiera informacje o konfiguracji dla HBase.
+Ta sekcja służy do konfigurowania zasobu ( `conf/hbase-site.xml` ), który zawiera informacje o konfiguracji dla HBase.
 
 > [!NOTE]  
 > Możesz również ustawić wartości konfiguracyjne za pośrednictwem kodu. Zobacz komentarze w `CreateTable` przykładzie.
@@ -167,9 +167,9 @@ Ta sekcja służy również do konfigurowania [wtyczki kompilatora Apache Maven]
 
 Maven-odcieni-Wtyczka tworzy również plik JAR Uber, który zawiera wszystkie zależności wymagane przez aplikację.
 
-### <a name="download-the-hbase-sitexml"></a>Pobierz HBase-site. XML
+### <a name="download-the-hbase-sitexml"></a>Pobierz hbase-site.xml
 
-Użyj następującego polecenia, aby skopiować konfigurację HBase z klastra HBase do `conf` katalogu. Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight, a następnie wprowadź polecenie:
+Użyj następującego polecenia, aby skopiować konfigurację HBase z klastra HBase do `conf` katalogu. Zastąp ciąg `CLUSTERNAME` nazwą klastra usługi HDInsight, a następnie wprowadź polecenie:
 
 ```cmd
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
@@ -179,7 +179,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### <a name="implement-a-createtable-class"></a>Zaimplementuj klasę Create
 
-Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `CreateTable.java`. Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
+Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `CreateTable.java` . Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
@@ -261,7 +261,7 @@ Ten kod jest `CreateTable` klasą, która tworzy tabelę o nazwie `people` i wyp
 
 ### <a name="implement-a-searchbyemail-class"></a>Implementowanie klasy SearchByEmail
 
-Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `SearchByEmail.java`. Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
+Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `SearchByEmail.java` . Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
@@ -342,11 +342,11 @@ public class SearchByEmail {
 }
 ```
 
-`SearchByEmail` Klasa może służyć do wykonywania zapytań dotyczących wierszy według adresu e-mail. Ze względu na to, że używa filtru wyrażenia regularnego, podczas korzystania z klasy można podać ciąg lub wyrażenie regularne.
+`SearchByEmail`Klasa może służyć do wykonywania zapytań dotyczących wierszy według adresu e-mail. Ze względu na to, że używa filtru wyrażenia regularnego, podczas korzystania z klasy można podać ciąg lub wyrażenie regularne.
 
 ### <a name="implement-a-deletetable-class"></a>Implementowanie klasy Delete
 
-Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `DeleteTable.java`. Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
+Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `DeleteTable.java` . Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
@@ -376,7 +376,7 @@ public class DeleteTable {
 }
 ```
 
-`DeleteTable` Klasa czyści tabele HBase utworzone w tym przykładzie, wyłączając i upuszczając tabelę utworzoną przez `CreateTable` klasę.
+`DeleteTable`Klasa czyści tabele HBase utworzone w tym przykładzie, wyłączając i upuszczając tabelę utworzoną przez `CreateTable` klasę.
 
 ## <a name="build-and-package-the-application"></a>Kompilowanie i pakowanie aplikacji
 
@@ -388,14 +388,14 @@ public class DeleteTable {
 
     To polecenie kompiluje i pakuje aplikację do pliku JAR.
 
-2. Po zakończeniu wykonywania polecenia `hbaseapp/target` katalog zawiera plik o nazwie. `hbaseapp-1.0-SNAPSHOT.jar`
+2. Po zakończeniu wykonywania polecenia `hbaseapp/target` katalog zawiera plik o nazwie `hbaseapp-1.0-SNAPSHOT.jar` .
 
    > [!NOTE]  
-   > `hbaseapp-1.0-SNAPSHOT.jar` Plik to Uber jar. Zawiera wszystkie zależności wymagane do uruchomienia aplikacji.
+   > `hbaseapp-1.0-SNAPSHOT.jar`Plik to Uber jar. Zawiera wszystkie zależności wymagane do uruchomienia aplikacji.
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Przekaż zadania JAR i Run (SSH)
 
-Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła głównego platformy Apache HBase w klastrze usługi HDInsight. `ssh` Polecenie jest następnie używane do nawiązania połączenia z klastrem i uruchomienia przykładu bezpośrednio w węźle głównym.
+Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła głównego platformy Apache HBase w klastrze usługi HDInsight. `ssh`Polecenie jest następnie używane do nawiązania połączenia z klastrem i uruchomienia przykładu bezpośrednio w węźle głównym.
 
 1. Przekaż plik jar do klastra. Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight, a następnie wprowadź następujące polecenie:
 
@@ -425,12 +425,14 @@ Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła główn
 
     Otrzymujesz następujące wyniki:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. Aby usunąć tabelę, użyj następującego polecenia:
 
@@ -442,7 +444,7 @@ Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła główn
 
 Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) , aby przekazać plik jar do domyślnego magazynu dla klastra Apache HBase. Polecenia cmdlet usługi HDInsight są następnie używane do zdalnego uruchamiania przykładów.
 
-1. Po zainstalowaniu i skonfigurowaniu elementu AZ module utwórz plik o nazwie `hbase-runner.psm1`. Użyj następującego tekstu jako zawartości tego pliku:
+1. Po zainstalowaniu i skonfigurowaniu elementu AZ module utwórz plik o nazwie `hbase-runner.psm1` . Użyj następującego tekstu jako zawartości tego pliku:
 
    ```powershell
     <#
@@ -648,7 +650,7 @@ Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.co
 
 2. Zapisz `hbase-runner.psm1` plik w `hbaseapp` katalogu.
 
-3. Zarejestruj moduły w Azure PowerShell. Otwórz nowe okno Azure PowerShell i edytuj poniższe polecenie, zastępując `CLUSTERNAME` je nazwą klastra. Następnie wprowadź następujące polecenia:
+3. Zarejestruj moduły w Azure PowerShell. Otwórz nowe okno Azure PowerShell i edytuj poniższe polecenie, zastępując je `CLUSTERNAME` nazwą klastra. Następnie wprowadź następujące polecenia:
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -664,7 +666,7 @@ Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.co
 
     Po wyświetleniu monitu wprowadź nazwę logowania klastra (administratora) i hasło. Polecenie przekazuje `hbaseapp-1.0-SNAPSHOT.jar` do `example/jars` lokalizacji w magazynie podstawowym klastra.
 
-5. Aby utworzyć tabelę przy użyciu programu `hbaseapp`, użyj następującego polecenia:
+5. Aby utworzyć tabelę przy użyciu programu `hbaseapp` , użyj następującego polecenia:
 
     ```powershell
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName $myCluster
@@ -682,14 +684,16 @@ Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.co
 
     Po wyświetleniu monitu wprowadź nazwę logowania klastra (administratora) i hasło.
 
-    `SearchByEmail` To polecenie używa klasy do wyszukiwania dowolnych wierszy, w `contactinformation` których rodzina kolumn i `email` kolumna zawierają ciąg `contoso.com`. Powinny zostać wyświetlone następujące wyniki:
+    To polecenie używa `SearchByEmail` klasy do wyszukiwania dowolnych wierszy, w których `contactinformation` rodzina kolumn i `email` kolumna zawierają ciąg `contoso.com` . Powinny zostać wyświetlone następujące wyniki:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
     Użycie **fabrikam.com** dla `-emailRegex` wartości zwraca użytkowników, którzy mają **fabrikam.com** w polu adres e-mail. Możesz również użyć wyrażeń regularnych jako terminu wyszukiwania. Na przykład **^ r** zwraca adresy e-mail zaczynające się od litery "r".
 

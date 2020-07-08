@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130633"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078565"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -60,7 +60,7 @@ Klasyfikator analizuje wzorce użycia w ciągu ostatnich 30 dni dla następując
 Klasyfikator analizuje Azure Cosmos DB wzorców użycia w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych zdolności produkcyjnych w celu optymalizacji kosztów. Korzystając z zarezerwowanej pojemności, można wstępnie kupić Azure Cosmos DB godzinowe użycie i zaoszczędzić koszty związane z płatność zgodnie z rzeczywistym użyciem. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ### <a name="sql-paas-reserved-capacity"></a>Zarezerwowana pojemność SQL PaaS
-Klasyfikator analizuje wzorce użycia usługi SQL PaaS dla pul baz danych i wystąpienia zarządzanego w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić użycie w bazie danych SQL DB i zaoszczędzić na kosztach obliczeń SQL. Licencja SQL jest naliczana osobno i nie podlega rabatowi za rezerwację. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
+Program Advisor analizuje w ciągu ostatnich 30 dni pule elastycznej bazy danych SQL PaaS oraz wzorce użycia wystąpienia zarządzanego SQL. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić użycie w bazie danych SQL DB i zaoszczędzić na kosztach obliczeń SQL. Licencja SQL jest naliczana osobno i nie podlega rabatowi za rezerwację. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Zarezerwowana pojemność opłaty za sygnaturę App Service
 Klasyfikator analizuje wzorzec użycia opłaty za sygnaturę dla Azure App Service środowiska izolowanego w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie zakupić opłaty godzinowe za użycie sygnatury środowiska izolowanego i zaoszczędzić na kosztach płatnych zgodnie z rzeczywistym użyciem. Należy zauważyć, że zarezerwowana pojemność dotyczy tylko opłaty za sygnaturę, a nie do App Service wystąpień. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji, korzystając z cen rezerwacji 3-letnich w oparciu o wzorce użycia w ciągu ostatnich 30 dni.

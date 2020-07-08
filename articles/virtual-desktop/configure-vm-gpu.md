@@ -7,11 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 96881154a368da15d703b43ba2ffe5d6dd034bd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213265"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081098"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Skonfiguruj przyspieszenie procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows
 
@@ -59,27 +60,41 @@ Domyślnie aplikacje i komputery stacjonarne działające w konfiguracjach wielo
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurowanie kodowania ramek z przyspieszeniem procesora GPU
 
-Pulpit zdalny koduje wszystkie grafiki renderowane przez aplikacje i komputery stacjonarne (renderowane z procesorem GPU lub z procesorem CPU) do przesyłania do Pulpit zdalny klientów. Domyślnie Pulpit zdalny nie wykorzystuje dostępnych procesorów GPU dla tego kodowania. Skonfiguruj zasady grupy dla hosta sesji, aby umożliwić kodowanie ramek przez procesor GPU. Kontynuując powyższe kroki:
+Pulpit zdalny koduje wszystkie grafiki renderowane przez aplikacje i komputery stacjonarne (renderowane z procesorem GPU lub z procesorem CPU) do przesyłania do Pulpit zdalny klientów. Gdy część ekranu jest często aktualizowana, ta część ekranu jest zaszyfrowana przy użyciu kodera-dekoder wideo (H. 264/AVC). Domyślnie Pulpit zdalny nie wykorzystuje dostępnych procesorów GPU dla tego kodowania. Skonfiguruj zasady grupy dla hosta sesji, aby umożliwić kodowanie ramek przez procesor GPU. Kontynuując powyższe kroki:
+ 
+>[!NOTE]
+>Przyspieszenie procesora GPU nie jest dostępne na maszynach wirtualnych z serii NVv4.
 
-1. Wybierz pozycję zasady **ustalania priorytetów tryb grafiki h. 264/avc 444 dla połączeń pulpit zdalny** i ustaw te zasady tak **, aby** wymusić na koderze-dekoder H. 264/AVC 444 w sesji zdalnej.
-2. Wybierz pozycję zasady **Konfiguruj kodowanie sprzętu H. 264/AVC dla połączeń pulpit zdalny** i ustaw te zasady na **włączone** , aby włączyć kodowanie sprzętu dla AVC/H. 264 w sesji zdalnej.
+1. Wybierz pozycję zasady **Konfiguruj kodowanie sprzętu H. 264/AVC dla połączeń pulpit zdalny** i ustaw te zasady na **włączone** , aby włączyć kodowanie sprzętu dla AVC/H. 264 w sesji zdalnej.
 
     >[!NOTE]
     >W systemie Windows Server 2016 ustaw opcję **Preferuj kodowanie sprzętu AVC** , aby **zawsze próbować**.
 
-3. Teraz, gdy zasady grupy zostały edytowane, Wymuś aktualizację zasad grupy. Otwórz wiersz polecenia i wpisz:
+2. Teraz, gdy zasady grupy zostały edytowane, Wymuś aktualizację zasad grupy. Otwórz wiersz polecenia i wpisz:
 
     ```batch
     gpupdate.exe /force
     ```
 
-4. Wyloguj się z sesji Pulpit zdalny.
+3. Wyloguj się z sesji Pulpit zdalny.
 
+## <a name="configure-fullscreen-video-encoding"></a>Konfigurowanie pełnoekranowego kodowania wideo
+
+Jeśli często używasz aplikacji, które generują zawartość o wysokiej rozdzielczości, taką jak modelowanie 3W, programy CAD i wideo, możesz włączyć pełnoekranowe kodowanie wideo dla sesji zdalnej. Pełny profil wideo zapewnia wyższą szybkość klatek i lepszy komfort korzystania z takich aplikacji na koszt przepustowości sieci oraz zasobów hosta sesji i klienta. Zaleca się używanie przyspieszania procesora GPU dla kodowania wideo w trybie pełnoekranowym. Skonfiguruj zasady grupy dla hosta sesji, aby włączyć pełnoekranowe kodowanie wideo. Kontynuując powyższe kroki:
+
+1. Wybierz pozycję zasady **ustalania priorytetów tryb grafiki h. 264/avc 444 dla połączeń pulpit zdalny** i ustaw te zasady tak **, aby** wymusić na koderze-dekoder H. 264/AVC 444 w sesji zdalnej.
+2. Teraz, gdy zasady grupy zostały edytowane, Wymuś aktualizację zasad grupy. Otwórz wiersz polecenia i wpisz:
+
+    ```batch
+    gpupdate.exe /force
+    ```
+
+3. Wyloguj się z sesji Pulpit zdalny.
 ## <a name="verify-gpu-accelerated-app-rendering"></a>Weryfikowanie renderowania aplikacji przyspieszonej przez procesor GPU
 
 Aby sprawdzić, czy aplikacje używają procesora GPU do renderowania, spróbuj wykonać jedną z następujących czynności:
 
-* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU firmy NVIDIA Użyj `nvidia-smi` narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
+* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU NVIDIA Użyj `nvidia-smi` narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
 * W przypadku obsługiwanych wersji systemu operacyjnego można użyć Menedżera zadań do sprawdzenia użycia procesora GPU. Wybierz procesor GPU na karcie "Performance" (wydajność), aby sprawdzić, czy aplikacje korzystają z procesora GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Weryfikowanie przyspieszanego procesora GPU
@@ -89,7 +104,14 @@ Aby sprawdzić, czy Pulpit zdalny używa kodowania przyspieszanego przez proceso
 1. Nawiąż połączenie z pulpitem maszyny wirtualnej przy użyciu klienta pulpitu wirtualnego systemu Windows.
 2. Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **operacyjnego**
 3. Aby określić, czy jest używane kodowanie przyspieszone procesora GPU, poszukaj zdarzenia o IDENTYFIKATORze 170. Jeśli widzisz "koder sprzętowy AVC włączony: 1", używane jest kodowanie GPU.
-4. Aby określić, czy jest używany tryb AVC 444, poszukaj zdarzenia o IDENTYFIKATORze 162. Jeśli widzisz wartość "dostępnego AVC: 1 początkowy profil: 2048", zostanie użyta wartość AVC 444.
+
+## <a name="verify-fullscreen-video-encoding"></a>Weryfikuj pełnoekranowe kodowanie wideo
+
+Aby sprawdzić, czy Pulpit zdalny korzysta z pełnoekranowego kodowania wideo:
+
+1. Nawiąż połączenie z pulpitem maszyny wirtualnej przy użyciu klienta pulpitu wirtualnego systemu Windows.
+2. Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **operacyjnego**
+3. Aby określić, czy jest używane pełnoekranowe kodowanie wideo, poszukaj zdarzenia o IDENTYFIKATORze 162. Jeśli widzisz wartość "dostępnego AVC: 1 początkowy profil: 2048", zostanie użyta wartość AVC 444.
 
 ## <a name="next-steps"></a>Następne kroki
 

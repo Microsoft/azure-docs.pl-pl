@@ -3,12 +3,12 @@ title: Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady gr
 description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezpieczeń systemu Windows Server 2019 do definicji zasad.
 ms.date: 06/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 021e8cc4aa34a21f980363e71de1a4b9afbf3ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080673"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 
@@ -92,7 +92,7 @@ Następnym krokiem jest opublikowanie pliku w usłudze BLOB Storage.
 1. Poniższy skrypt zawiera funkcję, której można użyć do zautomatyzowania tego zadania. Należy pamiętać, że polecenia używane w `publish` funkcji wymagają `Az.Storage` modułu.
 
    ```azurepowershell-interactive
-    function publish {
+    function Publish-Configuration {
         param(
         [Parameter(Mandatory=$true)]
         $resourceGroup,
@@ -147,25 +147,29 @@ Następnym krokiem jest opublikowanie pliku w usłudze BLOB Storage.
 
 1. Użyj funkcji Publish z przypisanymi parametrami, aby opublikować pakiet konfiguracyjny gościa w publicznym magazynie obiektów BLOB.
 
-   ```azurepowershell-interactive
-   $uri = publish `
-    -resourceGroup $resourceGroup `
-    -storageAccountName $storageAccount `
-    -storageContainerName $storageContainer `
-    -filePath $path `
-    -blobName $blob
-    -FullUri
-    ```
 
+   ```azurepowershell-interactive
+   $PublishConfigurationSplat = @{
+       resourceGroup = $resourceGroup
+       storageAccountName = $storageAccount
+       storageContainerName = $storageContainer
+       filePath = $path
+       blobName = $blob
+       FullUri = $true
+   }
+   $uri = Publish-Configuration @PublishConfigurationSplat
+    ```
 1. Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa Utwórz definicję zasad konfiguracji gościa. Użyj `New-GuestConfigurationPolicy` polecenia cmdlet, aby utworzyć konfigurację gościa.
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPolicy `
-    -ContentUri $Uri `
-    -DisplayName 'Server 2019 Configuration Baseline' `
-    -Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
-    -Path C:\git\policyfiles\policy  `
-    -Platform Windows 
+    $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri 
+        DisplayName = 'Server 2019 Configuration Baseline' 
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        Path = 'C:\git\policyfiles\policy'  
+        Platform = Windows 
+        }
+   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
     
 1. Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet. Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` . Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia definicji zasad na platformie Azure. Wymagania dotyczące autoryzacji są udokumentowane na stronie [przegląd Azure Policy](../overview.md#getting-started) . Najlepsza wbudowana rola to **współautor zasad zasobów**.

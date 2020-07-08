@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74559344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080877"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
 W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą Azure Active Directory.
@@ -73,7 +74,7 @@ Administrator dzierżawy Azure Active Directory nie ma bezpośredniego dostępu 
 
 3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na **wartość tak**.
 
-   ![Administrator globalny może zarządzać subskrypcjami platformy Azure i Grupy zarządzania zrzutu ekranu](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Zarządzanie dostępem do zasobów platformy Azure — zrzut ekranu](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - Po ustawieniu przełącznika na wartość tak przypiszesz rolę administratora dostępu użytkownika w usłudze Azure RBAC w zakresie głównym (/). To przyznaje uprawnienia do przypisywania ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Ten przełącznik jest dostępny tylko dla użytkowników, którym przypisano rolę administratora globalnego w usłudze Azure AD.
 
@@ -160,7 +161,7 @@ Po przypisaniu ról RBAC do użytkowników Administrator dzierżawy powinien usu
 
 2. Na liście Nawigacja kliknij **Azure Active Directory** a następnie kliknij pozycję **Właściwości**.
 
-3. W obszarze **administrator globalny może zarządzać subskrypcjami i grupy zarządzania platformy Azure**, ustaw przełącznik na wartość **nie**.
+3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na wartość **nie**.
 
 4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 

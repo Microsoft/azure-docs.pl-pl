@@ -3,15 +3,16 @@ title: Śledzenie zależności na platformie Azure Application Insights | Micros
 description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure aplikacji sieci Web z Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081353"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
-*Zależność* jest składnikiem zewnętrznym, który jest wywoływany przez aplikację. Zwykle jest to usługa o nazwie przy użyciu protokołu HTTP lub bazy danych lub systemu plików. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mierzy czas trwania wywołań zależności, bez względu na to, czy wystąpił błąd, czy nie, wraz z dodatkowymi informacjami, takimi jak nazwa zależności i tak dalej. Można zbadać konkretne wywołania zależności i skorelować je z żądaniami i wyjątkami.
+*Zależność* to składnik, który jest wywoływany przez aplikację. Zwykle jest to usługa o nazwie przy użyciu protokołu HTTP lub bazy danych lub systemu plików. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mierzy czas trwania wywołań zależności, bez względu na to, czy wystąpił błąd, czy nie, wraz z dodatkowymi informacjami, takimi jak nazwa zależności i tak dalej. Można zbadać konkretne wywołania zależności i skorelować je z żądaniami i wyjątkami.
 
 ## <a name="automatically-tracked-dependencies"></a>Automatycznie śledzone zależności
 

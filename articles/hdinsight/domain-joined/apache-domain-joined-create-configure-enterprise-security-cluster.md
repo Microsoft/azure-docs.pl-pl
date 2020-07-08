@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437648"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080163"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight
 
@@ -70,7 +70,7 @@ W tej sekcji utworzysz użytkowników, którzy będą mieli dostęp do klastra u
     1. Wybierz pozycję **Pobierz plik RDP**, a następnie otwórz plik.
     1. Użyj `HDIFabrikam\HDIFabrikamAdmin` jako nazwy użytkownika.
     1. Wprowadź hasło wybrane dla konta administratora.
-    1. Wybierz przycisk **OK**.
+    1. Kliknij przycisk **OK**.
 
 1. Na pulpicie nawigacyjnym **Menedżer serwera** kontroler domeny Przejdź do **menu Narzędzia**  >  **Active Directory Użytkownicy i komputery**.
 
@@ -98,7 +98,7 @@ W tej sekcji utworzysz użytkowników, którzy będą mieli dostęp do klastra u
 
     1. Wprowadź `HDIUserGroup` wartość w polu tekstowym **Nazwa grupy** .
 
-    1. Wybierz przycisk **OK**.
+    1. Kliknij przycisk **OK**.
 
     ![Utwórz nową grupę Active Directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
@@ -261,7 +261,7 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD DS. Aby uzyskać w
 
     ![Krok "Utwórz sieć wirtualną"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
-1. Na stronie **Grupa administratorów** powinna zostać wyświetlona powiadomienie z informacją o tym, że grupa o nazwie **Administratorzy domeny usługi AAD** została już utworzona w celu administrowania tą grupą. Możesz zmodyfikować członkostwo w tej grupie, jeśli chcesz, ale w tym przypadku nie musisz go zmieniać. Wybierz przycisk **OK**.
+1. Na stronie **Grupa administratorów** powinna zostać wyświetlona powiadomienie z informacją o tym, że grupa o nazwie **Administratorzy domeny usługi AAD** została już utworzona w celu administrowania tą grupą. Możesz zmodyfikować członkostwo w tej grupie, jeśli chcesz, ale w tym przypadku nie musisz go zmieniać. Kliknij przycisk **OK**.
 
     ![Wyświetlanie grupy administratorów usługi Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081234"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W tym artykule opisano niektóre wzorce odpowiednie do użycia z rozwiązaniami Table service. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które omówiono w innych artykułach dotyczących projektowania magazynów tabel. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
@@ -263,7 +263,7 @@ W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikat�
 ![Jednostka działu i jednostka Employee](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
 
 ![Jednostka działu](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -742,7 +742,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -762,7 +762,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -799,7 +799,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -835,7 +835,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -857,7 +857,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -898,7 +898,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Employee</td>

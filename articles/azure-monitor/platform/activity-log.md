@@ -7,17 +7,20 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b834f6222885ea9c5930081738a80be28f9c545
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84947072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082305"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności to [Dziennik platformy](platform-logs-overview.md) na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
 
 Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](diagnostic-settings.md) w celu uzyskania szczegółowych informacji dotyczących tworzenia ustawień diagnostycznych.
+
+> [!NOTE]
+> Wpisy w dzienniku aktywności są generowane przez system i nie można ich zmienić ani usunąć.
 
 ## <a name="view-the-activity-log"></a>Wyświetlanie dziennika aktywności
 Dostęp do dziennika aktywności można uzyskać z większości menu w Azure Portal. Menu, z którego jest otwierane, określa jego pierwotny filtr. Jeśli otworzysz go z menu **monitor** , jedynym filtrem będzie w subskrypcji. Jeśli otworzysz go z menu zasobów, filtr zostanie ustawiony na ten zasób. Filtr można zawsze zmienić, aby wyświetlić wszystkie pozostałe wpisy. Kliknij przycisk **Dodaj filtr** , aby dodać do filtru dodatkowe właściwości.
@@ -63,14 +66,14 @@ Aby na przykład wyświetlić liczbę rekordów dziennika aktywności dla każde
 
 ```kusto
 AzureActivity
-| summarize count() by CategoryValue
+| summarize count() by Category
 ```
 
 Aby pobrać wszystkie rekordy z kategorii administracyjnej, należy użyć poniższego zapytania.
 
 ```kusto
 AzureActivity
-| where CategoryValue == "Administrative"
+| where Category == "Administrative"
 ```
 
 

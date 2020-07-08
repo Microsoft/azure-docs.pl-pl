@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 559746a817442602c76ba91f12c195be1d7f3cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f602c23f182ede2b9897563a8421163e1328e24
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188433"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079194"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Korzystanie z usługi SCP z usługą Apache Hadoop w usłudze Azure HDInsight
 

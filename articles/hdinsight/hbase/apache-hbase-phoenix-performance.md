@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75552648"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079500"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Najlepsze rozwiązania w zakresie wydajności dla rozwiązania Apache Phoenix
 
@@ -52,7 +52,7 @@ Przy użyciu nowego klucza podstawowego klucze wierszy generowane przez Phoenix 
 
 W pierwszym wierszu powyżej dane dla rowkey są reprezentowane w sposób pokazany:
 
-|rowkey|       key|   value|
+|rowkey|       key|   wartość|
 |------|--------------------|---|
 |  Dole-Jan-111|adres |1111 San Gabriel Dr.|  
 |  Dole-Jan-111|phone |1-425-000-0002|  
@@ -82,13 +82,17 @@ Phoenix pozwala kontrolować liczbę regionów, w których są dystrybuowane dan
 
 Aby przeprowadzić solenie tabeli podczas jej tworzenia, określ liczbę zasobników soli:
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 Ta sól dzieli tabelę na wartości kluczy podstawowych, wybierając wartości automatycznie. 
 
 Aby kontrolować miejsce, w którym występuje podział tabeli, można wstępnie podzielić tabelę, podając wartości zakresu, na których występuje podział. Na przykład, aby utworzyć tabelę podzieloną na trzy regiony:
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>Projekt indeksu
 
@@ -120,11 +124,15 @@ Przykładowo w przykładowej tabeli kontaktów można utworzyć indeks pomocnicz
 
 Jeśli jednak zazwyczaj chcesz wyszukać imię i nazwisko socialSecurityNum, możesz utworzyć indeks pokryty, który zawiera imię i nazwisko, jako rzeczywiste dane w tabeli indeksów:
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 Ten indeks objęty usługą umożliwia pozyskanie wszystkich danych z tabeli zawierającej indeks pomocniczy przy użyciu następującej kwerendy:
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>Używanie indeksów funkcjonalnych
 
@@ -132,7 +140,9 @@ Indeksy funkcjonalne umożliwiają utworzenie indeksu dla dowolnego wyrażenia, 
 
 Można na przykład utworzyć indeks, aby zezwolić na wyszukiwanie bez uwzględniania wielkości liter w połączeniu z imię i nazwisko osoby:
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>Projekt zapytania
 
@@ -153,46 +163,64 @@ W elemencie [SqlLine](http://sqlline.sourceforge.net/)Użyj wyjaśnień i zapyta
 
 Załóżmy na przykład, że masz tabelę o nazwie loty, która przechowuje informacje o opóźnieniu lotów.
 
-Aby wybrać wszystkie loty z airlineid `19805`, gdzie airlineid to pole, które nie znajduje się w kluczu podstawowym lub w dowolnym indeksie:
+Aby wybrać wszystkie loty z airlineid `19805` , gdzie airlineid to pole, które nie znajduje się w kluczu podstawowym lub w dowolnym indeksie:
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Uruchom polecenie Wyjaśnij w następujący sposób:
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 Plan zapytania wygląda następująco:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 W tym planie należy zwrócić uwagę na pełne skanowanie fraz za pośrednictwem lotów. Ta fraza wskazuje, że wykonanie przeskanuje tabelę nad wszystkimi wierszami w tabeli, zamiast korzystać z bardziej wydajnego skanowania zakresu lub opcji skanowania.
 
-Teraz Załóżmy, że chcesz wykonać zapytanie dotyczące lotów 2 stycznia 2014 dla przewoźnika `AA` , gdzie jego flightnum była większa niż 1. Załóżmy, że kolumny Year, month, dayOfMonth, Key i flightnum istnieją w przykładowej tabeli i są częścią złożonego klucza podstawowego. Zapytanie będzie wyglądać następująco:
+Teraz Załóżmy, że chcesz wykonać zapytanie dotyczące lotów 2 stycznia 2014 dla przewoźnika, `AA` gdzie jego flightnum była większa niż 1. Załóżmy, że kolumny Year, month, dayOfMonth, Key i flightnum istnieją w przykładowej tabeli i są częścią złożonego klucza podstawowego. Zapytanie będzie wyglądać następująco:
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Sprawdźmy plan dla tego zapytania przy użyciu:
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 Plan wynikający z tego:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
-Wartości w nawiasach kwadratowych są zakresem wartości kluczy podstawowych. W takim przypadku wartości zakresu są stałe z rokiem 2014, month 1 i dayOfMonth 2, ale zezwalają na wartości flightnum, zaczynając od 2 i w górę (`*`). Ten plan zapytania potwierdza, że klucz podstawowy jest używany zgodnie z oczekiwaniami.
+Wartości w nawiasach kwadratowych są zakresem wartości kluczy podstawowych. W takim przypadku wartości zakresu są stałe z rokiem 2014, month 1 i dayOfMonth 2, ale zezwalają na wartości flightnum, zaczynając od 2 i w górę ( `*` ). Ten plan zapytania potwierdza, że klucz podstawowy jest używany zgodnie z oczekiwaniami.
 
 Następnie utwórz indeks w tabeli loty o nazwie `carrier2_idx` , która znajduje się tylko w polu przewoźnik. Ten indeks zawiera także flightdate, tailnum, Origin i flightnum jako kolumny omówione, których dane są również przechowywane w indeksie.
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 Załóżmy, że chcesz uzyskać przewoźnika wraz z flightdate i tailnum, tak jak w poniższym zapytaniu:
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 Powinien zostać wyświetlony następujący indeks:
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 Aby zapoznać się z pełną listą elementów, które mogą pojawić się w wynikach planu wyjaśnień, zobacz sekcję "wyjaśnienia planów" w [przewodniku dostrajania Apache Phoenix](https://phoenix.apache.org/tuning_guide.html).
 
@@ -222,7 +250,9 @@ Podczas usuwania dużego zestawu danych należy włączyć funkcję automatyczne
 
 Jeśli Twój Scenariusz preferuje przyspieszenie zapisu przez integralność danych, rozważ wyłączenie zapisu z wyprzedzeniem podczas tworzenia tabel:
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 Aby uzyskać szczegółowe informacje na temat tego i innych opcji, zobacz [Apache Phoenix gramatyki](https://phoenix.apache.org/language/index.html#options).
 

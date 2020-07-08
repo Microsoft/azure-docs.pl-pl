@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: d7f6da930f797912ef0e91666082aa5654b7f1ab
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251761"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081642"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
@@ -82,7 +82,9 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
  
    Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli dla pola nazwy wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialBulkCopyDF). Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
-       `Data factory name "ADFTutorialBulkCopyDF" is not available`
+    ```text
+    Data factory name "ADFTutorialBulkCopyDF" is not available
+    ```
 1. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
 1. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      
@@ -128,7 +130,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
 
     f. Aby przetestować połączenie z bazą danych przy użyciu określonych informacji, kliknij przycisk **Test connection**.
   
-    g. Kliknij przycisk **Utwórz** , aby zapisać połączoną usługę.
+    przykład Kliknij przycisk **Utwórz** , aby zapisać połączoną usługę.
 
 
 ### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Tworzenie połączonej usługi Azure Synapse Analytics (dawniej SQL DW)
@@ -149,7 +151,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     f. Aby przetestować połączenie z bazą danych przy użyciu określonych informacji, kliknij przycisk **Test connection**.
      
-    g. Kliknij pozycję **Utwórz**.
+    przykład Kliknij pozycję **Utwórz**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Tworzenie przejściowej połączonej usługi Azure Storage
 W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przejściowy, pozwalający na włączenie programu PolyBase w celu podniesienia wydajności kopiowania.

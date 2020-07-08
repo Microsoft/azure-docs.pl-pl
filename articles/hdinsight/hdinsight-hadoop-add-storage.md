@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080010"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
@@ -65,7 +65,7 @@ Podczas wyświetlania klastra usługi HDInsight w Azure Portal wybranie pozycji 
 
 Aby sprawdzić, czy magazyn dodatkowy wykorzystuje jedną z metod przedstawionych poniżej:
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Skrypt zwróci nazwy kont magazynu skojarzone z danym klastrem. Zamień na `CLUSTERNAME` rzeczywistą nazwę klastra, a następnie uruchom skrypt.
 
@@ -133,14 +133,6 @@ Aby obejść ten problem:
 
 > [!IMPORTANT]  
 > Obracanie klucza magazynu dla konta magazynu podstawowego dołączonego do klastra nie jest obsługiwane.
-
-### <a name="poor-performance"></a>Niska wydajność
-
-Jeśli konto magazynu znajduje się w innym regionie niż klaster usługi HDInsight, może wystąpić niska wydajność. Dostęp do danych w innym regionie wysyła ruch sieciowy poza regionalnym centrum danych platformy Azure. I przez publiczny Internet, który może wprowadzać opóźnienia.
-
-### <a name="additional-charges"></a>Dodatkowe opłaty
-
-Jeśli konto magazynu znajduje się w innym regionie niż klaster usługi HDInsight, możesz zauważyć dodatkowe opłaty za ruch wychodzący w ramach rozliczeń na platformie Azure. Opłata za ruch wychodzący jest stosowana, gdy dane opuszczają regionalne centrum danych. Ta opłata jest stosowana, nawet jeśli ruch jest przeznaczony dla innego centrum danych platformy Azure w innym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

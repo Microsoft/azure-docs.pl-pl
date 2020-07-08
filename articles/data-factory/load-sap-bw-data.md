@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415837"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081312"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +69,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
    3. Wybierz **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Zakończ**.
 
-   4. Zostanie utworzone nowe połączenie. Wybierz pozycję **Dalej**.
+   4. Zostanie utworzone nowe połączenie. Wybierz opcję **Dalej**.
 
 5. Na stronie **Wybierz miejscowe miejsca docelowe programu Open** Hub Przeglądaj lokalizacje dostępne w usłudze SAP BW. Wybierz OHD, z którego mają zostać skopiowane dane, a następnie wybierz przycisk **dalej**.
 
@@ -269,7 +269,7 @@ Po wykonaniu tej czynności wszystkie kolejne DTPs różnicowe i Data Factory wy
 
 Aby ustawić stan DTP Delta do **pobrania**, można użyć następującej opcji, aby ręcznie uruchomić różnicowe DTP:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Brak Transfer danych; Stan Delta w źródle: pobrane*
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860617"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080741"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Tworzenie tabel programu Hive i ładowanie danych z usługi Azure Blob Storage
 
@@ -69,7 +70,9 @@ Można uruchomić polecenie takie jak `hive -e "<your hive query>;` , aby przes�
 #### <a name="submit-hive-queries-in-hql-files"></a>Prześlij zapytania programu Hive w plikach ". HQL"
 Gdy zapytanie programu Hive jest bardziej skomplikowane i ma wiele wierszy, edytowanie zapytań w wierszu polecenia lub w konsoli poleceń Hive nie jest praktyczne. Alternatywą jest użycie edytora tekstu w węźle głównym klastra Hadoop w celu zapisania zapytań programu Hive w pliku "HQL" w katalogu lokalnym węzła głównego. Następnie zapytanie Hive w pliku ". HQL" można przesłać przy użyciu `-f` argumentu w następujący sposób:
 
-    hive -f "<path to the '.hql' file>"
+```console
+hive -f "<path to the '.hql' file>"
+```
 
 ![Zapytanie programu Hive w pliku ". HQL"](./media/move-hive-tables/run-hive-queries-3.png)
 
@@ -77,8 +80,10 @@ Gdy zapytanie programu Hive jest bardziej skomplikowane i ma wiele wierszy, edyt
 
 Domyślnie po przesłaniu zapytania programu Hive w wierszu polecenia usługi Hadoop postęp zadania mapy/zmniejszania jest drukowany na ekranie. Aby pominąć drukowanie ekranu mapy/zmniejszyć postęp zadania, można użyć argumentu `-S` ("S" w Wielkiej litery) w wierszu polecenia w następujący sposób:
 
-    hive -S -f "<path to the '.hql' file>"
-    hive -S -e "<Hive queries>"
+```console
+hive -S -f "<path to the '.hql' file>"
+hive -S -e "<Hive queries>"
+```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Prześlij zapytania programu Hive w konsoli poleceń Hive.
 Możesz również najpierw wprowadzić konsolę poleceń Hive, uruchamiając polecenie `hive` w wierszu polecenia usługi Hadoop, a następnie przesyłając zapytania programu Hive w konsoli poleceń Hive. Oto przykład. W tym przykładzie dwa czerwone pola podświetlą polecenia służące do wprowadzania konsoli poleceń Hive i zapytanie Hive przesłane w konsoli poleceń Hive odpowiednio. Zielony prostokąt wyróżni dane wyjściowe zapytania programu Hive.
@@ -90,7 +95,9 @@ Poprzednie przykłady bezpośrednio wyprowadzają wyniki zapytania programu Hive
 **Wyniki zapytania programu Hive do pliku lokalnego.**
 Aby wyprowadzić wyniki zapytania programu Hive do katalogu lokalnego w węźle głównym, należy przesłać zapytanie programu Hive w wierszu polecenia usługi Hadoop w następujący sposób:
 
-    hive -e "<hive query>" > <local path in the head node>
+```console
+hive -e "<hive query>" > <local path in the head node>
+```
 
 W poniższym przykładzie dane wyjściowe zapytania programu Hive są zapisywane w pliku `hivequeryoutput.txt` w katalogu `C:\apps\temp` .
 
@@ -100,7 +107,9 @@ W poniższym przykładzie dane wyjściowe zapytania programu Hive są zapisywane
 
 Możesz również wyprowadzać wyniki zapytania programu Hive do obiektu blob platformy Azure w ramach domyślnego kontenera klastra Hadoop. Zapytanie programu Hive jest następujące:
 
-    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```console
+insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```
 
 W poniższym przykładzie dane wyjściowe zapytania programu Hive są zapisywane w katalogu obiektów BLOB `queryoutputdir` w kontenerze domyślnym klastra Hadoop. W tym miejscu wystarczy podać nazwę katalogu bez nazwy obiektu BLOB. Błąd jest zgłaszany w przypadku podania nazw katalogów i obiektów blob, takich jak `wasb:///queryoutputdir/queryoutput.txt` .
 
@@ -121,18 +130,20 @@ Zapytania programu Hive są udostępniane w [repozytorium GitHub](https://github
 
 Oto zapytanie programu Hive tworzące tabelę programu Hive.
 
-    create database if not exists <database name>;
-    CREATE EXTERNAL TABLE if not exists <database name>.<table name>
-    (
-        field1 string,
-        field2 int,
-        field3 float,
-        field4 double,
-        ...,
-        fieldN string
-    )
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
-    STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+create database if not exists <database name>;
+CREATE EXTERNAL TABLE if not exists <database name>.<table name>
+(
+    field1 string,
+    field2 int,
+    field3 float,
+    field4 double,
+    ...,
+    fieldN string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
+STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```
 
 Poniżej przedstawiono opisy pól, które należy podłączyć i inne konfiguracje:
 
@@ -146,7 +157,9 @@ Poniżej przedstawiono opisy pól, które należy podłączyć i inne konfigurac
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Ładowanie danych do tabel programu Hive
 Oto zapytanie programu Hive ładujące dane do tabeli programu Hive.
 
-    LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```hiveql
+LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```
 
 * **\<path to blob data\>**: Jeśli plik BLOB do przekazania do tabeli programu Hive znajduje się w domyślnym kontenerze klastra usługi HDInsight Hadoop, *\<path to blob data\>* powinien mieć format *"wasb:// \<directory in this container> / \<blob file name> "*. Plik BLOB może również znajdować się w dodatkowym kontenerze klastra usługi HDInsight Hadoop. W tym przypadku *\<path to blob data\>* powinna mieć format *"wasb:// \<container name> @ \<storage account name> . blob.Core.Windows.NET/ \<blob file name> "*.
 
@@ -163,69 +176,83 @@ Oprócz partycjonowania tabel programu Hive warto również przechowywać dane H
 ### <a name="partitioned-table"></a>Partycjonowana tabela
 Oto zapytanie Hive, które tworzy partycjonowaną tabelę i ładuje do niej dane.
 
-    CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
-    (field1 string,
-    ...
-    fieldN string
-    )
-    PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-         lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
-        PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
+(field1 string,
+...
+fieldN string
+)
+PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
+    PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```
 
 Podczas wykonywania zapytania dotyczącego tabel partycjonowanych zaleca się dodanie warunku partycji na **początku** `where` klauzuli, co zwiększa efektywność wyszukiwania.
 
-    select
-        field1, field2, ..., fieldN
-    from <database name>.<partitioned table name>
-    where <partitionfieldname>=<partitionfieldvalue> and ...;
+```hiveql
+select
+    field1, field2, ..., fieldN
+from <database name>.<partitioned table name>
+where <partitionfieldname>=<partitionfieldvalue> and ...;
+```
 
 ### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>Przechowywanie danych Hive w formacie ORC
 Nie można bezpośrednio ładować danych z magazynu obiektów BLOB do tabel programu Hive, które są przechowywane w formacie ORC. Poniżej przedstawiono kroki, które należy wykonać, aby załadować dane z obiektów blob platformy Azure do tabel programu Hive przechowywanych w formacie ORC.
 
 Utwórz zewnętrzną tabelę **przechowywaną jako textfile** i Załaduj dane z magazynu obiektów BLOB do tabeli.
 
-        CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-            lines terminated by '<line separator>' STORED AS TEXTFILE
-            LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' STORED AS TEXTFILE
+    LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+```
 
 Utwórz wewnętrzną tabelę z tym samym schematem co tabela zewnętrzna w kroku 1, z tym samym ogranicznikiem pola i Zapisz dane programu Hive w formacie ORC.
 
-        CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```hiveql
+CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```
 
 Wybierz dane z tabeli zewnętrznej w kroku 1 i Wstaw do tabeli ORC
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name>
-            SELECT * FROM <database name>.<external textfile table name>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name>
+    SELECT * FROM <database name>.<external textfile table name>;
+```
 
 > [!NOTE]
 > Jeśli tabela textfile * \<database name\> . \<external textfile table name\> * zawiera partycje, w kroku 3 `SELECT * FROM <database name>.<external textfile table name>` polecenie wybiera zmienną partycji jako pole w zwracanym zestawie danych. Wstawianie go do * \<database name\> . \<ORC table name\> * kończy się niepowodzeniem od * \<database name\> . \<ORC table name\> * nie ma zmiennej partycji jako pola w schemacie tabeli. W takim przypadku należy wybrać pola do wstawienia * \<database name\> . \<ORC table name\> * w następujący sposób:
 >
 >
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
-           SELECT field1, field2, ..., fieldN
-           FROM <database name>.<external textfile table name>
-           WHERE <partition variable>=<partition value>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
+    SELECT field1, field2, ..., fieldN
+    FROM <database name>.<external textfile table name>
+    WHERE <partition variable>=<partition value>;
+```
 
 Podczas wstawiania wszystkich danych do programu bezpieczne jest porzucanie przy *\<external text file table name\>* użyciu następującego zapytania * \<database name\> . \<ORC table name\> *:
 
-        DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```hiveql
+    DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```
 
 Po wykonaniu tej procedury należy mieć tabelę z danymi w formacie ORC gotowym do użycia.  

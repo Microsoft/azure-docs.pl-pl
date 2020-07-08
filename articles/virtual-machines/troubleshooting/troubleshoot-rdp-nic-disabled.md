@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918244"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078633"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Nie można uzyskać pulpitu zdalnego z maszyną wirtualną, ponieważ interfejs sieciowy jest wyłączony
 
@@ -39,21 +40,29 @@ Aby włączyć interfejs dla maszyny wirtualnej, użyj kontrolki szeregowej lub 
 ). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, zobacz [Resetowanie interfejsu sieciowego](#reset-network-interface).
 2. Sprawdź stan interfejsu sieciowego:
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Zanotuj nazwę wyłączonego interfejsu sieciowego.
 
 3. Włącz interfejs sieciowy:
 
-        netsh interface set interface name="interface Name" admin=enabled
+    ```console
+    netsh interface set interface name="interface Name" admin=enabled
+    ```
 
     Na przykład jeśli interfejsem roboczym jest nazwa "Ethernet 2", uruchom następujące polecenie:
 
-        netsh interface set interface name="Ethernet 2" admin=enabled
+    ```console
+    netsh interface set interface name="Ethernet 2" admin=enabled
+    ```
 
 4.  Sprawdź ponownie stan interfejsu sieciowego, aby upewnić się, że interfejs sieciowy jest włączony.
 
-        netsh interface show interface
+    ```console
+    netsh interface show interface
+    ```
 
     Nie musisz ponownie uruchamiać maszyny wirtualnej w tym momencie. Maszyna wirtualna będzie ponownie dostępna.
 

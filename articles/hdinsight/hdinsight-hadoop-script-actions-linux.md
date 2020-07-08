@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767540"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082254"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -60,7 +60,7 @@ Różne wersje usługi HDInsight mają zainstalowane różne wersje usług Hadoo
 
 Różne wersje usługi HDInsight polegają na określonych wersjach programu Ubuntu. W skrypcie mogą występować różnice między wersjami systemu operacyjnego, które należy wyszukać. Na przykład może być konieczne zainstalowanie pliku binarnego, który jest powiązany z wersją programu Ubuntu.
 
-Aby sprawdzić wersję systemu operacyjnego, użyj `lsb_release`programu. Na przykład poniższy skrypt pokazuje, jak odwoływać się do określonego pliku TAR w zależności od wersji systemu operacyjnego:
+Aby sprawdzić wersję systemu operacyjnego, użyj programu `lsb_release` . Na przykład poniższy skrypt pokazuje, jak odwoływać się do określonego pliku TAR w zależności od wersji systemu operacyjnego:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -77,7 +77,7 @@ fi
 
 Usługa HDInsight jest oparta na dystrybucji Ubuntu Linux. Różne wersje usługi HDInsight są zależne od różnych wersji programu Ubuntu, co może zmienić sposób działania skryptu. Na przykład Usługa HDInsight 3,4 i wcześniejsza wersja bazują na wersjach Ubuntu korzystających z oprogramowania. Wersje 3,5 i nowsze są oparte na Ubuntu 16,04, który korzysta z systemu. System i początek są zależne od różnych poleceń, dlatego należy napisać skrypt do pracy z obydwoma.
 
-Kolejną istotną różnicą między usługą HDInsight 3,4 i `JAVA_HOME` 3,5 jest teraz wskazuje Java 8. Poniższy kod ilustruje sposób ustalania, czy skrypt działa w Ubuntu 14 czy 16:
+Kolejną istotną różnicą między usługą HDInsight 3,4 i 3,5 jest `JAVA_HOME` teraz wskazuje Java 8. Poniższy kod ilustruje sposób ustalania, czy skrypt działa w Ubuntu 14 czy 16:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -108,7 +108,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Pełny skrypt zawierający te fragmenty kodu można znaleźć pod adresem https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+Pełny skrypt zawierający te fragmenty kodu można znaleźć pod adresem https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh .
 
 W przypadku wersji programu Ubuntu używanej przez usługi HDInsight zapoznaj się z dokumentem [wersja składnika usługi HDInsight](hdinsight-component-versioning.md) .
 
@@ -123,7 +123,7 @@ Najlepszym rozwiązaniem jest pobranie i zarchiwizowanie wszystkich elementów n
 > [!IMPORTANT]  
 > Używane konto magazynu musi być domyślnym kontem magazynu dla klastra lub publicznym kontenerem tylko do odczytu na dowolnym innym koncie magazynu.
 
-Przykładowo przykłady dostarczone przez firmę Microsoft są przechowywane na koncie [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) magazynu. Ta lokalizacja jest publicznym, tylko do odczytu kontenerem obsługiwanym przez zespół usługi HDInsight.
+Przykładowo przykłady dostarczone przez firmę Microsoft są przechowywane na [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) koncie magazynu. Ta lokalizacja jest publicznym, tylko do odczytu kontenerem obsługiwanym przez zespół usługi HDInsight.
 
 ### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>Korzystanie z wstępnie skompilowanych zasobów
 
@@ -152,7 +152,7 @@ W przypadku większości operacji nie trzeba określać systemu plików. Na przy
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
-W tym przykładzie `hdfs` polecenie w sposób przezroczysty używa domyślnego magazynu klastra. W przypadku niektórych operacji może zajść potrzeba określenia identyfikatora URI. Na przykład `adl:///example/jars` dla Azure Data Lake Storage Gen1, `abfs:///example/jars` dla Data Lake Storage Gen2 lub `wasb:///example/jars` dla usługi Azure Storage.
+W tym przykładzie polecenie w sposób `hdfs` przezroczysty używa domyślnego magazynu klastra. W przypadku niektórych operacji może zajść potrzeba określenia identyfikatora URI. Na przykład dla `adl:///example/jars` Azure Data Lake Storage Gen1, `abfs:///example/jars` dla Data Lake Storage Gen2 lub `wasb:///example/jars` dla usługi Azure Storage.
 
 ### <a name="write-information-to-stdout-and-stderr"></a><a name="bPS7"></a>Zapisz informacje w STDOUT i STDERR
 
@@ -161,19 +161,19 @@ Usługa HDInsight rejestruje dane wyjściowe skryptu zapisane w strumieniach STD
 > [!NOTE]  
 > Apache Ambari jest dostępny tylko wtedy, gdy klaster został utworzony pomyślnie. Jeśli podczas tworzenia klastra używasz akcji skryptu, a tworzenie nie powiedzie się, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md) w celu uzyskania innych sposobów uzyskiwania dostępu do zarejestrowanych informacji.
 
-Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo`. Przykład:
+Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Przykład:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo`. Przykład:
+Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Przykład:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-Przekierowuje informacje zapisywane w strumieniu STDOUT do STDERR (2). Aby uzyskać więcej informacji na temat przekierowania [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)we/wy, zobacz.
+Przekierowuje informacje zapisywane w strumieniu STDOUT do STDERR (2). Aby uzyskać więcej informacji na temat przekierowania we/wy, zobacz [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html) .
 
 Aby uzyskać więcej informacji na temat wyświetlania informacji rejestrowanych przez akcje skryptu, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md).
 
@@ -238,7 +238,7 @@ Następujące pomocnicy są dostępni do użycia w skrypcie:
 | Użycie pomocnika | Opis |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Pobiera plik ze źródłowego identyfikatora URI do określonej ścieżki pliku. Domyślnie nie zastępuje istniejącego pliku. |
-| `untar_file TARFILE DESTDIR` |Wyodrębnia plik tar (przy użyciu `-xf`) do katalogu docelowego. |
+| `untar_file TARFILE DESTDIR` |Wyodrębnia plik tar (przy użyciu `-xf` ) do katalogu docelowego. |
 | `test_is_headnode` |Jeśli uruchomiono w węźle głównym klastra, zwróć 1; w przeciwnym razie 0. |
 | `test_is_datanode` |Jeśli bieżący węzeł jest węzłem danych (Worker), zwróć 1; w przeciwnym razie 0. |
 | `test_is_first_datanode` |Jeśli bieżącym węzłem jest pierwszy węzeł danych (Worker) (o nazwie workernode0), zwróć 1; w przeciwnym razie 0. |
@@ -264,15 +264,19 @@ Wartości przesłane do skryptu jako parametry powinny być ujęte w cudzysłów
 
 Ustawienie zmiennej środowiskowej jest wykonywane przez następującą instrukcję:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
-Gdzie VARIABLEname jest nazwą zmiennej. Aby uzyskać dostęp do zmiennej, `$VARIABLENAME`Użyj. Na przykład, aby przypisać wartość dostarczoną przez parametr pozycyjny jako zmienną środowiskową o nazwie PASSWORD, należy użyć następującej instrukcji:
+Gdzie VARIABLEname jest nazwą zmiennej. Aby uzyskać dostęp do zmiennej, użyj `$VARIABLENAME` . Na przykład, aby przypisać wartość dostarczoną przez parametr pozycyjny jako zmienną środowiskową o nazwie PASSWORD, należy użyć następującej instrukcji:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
-Następnie można użyć `$PASSWORD`kolejnego dostępu do informacji.
+Następnie można użyć kolejnego dostępu do informacji `$PASSWORD` .
 
-Zmienne środowiskowe ustawione w skrypcie znajdują się tylko w zakresie skryptu. W niektórych przypadkach może być konieczne dodanie zmiennych środowiskowych dla całego systemu, które będą utrwalane po zakończeniu działania skryptu. Aby dodać zmienne środowiskowe dla całego systemu, Dodaj zmienną do `/etc/environment`. Na przykład następująca instrukcja dodaje `HADOOP_CONF_DIR`:
+Zmienne środowiskowe ustawione w skrypcie znajdują się tylko w zakresie skryptu. W niektórych przypadkach może być konieczne dodanie zmiennych środowiskowych dla całego systemu, które będą utrwalane po zakończeniu działania skryptu. Aby dodać zmienne środowiskowe dla całego systemu, Dodaj zmienną do `/etc/environment` . Na przykład następująca instrukcja dodaje `HADOOP_CONF_DIR` :
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
@@ -298,7 +302,7 @@ Zasoby używane przez skrypt również muszą być dostępne publicznie.
 Przechowywanie plików na koncie usługi Azure Storage lub Azure Data Lake Storage zapewnia szybki dostęp w sieci platformy Azure.
 
 > [!NOTE]  
-> Format identyfikatora URI używany do odwoływania się do skryptu różni się w zależności od używanej usługi. W przypadku kont magazynu skojarzonych z klastrem usługi HDInsight `wasb://` Użyj `wasbs://`lub. W przypadku publicznie czytelnych identyfikatorów `http://` URI `https://`Użyj lub. Aby uzyskać Data Lake Storage, `adl://`Użyj.
+> Format identyfikatora URI używany do odwoływania się do skryptu różni się w zależności od używanej usługi. W przypadku kont magazynu skojarzonych z klastrem usługi HDInsight Użyj `wasb://` lub `wasbs://` . W przypadku publicznie czytelnych identyfikatorów URI Użyj `http://` lub `https://` . Aby uzyskać Data Lake Storage, użyj `adl://` .
 
 ## <a name="checklist-for-deploying-a-script-action"></a><a name="deployScript"></a>Lista kontrolna wdrażania akcji skryptu
 
@@ -328,7 +332,7 @@ Firma Microsoft oferuje przykładowe skrypty do instalowania składników w klas
 
 Poniżej przedstawiono błędy, które można napotkać podczas korzystania z utworzonych skryptów:
 
-**Błąd**: `$'\r': command not found`. Czasami następuje `syntax error: unexpected end of file`.
+**Błąd**: `$'\r': command not found` . Czasami następuje `syntax error: unexpected end of file` .
 
 *Przyczyna*: ten błąd występuje, gdy wiersze w skrypcie kończą się znakiem CRLF. Systemy UNIX oczekują tylko LF jako zakończenia wiersza.
 
@@ -346,15 +350,17 @@ Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku sys
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modyfikuje plik bezpośrednio |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |PLIK jest w wersji zawierającej tylko końce LF. |
 
-**Błąd**: `line 1: #!/usr/bin/env: No such file or directory`.
+**Błąd**: `line 1: #!/usr/bin/env: No such file or directory` .
 
 *Przyczyna*: ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z oznaczeniem kolejności bajtów (BOM).
 
 *Rozwiązanie*: Zapisz plik jako ASCII lub UTF-8 bez BOM. Możesz również użyć następującego polecenia w systemie Linux lub UNIX, aby utworzyć plik bez BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
-Zamień `INFILE` na plik zawierający BOM. `OUTFILE`powinna być nową nazwą pliku, która zawiera skrypt bez BOM.
+Zamień na `INFILE` plik zawierający BOM. `OUTFILE`powinna być nową nazwą pliku, która zawiera skrypt bez BOM.
 
 ## <a name="next-steps"></a><a name="seeAlso"></a>Następne kroki
 

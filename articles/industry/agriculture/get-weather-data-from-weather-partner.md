@@ -5,17 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800651"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078737"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
 
 Usługa Azure FarmBeats ułatwia wprowadzanie danych pogody od dostawców danych pogody przy użyciu struktury łączników opartych na platformie Docker. Korzystając z tej struktury, dostawcy danych pogody implementują platformę Docker, którą można zintegrować z FarmBeats. Obecnie obsługiwane są następujące dostawcy danych pogody:
 
-[DTN](https://www.dtn.com/dtn-content-integration/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Dane pogodowe mogą służyć do generowania szczegółowych informacji z możliwością podejmowania działań i tworzenia modeli AI/ML w FarmBeats.
 
@@ -59,6 +62,9 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
    ```
 
    Na przykład aby uzyskać dane pogodowe z DTN, użyj poniższego ładunku. Nazwę i opis można zmodyfikować zgodnie z preferencjami.
+
+   > [!NOTE]
+   > Poniższy krok wymaga klucza interfejsu API, skontaktuj się z DTN, aby uzyskać tę samą subskrypcję DTN.
 
    ```json
    {

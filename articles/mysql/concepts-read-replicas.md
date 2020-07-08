@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/24/2020
-ms.openlocfilehash: 29ae9c47ca4ed8cdfedf78ffa7957376c7556076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367493"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079177"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -107,6 +107,25 @@ Gdy zdecydujesz się zatrzymać replikację do repliki, utraci ona wszystkie lin
 > Przed zatrzymaniem replikacji w replice odczytu upewnij się, że replika ma wszystkie wymagane dane.
 
 Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal.md).
+
+## <a name="failover"></a>Tryb failover
+
+Nie ma automatycznej pracy awaryjnej między serwerami Master i replikami. 
+
+Ponieważ replikacja jest asynchroniczna, między wzorcem a repliką jest zwłoka. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze głównym oraz opóźnienia między centrami danych. W większości przypadków zwłoki repliki od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki*metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
+
+> [!Tip]
+> W przypadku przejścia w tryb failover do repliki zwłoka w momencie odłączenia repliki od wzorca będzie wskazywać, ile danych jest utraconych.
+
+Po podjęciu decyzji o przejściu do trybu failover w replice 
+
+1. Zatrzymaj replikację do repliki<br/>
+   Ten krok jest niezbędny, aby serwer repliki mógł akceptować operacje zapisu. W ramach tego procesu serwer repliki zostanie odłączone od wzorca. Po zainicjowaniu zatrzymania replikacji proces zaplecza zwykle trwa około 2 minuty. Zapoznaj się z sekcją [Zatrzymaj replikację](#stop-replication) tego artykułu, aby poznać konsekwencje tej akcji.
+    
+2. Wskazywanie aplikacji na (dawniej) replikę<br/>
+   Każdy serwer ma unikatowe parametry połączenia. Zaktualizuj swoją aplikację, tak aby wskazywała replikę (dawniej), a nie główną.
+    
+Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
 ## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
 

@@ -12,11 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078973"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -104,7 +105,7 @@ Aby ten test był praktyczny, Odłącz komputer od sieci przed uruchomieniem pro
 - Wstrzymaj dalsze wykonywanie przy użyciu metody **Console. ReadLine** lub okna dialogowego z przyciskiem OK. Użytkownik naciśnie klawisz Enter po podłączeniu komputera do sieci.
 - Spróbuj ponownie nawiązać połączenie, oczekiwanie na powodzenie.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Przetestuj błąd podczas nawiązywania połączenia w nazwie bazy danych
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Przetestuj, wprowadzając błąd podczas nawiązywania połączenia nazwy użytkownika
 
 Program może przeznaczenie nazwy użytkownika przed rozpoczęciem pierwszej próby połączenia. Błąd to:
 
