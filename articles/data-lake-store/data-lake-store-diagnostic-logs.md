@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 479b227a9144604d3bd0116a60de751189376b5f
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e50091750e01435912a2a5163cc786e79dc09f5c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85511466"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985068"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla Azure Data Lake Storage Gen1
 Dowiedz się, jak włączyć rejestrowanie diagnostyczne dla konta Azure Data Lake Storage Gen1 i jak wyświetlić dzienniki zebrane dla Twojego konta.
@@ -91,91 +91,95 @@ Dzienniki inspekcji i żądań są w formacie JSON. W tej sekcji Przyjrzyjmy si�
 ### <a name="request-logs"></a>Dzienniki żądań
 Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika.
 
+```json
+{
+"records": 
+  [        
+    . . . .
+    ,
     {
-    "records": 
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
-             "category": "Requests",
-             "operationName": "GETCustomerIngressEgress",
-             "resultType": "200",
-             "callerIpAddress": "::ffff:1.1.1.1",
-             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-             "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
-        }
-        ,
-        . . . .
-      ]
+        "time": "2016-07-07T21:02:53.456Z",
+        "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
+        "category": "Requests",
+        "operationName": "GETCustomerIngressEgress",
+        "resultType": "200",
+        "callerIpAddress": "::ffff:1.1.1.1",
+        "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+        "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="request-log-schema"></a>Schemat dziennika żądania
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |Ciąg |Identyfikator zasobu, w którym miało miejsce operacja |
-| category |Ciąg |Kategoria dziennika. Na przykład **żądania**. |
-| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
-| resultType |Ciąg |Stan operacji, na przykład 200. |
-| callerIpAddress |Ciąg |Adres IP klienta wysyłającego żądanie |
-| correlationId |Ciąg |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym miało miejsce operacja |
+| category |String |Kategoria dziennika. Na przykład **żądania**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
+| resultType |String |Stan operacji, na przykład 200. |
+| callerIpAddress |String |Adres IP klienta wysyłającego żądanie |
+| correlationId |String |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Szczegóły znajdują się poniżej. |
 
 #### <a name="request-log-properties-schema"></a>Schemat właściwości dziennika żądań
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| HttpMethod |Ciąg |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
-| Ścieżka |Ciąg |Ścieżka, na której wykonano operację |
+| HttpMethod |String |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
+| Ścieżka |String |Ścieżka, na której wykonano operację |
 | RequestContentLength |int |Długość zawartości żądania HTTP |
-| Identyfikatorem żądania klienta |Ciąg |Identyfikator, który jednoznacznie identyfikuje to żądanie |
-| StartTime |Ciąg |Godzina, o której serwer odebrał żądanie |
-| EndTime |Ciąg |Godzina, o której serwer wysłał odpowiedź |
+| Identyfikatorem żądania klienta |String |Identyfikator, który jednoznacznie identyfikuje to żądanie |
+| StartTime |String |Godzina, o której serwer odebrał żądanie |
+| EndTime |String |Godzina, o której serwer wysłał odpowiedź |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika
 
+```json
+{
+"records": 
+  [        
+    . . . .
+    ,
     {
-    "records": 
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-08T19:08:59.359Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
-             "category": "Audit",
-             "operationName": "SeOpenStream",
-             "resultType": "0",
-             "resultSignature": "0",
-             "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
-             "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-             "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
-        }
-        ,
-        . . . .
-      ]
+        "time": "2016-07-08T19:08:59.359Z",
+        "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
+        "category": "Audit",
+        "operationName": "SeOpenStream",
+        "resultType": "0",
+        "resultSignature": "0",
+        "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
+        "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
+        "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="audit-log-schema"></a>Schemat dziennika inspekcji
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |Ciąg |Identyfikator zasobu, w którym miało miejsce operacja |
-| category |Ciąg |Kategoria dziennika. Na przykład **Inspekcja**. |
-| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
-| resultType |Ciąg |Stan operacji, na przykład 200. |
-| resultSignature |Ciąg |Dodatkowe szczegóły dotyczące operacji. |
-| correlationId |Ciąg |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym miało miejsce operacja |
+| category |String |Kategoria dziennika. Na przykład **Inspekcja**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
+| resultType |String |Stan operacji, na przykład 200. |
+| resultSignature |String |Dodatkowe szczegóły dotyczące operacji. |
+| correlationId |String |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Szczegóły znajdują się poniżej. |
 
 #### <a name="audit-log-properties-schema"></a>Schemat właściwości dziennika inspekcji
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| StreamName |Ciąg |Ścieżka, na której wykonano operację |
+| StreamName |String |Ścieżka, na której wykonano operację |
 
 ## <a name="samples-to-process-the-log-data"></a>Przykłady do przetwarzania danych dziennika
 W przypadku wysyłania dzienników z usługi Azure Data Lake Storage Gen1 do dzienników Azure Monitor (zobacz [Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor wyszukiwanie](../azure-monitor/learn/tutorial-viewdata.md) szczegółowych informacji dotyczących korzystania z dzienników Azure monitor), następujące zapytanie zwróci tabelę zawierającą listę nazw wyświetlanych użytkowników, czas zdarzeń oraz liczbę zdarzeń w czasie zdarzenia wraz z wykresem wizualnym. Można łatwo zmodyfikować, aby pokazać identyfikator GUID użytkownika lub inne atrybuty:
@@ -189,7 +193,7 @@ search *
 
 Azure Data Lake Storage Gen1 zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
 

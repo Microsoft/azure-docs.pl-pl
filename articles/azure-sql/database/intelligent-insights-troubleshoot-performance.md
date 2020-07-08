@@ -2,7 +2,7 @@
 title: Rozwiązywanie problemów z wydajnością przy użyciu funkcji Intelligent Insights
 description: Intelligent Insights pomaga rozwiązywać problemy związane z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: da29b5427b2258a32e87977289689949a47f3d8e
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743443"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986390"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

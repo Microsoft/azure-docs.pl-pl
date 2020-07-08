@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 05298ac0b76f93ba8249cc72910d33b58a9889e4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ccd352950117d8427809616f78f4a0691319cdf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263130"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023673"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Łączenie Node.js aplikacji Mongoose do Azure Cosmos DB
 
@@ -194,7 +194,7 @@ W tej sekcji omówiono, jak to osiągnąć za pomocą interfejsu API Azure Cosmo
 
 1. Teraz, przechodząc do Azure Portal, zauważysz dwie kolekcje utworzone w Cosmos DB.
 
-    ![Samouczek Node.js — zrzut ekranu przedstawiający Azure Portal, z uwzględnieniem konta Azure Cosmos DB z wyróżnionymi wieloma nazwami kolekcji — baza danych Node][multiple-coll]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="SamouczekNode.js — zrzut ekranu przedstawiający Azure Portal, z uwzględnieniem konta Azure Cosmos DB z wyróżnionymi wieloma nazwami kolekcji — baza danych Node":::
 
 1. Na koniec przeczytajmy dane z Cosmos DB. Ponieważ korzystamy z domyślnego modelu działania platformy Mongoose, operacje odczytywania są takie same jak inne operacje odczytywania na platformie Mongoose.
 
@@ -299,7 +299,7 @@ W tym miejscu utworzymy bazowy model obiektów, zdefiniujemy klucz różnicując
 
 1. Jeśli teraz wrócisz do witryny Azure Portal, zauważysz, że znajduje się tam tylko jedna kolekcja o nazwie ```alldata```, która zawiera dane zarówno z modelu „Family”, jak i „VacationDestinations”.
 
-    ![Samouczek Node.js — zrzut ekranu przedstawiający Azure Portal, pokazujący konto Azure Cosmos DB z wyróżnioną nazwą kolekcji — baza danych Node][alldata]
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="SamouczekNode.js — zrzut ekranu przedstawiający Azure Portal, pokazujący konto Azure Cosmos DB z wyróżnioną nazwą kolekcji — baza danych Node":::
 
 1. Zauważ również, że każdy obiekt ma jeszcze jeden atrybut o nazwie ```__type```, który pomaga rozróżnić te dwa różne modele obiektów.
 
@@ -323,6 +323,4 @@ Jak widać, praca z dyskryminatorami platformy Mongoose jest prosta. Dlatego je�
 - Dowiedz się, jak [korzystać z programu Robo 3T](mongodb-robomongo.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Eksploruj [przykłady](mongodb-samples.md) bazy danych MongoDB za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
-[alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
 [dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png

@@ -7,12 +7,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: mlearned
-ms.openlocfilehash: 280637be417d904de6dbb7ae2e2647026da6c838
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bf635d37559d09e887a67be27c412bff7899127b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374546"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023401"
 ---
 # <a name="integrate-aks-managed-azure-ad-preview"></a>Integrowanie usługi Azure AD zarządzanej przez usługę AKS (wersja zapoznawcza)
 
@@ -172,7 +172,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Skonfiguruj [Access Control oparte na rolach (RBAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) , aby skonfigurować dodatkowe grupy zabezpieczeń dla klastrów.
+Skonfiguruj [Access Control oparte na rolach (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) , aby skonfigurować dodatkowe grupy zabezpieczeń dla klastrów.
 
 ## <a name="troubleshooting-access-issues-with-azure-ad"></a>Rozwiązywanie problemów z dostępem za pomocą usługi Azure AD
 

@@ -2,7 +2,7 @@
 title: Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: W tym artykule przedstawiono typowe wymagania dotyczące zabezpieczeń i najlepsze rozwiązania dotyczące Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 5a35d9f9ff611576f26a55cb5792bc4b1718bee0
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323845"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986786"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,8 +59,6 @@ O ile nie określono inaczej, zalecamy zapoznanie się z najlepszymi rozwiązani
 - [Praktyki Microsoft Operational Security Assurance (OSA)](https://www.microsoft.com/securityengineering/osa/practices): praktyka #1-6 i #9
 - [Specjalna publikacja z biuletynu NIST 800-53](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
-
-### <a name="feedback"></a>Opinia
 
 Planujemy kontynuowanie aktualizowania zaleceń i najlepszych rozwiązań wymienionych w tym miejscu. Podaj dane wejściowe lub korekty dla tego dokumentu, korzystając z linku **opinii** znajdującego się w dolnej części tego artykułu.
 
@@ -141,7 +139,7 @@ Usługa Azure Multi-Factor Authentication zapewnia dodatkowe zabezpieczenia, wym
   - Użyj interakcyjnego uwierzytelniania obsługiwanego w narzędziach SQL Server Data Tools (SSDT). Zapoznaj się z artykułem [Azure Active Directory support w programie SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Użyj innych narzędzi SQL obsługiwanych Multi-Factor Authentication.
     - Kreator programu SSMS obsługujący eksportowanie/wyodrębnianie/wdrażanie bazy danych  
-    - [sqlpackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage): opcja "/UA"
+    - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): opcja "/UA"
     - [Narzędzie sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility): opcja-G (Interactive)
     - [Narzędzie bcp](https://docs.microsoft.com/sql/tools/bcp-utility): opcja-G (Interactive)
 
@@ -259,7 +257,7 @@ Następujące najlepsze rozwiązania są opcjonalne, ale spowodują lepsze zarz�
   - Administrator
   - Deweloper
   - Personel pomocy technicznej
-  - Kontroler
+  - Audytor
   - Zautomatyzowane procesy
   - Użytkownik końcowy
   
@@ -453,7 +451,7 @@ Szyfrowanie może służyć do zapewnienia, że tylko określeni użytkownicy ap
 - Użyj szyfrowania na poziomie komórki (CLE). Zapoznaj się z artykułem [Szyfruj kolumnę danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) , aby uzyskać szczegółowe informacje.
 - Należy używać Always Encrypted, ale należy pamiętać o jego ograniczeniach. Ograniczenia są wymienione poniżej.
 
-**Najlepsze rozwiązania**
+**Najlepsze praktyki**
 
 W przypadku korzystania z CLE:
 

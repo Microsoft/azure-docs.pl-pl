@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d8b50bfdd894d36b96fb3a53eab7c43c5b1fe11a
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782113"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024574"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Inicjowanie obsługi aplikacji w stanie kwarantanny
 
@@ -75,3 +75,6 @@ Po rozwiązaniu problemu należy ponownie uruchomić zadanie aprowizacji. Pewne 
 - Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wybrać opcję wyczyszczenia usługi Escrow (aby ponownie uruchomić licznik Escrow, który naliczy na status kwarantanny), wyczyścić opcję kwarantanny (w celu usunięcia aplikacji z kwarantanny) lub wyczyścić znaki wodne. Użyj następującego żądania:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Zastąp ciąg "{ID}" wartością identyfikatora aplikacji i Zastąp ciąg "{jobId}" [identyfikatorem zadania synchronizacji](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

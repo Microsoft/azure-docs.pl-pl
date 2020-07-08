@@ -6,19 +6,19 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 52b97e772897289f0c54c4520da7d7af80f44dc3
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 06/17/2020
+ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213729"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984274"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
-W tym artykule opisano sposób publikowania oferty usługi konsultingowej w [Microsoft AppSource](https://appsource.microsoft.com/) lub [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Utwórz listę ofert usługi konsultingowej opartych na systemie Microsoft [Dynamics 365](https://dynamics.microsoft.com/) i platformie AppSource. Wystaw oferty usługi konsultingowej na podstawie Microsoft Azure w witrynie Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+W tym artykule opisano sposób publikowania oferty usługi konsultingowej w [Microsoft AppSource](https://appsource.microsoft.com/) lub [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Utwórz listę ofert usługi konsultingowej opartych na systemie Microsoft [Dynamics 365](https://dynamics.microsoft.com/) i platformie AppSource. Wystaw oferty usługi konsultingowej na podstawie Microsoft Azure w witrynie Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-Przed utworzeniem oferty zapoznaj się z wymaganiami wstępnymi dotyczącymi [wymagań wstępnych dotyczących usługi konsultingowej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
+Przed utworzeniem oferty zapoznaj się z wymaganiami wstępnymi dotyczącymi [wymagań wstępnych dotyczących usługi konsultingowej](consulting-service-prerequisites.md).
 
 ## <a name="publishing-benefits"></a>Korzyści z publikowania
 
@@ -63,12 +63,12 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 1. Wybierz pozycję **Połącz** , aby określić, gdzie chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
-    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) dla zaangażowania klienta
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
+    > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](commercial-marketplace-lead-management-instructions-azure-table.md) lub [punktu końcowego HTTPS](commercial-marketplace-lead-management-instructions-https.md) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
 3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
@@ -76,9 +76,9 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
-- [Zarządzanie potencjalnymi klientami — często zadawane pytania](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
+- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
@@ -96,10 +96,19 @@ Na tej stronie można ustawić podstawowy produkt, z którym usługa doradcza of
     - **Weryfikacja koncepcji**: implementacja ograniczonego zakresu, aby określić, czy rozwiązanie spełnia wymagania klientów.
     - **Warsztat**: Interaktywna zaangażowanie w siedzibie klienta. Może to dotyczyć szkoleń, krótkich, ocen lub pokazów utworzonych na danych lub środowisku klienta.
 
-3. Jeśli wybrano podstawowy produkt **platformy Azure**, wybierz maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
-4. Jeśli wybrano podstawowy produkt _inny_ niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-5. Wybierz maksymalnie sześć **branż** , do których odnosi się oferta. Ułatwi to klientom znalezienie oferty.
-6. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencje z wyjątkiem usług Azure ekspercki MSP i Azure Network msp.
+3. Jeśli wybrano **platformę Azure** jako produkt podstawowy, należy wybrać maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
+
+    | Obszar rozwiązania | | | |
+    | --- | --- | --- | --- |
+    | Analiza | Backup | DevOps | Migracja |
+    | Modernizacja aplikacji | Dane big data | Odzyskiwanie po awarii | Sieć |
+    | Archiwum | Platforma danych | Tożsamość | Zabezpieczenia |
+    | SI i uczenie maszynowe | Zarządzanie centrum danych | Internet rzeczy | Storage |
+
+1. Jeśli wybrano **platformę Azure** jako produkt podstawowy, można wybrać maksymalnie sześć **branż**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Zapoznaj się z pełną listą branż w [ofercie z ofertami dotyczącymi najlepszych](../gtm-offer-listing-best-practices.md)rozwiązań. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
+1. Jeśli wybrano podstawowy produkt *inny* niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+1. W przypadku wybrania produktu podstawowego *innego* niż Azure można wybrać maksymalnie dwie **branże** i dwie **pionowe** dla każdej branży. Ułatwiają one klientom usługi AppSource znalezienie oferty. Zapoznaj się z pełną listą branż i pionowych w temacie z [ofertami dotyczącymi najlepszych](../gtm-offer-listing-best-practices.md)rozwiązań.
+1. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencje z wyjątkiem usług Azure ekspercki MSP i Azure Network msp.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -230,8 +239,8 @@ Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać swoją of
 4. Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij**.
 5. Na stronie **Przegląd oferty** przedstawiono etap publikowania, w którym znajduje się Twoja oferta.
 
-Aby uzyskać więcej informacji o tym, jak długo oferta będzie znajdować się na każdym etapie publikowania, zobacz [Sprawdzanie stanu publikacji komercyjnej oferty portalu Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
+Aby uzyskać więcej informacji o tym, jak długo oferta będzie znajdować się na każdym etapie publikowania, zobacz [Sprawdzanie stanu publikacji komercyjnej oferty portalu Marketplace](publishing-status.md).
 
 ## <a name="update-your-existing-consulting-service-offers"></a>Zaktualizuj istniejące oferty usługi konsultingowej
 
-- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](update-existing-offer.md)

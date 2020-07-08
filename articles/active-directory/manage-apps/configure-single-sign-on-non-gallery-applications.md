@@ -12,12 +12,12 @@ ms.date: 06/08/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604e132cb77fbb2a2a1033a1f23f70dd3e6b8b9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3cee2b9a0ea32a3b331849263c8a97f55930542d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355968"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024235"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach spoza galerii
 
@@ -42,7 +42,7 @@ Jeśli aplikacja nie została dodana do dzierżawy usługi Azure AD, zobacz [Dod
 
 3. W sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**. 
 
-   - Należy zauważyć, że istnieje kilka scenariuszy, w których opcja **logowania** jednokrotnego nie będzie obecna. Na przykład jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , możliwość logowania jednokrotnego jest konfigurowana w portalu **rejestracji aplikacji** i nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. Inne scenariusze, w których nie będzie można korzystać z **logowania** jednokrotnego w nawigacji, obejmują, gdy aplikacja jest hostowana w innej dzierżawie lub że Twoje konto nie ma wymaganych uprawnień (Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi). Uprawnienia mogą również prowadzić do scenariusza, w którym można otworzyć **Logowanie jednokrotne** , ale nie będzie można go zapisać. Aby dowiedzieć się więcej na temat ról administracyjnych usługi Azure AD, zobacz https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+   - Należy zauważyć, że istnieje kilka scenariuszy, w których opcja **logowania** jednokrotnego nie będzie obecna. Na przykład jeśli aplikacja została zarejestrowana przy użyciu **rejestracje aplikacji** , funkcja logowania jednokrotnego jest domyślnie skonfigurowana do używania OIDC OAuth. W takim przypadku opcja **logowania** jednokrotnego nie będzie widoczna w obszarze nawigacji w obszarze **aplikacje dla przedsiębiorstw**. W przypadku dodawania niestandardowej aplikacji przy użyciu **rejestracje aplikacji** można skonfigurować opcje w pliku manifestu. Aby dowiedzieć się więcej na temat pliku manifestu, zobacz https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) . Aby dowiedzieć się więcej na temat standardów rejestracji jednokrotnej, zobacz https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) . Inne scenariusze, w których nie będzie można korzystać z **logowania** jednokrotnego w nawigacji, obejmują, gdy aplikacja jest hostowana w innej dzierżawie lub że Twoje konto nie ma wymaganych uprawnień (Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi). Uprawnienia mogą również prowadzić do scenariusza, w którym można otworzyć **Logowanie jednokrotne** , ale nie będzie można go zapisać. Aby dowiedzieć się więcej na temat ról administracyjnych usługi Azure AD, zobacz https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 4. Wybierz pozycję **SAML**. Zostanie wyświetlona strona **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML-Preview** .
 

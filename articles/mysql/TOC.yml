@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Uwierzytelnianie w usłudze Azure AD
           href: concepts-azure-ad-authentication.md
+        - name: Podwójne szyfrowanie infrastruktury
+          href: concepts-infrastructure-double-encryption.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Ciągłość działalności biznesowej
@@ -276,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: Walidacja szyfrowania danych
           href: howto-data-encryption-validation.md
+    - name: Podwójne szyfrowanie infrastruktury
+      items:
+        - name: Konfigurowanie podwójnego szyfrowania infrastruktury
+          href: howto-double-encryption.md
     - name: Integracja z usługą Azure AD
       items:
         - name: Konfigurowanie integracji z usługą Azure AD

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6624c8072c60793771d4f4b9943e15f1b276cd34
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604696"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023129"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Debuguj błędy podczas tworzenia niestandardowej aplikacji poleceń
 
@@ -35,7 +35,7 @@ W przypadku usuwania niestandardowej aplikacji poleceń niestandardowe polecenia
 Jeśli usuwanie aplikacji LUIS nie powiodło się, przejdź do swojego konta [Luis](https://www.luis.ai/) , aby usunąć je ręcznie.
 
 ### <a name="toomanyrequests"></a>TooManyRequests
-Gdy użytkownik próbuje usunąć duże ilości aplikacji jednocześnie, prawdopodobnie zobaczysz błędy "TooManyRequests". Oznacza to, że żądania usunięcia są ograniczone przez platformę Azure. 
+Gdy użytkownik próbuje usunąć dużą liczbę aplikacji jednocześnie, prawdopodobnie zobaczysz błędy "TooManyRequests". Te błędy oznaczają, że żądania usunięcia są ograniczone przez platformę Azure. 
 
 Odśwież stronę i spróbuj usunąć mniejszą liczbę aplikacji.
 
@@ -64,7 +64,7 @@ Upewnij się, że nie masz wspólnych zdań przykładowych udostępnianych międ
 Aby uzyskać najlepsze rozwiązanie dotyczące równoważenia przykładowych zdań w różnych poleceniach, należy zapoznać się z [najlepszymi](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)rozwiązaniami Luis.
 
 ### <a name="empty-sample-sentences"></a>Puste zdania przykładowe
-Musisz mieć co najmniej 1 przykładowe zdanie dla każdego polecenia.
+Musisz mieć co najmniej jedno zdanie przykładowe dla każdego polecenia.
 
 ### <a name="undefined-parameter-in-sample-sentences"></a>Niezdefiniowany parametr w zdaniach przykładowych
 Co najmniej jeden parametr jest używany w przykładowych zdaniach, ale nie jest zdefiniowany.
@@ -88,7 +88,9 @@ Najlepsze rozwiązanie z zakresu szkoleń LUIS można znaleźć w [Luis najlepsz
 ### <a name="reassign-to-e0-authoring-resource"></a>Przypisz ponownie do zasobu E0 Authoring
 Usługa LUIS nie obsługuje ponownego przypisywania aplikacji LUIS do zasobu tworzenia E0.
 
-Jeśli potrzebujesz zmienić zasób tworzenia z F0 na E0 lub zmienić zasób na inny, Utwórz ponownie aplikację.
+Jeśli zachodzi potrzeba zmiany zasobu tworzenia z F0 na E0 lub zmiany na inny zasób E0, należy ponownie utworzyć aplikację. 
+
+Aby szybko wyeksportować istniejącą aplikację i zaimportować ją do nowej aplikacji, zobacz [ciągłe wdrażanie za pomocą usługi Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### <a name="save-button-is-disabled"></a>Przycisk Zapisz jest wyłączony
 Jeśli nie przypiszesz do aplikacji zasobu przewidywania LUIS, przycisk Zapisz zostanie wyłączony podczas próby zmiany zasobu tworzenia bez dodawania zasobów predykcyjnych.

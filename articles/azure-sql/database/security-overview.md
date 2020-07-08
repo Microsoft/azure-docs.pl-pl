@@ -3,7 +3,7 @@ title: Przegląd zabezpieczeń
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Dowiedz się więcej o zabezpieczeniach w Azure SQL Database i wystąpieniu zarządzanym Azure SQL, w tym o tym, jak różni się od SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 78af56e0b6f9e8e195ab77fdc57da336dd170c25
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255062"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986852"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 

@@ -6,15 +6,18 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324083"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023571"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Szyfrowanie danych konfiguracji aplikacji przy użyciu kluczy zarządzanych przez klienta
 Usługa Azure App Configuration [szyfruje poufne informacje w stanie spoczynku](../security/fundamentals/encryption-atrest.md). Użycie kluczy zarządzanych przez klienta zapewnia ulepszoną ochronę danych przez umożliwienie zarządzania kluczami szyfrowania.  Gdy używane jest szyfrowanie klucza zarządzanego, wszystkie informacje poufne w konfiguracji aplikacji są szyfrowane za pomocą klucza Azure Key Vault dostarczonego przez użytkownika.  Dzięki temu można obrócić klucz szyfrowania na żądanie.  Umożliwia także odwoływanie dostępu do informacji poufnych z usługi Azure App Configuration poprzez odwoływanie dostępu do klucza wystąpienia konfiguracji aplikacji.
+
+> [!NOTE]
+> Klucze zarządzane przez klienta są teraz ogólnie dostępne we wszystkich regionach *z wyjątkiem* Indii centralnych. W regionie **Indie Środkowe** usługa Azure App Configuration oferuje klucze zarządzane przez klienta jako publiczną wersję zapoznawczą. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.
 
 ## <a name="overview"></a>Omówienie 
 Usługa Azure App Configuration szyfruje poufne informacje przechowywane przy użyciu 256-bitowego klucza szyfrowania AES dostarczonego przez firmę Microsoft. Każde wystąpienie konfiguracji aplikacji ma własny klucz szyfrowania, który jest zarządzany przez usługę i służy do szyfrowania poufnych informacji. Informacje poufne zawierają wartości znajdujące się w parach klucz-wartość.  W przypadku włączenia funkcji klucza zarządzanego przez klienta konfiguracja aplikacji używa zarządzanej tożsamości przypisanej do wystąpienia konfiguracji aplikacji w celu uwierzytelniania za pomocą Azure Active Directory. Tożsamość zarządzana następnie wywołuje Azure Key Vault i zawija klucz szyfrowania wystąpienia konfiguracji aplikacji. Opakowany klucz szyfrowania jest przechowywany, a nieopakowany klucz szyfrowania jest buforowany w ramach konfiguracji aplikacji przez jedną godzinę. Konfiguracja aplikacji odświeża nieopakowaną wersję klucza szyfrowania wystąpienia konfiguracji aplikacji co godzinę. Zapewnia to dostępność w normalnych warunkach operacyjnych. 

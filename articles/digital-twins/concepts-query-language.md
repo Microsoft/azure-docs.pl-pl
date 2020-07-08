@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e4952bc3df2b5b164038654f5d77f4c352827463
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726810"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985245"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Odwołaj się do tego, że centrum Digital bliźniaczych reprezentacji na platformie Azure jest [**grafem bliźniaczym**](concepts-twins-graph.md), zbudowanym na podstawie **cyfrowych bliźniaczych reprezentacji** i **relacji**. Ten Graf można zbadać, aby uzyskać informacje na temat bliźniaczych reprezentacji cyfrowego i relacji, które zawiera. Te zapytania są zapisywane w niestandardowym języku zapytań przypominającym język SQL o nazwie **Język magazynu zapytań usługi Azure Digital bliźniaczych reprezentacji**.
 
@@ -25,7 +22,7 @@ Aby przesłać zapytanie do usługi z aplikacji klienckiej, użyj **interfejsu A
 
 ## <a name="query-language-features"></a>Funkcje języka zapytań
 
-Usługa Azure Digital bliźniaczych reprezentacji zapewnia szeroką gamę możliwości zapytań w odniesieniu do grafu bliźniaczych. Zapytania są opisane przy użyciu składni podobnej do języka SQL, jako nadzbiór możliwości [języka zapytań IoT Hub](../iot-hub/iot-hub-devguide-query-language.md).
+Usługa Azure Digital bliźniaczych reprezentacji zapewnia szeroką gamę możliwości zapytań w odniesieniu do grafu bliźniaczych. Zapytania są opisane przy użyciu składni podobnej do języka SQL, w języku zapytania podobnym do [IoT Hub język zapytań](../iot-hub/iot-hub-devguide-query-language.md) z wieloma porównywalnymi funkcjami.
 
 Oto operacje dostępne w języku magazynu zapytań usługi Azure Digital bliźniaczych reprezentacji:
 * Pobierz bliźniaczych reprezentacji za pomocą właściwości Digital bliźniaczych reprezentacji '.

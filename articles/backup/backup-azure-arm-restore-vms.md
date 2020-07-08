@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: e279d08a9c766c95be663cfa959007671ae212de
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 00b0f7313ba77037d90dcdb8ed04e5f61e335c55
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130572"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023333"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -195,6 +195,7 @@ Istnieje kilka typowych scenariuszy, w których może być konieczne przywrócen
 **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej/podsieci** | Kopia zapasowa maszyny wirtualnej platformy Azure obsługuje tworzenie kopii zapasowych i przywracanie informacji sieciowej grupy zabezpieczeń na poziomie sieci wirtualnej, podsieci i karty sieciowej.
 **Przypięte strefy maszyny wirtualne** | W przypadku tworzenia kopii zapasowej maszyny wirtualnej platformy Azure, która jest przypięta do strefy (z Azure Backup), można przywrócić ją w tej samej strefie, w której został przypięty. [Dowiedz się więcej](https://docs.microsoft.com/azure/availability-zones/az-overview)
 **Przywróć maszynę wirtualną w dowolnym zestawie dostępności** | W przypadku przywracania maszyny wirtualnej z portalu nie jest dostępna opcja wyboru zestawu dostępności. Przywrócona maszyna wirtualna nie ma zestawu dostępności. Jeśli używasz opcji Przywróć dysk, możesz [określić zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny wirtualnej na podstawie dysku przy użyciu podanego szablonu lub programu PowerShell.
+**Przywracanie specjalnych maszyn wirtualnych, takich jak maszyny wirtualne SQL** | Jeśli wykonujesz kopię zapasową maszyny wirtualnej SQL przy użyciu kopii zapasowej maszyny wirtualnej platformy Azure, a następnie użyto opcji Przywróć maszynę wirtualną lub utworzono maszynę wirtualną po przywróceniu dysków, nowo utworzona maszyna wirtualna musi być zarejestrowana w dostawcy SQL, jak wspomniano [tutaj](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash). Spowoduje to przekonwertowanie przywróconej maszyny wirtualnej na maszynę wirtualną SQL.
 
 ## <a name="track-the-restore-operation"></a>Śledzenie operacji przywracania
 

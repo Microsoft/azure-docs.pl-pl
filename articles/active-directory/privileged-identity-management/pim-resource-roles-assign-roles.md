@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dceb7dc6ce6f2b97bbaad0b2db129611833eb30f
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743834"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023775"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Przypisywanie ról zasobów platformy Azure w Privileged Identity Management
 
@@ -47,33 +47,31 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
 1. Wybierz pozycję **zasoby platformy Azure**.
 
-1. Użyj **filtru zasobów** , aby odfiltrować listę zarządzanych zasobów.
+1. Użyj filtru zasobów, aby znaleźć zarządzane zasoby, których szukasz.
 
     ![Lista zasobów platformy Azure do zarządzania](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Wybierz zasób, którym chcesz zarządzać, na przykład subskrypcję lub grupę zarządzania.
+1. Wybierz zasób, którym chcesz zarządzać, aby otworzyć stronę przegląd zasobów.
 
-1. W obszarze Zarządzanie wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
+1. W obszarze **Zarządzanie**wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
 
     ![Role zasobów platformy Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Wybierz pozycję **Dodaj członka** , aby otworzyć okienko nowe przypisanie.
+1. Wybierz pozycję **Dodaj przypisania** , aby otworzyć okienko **Dodawanie przypisań** .
 
-1. Wybierz **pozycję Wybierz rolę** , aby otworzyć okienko wybierz rolę.
+1. Wybierz pozycję **Wybierz rolę** , aby otworzyć stronę **Wybierz rolę** .
 
     ![Nowe okienko przypisania](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
 1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz**.
 
-    Zostanie otwarte okienko Wybierz członka lub grupę.
+    Zostanie otwarte okienko **Wybierz członka lub grupę** .
 
 1. Wybierz członka lub grupę, która ma zostać przypisana do roli, a następnie kliknij przycisk **Wybierz**.
 
     ![Wybierz okienko elementu członkowskiego lub grupy](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    Zostanie otwarte okienko ustawienia członkostwa.
-
-1. Na liście **Typ przypisania** wybierz pozycję **kwalifikujące się** lub **aktywne**.
+1. Na karcie **Ustawienia** na liście **Typ przypisania** wybierz pozycję **kwalifikujące się** lub **aktywne**.
 
     ![Okienko ustawień członkostw](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,19 +81,11 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
     - **Aktywne** przypisania nie wymagają, aby członkowie mogli wykonać żadną akcję w celu korzystania z roli. Członkowie przypisani jako aktywni mają uprawnienia przypisane do roli przez cały czas.
 
-1. Jeśli przypisanie powinno być trwałe (trwale kwalifikujące się lub trwale przypisane), zaznacz pole wyboru **trwałe** .
+1. Aby określić określony czas trwania przypisania, Zmień datę i godzinę rozpoczęcia i zakończenia.
 
-    W zależności od ustawień roli pole wyboru może nie być wyświetlane lub może być niemodyfikowalne.
+1. Po zakończeniu wybierz pozycję **Przypisz**.
 
-1. Aby określić określony czas trwania przypisania, usuń zaznaczenie pola wyboru i zmodyfikuj datę i godzinę rozpoczęcia i/lub zakończenia.
-
-    ![Ustawienia członkostw — Data i godzina](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Po zakończeniu wybierz pozycję **gotowe**.
-
-    ![Nowe przypisanie — Dodaj](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Aby utworzyć nowe przypisanie roli, wybierz pozycję **Dodaj**. Zostanie wyświetlone powiadomienie o stanie.
+1. Po utworzeniu nowego przypisania roli zostanie wyświetlone powiadomienie o stanie.
 
     ![Nowe przypisanie — powiadomienie](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -107,9 +97,9 @@ Wykonaj następujące kroki, aby zaktualizować lub usunąć istniejące przypis
 
 1. Wybierz pozycję **zasoby platformy Azure**.
 
-1. Wybierz zasób, którym chcesz zarządzać, na przykład subskrypcję lub grupę zarządzania.
+1. Wybierz zasób, którym chcesz zarządzać, aby otworzyć jego stronę przeglądu.
 
-1. W obszarze Zarządzanie wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
+1. W obszarze **Zarządzanie**wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
 
     ![Role zasobów platformy Azure — Wybieranie roli](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f79ad56d8083e7ef75279eb2a07e1d35a50c45b5
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 860b78df8df0d3c6946785a94e40141689278cd0
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261107"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023146"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrowanie danych relacyjnych "jeden do kilku" do Azure Cosmos DB konta interfejsu API SQL
 
@@ -48,8 +48,7 @@ FROM Orders o;
 
 Wyniki tego zapytania będą wyglądać następująco: 
 
-![Szczegóły zamówienia](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png#lightbox)
-
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="Szczegóły zamówienia" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 Najlepiej użyć działania kopiowania pojedynczego Azure Data Factory (ADF) do wysyłania zapytań dotyczących danych SQL jako źródła i zapisywania danych wyjściowych bezpośrednio do Azure Cosmos DB ujścia jako odpowiednich obiektów JSON. Obecnie nie jest możliwe wykonywanie transformacji JSON w jednym działaniu kopiowania. Jeśli spróbujemy skopiować wyniki powyższego zapytania do Azure Cosmos DB kontenera interfejsu API SQL, zobaczymy pole OrderDetails jako właściwość ciągu naszego dokumentu zamiast oczekiwanej tablicy JSON.
 

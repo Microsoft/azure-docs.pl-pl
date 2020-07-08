@@ -3,7 +3,7 @@ title: Konfigurowanie uwierzytelniania usługi Azure Active Directory
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Dowiedz się, jak nawiązać połączenie z usługą SQL Database, wystąpieniem zarządzanym SQL i usługą Azure Synapse Analytics przy użyciu uwierzytelniania Azure Active Directory po skonfigurowaniu usługi Azure AD.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: eaad361ba82ee6adf139174c728c2ef9ffa94849
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310907"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984904"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -293,7 +293,7 @@ Poniższy skrypt inicjuje grupę administratorów usługi Azure AD o nazwie **DB
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"`` . W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
+Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
 
 > [!NOTE]
 > Polecenie Azure PowerShell nie ```Set-AzSqlServerActiveDirectoryAdministrator``` uniemożliwia aprowizacji administratorów usługi Azure AD dla nieobsługiwanych użytkowników. Nieobsługiwany użytkownik może zostać zainicjowany, ale nie może nawiązać połączenia z bazą danych.
@@ -343,7 +343,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 Na wszystkich komputerach klienckich, z których aplikacje lub użytkownicy łączą się z SQL Database lub Azure Synapse przy użyciu tożsamości usługi Azure AD, należy zainstalować następujące oprogramowanie:
 
 - .NET Framework 4,6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
-- Azure Active Directory bibliotekę uwierzytelniania dla SQL Server (*ADAL. DLL*). Poniżej znajdują się linki pobierania umożliwiające zainstalowanie najnowszego sterownika programu SSMS, ODBC i OLE DB zawierającego bibliotekę *ADAL. Biblioteka DLL* .
+- Azure Active Directory bibliotekę uwierzytelniania dla SQL Server (*ADAL.DLL*). Poniżej znajdują się linki pobierania umożliwiające zainstalowanie najnowszego sterownika programu SSMS, ODBC i OLE DB zawierającego bibliotekę *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Sterownik ODBC 17 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
@@ -351,9 +351,9 @@ Na wszystkich komputerach klienckich, z których aplikacje lub użytkownicy łą
 Wymagania te można spełnić w następujący sposób:
 
 - Zainstalowanie najnowszej wersji [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) lub [narzędzi danych SQL Server](/sql/ssdt/download-sql-server-data-tools-ssdt) spełnia wymagania .NET Framework 4,6.
-  - Program SSMS instaluje wersję x86 *biblioteki ADAL. Biblioteka DLL*.
-  - SSDT instaluje wersję amd64 *biblioteki ADAL. Biblioteka DLL*.
-  - Najnowsza wersja programu Visual Studio z programu [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) jest zgodna z wymaganiami dotyczącymi .NET Framework 4,6, ale nie instaluje wymaganej wersji amd64 *biblioteki ADAL. Biblioteka DLL*.
+  - Program SSMS instaluje wersję x86 *ADAL.DLL*.
+  - SSDT instaluje wersję amd64 *ADAL.DLL*.
+  - Najnowsza wersja programu Visual Studio z programu [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) jest zgodna z wymaganiami dotyczącymi .NET Framework 4,6, ale nie instaluje wymaganej wersji amd64 *ADAL.DLL*.
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Utwórz zawartych użytkowników mapowanych na tożsamości usługi Azure AD
 

@@ -3,8 +3,8 @@ title: Warstwy usług dla celów ogólnych i krytycznych
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: W tym artykule omówiono warstwy usług ogólnych i krytycznych dla firmy w modelu zakupu opartym na rdzeń wirtualny, używanym przez Azure SQL Database i wystąpienie zarządzane usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 01/30/2020
-ms.openlocfilehash: 6b56d96a9684b2da3889219d4a5e13302e7e22e3
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 37dd6881876df010b548a8bb48ca88bb72dab764
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343901"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986607"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database i warstwy usługi wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ W tym artykule omówiono różnice między warstwami usług, zagadnieniami dotyc
 
 W poniższej tabeli opisano kluczowe różnice między warstwami usług dla najnowszej generacji (5 rdzeń). Należy pamiętać, że cechy warstwy usług mogą się różnić w SQL Database i wystąpieniu zarządzanym SQL.
 
-| | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
+|-| Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
 | **Najlepsze dla** | |  Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe. | Większość obciążeń firmowych. Skalowanie automatyczne rozmiaru magazynu o rozmiarze do 100 TB, płynne skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych. | Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Dostępne w typie zasobu:** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncze Azure SQL Database | Wystąpienie zarządzane SQL Database/SQL |

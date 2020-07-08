@@ -2,7 +2,7 @@
 title: Praca z danymi w formacie JSON
 description: Azure SQL Database i wystąpienie zarządzane usługi Azure SQL umożliwiają analizowanie, wykonywanie zapytań i formatowanie danych w notacji JavaScript Object Notation (JSON).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
-ms.openlocfilehash: c94aac5d90611f6fca2d697d23d0c8d1bcf6a359
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b138263ff48d5be24d9453b82eef4a3e9fb0d31b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048434"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986314"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do funkcji JSON w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

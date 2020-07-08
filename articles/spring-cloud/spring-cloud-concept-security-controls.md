@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 5b459ef57d0e8a22ce1cd53f56c44d31e53c7c93
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594988"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984827"
 ---
-# <a name="security-controls-for-azure-spring-cloud-service"></a>Mechanizmy kontroli zabezpieczeń dla usługi Azure wiosennej w chmurze
+# <a name="security-controls-for-azure-spring-cloud-service"></a>Mechanizmy kontroli zabezpieczeń dla usługi Azure Spring Cloud
 Funkcje kontroli zabezpieczeń są wbudowane w usługę w chmurze Azure wiosną.
 
 Kontrola zabezpieczeń jest jakością lub funkcją usługi platformy Azure, która przyczynia się do możliwości zapobiegania i wykrywania luk w zabezpieczeniach, a także reagowanie na nie.  Dla każdej kontrolki używamy *opcji "tak* " lub " *nie* ", aby wskazać, czy jest ona aktualnie włączona dla usługi.  W przypadku kontrolki, która nie ma zastosowania do usługi, używana jest *wartość N/A* . 
@@ -26,3 +26,8 @@ Kontrola zabezpieczeń jest jakością lub funkcją usługi platformy Azure, kt�
 | Szyfrowanie przejściowe | Tak | Publiczne punkty końcowe aplikacji użytkownika domyślnie używają protokołu HTTPS dla ruchu przychodzącego. |  |
 | Wywołania interfejsu API są szyfrowane | Tak | Wywołania zarządzania w celu skonfigurowania usługi w chmurze Azure wiosennej są wykonywane za pośrednictwem wywołań Azure Resource Manager za pośrednictwem protokołu HTTPS | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
 
+**Kontrola zabezpieczeń dostępu do sieci**
+
+| Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
+|:-------------|:-------|:-------------------------------|:----------------------|
+| Tag usługi | Tak | Użyj znacznika usługi **AzureSpringCloud** do definiowania kontroli dostępu do sieci wychodzącej w [sieciowych grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub [zaporze platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags), aby zezwolić na ruch do aplikacji w chmurze z systemem Azure.<br><br>*Uwaga:* Obecnie tylko nowe wystąpienie usługi Azure wiosenne w chmurze utworzone po 2020/07/07 obsługuje tag usługi **AzureSpringCloud** . | [Tagi usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

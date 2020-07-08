@@ -9,18 +9,18 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672718"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024047"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Jak działa Logowanie jednokrotne do zasobów lokalnych na urządzeniach przyłączonych do usługi Azure AD
 
-Prawdopodobnie nie jest to nieoczekiwane, że urządzenie dołączone do usługi Azure Active Directory (Azure AD) udostępnia Logowanie jednokrotne do aplikacji w chmurze Twojej dzierżawy. Jeśli w środowisku znajduje się Active Directory lokalnego (AD), możesz w tym urządzeniu włączyć obsługę logowania jednokrotnego.
+Prawdopodobnie nie jest to nieoczekiwane, że urządzenie dołączone do usługi Azure Active Directory (Azure AD) udostępnia Logowanie jednokrotne do aplikacji w chmurze Twojej dzierżawy. Jeśli środowisko ma Active Directory lokalnego (AD), możesz je rozłożyć na te urządzenia do zasobów i aplikacji, które są zależne od lokalnych usług AD. 
 
 W tym artykule wyjaśniono, jak to działa.
 
@@ -30,19 +30,19 @@ W tym artykule wyjaśniono, jak to działa.
 
 ## <a name="how-it-works"></a>Jak to działa 
 
-Ponieważ musisz pamiętać tylko jedną nazwę użytkownika i hasło, logowanie jednokrotne upraszcza dostęp do zasobów i zwiększa bezpieczeństwo środowiska. W przypadku urządzenia dołączonego do usługi Azure AD użytkownicy mają już środowisko logowania jednokrotnego w aplikacjach w chmurze w Twoim środowisku. Jeśli środowisko ma usługę Azure AD i lokalną usługi AD, prawdopodobnie chcesz rozszerzyć zakres środowiska logowania jednokrotnego do lokalnych aplikacji biznesowych, udziałów plików i drukarek.
+W przypadku urządzenia dołączonego do usługi Azure AD użytkownicy mają już środowisko logowania jednokrotnego w aplikacjach w chmurze w Twoim środowisku. Jeśli środowisko ma usługę Azure AD i lokalną usługi AD, możesz rozszerzyć zakres środowiska logowania jednokrotnego do lokalnych aplikacji biznesowych, udziałów plików i drukarek.
 
 Urządzenia przyłączone do usługi Azure AD nie mają znajomości lokalnego środowiska usługi AD, ponieważ nie są do niego dołączone. Można jednak podać dodatkowe informacje o lokalnej usłudze AD na tych urządzeniach przy użyciu Azure AD Connect.
 
 Środowisko, które ma zarówno usługi Azure AD, jak i lokalna usługa AD, jest również znane w środowisku hybrydowym. Jeśli masz środowisko hybrydowe, prawdopodobnie masz już Azure AD Connect wdrożone w celu zsynchronizowania informacji o tożsamości lokalnej z chmurą. W ramach procesu synchronizacji Azure AD Connect synchronizuje informacje o użytkowniku lokalnym z usługą Azure AD. Gdy użytkownik loguje się do urządzenia dołączonego do usługi Azure AD w środowisku hybrydowym:
 
-1. Usługa Azure AD wysyła nazwę domeny lokalnej, do której użytkownik jest członkiem z powrotem do urządzenia.
-1. Usługa urząd zabezpieczeń lokalnych (LSA) umożliwia uwierzytelnianie Kerberos na urządzeniu.
+1. Usługa Azure AD wysyła szczegóły domeny lokalnej użytkownika z powrotem do urządzenia wraz z [podstawowym tokenem odświeżania](concept-primary-refresh-token.md)
+1. Usługa urząd zabezpieczeń lokalnych (LSA) umożliwia uwierzytelnianie Kerberos i NTLM na urządzeniu.
 
-Podczas próby dostępu do zasobu żądającego protokołu Kerberos w środowisku lokalnym użytkownika urządzenie:
+Podczas próby dostępu do zasobu żądającego protokołu Kerberos lub NTLM w środowisku lokalnym użytkownika urządzenie:
 
 1. Wysyła informacje o domenie lokalnej i poświadczenia użytkownika do zlokalizowanego kontrolera domeny w celu uzyskania uwierzytelnienia użytkownika.
-1. Odbiera [bilet uprawniający do przyznania biletu (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) protokołu Kerberos, który jest używany do uzyskiwania dostępu do zasobów przyłączonych do usługi AD. Jeśli próba pobrania biletu TGT dla domeny programu AAD Connect nie powiedzie się (powiązana wartość limitu czasu DCLocator może spowodować opóźnienie), podejmowane są wpisy w Menedżerze poświadczeń lub użytkownik może otrzymać wyskakujące uwierzytelnienie żądające poświadczeń dla zasobu docelowego.
+1. Odbiera [bilet uprawniający do przyznania biletu protokołu Kerberos (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) lub token NTLM oparty na protokole obsługiwanym przez lokalny zasób lub aplikację. Jeśli próba pobrania tokenu TGT protokołu Kerberos lub NTLM dla domeny nie powiedzie się (pokrewny limit czasu DCLocator może spowodować opóźnienie), podejmowane są próby wprowadzenia wpisów Menedżera poświadczeń lub użytkownik może otrzymać wyskakujące uwierzytelnienie żądające poświadczeń dla zasobu docelowego.
 
 Wszystkie aplikacje, które są skonfigurowane pod kątem **uwierzytelniania zintegrowanego systemu Windows** , bezproblemowo otrzymują Logowanie jednokrotne, gdy użytkownik próbuje uzyskać do niego dostęp.
 

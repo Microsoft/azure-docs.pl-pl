@@ -2,7 +2,7 @@
 title: Odnajdowanie i klasyfikacja danych
 description: Funkcja odnajdywania danych & Klasyfikacja dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 0f1e43e4300cff6fba1c71d2b7740a3b2b678253
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218942"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987269"
 ---
 # <a name="data-discovery--classification"></a>Odnajdowanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -117,7 +117,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 
-Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Oto przykład:
+Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Przykład:
 
 ![Dziennik inspekcji](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 

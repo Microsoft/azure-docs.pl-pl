@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dbb985ece8e5b6df3ef3f29a997af5212404ad
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84742695"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024199"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Przypisywanie ról usługi Azure AD w Privileged Identity Management
 
@@ -53,15 +53,13 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
     ![Role usługi Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Wybierz pozycję **Dodaj członka** , aby otworzyć stronę **nowe przypisanie** .
+1. Wybierz pozycję **Dodaj przypisania** , aby otworzyć stronę **Dodawanie przypisań** .
 
-1. Wybierz pozycję **Wybierz rolę** , aby otworzyć stronę Wybierz rolę.
+1. Wybierz pozycję **Wybierz rolę** , aby otworzyć stronę **Wybierz rolę** .
 
     ![Nowe okienko przypisania](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz**.
-
-1. Wybierz członka, do którego chcesz przypisać rolę, a następnie wybierz pozycję **Wybierz**.
+1. Wybierz rolę, którą chcesz przypisać, wybierz członka, do którego chcesz przypisać rolę, a następnie wybierz przycisk **dalej**.
 
 1. Na liście **Typ przypisania** w okienku **Ustawienia członkostwa** wybierz pozycję **kwalifikujące się** lub **aktywne**.
 
@@ -69,15 +67,11 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
     - **Aktywne** przypisania nie wymagają, aby członkowie mogli wykonać żadną akcję w celu korzystania z roli. Członkowie przypisani jako aktywni mają uprawnienia przypisane do roli przez cały czas.
 
-1. Jeśli przypisanie powinno być trwałe (trwale kwalifikujące się lub trwale przypisane), zaznacz pole wyboru **trwałe** .
-
-    W zależności od ustawień roli pole wyboru może nie być wyświetlane lub może być niemodyfikowalne.
-
-1. Aby określić określony czas trwania przypisania, usuń zaznaczenie pola wyboru i zmodyfikuj datę i godzinę rozpoczęcia i/lub zakończenia. Po zakończeniu wybierz pozycję **gotowe**.
+1. Aby określić określony czas trwania przypisywania, należy dodać pola daty i godziny rozpoczęcia i zakończenia. Po zakończeniu wybierz pozycję **Przypisz** , aby utworzyć nowe przypisanie roli.
 
     ![Ustawienia członkostw — Data i godzina](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. Aby utworzyć nowe przypisanie roli, wybierz pozycję **Dodaj**. Zostanie wyświetlone powiadomienie o stanie.
+1. Po przypisaniu roli zostanie wyświetlone powiadomienie o stanie przypisania.
 
     ![Nowe przypisanie — powiadomienie](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -129,7 +123,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Teraz, gdy użytkownik kwalifikuje się do roli, daj im znać, że mogą go aktywować zgodnie z instrukcjami w temacie [Aktywowanie ról usługi Azure AD w Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Uprawnieni Administratorzy są proszeni o zarejestrowanie się w usłudze Azure Multi-Factor Authentication (MFA) podczas aktywacji. Jeśli użytkownik nie może zarejestrować się na potrzeby uwierzytelniania wieloskładnikowego lub używa konto Microsoft (na przykład @outlook.com ), musisz trwale wprowadzić wszystkie swoje role.
+    Uprawnieni Administratorzy są proszeni o zarejestrowanie się w usłudze Azure Multi-Factor Authentication podczas aktywacji. Jeśli użytkownik nie może zarejestrować się na potrzeby uwierzytelniania wieloskładnikowego lub używa konto Microsoft (na przykład @outlook.com ), musisz trwale wprowadzić wszystkie swoje role.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tworzenie trwałego przypisania roli
 

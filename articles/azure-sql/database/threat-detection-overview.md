@@ -3,7 +3,7 @@ title: Zaawansowana ochrona przed zagrożeniami
 titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse Analytics
 description: Zaawansowana ochrona przed zagrożeniami wykrywa nietypowe działania bazy danych, które wskazują potencjalne zagrożenia bezpieczeństwa w Azure SQL Database, wystąpieniu zarządzanym usługi Azure SQL i analizą usługi Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 351c37d20360518e5cd341fd6e14d25c62e87c08
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 822d4267d5b163ddda50302e2caea5c3ade3b7c4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321535"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985375"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

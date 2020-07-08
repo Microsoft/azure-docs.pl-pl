@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 1349ec3fc0fe9b5db60af883558a9d0aed5ee612
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392186"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023588"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Oprócz dwóch kluczy głównych dla konta Cosmos DB istnieją dwa klucze tylko 
 
 Klucze główne, pomocnicze, tylko do odczytu i odczyt-zapis można pobrać i ponownie wygenerować przy użyciu Azure Portal. Aby uzyskać instrukcje, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu](manage-with-cli.md#regenerate-account-key).
 
-![Kontrola dostępu (IAM) w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kontrola dostępu (IAM) w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL":::
 
 ### <a name="key-rotation"></a>Rotacja kluczy<a id="key-rotation"></a>
 

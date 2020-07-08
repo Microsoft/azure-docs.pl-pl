@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: tracking-python
-ms.openlocfilehash: 78e638952513eddf8da828158c4afa3187819fbb
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: e72873f01a68a9c5c7fcd44086464bb850836715
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508609"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985917"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
-> * [Zestaw SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [Zestaw SDK platformy .NET](data-lake-store-get-started-net-sdk.md)
 > * [Interfejs API REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -42,7 +42,7 @@ Aby można było korzystać z Data Lake Storage Gen1 przy użyciu języka Python
 
 Użyj następujących poleceń, aby zainstalować moduły.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -54,7 +54,7 @@ pip install azure-datalake-store
 
 2. Dodaj następujący fragment kodu, aby zaimportować wymagane moduły
 
-    ```
+    ```python
     ## Use this only for Azure AD service-to-service authentication
     from azure.common.credentials import ServicePrincipalCredentials
 
@@ -92,43 +92,49 @@ W tej sekcji omówione zostaną różne sposoby uwierzytelniania w usłudze Azur
 
 Poniższy fragment kodu tworzy najpierw klienta konta Data Lake Storage Gen1. Używa obiektu Client do tworzenia konta Data Lake Storage Gen1. Na koniec fragment kodu tworzy obiekt klienta systemu plików.
 
-    ## Declare variables
-    subscriptionId = 'FILL-IN-HERE'
-    adlsAccountName = 'FILL-IN-HERE'
-    resourceGroup = 'FILL-IN-HERE'
-    location = 'eastus2'
+```python
+## Declare variables
+subscriptionId = 'FILL-IN-HERE'
+adlsAccountName = 'FILL-IN-HERE'
+resourceGroup = 'FILL-IN-HERE'
+location = 'eastus2'
 
-    ## Create Data Lake Storage Gen1 account management client object
-    adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
+## Create Data Lake Storage Gen1 account management client object
+adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
-    ## Create a Data Lake Storage Gen1 account
-    adlsAcctResult = adlsAcctClient.account.create(
-        resourceGroup,
-        adlsAccountName,
-        DataLakeStoreAccount(
-            location=location
-        )
-    ).wait()
+## Create a Data Lake Storage Gen1 account
+adlsAcctResult = adlsAcctClient.account.create(
+    resourceGroup,
+    adlsAccountName,
+    DataLakeStoreAccount(
+        location=location
+    )
+).wait()
+```
 
     
 ## <a name="list-the-data-lake-storage-gen1-accounts"></a>Wyświetlanie listy kont Data Lake Storage Gen1
 
-    ## List the existing Data Lake Storage Gen1 accounts
-    result_list_response = adlsAcctClient.account.list()
-    result_list = list(result_list_response)
-    for items in result_list:
-        print(items)
+```python
+## List the existing Data Lake Storage Gen1 accounts
+result_list_response = adlsAcctClient.account.list()
+result_list = list(result_list_response)
+for items in result_list:
+    print(items)
+```
 
 ## <a name="delete-the-data-lake-storage-gen1-account"></a>Usuwanie konta Data Lake Storage Gen1
 
-    ## Delete an existing Data Lake Storage Gen1 account
-    adlsAcctClient.account.delete(adlsAccountName)
+```python
+## Delete an existing Data Lake Storage Gen1 account
+adlsAcctClient.account.delete(adlsAccountName)
+```
     
 
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje systemu plików na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-data-operations-python.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Azure-datalake — Dokumentacja języka Python (system plików)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

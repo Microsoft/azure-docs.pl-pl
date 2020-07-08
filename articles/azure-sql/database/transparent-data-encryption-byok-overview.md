@@ -1,8 +1,9 @@
 ---
 title: Zarządzane przez klienta szyfrowanie danych przezroczystych (TDE)
 description: Bring Your Own Key (BYOK) obsługa Transparent Data Encryption (TDE) z Azure Key Vault dla SQL Database i Azure Synapse Analytics. TDE z BYOK Omówienie, korzyści, jak to działa, zagadnienia i zalecenia.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
@@ -11,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 51187a81865d9efa098e2c25cccdead01ed6dc74
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321312"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985313"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Usługa Azure SQL Transparent Data Encryption z kluczem zarządzanym przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,6 +30,9 @@ W przypadku Azure SQL Database i usługi Azure Synapse Analytics funkcja ochrony
 
 > [!IMPORTANT]
 > W przypadku korzystania z usługi TDE zarządzanej przez usługę, która chce zacząć korzystać z TDE zarządzanych przez klienta, dane pozostają zaszyfrowane podczas procesu przełączania i nie ma żadnych przestojów ani ponownego szyfrowania plików bazy danych. Przełączenie z klucza zarządzanego przez usługę do klucza zarządzanego przez klienta wymaga ponownego włączenia szyfrowania danych, które jest szybką i online operacją.
+
+> [!NOTE]
+> Aby zapewnić klientom SQL platformy Azure dwie warstwy szyfrowania danych w stanie spoczynku, szyfrowanie infrastruktury (przy użyciu algorytmu szyfrowania AES-256) z kluczami zarządzanymi platformy jest wdrażana. Zapewnia to dodatkową warstwę szyfrowania w stanie spoczynku wraz z TDE z kluczami zarządzanymi przez klienta, które są już dostępne. W tej chwili klienci muszą zażądać dostępu do tej funkcji. Jeśli interesuje Cię tę możliwość, skontaktuj się z firmą AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Zalety TDE zarządzanych przez klienta
 
@@ -127,7 +131,7 @@ Po przywróceniu dostępu do klucza przełączenie bazy danych w tryb online wym
 
 - Jeśli dostęp do klucza zostanie przywrócony w ciągu 8 godzin, baza danych zostanie przewarta w ciągu następnej godziny.
 
-- Jeśli dostęp do klucza zostanie przywrócony po upływie ponad 8 godzin, funkcja Autokorekty nie jest możliwa i przełączenie bazy danych wymaga wykonania dodatkowych czynności w portalu i może zająć znaczną ilość czasu w zależności od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone**. W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
+- Jeśli dostęp do klucza zostanie przywrócony po upływie ponad 8 godzin, automatyczne naprawienie jest niemożliwe, a przywrócenie bazy danych wymaga dodatkowych czynności w portalu i może zająć znaczną ilość czasu, zależnie od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone**. W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Przypadkowe odwoływanie dostępu do funkcji ochrony TDE
 

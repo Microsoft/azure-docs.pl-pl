@@ -1,8 +1,9 @@
 ---
 title: Dostęp warunkowy
 description: Dowiedz się, jak skonfigurować dostęp warunkowy dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: conceptual
 author: GithubMirek
@@ -11,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 96ba8dac13e2044d3e561a931e4e8d0760e75050
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 67fef7b192caf064cd7c3b4b6af8923b153ee5b1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195471"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985350"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Dostęp warunkowy przy użyciu Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -31,7 +32,7 @@ Poniższe kroki pokazują, jak skonfigurować Azure SQL Database, wystąpienie z
 - Aby obsłużyć uwierzytelnianie Azure Active Directory (Azure AD), należy skonfigurować Azure SQL Database, wystąpienie zarządzane usługi Azure SQL lub pulę Azure SQL w usłudze Azure Synapse. Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim za pomocą SQL Database lub Azure Synapse](authentication-aad-configure.md).  
 - Po włączeniu Multi-Factor Authentication należy nawiązać połączenie za pomocą obsługiwanego narzędzia, takiego jak Najnowsza SQL Server Management Studio (SSMS). Aby uzyskać więcej informacji, zobacz [konfigurowanie Azure SQL Database uwierzytelniania wieloskładnikowego dla SQL Server Management Studio](authentication-mfa-ssms-configure.md).  
 
-## <a name="configure-conditional-access"></a>Konfigurowanie dostępu warunkowego
+## <a name="configure-conditional-access"></a>Konfigurowanie zasad dostępu warunkowego
 
 > [!NOTE]
 > Poniższy przykład używa Azure SQL Database, ale należy wybrać odpowiedni produkt, dla którego chcesz skonfigurować dostęp warunkowy.

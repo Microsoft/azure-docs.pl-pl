@@ -3,7 +3,7 @@ title: Konfigurowanie grupy trybu failover
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Dowiedz się, jak skonfigurować grupę autotrybu failover dla Azure SQL Database (pojedyncza i w puli) i wystąpienia zarządzanego SQL przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 32543dffa492770d7217fb07652e41baf603ebcc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85250914"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987134"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -56,7 +56,7 @@ Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy uży
 
    ![Dodawanie SQL Database do grupy trybu failover](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover i Dodaj do niej swoją bazę danych przy użyciu programu PowerShell.
 
@@ -133,7 +133,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
 1. Wybierz ponownie **tryb failover** , aby powrócić do błędów serwerów do ich oryginalnych ról.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.  
 
@@ -228,7 +228,7 @@ Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu Azu
 
 1. Wybierz pozycję **Wybierz** , aby zastosować ustawienia puli elastycznej do grupy trybu failover, a następnie wybierz pozycję **Utwórz** , aby utworzyć grupę trybu failover. Dodanie puli elastycznej do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu programu PowerShell.
 
@@ -300,7 +300,7 @@ Niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót
 1. Sprawdź, który serwer jest serwerem podstawowym, który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
 1. Wybierz ponownie **tryb failover** , aby zakończyć pracę grupy trybu failover z powrotem do oryginalnych ustawień.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.
 
@@ -382,7 +382,7 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej. |
-    | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane. |
+    | **Okolicy** | Region, w którym znajduje się główne wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
     | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
@@ -398,7 +398,7 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć nową bramę sieci wirtualnej.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz bramę podstawowej sieci wirtualnej przy użyciu programu PowerShell.
 
@@ -444,7 +444,7 @@ W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla pomocniczeg
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . |
-   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
@@ -456,7 +456,7 @@ W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla pomocniczeg
 
    ![Ustawienia bramy dodatkowej](./media/auto-failover-group-configure/settings-for-secondary-gateway.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz bramę dodatkowej sieci wirtualnej przy użyciu programu PowerShell.
 
@@ -520,7 +520,7 @@ Utwórz połączenia między dwiema bramami przy użyciu Azure Portal.
 
 1. Na karcie **Podsumowanie** Sprawdź ustawienia połączenia dwukierunkowego, a następnie wybierz przycisk **OK** , aby utworzyć połączenie.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz połączenia między dwiema bramami przy użyciu programu PowerShell.
 
@@ -571,7 +571,7 @@ Utwórz grupę trybu failover dla wystąpień zarządzanych SQL przy użyciu Azu
 
 1. Po zakończeniu wdrażania grupy trybu failover nastąpi powrót do strony **grupy trybu failover** .
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu programu PowerShell.
 
@@ -614,7 +614,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 
 1. Przejdź do nowego _pomocniczego_ wystąpienia zarządzanego i ponownie wybierz **tryb failover** w celu niepowodzenia wystąpienia podstawowego z powrotem do roli podstawowej.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.
 

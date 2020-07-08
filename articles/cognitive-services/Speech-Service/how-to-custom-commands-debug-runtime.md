@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 2032ba11c307adda7035d64828d5089da49bedba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307809"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023027"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Debuguj błędy podczas uruchamiania aplikacji poleceń niestandardowych
 
@@ -27,9 +27,8 @@ Jeśli aplikacja do uruchamiania poleceń niestandardowych z [aplikacji kliencki
 
 | Kod błędu | Szczegóły |
 | ------- | -------- |
-| 401 | AuthenticationFailure: uaktualnienie protokołu WebSocket nie powiodło się z powodu błędu uwierzytelniania |
-| 1000 | Przekroczono maksymalny czas bezczynności połączenia z użyciem protokołu WebSocket (> 300 000 MS) |
-| 1002 | Serwer zwrócił kod stanu "404", gdy oczekiwano kodu stanu "101". |
+| [401](#error-401) | AuthenticationFailure: uaktualnienie protokołu WebSocket nie powiodło się z powodu błędu uwierzytelniania |
+| [1002](#error-1002)] | Serwer zwrócił kod stanu "404", gdy oczekiwano kodu stanu "101". |
 
 ### <a name="error-401"></a>Błąd 401
 - Region określony w aplikacji klienckiej jest niezgodny z regionem aplikacji polecenia niestandardowego
@@ -37,9 +36,6 @@ Jeśli aplikacja do uruchamiania poleceń niestandardowych z [aplikacji kliencki
 - Klucz zasobu mowy jest nieprawidłowy
     
     Upewnij się, że klucz zasobu mowy jest prawidłowy.
-
-### <a name="error-1000"></a>Błąd 1000 
-Połączenia bezczynne są przerywane przez serwer po 5 minutach. Spróbuj ponownie nawiązać połączenie.
 
 ### <a name="error-1002"></a>Błąd 1002 
 - Aplikacja polecenia niestandardowego nie jest opublikowana
@@ -49,10 +45,12 @@ Połączenia bezczynne są przerywane przez serwer po 5 minutach. Spróbuj ponow
 - Niestandardowa identyfikator aplikacji polecenia jest nieprawidłowa
 
     Upewnij się, że identyfikator aplikacji polecenia niestandardowego jest poprawny.
-
-- Próbujesz uzyskać dostęp do niestandardowej aplikacji polecenia poza zasobem mowy
+ Niestandardowa aplikacja poleceń poza zasobem mowy
 
     Upewnij się, że aplikacja polecenia niestandardowego jest tworzona w ramach zasobu mowy.
+
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z połączeniem, odwołuje się do programu [asystenta głosowego systemu Windows](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf#troubleshooting) .
+
 
 ## <a name="dialog-is-canceled"></a>Okno dialogowe zostało anulowane
 
@@ -70,14 +68,14 @@ Zdarzenie CancelledDialog składa się z kodu i opisu anulowania, jak wymieniono
 
 | Kod anulowania | Opis anulowania |
 | ------- | --------------- | ----------- |
-| MaxTurnThresholdReached | Nie wykonano postępu po maksymalnej dozwolonej liczbie przekroczeń |
-| RecognizerQuotaExceeded | Przekroczono limit przydziału użycia aparatu rozpoznawania |
-| RecognizerConnectionFailed | Nie można nawiązać połączenia z aparatem rozpoznawania |
-| RecognizerUnauthorized | Nie można uzyskać dostępu do tej aplikacji przy użyciu bieżącej subskrypcji |
-| RecognizerInputExceededAllowedLength | Dane wejściowe przekraczają maksymalną obsługiwaną długość dla aparatu rozpoznawania |
-| RecognizerNotFound | Nie znaleziono aparatu rozpoznawania |
-| RecognizerInvalidQuery | Nieprawidłowe zapytanie dla aparatu rozpoznawania |
-| RecognizerError | Aparat rozpoznawania zwraca błąd |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | Nie wykonano postępu po maksymalnej dozwolonej liczbie przekroczeń |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Przekroczono limit przydziału użycia aparatu rozpoznawania |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Nie można nawiązać połączenia z aparatem rozpoznawania |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | Nie można uzyskać dostępu do tej aplikacji przy użyciu bieżącej subskrypcji |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | Dane wejściowe przekraczają maksymalną obsługiwaną długość dla aparatu rozpoznawania |
+| [RecognizerNotFound](#recognizer-not-found) | Nie znaleziono aparatu rozpoznawania |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Nieprawidłowe zapytanie dla aparatu rozpoznawania |
+| [RecognizerError](#recognizer-return-an-error) | Aparat rozpoznawania zwraca błąd |
 
 ### <a name="no-progress-was-made-after-the-max-number-of-turns-allowed"></a>Nie wykonano postępu po maksymalnej dozwolonej liczbie przekroczeń
 Okno dialogowe zostało anulowane, gdy wymagane miejsce nie zostało pomyślnie zaktualizowane po określonej liczbie przedziałów. Maksymalna liczba kompilacji to 3.

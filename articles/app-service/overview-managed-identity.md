@@ -1,5 +1,5 @@
 ---
-title: Zarządzane tożsamości
+title: Tożsamości zarządzane
 description: Dowiedz się, jak zarządzane tożsamości działają w Azure App Service i Azure Functions, jak skonfigurować tożsamość zarządzaną i wygenerować token dla zasobu zaplecza.
 author: mattchenderson
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 3be41014c315a5820add3407ca0e4cbdb5a5e23e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559691"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985756"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -43,7 +43,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 
 > [!NOTE] 
-> Aby znaleźć tożsamość zarządzaną dla aplikacji sieci Web lub gniazda w Azure Portal, przejdź do sekcji Ustawienia użytkownika w obszarze aplikacje dla przedsiębiorstw.
+> Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw**, zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure

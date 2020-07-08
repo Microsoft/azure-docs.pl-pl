@@ -278,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Tworzenie kopii zapasowej partycji na żądanie
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Wyświetlanie i edytowanie kopii zapasowej kolekcji niezawodności w trybie offline
+              href: backup-explorer.md
         - name: Pakiety CodePackage inicjatora
           href: initializer-codepackages.md
         - name: RunToCompletion

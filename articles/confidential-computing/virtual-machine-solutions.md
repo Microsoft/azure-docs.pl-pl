@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773138"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985430"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
@@ -69,6 +69,9 @@ az vm list-skus
     --size dc 
     --query "[?family=='standardDCSv2Family']"
 ```
+### <a name="dedicated-host-requirements"></a>Wymagania dedykowanego hosta
+Wdrożenie **Standard_DC8_v2** rozmiaru maszyny wirtualnej w rodzinie maszyn wirtualnych z serii DCSv2 zajmie pełny Host i nie będzie współużytkowane z innymi dzierżawcami lub subskrypcjami. Ta rodzina SKU maszyn wirtualnych zapewnia izolację, którą może być potrzebna w celu spełnienia wymagań prawnych dotyczących zgodności i zabezpieczeń, które zwykle są spełnione przez posiadanie dedykowanej usługi hosta. W przypadku wybrania **Standard_DC8_v2** jednostki SKU fizyczny serwer hosta przydzieli wszystkie dostępne zasoby sprzętowe, w tym tylko pamięć sygnatury EPC dla maszyny wirtualnej. Należy pamiętać, że ta funkcja istnieje w ramach projektu infrastruktury i wszystkie funkcje **Standard_DC8_v2** będą obsługiwane. To wdrożenie nie jest takie samo jak [dedykowana usługa hosta platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) dostarczana przez inne rodziny maszyn wirtualnych platformy Azure.
+
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 

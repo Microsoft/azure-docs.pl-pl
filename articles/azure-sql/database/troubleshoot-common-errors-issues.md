@@ -2,19 +2,20 @@
 title: Rozwiązywanie typowych problemów z połączeniem z usługą Azure SQL Database
 description: Zawiera instrukcje dotyczące rozwiązywania problemów z połączeniami Azure SQL Database i rozwiązywania problemów związanych z innymi Azure SQL Database lub wystąpieniami zarządzanymi przez usługę Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e22f962c69091e783b8f6ab55905a02025213f5e
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321397"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985228"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -372,7 +373,7 @@ Dodatkowe wskazówki dotyczące wydajności dostrajania można znaleźć w nast�
 
 ## <a name="steps-to-fix-common-connection-issues"></a>Steps to fix common connection issues (Kroki umożliwiające rozwiązywanie typowych problemów z połączeniem)
 
-1. Upewnij się, że protokół TCP/IP jest włączony jako protokół klienta na serwerze aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołów klienta](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). Na serwerach aplikacji, na których nie zainstalowano narzędzi SQL, upewnij się, że protokół TCP/IP jest włączony, uruchamiając program **cliconfig. exe** (Narzędzie SQL Server sieci klienta).
+1. Upewnij się, że protokół TCP/IP jest włączony jako protokół klienta na serwerze aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie protokołów klienta](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). Na serwerach aplikacji, na których nie zainstalowano narzędzi SQL, upewnij się, że protokół TCP/IP jest włączony, uruchamiając polecenie **cliconfg.exe** (SQL Server narzędzia sieciowe klienta).
 2. Sprawdź parametry połączenia aplikacji, aby upewnić się, że jest prawidłowo skonfigurowana. Na przykład upewnij się, że parametry połączenia określają prawidłowy port (1433) i w pełni kwalifikowaną nazwę serwera.
 Zobacz [Uzyskiwanie informacji o połączeniu](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
 3. Spróbuj zwiększyć wartość limitu czasu połączenia. Zalecamy użycie limitu czasu połączenia wynoszącego co najmniej 30 sekund.

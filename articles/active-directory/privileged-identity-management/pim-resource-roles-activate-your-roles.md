@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37ca85c37f126ccbe84a2c9fc4ca14abcfd50f4a
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743868"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023883"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Aktywuj moje role zasobów platformy Azure w Privileged Identity Management
 
@@ -42,13 +42,15 @@ Gdy musisz przejąć rolę zasobów platformy Azure, możesz zażądać aktywacj
 
 1. Wybierz pozycję **role zasobów platformy Azure** , aby wyświetlić listę kwalifikujących się ról zasobów platformy Azure.
 
-   ![Moje role — strona ról zasobów platformy Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Moje role — strona ról zasobów platformy Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Na liście **role zasobów platformy Azure** Znajdź rolę, którą chcesz aktywować.
 
     ![Role zasobów platformy Azure — lista wszystkich uprawnionych ról](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Wybierz pozycję **Aktywuj** , aby otworzyć okienko Aktywuj.
+1. Wybierz pozycję **Aktywuj** , aby otworzyć stronę Aktywacja.
+
+     ![Otwarte okienko Aktywuj z zakresem, czasem rozpoczęcia, czasem trwania i przyczynie](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Jeśli Twoja rola wymaga uwierzytelniania wieloskładnikowego, wybierz opcję **Weryfikuj swoją tożsamość przed kontynuowaniem**. Musisz tylko raz uwierzytelnić się na sesję.
 
@@ -72,27 +74,9 @@ Gdy musisz przejąć rolę zasobów platformy Azure, możesz zażądać aktywacj
 
 1. Wybierz pozycję **Aktywuj**.
 
-    Jeśli rola nie wymaga zatwierdzenia, zostanie aktywowana i dodana do listy aktywnych ról. Jeśli chcesz użyć roli, postępuj zgodnie z instrukcjami w następnej sekcji.
-
     Jeśli [rola wymaga zatwierdzenia](pim-resource-roles-approval-workflow.md) do aktywacji, w prawym górnym rogu przeglądarki zostanie wyświetlone powiadomienie z informacją, że żądanie oczekuje na zatwierdzenie.
 
     ![Żądanie aktywacji oczekuje na powiadomienie o zatwierdzeniu](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Korzystanie z roli natychmiast po aktywacji
-
-W przypadku wszelkich opóźnień po aktywacji wykonaj następujące czynności po aktywowaniu programu, aby natychmiast korzystać z ról zasobów platformy Azure.
-
-1. Otwórz Azure AD Privileged Identity Management.
-
-1. Wybierz pozycję **Moje role** , aby wyświetlić listę uprawnionych ról usługi Azure AD i ról zasobów platformy Azure.
-
-1. Wybierz pozycję **role zasobów platformy Azure**.
-
-1. Wybierz kartę **aktywne role** .
-
-1. Po uaktywnieniu roli Wyloguj się z portalu i zaloguj się ponownie.
-
-    Rola powinna być teraz dostępna do użycia.
 
 ## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu żądań
 
@@ -127,9 +111,6 @@ Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolny
 Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być natychmiast propagowana do wszystkich portali, które wymagają roli uprzywilejowanej. Czasami nawet po rozpropagowaniu zmiany buforowanie internetowe w portalu może spowodować, że zmiany nie zostaną natychmiast uwzględnione. Jeśli aktywacja jest opóźniona, Oto co należy zrobić.
 
 1. Wyloguj się z witryny Azure Portal, a następnie zaloguj się ponownie.
-
-    Po aktywowaniu roli zasobów platformy Azure zobaczysz etapy aktywacji. Po zakończeniu wszystkich etapów zobaczysz link **Wyloguj**. Możesz użyć tego linku, aby się wylogować. Spowoduje to rozproszenie większości przypadków opóźnienia aktywacji.
-
 1. W Privileged Identity Management Sprawdź, czy jesteś członkiem roli.
 
 ## <a name="next-steps"></a>Następne kroki

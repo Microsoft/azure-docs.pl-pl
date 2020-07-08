@@ -3,8 +3,8 @@ title: Ogólnego przeznaczenia warstwy usług
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Dowiedz się więcej na temat Ogólnego przeznaczenia warstwy usług dla Azure SQL Database i wystąpienia zarządzanego Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 9c0e8ea478ada9fa8b899c548abd22e0d5020537
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ee218253309995e721c97f4a7f7b4547b32f7c36
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321992"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986645"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Ogólnego przeznaczenia warstwy usług Azure SQL Database i wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

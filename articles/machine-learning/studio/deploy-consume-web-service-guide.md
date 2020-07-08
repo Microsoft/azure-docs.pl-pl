@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ecc38633d8081f9060f2c1877f129378fac68f6e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696267"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985537"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klasyczne) usługi sieci Web: wdrażanie i użycie
 
@@ -53,7 +53,9 @@ Aby użyć poleceń cmdlet, musisz najpierw zalogować się do konta platformy A
 
 Aby wyeksportować eksperyment predykcyjny, użyj [tego przykładowego kodu](https://github.com/ritwik20/AzureML-WebServices). Po utworzeniu pliku exe w kodzie można wpisać:
 
-    C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```azurepowershell
+C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
+```
 
 Uruchomienie aplikacji tworzy szablon JSON usługi sieci Web. Aby użyć szablonu do wdrożenia usługi sieci Web, należy dodać następujące informacje:
 
@@ -68,13 +70,15 @@ Dodaj je do szablonu JSON jako elementy podrzędne węzła *Właściwości* na t
 
 Przykład:
 
-    "StorageAccount": {
-            "name": "YourStorageAccountName",
-            "key": "YourStorageAccountKey"
-    },
-    "CommitmentPlan": {
-        "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
-    }
+```json
+"StorageAccount": {
+        "name": "YourStorageAccountName",
+        "key": "YourStorageAccountKey"
+},
+"CommitmentPlan": {
+    "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/providers/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
+}
+```
 
 Więcej informacji można znaleźć w następujących artykułach i przykładowym kodzie:
 

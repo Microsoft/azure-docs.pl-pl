@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1dcc91c6a7b823cd89b3ce4bf4d611b9923f87d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558727"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024463"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -39,6 +39,7 @@ Administratorzy mogą zdecydować się na wymuszenie co najmniej jednej kontrolk
 - [Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Wymaganie zatwierdzonej aplikacji klienckiej](app-based-conditional-access.md)
 - [Wymaganie zasad ochrony aplikacji](app-protection-based-conditional-access.md)
+- [Wymagaj zmiany hasła](#require-password-change)
 
 Gdy administratorzy zdecydują się połączyć te opcje, mogą wybrać następujące metody:
 
@@ -134,6 +135,21 @@ To ustawienie dotyczy następujących aplikacji klienckich:
     - Aby zarejestrować urządzenie, wymagana jest aplikacja brokera. W systemie iOS aplikacja brokera jest Microsoft Authenticator i w systemie Android jest Intune — Portal firmy App.
 
 Zapoznaj się z artykułem [instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego](app-protection-based-conditional-access.md) na potrzeby przykładów konfiguracyjnych.
+
+### <a name="require-password-change"></a>Wymagaj zmiany hasła 
+
+W przypadku wykrycia ryzyka użytkownika przy użyciu warunków zasad ryzyka użytkownika Administratorzy mogą wybrać, czy użytkownik może bezpiecznie zmienić hasło przy użyciu funkcji samoobsługowego resetowania hasła w usłudze Azure AD. W przypadku wykrycia ryzyka użytkownika użytkownicy mogą przeprowadzić Samoobsługowe resetowanie haseł w celu samodzielnego korygowania hasła. spowoduje to zamknięcie zdarzenia ryzyka użytkownika w celu uniemożliwienia niepotrzebnego hałasu dla administratorów. 
+
+Gdy użytkownik zostanie poproszony o zmianę hasła, najpierw będzie wymagane do ukończenia uwierzytelniania wieloskładnikowego. Upewnij się, że wszyscy użytkownicy zostali zarejestrowani do uwierzytelniania wieloskładnikowego, więc są przygotowani w przypadku wykrycia ryzyka dla konta.  
+
+> [!WARNING]
+> Przed wyzwoleniem zasad ryzyka dla użytkowników należy wcześniej zarejestrować się do samoobsługowego resetowania hasła. 
+
+Podczas konfigurowania zasad przy użyciu kontrolki zmiany hasła istnieje ograniczenie kilku miejsc.  
+
+1. Zasady muszą być przypisane do usługi "wszystkie aplikacje w chmurze". Uniemożliwia to osobie atakującej korzystanie z innej aplikacji w celu zmiany hasła użytkownika i zresetowanie ryzyka związanego z kontem, wystarczy zalogować się do innej aplikacji. 
+1. Wymaganie zmiany hasła nie może być używane z innymi kontrolkami, takimi jak wymaganie zgodnego urządzenia.  
+1. Kontrolki zmiany hasła można używać tylko z warunkiem przypisania użytkownika i grupy, warunku przypisania aplikacji w chmurze (musi to być ustawienie wszystkie) i warunki ryzyka użytkownika. 
 
 ### <a name="terms-of-use"></a>Warunki użytkowania
 

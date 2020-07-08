@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c63fb819f0db7a3a367f5351fd80eb14e5733d99
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559457"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985739"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -30,7 +30,7 @@ Azure Machine Learning oferuje kilka sposobów uczenia modeli — od pierwszego 
     | [Szacowania](#estimators) | Klasy szacowania ułatwiają **uczenie modeli opartych na popularnych strukturach uczenia maszynowego**. Istnieją klasy szacowania dla **Scikit-nauka**, **PyTorch**, **TensorFlow**, **łańcucher**i **Ray RLlib**. Istnieje również ogólny szacowania, który może być używany z platformami, które nie mają jeszcze dedykowanej klasy szacowania. Nie musisz martwić się o Definiowanie konfiguracji uruchamiania podczas korzystania z szacowania. |
     | [Potok uczenia maszynowego](#machine-learning-pipeline) | Potoki nie są różnymi metodami szkoleniowymi, ale **sposób definiowania przepływu pracy przy użyciu modularnych, wielokrotnych kroków**, które mogą obejmować szkolenie w ramach przepływu pracy. Potoki usługi Machine Learning obsługują korzystanie z funkcji automatycznego uczenia maszynowego, szacowania i uruchamiania konfiguracji w celu uczenia modeli. Ponieważ potoki nie są ukierunkowane na szkolenie, przyczyny użycia potoku są bardziej zróżnicowane niż inne metody uczenia się. Ogólnie rzecz biorąc, można użyć potoku, gdy:<br>* Chcesz **zaplanować procesy nienadzorowane** , takie jak długotrwałe zadania szkoleniowe lub Przygotowywanie danych.<br>* Należy użyć **wielu kroków** , które są skoordynowane w niejednorodnych zasobach obliczeniowych i lokalizacjach magazynu.<br>* Użyj potoku jako **szablonu wielokrotnego użytku** dla konkretnych scenariuszy, takich jak przeszkolenie lub wsadowe ocenianie.<br>* **Śledź źródła danych, dane wejściowe i wyjściowe** dla przepływu pracy.<br>* Przepływ pracy jest **implementowany przez różne zespoły, które pracują niezależnie od konkretnych kroków**. Kroki można następnie połączyć w potoku w celu zaimplementowania przepływu pracy. |
 
-+ [Azure Machine Learning SDK dla języka Python](#r-sdk): zestaw SDK używa pakietu reticulate do utworzenia powiązania z zestawem SDK języka Python Azure Machine Learning. Dzięki temu można uzyskać dostęp do podstawowych obiektów i metod zaimplementowanych w zestawie Python SDK z dowolnego środowiska języka R.
++ [Azure Machine Learning SDK dla języka r](#r-sdk): zestaw SDK dla języka r używa pakietu reticulate do utworzenia powiązania z zestawem Python SDK Azure Machine Learning. Dzięki temu można uzyskać dostęp do podstawowych obiektów i metod zaimplementowanych w zestawie Python SDK z dowolnego środowiska języka R.
 
 + **Projektant**: Program Azure Machine Learning Designer (wersja zapoznawcza) udostępnia łatwą funkcję uczenia maszynowego na potrzeby tworzenia wyników weryfikacji koncepcji lub dla użytkowników z niewielkim doświadczeniem związanym z kodowaniem. Pozwala to na uczenie modeli przy użyciu funkcji przeciągania i upuszczania interfejsu użytkownika opartego na sieci Web. Możesz użyć kodu w języku Python jako części projektu lub pouczenia modeli bez pisania kodu.
 
