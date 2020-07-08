@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771524"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553546"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -61,7 +61,7 @@ Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka ma być 
 
 Gdy jest używany wspólny klucz tajny, żądanie tokenu dostępu między usługami zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | `grant_type` | Wymagane | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
 | `client_id` | Wymagane | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
@@ -93,7 +93,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Żądanie tokenu dostępu między usługami i certyfikatem zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | `grant_type` | Wymagane | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
 | `client_id` | Wymagane |  Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |

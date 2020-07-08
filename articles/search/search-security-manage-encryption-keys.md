@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 548ebf5b0d5836383b74326516fbe47b1b25f60f
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080187"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553282"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Szyfrowanie zawartości w usłudze Azure Wyszukiwanie poznawcze przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault
 
@@ -26,7 +26,7 @@ Szyfrowanie przy użyciu kluczy zarządzanych przez klienta jest konfigurowane n
 Klucze nie wszystkie muszą znajdować się w tym samym Key Vault. Pojedyncza usługa wyszukiwania może obsługiwać wiele szyfrowanych indeksów lub synonimów mapowanych na własne, zarządzane przez klienta klucze szyfrowania przechowywane w różnych magazynach kluczy.  Można również mieć indeksy i mapy synonimów w tej samej usłudze, które nie są szyfrowane przy użyciu kluczy zarządzanych przez klienta. 
 
 > [!IMPORTANT] 
-> Ta funkcja jest dostępna w [interfejsie API REST w wersji 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) i [.net SDK wersja 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Obecnie nie jest obsługiwane Konfigurowanie kluczy szyfrowania zarządzanych przez klienta w Azure Portal. Usługę wyszukiwania należy utworzyć po styczniu 2019 i nie może być to bezpłatna (współdzielona) usługa.
+> Ta funkcja jest dostępna w [interfejsie API REST](https://docs.microsoft.com/rest/api/searchservice/) i [zestawie SDK platformy .net w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Obecnie nie jest obsługiwane Konfigurowanie kluczy szyfrowania zarządzanych przez klienta w Azure Portal. Usługę wyszukiwania należy utworzyć po styczniu 2019 i nie może być to bezpłatna (współdzielona) usługa.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

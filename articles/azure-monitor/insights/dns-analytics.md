@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552819"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej
 
@@ -44,7 +44,7 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiąz
 
 Rozwiązanie zbiera dane dotyczące spisu DNS i zdarzeń DNS z serwerów DNS, na których zainstalowano agenta Log Analytics. Te dane są następnie przekazywane do Azure Monitor i wyświetlane na pulpicie nawigacyjnym rozwiązania. Dane dotyczące spisu, takie jak liczba serwerów DNS, stref i rekordów zasobów, są zbierane przez uruchomienie poleceń cmdlet programu PowerShell dla usługi DNS. Dane są aktualizowane co dwa dni. Dane związane ze zdarzeniami są zbierane niemal w czasie rzeczywistym z [dzienników analitycznych i inspekcji](https://technet.microsoft.com/library/dn800669.aspx#enhanc) dostarczonych przez ulepszone rejestrowanie i diagnostykę DNS w systemie Windows Server 2012 R2.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Skorzystaj z poniższych informacji, aby skonfigurować rozwiązanie:
 
@@ -74,7 +74,7 @@ Jeśli używasz Microsoft Monitoring Agent do nawiązywania połączenia z obsza
 Jeśli grupa zarządzania Operations Manager jest połączona z obszarem roboczym Log Analytics, następujące pakiety administracyjne są instalowane w Operations Manager po dodaniu tego rozwiązania. Nie istnieje wymagana konfiguracja ani konserwacja tych pakietów administracyjnych:
 
 - Microsoft DNS Data Collector Intelligence Pack (Microsoft. IntelligencePacks. DNS)
-- Microsoft System Center Advisor DNS Analytics Configuration (Microsoft. IntelligencePack. DNS. Configuration)
+- Konfiguracja DNS Analytics programu Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configwersja)
 
 Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](../platform/om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
 
@@ -159,7 +159,7 @@ Tych zapytań można użyć jako punktu wyjścia do tworzenia własnych zapytań
 
 Na stronie przeszukiwanie dzienników można utworzyć zapytanie. Wyniki wyszukiwania można filtrować przy użyciu formantów aspektów. Możesz również tworzyć zaawansowane zapytania do przekształcania, filtrowania i raportowania wyników. Zacznij od następującej kwerendy:
 
-1. W **polu zapytania wyszukiwania**wpisz `DnsEvents` , aby wyświetlić wszystkie zdarzenia DNS wygenerowane przez serwery DNS zarządzane przez rozwiązanie. Wyniki wyświetlają dane dziennika dla wszystkich zdarzeń związanych z zapytaniami wyszukiwania, rejestracjami dynamicznymi i zmianami konfiguracji.
+1. W **polu zapytania wyszukiwania**wpisz, `DnsEvents` Aby wyświetlić wszystkie zdarzenia DNS wygenerowane przez serwery DNS zarządzane przez rozwiązanie. Wyniki wyświetlają dane dziennika dla wszystkich zdarzeń związanych z zapytaniami wyszukiwania, rejestracjami dynamicznymi i zmianami konfiguracji.
 
     ![Przeszukiwanie dzienników DnsEvents](./media/dns-analytics/log-search-dnsevents.png)  
 
@@ -169,7 +169,7 @@ Na stronie przeszukiwanie dzienników można utworzyć zapytanie. Wyniki wyszuki
 
     c. Aby wyświetlić dane dziennika dla zmian konfiguracji, wybierz pozycję **zmianakonfiguracji** jako filtr **podtypu** z kontrolki aspekt po lewej stronie. Zostanie wyświetlona tabela zawierająca listę wszystkich zdarzeń zmiany konfiguracji w wybranym okresie.
 
-1. W **polu zapytania wyszukiwania**wpisz `DnsInventory` , aby wyświetlić wszystkie dane dotyczące spisu DNS dla serwerów DNS zarządzanych przez rozwiązanie. Wyniki wyświetlają dane dziennika dla serwerów DNS, stref DNS i rekordów zasobów.
+1. W **polu zapytania wyszukiwania**wpisz, `DnsInventory` Aby wyświetlić wszystkie dane dotyczące spisu DNS dla serwerów DNS zarządzanych przez rozwiązanie. Wyniki wyświetlają dane dziennika dla serwerów DNS, stref DNS i rekordów zasobów.
 
     ![Przeszukiwanie dzienników DnsInventory](./media/dns-analytics/log-search-dnsinventory.png)
     
@@ -179,7 +179,7 @@ Typowe kroki rozwiązywania problemów:
 
 1. Brakujące dane wyszukiwania DNS — aby rozwiązać ten problem, spróbuj zresetować konfigurację lub po prostu Załaduj stronę konfiguracji raz w portalu. Na potrzeby resetowania po prostu zmień ustawienie na inną wartość, a następnie zmień je z powrotem na oryginalną wartość i Zapisz konfigurację.
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
 Aby przekazać opinię, odwiedź [stronę log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) , aby opublikować pomysły dotyczące DNS Analyticsch funkcji. 
 

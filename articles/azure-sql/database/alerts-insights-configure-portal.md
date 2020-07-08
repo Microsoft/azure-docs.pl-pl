@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: c48bc2602da70e20e2fb86d54697d42d70775846
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553488"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Tworzenie alertów dla Azure SQL Database i usługi Azure Synapse Analytics przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84324673"
 
 ## <a name="overview"></a>Omówienie
 
-W tym artykule opisano sposób konfigurowania alertów dla baz danych w Azure SQL Database i analiza Synapse Azure (dawniej Azure SQL Data Warehouse) przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową. W tym artykule przedstawiono również najlepsze rozwiązania dotyczące ustawiania okresów alertów.
+W tym artykule opisano sposób konfigurowania alertów dla baz danych w Azure SQL Database i analiza Synapse Azure (dawniej Azure SQL Data Warehouse) przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową.
 
 > [!NOTE]
 > Aby uzyskać szczegółowe instrukcje dotyczące wystąpienia zarządzanego usługi Azure SQL, zobacz [tworzenie alertów dla wystąpienia zarządzanego Azure SQL](../managed-instance/alerts-create.md).

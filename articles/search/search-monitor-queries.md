@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552524"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorowanie żądań zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -128,11 +128,11 @@ Po włączeniu rejestrowania zasobów system przechwytuje żądania zapytań w t
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Opcjonalnie Ustaw filtr kolumn na *Query_s* , aby przeszukać określoną składnię lub ciąg. Na przykład, można odfiltrować *wartość równą* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Opcjonalnie Ustaw filtr kolumn na *Query_s* , aby przeszukać określoną składnię lub ciąg. Na przykład, można odfiltrować *wartość równą* `?api-version=2020-06-30&search=*&%24filter=HotelName` ).
 
    ![Zarejestrowane ciągi zapytań](./media/search-monitor-usage/log-query-strings.png "Zarejestrowane ciągi zapytań")
 
@@ -181,7 +181,7 @@ Podczas wypychania limitów określonej konfiguracji partycji repliki można tak
 
    ![Szczegóły alertu](./media/search-monitor-usage/alert-details.png "Szczegóły alertu")
 
-Jeśli podano powiadomienie e-mail, otrzymasz wiadomość e-mail od "Microsoft Azure" z wierszem tematu "Azure: aktywowana ważność: 3 `<your rule name>`".
+Jeśli podano powiadomienie e-mail, otrzymasz wiadomość e-mail od "Microsoft Azure" z wierszem tematu "Azure: aktywowana ważność: 3 `<your rule name>` ".
 
 <!-- ## Report query data
 

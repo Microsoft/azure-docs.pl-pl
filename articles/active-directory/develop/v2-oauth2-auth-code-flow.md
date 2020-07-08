@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2bc9bb8b79ca0a6f59e6c771109cf4d102cdd78e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553657"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -274,7 +274,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Spróbuj wykonać to żądanie w programie Poster! (Nie zapomnij zastąpić `refresh_token` ) [ ![ Spróbuj uruchomić to żądanie w programie Poster](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 >
 
-| Parametr     |                | Opis        |
+| Parametr     | Typ           | Opis        |
 |---------------|----------------|--------------------|
 | `tenant`        | wymagane     | `{tenant}`Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common` , `organizations` , `consumers` i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | wymagane    | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |

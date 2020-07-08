@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 304c39f4b6f7852068d4e72adfad2d41eeefc26c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414106"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552961"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiowanie lub klonowanie fabryki danych w Azure Data Factory
 
@@ -28,25 +28,28 @@ W tym artykule opisano sposób kopiowania lub klonowania fabryki danych w Azure 
 
 Poniżej przedstawiono niektóre sytuacje, w których warto przystąpić do kopiowania lub klonowania fabryki danych:
 
--   **Zmiana nazw zasobów**. Platforma Azure nie obsługuje zmieniania nazw zasobów. Jeśli chcesz zmienić nazwę fabryki danych, możesz sklonować fabrykę danych z inną nazwą, a następnie usunąć istniejącą.
+- **Przenieś Data Factory** do nowego regionu. Jeśli chcesz przenieść Data Factory do innego regionu, najlepszym sposobem jest utworzenie kopii w regionie wskazanym i usunięcie istniejącej.
 
--   **Debugowanie zmian** , gdy funkcje debugowania nie są wystarczające. Czasami testować zmiany, warto przetestować zmiany w innej fabryce przed zastosowaniem ich do swojej głównej. W większości scenariuszy można używać debugowania. Zmiany w wyzwalaczach, jednak takie jak zachowanie zmian, gdy wyzwalacz jest wywoływany automatycznie lub w przedziale czasowym, mogą nie być weryfikowalne łatwo bez ewidencjonowania. W takich przypadkach klonowanie fabryki i stosowanie zmian w tym miejscu sprawia dużo sensu. Ponieważ Azure Data Factory opłaty są naliczane głównie przez liczbę przebiegów, druga fabryka nie prowadzi do żadnych dodatkowych opłat.
+- **Zmiana nazwy Data Factory**. Platforma Azure nie obsługuje zmieniania nazw zasobów. Jeśli chcesz zmienić nazwę fabryki danych, możesz sklonować fabrykę danych z inną nazwą i usunąć istniejącą.
+
+- **Debugowanie zmian** , gdy funkcje debugowania nie są wystarczające. W większości scenariuszy można używać [debugowania](iterative-development-debugging.md). W innych przypadkach testowanie zmian w sklonowanym środowisku piaskownicy jest bardziej zrozumiałe. Na przykład, w jaki sposób sparametryzowane potoki ETL zachowywać się, gdy wyzwalacz zostanie wyzwolony po nadejściu pliku, a nie za pośrednictwem przedziału czasu wirowania, może nie być łatwo weryfikowalne za pośrednictwem samego debugowania. W takich przypadkach może być konieczne sklonowanie środowiska piaskownicy na potrzeby eksperymentowania. Ponieważ Azure Data Factory są naliczane przede wszystkim przez liczbę przebiegów, druga fabryka nie prowadzi do żadnych dodatkowych opłat.
 
 ## <a name="how-to-clone-a-data-factory"></a>Jak sklonować fabrykę danych
 
-1. Interfejs użytkownika Data Factory w Azure Portal umożliwia wyeksportowanie całego ładunku fabryki danych do szablonu Menedżer zasobów oraz pliku parametrów, który umożliwia zmianę wszelkich wartości, które mają zostać zmienione podczas klonowania fabryki.
+1. Jako warunek wstępny najpierw musisz utworzyć docelową fabrykę danych z Azure Portal.
 
-1. Jako warunek wstępny należy utworzyć docelową fabrykę danych z Azure Portal.
+1. Jeśli jesteś w trybie GIT:
+    1. Za każdym razem, gdy publikujesz z portalu, szablon Menedżer zasobów fabryki jest zapisywany w usłudze GIT w \_ rozgałęzieniu publikowania ADF
+    1. Podłącz nową fabrykę do tego _samego_ repozytorium i Kompiluj ją z \_ gałęzi publikowania ADF. Zasoby, takie jak potoki, zestawy danych i wyzwalacze, będą przenoszone przez
 
-1. Jeśli w fabryki źródłowej znajduje się SelfHosted IntegrationRuntime, musisz utworzyć ją z tą samą nazwą w fabryce docelowej. Jeśli chcesz udostępnić SelfHosted urząd skarbowy między różnymi fabrykami, możesz użyć wzorca opublikowanego w [tym miejscu](source-control.md#best-practices-for-git-integration).
+1. Jeśli jesteś w trybie na żywo:
+    1. Interfejs użytkownika Data Factory umożliwia eksportowanie całego ładunku fabryki danych do pliku szablonu Menedżer zasobów i pliku parametrów. Dostęp do nich można uzyskać z przycisku szablonu usługi **ARM \ eksportuj Menedżer zasobów szablonu** w portalu.
+    1. Możesz wprowadzić odpowiednie zmiany w pliku parametrów i zamienić nowe wartości dla nowej fabryki
+    1. Następnie można ją wdrożyć za pomocą standardowych metod wdrażania szablonu Menedżer zasobów.
 
-1. Jeśli jesteś w trybie GIT, przy każdym publikowaniu z portalu szablon Menedżer zasobów fabryki zostanie zapisany w usłudze GIT w gałęzi adf_publish repozytorium.
+1. Jeśli w fabryki źródłowej znajduje się SelfHosted IntegrationRuntime, musisz utworzyć ją z tą samą nazwą w fabryce docelowej. Jeśli chcesz udostępnić SelfHosted Integration Runtime między różnymi fabrykami, możesz użyć wzorca opublikowanego w [tym miejscu](create-shared-self-hosted-integration-runtime-powershell.md) na potrzeby udostępniania SelfHosted IR.
 
-1. W przypadku innych scenariuszy szablon Menedżer zasobów można pobrać, klikając przycisk **Eksportuj szablon Menedżer zasobów** w portalu.
-
-1. Po pobraniu szablonu Menedżer zasobów można wdrożyć go za pomocą standardowych metod wdrażania szablonu Menedżer zasobów.
-
-1. Ze względów bezpieczeństwa wygenerowany szablon Menedżer zasobów nie zawiera żadnych informacji tajnych, takich jak hasła dla połączonych usług. W związku z tym należy podać te hasła jako parametry wdrożenia. Jeśli podanie parametrów nie jest pożądane, należy uzyskać parametry połączenia i hasła połączonej usługi z Azure Key Vault.
+1. Ze względów bezpieczeństwa wygenerowany szablon Menedżer zasobów nie będzie zawierał żadnych informacji tajnych, na przykład hasła dla połączonych usług. W związku z tym należy podać poświadczenia jako parametry wdrożenia. Jeśli ręczne wprowadzanie poświadczeń nie jest odpowiednie dla Twoich ustawień, należy rozważyć pobranie parametrów połączenia i haseł z Azure Key Vault zamiast tego. [Zobacz więcej](store-credentials-in-key-vault.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

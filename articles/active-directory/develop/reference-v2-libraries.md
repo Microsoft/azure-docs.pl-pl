@@ -12,12 +12,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 068870378fc1ef41d791f437449fd427689a9e44
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f4d442831658b276f74146ef91e69b92dec83619
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85477417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553901"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Biblioteki uwierzytelniania platformy tożsamości firmy Microsoft
 
@@ -72,7 +72,7 @@ Korzystaj z bibliotek oprogramowania pośredniczącego, aby chronić aplikacje s
 
 W przypadku obsługiwanych systemów operacyjnych i języków, mapowanie jest następujące:
 
-|             | Windows    | Linux      | macOS      | iOS | Android    |
+| Platforma    | Windows    | Linux      | macOS      | iOS | Android    |
 |-------------|------------|------------|------------|------------|------------|
 | ![JavaScript](media/sample-v2-code/logo_js.png)  |  MSAL.js | MSAL.js | MSAL.js | MSAL.js |  MSAL.js |
 | <img alt="C#" src="../../cognitive-services/speech-service/media/index/logo_csharp.svg" width="64px" height="64px" /> | ASP.NET, ASP.NET Core, MSAL.Net (.NET PD, rdzeń, platformy UWP)| ASP.NET Core, MSAL.Net (.NET Core) | ASP.NET Core, MSAL.Net (macOS)       | MSAL.Net (Xamarin. iOS) | MSAL.Net (Xamarin. Android)|

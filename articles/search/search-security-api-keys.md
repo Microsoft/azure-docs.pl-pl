@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a4c862cd6b6f9b01c0b56c2a21e228fdfd0f6e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553347"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -29,15 +29,15 @@ Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Z
 
 Do uzyskiwania dostępu do usługi wyszukiwania są używane dwa typy kluczy: administrator (odczyt i zapis) i zapytanie (tylko do odczytu).
 
-|Key|Opis|Limity|  
+|Klucz|Opis|Limity|  
 |---------|-----------------|------------|  
 |Administrator|Przyznaje pełne prawa do wszystkich operacji, w tym możliwość zarządzania usługą, tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa klucze administratora, określane jako klucze *podstawowe* i *pomocnicze* w portalu, są generowane podczas tworzenia usługi i mogą być osobno ponownie generowane na żądanie. Posiadanie dwóch kluczy umożliwia przewinięcie jednego klucza podczas korzystania z drugiego klucza w celu uzyskania ciągłego dostępu do usługi.<br /><br /> Klucze administratora są określone tylko w nagłówkach żądań HTTP. Nie można umieścić klucza API-Key administratora w adresie URL.|Maksymalnie 2 na usługę|  
-|Zapytanie|Przyznaje dostęp tylko do odczytu do indeksów i dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.<br /><br /> Klucze zapytań są tworzone na żądanie. Można je tworzyć ręcznie w portalu lub programowo za pośrednictwem [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Klucze zapytania można określić w nagłówku żądania HTTP dla operacji wyszukiwania, sugestii lub wyszukiwania. Alternatywnie można przekazać klucz zapytania jako parametr w adresie URL. W zależności od sposobu, w jaki aplikacja kliencka formułuje żądanie, może być łatwiejsze przekazanie klucza jako parametru zapytania:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 za usługę|  
+|Zapytanie|Przyznaje dostęp tylko do odczytu do indeksów i dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.<br /><br /> Klucze zapytań są tworzone na żądanie. Można je tworzyć ręcznie w portalu lub programowo za pośrednictwem [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Klucze zapytania można określić w nagłówku żądania HTTP dla operacji wyszukiwania, sugestii lub wyszukiwania. Alternatywnie można przekazać klucz zapytania jako parametr w adresie URL. W zależności od sposobu, w jaki aplikacja kliencka formułuje żądanie, może być łatwiejsze przekazanie klucza jako parametru zapytania:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 za usługę|  
 
  Wizualnie nie istnieje różnica między kluczem administratora lub kluczem zapytania. Oba klucze są ciągami składającymi się z 32 losowo generowanych znaków alfanumerycznych. W przypadku utraty informacji o typie klucza określonego w aplikacji można [sprawdzić wartości kluczy w portalu](https://portal.azure.com) lub użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/searchmanagement/) , aby zwrócić wartość i typ klucza.  
 
 > [!NOTE]  
->  Jest uznawana za słabą praktyczną ochronę danych, na przykład `api-key` w identyfikatorze URI żądania. Z tego powodu usługa Azure Wyszukiwanie poznawcze akceptuje tylko klucz zapytania jako `api-key` ciąg zapytania i należy unikać tego, chyba że zawartość indeksu powinna być publicznie dostępna. Zgodnie z ogólną regułą zalecamy przekazanie nagłówka `api-key` jako żądania.  
+>  Jest uznawana za słabą praktyczną ochronę danych, na przykład `api-key` w identyfikatorze URI żądania. Z tego powodu usługa Azure Wyszukiwanie poznawcze akceptuje tylko klucz zapytania jako `api-key` ciąg zapytania i należy unikać tego, chyba że zawartość indeksu powinna być publicznie dostępna. Zgodnie z ogólną regułą zalecamy przekazanie `api-key` nagłówka jako żądania.  
 
 ## <a name="find-existing-keys"></a>Znajdowanie istniejących kluczy
 
@@ -45,7 +45,7 @@ Klucze dostępu można uzyskać w portalu lub za pomocą [interfejsu API REST za
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dla Twojej subskrypcji.
-3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia** >**klucze** , aby wyświetlić klucze administratora i kwerendy.
+3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze** , aby wyświetlić klucze administratora i kwerendy.
 
    ![Strona portalu, ustawienia, sekcja klucze](media/search-security-overview/settings-keys.png)
 
@@ -57,7 +57,7 @@ Ograniczanie dostępu i operacji w aplikacjach klienckich jest niezbędne do och
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dla Twojej subskrypcji.
-3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia** >**klucze**.
+3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze**.
 4. Kliknij pozycję **Zarządzaj kluczami zapytań**.
 5. Użyj klucza zapytania już wygenerowanego dla usługi lub Utwórz do 50 nowych kluczy zapytań. Domyślny klucz zapytania nie ma nazwy, ale dodatkowe klucze zapytania można nazwać do zarządzania.
 
@@ -72,7 +72,7 @@ Ograniczanie dostępu i operacji w aplikacjach klienckich jest niezbędne do och
 
 Dla każdej usługi są tworzone dwa klucze administracyjne, dzięki czemu można obrócić klucz podstawowy przy użyciu klucza pomocniczego dla ciągłości biznesowej.
 
-1. Na stronie **Settings** >**klucze** ustawień skopiuj klucz pomocniczy.
+1. Na stronie **Settings**  > **klucze** ustawień skopiuj klucz pomocniczy.
 2. W przypadku wszystkich aplikacji zaktualizuj ustawienia interfejsu API-Key, aby użyć klucza pomocniczego.
 3. Wygeneruj ponownie klucz podstawowy.
 4. Zaktualizuj wszystkie aplikacje, aby użyć nowego klucza podstawowego.
