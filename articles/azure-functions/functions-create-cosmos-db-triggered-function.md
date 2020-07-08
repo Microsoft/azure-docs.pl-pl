@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83123769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829843"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
     | **Nowa funkcja** | Zaakceptuj nazwę domyślną | Nazwa funkcji. |
     | **Połączenie konta usługi Cosmos DB** | Zaakceptuj domyślną nową nazwę | Wybierz pozycję **Nowy**, utworzone wcześniej **konto bazy danych** , a następnie kliknij przycisk **OK**. Ta akcja powoduje utworzenie ustawienia aplikacji dla połączenia z kontem. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
     | **Nazwa bazy danych** | Zadania | Nazwa bazy danych, która zawiera kolekcję do monitorowania. |
-    | **Nazwa kolekcji** | Items (Elementy) | Nazwa kolekcji do monitorowania. |
+    | **Nazwa kolekcji** | Elementy | Nazwa kolekcji do monitorowania. |
     | **Nazwa kolekcji dzierżaw** | leases | Nazwa kolekcji do przechowywania dzierżaw. |
     | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Tak | Sprawdza obecność kolekcji dzierżaw i automatycznie tworzy ją. |
 
@@ -99,7 +99,7 @@ Następnie nawiąż połączenie z kontem Azure Cosmos DB i Utwórz `Items` kont
     | Ustawienie|Sugerowana wartość|Opis |
     | ---|---|--- |
     | **Identyfikator bazy danych** | Zadania |Nazwa nowej bazy danych. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji. |
-    | **Identyfikator kontenera** | Items (Elementy) | Nazwa nowego kontenera. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji.  |
+    | **Identyfikator kontenera** | Elementy | Nazwa nowego kontenera. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji.  |
     | **[Klucz partycji](../cosmos-db/partition-data.md)** | /category|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór poprawnego klucza partycji jest istotny podczas tworzenia kontenera wykonywania. | 
     | **Przepływność** |400 RU| Użyj wartości domyślnej. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. |    
 
@@ -115,11 +115,13 @@ Gdy kontener określony w powiązaniu funkcji istnieje, można przetestować fun
 
 1. Zastąp zawartość nowego elementu następującą zawartością, a następnie wybierz pozycję **Zapisz**.
 
-        {
-            "id": "task1",
-            "category": "general",
-            "description": "some task"
-        }
+    ```yaml
+    {
+        "id": "task1",
+        "category": "general",
+        "description": "some task"
+    }
+    ```
 
 1. Przejdź do pierwszej karty przeglądarki, zawierającej funkcję w portalu. Rozwiń dzienniki funkcji i sprawdź, czy nowy dokument spowodował wyzwolenie funkcji. Zobaczysz, że wartość identyfikatora dokumentu `task1` jest zapisana w dziennikach. 
 

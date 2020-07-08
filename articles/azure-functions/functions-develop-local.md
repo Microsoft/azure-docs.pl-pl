@@ -3,12 +3,12 @@ title: Lokalne opracowywanie i uruchamianie usługi Azure Functions
 description: Dowiedz się, jak kodować i testować usługi Azure Functions na komputerze lokalnym przed uruchomieniem ich na Azure Functions.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef59c57bf4e2ba1684c3e3b43357efad0da9806f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74230646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829384"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kodowanie i testowanie usługi Azure Functions lokalnie
 
@@ -27,16 +27,16 @@ Sposób tworzenia funkcji na komputerze lokalnym zależy od preferencji [języka
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-Każdy z tych lokalnych środowisk programistycznych umożliwia tworzenie projektów aplikacji funkcji i używanie wstępnie zdefiniowanych szablonów funkcji do tworzenia nowych funkcji. Każdy z nich korzysta z podstawowych narzędzi, dzięki czemu można testować i debugować funkcje w środowisku uruchomieniowym Real Functions na własnym komputerze tak samo jak w przypadku każdej innej aplikacji. Możesz również opublikować projekt aplikacji funkcji z dowolnego z tych środowisk na platformie Azure.  
+Każdy z tych lokalnych środowisk programistycznych umożliwia tworzenie projektów aplikacji funkcji i używanie wstępnie zdefiniowanych szablonów funkcji do tworzenia nowych funkcji. Każdy z nich korzysta z podstawowych narzędzi, dzięki czemu można testować i debugować funkcje w środowisku uruchomieniowym Real Functions na własnym komputerze tak samo jak w przypadku każdej innej aplikacji. Możesz również opublikować projekt aplikacji funkcji z dowolnego z tych środowisk na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
 + Aby dowiedzieć się więcej na temat lokalnego tworzenia skompilowanych funkcji języka C# przy użyciu programu Visual Studio 2019, zobacz temat [programowanie Azure Functions przy użyciu programu Visual Studio](functions-develop-vs.md).
-+ Aby dowiedzieć się więcej na temat lokalnego opracowywania funkcji przy użyciu VS Code na komputerze Mac, Linux lub Windows, zobacz [Deploy Azure Functions from vs Code](/azure/javascript/tutorial-vscode-serverless-node-01).
++ Aby dowiedzieć się więcej na temat lokalnego opracowywania funkcji przy użyciu VS Code na komputerze Mac, Linux lub Windows, zobacz [Deploy Azure Functions from vs Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01).
 + Aby dowiedzieć się więcej na temat opracowywania funkcji z poziomu wiersza polecenia lub terminalu, zobacz [Work with Azure Functions Core Tools](functions-run-local.md).
 
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

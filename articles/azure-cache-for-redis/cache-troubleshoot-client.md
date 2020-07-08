@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829673"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie klienta
 
@@ -43,8 +43,10 @@ Rozerwania ruchu połączonego z słabymi `ThreadPool` ustawieniami mogą spowod
 
 Monitoruj jak `ThreadPool` dane statystyczne zmieniają się w miarę upływu czasu przy użyciu [przykładu `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Możesz użyć `TimeoutException` komunikatów z stackexchange. Redis, jak pokazano poniżej, aby dokładniej zbadać:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 W powyższym wyjątku występuje kilka interesujących problemów:
 

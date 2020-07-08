@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611734"
 ---
 # <a name="service-fabric-terminology-overview"></a>Przegląd terminologii Service Fabric
 
@@ -116,7 +116,7 @@ Zapoznaj się z artykułem [wdrażanie aplikacji](service-fabric-deploy-remove-a
 
 **Usługa Menedżer naprawy**: jest to opcjonalna usługa systemowa, która umożliwia wykonywanie akcji naprawczych w klastrze w taki sposób, który jest bezpieczny, automatyzuje i przejrzysty. Menedżer naprawy jest używany w programie:
 
-   - Przeprowadzanie napraw na platformie Azure w przypadku klastrów usługi Azure Service Fabric [Silver i Gold trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) .
+   - Przeprowadzanie napraw na platformie Azure w przypadku klastrów usługi Azure Service Fabric [Silver i Gold trwałości](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) .
    - Wykonywanie akcji naprawy dla [aplikacji aranżacji patch](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Modele wdrożenia i aplikacji

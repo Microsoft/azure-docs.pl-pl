@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cd0116a417d2710d330c4be406a5d9d770f76461
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829418"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transakcje rozproszone w bazach danych w chmurze
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Transakcje elastycznej bazy danych są przeznaczone dla następujących scenariu
 
 ## <a name="installation-and-migration"></a>Instalacja i migracja
 
-Możliwości transakcji Elastic Database w SQL Database są udostępniane za pomocą aktualizacji bibliotek .NET system. Data. dll i system. Transactions. dll. Biblioteki DLL zapewniają, że dwufazowe zatwierdzanie jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji Elastic Database, zainstaluj [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. W przypadku uruchomienia w starszej wersji programu .NET Framework transakcje nie będą poddawane promocji do transakcji rozproszonej i zostanie zgłoszony wyjątek.
+Możliwości transakcji Elastic Database w SQL Database są udostępniane za pomocą aktualizacji bibliotek .NET System.Data.dll i System.Transactions.dll. Biblioteki DLL zapewniają, że dwufazowe zatwierdzanie jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji Elastic Database, zainstaluj [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. W przypadku uruchomienia w starszej wersji programu .NET Framework transakcje nie będą poddawane promocji do transakcji rozproszonej i zostanie zgłoszony wyjątek.
 
 Po zakończeniu instalacji można używać interfejsów API transakcji rozproszonych w programie System. Transactions z połączeniami do SQL Database. Jeśli masz istniejące aplikacje usługi MSDTC korzystające z tych interfejsów API, po zainstalowaniu przeglądarki 4.6.1 należy po prostu ponownie skompilować istniejące aplikacje dla programu .NET 4,6. Jeśli projekty są przeznaczone dla platformy .NET 4,6, będą automatycznie używały zaktualizowanych bibliotek DLL z nowej wersji platformy i wywołań interfejsu API transakcji rozproszonych w połączeniu z połączeniami z usługą SQL Database.
 
@@ -50,6 +50,7 @@ Pamiętaj, że transakcje Elastic Database nie wymagają instalowania usługi MS
 
 Następujący przykładowy kod używa znanego środowiska programistycznego w programie .NET system. Transactions. Klasa TransactionScope tworzy otaczającą transakcję w programie .NET. ("Otoczenia transakcji" to ten, który znajduje się w bieżącym wątku). Wszystkie połączenia otwarte w ramach elementu TransactionScope biorą udział w transakcji. W przypadku korzystania z różnych baz danych transakcja zostanie automatycznie podwyższona do transakcji rozproszonej. Wynik transakcji jest kontrolowany przez ustawienie zakresu do ukończenia, aby wskazać zatwierdzenie.
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = new SqlConnection(connStrDb1))
@@ -70,12 +71,14 @@ Następujący przykładowy kod używa znanego środowiska programistycznego w pr
 
         scope.Complete();
     }
+```
 
 ### <a name="sharded-database-applications"></a>Aplikacje bazy danych podzielonej na fragmenty
 
 Transakcje elastycznej bazy danych dla SQL Database obsługują również koordynowanie transakcji rozproszonych w przypadku używania metody OpenConnectionForKey biblioteki klienta Elastic Database do otwierania połączeń dla warstwy danych skalowanych w poziomie. Rozważ przypadki, w których należy zagwarantowanie spójności transakcyjnej dla zmian w kilku różnych wartościach klucza fragmentowania. Połączenia z fragmentów hostowania różnych wartości klucza fragmentowania są obsługiwane przez brokera przy użyciu OpenConnectionForKey. W ogólnym przypadku połączenia mogą być różne fragmentów w taki sposób, że zapewnienie transakcyjnych gwarancji wymaga transakcji rozproszonej.
 Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmienna o nazwie shardmap jest używana do reprezentowania mapy fragmentu z biblioteki klienta Elastic Database:
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
@@ -96,6 +99,7 @@ Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmi
 
         scope.Complete();
     }
+```
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalacja platformy .NET dla usługi Azure Cloud Services
 
@@ -105,6 +109,7 @@ W przypadku Azure App Service uaktualnienia do systemu operacyjnego gościa nie 
 
 Należy pamiętać, że Instalator programu .NET 4.6.1 może wymagać więcej tymczasowego magazynu podczas procesu uruchamiania w usługach Azure Cloud Services niż Instalator programu .NET 4,6. Aby zapewnić pomyślną instalację, należy zwiększyć tymczasowy magazyn dla usługi w chmurze platformy Azure w pliku ServiceDefinition. csdef w sekcji LocalResources i ustawieniach środowiska zadania uruchamiania, jak pokazano w następującym przykładzie:
 
+```xml
     <LocalResources>
     ...
         <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
@@ -123,6 +128,7 @@ Należy pamiętać, że Instalator programu .NET 4.6.1 może wymagać więcej ty
             </Environment>
         </Task>
     </Startup>
+```
 
 ## <a name="transactions-across-multiple-servers"></a>Transakcje na wielu serwerach
 

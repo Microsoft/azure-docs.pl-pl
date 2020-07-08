@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f68a3c8bb70c720f9d0c1870ead723b7b4c179c
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830710"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Powiązanie wyzwalacza usługi sygnalizującej dla Azure Functions
 
@@ -67,9 +67,9 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -101,9 +101,9 @@ public static void Run(InvocationContext invocation, string message, ILogger log
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -130,9 +130,9 @@ module.exports = function (context, invocation) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -166,9 +166,9 @@ def main(invocation) -> None:
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `SignalRTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `SignalRTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź**| nie dotyczy | Musi być ustawiony na `SignalRTrigger` .|
 |**wskazywa**| nie dotyczy | Musi być ustawiony na `in` .|
@@ -222,7 +222,9 @@ Dla powiązania parametru, kolejność. Jeśli używasz `ParameterNames` , kolej
 
 Funkcja platformy Azure generuje adres URL dla powiązania wyzwalacza usługi sygnalizującego i jest sformatowany w następujący sposób:
 
-    https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+```
 
 `API_KEY`Funkcja jest generowana przez funkcję platformy Azure. Możesz uzyskać `API_KEY` z Azure Portal, tak jak w przypadku korzystania z wyzwalacza usługi sygnalizacji.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Klucz interfejsu API":::

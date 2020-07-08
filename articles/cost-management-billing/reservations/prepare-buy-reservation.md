@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019045"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807785"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -85,7 +85,7 @@ Możesz płacić za rezerwacje przy użyciu płatności miesięcznych. W przeciw
 
 Jeśli rezerwacja została zakupiona w ramach umowy klienta firmy Microsoft, miesięczna kwota płatności może różnić się w zależności od obowiązującego w danym miesiącu rynkowego kursu wymiany waluty lokalnej.
 
-Miesięczne płatności nie są dostępne w przypadku następujących rozwiązań: Databricks, rezerwacje systemu SUSE Linux, plany oprogramowania Red Hat i Azure Red Hat OpenShift Compute.
+Miesięczne płatności nie są dostępne w przypadku następujących rozwiązań: Databricks, rezerwacje systemu SUSE Linux, plany oprogramowania Red Hat i licencje Azure Red Hat OpenShift.
 
 ### <a name="view-payments-made"></a>Wyświetlanie dokonanych płatności
 

@@ -1,78 +1,64 @@
 ---
-title: Funkcje w wersji zapoznawczej interfejsu API REST
+title: Lista funkcji w wersji zapoznawczej
 titleSuffix: Azure Cognitive Search
-description: Interfejs API REST usługi Wyszukiwanie poznawcze platformy Azure w wersji 2019-05-06 — wersja zapoznawcza obejmuje funkcje eksperymentalne, takie jak magazyn wiedzy i buforowanie indeksatora w celu wzbogacania przyrostowego.
+description: Funkcje w wersji zapoznawczej są wystawiane, dzięki czemu klienci mogą doświadczać opinię na temat projektu i narzędzia. Ten artykuł zawiera kompleksową listę wszystkich funkcji dostępnych w wersji zapoznawczej.
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 3fa67f6961b146d1dc7f5a4d1780e4060f1fdedc
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 06/30/2020
+ms.openlocfilehash: b0c6672dcc9340e727c36b0bcf03fc8a8b176a3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85512689"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830132"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
-W tym artykule wymieniono funkcje obecnie dostępne w wersji zapoznawczej. Funkcje, które przechodzą z wersji zapoznawczej do ogólnej dostępności, są usuwane z tej listy. Możesz sprawdzić [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search) lub [co nowego](whats-new.md) w anonsach dotyczących ogólnej dostępności.
+Ten artykuł zawiera kompleksową listę wszystkich funkcji, które są w wersji zapoznawczej, aby można było określić, czy mają być używane w kodzie produkcyjnym. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Funkcje wersji zapoznawczej, które przechodzą do ogólnej dostępności, są usuwane z tej listy. Jeśli funkcja nie jest wymieniona poniżej, można założyć, że jest ona ogólnie dostępna. Aby poznać anonse dotyczące ogólnej dostępności, zobacz [Aktualizacje usług](https://azure.microsoft.com/updates/?product=search) lub [nowości](whats-new.md).
+
+|Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
+|---------|------------------|-------------|---------------|
+| [**featuremode — parametr**](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) | Istotność (ocenianie) | Rozszerzanie wyniku dopasowania do uwzględnienia szczegółów: wynikowe wyniki dla pola, częstotliwość poszczególnych pól oraz Liczba pasujących tokenów dla każdego pola. Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial). | Dodaj ten parametr zapytania przy użyciu opcji [Wyszukaj dokumenty (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub 2019-05-06 — wersja zapoznawcza. |
+| [**Tożsamość usługi zarządzanej**](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia| Zarejestruj usługę wyszukiwania przy użyciu Azure Active Directory, aby udostępnić ją jako zaufaną usługę, a następnie użyj uprawnień RBAC w źródłach danych platformy Azure, aby umożliwić dostęp tylko do odczytu za pomocą indeksatora. | Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06-Preview. |
+| [**Sesje debugowania**](cognitive-search-debug-session.md) | Portal, wzbogacanie AI (zestawu umiejętności) | Edytor zestawu umiejętności w sesji używany do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki stosowane podczas sesji debugowania można zapisać w zestawu umiejętności w usłudze. | Tylko Portal przy użyciu linków strony średniej na stronie Przegląd, aby otworzyć sesję debugowania. |
+| [**Usuwanie nietrwałe natywnych obiektów BLOB**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indeksatory, obiekty blob platformy Azure| Usługa Azure Blob Storage indeksator w usłudze Azure Wyszukiwanie poznawcze będzie rozpoznawać obiekty blob w stanie nietrwałego usunięcia i usunąć odpowiednie dokumenty wyszukiwania podczas indeksowania. | Dodaj to ustawienie konfiguracji przy użyciu polecenia [Create indeksatorer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06 — wersja zapoznawcza. |
+| [**Umiejętność wyszukiwania jednostek niestandardowych**](cognitive-search-skill-custom-entity-lookup.md ) | Wzbogacanie AI (zestawu umiejętności) | Umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. | Zastąp tę umiejętność w wersji zapoznawczej przy użyciu edytora zestawu umiejętności w portalu lub [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub interfejs API-Version = 2019-05 -06 — wersja zapoznawcza. |
+| [**Umiejętność wykrywania przez dane OSOBowe**](cognitive-search-skill-pii-detection.md) | Wzbogacanie AI (zestawu umiejętności) | Umiejętność, która jest używana podczas indeksowania, która wyodrębnia dane osobowe z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby. | Zastąp tę umiejętność w wersji zapoznawczej przy użyciu edytora zestawu umiejętności w portalu lub [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub interfejs API-Version = 2019-05 -06 — wersja zapoznawcza. |
+| [**Wzbogacanie przyrostowe**](cognitive-search-incremental-indexing-conceptual.md) | Konfiguracja indeksatora| Dodaje pamięć podręczną do potoku wzbogacania, umożliwiając ponowne użycie istniejących danych wyjściowych, jeśli docelowa modyfikacja, taka jak aktualizacja zestawu umiejętności lub innego obiektu, nie zmienia zawartości. Buforowanie dotyczy tylko ulepszonych dokumentów utworzonych przez zestawu umiejętności.| Dodaj to ustawienie konfiguracji przy użyciu polecenia [Create indeksatorer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06 — wersja zapoznawcza. |
+| [**Cosmos DB Indexer: MongoDB API, Gremlin API, interfejs API Cassandra**](search-howto-index-cosmosdb.md) | Źródło danych indeksatora | W przypadku Cosmos DB interfejs API SQL jest ogólnie dostępny, ale interfejsy API MongoDB, Gremlin i Cassandra są w wersji zapoznawczej. | Tylko dla Gremlin i Cassandra należy [najpierw utworzyć konto](https://aka.ms/azure-cognitive-search/indexer-preview) , aby można było włączyć obsługę subskrypcji w zapleczu. Źródła danych MongoDB można skonfigurować w portalu. W przeciwnym razie konfiguracja źródła danych dla wszystkich trzech interfejsów API jest obsługiwana przy użyciu polecenia [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06-Preview. |
+|  [**Azure Data Lake Storage Gen2 indeksator**](search-howto-index-azure-data-lake-storage.md) | Źródło danych indeksatora | Indeksuj zawartość i metadane z Data Lake Storage Gen2.| [Rejestracja](https://aka.ms/azure-cognitive-search/indexer-preview) jest wymagana, aby można było włączyć obsługę subskrypcji w zapleczu. Uzyskaj dostęp do tego źródła danych przy użyciu polecenia [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06 — wersja zapoznawcza. |
+| [**moreLikeThis**](search-more-like-this.md) | Zapytanie | Znajduje dokumenty, które mają zastosowanie do określonego dokumentu. Ta funkcja została zamieszczona w wcześniejszych wersjach zapoznawczych. | Dodaj ten parametr zapytania w wywołaniach [dokumentów wyszukiwania (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza, 2019-05-06 — wersja zapoznawcza, 2016-09-01 — wersja zapoznawcza lub 2017-11-11 — wersja zapoznawcza. |
+
+## <a name="calling-preview-rest-apis"></a>Wywoływanie interfejsów API REST w wersji zapoznawczej
+
+Usługa Azure Wyszukiwanie poznawcze zawsze wstępnie zwalnia funkcje eksperymentalne za pomocą interfejsu API REST, a następnie za pomocą wersji wstępnej zestawu .NET SDK.
+
+Funkcje w wersji zapoznawczej są dostępne do testowania i eksperymentowania, a celem zebrania opinii na temat projektowania i implementacji funkcji. Z tego powodu funkcje wersji zapoznawczej mogą ulec zmianie z upływem czasu, prawdopodobnie w sposób powodujący przerwanie zgodności z poprzednimi wersjami. Jest to w przeciwieństwie do funkcji w wersji GA, które są stabilne i mało prawdopodobne, aby można je było zmienić z wyjątkiem małych poprawek i ulepszeń zgodnych z poprzednimi wersjami. Ponadto funkcje wersji zapoznawczej nie zawsze sprawiają, że są one w wersji GA.
 
 W przypadku niektórych funkcji w wersji zapoznawczej w portalu i zestawie .NET SDK interfejs API REST zawsze ma funkcje w wersji zapoznawczej.
 
-+ W przypadku operacji wyszukiwania [**`2019-05-06-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview) jest to bieżąca wersja zapoznawcza.
++ W przypadku operacji wyszukiwania [**`2020-06-30-Preview`**](https://docs.microsoft.com/rest/api/searchservice/index-preview) jest to bieżąca wersja zapoznawcza.
+
 + W przypadku operacji zarządzania [**`2019-10-01-Preview`**](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) jest to bieżąca wersja zapoznawcza.
 
-> [!IMPORTANT]
-> Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="ai-enrichment-features"></a>Funkcje wzbogacania AI
-
-Zapoznaj się z najnowszymi ulepszeniami wzbogacenia AI za pomocą [interfejsu API wyszukiwania w wersji zapoznawczej](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
-
-|||
-|-|-|
-| [Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)](cognitive-search-skill-custom-entity-lookup.md ) | Umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. | 
-| [Umiejętność wykrywania przez dane OSOBowe (wersja zapoznawcza)](cognitive-search-skill-pii-detection.md) | Umiejętność, która jest używana podczas indeksowania, która wyodrębnia dane osobowe z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby.| 
-| [Wzbogacanie przyrostowe (wersja zapoznawcza)](cognitive-search-incremental-indexing-conceptual.md) | Dodaje pamięć podręczną do potoku wzbogacania, umożliwiając ponowne użycie istniejących danych wyjściowych, jeśli docelowa modyfikacja, taka jak aktualizacja zestawu umiejętności lub innego obiektu, nie zmienia zawartości. Buforowanie dotyczy tylko ulepszonych dokumentów utworzonych przez zestawu umiejętności.| 
-| [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md) | Nowe miejsce docelowe potoku wzbogacania opartego na AI. Struktura danych fizycznych istnieje w usłudze Azure Blob Storage i Azure Table Storage oraz jest tworzona i wypełniana podczas uruchamiania indeksatora, który ma dołączony zestawu umiejętności poznawcze. Definicja samego sklepu wiedzy została określona w definicji zestawu umiejętności. W ramach definicji sklepu merytorycznego można kontrolować struktury fizyczne danych za pomocą elementów *projekcji* , które określają, jak dane są w kształcie, czy dane są przechowywane w magazynie tabel lub w magazynie obiektów blob, oraz czy istnieje wiele widoków.| 
-| [Umiejętność AML (wersja zapoznawcza)](cognitive-search-aml-skill.md) | Niestandardowa umiejętność wbudowana Azure Machine Learning (AML) do wzbogacania dokumentów podczas indeksowania. Umiejętność uczenia maszynowego Azure ułatwia odnajdywanie, uwierzytelnianie i mapowanie schematów.|
-
-## <a name="indexing-and-query-features"></a>Funkcje indeksowania i zapytania
-
-Funkcje programu Indexer Preview są dostępne w interfejsie API wyszukiwania w wersji zapoznawczej. 
-
-|||
-|-|-|
-| [Indeksator usługi Cosmos DB](search-howto-index-cosmosdb.md) | Obsługa typów interfejsów API MongoDB API (wersja zapoznawcza), Gremlin API (wersja zapoznawcza) i interfejs API Cassandra (wersja zapoznawcza). | 
-|  [Indeksator Azure Data Lake Storage Gen2 (wersja zapoznawcza)](search-howto-index-azure-data-lake-storage.md) | Indeksuj zawartość i metadane z Data Lake Storage Gen2.| 
-| [moreLikeThis — parametr zapytania (wersja zapoznawcza)](search-more-like-this.md) | Znajduje dokumenty, które mają zastosowanie do określonego dokumentu. Ta funkcja została zamieszczona w wcześniejszych wersjach zapoznawczych. | 
-
-## <a name="management-features"></a>Funkcje zarządzania
-
-|||
-|-|-|
-| [Obsługa prywatnego punktu końcowego](service-create-private-endpoint.md) | Można utworzyć sieć wirtualną z bezpiecznym klientem (na przykład maszyną wirtualną), a następnie utworzyć usługę wyszukiwania używającą prywatnego punktu końcowego. |
-| Ograniczenie dostępu do adresów IP | Za pomocą [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) interfejsu API REST zarządzania można utworzyć usługę, która ma ograniczenia dotyczące dozwolonych adresów IP. |
-
-## <a name="earlier-preview-features"></a>Wcześniejsze funkcje w wersji zapoznawczej
-
-Funkcje ogłoszone we wcześniejszych wersjach zapoznawczych, jeśli nie przechodzą do ogólnej dostępności, nadal są w publicznej wersji zapoznawczej. Jeśli wywołujesz interfejs API z wcześniejszą wersją interfejsu API w wersji zapoznawczej, możesz nadal korzystać z tej wersji lub przełączać się do `2019-05-06-Preview` programu bez zmian w oczekiwanym zachowaniu.
-
-## <a name="how-to-call-a-preview-api"></a>Jak wywołać interfejs API w wersji zapoznawczej
-
-Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview` , te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami. 
+Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2019-05-06-Preview` lub `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview` , te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami. 
 
 Poniższa przykładowa składnia ilustruje wywołanie wersji interfejsu API podglądu.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
+```HTTP
+GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+```
 
 Usługa Azure Wyszukiwanie poznawcze jest dostępna w wielu wersjach. Aby uzyskać więcej informacji, zobacz [wersje interfejsu API](search-api-versions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API REST usługi Search. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą usługi [StackOverflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
+Zapoznaj się z dokumentacją interfejsu API REST usługi Search w wersji zapoznawczej. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą [Stack Overflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST usługi Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Dokumentacja interfejsu API REST usługi Search (wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/index-preview)

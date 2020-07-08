@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32dad942cf79933b2c44d3bc2d23581ead1238d6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84732756"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807808"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Przypisywanie etykiet czułości do grup pakietu Office 365 w Azure Active Directory (wersja zapoznawcza)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup pakietu Office 365 w Azure Active Directory
 
-Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do grup usługi Office 365. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do grup usługi Office 365. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie ogólnie dostępna. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Aby skonfigurować tę funkcję, musi mieć co najmniej jedną aktywną licencję Azure Active Directory — wersja Premium P1 w organizacji usługi Azure AD.

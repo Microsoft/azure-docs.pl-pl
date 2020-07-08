@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/30/2020
+ms.openlocfilehash: 056962483fe10e8b6558d2ca0aeb92d1ec970734
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74765634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831040"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ Podczas tworzenia serwera za pomocą Azure Portal okno **warstwy cenowej** to mi
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Azure Database for PostgreSQL Server — szybki start](quickstart-create-server-database-portal.md).
 
 Okres przechowywania kopii zapasowej serwera można zmienić, wykonując następujące czynności:
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz serwer usługi Azure Database for PostgreSQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.
@@ -71,24 +71,49 @@ Nowy serwer utworzony przez Przywracanie do punktu w czasie ma taką samą nazw�
 
 Nowy serwer utworzony podczas przywracania nie ma reguł zapory lub punktów końcowych usługi sieci wirtualnej, które istniały na oryginalnym serwerze. Te reguły należy skonfigurować oddzielnie dla tego nowego serwera.
 
-
 ## <a name="geo-restore"></a>Przywracanie geograficzne
 
 Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie nadmiarowych, można utworzyć nowy serwer z kopii zapasowej istniejącego serwera. Ten nowy serwer można utworzyć w dowolnym regionie, który Azure Database for PostgreSQL jest dostępny.  
 
-1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych** > **Azure Database for PostgreSQL**.
+1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych**  >  **Azure Database for PostgreSQL**.
 
-   ![Opcja „Azure Database for PostgreSQL”](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Przejdź do Azure Database for PostgreSQL.":::
 
-2. Na liście rozwijanej **Wybierz źródło** wybierz pozycję **kopia zapasowa**. Ta akcja powoduje załadowanie listy serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe. Wybierz jedną z tych kopii zapasowych, która będzie źródłem nowego serwera.
-   ![Wybierz źródło: kopia zapasowa i lista geograficznie nadmiarowych kopii zapasowych](./media/howto-restore-server-portal/2-georestore.png)
+2. Wybierz opcję wdrożenia **pojedynczego serwera** .
 
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Wybierz opcję wdrożenia Azure Database for PostgreSQL — pojedynczy serwer.":::
+ 
+3. Podaj subskrypcję, grupę zasobów i nazwę nowego serwera. 
+
+4. Wybierz pozycję **kopia zapasowa** jako **Źródło danych**. Ta akcja powoduje załadowanie listy rozwijanej, która zawiera listę serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Wybierz pozycję źródło danych.":::
+    
    > [!NOTE]
    > Gdy serwer jest tworzony po raz pierwszy, może nie być od razu dostępny do przywracania geograficznego. Wypełnienie wymaganych metadanych może potrwać kilka godzin.
    >
 
-3. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**. Po wybraniu lokalizacji możesz wybrać **warstwę cenową**. Domyślnie są wyświetlane parametry istniejącego serwera, z którego są przywracane. Możesz kliknąć przycisk **OK** bez wprowadzania zmian, aby odziedziczyć te ustawienia. Lub można zmienić **generowanie obliczeń** (jeśli są dostępne w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+5. Wybierz listę rozwijaną **kopia zapasowa** .
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Wybierz listę rozwijaną kopia zapasowa.":::
 
+6. Wybierz serwer źródłowy, z którego chcesz wykonać przywracanie.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Wybierz pozycję Kopia zapasowa.":::
+
+7. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych**, **okresu przechowywania kopii zapasowej**, **opcji nadmiarowości kopii zapasowej**, **wersji aparatu**i **poświadczeń administratora**. Wybierz pozycję **Continue** (Kontynuuj). 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Kontynuuj tworzenie kopii zapasowej.":::
+
+8. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**.
+
+    Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
+
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Wypełnij formularz."::: 
+
+9. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. 
+
+10. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Ta operacja może potrwać kilka minut.
 
 Nowy serwer utworzony przy użyciu przywracania geograficznego ma tę samą nazwę logowania administratora serwera i hasło, które były prawidłowe dla istniejącego serwera w momencie zainicjowania przywracania. Hasło można zmienić na stronie **Przegląd** nowego serwera.
 

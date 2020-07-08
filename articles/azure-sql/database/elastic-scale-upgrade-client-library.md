@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 8610342c1d01deceebaf1f4998dd04181e5ddc21
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3bc575dfd815ce4d967fb4328a0a412fce1e8d81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050828"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829503"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uaktualnij aplikację, aby użyć najnowszej biblioteki klienta Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,6 +57,7 @@ Wykonanie tych kroków w celu zapewnienia, że stare wersje biblioteki klienta n
 
 Alternatywnie możesz utworzyć aplikację programu Visual Studio, która otwiera ShardMapManager, iteruje wszystkie fragmentów i wykonuje uaktualnienie metadanych, wywołując metody [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) i [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) , jak w poniższym przykładzie:
 
+```csharp
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager
        (connStr, ShardMapManagerLoadPolicy.Lazy);
@@ -67,6 +68,7 @@ Alternatywnie możesz utworzyć aplikację programu Visual Studio, która otwier
     {
        smm.UpgradeLocalStore(loc);
     }
+```
 
 Metody uaktualniania metadanych można stosować wiele razy bez szkody. Na przykład jeśli Starsza wersja klienta przypadkowo tworzy fragmentu po aktualizacji, można uruchomić uaktualnienie ponownie dla wszystkich fragmentów, aby upewnić się, że Najnowsza wersja metadanych jest obecna w całej infrastrukturze.
 

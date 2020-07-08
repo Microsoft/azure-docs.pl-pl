@@ -1,5 +1,5 @@
 ---
-title: Ocenianie i łagodzenie sprawiedliwych modeli uczenia maszynowego
+title: Ocenianie i eliminowanie problemów z atrakcyjnością w modelach uczenia maszynowego
 titleSuffix: Azure Machine Learning
 description: Dowiedz się więcej o atrakcyjności modeli uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python Fairlearn może pomóc w tworzeniu atrakcyjnych modeli.
 services: machine-learning
@@ -8,36 +8,42 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/02/2020
-ms.openlocfilehash: c21ec0329a7b5716a00262b7422296df3afe208b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 06/30/2020
+ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598605"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611785"
 ---
-# <a name="fairness-in-machine-learning-models"></a>Sprawiedliwe modele uczenia maszynowego
+# <a name="build-fairer-machine-learning-models"></a>Twórz bardziej atrakcyjne modele uczenia maszynowego
 
-Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python Fairlearn open-source może pomóc w tworzeniu bardziej uczciwych modeli.
+Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python [Fairlearn](https://fairlearn.github.io/) open-source może pomóc w tworzeniu bardziej uczciwych modeli. Jeśli nie chcesz, aby poznać problemy z uczciwymi działaniami i ocenić sprawiedliwość podczas kompilowania modeli uczenia maszynowego, możesz tworzyć modele, które generują nieuczciwe wyniki. 
+
+Poniższe podsumowanie [podręcznika użytkownika](https://fairlearn.github.io/user_guide/index.html) dla pakietu Fairlearn Open Source zawiera opis sposobu korzystania z niego do oceny sprawiedliwej liczby tworzonych systemów AI.  Pakiet Fairlearn open source może również oferować opcje pozwalające ograniczyć lub zmniejszyć liczbę problemów, które należy obserwować.  Zobacz sekcję [instrukcje](how-to-machine-learning-fairness-aml.md) i [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby włączyć ocenę godziwą systemów AI podczas szkolenia na Azure Machine Learning.
+
 
 ## <a name="what-is-fairness-in-machine-learning-systems"></a>Co to jest sprawiedliwe działanie w systemach uczenia maszynowego?
 
-Sztuczna inteligencja i systemy uczenia maszynowego mogą wyświetlać nieuczciwe zachowanie. Jednym ze sposobów zdefiniowania nieuczciwego zachowania jest ich szkody lub wpływ na ludzi. Istnieje wiele typów szkód, które mogą prowadzić systemy AI. Dwa popularne typy sztucznie spowodowały uszkodzenie:
+>[!NOTE]
+> Sprawiedliwe jest wyzwanie społeczno-techniczne. Wiele aspektów godziwych, takich jak sprawiedliwości i proces wymagalny, nie są przechwytywane w metrykach ilościowych. Ponadto nie wszystkie metryki ilościowej nie mogą być jednocześnie spełnione. Celem z pakietem Open-Source Fairlearn jest umożliwienie ludzi oceny różnych efektów i strategii zaradczych. Ostatecznie jest to do użytkowników ludzkich tworzących modele sztucznej analizy i uczenia maszynowego, aby zwiększyć możliwości, które są odpowiednie dla ich scenariusza.
 
-- Szkoda alokacji: system AI rozszerza lub wstrzymuje szanse, zasoby lub informacje. Przykłady obejmują zatrudnienie, przyjmowanie szkolne i kredyty, w których model może być dużo lepszy przy wybieraniu dobrych kandydatów między konkretną grupą osób niż w innych grupach.
+Sztuczna inteligencja i systemy uczenia maszynowego mogą wyświetlać nieuczciwe zachowanie. Jednym ze sposobów zdefiniowania nieuczciwego zachowania jest ich szkody lub wpływ na ludzi. Istnieje wiele typów szkód, które mogą prowadzić systemy AI. Aby dowiedzieć się więcej, zobacz [NeurIPS 2017 prezentację przez Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) .
+
+Dwa popularne typy sztucznie spowodowały uszkodzenie:
+
+- Szkoda alokacji: system AI rozszerza lub wstrzymuje szanse, zasoby lub informacje dla niektórych grup. Przykłady obejmują zatrudnienie, przyjmowanie szkolne i kredyty, w których model może być dużo lepszy przy wybieraniu dobrych kandydatów między konkretną grupą osób niż w innych grupach.
 
 - Uszkodzenie jakości usługi: system AI nie działa prawidłowo dla jednej grupy osób, tak jak w przypadku innych. Na przykład system rozpoznawania głosu może nie działać jak również dla kobiet, tak jak w przypadku mężczyzn.
 
 Aby zmniejszyć nieuczciwe zachowanie w systemach AI, należy ocenić i rozwiązać te szkody.
 
->[!NOTE]
-> Sprawiedliwe jest wyzwanie społeczno-techniczne. Wiele aspektów godziwych, takich jak sprawiedliwości i proces wymagalny, nie są przechwytywane w metrykach ilościowych. Ponadto nie wszystkie metryki ilościowej nie mogą być jednocześnie spełnione. Celem jest umożliwienie użytkownikom oceny różnych strategii zaradczych, a następnie podwyższenie poziomu, które są odpowiednie dla scenariusza.
 
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Ocena uczciwości i łagodzenie przy użyciu Fairlearn
 
 Fairlearn to pakiet języka Python "open source", który umożliwia deweloperom systemów uczenia maszynowego ocenę atrakcyjności systemów i łagodzenie obserwowanych problemów z uczciwym wykorzystaniem.
 
-Fairlearn ma dwa składniki:
+Pakiet Fairlearn Open Source ma dwa składniki:
 
 - Pulpit nawigacyjny oceny: widżet Jupyter Notes służący do oceniania, jak przewidywania modelu wpływają na różne grupy. Umożliwia również porównywanie wielu modeli przy użyciu metryk uczciwości i wydajności.
 - Algorytmy ograniczenia: zestaw algorytmów pozwalających ograniczyć nieuczciwą klasyfikację binarną i regresję.
@@ -45,12 +51,14 @@ Fairlearn ma dwa składniki:
 Wspólnie te składniki umożliwiają analitykom danych i liderom biznesowym nawigowanie po atrakcyjności i wydajności oraz wybór strategii zaradczej, która najlepiej odpowiada potrzebom.
 
 ## <a name="fairness-assessment"></a>Ocena uczciwości
+W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy**, z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
 
-W Fairlearn, sprawiedliwe koncepcje są koncepcyjne, mimo że podejście znane jako **sprawiedliwe grupy**, które prosi o to, które grupy użytkowników indywidualnych są zagrożone?
+Należy się zastanowić, czy te funkcje zawierają kwestie dotyczące prywatności wynikające z danych prywatnych. Ale słowo "poufne" nie oznacza, że te funkcje nie powinny być używane do prognozowania.
 
-Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Poufne funkcje są przesyłane do Fairlearn szacowania jako wektor lub macierz o nazwie `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. Informacje o tym, czy te funkcje zawierają kwestie prywatności wynikające z informacji umożliwiających zidentyfikowanie użytkownika. Ale słowo "poufne" nie oznacza, że te funkcje nie powinny być używane do prognozowania.
+>[!NOTE]
+> Ocena uczciwości nie jest czysto technicznym ćwiczeniem.  Pakiet typu open source Fairlearn może pomóc ocenić atrakcyjność modelu, ale nie wykona oceny.  Pakiet typu open source Fairlearn pomaga identyfikować metryki ilościowe w celu oceny sprawiedliwości, ale deweloperzy muszą również przeprowadzać analizę jakościową, aby ocenić atrakcyjność własnych modeli.  Poufne funkcje wymienione powyżej to przykład analizy jakościowej.     
 
-W fazie oceny słuszność jest policzalna przy użyciu metryki różnicowych. **Metryki różnicowe** mogą oszacować i porównać zachowanie modelu w różnych grupach jako współczynnik lub różnice. Fairlearn obsługuje dwie klasy metryki różnicowej:
+W fazie oceny słuszność jest policzalna przy użyciu metryki różnicowych. **Metryki różnicowe** mogą oszacować i porównać zachowanie modelu w różnych grupach jako współczynnik lub różnice. Pakiet typu open source Fairlearn obsługuje dwie klasy metryki różnicowej:
 
 
 - Różnice w wydajności modelu: te zestawy metryk obliczają różnice (różnice) w wartościach wybranej metryki wydajności dla różnych podgrup. Oto niektóre przykłady:
@@ -68,31 +76,38 @@ W fazie oceny słuszność jest policzalna przy użyciu metryki różnicowych. *
 
 ### <a name="parity-constraints"></a>Ograniczenia parzystości
 
-Fairlearn zawiera różne algorytmy ograniczania nieuczciwych skutków. Te algorytmy obsługują zestaw ograniczeń dotyczących zachowań predykcyjnych o nazwie **ograniczenia parzystości** lub kryteria. Ograniczenia parzystości wymagają, aby niektóre aspekty zachowania predykcyjnego były porównywalne w grupach, które są określone przez funkcje poufne (np. różne Races). Algorytmy łagodzenia Fairlearn używają takich ograniczeń parzystości w celu ograniczenia zauważalnych problemów z uczciwością.
+Pakiet Fairlearn Open Source zawiera różne algorytmy ograniczania nieuczciwych skutków. Te algorytmy obsługują zestaw ograniczeń dotyczących zachowań predykcyjnych o nazwie **ograniczenia parzystości** lub kryteria. Ograniczenia parzystości wymagają, aby niektóre aspekty zachowania predykcyjnego były porównywalne w grupach, które są określone przez funkcje poufne (np. różne Races). Algorytmy zaradcze w pakiecie Fairlearn Open Source używają takich ograniczeń parzystości, aby zmniejszyć zaobserwowane problemy z nieuczciwymi zabezpieczeniami.
 
-Fairlearn obsługuje następujące typy ograniczeń parzystości:
+>[!NOTE]
+> Eliminacja nieuczciwości w modelu oznacza zmniejszenie nieuczciwości, ale nie można całkowicie wyeliminować tego ograniczenia.  Algorytmy łagodzenia nieuczciwości w pakiecie Fairlearn Open Source mogą zapewniać sugerowane strategie zaradcze, aby pomóc w zmniejszeniu nieuczciwej dostępności modelu uczenia maszynowego, ale nie są to rozwiązania umożliwiające całkowite wyeliminowanie nieuczciwych działań.  Mogą istnieć inne ograniczenia związane z parzystością lub kryteria, które należy wziąć pod uwagę w przypadku każdego określonego modelu uczenia maszynowego dla deweloperów. Deweloperzy korzystający z Azure Machine Learning muszą samodzielnie określić, czy środki zaradcze odpowiednio eliminują wszelkie niesprawiedliwe użycie i wdrażanie modeli uczenia maszynowego.  
+
+Pakiet typu "open source" Fairlearn obsługuje następujące typy ograniczeń parzystości: 
 
 |Ograniczenie parzystości  | Przeznaczenie  |Zadanie uczenia maszynowego  |
 |---------|---------|---------|
 |Kontrola demograficzna     |  Eliminowanie szkody związanej z przydziałem | Klasyfikacja binarna, regresja |
 |Szanse równe  | Diagnozuj szkody związane z alokacją i jakością usług | Klasyfikacja binarna        |
+|Równa szansa | Diagnozuj szkody związane z alokacją i jakością usług | Klasyfikacja binarna        |
 |Powiązana utrata grupy     |  Eliminowanie szkód związanych z jakością usług | Regresja |
+
+
 
 ### <a name="mitigation-algorithms"></a>Algorytmy ograniczenia
 
-Fairlearn zapewnia dostosujesz i zmniejszanie algorytmów ograniczania nieuczciwości:
+Pakiet Fairlearn Open Source zapewnia dostosujesz i zmniejszanie algorytmów ograniczania nieuczciwości:
 
-- Redukcja: te algorytmy wykorzystują standardowe szacowania ML (np. model LightGBM) i generują zestaw przeszkolonych modeli przy użyciu sekwencji ponownie ważonych zestawów danych szkoleniowych. Na przykład w przypadku kandydatów o określonej płci może być w pełni ważona lub w dół w celu pouczenia modeli i zmniejszenia różnic między różnymi grupami płci. Następnie użytkownicy mogą wybrać model, który zapewnia najlepszy kompromis między dokładnością (lub inną metryką wydajności) i różnicami, które zwykle muszą być oparte na regułach i kosztach firmy.  
+- Redukcja: te algorytmy wykorzystują standardowe szacowania uczenia maszynowego (np. model LightGBM) i generują zestaw przeszkolonych modeli przy użyciu sekwencji ponownie ważonych zestawów danych szkoleniowych. Na przykład w przypadku kandydatów o określonej płci może być w pełni ważona lub w dół w celu pouczenia modeli i zmniejszenia różnic między różnymi grupami płci. Następnie użytkownicy mogą wybrać model, który zapewnia najlepszy kompromis między dokładnością (lub inną metryką wydajności) i różnicami, które zwykle muszą być oparte na regułach i kosztach firmy.  
 - Przetwarzanie końcowe: te algorytmy mają istniejący klasyfikator i poufną funkcję jako dane wejściowe. Następnie uzyskują transformację przewidywania klasyfikatora, aby wymusić określone ograniczenia godziwe. Największą zaletą optymalizacji progu jest prostota i elastyczność, ponieważ nie ma potrzeby ponownego uczenia modelu. 
 
 | Algorytm | Opis | Zadanie uczenia maszynowego | Funkcje poufne | Obsługiwane ograniczenia parzystości | Typ algorytmu |
 | --- | --- | --- | --- | --- | --- |
 | `ExponentiatedGradient` | Podejście czarne do uczciwej klasyfikacji opisanej w [ramach zmniejszenia podejścia do uczciwej klasyfikacji](https://arxiv.org/abs/1803.02453) | Klasyfikacja binarna | Podzielone na kategorie | [Parzystość demograficzna](#parity-constraints), [szansee](#parity-constraints) | Szum |
-| `GridSearch` | Podejście z czernią opisane w [zmniejszeniu podejścia do uczciwej klasyfikacji](https://arxiv.org/abs/1803.02453)| Klasyfikacja binarna | plików binarnych | [Parzystość demograficzna](#parity-constraints), [szansee](#parity-constraints) | Szum |
-| `GridSearch` | Podejście czarne, które implementuje odmianę wyszukiwania z siatką z zastosowaniem algorytmu dla pozostałej straty grupy opisanej w ramach [uczciwej regresji: definicje ilościowe i algorytmy oparte na redukcji](https://arxiv.org/abs/1905.12843) | Regresja | plików binarnych | [Powiązana utrata grupy](#parity-constraints) | Szum |
+| `GridSearch` | Podejście z czernią opisane w [zmniejszeniu podejścia do uczciwej klasyfikacji](https://arxiv.org/abs/1803.02453)| Klasyfikacja binarna | Binarne | [Parzystość demograficzna](#parity-constraints), [szansee](#parity-constraints) | Szum |
+| `GridSearch` | Podejście czarne, które implementuje odmianę wyszukiwania z siatką z zastosowaniem algorytmu dla pozostałej straty grupy opisanej w ramach [uczciwej regresji: definicje ilościowe i algorytmy oparte na redukcji](https://arxiv.org/abs/1905.12843) | Regresja | Binarne | [Powiązana utrata grupy](#parity-constraints) | Szum |
 | `ThresholdOptimizer` | Algorytm dostosujesz w oparciu o równość z papieru [w nadzorowanym uczeniu](https://arxiv.org/abs/1610.02413). Ta technika przyjmuje jako wejściowy istniejący klasyfikator i funkcję poufną i poprowadzi transformację przekształcenia klasyfikatora w celu wymuszenia określonych ograniczeń parzystości. | Klasyfikacja binarna | Podzielone na kategorie | [Parzystość demograficzna](#parity-constraints), [szansee](#parity-constraints) | Przetwarzanie końcowe |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak korzystać z różnych składników, zapoznaj się z [repozytorium Fairlearn GitHub](https://github.com/fairlearn/fairlearn/) i [przykładowymi notesami](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
-- Informacje o zachowaniu prywatności danych przy użyciu [różnicowej prywatności i pakietu WhisperNoise](concept-differential-privacy.md).
+- Dowiedz się, jak korzystać z różnych składników, sprawdzając w witrynie [GitHub](https://github.com/fairlearn/fairlearn/)Fairlearn, [podręczniku użytkownika](https://fairlearn.github.io/user_guide/index.html), [przykłady](https://fairlearn.github.io/auto_examples/notebooks/index.html)i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Dowiedz się [, jak](how-to-machine-learning-fairness-aml.md) włączyć ocenę godziwą modeli uczenia maszynowego w Azure Machine Learning.
+- Zapoznaj się z [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby uzyskać dodatkowe scenariusze oceny uczciwości w Azure Machine Learning. 

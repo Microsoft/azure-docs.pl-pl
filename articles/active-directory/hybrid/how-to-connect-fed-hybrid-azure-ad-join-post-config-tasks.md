@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491a8f00de2fcd4c977a1856005b4358a4b62bd6
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807591"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Zadania pokonfiguracyjne dotyczące dołączania do hybrydowej usługi Azure AD
 
@@ -86,15 +86,10 @@ Ten Instalator tworzy zaplanowane zadanie w systemie urządzenia, który działa
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Skonfiguruj zasady grupy tak, aby zezwalały na rejestrację urządzeń
 
-* Utwórz obiekt zasad grupy w Active Directory — Jeśli nie został jeszcze utworzony.
-* Nadaj mu nazwę (np. sprzężenie hybrydowe usługi Azure AD).
-* Edytuj & przejdź do: Konfiguracja komputera > zasady > Szablony administracyjne > składników systemu Windows > rejestracji urządzeń
-* Włącz: Zarejestruj komputery przyłączone do domeny jako urządzenia
-* Zastosuj i kliknij przycisk OK.
-* Połącz obiekt zasad grupy z wybraną lokalizacją (jednostką organizacyjną, grupą zabezpieczeń lub domeną dla wszystkich urządzeń).
+Aby dowiedzieć się, jak zezwolić na sprzężenie hybrydowe usługi Azure AD dla poszczególnych urządzeń, zobacz [kontrolowane sprawdzanie poprawności hybrydowego przyłączania do usługi Azure AD](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->W przypadku 2012R2 ustawienia zasad są w **konfiguracji komputera > zasad > Szablony administracyjne > składników systemu Windows > Workplace Join > automatyczne dołączanie komputerów klienckich**
+> [!NOTE]
+> Ustawienia zasad dla 2012 R2 znajdują się w **konfiguracji komputera > zasad > Szablony administracyjne > składników systemu Windows > Workplace Join > automatyczne dołączanie komputerów klienckich**.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md)

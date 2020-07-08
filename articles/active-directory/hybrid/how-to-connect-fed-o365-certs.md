@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04f523a2615892268d56c167a682987453dc997c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85359742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830455"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Odnawianie certyfikatów Federacji dla pakietu Office 365 i Azure Active Directory
 ## <a name="overview"></a>Omówienie
@@ -62,7 +62,9 @@ Usługa Azure AD próbuje monitorować metadane federacji i aktualizować certyf
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Krok 1. sprawdzenie stanu AutoCertificateRollover
 Na serwerze AD FS Otwórz program PowerShell. Sprawdź, czy wartość AutoCertificateRollover jest ustawiona na wartość true.
 
-    Get-Adfsproperties
+```azurepowershell-interactive
+Get-Adfsproperties
+```
 
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
@@ -78,16 +80,22 @@ Na serwerze AD FS Otwórz wiersz polecenia programu PowerShell MSOnline i Połą
 > 
 >
 
-    Install-Module MSOnline
+```azurepowershell-interactive
+Install-Module MSOnline
+```
 
 Nawiązywanie połączenia z usługą Azure AD przy użyciu programu MSOnline PowerShell-module.
 
-    Import-Module MSOnline
-    Connect-MsolService
+```azurepowershell-interactive
+Import-Module MSOnline
+Connect-MsolService
+```
 
 Sprawdź certyfikaty skonfigurowane w AD FS i właściwości zaufania usługi Azure AD dla określonej domeny.
 
-    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```azurepowershell-interactive
+Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+```
 
 ![Get-MsolFederationProperty](./media/how-to-connect-fed-o365-certs/certsync.png)
 

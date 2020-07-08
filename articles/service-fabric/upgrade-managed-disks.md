@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611632"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -16,13 +16,13 @@ ms.locfileid: "80991215"
 
 Ogólna strategia uaktualniania Service Fabric węzła klastra do korzystania z usługi Managed disks to:
 
-1. Wdróż duplikat zestawu skalowania maszyn wirtualnych w innym przypadku tego typu węzła, ale z obiektem [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) dodanym `osDisk` do sekcji szablonu wdrożenia zestawu skalowania maszyn wirtualnych. Nowy zestaw skalowania powinien być powiązany z tym samym modułem równoważenia obciążenia/IP jako oryginalny, dzięki czemu klienci nie napotykają przerwy w działaniu usługi podczas migracji.
+1. Wdróż duplikat zestawu skalowania maszyn wirtualnych w innym przypadku tego typu węzła, ale z obiektem [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) dodanym do `osDisk` sekcji szablonu wdrożenia zestawu skalowania maszyn wirtualnych. Nowy zestaw skalowania powinien być powiązany z tym samym modułem równoważenia obciążenia/IP jako oryginalny, dzięki czemu klienci nie napotykają przerwy w działaniu usługi podczas migracji.
 
 2. Po uruchomieniu zarówno oryginalnego, jak i uaktualnionego zestawu skalowania obok siebie należy wyłączyć oryginalne wystąpienia węzłów pojedynczo, tak aby usługi systemowe (lub repliki usług stanowych) były migrowane do nowego zestawu skalowania.
 
 3. Sprawdź, czy klaster i nowe węzły są w dobrej kondycji, a następnie usuń oryginalny zestaw skalowania i stan węzła dla usuniętych węzłów.
 
-W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładowego klastra do korzystania z dysków zarządzanych, unikając czasu przestoju klastra (patrz Uwaga poniżej). Początkowy stan przykładowego klastra testowego składa się z jednego typu węzła o [trwałości Silver](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), który jest objęty jednym zestawem skalowania z pięcioma węzłami.
+W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładowego klastra do korzystania z dysków zarządzanych, unikając czasu przestoju klastra (patrz Uwaga poniżej). Początkowy stan przykładowego klastra testowego składa się z jednego typu węzła o [trwałości Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), który jest objęty jednym zestawem skalowania z pięcioma węzłami.
 
 > [!CAUTION]
 > W tej procedurze wystąpi awaria tylko wtedy, gdy istnieją zależności w systemie DNS klastra (na przykład podczas uzyskiwania dostępu do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Najlepszym rozwiązaniem w zakresie architektury dla usług frontonu](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) jest posiadanie pewnego rodzaju [modułu równoważenia obciążenia](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów w celu zapewnienia możliwości wymiany węzłów bez przestoju.
@@ -31,7 +31,7 @@ Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsof
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurowanie klastra testowego
 
-Skonfigurujmy wstępny klaster testowy Service Fabric. Najpierw [Pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) przykładowe szablony usługi Azure Resource Manager, które zostaną użyte do wykonania tego scenariusza.
+Skonfigurujmy wstępny klaster testowy Service Fabric. Najpierw [pobierz](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) Azure Resource Manager szablony przykładowe, których będziemy używać do realizacji tego scenariusza.
 
 Następnie zaloguj się do konta platformy Azure.
 
@@ -44,7 +44,7 @@ Poniższe polecenia przeprowadzą Cię przez proces generowania nowego certyfika
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Wygeneruj certyfikat z podpisem własnym i Wdróż klaster
 
-Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. `resourceGroupName`Dostosuj wartości dla `certSubjectName`, `parameterFilePath`, i `templateFilePath` dla określonego konta i środowiska:
+Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. Dostosuj wartości dla `resourceGroupName` ,, `certSubjectName` `parameterFilePath` i `templateFilePath` dla określonego konta i środowiska:
 
 ```powershell
 # Assign deployment variables
@@ -57,9 +57,9 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
-> Upewnij się, `certOutputFolder` że lokalizacja istnieje na komputerze lokalnym przed uruchomieniem polecenia, aby wdrożyć nowy klaster Service Fabric.
+> Upewnij się, że `certOutputFolder` Lokalizacja istnieje na komputerze lokalnym przed uruchomieniem polecenia, aby wdrożyć nowy klaster Service Fabric.
 
-Następnie otwórz plik [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i Dostosuj wartości dla `clusterName` i `dnsName` , aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
+Następnie otwórz [*Initial-1NodeType-UnmanagedDisks.parameters.jsw*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) pliku i Dostosuj wartości dla i, `clusterName` `dnsName` aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
 
 Następnie wdróż klaster testowy Service Fabric:
 
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-Po zakończeniu wdrażania zlokalizuj plik *PFX* (`$certPfx`) na komputerze lokalnym i zaimportuj go do magazynu certyfikatów:
+Po zakończeniu wdrażania zlokalizuj plik *PFX* ( `$certPfx` ) na komputerze lokalnym i zaimportuj go do magazynu certyfikatów:
 
 ```powershell
 cd c:\certificates
@@ -99,7 +99,7 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Otwórz plik [*Initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) i zmień wartości dla `clusterName` i `dnsName` na unikatową.
+Otwórz [*Initial-1NodeType-UnmanagedDisks.parameters.jsw*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) pliku i zmień wartości dla `clusterName` i `dnsName` na unikatowy.
 
 Na koniec należy wyznaczyć nazwę grupy zasobów dla klastra i ustawić `templateFilePath` `parameterFilePath` lokalizacje plików *początkowego-1NodeType-UnmanagedDisks* :
 
@@ -128,7 +128,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Nawiąż połączenie z nowym klastrem i sprawdź stan kondycji
 
-Połącz się z klastrem i upewnij się, że wszystkie pięć jego węzłów są w dobrej `clusterName` kondycji (zastępując zmienne i `thumb` dla klastra):
+Połącz się z klastrem i upewnij się, że wszystkie pięć jego węzłów są w dobrej kondycji (zastępując `clusterName` `thumb` zmienne i dla klastra):
 
 ```powershell
 # Connect to the cluster
@@ -153,7 +153,7 @@ Dzięki temu wszystko jest gotowe do rozpoczęcia procedury uaktualniania.
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego
 
-W celu uaktualnienia lub *skalowania w pionie*, typu węzła, musimy wdrożyć kopię zestawu skalowania maszyn wirtualnych typu węzła, który jest inny niż oryginalny zestaw skalowania (w tym odwołania do tego samego `nodeTypeRef`, `subnet`i `loadBalancerBackendAddressPools`), z tą różnicą, że zawiera żądane uaktualnienie/zmiany i własną pulę adresów NAT dla ruchu przychodzącego. Ponieważ uaktualniamy typ węzła podstawowego, nowy zestaw skalowania zostanie oznaczony jako podstawowy (`isPrimary: true`), podobnie jak oryginalny zestaw skalowania. (W przypadku uaktualnień typu węzła innego niż podstawowe, należy po prostu pominąć to).
+W celu uaktualnienia lub *skalowania w pionie*, typu węzła, musimy wdrożyć kopię zestawu skalowania maszyn wirtualnych typu węzła, który jest inny niż oryginalny zestaw skalowania (w tym odwołania do tego samego `nodeTypeRef` , `subnet` i `loadBalancerBackendAddressPools` ), z tą różnicą, że zawiera żądane uaktualnienie/zmiany i własną pulę adresów NAT dla ruchu przychodzącego. Ponieważ uaktualniamy typ węzła podstawowego, nowy zestaw skalowania zostanie oznaczony jako podstawowy ( `isPrimary: true` ), podobnie jak oryginalny zestaw skalowania. (W przypadku uaktualnień typu węzła innego niż podstawowe, należy po prostu pominąć to).
 
 Dla wygody wymagane zmiany zostały już wprowadzone [w plikach](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) [szablonu](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *upgrade-1NodeType-2ScaleSets-ManagedDisks* .
 
@@ -165,7 +165,7 @@ Poniżej przedstawiono modyfikacje sekcji dotyczące oryginalnego szablonu wdro�
 
 #### <a name="parameters"></a>Parametry
 
-Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy pamiętać `vmNodeType1Name` , że jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
+Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy pamiętać, że `vmNodeType1Name` jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
 
 **Plik szablonu**
 
@@ -204,7 +204,7 @@ Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowa
 
 ### <a name="variables"></a>Zmienne
 
-W sekcji szablon `variables` wdrożenia Dodaj wpis dla puli adresów NAT dla ruchu przychodzącego nowego zestawu skalowania.
+W sekcji szablon wdrożenia `variables` Dodaj wpis dla puli adresów NAT dla ruchu przychodzącego nowego zestawu skalowania.
 
 **Plik szablonu**
 
@@ -260,19 +260,19 @@ Po zaimplementowaniu wszystkich zmian w plikach szablonu i parametrów przejdź 
 
 Aby wdrożyć zaktualizowaną konfigurację, należy najpierw uzyskać kilka odwołań do certyfikatu klastra przechowywanego w Key Vault. Najprostszym sposobem znalezienia tych wartości jest użycie Azure Portal. Będą potrzebne:
 
-* **Adres URL Key Vault certyfikatu klastra.** Na Key Vault w Azure Portal wybierz pozycję **Certyfikaty** > *żądany* > **Identyfikator tajny**certyfikatu:
+* **Adres URL Key Vault certyfikatu klastra.** Na Key Vault w Azure Portal wybierz pozycję **Certyfikaty**  >  *żądany*  >  **Identyfikator tajny**certyfikatu:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Odcisk palca certyfikatu klastra.** (Prawdopodobnie jest już to konieczne, jeśli [nawiązano połączenie z początkowym klastrem](#connect-to-the-new-cluster-and-check-health-status) w celu sprawdzenia jego stanu kondycji). W tym samym bloku certyfikatu (**Certyfikaty** > *żądanego certyfikatu*) w Azure Portal Skopiuj **odcisk palca SHA-1 programu X. 509 (szesnastkowo)**:
+* **Odcisk palca certyfikatu klastra.** (Prawdopodobnie jest już to konieczne, jeśli [nawiązano połączenie z początkowym klastrem](#connect-to-the-new-cluster-and-check-health-status) w celu sprawdzenia jego stanu kondycji). W tym samym bloku certyfikatu (**Certyfikaty**  >  *żądanego certyfikatu*) w Azure Portal Skopiuj **odcisk palca SHA-1 programu X. 509 (szesnastkowo)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **Identyfikator zasobu Key Vault.** Na Key Vault w Azure Portal wybierz pozycję **Właściwości** > **Identyfikator zasobu**:
+* **Identyfikator zasobu Key Vault.** Na Key Vault w Azure Portal wybierz pozycję **Właściwości**  >  **Identyfikator zasobu**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"

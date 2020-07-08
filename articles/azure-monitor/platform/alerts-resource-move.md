@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85507946"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830064"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Jak zaktualizować reguły alertów lub reguły akcji, gdy ich zasób docelowy jest przenoszony do innego regionu platformy Azure
 
@@ -68,6 +68,8 @@ Jeśli **tylko część** zasobów w zakresie została przeniesiona, należy usu
 ### <a name="identifying-rules-associated-with-a-moved-resource-from-the-azure-portal"></a>Identyfikowanie reguł skojarzonych z przenoszonym zasobem z Azure Portal
 
 - **Aby uzyskać reguły alertów** , przejdź do alertów > zarządzanie regułami alertów > filtrowanie według zawierającej ją subskrypcji i przeniesionego zasobu.
+> [!NOTE]
+> Reguły alertów dziennika aktywności nie obsługują tego procesu. Nie można zaktualizować zakresu reguły alertu dziennika aktywności i ma ona wskazywać na zasób w innej subskrypcji. Zamiast tego można utworzyć nową regułę, która zastąpi stary.
 
 - **W przypadku reguł akcji** — przejdź do alertów > zarządzanie akcjami > reguły akcji (wersja zapoznawcza) > filtr według zawierającej ją subskrypcji i przeniesionego zasobu.
 

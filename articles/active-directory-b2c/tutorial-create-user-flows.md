@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d9fb98da40602837eee57914036742994b4eb9c
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 63c15b13134f17cd2e1d0bf7b8d11a168dca5b2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385063"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829967"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Samouczek: Tworzenie przepływów użytkowników w Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
     ![B2C dzierżawy, katalogu i subskrypcji, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+1. W obszarze **zasady**wybierz pozycję **przepływy użytkowników**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
 
     ![Strona przepływy użytkownika w portalu z wyróżnionym przyciskiem nowy przepływ użytkownika](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,7 +82,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
 
 Jeśli chcesz umożliwić użytkownikom edytowanie ich profilu w aplikacji, Użyj profilu użytkownika edytującego profil.
 
-1. W menu strony Przegląd dzierżawy Azure AD B2C wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+1. W menu strony Przegląd dzierżawy Azure AD B2C wybierz pozycję **przepływy użytkowników**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
 1. Wybierz pozycję **Edytowanie profilu** przepływ użytkownika na karcie **zalecane** .
 1. Wprowadź **nazwę** przepływu użytkownika. Na przykład *profileediting1*.
 1. W przypadku **dostawców tożsamości**wybierz opcję **Logowanie do konta lokalnego**.
@@ -100,7 +100,7 @@ Jeśli chcesz umożliwić użytkownikom edytowanie ich profilu w aplikacji, Uży
 
 Aby umożliwić użytkownikom aplikacji Resetowanie hasła, należy użyć przepływu użytkownika resetowania hasła.
 
-1. W menu przegląd Azure AD B2C dzierżawy wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+1. W menu przegląd Azure AD B2C dzierżawy wybierz pozycję **przepływy użytkowników**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
 1. Wybierz przepływ użytkownika **resetowania hasła** na karcie **zalecane** .
 1. Wprowadź **nazwę** przepływu użytkownika. Na przykład *passwordreset1*.
 1. W przypadku **dostawców tożsamości**Włącz **Resetowanie hasła przy użyciu adresu e-mail**.

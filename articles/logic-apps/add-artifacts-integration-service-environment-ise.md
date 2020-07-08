@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830030"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Dodaj zasoby do środowiska usługi integracji (ISE) w Azure Logic Apps
 
@@ -26,7 +26,7 @@ Po utworzeniu [środowiska usługi integracji (ISE)](../logic-apps/connect-virtu
 
 * ISE, który został utworzony w celu uruchomienia aplikacji logiki. Jeśli nie masz elementu ISE, [najpierw utwórz ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
-* Aby tworzyć, dodawać lub aktualizować zasoby wdrożone w ISE, musisz mieć przypisaną rolę właściciela lub współautora w tym ISE lub masz uprawnienia odziedziczone za pomocą subskrypcji platformy Azure lub grupy zasobów platformy Azure skojarzonej z ISE. Dla osób, które nie mają uprawnień właściciela, współautora lub dziedziczonych, mogą oni mieć przypisaną rolę współautor środowisko usługi integracji lub środowisko usługi integracji rolę dewelopera. Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [co to jest kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../role-based-access-control/overview.md)?
+* Aby tworzyć, dodawać lub aktualizować zasoby wdrożone w ISE, musisz mieć przypisaną rolę właściciela lub współautora w tym ISE lub masz uprawnienia odziedziczone za pomocą subskrypcji platformy Azure lub grupy zasobów platformy Azure skojarzonej z ISE. Dla osób, które nie mają uprawnień właściciela, współautora lub dziedziczonych, mogą oni mieć przypisaną rolę współautor środowisko usługi integracji lub środowisko usługi integracji rolę dewelopera. Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)?
 
 <a name="create-logic-apps-environment"></a>
 
@@ -101,7 +101,7 @@ Aby utworzyć konto integracji korzystające z ISE, wykonaj następujące kroki:
 
    ![Wyświetlanie łączników zarządzanych](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. W okienku **Dodaj nowe łączniki zarządzane** Otwórz listę **Znajdź łącznik** . Wybierz łącznik ISE, który ma być używany, ale jeszcze nie został wdrożony w ISE. Wybierz przycisk **Utwórz**.
+1. W okienku **Dodaj nowe łączniki zarządzane** Otwórz listę **Znajdź łącznik** . Wybierz łącznik ISE, który ma być używany, ale jeszcze nie został wdrożony w ISE. Wybierz pozycję **Utwórz**.
 
    ![Wybierz łącznik ISE, który ma zostać wdrożony w ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 

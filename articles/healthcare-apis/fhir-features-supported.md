@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: 034fbf93c4a73b5ee733c72ab6d1f458c3ae003b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84872118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85808033"
 ---
 # <a name="features"></a>Funkcje
 
@@ -42,7 +42,7 @@ Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
 | search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz poniżej                                           |
 | Wyszukiwanie łańcuchowe                 | Nie        | Yes       | Nie        |                                           |
 | Wyszukiwanie w łańcuchu wstecznym         | Nie        | Nie        | Nie        |                                            |
-| możliwość                   | Tak       | Tak       | Tak       |                                                     |
+| możliwości                   | Tak       | Tak       | Tak       |                                                     |
 | partia                          | Tak       | Tak       | Tak       |                                                     |
 | Transaction                    | Nie        | Yes       | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
@@ -57,7 +57,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |-----------------------|-----------|-----------|-----------|---------|
 | Liczba                | Tak       | Tak       | Tak       |         |
 | Data/godzina         | Tak       | Tak       | Tak       |         |
-| Ciąg                | Tak       | Tak       | Tak       |         |
+| String                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
 | Dokumentacja             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
@@ -90,7 +90,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_security`             | Tak       | Tak       | Tak       |         |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
-| `_list`                 | Nie        | Nie        | Nie        |         |
+| `_list`                 | Nie        | Tak       | Tak       |         |
 | `_has`                  | Nie        | Nie        | Nie        |         |
 | `_type`                 | Tak       | Tak       | Tak       |         |
 | `_query`                | Nie        | Nie        | Nie        |         |

@@ -5,17 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/01/2020
+ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74768269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830285"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorowanie wydajności za pomocą magazynu zapytań
 
-**Dotyczy:** Azure Database for PostgreSQL — jeden serwer w wersji 9,6, 10, 11
+**Dotyczy:** Azure Database for PostgreSQL — jeden serwer w wersji 9,6 i nowszej
 
 Funkcja magazynu zapytań w Azure Database for PostgreSQL zapewnia sposób śledzenia wydajności zapytań w miarę upływu czasu. Magazyn zapytań upraszcza Rozwiązywanie problemów z wydajnością, pomagając szybko znaleźć najdłuższych uruchomionych i większości zapytań intensywnie korzystających z zasobów. Magazyn zapytań automatycznie przechwytuje historię zapytań i statystyk środowiska uruchomieniowego i zachowuje je do przeglądu. Oddziela ona dane według czasu, dzięki czemu można zobaczyć wzorce użycia bazy danych. Dane dla wszystkich użytkowników, baz danych i zapytań są przechowywane w bazie danych o nazwie **azure_sys** w wystąpieniu Azure Database for PostgreSQL.
 
@@ -72,9 +72,6 @@ Lub to zapytanie dotyczące statystyk oczekiwania:
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-Możesz również emitować dane magazynu zapytań do [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) na potrzeby analiz i alertów, Event Hubs do przesyłania strumieniowego i usługi Azure Storage w celu archiwizacji. Kategorie dzienników do skonfigurowania to **QueryStoreRuntimeStatistics** i **QueryStoreWaitStatistics**. Aby dowiedzieć się więcej na temat instalacji, zobacz artykuł dotyczący [ustawień diagnostycznych Azure monitor](../azure-monitor/platform/diagnostic-settings.md) .
-
-
 ## <a name="finding-wait-queries"></a>Znajdowanie zapytań oczekujących
 Typy zdarzeń oczekiwania łączą różne zdarzenia oczekiwania do zasobników według podobieństwa. Magazyn zapytań zawiera typ zdarzenia oczekiwania, konkretną nazwę zdarzenia oczekiwania i zapytanie, którego dotyczy. Aby skorelować te informacje o poczekaniu z statystykami środowiska uruchomieniowego zapytań, można lepiej zrozumieć, co przyczynia się do charakterystyki wydajności zapytań.
 
@@ -91,7 +88,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Konstruktora** | **Opis** | **Wartooć** | **Zakresu**|
+| **Parametr** | **Opis** | **Domyślne** | **Zakresu**|
 |---|---|---|---|
 | pg_qs. query_capture_mode | Ustawia, które instrukcje są śledzone. | brak | Brak, Góra, wszystkie |
 | pg_qs. max_query_text_length | Ustawia maksymalną długość zapytania, którą można zapisać. Dłuższe zapytania zostaną obcięte. | 6000 | 100 – 10 tys. |
@@ -100,7 +97,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Konstruktora** | **Opis** | **Wartooć** | **Zakresu**|
+| **Parametr** | **Opis** | **Domyślne** | **Zakresu**|
 |---|---|---|---|
 | pgms_wait_sampling. query_capture_mode | Ustawia, które instrukcje są śledzone pod kątem statystyk oczekiwania. | brak | Brak, wszystkie|
 | Pgms_wait_sampling. history_period | Ustaw częstotliwość próbkowania zdarzeń oczekiwania (w milisekundach). | 100 | 1-600000 |
@@ -119,35 +116,35 @@ Zapytania są znormalizowane przez przejrzenie ich struktury po usunięciu liter
 ### <a name="query_storeqs_view"></a>query_store. qs_view
 Ten widok zwraca wszystkie dane w magazynie zapytań. Dla każdego unikatowego identyfikatora bazy danych, identyfikatora użytkownika i identyfikatora zapytania istnieje jeden wiersz. 
 
-|**Nazwa**   |**Typ** | **Dokumentacja**  | **Opis**|
+|**Nazwa**   |**Typ** | **Odwołania**  | **Opis**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | Identyfikator z tabeli runtime_stats_entries|
 |user_id    |OID    |pg_authid. OID  |Identyfikator OID użytkownika, który wykonał instrukcję|
 |db_id  |OID    |pg_database. OID    |Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji|
-|query_id   |bigint  || Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
-|query_sql_text |Varchar (10000)  || Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze.|
+|query_id   |bigint  || Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
+|query_sql_text |Varchar (10000)  || Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze.|
 |plan_id    |bigint |   |Identyfikator planu odpowiadającego temu zapytaniem, nie jest jeszcze dostępny|
 |start_time |sygnatura czasowa  ||  Zapytania są agregowane według przedziałów czasu — domyślnie jest to 15 minut. Jest to godzina rozpoczęcia odpowiadająca przedziale czasu dla tego wpisu.|
 |end_time   |sygnatura czasowa  ||  Godzina zakończenia odpowiadająca przedziale czasu dla tego wpisu.|
-|Rozmowa  |bigint  || Liczba wykonanych zapytań|
-|total_time |Podwójna precyzja   ||  Łączny czas wykonywania zapytania (w milisekundach)|
+|Rozmowa  |bigint  || Liczba wykonanych zapytań|
+|total_time |Podwójna precyzja   ||  Łączny czas wykonywania zapytania (w milisekundach)|
 |min_time   |Podwójna precyzja   ||  Minimalny czas wykonywania zapytania (w milisekundach)|
 |max_time   |Podwójna precyzja   ||  Maksymalny czas wykonywania zapytania (w milisekundach)|
 |mean_time  |Podwójna precyzja   ||  Średni czas wykonywania zapytania (w milisekundach)|
 |stddev_time|   Podwójna precyzja    ||  Odchylenie standardowe czasu wykonywania zapytania (w milisekundach) |
-|wierszy   |bigint ||  Łączna liczba wierszy pobranych lub dotkniętych przez instrukcję|
-|shared_blks_hit|   bigint  ||  Łączna liczba trafień w pamięci podręcznej bloków udostępnionych przez instrukcję|
+|wierszy   |bigint ||  Łączna liczba wierszy pobranych lub dotkniętych przez instrukcję|
+|shared_blks_hit|   bigint  ||  Łączna liczba trafień w pamięci podręcznej bloków udostępnionych przez instrukcję|
 |shared_blks_read|  bigint  ||  Łączna liczba bloków udostępnionych odczytywanych przez instrukcję|
-|shared_blks_dirtied|   bigint   || Łączna liczba udostępnionych bloków 'dirtied przez instrukcję |
-|shared_blks_written|   bigint  ||  Łączna liczba bloków udostępnionych pisanych przez instrukcję|
+|shared_blks_dirtied|   bigint   || Łączna liczba udostępnionych bloków 'dirtied przez instrukcję |
+|shared_blks_written|   bigint  ||  Łączna liczba bloków udostępnionych pisanych przez instrukcję|
 |local_blks_hit|    bigint ||   Łączna liczba trafień w pamięci podręcznej bloków lokalnych przez instrukcję|
-|local_blks_read|   bigint   || Łączna liczba lokalnych bloków odczytywanych przez instrukcję|
-|local_blks_dirtied|    bigint  ||  Łączna liczba lokalnych bloków 'dirtied przez instrukcję|
-|local_blks_written|    bigint  ||  Łączna liczba bloków lokalnych pisanych przez instrukcję|
-|temp_blks_read |bigint  || Łączna liczba bloków tymczasowych odczytywanych przez instrukcję|
-|temp_blks_written| bigint   || Łączna liczba bloków tymczasowych pisanych przez instrukcję|
-|blk_read_time  |Podwójna precyzja    || Łączny czas trwania instrukcji odczytywania bloków w milisekundach (jeśli track_io_timing jest włączona, w przeciwnym razie zero)|
-|blk_write_time |Podwójna precyzja    || Łączny czas oczekiwania instrukcji na zapis bloków w milisekundach (jeśli track_io_timing jest włączona, w przeciwnym razie zero)|
+|local_blks_read|   bigint   || Łączna liczba lokalnych bloków odczytywanych przez instrukcję|
+|local_blks_dirtied|    bigint  ||  Łączna liczba lokalnych bloków 'dirtied przez instrukcję|
+|local_blks_written|    bigint  ||  Łączna liczba bloków lokalnych pisanych przez instrukcję|
+|temp_blks_read |bigint  || Łączna liczba bloków tymczasowych odczytywanych przez instrukcję|
+|temp_blks_written| bigint   || Łączna liczba bloków tymczasowych pisanych przez instrukcję|
+|blk_read_time  |Podwójna precyzja    || Łączny czas trwania instrukcji odczytywania bloków w milisekundach (jeśli track_io_timing jest włączona, w przeciwnym razie zero)|
+|blk_write_time |Podwójna precyzja    || Łączny czas oczekiwania instrukcji na zapis bloków w milisekundach (jeśli track_io_timing jest włączona, w przeciwnym razie zero)|
     
 ### <a name="query_storequery_texts_view"></a>query_store. query_texts_view
 Ten widok zwraca dane tekstu zapytania w magazynie zapytań. Dla każdego oddzielnego query_text istnieje jeden wiersz.
@@ -155,29 +152,100 @@ Ten widok zwraca dane tekstu zapytania w magazynie zapytań. Dla każdego oddzie
 |**Nazwa**|  **Typ**|   **Opis**|
 |---|---|---|
 |query_text_id  |bigint     |Identyfikator tabeli query_texts|
-|query_sql_text |Varchar (10000)     |Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze.|
+|query_sql_text |Varchar (10000)     |Tekst deklaracji reprezentatywnej. Różne zapytania o tej samej strukturze są klastrowane ze sobą. Ten tekst jest tekstem dla pierwszych zapytań w klastrze.|
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store. pgms_wait_sampling_view
 Ten widok zwraca dane zdarzeń oczekiwania w magazynie zapytań. Istnieje jeden wiersz dla każdego identyfikatora bazy danych, identyfikatora użytkownika, identyfikatora zapytania i zdarzenia.
 
-|**Nazwa**|  **Typ**|   **Dokumentacja**| **Opis**|
+|**Nazwa**|  **Typ**|   **Odwołania**| **Opis**|
 |---|---|---|---|
 |user_id    |OID    |pg_authid. OID  |Identyfikator OID użytkownika, który wykonał instrukcję|
 |db_id  |OID    |pg_database. OID    |Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji|
-|query_id   |bigint     ||Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
-|event_type |tekst       ||Typ zdarzenia, dla którego zaplecze oczekuje|
+|query_id   |bigint     ||Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
+|event_type |tekst       ||Typ zdarzenia, dla którego zaplecze oczekuje|
 |event  |tekst       ||Nazwa zdarzenia oczekiwania, jeśli obecnie trwa oczekiwanie na zaplecze|
-|Rozmowa  |Liczba całkowita        ||Liczba przechwyconych zdarzeń|
+|Rozmowa  |Integer        ||Liczba przechwyconych zdarzeń|
 
 
 ### <a name="functions"></a>Funkcje
 Query_store. qs_reset () zwraca wartość void
 
-`qs_reset` odrzuca wszystkie dane statystyczne zebrane do tej pory przez magazyn zapytań. Tę funkcję można wykonać tylko przez rolę administratora serwera.
+`qs_reset`odrzuca wszystkie dane statystyczne zebrane do tej pory przez magazyn zapytań. Tę funkcję można wykonać tylko przez rolę administratora serwera.
 
 Query_store. staging_data_reset () zwraca wartość void
 
-`staging_data_reset` odrzuca wszystkie dane statystyczne zebrane w pamięci przez magazyn zapytań (czyli dane w pamięci, które nie zostały jeszcze opróżnione do bazy danych). Tę funkcję można wykonać tylko przez rolę administratora serwera.
+`staging_data_reset`odrzuca wszystkie dane statystyczne zebrane w pamięci przez magazyn zapytań (czyli dane w pamięci, które nie zostały jeszcze opróżnione do bazy danych). Tę funkcję można wykonać tylko przez rolę administratora serwera.
+
+
+## <a name="azure-monitor"></a>Azure Monitor
+Azure Database for PostgreSQL jest zintegrowany z [Azure monitor ustawień diagnostycznych](../azure-monitor/platform/diagnostic-settings.md). Ustawienia diagnostyczne umożliwiają wysyłanie dzienników Postgres w formacie JSON do [Azure monitor dzienników](../azure-monitor/log-query/log-query-overview.md) na potrzeby analiz i alertów, Event Hubs do przesyłania strumieniowego i usługi Azure Storage w celu archiwizacji.
+
+>[!IMPORTANT]
+> Ta funkcja diagnostyczna dla programu jest dostępna tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+
+### <a name="configure-diagnostic-settings"></a>Konfigurowanie ustawień diagnostycznych
+Ustawienia diagnostyczne dla serwera Postgres można włączyć za pomocą Azure Portal, interfejsu wiersza polecenia i środowiska API REST oraz programu PowerShell. Kategorie dzienników do skonfigurowania to **QueryStoreRuntimeStatistics** i **QueryStoreWaitStatistics**. 
+
+Aby włączyć dzienniki zasobów przy użyciu Azure Portal:
+
+1. W portalu przejdź do pozycji Ustawienia diagnostyczne w menu nawigacji serwera Postgres.
+2. Wybierz pozycję Dodaj ustawienie diagnostyczne.
+3. Nadaj nazwę temu ustawieniu.
+4. Wybierz preferowany punkt końcowy (konto magazynu, centrum zdarzeń, Analiza dzienników).
+5. Wybierz typy dzienników **QueryStoreRuntimeStatistics** i **QueryStoreWaitStatistics**.
+6. Zapisz ustawienie.
+
+Aby włączyć to ustawienie za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST, zapoznaj się z [artykułem ustawienia diagnostyczne](../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="json-log-format"></a>Format dziennika JSON
+W poniższych tabelach opisano pola dla dwóch typów dzienników. W zależności od wybranego wyjściowego punktu końcowego pola zawarte i kolejność ich wyświetlania mogą się różnić.
+
+#### <a name="querystoreruntimestatistics"></a>QueryStoreRuntimeStatistics
+|**Pole** | **Opis** |
+|---|---|
+| TimeGenerated [UTC] | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
+| ResourceId | Identyfikator URI zasobu platformy Azure serwera Postgres |
+| Kategoria | `QueryStoreRuntimeStatistics` |
+| OperationName | `QueryStoreRuntimeStatisticsEvent` |
+| LogicalServerName_s | Nazwa serwera Postgres | 
+| runtime_stats_entry_id_s | Identyfikator z tabeli runtime_stats_entries |
+| user_id_s | Identyfikator OID użytkownika, który wykonał instrukcję |
+| db_id_s | Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji |
+| query_id_s | Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji |
+| end_time_s | Godzina zakończenia odpowiadająca przedziale czasu dla tego wpisu |
+| calls_s | Liczba wykonanych zapytań |
+| total_time_s | Łączny czas wykonywania zapytania (w milisekundach) |
+| min_time_s | Minimalny czas wykonywania zapytania (w milisekundach) |
+| max_time_s | Maksymalny czas wykonywania zapytania (w milisekundach) |
+| mean_time_s | Średni czas wykonywania zapytania (w milisekundach) |
+| ResourceGroup | Grupa zasobów | 
+| SubscriptionId | Identyfikator Twojej subskrypcji |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Zasób | Nazwa serwera Postgres |
+| ResourceType | `Servers` | 
+
+
+#### <a name="querystorewaitstatistics"></a>QueryStoreWaitStatistics
+|**Pole** | **Opis** |
+|---|---|
+| TimeGenerated [UTC] | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
+| ResourceId | Identyfikator URI zasobu platformy Azure serwera Postgres |
+| Kategoria | `QueryStoreWaitStatistics` |
+| OperationName | `QueryStoreWaitEvent` |
+| user_id_s | Identyfikator OID użytkownika, który wykonał instrukcję |
+| db_id_s | Identyfikator OID bazy danych, w której zostało wykonane wykonywanie instrukcji |
+| query_id_s | Wewnętrzny kod skrótu zapytania |
+| calls_s | Liczba przechwyconych zdarzeń |
+| event_type_s | Typ zdarzenia, dla którego zaplecze oczekuje |
+| event_s | Nazwa zdarzenia oczekiwania, jeśli zaplecze aktualnie oczekuje |
+| start_time_t | Godzina rozpoczęcia zdarzenia |
+| end_time_s | Godzina zakończenia zdarzenia | 
+| LogicalServerName_s | Nazwa serwera Postgres | 
+| ResourceGroup | Grupa zasobów | 
+| SubscriptionId | Identyfikator Twojej subskrypcji |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Zasób | Nazwa serwera Postgres |
+| ResourceType | `Servers` | 
 
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 - Jeśli serwer PostgreSQL ma parametr default_transaction_read_only on, magazyn zapytań nie może przechwycić danych.

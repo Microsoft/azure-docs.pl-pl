@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84698363"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830013"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Jak skalować usługę Azure Cache for Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. Po utworzeniu pamięci podręcznej można skalować rozmiar i warstwę cenową pamięci podręcznej w przypadku zmiany wymagań aplikacji. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
@@ -24,7 +24,7 @@ Można monitorować następujące metryki, aby pomóc w ustaleniu, czy konieczne
 * Ładowanie serwera Redis
 * Użycie pamięci
 * Przepustowość sieci
-* Użycie procesora CPU
+* Użycie procesora
 
 Jeśli okaże się, że pamięć podręczna nie spełnia już wymagań aplikacji, można skalować ją do większej lub mniejszej warstwy cenowej pamięci podręcznej, która jest odpowiednia dla danej aplikacji. Aby uzyskać więcej informacji na temat określania warstwy cenowej pamięci podręcznej, która ma być używana, zobacz [zawartość pamięci podręcznej platformy Azure dla oferty Redis i rozmiar należy używać](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -66,7 +66,9 @@ Oprócz skalowania wystąpień pamięci podręcznej w Azure Portal można skalow
 
 Możesz skalować pamięć podręczną platformy Azure dla wystąpień Redis za pomocą programu PowerShell, używając polecenia cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) `Size` , gdy `Sku` właściwości, lub `ShardCount` są modyfikowane. Poniższy przykład przedstawia sposób skalowania pamięci podręcznej o nazwie `myCache` do pamięci podręcznej 2,5 GB. 
 
-    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```powershell
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
 
 Aby uzyskać więcej informacji na temat skalowania za pomocą programu PowerShell, zobacz [skalowanie pamięci podręcznej platformy Azure dla Redis przy użyciu programu PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
@@ -78,6 +80,7 @@ Aby uzyskać więcej informacji na temat skalowania przy użyciu interfejsu wier
 ### <a name="scale-using-maml"></a>Skalowanie za pomocą MAML
 Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy użyciu [bibliotek zarządzania Microsoft Azure (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), wywołaj `IRedisOperations.CreateOrUpdate` metodę i przekaż nowy rozmiar dla `RedisProperties.SKU.Capacity` .
 
+```csharp
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
@@ -95,6 +98,7 @@ Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy u�
         var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
+```
 
 Aby uzyskać więcej informacji, zobacz przykład [zarządzania usługą Azure cache for Redis przy użyciu MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
 
