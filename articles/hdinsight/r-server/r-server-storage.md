@@ -6,13 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d3568e3869415a3223154af30b22d85c8104199
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75660243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087626"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Rozwiązania usługi Azure Storage dla usług ML w usłudze Azure HDInsight
 

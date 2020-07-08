@@ -5,12 +5,12 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676152"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102087"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -28,7 +28,7 @@ Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do tworzenia i wdra�
 
 ### <a name="editor"></a>Edytor
 
-Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Wdrożenie wiersza polecenia
 

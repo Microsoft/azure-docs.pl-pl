@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146943"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086895"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informacje o strefie Edge platformy Azure w wersji zapoznawczej
 
@@ -74,7 +74,9 @@ Typowe przypadki użycia obejmują:
 
 Strefy brzegowe będą oferowane w ramach partnerstwa z następującymi operatorami:
 
-- W&T (Atlanta, Dallas i Los Angeles)
+- W&T (Atlanta, Dallas i Los Angeles) 
+
+Aby uzyskać więcej informacji [, skontaktuj się z zespołem strefy brzegowej](https://aka.ms/EdgeZones) .
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Prywatne strefy brzegowe platformy Azure
 

@@ -3,12 +3,12 @@ title: Tryb praktykanta — Personalizacja
 description: ''
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 2697ab4b32edbd4841f2b11725fda46e90e7ae7e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599404"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087201"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Używanie trybu programu w celu uczenia personalizacji bez wpływu na istniejącą aplikację
 
@@ -30,7 +30,7 @@ Tryb współdziałania daje zaufanie do usługi personalizacji oraz jej możliwo
 
 Oto dwa główne przyczyny używania trybu praktykant:
 
-* Eliminowanie **zimnego startu**: tryb podmiotu pomaga zarządzać kosztami "nowego" czasu uczenia modelu i oceniać je, gdy nie zwróci najlepszej akcji i nie osiągnął zadowalającego poziomu skuteczności około 75-85%.
+* Eliminowanie **zimnego startu**: tryb podmiotu pomaga zarządzać kosztami "nowego" czasu uczenia modelu i oceniać je, gdy nie zwróci najlepszej akcji i nie osiągnął zadowalającego poziomu skuteczności około 60-80%.
 * **Sprawdzanie poprawności funkcji akcji i kontekstu**: funkcje wysyłane w akcjach i kontekście mogą być nieodpowiednie lub niedokładne — zbyt małe, zbyt duże, nieprawidłowe lub zbyt specyficzne dla narzędzia do uczenia się, aby osiągnąć idealny wskaźnik wydajności. Za pomocą funkcji [oceny funkcji](concept-feature-evaluation.md) można znajdować i rozwiązywać problemy z funkcjami.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>Kiedy należy używać trybu praktykant?
@@ -57,7 +57,7 @@ Tryb działalności jest przydatny dla deweloperów, naukowców danych i osób p
 
 Uczenie się w trybie pracy różni się od trybu online w następujący sposób.
 
-|Warstwowy|Tryb praktykanta|Tryb online|
+|Obszar|Tryb ucznia|Tryb online|
 |--|--|--|
 |Wpływ na środowisko użytkownika|Możesz użyć istniejącego zachowania użytkownika w celu pouczenia personalizacji, zezwalając na przestrzeganie (nie ma wpływu na to, jakie **działania domyślne** byłyby, a uzyskaną przez niego opłatą). Oznacza to, że nie będzie to miało wpływu na wrażenia użytkowników i wyniki biznesowe.|Wyświetl najwyższą akcję zwróconą z wywołania rangi w celu wpływu na zachowanie użytkownika.|
 |Szybkość uczenia|Personalizowanie będzie bardziej wolniejsze w trybie zawodnym niż w przypadku uczenia się w trybie online. Tryb działania może uczyć się tylko przez zaobserwowanie korzyści uzyskanych przez **akcję domyślną**, co ogranicza szybkość uczenia się, ponieważ nie można przeprowadzić eksploracji.|Szybsze uczenie się, ponieważ może wykorzystać bieżący model i poznać nowe trendy.|
@@ -68,7 +68,7 @@ Uczenie się w trybie pracy różni się od trybu online w następujący sposób
 Uwaga dotycząca skuteczności trybu działania:
 
 * Efektywność personalizacji w trybie zawodnym będzie rzadko osiągać 100% linii bazowej aplikacji; i nigdy nie należy go przekroczyć.
-* Najlepsze rozwiązania nie będą próbować uzyskać do 100% realizacji; ale zakres 75 – 85% powinien być przeznaczony w zależności od przypadku użycia.
+* Najlepsze rozwiązania nie będą próbować uzyskać do 100% realizacji; ale zakres 60% – 80% powinien być przeznaczony w zależności od przypadku użycia.
 
 ## <a name="using-apprentice-mode-to-train-with-historical-data"></a>Używanie trybu praktykant do uczenia się z danymi historycznymi
 

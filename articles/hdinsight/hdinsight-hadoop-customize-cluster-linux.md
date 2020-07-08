@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f78157fc0873787ce13ed4e9e62ebfd3d3271d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36aaee030dd5267a391dd9a235dd5f8dc0932fa0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192080"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087095"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
@@ -25,8 +25,8 @@ Akcje skryptu można również publikować w portalu Azure Marketplace jako apli
 
 W przypadku klastra usługi HDInsight przyłączonego do domeny istnieją dwa uprawnienia Apache Ambari, które są wymagane w przypadku korzystania z akcji skryptów w klastrze:
 
-* **AMBARI. Uruchom\_polecenie\_niestandardowe**. To uprawnienie jest domyślnie objęte rolą administratora Ambari.
-* **Klaster. Uruchom\_polecenie\_niestandardowe**. Zarówno administrator klastra usługi HDInsight, jak i administrator Ambari domyślnie mają to uprawnienie.
+* **AMBARI. Uruchom \_ \_ polecenie niestandardowe**. To uprawnienie jest domyślnie objęte rolą administratora Ambari.
+* **Klaster. Uruchom \_ \_ polecenie niestandardowe**. Zarówno administrator klastra usługi HDInsight, jak i administrator Ambari domyślnie mają to uprawnienie.
 
 Aby uzyskać więcej informacji na temat pracy z uprawnieniami w usłudze HDInsight przyłączonych do domeny, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security](./domain-joined/apache-domain-joined-manage.md).
 
@@ -49,7 +49,7 @@ Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsig
 
     * W przypadku regularnych klastrów:
 
-      * ADLS Gen1: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI dla skryptów przechowywanych w Data Lake Storage Gen1 to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      * ADLS Gen1: główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu. Format identyfikatora URI dla skryptów przechowywanych w Data Lake Storage Gen1 to `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` .
 
       * Obiekt BLOB na koncie magazynu platformy Azure, który jest podstawowym lub dodatkowym kontem magazynu dla klastra usługi HDInsight. Usługa HDInsight ma dostęp do obu typów kont magazynu podczas tworzenia klastra.
 
@@ -62,11 +62,11 @@ Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsig
 
 * Mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów. Przykłady to węzły główne lub węzły procesu roboczego.
 
-* Mogą być utrwalone `ad hoc`lub.
+* Mogą być utrwalone lub `ad hoc` .
 
     Akcje utrwalonego skryptu muszą mieć unikatową nazwę. Utrwalone skrypty są używane do dostosowywania nowych węzłów procesu roboczego dodanych do klastra za pomocą operacji skalowania. Utrwalony skrypt może również zastosować zmiany do innego typu węzła w przypadku wystąpienia operacji skalowania. Przykładem jest węzeł główny.
 
-    `Ad hoc`skrypty nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć `ad hoc` poziom skryptu do utrwalonego skryptu lub obniżyć utrwalony skrypt do `ad hoc` skryptu. Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
+    `Ad hoc`skrypty nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu `ad hoc` do utrwalonego skryptu lub obniżyć utrwalony skrypt do `ad hoc` skryptu. Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
 
 * Może akceptować parametry, które są używane przez skrypt podczas wykonywania.
 
@@ -108,12 +108,14 @@ Awaria skryptu na już uruchomionym klastrze nie powoduje automatycznego zmiany 
 
 Akcje skryptów są uruchamiane z uprawnieniami głównymi. Zapoznaj się z treścią skryptu przed zastosowaniem go w klastrze.
 
-Po zastosowaniu skryptu do klastra stan klastra zmienia się z **uruchomione** na **zaakceptowane**. Następnie zmieni się on na **Konfiguracja usługi HDInsight** , a wreszcie ponownie, aby **uruchomić** skrypty. Stan skryptu jest rejestrowany w historii akcji skryptu. Te informacje informują o tym, czy skrypt zakończył się powodzeniem, czy niepowodzeniem. Na przykład polecenie cmdlet `Get-AzHDInsightScriptActionHistory` programu PowerShell pokazuje stan skryptu. Zwraca informacje podobne do następującego tekstu:
+Po zastosowaniu skryptu do klastra stan klastra zmienia się z **uruchomione** na **zaakceptowane**. Następnie zmieni się on na **Konfiguracja usługi HDInsight** , a wreszcie ponownie, aby **uruchomić** skrypty. Stan skryptu jest rejestrowany w historii akcji skryptu. Te informacje informują o tym, czy skrypt zakończył się powodzeniem, czy niepowodzeniem. Na przykład `Get-AzHDInsightScriptActionHistory` polecenie cmdlet programu PowerShell pokazuje stan skryptu. Zwraca informacje podobne do następującego tekstu:
 
-    ScriptExecutionId : 635918532516474303
-    StartTime         : 8/14/2017 7:40:55 PM
-    EndTime           : 8/14/2017 7:41:05 PM
-    Status            : Succeeded
+```output
+ScriptExecutionId : 635918532516474303
+StartTime         : 8/14/2017 7:40:55 PM
+EndTime           : 8/14/2017 7:41:05 PM
+Status            : Succeeded
+```
 
 > [!IMPORTANT]  
 > W przypadku zmiany użytkownika klastra, administratora, hasła po utworzeniu klastra akcje skryptu uruchamiane względem tego klastra mogą zakończyć się niepowodzeniem. Jeśli masz jakiekolwiek akcje utrwalonego skryptu, które są przeznaczone dla węzłów procesu roboczego, te skrypty mogą kończyć się niepowodzeniem podczas skalowania klastra.
@@ -245,12 +247,14 @@ Aby można było używać tych poleceń programu PowerShell, należy użyć pole
 
 Po zakończeniu operacji otrzymujesz informacje podobne do następującego tekstu:
 
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
+```output
+OperationState  : Succeeded
+ErrorMessage    :
+Name            : Giraph
+Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+Parameters      :
+NodeTypes       : {HeadNode, WorkerNode}
+```
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Stosowanie akcji skryptu do działającego klastra z poziomu interfejsu wiersza polecenia platformy Azure
 
@@ -268,9 +272,9 @@ Przed rozpoczęciem upewnij się, że zainstalowano i skonfigurowano interfejs w
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    Prawidłowe role to `headnode`, `workernode`, `zookeepernode`, `edgenode`. Jeśli skrypt ma być stosowany do kilku typów węzłów, rozdziel role przez miejsce. Na przykład `--roles headnode workernode`.
+    Prawidłowe role to `headnode` , `workernode` , `zookeepernode` , `edgenode` . Jeśli skrypt ma być stosowany do kilku typów węzłów, rozdziel role przez miejsce. Na przykład `--roles headnode workernode`.
 
-    Aby zachować skrypt, Dodaj `--persist-on-success`. Możesz również utrzymać skrypt później za pomocą polecenia `az hdinsight script-action promote`.
+    Aby zachować skrypt, Dodaj `--persist-on-success` . Możesz również utrzymać skrypt później za pomocą polecenia `az hdinsight script-action promote` .
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>Stosowanie akcji skryptu do działającego klastra przy użyciu interfejsu API REST
 

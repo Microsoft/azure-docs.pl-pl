@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087082"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -246,7 +247,9 @@ Aplikacja **Ustawienia poświadczeń** używa portu przychodzącego **8050** do 
 
 Jeśli używasz zapory innej firmy, możesz ręcznie otworzyć port 8050. Jeśli podczas instalacji bramy wystąpi problem z zaporą, możesz użyć poniższego polecenia, aby zainstalować bramę bez konfigurowania zapory.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 W przypadku wybrania opcji nie należy otwierać portu 8050 na maszynie bramy należy użyć mechanizmów innych niż ustawienia aplikacji **poświadczenia** w celu skonfigurowania poświadczeń magazynu danych. Można na przykład użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell. Zapoznaj się z sekcją Ustawianie poświadczeń i zabezpieczeń w temacie jak można ustawić poświadczenia magazynu danych.
 

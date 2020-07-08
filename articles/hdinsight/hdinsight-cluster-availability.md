@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 4b26128b794a6a667edc578f56ad0bc9fb8303a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691147"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086419"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Jak monitorować dostępność klastra za pomocą platformy Apache Ambari w usłudze Azure HDInsight
 
@@ -89,5 +89,5 @@ Zostanie otwarte okno dialogowe umożliwiające zarządzanie powiadomieniami o a
 
 - [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](hdinsight-high-availability-linux.md)
 - [Dostępność klastra — dzienniki usługi Azure Monitor](./cluster-availability-monitor-logs.md)
-- [Korzystanie z dzienników usługi Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
+- [Korzystanie z dzienników Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Powiadomienia e-mail w usłudze Apache Ambari](apache-ambari-email.md)

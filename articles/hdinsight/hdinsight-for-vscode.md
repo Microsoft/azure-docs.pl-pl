@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087133"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -71,7 +71,7 @@ W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby naj
 
 ## <a name="connect-to-an-azure-account"></a>Nawiązywanie połączenia z kontem platformy Azure
 
-Aby można było przesłać skrypty do klastrów z Visual Studio Code, należy połączyć się z kontem platformy Azure lub połączyć klaster. Użyj poświadczeń użytkownika Apache Ambari i hasła lub konta przyłączonego do domeny. Wykonaj następujące kroki, aby nawiązać połączenie z platformą Azure:
+Aby można było przesłać skrypty do klastrów Visual Studio Code, użytkownik może zalogować się do subskrypcji platformy Azure lub [połączyć klaster usługi HDInsight](#link-a-cluster). Aby nawiązać połączenie z klastrem usługi HDInsight, użyj poświadczenia Ambari username/Password lub Join dołączone do domeny dla klastra ESP. Wykonaj następujące kroki, aby nawiązać połączenie z platformą Azure:
 
 1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Azure: Logowanie**:
 
@@ -292,6 +292,21 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
 
 Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane w oknie **dane wyjściowe** w Visual Studio Code. Wyświetlany jest również adres URL interfejsu użytkownika platformy Spark i adres URL interfejsu użytkownika przędzy. Możesz otworzyć adres URL w przeglądarce sieci Web, aby śledzić stan zadania.
 
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integracja z usługą HDInsight Identity Broker (HIB)
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Nawiązywanie połączenia z klastrem usługi HDInsight ESP z brokerem identyfikatorów (HIB)
+
+Aby zalogować się do subskrypcji platformy Azure w celu nawiązania połączenia z klastrem usługi HDInsight ESP z brokerem identyfikatorów (HIB), wykonaj kroki opisane w temacie. Po zalogowaniu zostanie wyświetlona lista klastrów w Eksploratorze Azure. Aby uzyskać więcej instrukcji, zobacz [nawiązywanie połączenia z klastrem usługi HDInsight](#connect-to-an-azure-account).
+
+### <a name="run-a-hivepyspark-job-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Uruchamianie zadania Hive/PySpark w klastrze usługi HDInsight ESP z IDENTYFIKATORem brokera (HIB)
+
+W przypadku uruchamiania zadania programu Hive można wykonać normalne kroki w celu przesłania zadania do klastra usługi HDInsight ESP z IDENTYFIKATORem brokera (HIB). Aby uzyskać więcej instrukcji, zapoznaj się z tematem [przesyłanie interaktywnych zapytań Hive i skryptów usługi Hive](#submit-interactive-hive-queries-and-hive-batch-scripts) .
+
+W przypadku uruchamiania interaktywnego zadania PySpark można wykonać normalne kroki, aby przesłać zadanie do klastra usługi HDInsight ESP z IDENTYFIKATORem brokera (HIB). Zapoznaj się z tematem [przesyłanie interaktywnych zapytań PySpark](#submit-interactive-pyspark-queries) , aby uzyskać więcej instrukcji.
+
+W przypadku uruchamiania zadania wsadowego PySpark można wykonać normalne kroki, aby przesłać zadanie do klastra usługi HDInsight ESP z IDENTYFIKATORem brokera (HIB). Więcej instrukcji można znaleźć w części [przesyłanie zadania usługi Batch PySpark](#submit-pyspark-batch-job) .
+
+
 ## <a name="apache-livy-configuration"></a>Konfiguracja Apache usługi Livy
 
 Konfiguracja [Apache usługi Livy](https://livy.incubator.apache.org/) jest obsługiwana. Można ją skonfigurować w **.VSCode\settings.jsna** pliku w folderze obszaru roboczego. Obecnie konfiguracja usługi Livy obsługuje tylko skrypt języka Python. Aby uzyskać więcej informacji, zobacz [plik Readme usługi Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
@@ -319,20 +334,20 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | --- | --- |
     |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
-    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
-    | Nazwą | Aplikacja Java/Spark klasy głównej | Ciąg |
+    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | String |
+    | Nazwą | Aplikacja Java/Spark klasy głównej | String |
     | args | Argumenty wiersza polecenia dla aplikacji | Lista ciągów |
     | jars | Jars do użycia w tej sesji | Lista ciągów | 
     | pyFiles | Pliki języka Python, które mają być używane w tej sesji | Lista ciągów |
     | files | Pliki, które mają być używane w tej sesji | Lista ciągów |
-    | driverMemory | Ilość pamięci do użycia w procesie sterownika | Ciąg |
+    | driverMemory | Ilość pamięci do użycia w procesie sterownika | String |
     | driverCores | Liczba rdzeni do użycia w procesie sterownika | int |
-    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | Ciąg |
+    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | String |
     | executorCores | Liczba rdzeni do użycia dla każdego wykonawcy | int |
     | numExecutors | Liczba uruchomień do uruchomienia dla tej sesji | int |
     | archiwizowan | Archiwa, które mają być używane w tej sesji | Lista ciągów |
-    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| Ciąg |
-    | name | Nazwa tej sesji | Ciąg |
+    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| String |
+    | name | Nazwa tej sesji | String |
     | produkt | Właściwości konfiguracji platformy Spark | Mapa klucza = Val |
 
     Treść odpowiedzi utworzonego obiektu wsadowego.
@@ -340,10 +355,10 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | ---| --- |
     | ID | Identyfikator sesji | int |
-    | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
+    | appId | Identyfikator aplikacji dla tej sesji | String |
     | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
     | Dziennik | Wiersze dziennika | Lista ciągów |
-    | state |Stan partii | Ciąg |
+    | state |Stan partii | String |
 
     > [!NOTE]
     > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.

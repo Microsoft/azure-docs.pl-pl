@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 476f265d9658d08ef62647e707c0594af8cda480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 074b1571cea6c102a00fcefe7934cad0ded8458d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192029"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087660"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH
 
@@ -72,7 +72,9 @@ Jeśli konto SSH zostanie zabezpieczone za pomocą klucza, podczas nawiązywania
 
 Do tworzenia plików klucza publicznego i prywatnego służy polecenie `ssh-keygen`. Następujące polecenie generuje parę 2048-bitowych kluczy RSA, która pozwala połączyć się z usługą HDInsight:
 
-    ssh-keygen -t rsa -b 2048
+```azurepowershell-interactive
+ssh-keygen -t rsa -b 2048
+```
 
 Zostanie wyświetlony monit o podanie informacji podczas procesu tworzenia klucza. Mogą one dotyczyć na przykład hasła lub lokalizacji przechowywania kluczy. Po zakończeniu tego procesu zostaną utworzone dwa pliki: klucz publiczny i klucz prywatny.
 
@@ -217,7 +219,7 @@ Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, �
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    Jeśli nic nie zostanie zwrócone, `ssh-agent` a następnie nie jest uruchomiony. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub zajrzyj do dokumentacji używanego klienta SSH.
+    Jeśli nic nie zostanie zwrócone, a następnie `ssh-agent` nie jest uruchomiony. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub zajrzyj do dokumentacji używanego klienta SSH.
 
 4. Po sprawdzeniu, że **Agent SSH** jest uruchomiony, użyj następującego programu, aby dodać klucz prywatny SSH do agenta:
 

@@ -7,123 +7,124 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 ms.date: 06/16/2020
-ms.openlocfilehash: 7bd3f1a5b242ee5196e92456cb3fc8c97f8f5b27
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 71577a52ed1b528bc330d4c8e1f4c34ab6e1d81f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958535"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087048"
 ---
-# <a name="virtual-machine-certification---issues-and-solutions"></a>Certyfikacja maszyn wirtualnych — problemy i rozwiązania
+# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
 
-Podczas publikowania obrazów maszyn wirtualnych w portalu Azure Marketplace zespół platformy Azure sprawdza poprawność obrazu maszyny wirtualnej, aby zapewnić jego rozruch, bezpieczeństwo i zgodność z platformą Azure. Jeśli którykolwiek z testów wysokiej jakości zakończy się niepowodzeniem, opublikowanie zakończy się niepowodzeniem z komunikatem zawierającym błąd.
+W przypadku publikowania obrazu maszyny wirtualnej w portalu Azure Marketplace zespół platformy Azure sprawdza jego poprawność, aby zapewnić jego rozruch, bezpieczeństwo i zgodność z platformą Azure. Jeśli którykolwiek z testów wysokiej jakości zakończy się niepowodzeniem, publikowanie zakończy się niepowodzeniem i zostanie wyświetlony komunikat o błędzie opisujący problem.
 
-W tym artykule opisano typowe komunikaty o błędach dla obrazów maszyn wirtualnych. Omówiono w nim również powiązane rozwiązania:
+W tym artykule opisano typowe komunikaty o błędach podczas publikowania obrazów maszyn wirtualnych oraz powiązane rozwiązania.
 
 > [!NOTE]
 > Jeśli masz pytania lub opinie na temat poprawy, skontaktuj się z [pomocą techniczną Centrum partnerskiego](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="approved-base-image"></a>Zatwierdzony obraz podstawowy
 
-Gdy wyślesz żądanie ponownego opublikowania obrazu przy użyciu aktualizacji, przypadek testowy weryfikacji liczby części może zakończyć się niepowodzeniem. W takim przypadku obraz nie zostanie zatwierdzony.
+Gdy wyślesz żądanie ponownego opublikowania obrazu przy użyciu aktualizacji, przypadek testowy weryfikacji liczby częściowej może zakończyć się niepowodzeniem. Jeśli to się nie powiedzie, obraz nie zostanie zatwierdzony.
 
-Ten błąd wystąpi, gdy użyto obrazu podstawowego, który należy do innego wydawcy i Zaktualizowano obraz. W tej sytuacji nie będzie można opublikować Twojego obrazu.
+Ten błąd występuje, gdy używany jest podstawowy obraz, który należy do innego wydawcy i został zaktualizowany. W tej sytuacji nie będzie można opublikować Twojego obrazu.
 
-Aby rozwiązać ten problem, Pobierz najnowszy obraz z witryny Azure Marketplace i wprowadź zmiany w tym obrazie. Zapoznaj się z następującymi tematami, aby wyświetlić zatwierdzone obrazy podstawowe, w których można wyszukać obraz:
+Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Linux — obrazy](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
+- [Obrazy systemu Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
-Aby sprawdzić, czy obraz obsługuje rozszerzenie maszyny wirtualnej, wykonaj następujące kroki:
+Sprawdź, czy obraz obsługuje rozszerzenia maszyn wirtualnych.
 
-Włącz rozszerzenia maszyn wirtualnych:
+Aby włączyć rozszerzenia maszyny wirtualnej, wykonaj następujące czynności:
 
 1. Wybierz maszynę wirtualną z systemem Linux.
-2. Przejdź do pozycji **Ustawienia diagnostyki**.
-3. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu**.
-4. Wybierz pozycję **Zapisz**.
+1. Przejdź do pozycji **Ustawienia diagnostyki**.
+1. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu**.
+1. Wybierz pozycję **Zapisz**.
 
    ![Włącz monitorowanie na poziomie gościa](./media/vm-certification-issues-solutions-1.png)
 
-Sprawdź, czy rozszerzenia maszyn wirtualnych są prawidłowo aktywowane:
+Aby sprawdzić, czy rozszerzenia maszyn wirtualnych zostały prawidłowo aktywowane, wykonaj następujące czynności:
 
-5. Przejdź do karty **rozszerzenia maszyny wirtualnej** na maszynie wirtualnej i sprawdź **rozszerzenie diagnostyki systemu Linux**.
-6. W przypadku **pomyślnego zainicjowania obsługi administracyjnej** należy pomyślnie przekazywać przypadki testowe.
-7. W przypadku **niepowodzenia inicjowania obsługi administracyjnej** nie można wykonać przypadku testowego rozszerzeń i należy ustawić flagę z ograniczeniami.
+1. Na maszynie wirtualnej wybierz kartę **rozszerzenia maszyn wirtualnych** , a następnie sprawdź stan **rozszerzenia diagnostyki systemu Linux**.
+    * W przypadku *pomyślnego stanu aprowizacji*, przypadek testowy rozszerzeń został zakończony pomyślnie.  
+    * W przypadku *niepowodzenia inicjowania obsługi administracyjnej*przypadek testowy rozszerzeń zakończył się niepowodzeniem i należy ustawić flagę z ograniczeniami.
 
-   ![Inicjowanie obsługi powiodło się](./media/vm-certification-issues-solutions-2.png)
+      ![Zrzut ekranu przedstawiający pomyślne zainicjowanie obsługi](./media/vm-certification-issues-solutions-2.png)
 
-   Jeśli rozszerzenie maszyny wirtualnej nie powiedzie się, przejdź do pozycji [Użyj rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md) , aby je włączyć. Jeśli nie chcesz, aby rozszerzenie maszyny wirtualnej zostało włączone, skontaktuj się z zespołem pomocy technicznej i poproś o wyłączenie rozszerzenia.
+      Jeśli rozszerzenie maszyny wirtualnej nie powiedzie się, zobacz [Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md) , aby je włączyć. Jeśli nie chcesz, aby rozszerzenie maszyny wirtualnej zostało włączone, skontaktuj się z zespołem pomocy technicznej i poproś o jego wyłączenie.
 
-## <a name="virtual-machine-provisioning-issue"></a>Problem z obsługą maszyny wirtualnej
+## <a name="vm-provisioning-issue"></a>Problem z obsługą maszyny wirtualnej
 
-Przed przesłaniem oferty Sprawdź, czy proces aprowizacji jest ściśle przestrzegany dla maszyny wirtualnej. Aby wyświetlić format JSON obsługi administracyjnej maszyny wirtualnej, przejdź do [certyfikatu obrazu maszyny wirtualnej platformy Azure](azure-vm-image-certification.md).
+Przed przesłaniem oferty upewnij się, że masz rygorystyczne podejście do inicjowania obsługi maszyny wirtualnej. Aby wyświetlić format JSON obsługi administracyjnej maszyny wirtualnej, zobacz [certyfikat obrazu maszyny wirtualnej platformy Azure](azure-vm-image-certification.md).
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|S.NO|Błąd|reason|Narzędzie|
+|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
-|1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce wirtualnego dysku twardego nie jest poprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
+|1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
 |3|Limit czasu aprowizacji lub nieprawidłowo uogólniony|Wystąpił problem z generalizacją maszyn wirtualnych.|Utwórz ponownie obraz z generalizacją i prześlij żądanie.|
 
 > [!NOTE]
-> Skorzystaj z poniższych linków, aby uzyskać dokumentację dotyczącą generalizacji maszyn wirtualnych:
-> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image))
-> - [System Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
+> Aby uzyskać więcej informacji na temat generalizacji maszyn wirtualnych, zobacz:
+> - [Dokumentacja systemu Linux](create-azure-vm-technical-asset.md#generalize-the-image)
+> - [Dokumentacja systemu Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
 ## <a name="software-compliance-for-windows"></a>Zgodność oprogramowania dla systemu Windows
 
-Jeśli żądanie obrazu systemu Windows zostało odrzucone z powodu zgodności oprogramowania, być może utworzono obraz systemu Windows z zainstalowanym programem SQL Server, zamiast korzystać z odpowiedniego obrazu podstawowego wersji SQL z witryny Azure Marketplace.
+Jeśli żądanie obrazu systemu Windows zostało odrzucone z powodu problemu ze zgodnością oprogramowania, być może utworzono obraz systemu Windows z zainstalowanym wystąpieniem programu SQL Server, zamiast korzystać z odpowiedniego obrazu podstawowego wersji SQL z witryny Azure Marketplace.
 
 Nie należy tworzyć własnego obrazu systemu Windows z zainstalowanym programem SQL Server. Zamiast tego należy użyć zatwierdzonych obrazów podstawowych SQL (Enterprise/Standard/Web) z witryny Azure Marketplace.
 
-Jeśli próbujesz zainstalować program Visual Studio lub dowolny licencjonowany produkt pakietu Office, skontaktuj się z zespołem pomocy technicznej w celu uzyskania wcześniejszej zgody.
+Jeśli próbujesz zainstalować program Visual Studio lub dowolny produkt licencjonowany w pakiecie Office, skontaktuj się z zespołem pomocy technicznej w celu uzyskania wcześniejszej zgody.
 
-Aby uzyskać więcej informacji, odwiedź stronę [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)), aby wybrać zatwierdzoną bazę.
+Aby uzyskać więcej informacji na temat wybierania zatwierdzonej bazy, zobacz [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
 ## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się
 
-Zestaw narzędzi certyfikacji firmy Microsoft pomoże Ci wykonać przypadki testowe, aby upewnić się, że dysk VHD/obraz jest zgodny ze środowiskiem platformy Azure.
+Zestaw narzędzi certyfikacji firmy Microsoft może pomóc w uruchomieniu przypadków testowych i upewnić się, że dysk VHD lub obraz jest zgodny ze środowiskiem platformy Azure.
 
 Pobierz [zestaw narzędzi certyfikacji firmy Microsoft](azure-vm-image-certification.md).
 
 ## <a name="linux-test-cases"></a>Przypadki testowe systemu Linux
 
-Poniżej przedstawiono przypadki testowe systemu Linux, które będą wykonywane przez zestaw narzędzi. Sprawdzanie poprawności testu jest określone w opisie.
+Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będą uruchamiane przez zestaw narzędzi. Sprawdzanie poprawności testu jest określone w opisie.
 
-|L.p.|przypadki testowe|description|
+|Scenariusz|Przypadek testowy|Opis|
 |---|---|---|
 |1|Historia bash|Pliki historii bash powinny zostać wyczyszczone przed utworzeniem obrazu maszyny wirtualnej.|
-|2|Wersja agenta systemu Linux|Należy zainstalować agenta 2.2.41 i nowszych agentów platformy Azure.|
-|3|Wymagane parametry jądra|Weryfikuje następujące parametry jądra są ustawione: <br>Konsola = ttyS0<br>earlyprintk = ttyS0<br>rootdelay = 300|
+|2|Wersja agenta systemu Linux|Należy zainstalować agenta 2.2.41 systemu Linux lub nowszego.|
+|3|Wymagane parametry jądra|Sprawdza, czy ustawiono następujące parametry jądra: <br>Konsola = ttyS0<br>earlyprintk = ttyS0<br>rootdelay = 300|
 |4|Wymiana partycji na dysku systemu operacyjnego|Sprawdza, czy partycje wymiany nie są tworzone na dysku systemu operacyjnego.|
 |5|Partycja główna na dysku systemu operacyjnego|Utwórz jedną partycję główną dla dysku systemu operacyjnego.|
-|6|Wersja OpenSSL|Wersja OpenSSL powinna być większa lub równa 0.9.8.|
-|7|Wersja języka Python|Zaleca się używanie języka Python w wersji 2.6 i.|
-|8|Interwał aktywności klienta|Ustaw wartość ClientAliveInterval na 180. Na potrzeby aplikacji można ustawić wartość z zakresu od 30 do 235. W przypadku włączenia protokołu SSH dla użytkowników końcowych należy ustawić tę wartość jako wyjaśnioną.|
+|6|Wersja OpenSSL|Wersja OpenSSL powinna mieć wartość v 0.9.8 lub nowszą.|
+|7|Wersja języka Python|Zdecydowanie zaleca się używanie języka Python w wersji 2,6 lub nowszej.|
+|8|Interwał aktywności klienta|Ustaw wartość ClientAliveInterval na 180. Na potrzeby aplikacji można ustawić wartość z przeliczania od 30 do 235. W przypadku włączenia protokołu SSH dla użytkowników końcowych należy ustawić tę wartość jako wyjaśnioną.|
 |9|Architektura systemu operacyjnego|Obsługiwane są tylko 64-bitowe systemy operacyjne.|
 |10|Aktualizuj aktualizacje|Określa, czy jest włączona funkcja autoaktualizacji agenta systemu Linux.|
 
-### <a name="common-errors-found-while-executing-the-previous-test-cases"></a>Napotkano typowe błędy podczas wykonywania poprzednich przypadków testowych
+### <a name="common-errors-found-while-executing-previous-test-cases"></a>Napotkano typowe błędy podczas wykonywania poprzednich przypadków testowych
 
-Napotkano typowe błędy podczas wykonywania poprzednich przypadków testowych.
+Poniższa tabela zawiera listę typowych błędów znalezionych podczas wykonywania poprzednich przypadków testowych:
  
-|S.NO|przypadek testowy|Błąd|Narzędzie|
+|Scenariusz|Przypadek testowy|Błąd|Rozwiązanie|
 |---|---|---|---|
-|1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2,241 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020|Aby [przesłać żądanie](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), należy zaktualizować obraz przy użyciu wymaganej wersji.|
-|2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie jest większy niż 1 KB. Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, należy zainstalować wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadzić wszelkie zmiany (na przykład usunąć `.bash` pliki historii), aby zmniejszyć rozmiar do wartości mniejszej niż 1 KB.|
-|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0**. Sprawdź, wykonując polecenie:<br>`cat /proc/cmdline`|Ustaw wartość **konsoli** na **ttyS0** i ponownie prześlij żądanie.|
+|1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2,241 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Aby [przesłać żądanie](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), należy zaktualizować obraz przy użyciu wymaganej wersji.|
+|2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, Zainstaluj wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadź żądane zmiany (na przykład Usuń pliki historii *. bash* ), aby zmniejszyć rozmiar do 1 KB.|
+|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0**. Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0**i ponownie prześlij żądanie.|
 |4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval**.|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
 
 ### <a name="windows-test-cases"></a>Przypadki testowe systemu Windows
 
-Poniżej przedstawiono przypadki testowe systemu Windows, które będą wykonywane przez zestaw narzędzi. Sprawdzanie poprawności testu jest określone w opisie.
+W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będą uruchamiane przez zestaw narzędzi, wraz z opisem weryfikacji testu:
 
-|L.p.|przypadki testowe|description|
+|Scenariusz |Przypadki testowe|Opis|
 |---|---|---|---|
-|1|Architektura systemu operacyjnego|Platforma Azure obsługuje tylko 64 bitowe systemy operacyjne.|
+|1|Architektura systemu operacyjnego|Platforma Azure obsługuje tylko 64-bitowe systemy operacyjne.|
 |2|Zależność konta użytkownika|Wykonanie aplikacji nie powinno być zależne od konta administratora.|
 |3|Klaster trybu failover|Funkcja klaster trybu failover systemu Windows Server nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |4|If|Protokół IPv6 nie jest jeszcze obsługiwany w środowisku platformy Azure. Aplikacja nie powinna być zależna od tej funkcji.|
@@ -132,20 +133,20 @@ Poniżej przedstawiono przypadki testowe systemu Windows, które będą wykonywa
 |7|Dostęp zdalny|Rola serwera dostępu zdalnego (bezpośredni dostęp) nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |8|Usługi Rights Management|Rights Management Services. Rola serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |9|Usługi wdrażania systemu Windows|Usługi wdrażania systemu Windows. Rola serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
-|10|Szyfrowanie dysków funkcją BitLocker|Szyfrowanie dysków funkcją BitLocker nie jest obsługiwane na dysku twardym systemu operacyjnego, ale mogą być używane na dyskach danych.|
+|10|Szyfrowanie dysków funkcją BitLocker|Szyfrowanie dysków funkcją BitLocker nie jest obsługiwana na dysku twardym systemu operacyjnego, ale może być używany na dyskach danych.|
 |11|Serwer nazw magazynu internetowego|Funkcja serwera nazw internetowych nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |12|Wielościeżkowe We/Wy|Wielościeżkowe we/wy. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |13|Równoważenie obciążenia sieciowego|Równoważenie obciążenia sieciowego. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |14|Protokół PNRP|Protokół rozpoznawania nazw równorzędnych. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
-|15|Usługi SNMP|Funkcja usług SNMP nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
+|15|Usługi SNMP|Funkcja usług Simple Network Management Protocol (SNMP) nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |16|Usługa nazw internetowych systemu Windows|Usługa nazw internetowych systemu Windows. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |17|Usługa bezprzewodowej sieci LAN|Usługa bezprzewodowej sieci LAN. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 
-W przypadku wystąpienia błędów z powyższymi przypadkami testowymi zapoznaj się z kolumną **Opis** w poprzedniej tabeli dla rozwiązania. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej. 
+Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej. 
 
 ## <a name="data-disk-size-verification"></a>Weryfikacja rozmiaru dysku danych
 
-Jeśli rozmiar każdego żądania przesłanego z dyskiem danych przekracza 1023 GB, żądanie nie zostanie zatwierdzone. Ta reguła ma zastosowanie do obu okien systemu Linux &.
+Jeśli rozmiar każdego żądania przesłanego z dyskiem danych przekracza 1023 gigabajtów (GB), żądanie nie zostanie zatwierdzone. Ta reguła ma zastosowanie do systemów Linux i Windows.
 
 Prześlij żądanie ponownie o rozmiarze mniejszym lub równym 1023 GB.
 
@@ -158,48 +159,48 @@ Zapoznaj się z następującymi regułami dotyczącymi ograniczeń rozmiaru dysk
 |Linux|30 GB do 1023 GB|
 |Windows|30 GB do 250 GB|
 
-Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operacyjnego, upewnij się, że rozmiar dysku VHD jest wystarczająco duży dla dysku VHD. Ponieważ dyski nie są rozwijane bez przestojów, Użyj rozmiaru dysku z zakresu od 30 do 50 GB.
+Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operacyjnego, upewnij się, że rozmiar dysku VHD jest wystarczająco duży dla dysku VHD. Ponieważ dyski nie mogą być rozwijane bez przestojów, Użyj rozmiaru dysku z zakresu od 30 GB do 50 GB.
 
-|Rozmiar dysku VHD|rzeczywisty rozmiar zajęty|Narzędzie|
+|Rozmiar dysku VHD|Rzeczywisty rozmiar zajęty|Rozwiązanie|
 |---|---|---|
-|>500 TiB|nie dotyczy|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
-|250-500 TiB|>200 GiB różne od rozmiaru obiektu BLOB|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
+|>500 tebibajtów (TiB)|nie dotyczy|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
+|250-500 TiB|>200 gibibajtach (GiB) — różnica między rozmiarem obiektu BLOB|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
 
 > [!NOTE]
-> Większe rozmiary dysków wiążą się z wyższymi kosztami i nastąpi opóźnienie podczas wykonywania czynności związanych z inicjowaniem i replikacją. Ze względu na to opóźnienie i koszt zespół pomocy technicznej może zwrócić się do uzasadnienia zatwierdzenia wyjątku.
+> Większe rozmiary dysków wiążą się z wyższymi kosztami i nastąpi opóźnienie podczas procesu instalacji i replikacji. Ze względu na to opóźnienie i koszt zespół pomocy technicznej może zwrócić się do uzasadnienia zatwierdzenia wyjątku.
 
 ## <a name="wannacry-patch-verification-test-for-windows"></a>Test weryfikacji poprawek atak wannacry dla systemu Windows
 
 Aby zapobiec potencjalnym atakom związanym z wirusem atak wannacry, upewnij się, że wszystkie żądania obrazów systemu Windows są aktualizowane przy użyciu najnowszej poprawki.
 
-Aby sprawdzić wersję poprawki systemu Windows Server, zapoznaj się z poniższą tabelą dotyczącą szczegółów systemu operacyjnego i wersji minimalnej, która będzie obsługiwana. 
+Aby sprawdzić wersję poprawki systemu Windows Server dla szczegółów systemu operacyjnego i wersji minimalnej, która będzie obsługiwana, zapoznaj się z poniższą tabelą: 
 
 Wersja pliku obrazu może być zweryfikowana z `C:\windows\system32\drivers\srv.sys` lub `srv2.sys` .
 
 > [!NOTE]
-> WindowsServer2019 nie ma wymagań dotyczących wersji obowiązkowej.
+> System Windows Server 2019 nie ma wymagań dotyczących wersji obowiązkowej.
 
-|System operacyjny|version|
+|System operacyjny|Wersja|
 |---|---|
-|WindowsServer2008R2|6.1.7601.23689|
-|WindowsServer2012|6.2.9200.22099|
-|WindowsServer2012R2|6.3.9600.18604|
-|WindowsServer2016|10.0.14393.953|
-|WindowsServer2019|Nie dotyczy|
+|System Windows obsługuje 2008 R2|6.1.7601.23689|
+|Windows Server 2012|6.2.9200.22099|
+|Windows Server 2012 z dodatkiem R2|6.3.9600.18604|
+|Windows Server 2016|10.0.14393.953|
+|Windows Server 2019|Nie dotyczy|
 
 ## <a name="sack-vulnerability-patch-verification"></a>Weryfikacja poprawek luk w zabezpieczeniach
 
 Po przesłaniu obrazu systemu Linux żądanie może zostać odrzucone z powodu problemów z wersją jądra.
 
-Zaktualizuj jądro przy użyciu zatwierdzonej wersji i ponownie prześlij żądanie. Zatwierdzoną wersję jądra można znaleźć w poniższej tabeli. Numer wersji musi być równy lub większy niż wymieniony poniżej.
+Zaktualizuj jądro przy użyciu zatwierdzonej wersji i ponownie prześlij żądanie. Zatwierdzoną wersję jądra można znaleźć w poniższej tabeli. Numer wersji musi być równy lub większy od liczby wymienionej w tym miejscu.
 
-Jeśli obraz nie został zainstalowany z jedną z następujących wersji jądra, zaktualizuj obraz przy użyciu odpowiednich poprawek. Więcej informacji można znaleźć na stronie z poniższych linków. Zażądaj niepotrzebnego zatwierdzenia od zespołu pomocy technicznej po zaktualizowaniu obrazu przy użyciu wymaganych poprawek:
+Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, zaktualizuj go przy użyciu poprawnych poprawek. Zażądaj niepotrzebnego zatwierdzenia od zespołu pomocy technicznej po zaktualizowaniu obrazu przy użyciu wymaganych poprawek:
 
 - CVE-2019-11477 
 - CVE-2019-11478 
 - CVE-2019-11479
 
-|Rodzina systemów operacyjnych|version|Palm|
+|Rodzina systemów operacyjnych|Wersja|Jądro|
 |---|---|---|
 |Ubuntu|14,04 LTS|4.4.0 — 151| 
 ||14,04 LTS|4.15.0-1049-*-Azure|
@@ -246,32 +247,32 @@ Jeśli obraz nie został zainstalowany z jedną z następujących wersji jądra,
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>Rozmiar obrazu powinien być wielokrotnością megabajtów
 
-Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do wielokrotności 1 MB. Jeśli wirtualny dysk twardy nie jest zgodny z zalecanym rozmiarem wirtualnym, żądanie może zostać odrzucone.
+Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do wielokrotności 1 megabajta (MB). Jeśli wirtualny dysk twardy nie jest zgodny z zalecanym rozmiarem wirtualnym, żądanie może zostać odrzucone.
 
-Postępuj zgodnie z zaleceniami podczas konwertowania z dysku surowego na dysk VHD i upewnij się, że rozmiar dysku pierwotnego jest wielokrotnością 1 MB. Aby uzyskać więcej informacji, zobacz [informacje dotyczące dystrybucji niepotwierdzonych](../../virtual-machines/linux/create-upload-generic.md)
+Postępuj zgodnie z zaleceniami podczas konwertowania z dysku surowego na dysk VHD i upewnij się, że rozmiar dysku surowego jest wielokrotnością 1 MB. Aby uzyskać więcej informacji, zobacz [informacje dotyczące dystrybucji niezatwierdzonych](../../virtual-machines/linux/create-upload-generic.md).
 
 ## <a name="vm-access-denied"></a>Odmowa dostępu do maszyny wirtualnej
 
-Jeśli występują problemy z odmową dostępu podczas wykonywania przypadków testowych na maszynie wirtualnej, może to być spowodowane niewystarczającymi uprawnieniami do wykonywania przypadków testowych.
+Jeśli występują problemy z odmową dostępu podczas wykonywania przypadków testowych na maszynie wirtualnej, może to być spowodowane niewystarczającymi uprawnieniami do uruchamiania przypadków testowych.
 
-Sprawdź, czy w ramach konta, na którym są wykonywane przypadki testowe, jest włączony odpowiedni dostęp. Jeśli nie, Włącz dostęp do wykonywania przypadków testowych. Jeśli nie chcesz włączyć dostępu, możesz udostępnić wyniki przypadków testowych z zespołem pomocy technicznej.
+Sprawdź, czy w ramach konta, na którym są uruchomione przypadki samotestowe, jest włączony prawidłowy dostęp. Jeśli dostęp nie jest włączony, włącz go, aby uruchomić przypadki testowe. Jeśli nie chcesz włączyć dostępu, możesz udostępnić wyniki przypadków testowych z zespołem pomocy technicznej.
 
 ## <a name="download-failure"></a>Błąd pobierania
     
-W poniższej tabeli zawarto informacje dotyczące problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego.
+Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
-|S.NO|Błąd|reason|Narzędzie|
+|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
-|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji|| 
-|2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania adresu URL sygnatury dostępu współdzielonego.|
-|3|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|6|Nagłówek warunkowy HTTP|Nieprawidłowy adres URL sygnatury dostępu współdzielonego.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
-|7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy wszystkie znaki specjalne, takie jak **%** lub **""** istnieją w nazwie wirtualnego dysku twardego|Zmień nazwę pliku VHD, usuwając znaki specjalne|
+|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
+|2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
+|3|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
+|7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy znaki specjalne, takie jak znak procentu (%) lub znaki cudzysłowu (") istnieją w nazwie wirtualnego dysku twardego.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 
-## <a name="first-1-mb-partition"></a>Pierwsza partycja 1 MB
+## <a name="first-1-mb-partition"></a>Pierwsza partycja z 1 MB
 
-Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsza partycja dysku VHD 1 MB jest pusta. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem.
+Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsza partycja dysku VHD z 1 MB jest pusta. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem.
 
 ## <a name="default-credentials"></a>Poświadczenia domyślne
 
@@ -279,44 +280,40 @@ Zawsze upewnij się, że poświadczenia domyślne nie są wysyłane przy użyciu
   
 ## <a name="datadisk-mapped-incorrectly"></a>Nieprawidłowo mapowany dysk
 
-Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić **0, 1, 2**. Każda inna kolejność będzie traktowana jako problem z mapowaniem.
+Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić *0, 1, 2*. Każda inna kolejność jest traktowana jako problem z mapowaniem.
 
 Prześlij ponownie żądanie z prawidłową kolejnością na dyskach danych.
 
 ## <a name="incorrect-os-mapping"></a>Nieprawidłowe mapowanie systemu operacyjnego
 
-Po utworzeniu obrazu można go zamapować lub przypisać do nieprawidłowej etykiety systemu operacyjnego. Na przykład po wybraniu **systemu Windows** jako części nazwy systemu operacyjnego podczas tworzenia obrazu dysk systemu operacyjnego powinien być instalowany tylko z systemem Windows. To samo dotyczy systemu Linux.
+Po utworzeniu obrazu można go zamapować lub przypisać do nieprawidłowej etykiety systemu operacyjnego. Na przykład po wybraniu **systemu Windows** jako części nazwy systemu operacyjnego podczas tworzenia obrazu dysk systemu operacyjnego powinien być instalowany tylko z systemem Windows. To samo wymaganie dotyczy systemu Linux.
 
 ## <a name="vm-not-generalized"></a>Nieuogólniona maszyna wirtualna
 
-Jeśli wszystkie obrazy pobrane z portalu Azure Marketplace będą używane ponownie, należy przeprowadzić uogólniony dysk VHD systemu operacyjnego.
+Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane ponownie, należy przeprowadzić uogólniony dysk VHD systemu operacyjnego.
 
-W systemie Linux:
+* W przypadku systemu **Linux**następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
 
-Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraża ją jako oddzielną maszynę wirtualną.
+  W oknie SSH wprowadź następujące polecenie:`sudo waagent -deprovision+user`
 
-W oknie SSH wprowadź następujące polecenie:`sudo waagent -deprovision+user`
+* W przypadku **systemu Windows**można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
 
-W systemie Windows:
+Aby uzyskać więcej informacji na temat tego narzędzia, zobacz temat [przygotowanie systemu (Sysprep) — Omówienie]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Obrazy systemu Windows są uogólnione za pomocą programu `sysreptool` .
+## <a name="datadisk-errors"></a>Błędy dysku datadisks
 
-Więcej informacji na temat tego narzędzia można znaleźć w temacie [Sysprep (Przygotowanie systemu) — Omówienie]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+W przypadku rozwiązań błędów, które są związane z dyskiem danych, należy użyć poniższej tabeli:
 
-## <a name="datadisk-error"></a>Błąd dysku Datadisk
-
-Zapoznaj się z poniższą tabelą dotyczącą problemów z błędami związanymi z dyskiem danych.
-
-|Błąd|reason|Narzędzie|
+|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|
-|`DataDisk- InvalidUrl:`|Przyczyną tego błędu może być nieprawidłowa liczba określona dla jednostki LUN podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
-|`DataDisk- NotFound:`|Ten błąd może być spowodowany brakiem dysku z danymi w określonym adresie URL sygnatury dostępu współdzielonego|Sprawdź, czy dysk danych znajduje się w adresie URL sygnatury dostępu współdzielonego określonego w żądaniu.|
+|`DataDisk- InvalidUrl:`|Ten błąd może wystąpić z powodu nieprawidłowego numeru określonego dla numeru jednostki logicznej (LUN) podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
+|`DataDisk- NotFound:`|Ten błąd może wystąpić z powodu braku lokalizacji dysku danych w określonym adresie URL sygnatury dostępu współdzielonego.|Sprawdź, czy dysk danych znajduje się w adresie URL sygnatury dostępu współdzielonego, który jest określony w żądaniu.|
 
 ## <a name="remote-access-issue"></a>Problem z dostępem zdalnym
 
-Jeśli opcja RDP nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd. 
+Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd. 
 
-Włącz dostęp RDP dla obrazów systemu Windows przed przesłaniem.
+Włącz dostęp RDP dla obrazów systemu Windows przed ich przesłaniem.
 
 ## <a name="next-steps"></a>Następne kroki
 

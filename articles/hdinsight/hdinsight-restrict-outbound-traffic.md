@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37e6b2986f76529b5f3b2edc69f50259485df0b4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745565"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087014"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -156,7 +157,7 @@ Ukończ konfigurację tabeli tras:
 
 1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, w której został utworzony klaster. I **podsieć** użyta dla klastra usługi HDInsight.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Ruch graniczny węzła lub aplikacji niestandardowej
 

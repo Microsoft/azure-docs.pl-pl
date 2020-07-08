@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086776"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Nie można nawiązać połączenia RDP z maszyną wirtualną, ponieważ maszyna wirtualna jest uruchamiana w trybie awaryjnym
 
@@ -46,7 +47,9 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial, aby skonfigurować
    ). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, zobacz [Naprawa maszyny wirtualnej w trybie offline](#repair-the-vm-offline).
 2. Sprawdź dane konfiguracji rozruchu:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     Jeśli maszyna wirtualna jest skonfigurowana do uruchamiania w trybie awaryjnym, w sekcji **modułu ładującego rozruchu systemu Windows** o nazwie **SAFEBOOT**zostanie wyświetlona dodatkowa flaga. Jeśli flaga **SAFEBOOT** nie jest widoczna, maszyna wirtualna nie jest w trybie awaryjnym. Ten artykuł nie dotyczy Twojego scenariusza.
 
@@ -60,11 +63,15 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial, aby skonfigurować
 
 3. Usuń flagę **safemoade** , aby maszyna wirtualna przejdzie w tryb normalny:
 
-        bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Sprawdź dane konfiguracji rozruchu, aby upewnić się, że flaga **SAFEBOOT** została usunięta:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Uruchom ponownie maszynę wirtualną, a następnie sprawdź, czy problem został rozwiązany.
 
@@ -114,7 +121,10 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (**Uruchom jako administrator**).
 2. Sprawdź dane konfiguracji rozruchu. W poniższych poleceniach przyjęto założenie, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp tę literę dysku odpowiednią wartością dla maszyny wirtualnej.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Zanotuj nazwę identyfikatora partycji, która ma folder **\Windows** . Domyślnie nazwa identyfikatora to "default".
 
     Jeśli maszyna wirtualna jest skonfigurowana do uruchamiania w trybie awaryjnym, w sekcji **modułu ładującego rozruchu systemu Windows** o nazwie **SAFEBOOT**zostanie wyświetlona dodatkowa flaga. Jeśli flaga **SAFEBOOT** nie jest widoczna, ten artykuł nie dotyczy Twojego scenariusza.
@@ -123,8 +133,14 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
 
 3. Usuń flagę **SAFEBOOT** , aby maszyna wirtualna przejdzie w tryb normalny:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Sprawdź dane konfiguracji rozruchu, aby upewnić się, że flaga **SAFEBOOT** została usunięta:
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
 5. [Odłącz dysk systemu operacyjnego i Utwórz ponownie maszynę wirtualną](../windows/troubleshoot-recovery-disks-portal.md). Następnie sprawdź, czy problem został rozwiązany.

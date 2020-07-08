@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 2163a6e47767f6ce990526c7ececb7b4b554bf4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086402"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,8 +29,8 @@ Replikacja transakcyjna to funkcja wystąpienia zarządzanego usługi Azure SQL 
 Za pomocą replikacji transakcyjnej można wypchnąć zmiany wprowadzone w wystąpieniu zarządzanym Azure SQL:
 
 - Baza danych SQL Server lokalna lub na maszynie wirtualnej platformy Azure
-- Pojedyncza lub w puli baza danych w Azure SQL Database
-- Pojedyncza lub w puli baza danych w wystąpieniu zarządzanym Azure SQL
+- Baza danych w Azure SQL Database
+- Baza danych wystąpienia w wystąpieniu zarządzanym Azure SQL
 
   > [!NOTE]
   > Aby korzystać ze wszystkich funkcji wystąpienia zarządzanego Azure SQL, należy użyć najnowszych wersji programu [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) i [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).

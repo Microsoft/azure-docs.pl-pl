@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 91f11502a136ca08d62072808d270f8e840a8710
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102688"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -67,4 +67,4 @@ Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usłu
 
 ## <a name="next-steps"></a>Następne kroki
 - [Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft](mpa-request-ownership.md).
-- Przeczytaj o tym, jak [zarządzać kontami i subskrypcjami przy użyciu rozliczeń platformy Azure](index.yml).
+- Przeczytaj o tym, jak [zarządzać kontami i subskrypcjami przy użyciu rozliczeń platformy Azure](../index.yml).

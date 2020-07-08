@@ -10,11 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee2a830d8d87ff2d82825791cb4d3554232cfa12
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706090"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086164"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ponowne uczenie i wdrażanie modelu uczenia maszynowego
 
@@ -75,7 +76,9 @@ Poniższy zrzut ekranu przedstawia stronę **Korzystanie** z portalu usług siec
 
 Znajdź deklarację **apikey** :
 
-    const string apiKey = "abc123"; // Replace this with the API key for the web service
+```csharp
+const string apiKey = "abc123"; // Replace this with the API key for the web service
+```
 
 W sekcji **podstawowe informacje o zużyciu** na stronie **Używanie** Znajdź klucz podstawowy i skopiuj go do deklaracji **apikey** .
 
@@ -93,9 +96,11 @@ Przykładowy kod BES przekazuje plik z dysku lokalnego (na przykład "C:\temp\Ce
 
 Znajdź deklaracje *StorageAccountName*, *StorageAccountKey*i *StorageContainerName* , a następnie zaktualizuj wartości zapisane w portalu.
 
-    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
-    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
-    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```csharp
+const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+```
 
 Należy również upewnić się, że plik wejściowy jest dostępny w lokalizacji określonej w kodzie.
 
@@ -103,15 +108,17 @@ Należy również upewnić się, że plik wejściowy jest dostępny w lokalizacj
 
 Gdy określisz lokalizację wyjściową w ładunku żądania, rozszerzenie pliku, który jest określony w *RelativeLocation* , musi być określone jako `ilearner` .
 
-    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+```csharp
+Outputs = new Dictionary<string, AzureBlobDataReference>() {
+    {
+        "output1",
+        new AzureBlobDataReference()
         {
-            "output1",
-            new AzureBlobDataReference()
-            {
-                ConnectionString = storageConnectionString,
-                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
-            }
-        },
+            ConnectionString = storageConnectionString,
+            RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+        }
+    },
+```
 
 Oto przykład reszkoleniowych danych wyjściowych:
 
@@ -137,55 +144,67 @@ Najpierw Zaloguj się do konta platformy Azure z poziomu środowiska programu Po
 
 Następnie Pobierz obiekt definicji usługi sieci Web, wywołując polecenie cmdlet [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) .
 
-    $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+$wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 Aby określić nazwę grupy zasobów istniejącej usługi sieci Web, uruchom polecenie cmdlet Get-AzMlWebService bez żadnych parametrów, aby wyświetlić usługi sieci Web w Twojej subskrypcji. Znajdź usługę sieci Web, a następnie sprawdź jej identyfikator usługi sieci Web. Nazwa grupy zasobów to czwarty element w IDENTYFIKATORze, po prostu po elemencie *resourceGroups* . W poniższym przykładzie nazwa grupy zasobów to Default-MachineLearning-SouthCentralUS.
 
-    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
-    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
-    Name : RetrainSamplePre.2016.8.17.0.3.51.237
-    Location : South Central US
-    Type : Microsoft.MachineLearning/webServices
-    Tags : {}
+```azurepowershell
+Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+Name : RetrainSamplePre.2016.8.17.0.3.51.237
+Location : South Central US
+Type : Microsoft.MachineLearning/webServices
+Tags : {}
+```
 
 Alternatywnie, aby określić nazwę grupy zasobów istniejącej usługi sieci Web, zaloguj się do portalu usług sieci Web Azure Machine Learning. Wybierz usługę sieci Web. Nazwa grupy zasobów jest piątym elementem adresu URL usługi sieci Web, po prostu po elemencie *resourceGroups* . W poniższym przykładzie nazwa grupy zasobów to Default-MachineLearning-SouthCentralUS.
 
-    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+`https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Eksportowanie obiektu definicji usługi sieci Web jako pliku JSON
 
 Aby zmodyfikować definicję modelu przeszkolonego w celu użycia nowo przeszkolonego modelu, należy najpierw użyć polecenia cmdlet [Export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) w celu wyeksportowania go do pliku w formacie JSON.
 
-    Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+```
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>Aktualizowanie odwołania do obiektu BLOB ilearner
 
 W obszarze zasoby Znajdź [przeszkolony model], zaktualizuj wartość *identyfikatora URI* w węźle *locationInfo* za pomocą identyfikatora URI obiektu BLOB ilearner. Identyfikator URI jest generowany przez połączenie *BaseLocation* i *RelativeLocation* z danych wyjściowych wywołania reszkoleniowego BES.
 
-     "asset3": {
-        "name": "Retrain Sample [trained model]",
-        "type": "Resource",
-        "locationInfo": {
-          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
-        },
-        "outputPorts": {
-          "Results dataset": {
+```json
+"asset3": {
+    "name": "Retrain Sample [trained model]",
+    "type": "Resource",
+    "locationInfo": {
+        "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+    },
+    "outputPorts": {
+        "Results dataset": {
             "type": "Dataset"
-          }
         }
-      },
+    }
+},
+```
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>Zaimportuj kod JSON do obiektu definicji usługi sieci Web
 
 Użyj polecenia cmdlet [Import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) , aby przekonwertować zmodyfikowany plik JSON z powrotem do obiektu definicji usługi sieci Web, którego można użyć do zaktualizowania eksperymentu predicative.
 
-    $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```azurepowershell
+$wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
+```
 
 ### <a name="update-the-web-service"></a>Aktualizowanie usługi sieci Web
 
 Na koniec użyj polecenia cmdlet [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) , aby zaktualizować eksperyment predykcyjny.
 
-    Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```azurepowershell
+Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

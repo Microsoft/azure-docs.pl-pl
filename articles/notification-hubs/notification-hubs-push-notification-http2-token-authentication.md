@@ -15,12 +15,12 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a8781a5afb8b6df0444ce177be452f84c73413e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172354"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087223"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Uwierzytelnianie oparte na tokenach (HTTP/2) dla usługi APNS
 
@@ -53,15 +53,15 @@ Aby włączyć uwierzytelnianie oparte na tokenach, potrzebne są następujące 
 
 Identyfikator klucza można uzyskać ze strony **klucze** w obszarze **certyfikaty, identyfikatory & profile**na koncie dewelopera firmy Apple:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
+![Certyfikaty](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
+![Identyfikatory](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### <a name="application-identifier-and-application-name"></a>Identyfikator aplikacji i nazwa aplikacji
 
 Nazwa i identyfikator aplikacji są również dostępne na stronie **certyfikaty, identyfikatory & profile** na koncie dewelopera:
 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
+![Certyfikaty i identyfikatory](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
 ### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Skonfiguruj przy użyciu zestawu .NET SDK lub Azure Portal
 
@@ -77,9 +77,9 @@ Poświadczenia oparte na tokenach składają się z następujących pól:
 
 * **Identyfikator klucza**: Identyfikator klucza prywatnego, który został wygenerowany w portalu dla deweloperów firmy Apple; na przykład `2USFGKSKLT` .
 * **Identyfikator zespołu**: nazywany także "prefiksem" lub "prefiksem aplikacji". To jest identyfikator organizacji w portalu dla deweloperów firmy Apple. na przykład `S4V3D7CHJR` .
-* **Identyfikator pakietu**: określany również jako "Identyfikator aplikacji". Jest to identyfikator pakietu dla aplikacji; na przykład `com.microsoft.nhubsample2019` . Należy pamiętać, że można użyć jednego klucza dla wielu aplikacji. Ta wartość jest mapowana na `apns-topic` nagłówek HTTP podczas wysyłania powiadomienia i służy do określania docelowej aplikacji.
+* **Identyfikator pakietu**: określany również jako "Identyfikator aplikacji". Jest to identyfikator pakietu dla aplikacji; na przykład `com.example.myapp` . Należy pamiętać, że można użyć jednego klucza dla wielu aplikacji. Ta wartość jest mapowana na `apns-topic` nagłówek HTTP podczas wysyłania powiadomienia i służy do określania docelowej aplikacji. Należy pamiętać, że nie można ustawić wartości `apns-topic` jawnie.
 * **Token**: nazywany także "kluczem" lub "kluczem prywatnym". Jest to uzyskiwane z pliku. P8 wygenerowanego w portalu dla deweloperów firmy Apple. Klucz musi mieć włączoną funkcję APN (wybraną w portalu dla deweloperów firmy Apple podczas generowania klucza). Ta wartość musi mieć usunięte z nagłówka PEM/Stopka podczas dostarczania go do portalu NH/interfejsu API.
-* **Punkt końcowy**: jest to przełącznik w bloku Notification Hubs Portal i pola ciągu w interfejsie API. Prawidłowe wartości to `https://api.push.apple.com` lub `https://api.sandbox.push.apple.com` . Notification Hubs używa tej wartości dla środowiska produkcyjnego lub piaskownicy do wysyłania powiadomień. Ta wartość musi być zgodna z `aps-environment` uprawnieniem w aplikacji, w przeciwnym razie wygenerowane tokeny urządzeń APNs nie są zgodne ze środowiskiem i powiadomienia nie są wysyłane.
+* **Punkt końcowy**: jest to przełącznik w bloku Notification Hubs Portal i pola ciągu w interfejsie API. Prawidłowe wartości to `https://api.development.push.apple.com:443/3/device` lub `https://api.sandbox.push.apple.com:443/3/device` . Notification Hubs używa tej wartości dla środowiska produkcyjnego lub piaskownicy do wysyłania powiadomień. Ta wartość musi być zgodna z `aps-environment` uprawnieniem w aplikacji, w przeciwnym razie wygenerowane tokeny urządzeń APNs nie są zgodne ze środowiskiem i powiadomienia nie są wysyłane.
 
 Oto przykładowy kod ilustrujący poprawne użycie:
 

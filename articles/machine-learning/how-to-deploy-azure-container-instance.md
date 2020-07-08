@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: dc2acefd69695e34fcf60877591faf4f838ab695
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44c197b7d9935a7b0631c6cbcd96fde783c2fffe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753180"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087269"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Wdróż model do Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,10 @@ Aby uzyskać informacje dotyczące przydziału i dostępności regionów dla us�
 ## <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
 
 Aby wdrożyć model do Azure Container Instances, należy utworzyć __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> * ACI jest odpowiednia tylko dla małych modeli <1 GB. 
+> * Zalecamy użycie jednego węzła AKS do tworzenia i testowania większych modeli.
 
 ### <a name="using-the-sdk"></a>Używanie zestawu SDK
 

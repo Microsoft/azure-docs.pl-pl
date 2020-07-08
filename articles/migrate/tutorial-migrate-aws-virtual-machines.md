@@ -1,17 +1,17 @@
 ---
-title: Odkrywanie, ocenianie i migrowanie maszyn wirtualnych Amazon Web Services (AWS) na platformę Azure
+title: Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
 description: W tym artykule opisano sposób migrowania maszyn wirtualnych AWS na platformę Azure przy użyciu Azure Migrate.
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 739439f63c81ef75cdcbe0b9e1d3f367d073d43b
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85199094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102807"
 ---
-# <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odkrywanie, ocenianie i migrowanie maszyn wirtualnych Amazon Web Services (AWS) na platformę Azure
+# <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
 
 W tym samouczku pokazano, jak odkrywać, oceniać i migrować maszyny wirtualne Amazon Web Services (AWS) do maszyn wirtualnych platformy Azure przy użyciu Azure Migrate: narzędzia do oceny serwera i migracji serwera
 
@@ -39,8 +39,8 @@ Przed przeprowadzeniem migracji na platformę Azure zalecamy wykonanie funkcji o
 
 Skonfiguruj ocenę w następujący sposób:
 
-1. Ocenę można przeprowadzić przez traktowanie maszyn wirtualnych AWS jako maszyn fizycznych na potrzeby przeprowadzania oceny przy użyciu narzędzia do oceny serwera Azure Migrate:. Postępuj zgodnie z [samouczkiem](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical) , aby skonfigurować platformę Azure i przygotować maszyny wirtualne AWS do oceny.
-2. Następnie postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) , aby skonfigurować Azure Migrate projekt i urządzenie w celu odnajdywania i oceniania maszyn wirtualnych AWS.
+1. Ocenę można przeprowadzić przez traktowanie maszyn wirtualnych AWS jako maszyn fizycznych na potrzeby przeprowadzania oceny przy użyciu narzędzia do oceny serwera Azure Migrate:. Postępuj zgodnie z [samouczkiem](./tutorial-prepare-physical.md) , aby skonfigurować platformę Azure i przygotować maszyny wirtualne AWS do oceny.
+2. Następnie postępuj zgodnie z tym [samouczkiem](./tutorial-assess-physical.md) , aby skonfigurować Azure Migrate projekt i urządzenie w celu odnajdywania i oceniania maszyn wirtualnych AWS.
 
 Chociaż zalecamy wypróbowanie oceny, wykonanie oceny nie jest obowiązkowym krokiem, aby móc migrować maszyny wirtualne.
 
@@ -48,9 +48,9 @@ Chociaż zalecamy wypróbowanie oceny, wykonanie oceny nie jest obowiązkowym kr
 
 ## <a name="1-prerequisites-for-migration"></a>1. wymagania wstępne dotyczące migracji
 
-- Upewnij się, że maszyny wirtualne AWS, które chcesz zmigrować, mają obsługiwaną wersję systemu operacyjnego. Maszyny wirtualne AWS są traktowane jak maszyny fizyczne na potrzeby migracji. Zapoznaj się z [obsługiwanymi systemami operacyjnymi](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) dla przepływu pracy migracji serwera fizycznego. Zalecamy wykonanie migracji testowej (test pracy w trybie failover), aby sprawdzić, czy maszyna wirtualna działa zgodnie z oczekiwaniami przed kontynuowaniem rzeczywistej migracji.
-- Upewnij się, że maszyny wirtualne AWS są zgodne z [obsługiwanymi konfiguracjami](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) migracji na platformę Azure.
-- Sprawdź, czy maszyny wirtualne AWS replikowane na platformę Azure są zgodne z [wymaganiami maszyny wirtualnej platformy Azure.](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements)
+- Upewnij się, że maszyny wirtualne AWS, które chcesz zmigrować, mają obsługiwaną wersję systemu operacyjnego. Maszyny wirtualne AWS są traktowane jak maszyny fizyczne na potrzeby migracji. Zapoznaj się z [obsługiwanymi systemami operacyjnymi](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) dla przepływu pracy migracji serwera fizycznego. Zalecamy wykonanie migracji testowej (test pracy w trybie failover), aby sprawdzić, czy maszyna wirtualna działa zgodnie z oczekiwaniami przed kontynuowaniem rzeczywistej migracji.
+- Upewnij się, że maszyny wirtualne AWS są zgodne z [obsługiwanymi konfiguracjami](./migrate-support-matrix-physical-migration.md#physical-server-requirements) migracji na platformę Azure.
+- Sprawdź, czy maszyny wirtualne AWS replikowane na platformę Azure są zgodne z [wymaganiami maszyny wirtualnej platformy Azure.](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)
 - Przed przeprowadzeniem migracji na platformę Azure potrzebne są pewne zmiany na maszynach wirtualnych.
     - W niektórych systemach operacyjnych Azure Migrate automatycznie wprowadza te zmiany.
     - Ważne jest, aby wprowadzić te zmiany przed rozpoczęciem migracji. W przypadku migrowania maszyny wirtualnej przed wprowadzeniem zmiany, maszyna wirtualna może nie zostać uruchomiona na platformie Azure.
@@ -98,7 +98,7 @@ Azure Migrate: Migracja serwera używa urządzenia replikacji do replikowania ma
 
 Przygotuj się do wdrożenia urządzenia w następujący sposób:
 
-- Skonfiguruj oddzielną maszynę wirtualną EC2 do hostowania urządzenia replikacji. To wystąpienie musi działać pod kontrolą systemu Windows Server 2012 R2 lub Windows Server 2016. [Zapoznaj](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements) się z wymaganiami dotyczącymi sprzętu, oprogramowania i sieci dla urządzenia.
+- Skonfiguruj oddzielną maszynę wirtualną EC2 do hostowania urządzenia replikacji. To wystąpienie musi działać pod kontrolą systemu Windows Server 2012 R2 lub Windows Server 2016. [Zapoznaj](./migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi sprzętu, oprogramowania i sieci dla urządzenia.
 - Urządzenia nie należy instalować na źródłowej maszynie wirtualnej, która ma być replikowana. Należy ją wdrożyć na innej maszynie wirtualnej.
 - Źródłowe maszyny wirtualne AWS, które mają zostać zmigrowane, powinny mieć sieć linii wglądu do urządzenia replikacji. Skonfiguruj niezbędne reguły grupy zabezpieczeń, aby je włączyć. Zaleca się, aby urządzenie replikacji zostało wdrożone w tym samym VPC co źródłowe maszyny wirtualne do migracji. Jeśli urządzenie replikacji musi znajdować się w innym VPC, VPCs muszą być połączone za pomocą komunikacji równorzędnej VPC.
 - Źródłowe maszyny wirtualne AWS komunikują się z urządzeniem replikacji na portach HTTPS 443 (aranżacja kanału kontroli) i TCP 9443 (transport danych) przychodzących na potrzeby zarządzania replikacją i transferu danych replikacji. Urządzenie replikacji z kolei organizuje i wysyła dane replikacji do platformy Azure przez port HTTPS 443 dla ruchu wychodzącego. Aby skonfigurować te reguły, Edytuj reguły ruchu przychodzącego/wychodzącego grupy zabezpieczeń przy użyciu odpowiednich portów i źródłowych informacji o adresie IP.
@@ -162,7 +162,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 9. Uruchom plik instalacyjny urządzenia replikacji, zgodnie z opisem w następnej procedurze.  
     9.1. W obszarze **Przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**, a następnie wybierz opcję **Dalej**.   
     9,2 w **licencji na oprogramowanie innych**firm wybierz opcję **Akceptuję Umowę licencyjną innej firmy**, a następnie wybierz przycisk **dalej**.   
-    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz przycisk **Dalej**.  
+    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz opcję **Dalej**.  
     9,4 w obszarze **Ustawienia internetowe**wybierz opcję **Połącz z Azure Site Recovery bez serwera proxy**, a następnie wybierz przycisk **dalej**.  
     9,5 na stronie **Sprawdzanie wymagań wstępnych** są uruchamiane sprawdzenia kilku elementów. Po zakończeniu wybierz opcję **Dalej**.  
     9,6 w obszarze **Konfiguracja programu MySQL**Podaj hasło dla bazy danych MySQL, a następnie wybierz przycisk **dalej**.  
@@ -170,7 +170,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Kliknij przycisk **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej.
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
@@ -183,7 +183,7 @@ Agent usługi mobilności musi być zainstalowany na źródłowej maszyny wirtua
 
 1. Zaloguj się do urządzenia replikacji.
 2. Przejdź do **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Znajdź Instalatora dla źródłowego systemu operacyjnego AWS maszyn wirtualnych i wersji. Przejrzyj [obsługiwane systemy operacyjne](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines).
+3. Znajdź Instalatora dla źródłowego systemu operacyjnego AWS maszyn wirtualnych i wersji. Przejrzyj [obsługiwane systemy operacyjne](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
 4. Skopiuj plik Instalatora do źródłowej maszyny wirtualnej AWS, którą chcesz zmigrować.
 5. Upewnij się, że masz zapisany plik tekstowy hasła, który został utworzony podczas instalacji urządzenia replikacji.
     - Jeśli nie pamiętasz zapisać hasła, możesz wyświetlić w tym kroku hasło do urządzenia replikacji. W wierszu polecenia Uruchom polecenie **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe-v** , aby wyświetlić bieżące hasło.
@@ -335,7 +335,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
     - Kończy replikację maszyny wirtualnej AWS.
     - Usuwa maszynę wirtualną AWS z liczby **serwerów replikacji** w Azure Migrate: Migracja serwera.
     - Czyści informacje o stanie replikacji maszyny wirtualnej.
-2. Zainstaluj agenta systemu [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) na zmigrowanych maszynach. Agent maszyny wirtualnej platformy Azure jest wstępnie zainstalowany podczas procesu migracji.
+2. Zainstaluj agenta systemu [Linux](../virtual-machines/extensions/agent-linux.md) na zmigrowanych maszynach. Agent maszyny wirtualnej platformy Azure jest wstępnie zainstalowany podczas procesu migracji.
 3. Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web.
 4. Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
 5. Obcinaj ruch do zmigrowanego wystąpienia maszyny wirtualnej platformy Azure.
@@ -347,16 +347,16 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
     - Zapewnij bezpieczeństwo danych – utwórz kopie zapasowe maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup. [Dowiedz się więcej](../backup/quick-backup-vm-portal.md).
     - Zadbaj, aby pakiety robocze były uruchomione i stale dostępne, replikując maszyny wirtualne platformy Azure do regionu pomocniczego za pomocą usługi Site Recovery. [Dowiedz się więcej](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Aby zwiększyć bezpieczeństwo:
-    - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Wdróż usługę [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
+    - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](../security-center/security-center-just-in-time.md).
+    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+    - Wdróż usługę [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
     - Przeczytaj więcej na temat [zabezpieczania zasobów IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) i skorzystaj z usługi [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Na potrzeby monitorowania i zarządzania:
-    - Rozważ wdrożenie usługi [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview), aby monitorować użycie zasobu i wydatki.
+    - Rozważ wdrożenie usługi [Azure Cost Management](../cost-management-billing/cloudyn/overview.md), aby monitorować użycie zasobu i wydatki.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zbadaj [podróż migracji w chmurze](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) w strukturze wdrażania w chmurze platformy Azure.
+Zbadaj [podróż migracji w chmurze](/azure/architecture/cloud-adoption/getting-started/migrate) w strukturze wdrażania w chmurze platformy Azure.
 
 ## <a name="troubleshooting--tips"></a>Rozwiązywanie problemów/porady
 

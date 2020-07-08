@@ -7,11 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249419"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087184"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -71,7 +72,7 @@ Po dodaniu Azure SQL Analytics do obszaru roboczego kafelek Azure SQL Analytics 
 
 ![Kafelek podsumowania Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Po załadowaniu kafelek pokazuje liczbę baz danych i pul elastycznych w SQL Database i wystąpieniach zarządzanych oraz bazach danych wystąpień w wystąpieniu zarządzanym SQL, z którego Azure SQL Analytics otrzymuje dane telemetryczne diagnostyki.
+Po załadowaniu kafelek pokazuje liczbę baz danych i pul elastycznych w SQL Database i wystąpieniach oraz bazach danych wystąpień w wystąpieniu zarządzanym SQL, z którego Azure SQL Analytics otrzymuje dane telemetryczne diagnostyki.
 
 ![Kafelek Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -105,7 +106,7 @@ Po wybraniu Azure SQL Analytics kafelka dla baz danych zostanie wyświetlony pul
 
 Wybranie dowolnego kafelka spowoduje otwarcie raportu przechodzenia do szczegółów w określonej perspektywie. Po wybraniu perspektywy zostanie otwarty raport przechodzenia do szczegółów.
 
-Wybór widoku wystąpienia zarządzanego SQL zawiera szczegółowe informacje dotyczące użycia wystąpienia zarządzanego, baz danych, które zawiera, oraz dane telemetryczne dla zapytań wykonywanych w ramach wystąpienia.
+Wybór widoku wystąpienia zarządzanego SQL zawiera szczegółowe informacje o wykorzystaniu wystąpienia, bazach danych wystąpień i telemetrii w zapytaniach wykonywanych w ramach wystąpienia zarządzanego.
 
 ![Limity czasu Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 

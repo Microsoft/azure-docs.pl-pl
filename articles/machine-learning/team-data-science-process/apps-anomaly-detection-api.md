@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656546"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087167"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Interfejs API wykrywania anomalii Machine Learning
 
@@ -62,44 +63,48 @@ Aby wywołać interfejs API, należy znać lokalizację punktu końcowego i kluc
 ### <a name="sample-request-body"></a>Przykładowa treść żądania
 Żądanie zawiera dwa obiekty: `Inputs` i `GlobalParameters` .  W przykładowym żądaniu poniżej niektóre parametry są wysyłane jawnie, podczas gdy inne nie są (przewiń w dół, aby uzyskać pełną listę parametrów dla każdego punktu końcowego).  Parametry, które nie są jawnie wysyłane w żądaniu, będą używały wartości domyślnych podanej poniżej.
 
-    {
-                "Inputs": {
-                        "input1": {
-                                "ColumnNames": ["Time", "Data"],
-                                "Values": [
-                                        ["5/30/2010 18:07:00", "1"],
-                                        ["5/30/2010 18:08:00", "1.4"],
-                                        ["5/30/2010 18:09:00", "1.1"]
-                                ]
-                        }
-                },
-        "GlobalParameters": {
-            "tspikedetector.sensitivity": "3",
-            "zspikedetector.sensitivity": "3",
-            "bileveldetector.sensitivity": "3.25",
-            "detectors.spikesdips": "Both"
-        }
+```json
+{
+            "Inputs": {
+                    "input1": {
+                            "ColumnNames": ["Time", "Data"],
+                            "Values": [
+                                    ["5/30/2010 18:07:00", "1"],
+                                    ["5/30/2010 18:08:00", "1.4"],
+                                    ["5/30/2010 18:09:00", "1.1"]
+                            ]
+                    }
+            },
+    "GlobalParameters": {
+        "tspikedetector.sensitivity": "3",
+        "zspikedetector.sensitivity": "3",
+        "bileveldetector.sensitivity": "3.25",
+        "detectors.spikesdips": "Both"
     }
+}
+```
 
 ### <a name="sample-response"></a>Przykładowa odpowiedź
 Aby wyświetlić `ColumnNames` pole, należy dołączyć `details=true` jako parametr adresu URL w żądaniu.  Zapoznaj się z poniższymi tabelami znaczenie dla każdego z tych pól.
 
-    {
-        "Results": {
-            "output1": {
-                "type": "table",
-                "value": {
-                    "Values": [
-                        ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-                        ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-                        ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-                    ],
-                    "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-                    "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-                }
+```json
+{
+    "Results": {
+        "output1": {
+            "type": "table",
+            "value": {
+                "Values": [
+                    ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+                    ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+                    ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+                ],
+                "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+                "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
             }
         }
     }
+}
+```
 
 
 ## <a name="score-api"></a>Interfejs API oceny

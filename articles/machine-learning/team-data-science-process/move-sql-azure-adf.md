@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194404"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086657"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Przenoszenie danych z bazy danych SQL Server do SQL Database za pomocą Azure Data Factory
 
@@ -139,7 +140,9 @@ Nazwy kolumn nie zostały uwzględnione w tym miejscu. W tym miejscu możesz wyb
 
 Skopiuj definicję JSON tabeli do pliku o nazwie *onpremtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\onpremtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```
 
 
 ### <a name="blob-table"></a><a name="adf-table-blob-store"></a>Tabela obiektów BLOB
@@ -172,7 +175,9 @@ Definicja tabeli dla wyjściowej lokalizacji obiektu BLOB znajduje się w nastę
 
 Skopiuj definicję JSON tabeli do pliku o nazwie *bloboutputtabledef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\bloboutputtabledef.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```
 
 ### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>Tabela SQL Azure
 Definicja tabeli dla danych wyjściowych usługi SQL Azure jest następująca (ten schemat mapuje dane pochodzące z obiektu BLOB):
@@ -204,7 +209,9 @@ Definicja tabeli dla danych wyjściowych usługi SQL Azure jest następująca (t
 
 Skopiuj definicję JSON tabeli do pliku o nazwie *AzureSqlTable.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\AzureSqlTable.jsna*). Utwórz tabelę w usłudze ADF przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```
 
 
 ## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Definiowanie i tworzenie potoku
@@ -289,13 +296,17 @@ Korzystając z podanych wcześniej definicji tabeli, definicja potoku dla ADF je
 
 Skopiuj tę definicję JSON potoku do pliku o nazwie *pipelinedef.jsw* pliku i Zapisz ją w znanej lokalizacji (przyjęto, że *C:\temp\pipelinedef.jsna*). Utwórz potok w podajniku APD przy użyciu następującego polecenia cmdlet Azure PowerShell:
 
-    New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```azurepowershell
+New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```
 
 
 ## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>Uruchamianie potoku
 Potok można teraz uruchomić przy użyciu następującego polecenia:
 
-    Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```azurepowershell
+Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```
 
 Wartości parametrów *StartDate* i *EndDate* muszą zostać zastąpione rzeczywistymi datami, między którymi ma zostać uruchomiony potok.
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086487"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight
 
@@ -62,7 +62,6 @@ Po utworzeniu węzła brzegowego można nawiązać połączenie z węzłem brzeg
 > Składniki niestandardowe zainstalowane w węźle brzegowym otrzymują komercyjnie uzasadnioną pomoc techniczną firmy Microsoft. Może to spowodować rozwiązanie napotkanych problemów. Możesz też przystąpić do zasobów społeczności, aby uzyskać dalszą pomoc. Poniżej wymieniono niektóre z najbardziej aktywnych witryn do uzyskiwania pomocy od społeczności:
 >
 > * [Microsoft Q&stronie pytania dla usługi HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > W przypadku korzystania z technologii Apache można znaleźć pomoc w witrynach projektów Apache w systemie [https://apache.org](https://apache.org) , takich jak lokacja [Apache Hadoop](https://hadoop.apache.org/) .
@@ -143,11 +142,15 @@ Węzeł brzegowy jest wyświetlany jako aplikacja na Azure Portal.  Portal udost
 
 2. Po nawiązaniu połączenia z węzłem brzegowym przy użyciu protokołu SSH Użyj następującego polecenia, aby otworzyć konsolę programu Hive:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Uruchom następujące polecenie, aby wyświetlić tabele Hive w klastrze:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>Usuń węzeł krawędzi
 

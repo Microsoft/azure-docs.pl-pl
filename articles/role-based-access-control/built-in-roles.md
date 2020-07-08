@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 06/18/2020
-ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: 24e964ec37184e38358b5c64eff05a8aa10a431d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317296"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086814"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -670,7 +670,7 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 }
 ```
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 
 ### <a name="cdn-endpoint-contributor"></a>Współautor punktu końcowego usługi CDN
@@ -1155,7 +1155,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -2815,7 +2815,7 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 }
 ```
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Kontenery
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -3575,6 +3575,7 @@ Umożliwia zarządzanie wystąpieniami zarządzanymi SQL i wymaganą konfiguracj
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/* |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/routeTables/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/*/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Locations/instanceFailoverGroups/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/* |  |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Subnets/* |  |
@@ -3607,6 +3608,7 @@ Umożliwia zarządzanie wystąpieniami zarządzanymi SQL i wymaganą konfiguracj
         "Microsoft.Network/networkSecurityGroups/*",
         "Microsoft.Network/routeTables/*",
         "Microsoft.Sql/locations/*/read",
+        "Microsoft.Sql/locations/instanceFailoverGroups/*",
         "Microsoft.Sql/managedInstances/*",
         "Microsoft.Support/*",
         "Microsoft.Network/virtualNetworks/subnets/*",
@@ -5196,6 +5198,7 @@ Umożliwia zarządzanie rejestracjami Azure Stack.
 > |  |  |
 > | --- | --- |
 > | **Akcje** |  |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Pobierz właściwości subskrypcji Azure Stack Edge |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Pobiera właściwości produktu Azure Stack Marketplace |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Read | Pobiera właściwości rejestracji Azure Stack |
@@ -5217,6 +5220,7 @@ Umożliwia zarządzanie rejestracjami Azure Stack.
   "permissions": [
     {
       "actions": [
+        "Microsoft.AzureStack/edgeSubscriptions/read",
         "Microsoft.AzureStack/registrations/products/*/action",
         "Microsoft.AzureStack/registrations/products/read",
         "Microsoft.AzureStack/registrations/read"
@@ -6547,7 +6551,7 @@ Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium 
 }
 ```
 
-## <a name="monitor"></a>Monitorowanie
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Współautor składnika Application Insights
