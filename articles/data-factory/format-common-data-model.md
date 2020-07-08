@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e75f2203552a69e50ed16176525429c6c9d8810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807814"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083784"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 System metadanych usługi Common Data Model (CDM) umożliwia łatwe udostępnianie danych i ich znaczenie między aplikacjami i procesami biznesowymi. Aby dowiedzieć się więcej, zobacz Omówienie usługi [Common Data Model](https://docs.microsoft.com/common-data-model/) .
 
-W Azure Data Factory użytkownicy mogą przetwarzać do i z jednostek CDM przechowywanych w [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) przy użyciu mapowania przepływów danych.
+W Azure Data Factory użytkownicy mogą przetwarzać do i z jednostek CDM przechowywanych w [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) przy użyciu mapowania przepływów danych. Wybierz między model.jsi stylem manifestu źródła CDM i Zapisz w plikach manifestu CDM.
 
 > [!NOTE]
 > Łącznik formatu usługi Common Data Model (CDM) dla przepływów danych ADF jest obecnie dostępny jako publiczna wersja zapoznawcza.
@@ -27,6 +27,9 @@ W Azure Data Factory użytkownicy mogą przetwarzać do i z jednostek CDM przech
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
 Wspólny model danych jest dostępny jako [Wbudowany zestaw](data-flow-source.md#inline-datasets) danych w mapowaniu przepływów danych jako źródła i ujścia.
+
+> [!NOTE]
+> Podczas pisania jednostek CDM należy mieć już zdefiniowaną definicję jednostki CDM (schemat metadanych). Obiekt sink przepływu danych ADF odczyta ten plik jednostki CDM i zaimportuje schemat do ujścia w celu mapowania pól.
 
 ### <a name="source-properties"></a>Właściwości źródła
 
@@ -51,8 +54,16 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CD
 
 #### <a name="import-schema"></a>Importuj schemat
 
-CDM jest dostępny tylko jako Wbudowany zestaw danych i domyślnie nie ma skojarzonego schematu. Aby uzyskać metadane kolumny, kliknij przycisk **Importuj schemat** na karcie **projekcja** . Pozwoli to na odwoływanie się do nazw kolumn i typów danych określonych przez korpus. Aby zaimportować schemat, [sesja debugowania przepływu danych](concepts-data-flow-debug-mode.md) musi być aktywna.
+CDM jest dostępny tylko jako Wbudowany zestaw danych i domyślnie nie ma skojarzonego schematu. Aby uzyskać metadane kolumny, kliknij przycisk **Importuj schemat** na karcie **projekcja** . Pozwoli to na odwoływanie się do nazw kolumn i typów danych określonych przez korpus. Aby zaimportować schemat, [sesja debugowania przepływu danych](concepts-data-flow-debug-mode.md) musi być aktywna i trzeba mieć istniejący plik definicji jednostki CDM.
 
+> [!NOTE]
+>  W przypadku używania model.jsw typie źródłowym, który pochodzi z przepływów danych Power BI lub platformy, może wystąpić błąd "ścieżka korpus jest pusta lub równa null" z transformacji źródłowej. Jest to prawdopodobnie spowodowane problemami z formatowaniem ścieżki lokalizacji partycji w model.jspliku. Aby rozwiązać ten problem, wykonaj następujące kroki: 
+
+1. Otwórz model.jsw pliku w edytorze tekstu
+2. Znajdź partycje. Location — właściwość 
+3. Zmień wartość "blob.core.windows.net" na "dfs.core.windows.net"
+4. Popraw dowolne kodowanie "% 2F" w adresie URL do "/"
+ 
 
 ### <a name="cdm-source-data-flow-script-example"></a>Przykład skryptu przepływu danych źródła CDM
 

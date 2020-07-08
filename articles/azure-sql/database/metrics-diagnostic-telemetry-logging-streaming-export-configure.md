@@ -2,7 +2,7 @@
 title: Konfigurowanie przesyłania strumieniowego eksportu metryk i dzienników zasobów
 description: Dowiedz się, jak skonfigurować eksportowanie strumieniowe metryk i dzienników zasobów, w tym inteligentną analizę diagnostyki z Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL do miejsca docelowego w celu przechowywania informacji dotyczących wykorzystania zasobów i statystyk wykonywania zapytań.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 49550453885ebaba40380a4675ace8fb012fcaa1
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085603"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -133,9 +133,9 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla 
 > [!IMPORTANT]
 > Oprócz konfigurowania telemetrii diagnostyki dla puli elastycznej należy również skonfigurować telemetrię diagnostyki dla każdej bazy danych w puli elastycznej.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Pojedyncze i w puli baz danych w Azure SQL Database
+### <a name="databases-in-azure-sql-database"></a>Bazy danych w Azure SQL Database
 
-Istnieje możliwość skonfigurowania jednego lub puli zasobów bazy danych, aby zebrać następujące dane telemetryczne diagnostyki:
+Można skonfigurować zasób bazy danych, aby zebrać następujące dane telemetryczne diagnostyki:
 
 | Zasób | Monitorowanie telemetrii |
 | :------------------- | ------------------- |

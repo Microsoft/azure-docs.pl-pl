@@ -5,13 +5,14 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: e9438e2e82a6d903b74973fe489b0a67d66c9a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84296956"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085858"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -69,7 +70,7 @@ Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 
 1. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
-    | Konfigurowanie | Wartość |
+    | Konfiguracja | Wartość |
     |----|----|
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Ustaw odpowiedni katalog przemieszczania zgodny z systemem plików HDFS. Jeśli istnieją dwa różne klastry, katalog przemieszczania powinien być folderem w katalogu przemieszczania konta magazynu klastra LLAP, dzięki czemu serwera hiveserver2 ma do niego dostęp.  Zastąp ciąg `STORAGE_ACCOUNT_NAME` nazwą konta magazynu używanego przez klaster i `STORAGE_CONTAINER_NAME` nazwą kontenera magazynu. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| Wartość uzyskana wcześniej od **serwera hiveserver2 Interactive JDBC URL** |
@@ -90,7 +91,7 @@ Poza konfiguracjami wymienionymi w poprzedniej sekcji Dodaj następującą konfi
 
 1. Zaktualizuj poniższą właściwość.
 
-    | Konfigurowanie | Wartość |
+    | Konfiguracja | Wartość |
     |----|----|
     | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     

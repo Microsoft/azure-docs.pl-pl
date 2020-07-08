@@ -2,20 +2,20 @@
 title: Powiadomienie o migracji ruchu bramy
 description: Artykuł zawiera powiadomienie dla użytkowników o migracji adresów IP bramy Azure SQL Database
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: d9ec21657f871211df575b56ff56962aad3f5c88
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324719"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084957"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,10 +24,25 @@ Ze względu na to, że infrastruktura platformy Azure jest ulepszona, firma Micr
 
 Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal również z wyprzedzeniem o wszelkich zmianach bram dostępnych w poszczególnych regionach. Najbardziej aktualne informacje będą przechowywane w tabeli [adresy IP bramy Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses) .
 
-## <a name="impact-of-this-change"></a>Wpływ tej zmiany
+## <a name="status-updates"></a>Aktualizacje stanu
 
-Pierwsza część migracji ruchu do nowszych bram jest zaplanowana na **14 października 2019** w następujących regionach:
+# <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
 
+### <a name="august-2020"></a>2020 sierpnia
+
+Nowe bramy SQL są dodawane do następujących regionów:
+
+- Australia Wschodnia: 13.70.112.9
+- Kanada Środkowa: 52.246.152.0, 20.38.144.1 
+- Zachodnie stany USA 2:40.78.240.8
+
+Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020. 
+
+# <a name="completed"></a>[Zakończone](#tab/completed-ip)
+
+Następujące migracje bramy zostały ukończone: 
+
+### <a name="october-2019"></a>Październik 2019 r.
 - Brazylia Południowa
 - Zachodnie stany USA
 - Europa Zachodnia
@@ -42,11 +57,16 @@ Pierwsza część migracji ruchu do nowszych bram jest zaplanowana na **14 paźd
 - Wschodnie stany USA 2
 - Azja Wschodnia
 
-Migracja ruchu zmieni publiczny adres IP, który serwer DNS rozpoznaje dla bazy danych w Azure SQL Database.
-Będzie to miało wpływ na następujące działania:
+---
+
+## <a name="impact-of-this-change"></a>Wpływ tej zmiany
+
+Migracja ruchu może zmienić publiczny adres IP rozpoznawany przez system DNS dla bazy danych w Azure SQL Database.
+Może mieć to wpływ na następujące działania:
 
 - Sztywno zakodowany adres IP dla każdej konkretnej bramy w zaporze lokalnej
-- Wszystkie podsieci używające programu Microsoft. SQL jako punktu końcowego usługi, ale nie mogą komunikować się z adresami IP bramy
+- Istnieją podsieci używające programu Microsoft. SQL jako punktu końcowego usługi, ale nie mogą komunikować się z adresami IP bramy
+- Używanie [nadmiarowej konfiguracji strefy](high-availability-sla.md#zone-redundant-configuration) dla bazy danych
 
 Nie będzie to miało wpływu na następujące warunki:
 

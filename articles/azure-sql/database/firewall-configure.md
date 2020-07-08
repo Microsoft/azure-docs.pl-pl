@@ -1,6 +1,6 @@
 ---
 title: Reguły zapory adresów IP
-description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych w Azure SQL Database lub zapory usługi Azure Synapse Analytics. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla jednej lub puli baz danych.
+description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych w Azure SQL Database lub zapory usługi Azure Synapse Analytics. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085110"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

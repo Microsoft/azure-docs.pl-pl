@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: a9bc0564a69124618d0a7e3ff6bafb65b2be0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083999"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
 
@@ -57,7 +57,7 @@ W portalu pole punkt końcowy zgodny z centrum zdarzeń zawiera pełne parametry
 | Nazwa hosta | abcd1234namespace.servicebus.windows.net |
 | Przestrzeń nazw | abcd1234namespace |
 
-Następnie można użyć dowolnych zasad dostępu współdzielonego z uprawnieniami **Serviceconnect** , aby nawiązać połączenie z określonym centrum zdarzeń.
+Następnie możesz wybrać wszystkie zasady dostępu współdzielonego z listy rozwijanej, jak pokazano na poniższym zrzucie ekranu. Pokazuje tylko zasady, które mają uprawnienia **serviceconnect** do nawiązywania połączenia z określonym centrum zdarzeń.
 
 Zestawy SDK, których można użyć do nawiązania połączenia z wbudowanym punktem końcowym zgodnym z centrum zdarzeń, który IoT Hub uwidacznia:
 

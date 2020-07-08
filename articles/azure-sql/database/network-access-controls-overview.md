@@ -1,7 +1,7 @@
 ---
 title: Kontrola dostępu do sieci
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Przegląd sposobu zarządzania dostępem do sieci Azure SQL Database i Azure SQL Data Warehouse (dawniej Azure SQL Data Warehouse).
+description: Przegląd sposobu zarządzania dostępem do sieci Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 3a88ce96ca95bd02481558597bcc8082adf7c975
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343986"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085467"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Jednak ma to wpływ na następujące funkcje, które są uruchamiane na maszynac
 
 ### <a name="import-export-service"></a>Importuj usługę eksportu
 
-Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając program sqlpackage. exe z maszyny wirtualnej platformy Azure lub wykonując eksport](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ### <a name="data-sync"></a>Synchronizacja danych
 
@@ -82,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Funkcja Get-AzNetworkServiceTag zwraca globalny zakres dla tagu usługi SQL pomimo określenia parametru Location. Pamiętaj, aby przefiltrować go do regionu, który hostuje bazę danych centrum używaną przez daną grupę synchronizacji
 
-Należy pamiętać, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Classless Inter-Domain Routing). Ten element musi zostać przekonwertowany do formatu początkowego i końcowego adresu IP za pomocą [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) w następujący sposób:
+Należy pamiętać, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Classless Inter-Domain Routing). Należy ją przekonwertować na format początkowy i końcowy adresu IP, używając [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) jak to:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -106,7 +106,7 @@ Teraz można je dodać jako odrębne reguły zapory, a następnie ustawić opcj�
 
 ## <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
-Zapora oparta na protokole IP to funkcja logicznego programu SQL Server na platformie Azure, która uniemożliwia dostęp do serwera bazy danych, dopóki nie zostaną jawnie [dodane adresy IP](firewall-create-server-level-portal-quickstart.md) komputerów klienckich.
+Zapora oparta na protokole IP to funkcja logicznego programu SQL Server na platformie Azure, która uniemożliwia dostęp do serwera do momentu jawnego [dodawania adresów IP](firewall-create-server-level-portal-quickstart.md) komputerów klienckich.
 
 ## <a name="virtual-network-firewall-rules"></a>Reguły zapory sieci wirtualnej
 
@@ -131,7 +131,7 @@ Należy pamiętać o następujących kwestiach dotyczących sieci platformy Azur
 
 Zapora Azure SQL Database umożliwia określenie zakresów adresów IP, z których ma zostać zaakceptowana komunikacja, SQL Database. To podejście jest odpowiednie dla stabilnych adresów IP, które są poza siecią prywatną platformy Azure. Jednak maszyny wirtualne w sieci prywatnej platformy Azure są skonfigurowane przy użyciu *dynamicznych* adresów IP. Dynamiczne adresy IP mogą ulec zmianie po ponownym uruchomieniu maszyny wirtualnej i w wyniku unieważnienia reguły zapory opartej na protokole IP. Folly do określenia dynamicznego adresu IP w regule zapory w środowisku produkcyjnym.
 
-To ograniczenie można obejść, uzyskując *statyczny* adres IP dla maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu Azure Portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali.
+To ograniczenie można obejść, uzyskując *statyczny* adres IP dla maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP przy użyciu Azure Portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali.
 
 Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania dostępem z określonej podsieci zawierającej maszyny wirtualne.
 

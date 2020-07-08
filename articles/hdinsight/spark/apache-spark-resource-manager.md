@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 3aab89f86dcd48328771cd0fda03d1c9de4bc2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75932105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085195"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Zarządzanie zasobami klastra Apache Spark w usłudze Azure HDInsight
 
@@ -34,17 +34,17 @@ Za pomocą interfejsu użytkownika PRZĘDZy można monitorować aplikacje, któr
     ![Uruchom interfejs użytkownika PRZĘDZy](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. W interfejsie użytkownika Ambari **Przejdź do** > **łącza szybkie linki** > do usługi**Active** > **Menedżer zasobów**.
+   > Alternatywnie można również uruchomić interfejs użytkownika PRZĘDZy z interfejsu użytkownika Ambari. W interfejsie użytkownika Ambari **Przejdź do**  >  **łącza szybkie linki**do usługi  >  **Active**  >  **Menedżer zasobów**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Optymalizowanie klastrów dla aplikacji platformy Spark
 
-Trzy kluczowe parametry, które mogą być używane do konfiguracji platformy Spark w zależności od wymagań aplikacji `spark.executor.instances`to `spark.executor.cores`, i `spark.executor.memory`. Program wykonujący to proces uruchomiony dla aplikacji platformy Spark. Jest on uruchamiany w węźle procesu roboczego i jest odpowiedzialny za wykonywanie zadań aplikacji. Domyślna liczba modułów wykonujących i rozmiary wykonawców dla każdego klastra jest obliczana na podstawie liczby węzłów procesu roboczego i rozmiaru węzła procesu roboczego. Te informacje są przechowywane w `spark-defaults.conf` węzłach głównych klastra.
+Trzy kluczowe parametry, które mogą być używane do konfiguracji platformy Spark w zależności od wymagań aplikacji to `spark.executor.instances` , `spark.executor.cores` i `spark.executor.memory` . Program wykonujący to proces uruchomiony dla aplikacji platformy Spark. Jest on uruchamiany w węźle procesu roboczego i jest odpowiedzialny za wykonywanie zadań aplikacji. Domyślna liczba modułów wykonujących i rozmiary wykonawców dla każdego klastra jest obliczana na podstawie liczby węzłów procesu roboczego i rozmiaru węzła procesu roboczego. Te informacje są przechowywane w `spark-defaults.conf` węzłach głównych klastra.
 
 Trzy parametry konfiguracji można skonfigurować na poziomie klastra (dla wszystkich aplikacji uruchamianych w klastrze) lub można je określić również dla poszczególnych aplikacji.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Zmień parametry za pomocą interfejsu Ambari
 
-1. W interfejsie użytkownika Ambari przejdź do opcji **Spark2** > **config** > **Custom Spark2-Defaults (ustawienia domyślne**).
+1. W interfejsie użytkownika Ambari przejdź do opcji **Spark2**  >  **config**  >  **Custom Spark2-Defaults (ustawienia domyślne**).
 
     ![Ustawianie parametrów przy użyciu niestandardowych Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ustawianie parametrów przy użyciu niestandardowych Ambari")
 
@@ -62,34 +62,40 @@ W przypadku aplikacji uruchamianych w notesie Jupyter można użyć `%%configure
 
 Poniższy fragment kodu przedstawia sposób zmiany konfiguracji aplikacji działającej w Jupyter.
 
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```scala
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```
 
 Parametry konfiguracji muszą zostać przesłane jako ciąg JSON i muszą znajdować się w następnym wierszu po Magic, jak pokazano w przykładowej kolumnie.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Zmiana parametrów dla aplikacji przesłanej przy użyciu platformy Spark — przesyłanie
 
-Poniższe polecenie stanowi przykład zmiany parametrów konfiguracji dla aplikacji usługi Batch przesłanej przy użyciu `spark-submit`.
+Poniższe polecenie stanowi przykład zmiany parametrów konfiguracji dla aplikacji usługi Batch przesłanej przy użyciu `spark-submit` .
 
-    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```scala
+spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Zmiana parametrów dla aplikacji przesłanej przy użyciu narzędzia zwinięcie
 
 Poniższe polecenie stanowi przykład zmiany parametrów konfiguracji dla aplikacji usługi Batch przesłanej przy użyciu zwinięcia.
 
-    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```bash
+curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Zmień te parametry na serwerze Spark Thrift
 
 Serwer Spark Thrift zapewnia dostęp JDBC/ODBC do klastra Spark i służy do obsługi zapytań Spark SQL. Narzędzia, takie jak Power BI, Tableau i tak dalej, używają protokołu ODBC do komunikacji z serwerem Spark Thrift w celu wykonywania zapytań Spark SQL jako aplikacji platformy Spark. Po utworzeniu klastra Spark dwa wystąpienia serwera Spark Thrift są uruchamiane, jeden w każdym węźle głównym. Każdy serwer Spark Thrift jest widoczny jako aplikacja Spark w interfejsie użytkownika z PRZĘDZą.
 
-Serwer Spark Thrift korzysta z dynamicznej alokacji modułu wykonawczego platformy `spark.executor.instances` Spark, w związku z czym nie jest używany. Zamiast tego serwer Spark Thrift używa `spark.dynamicAllocation.maxExecutors` programu `spark.dynamicAllocation.minExecutors` i do określenia liczby programów wykonujących. Parametry `spark.executor.cores`konfiguracji i `spark.executor.memory` są używane do modyfikowania rozmiaru programu wykonującego. Te parametry można zmienić, jak pokazano w następujących krokach:
+Serwer Spark Thrift korzysta z dynamicznej alokacji modułu wykonawczego platformy Spark, w związku z czym `spark.executor.instances` nie jest używany. Zamiast tego serwer Spark Thrift używa `spark.dynamicAllocation.maxExecutors` `spark.dynamicAllocation.minExecutors` programu i do określenia liczby programów wykonujących. Parametry konfiguracji `spark.executor.cores` i `spark.executor.memory` są używane do modyfikowania rozmiaru programu wykonującego. Te parametry można zmienić, jak pokazano w następujących krokach:
 
-* Rozwiń kategorię **Advanced spark2-Thrift-sparkconf** , aby zaktualizować parametry `spark.dynamicAllocation.maxExecutors`i. `spark.dynamicAllocation.minExecutors`
+* Rozwiń kategorię **Advanced spark2-Thrift-sparkconf** , aby zaktualizować parametry `spark.dynamicAllocation.maxExecutors` i `spark.dynamicAllocation.minExecutors` .
 
     ![Konfigurowanie serwera Spark Thrift](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Konfigurowanie serwera Spark Thrift")
 
-* Rozwiń kategorię **Custom spark2-Thrift-sparkconf** , aby zaktualizować parametry `spark.executor.cores`, i. `spark.executor.memory`
+* Rozwiń kategorię **Custom spark2-Thrift-sparkconf** , aby zaktualizować parametry `spark.executor.cores` , i `spark.executor.memory` .
 
     ![Konfigurowanie parametru serwera Spark Thrift](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Konfigurowanie parametru serwera Spark Thrift")
 
@@ -97,7 +103,7 @@ Serwer Spark Thrift korzysta z dynamicznej alokacji modułu wykonawczego platfor
 
 Pamięć sterownika serwera Spark Thrift jest skonfigurowana do 25% rozmiaru pamięci RAM węzła głównego, pod warunkiem, że całkowity rozmiar pamięci RAM węzła głównego jest większy niż 14 GB. Aby zmienić konfigurację pamięci sterownika, można użyć interfejsu użytkownika Ambari, jak pokazano na poniższym zrzucie ekranu:
 
-W interfejsie użytkownika Ambari przejdź do **Spark2** > **configs** > **Advanced Spark2-ENV**. Następnie podaj wartość **spark_thrift_cmd_opts**.
+W interfejsie użytkownika Ambari przejdź do **Spark2**  >  **configs**  >  **Advanced Spark2-ENV**. Następnie podaj wartość **spark_thrift_cmd_opts**.
 
 ## <a name="reclaim-spark-cluster-resources"></a>Odzyskiwanie zasobów klastra Spark
 
@@ -140,7 +146,7 @@ Uruchom interfejs użytkownika przędzy, jak pokazano na początku artykułu. W 
 
     ![Kasuj APP2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kasuj APP2")
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Śledzenie i debugowanie zadań uruchamianych w klastrze Apache Spark w usłudze HDInsight](apache-spark-job-debugging.md)
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791497"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085297"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optymalizowanie zapytań technologii Apache Hive w usłudze Azure HDInsight
 
@@ -122,7 +122,7 @@ Aby uzyskać więcej informacji, zobacz [partycjonowane tabele](https://cwiki.ap
 
 ## <a name="use-the-orcfile-format"></a>Użyj formatu ORCFile
 
-Program Hive obsługuje różne formaty plików. Na przykład:
+Program Hive obsługuje różne formaty plików. Przykład:
 
 * **Tekst**: domyślny format pliku i działa z większością scenariuszy.
 * **Avro**: sprawdza się najlepiej w scenariuszach współdziałania.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Następnie wstawiasz dane do tabeli ORC z tabeli przemieszczania. Na przykład:
+Następnie wstawiasz dane do tabeli ORC z tabeli przemieszczania. Przykład:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

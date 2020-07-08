@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082781"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
@@ -680,8 +680,8 @@ W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacj
 
     | Symbol zastępczy | Sugerowana wartość |
     | --- | --- |
-    | *{your_username}* | Użyj **identyfikator logowania administratora serwera** dla właśnie utworzonego serwera bazy danych. |
-    | *{your_password}* | Użyj hasła dla właśnie utworzonego serwera bazy danych. |
+    | *{your_username}* | Użyj **identyfikatora logowania administratora serwera** dla właśnie utworzonego serwera. |
+    | *{your_password}* | Użyj hasła dla właśnie utworzonego serwera. |
 
     Gdy dodasz nazwę użytkownika i hasło jako ustawienie aplikacji, wartości te nie zostaną umieszczone w kodzie. To podejście pomaga chronić te poświadczenia.
 
@@ -715,7 +715,7 @@ W tym kroku samouczka opublikujesz aktualizacje aplikacji na platformie Azure w 
 
 Klikaj różne akcje i eksperymentuj z pobieraniem danych z różnych źródeł. Zwróć uwagę na różnice czasu, który jest potrzebny do realizacji różnych sposobów pobierania danych z bazy danych i pamięci podręcznej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć używane zasoby platformy Azure w celu oszczędności kosztów i zasobów. Wszystkie zasoby powinny być zawarte w tej samej grupie zasobów, więc można je usunąć razem w ramach jednej operacji, usuwając grupę zasobów. Instrukcje dla tego tematu korzystały z grupy zasobów o nazwie *TestResources*.
 

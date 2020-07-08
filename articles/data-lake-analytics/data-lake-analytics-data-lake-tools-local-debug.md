@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4115518c71c3695797ac051910890d24723bae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61472995"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085399"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Debuguj kod Azure Data Lake Analytics lokalnie
 
@@ -42,7 +42,9 @@ Można debugować zestawy języka C# bez przesyłania i rejestrowania ich w usł
 1. Utwórz projekt zestawu języka C# i skompiluj go w celu wygenerowania wyjściowego pliku **dll** .
 2. Zarejestruj plik **dll** przy użyciu instrukcji języka U-SQL:
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```sql
+   CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+   ```
         
 3. Ustaw punkty przerwania w kodzie C#.
 4. Wybierz klawisz **F5** , aby debugować skrypt, odwołując się do pliku **dll** języka C# lokalnie.

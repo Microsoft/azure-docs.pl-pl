@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 03bd00ad6d0262aeea31b5d3e2c6dd1733090e32
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082798"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacjonalizacja potoku analizy danych
 
@@ -235,7 +235,7 @@ Następnie zaktualizuj wartości dla określonego środowiska. Tabela poniżej t
     | nameNode | Pełna ścieżka do kontenera magazynu platformy Azure dołączonego do klastra usługi HDInsight. |
     | jobTracker | Wewnętrzna nazwa hosta do węzła głównego PRZĘDZy w klastrze. Na stronie głównej Ambari wybierz z listy usług pozycję PRZĘDZa, a następnie wybierz pozycję Active Menedżer zasobów. Identyfikator URI nazwy hosta jest wyświetlany w górnej części strony. Dołącz port 8050. |
     | Zmienną QueueName | Nazwa kolejki PRZĘDZy użyta podczas planowania akcji programu Hive. Pozostaw jako domyślny. |
-    | Oozie. use. System. LIBPATH | Pozostaw wartość true. |
+    | oozie.use.system. LIBPATH | Pozostaw wartość true. |
     | appBase | Ścieżka do podfolderu w usłudze Azure Storage, w której jest wdrażany przepływ pracy Oozie i pliki pomocnicze. |
     | Oozie. WF. Application. Path | Lokalizacja przepływu pracy Oozie `workflow.xml` do uruchomienia. |
     | hiveScriptLoadPartition | Ścieżka do pliku zapytania programu Hive w usłudze Azure Storage `hive-load-flights-partition.hql` . |
@@ -422,7 +422,9 @@ Użyj punktu połączenia usługi z sesji bash, aby wdrożyć przepływ pracy Oo
 
 1. Gdy stan ma wartość powodzenie, wykonaj zapytanie do tabeli SQL Database w celu wyświetlenia wstawionych wierszy. Korzystając z Azure Portal, przejdź do okienka dla SQL Database, wybierz pozycję **Narzędzia**, a następnie otwórz **Edytor zapytań**.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 Teraz, gdy przepływ pracy jest uruchomiony dla pojedynczego dnia testowego, możesz otoczyć ten przepływ pracy koordynatorem, który planuje przepływ pracy tak, aby był uruchamiany codziennie.
 

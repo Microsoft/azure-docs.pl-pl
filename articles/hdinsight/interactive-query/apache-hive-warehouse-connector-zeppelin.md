@@ -5,13 +5,14 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: fa90c3579e241fd6b7dc53c9df7d996402fc78a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84296895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083121"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie platformy Apache Zeppelin z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -47,7 +48,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Przejdź do **zaawansowanej**  >  **niestandardowej lokacji głównej**. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
-    | Konfigurowanie                 | Wartość |
+    | Konfiguracja                 | Wartość |
     | ----------------------------- |-------|
     | Hadoop. PROXYUSER. usługi Livy. Groups  | *     |
     | Hadoop. PROXYUSER. usługi Livy. hosty   | *     |
@@ -60,7 +61,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Rozwiń pozycję **Custom livy2-conf**. Wybierz pozycję **Dodaj właściwość...** , aby dodać następującą konfigurację:
 
-    | Konfigurowanie                 | Wartość                                      |
+    | Konfiguracja                 | Wartość                                      |
     | ----------------------------- |------------------------------------------  |
     | usługi Livy. plik. Local-dir-dozwolonych | /usr/HDP/Current/hive_warehouse_connector/ |
 
@@ -74,7 +75,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Dodaj następujące konfiguracje:
 
-    | Konfigurowanie                 | Wartość                                      |
+    | Konfiguracja                 | Wartość                                      |
     | ----------------------------- |:------------------------------------------:|
     | usługi Livy. Spark. Hadoop. Hive. llap. Demon. Service. hosts | @llap0 |
     | usługi Livy. Spark. Security. Credentials. serwera hiveserver2. Enabled | true |
@@ -88,7 +89,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. W przypadku klastrów ESP Dodaj następującą konfigurację:
 
-    | Konfigurowanie| Wartość|
+    | Konfiguracja| Wartość|
     |---|---|
     | usługi Livy. Spark. SQL. Hive. serwera hiveserver2. JDBC. URL. Principal | `hive/<llap-headnode>@<AAD-Domain>` |
 

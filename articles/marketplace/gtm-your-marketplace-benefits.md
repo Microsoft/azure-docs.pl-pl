@@ -1,18 +1,18 @@
 ---
-title: Usługi platformy "przejdź do rynku" — Twoje komercyjne korzyści z witryny Marketplace | Portal Azure Marketplace
+title: Usługi na rynku — Twoje komercyjne korzyści z witryny Marketplace, Azure Marketplace
 description: Usługi na rynku — w tej sekcji opisano zasoby firmy Microsoft, których mogą używać wydawcy.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: article
+ms.date: 07/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085688"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -26,7 +26,7 @@ Korzyści z witryny Marketplace zaprojektowano w taki sposób, aby obsługiwały
 
 Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu zaprojektowano w celu przeprowadzenia kolejnego etapu, dzięki czemu możesz rozwijać swoją firmę dla klientów firmy Microsoft, w tym firmę Microsoft, a także za pośrednictwem kanału firmowego, korzystając z komercyjnej witryny Marketplace jako platformy. 
 
-Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option).
+Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
 Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień. 
 
@@ -41,21 +41,21 @@ Szczegółowe opisy wszystkich korzyści z programu można znaleźć na [talii p
 Kroki umożliwiające rozpoczęcie pracy są proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
-2. Przejdź do [pulpitu nawigacyjnego](https://partner.microsoft.com/dashboard/directory)Centrum partnerskiego, wybierz kartę **korzyści sprzedaży i marketingu** na stronie nagrody w witrynie Marketplace, aby wyświetlić listę korzyści.
-3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, musisz najpierw przypisać kontakt z firmą marketingową firmy. Ten kontakt będzie otrzymywać monity o informacje o korzyściach z witryny Marketplace.
+2. Przejdź do [pulpitu nawigacyjnego](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)Centrum partnerskiego, Otwórz **komercyjną witrynę Marketplace** w menu po lewej stronie, wybierz pozycję **nagrody w witrynie Marketplace**, a następnie wybierz kartę **korzyści sprzedaży i marketingu** , aby wyświetlić listę korzyści.
+3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, musisz najpierw przypisać kontakt z firmą marketingową firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
 4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
 
     1. Wybierz użytkownika z listy. Jeśli użytkownik, którego chcesz przypisać, nie znajduje się na liście, możesz dodać nowych użytkowników w **ustawieniach konta**.
-    1. Podaj adres e-mail użytkownika, który jest inny niż adres e-mail skojarzony z firmowym kontem Centrum partnerskiego. Będziemy używać instrukcji poczty e-mail w przypadku korzystania z korzyści z tytułu witryny Marketplace na wskazany adres e-mail osoby kontaktowej marketingowej.
-    1. Podaj numer telefonu kontaktu i preferowany język dla tego kontaktu z marketingiem. Po zakończeniu wprowadzania tych informacji wybierz pozycję **Przypisz użytkownika**.
-    1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści kontakt z firmą marketingowej będzie kontaktować się z członkiem zespołu nagradzania w ciągu tygodnia.
+    1. Podaj adres e-mail użytkownika, który jest inny niż adres e-mail skojarzony z firmowym kontem Centrum partnerskiego. Na wyznaczony adres e-mail osoby kontaktowej ds. marketingu zostaną wysłane instrukcje dotyczące używania korzyści programu Marketplace Rewards.
+    1. Podaj numer telefonu i preferowany język osoby kontaktowej ds. marketingu. Po zakończeniu wprowadzania tych informacji wybierz pozycję **Przypisz użytkownika**.
+    1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści członek zespołu ds. programu Rewards skontaktuje się z wyznaczoną osobą w ciągu tygodnia.
 
 **Korzyści techniczne**
 
 1. Możesz skorzystać z korzyści technicznych, aby zażądać pomocy technicznej w fazie opracowywania aplikacji w chmurze i rozwiązaniach hybrydowych. Aby poprosić o pomoc, Wypełnij formularz żądania, a następnie wybierz pozycję **Prześlij żądanie**.
 2. Korzystanie z korzyści sponsorowanych przez platformę Azure będzie udostępniane za pośrednictwem poczty e-mail podczas odblokowywania tych korzyści.
 
->[!Note]
+>[!NOTE]
 >Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki. <br> <br> Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu Marketplace. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
@@ -74,7 +74,7 @@ Szczegółowe opisy wszystkich tych korzyści można znaleźć na [talii program
 
 Po przejściu na aktywną ofertę z możliwością zrealizowania w witrynie Azure Marketplace lub Microsoft AppSource można uzyskać dostęp do dodatkowych korzyści w miarę wzrostu rozliczonych transakcji sprzedaży lub miejsc sprzedawanych za pomocą komercyjnej witryny Marketplace. 
 
->[!Note]
+>[!NOTE]
 >Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2020.
 
 Te korzyści są przeznaczone do obsługi działań marketingowych, handlowych i technicznych, a tym samym pomagają Ci uzyskać więcej odwiedzających, uzyskać więcej potencjalnych klientów i przekonwertować większą działalność.
@@ -101,14 +101,14 @@ Wszystkie działania opisane na tej stronie są objęte [umową wydawcy portalu 
 
 ### <a name="cancellation-policy"></a>Zasady anulowania
 
-Wydawcy [list i wersji próbnych](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) mogą zrezygnować z działań lub zrezygnować z nich na publikację oferty. Partnerzy mogą zrezygnować z jakiegokolwiek zaangażowania w dowolnym momencie. 
+Wydawcy [list i wersji próbnych](determine-your-listing-type.md) mogą zrezygnować z działań lub zrezygnować z nich na publikację oferty. Partnerzy mogą zrezygnować z jakiegokolwiek zaangażowania w dowolnym momencie. 
 
 Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia korzyści z tytułu witryny Marketplace dla wydawców, którzy: 
 
 * Zaangażuj się w nielegalną aktywność przy użyciu swojej listy Marketplace.
-* znajdują się na liście z komercyjnej witryny Marketplace. 
+* Znajdują się na liście z komercyjnej witryny Marketplace. 
 * Skorzystaj z oferty, aby pokazać marketing lub inną zawartość, która narusza prawa autorskie lub znaki towarowe.
-* naruszanie zasad [programu sponsorowania platformy Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), w tym, ale nie ograniczone do, przy użyciu funduszy sponsorowanych przez platformę Azure w ramach własnych operacji wewnętrznych lub Bitcoin.
+* Naruszanie zasad [programu sponsorowania platformy Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), w tym, ale nie ograniczone do, przy użyciu funduszy sponsorowanych przez platformę Azure w ramach własnych operacji wewnętrznych lub Bitcoin.
 
 ### <a name="offer-availability"></a>Dostępność oferty
 
@@ -123,5 +123,3 @@ Jeśli Twoja oferta została utworzona w [centrum partnerskim](https://partner.m
 Przejrzyj [zasoby samoobsługowe dostępne dla Ciebie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Zarejestruj się, aby uzyskać informacje na temat [Microsoft AppSource i forum społeczności w witrynie Azure Marketplace](https://aka.ms/MarketplaceCommunity) oraz zapoznać się z odpowiednimi tematami lub dołączać do dyskusji.
-
----

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: 146deba7a0ef1e0dc5ffe03f9ad414e752058274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70c1b35759241c2fdf687e7b7042cf4a18232bf5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945379"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085501"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -32,7 +32,7 @@ Szczegółowe informacje zapewniają dostosowane środowisko monitorowania dla o
 [Azure Monitor dla grup zasobów (wersja zapoznawcza)](insights/resource-group-insights.md) |  Klasyfikacja i Diagnozuj wszystkie problemy napotykane przez poszczególne zasoby, a także zaoferując kontekście kondycji i wydajności grupy zasobów jako całości. |
 | [Azure Monitor magazynu](insights/storage-insights-overview.md) | Zapewnia kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. |
 | [Usługa Azure Monitor dla maszyn wirtualnych](insights/vminsights-overview.md) | Monitoruje maszyny wirtualne platformy Azure i zestawy skalowania maszyn wirtualnych na dużą skalę. Analizuje ona wydajność i kondycję Twoich maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów oraz procesów zewnętrznych. |
-| [Azure Monitor dla Key Vault (wersja zapoznawcza)](insights/key-vaults-insights-overview.md) | Povides kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony wgląd w Key Vault żądania, wydajność, błędy i opóźnienia. |
+| [Azure Monitor dla Key Vault (wersja zapoznawcza)](insights/key-vaults-insights-overview.md) | Zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony wgląd w Key Vault żądania, wydajność, błędy i opóźnienia. |
 | [Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)](insights/redis-cache-insights-overview.md) |  Zapewnia ujednolicony, interaktywny widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej. |
 
 
@@ -91,7 +91,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
 |Eksplorator danych | Tak | Tak | Nie |  |
-|Fabryka danych | Tak | Tak | Nie |  |
+|Data Factory | Tak | Tak | Nie |  |
 |Data Factory v2 | Nie | Yes | Nie |  |
 |Data Share | Nie | Nie | Nie |  |
 |Database for MariaDB | Tak | Tak | Nie |  |
@@ -109,7 +109,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Event Grid | Yes | Nie | Nie |  |
 |Event Hubs | Tak | Tak | Nie |  |
 |ExpressRoute | Tak | Tak | Nie |  |
-|Zapora | Tak | Tak | Nie |  |
+|Firewall | Tak | Tak | Nie |  |
 |Front Door | Tak | Tak | Nie |  |
 |Funkcje | Tak | Tak | Nie |  |
 |HDInsight | Nie | Yes | Nie |  |
@@ -117,8 +117,8 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Information Protection | Nie | Yes | Nie |  |
 |Intune | Nie | Yes | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
-|Usługa IoT Hub | Tak | Tak | Nie |  |
-|Usługa Key Vault | Tak | Tak | [Tak](insights/key-vaults-insights-overview.md) |  |
+|IoT Hub | Tak | Tak | Nie |  |
+|Key Vault | Tak | Tak | [Tak](insights/key-vaults-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
 |Load Balancer | Tak | Tak | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
@@ -131,31 +131,31 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Microsoft PowerApps | Nie | Nie | Nie |  |
 |Microsoft Social Engagement | Nie | Nie | Nie |  |
 |Usługa Microsoft Stream | Tak | Tak | Nie |  |
-|Migrate (Migracja) | Nie | Nie | Nie |  |
+|Migrate | Nie | Nie | Nie |  |
 |Multi-Factor Authentication | Nie | Yes | Nie |  |
 |Network Watcher | Tak | Tak | Nie |  |
 |Notification Hubs | Yes | Nie | Nie |  |
 |Open Datasets | Nie | Nie | Nie |  |
 |Zasady | Nie | Nie | Nie |  |
 |Power BI Embedded | Tak | Tak | Nie |  |
-|Link prywatny | Nie | Nie | Nie |  |
+|Private Link | Nie | Nie | Nie |  |
 |Platforma komunikacji buforu projektu | Nie | Nie | Nie |  |
 |Red Hat OpenShift | Nie | Nie | Nie |  |
 |Redis Cache | Tak | Tak | [Tak](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | Nie | Nie | Nie |  |
 |Resource Manager | Nie | Nie | Nie |  |
 |Wyszukiwanie detaliczne — według Bing | Nie | Nie | Nie |  |
-|Wyszukiwanie | Tak | Tak | Nie |  |
+|Wyszukaj | Tak | Tak | Nie |  |
 |Service Bus | Tak | Tak | Nie |  |
 |Service Fabric | Nie | Yes | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Portal rejestracji | Nie | Nie | Nie |  |
 |Site Recovery | Nie | Yes | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |SQL Data Warehouse | Tak | Tak | Nie |  |
-|Baza danych SQL | Tak | Tak | Nie |  |
+|SQL Database | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Magazyn | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Storage | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |
@@ -184,7 +184,7 @@ Usługi i rozwiązania w poniższej tabeli przechowują swoje dane w Log Analyti
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Utwórz ustawienie diagnostyczne, aby wysłać dzienniki do Azure Monitor. Zobacz [wysyłanie danych dzienników do magazynu, centrów zdarzeń lub usługi log Analytics w usłudze Intune (wersja zapoznawcza)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Sieć  | [Network Performance Monitor](insights/network-performance-monitor.md) — Monitorowanie łączności sieciowej i wydajności do punktów końcowych usługi i aplikacji.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) — analizowanie dzienników i metryk z usługi Azure Application Gateway.<br>[Analiza ruchu](/azure/network-watcher/traffic-analytics) — analizuje dzienniki przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) Network Watcher, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. |
 | [Office 365](insights/solution-office-365.md) | Monitoruj środowisko pakietu Office 365. Zaktualizowana wersja z ulepszonym dołączaniem dostępnym za pomocą platformy Azure — wskaźnikiem. |
-| [Analiza SQL](insights/azure-sql.md) | Monitoruj wydajność baz danych SQL Azure, pul elastycznych i wystąpień zarządzanych na dużą skalę i w wielu subskrypcjach. |
+| [Analiza SQL](insights/azure-sql.md) | Monitoruj wydajność baz danych SQL Azure i wystąpień zarządzanych SQL na dużą skalę i w wielu subskrypcjach. |
 | [Surface Hub](insights/surface-hubs.md) | Śledź kondycję i użycie urządzeń Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Zbierz dane z agentów Operations Manager, łącząc ich grupę zarządzania z Azure Monitor. Zobacz [łączenie Operations Manager do Azure monitor](platform/om-agents.md)<br> Oceń ryzyko i kondycję System Center Operations Manager grupy zarządzania, korzystając z rozwiązania do [oceny Operations Manager](insights/scom-assessment.md) . |
 | [Pokoje Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Zintegrowane, kompleksowe zarządzanie urządzeniami pokojów Microsoft Teams. |
