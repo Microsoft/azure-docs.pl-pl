@@ -4,10 +4,9 @@ description: Dowiedz się, jak używać interfejsu API REST do przywracania udzi
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710579"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Przywracanie udziałów plików platformy Azure przy użyciu interfejsu API REST

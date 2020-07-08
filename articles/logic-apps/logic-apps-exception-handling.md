@@ -9,13 +9,12 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84704526"
 ---
-# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Obsługa błędów i wyjątków w Azure Logic Apps
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Obsługa błędów i wyjątków w usłudze Azure Logic Apps
 
 Sposób, w jaki każda architektura integracji odpowiednio obsługuje przestoje lub problemy spowodowane przez systemy zależne mogą stanowić wyzwanie. Aby ułatwić tworzenie niezawodnych i odpornych integracji, które bezpiecznie obsługują problemy i błędy, Logic Apps zapewnia środowisko pierwszej klasy do obsługi błędów i wyjątków.
 
@@ -71,17 +70,17 @@ Można też ręcznie określić zasady ponawiania w `inputs` sekcji dla akcji lu
 
 | Wartość | Typ | Opis |
 |-------|------|-------------|
-| <*retry-typ zasad*> | Ciąg | Typ zasad ponawiania próby, którego chcesz użyć: `default` , `none` , `fixed` lub`exponential` |
-| <*Ponawianie interwału*> | Ciąg | Interwał ponawiania, w którym wartość musi używać [formatu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Domyślny interwał minimalny to `PT5S` i maksymalny interwał to `PT1D` . Korzystając z zasad interwału wykładniczego, można określić różne wartości minimalne i maksymalne. |
-| <*Ponawianie prób*> | Liczba całkowita | Liczba ponownych prób, które muszą zawierać się w przedziale od 1 do 90 |
+| <*retry-typ zasad*> | String | Typ zasad ponawiania próby, którego chcesz użyć: `default` , `none` , `fixed` lub`exponential` |
+| <*Ponawianie interwału*> | String | Interwał ponawiania, w którym wartość musi używać [formatu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Domyślny interwał minimalny to `PT5S` i maksymalny interwał to `PT1D` . Korzystając z zasad interwału wykładniczego, można określić różne wartości minimalne i maksymalne. |
+| <*Ponawianie prób*> | Integer | Liczba ponownych prób, które muszą zawierać się w przedziale od 1 do 90 |
 ||||
 
 *Opcjonalne*
 
 | Wartość | Typ | Opis |
 |-------|------|-------------|
-| <*minimalny interwał*> | Ciąg | Dla zasad interwału wykładniczego najmniejszy interwał dla losowo wybranego interwału w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*maksimum — interwał*> | Ciąg | Dla zasad interwałów wykładniczych największy interwał dla losowo wybranego interwału w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*minimalny interwał*> | String | Dla zasad interwału wykładniczego najmniejszy interwał dla losowo wybranego interwału w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <*maksimum — interwał*> | String | Dla zasad interwałów wykładniczych największy interwał dla losowo wybranego interwału w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
 Poniżej znajduje się więcej informacji na temat różnych typów zasad.

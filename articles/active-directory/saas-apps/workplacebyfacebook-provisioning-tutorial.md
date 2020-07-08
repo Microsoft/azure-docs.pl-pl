@@ -16,10 +16,9 @@ ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84718613"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
@@ -108,28 +107,28 @@ Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, kt�
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |displayName|Ciąg|
-   |aktywne|Wartość logiczna|
-   |tytuł|Wartość logiczna|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |addresss [Type EQ "Work"]. Country|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
-   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |externalId|Ciąg|
-   |preferredLanguage|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |userName|String|
+   |displayName|String|
+   |aktywne|Boolean|
+   |tytuł|Boolean|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. sformatowana|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |addresss [Type EQ "Work"]. Country|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |adresy [Type EQ "Other"]. sformatowane|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |externalId|String|
+   |preferredLanguage|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

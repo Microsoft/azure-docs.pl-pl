@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708284"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
@@ -57,7 +56,7 @@ Istnieje ograniczenie dotyczące liczby grup zabezpieczeń sieci, które można 
     | **Subskrypcja** | Wybierz subskrypcję. |
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. |
     | **Nazwa** | Wprowadź unikatowy ciąg tekstowy w grupie zasobów. |
-    | **Region** | Wybierz żądaną lokalizację. |
+    | **Okolicy** | Wybierz żądaną lokalizację. |
 
 4. Wybierz pozycję **Przegląd + utwórz**.
 
@@ -275,7 +274,7 @@ Grupa zabezpieczeń aplikacji zawiera co najmniej jeden interfejs sieciowy. Aby 
     | **Subskrypcja** | Wybierz subskrypcję. |
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. |
     | **Nazwa** | Wprowadź unikatowy ciąg tekstowy w grupie zasobów. |
-    | **Region** | Wybierz żądaną lokalizację. |
+    | **Okolicy** | Wybierz żądaną lokalizację. |
 
 5. Wybierz pozycję **Przegląd + utwórz**.
 

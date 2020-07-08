@@ -13,10 +13,9 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710154"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
@@ -335,12 +334,12 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | DOKŁADNOŚCI |Wartość dziesiętna |
 | LICZBA RZECZYWISTA |Pojedyncze |
 | PODWÓJNA PRECYZJA |Double |
-| TYPU |Ciąg |
-| DELIKATN |Ciąg |
-| VARCHAR |Ciąg |
+| TYPU |String |
+| DELIKATN |String |
+| VARCHAR |String |
 | DATE |DateTime |
 | ZNACZNIK czasu |DateTime |
-| TEKST |Ciąg |
+| TEKST |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się, jak mapować kolumny w źródłowym zestawie danych na kolumny w zestawie danych ujścia, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

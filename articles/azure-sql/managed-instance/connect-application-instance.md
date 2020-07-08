@@ -13,10 +13,9 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84706379"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
@@ -30,7 +29,7 @@ Niezależnie od dokonanego wyboru możesz połączyć go z wystąpieniem zarząd
 
 ![Wysoka dostępność](./media/connect-application-instance/application-deployment-topologies.png)
 
-W tym artykule opisano sposób łączenia aplikacji z wystąpieniem zarządzanym usługi Azure SQL w wielu różnych scenariuszach aplikacji. 
+W tym artykule opisano sposób łączenia aplikacji z usługą Azure SQL Managed Instance w wielu różnych scenariuszach aplikacji. 
 
 ## <a name="connect-inside-the-same-vnet"></a>Połącz wewnątrz tej samej sieci wirtualnej
 

@@ -18,10 +18,9 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708216"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -353,7 +352,7 @@ Odmowa dostępu i pojawienie się `mount error(13): Permission denied` błędu, 
 
 Wyjdź z sesji SSH na maszynę wirtualną *myVmPublic* .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 

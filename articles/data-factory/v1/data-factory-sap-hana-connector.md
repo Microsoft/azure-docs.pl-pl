@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84707144"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Przenoszenie danych z SAP HANA przy użyciu Azure Data Factory
@@ -291,10 +290,10 @@ LICZBA RZECZYWISTA | Pojedyncze
 DOUBLE | Pojedyncze
 DOKŁADNOŚCI | Wartość dziesiętna
 TYPU | Byte
-VARCHAR | Ciąg
-NVARCHAR | Ciąg
+VARCHAR | String
+NVARCHAR | String
 OBIEKTÓW CLOB | Byte []
-ALPHANUM | Ciąg
+ALPHANUM | String
 TWORZENIA | Byte []
 DATE | DateTime
 CZAS | przedział_czasu

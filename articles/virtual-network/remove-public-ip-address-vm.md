@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: allensu
 ms.openlocfilehash: b171699a0c578b3761e58f6e0e977199369864a8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709967"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Usuń skojarzenie publicznego adresu IP z maszyny wirtualnej platformy Azure 
