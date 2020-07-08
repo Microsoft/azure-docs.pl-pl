@@ -10,10 +10,9 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ebd4bf0ff91342229edb4295489f0cbd0970699a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745030"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Zarządzanie certyfikatami w Azure Automation

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726166"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Wdrażanie i monitorowanie modułów IoT Edge na dużą skalę przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -148,7 +147,7 @@ Poniżej przedstawiono podstawowy manifest wdrożenia warstwowego z jednym modu�
 }
 ```
 
-W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Na przykład:
+W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Przykład:
 
 ```json
 "SimulatedTEmperatureSensor": {

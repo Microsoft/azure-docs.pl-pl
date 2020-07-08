@@ -12,10 +12,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83659233"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
@@ -173,7 +172,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -190,7 +189,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -403,7 +402,7 @@ Aby zaktualizować konkretny obiekt Statystyczny, należy użyć następującej 
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -419,7 +418,7 @@ Prostą metodą aktualizowania wszystkich obiektów statystyk w tabeli jest:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -522,7 +521,7 @@ Ten prosty przykład przedstawia wszystkie trzy części obiektu statystyki:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -537,7 +536,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -652,7 +651,7 @@ Aby utworzyć statystyki dla kolumny, podaj zapytanie, które zwraca kolumnę, d
 
 Domyślnie, jeśli nie określisz inaczej, funkcja SQL na żądanie będzie używać 100% danych udostępnionych w zestawie danych podczas tworzenia statystyk.
 
-Na przykład, aby utworzyć statystyki z opcjami domyślnymi (FULLSCAN) dla kolumny Year zestawu danych na podstawie pliku populacji. CSV:
+Na przykład, aby utworzyć statystyki z opcjami domyślnymi (FULLSCAN) dla kolumny Year zestawu danych na podstawie pliku population.csv:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -720,7 +719,7 @@ sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 
 Argumenty: [ @stmt =] N "statement_text" — określa tę samą instrukcję Transact-SQL używaną podczas tworzenia statystyk.
 
-Aby zaktualizować statystyki dla kolumny Year w zestawie danych, która jest oparta na pliku populacji. csv, należy porzucić i utworzyć statystyki:
+Aby zaktualizować statystyki dla kolumny Year w zestawie danych, która jest oparta na pliku population.csv, należy porzucić i utworzyć statystyki:
 
 ```sql
 EXEC sys.sp_drop_file_statistics N'SELECT payment_type

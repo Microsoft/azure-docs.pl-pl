@@ -4,10 +4,9 @@ description: Opisuje sposób rozwiązywania typowych błędów, które mogą wys
 ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83697066"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych baz danych SAP HANA na platformie Azure

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680887"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Rozwiązywanie problemów z zasobami udostępnionymi
@@ -76,15 +75,15 @@ Niektóre typowe przyczyny, że moduł nie został pomyślnie zaimportowany do A
 
 Aby rozwiązać ten problem, użyj dowolnego z tych rozwiązań:
 
-* Upewnij się, że moduł jest zgodny z formatem: ModuleName. zip-> ModuleName lub numer wersji — > (ModuleName. PSM1, ModuleName. psd1).
+* Upewnij się, że moduł jest zgodny z formatem: ModuleName.zip-> ModuleName lub Version Number-> (ModuleName. PSM1, ModuleName.psd1).
 * Otwórz plik **. psd1** i sprawdź, czy moduł ma jakiekolwiek zależności. Jeśli tak, Przekaż te moduły do konta usługi Automation.
 * Upewnij się, że wszystkie pliki **dll** , do których istnieją odwołania, znajdują się w folderze modułu.
 
-### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scenariusz: Update-AzureModule. ps1 zawiesza się podczas aktualizowania modułów
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scenariusz: Update-AzureModule.ps1 zawiesza się podczas aktualizowania modułów
 
 #### <a name="issue"></a>Problem
 
-Gdy korzystasz z elementu Runbook [Update-AzureModule. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) do aktualizowania modułów platformy Azure, proces aktualizacji modułu zostanie zawieszony.
+Gdy korzystasz z elementu Runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) do aktualizowania modułów platformy Azure, proces aktualizacji modułu zostanie zawieszony.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -97,7 +96,7 @@ Nie jest powszechne, że wszystkie moduły AzureRM lub AZ są wymagane na tym sa
 > [!NOTE]
 > Należy unikać importowania całości `Az.Automation` lub `AzureRM.Automation` modułu, który importuje wszystkie zawarte moduły.
 
-Jeśli proces aktualizacji zawiesza się, Dodaj `SimultaneousModuleImportJobCount` parametr do skryptu **Update-AzureModules. ps1** i podaj niższą wartość od wartości domyślnej 10. W przypadku zaimplementowania tej logiki spróbuj rozpocząć od wartości 3 lub 5. `SimultaneousModuleImportJobCount`jest parametrem elementu Runbook programu **Update-AutomationAzureModulesForAccount** , który jest używany do aktualizowania modułów platformy Azure. W przypadku wprowadzenia tej korekty proces aktualizacji zostanie uruchomiony dłużej, ale ma lepszą szansę na ukończenie. Poniższy przykład przedstawia parametr i miejsce umieszczenia go w elemencie Runbook:
+Jeśli proces aktualizacji zawiesza się, Dodaj `SimultaneousModuleImportJobCount` parametr do skryptu **Update-AzureModules.ps1** i podaj niższą wartość od wartości domyślnej 10. W przypadku zaimplementowania tej logiki spróbuj rozpocząć od wartości 3 lub 5. `SimultaneousModuleImportJobCount`jest parametrem elementu Runbook programu **Update-AutomationAzureModulesForAccount** , który jest używany do aktualizowania modułów platformy Azure. W przypadku wprowadzenia tej korekty proces aktualizacji zostanie uruchomiony dłużej, ale ma lepszą szansę na ukończenie. Poniższy przykład przedstawia parametr i miejsce umieszczenia go w elemencie Runbook:
 
  ```powershell
          $Body = @"
@@ -138,7 +137,7 @@ Aby utworzyć lub zaktualizować konto Uruchom jako, musisz mieć odpowiednie [u
 
 Jeśli problem wynika z blokady, sprawdź, czy można usunąć blokadę. Następnie przejdź do zasobu, który jest zablokowany w Azure Portal, kliknij prawym przyciskiem myszy blokadę, a następnie wybierz pozycję **Usuń**.
 
-### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenariusz: komunikat o błędzie "nie można odnaleźć punktu wejścia o nazwie" GetPerAdapterInfo "w bibliotece DLL" iplpapi. dll "" podczas wykonywania elementu Runbook
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenariusz: Wystąpił błąd "nie można odnaleźć punktu wejścia o nazwie" GetPerAdapterInfo "w bibliotece DLL" iplpapi.dll "" podczas wykonywania elementu Runbook
 
 #### <a name="issue"></a>Problem
 

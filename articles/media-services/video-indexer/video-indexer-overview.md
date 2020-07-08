@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
 ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744606"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?

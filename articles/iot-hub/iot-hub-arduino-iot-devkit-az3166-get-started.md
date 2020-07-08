@@ -10,10 +10,9 @@ ms.date: 06/25/2019
 ms.author: wesmc
 ms.custom: mqtt
 ms.openlocfilehash: 63fa7481b96f8a606893b76b66f8c414a54cdb82
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714818"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Łączenie usługi IoT DevKit AZ3166 z platformą Azure IoT Hub

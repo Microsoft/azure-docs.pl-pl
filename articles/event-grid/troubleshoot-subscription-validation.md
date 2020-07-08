@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: spelluru
 ms.openlocfilehash: f292d70eaaca29e714ea35b4f61a141b2d5cd2b6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83778712"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Rozwiązywanie problemów z walidacją subskrypcji Azure Event Grid

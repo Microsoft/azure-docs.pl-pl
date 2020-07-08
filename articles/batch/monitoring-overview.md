@@ -4,10 +4,9 @@ description: Dowiedz się więcej na temat usług monitorowania platformy Azure,
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83723531"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorowanie rozwiązań usługi Batch
@@ -33,7 +32,7 @@ Monitoruj każde konto usługi Batch przy użyciu funkcji [Azure monitor](../azu
 
 ## <a name="batch-resource-monitoring"></a>Monitorowanie zasobów wsadowych
 
-W aplikacjach wsadowych należy używać interfejsów API programu Batch do monitorowania stanu zasobów, takich jak zadania, zadania, węzły i pule. Na przykład:
+W aplikacjach wsadowych należy używać interfejsów API programu Batch do monitorowania stanu zasobów, takich jak zadania, zadania, węzły i pule. Przykład:
 
 * [Liczenie zadań i węzłów obliczeniowych według stanu](batch-get-resource-counts.md)
 * [Twórz zapytania umożliwiające wydajne wyświetlanie zasobów wsadowych](batch-efficient-list-queries.md)

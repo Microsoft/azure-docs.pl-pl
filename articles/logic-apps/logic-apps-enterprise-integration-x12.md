@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
 ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83739536"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Komunikaty programu Exchange X12 dla integracji z usługą B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
@@ -174,7 +173,7 @@ Po ustawieniu właściwości umowy można skonfigurować, w jaki sposób ta umow
    * [Numer wersji kontrolki](#outbound-control-version-number)
    * [Numery kontrolne](#outbound-control-numbers)
    * [Zestawy znaków i separatory](#outbound-character-sets-separators)
-   * [Walidacja](#outbound-validation)
+   * [Zatwierdzenia](#outbound-validation)
 
 1. Gdy wszystko będzie gotowe, pamiętaj o zapisaniu ustawień, wybierając **przycisk OK**.
 

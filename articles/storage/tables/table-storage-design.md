@@ -9,10 +9,9 @@ ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656908"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projektowanie skalowalnych i wydajnych tabel
@@ -50,7 +49,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Nie</td>
@@ -70,7 +69,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Cze</td>
@@ -107,7 +106,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Krzysztof</td>

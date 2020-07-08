@@ -14,13 +14,12 @@ ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
 ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684847"
 ---
-# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dane do zebrania podczas otwierania przypadku Microsoft Azure Automation
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dane, które należy zebrać podczas otwierania przypadku dla usługi Microsoft Azure Automation
 
 W tym artykule opisano niektóre informacje, które należy zebrać przed otwarciem przypadku Azure Automation z obsługą Microsoft Azure. Te informacje nie są wymagane do otwarcia przypadku. Może jednak pomóc firmie Microsoft w szybszym rozwiązywaniu problemów. Ponadto użytkownik może zostać poproszony o te dane przez inżyniera pomocy technicznej po otwarciu przypadku.
 

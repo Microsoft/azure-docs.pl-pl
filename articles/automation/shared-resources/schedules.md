@@ -10,10 +10,9 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744968"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
@@ -183,7 +182,7 @@ Gdy wszystko będzie gotowe do usunięcia harmonogramów, możesz użyć Azure P
 
 1. Na koncie usługi Automation wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
 2. Kliknij nazwę harmonogramu, aby otworzyć okienko Szczegóły.
-3. Kliknij przycisk **Usuń**.
+3. Kliknij polecenie **Usuń**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Usuwanie harmonogramu za pomocą programu PowerShell
 

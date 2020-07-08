@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
 ms.openlocfilehash: dfa3f00e668488574abeb08964909a8972c8913f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772951"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center — bezpieczeństwo danych
@@ -83,7 +82,7 @@ Klienci mogą używać danych związanych z usługą Security Center pochodzący
 > [!NOTE]
 > Zalecenia dotyczące zabezpieczeń można także wykorzystywać za pośrednictwem interfejsu API REST. Aby uzyskać więcej informacji, zobacz [Security Resource Provider REST API Reference (Dokumentacja interfejsu API REST dostawcy zasobów zabezpieczeń)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 W tym dokumencie wyjaśniono, jak zarządzane i chronione są dane w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat usługi Azure Security Center, zobacz:
 
 * [Azure Security Center Przewodnik planowania i](security-center-planning-and-operations-guide.md) obsługi — Dowiedz się, jak planować i zrozumieć zagadnienia dotyczące projektowania, aby przyjąć Azure Security Center.

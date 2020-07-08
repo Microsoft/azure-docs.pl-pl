@@ -8,13 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83747806"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w komercyjnej analizie Marketplace
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje na temat **pulpitu nawigacyjnego zamówienia** w centrum partnerskim. Ten pulpit nawigacyjny wyświetla informacje o zamówieniach w formacie graficznym i do pobrania.
 

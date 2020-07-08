@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656546"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Interfejs API wykrywania anomalii Machine Learning
@@ -136,7 +135,7 @@ Interfejs API uruchamia wszystkie detektory danych szeregów czasowych i zwraca 
 
 | Dane wyjściowe | Opis |
 | --- | --- |
-| Time |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
+| Godzina |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
 | Dane |Wartości z danych pierwotnych lub agregowane (i/lub) dane kalkulacyjne w przypadku agregacji (i/lub) braku przypisywania danych |
 | TSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor TSpike |
 | ZSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor ZSpike |
@@ -179,7 +178,7 @@ Interfejs API uruchamia wszystkie detektory danych szeregów czasowych i zwraca 
 
 | Dane wyjściowe | Opis |
 | --- | --- |
-| Time |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
+| Godzina |Sygnatury czasowe z danych nieprzetworzonych lub zagregowane (i/lub) dane kalkulacyjne, jeśli agregacja (i/lub) nie ma zastosowania przypisywania danych |
 | OriginalData |Wartości z danych pierwotnych lub agregowane (i/lub) dane kalkulacyjne w przypadku agregacji (i/lub) braku przypisywania danych |
 | ProcessedData |Jedną z następujących opcji: <ul><li>Okresowe dostosowanie szeregów czasowych w przypadku wykrycia znaczących sezonowości i wybrania opcji Rozpory.</li><li>szeregowo skorygowane i nietrendy czasowe w przypadku wykrycia znaczącej sezonowości i wybrania opcji deseasontrend</li><li>w przeciwnym razie ta opcja jest taka sama jak OriginalData</li> |
 | TSpike |Wskaźnik binarny wskazujący, czy skok został wykryty przez detektor TSpike |

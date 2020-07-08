@@ -16,10 +16,9 @@ ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83758779"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Zarządzanie dostępem do zarządzania platformą Azure przy użyciu dostępu warunkowego

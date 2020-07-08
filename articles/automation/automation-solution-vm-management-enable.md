@@ -6,13 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83743759"
 ---
-# <a name="enable-startstop-vms-during-off-hours"></a>Włącz Start/Stop VMs during off-hours
+# <a name="enable-startstop-vms-during-off-hours"></a>Włączanie rozwiązania Start/Stop VMs during off-hours
 
 Wykonaj kroki opisane w tym temacie w sekwencji, aby włączyć funkcję Start/Stop VMs during off-hours dla maszyn wirtualnych przy użyciu nowego lub istniejącego konta usługi Automation i połączonego Log Analytics obszaru roboczego. Po zakończeniu procesu instalacji skonfiguruj zmienne, aby dostosować funkcję.
 
@@ -98,7 +97,7 @@ Start/Stop VMs during off-hours nie zawiera wstępnie zdefiniowanego zestawu ale
 
 1. Po skonfigurowaniu początkowych ustawień wymaganych dla tej funkcji kliknij przycisk **OK** , aby zamknąć stronę parametry.
 
-2. Kliknij przycisk **Utwórz**. Po zweryfikowaniu wszystkich ustawień funkcja zostanie wdrożona w ramach subskrypcji. Ten proces może potrwać kilka sekund, a postęp można śledzić w obszarze **powiadomienia** z menu.
+2. Kliknij pozycję **Utwórz**. Po zweryfikowaniu wszystkich ustawień funkcja zostanie wdrożona w ramach subskrypcji. Ten proces może potrwać kilka sekund, a postęp można śledzić w obszarze **powiadomienia** z menu.
 
     > [!NOTE]
     > Jeśli masz subskrypcję dostawcy rozwiązań w chmurze platformy Azure (CSP), po zakończeniu wdrożenia na koncie usługi Automation przejdź do pozycji **zmienne** w obszarze **zasoby udostępnione** i ustaw dla zmiennej [External_EnableClassicVMs](automation-solution-vm-management.md#variables) **wartość false**. To uniemożliwia rozwiązanie wyszukiwanie klasycznych zasobów maszyn wirtualnych.

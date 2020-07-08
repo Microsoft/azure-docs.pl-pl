@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745011"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Progi, metody i horyzonty czasowe płatności
@@ -75,7 +74,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Kongo (DRK) | Tak | Tak | Tak | Nie |
 | Republika Konga | Tak | Tak | Tak | Nie |
 | Kostaryka | Tak | Tak | Tak | Tak |
-| Wybrzeże D'Ivoire | Tak | Tak | Tak | Nie |
+| Cote D'Ivoire | Tak | Tak | Tak | Nie |
 | Chorwacja | Tak | Tak | Tak | Nie |
 | Cypr | Tak | Tak | Tak | Tak |
 | Republika Czeska | Tak | Tak | Tak | Tak |
@@ -88,7 +87,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Erytrea | Tak | Tak | Tak | Nie |
 | Estonia | Tak | Tak | Tak | Tak |
 | Etiopia | Tak | Tak | Tak | Nie |
-| Wyspy Fidżi | Tak | Tak | Nie | Nie |
+| Fidżi | Tak | Tak | Nie | Nie |
 | Finlandia | Tak | Tak | Tak | Tak |
 | Francja | Tak | Tak | Tak | Tak |
 | Gruzja | Tak | Tak | Tak | Tak |

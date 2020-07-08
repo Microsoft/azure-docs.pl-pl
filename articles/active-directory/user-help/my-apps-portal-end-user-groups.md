@@ -13,10 +13,9 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83741983"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualizowanie informacji o grupach w portalu Moje aplikacje
@@ -90,7 +89,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
     - **Zasady grupy.** Wybierz opcję, aby umożliwić wszystkim dołączenie do grupy lub zezwalanie na dodawanie elementów członkowskich tylko właścicielowi grupy.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
     Nowa grupa zostanie utworzona za pomocą użytkownika jako właściciel i zostanie wyświetlona na liście Twoich **grup** . Ponieważ jesteś właścicielem, ta grupa jest również wyświetlana na liście **grupy**
 

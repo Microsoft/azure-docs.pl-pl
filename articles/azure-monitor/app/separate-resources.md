@@ -4,10 +4,9 @@ description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzeni
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83773695"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
@@ -45,7 +44,7 @@ Aby ułatwić zmianę iKey, ponieważ kod przemieszcza się między etapami prod
 
 Ustaw klucz w metodzie inicjującej, na przykład global.aspx.cs w usłudze ASP.NET:
 
-*S #*
+*C#*
 
     protected void Application_Start()
     {
@@ -108,7 +107,7 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Automatycznie Generuj plik BuildInfo. config w programie MSBuild. Aby to zrobić, Dodaj kilka wierszy do `.csproj` pliku:
+* [ASP.NET] Generuj BuildInfo.config automatycznie w programie MSBuild. Aby to zrobić, Dodaj kilka wierszy do `.csproj` pliku:
 
     ```XML
 
@@ -117,7 +116,7 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
     </PropertyGroup>
     ```
 
-    Spowoduje to wygenerowanie pliku o nazwie *yourProjectName*. BuildInfo. config. proces publikowania zmienia nazwę na BuildInfo. config.
+    Spowoduje to wygenerowanie pliku o nazwie *yourProjectName*.BuildInfo.config. Proces publikowania zmienia nazwę na BuildInfo.config.
 
     Etykieta kompilacji zawiera symbol zastępczy (AutoGen_...) podczas kompilowania przy użyciu programu Visual Studio. Ale w przypadku skompilowania przy użyciu programu MSBuild jest on wypełniony prawidłowym numerem wersji.
 

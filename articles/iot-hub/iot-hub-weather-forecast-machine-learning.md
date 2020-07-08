@@ -11,10 +11,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/10/2020
 ms.author: robinsh
 ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746976"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning
@@ -41,7 +40,7 @@ Dowiesz się, jak używać Azure Machine Learning do prognozowania pogody (szans
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-- Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi przy użyciu środowiska Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
+- Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
   - Aktywna subskrypcja platformy Azure.
   - Usługa Azure IoT Hub w ramach Twojej subskrypcji.
   - Aplikacja kliencka, która wysyła komunikaty do usługi Azure IoT Hub.
@@ -142,7 +141,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -158,7 +157,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Dodawanie danych wejściowych do zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Dodawanie danych wyjściowych do zadania usługi Stream Analytics
 
@@ -177,7 +176,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Dodawanie danych wyjściowych do zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Dodaj funkcję do zadania Stream Analytics, aby wywołać wdrożoną usługę sieci Web
 
@@ -196,7 +195,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Dodawanie funkcji do zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
@@ -216,7 +215,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    Zastąp element `[YourOutputAlias]` aliasem wyjściowym zadania.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 

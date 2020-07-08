@@ -4,10 +4,9 @@ description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83740522"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
@@ -30,7 +29,7 @@ Tak | Tak | Tak | Tak
 
 ## <a name="exclude-limitations"></a>Wyklucz ograniczenia
 
-**Ograniczenia** | **Maszyny wirtualne platformy Azure** | **Maszyny wirtualne VMware** | **Maszyny wirtualne funkcji Hyper-V**
+**Ograniczenie** | **Maszyny wirtualne platformy Azure** | **Maszyny wirtualne VMware** | **Maszyny wirtualne funkcji Hyper-V**
 --- | --- | ---
 **Typy dysków** | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. Dyski tymczasowe są domyślnie wykluczone. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie możesz wykluczać dysków systemu operacyjnego. Nie zalecamy wykluczania dysków dynamicznych. Site Recovery nie może zidentyfikować, która VHS jest podstawowa lub dynamiczna na maszynie wirtualnej gościa. Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku są niedostępne.
 **Replikowanie dysku** | Nie można wykluczyć dysku, który jest replikowany.<br/><br/> Wyłącz i ponownie Włącz replikację maszyny wirtualnej. |  Nie można wykluczyć dysku, który jest replikowany. |  Nie można wykluczyć dysku, który jest replikowany.
@@ -44,7 +43,7 @@ Tak | Tak | Tak | Tak
 
 ## <a name="typical-scenarios"></a>Typowe scenariusze
 
-Przykłady zmian danych, które są doskonałymi kandydatami do wykluczenia, obejmują zapis do pliku stronicowania (Pagefile. sys) i zapisuje w pliku tempdb Microsoft SQL Server. W zależności od obciążenia i podsystemu magazynowania Pliki stronicowania i tempdb mogą rejestrować znaczną ilość zmian. Replikowanie tego typu danych na platformę Azure jest czasochłonne.
+Przykłady zmian danych, które są doskonałymi kandydatami do wykluczenia, obejmują zapis do pliku stronicowania (pagefile.sys) i zapisuje w pliku tempdb Microsoft SQL Server. W zależności od obciążenia i podsystemu magazynowania Pliki stronicowania i tempdb mogą rejestrować znaczną ilość zmian. Replikowanie tego typu danych na platformę Azure jest czasochłonne.
 
 - Aby zoptymalizować replikację maszyny wirtualnej z pojedynczym dyskiem wirtualnym zawierającym zarówno system operacyjny, jak i plik stronicowania, można:
     1. Podziel pojedynczy dysk wirtualny na dwa dyski wirtualne. Na jednym dysku wirtualnym umieść system operacyjny, a na drugim — plik stronicowania.
@@ -185,7 +184,7 @@ DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika 2
 
 ## <a name="example-2-exclude-the-paging-file-disk"></a>Przykład 2: wykluczanie dysku pliku stronicowania
 
-Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródłowej maszyny wirtualnej z systemem Windows, dla której chcemy wykluczyć dysk pliku Pagefile. sys na dysku D i alternatywny dysk.
+Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródłowej maszyny wirtualnej z systemem Windows, dla której chcemy wykluczyć dysk plików pagefile.sys na dysku D i alternatywny dysk.
 
 
 ### <a name="paging-file-on-the-d-drive"></a>Plik stronicowania na dysku D
@@ -213,7 +212,7 @@ Po przejściu do trybu failover na maszynie wirtualnej platformy Azure zostały 
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego
-DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/plik stronicowania sys <br/><br/> Ponieważ DB-disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
+DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/pagefile.sys <br/><br/> Ponieważ DB-disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 

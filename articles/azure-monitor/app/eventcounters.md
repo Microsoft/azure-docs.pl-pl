@@ -4,10 +4,9 @@ description: Monitoruj system i niestandardową platformę .NET/.NET Core EventC
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83700438"
 ---
 # <a name="eventcounters-introduction"></a>Wprowadzenie do EventCounters
@@ -123,7 +122,7 @@ customMetrics
 
 Podobnie jak w przypadku innych telemetrii, **customMetrics** ma także kolumnę `cloud_RoleInstance` , która wskazuje tożsamość wystąpienia serwera hosta, na którym działa aplikacja. Powyższe zapytanie pokazuje wartość licznika na wystąpienie i może służyć do porównywania wydajności różnych wystąpień serwera.
 
-## <a name="alerts"></a>Alerts (Alerty)
+## <a name="alerts"></a>Alerty
 Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/platform/alerts-log.md) ostrzegający o tym, czy licznik zdarzeń wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -134,7 +133,7 @@ Metryki na żywo nie wyświetlają EventCounters z dzisiaj. Użyj Eksploratora m
 
 ### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>Które platformy mogą zobaczyć domyślną listę liczników programu .NET Core 3,0?
 
-EventCounter nie wymaga żadnych specjalnych uprawnień i jest obsługiwana we wszystkich platformach .NET Core 3,0. Obejmuje to:
+EventCounter nie wymaga żadnych specjalnych uprawnień i jest obsługiwana we wszystkich platformach .NET Core 3,0. Obejmuje on:
 
 * **System operacyjny**: Windows, Linux lub macOS.
 * **Metoda hostingu**: w procesie lub w trakcie procesu.

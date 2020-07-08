@@ -14,10 +14,9 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772050"
 ---
 # <a name="using-web-browsers-msalnet"></a>Korzystanie z przeglądarek internetowych (MSAL.NET)
@@ -45,15 +44,15 @@ Ogólnie rzecz biorąc, zaleca się korzystanie z ustawień domyślnych platform
 
 ### <a name="at-a-glance"></a>Na pierwszy rzut oka
 
-| Framework        | Osadzić | System | Domyślne |
+| Framework        | Osadzone | System | Domyślne |
 | ------------- |-------------| -----| ----- |
-| Klasyczny .NET     | Tak | Tak ^ | Osadzić |
+| Klasyczny .NET     | Tak | Tak ^ | Osadzone |
 | .NET Core     | Nie | Tak ^ | System |
 | .NET Standard | Nie | Tak ^ | System |
-| UWP | Yes | Nie | Osadzić |
+| UWP | Yes | Nie | Osadzone |
 | Xamarin.Android | Tak | Tak  | System |
 | Xamarin.iOS | Tak | Tak  | System |
-| Xamarin.Mac| Yes | Nie | Osadzić |
+| Xamarin.Mac| Yes | Nie | Osadzone |
 
 ^ Wymaga " http://localhost " URI przekierowania
 

@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664935"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Przewodnik dotyczący ustalania wielkości klastra interakcyjnego zapytania w usłudze Azure HDInsight
@@ -39,7 +38,7 @@ Zalecane wartości konfiguracji są oparte na węźle procesu roboczego typu D14
 | Hive. serwer2. tez. Sessions. per. default. Queue | number_of_worker_nodes |Liczba sesji dla każdej kolejki o nazwie w elemencie Hive. serwer2. tez. default. Queues. Ta liczba odpowiada liczbie koordynatorów zapytań (tez AMs). |
 | tez. am. Resource. Memory. MB | 4096 (MB) | Ilość pamięci (w MB), która ma być używana przez tez AppMaster. |
 | Hive. tez. Container. size | 4096 (MB) | Określony rozmiar kontenera tez w MB. |
-| Hive. llap. Demon. num. wykonawcy | 12 | Liczba modułów wykonujących na demona LLAP. |
+| hive.llap.daemon.num.executors | 12 | Liczba modułów wykonujących na demona LLAP. |
 | Hive. llap. IO. wątków. size | 12 | Rozmiar puli wątków dla wykonawców. |
 | Hive. llap. Demon. przędz. Container. MB | 86016 (MB) | Całkowita ilość pamięci używana przez pojedyncze demoy LLAP (pamięć na demon).|
 | Hive. llap. IO. Memory. size | 409600 (MB) | Rozmiar pamięci podręcznej w MB na przepełnienie pamięci podręcznej LLAP dysku SSD jest włączone. |
@@ -129,7 +128,7 @@ W przypadku innych maszyn wirtualnych bez włączonego buforowania dysków SSD k
 
 Zaleca się dostosowanie rozmiaru pamięci podręcznej i rozmiaru sterty, która jest najbardziej odpowiednia dla obciążenia.  
 
-### <a name="hivellapdaemonnumexecutors"></a>Hive. llap. Demon. num. wykonawcy
+### <a name="hivellapdaemonnumexecutors"></a>hive.llap.daemon.num.executors
 
 Ta konfiguracja określa liczbę modułów wykonujących, które mogą wykonywać równolegle zadania równoległe na demona LLAP. Ta wartość jest sumą liczby dostępnych rdzeni wirtualnych, ilości pamięci podaną na wykonawcę oraz całkowitej ilości dostępnej pamięci na demona LLAP. Zazwyczaj ta wartość powinna być możliwie jak najbliżej liczby rdzeni.
 

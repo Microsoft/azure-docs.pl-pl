@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745565"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
@@ -141,12 +140,12 @@ Aby na przykład skonfigurować tabelę tras dla klastra utworzonego w regionie 
 
 | Nazwa trasy | Prefiks adresu | Typ następnego skoku | Adres następnego skoku |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
-| 13.82.225.233 | 13.82.225.233/32 | Internet | NA |
-| 40.71.175.99 | 40.71.175.99/32 | Internet | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | Nie dotyczy |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | Nie dotyczy |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | Nie dotyczy |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | Nie dotyczy |
+| 13.82.225.233 | 13.82.225.233/32 | Internet | Nie dotyczy |
+| 40.71.175.99 | 40.71.175.99/32 | Internet | Nie dotyczy |
 | 0.0.0.0 | 0.0.0.0/0 | Urządzenie wirtualne | 10.0.2.4 |
 
 Ukończ konfigurację tabeli tras:

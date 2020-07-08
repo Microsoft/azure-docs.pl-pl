@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
 ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656333"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Generowanie rekomendacji przy użyciu oprogramowania Apache Mahout w usłudze Azure HDInsight
@@ -89,14 +88,14 @@ Dane zawarte w programie `user-ratings.txt` mają strukturę `userID` , `movieID
 
     Pierwsza kolumna to `userID` . Wartości zawarte w "[" i "]" są `movieId` następujące: `recommendationScore` .
 
-2. Możesz użyć danych wyjściowych wraz z MovieDB. txt, aby uzyskać więcej informacji na temat zaleceń. Najpierw skopiuj pliki przy użyciu następujących poleceń:
+2. Możesz użyć danych wyjściowych wraz z moviedb.txt, aby uzyskać więcej informacji na temat zaleceń. Najpierw skopiuj pliki przy użyciu następujących poleceń:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    To polecenie kopiuje dane wyjściowe do pliku o nazwie **rekomendacje. txt** w bieżącym katalogu wraz z plikami danych filmu.
+    To polecenie kopiuje dane wyjściowe do pliku o nazwie **recommendations.txt** w bieżącym katalogu wraz z plikami danych filmu.
 
 3. Użyj następującego polecenia, aby utworzyć skrypt języka Python, który wyszukuje nazwy filmów w danych wyjściowych zaleceń:
 
@@ -168,11 +167,11 @@ Dane zawarte w programie `user-ratings.txt` mają strukturę `userID` , `movieID
 
     To polecenie sprawdza zalecenia wygenerowane dla użytkownika o IDENTYFIKATORze 4.
 
-   * Plik **User-ratings. txt** służy do pobierania przeklasyfikowanych filmów.
+   * Plik **user-ratings.txt** jest używany do pobierania filmów, które zostały sklasyfikowane.
 
-   * Plik **MovieDB. txt** służy do pobierania nazw filmów.
+   * Plik **moviedb.txt** służy do pobierania nazw filmów.
 
-   * **Zalecenia. txt** są używane do pobierania zaleceń dotyczących filmu dla tego użytkownika.
+   * **recommendations.txt** jest używany do pobierania zaleceń dotyczących filmu dla tego użytkownika.
 
      Dane wyjściowe tego polecenia są podobne do następującego tekstu:
 

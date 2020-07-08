@@ -5,10 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: 3d27b6d96dfd6c815cedc6194e6bb6e8a101dec2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83735924"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
@@ -62,7 +61,7 @@ Przed rozpoczęciem rozwiązywania problemów Microsoft Azure Backup Server (ser
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Wypychanie agentów do serwerów chronionych | Operacja agenta nie powiodła się z powodu błędu komunikacji z usługą koordynator agenta programu DPM na \< serwerze servername>. | **Jeśli zalecana akcja wyświetlana w produkcie nie działa, wykonaj następujące czynności**: <ul><li> W przypadku dołączania komputera z niezaufanej domeny wykonaj [następujące kroki](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> ORAZ </li><li> Jeśli komputer jest dołączany do zaufanej domeny, należy wykonać czynności opisane w [tym blogu](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>ORAZ</li><li> Spróbuj wyłączyć program antywirusowy jako krok rozwiązywania problemów. Jeśli problem nie zostanie rozwiązany, zmodyfikuj ustawienia programu antywirusowego zgodnie z opisem w [tym artykule](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
+| Wypychanie agentów do serwerów chronionych | Operacja agenta nie powiodła się z powodu błędu komunikacji z usługą koordynator agenta programu DPM w systemie \<ServerName> . | **Jeśli zalecana akcja wyświetlana w produkcie nie działa, wykonaj następujące czynności**: <ul><li> W przypadku dołączania komputera z niezaufanej domeny wykonaj [następujące kroki](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> ORAZ </li><li> Jeśli komputer jest dołączany do zaufanej domeny, należy wykonać czynności opisane w [tym blogu](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>ORAZ</li><li> Spróbuj wyłączyć program antywirusowy jako krok rozwiązywania problemów. Jeśli problem nie zostanie rozwiązany, zmodyfikuj ustawienia programu antywirusowego zgodnie z opisem w [tym artykule](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Instalator nie może zaktualizować metadanych rejestru
 

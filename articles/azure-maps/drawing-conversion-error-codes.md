@@ -9,13 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682011"
 ---
-# <a name="drawing-conversion-errors-and-warnings"></a>Rysowanie błędów i ostrzeżeń konwersji
+# <a name="drawing-conversion-errors-and-warnings"></a>Błędy i ostrzeżenia dotyczące konwersji rysunków
 
 [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. Pakiety rysowania muszą być zgodne z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). Jeśli co najmniej jedno wymaganie nie jest spełnione, usługa konwersji zwróci błędy lub ostrzeżenia. Ten artykuł zawiera informacje o błędach konwersji i kodach ostrzeżeń wraz z zaleceniami dotyczącymi ich rozwiązywania. Zawiera również przykłady rysunków, które mogą spowodować zwrócenie tych kodów przez usługę konwersji.
 
@@ -343,14 +342,14 @@ Aby naprawić błąd **invalidUserData** , sprawdź, czy:
 
 * Plik DWG nie jest prawidłowym rysunkiem formatu pliku programu AutoCAD DWG.
 * Plik DWG jest uszkodzony.
-* Plik DWG znajduje się w pliku _manifest. JSON_ , ale nie ma go w archiwum zip.
+* Plik DWG znajduje się na liście _manifest.jsw_ pliku, ale nie ma go w archiwum zip.
 
 #### <a name="how-to-fix-dwgerror"></a>*Jak naprawić dwgError*
 
-Aby naprawić **dwgError**, sprawdź, czy plik _manifest. JSON_ :
+Aby naprawić **dwgError**, sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
 
 * Wszystkie pliki DWG w archiwum ZIP są prawidłowymi rysunkami formatu AutoCAD DWG, otwierają je w programie AutoCAD. Usuń lub Napraw wszystkie nieprawidłowe rysunki.
-* Lista plików DWG w pliku _manifest. JSON_ dopasowuje pliki DWG w archiwum zip.
+* Lista plików DWG w _manifest.jsna_ dopasowuje się do plików DWG w archiwum zip.
 
 ## <a name="manifest-errors"></a>Błędy manifestu
 
@@ -358,9 +357,9 @@ Aby naprawić **dwgError**, sprawdź, czy plik _manifest. JSON_ :
 
 #### <a name="description-for-invalidjsonformat"></a>Opis elementu invalidJsonFormat
 
-Błąd **invalidJsonFormat** występuje, gdy nie można odczytać pliku _manifest. JSON_ .
+Błąd **invalidJsonFormat** występuje, gdy nie można odczytać _manifest.jsw_ pliku.
 
-Nie można odczytać _manifest. json_file z powodu błędu formatowania lub składni JSON. Aby dowiedzieć się więcej na temat sposobu formatowania i składni JSON, zobacz [Format wymiany danych JavaScript Object Notation (JSON).](https://tools.ietf.org/html/rfc7159)
+On_file _manifest.jsnie można odczytać z powodu błędu formatowania lub składni JSON. Aby dowiedzieć się więcej na temat sposobu formatowania i składni JSON, zobacz [Format wymiany danych JavaScript Object Notation (JSON).](https://tools.ietf.org/html/rfc7159)
 
 #### <a name="how-to-fix-invalidjsonformat"></a>*Jak naprawić invalidJsonFormat*
 
@@ -370,7 +369,7 @@ Aby naprawić błąd **invalidJsonFormat** , użyj Linter JSON do wykrywania i r
 
 #### <a name="description-for-missingrequiredfield"></a>*Opis elementu missingRequiredField*
 
-Błąd **missingRequiredField** występuje, gdy w pliku _manifest. JSON_ brakuje wymaganych danych.
+Błąd **missingRequiredField** występuje, gdy brakuje wymaganych danych _manifest.jsw_ pliku.
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Jak naprawić missingRequiredField*
 
@@ -380,23 +379,23 @@ Aby naprawić błąd **missingRequiredField** , sprawdź, czy manifest zawiera w
 
 #### <a name="description-for-missingmanifest"></a>*Opis elementu missingManifest*
 
-Błąd **missingManifest** występuje, gdy brakuje pliku _manifest. JSON_ w archiwum zip.
+Błąd **missingManifest** występuje, gdy brakuje _manifest.jsw_ pliku w archiwum zip.
 
 Błąd **missingManifest** jest spowodowany jedną z następujących przyczyn:
 
-* Plik _manifest. JSON_ jest błędny.
-* Brak pliku _manifest. JSON_ .
-* Plik _manifest. JSON_ nie znajduje się w katalogu głównym archiwum zip.
+* _manifest.js_ pliku jest błędnie wpisana.
+* Brak _manifest.js_ .
+* _manifest.json_ nie znajduje się w katalogu głównym archiwum zip.
 
 #### <a name="how-to-fix-missingmanifest"></a>*Jak naprawić missingManifest*
 
-Aby naprawić błąd **missingManifest** , upewnij się, że archiwum ma plik o nazwie _manifest. JSON_ na głównym poziomie archiwum zip.
+Aby naprawić błąd **missingManifest** , upewnij się, że archiwum ma plik o nazwie _manifest.jsna_ poziomie głównym archiwum zip.
 
 ### <a name="conflict"></a>**Konflikt**
 
 #### <a name="description-for-conflict"></a>*Opis konfliktu*
 
-Błąd **konfliktu** występuje, gdy plik _manifest. JSON_ zawiera informacje powodujące konflikt.
+Błąd **konfliktu** występuje, gdy _manifest.jsw_ pliku zawiera informacje powodujące konflikt.
 
 #### <a name="example-scenario-for-conflict"></a>*Przykładowy scenariusz dla konfliktu*
 
@@ -422,13 +421,13 @@ Usługa konwersji zwróci błąd **konfliktu** , gdy zostanie zdefiniowany więc
 
 #### <a name="how-to-fix-conflict"></a>*Jak rozwiązać konflikt*
 
-Aby naprawić błąd **konfliktu** , zbadaj plik _manifest. JSON_ i Usuń wszelkie sprzeczne informacje.
+Aby naprawić błąd **konfliktu** , zbadaj _manifest.js_ i Usuń wszelkie informacje powodujące konflikt.
 
 ### <a name="invalidgeoreference"></a>**invalidGeoreference**
 
 #### <a name="description-for-invalidgeoreference"></a>*Opis elementu invalidGeoreference*
 
-Błąd **invalidGeoreference** występuje, gdy plik _manifest. JSON_ zawiera nieprawidłowe geoodwołanie.
+Błąd **invalidGeoreference** występuje, gdy _manifest.jsw_ pliku zawiera nieprawidłowe geoodwołanie.
 
 Błąd **invalidGeoreference** jest spowodowany jedną z następujących przyczyn:
 

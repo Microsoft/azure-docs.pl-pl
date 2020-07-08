@@ -1,7 +1,7 @@
 ---
-title: Problemy w programie Internet Explorer & Microsoft Edge (MSAL. js) | Azure
+title: Problemy w programie Internet Explorer & Microsoft Edge (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Informacje o znanych problemach dotyczących używania biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL. js) z przeglądarkami Internet Explorer i Microsoft Edge.
+description: Informacje o znanych problemach dotyczących używania biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) z przeglądarkami Internet Explorer i Microsoft Edge.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -14,19 +14,18 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772084"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Znane problemy w programie Internet Explorer i przeglądarki Microsoft Edge (MSAL. js)
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Znane problemy w programie Internet Explorer i przeglądarki Microsoft Edge (MSAL.js)
 
 ## <a name="issues-due-to-security-zones"></a>Problemy ze względu na strefy zabezpieczeń
 Mamy wiele raportów o problemach z uwierzytelnianiem w programie IE i Microsoft Edge (od aktualizacji *przeglądarki Microsoft Edge do 40.15063.0.0*). Śledzimy te informacje i znamy zespół Microsoft Edge. Chociaż przeglądarka Microsoft Edge działa w ramach rozwiązania, poniżej przedstawiono opis często występujących problemów oraz możliwe obejścia, które można zaimplementować.
 
 ### <a name="cause"></a>Przyczyna
-Przyczyny większości tych problemów są następujące. Magazyn sesji i magazyn lokalny są podzielone na partycje za pomocą stref zabezpieczeń w przeglądarce Microsoft Edge. W tej konkretnej wersji programu Microsoft Edge, gdy aplikacja jest przekierowywana między strefami, magazyn sesji i magazyn lokalny są wyczyszczone. W tym celu magazyn sesji jest czyszczony w zwykłej nawigacji przeglądarki, a sesja i magazyn lokalny są wyczyszczone w trybie InPrivate przeglądarki. MSAL. js Zapisuje określony stan w magazynie sesji i opiera się na sprawdzaniu tego stanu podczas przepływów uwierzytelniania. Po wyczyszczeniu magazynu sesji ten stan zostanie utracony i dlatego powoduje uszkodzenie środowiska.
+Przyczyny większości tych problemów są następujące. Magazyn sesji i magazyn lokalny są podzielone na partycje za pomocą stref zabezpieczeń w przeglądarce Microsoft Edge. W tej konkretnej wersji programu Microsoft Edge, gdy aplikacja jest przekierowywana między strefami, magazyn sesji i magazyn lokalny są wyczyszczone. W tym celu magazyn sesji jest czyszczony w zwykłej nawigacji przeglądarki, a sesja i magazyn lokalny są wyczyszczone w trybie InPrivate przeglądarki. MSAL.js Zapisuje określony stan w magazynie sesji i opiera się na sprawdzaniu tego stanu podczas przepływów uwierzytelniania. Po wyczyszczeniu magazynu sesji ten stan zostanie utracony i dlatego powoduje uszkodzenie środowiska.
 
 ### <a name="issues"></a>Issues (Problemy)
 
@@ -36,12 +35,12 @@ Przyczyny większości tych problemów są następujące. Magazyn sesji i magazy
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **Okno podręczne nie jest zamykane lub jest zablokowane w przypadku używania logowania za pośrednictwem menu podręcznego do uwierzytelniania**. W przypadku uwierzytelniania za pomocą okna podręcznego w przeglądarce Microsoft Edge lub IE (InPrivate) po wprowadzeniu poświadczeń i zalogowaniu się w przypadku korzystania z wielu domen w obszarze nawigacji okno podręczne nie jest zamykane, ponieważ MSAL. js utraci uchwyt do okna podręcznego.  
+- **Okno podręczne nie jest zamykane lub jest zablokowane w przypadku używania logowania za pośrednictwem menu podręcznego do uwierzytelniania**. W przypadku uwierzytelniania za pomocą okna podręcznego w przeglądarce Microsoft Edge lub IE (InPrivate) po wprowadzeniu poświadczeń i zalogowaniu się w przypadku korzystania z wielu domen w obszarze nawigacji okno podręczne nie jest zamykane, ponieważ MSAL.js utraci uchwyt do okna podręcznego.  
 
-### <a name="update-fix-available-in-msaljs-023"></a>Aktualizacja: Poprawka dostępna w MSAL. js 0.2.3
-Poprawki dotyczące problemów z pętlą przekierowania uwierzytelniania zostały wydane w [MSAL. js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Włącz flagę `storeAuthStateInCookie` w konfiguracji MSAL. js, aby skorzystać z tej poprawki. Domyślnie ta flaga jest ustawiona na wartość false.
+### <a name="update-fix-available-in-msaljs-023"></a>Aktualizacja: Poprawka dostępna w MSAL.js 0.2.3
+Poprawki dotyczące problemów z pętlą przekierowania uwierzytelniania zostały wydane w [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Włącz flagę `storeAuthStateInCookie` w konfiguracji MSAL.js, aby skorzystać z tej poprawki. Domyślnie ta flaga jest ustawiona na wartość false.
 
-Gdy `storeAuthStateInCookie` flaga jest włączona, MSAL. js będzie używać plików cookie w przeglądarce do przechowywania stanu żądania wymaganego do walidacji przepływów uwierzytelniania.
+Gdy `storeAuthStateInCookie` flaga jest włączona, MSAL.js będzie używać plików cookie w przeglądarce do przechowywania stanu żądania wymaganego do weryfikacji przepływów uwierzytelniania.
 
 > [!NOTE]
 > Ta poprawka nie jest jeszcze dostępna dla otok msal-kątowych i msal-AngularJS. Ta poprawka nie rozwiązuje problemu z oknami podręcznymi.
@@ -57,7 +56,7 @@ Aby to zrobić, wykonaj następujące kroki:
     - Wybierz kartę **zabezpieczenia**
     - W obszarze **Zaufane Lokacje** kliknij przycisk **Lokacje** i Dodaj adresy URL w otwartym oknie dialogowym.
 
-2. Jak wspomniano wcześniej, ponieważ tylko magazyn sesji jest czyszczony podczas zwykłej nawigacji, można skonfigurować MSAL. js do używania magazynu lokalnego. Tę wartość można ustawić jako `cacheLocation` parametr konfiguracji podczas inicjowania MSAL.
+2. Jak wspomniano wcześniej, ponieważ tylko magazyn sesji jest czyszczony podczas zwykłej nawigacji, można skonfigurować MSAL.js do używania magazynu lokalnego. Tę wartość można ustawić jako `cacheLocation` parametr konfiguracji podczas inicjowania MSAL.
 
 Należy zauważyć, że nie rozwiąże to problemu dotyczącego przeglądania InPrivate, ponieważ zarówno sesja, jak i lokalne są wyczyszczone.
 
@@ -68,4 +67,4 @@ Istnieją przypadki, gdy okienka podręczne są blokowane w programie IE lub w p
 W ramach tego **problemu**deweloperzy będą musieli zezwolić na wyskakujące okienka w programie IE i przeglądarce Microsoft Edge przed rozpoczęciem korzystania z aplikacji, aby uniknąć tego problemu.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [korzystaniu z MSAL. js w programie Internet Explorer](msal-js-use-ie-browser.md).
+Dowiedz się więcej o [korzystaniu z MSAL.js w programie Internet Explorer](msal-js-use-ie-browser.md).

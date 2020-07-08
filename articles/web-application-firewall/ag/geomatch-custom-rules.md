@@ -8,10 +8,9 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744301"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geodopasowania (wersja zapoznawcza)
@@ -147,7 +146,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być dowolnymi z nast�
 | MX | Meksyk|
 | MY | Malezja|
 | MZ | Mozambik|
-| NA | Namibia|
+| Nie dotyczy | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nikaragua|

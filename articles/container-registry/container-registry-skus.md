@@ -4,10 +4,9 @@ description: Dowiedz się więcej o funkcjach i ograniczeniach w warstwach usłu
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: 35f5d4ebd4a2b427aadc6e82e265a7da9b6409f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683428"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry warstw usług
@@ -17,7 +16,7 @@ Azure Container Registry jest dostępny w wielu warstwach usług (nazywanych ró
 | Warstwa | Opis |
 | --- | ----------- |
 | **Podstawowe** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
-| **Standardowa** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
+| **Standardowa (Standard)** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
 | **Premium** | Rejestry Premium zapewniają największą ilość dołączonego magazynu i współbieżnych operacji, co umożliwia wykonywanie scenariuszy o dużej pojemności. Oprócz wyższej przepływności obrazów funkcja Premium dodaje funkcje, takie jak [replikacja geograficzna][container-registry-geo-replication] służąca do zarządzania pojedynczym rejestrem w wielu regionach, [zaufania zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu, [prywatnego linku z prywatnymi punktami końcowymi](container-registry-private-link.md) w celu ograniczenia dostępu do rejestru. |
 
 Warstwy Basic, standard i Premium zapewniają te same funkcje programistyczne. Wszystkie korzyści z [magazynu obrazów][container-registry-storage] są również zarządzane całkowicie przez platformę Azure. Wybranie warstwy wyższego poziomu zapewnia lepszą wydajność i skalowalność. W przypadku wielu warstw usług możesz rozpocząć pracę z usługą Basic, a następnie przekonwertować ją na Standard i Premium w miarę wzrostu użycia rejestru.
@@ -46,7 +45,7 @@ W obszarze **Przegląd** rejestru kontenerów w Azure Portal wybierz pozycję **
 
 ![Aktualizowanie jednostki SKU rejestru kontenerów w Azure Portal][update-registry-sku]
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Aby uzyskać informacje o cenach poszczególnych Azure Container Registry warstw usług, zobacz [Container Registry Cennik][container-registry-pricing].
 

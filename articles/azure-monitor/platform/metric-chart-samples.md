@@ -8,10 +8,9 @@ ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797443"
 ---
 # <a name="metric-chart-examples"></a>Przykłady wykresu metryki 

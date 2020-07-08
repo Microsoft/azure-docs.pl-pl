@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714852"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -237,7 +236,7 @@ Możesz wyeksportować szablon, jeśli chcesz teraz utworzyć dodatkowe środowi
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-To polecenie tworzy `myDHResourceGroup.json` plik w bieżącym katalogu roboczym. Po utworzeniu środowiska na podstawie tego szablonu zostanie wyświetlony monit o podanie wszystkich nazw zasobów. Można wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr do `az group export` polecenia. Edytuj szablon JSON, aby określić nazwy zasobów, lub Utwórz plik Parameters. JSON, który określa nazwy zasobów.
+To polecenie tworzy `myDHResourceGroup.json` plik w bieżącym katalogu roboczym. Po utworzeniu środowiska na podstawie tego szablonu zostanie wyświetlony monit o podanie wszystkich nazw zasobów. Można wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr do `az group export` polecenia. Edytuj szablon JSON, aby określić nazwy zasobów, lub Utwórz parameters.jsw pliku, który określa nazwy zasobów.
  
 Aby utworzyć środowisko na podstawie szablonu, użyj [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
 

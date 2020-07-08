@@ -4,10 +4,9 @@ description: Odwołanie do zdarzenia rozpoczęcia zmiany rozmiaru puli usługi B
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83723735"
 ---
 # <a name="pool-resize-start-event"></a>Zdarzenie rozpoczęcia zmiany rozmiaru puli

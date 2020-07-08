@@ -10,10 +10,9 @@ ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744963"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
@@ -40,9 +39,9 @@ Azure Automation przechowuje każdą zaszyfrowaną zmienną bezpiecznie. Podczas
 Podczas tworzenia zmiennej przy użyciu Azure Portal należy określić typ danych na liście rozwijanej, aby Portal mógł wyświetlić odpowiednią kontrolkę do wprowadzania wartości zmiennej. Następujące typy zmiennych są dostępne w Azure Automation:
 
 * String
-* Liczba całkowita
+* Integer
 * DateTime
-* Wartość logiczna
+* Boolean
 * Zero
 
 Zmienna nie jest ograniczona do określonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz `Not defined` , wartość zmiennej jest ustawiona na wartość null. Należy ustawić wartość przy użyciu polecenia cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) lub wewnętrznego `Set-AutomationVariable` polecenia cmdlet.

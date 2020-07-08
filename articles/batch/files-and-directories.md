@@ -4,10 +4,9 @@ description: Dowiedz się więcej o plikach i katalogach oraz sposobie ich użyc
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: e7babb7e2cfdbbe78f61be766c549c1e80cacf98
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83791120"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Pliki i katalogi w Azure Batch

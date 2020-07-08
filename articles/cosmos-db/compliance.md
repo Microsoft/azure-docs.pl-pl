@@ -8,10 +8,9 @@ ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83747364"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Zgodność w usłudze Azure Cosmos DB 

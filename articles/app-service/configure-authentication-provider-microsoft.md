@@ -8,10 +8,9 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83772840"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do konta Microsoft
@@ -28,7 +27,7 @@ W tym temacie opisano sposób konfigurowania Azure App Service lub Azure Functio
 1. Przejdź do [**rejestracje aplikacji**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal. W razie konieczności Zaloguj się przy użyciu konto Microsoft.
 1. Wybierz pozycję **Nowa rejestracja**, a następnie wprowadź nazwę aplikacji.
 1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**
-1. W obszarze **identyfikatory URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://<app-domain-name>/.auth/login/aad/callback` . Zastąp * \< ciąg App-Domain-Name>* nazwą domeny aplikacji.  Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Upewnij się, że w adresie URL jest używany schemat HTTPS.
+1. W obszarze **identyfikatory URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://<app-domain-name>/.auth/login/aad/callback` . Zamień na *\<app-domain-name>* nazwę domeny aplikacji.  Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Upewnij się, że w adresie URL jest używany schemat HTTPS.
 
 1. Wybierz pozycję **Zarejestruj**.
 1. Skopiuj **Identyfikator aplikacji (klienta)**. Będzie on potrzebny później.

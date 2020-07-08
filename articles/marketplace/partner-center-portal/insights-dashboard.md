@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83745655"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim

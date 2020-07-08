@@ -10,10 +10,9 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 10768ca4c6fbe4afc322fa9a7045c7cc4fe6f175
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681308"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migracja metryk usługi Azure Storage
@@ -105,7 +104,7 @@ Następujące metryki to nowe oferty, które nie obsługują starych metryk:
 | **TotalIngress** | **Ruch przychodzący** |
 | **TotalRequests** | **Transakcje** |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-should-i-migrate-existing-alert-rules"></a>Jak należy migrować istniejące reguły alertów?
 

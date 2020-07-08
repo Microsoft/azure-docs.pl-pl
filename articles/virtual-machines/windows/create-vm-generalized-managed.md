@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726965"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Tworzenie maszyny wirtualnej na podstawie zarządzanego obrazu

@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83746021"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
@@ -25,7 +24,7 @@ Azure Maps obsługuje różne języki i widoki na podstawie kraju/regionu. W tym
 Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
   
 
-| ID         | Nazwa                   |  Maps | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
+| ID         | Nazwa                   |  Maps | Wyszukiwanie | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF — za      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabski                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -147,7 +146,7 @@ Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.
 
-| Widok         | Opis                            |  Maps | Wyszukaj | kontrolka mapy JS |
+| Widok         | Opis                            |  Maps | Wyszukiwanie | kontrolka mapy JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Zjednoczone Emiraty Arabskie (widok arabski)    |   ✓   |        |     ✓          |
 | AR           | Argentyna (widok argentyński)           |   ✓   |    ✓   |     ✓          |
