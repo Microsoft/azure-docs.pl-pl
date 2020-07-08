@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560001"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Praca z kanałami odbierającymi strumień na żywo o wysokiej szybkości transmisji bitów z koderów lokalnych
 
@@ -194,13 +194,13 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Napisy i wstawianie AD
 W poniższej tabeli przedstawiono obsługiwane standardy dla podpisów kodowanych i wstawiania do usługi AD.
 
-| Standardowa | Uwagi |
+| Standardowa (Standard) | Uwagi |
 | --- | --- |
 | CEA-708 i EIA-608 (708/608) |CEA-708 i EIA-608 to standardy zamykania podpisów dla Stany Zjednoczone i Kanady.<p><p>Obecnie podpisy są obsługiwane tylko wtedy, gdy są wykonywane w zakodowanym strumieniu wejściowym. Musisz użyć kodera multimediów na żywo, który może wstawić 608 lub 708 podpisy w zakodowanym strumieniu, który jest wysyłany do Media Services. Media Services dostarcza zawartość z wstawionymi napisami do Twoich przeglądających. |
 | TTML wewnątrz. ISMT (Smooth Streaming ścieżek tekstowych) |Media Services dynamiczne pakowanie umożliwia klientom przesyłanie strumieniowe zawartości w jednym z następujących formatów: PAUZy, HLS lub Smooth Streaming. Jeśli jednak pozyskasz pofragmentowany plik MP4 (Smooth Streaming) z napisami wewnątrz. ISMT (Smooth Streaming ścieżki tekstowe), możesz dostarczyć strumień tylko do Smooth Streaming klientów. |
 | SCTE-35 |SCTE-35 to system sygnałów cyfrowych, który służy do sygnalizowania wstawiania reklamowego. Odbiorniki podrzędne używają sygnału do łączenia reklamy ze strumieniem przez przydzielony czas. SCTE-35 musi być wysłany jako ścieżka rozrzedzona w strumieniu wejściowym.<p><p>Obecnie jedynym obsługiwanym formatem strumienia wejściowego, który ma sygnały usługi AD, jest fragmentacja MP4 (Smooth Streaming). Jedynym obsługiwanym formatem danych wyjściowych jest również Smooth Streaming. |
 
-## <a name="considerations"></a><a id="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a><a id="considerations"></a>Istotne zagadnienia
 Jeśli używasz lokalnego kodera na żywo do wysyłania strumienia o większej szybkości transmisji bitów do kanału, mają zastosowanie następujące ograniczenia:
 
 * Upewnij się, że masz wystarczającą liczbę bezpłatnych połączeń z Internetem, aby wysyłać dane do punktów pozyskiwania.
@@ -225,7 +225,8 @@ Poniżej przedstawiono inne zagadnienia związane z pracą z kanałami i powiąz
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions-and-feedback"></a>Sugestie i opinie
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Powiązane tematy

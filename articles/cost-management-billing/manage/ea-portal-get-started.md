@@ -3,16 +3,16 @@ title: Wprowadzenie do witryny Azure Enterprise Portal
 description: W tym artykule omówiono sposób korzystania z witryny Azure Enterprise Portal przez klientów mających umowę Enterprise Agreement platformy Azure (Azure EA).
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298112"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560359"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -471,6 +471,7 @@ Witryna Azure Enterprise Portal umożliwia ukrycie nieaktywnych rejestracji. Aby
 
 ### <a name="enrollment-statuses"></a>Stany rejestracji
 
+- **Nowa**: Ten stan jest przypisywany do rejestracji utworzonej w ciągu 24 godzin i zostanie zaktualizowany do stanu Oczekująca w ciągu 24 godzin.
 - **Oczekująca**: Administrator rejestracji musi zalogować się w witrynie Azure Enterprise Portal. Po zalogowaniu rejestracja zostanie przełączona do stanu aktywnego.
 - **Aktywna**: Rejestracja jest aktywna i można tworzyć konta i subskrypcje w witrynie Azure Enterprise Portal. Rejestracja pozostanie aktywna do daty zakończenia umowy Enterprise Agreement.
 - **Przedłużenie na czas nieokreślony**: Przedłużenie na czas nieokreślony występuje po terminie zakończenia umowy Enterprise Agreement. Umożliwia to klientom z umowami EA platformy Azure, którzy wybrali opcję przedłużenia, dalsze korzystanie z usług platformy Azure przez czas nieokreślony po zakończeniu umowy Enterprise Agreement.

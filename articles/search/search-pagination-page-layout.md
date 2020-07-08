@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561593"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -28,7 +28,7 @@ Chociaż dokument wyszukiwania może składać się z dużej liczby pól, zazwyc
 Pola, które najlepiej sprawdzają się, obejmują te, które różnią się od dokumentów, i zawierają wystarczające informacje, aby zaprosić odpowiedź na kliknięcie w części użytkownika. W witrynie handlu elektronicznego może to być nazwa produktu, opis, marka, kolor, rozmiar, Cena i klasyfikacja. W przypadku przykładu hoteli-Sample-index wbudowane może być polami w następującym przykładzie:
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",
       "select": "HotelId, HotelName, Description, Rating, Address/City"
@@ -103,11 +103,11 @@ Formatowanie jest stosowane do zapytań w całym okresie. Typ formatowania jest 
 W poniższym przykładzie warunki "piaskowobrązowy", "piasek", "plażach", "sekwencje" Znalezione w polu opisu są oznaczone do wyróżniania. Zapytania wyzwalające rozszerzanie zapytania w aparacie, takie jak rozmyte i wieloznaczne wyszukiwanie, mają ograniczoną obsługę wyróżniania trafień.
 
 ```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
 ```
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
     {  
       "search": "sandy beaches",  
       "highlight": "Description"

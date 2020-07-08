@@ -8,14 +8,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697021"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560147"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -42,24 +42,30 @@ Zasoby platformy Azure emitują [metryki](data-platform-metrics.md) , do któryc
 
 ![Zrzut ekranu przedstawiający interfejs metryk skoroszytu](./media/workbooks-overview/metrics.png)
 
-## <a name="azure-resource-graph"></a>Azure Resource Graph 
+## <a name="azure-resource-graph"></a>Azure Resource Graph
 
 Skoroszyty obsługują zapytania dotyczące zasobów i ich metadanych przy użyciu usługi Azure Resource Graph (ARG). Ta funkcja jest używana głównie do tworzenia niestandardowych zakresów zapytań dla raportów. Zakres zasobów jest wyrażany za pomocą podzestawu KQL, który jest obsługiwany przez argument, który jest często wystarczający dla typowych przypadków użycia.
 
 Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Typ zapytania, aby wybrać pozycję Azure Resource Graph i wybrać subskrypcje docelowe. Za pomocą kontrolki zapytanie Dodaj wartość ARG KQL-podzestaw, która wybiera interesujący podzbiór zasobów.
 
-
 ![Zrzut ekranu przedstawiający zapytanie KQL wykresu zasobów platformy Azure](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Alerty (wersja zapoznawcza)
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Skoroszyty umożliwiają użytkownikom wizualizację aktywnych alertów związanych ze swoimi zasobami. Ta funkcja umożliwia tworzenie raportów, które łączą dane powiadomień (alertu) i informacje diagnostyczne (metryki, dzienniki) w jeden raport. Te informacje można również łączyć ze sobą, aby tworzyć zaawansowane raporty, które łączą szczegółowe dane w tych źródłach danych.
+Skoroszyt obsługuje operacje REST Azure Resource Manager. Pozwala to na wysyłanie zapytań do punktu końcowego management.azure.com bez konieczności podawania własnego tokenu nagłówka autoryzacji.
 
-Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Typ zapytania, aby wybrać alerty i wybrać subskrypcje, grupy zasobów lub zasoby docelowe. Użyj listy rozwijanej filtr alertów, aby wybrać interesujący podzbiór alertów dla potrzeb analitycznych.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej Źródło danych, aby wybrać Azure Resource Manager. Podaj odpowiednie parametry, takie jak metoda HTTP, ścieżka URL, nagłówki, parametry adresu URL i/lub treść.
 
-![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/alerts.png)
+> [!NOTE]
+> Tylko `GET` `POST` `HEAD` operacje są obecnie obsługiwane.
 
-## <a name="workload-health-preview"></a>Kondycja obciążenia (wersja zapoznawcza)
+## <a name="azure-data-explorer"></a>Azure Data Explorer
+
+Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+
+![Zrzut ekranu przedstawiający okno zapytania Kusto](./media/workbooks-overview/data-explorer.png)
+
+## <a name="workload-health"></a>Kondycja obciążenia
 
 Azure Monitor ma funkcję, która aktywnie monitoruje dostępność i wydajność systemów operacyjnych gościa z systemem Windows lub Linux. Azure Monitor modeluje składniki i ich relacje, kryteria służące do mierzenia kondycji tych składników oraz składniki ostrzegające o wykryciu złej kondycji. Skoroszyty umożliwiają użytkownikom korzystanie z tych informacji w celu tworzenia rozbudowanych raportów interaktywnych.
 
@@ -67,7 +73,7 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **t
 
 ![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Usługa Azure Resource Health 
+## <a name="azure-resource-health"></a>Usługa Azure Resource Health
 
 Skoroszyty obsługują uzyskiwanie informacji o kondycji zasobów platformy Azure i łączenie ich z innymi źródłami danych w celu tworzenia zaawansowanych, interaktywnych raportów o kondycji
 
@@ -75,13 +81,37 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **t
 
 ![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Azure Eksplorator danych (wersja zapoznawcza)
+## <a name="json"></a>JSON
 
-Skoroszyty obsługują teraz wykonywanie zapytań z klastrów [usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/) przy użyciu zaawansowanego języka zapytań [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+Dostawca JSON umożliwia utworzenie wyniku zapytania ze statycznej zawartości JSON. Jest najczęściej używany w parametrach do tworzenia parametrów listy rozwijanej wartości statycznych. Proste tablice JSON lub obiekty zostaną automatycznie przekonwertowane na wiersze siatki i kolumny.  W celu uzyskania bardziej szczegółowych zachowań można skonfigurować kolumny za pomocą karty wyniki i ustawień wykryto.
 
-![Zrzut ekranu przedstawiający okno zapytania Kusto](./media/workbooks-overview/data-explorer.png)
+## <a name="alerts-preview"></a>Alerty (wersja zapoznawcza)
+
+> [!NOTE]
+> Sugerowany sposób wykonywania zapytań dotyczących informacji o alertach platformy Azure polega na użyciu źródła danych [grafu zasobów platformy Azure](#azure-resource-graph) , badając `AlertsManagementResources` tabelę.
+>
+> Przykłady można znaleźć w temacie [odwołanie do tabeli grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)lub [szablon alertów](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) .
+>
+> Źródło danych alertów pozostanie dostępne przez pewien czas podczas przejścia przez autorów do użycia argumentu ARG. Nie zaleca się używania tego źródła danych w szablonach. 
+
+Skoroszyty umożliwiają użytkownikom wizualizację aktywnych alertów związanych ze swoimi zasobami. Ograniczenia: Źródło danych alertów wymaga dostępu do odczytu do subskrypcji w celu zbadania zasobów i może nie wyświetlać nowszych rodzajów alertów. 
+
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _alertów (wersja zapoznawcza)_ i wybierz subskrypcje, grupy zasobów lub zasoby docelowe. Użyj listy rozwijanej filtr alertów, aby wybrać interesujący podzbiór alertów dla potrzeb analitycznych.
+
+## <a name="custom-endpoint"></a>Niestandardowy punkt końcowy
+
+Skoroszyty obsługują pobieranie danych z dowolnego źródła zewnętrznego. Jeśli dane znajdują się poza platformą Azure, możesz je przenieść do skoroszytów przy użyciu tego typu źródła danych.
+
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _niestandardowego punktu końcowego_. Podaj odpowiednie parametry, takie jak `Http method` , `url` , `headers` , `url parameters` i/lub `body` . Upewnij się, że źródło danych obsługuje mechanizm [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) w przeciwnym razie żądanie zakończy się niepowodzeniem.
+
+Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas korzystania z szablonów, użytkownik musi oznaczyć używane hosty jako zaufane. Można to zrobić przez kliknięcie przycisku _Dodaj jako zaufany_ lub dodanie go jako zaufanego hosta w ustawieniach skoroszytu. Te ustawienia zostaną zapisane w przeglądarkach, które obsługują IndexDb z internetowymi procesami roboczymi. więcej informacji [znajdziesz tutaj](https://caniuse.com/#feat=indexeddb).
+
+> [!NOTE]
+> Nie zapisuj żadnych wpisów tajnych w żadnym z pól ( `headers` , `parameters` , `body` , `url` ), ponieważ będą one widoczne dla wszystkich użytkowników skoroszytu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
+* [Wskazówki dotyczące optymalizacji zapytań Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* 

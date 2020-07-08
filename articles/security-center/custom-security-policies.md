@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db310cb7ea5c3a89eb727262a7a7ed63ce55b5db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559560"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
 
@@ -38,7 +38,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/
 
 1. Na stronie zasady zabezpieczeń w obszarze inicjatywy niestandardowe kliknij pozycję **Dodaj inicjatywę niestandardową**.
 
-    [![Kliknij przycisk * * Dodaj inicjatywę niestandardową * *](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Kliknij pozycję Dodaj inicjatywę niestandardową](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     Zostanie wyświetlona następująca strona:
 
@@ -52,7 +52,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/
     1. Wprowadź lokalizację i nazwę definicji.
     1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
     1. Wprowadź wszelkie wymagane parametry.
-    1. Kliknij przycisk **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
     1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
     1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
 

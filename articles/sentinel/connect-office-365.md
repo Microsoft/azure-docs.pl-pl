@@ -1,6 +1,6 @@
 ---
 title: Łączenie dzienników pakietu Office 365 z usługą Azure wskaźnikowego | Microsoft Docs
-description: Dowiedz się, jak połączyć dane pakietu Office 365 z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak korzystać z łącznika dziennika pakietu Office 365 w celu uzyskania informacji na temat bieżących działań użytkowników i administratorów w programach Exchange i SharePoint, w tym w usłudze OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: bcd00247486faeea47ef4a4a43fa1df5420321e6
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559339"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Łączenie dzienników pakietu Office 365 z usługą Azure wskaźnikowego
 

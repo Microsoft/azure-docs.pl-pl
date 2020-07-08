@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d6ecc2ddab7bc0fa739989e9cfdc2645cc1ccb27
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476907"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559838"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -28,7 +28,9 @@ Aby uzyskać więcej informacji na temat różnych punktów końcowych, zobacz [
 Punkty końcowe i trasy są zarządzane za pomocą [**interfejsów API EventRoutes**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Mogą być również zarządzane przez [Azure Portal](https://portal.azure.com).
 
 > [!NOTE]
-> Zarządzanie trasami zdarzeń za pomocą Azure Portal jest obecnie dostępne tylko dla użytkowników platformy Azure na kontach domeny firmowej. Jeśli używasz osobistego [konto Microsoft (MSA)](https://account.microsoft.com/account/Account), użyj interfejsu API Digital bliźniaczych reprezentacji lub interfejsu wiersza polecenia platformy Azure do zarządzania trasami zdarzeń, zgodnie z opisem w tym artykule.
+> Zarządzanie trasami zdarzeń za pomocą Azure Portal jest obecnie dostępne tylko dla użytkowników platformy Azure na kontach domeny firmowej. 
+>
+>Jeśli używasz osobistego [konto Microsoft (MSA)](https://account.microsoft.com/account/Account), takiego jak @outlook.com konto, Użyj interfejsów API Digital bliźniaczych reprezentacji lub interfejsu wiersza polecenia platformy Azure do zarządzania trasami zdarzeń zgodnie z opisem w tym artykule.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Tworzenie punktu końcowego dla usługi Azure Digital bliźniaczych reprezentacji
 

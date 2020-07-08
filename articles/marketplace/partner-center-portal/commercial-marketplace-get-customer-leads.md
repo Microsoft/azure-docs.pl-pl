@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat generowania i otrzymywania potencjaln
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 89b73fd98ca773668d2eb53892d0c21397e9abf3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559575"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
 
@@ -87,10 +87,12 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 ## <a name="best-practices-for-lead-management"></a>Najlepsze rozwiązania dotyczące zarządzania potencjalnymi klientami
 
+Poniżej przedstawiono kilka zaleceń dotyczących prowadzenia potencjalnych klientów w ramach cyklu sprzedaży:
+
 - **Proces**: Zdefiniuj czysty proces sprzedaży z punktami kontrolnymi, analizą i jasno własnością zespołu.
 - **Kwalifikacja**: Zdefiniuj wymagania wstępne, które wskazują, czy potencjalny klient został w pełni kwalifikowany. Upewnij się, że przedstawiciele ds. sprzedaży i marketingu kwalifikują się dokładnie do wzięcia pod uwagę przed przeprowadzeniem przez cały proces sprzedaży
-- **Monitowanie**: nie zapomnij się monitować. Oczekiwano, że typowa transakcja wymaga od 5 do 12 wywołań kolejnych.
-- **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków.
+- **Zaobserwuj**: nie zapomnij wykonać czynności w ciągu 24 godzin. Potencjalny klient zostanie wyświetlony w wybranym programie CRM natychmiast po wdrożeniu przez klienta dysku testowego; Wyślij je pocztą e-mail w czasie, gdy są one nadal dostępne. Żądaj zaplanowania rozmowy telefonicznej, aby lepiej zrozumieć, czy produkt jest dobrym rozwiązaniem dla swojego problemu. Należy oczekiwać, że typowa transakcja wymaga wielu kolejnych wywołań.
+- **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków. Zaewidencjonuj, ale nie Bombard. Zalecamy, aby wysłać wiadomość e-mail co najmniej kilka razy przed ich zamknięciem. Nie dodawaj po pierwszej próbie. Pamiętaj, że Ci klienci bezpośrednio zaangażowani w produkt i spędzają czas w bezpłatnej wersji próbnej. są to wspaniałe potencjalni klienci.
 
 ## <a name="common-questions-about-lead-management"></a>Często zadawane pytania dotyczące zarządzania potencjalnymi klientami
 

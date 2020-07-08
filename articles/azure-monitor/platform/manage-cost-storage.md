@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4f7be81c3593e35dfbbcf3a5671726da70ae0c7e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319673"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559553"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -196,7 +196,7 @@ W każdym obszarze roboczym dzienny limit został zastosowany w innej godzinie d
 Wkrótce po osiągnięciu dziennego limitu w pozostałej części dnia zostanie zatrzymana Kolekcja typów danych do rozliczenia. (Opóźnienie związane z zastosowaniem dziennego limitu oznacza, że zakończenie nie jest stosowane w dokładnie określonym poziomie dziennego limitu). Transparent ostrzegawczy pojawia się w górnej części strony dla wybranego obszaru roboczego Log Analytics, a zdarzenie operacji jest wysyłane do tabeli *operacji* w kategorii **LogManagement** . Zbieranie danych zostanie wznowione po upływie czasu resetowania określonego w obszarze *dzienny limit*. Zalecamy zdefiniowanie reguły alertu na podstawie tego zdarzenia operacji skonfigurowanego do powiadamiania o osiągnięciu dziennego limitu ilości danych. 
 
 > [!WARNING]
-> Dzienny limit nie zatrzymuje zbierania danych z usługi Azure Sentinal lub Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
+> Dzienny limit nie zatrzymuje zbierania danych z tabeli wskaźnikowej platformy Azure ani Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Określ dzienny limit danych do zdefiniowania
 

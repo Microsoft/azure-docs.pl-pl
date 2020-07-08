@@ -1,6 +1,6 @@
 ---
 title: Badanie alertów za pomocą usługi Azure wskaźnikowego | Microsoft Docs
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zbadać alerty za pomocą usługi Azure wskaźnikowej.
+description: Dowiedz się, jak używać wbudowanych szablonów wykrywania zagrożeń platformy Azure, które powiadamiają o wystąpieniu podejrzanych sytuacji.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560031"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Samouczek: wykrywanie zagrożeń wbudowanych
 
@@ -29,7 +29,7 @@ ms.locfileid: "77585207"
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Po [nawiązaniu połączenia ze źródłami](quickstart-onboard.md) danych z platformą Azure — użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych sytuacji. Aby można było to zrobić, wskaźnik na platformie Azure udostępnia gotowy do użycia wbudowane szablony. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Po włączeniu tych szablonów zostaną automatycznie wyszukane wszystkie działania, które wyglądają podejrzanie w danym środowisku. Wiele szablonów można dostosować w taki sposób, aby wyszukiwać lub odfiltrować działania, zgodnie z potrzebami. Alerty wygenerowane przez te szablony spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   z platformą Azure — użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych sytuacji. Aby można było to zrobić, wskaźnik na platformie Azure udostępnia gotowy do użycia wbudowane szablony. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Po włączeniu tych szablonów zostaną automatycznie wyszukane wszystkie działania, które wyglądają podejrzanie w danym środowisku. Wiele szablonów można dostosować w taki sposób, aby wyszukiwać lub odfiltrować działania, zgodnie z potrzebami. Alerty wygenerowane przez te szablony spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
 
 Ten samouczek ułatwia wykrywanie zagrożeń przy użyciu platformy Azure — wskaźnik:
 

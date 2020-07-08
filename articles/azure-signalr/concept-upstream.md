@@ -1,86 +1,90 @@
 ---
 title: Ustawienia nadrzędne w usłudze Azure Signal Service
-description: Wprowadzenie ustawień i protokołu nadrzędnych komunikatów
+description: Zapoznaj się z wprowadzeniem ustawień nadrzędnych i protokołów komunikatów nadrzędnych.
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 7434e8796ddcd89968a0ffa0328a823d635f51c9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559448"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
 
-Nadrzędny to funkcja, która umożliwia usłudze sygnalizującej wysyłanie komunikatów i zdarzeń połączeń do zestawu punktów końcowych w trybie bezserwerowym. Nadrzędny może służyć do wywoływania metody Hub od klientów w trybie bezserwerowym i umożliwiania punktów końcowych, gdy połączenia klienckie są połączone lub rozłączone.
+Nadrzędny to funkcja, która umożliwia usłudze Azure sygnalizującej wysyłanie komunikatów i zdarzeń połączeń do zestawu punktów końcowych w trybie bezserwerowym. Można użyć nadrzędnego, aby wywołać metodę Hub od klientów w trybie bezserwerowym i umożliwić punktom końcowym otrzymywanie powiadomień, gdy połączenia klienckie są połączone lub rozłączone.
 
 > [!NOTE]
 > Tylko tryb bezserwerowy może konfigurować ustawienia nadrzędne.
 
-## <a name="upstream-settings-details"></a>Szczegóły ustawień nadrzędnych
+## <a name="details-of-upstream-settings"></a>Szczegóły ustawień nadrzędnych
 
-Ustawienia nadrzędne składają się z listy zależnych od kolejności elementów. Każdy element składa się z `URL Template` , który określa, gdzie wiadomości wysyła do, zestaw `Rules` i `Authentication` konfiguracje. Po wystąpieniu określonego zdarzenia element `Rules` zostanie sprawdzony jeden według jednego w kolejności, a komunikaty będą wysyłane do nadrzędnego adresu URL elementu.
+Ustawienia nadrzędne składają się z listy elementów zależnych od kolejności. Każdy element składa się z:
+
+* Szablon adresu URL, który określa, gdzie będą wysyłane wiadomości.
+* Zestaw reguł.
+* Konfiguracje uwierzytelniania. 
+
+Gdy wystąpi określone zdarzenie, reguły elementu są sprawdzane jeden według kolejności. Komunikaty będą wysyłane do adresu URL pierwszego zgodnego elementu.
 
 ### <a name="url-template-settings"></a>Ustawienia szablonu adresu URL
 
-Adres URL można sparametryzowane, aby obsługiwał różne wzorce. Istnieją trzy wstępnie zdefiniowane parametry:
+Możesz Sparametryzuj adres URL, aby obsługiwać różne wzorce. Istnieją trzy wstępnie zdefiniowane parametry:
 
 |Wstępnie zdefiniowany parametr|Opis|
 |---------|---------|
-|Centralny| Centrum jest pojęciem sygnalizującym. Centrum jest jednostką izolacji, zakres dostarczania użytkowników i komunikatów jest ograniczony do centrum|
-|kategorii| Kategoria może być jedną z następujących wartości: <ul><li>**połączenia**: zdarzenia okresu istnienia połączenia. Uruchamiany, gdy połączenie z klientem jest połączone lub rozłączone. Łącznie ze zdarzeniami *połączonymi* i *odłączonymi*</li><li>**komunikaty**: wywoływane, gdy klienci wywołują metodę Hub. Uwzględnianie wszystkich innych zdarzeń poza tymi w kategorii *połączeń*</li></ul>|
-|wydarzen| W przypadku kategorii *messages* , Event to *obiekt docelowy* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W kategorii *połączenia* jest używana tylko *połączona* i *rozłączona* .|
+|Centralny| Centrum jest koncepcją usługi Azure sygnalizującej. Koncentrator jest jednostką izolacji. Zakres użytkowników i dostarczania komunikatów jest ograniczony do centrum.|
+|kategorii| Kategoria może być jedną z następujących wartości: <ul><li>**połączenia**: zdarzenia okresu istnienia połączenia. Jest on uruchamiany, gdy połączenie z klientem jest połączone lub rozłączone. Obejmuje to połączone i odłączone zdarzenia.</li><li>**komunikaty**: wywoływane, gdy klienci wywołują metodę Hub. Zawiera wszystkie inne zdarzenia, z wyjątkiem tych w kategorii **połączenia** .</li></ul>|
+|wydarzen| W przypadku kategorii **wiadomości** zdarzenie jest obiektem docelowym w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W przypadku kategorii **połączenia** używane są tylko *połączone* i *rozłączone* .|
 
-Te wstępnie zdefiniowane parametry mogą być używane w `URL Pattern` parametrach i zostaną zastąpione określoną wartością podczas oceniania nadrzędnego adresu URL. Na przykład 
+Te wstępnie zdefiniowane parametry mogą być używane we wzorcu adresu URL. Parametry zostaną zastąpione określoną wartością podczas oceniania nadrzędnego adresu URL. Przykład: 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
-Po nawiązaniu połączenia z klientem w centrum "Rozmowa" zostanie wysłany komunikat do adresu URL:
+Po nawiązaniu połączenia z klientem w centrum "Rozmowa" zostanie wysłany komunikat do tego adresu URL:
 ```
 http://host.com/chat/api/connections/connected
 ```
-Gdy klient w centrum `chat` wywoła metodę Hub `broadcast` , zostanie wysłany komunikat do adresu URL:
+Gdy klient w centrum "Rozmowa" wywoła metodę Hub `broadcast` , zostanie wysłany komunikat do tego adresu URL:
 ```
 http://host.com/chat/api/messages/broadcast
 ```
 
-### <a name="rules-settings"></a>Ustawienia reguł
+### <a name="rule-settings"></a>Ustawienia reguły
 
-Reguły dla reguł *centrów*, *reguł kategorii* i zasad dotyczących *zdarzeń* można ustawić osobno. Reguła dopasowywania obsługuje trzy formaty. Zapoznaj się z *regułami zdarzeń* w postaci przykładu:
+Reguły dla *reguł centrum*, *reguł kategorii*i *reguł zdarzeń* można ustawić osobno. Reguła dopasowywania obsługuje trzy formaty. Wykonaj na przykład reguły zdarzeń:
 - Użyj gwiazdki (*), aby dopasować wszystkie zdarzenia.
-- Przecinek użytkownika (,), aby dołączyć wiele zdarzeń. Na przykład `connected, disconnected` dopasowuje zdarzenia *połączone* i *odłączone*.
-- Użyj pełnej nazwy zdarzenia, aby dopasować zdarzenie. Na przykład `connected` dopasowuje zdarzenie *połączone* .
+- Użyj przecinka (,), aby dołączyć wiele zdarzeń. Na przykład `connected, disconnected` dopasowuje zdarzenia połączone i odłączone.
+- Użyj pełnej nazwy zdarzenia, aby dopasować zdarzenie. Na przykład `connected` dopasowuje zdarzenie połączone.
 
 ### <a name="authentication-settings"></a>Ustawienia uwierzytelniania
 
-*Uwierzytelnianie* dla każdego elementu nadrzędnego ustawienia można skonfigurować osobno. W przypadku skonfigurowania *uwierzytelniania*token zostanie ustawiony w nagłówku *uwierzytelniania* komunikatu nadrzędnego. Bieżąca usługa sygnalizująca obsługuje następujący typ uwierzytelniania:
-- Brak
-- ManagedIdentity
+Uwierzytelnianie dla każdego elementu ustawienia nadrzędnego można skonfigurować osobno. W przypadku konfigurowania uwierzytelniania token jest ustawiany w `Authentication` nagłówku komunikatu nadrzędnego. Obecnie usługa sygnałów platformy Azure obsługuje następujące typy uwierzytelniania:
+- `None`
+- `ManagedIdentity`
 
-W przypadku wybrania opcji *ManagedIdentity*należy ponownie włączyć zarządzaną tożsamość w usłudze sygnalizującego i opcjonalnie określić *zasób*. Szczegółowe informacje znajdują się w temacie [jak używać zarządzanych tożsamości usługi Azure Signal Service](howto-use-managed-identity.md) .
+Po wybraniu `ManagedIdentity` tej opcji należy najpierw włączyć zarządzaną tożsamość w usłudze Azure Signal Service i opcjonalnie określić zasób. Szczegóły można znaleźć w temacie [zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md) .
 
-## <a name="create-upstream-settings"></a>Utwórz ustawienia nadrzędne
-
-### <a name="create-upstream-settings-via-azure-portal"></a>Utwórz ustawienia nadrzędne za pośrednictwem Azure Portal
+## <a name="create-upstream-settings-via-the-azure-portal"></a>Utwórz ustawienia nadrzędne za pośrednictwem Azure Portal
 
 1. Przejdź do usługi Azure Signal Service.
-2. Kliknij pozycję *Ustawienia* Bland i Przełącz *tryb usługi* na *serwer*. *Ustawienia nadrzędne* będą wyświetlane w następujący sposób:
+2. Wybierz pozycję **Ustawienia** i Przełącz **tryb usługi** na **bezserwerowy**. Zostaną wyświetlone ustawienia nadrzędne:
 
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Ustawienia nadrzędne":::
 
-3. Wypełnij adresy URL *wzorcem nadrzędnego adresu URL*, a następnie ustawienia, takie jak *reguły centrum* , będą zawierać wartość domyślną.
-4. Aby ustawić ustawienia, takie jak *reguły centrum*, *reguły zdarzeń*, *reguły kategorii* i *uwierzytelnianie nadrzędne*, kliknij wartość *reguły centrum*. Zostanie wyświetlona strona umożliwiająca edytowanie ustawień, jak pokazano poniżej:
+3. Dodaj adresy URL w ramach **wzorca nadrzędnego adresu URL**. Następnie ustawienia, takie jak **reguły centrum** , będą zawierać wartość domyślną.
+4. Aby ustawić ustawienia dla **reguł centrum**, **reguły zdarzeń**, **reguły kategorii**i **uwierzytelnianie nadrzędne**, wybierz wartość **reguły centrum**. Zostanie wyświetlona strona, która umożliwia edytowanie ustawień:
 
     :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Ustawienia nadrzędne":::
 
-5. Aby ustawić *uwierzytelnianie nadrzędne*, upewnij się, że masz najpierw włączoną tożsamość zarządzaną, a następnie wybierz pozycję *Użyj tożsamości zarządzanej* w ramach *uwierzytelniania nadrzędnego*. Zgodnie z potrzebami można wybrać opcje w obszarze *Identyfikator zasobu uwierzytelniania*. Aby uzyskać szczegółowe informacje [, zobacz Jak włączyć zarządzaną tożsamość](howto-use-managed-identity.md) .
+5. Aby ustawić **uwierzytelnianie nadrzędne**, upewnij się, że została najpierw włączona tożsamość zarządzana. Następnie wybierz pozycję **Użyj tożsamości zarządzanej**. Zgodnie z potrzebami można wybrać opcje w obszarze **Identyfikator zasobu uwierzytelniania**. Szczegóły można znaleźć w temacie [zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md) .
 
-### <a name="create-upstream-settings-via-arm-template"></a>Tworzenie ustawień nadrzędnych za pomocą szablonu ARM
+## <a name="create-upstream-settings-via-resource-manager-template"></a>Tworzenie ustawień nadrzędnych za pomocą szablonu Menedżer zasobów
 
-Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Menedżer zasobów](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), należy ustawić `upstream` Właściwość we `properties` właściwości. Poniższe fragmenty kodu pokazują, jak ustawić `upstream` Właściwość na potrzeby tworzenia i aktualizowania ustawień nadrzędnych.
+Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), należy ustawić `upstream` Właściwość we `properties` właściwości. Poniższy fragment kodu przedstawia sposób ustawiania `upstream` właściwości na potrzeby tworzenia i aktualizowania ustawień nadrzędnych.
 
 ```JSON
 {
@@ -105,9 +109,9 @@ Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Menedżer zasobów](h
 }
 ```
 
-## <a name="signalr-serverless-protocol"></a>Protokół sygnałów bezserwerowych
+## <a name="serverless-protocols"></a>Protokoły bezserwerowe
 
-Usługa sygnalizująca wysyła komunikaty do punktów końcowych, które są zgodne z następującymi protokołami.
+Usługa sygnałów platformy Azure wysyła komunikaty do punktów końcowych, które są zgodne z następującymi protokołami.
 
 ### <a name="method"></a>Metoda
 
@@ -117,15 +121,15 @@ POST
 
 |Nazwa |Opis|
 |---------|---------|
-|X-ASRS-Connection-ID |Identyfikator połączenia dla połączenia klienta|
-|X-ASRS-Hub |Centrum, do którego należy połączenie z klientem|
-|X-ASRS-Kategoria |Kategoria, do której należy wiadomość|
-|X-ASRS-Event |Zdarzenie, do którego należy wiadomość|
-|X-ASRS-Signature |HMAC używany do walidacji. Aby uzyskać szczegółowe informacje, zobacz temat [Signature](#signature) .|
-|X-ASRS-User-Claims |Grupa oświadczeń połączenia klienta|
-|X-ASRS-User-ID |Tożsamość użytkownika klienta wysyłającego komunikat|
-|X-ASRS-Client-Query |Zapytanie o żądanie, gdy klienci łączą się z usługą|
-|Uwierzytelnianie |Opcjonalny token w przypadku korzystania z *ManagedIdentity* |
+|X-ASRS-Connection-ID |Identyfikator połączenia dla połączenia klienta.|
+|X-ASRS-Hub |Centrum, do którego należy połączenie z klientem.|
+|X-ASRS-Kategoria |Kategoria, do której należy wiadomość.|
+|X-ASRS-Event |Zdarzenie, do którego należy wiadomość.|
+|X-ASRS-Signature |Kod uwierzytelniania wiadomości oparty na skrócie (HMAC) używany do walidacji. Aby uzyskać szczegółowe informacje, zobacz temat [Signature](#signature) .|
+|X-ASRS-User-Claims |Grupa oświadczeń połączenia z klientem.|
+|X-ASRS-User-ID |Tożsamość użytkownika klienta wysyłającego wiadomość.|
+|X-ASRS-Client-Query |Zapytanie o żądanie, gdy klienci łączą się z usługą.|
+|Authentication |Opcjonalny token podczas korzystania z programu `ManagedIdentity` . |
 
 ### <a name="request-body"></a>Treść żądania
 
@@ -139,7 +143,7 @@ Typ zawartości:`application/json`
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|Błąd |ciąg |Komunikat o błędzie został zamknięty. Puste, gdy połączenia są zamknięte bez błędów|
+|Błąd |ciąg |Komunikat o błędzie zamkniętego połączenia. Puste, gdy połączenia są zamykane bez błędów.|
 
 #### <a name="invocation-message"></a>Komunikat wywołania
 
@@ -147,18 +151,18 @@ Typ zawartości: `application/json` lub`application/x-msgpack`
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|InvocationId |ciąg | Opcjonalny ciąg reprezentuje komunikat wywołania. Znajdź szczegóły w [wywołaniach](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
-|Środowisko docelowe |ciąg | Taka sama jak *zdarzenie* i taka sama jak wartość *docelowa* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
-|Argumenty |Tablica obiektów |Tablica zawierająca argumenty do zastosowania do metody, do której odwołuje się element docelowy. |
+|InvocationId |ciąg | Opcjonalny ciąg, który reprezentuje komunikat wywołania. Znajdź szczegóły w [wywołaniach](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
+|Środowisko docelowe |ciąg | Taka sama jak zdarzenie i taka sama jak wartość docelowa w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
+|Argumenty |Tablica obiektów |Tablica zawierająca argumenty, które mają zostać zastosowane do metody, do której odwołuje się `Target` . |
 
 ### <a name="signature"></a>Podpis
 
-Usługa obliczy kod SHA256 dla `X-ASRS-Connection-Id` wartości przy użyciu podstawowego klucza dostępu i klucza dostępu pomocniczego jako `HMAC` klucza i ustawi go w `X-ASRS-Signature` nagłówku podczas wykonywania żądań HTTP do nadrzędnego:
+Usługa będzie obliczać kod SHA256 dla `X-ASRS-Connection-Id` wartości przy użyciu podstawowego klucza dostępu i pomocniczego klucza dostępu jako `HMAC` klucza. Usługa ustawi ją w `X-ASRS-Signature` nagłówku podczas wykonywania żądań HTTP do nadrzędnego:
 ```
 Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak używać tożsamości zarządzanych dla usługi Azure Signal Service](howto-use-managed-identity.md)
+- [Zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md)
 - [Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service](signalr-concept-serverless-development-config.md)

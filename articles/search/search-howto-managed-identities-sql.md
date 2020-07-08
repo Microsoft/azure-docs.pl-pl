@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 3e58bdafce6746d7f83dfbceeff529c6d4b5075a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559930"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Skonfiguruj połączenie indeksatora, aby Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -111,7 +111,7 @@ Podczas indeksowania z bazy danych SQL źródło danych musi mieć następujące
 Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -132,7 +132,7 @@ Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtu
 Oto jak utworzyć indeks z polem z możliwością wyszukiwania `booktitle` :   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -156,7 +156,7 @@ Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeks
 Przykładowa definicja indeksatora dla indeksatora usługi Azure SQL:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -178,7 +178,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 
 Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Dowiedz się więcej o usłudze Azure SQL indeksator:
 * [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

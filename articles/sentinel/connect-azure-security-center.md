@@ -1,6 +1,6 @@
 ---
 title: Łączenie Azure Security Center danych z platformą Azure — wskaźnikiem
-description: Dowiedz się, jak połączyć Azure Security Center dane z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak łączyć alerty z warstwy Standardowa Azure Security Center (ASC) i przesyłać strumieniowo do platformy Azure.
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 3d4b22196598d971c49f0364038b74ba81c73805
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 2fc7744600a9652ad43fd0aae8d886dc94acd58f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559151"
 ---
 # <a name="connect-data-from-azure-security-center-asc"></a>Połącz dane z Azure Security Center (ASC)
 

@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 62c35eefe50643dc65dcf84305a9b4b3ee64cadb
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85478641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560402"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Rozwiązywanie typowych problemów indeksatora na platformie Azure Wyszukiwanie poznawcze
 
@@ -76,7 +76,7 @@ Usługa Azure Wyszukiwanie poznawcze ma niejawną zależność od indeksowania C
 Indeksator obiektów BLOB umożliwia dokumentowanie [formatów dokumentów, które są jawnie obsługiwane.](search-howto-indexing-azure-blob-storage.md#SupportedFormats) Czasami kontener magazynu obiektów BLOB zawiera nieobsługiwane dokumenty. Inne przypadki mogą wystąpić problemy z dokumentami. Możesz uniknąć zatrzymywania indeksatora w tych dokumentach, [zmieniając opcje konfiguracji](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,7 +94,7 @@ Indeksator obiektów BLOB [odnajduje i wyodrębnia tekst z obiektów BLOB w kont
 * Indeksator obiektu BLOB jest skonfigurowany tylko do indeksowania metadanych. Aby wyodrębnić zawartość, indeksator obiektu BLOB musi być skonfigurowany do [wyodrębniania zawartości i metadanych](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
