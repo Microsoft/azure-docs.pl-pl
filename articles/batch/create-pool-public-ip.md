@@ -3,12 +3,12 @@ title: Tworzenie puli z określonymi publicznymi adresami IP
 description: Dowiedz się, jak utworzyć pulę wsadową korzystającą z własnych publicznych adresów IP.
 ms.topic: how-to
 ms.date: 06/16/2020
-ms.openlocfilehash: 9992ae573ea5c9590f15d6cffa11da599026c0a9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 51cb023bf3749233878fa4d544c6fd8ef4703645
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84884972"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961561"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Utwórz pulę Azure Batch z określonymi publicznymi adresami IP
 
@@ -16,13 +16,15 @@ Podczas tworzenia puli Azure Batch można [zainicjować obsługę administracyjn
 
 Można utworzyć listę statycznych publicznych adresów IP do użycia z maszynami wirtualnymi w puli. Dzięki temu można kontrolować listę publicznych adresów IP i upewnić się, że nie zmieniają się nieoczekiwanie. Może to być szczególnie przydatne w przypadku pracy z dowolnymi usługami zewnętrznymi, takimi jak baza danych, która ogranicza dostęp do określonych adresów IP.
 
+Aby uzyskać informacje na temat tworzenia pul bez publicznych adresów IP, przeczytaj artykuł [Tworzenie puli Azure Batch bez publicznych adresów IP](./batch-pool-no-public-ip-address.md).
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - **Uwierzytelnianie**. Aby korzystać z publicznego adresu IP, interfejs API klienta usługi Batch musi korzystać z [uwierzytelniania Azure Active Directory (AD)](batch-aad-auth.md).
 
 - **Sieć wirtualna platformy Azure**. Musisz użyć [sieci wirtualnej](batch-virtual-network.md) z tej samej subskrypcji platformy Azure, w której tworzysz pulę i adresy IP. Można używać tylko sieci wirtualnych opartych na Azure Resource Manager. Upewnij się, że sieć wirtualna spełnia wszystkie [Ogólne wymagania](batch-virtual-network.md#vnet-requirements).
 
-- **Co najmniej jeden publiczny adres IP platformy Azure**. Aby utworzyć co najmniej jeden publiczny adres IP, możesz użyć [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)lub [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Pamiętaj, aby postępować zgodnie z wymaganiami wymienionymi poniżej.
+- **Co najmniej jeden publiczny adres IP platformy Azure**. Aby utworzyć co najmniej jeden publiczny adres IP, możesz użyć [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)lub [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Pamiętaj, aby postępować zgodnie z wymaganiami wymienionymi poniżej.
 
 > [!NOTE]
 > Funkcja Batch automatycznie przydziela dodatkowe zasoby sieciowe do grupy zasobów zawierającej publiczne adresy IP. W przypadku każdego dedykowanego węzła 100 usługa Batch zazwyczaj przydziela jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń) i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez przydziały zasobów subskrypcji. W przypadku korzystania z większych pul może być konieczne [zażądanie zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota) dla co najmniej jednego z tych zasobów.
@@ -43,7 +45,7 @@ Podczas tworzenia publicznych adresów IP należy wziąć pod uwagę następują
 
 ## <a name="create-a-batch-pool-with-public-ip-addresses"></a>Tworzenie puli wsadowej z publicznymi adresami IP
 
-W poniższym przykładzie pokazano, jak za pomocą [interfejsu API REST usługi Azure Batch](https://docs.microsoft.com/rest/api/batchservice/pool/add) utworzyć pulę korzystającą z publicznych adresów IP.
+W poniższym przykładzie pokazano, jak za pomocą [interfejsu API REST usługi Azure Batch](/rest/api/batchservice/pool/add) utworzyć pulę korzystającą z publicznych adresów IP.
 
 ### <a name="batch-service-rest-api"></a>Batch Service REST API (Interfejs API REST usługi Batch)
 
@@ -95,3 +97,5 @@ Treść żądania
 
 - Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 - Dowiedz się więcej na temat [tworzenia puli w podsieci sieci wirtualnej platformy Azure](batch-virtual-network.md).
+- Dowiedz się więcej [na temat tworzenia puli Azure Batch bez publicznych adresów IP](./batch-pool-no-public-ip-address.md).
+

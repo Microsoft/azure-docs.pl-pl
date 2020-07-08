@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 471675de58161fc0c0110e2968089da062c6da87
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845797"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960566"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -33,11 +33,11 @@ ms.locfileid: "83845797"
 3. W Azure Portal Utwórz konto magazynu, wykonując poniższą procedurę.  
     1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie.  **Nowe** okienko (blok) zostanie wyświetlone po prawej stronie.
     2. Wybierz pozycję **Magazyn** w **nowym** okienku.  Lista **proponowanych** zostanie wyświetlona po prawej stronie.
-    3. Wybierz **konto magazynu** , aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    3. Wybierz **konto magazynu** , aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Procedura tworzenia konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Aby uzyskać więcej informacji na temat kont magazynu, wybierz pozycję [samouczek szybkiego startu](https://docs.microsoft.com/azure/storage/).  Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
+    Aby uzyskać więcej informacji na temat kont magazynu, zobacz ten [Przewodnik Szybki Start](../../storage/blobs/storage-quickstart-blobs-portal.md).  Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 4. Zaczekaj na zainicjowanie obsługi konta magazynu, proces, który zwykle trwa kilka minut.  Następnie uzyskaj dostęp do konta magazynu ze strony **głównej** Azure Portal, wybierając pozycję **Pokaż wszystkie zasoby** lub wybierając pozycję **wszystkie zasoby** na lewym pasku nawigacyjnym Azure Portal.
 

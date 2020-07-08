@@ -13,22 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb92e4b7eaacb5b2d18b3c33f6fdf714592bdefc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803918"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961119"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -66,7 +64,9 @@ Aby wdrożyć szablon przy użyciu interfejsu wiersza polecenia platformy Azure,
 
     Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
-        info:    New mode is arm
+    ```output
+    info:    New mode is arm
+    ```
 
 3. Otwórz plik parametrów, wybierz jego zawartość i zapisz ją w pliku na komputerze. W tym przykładzie zapisaliśmy plik parametrów w pliku *parameters.json*.
 4. Uruchom polecenie **azure group deployment create**, aby wdrożyć nowy wewnętrzny moduł równoważenia obciążenia przy użyciu plików parametrów i szablonu pobranych i zmodyfikowanych w powyższych krokach. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.

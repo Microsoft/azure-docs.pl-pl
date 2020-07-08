@@ -11,20 +11,20 @@ ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: d477ed6f86a7437956d66bd10764261940152b5a
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: dcf54e5a9bee5f7dc6cba9e3cb178027f53ed5fb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808735"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961289"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu modułu Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
@@ -141,7 +141,8 @@ W tym przykładzie są tworzone następujące cztery obiekty reguły:
 * Reguła ruchu przychodzącego translatora adresów sieciowych dla protokołu RDP: przekierowuje cały ruch przychodzący na porcie 3441 do portu 3389.
 * Druga reguła ruchu przychodzącego translatora adresów sieciowych dla protokołu RDP: przekierowuje cały ruch przychodzący na porcie 3442 do portu 3389.
 * Reguła sondy stanu: sprawdza stan kondycji ścieżki HealthProbe.aspx.
-* Reguła modułu równoważenia obciążenia: równoważenie obciążenia całego ruchu przychodzącego na publiczny port 80 do lokalnego portu 80 w puli adresów zaplecza.
+* Reguła modułu równoważenia obciążenia: równoważy obciążenie całego ruchu przychodzącego na porcie publicznym 80 do portu lokalnego 80 w puli adresów zaplecza.
+* [Reguła modułu równoważenia obciążenia portów ha](load-balancer-ha-ports-overview.md) służąca do równoważenia obciążenia całego ruchu przychodzącego do wszystkich portów w celu uproszczenia scenariuszy ha dla standardowego ILBu.
 
 ```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -151,6 +152,8 @@ $inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendI
 $healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+
+$haportslbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="step-2-create-the-load-balancer"></a>Krok 2. Tworzenie modułu równoważenia obciążenia
@@ -158,8 +161,10 @@ $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $fr
 Utwórz moduł równoważenia obciążenia i połącz obiekty reguł (translacja NAT dla ruchu przychodzącego protokołu RDP, moduł równoważenia obciążenia oraz sonda kondycji):
 
 ```azurepowershell-interactive
-$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -SKU Standard -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
+
+Użyj `-SKU Basic` , aby utworzyć podstawową Load Balancer. Firma Microsoft zaleca używanie standardu dla obciążeń produkcyjnych.
 
 ## <a name="create-the-network-interfaces"></a>Tworzenie interfejsów sieciowych
 
@@ -191,53 +196,55 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 Sprawdź konfigurację:
 
-    $backendnic1
+```azurepowershell-interactive
+$backendnic1
+```
 
 Ustawienia powinny być następujące:
 
-    Name                 : lb-nic1-be
-    ResourceGroupName    : NRP-RG
-    Location             : westus
-    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-    Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
-    ProvisioningState    : Succeeded
-    Tags                 :
-    VirtualMachine       : null
-    IpConfigurations     : [
+```output
+Name                 : lb-nic1-be
+ResourceGroupName    : NRP-RG
+Location             : westus
+Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+ProvisioningState    : Succeeded
+Tags                 :
+VirtualMachine       : null
+IpConfigurations     : [
+                     {
+                       "PrivateIpAddress": "10.0.2.6",
+                       "PrivateIpAllocationMethod": "Static",
+                       "Subnet": {
+                         "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                       },
+                       "PublicIpAddress": {
+                         "Id": null
+                       },
+                       "LoadBalancerBackendAddressPools": [
                          {
-                           "PrivateIpAddress": "10.0.2.6",
-                           "PrivateIpAllocationMethod": "Static",
-                           "Subnet": {
-                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
-                           },
-                           "PublicIpAddress": {
-                             "Id": null
-                           },
-                           "LoadBalancerBackendAddressPools": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
-                             }
-                           ],
-                           "LoadBalancerInboundNatRules": [
-                             {
-                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
-                             }
-                           ],
-                           "ProvisioningState": "Succeeded",
-                           "Name": "ipconfig1",
-                           "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                          }
-                       ]
-    DnsSettings          : {
-                         "DnsServers": [],
-                         "AppliedDnsServers": []
-                       }
-    AppliedDnsSettings   :
-    NetworkSecurityGroup : null
-    Primary              : False
-
-
+                       ],
+                       "LoadBalancerInboundNatRules": [
+                         {
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                         }
+                       ],
+                       "ProvisioningState": "Succeeded",
+                       "Name": "ipconfig1",
+                       "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                       "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                     }
+                   ]
+DnsSettings          : {
+                     "DnsServers": [],
+                     "AppliedDnsServers": []
+                   }
+AppliedDnsSettings   :
+NetworkSecurityGroup : null
+Primary              : False
+```
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>Krok 3. Przypisanie interfejsu sieciowego do maszyny wirtualnej
 

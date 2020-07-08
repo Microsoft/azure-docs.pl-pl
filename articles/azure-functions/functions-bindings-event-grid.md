@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461083"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957182"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid powiązania Azure Functions
 
@@ -32,13 +32,13 @@ Kod w tym odwołaniu domyślnie określa składnię .NET Core, używaną w funkc
 
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
-### <a name="functions-2x-and-higher"></a>Funkcje 2. x i nowsze
+### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 
 | Język                                        | Dodaj przez...                                   | Uwagi 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalowanie [pakietu NuGet], wersja 3. x | |
+| C#                                              | Instalowanie [pakietu NuGet]w wersji 2. x | |
 | Skrypt C#, Java, JavaScript, Python, PowerShell | Rejestrowanie [pakietu rozszerzeń]          | [Rozszerzenie narzędzi platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) jest zalecane do użycia z Visual Studio Code. |
 | Skrypt C# (tylko w trybie online w Azure Portal)         | Dodawanie powiązania                            | Aby zaktualizować istniejące rozszerzenia powiązań bez konieczności ponownego publikowania aplikacji funkcji, zobacz [Aktualizowanie rozszerzeń]. |
 

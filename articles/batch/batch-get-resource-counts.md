@@ -4,22 +4,22 @@ description: Policz stan Azure Batch zadań i węzłów obliczeniowych, aby pom�
 ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: d702cb4ec34925e8b9ce6f0c2e47af81db149a3e
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 90f741b9ec5e17da4fd0cc95ef921e116b0c27dc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299453"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960592"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorowanie rozwiązań wsadowych przez liczenie zadań i węzłów według stanu
 
 Do monitorowania i zarządzania rozwiązaniami Azure Batch o dużej skali może być konieczne określenie liczby zasobów w różnych stanach. Azure Batch zapewnia wydajne operacje pobierania liczników zadań wsadowych i węzłów obliczeniowych. Można użyć tych operacji zamiast potencjalnie czasochłonnych zapytań list, które zwracają szczegółowe informacje o dużych kolekcjach zadań lub węzłów.
 
-- [Licznik zadania pobierania](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) pobiera zagregowaną liczbę aktywnych, uruchomionych i wykonanych zadań w ramach zadania oraz zadań, które zakończyły się powodzeniem lub niepowodzeniem. 
+- [Licznik zadania pobierania](/rest/api/batchservice/job/gettaskcounts) pobiera zagregowaną liczbę aktywnych, uruchomionych i wykonanych zadań w ramach zadania oraz zadań, które zakończyły się powodzeniem lub niepowodzeniem. 
 
   Zliczając zadania w poszczególnych stanach, można łatwiej wyświetlać postęp zadania dla użytkownika lub wykrywać nieoczekiwane opóźnienia lub błędy, które mogą mieć wpływ na zadanie. Liczba zadań pobierania jest dostępna w ramach interfejsu API usługi Batch w wersji 2017 -06-01.5.1 oraz powiązanych zestawów SDK i narzędzi.
 
-- [Liczba węzłów puli listy](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) Pobiera liczbę węzłów obliczeniowych dedykowanych i o niskim priorytecie w każdej puli, które znajdują się w różnych stanach: Tworzenie, bezczynne, offline, zastępujące, ponowne uruchamianie, odtwarzanie obrazu, uruchamianie i inne.
+- [Liczba węzłów puli listy](/rest/api/batchservice/account/listpoolnodecounts) Pobiera liczbę węzłów obliczeniowych dedykowanych i o niskim priorytecie w każdej puli, które znajdują się w różnych stanach: Tworzenie, bezczynne, offline, zastępujące, ponowne uruchamianie, odtwarzanie obrazu, uruchamianie i inne.
 
   Zliczając węzły w każdym stanie, można określić, kiedy mają być potrzebne zasoby obliczeniowe do uruchamiania zadań, i zidentyfikować potencjalne problemy związane z pulami. Liczby węzłów puli list są dostępne w ramach interfejsu API usługi Batch w wersji 2018 r -03-01.6.1 oraz powiązanych zestawów SDK i narzędzi.
 
@@ -30,9 +30,9 @@ Należy pamiętać, że liczba zwracanych przez te operacje może być nieaktual
 Operacja Pobierz licznik zadań zlicza zadania według następujących stanów:
 
 - **Aktywne** — zadanie, które jest kolejkowane i możliwe do uruchomienia, ale nie jest aktualnie przypisane do węzła obliczeniowego. Zadanie jest również `active` [zależne od zadania nadrzędnego](batch-task-dependencies.md) , które nie zostało jeszcze ukończone. 
-- **Uruchomienie** — zadanie, które zostało przypisane do węzła obliczeniowego, ale nie zostało jeszcze ukończone. Zadanie jest zliczane, `running` gdy jego stan ma wartość `preparing` lub `running` , co zostało wskazane przez polecenie [Pobierz informacje o zadaniu](https://docs.microsoft.com/rest/api/batchservice/task/get) .
+- **Uruchomienie** — zadanie, które zostało przypisane do węzła obliczeniowego, ale nie zostało jeszcze ukończone. Zadanie jest zliczane, `running` gdy jego stan ma wartość `preparing` lub `running` , co zostało wskazane przez polecenie [Pobierz informacje o zadaniu](/rest/api/batchservice/task/get) .
 - **Ukończono** — zadanie, które nie jest już do uruchomienia, ponieważ zostało zakończone pomyślnie, lub zakończone niepowodzeniem, a także wyczerpuje limit ponownych prób. 
-- **Powodzenie** — zadanie, którego wynikiem jest wykonanie zadania `success` . Partia zadań określa, czy zadanie zakończyło się pomyślnie, sprawdzając `TaskExecutionResult` Właściwość [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get) właściwości.
+- **Powodzenie** — zadanie, którego wynikiem jest wykonanie zadania `success` . Partia zadań określa, czy zadanie zakończyło się pomyślnie, sprawdzając `TaskExecutionResult` Właściwość [executionInfo](/rest/api/batchservice/task/get) właściwości.
 - **Nie powiodło się** Zadanie, którego wynikiem jest wykonanie zadania `failure` .
 
 Poniższy przykład kodu platformy .NET pokazuje, jak pobrać liczbę zadań według stanu:
@@ -65,7 +65,7 @@ Operacja zliczania węzłów puli listy zlicza węzły obliczeniowe według nast
 - Ponowne tworzenie **obrazu** — węzeł, na którym jest instalowany system operacyjny.
 - **Uruchamianie** — węzeł, w którym działa jedno lub więcej zadań (innych niż zadanie podrzędne).
 - **Uruchamianie** — węzeł, w którym jest uruchamiana usługa Batch. 
-- **StartTaskFailed** — węzeł, w którym [zadanie uruchomieniowe](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) nie powiodło się i wyczerpuje wszystkie ponowne próby, i na którym `waitForSuccess` jest ustawiony w zadaniu startowym. Nie można użyć węzła do uruchamiania zadań.
+- **StartTaskFailed** — węzeł, w którym [zadanie uruchomieniowe](/rest/api/batchservice/pool/add#starttask) nie powiodło się i wyczerpuje wszystkie ponowne próby, i na którym `waitForSuccess` jest ustawiony w zadaniu startowym. Nie można użyć węzła do uruchamiania zadań.
 - **Nieznany** — węzeł, który utracił kontakt z usługą Batch i którego stan nie jest znany.
 - **Niezdatny do użytku** — węzeł, którego nie można użyć do wykonania zadania z powodu błędów.
 - **WaitingForStartTask** — węzeł, w którym uruchomiono zadanie uruchomieniowe uruchomione, ale `waitForSuccess` jest ustawiony, a zadanie uruchamiania nie zostało ukończone.

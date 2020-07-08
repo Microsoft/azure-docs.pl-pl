@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 82cdd8519f1e3fce80aaf051d6bc5fc40a9b8be9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219110"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959645"
 ---
 ::: zone target="docs"
 
@@ -62,7 +62,7 @@ W obszarze udziałów blokowych obiektów blob i stronicowych obiektów blob jed
 
 W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Data Box i adres URL ścieżki w usłudze Azure Storage, pod który przekazywane są dane. Ostateczny adres URL w usłudze Azure Storage można uzyskać ze ścieżki udziału UNC.
  
-|                   |                                                            |
+|Typy usługi Azure Storage  | Udziały urządzenia Data Box            |
 |-------------------|--------------------------------------------------------------------------------|
 | Blokowe obiekty blob platformy Azure | <li>Ścieżka UNC do udziałów: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Stronicowe obiekty blob platformy Azure  | <li>Ścieżka UNC do udziałów: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -70,7 +70,7 @@ W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Da
 
 Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące kroki, aby nawiązać połączenie z urządzeniem Data Box.
 
-1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Kliknij przycisk **Pobierz poświadczenia**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
+1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **SMB**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
     ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
@@ -78,24 +78,24 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     
     ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*devicemanagertest1* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
+3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*utsac1* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     W zależności od formatu danych ścieżki udziałów są następujące:
-    - Blokowe obiekty blob platformy Azure — `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Stronicowe obiekty blob platformy Azure — `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Pliki platformy Azure — `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Blokowe obiekty blob platformy Azure — `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Stronicowe obiekty blob platformy Azure — `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Pliki platformy Azure — `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Po wyświetleniu monitu wprowadź hasło dla udziału. W poniższym przykładzie pokazano nawiązywanie połączenia z udziałem za pomocą poprzedniego polecenia.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Kliknij przycisk **OK**, aby otworzyć Eksploratora plików.
+4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK**, aby otworzyć Eksploratora plików.
     
     ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,7 +107,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     
 W przypadku korzystania z klienta systemu Linux użyj następującego polecenia, aby zainstalować udział SMB. Parametr „vers” poniżej to wersja protokołu SMB obsługiwana przez Twój host z systemem Linux. Podłącz odpowiednią wersję w poleceniu poniżej. W przypadku wersji protokołu SMB obsługiwanych przez urządzenia Data Box zobacz [Obsługiwane systemy plików dla klientów systemu Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## <a name="copy-data-to-data-box"></a>Kopiowanie danych na urządzenie Data Box
 
@@ -215,11 +215,23 @@ Aby zoptymalizować wydajność, użyj poniższych parametrów polecenia robocop
 
 Aby uzyskać więcej informacji na temat polecenia Robocopy, przejdź do artykułu [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Polecenie Robocopy i kilka przykładów).
 
-Otwórz folder docelowy, aby wyświetlić i zweryfikować skopiowane pliki. Jeśli podczas procesu kopiowania wystąpiły jakiekolwiek błędy, pobierz pliki z błędami, które pomogą w rozwiązywaniu problemów. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
+Jeśli podczas kopiowania wystąpią błędy, zostanie wyświetlone powiadomienie.
+
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Wybierz pozycję **Pobierz listę problemów**.
+
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Otwórz listę, aby wyświetlić szczegóły błędu, a następnie wybierz adres URL rozwiązania, aby wyświetlić zalecane rozwiązanie.
+
+![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
 
 W celu zapewnienia integralności danych podczas kopiowania obliczana jest suma kontrolna. Po zakończeniu kopiowania sprawdź ilość używanego i wolnego miejsca na urządzeniu.
 
-   ![Sprawdzanie wolnego i używanego miejsca na pulpicie nawigacyjnym](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Sprawdzanie wolnego i używanego miejsca na pulpicie nawigacyjnym](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

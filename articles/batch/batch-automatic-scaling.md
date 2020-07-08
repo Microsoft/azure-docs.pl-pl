@@ -4,12 +4,12 @@ description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie d
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 223ba348ce1f8b69791581a70cd21af621c28b24
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609016"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960847"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -375,17 +375,17 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Tworzenie puli z włączoną funkcją automatycznego skalowania przy użyciu zestawów SDK partii
 
-Automatyczne skalowanie puli można skonfigurować przy użyciu dowolnego zestawu [SDK usługi Batch](batch-apis-tools.md#azure-accounts-for-batch-development), [poleceń cmdlet programu PowerShell](batch-powershell-cmdlets-get-started.md)dla usługi [Batch REST](https://docs.microsoft.com/rest/api/batchservice/) i interfejsu [wiersza polecenia usługi Batch](batch-cli-get-started.md). W tej sekcji można zobaczyć przykłady dla platformy .NET i języka Python.
+Automatyczne skalowanie puli można skonfigurować przy użyciu dowolnego zestawu [SDK usługi Batch](batch-apis-tools.md#azure-accounts-for-batch-development), [poleceń cmdlet programu PowerShell](batch-powershell-cmdlets-get-started.md)dla usługi [Batch REST](/rest/api/batchservice/) i interfejsu [wiersza polecenia usługi Batch](batch-cli-get-started.md). W tej sekcji można zobaczyć przykłady dla platformy .NET i języka Python.
 
 ### <a name="net"></a>.NET
 
 Aby utworzyć pulę z włączonym skalowaniem automatycznym w programie .NET, wykonaj następujące kroki:
 
-1. Utwórz pulę przy użyciu [BatchClient. PoolOperations. ispool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Dla właściwości [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) ustaw wartość `true` .
-1. Ustaw właściwość [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) na formułę skalowania automatycznego.
-1. Obowiązkowe Ustaw właściwość [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (wartość domyślna to 15 minut).
-1. Zatwierdź pulę z [CloudPool. Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) lub [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Utwórz pulę przy użyciu [BatchClient. PoolOperations. ispool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Dla właściwości [CloudPool. AutoScaleEnabled](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) ustaw wartość `true` .
+1. Ustaw właściwość [CloudPool. AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) na formułę skalowania automatycznego.
+1. Obowiązkowe Ustaw właściwość [CloudPool. AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (wartość domyślna to 15 minut).
+1. Zatwierdź pulę z [CloudPool. Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) lub [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 Poniższy fragment kodu tworzy pulę z włączoną funkcją automatycznego skalowania w programie .NET. Formuła skalowania automatycznego puli ustawia liczbę docelową dedykowanych węzłów na 5 w poniedziałek i 1 na każdy inny dzień tygodnia. [Interwał skalowania automatycznego](#automatic-scaling-interval) jest ustawiany na 30 minut. W tym i innych fragmentach kodu C# w tym artykule `myBatchClient` jest prawidłowo zainicjowany wystąpienie klasy [BatchClient][net_batchclient] .
 
@@ -522,11 +522,11 @@ Można oszacować formułę przed zastosowaniem jej do puli. W ten sposób możn
 
 Aby oszacować formułę skalowania automatycznego, należy najpierw włączyć skalowanie automatyczne w puli przy użyciu prawidłowej formuły. Aby przetestować formułę w puli, która nie ma jeszcze włączonego skalowania automatycznego, należy użyć jednowierszowej formuły `$TargetDedicatedNodes = 0` przy pierwszym włączeniu skalowania automatycznego. Następnie użyj jednej z następujących wartości, aby oszacować formułę, którą chcesz przetestować:
 
-* [BatchClient. PoolOperations. EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) lub [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient. PoolOperations. EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) lub [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Te metody wsadowe .NET wymagają identyfikatora istniejącej puli i ciągu zawierającego formułę skalowania automatycznego do obliczenia.
 
-* [Oceń formułę skalowania automatycznego](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Oceń formułę skalowania automatycznego](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     W tym żądaniu interfejsu API REST Określ Identyfikator puli w identyfikatorze URI i formułę skalowania automatycznego w elemencie *autoScaleFormula* treści żądania. Odpowiedź operacji zawiera wszystkie informacje o błędzie, które mogą być powiązane z formułą.
 
@@ -612,13 +612,13 @@ AutoScaleRun.Results:
 
 Aby upewnić się, że formuła działa zgodnie z oczekiwaniami, zalecamy okresowe sprawdzanie wyników przebiegów skalowania automatycznego, które wykonuje partia na tej puli. Aby to zrobić, Pobierz (lub Odśwież) odwołanie do puli i przejrzyj właściwości ostatniego przebiegu automatycznego skalowania.
 
-W usłudze Batch .NET Właściwość [CloudPool. AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) ma kilka właściwości, które zawierają informacje o najnowszym przebiegu skalowania automatycznego wykonanego w puli:
+W usłudze Batch .NET Właściwość [CloudPool. AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) ma kilka właściwości, które zawierają informacje o najnowszym przebiegu skalowania automatycznego wykonanego w puli:
 
-* [AutoScaleRun. timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun. results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun. Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun. timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun. results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun. Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-W interfejsie API REST informacje o żądaniu [pobrania](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) puli zwracają informacje o puli, które obejmują najnowsze automatyczne skalowanie informacji o uruchomieniu we właściwości [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) .
+W interfejsie API REST informacje o żądaniu [pobrania](/rest/api/batchservice/get-information-about-a-pool) puli zwracają informacje o puli, które obejmują najnowsze automatyczne skalowanie informacji o uruchomieniu we właściwości [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) .
 
 Poniższy fragment kodu w języku C# używa biblioteki Batch .NET do drukowania informacji na temat ostatniego uruchomienia skalowania automatycznego w puli moja _Pula_:
 
@@ -735,15 +735,15 @@ string formula = string.Format(@"
 * [Maksymalizuj Azure Batch użycie zasobów obliczeniowych za pomocą współbieżnych zadań węzłów](batch-parallel-node-tasks.md) zawiera szczegółowe informacje na temat sposobu wykonywania wielu zadań jednocześnie w węzłach obliczeniowych w puli. Oprócz skalowania automatycznego ta funkcja może pomóc w obniżeniu czasu trwania zadań w przypadku niektórych obciążeń, co pozwala zaoszczędzić pieniądze.
 * W przypadku innego detonatora wydajności upewnij się, że aplikacja usługi Batch wyśle do niej zapytanie w najbardziej optymalny sposób. Zobacz [wydajną pracę usługi Azure Batch,](batch-efficient-list-queries.md) aby dowiedzieć się, jak ograniczyć ilość danych przekreślonych w czasie wykonywania zapytania o stan potencjalnie tysięcy węzłów obliczeniowych lub zadań.
 
-[net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
-[net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
+[net_api]: /dotnet/api/microsoft.azure.batch
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
+[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
+[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
+[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
-[rest_api]: https://docs.microsoft.com/rest/api/batchservice/
-[rest_autoscaleformula]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_api]: /rest/api/batchservice/
+[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool

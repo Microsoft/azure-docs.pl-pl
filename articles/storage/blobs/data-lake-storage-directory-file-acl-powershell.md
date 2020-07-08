@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: aeb3273622b863f04c73561520efe3be6cc6fec2
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84804915"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961204"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -261,7 +261,7 @@ Możesz użyć parametru, `-Force` Aby usunąć plik bez monitu.
 
 ## <a name="manage-access-permissions"></a>Zarządzanie uprawnieniami dostępu
 
-Można uzyskiwać, ustawiać i aktualizować uprawnienia dostępu do systemów plików, katalogów i plików. Te uprawnienia są przechwytywane na listach kontroli dostępu (ACL).
+Uprawnienia dostępu do katalogów i plików można uzyskiwać, ustawiać i aktualizować. Te uprawnienia są przechwytywane na listach kontroli dostępu (ACL).
 
 > [!NOTE]
 > Jeśli używasz Azure Active Directory (Azure AD) do autoryzacji poleceń, upewnij się, że podmiot zabezpieczeń ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -270,7 +270,7 @@ Można uzyskiwać, ustawiać i aktualizować uprawnienia dostępu do systemów p
 
 Pobierz listę kontroli dostępu do katalogu lub pliku przy użyciu `Get-AzDataLakeGen2Item` polecenia cmdlet.
 
-Ten przykład pobiera listę ACL **systemu plików** , a następnie drukuje listę kontroli dostępu do konsoli programu.
+Ten przykład pobiera listę ACL katalogu głównego **systemu plików** , a następnie drukuje listę kontroli dostępu do konsoli programu.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ W tym przykładzie użytkownik będący właścicielem ma uprawnienia do odczytu
 
 Użyj `set-AzDataLakeGen2ItemAclObject` polecenia cmdlet, aby utworzyć listę ACL dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników. Następnie użyj `Update-AzDataLakeGen2Item` polecenia cmdlet, aby zatwierdzić listę kontroli dostępu.
 
-Ten przykład ustawia listę ACL w **systemie plików** dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
+Ten przykład ustawia listę ACL dla katalogu głównego **systemu plików** dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -422,7 +422,7 @@ W poniższej tabeli przedstawiono sposób używania poleceń cmdlet do Data Lake
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|Polecenie cmdlet Update-AzDataLakeGen2Item aktualizuje tylko jeden element i nie rekursywnie. Jeśli chcesz zaktualizować cyklicznie, Wyświetl listę elementów za pomocą polecenia cmdlet Get-AzDataLakeStoreChildItem, a następnie potoku do polecenia cmdlet Update-AzDataLakeGen2Item.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|Polecenie cmdlet Get-AzDataLakeGen2Item zgłosi błąd, jeśli element nie istnieje.|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Polecenia cmdlet programu PowerShell usługi Storage](/powershell/module/az.storage)

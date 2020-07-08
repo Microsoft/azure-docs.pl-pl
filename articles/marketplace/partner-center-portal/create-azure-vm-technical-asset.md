@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: e126ee2bd4133281195d4a86c5cb6f1c47bbd6ac
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d43015c86976594e8d5077a11cbdad27668b343c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266920"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957703"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -48,7 +48,7 @@ Rozważ użycie jednego z następujących środowisk skryptów, aby ułatwić za
 
 Dodatkowo rozważ dodanie następujących narzędzi do środowiska deweloperskiego:
 
-* [Eksplorator usługi Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Eksplorator usługi Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Visual Studio Code](https://code.visualstudio.com/)
   * Rozszerzenie: [narzędzia Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   * Rozszerzenie: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -63,10 +63,10 @@ Zapoznaj się z dostępnymi narzędziami na stronie [usługi Azure narzędzia de
 
 Ta sekcja zawiera opis różnych aspektów korzystania z zatwierdzonego bazy, takich jak używanie Remote Desktop Protocol (RDP), Wybieranie rozmiaru maszyny wirtualnej, instalowanie najnowszych aktualizacji systemu Windows i uogólnianie obrazu wirtualnego dysku twardego.
 
-Poniższe sekcje dotyczą głównie dysków VHD opartych na systemie Windows. Aby uzyskać więcej informacji na temat tworzenia wirtualnych dysków twardych opartych na systemie Linux, zobacz [Linux w przypadku dystrybucji potwierdzonych przez platformę Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Poniższe sekcje dotyczą głównie dysków VHD opartych na systemie Windows. Aby uzyskać więcej informacji na temat tworzenia wirtualnych dysków twardych opartych na systemie Linux, zobacz [Linux w przypadku dystrybucji potwierdzonych przez platformę Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 > [!WARNING]
-> Postępuj zgodnie ze wskazówkami w tym temacie, aby utworzyć maszynę wirtualną zawierającą wstępnie skonfigurowany, zatwierdzony system operacyjny. Jeśli to nie jest zgodne z rozwiązaniem, można utworzyć i skonfigurować lokalną maszynę wirtualną przy użyciu zatwierdzonego systemu operacyjnego. Następnie można skonfigurować i przygotować go do przekazania zgodnie z opisem w artykule [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Postępuj zgodnie ze wskazówkami w tym temacie, aby utworzyć maszynę wirtualną zawierającą wstępnie skonfigurowany, zatwierdzony system operacyjny. Jeśli to nie jest zgodne z rozwiązaniem, można utworzyć i skonfigurować lokalną maszynę wirtualną przy użyciu zatwierdzonego systemu operacyjnego. Następnie można skonfigurować i przygotować go do przekazania zgodnie z opisem w artykule [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ### <a name="select-an-approved-base"></a>Wybierz zatwierdzoną bazę
 
@@ -77,22 +77,22 @@ Wybierz system operacyjny Windows lub Linux jako podstawę.
 Wirtualny dysk twardy systemu operacyjnego na potrzeby obrazu maszyny wirtualnej z systemem Windows musi być oparty na podstawowym obrazie zaakceptowanym przez platformę Azure, który zawiera system Windows Server lub SQL Server. Aby rozpocząć, Utwórz maszynę wirtualną na podstawie jednego z następujących obrazów z Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 z dodatkiem SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-* [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
-* [SQL Server 2012 z dodatkiem SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
+* [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
+* [SQL Server 2012 z dodatkiem SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, standard, Web)
 
 > [!NOTE]
 > Jeśli używasz bieżącego Azure Portal lub Azure PowerShell, zostaną zatwierdzone obrazy systemu Windows Server opublikowane 8 września 2014 i nowszych.
 
 #### <a name="linux"></a>Linux
 
-System Azure oferuje zakres zatwierdzonych dystrybucji systemu Linux. Aby zapoznać się z bieżącą listą, zobacz System [Linux dotyczący dystrybucji zatwierdzony przez platformę Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+System Azure oferuje zakres zatwierdzonych dystrybucji systemu Linux. Aby zapoznać się z bieżącą listą, zobacz System [Linux dotyczący dystrybucji zatwierdzony przez platformę Azure](../../virtual-machines/linux/endorsed-distros.md).
 
 ### <a name="create-vm-in-the-azure-portal"></a>Tworzenie maszyny wirtualnej w Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć podstawowy obraz maszyny wirtualnej w [Azure Portal](https://ms.portal.azure.com/):
 
 1. Zaloguj się do [Azure Portal](https://ms.portal.azure.com/) za pomocą konto Microsoft skojarzonej z subskrypcją platformy Azure, której chcesz użyć do opublikowania oferty maszyny wirtualnej.
-2. Utwórz nową grupę zasobów i podaj **nazwę grupy zasobów**, **subskrypcję**i **lokalizację grupy zasobów**. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie zasobami](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+2. Utwórz nową grupę zasobów i podaj **nazwę grupy zasobów**, **subskrypcję**i **lokalizację grupy zasobów**. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie zasobami](../../azure-resource-manager/resource-group-portal.md).
 3. Wybierz pozycję **maszyny wirtualne** po lewej stronie, aby wyświetlić stronę szczegóły dotyczące maszyn wirtualnych.
 4. Wybierz pozycję **+ Dodaj** , aby otworzyć **środowisko tworzenia maszyny wirtualnej**.
 5. Wybierz obraz z listy rozwijanej lub kliknij pozycję **Przeglądaj wszystkie obrazy publiczne i prywatne,** aby wyszukać lub przejrzeć wszystkie dostępne obrazy maszyn wirtualnych.
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby utworzyć podstawowy obraz maszyny wirtualnej w
 
 Platforma Azure rozpocznie Inicjowanie obsługi określonej maszyny wirtualnej. Postęp można śledzić, wybierając kartę **Virtual Machines** po lewej stronie. Po jego utworzeniu stan zmieni się na **uruchomiony**.
 
-Jeśli wystąpią problemy podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [typowe problemy podczas tworzenia dysku VHD (FAQ)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
+Jeśli wystąpią problemy podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [typowe problemy podczas tworzenia dysku VHD (FAQ)](common-issues-during-vhd-creation.md).
 
 ### <a name="connect-to-your-azure-vm"></a>Nawiązywanie połączenia z maszyną wirtualną platformy Azure
 
@@ -116,7 +116,7 @@ W tej sekcji wyjaśniono, jak nawiązać połączenie z maszyną wirtualną utwo
 
 Użyj klienta pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną opartą na systemie Windows hostowaną na platformie Azure. Większość wersji systemu Windows natywnie zawiera obsługę protokołu RDP (Remote Desktop Protocol). W przypadku innych systemów operacyjnych można znaleźć więcej informacji o klientach w [pulpit zdalny klientach](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
-W tym artykule szczegółowo przedstawiono sposób korzystania z wbudowanej obsługi protokołu RDP systemu Windows w celu nawiązania połączenia z maszyną wirtualną: [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+W tym artykule szczegółowo przedstawiono sposób korzystania z wbudowanej obsługi protokołu RDP systemu Windows w celu nawiązania połączenia z maszyną wirtualną: [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](../../virtual-machines/windows/connect-logon.md).
 
 > [!TIP]
 > Podczas procesu mogą pojawić się ostrzeżenia dotyczące zabezpieczeń. Na przykład ostrzeżenia, takie jak "plik RDP pochodzi od nieznanego wydawcy" lub "nie można zweryfikować poświadczeń użytkownika". Można bezpiecznie zignorować te ostrzeżenia.
@@ -130,7 +130,7 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Linux, musisz mieć
 3. Wybierz maszynę wirtualną, z którą chcesz nawiązać połączenie.
 4. Uruchom maszynę wirtualną, jeśli jeszcze nie działa.
 5. Wybierz nazwę maszyny wirtualnej, aby otworzyć jej stronę **przeglądu** .
-6. Zanotuj publiczny adres IP i nazwę DNS maszyny wirtualnej (jeśli te wartości nie są ustawione, należy [utworzyć interfejs sieciowy](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)).
+6. Zanotuj publiczny adres IP i nazwę DNS maszyny wirtualnej (jeśli te wartości nie są ustawione, musisz [utworzyć interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md#create-a-network-interface))).
 7. Otwórz aplikację.
 8. W oknie dialogowym Konfiguracja konfiguracji wprowadź adres IP lub nazwę DNS maszyny wirtualnej.
 
@@ -141,7 +141,7 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Linux, musisz mieć
 
 Jeśli masz problemy z połączeniem, zapoznaj się z dokumentacją klienta SSH. Na przykład [rozdział 10: typowe komunikaty o błędach](https://www.ssh.com/ssh/putty/putty-manuals).
 
-Aby uzyskać szczegółowe informacje, w tym o sposobie dodawania pulpitu do maszyny wirtualnej z systemem Linux z obsługą administracyjną, zobacz [Instalowanie i konfigurowanie pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop).
+Aby uzyskać szczegółowe informacje, w tym o sposobie dodawania pulpitu do maszyny wirtualnej z systemem Linux z obsługą administracyjną, zobacz [Instalowanie i konfigurowanie pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure](../../virtual-machines/linux/use-remote-desktop.md).
 
 ## <a name="create-a-vm-using-your-own-image"></a>Tworzenie maszyny wirtualnej przy użyciu własnego obrazu
 
@@ -170,7 +170,7 @@ Utwórz obraz przy użyciu Azure Portal lub Azure PowerShell.
 
     :::image type="content" source="media/avm-custom-deployment.png" alt-text="Przedstawia stronę wdrożenia niestandardowego.":::
 
-3. Wklej ten [szablon JSON](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template) do edytora i wybierz pozycję **Zapisz**.
+3. Wklej ten [szablon JSON](../partner-center-portal/azure-vm-image-certification.md) do edytora i wybierz pozycję **Zapisz**.
 4. Podaj wartości parametrów dla wyświetlanych stron właściwości **wdrożenia niestandardowego** .
 
     | Parametr | Opis |
@@ -183,7 +183,7 @@ Utwórz obraz przy użyciu Azure Portal lub Azure PowerShell.
     | Typ systemu operacyjnego | System operacyjny maszyny wirtualnej: system Windows lub Linux |
     | Identyfikator subskrypcji | Identyfikator wybranej subskrypcji |
     | Lokalizacja | Lokalizacja geograficzna wdrożenia |
-    | Rozmiar maszyny wirtualnej | [Rozmiar maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), na przykład Standard_A2 |
+    | Rozmiar maszyny wirtualnej | [Rozmiar maszyny wirtualnej platformy Azure](../../virtual-machines/windows/sizes.md), na przykład Standard_A2 |
     | Nazwa publicznego adresu IP | Nazwa publicznego adresu IP |
     | Nazwa maszyny wirtualnej | Nazwa nowej maszyny wirtualnej |
     | Nazwa Virtual Network | Nazwa sieci wirtualnej używanej przez MASZYNę wirtualną |
@@ -209,8 +209,8 @@ Platforma Azure rozpocznie wdrażanie. Tworzy nową maszynę wirtualną z okreś
 
 Wykonaj następujące instrukcje, które odnoszą się do Twojego podejścia:
 
-* Azure PowerShell: [jak utworzyć niezarządzany obraz maszyny wirtualnej na podstawie maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
-* Interfejs wiersza polecenia platformy Azure: [jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)
+* Azure PowerShell: [jak utworzyć niezarządzany obraz maszyny wirtualnej na podstawie maszyny wirtualnej platformy Azure](../../virtual-machines/windows/capture-image-resource.md)
+* Interfejs wiersza polecenia platformy Azure: [jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego](../../virtual-machines/linux/capture-image.md)
 * Interfejs API: [przechwytywanie Virtual Machines](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 ## <a name="configure-the-virtual-machine"></a>Skonfiguruj maszynę wirtualną
@@ -238,7 +238,7 @@ W przypadku dystrybucji systemu Linux aktualizacje są często pobierane i insta
 
 ### <a name="perform-additional-security-checks"></a>Wykonaj dodatkowe sprawdzenia zabezpieczeń
 
-Zachowaj wysoki poziom zabezpieczeń obrazów rozwiązań w portalu Azure Marketplace. W poniższym artykule przedstawiono listę kontrolną konfiguracji i procedur zabezpieczeń, które pomagają: [zalecenia dotyczące zabezpieczeń obrazów w portalu Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images). Niektóre z tych zaleceń dotyczą obrazów opartych na systemie Linux, ale większość obrazów maszyn wirtualnych.
+Zachowaj wysoki poziom zabezpieczeń obrazów rozwiązań w portalu Azure Marketplace. W poniższym artykule przedstawiono listę kontrolną konfiguracji i procedur zabezpieczeń, które pomagają: [zalecenia dotyczące zabezpieczeń obrazów w portalu Azure Marketplace](../../security/security-recommendations-azure-marketplace-images.md). Niektóre z tych zaleceń dotyczą obrazów opartych na systemie Linux, ale większość obrazów maszyn wirtualnych.
 
 ### <a name="perform-custom-configuration-and-scheduled-tasks"></a>Wykonywanie konfiguracji niestandardowej i zaplanowanych zadań
 
@@ -247,7 +247,7 @@ Jeśli wymagana jest dodatkowa konfiguracja, użyj zaplanowanego zadania urucham
 * Jeśli jest to zadanie uruchamiane po raz, zadanie powinno zostać usunięte po pomyślnym zakończeniu.
 * Konfiguracje nie powinny polegać na dyskach innych niż C lub D, ponieważ tylko te dwa dyski zawsze są spełnione (dysk C jest dyskiem systemu operacyjnego, a dysk D jest tymczasowym dyskiem lokalnym).
 
-Aby uzyskać więcej informacji na temat dostosowań systemu Linux, zobacz [rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+Aby uzyskać więcej informacji na temat dostosowań systemu Linux, zobacz [rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/features-linux.md).
 
 ## <a name="generalize-the-image"></a>Uogólnianie obrazu
 
@@ -258,11 +258,11 @@ Wszystkie obrazy w portalu Azure Marketplace muszą być wielokrotnego użytku w
 Dyski systemu operacyjnego Windows są uogólnione za pomocą [narzędzia Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Jeśli później zaktualizujesz lub ponownie skonfigurujesz system operacyjny, musisz ponownie uruchomić program Sysprep.
 
 > [!WARNING]
-> Ponieważ aktualizacje mogą być uruchamiane automatycznie, po uruchomieniu programu Sysprep należy wyłączyć maszynę wirtualną do momentu wdrożenia. To zamknięcie spowoduje uniknięcie kolejnych aktualizacji w celu wprowadzenia zmian specyficznych dla wystąpienia do systemu operacyjnego lub zainstalowanych usług. Aby uzyskać więcej informacji na temat uruchamiania programu Sysprep, zobacz [procedura uogólniania dysku VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
+> Ponieważ aktualizacje mogą być uruchamiane automatycznie, po uruchomieniu programu Sysprep należy wyłączyć maszynę wirtualną do momentu wdrożenia. To zamknięcie spowoduje uniknięcie kolejnych aktualizacji w celu wprowadzenia zmian specyficznych dla wystąpienia do systemu operacyjnego lub zainstalowanych usług. Aby uzyskać więcej informacji na temat uruchamiania programu Sysprep, zobacz [procedura uogólniania wirtualnego dysku twardego](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)).
 
 ### <a name="linux"></a>Linux
 
-Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraża ją jako oddzielną maszynę wirtualną. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image). Możesz zatrzymać, gdy dojdziesz do sekcji "Tworzenie maszyny wirtualnej z przechwyconego obrazu".
+Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraża ją jako oddzielną maszynę wirtualną. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego](../../virtual-machines/linux/capture-image.md). Możesz zatrzymać, gdy dojdziesz do sekcji "Tworzenie maszyny wirtualnej z przechwyconego obrazu".
 
 1. **Usuwanie agenta systemu Linux platformy Azure**
 
@@ -278,8 +278,8 @@ Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli wystąpił problem podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [typowe problemy podczas tworzenia dysku VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
+Jeśli wystąpił problem podczas tworzenia nowego wirtualnego dysku twardego opartego na platformie Azure, zobacz [typowe problemy podczas tworzenia dysku VHD](common-issues-during-vhd-creation.md).
 
 W przeciwnym razie:
 
-* Zapoznaj się [z obrazem maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) wyjaśnia, jak testować i przesyłać obrazy maszyn wirtualnych na potrzeby certyfikacji w portalu Azure Marketplace, w tym informacje o tym, gdzie uzyskać *Narzędzie do testowania certyfikacji dla certyfikowanych narzędzi platformy Azure* oraz jak używać go do certyfikowania obrazu maszyny wirtualnej.
+* Zapoznaj się [z obrazem maszyny wirtualnej](get-sas-uri.md) wyjaśnia, jak testować i przesyłać obrazy maszyn wirtualnych na potrzeby certyfikacji w portalu Azure Marketplace, w tym informacje o tym, gdzie uzyskać *Narzędzie do testowania certyfikacji dla certyfikowanych narzędzi platformy Azure* oraz jak używać go do certyfikowania obrazu maszyny wirtualnej.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74888057"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958569"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services pofragmentowana Specyfikacja pozyskiwania na żywo w formacie MP4 
 
@@ -51,12 +51,12 @@ Na poniższej liście opisano specjalne definicje formatu, które mają zastosow
 1. Sekcja 3.3.6 w [1] definiuje pole o nazwie **MovieFragmentRandomAccessBox** (**mfra**), które może zostać wysłane na końcu pozyskiwania na żywo w celu wskazania końca strumienia (EOS) do kanału. Ze względu na logikę pozyskiwania Media Services, użycie EOS jest przestarzałe i nie należy wysyłać pola **mfra** na potrzeby pozyskiwania na żywo. W przypadku wysłania Media Services dyskretnie zignoruje ją. Aby zresetować stan punktu pozyskiwania, zalecamy użycie [resetowania kanału](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Zalecane jest również, aby zakończyć prezentację i strumień przy użyciu [Zatrzymaj program](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) .
 1. Czas trwania fragmentu MP4 powinien być stały, aby zmniejszyć rozmiar manifestów klientów. Stały czas trwania fragmentu MP4 poprawia również algorytmy pobierania heurystycznych przez użycie tagów powtarzających. Czas trwania może ulec wahaniu w celu zrekompensowania stawek za ramki niebędące liczbami całkowitymi.
 1. Czas trwania fragmentu MP4 powinien wynosić od około 2 do 6 sekund.
-1. Sygnatury czasowe fragmentarycznego fragmentu i `fragment_index`indeksy (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` i) powinny dotrzeć do rosnącej kolejności. Chociaż Media Services jest odporny na zduplikowane fragmenty, ma ograniczoną możliwość zmiany kolejności fragmentów w zależności od osi czasu nośnika.
+1. Sygnatury czasowe fragmentarycznego fragmentu i indeksy (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` i `fragment_index` ) powinny dotrzeć do rosnącej kolejności. Chociaż Media Services jest odporny na zduplikowane fragmenty, ma ograniczoną możliwość zmiany kolejności fragmentów w zależności od osi czasu nośnika.
 
 ## <a name="4-protocol-format--http"></a>4. format protokołu — HTTP
 Pakiet ISO pozyskiwania na żywo pozyskiwania na podstawie plików MP4 dla Media Services używa standardowego długotrwałego żądania HTTP POST do przesyłania danych zakodowanych w postaci pofragmentowanej do usługi. Każde polecenie HTTP POST wysyła kompletny pofragmentowany plik MP4 Bitstream ("Stream"), zaczynając od początku z polami nagłówka (**ftyp**, **Live Server manifest**i **Moov** Box) i kontynuując sekwencję fragmentów (pola**moof** i **MDAT** ). Aby poznać składnię adresu URL żądania HTTP POST, zobacz sekcję 9,2 w [1]. Przykładem adresu URL wpisu jest: 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### <a name="requirements"></a>Wymagania
 Poniżej przedstawiono szczegółowe wymagania:
@@ -75,7 +75,7 @@ Poniżej przedstawiono szczegółowe wymagania:
 ## <a name="6-definition-of-stream"></a>6. Definicja "Stream"
 Stream to podstawowa jednostka operacji pozyskiwania na żywo na potrzeby tworzenia prezentacji na żywo, obsługi trybu failover przesyłania strumieniowego i scenariuszy nadmiarowości. Strumień jest definiowany jako jeden unikatowy, pofragmentowany plik MP4 Bitstream, który może zawierać jedną ścieżkę lub wiele ścieżek. Pełna prezentacja na żywo może zawierać co najmniej jeden strumień, w zależności od konfiguracji koderów na żywo. Poniższe przykłady ilustrują różne opcje używania strumieni do redagowania pełnej prezentacji na żywo.
 
-**Przyklad** 
+**Przykład:** 
 
 Klient chce utworzyć prezentację przesyłania strumieniowego na żywo, która obejmuje następujące szybkości transmisji audio/wideo:
 
@@ -133,7 +133,7 @@ Poniższe oczekiwania dotyczą punktu końcowego pozyskiwania na żywo, gdy wyst
 1. Żądanie POST nowego kodera musi zawierać te same pofragmentowane pola nagłówka MP4 jako wystąpienie zakończone niepowodzeniem.
 1. Nowy koder musi być poprawnie zsynchronizowany ze wszystkimi innymi uruchomionymi koderami dla tej samej prezentacji na żywo w celu generowania zsynchronizowanych próbek audio/wideo z wyrównanymi granicami fragmentu.
 1. Nowy strumień musi być semantycznie odpowiednikiem poprzedniego strumienia i można go zamiennie zmieniać na poziomach nagłówka i fragmentu.
-1. Nowy koder powinien próbować zminimalizować utratę danych. Fragmenty `fragment_absolute_time` nośników `fragment_index` i powinny wzrosnąć od punktu, w którym koder został ostatnio zatrzymany. `fragment_absolute_time` I `fragment_index` powinno zwiększyć się w sposób ciągły, ale w razie potrzeby można wprowadzić nieprzerwanie. Media Services ignoruje fragmenty, które zostały już odebrane i przetworzone, więc lepszym rozwiązaniem jest błąd po stronie ponownego wysyłania fragmentów niż w celu wprowadzenia zaniechania na osi czasu multimediów. 
+1. Nowy koder powinien próbować zminimalizować utratę danych. `fragment_absolute_time` `fragment_index` Fragmenty nośników i powinny wzrosnąć od punktu, w którym koder został ostatnio zatrzymany. `fragment_absolute_time`I `fragment_index` powinno zwiększyć się w sposób ciągły, ale w razie potrzeby można wprowadzić nieprzerwanie. Media Services ignoruje fragmenty, które zostały już odebrane i przetworzone, więc lepszym rozwiązaniem jest błąd po stronie ponownego wysyłania fragmentów niż w celu wprowadzenia zaniechania na osi czasu multimediów. 
 
 ## <a name="9-encoder-redundancy"></a>9. nadmiarowość kodera
 W przypadku niektórych krytycznych wydarzeń na żywo, które wymagają jeszcze wyższej dostępności i jakości obsługi, zalecamy użycie funkcji aktywne-aktywne nadmiarowe kodery w celu zapewnienia bezproblemowej pracy w trybie failover bez utraty danych.
@@ -174,7 +174,7 @@ Następujące kroki są zalecaną implementacją do pozyskiwania ścieżki rozrz
 
     f. Fragment ścieżki rozrzedzonej jest dostępny dla klienta, gdy odpowiedni fragment ścieżki nadrzędnej, który ma taką samą lub większą wartość sygnatury czasowej, jest udostępniany klientowi. Na przykład, jeśli fragmentacja rozrzedzona ma sygnaturę czasową t = 1000, oczekuje się, że po wyświetleniu przez klienta "wideo" (przy założeniu, że nazwa ścieżki nadrzędnej to "wideo"), znacznik czasu jest równy 1000 lub więcej, może pobrać fragment rozrzedzenia t = 1000. Należy zauważyć, że rzeczywisty sygnał może być używany dla innego położenia na osi czasu prezentacji dla określonego celu. W tym przykładzie istnieje możliwość, że fragment rozrzedzony t = 1000 ma ładunek XML, który służy do wstawiania reklamy w położeniu kilku sekund później.
 
-    g. Ładunek fragmentów ścieżki rozrzedzonej może znajdować się w różnych formatach (takich jak XML, text lub Binary), w zależności od scenariusza.
+    przykład Ładunek fragmentów ścieżki rozrzedzonej może znajdować się w różnych formatach (takich jak XML, text lub Binary), w zależności od scenariusza.
 
 ### <a name="redundant-audio-track"></a>Nadmiarowa ścieżka audio
 W typowym scenariuszu przesyłania strumieniowego HTTP (na przykład Smooth Streaming lub PAUZy) często istnieje tylko jedna ścieżka audio w całej prezentacji. W przeciwieństwie do ścieżek wideo, które mają wiele poziomów jakości dla klienta do wyboru w warunkach błędów, ścieżka audio może być single point of failure, jeśli pozyskiwanie strumienia zawierającego ścieżkę audio zostało przerwane. 
@@ -193,7 +193,7 @@ W przypadku nadmiarowych ścieżek audio zalecana jest następująca implementac
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
