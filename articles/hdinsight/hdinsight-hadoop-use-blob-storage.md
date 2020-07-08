@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83655190"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
@@ -28,9 +27,9 @@ W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami us�
 
 | Rodzaj konta magazynu | Obsługiwane usługi | Obsługiwane warstwy wydajności |Nieobsługiwane warstwy wydajności| Obsługiwane warstwy dostępu |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa                    |Premium| Gorąca, chłodna, archiwalna\*   |
-| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa                    |Premium| Nie dotyczy                    |
-| BlobStorage                    | Obiekt blob     | Standardowa                    |Premium| Gorąca, chłodna, archiwalna\*   |
+| StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
+| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Nie dotyczy                    |
+| BlobStorage                    | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
 
 Nie zaleca się używania domyślnego kontenera obiektów BLOB do przechowywania danych firmowych. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Kontener domyślny zawiera Dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
 

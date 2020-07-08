@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
 ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652033"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Korzystanie z notesów Jupyter do wyszukiwania zagrożeń bezpieczeństwa
@@ -62,7 +61,7 @@ Możesz uruchomić Notes bezpośrednio z usługi Azure wskaźnikowej lub sklonow
  
 1. W Azure Portal przejdź do **Azure Sentinel**  >  notesu**zarządzania zagrożeniami**platformy Azure  >  **Notebooks**, w którym można zobaczyć notesy udostępniane przez platformę Azure. 
 
-2. Wybierz poszczególne notesy, aby odczytać ich opisy, wymagane typy danych i źródła danych. Na przykład:
+2. Wybierz poszczególne notesy, aby odczytać ich opisy, wymagane typy danych i źródła danych. Przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Uruchom Notes](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -86,7 +85,7 @@ Ta procedura powoduje utworzenie projektu Azure Notebooks dla Ciebie, który zaw
 
    ![Importuj Notes](./media/notebooks/sentinel-create-project.png)
 
-4. Otwórz właśnie utworzony projekt, a następnie otwórz folder **notesy** , aby wyświetlić notesy. Na przykład:
+4. Otwórz właśnie utworzony projekt, a następnie otwórz folder **notesy** , aby wyświetlić notesy. Przykład:
 
    ![Importuj repozytorium](./media/notebooks/sentinel-open-notebook1.png)
 

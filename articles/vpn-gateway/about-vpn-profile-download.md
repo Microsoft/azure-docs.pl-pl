@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/13/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4526611fa8b80a7b97ee7317f5e285c50f05b0de
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650663"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Informacje o profilach klienta sieci VPN P2S
@@ -20,7 +19,7 @@ Pobrany plik profilu zawiera informacje niezbędne do skonfigurowania połączen
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* **Folder OpenVPN** zawiera profil *OVPN* , który należy zmodyfikować w taki sposób, aby zawierał klucz i certyfikat. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klientów OpenVPN dla platformy Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Jeśli na bramie sieci VPN wybrano opcję uwierzytelnianie usługi Azure AD, ten folder nie znajduje się w pliku zip. Zamiast tego przejdź do folderu AzureVPN i Znajdź azurevpnconfig. XML.
+* **Folder OpenVPN** zawiera profil *OVPN* , który należy zmodyfikować w taki sposób, aby zawierał klucz i certyfikat. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klientów OpenVPN dla platformy Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Jeśli na bramie sieci VPN wybrano opcję uwierzytelnianie usługi Azure AD, ten folder nie znajduje się w pliku zip. Zamiast tego przejdź do folderu AzureVPN i Znajdź azurevpnconfig.xml.
 
 ## <a name="next-steps"></a>Następne kroki
 

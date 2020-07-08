@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652038"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne
@@ -45,7 +44,7 @@ Urządzenie brzegowe Azure Stack ma dwie jednostki zasilacza 100-240 V (PSUs) z 
 | Maksymalna moc wyjściowa    | 750 W                     |
 | Częstotliwość               | 50/60 Hz                   |
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
-| Możliwość podłączenia gorąca           | Yes                        |
+| Możliwość podłączenia gorąca           | Tak                        |
 
 ### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Azure Stack Edge — specyfikacje przewodu zasilającego według regionu
 

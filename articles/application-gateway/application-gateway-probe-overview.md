@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
 ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648412"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway — Omówienie monitorowania kondycji
@@ -49,7 +48,7 @@ Poniżej przedstawiono kryteria dopasowywania:
 
 Kryteria dopasowywania można określić przy użyciu `New-AzApplicationGatewayProbeHealthResponseMatch` polecenia cmdlet.
 
-Na przykład:
+Przykład:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -69,7 +68,7 @@ Po określeniu kryteriów dopasowania można je dołączyć do konfiguracji sond
 > [!NOTE]
 > Port jest tym samym portem co ustawienia HTTP zaplecza.
 
-Sonda domyślna jest sprawdzana tylko w przypadku protokołu http: \/ /127.0.0.1: \< port \> w celu określenia stanu kondycji. Jeśli musisz skonfigurować sondę kondycji, aby przejść do niestandardowego adresu URL lub zmodyfikować inne ustawienia, musisz użyć niestandardowych sond. Aby uzyskać więcej informacji na temat sond protokołu HTTP, zobacz [Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway](ssl-overview.md#for-probe-traffic).
+Sonda domyślna jest sprawdzana tylko w przypadku protokołu http: \/ /127.0.0.1: \<port\> w celu określenia stanu kondycji. Jeśli musisz skonfigurować sondę kondycji, aby przejść do niestandardowego adresu URL lub zmodyfikować inne ustawienia, musisz użyć niestandardowych sond. Aby uzyskać więcej informacji na temat sond protokołu HTTP, zobacz [Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Interwały sondowania
 
@@ -97,7 +96,7 @@ Poniższa tabela zawiera definicje właściwości niestandardowej sondy kondycji
 
 > [!IMPORTANT]
 > Jeśli Application Gateway jest skonfigurowany dla jednej lokacji, domyślnie nazwa hosta powinna być określona jako "127.0.0.1", chyba że jest skonfigurowana w przypadku sondy niestandardowej.
-> W przypadku odniesienia do protokołu://hosta jest wysyłana niestandardowa sonda \< \> \< \> : \< \> \< ścieżka portu \> . Używany port będzie portem określonym w ustawieniach protokołu HTTP zaplecza.
+> Dla odwołania niestandardowa sonda jest wysyłana do \<protocol\> :// \<host\> : \<port\> \<path\> . Używany port będzie portem określonym w ustawieniach protokołu HTTP zaplecza.
 
 ## <a name="nsg-considerations"></a>Zagadnienia dotyczące sieciowej grupy zabezpieczeń
 

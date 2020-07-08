@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 06c8949be681d13b9dc7d5c433197dd9371aeef8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83651861"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optymalizowanie środowiska usługi Active Directory za pomocą rozwiązania Active Directory Health Check w usłudze Azure Monitor
@@ -40,7 +39,7 @@ Po dodaniu rozwiązania i zakończeniu sprawdzania informacje podsumowujące dot
 * Log Analytics obszar roboczy, aby dodać rozwiązanie Active Directory Sprawdzanie kondycji z witryny Azure Marketplace w Azure Portal. Nie jest wymagana żadna dodatkowa konfiguracja.
 
   > [!NOTE]
-  > Po dodaniu rozwiązania do serwerów z agentami zostanie dodany plik AdvisorAssessment. exe. Dane konfiguracji są odczytywane, a następnie wysyłane do Azure Monitor w chmurze w celu przetworzenia. Logika jest stosowana do odebranych danych, a usługa w chmurze rejestruje dane.
+  > Po dodaniu rozwiązania plik AdvisorAssessment.exe zostanie dodany do serwerów z agentami. Dane konfiguracji są odczytywane, a następnie wysyłane do Azure Monitor w chmurze w celu przetworzenia. Logika jest stosowana do odebranych danych, a usługa w chmurze rejestruje dane.
   >
   >
 
@@ -140,9 +139,9 @@ Oto zrzut ekranu przedstawiający zapytanie dziennika: <
 
 Wybierz zalecenia, które chcesz zignorować. W następnej procedurze użyjesz wartości dla RecommendationId.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations. txt i korzystać z niego
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations.txt i używać go
 
-1. Utwórz plik o nazwie IgnoreRecommendations. txt.
+1. Utwórz plik o nazwie IgnoreRecommendations.txt.
 
 2. Wklej lub wpisz każdą RecommendationId każdego zalecenia, które Azure Monitor mają być ignorowane w osobnym wierszu, a następnie Zapisz i zamknij plik.
 
@@ -162,7 +161,7 @@ Po następnym zaplanowanym zaplanowaniu kondycji domyślnie co siedem dni okreś
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
 
-2. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszystkie pliki IgnoreRecommendations. txt lub Usuń z nich RecommendationIDs.
+2. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszelkie IgnoreRecommendations.txt pliki lub Usuń z nich RecommendationIDs.
 
 ## <a name="ad-health-check-solutions-faq"></a>Rozwiązania AD Health Check — często zadawane pytania
 
@@ -195,7 +194,7 @@ Wyniki można następnie wyeksportować do programu Excel w celu dalszej analizy
 
 *Jaka jest nazwa procesu, który wykonuje zbieranie danych?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Jak długo trwa zbieranie danych?*
 

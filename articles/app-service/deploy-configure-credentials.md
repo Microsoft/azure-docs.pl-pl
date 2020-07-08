@@ -6,10 +6,9 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649118"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
@@ -23,7 +22,7 @@ Poświadczenia na poziomie użytkownika można skonfigurować na [stronie zasob�
 
 ### <a name="in-the-cloud-shell"></a>W Cloud Shell
 
-Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.com), uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Zastąp \<> nazwy użytkownika i \< hasła> nazwą użytkownika i hasłom wdrożenia. 
+Aby skonfigurować użytkownika wdrożenia w [Cloud Shell](https://shell.azure.com), uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Zastąp \<username> i nazwą \<password> użytkownika i hasłem dla wdrożenia. 
 
 - Nazwa użytkownika musi być unikatowa w ramach platformy Azure, a w przypadku lokalnych powiadomień wypychanych Git nie może zawierać symbolu "@". 
 - Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole. 
@@ -38,7 +37,7 @@ Dane wyjściowe JSON przedstawiają hasło jako `null` . Jeśli wystąpił błą
 
 W Azure Portal należy mieć co najmniej jedną aplikację, aby można było uzyskać dostęp do strony poświadczeń wdrożenia. Aby skonfigurować poświadczenia na poziomie użytkownika:
 
-1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  ** \< any_app>**  >  **Deployment center**  >  **FTP**  >  **pulpit nawigacyjny**FTP programu Deployment Center.
+1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **pulpit nawigacyjny**FTP programu Deployment Center.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 

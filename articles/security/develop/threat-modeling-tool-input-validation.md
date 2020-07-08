@@ -16,17 +16,16 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653115"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Ramka zabezpieczeń: sprawdzanie poprawności danych wejściowych | Środki zaradcze 
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
-| **Aplikacja sieci Web** | <ul><li>[Wyłącz obsługę skryptów XSLT dla wszystkich transformacji przy użyciu niezaufanych arkuszy stylów](#disable-xslt)</li><li>[Upewnij się, że każda Strona, która może zawierać zawartość z kontrolowanymi przez użytkownika, jest niedostępna z automatycznego wykrywania MIME](#out-sniffing)</li><li>[Ograniczanie lub wyłączanie rozpoznawania jednostek XML](#xml-resolution)</li><li>[Aplikacje korzystające z protokołu HTTP. sys wykonują weryfikację nieprawidłowego adresu URL](#app-verification)</li><li>[Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](#controls-users)</li><li>[Upewnij się, że parametry bezpieczne dla typu są używane w aplikacji sieci Web na potrzeby dostępu do danych](#typesafe)</li><li>[Użyj oddzielnych klas powiązania modelu lub listy filtrów powiązań, aby zapobiec usterce przypisywania grupowego MVC](#binding-mvc)</li><li>[Koduj niezaufane dane wyjściowe sieci Web przed renderowaniem](#rendering)</li><li>[Wykonaj walidację danych wejściowych i filtrowanie dla wszystkich właściwości modelu typu String](#typemodel)</li><li>[Narzędzie Oczyszczanie powinno być stosowane w polach formularza akceptujących wszystkie znaki, np. Edytor tekstu sformatowanego](#richtext)</li><li>[Nie przypisuj elementów DOM do ujścia, które nie mają wbudowanego kodowania](#inbuilt-encode)</li><li>[Sprawdź poprawność wszystkich przekierowań w aplikacji, które są zamknięte lub bezpiecznie gotowe](#redirect-safe)</li><li>[Implementuj sprawdzanie poprawności danych wejściowych dla wszystkich parametrów typu String zaakceptowanych przez metody kontrolera](#string-method)</li><li>[Ustaw limit czasu górnego limitu dla przetwarzania wyrażenia regularnego, aby zapobiec występowaniu z powodu nieprawidłowych wyrażeń regularnych](#dos-expression)</li><li>[Unikaj używania języka HTML. Raw w widokach Razor](#html-razor)</li></ul> | 
-| **Database** | <ul><li>[Nie używaj zapytań dynamicznych w procedurach składowanych](#stored-proc)</li></ul> |
+| **Aplikacja sieci Web** | <ul><li>[Wyłącz obsługę skryptów XSLT dla wszystkich transformacji przy użyciu niezaufanych arkuszy stylów](#disable-xslt)</li><li>[Upewnij się, że każda Strona, która może zawierać zawartość z kontrolowanymi przez użytkownika, jest niedostępna z automatycznego wykrywania MIME](#out-sniffing)</li><li>[Ograniczanie lub wyłączanie rozpoznawania jednostek XML](#xml-resolution)</li><li>[Aplikacje wykorzystujące http.sys wykonywanie weryfikacji niezgodności adresów URL](#app-verification)</li><li>[Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](#controls-users)</li><li>[Upewnij się, że parametry bezpieczne dla typu są używane w aplikacji sieci Web na potrzeby dostępu do danych](#typesafe)</li><li>[Użyj oddzielnych klas powiązania modelu lub listy filtrów powiązań, aby zapobiec usterce przypisywania grupowego MVC](#binding-mvc)</li><li>[Koduj niezaufane dane wyjściowe sieci Web przed renderowaniem](#rendering)</li><li>[Wykonaj walidację danych wejściowych i filtrowanie dla wszystkich właściwości modelu typu String](#typemodel)</li><li>[Narzędzie Oczyszczanie powinno być stosowane w polach formularza akceptujących wszystkie znaki, np. Edytor tekstu sformatowanego](#richtext)</li><li>[Nie przypisuj elementów DOM do ujścia, które nie mają wbudowanego kodowania](#inbuilt-encode)</li><li>[Sprawdź poprawność wszystkich przekierowań w aplikacji, które są zamknięte lub bezpiecznie gotowe](#redirect-safe)</li><li>[Implementuj sprawdzanie poprawności danych wejściowych dla wszystkich parametrów typu String zaakceptowanych przez metody kontrolera](#string-method)</li><li>[Ustaw limit czasu górnego limitu dla przetwarzania wyrażenia regularnego, aby zapobiec występowaniu z powodu nieprawidłowych wyrażeń regularnych](#dos-expression)</li><li>[Unikaj używania języka HTML. Raw w widokach Razor](#html-razor)</li></ul> | 
+| **Baza danych** | <ul><li>[Nie używaj zapytań dynamicznych w procedurach składowanych](#stored-proc)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że Walidacja modelu odbywa się w metodach interfejsu API sieci Web](#validation-api)</li><li>[Implementuj sprawdzanie poprawności danych wejściowych dla wszystkich parametrów typu String zaakceptowanych przez metody interfejsu API sieci Web](#string-api)</li><li>[Upewnij się, że parametry bezpieczne dla typu są używane w interfejsie API sieci Web na potrzeby dostępu do danych](#typesafe-api)</li></ul> | 
 | **Baza danych dokumentów platformy Azure** | <ul><li>[Użyj sparametryzowanych zapytań SQL dla Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Walidacja danych wejściowych WCF za poorednictwem powiązania schematu](#schema-binding)</li><li>[WCF — walidacja danych wejściowych za pomocą inspektorów parametrów](#parameters)</li></ul> |
@@ -77,7 +76,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 ### <a name="example"></a>Przykład
 Aby włączyć wymagany nagłówek globalnie dla wszystkich stron w aplikacji, można wykonać jedną z następujących czynności: 
 
-* Dodaj nagłówek w pliku Web. config, jeśli aplikacja jest hostowana przez Internet Information Services (IIS) 7 
+* Dodaj nagłówek w pliku web.config, jeśli aplikacja jest hostowana przez Internet Information Services (IIS) 7 
 
 ```
 <system.webServer> 
@@ -183,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Przykład
-Jeśli musisz rozpoznać jednostki wbudowane, ale nie musisz rozpoznawać jednostek zewnętrznych, ustaw właściwość tabela XmlReaderSettings. XmlResolver na wartość null. Na przykład: 
+Jeśli musisz rozpoznać jednostki wbudowane, ale nie musisz rozpoznawać jednostek zewnętrznych, ustaw właściwość XmlReaderSettings.Xmlresolver na wartość null. Przykład: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -194,7 +193,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 Należy pamiętać, że w programie MSXML6 ProhibitDTD jest ustawiona na true (domyślnie wyłączenie przetwarzania DTD). W przypadku kodu Apple OSX/iOS istnieją dwa parsery XML, których można użyć: NSXMLParser i libXML2. 
 
-## <a name="applications-utilizing-httpsys-perform-url-canonicalization-verification"></a><a id="app-verification"></a>Aplikacje korzystające z protokołu HTTP. sys wykonują weryfikację nieprawidłowego adresu URL
+## <a name="applications-utilizing-httpsys-perform-url-canonicalization-verification"></a><a id="app-verification"></a>Aplikacje wykorzystujące http.sys wykonywanie weryfikacji niezgodności adresów URL
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -203,7 +202,7 @@ Należy pamiętać, że w programie MSXML6 ProhibitDTD jest ustawiona na true (d
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
-| **Czynnooci** | <p>Wszystkie aplikacje, które używają protokołu HTTP. sys, powinny być zgodne z następującymi wskazówkami:</p><ul><li>Ogranicz długość adresu URL do nie więcej niż 16 384 znaków (ASCII lub Unicode). Jest to bezwzględna maksymalna długość adresu URL oparta na domyślnym ustawieniu Internet Information Services (IIS) 6. Witryny sieci Web powinny dążyć do krótszej długości niż to możliwe</li><li>Użyj standardowych klas operacji we/wy plików .NET Framework (takich jak FileStream), ponieważ będą one korzystać z reguł kanonizacji w programie .NET FX</li><li>Jawnie Kompiluj listę dozwolonych nazw znanych plików</li><li>Jawnie Odrzuć znane pliki, nie będzie można odrzucać programu UrlScan: exe, bat, cmd, com, htw, IDA, IDQ, HTR, IDC, SHTM [l], STM, Printer, ini, pol, dat</li><li>Przechwyć następujące wyjątki:<ul><li>System. ArgumentException (dla nazw urządzeń)</li><li>System. NotSupportedException (dla strumieni danych)</li><li>System. IO. FileNotFoundException (dla nieprawidłowych nazw plików)</li><li>System. IO. DirectoryNotFoundException (dla nieprawidłowego ucieczki katalogów)</li></ul></li><li>*Nie należy* wywoływać interfejsów API we/wy plików Win32. Na nieprawidłowym adresie URL bezpiecznie zwracają błąd 400 do użytkownika i Rejestruj rzeczywistą wartość błędu.</li></ul>|
+| **Czynnooci** | <p>Wszystkie aplikacje używające http.sys powinny przestrzegać następujących wytycznych:</p><ul><li>Ogranicz długość adresu URL do nie więcej niż 16 384 znaków (ASCII lub Unicode). Jest to bezwzględna maksymalna długość adresu URL oparta na domyślnym ustawieniu Internet Information Services (IIS) 6. Witryny sieci Web powinny dążyć do krótszej długości niż to możliwe</li><li>Użyj standardowych klas operacji we/wy plików .NET Framework (takich jak FileStream), ponieważ będą one korzystać z reguł kanonizacji w programie .NET FX</li><li>Jawnie Kompiluj listę dozwolonych nazw znanych plików</li><li>Jawnie Odrzuć znane pliki, nie będzie można odrzucać programu UrlScan: exe, bat, cmd, com, htw, IDA, IDQ, HTR, IDC, SHTM [l], STM, Printer, ini, pol, dat</li><li>Przechwyć następujące wyjątki:<ul><li>System. ArgumentException (dla nazw urządzeń)</li><li>System. NotSupportedException (dla strumieni danych)</li><li>System. IO. FileNotFoundException (dla nieprawidłowych nazw plików)</li><li>System. IO. DirectoryNotFoundException (dla nieprawidłowego ucieczki katalogów)</li></ul></li><li>*Nie należy* wywoływać interfejsów API we/wy plików Win32. Na nieprawidłowym adresie URL bezpiecznie zwracają błąd 400 do użytkownika i Rejestruj rzeczywistą wartość błędu.</li></ul>|
 
 ## <a name="ensure-appropriate-controls-are-in-place-when-accepting-files-from-users"></a><a id="controls-users"></a>Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki
 
