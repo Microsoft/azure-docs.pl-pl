@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
 ms.openlocfilehash: e7f80bb7f9be2e01aa24090d7305b1a5d882da04
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255519"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure

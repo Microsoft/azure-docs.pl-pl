@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253379"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory
@@ -39,7 +39,7 @@ Aby zasady działały, należy skonfigurować:
 | :--            | :--                                  | :-- |
 | **Aplikacje w chmurze** |Wybierz co najmniej jedną aplikację.  | Celem zasad dostępu warunkowego jest umożliwienie kontroli nad sposobem, w jaki autoryzowani użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze.|
 | **Użytkownicy i grupy** | Wybierz co najmniej jednego użytkownika lub grupę, która ma uprawnienia dostępu do wybranych aplikacji w chmurze. | Zasady dostępu warunkowego, które nie mają przypisanych użytkowników i grup, nigdy nie są wyzwalane. |
-| **Kontrole dostępu** | Wybierz co najmniej jedną kontrolę dostępu. | Jeśli warunki są spełnione, procesor zasad musi wiedzieć, co należy zrobić. |
+| **Kontrola dostępu** | Wybierz co najmniej jedną kontrolę dostępu. | Jeśli warunki są spełnione, procesor zasad musi wiedzieć, co należy zrobić. |
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 

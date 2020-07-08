@@ -13,13 +13,13 @@ ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
 ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85254752"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Kluczowe różnice między Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL i SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Kluczowe różnice między usługami Machine Learning Services w usłudze Azure SQL Managed Instance i programie SQL Server
 
 Funkcja [Machine Learning Services w wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](machine-learning-services-overview.md) jest niemal identyczna z [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Poniżej przedstawiono niektóre kluczowe różnice.
 
@@ -28,14 +28,14 @@ Funkcja [Machine Learning Services w wystąpieniu zarządzanym Azure SQL (wersja
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-W ramach wersji zapoznawczej usługa ma następujące ograniczenia:
+Jeśli korzystasz z wersji zapoznawczej, usługa ma następujące ograniczenia:
 
 - Połączenia sprzężenia zwrotnego nie działają (zobacz [połączenie sprzężenia zwrotnego z SQL Server ze skryptu Python lub R](/sql/machine-learning/connect/loopback-connection)).
 - Zewnętrzne pule zasobów nie są obsługiwane.
-- Obsługiwane są tylko Języki Python i R. Nie można dodać języków zewnętrznych, takich jak Java.
+- Obsługiwane są tylko języki Python i R. Nie można dodać języków zewnętrznych, takich jak Java.
 - Scenariusze wykorzystujące [interfejs przekazywania komunikatów](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) (MPI) nie są obsługiwane.
 
-W przypadku aktualizacji celu poziomu usługi (SLO) zaktualizuj cel SLO i Zgłoś bilet pomocy technicznej w celu ponownego włączenia dedykowanych limitów zasobów dla języka R/Python.
+W przypadku aktualizacji celu poziomu usługi (SLO, Service Level Objective) zaktualizuj cel poziomu usługi i utwórz bilet pomocy technicznej w celu ponownego włączenia limitów dedykowanych zasobów dla języka R/Python.
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -66,17 +66,17 @@ Aby uzyskać więcej informacji na temat zarządzania pakietami Python i R, zoba
 
 Nie jest możliwe ograniczanie zasobów R przy użyciu [regulatora zasobów](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) i pul zasobów zewnętrznych.
 
-W publicznej wersji zapoznawczej zasoby R są ustawione na maksymalnie 20% zasobów wystąpienia zarządzanego SQL i zależą od wybranej warstwy usług. Aby uzyskać więcej informacji, zobacz [Azure SQL Database modele zakupu](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+W publicznej wersji zapoznawczej zasoby języka R są ustawione na maksymalnie 20% zasobów usługi SQL Managed Instance i zależą od wybranej warstwy usługi. Aby uzyskać więcej informacji, zobacz [Azure SQL Database modele zakupu](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
 ### <a name="insufficient-memory-error"></a>Błąd niewystarczającej pamięci
 
-Jeśli jest za mało dostępnej pamięci dla języka R, zostanie wyświetlony komunikat o błędzie. Typowe komunikaty o błędach to:
+Ten komunikat o błędzie jest wyświetlany, jeśli ilość pamięci dostępna dla języka R jest niewystarczająca. Typowe komunikaty o błędach to:
 
-- Nie można nawiązać komunikacji ze środowiskiem uruchomieniowym dla skryptu "R" dla identyfikatora żądania: * * * * * * *. Sprawdź wymagania środowiska uruchomieniowego "R"
-- Wystąpił błąd skryptu "R" podczas wykonywania elementu "sp_execute_external_script" z wartością HRESULT 0x80004004. ... Wystąpił zewnętrzny błąd skryptu: ".. nie można przydzielić pamięci (0 MB) w funkcji C "R_AllocStringBuffer" "
+- Nie można nawiązać komunikacji ze środowiskiem uruchomieniowym dla skryptu "R" dla identyfikatora żądania: * * * * * * *. Sprawdź wymagania środowiska uruchomieniowego „R”
+- Wystąpił błąd skryptu „R” w czasie wykonywania procedury „sp_execute_external_script” (HRESULT = 0x80004004). ...wystąpił zewnętrzny błąd skryptu: „..nie można przydzielić pamięci (0 MB) w funkcji C „R_AllocStringBuffer””
 - Wystąpił błąd zewnętrzny skryptu: błąd: nie można przydzielić wektora rozmiaru.
 
-Użycie pamięci zależy od tego, ile jest używane w skryptach języka R i liczby wykonywanych zapytań równoległych. Jeśli otrzymasz powyższe błędy, możesz skalować bazę danych do wyższej warstwy usług, aby rozwiązać ten problem.
+Użycie pamięci zależy od ilości używanej w skryptach języka R i liczby wykonywanych zapytań równoległych. W przypadku wyświetlenia powyższych komunikatów o błędach możesz skalować bazę danych do wyższej warstwy usług, aby rozwiązać ten problem.
 
 ## <a name="next-steps"></a>Następne kroki
 

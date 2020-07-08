@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85255334"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze
@@ -114,7 +114,7 @@ W przypadku innych wariantów kwerend symboli wieloznacznych, takich jak sufiks 
 
 Wyszukiwanie warunków jest zapytania dla co najmniej jednego terminu, gdzie dowolne z warunków jest uważane za dopasowanie. Wyszukiwanie frazy jest dokładną frazą ujętą w znaki cudzysłowu `" "` . Na przykład podczas `Roach Motel` (bez cudzysłowów) Wyszukiwanie dokumentów zawierających `Roach` i/lub `Motel` wszędzie w dowolnej kolejności `"Roach Motel"` (z cudzysłowami) będzie pasować tylko do dokumentów, które zawierają całą frazę i w tej kolejności (w dalszym ciągu stosuje się analizę leksykalną).
 
-## <a name="see-also"></a>Zobacz też  
+## <a name="see-also"></a>Zobacz także  
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Przykłady zapytań dla prostego wyszukiwania](search-query-simple-examples.md)

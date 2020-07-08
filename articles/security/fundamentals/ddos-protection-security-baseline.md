@@ -1,22 +1,22 @@
 ---
-title: Podstawa zabezpieczeń platformy Azure dla Network Watcher
-description: Podstawa zabezpieczeń platformy Azure dla Network Watcher
+title: Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
+description: Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
+ms.openlocfilehash: 97b0842b847db9dc7b5953b79cf5d33b11f2407a
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
-ms.locfileid: "85256000"
+ms.locfileid: "85256018"
 ---
-# <a name="azure-security-baseline-for-network-watcher"></a>Podstawa zabezpieczeń platformy Azure dla Network Watcher
+# <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
-Podstawą zabezpieczeń platformy Azure dla Network Watcher są zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
+Podstawowa baza danych zabezpieczeń Azure dla Azure DDoS Protection Standard zawiera zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
 
 Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](https://docs.microsoft.com/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
-**Wskazówki**: nie dotyczy; Network Watcher ma możliwość monitorowania połączenia między punktem końcowym i maszyną wirtualną, ale nie może być zabezpieczony przez sieć wirtualną, sieciową grupę zabezpieczeń lub zaporę platformy Azure.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -36,7 +36,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher umożliwia analizowanie dzienników przepływów i dostarczanie rozbudowanych wizualizacji danych, jednak Network Watcher sama nie produkuje dzienników przepływów ani pakietów capturable.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher nie jest zasobem z potencjalnym narażeniem na sieci publiczne, które muszą być chronione przed złośliwym ruchem.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -60,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="15-record-network-packets"></a>1,5: rejestrowanie pakietów sieciowych
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher umożliwia analizowanie dzienników przepływów i dostarczanie rozbudowanych wizualizacji danych, jednak Network Watcher sama nie produkuje dzienników przepływów ani pakietów capturable.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -68,7 +68,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: wdrażanie opartych na sieci systemów zapobiegania wykrywaniem i dostępem intruzów (identyfikatorów/adresów IP)
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher nie jest zasobem z potencjalnym narażeniem na sieci publiczne, które muszą być chronione przed złośliwym ruchem.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
 
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone dla aplikacji sieci Web działających na Azure App Service lub zasobach obliczeniowych.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher umożliwia analizowanie dzienników przepływów i dostarczanie rozbudowanych wizualizacji danych, jednak Network Watcher sama nie jest punktem końcowym, w którym można filtrować lub zezwalać na ruch z użyciem tagów usługi lub sieciowych grup zabezpieczeń.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -92,15 +92,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure Network Watcher przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Network Watcher. Możesz również używać wbudowanych definicji zasad, takich jak:
-
-Wdróż obserwatora sieciowego po utworzeniu sieci wirtualnych
-
-Network Watcher powinna być włączona
-
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-
-* [Jak utworzyć zasadę niestandardową z aliasami zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -108,7 +100,7 @@ Network Watcher powinna być włączona
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
 
-**Wskazówki**: nie dotyczy; Chociaż usługa Azure Network Watcher obsługuje tagi, Network Watcher sama sama nie kontroluje przepływu ruchu sieciowego.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -116,11 +108,7 @@ Network Watcher powinna być włączona
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania zmian wprowadzonych w usłudze Azure Network Watcher. Możesz tworzyć alerty w ramach Azure Monitor, które będą wyzwalać, gdy zmiany zostaną wykonane.
-
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
-
-* [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS jest przeznaczona do włączenia w sieciach wirtualnych obsługujących inne usługi. jest to podstawowa oferta platformy Azure i jej podstawowa infrastruktura, w tym sieć jest w pełni zarządzana przez firmę Microsoft.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -132,7 +120,7 @@ Network Watcher powinna być włączona
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
-**Wskazówki**: nie dotyczy; Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, takie jak Azure Network Watcher, dla sygnatur czasowych w dziennikach.
+**Wskazówki**: nie dotyczy; Firma Microsoft utrzymuje źródło czasu używane dla zasobów platformy Azure, takie jak Azure DDoS Protection.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -140,11 +128,9 @@ Network Watcher powinna być włączona
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników związanych z ruchem sieciowym. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
+**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w planach Azure DDoS Protection na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla wystąpień Azure DDoS Protection.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
-
-* [Opis Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -152,11 +138,13 @@ Network Watcher powinna być włączona
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników inspekcji. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
+**Wskazówki**: można wybrać dowolne dostępne metryki ochrony DDoS, które będą powiadamiać o aktywnym ograniczeniu podczas ataku przy użyciu konfiguracji alertu Azure monitor. Gdy warunki są spełnione, określony adres otrzymuje wiadomość e-mail z alertem.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics, centrum zdarzeń platformy Azure lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla wystąpień Azure DDoS Protection.
 
-* [Opis Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+* [Jak skonfigurować alerty dla metryk ochrony DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection#configure-alerts-for-ddos-protection-metrics)
+
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -172,7 +160,7 @@ Network Watcher powinna być włączona
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
-**Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z platformą Azure Network Watcher zgodnie z regulacjami zgodności w organizacji.
+**Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z planami Azure DDoS Protection zgodnie z regulacjami zgodności w organizacji.
 
 * [Jak ustawić parametry przechowywania dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
@@ -182,29 +170,35 @@ Network Watcher powinna być włączona
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników związanych z ruchem sieciowym. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
+**Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics. Wykonaj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie danych dziennika aktywności, które mogły zostać zebrane dla Recovery Services magazynów.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Opis Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
-
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: klient
-
-### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
-
-**Wskazówki**: można skonfigurować w taki sposób, aby otrzymywać alerty na podstawie dzienników aktywności związanych z usługą Azure Network Watcher. Azure Monitor umożliwia skonfigurowanie alertu w celu wysłania powiadomienia e-mail, wywołania elementu webhook lub wywoływać aplikację logiki platformy Azure.
-
-* [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
 
 **Monitorowanie Azure Security Center**: tak
 
 **Odpowiedzialność**: klient
 
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
+
+**Wskazówki**: Konfigurowanie alertów i analizy ataków. Azure DDoS Protection identyfikuje i zmniejsza ataki DDoS bez żadnej interwencji użytkownika.
+
+Dołączanie obszaru roboczego Log Analytics do funkcji wskaźnikowej platformy Azure, ponieważ zapewnia rozwiązanie do automatycznej reakcji aranżacji zabezpieczeń (o). Pozwala to na tworzenie i używanie automatycznych rozwiązań elementy PlayBook w celu korygowania problemów z zabezpieczeniami. Ponadto można utworzyć niestandardowe alerty dzienników w obszarze roboczym Log Analytics przy użyciu Azure Monitor.
+
+* [Jak skonfigurować alerty dla metryk DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+
+* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+
+* [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+
+**Monitorowanie Azure Security Center**: nie dotyczy
+
+**Odpowiedzialność**: klient
+
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection nie przetwarza ani nie tworzy dzienników związanych z oprogramowaniem chroniącym przed złośliwym kodem.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -212,7 +206,7 @@ Network Watcher powinna być włączona
 
 ### <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection nie przetwarza ani nie tworzy dzienników związanych z usługą DNS.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -232,13 +226,15 @@ Network Watcher powinna być włączona
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do płaszczyzny kontroli (np. Azure Portal) Network Watcher platformy Azure. Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure, musi być przypisane do wbudowanych ról współautor, współautor lub sieci lub przypisane do roli niestandardowej przypisanej do określonych funkcji Network Watcher.
+**Wskazówki**: aby współpracować z planami ochrony DDoS, Twoje konto musi być przypisane do roli współautor sieci lub do roli niestandardowej przypisanej do odpowiednich akcji.
 
-Aby skonfigurować kontrolę dostępu opartą na rolach (RBAC), można użyć okienka tożsamości i kontroli dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
+Ponadto Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-* [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Informacje o uprawnieniach w usłudze Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection#permissions)
 
-* [Uprawnienia kontroli dostępu opartej na rolach wymagane do korzystania z funkcji Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+
+* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -271,11 +267,17 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
-**Wskazówki**: nie dotyczy; Logowanie jednokrotne (SSO) zwiększa bezpieczeństwo i wygodę, gdy użytkownicy logują się do aplikacji niestandardowych w usłudze Azure Active Directory (AD). Dostęp do usługi Azure Network Watcher jest już zintegrowany z Azure Active Directory i jest dostępny za pomocą Azure Portal oraz Azure Resource Manager interfejsu API REST.
+**Wskazówki**: Użyj rejestracji aplikacji platformy Azure (nazwy głównej usługi), aby pobrać token, który może służyć do współpracy z planami DDoS Protection za pośrednictwem wywołań interfejsu API.
+
+* [Jak wywołać interfejsy API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+
+* [Jak zarejestrować aplikację kliencką (nazwę główną usługi) w usłudze Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+
+* [Informacje o interfejsie API usługi Azure DDos Protection](https://docs.microsoft.com/rest/api/virtual-network/)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
@@ -291,7 +293,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
 
-**Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure Multi-Factor Authentication (MFA), aby zalogować się i skonfigurować zasoby związane z platformą Azure.
+**Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure Multi-Factor Authentication (MFA), aby zalogować się i skonfigurować żądania skrytka klienta platformy Azure.
 
 * [Stacje robocze z dostępem uprzywilejowanym](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -327,7 +329,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji dla wystąpień wskaźnikowych platformy Azure. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki**: w razie potrzeby użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
 * [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -337,11 +339,11 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: Azure Active Directory (AD) zawiera dzienniki ułatwiające odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
+**Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
 * [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
-* [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Jak korzystać z przeglądów dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -349,7 +351,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla Network Watcher platformy Azure. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
+**Wskazówki**: w razie potrzeby użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
 Masz dostęp do źródeł działań związanych z logowaniem do usługi Azure AD, inspekcją i ryzykiem dzienników zdarzeń, które umożliwiają integrację z platformą Azure, lub SIEM innych firm.
 
@@ -379,9 +381,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
 
-**Wskazówki**: nie dotyczy; Skrytka klienta nie ma zastosowania do usługi Azure Network Watcher.
-
-* [Lista usług obsługiwanych przez Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+**Wskazówki**: to zalecenie nie ma zastosowania do Azure DDoS Protection.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -399,15 +399,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji.
-
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+**Wskazówki**: nie dotyczy; plan DDoS Protection zostanie zainicjowany w zdefiniowanej grupie zasobów. Brak publicznego punktu końcowego do ochrony lub izolowania.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -415,7 +411,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
 
-**Wskazówki**: Firma Microsoft zarządza podstawową infrastrukturą dla Network Watcher platformy Azure i powiązanych zasobów oraz ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
+**Wskazówki**: Firma Microsoft zarządza podstawową infrastrukturą dla Azure DDoS Protection i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
 * [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -425,19 +421,15 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: Jeśli korzystasz z usługi Azure VPN Gateway w celu utworzenia bezpiecznego połączenia między siecią lokalną i sieciami wirtualnymi platformy Azure, upewnij się, że lokalna Brama sieci lokalnej została skonfigurowana ze zgodnymi parametrami komunikacji i szyfrowania IPSec. Każda niepowodzna konfiguracja spowoduje utratę łączności między siecią lokalną a platformą Azure.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection nie przechowuje danych klienta w stanie spoczynku.
 
-* [Obsługiwane parametry protokołu IPSec dla usługi Azure VPN Gateway](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity)
+**Monitorowanie Azure Security Center**: nie dotyczy
 
-* [Jak skonfigurować połączenie lokacja-lokacja w Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-
-**Monitorowanie Azure Security Center**: obecnie niedostępna
-
-**Odpowiedzialność**: klient
+**Odpowiedzialność**: nie dotyczy
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów.
+**Wskazówki**: nie dotyczy; Usługa Azure DDoS Protection nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -445,13 +437,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC), możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
+**Wskazówki**: aby współpracować z planami ochrony DDoS, Twoje konto musi być przypisane do roli współautor sieci lub do roli niestandardowej przypisanej do określonych akcji.
 
-Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure, musi być przypisane do wbudowanych ról współautor, współautor lub sieci lub przypisane do roli niestandardowej przypisanej do określonych funkcji Network Watcher.
-
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-
-* [Opis uprawnień RBAC w Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Zarządzanie kontrolą dostępu opartą na rolach w Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -459,7 +447,7 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych. Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure Network Watcher i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
+**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych. Firma Microsoft zarządza podstawową infrastrukturą dla Azure DDoS Protection i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
 * [Ochrona danych klienta platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -469,15 +457,15 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów. Network Watcher przechowuje dzienniki i inne informacje w usłudze Azure Storage, w przypadku których dane są szyfrowane w stanie spoczynku.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: Microsoft
+**Odpowiedzialność**: nie dotyczy
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany są wprowadzane do usługi Azure Network Watcher i innych krytycznych lub powiązanych zasobów.
+**Wskazówki**: Użyj Azure monitor w dzienniku aktywności platformy Azure, aby utworzyć alerty dotyczące zmian w planach Azure DDoS Protection, a także innych krytycznych lub pokrewnych zasobów.
 
 * [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
@@ -491,7 +479,7 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
-**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują usługę Azure Network Watcher.
+**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure DDoS Protection.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -515,7 +503,7 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: porównanie luk w zabezpieczeniach z tyłu do tyłu
 
-**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują usługę Azure Network Watcher.
+**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure DDoS Protection.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -523,7 +511,7 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
 
-**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują usługę Azure Network Watcher.
+**Wskazówki**: nie dotyczy; Firma Microsoft przeprowadza zarządzanie lukami w systemach podstawowych, które obsługują Azure DDoS Protection.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -551,13 +539,13 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 ### <a name="62-maintain-asset-metadata"></a>6,2: Konserwowanie metadanych zasobów
 
-**Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
+**Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane zgodnie z taksonomią.
 
 * [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
 
@@ -579,15 +567,15 @@ Ponadto należy używać Azure Policy do umieszczania ograniczeń dotyczących t
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i obsługa spisu zatwierdzonych zasobów platformy Azure
 
-**Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych.
+**Wskazówki**: Definiowanie zatwierdzonych zasobów platformy Azure i zatwierdzonego oprogramowania dla zasobów obliczeniowych.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
-**Wskazówki**: Użyj Azure Policy, aby wprowadzić ograniczenia dotyczące typu zasobów, które mogą być tworzone w ramach subskrypcji.
+**Wskazówki**: Użyj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, które można utworzyć w ramach subskrypcji.
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasobów i odnajdywania ich w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
@@ -677,17 +665,15 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure Network Watcher przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Network Watcher. Możesz również używać wbudowanych definicji zasad, takich jak:
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure DDoS Protection przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji magazynów Recovery Services.
 
-* [Wdróż obserwatora sieciowego po utworzeniu sieci wirtualnych](https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md)
+* [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Zobacz również: jak konfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-
-* [Jak utworzyć zasadę niestandardową z aliasami zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
 
@@ -707,7 +693,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
 
@@ -727,7 +713,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
@@ -739,19 +725,13 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure Network Watcher przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Network Watcher. Możesz również używać wbudowanych definicji zasad, takich jak:
-
-* [Wdróż obserwatora sieciowego po utworzeniu sieci wirtualnych](https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md)
-
-Zobacz również:
+**Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Jak utworzyć zasadę niestandardową z aliasami zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)
-
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
 
@@ -763,13 +743,13 @@ Zobacz również:
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
 
-**Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć niestandardowe definicje Azure Policy na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla zasobów platformy Azure.
+**Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla zasobów platformy Azure.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
-**Odpowiedzialność**: nie dotyczy
+**Odpowiedzialność**: klient
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 
@@ -781,7 +761,7 @@ Zobacz również:
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
-**Wskazówki**: nie dotyczy; nie istnieją hasła, wpisy tajne ani klucze skojarzone z usługą Azure Network Watcher.
+**Wskazówki**: nie dotyczy; Aby można było korzystać z planów DDoS Protection, Twoje konto musi być przypisane do roli współautor sieci lub do roli niestandardowej, do której przypisano odpowiednie akcje. Do uzyskania dostępu do DDoS Protection nie są wymagane żadne hasła, wpisy tajne lub klucze.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -789,7 +769,7 @@ Zobacz również:
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: nie dotyczy; Usługa Azure Network Watcher nie korzysta z zarządzanych tożsamości.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection nie korzysta z zarządzanych tożsamości.
 
 * [Usługi platformy Azure, które obsługują tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
 
@@ -813,7 +793,7 @@ Zobacz również:
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 
-**Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure App Service), ale nie jest uruchamiane w treści klienta.
+**Wskazówki**: nie dotyczy; te wytyczne są przeznaczone dla zasobów obliczeniowych. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście, który obsługuje usługi platformy Azure (na przykład Azure DDoS Protection), ale nie jest uruchamiane w treści klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -821,7 +801,9 @@ Zobacz również:
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
-**Wskazówki**: nie dotyczy. Network Watcher nie działa na danych przekazanych przez użytkownika.
+**Wskazówki**: oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest włączone na podstawowym hoście obsługującym usługi platformy Azure (na przykład Azure DDoS Protection), ale nie jest ono uruchamiane w treści klienta.
+
+Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do zasobów platformy Azure, które nie są obliczeniowe. Firma Microsoft nie może uzyskać dostępu do danych klienta i w związku z tym nie może przeprowadzić skanowania zawartości klienta przez oprogramowanie chroniące przed złośliwym kodem.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -841,7 +823,7 @@ Zobacz również:
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection samo nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -849,7 +831,7 @@ Zobacz również:
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: wykonaj kompletne kopie zapasowe systemu i Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection samo nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -857,7 +839,7 @@ Zobacz również:
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection samo nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -865,7 +847,7 @@ Zobacz również:
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: nie dotyczy; Na platformie Azure Network Watcher nie są przechowywane żadne dane klientów.
+**Wskazówki**: nie dotyczy; Azure DDoS Protection samo nie przechowuje danych klienta.
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -879,13 +861,11 @@ Zobacz również:
 
 **Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
 
-* [Jak skonfigurować automatyzację przepływu pracy w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-
 * [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-* [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+* [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-* [Klient może również korzystać z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+* [Skorzystaj z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -895,7 +875,11 @@ Zobacz również:
 
 **Wskazówki**: Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
 
-Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure.
+Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy użyciu tagów i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne. Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
+
+* [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+
+* [Organizowanie zasobów platformy Azure przy użyciu tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -903,9 +887,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
+**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemów w regularnych erzeach w celu ochrony zasobów platformy Azure. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
 
-* [Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+* [Przewodnik po publikacji NIST, który umożliwia testowanie, uczenie i wykonywanie programów dla planów i możliwości IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -913,7 +897,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
-**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
+**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych zostały nadane przez nielegalną lub nieautoryzowaną stronę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
 * [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
@@ -923,7 +907,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
-**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
+**Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego, która pomaga identyfikować zagrożenia dla zasobów platformy Azure. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center do przesyłania strumieniowego alertów do usługi Azure wskaźnikowej.
 
 * [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
 
@@ -935,7 +919,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
-**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
+**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w Azure Security Center, aby automatycznie wyzwalać odpowiedzi poprzez "Logic Apps" dotyczące alertów zabezpieczeń i zaleceń dotyczących ochrony zasobów platformy Azure.
 
 * [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
@@ -949,9 +933,11 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
-**Wskazówki**: * [postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft. Korzystaj z strategii firmy Microsoft i wykonywania testów na żywo z obsługą tworzenia zespołu, usług i aplikacji w chmurze, które są zarządzane przez firmę Microsoft.
 
-* [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Reguły testowania penetracji zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+
+* [Microsoft Cloud Tworzenie zespołu Red.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
