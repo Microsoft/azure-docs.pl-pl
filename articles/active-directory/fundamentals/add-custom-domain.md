@@ -7,22 +7,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603965"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Dodaj niestandardową nazwę domeny przy użyciu portalu Azure Active Directory
 
-Każda nowa dzierżawa usługi Azure AD zawiera początkową nazwę domeny, * \<nazwa_domeny>. onmicrosoft.com*. Nie można zmienić ani usunąć początkowej nazwy domeny, ale można dodać nazwy swojej organizacji. Dodawanie niestandardowych nazw domen ułatwia tworzenie nazw użytkowników, które są znane użytkownikom, takich jak *alain\@contoso.com*.
+Każda nowa dzierżawa usługi Azure AD zawiera początkową nazwę domeny * \<domainname> . onmicrosoft.com*. Nie można zmienić ani usunąć początkowej nazwy domeny, ale można dodać nazwy swojej organizacji. Dodawanie niestandardowych nazw domen ułatwia tworzenie nazw użytkowników, które są znane użytkownikom, takich jak *alain \@ contoso.com*.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -50,7 +50,7 @@ Po utworzeniu katalogu możesz dodać swoją niestandardową nazwę domeny.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-1. Wyszukaj i wybierz *Azure Active Directory* z dowolnej strony. Następnie wybierz pozycję **niestandardowe nazwy** > domen**Dodaj domenę niestandardową**.
+1. Wyszukaj i wybierz *Azure Active Directory* z dowolnej strony. Następnie wybierz pozycję **niestandardowe nazwy domen**  >  **Dodaj domenę niestandardową**.
 
     ![Strona niestandardowe nazwy domen z pokazaną opcją Dodaj domenę niestandardową](media/add-custom-domain/add-custom-domain.png)
 

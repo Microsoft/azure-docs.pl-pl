@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 06/30/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2242dc3a80287b36554298fa1a15afb894c9ac1
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976204"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603744"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -31,6 +31,44 @@ Co nowego w Azure Active Directory? Informacje o wersji zawierają:
 - Poprawki błędów
 - Funkcje uznane za przestarzałe
 - Plany zmian
+
+---
+
+## <a name="december-2019"></a>Grudzień 2019 r.
+
+### <a name="integrate-sap-successfactors-provisioning-into-azure-ad-and-on-premises-ad-public-preview"></a>Integrowanie aprowizacji SAP SuccessFactors w usłudze Azure AD i lokalnej usłudze AD (publiczna wersja zapoznawcza)
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Inicjowanie obsługi aplikacji  
+**Możliwość produktu:** Zarządzanie cyklem życia tożsamości
+
+Teraz możesz zintegrować rozwiązanie SAP SuccessFactors jako autorytatywne Źródło tożsamości w usłudze Azure AD. Dzięki tej integracji można zautomatyzować kompleksowy cykl życia tożsamości, w tym używanie wydarzeń opartych na usłudze HR, takich jak nowe zatrudnienie lub zakończenia, w celu kontrolowania aprowizacji kont usługi Azure AD.
+
+Aby uzyskać więcej informacji na temat sposobu konfigurowania inicjowania obsługi przychodzącej SAP SuccessFactors w usłudze Azure AD, zobacz samouczek [Konfigurowanie funkcji automatycznej APROWIZACJI SAP SuccessFactors](https://aka.ms/SAPSuccessFactorsInboundTutorial) .
+
+---
+
+### <a name="support-for-customized-emails-in-azure-ad-b2c-public-preview"></a>Obsługa dostosowanych wiadomości e-mail w Azure AD B2C (publiczna wersja zapoznawcza)
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** B2C — Zarządzanie tożsamościami konsumentów  
+**Możliwość produktu:** B2B/B2C
+
+Możesz teraz używać Azure AD B2C do tworzenia niestandardowych wiadomości e-mail, gdy użytkownicy logują się do korzystania z aplikacji. Korzystając z usługi DisplayControls (obecnie w wersji zapoznawczej) i dostawcy poczty e-mail innej firmy (na przykład [SendGrid](https://sendgrid.com/), [SparkPost](https://sparkpost.com/)lub niestandardowego interfejsu API REST), możesz użyć własnego szablonu wiadomości e-mail, **adresu i** tekstu tematu, a także do obsługi lokalizacji i niestandardowych ustawień hasła jednorazowego (OTP).
+
+Aby uzyskać więcej informacji, zobacz temat [niestandardowa Weryfikacja poczty e-mail w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-email).
+
+---
+
+### <a name="replacement-of-baseline-policies-with-security-defaults"></a>Zastąpienie zasad odniesienia przy użyciu domyślnych ustawień zabezpieczeń
+
+**Typ:** Zmieniono funkcję  
+**Kategoria usługi:** Różnych  
+**Możliwość produktu:** Bezpieczeństwo i Ochrona tożsamości
+
+W ramach modelu bezpiecznego i domyślnego uwierzytelniania usuwamy istniejące zasady ochrony linii bazowej ze wszystkich dzierżawców. To usunięcie jest przeznaczone do ukończenia na koniec lutego. Zastąpienie tych zasad ochrony linii bazowej jest ustawieniami domyślnymi zabezpieczeń. Jeśli używasz zasad ochrony linii bazowej, musisz zaplanować przejście na nowe zasady ustawień zabezpieczeń lub dostęp warunkowy. Jeśli te zasady nie są używane, nie ma żadnych działań do wykonania.
+
+Aby uzyskać więcej informacji na temat nowych domyślnych ustawień zabezpieczeń, zobacz [co to są ustawienia domyślne zabezpieczeń?](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) Aby uzyskać więcej informacji na temat zasad dostępu warunkowego, zobacz [typowe zasady dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common).
 
 ---
 
@@ -222,7 +260,7 @@ Aby uzyskać więcej informacji o korzystaniu z definicji ról specyficznych dla
 
 ---
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Wycofanie interfejsu API identityRiskEvent na potrzeby wykrywania ryzyka Azure AD Identity Protection
 
@@ -402,7 +440,7 @@ Aby uzyskać więcej informacji, zobacz [Samouczek: Tworzenie i Konfigurowanie w
 
 ---
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Zaplanuj zmianę: zaniechanie Power BI pakietów zawartości
 
@@ -534,7 +572,7 @@ Od 1 lipca 2019 firma Microsoft zatrzymała ofertę serwera usługi MFA dla nowy
 
 ---
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Ulepszone wyszukiwanie, filtrowanie i sortowanie dla grup jest dostępne w portalu usługi Azure AD (publiczna wersja zapoznawcza)
 
@@ -719,7 +757,7 @@ Aby uzyskać więcej informacji, zobacz [powiadomienia o zmianach w usłudze Azu
 
 ---
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>Zaplanuj zmianę: Aktualizacja usługi proxy aplikacji do obsługi tylko protokołu TLS 1,2
 
@@ -1300,7 +1338,7 @@ Aby uzyskać więcej informacji na temat konfigurowania urządzeń i aplikacji o
 
 ---
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Platforma obsługi tożsamości i obsługa zasad niestandardowych w programie Azure Active Directory B2C jest teraz dostępna (GA)
 
@@ -1540,7 +1578,7 @@ Aby uzyskać więcej informacji o korzystaniu z szablonów, zobacz [Azure AD B2C
 
 ---
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory współpracy B2B przy użyciu jednorazowego uwierzytelniania kodu dostępu (publiczna wersja zapoznawcza)
 
@@ -1659,7 +1697,7 @@ Następujące pola są zmieniane w schemacie inspekcji:
 |----------|------------|----------|----------|
 |Kategoria|To jest pole **nazwa usługi** . Jest teraz polem **kategorie inspekcji** . **Nazwa usługi** została zmieniona na pole **loggedByService** .|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie hasła</li></ul>|<ul><li>Zarządzanie użytkownikami</li><li>Zarządzanie grupami</li><li>Zarządzanie aplikacjami</li></ul>|
 |targetResources|Obejmuje **TargetResourceType** na najwyższego poziomu.|&nbsp;|<ul><li>Zasady</li><li>Aplikacja</li><li>Użytkownik</li><li>Grupa</li></ul>|
-|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Null|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
+|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Zero|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
 |Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Zmieniono pola w schemacie logowania
@@ -1695,7 +1733,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- E-mail
+- Poczta e-mail
 
 - Połączenie telefoniczne
 
@@ -1798,7 +1836,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 ---
 
-## <a name="october-2018"></a>Październik 2018 r.
+## <a name="october-2018"></a>Październik 2018
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Dzienniki usługi Azure AD teraz pracują z usługą Azure Log Analytics (publiczna wersja zapoznawcza)
 
@@ -1844,7 +1882,7 @@ Aby uzyskać więcej informacji, zobacz [usuwanie niestandardowej nazwy domeny](
 
 ---
 
-## <a name="september-2018"></a>Wrzesień 2018 r.
+## <a name="september-2018"></a>Wrzesień 2018
 
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Zaktualizowano uprawnienia roli administratora dla grup dynamicznych
 
@@ -2003,7 +2041,7 @@ Aby włączyć ten zaktualizowany widok, kliknij link **Wypróbuj nowe środowis
 
 ---
 
-## <a name="august-2018"></a>Sierpień 2018 r.
+## <a name="august-2018"></a>Sierpień 2018 r.
 
 ### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Zmiany w zakresach adresów IP Azure Active Directory
 
@@ -2281,7 +2319,7 @@ Powiadomienie aplikacji mobilnej można włączyć tylko w ramach zasad, które 
 
 ---
 
-## <a name="june-2018"></a>Czerwiec 2018 r.
+## <a name="june-2018"></a>Czerwiec 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Zmiana powiadomienia: Poprawka zabezpieczeń do delegowanego przepływu autoryzacji dla aplikacji korzystających z interfejsu API dzienników aktywności usługi Azure AD
 
@@ -2425,7 +2463,7 @@ Aby uzyskać więcej informacji na temat publicznej wersji zapoznawczej, zobacz 
 
 ---
 
-## <a name="may-2018"></a>Maj 2018 r.
+## <a name="may-2018"></a>Maj 2018
 
 ### <a name="expressroute-support-changes"></a>ExpressRoute zmiany obsługi
 
@@ -2577,7 +2615,7 @@ Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żąda
 
 ---
 
-## <a name="april-2018"></a>Kwiecień 2018 r.
+## <a name="april-2018"></a>Kwiecień 2018
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Token dostępu Azure AD B2C to GA
 
@@ -2720,7 +2758,7 @@ Aby uzyskać więcej informacji, zobacz [Resetowanie hasła usługi Azure AD na 
 
 ---
 
-## <a name="march-2018"></a>Marzec 2018 r.
+## <a name="march-2018"></a>Marzec 2018
 
 ### <a name="certificate-expire-notification"></a>Powiadomienie o wygaśnięciu certyfikatu
 
@@ -2897,7 +2935,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure s
 
 ---
 
-## <a name="february-2018"></a>Luty 2018 r.
+## <a name="february-2018"></a>Luty 2018
 
 ### <a name="improved-navigation-for-managing-users-and-groups"></a>Ulepszona nawigacja w celu zarządzania użytkownikami i grupami
 
@@ -3091,7 +3129,7 @@ Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z 
 
 ---
 
-## <a name="january-2018"></a>Styczeń 2018 r.
+## <a name="january-2018"></a>Styczeń 2018
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD
 

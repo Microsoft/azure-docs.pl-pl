@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus powiązania Azure Functions
+title: Azure Service Bus powiązania wyjściowe dla Azure Functions
 description: Dowiedz się, jak wysyłać komunikaty Azure Service Bus z Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603642"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -276,7 +276,7 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `ServiceBus` atrybutu.
 
@@ -381,13 +381,14 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
     }
 }
 ```
+
 Jeśli `isSessionsEnabled` ustawiono `true` opcję, `sessionHandlerOptions` zostanie uznane.  Jeśli `isSessionsEnabled` ustawiono `false` opcję, `messageHandlerOptions` zostanie uznane.
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |prefetchCount|0|Pobiera lub ustawia liczbę komunikatów, które może jednocześnie wysłać odbiorca wiadomości.|
 |maxAutoRenewDuration|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|
-|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.|
+|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.<br><br>Ustawienie `false` jest obsługiwane tylko w języku C#.<br><br>Jeśli jest ustawiona na `true` , wyzwalacz kończy komunikat automatycznie, jeśli wykonanie funkcji zakończy się pomyślnie i porzuca komunikat w przeciwnym razie.<br><br>Po ustawieniu na `false` , użytkownik jest odpowiedzialny za wywoływanie metod [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) w celu ukończenia, porzucenia lub utraconia wiadomości. Jeśli wyjątek jest zgłaszany (i żadna z `MessageReceiver` metod nie jest wywoływana), blokada pozostaje. Po wygaśnięciu blokady wiadomość zostanie ponownie umieszczona w kolejce z `DeliveryCount` przyrostem, a blokada zostanie automatycznie odnowiona.<br><br>W przypadku funkcji innych niż języka C wyjątki w funkcji powodują wywołania środowiska uruchomieniowego `abandonAsync` w tle. Jeśli żaden wyjątek nie wystąpi, wówczas `completeAsync` jest wywoływana w tle. |
 |maxConcurrentCalls|16|Maksymalna liczba jednoczesnych wywołań wywołania zwrotnego, które pompa komunikatów powinna inicjować na wystąpienie skalowane. Domyślnie środowisko uruchomieniowe funkcji przetwarza wiele komunikatów jednocześnie.|
 |maxConcurrentSessions|2000|Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
 

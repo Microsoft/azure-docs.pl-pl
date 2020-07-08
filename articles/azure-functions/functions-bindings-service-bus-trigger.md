@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus powiązania Azure Functions
+title: Wyzwalacz Azure Service Bus dla Azure Functions
 description: Dowiedz się, jak uruchamiać funkcję platformy Azure, gdy są tworzone Azure Service Bus komunikaty.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c15fe311b331592a54c61a5cddb29d4b467ca550
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603030"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Wyzwalacz Azure Service Bus dla Azure Functions
 
@@ -45,9 +45,9 @@ public static void Run(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza Service Bus w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja odczytuje [metadane komunikatów](#message-metadata) i rejestruje komunikat Service Bus kolejki.
+Poniższy przykład przedstawia powiązanie wyzwalacza Service Bus w *function.js* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja odczytuje [metadane komunikatów](#message-metadata) i rejestruje komunikat Service Bus kolejki.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -85,9 +85,9 @@ public static void Run(string myQueueItem,
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza Service Bus w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja odczytuje [metadane komunikatów](#message-metadata) i rejestruje komunikat Service Bus kolejki. 
+W poniższym przykładzie pokazano powiązanie wyzwalacza Service Bus w *function.js* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja odczytuje [metadane komunikatów](#message-metadata) i rejestruje komunikat Service Bus kolejki. 
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -120,7 +120,7 @@ module.exports = function(context, myQueueItem) {
 
 Poniższy przykład ilustruje sposób odczytywania Service Bus komunikatu kolejki za pośrednictwem wyzwalacza.
 
-Powiązanie Service Bus jest zdefiniowane w *funkcji Function. JSON* , w której *Typ* jest ustawiony na `serviceBusTrigger` .
+Powiązanie Service Bus jest zdefiniowane w *function.jsw* przypadku, gdy *Typ* jest ustawiony na `serviceBusTrigger` .
 
 ```json
 {
@@ -287,9 +287,9 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `ServiceBusTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `ServiceBusTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "serviceBusTrigger". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
 |**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "in". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
@@ -313,6 +313,7 @@ Następujące typy parametrów są dostępne dla komunikatu kolejki lub tematu:
 * `byte[]`— Przydatne w przypadku danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera kod JSON, Azure Functions próbuje zdeserializować danych JSON.
 * `BrokeredMessage`-Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)— Służy do odbierania i potwierdzania komunikatów z kontenera komunikatów (wymagane, gdy [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) jest ustawiony na `false` ).
 
 Te typy parametrów są przeznaczone dla Azure Functions wersja 1. x; dla 2. x i wyższych, użyj [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) zamiast `BrokeredMessage` .
 
@@ -351,7 +352,7 @@ Obsługa skażonych komunikatów nie może być kontrolowana ani skonfigurowana 
 
 Środowisko uruchomieniowe funkcji odbiera komunikat w [trybie PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Wywołuje `Complete` komunikat, jeśli funkcja zakończy się pomyślnie, lub wywołuje, `Abandon` Jeśli funkcja się nie powiedzie. Jeśli funkcja działa dłużej niż `PeekLock` limit czasu, blokada zostanie automatycznie odnowiona, o ile funkcja jest uruchomiona. 
 
-`maxAutoRenewDuration`Można go skonfigurować w pliku *host. JSON*, który jest mapowany na [OnMessageOptions. MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). Maksymalna dozwolona wartość tego ustawienia to 5 minut zgodnie z dokumentacją Service Bus, podczas gdy można zwiększyć limit czasu dla funkcji z wartości domyślnej wynoszącej 5 minut do 10 minut. W przypadku funkcji Service Bus nie chcesz tego robić, ponieważ Przekroczono limit Service Bus odnowienia.
+`maxAutoRenewDuration`Można go skonfigurować w *host.jsna*, który jest mapowany na [OnMessageOptions. MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). Maksymalna dozwolona wartość tego ustawienia to 5 minut zgodnie z dokumentacją Service Bus, podczas gdy można zwiększyć limit czasu dla funkcji z wartości domyślnej wynoszącej 5 minut do 10 minut. W przypadku funkcji Service Bus nie chcesz tego robić, ponieważ Przekroczono limit Service Bus odnowienia.
 
 ## <a name="message-metadata"></a>Metadane komunikatów
 
