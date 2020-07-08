@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833136"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044145"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
@@ -56,7 +56,7 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
 4. Po wybraniu pozycji **Autoryzuj** zostanie otwarte okno podręczne i zostanie wyświetlona prośba o podanie poświadczeń w celu uwierzytelnienia na koncie usługi Power BI. Kiedy autoryzacja zakończy się pomyślnie, **zapisz** ustawienia.
 
-8. Kliknij przycisk **Utwórz**.
+8. Kliknij pozycję **Utwórz**.
 
 Zestaw danych jest tworzony z następującymi ustawieniami:
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji na temat Power BI zestawów danych, zobacz temat
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 
 ## <a name="test-the-query"></a>Testowanie zapytania
@@ -109,7 +109,7 @@ Ta sekcja jest opcjonalna, ale zalecana.
 1. Jeśli aplikacja TelcoStreaming nie jest obecnie uruchomiona, należy ją uruchomić, wykonując następujące czynności:
 
     * Otwórz wiersz polecenia.
-    * Przejdź do folderu, w którym znajdują się pliki telcogenerator. exe i Modified telcodatagen. exe. config.
+    * Przejdź do folderu, w którym telcogenerator.exe i zmodyfikowano pliki telcodatagen.exe.config.
     * Uruchom następujące polecenie:
 
        `telcodatagen.exe 1000 .2 2`

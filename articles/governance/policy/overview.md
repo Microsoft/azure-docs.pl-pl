@@ -3,12 +3,12 @@ title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
 ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: e204a4eeff547877a48789eba6f1b8cac017d08e
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944665"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044196"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
@@ -82,7 +82,7 @@ Jeśli żadna z wbudowanych ról nie ma wymaganych uprawnień, należy utworzyć
 
 ### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte Azure Policy
 
-Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/key-vault-overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
+Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 

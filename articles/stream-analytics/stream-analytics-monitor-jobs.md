@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2017
-ms.openlocfilehash: 465ca1d012c6d2057e33fe1460e794e4d5966be6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2177280d4b8ffd52fb37dd01a74ea3ab0ae7de9f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831215"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044077"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Programowe tworzenie Stream Analytics monitor zadań
 
@@ -36,7 +36,7 @@ Przed rozpoczęciem tego procesu należy spełnić następujące wymagania wstę
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
-3. Dodaj następującą sekcję appSettings do pliku App. config.
+3. Dodaj następującą sekcję appSettings do pliku App.config.
    
    ```csharp
    <appSettings>

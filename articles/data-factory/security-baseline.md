@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 854d95f95d6ecf2fe35bcc93ddeaafdc9bafbf8f
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485637"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044179"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -512,7 +512,7 @@ Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure (VM),
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
 
-**Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft musi uzyskać dostęp do danych klientów, usługa Azure skrytka klienta udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Pamiętaj, że gdy skrytka platformy Azure jest niedostępna dla Azure Data Factory samej, skrytka platformy Azure obsługuje bazy danych SQL Azure i usługi Azure Virtual Machines.
+**Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft musi uzyskać dostęp do danych klientów, usługa Azure skrytka klienta udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Pamiętaj, że gdy skrytka platformy Azure jest niedostępna dla Azure Data Factory samej, skrytka platformy Azure obsługuje Azure SQL Database i Virtual Machines platformy Azure.
 
 * [Opis Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -672,7 +672,7 @@ Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i uży
 
 Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure, postępuj zgodnie z zaleceniami z Azure Security Center, aby przeprowadzać oceny luk w zabezpieczeniach na maszynach wirtualnych. Skorzystaj z rozwiązań zabezpieczeń platformy Azure lub rozwiązania innych firm, aby przeprowadzać oceny luk w zabezpieczeniach dla maszyn wirtualnych.
 
-* [Jak uruchomić oceny luk w zabezpieczeniach w bazach danych Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Jak uruchomić oceny luk w zabezpieczeniach na Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Jak włączyć zaawansowane zabezpieczenia danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -896,7 +896,7 @@ Należy zauważyć, że dotyczy to tylko sytuacji, gdy Integration Runtime jest 
 
 * [Co to jest usługa Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Co to jest Zapora aplikacji sieci Web platformy Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Co to jest usługa Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Grupy zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview)
 

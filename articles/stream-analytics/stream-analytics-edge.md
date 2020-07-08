@@ -5,15 +5,15 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837216"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043482"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics na urządzeniach IoT Edge
  
@@ -43,13 +43,12 @@ Funkcja ASA używa IoT Hub do wdrażania zadań brzegowych na urządzeniach. Wi�
 
 ### <a name="installation-instructions"></a>Instrukcje instalacji
 Kroki wysokiego poziomu opisano w poniższej tabeli. Więcej szczegółów znajduje się w poniższych sekcjach.
-
-|      |Krok   | Uwagi   |
-| ---   | ---   |  ---      |
-| 1   | **Tworzenie kontenera magazynu**   | Kontenery magazynu są używane do zapisywania definicji zadania, gdzie są dostępne dla urządzeń IoT. <br>  Można ponownie użyć dowolnego istniejącego kontenera magazynu.     |
-| 2   | **Tworzenie zadania ASA Edge**   |  Utwórz nowe zadanie, wybierz pozycję **Edge** jako **środowisko hostingu**. <br> Te zadania są tworzone/zarządzane z chmury i uruchamiane na własnych urządzeniach IoT Edge.     |
-| 3   | **Skonfiguruj środowisko IoT Edge na urządzeniach**   | Instrukcje dla [systemu Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) lub [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Wdrażanie ASA na urządzeniach IoT Edge**   |  Definicja zadania ASA zostanie wyeksportowana do kontenera magazynu utworzonego wcześniej.       |
+|Krok   | Uwagi   |
+| ---   |  ---      |
+| **Tworzenie kontenera magazynu**   | Kontenery magazynu są używane do zapisywania definicji zadania, gdzie są dostępne dla urządzeń IoT. <br>  Można ponownie użyć dowolnego istniejącego kontenera magazynu.     |
+| **Tworzenie zadania ASA Edge**   |  Utwórz nowe zadanie, wybierz pozycję **Edge** jako **środowisko hostingu**. <br> Te zadania są tworzone/zarządzane z chmury i uruchamiane na własnych urządzeniach IoT Edge.     |
+| **Skonfiguruj środowisko IoT Edge na urządzeniach**   | Instrukcje dla [systemu Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) lub [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| **Wdrażanie ASA na urządzeniach IoT Edge**   |  Definicja zadania ASA zostanie wyeksportowana do kontenera magazynu utworzonego wcześniej.       |
 
 W [tym samouczku krok po kroku](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) można wdrożyć pierwsze zadanie ASA na IoT Edge. Poniższy film wideo powinien pomóc w zrozumieniu procesu uruchamiania Stream Analytics zadania na urządzeniu z usługą IoT Edge:  
 

@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449366"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043550"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM
 
-W tym przewodniku szybki start utworzysz Azure Stream Analytics zadanie przy użyciu szablonu Azure Resource Manager. Po utworzeniu zadania można sprawdzić poprawność wdrożenia.
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do utworzenia zadania Azure Stream Analytics. Po utworzeniu zadania można sprawdzić poprawność wdrożenia.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,9 +33,7 @@ Aby ukończyć ten artykuł, należy wykonać następujące czynności:
 
 * Masz subskrypcję platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Tworzenie zadania usługi Azure Stream Analytics
-
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,9 +41,9 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 Zasób platformy Azure zdefiniowany w szablonie to [Microsoft. StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): create an Azure Stream Analytics Job.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-W tej sekcji utworzysz zadanie Azure Stream Analytics przy użyciu szablonu Azure Resource Manager.
+W tej sekcji utworzysz zadanie Azure Stream Analytics przy użyciu szablonu ARM.
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy zadanie Azure Stream Analytics.
 
@@ -57,7 +59,7 @@ W tej sekcji utworzysz zadanie Azure Stream Analytics przy użyciu szablonu Azur
    |---------|---------|
    |**Subskrypcja**     | Z listy rozwijanej wybierz subskrypcję platformy Azure.        |
    |**Grupa zasobów**     | Określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej grupy. Grupa zasobów to kontener zawierający powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md). |
-   |**Region**     | Wybierz pozycję **Wschodnie stany USA**. Inne dostępne regiony podano na stronie [dostępności usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).        |
+   |**Okolicy**     | Wybierz pozycję **Wschodnie stany USA**. Inne dostępne regiony podano na stronie [dostępności usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).        |
    |**Nazwa zadania Stream Analytics**     | Podaj nazwę dla zadania Stream Analytics.      |
    |**Liczba jednostek przesyłania strumieniowego**     |  Wybierz liczbę potrzebnych jednostek przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [Opis i Dostosowywanie jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md).       |
 
@@ -85,7 +87,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
  Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, możesz pozostawić te zasoby na miejscu. Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie Azure Stream Analytics zadania. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono zadanie Azure Stream Analytics przy użyciu szablonu Azure Resource Manager i zweryfikowano wdrożenie. Przejdź do następnego artykułu, aby dowiedzieć się, jak wyeksportować szablon Azure Resource Manager dla istniejącego zadania przy użyciu VS Code.
+W tym przewodniku szybki start utworzono zadanie Azure Stream Analytics przy użyciu szablonu usługi ARM i zweryfikowano wdrożenie. Przejdź do następnego artykułu, aby dowiedzieć się, jak wyeksportować szablon ARM dla istniejącego zadania przy użyciu VS Code.
 
 > [!div class="nextstepaction"]
-> [Eksportowanie szablonu Azure Resource Manager zadania Azure Stream Analytics](resource-manager-export.md)
+> [Eksportowanie szablonu ARM zadania Azure Stream Analytics](resource-manager-export.md)

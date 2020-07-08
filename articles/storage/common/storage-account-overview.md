@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3694a1d04ec25f44cfcf9395bdd148e2fd3c0d9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371561"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043646"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -32,7 +32,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 
 - Obiekty blob (wszystkie typy: Block, append, Page)
 - Data Lake Gen2
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
@@ -49,7 +49,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 oferują wiele warstw dostępu
 Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystkich usług Azure Storage, ale mogą nie mieć najnowszych funkcji lub najniższych cen za gigabajt. Konta magazynu ogólnego przeznaczenia w wersji 1 obsługują te usługi Azure Storage:
 
 - Obiekty blob (wszystkie typy)
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
@@ -164,7 +164,7 @@ Firma Microsoft udostępnia narzędzia i biblioteki do importowania danych z lok
 
 Po uaktualnieniu do konta ogólnego przeznaczenia w wersji 2 z poziomu konta ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB dane zostaną automatycznie zmigrowane. Firma Microsoft zaleca tej ścieżki do uaktualnienia konta. Jeśli jednak zdecydujesz się przenieść dane z konta ogólnego przeznaczenia w wersji 1 do konta usługi BLOB Storage, Przeprowadź migrację danych ręcznie przy użyciu narzędzi i bibliotek opisanych poniżej.
 
-### <a name="azcopy"></a>Narzędzie AzCopy
+### <a name="azcopy"></a>AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -184,6 +184,8 @@ Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Stora
 ## <a name="storage-account-billing"></a>Rozliczanie konta usługi Storage
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: 673524f08ecae28fb6f2e18f3c0c7230cf102b06
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513462"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043873"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Zaawansowane zabezpieczenia danych dla maszyn SQL (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Ta funkcja w wersji zapoznawczej obejmuje funkcje identyfikacji i łagodzenia po
 * [Zaawansowana ochrona przed zagrożeniami](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) — usługa wykrywania, która stale monitoruje serwery SQL pod kątem zagrożeń, takich jak iniekcja SQL, ataki z wymuszeniem i nadużycie uprawnień. Ta usługa udostępnia alerty zabezpieczeń zorientowane na działania w Azure Security Center z szczegółowymi informacjami o podejrzanych działaniach, wskazówkami dotyczącymi sposobu łagodzenia zagrożeń oraz opcjami do kontynuowania badań za pomocą platformy Azure.
 
 >[!TIP]
-> Zaawansowane zabezpieczenia danych dla maszyn programu SQL to rozszerzenie [zaawansowanego pakietu zabezpieczeń danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)Azure Security Center, które jest już dostępne dla usług Azure SQL Database, Synapse i SQL Managed Instances.
+> Zaawansowane zabezpieczenia danych dla maszyn SQL to rozszerzenie [zaawansowanego pakietu zabezpieczeń danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)Azure Security Center, dostępne dla Azure SQL Database, Azure Synapse i wystąpienia zarządzanego SQL.
 
 
 ## <a name="set-up-advanced-data-security-for-sql-machines"></a>Konfigurowanie zaawansowanych zabezpieczeń danych dla maszyn SQL 
@@ -91,14 +91,14 @@ Pulpit nawigacyjny oceny luk w zabezpieczeniach zawiera przegląd wyników oceny
 
 Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security Center.
 
-1. Na pasku bocznym Security Center Otwórz stronę **zalecenia** i wybierz **luki w zabezpieczeniach serwerów usługi SQL Database na maszynach, które należy skorygować (wersja zapoznawcza)**. Aby uzyskać więcej informacji, zobacz [Security Center zalecenia](security-center-recommendations.md). 
+1. Na pasku bocznym Security Center Otwórz stronę **zalecenia** i wybierz **luki w zabezpieczeniach serwerów SQL na maszynach, które należy skorygować (wersja zapoznawcza)**. Aby uzyskać więcej informacji, zobacz [Security Center zalecenia](security-center-recommendations.md). 
 
 
-    [![* * Luki w zabezpieczeniach baz danych SQL na maszynach powinny być skorygowane (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![* * Luki w zabezpieczeniach serwerów SQL na maszynach powinny być skorygowane (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     Zostanie wyświetlony szczegółowy widok tego zalecenia.
 
-    [![Szczegółowy widok dla * * luk w zabezpieczeniach baz danych SQL na maszynach powinien zostać skorygowany (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Szczegółowy widok dla luk w zabezpieczeniach * * na serwerach SQL na maszynach powinien zostać skorygowany (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. Aby uzyskać więcej informacji, przechodzenie do szczegółów:
 
