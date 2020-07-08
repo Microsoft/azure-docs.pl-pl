@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183271"
 ---
 > [!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "67183271"
    
    1. Przekaż dokument do programu SharePoint. 
    2. Przejdź do skonfigurowanej ścieżki UNC. Upewnij się, że struktura katalogów SPZ została utworzona i że zawiera przekazany obiekt.
-6. Obowiązkowe Do migracji istniejącej zawartości obiektu BLOB `Migrate()` do urządzenia StorSimple można użyć polecenia cmdlet programu POWERSHELL Microsoft SPZ dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ w programie SharePoint 2013][6] lub [Migrowanie zawartości do lub z SPZ (SharePoint Foundation 2010)][7].
+6. Obowiązkowe `Migrate()`Do migracji istniejącej zawartości obiektu BLOB do urządzenia StorSimple można użyć polecenia cmdlet programu PowerShell Microsoft SPZ dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ w programie SharePoint 2013][6] lub [Migrowanie zawartości do lub z SPZ (SharePoint Foundation 2010)][7].
 7. Obowiązkowe W przypadku instalacji testowych można sprawdzić, czy obiekty blob zostały przeniesione z bazy danych zawartości w następujący sposób: 
    
    1. Uruchom Management Studio SQL.

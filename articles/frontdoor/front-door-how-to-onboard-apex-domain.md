@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743596"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub wierzchołka na wierzchu drzwi
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub domeny wierzchołkowej do usługi Front Door
 Drzwi frontonu platformy Azure używają rekordów CNAME do weryfikowania własności domeny do dołączania domen niestandardowych. Ponadto drzwi tylne nie ujawniają adresu IP frontonu skojarzonego z Twoim profilem drzwi i dlatego nie można zmapować domeny Apex na adres IP, jeśli zamiarem jest dołączenie go do zewnętrznych drzwi platformy Azure.
 
 Protokół DNS uniemożliwia przypisanie rekordów CNAME w wierzchołku strefy. Na przykład jeśli Twoja domena to `contoso.com` ; można utworzyć rekordy CNAME dla `somelabel.contoso.com` , ale nie można utworzyć rekordu CNAME dla `contoso.com` samego siebie. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za drzwi platformy Azure. Ze względu na to, że użycie profilu front-drzwi wymaga utworzenia rekordu CNAME, nie jest możliwe wskazanie w profilu przednim drzwi ze wierzchołka strefy.

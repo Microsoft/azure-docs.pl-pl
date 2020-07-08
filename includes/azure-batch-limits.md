@@ -9,10 +9,10 @@ ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84323890"
 ---
 | **Zasób** | **Limit domyślny** | **Limit maksymalny** |

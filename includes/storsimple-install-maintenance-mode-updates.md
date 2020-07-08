@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183266"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Aby zainstalować aktualizacje trybu konserwacji za pośrednictwem program Windows PowerShell dla usługi StorSimple
@@ -24,7 +24,7 @@ ms.locfileid: "67183266"
    
     `Get-HcsUpdateStatus`
    
-    Jeśli `RunInProgress` jest `True`, aktualizacja jest nadal w toku. Jeśli `RunInProgress` tak `False`, oznacza to, że aktualizacja została ukończona.  
+    Jeśli `RunInProgress` jest `True` , aktualizacja jest nadal w toku. Jeśli `RunInProgress` tak `False` , oznacza to, że aktualizacja została ukończona.  
 8. Gdy aktualizacja jest zainstalowana na bieżącym kontrolerze, a została uruchomiona ponownie, nawiąż połączenie z drugim kontrolerem i wykonaj kroki od 1 do 6.
 9. Po zaktualizowaniu obu kontrolerów należy wyjść z trybu konserwacji. Zobacz [krok 4. Wyjdź z trybu konserwacji](../articles/storsimple/storsimple-update-device.md#step4) , aby uzyskać instrukcje.
 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84237726"
 ---
 Utworzenie maszyny wirtualnej (VM) platformy Azure wymaga utworzenia [sieci wirtualnej](../articles/virtual-network/virtual-networks-overview.md) (VNet) lub użycia istniejącej sieci wirtualnej. Należy także określić sposób dostępu do maszyn wirtualnych w sieci wirtualnej. Ważne jest [zaplanowanie tworzenia zasobów](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i dokładne zapoznanie się z [limitami zasobów sieciowych](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
@@ -34,11 +34,11 @@ Oprócz tych podstawowych zasobów należy również rozważyć utworzenie poni�
 
 ## <a name="network-interfaces"></a>Interfejsy sieciowe
 
-[Interfejs sieciowy (karta sieciowa)](../articles/virtual-network/virtual-network-network-interface.md) to wzajemne połączenie między maszyną wirtualną (VM) i siecią wirtualną (VNet). Maszyna wirtualna musi mieć co najmniej jedną kartę sieciową. Może jednak mieć więcej kart, w zależności od rozmiaru podanego przy jej tworzeniu. Dowiedz się więcej o liczbie kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych w [systemie Windows](../articles/virtual-machines/windows/sizes.md) lub [Linux](../articles/virtual-machines/linux/sizes.md).
+[Interfejs sieciowy (karta sieciowa)](../articles/virtual-network/virtual-network-network-interface.md) to połączenie między maszyną wirtualną a siecią wirtualną (VNET). Maszyna wirtualna musi mieć co najmniej jedną kartę sieciową. Może jednak mieć więcej kart, w zależności od rozmiaru podanego przy jej tworzeniu. Dowiedz się, ile interfejsów sieciowych obsługują poszczególne rozmiary maszyn wirtualnych dla systemu [Windows](../articles/virtual-machines/windows/sizes.md) lub [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Można utworzyć maszynę wirtualną z wieloma kartami sieciowymi oraz dodać lub usunąć karty sieciowe za pomocą cyklu życia maszyny wirtualnej. Wiele kart sieciowych umożliwia maszynie wirtualnej łączenie się z różnymi podsieciami i wysyłanie i odbieranie ruchu przez najbardziej odpowiedni interfejs. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą znajdować się w tym samym zestawie dostępności, do liczby obsługiwanej przez rozmiar maszyny wirtualnej. 
+W trakcie cyklu życia maszyny wirtualnej można utworzyć maszynę wirtualną z wieloma interfejsami sieciowymi oraz dodawać lub usuwać interfejsy sieciowe. Wiele interfejsów sieciowych umożliwia maszynie wirtualnej łączenie się z różnymi podsieciami oraz wysyłanie i odbieranie ruchu przez najbardziej odpowiedni interfejs. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą istnieć w tym samym zestawie dostępności do liczby obsługiwanej przez rozmiar maszyny wirtualnej. 
 
-Wszystkie karty sieciowe dołączone do danej maszyny wirtualnej muszą znajdować się w tej samej lokalizacji i subskrypcji co maszyna wirtualna. Wszystkie karty sieciowe muszą być podłączone do sieci wirtualnej, która znajduje się w tej samej lokalizacji i subskrypcji platformy Azure co karta sieciowa. Można zmienić podsieć, z którą jest połączona maszyna wirtualna po jej utworzeniu, ale nie można zmienić sieci wirtualnej. Z każdą kartą sieciową dołączoną do maszyny wirtualnej jest przypisany adres MAC, który nie ulega zmianie do momentu usunięcia maszyny wirtualnej.
+Wszystkie karty sieciowe dołączone do danej maszyny wirtualnej muszą znajdować się w tej samej lokalizacji i subskrypcji co maszyna wirtualna. Wszystkie karty sieciowe muszą być podłączone do sieci wirtualnej, która znajduje się w tej samej lokalizacji i subskrypcji platformy Azure co karta sieciowa. Możesz zmienić podsieć, z którą jest połączona maszyna wirtualna po jej utworzeniu, ale nie możesz zmienić sieci wirtualnej. Każda karta sieciowa dołączona do maszyny wirtualnej ma przypisany adres MAC, który pozostaje stały do momentu usunięcia maszyny wirtualnej.
 
 Poniższa tabela zawiera listę metod, których można użyć do utworzenia interfejsu sieciowego.
 

@@ -9,17 +9,17 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183667"
 ---
 > [!div class="op_single_selector"]
 > * [C w systemie Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [C w systemie Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
 > * [C na urządzeniu Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
-> * [Node. js (ogólne)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js (ogólne)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js na urządzeniu Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 

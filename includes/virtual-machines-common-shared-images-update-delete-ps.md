@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183194"
 ---
 ## <a name="update-resources"></a>Aktualizowanie zasobów
@@ -66,7 +66,7 @@ Update-AzGalleryImageVersion `
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Podczas usuwania zasobów należy zacząć od ostatniego elementu w zagnieżdżonych zasobach — wersji obrazu. Po usunięciu wersji można usunąć definicję obrazu. Nie można usunąć galerii, dopóki nie zostaną usunięte wszystkie znajdujące się w niej zasoby.
 

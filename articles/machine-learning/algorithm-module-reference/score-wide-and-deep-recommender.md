@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
 ms.openlocfilehash: 1d566d270f9e4b7017171a79fddf58090e21cdec
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740064"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Wyniki modułu poleceń Wide and Deep

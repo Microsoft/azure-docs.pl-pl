@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183177"
 ---
 W tym kroku utworzysz regułę zapory, aby otworzyć port sondy dla punktu końcowego ze zrównoważonym obciążeniem (59999, jak określono wcześniej) i inną regułę, aby otworzyć port odbiornika grupy dostępności. Ze względu na to, że został utworzony punkt końcowy ze zrównoważonym obciążeniem na maszynach wirtualnych, które zawierają repliki grup dostępności, należy otworzyć port sondy i port odbiornika na odpowiednich maszynach wirtualnych.

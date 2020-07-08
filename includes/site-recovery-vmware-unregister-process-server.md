@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183759"
 ---
 Wykonaj kroki opisane w określonych okolicznościach.
@@ -26,13 +26,13 @@ Wykonaj kroki opisane w określonych okolicznościach.
 Te kroki należy wykonać tylko wtedy, gdy nie istnieje sposób, aby przywrócić maszynę, na której zainstalowano serwer przetwarzania.
 
 1. Zaloguj się na serwerze konfiguracji jako administrator.
-2. Otwórz wiersz polecenia z uprawnieniami administracyjnymi i przejdź `%ProgramData%\ASR\home\svsystems\bin`do.
+2. Otwórz wiersz polecenia z uprawnieniami administracyjnymi i przejdź do `%ProgramData%\ASR\home\svsystems\bin` .
 3. Uruchom to polecenie, aby uzyskać listę jednego lub większej liczby serwerów przetwarzania.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-    - Mag. Nie: numer seryjny serwera przetwarzania.
+    - S. Nie: numer seryjny serwera przetwarzania.
     - IP/Nazwa: adres IP i nazwa komputera, na którym uruchomiono serwer przetwarzania.
     - Puls: ostatni puls z maszyny serwera przetwarzania.
     ![Wyrejestrowanie — cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)

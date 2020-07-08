@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6273a5b62e5b84e53d5e54fdb840f32646939066
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84743902"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról usługi Azure AD w Privileged Identity Management
@@ -87,7 +87,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
 | **Akcja łagodzenia w portalu** | Usuwa konto z roli uprzywilejowanej. |
-| **Najlepsze rozwiązania** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej o zabezpieczaniu kont](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Najlepsze praktyki** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej o zabezpieczaniu kont](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Role są przypisywane poza Privileged Identity Management
 
@@ -186,7 +186,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
 | **Akcja łagodzenia w portalu** | Usuwa konto z roli uprzywilejowanej. |
-| **Najlepsze rozwiązania** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej](https://aka.ms/breakglass) |
+| **Najlepsze praktyki** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Role są przypisywane poza Privileged Identity Management
 

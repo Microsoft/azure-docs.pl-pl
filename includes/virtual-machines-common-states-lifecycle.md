@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183170"
 ---
 Usługa Azure Virtual Machines (VM) umożliwia przechodzenie między różnymi stanami, które można podzielić na możliwości *aprowizacji* *i Stany* . Celem tego artykułu jest opisywanie tych stanów i wyraźne wyróżnienie, gdy klienci są rozliczani za użycie wystąpień. 
@@ -210,7 +210,7 @@ Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez pl
 </tr>
 <tr>
 <td width="162">
-<p><b>Usunąć</b></p>
+<p><b>Usuwanie</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -228,7 +228,7 @@ Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez pl
 </td>
 <td width="366">
 <p>Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu systemu operacyjnego, a nie obrazu specjalistycznego, można zaobserwować następujące podstany:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; maszyna wirtualna jest uruchomiona, a instalacja systemu operacyjnego gościa jest w toku. <p /> 
+<p>1. <b>OSProvisioningInprogress</b> &ndash; Maszyna wirtualna jest uruchomiona, a instalacja systemu operacyjnego gościa jest w toku. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -236,7 +236,7 @@ Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez pl
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; stan krótkotrwały. Maszyna wirtualna szybko przechodzi do **sukcesu** , chyba że trzeba zainstalować rozszerzenia. Instalowanie rozszerzeń może zająć trochę czasu. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Stan krótkotrwały. Maszyna wirtualna szybko przechodzi do **sukcesu** , chyba że trzeba zainstalować rozszerzenia. Instalowanie rozszerzeń może zająć trochę czasu. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>

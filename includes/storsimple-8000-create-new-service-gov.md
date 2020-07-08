@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183285"
 ---
 #### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 1. Zaloguj się do [portalu Microsoft Azure Government](https://portal.azure.us/)przy użyciu poświadczeń konto Microsoft.
-2. W portalu dla instytucji rządowych **+** kliknij pozycję, a następnie w witrynie Marketplace kliknij pozycję **Zobacz wszystko**. Wyszukaj pozycję _Urządzenie fizyczne StorSimple_. Wybierz i kliknij pozycję **Seria urządzeń fizycznych StorSimple**, a następnie kliknij pozycję **Utwórz**. Alternatywnie w portalu dla instytucji rządowych kliknij **+** pozycję, a następnie w obszarze **Magazyn**kliknij pozycję **StorSimple (Seria urządzeń fizycznych**).
+2. W portalu dla instytucji rządowych kliknij pozycję, **+** a następnie w witrynie Marketplace kliknij pozycję **Zobacz wszystko**. Wyszukaj pozycję _Urządzenie fizyczne StorSimple_. Wybierz i kliknij pozycję **Seria urządzeń fizycznych StorSimple**, a następnie kliknij pozycję **Utwórz**. Alternatywnie w portalu dla instytucji rządowych kliknij pozycję, **+** a następnie w obszarze **Magazyn**kliknij pozycję **StorSimple (Seria urządzeń fizycznych**).
 3. W bloku **Menedżer urządzeń StorSimple** wykonaj następujące kroki:
    
    1. Podaj **unikatową nazwę zasobu** dla swojej usługi. Jest to przyjazna nazwa, która może służyć do identyfikowania usługi. Nazwa może zawierać od 2 do 50 znaków, które mogą być literami, cyframi i łącznikami. Nazwa musi zaczynać i kończyć się literą lub cyfrą.

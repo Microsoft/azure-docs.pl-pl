@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183690"
 ---
 Jeśli występują problemy z urządzeniem, możesz utworzyć pakiet pomocy technicznej z dzienników systemu. Pomoc techniczna firmy Microsoft używa tego pakietu do rozwiązywania problemów. Wykonaj następujące kroki, aby utworzyć pakiet pomocy technicznej:
 
 1. [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
-2. Użyj polecenia `Get-HcsNodeSupportPackage` , aby utworzyć pakiet dla pomocy technicznej. Użycie polecenia cmdlet jest następujące:
+2. Użyj `Get-HcsNodeSupportPackage` polecenia, aby utworzyć pakiet dla pomocy technicznej. Użycie polecenia cmdlet jest następujące:
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -34,7 +34,7 @@ Jeśli występują problemy z urządzeniem, możesz utworzyć pakiet pomocy tech
     - `-Path`-Określ sieć lub ścieżkę lokalną, do której ma zostać skopiowana pakiet obsługi. potrzeb
     - `-Credential`-Określ poświadczenia, aby uzyskać dostęp do chronionej ścieżki.
     - `-Zip`-Określ, aby wygenerować plik zip.
-    - `-Include`-Określ, aby uwzględnić składniki do uwzględnienia w pakiecie pomocy technicznej. Jeśli nie zostanie określony `Default` , przyjmowana jest wartość.
+    - `-Include`-Określ, aby uwzględnić składniki do uwzględnienia w pakiecie pomocy technicznej. Jeśli nie zostanie określony, `Default` przyjmowana jest wartość.
     - `-IncludeArchived`-Określ, aby uwzględnić archiwizowane dzienniki w pakiecie obsługi.
     - `-IncludePeriodicStats`-Określ, aby uwzględnić okresowe dzienniki statnia w pakiecie pomocy technicznej.
 

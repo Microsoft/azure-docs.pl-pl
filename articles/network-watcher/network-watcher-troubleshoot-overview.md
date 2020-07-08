@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84738655"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "rozłączone" |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Uwierzytelnianie | Niezgodność klucza wstępnego | Tak|
+| Authentication | Niezgodność klucza wstępnego | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|
@@ -85,7 +85,7 @@ W poniższej tabeli wymieniono bramy i połączenia obsługiwane przez Network W
 |  |  |
 |---------|---------|
 |**Typy bram**   |         |
-|Sieć VPN      | Obsługiwane        |
+|VPN      | Obsługiwane        |
 |ExpressRoute | Nieobsługiwane |
 |**Typy sieci VPN** | |
 |Oparta na trasach | Obsługiwane|

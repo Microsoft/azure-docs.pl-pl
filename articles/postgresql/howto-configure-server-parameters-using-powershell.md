@@ -8,10 +8,10 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 2a2c16f681b7b1a5f8e0dac82401d1c485632d8f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740043"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>Dostosowywanie parametrów serwera Azure Database for PostgreSQL przy użyciu programu PowerShell

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84744276"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Tworzenie hosta usługi Azure bastionu przy użyciu portalu

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183184"
 ---
 Należy pamiętać, że istnieją dwa sposoby konfigurowania odbiornika grupy dostępności na platformie Azure. Metody te różnią się w zależności od typu modułu równoważenia obciążenia platformy Azure, który jest używany podczas tworzenia odbiornika. W poniższej tabeli opisano różnice:

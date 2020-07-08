@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 87af50c5b5e5b69fd175ac4a570c4b6f659b97e6
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84731038"
 ---
 Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji funkcji z [Azure Portal].
@@ -38,4 +38,4 @@ Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji 
 
 1. W aplikacji funkcji wybierz pozycję **Konfiguracja** w obszarze **Ustawienia**, a następnie wybierz pozycję **Ustawienia aplikacji**. Jeśli zobaczysz ustawienie o nazwie `APPINSIGHTS_INSTRUMENTATIONKEY` , Application Insights integracja jest włączona dla aplikacji funkcji działającej na platformie Azure.
 
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

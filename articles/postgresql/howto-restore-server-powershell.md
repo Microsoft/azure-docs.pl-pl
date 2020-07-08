@@ -8,10 +8,10 @@ ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: ef12a7168619b10448e70e0358ba8c173fda3c21
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84740085"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for PostgreSQL przy użyciu programu PowerShell
