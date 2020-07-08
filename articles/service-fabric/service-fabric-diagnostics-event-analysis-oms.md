@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464740"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor
@@ -34,9 +33,9 @@ Po odebraniu danych przez dzienniki Azure Monitor, platforma Azure ma kilka *roz
 
 W [witrynie Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics.
 
-Wybierz **\<nameOfOMSWorkspace\>** zasobów.
+Wybierz pozycję zasób **servicefabric \<nameOfOMSWorkspace\> **.
 
-W `Summary`programie zobaczysz kafelki w formie wykresu dla każdego z włączonych rozwiązań, w tym jeden dla Service Fabric. Kliknij wykres **Service Fabric** , aby kontynuować Service Fabric Analytics rozwiązanie.
+W programie `Summary` zobaczysz kafelki w formie wykresu dla każdego z włączonych rozwiązań, w tym jeden dla Service Fabric. Kliknij wykres **Service Fabric** , aby kontynuować Service Fabric Analytics rozwiązanie.
 
 ![Service Fabric rozwiązanie](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 

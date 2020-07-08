@@ -4,10 +4,9 @@ description: Użyj Azure Resource Manager, aby przenieść sieci wirtualne i inn
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485236"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Wskazówki dotyczące przenoszenia zasobów sieciowych

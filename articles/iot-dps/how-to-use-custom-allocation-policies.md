@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75453941"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Jak używać niestandardowych zasad alokacji
@@ -456,7 +455,7 @@ Ta sekcja jest ukierunkowana na stację roboczą opartą na systemie Windows. Ab
 
 ## <a name="simulate-the-devices"></a>Symulowanie urządzeń
 
-W tej sekcji zostanie zaktualizowany przykład aprowizacji o nazwie **Prov\_\_dev Client\_Sample** znajdujący się w wcześniej skonfigurowanym zestawie SDK języka C usługi Azure IoT.
+W tej sekcji zostanie zaktualizowany przykład aprowizacji o nazwie **Prov \_ dev \_ Client \_ Sample** znajdujący się w wcześniej skonfigurowanym zestawie SDK języka C usługi Azure IoT.
 
 Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żądanie aprowizacji do wystąpienia usługi Device Provisioning. Sekwencja rozruchu spowoduje, że urządzenie wyskakujące zostanie rozpoznane i przypisane do usługi IoT Hub przy użyciu niestandardowych zasad alokacji.
 
@@ -491,7 +490,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Symulowanie urządzenia wyskakującego firmy Contoso
 
-1. Aby zasymulować urządzenie wyskakujące, Znajdź `prov_dev_set_symmetric_key_info()` wywołanie w **Prov\_dev\_Client\_Sample. c** , które jest oznaczone jako komentarz.
+1. Aby zasymulować urządzenie wyskakujące, Znajdź wywołanie `prov_dev_set_symmetric_key_info()` w **Prov \_ dev \_ Client \_ Sample. c** , które jest oznaczone jako komentarz.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -507,7 +506,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
     Zapisz plik.
 
-2. W menu programu Visual Studio wybierz kolejno opcje **Debuguj** > **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak**, aby ponownie skompilować projekt przed uruchomieniem.
+2. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak**, aby ponownie skompilować projekt przed uruchomieniem.
 
     Poniższe dane wyjściowe to przykład symulowanego urządzenia wyskakującego pomyślnie, który przeprowadził rozruch i nawiązać połączenie z wystąpieniem usługi aprowizacji do przypisania do centrum IoT Hub przez niestandardowe zasady alokacji:
 
@@ -527,7 +526,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
 ### <a name="simulate-the-contoso-heat-pump-device"></a>Symulowanie urządzenia pompy termicznej firmy Contoso
 
-1. Aby zasymulować urządzenie pompy cieplnej, zaktualizuj wywołanie `prov_dev_set_symmetric_key_info()` do programu w **Prov\_dev\_Client\_Sample. c** ponownie z identyfikatorem rejestracji pompy cieplnej i wygenerowanym wcześniej kluczem urządzenia. Wartość klucza **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** pokazana poniżej jest również podana jako przykład.
+1. Aby zasymulować urządzenie pompy cieplnej, zaktualizuj wywołanie do `prov_dev_set_symmetric_key_info()` programu w **Prov \_ dev \_ Client \_ Sample. c** ponownie z identyfikatorem rejestracji pompy cieplnej i wygenerowanym wcześniej kluczem urządzenia. Wartość klucza **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** pokazana poniżej jest również podana jako przykład.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -536,7 +535,7 @@ Ten przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła ż
 
     Zapisz plik.
 
-2. W menu programu Visual Studio wybierz kolejno opcje **Debuguj** > **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak** , aby ponownie skompilować projekt przed uruchomieniem.
+2. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak** , aby ponownie skompilować projekt przed uruchomieniem.
 
     Następujące dane wyjściowe są przykładem urządzenia symulowanej pompy cieplnej pomyślnie rozruchu i nawiązywania połączenia z wystąpieniem usługi aprowizacji, które ma zostać przypisane do centrum IoT firmy Contoso, w ramach niestandardowych zasad alokacji:
 
@@ -567,7 +566,7 @@ W poniższej tabeli przedstawiono oczekiwane scenariusze i kody błędów wynik�
 | Element webhook zwraca kod błędu >= 429 | Trwa ponawianie przez aranżację DPS. Zasady ponawiania są obecnie następujące:<br><br>&nbsp;&nbsp;-Liczba ponownych prób: 10<br>&nbsp;&nbsp;-Początkowy interwał: 1<br>&nbsp;&nbsp;-Increment: 9 | Zestaw SDK zignoruje błąd i wyśle inny komunikat o stanie w określonym czasie |
 | Element webhook zwraca każdy inny kod stanu | Stan wyniku: niepowodzenie<br><br>Kod błędu: CustomAllocationFailed (400207) | Zestaw SDK zwraca PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z zasobami utworzonymi w tym artykule, możesz je pozostawić. Jeśli nie planujesz kontynuowania korzystania z zasobów, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w tym artykule, aby uniknąć niepotrzebnych opłat.
 

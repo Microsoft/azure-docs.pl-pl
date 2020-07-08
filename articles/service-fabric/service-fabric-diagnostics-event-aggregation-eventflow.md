@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463095"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregacja i zbieranie zdarzeń przy użyciu użyciu struktury eventflow
@@ -18,7 +17,7 @@ ms.locfileid: "75463095"
 
 ## <a name="set-up-eventflow"></a>Konfigurowanie użyciu struktury eventflow
 
-Pliki binarne użyciu struktury eventflow są dostępne jako zbiór pakietów NuGet. Aby dodać użyciu struktury eventflow do projektu usługi Service Fabric, kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie "Zarządzaj pakietami NuGet". Przejdź do karty "Przeglądaj" i wyszukaj ciąg "`Diagnostics.EventFlow`":
+Pliki binarne użyciu struktury eventflow są dostępne jako zbiór pakietów NuGet. Aby dodać użyciu struktury eventflow do projektu usługi Service Fabric, kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie "Zarządzaj pakietami NuGet". Przejdź do karty "Przeglądaj" i wyszukaj ciąg " `Diagnostics.EventFlow` ":
 
 ![Użyciu struktury eventflow pakiety NuGet w interfejsie użytkownika Menedżera pakietów NuGet programu Visual Studio](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
@@ -34,12 +33,12 @@ Zostanie wyświetlona lista różnych pakietów, które są wyświetlane z etyki
 Po zainstalowaniu wszystkich pakietów następnym krokiem jest skonfigurowanie i włączenie użyciu struktury eventflow w usłudze.
 
 ## <a name="configure-and-enable-log-collection"></a>Konfigurowanie i Włączanie zbierania dzienników
-Potok użyciu struktury eventflow odpowiedzialny za wysyłanie dzienników jest tworzony na podstawie specyfikacji przechowywanej w pliku konfiguracji. `Microsoft.Diagnostics.EventFlow.ServiceFabric` Pakiet instaluje początkowy plik konfiguracji użyciu struktury eventflow w `PackageRoot\Config` folderze rozwiązania o nazwie `eventFlowConfig.json`. Ten plik konfiguracyjny należy zmodyfikować, aby przechwytywać dane z domyślnej klasy `EventSource` usług oraz wszelkich innych danych wejściowych, które mają zostać skonfigurowane, i wysyłać dane do odpowiedniego miejsca.
+Potok użyciu struktury eventflow odpowiedzialny za wysyłanie dzienników jest tworzony na podstawie specyfikacji przechowywanej w pliku konfiguracji. `Microsoft.Diagnostics.EventFlow.ServiceFabric`Pakiet instaluje początkowy plik konfiguracji użyciu struktury eventflow w `PackageRoot\Config` folderze rozwiązania o nazwie `eventFlowConfig.json` . Ten plik konfiguracyjny należy zmodyfikować, aby przechwytywać dane z domyślnej `EventSource` klasy usług oraz wszelkich innych danych wejściowych, które mają zostać skonfigurowane, i wysyłać dane do odpowiedniego miejsca.
 
 >[!NOTE]
->Jeśli plik projektu ma format VisualStudio 2017, `eventFlowConfig.json` plik nie zostanie automatycznie dodany. Aby rozwiązać ten problem, Utwórz plik w `Config` folderze i ustaw akcję kompilacji na `Copy if newer`. 
+>Jeśli plik projektu ma format VisualStudio 2017, `eventFlowConfig.json` plik nie zostanie automatycznie dodany. Aby rozwiązać ten problem, Utwórz plik w `Config` folderze i ustaw akcję kompilacji na `Copy if newer` . 
 
-Oto przykładowy plik *eventFlowConfig. JSON* oparty na wymienionych powyżej pakietach NuGet:
+Poniżej znajduje się przykład *eventFlowConfig.jsw* oparciu o wymienione powyżej pakiety NuGet:
 ```json
 {
   "inputs": [
@@ -80,11 +79,11 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-Należy zauważyć `eventFlowConfig.json` , że plik jest częścią pakietu konfiguracji usługi. Zmiany w tym pliku mogą być zawarte w pełnych lub tylko konfiguracyjnych uaktualnieniach usługi, z zastrzeżeniem Service Fabric uaktualnienia kondycji i automatycznego wycofywania w przypadku niepowodzenia uaktualnienia. Aby uzyskać więcej informacji, zobacz [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md).
+Należy zauważyć, że `eventFlowConfig.json` plik jest częścią pakietu konfiguracji usługi. Zmiany w tym pliku mogą być zawarte w pełnych lub tylko konfiguracyjnych uaktualnieniach usługi, z zastrzeżeniem Service Fabric uaktualnienia kondycji i automatycznego wycofywania w przypadku niepowodzenia uaktualnienia. Aby uzyskać więcej informacji, zobacz [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md).
 
 Sekcja *filtry* konfiguracji umożliwia dalsze dostosowywanie informacji, które przechodzą przez potok użyciu struktury eventflow do danych wyjściowych, co pozwala na upuszczanie lub dołączenie określonych informacji lub zmianę struktury danych zdarzeń. Aby uzyskać więcej informacji na temat filtrowania, zobacz [filtry użyciu struktury eventflow](https://github.com/Azure/diagnostics-eventflow#filters).
 
-Ostatnim krokiem jest utworzenie wystąpienia potoku użyciu struktury eventflow w kodzie początkowym usługi, znajdującym się `Program.cs` w pliku:
+Ostatnim krokiem jest utworzenie wystąpienia potoku użyciu struktury eventflow w kodzie początkowym usługi, znajdującym się w `Program.cs` pliku:
 
 ```csharp
 using System;

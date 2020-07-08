@@ -7,10 +7,9 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461980"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Tworzenie zasad automatycznego skalowania dla aplikacji siatki Service Fabric

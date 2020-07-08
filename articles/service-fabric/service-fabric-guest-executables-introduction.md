@@ -4,14 +4,13 @@ description: Dowiedz się więcej o pakowaniu istniejącej aplikacji jako pliku 
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457833"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Wdróż istniejący plik wykonywalny w Service Fabric
-Można uruchomić dowolny typ kodu, taki jak Node. js, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa.
+Możesz uruchomić dowolny typ kodu, taki jak Node.js, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa.
 
 Pliki wykonywalne gościa są traktowane Service Fabric jak usługi bezstanowe. W związku z tym są one umieszczane w węzłach w klastrze, na podstawie dostępności i innych metryk. W tym artykule opisano, jak spakować i wdrożyć plik wykonywalny gościa w klastrze Service Fabric przy użyciu programu Visual Studio lub narzędzia wiersza polecenia.
 
@@ -29,7 +28,7 @@ Istnieje kilka zalet, aby uruchomić plik wykonywalny gościa w klastrze Service
 * [Przykład dwóch plików wykonywalnych gościa (C# i NodeJS) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Omówienie plików manifestu aplikacji i usługi
-W ramach wdrażania pliku wykonywalnego gościa warto zrozumieć Service Fabric pakowanie i model wdrażania zgodnie z opisem w artykule [model aplikacji](service-fabric-application-model.md). Model pakietów Service Fabric opiera się na dwóch plikach XML: w manifestach aplikacji i usług. Definicja schematu dla plików ApplicationManifest. XML i servicemanifest. XML jest instalowana z zestawem SDK Service Fabric w *folderze C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+W ramach wdrażania pliku wykonywalnego gościa warto zrozumieć Service Fabric pakowanie i model wdrażania zgodnie z opisem w artykule [model aplikacji](service-fabric-application-model.md). Model pakietów Service Fabric opiera się na dwóch plikach XML: w manifestach aplikacji i usług. Definicja schematu dla plików ApplicationManifest.xml i ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric w *folderze C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Manifest aplikacji** Manifest aplikacji jest używany do opisywania aplikacji. Zawiera on listę usług, które go tworzą, oraz inne parametry, które są używane do definiowania, jak należy wdrożyć co najmniej jedną usługę, na przykład liczbę wystąpień.
 
@@ -51,14 +50,14 @@ Aby wdrożyć aplikację do Service Fabric, aplikacja powinna być zgodna ze wst
     |-- ApplicationManifest.xml
 ```
 
-ApplicationPackageRoot zawiera plik ApplicationManifest. XML, który definiuje aplikację. Podkatalog dla każdej usługi zawartej w aplikacji jest używany do przechowywania wszystkich artefaktów wymaganych przez usługę. Te podkatalogi to servicemanifest. XML i zazwyczaj:
+ApplicationPackageRoot zawiera plik ApplicationManifest.xml, który definiuje aplikację. Podkatalog dla każdej usługi zawartej w aplikacji jest używany do przechowywania wszystkich artefaktów wymaganych przez usługę. Podkatalogi to ServiceManifest.xml i, zazwyczaj:
 
 * *Kod*. Ten katalog zawiera kod usługi.
-* *Konfiguracja*. Ten katalog zawiera plik Settings. XML (i inne pliki, w razie potrzeby), do którego usługa może uzyskać dostęp w czasie wykonywania w celu pobrania określonych ustawień konfiguracji.
+* *Konfiguracja*. Ten katalog zawiera plik Settings.xml (i inne pliki, w razie potrzeby), do którego usługa może uzyskać dostęp w czasie wykonywania w celu pobrania określonych ustawień konfiguracji.
 * *Dane*. Jest to dodatkowy katalog do przechowywania dodatkowych danych lokalnych, których może potrzebować usługa. Dane powinny być używane do przechowywania tylko danych tymczasowych. Service Fabric nie kopiuje ani nie replikuje zmian do katalogu danych, jeśli usługa musi zostać przeniesiona (na przykład podczas pracy w trybie failover).
 
 > [!NOTE]
-> Nie trzeba tworzyć katalogów `config` i `data` , jeśli nie są one potrzebne.
+> Nie trzeba tworzyć `config` katalogów i, `data` Jeśli nie są one potrzebne.
 >
 >
 

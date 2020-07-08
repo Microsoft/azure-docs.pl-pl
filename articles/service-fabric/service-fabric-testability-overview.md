@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465573"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Wprowadzenie do usługi analizy błędów
@@ -79,11 +78,11 @@ W Service Fabric za pośrednictwem usługi analizy błędów proponujemy jej wł
 W Service Fabric, chociaż Skala błędów będzie różna w różnych środowiskach, rzeczywiste mechanizmy byłyby identyczne. Pozwala to na wiele szybszych potoków kodu i wdrożenia oraz możliwość testowania usług w ramach rzeczywistych obciążeń.
 
 ## <a name="using-the-fault-analysis-service"></a>Korzystanie z usługi analizy błędów
-**S #**
+**C#**
 
 Funkcje usługi analizy błędów znajdują się w przestrzeni nazw System. Fabric w pakiecie NuGet Microsoft. servicefabric. Aby korzystać z funkcji usługi analizy błędów, należy uwzględnić pakiet NuGet jako odwołanie w projekcie.
 
-**Narzędzia**
+**Program PowerShell**
 
 Aby użyć programu PowerShell, należy zainstalować zestaw SDK Service Fabric. Po zainstalowaniu zestawu SDK moduł servicefabric PowerShell jest ładowany do użycia.
 

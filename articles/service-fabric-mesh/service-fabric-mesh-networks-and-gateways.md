@@ -7,10 +7,9 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75459134"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Wprowadzenie do sieci w aplikacjach Service Fabric siatki
@@ -30,7 +29,7 @@ Brama jest używana do mostkowania dwóch sieci. Zasób bramy wdraża [serwer pr
 
 ![Sieć i Brama][Image1]
 
-Gdy zasób sieciowy zostanie utworzony za pomocą `ingressConfig`programu, publiczny adres IP jest przypisywany do zasobu sieciowego. Publiczny adres IP zostanie powiązany z okresem istnienia zasobu sieciowego.
+Gdy zasób sieciowy zostanie utworzony za pomocą `ingressConfig` programu, publiczny adres IP jest przypisywany do zasobu sieciowego. Publiczny adres IP zostanie powiązany z okresem istnienia zasobu sieciowego.
 
 Gdy aplikacja siatkowa zostanie utworzona, powinna odwoływać się do istniejącego zasobu sieciowego. Nowe porty publiczne mogą być dodawane lub istniejące porty można usunąć z konfiguracji transferu danych przychodzących. Usunięcie zasobu sieciowego zakończy się niepowodzeniem, jeśli odwołuje się do niego zasób aplikacji. Po usunięciu aplikacji zasób sieciowy zostaje usunięty.
 

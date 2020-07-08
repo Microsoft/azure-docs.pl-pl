@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75494913"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optymalizacja wydajności klastrów Apache Kafka HDInsight
@@ -44,13 +43,13 @@ Producenci Apache Kafka mogą złożyć grupy komunikatów (nazywanych partiami)
 
 ### <a name="producer-required-acknowledgments"></a>Wymagane potwierdzenia przez producenta
 
-Konfiguracja wymagana `acks` przez producenta określa liczbę potwierdzeń wymaganych przez lidera partycji przed ukończeniem żądania zapisu. To ustawienie wpływa na niezawodność danych i pobiera wartości `0`, `1`lub. `-1` Wartość `-1` oznacza, że przed ukończeniem zapisu należy odebrać potwierdzenie ze wszystkich replik. Ustawienie `acks = -1` zapewnia silniejsze gwarancje związane z utratą danych, ale również skutkuje wyższym opóźnieniem i niższą przepływność. Jeśli wymagania dotyczące aplikacji wymagają wyższej przepływności, spróbuj `acks = 0` ustawić `acks = 1`lub. Należy pamiętać, że nie jest to potwierdzenie, że wszystkie repliki mogą zmniejszyć niezawodność danych.
+`acks`Konfiguracja wymagana przez producenta określa liczbę potwierdzeń wymaganych przez lidera partycji przed ukończeniem żądania zapisu. To ustawienie wpływa na niezawodność danych i pobiera wartości `0` , `1` lub `-1` . Wartość `-1` oznacza, że przed ukończeniem zapisu należy odebrać potwierdzenie ze wszystkich replik. Ustawienie `acks = -1` zapewnia silniejsze gwarancje związane z utratą danych, ale również skutkuje wyższym opóźnieniem i niższą przepływność. Jeśli wymagania dotyczące aplikacji wymagają wyższej przepływności, spróbuj ustawić `acks = 0` lub `acks = 1` . Należy pamiętać, że nie jest to potwierdzenie, że wszystkie repliki mogą zmniejszyć niezawodność danych.
 
 ### <a name="compression"></a>Kompresja
 
-Producenta Kafka można skonfigurować w taki sposób, aby kompresuje komunikaty przed wysłaniem ich do brokerów. `compression.type` Ustawienie określa koder-dekoder kompresji do użycia. Obsługiwane kodery-dekoder kompresji to "gzip", "przyciąganie" i "lz4". Kompresowanie jest korzystne i powinno być brane pod uwagę w przypadku ograniczenia pojemności dysku.
+Producenta Kafka można skonfigurować w taki sposób, aby kompresuje komunikaty przed wysłaniem ich do brokerów. `compression.type`Ustawienie określa koder-dekoder kompresji do użycia. Obsługiwane kodery-dekoder kompresji to "gzip", "przyciąganie" i "lz4". Kompresowanie jest korzystne i powinno być brane pod uwagę w przypadku ograniczenia pojemności dysku.
 
-Między dwoma najczęściej używanymi koderami-dekoder `gzip` kompresji `snappy`i `gzip` ma wyższy współczynnik kompresji, co skutkuje obniżeniem użycia dysku przy kosztach większego obciążenia procesora CPU. `snappy` Koder-dekoder zapewnia mniejszą kompresję przy mniejszej obciążeniu procesora. Można zdecydować, który koder-dekoder ma być używany w oparciu o ograniczenia procesora CPU na dysku lub producencie. `gzip`może skompresować dane z częstotliwością pięć razy wyższą niż `snappy`.
+Między dwoma najczęściej używanymi koderami-dekoder `gzip` kompresji `snappy` i `gzip` ma wyższy współczynnik kompresji, co skutkuje obniżeniem użycia dysku przy kosztach większego obciążenia procesora CPU. `snappy`Koder-dekoder zapewnia mniejszą kompresję przy mniejszej obciążeniu procesora. Można zdecydować, który koder-dekoder ma być używany w oparciu o ograniczenia procesora CPU na dysku lub producencie. `gzip`może skompresować dane z częstotliwością pięć razy wyższą niż `snappy` .
 
 Użycie kompresji danych spowoduje zwiększenie liczby rekordów, które mogą być przechowywane na dysku. Może również zwiększyć obciążenie procesora CPU w przypadkach, gdy występuje niezgodność między formatami kompresji używanymi przez producenta i brokera. dane muszą być kompresowane przed wysłaniem, a następnie dekompresowane przed przetworzeniem.
 

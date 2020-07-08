@@ -4,10 +4,9 @@ description: Użyj dzienników aktywności, aby przejrzeć akcje i błędy użyt
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478138"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów
@@ -20,7 +19,7 @@ Za pomocą dzienników aktywności można określić:
 * stan operacji
 * wartości innych właściwości, które mogą pomóc w zbadaniu operacji
 
-Dziennik aktywności zawiera wszystkie operacje zapisu (PUT, POST, DELETE) dla zasobów. Nie obejmuje on operacji odczytu (GET). Aby zapoznać się z listą akcji zasobów, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji.
+Dziennik aktywności zawiera wpisy dla wszystkich operacji zapisu (PUT, POST, DELETE) dotyczących zasobów. Nie obejmuje on operacji odczytu (GET). Aby zapoznać się z listą akcji zasobów, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji.
 
 Dzienniki aktywności są przechowywane przez 90 dni. Możesz wykonać zapytanie dotyczące dowolnego zakresu dat, jednak data początkowa nie może być wcześniejsza od daty bieżącej o więcej niż 90 dni.
 
@@ -186,7 +185,7 @@ Możesz użyć grafu zasobów, aby wyświetlić historię zmian dla zasobu. Aby 
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-Operacje REST do pracy z dziennikiem aktywności są częścią [interfejsu API REST usługi Insights](/rest/api/monitor/). Aby pobrać zdarzenia dziennika aktywności, zobacz [Wyświetlanie listy zdarzeń zarządzania w ramach subskrypcji](/rest/api/monitor/activitylogs).
+Operacje REST do pracy z dziennikiem aktywności są częścią [interfejsu API REST szczegółowych informacji](/rest/api/monitor/). Aby pobrać zdarzenia dziennika aktywności, zobacz [Wyświetlanie listy zdarzeń zarządzania w subskrypcji](/rest/api/monitor/activitylogs).
 
 ## <a name="next-steps"></a>Następne kroki
 

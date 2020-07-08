@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463099"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnozowanie typowych błędów pakietów kodu przy użyciu Service Fabric

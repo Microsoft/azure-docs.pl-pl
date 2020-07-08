@@ -6,18 +6,17 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464246"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Uruchamianie usługi jako użytkownika lub grupy Active Directory
-W klastrze autonomicznym systemu Windows Server można uruchomić usługę jako użytkownika lub grupę Active Directory przy użyciu zasad RunAs.  Domyślnie aplikacje Service Fabric są uruchamiane w ramach konta, w ramach którego działa proces Fabric. exe. Uruchamianie aplikacji na różnych kontach, nawet w udostępnianym środowisku hostowanym, sprawia, że są one bezpieczniejsze od siebie nawzajem. Należy zauważyć, że ta funkcja używa Active Directory lokalnie w domenie, a nie Azure Active Directory (Azure AD).  Możesz również uruchomić usługę jako [konto usługi zarządzanej przez grupę (gMSA)](service-fabric-run-service-as-gmsa.md).
+W klastrze autonomicznym systemu Windows Server można uruchomić usługę jako użytkownika lub grupę Active Directory przy użyciu zasad RunAs.  Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach którego działa proces Fabric.exe. Uruchamianie aplikacji na różnych kontach, nawet w udostępnianym środowisku hostowanym, sprawia, że są one bezpieczniejsze od siebie nawzajem. Należy zauważyć, że ta funkcja używa Active Directory lokalnie w domenie, a nie Azure Active Directory (Azure AD).  Możesz również uruchomić usługę jako [konto usługi zarządzanej przez grupę (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Przy użyciu użytkownika domeny lub grupy można następnie uzyskać dostęp do innych zasobów w domenie (na przykład udziałów plików), którym udzielono uprawnień.
 
-W poniższym przykładzie przedstawiono Active Directory użytkownika o nazwie *Użytkownik testowy* z hasłem domeny szyfrowanym przy użyciu certyfikatu o nazwie mój *certyfikat*. Możesz użyć polecenia `Invoke-ServiceFabricEncryptText` programu PowerShell, aby utworzyć tajny tekst szyfrowania. Aby uzyskać szczegółowe informacje, zobacz Zarządzanie wpisami [tajnymi w aplikacjach Service Fabric](service-fabric-application-secret-management.md) .
+W poniższym przykładzie przedstawiono Active Directory użytkownika o nazwie *Użytkownik testowy* z hasłem domeny szyfrowanym przy użyciu certyfikatu o nazwie mój *certyfikat*. Możesz użyć `Invoke-ServiceFabricEncryptText` polecenia programu PowerShell, aby utworzyć tajny tekst szyfrowania. Aby uzyskać szczegółowe informacje, zobacz Zarządzanie wpisami [tajnymi w aplikacjach Service Fabric](service-fabric-application-secret-management.md) .
 
 Należy wdrożyć klucz prywatny certyfikatu w celu odszyfrowania hasła do komputera lokalnego przy użyciu metody poza pasmem (na platformie Azure — za pośrednictwem Azure Resource Manager). Następnie, gdy Service Fabric wdraża pakiet usługi na komputerze, może odszyfrować klucz tajny i (wraz z nazwą użytkownika) uwierzytelniać się za pomocą Active Directory do uruchamiania w ramach tych poświadczeń.
 

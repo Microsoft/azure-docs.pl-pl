@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
 ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464078"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurowanie uaktualnienia aplikacji Service Fabric w programie Visual Studio

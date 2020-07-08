@@ -4,10 +4,9 @@ description: Opisuje, w jaki sposób Azure Resource Manager obsługuje żądania
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75478827"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Uwierzytelnianie żądań między dzierżawcami
@@ -21,7 +20,7 @@ Podczas tworzenia aplikacji z wieloma dzierżawcami może być konieczne obsłu�
 | Nazwa nagłówka | Opis | Przykładowa wartość |
 | ----------- | ----------- | ------------ |
 | Autoryzacja | Token podstawowy | &lt;Podstawowy token okaziciela&gt; |
-| x-MS-Authorization-pomocniczy | Tokeny pomocnicze | &lt;Pomocniczy pomocnik — token1&gt;, EncryptedBearer &lt;pomocniczy,&gt;token2 &lt;pomocniczy — token3&gt; |
+| x-MS-Authorization-pomocniczy | Tokeny pomocnicze | &lt;Pomocniczy pomocnik — token1 &gt; , EncryptedBearer &lt; pomocniczy, token2 pomocniczy — &gt; &lt; token3&gt; |
 
 Nagłówek pomocniczy może zawierać maksymalnie trzy tokeny pomocnicze. 
 

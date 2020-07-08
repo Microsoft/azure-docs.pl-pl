@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75497859"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Przełączenie w tryb failover i powrót po awarii serwerów fizycznych replikowanych do platformy Azure
@@ -42,8 +41,8 @@ Sprawdź właściwości serwera i upewnij się, że jest ono zgodne z [wymagania
 
 ### <a name="fail-over-to-azure"></a>Przełączenie do trybu failover na platformie Azure
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy** kliknij maszynę > **tryb failover**.
-2. W obszarze **tryb failover** wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna. Możesz użyć jednej z następujących opcji:
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy** kliknij maszynę > **tryb failover**.
+2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, którego chcesz użyć do przełączenia do trybu failover. Możesz użyć jednej z następujących opcji:
    - **Najnowszy**: ta opcja najpierw przetwarza wszystkie dane wysyłane do usługi Site Recovery. Zapewnia najniższą wartość celu puntu odzyskiwania, ponieważ maszyna wirtualna platformy Azure utworzona po przejściu do trybu failover zawiera wszystkie dane, które zostały zreplikowane w usłudze Site Recovery do momentu włączenia trybu failover.
    - **Najnowsza przetworzony**: Ta opcja powoduje przełączenie komputera w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Ta opcja zapewnia niską wartość celu czasu odzyskiwania, ponieważ nie wymaga przetwarzania nieprzetworzonych danych.
    - **Najnowsza spójna dla aplikacji**: Ta opcja powoduje przełączenie maszyny w tryb failover do najnowszego punktu odzyskiwania spójnego na poziomie aplikacji przetworzonego przez Site Recovery.
@@ -95,7 +94,7 @@ Po przejściu w tryb failover na platformę Azure należy ponownie włączyć oc
 
 Ta procedura zakłada, że lokalna maszyna wirtualna jest niedostępna.
 
-1. W obszarze **Ustawienia** > > magazynu**zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę, która została przełączona w tryb failover > **ponownie włączyć ochronę**.
+1. W obszarze **Ustawienia**> magazynu  >  **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę, która została przełączona w tryb failover > **ponownie włączyć ochronę**.
 2. W obszarze **Włącz ponownie ochronę** sprawdź, czy wybrano opcję **Z platformy Azure do serwera lokalnego**.
 3. Określ lokalny główny serwer docelowy oraz serwer przetwarzania.
 4. W obszarze **Magazyn danych** wybierz główny docelowy magazyn danych, do którego chcesz odzyskać dyski w środowisku lokalnym.

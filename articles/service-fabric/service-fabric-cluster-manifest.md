@@ -6,24 +6,23 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458375"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Ustawienia konfiguracji dla autonomicznego klastra systemu Windows
-W tym artykule opisano ustawienia konfiguracji autonomicznego klastra Service Fabric platformy Azure, które można ustawić w pliku *ClusterConfig. JSON* . Ten plik będzie używany do określania informacji o węzłach klastra, konfiguracjach zabezpieczeń, a także topologii sieci pod względem błędów i domen uaktualniania.  Po zmianie lub dodaniu ustawień konfiguracji można [utworzyć autonomiczny klaster](service-fabric-cluster-creation-for-windows-server.md) lub [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
+W tym artykule opisano ustawienia konfiguracji autonomicznego klastra Service Fabric platformy Azure, które można ustawić w *ClusterConfig.js* pliku. Ten plik będzie używany do określania informacji o węzłach klastra, konfiguracjach zabezpieczeń, a także topologii sieci pod względem błędów i domen uaktualniania.  Po zmianie lub dodaniu ustawień konfiguracji można [utworzyć autonomiczny klaster](service-fabric-cluster-creation-for-windows-server.md) lub [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
 
-Podczas [pobierania autonomicznego pakietu Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)dołączone są również przykłady ClusterConfig. JSON. Przykłady, których nazwy zawierają "DevCluster", tworzą klaster ze wszystkimi trzema węzłami na tym samym komputerze przy użyciu węzłów logicznych. Z tych węzłów co najmniej jeden musi być oznaczony jako węzeł podstawowy. Ten typ klastra jest przydatny w środowisku deweloperskim lub testowym. Nie jest obsługiwany jako klaster produkcyjny. Przykłady, w których nazwy są "wielokomputerowe", ułatwiają tworzenie klastrów klasy produkcyjnej, z każdym węzłem na osobnym komputerze. Liczba węzłów podstawowych dla tych klastrów jest oparta na [poziomie niezawodności](#reliability)klastra. W wersji 5,7 interfejsu API, wersja 05-2017, została usunięta Właściwość poziomu niezawodności. Zamiast tego nasz kod oblicza najbardziej zoptymalizowany poziom niezawodności dla klastra. Nie należy próbować ustawiać wartości tej właściwości w wersji 5,7 lub nowszej.
+Po [pobraniu pakietu autonomicznego Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)jest również uwzględniony ClusterConfig.jsna przykładach. Przykłady, których nazwy zawierają "DevCluster", tworzą klaster ze wszystkimi trzema węzłami na tym samym komputerze przy użyciu węzłów logicznych. Z tych węzłów co najmniej jeden musi być oznaczony jako węzeł podstawowy. Ten typ klastra jest przydatny w środowisku deweloperskim lub testowym. Nie jest obsługiwany jako klaster produkcyjny. Przykłady, w których nazwy są "wielokomputerowe", ułatwiają tworzenie klastrów klasy produkcyjnej, z każdym węzłem na osobnym komputerze. Liczba węzłów podstawowych dla tych klastrów jest oparta na [poziomie niezawodności](#reliability)klastra. W wersji 5,7 interfejsu API, wersja 05-2017, została usunięta Właściwość poziomu niezawodności. Zamiast tego nasz kod oblicza najbardziej zoptymalizowany poziom niezawodności dla klastra. Nie należy próbować ustawiać wartości tej właściwości w wersji 5,7 lub nowszej.
 
-* ClusterConfig. Unsecure. DevCluster. JSON i ClusterConfig. Unsecure. xmlmachine. JSON pokazuje, jak utworzyć niezabezpieczony test lub klaster produkcyjny.
+* ClusterConfig.Unsecure.DevCluster.json i ClusterConfig.Unsecure.MultiMachine.jsna pokazuje, jak utworzyć niezabezpieczony test lub klaster produkcyjny.
 
-* ClusterConfig. Windows. DevCluster. JSON i ClusterConfig. Windows. wielomachine. JSON pokazuje, jak tworzyć klastry testowe lub produkcyjne, które są zabezpieczone przy użyciu [zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json i ClusterConfig.Windows.MultiMachine.jsna temat pokazuje, jak tworzyć klastry testowe lub produkcyjne zabezpieczone przy użyciu [zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig. x509. DevCluster. JSON i ClusterConfig. x509. wielomachine. JSON pokazuje, jak tworzyć klastry testowe lub produkcyjne, które są zabezpieczone przy użyciu [zabezpieczeń certyfikatu x509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json i ClusterConfig.X509.MultiMachine.jsna temat pokazuje, jak tworzyć klastry testowe lub produkcyjne zabezpieczone przy użyciu [zabezpieczeń opartych na certyfikatach x509](service-fabric-windows-cluster-x509-security.md).
 
-Teraz Przeanalizujmy różne sekcje pliku ClusterConfig. JSON.
+Teraz Przeanalizujmy różne sekcje ClusterConfig.jspliku.
 
 ## <a name="general-cluster-configurations"></a>Ogólne Konfiguracje klastra
 Ogólne Konfiguracje klastra obejmują szeroką konfigurację specyficzną dla klastra, jak pokazano w poniższym fragmencie kodu JSON:
@@ -65,13 +64,13 @@ Klaster Service Fabric musi zawierać co najmniej trzy węzły. Do tej sekcji mo
 | **Konfiguracja węzła** | **Opis** |
 | --- | --- |
 | nodeName |Do węzła można nadać dowolną przyjazną nazwę. |
-| Adresu |Sprawdź adres IP węzła, otwierając okno wiersza polecenia i wpisując `ipconfig`. Zanotuj adres IPV4 i przypisz go do zmiennej iPAddress. |
+| Adresu |Sprawdź adres IP węzła, otwierając okno wiersza polecenia i wpisując `ipconfig` . Zanotuj adres IPV4 i przypisz go do zmiennej iPAddress. |
 | nodeTypeRef |Do każdego węzła można przypisać inny typ węzła. [Typy węzłów](#node-types) są zdefiniowane w poniższej sekcji. |
 | faultDomain |Domeny błędów umożliwiają administratorom klastrów Definiowanie węzłów fizycznych, które mogą się kończyć niepowodzeniem w tym samym czasie, ze względu na współużytkowane zależności fizyczne. |
 | upgradeDomain |Domeny uaktualnień opisują zestawy węzłów, które są zamykane do Service Fabric uaktualnień w tym samym czasie. Można wybrać węzły, które mają zostać przypisane do których domen uaktualnienia, ponieważ nie są ograniczone przez wymagania fizyczne. |
 
 ## <a name="cluster-properties"></a>Właściwości klastra
-Sekcja Properties w ClusterConfig. JSON służy do konfigurowania klastra, jak pokazano poniżej:
+Sekcja właściwości w ClusterConfig.jsna służy do konfigurowania klastra, jak pokazano poniżej:
 
 ### <a name="reliability"></a>Niezawodność
 Pojęcie reliabilityLevel definiuje liczbę replik lub wystąpień usług systemu Service Fabric, które mogą być uruchamiane na głównych węzłach klastra. Określa niezawodność tych usług i w związku z tym klaster. Wartość jest obliczana przez system podczas tworzenia klastra i czasu uaktualniania.
@@ -147,7 +146,7 @@ Nazwa jest przyjazną nazwą dla tego konkretnego typu węzła. Aby utworzyć w�
 * leaseDriverEndpointPort jest portem używanym przez sterownik dzierżawy klastra do sprawdzenia, czy węzły są nadal aktywne. 
 * serviceConnectionEndpointPort to port używany przez aplikacje i usługi wdrożone w węźle do komunikowania się z klientem Service Fabric w tym konkretnym węźle.
 * httpGatewayEndpointPort to port używany przez Service Fabric Explorer do nawiązywania połączenia z klastrem.
-* ephemeralPorts Zastąp [porty dynamiczne używane przez system operacyjny](https://support.microsoft.com/kb/929851). Service Fabric używa tych portów jako portów aplikacji, a pozostałe są dostępne dla systemu operacyjnego. Ponadto mapuje ten zakres na istniejący zakres obecny w systemie operacyjnym, dlatego można użyć zakresów podanej w przykładowych plikach JSON. Upewnij się, że różnica między portem początkowym i końcowym wynosi co najmniej 255. Mogą wystąpić konflikty, jeśli różnica jest zbyt niska, ponieważ ten zakres jest współużytkowany z systemem operacyjnym. Aby zobaczyć skonfigurowany zakres portów dynamicznych, uruchom `netsh int ipv4 show dynamicport tcp`polecenie.
+* ephemeralPorts Zastąp [porty dynamiczne używane przez system operacyjny](https://support.microsoft.com/kb/929851). Service Fabric używa tych portów jako portów aplikacji, a pozostałe są dostępne dla systemu operacyjnego. Ponadto mapuje ten zakres na istniejący zakres obecny w systemie operacyjnym, dlatego można użyć zakresów podanej w przykładowych plikach JSON. Upewnij się, że różnica między portem początkowym i końcowym wynosi co najmniej 255. Mogą wystąpić konflikty, jeśli różnica jest zbyt niska, ponieważ ten zakres jest współużytkowany z systemem operacyjnym. Aby zobaczyć skonfigurowany zakres portów dynamicznych, uruchom polecenie `netsh int ipv4 show dynamicport tcp` .
 * applicationPorts są portami używanymi przez aplikacje Service Fabric. Zakres portów aplikacji powinien być wystarczająco duży, aby pokryć wymagania dotyczące punktu końcowego aplikacji. Ten zakres powinien być poza zakresem portów dynamicznych na komputerze, czyli zakresem ephemeralPorts ustawionym w konfiguracji. Service Fabric używa tych portów, gdy wymagane są nowe porty i należy zachować ostrożność otwierania zapory dla tych portów. 
 * reverseProxyEndpointPort jest opcjonalnym punktem końcowym zwrotnego serwera proxy. Aby uzyskać więcej informacji, zobacz [Service Fabric zwrotny serwer proxy](service-fabric-reverseproxy.md). 
 
@@ -199,7 +198,7 @@ Wszystkie dostępne funkcje dodatków można zobaczyć w [dokumentacji interfejs
 Aby włączyć obsługę kontenerów dla kontenerów systemu Windows Server i kontenerów funkcji Hyper-V dla klastrów autonomicznych, należy włączyć funkcję dodatku DnsService.
 
 ## <a name="next-steps"></a>Następne kroki
-Po skonfigurowaniu kompletnego pliku *ClusterConfig. JSON* zgodnie z konfiguracją klastra autonomicznego można wdrożyć klaster. Wykonaj kroki opisane w temacie [Tworzenie autonomicznego klastra Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
+Po zakończeniu *ClusterConfig.jsna* pliku skonfigurowanym zgodnie z konfiguracją klastra autonomicznego można wdrożyć klaster. Wykonaj kroki opisane w temacie [Tworzenie autonomicznego klastra Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
 
 W przypadku wdrożenia klastra autonomicznego można także [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md). 
 

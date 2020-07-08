@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465550"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric scenariusze testowania: komunikacja z usługą
@@ -79,7 +78,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-W tym przykładzie ustawimy `QuorumLossMode` `QuorumReplicas` , aby wskazać, że chcemy wymusić utratę kworum bez wyłączania wszystkich replik. W ten sposób operacje odczytu są nadal możliwe. W celu przetestowania scenariusza, w `AllReplicas`którym cała partycja jest niedostępna, można ustawić ten przełącznik.
+W tym przykładzie ustawimy, `QuorumLossMode` Aby `QuorumReplicas` wskazać, że chcemy wymusić utratę kworum bez wyłączania wszystkich replik. W ten sposób operacje odczytu są nadal możliwe. W celu przetestowania scenariusza, w którym cała partycja jest niedostępna, można ustawić ten przełącznik `AllReplicas` .
 
 ## <a name="next-steps"></a>Następne kroki
 [Dowiedz się więcej o akcjach testowania](service-fabric-testability-actions.md)

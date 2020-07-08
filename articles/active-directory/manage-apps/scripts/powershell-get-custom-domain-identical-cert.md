@@ -13,10 +13,9 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef654226d041a7602c03e1ce4670d2f8eea0c2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482012"
 ---
 # <a name="get-all-azure-ad-proxy-application-apps-that-are-published-with-the-identical-certificate"></a>Pobierz wszystkie aplikacje aplikacji serwera proxy usługi Azure AD, które są publikowane przy użyciu identycznego certyfikatu

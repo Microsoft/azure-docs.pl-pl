@@ -4,10 +4,9 @@ description: Omówienie Service Fabric i używania kontenerów do wdrażania apl
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458225"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric i kontenery

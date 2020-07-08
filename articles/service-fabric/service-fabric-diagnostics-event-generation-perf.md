@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464707"
 ---
 # <a name="performance-metrics"></a>Metryki wydajności
@@ -71,11 +70,11 @@ Zbierz następujące liczniki, jeśli usługi platformy .NET są wdrażane w kla
 
 Service Fabric generuje znaczną liczbę niestandardowych liczników wydajności. Jeśli masz zainstalowany zestaw SDK, możesz zobaczyć kompleksową listę na komputerze z systemem Windows w aplikacji monitora wydajności (Uruchom > Monitor wydajności). 
 
-W przypadku aplikacji wdrażanych w klastrze, jeśli używasz Reliable Actors, Dodaj liczniki z `Service Fabric Actor` i `Service Fabric Actor Method` kategorie (zobacz [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
+W przypadku aplikacji wdrażanych w klastrze, jeśli używasz Reliable Actors, Dodaj liczniki z `Service Fabric Actor` i `Service Fabric Actor Method` Kategorie (zobacz [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-W przypadku korzystania z usług Reliable Services lub komunikacji `Service Fabric Service` zdalnej, podobnie jak i `Service Fabric Service Method` dla kategorii, do których należy zebrać liczniki, zobacz [monitorowanie za pomocą usług zdalnych](service-fabric-reliable-serviceremoting-diagnostics.md) i [niezawodnych usług](service-fabric-reliable-services-diagnostics.md#performance-counters). 
+W przypadku korzystania z usług Reliable Services lub komunikacji zdalnej, podobnie `Service Fabric Service` jak i dla kategorii, do `Service Fabric Service Method` których należy zebrać liczniki, zobacz [monitorowanie za pomocą usług zdalnych](service-fabric-reliable-serviceremoting-diagnostics.md) i [niezawodnych usług](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
-Jeśli korzystasz `Avg. Transaction ms/Commit` z niezawodnych kolekcji, zalecamy dodanie z `Service Fabric Transactional Replicator` programu do zbierania średniego opóźnienia zatwierdzania na jednostkę miary.
+Jeśli korzystasz z niezawodnych kolekcji, zalecamy dodanie `Avg. Transaction ms/Commit` z programu `Service Fabric Transactional Replicator` do zbierania średniego opóźnienia zatwierdzania na jednostkę miary.
 
 
 ## <a name="next-steps"></a>Następne kroki

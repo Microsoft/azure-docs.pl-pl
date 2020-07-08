@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75482571"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generuj mapę cieplną wilgoci
@@ -51,7 +50,7 @@ Po wprowadzeniu poświadczeń i wybraniu opcji **Prześlij** w aplikacji partner
 Po połączeniu konta czujnika z usługą Azure FarmBeats należy przypisać czujniki wilgoci w glebie do interesującej farmy.
 
 1.  Na stronie głównej wybierz pozycję **farmy** z menu, zostanie wyświetlona strona listy **farmy** .
-2.  Wybierz pozycję Moja **Farma** > **Dodaj urządzenia**.
+2.  Wybierz pozycję Moja **Farma**  >  **Dodaj urządzenia**.
 3.  Zostanie wyświetlone okno **Dodawanie urządzeń** . Wybierz dowolne urządzenie, które jest połączone z czujnikami wilgotności gleby dla farmy.
 
     ![Farmy projektów](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
@@ -81,7 +80,7 @@ Ten krok polega na utworzeniu zadania lub długotrwałej operacji, która spowod
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Pobierz wilgotność gleby mapę cieplną
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
 1. Na stronie **zadania** Sprawdź **stan zadania** dla zadania utworzonego w ostatniej procedurze.
 2. Po **pomyślnym**wyświetleniu stanu zadania wybierz pozycję **mapy** w menu.

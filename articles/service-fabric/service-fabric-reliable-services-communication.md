@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75462953"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać interfejsów API komunikacji Reliable Services
@@ -89,7 +88,7 @@ public class MyStatefulService : StatefulService
 
 W obu przypadkach zwracasz kolekcję odbiorników. Dzięki temu usługa może nasłuchiwać wielu punktów końcowych, które mogą korzystać z różnych protokołów, przy użyciu wielu odbiorników. Na przykład może istnieć odbiornik HTTP i oddzielny odbiornik WebSocket. Każdy odbiornik Pobiera nazwę, a wynikiem zbierania wartości *name: Address* par są reprezentowane jako obiekt JSON, gdy klient żąda adresów nasłuchujących dla wystąpienia usługi lub partycji.
 
-W usłudze bezstanowej przesłonięcie zwraca kolekcję ServiceInstanceListeners. A `ServiceInstanceListener` zawiera funkcję do utworzenia `ICommunicationListener(C#) / CommunicationListener(Java)` i nadaje mu nazwę. W przypadku usług stanowych przesłonięcie zwraca kolekcję ServiceReplicaListeners. Jest to nieco inne niż jego odpowiednik bezstanowy, `ServiceReplicaListener` ponieważ ma opcję otwarcia `ICommunicationListener` w replikach pomocniczych. Można nie tylko używać wielu odbiorników komunikacji w usłudze, ale można również określić, które odbiorniki akceptują żądania w replikach pomocniczych, a które nasłuchują tylko w replikach podstawowych.
+W usłudze bezstanowej przesłonięcie zwraca kolekcję ServiceInstanceListeners. A `ServiceInstanceListener` zawiera funkcję do utworzenia `ICommunicationListener(C#) / CommunicationListener(Java)` i nadaje mu nazwę. W przypadku usług stanowych przesłonięcie zwraca kolekcję ServiceReplicaListeners. Jest to nieco inne niż jego odpowiednik bezstanowy, ponieważ `ServiceReplicaListener` ma opcję otwarcia `ICommunicationListener` w replikach pomocniczych. Można nie tylko używać wielu odbiorników komunikacji w usłudze, ale można również określić, które odbiorniki akceptują żądania w replikach pomocniczych, a które nasłuchują tylko w replikach podstawowych.
 
 Na przykład można mieć ServiceRemotingListener, który wykonuje wywołania RPC tylko w replikach podstawowych, i drugi odbiornik niestandardowy, który pobiera żądania odczytu w replikach pomocniczych za pośrednictwem protokołu HTTP:
 
@@ -128,7 +127,7 @@ Na koniec opisz punkty końcowe, które są wymagane dla usługi w [manifeście 
 
 ```
 
-Odbiornik komunikacji może uzyskać dostęp do zasobów punktu końcowego przyznanych do `CodePackageActivationContext` niego z `ServiceContext`w. Odbiornik może rozpocząć nasłuchiwanie żądań, gdy zostanie otwarte.
+Odbiornik komunikacji może uzyskać dostęp do zasobów punktu końcowego przyznanych do niego z `CodePackageActivationContext` w `ServiceContext` . Odbiornik może rozpocząć nasłuchiwanie żądań, gdy zostanie otwarte.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -188,7 +187,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric udostępnia interfejsy API, które umożliwiają klientom i innym usługom następnie poproszenie o ten adres według nazwy usługi. Jest to ważne, ponieważ adres usługi nie jest statyczny. Usługi są przenoszone w klastrze w celu zrównoważenia zasobów i dostępności. Jest to mechanizm, który umożliwia klientom rozpoznawanie adresu nasłuchiwania dla usługi.
 
 > [!NOTE]
-> Aby zapoznać się z kompletnymi krokami dotyczącymi pisania odbiornika komunikacji, zobacz [Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania](service-fabric-reliable-services-communication-webapi.md) w języku C#, a w przypadku języka Java można napisać własną implementację serwera http, https://github.com/Azure-Samples/service-fabric-java-getting-startedZobacz przykład aplikacji EchoServer w lokalizacji.
+> Aby zapoznać się z kompletnymi krokami dotyczącymi pisania odbiornika komunikacji, zobacz [Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania](service-fabric-reliable-services-communication-webapi.md) w języku C#, a w przypadku języka Java można napisać własną implementację serwera http, zobacz przykład aplikacji EchoServer w lokalizacji https://github.com/Azure-Samples/service-fabric-java-getting-started .
 >
 >
 
@@ -196,7 +195,7 @@ Service Fabric udostępnia interfejsy API, które umożliwiają klientom i innym
 Interfejs API Reliable Services udostępnia następujące biblioteki do pisania klientów komunikujących się z usługami.
 
 ### <a name="service-endpoint-resolution"></a>Rozpoznawanie punktu końcowego usługi
-Pierwszym krokiem komunikacji z usługą jest rozpoznanie adresu punktu końcowego partycji lub wystąpienia usługi, do której chcesz się skontaktować. Klasa `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` narzędzi jest podstawowym elementem pierwotnym, który pomaga klientom ustalić punkt końcowy usługi w czasie wykonywania. W Service Fabric terminologii proces określania punktu końcowego usługi jest określany jako *rozwiązanie punktu końcowego usługi*.
+Pierwszym krokiem komunikacji z usługą jest rozpoznanie adresu punktu końcowego partycji lub wystąpienia usługi, do której chcesz się skontaktować. `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)`Klasa narzędzi jest podstawowym elementem pierwotnym, który pomaga klientom ustalić punkt końcowy usługi w czasie wykonywania. W Service Fabric terminologii proces określania punktu końcowego usługi jest określany jako *rozwiązanie punktu końcowego usługi*.
 
 Aby połączyć się z usługami w klastrze, ServicePartitionResolver można utworzyć przy użyciu ustawień domyślnych. Jest to zalecane użycie w większości sytuacji:
 
@@ -262,7 +261,7 @@ Zazwyczaj kod klienta nie musi bezpośrednio współpracować z ServicePartition
 ### <a name="communication-clients-and-factories"></a>Klienci i fabryki komunikacyjne
 Biblioteka fabryki komunikacji implementuje typowy wzorzec ponawiania obsługi błędów, który podejmuje dalsze próby połączeń w celu ułatwienia rozwiązywania punktów końcowych usługi. Biblioteka fabryki zapewnia mechanizm ponawiania prób podczas dostarczania programów obsługi błędów.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definiuje interfejs podstawowy zaimplementowany przez fabrykę klienta komunikacji, który tworzy klientów, którzy mogą komunikować się z usługą Service Fabric. Implementacja CommunicationClientFactory zależy od stosu komunikacji używanego przez usługę Service Fabric, do której klient chce się skomunikować. Interfejs API Reliable Services zapewnia `CommunicationClientFactoryBase<TCommunicationClient>`. Zapewnia to podstawową implementację interfejsu CommunicationClientFactory oraz wykonuje zadania wspólne dla wszystkich stosów komunikacji. (Te zadania obejmują użycie ServicePartitionResolver do określenia punktu końcowego usługi). Klienci zazwyczaj implementują abstrakcyjną klasę CommunicationClientFactoryBase, aby obsługiwała logikę specyficzną dla stosu komunikacji.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`definiuje interfejs podstawowy zaimplementowany przez fabrykę klienta komunikacji, który tworzy klientów, którzy mogą komunikować się z usługą Service Fabric. Implementacja CommunicationClientFactory zależy od stosu komunikacji używanego przez usługę Service Fabric, do której klient chce się skomunikować. Interfejs API Reliable Services zapewnia `CommunicationClientFactoryBase<TCommunicationClient>` . Zapewnia to podstawową implementację interfejsu CommunicationClientFactory oraz wykonuje zadania wspólne dla wszystkich stosów komunikacji. (Te zadania obejmują użycie ServicePartitionResolver do określenia punktu końcowego usługi). Klienci zazwyczaj implementują abstrakcyjną klasę CommunicationClientFactoryBase, aby obsługiwała logikę specyficzną dla stosu komunikacji.
 
 Klient komunikacyjny odbiera tylko adres i używa go do nawiązywania połączenia z usługą. Klient może korzystać z dowolnego protokołu, który chce.
 
@@ -339,7 +338,7 @@ Na koniec program obsługi wyjątków jest odpowiedzialny za określenie działa
   * **Przejściowe** wyjątki to te, które można po prostu ponowić próbę, bez konieczności ponownego rozpoznawania adresu punktu końcowego usługi. Będą to między innymi przejściowe problemy z siecią lub odpowiedzi na błędy usług inne niż te, które wskazują, że adres punktu końcowego usługi nie istnieje.
   * Wyjątki **nieprzejściowe** to te, które wymagają ponownego rozpoznania adresu punktu końcowego usługi. Należą do nich wyjątki wskazujące, że nie można osiągnąć punktu końcowego usługi, wskazując, że usługa została przeniesiona do innego węzła.
 
-`TryHandleException` Podejmuje decyzję dotyczącą danego wyjątku. Jeśli nie **wie** , jakie decyzje należy podjąć o wyjątku, powinien zwrócić **wartość false**. Jeśli **wiadomo** , jakie decyzje należy podjąć, powinien odpowiednio ustawić wynik i zwrócić **wartość true**.
+`TryHandleException`Podejmuje decyzję dotyczącą danego wyjątku. Jeśli nie **wie** , jakie decyzje należy podjąć o wyjątku, powinien zwrócić **wartość false**. Jeśli **wiadomo** , jakie decyzje należy podjąć, powinien odpowiednio ustawić wynik i zwrócić **wartość true**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -387,7 +386,7 @@ public class MyExceptionHandler implements ExceptionHandler {
 }
 ```
 ### <a name="putting-it-all-together"></a>Zebranie wszystkich elementów
-W przypadku `ICommunicationClient(C#) / CommunicationClient(Java)`programu `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`,, `IExceptionHandler(C#) / ExceptionHandler(Java)` i skompilowane wokół protokołu komunikacyjnego `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` , obiekt otacza wszystkie te elementy i zapewnia pętlę rozpoznawania błędów i adresów partycji usługi wokół tych składników.
+W przypadku programu `ICommunicationClient(C#) / CommunicationClient(Java)` , `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` , i `IExceptionHandler(C#) / ExceptionHandler(Java)` skompilowane wokół protokołu komunikacyjnego, obiekt `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` otacza wszystkie te elementy i zapewnia pętlę rozpoznawania błędów i adresów partycji usługi wokół tych składników.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;

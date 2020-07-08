@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
 ms.openlocfilehash: 1d6773b4daac256234c33bf50fb3736d585ac505
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75480998"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Korzystanie z usługi Azure API Management z mikrousługami wdrożonymi w usłudze Azure Kubernetes Service

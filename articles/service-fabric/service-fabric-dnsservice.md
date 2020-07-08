@@ -4,10 +4,9 @@ description: Użyj usługi DNS Service Fabric do odnajdywania mikrousług z wewn
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458035"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS Service in Azure Service Fabric (Usługa DNS w usłudze Azure Service Fabric)
@@ -46,7 +45,7 @@ Jeśli nie używasz portalu do utworzenia klastra lub jeśli aktualizujesz istni
 
 Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące czynności:
 
-1. Sprawdź, czy `apiversion` dla `Microsoft.ServiceFabric/clusters` zasobu jest `2017-07-01-preview` ustawiona wartość lub nowsza, a jeśli nie, zaktualizuj go, jak pokazano w następującym przykładzie:
+1. Sprawdź, czy `apiversion` dla zasobu jest ustawiona wartość `2017-07-01-preview` lub nowsza `Microsoft.ServiceFabric/clusters` , a jeśli nie, zaktualizuj go, jak pokazano w następującym przykładzie:
 
     ```json
     {
@@ -72,7 +71,7 @@ Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące 
           }
         ```
 
-   - Aby włączyć usługę inną niż ustawienia domyślne, Dodaj `DnsService` sekcję do `fabricSettings` sekcji w `properties` sekcji. W takim przypadku nie trzeba dodawać DnsService do `addonFeatures`. Aby dowiedzieć się więcej na temat właściwości, które można ustawić dla usługi DNS, zobacz [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+   - Aby włączyć usługę inną niż ustawienia domyślne, Dodaj `DnsService` sekcję do `fabricSettings` sekcji w `properties` sekcji. W takim przypadku nie trzeba dodawać DnsService do `addonFeatures` . Aby dowiedzieć się więcej na temat właściwości, które można ustawić dla usługi DNS, zobacz [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
            "properties": {
@@ -100,7 +99,7 @@ Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące 
               ]
             }
        ```
-3. Po zaktualizowaniu szablonu klastra przy użyciu zmian zastosuj je i pozwól na zakończenie uaktualniania. Po zakończeniu uaktualniania usługa systemu DNS uruchamia się w klastrze. Nazwa usługi to `fabric:/System/DnsService`i można ją znaleźć w sekcji usługa **systemowa** w Eksploratorze Service Fabric. 
+3. Po zaktualizowaniu szablonu klastra przy użyciu zmian zastosuj je i pozwól na zakończenie uaktualniania. Po zakończeniu uaktualniania usługa systemu DNS uruchamia się w klastrze. Nazwa usługi to `fabric:/System/DnsService` i można ją znaleźć w sekcji usługa **systemowa** w Eksploratorze Service Fabric. 
 
 > [!NOTE]
 > Podczas uaktualniania usługi DNS z wyłączone do włączonej, Service Fabric Explorer może nie odzwierciedlać nowego stanu. Aby rozwiązać ten problem, uruchom ponownie węzły, modyfikując UpgradePolicy w szablonie Azure Resource Manager. Więcej informacji można znaleźć w temacie [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
@@ -109,14 +108,14 @@ Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące 
 > Włączenie usługi DNS podczas tworzenia na komputerze lokalnym spowoduje zastąpienie niektórych ustawień DNS. Jeśli występują problemy z połączeniem z Internetem, sprawdź ustawienia DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Ustawianie nazwy DNS usługi
-Możesz ustawić nazwę DNS dla usług w sposób deklaratywny dla domyślnych usług w pliku ApplicationManifest. XML lub za pomocą poleceń programu PowerShell.
+Możesz ustawić nazwę DNS dla usług w sposób deklaratywny dla domyślnych usług w pliku ApplicationManifest.xml lub za pomocą poleceń programu PowerShell.
 
 Nazwa DNS usługi jest rozpoznawana w klastrze, dlatego ważne jest, aby zapewnić unikatowość nazwy DNS w całym klastrze. 
 
-Zdecydowanie zaleca się użycie schematu nazewnictwa `<ServiceDnsName>.<AppInstanceName>`; na przykład `service1.application1`. Jeśli aplikacja jest wdrażana za pomocą narzędzia Docker, usługi są automatycznie przypisywane nazwy DNS przy użyciu tego schematu nazewnictwa.
+Zdecydowanie zaleca się użycie schematu nazewnictwa, `<ServiceDnsName>.<AppInstanceName>` na przykład `service1.application1` . Jeśli aplikacja jest wdrażana za pomocą narzędzia Docker, usługi są automatycznie przypisywane nazwy DNS przy użyciu tego schematu nazewnictwa.
 
-### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ustawianie nazwy DNS dla usługi domyślnej w ApplicationManifest. XML
-Otwórz projekt w programie Visual Studio lub ulubionym edytorze, a następnie otwórz plik ApplicationManifest. XML. Przejdź do sekcji Usługi domyślne, a dla każdej usługi Dodaj `ServiceDnsName` atrybut. Poniższy przykład pokazuje, jak ustawić nazwę DNS usługi na`service1.application1`
+### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ustawianie nazwy DNS dla usługi domyślnej w ApplicationManifest.xml
+Otwórz projekt w programie Visual Studio lub ulubionym edytorze i Otwórz plik ApplicationManifest.xml. Przejdź do sekcji Usługi domyślne, a dla każdej usługi Dodaj `ServiceDnsName` atrybut. Poniższy przykład pokazuje, jak ustawić nazwę DNS usługi na`service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -129,7 +128,7 @@ Po wdrożeniu aplikacji wystąpienie usługi w Eksploratorze Service Fabric wyś
 
 ![punkty końcowe usługi](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app`. Usługa używa nazwanego schematu partycjonowania. Zauważ, że nazwy partycji są małymi literami. Jest to wymagane w przypadku partycji, które będą przeznaczone dla kwerend DNS; Aby uzyskać więcej informacji, zobacz [Tworzenie zapytań DNS na partycji usługi stanowej](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app` . Usługa używa nazwanego schematu partycjonowania. Zauważ, że nazwy partycji są małymi literami. Jest to wymagane w przypadku partycji, które będą przeznaczone dla kwerend DNS; Aby uzyskać więcej informacji, zobacz [Tworzenie zapytań DNS na partycji usługi stanowej](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -143,7 +142,7 @@ Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app`. Us
 ```
 
 ### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Ustawianie nazwy DNS dla usługi przy użyciu programu PowerShell
-Nazwę DNS usługi można ustawić podczas jej tworzenia przy użyciu polecenia `New-ServiceFabricService` programu PowerShell. Poniższy przykład tworzy nową usługę bezstanową z nazwą DNS`service1.application1`
+Nazwę DNS usługi można ustawić podczas jej tworzenia przy użyciu `New-ServiceFabricService` polecenia programu PowerShell. Poniższy przykład tworzy nową usługę bezstanową z nazwą DNS`service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -178,10 +177,10 @@ Gdzie:
 - *PartitionSuffix* jest wartością, którą można ustawić w sekcji DnsService manifestu klastra lub za pomocą szablonu Menedżer zasobów klastra. Wartość domyślna to pusty ciąg. Aby dowiedzieć się więcej, zobacz [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Pozostałe partycje-Service-dnsname* jest pozostałą częścią nazwy usługi DNS.
 
-W poniższych przykładach pokazano zapytania DNS dla usług partycjonowanych uruchomionych w klastrze z ustawieniami domyślnymi `PartitionPrefix` dla `PartitionSuffix`i: 
+W poniższych przykładach pokazano zapytania DNS dla usług partycjonowanych uruchomionych w klastrze z ustawieniami domyślnymi dla `PartitionPrefix` i `PartitionSuffix` : 
 
-- Aby usunąć partycję "0" usługi o nazwie `backendrangedschemesvc.application` DNS używającej schematu partycjonowania z zakresem, użyj `backendrangedschemesvc-0.application`.
-- Aby usunąć partycję "First" usługi o nazwie `backendnamedschemesvc.application` DNS używającej schematu partycjonowania, użyj. `backendnamedschemesvc-first.application`
+- Aby usunąć partycję "0" usługi o nazwie DNS `backendrangedschemesvc.application` używającej schematu partycjonowania z zakresem, użyj `backendrangedschemesvc-0.application` .
+- Aby usunąć partycję "First" usługi o nazwie DNS `backendnamedschemesvc.application` używającej schematu partycjonowania, użyj `backendnamedschemesvc-first.application` .
 
 Usługa DNS zwraca adres IP repliki podstawowej partycji. Jeśli partycja nie zostanie określona, usługa zwraca adres IP podstawowej repliki losowo wybranej partycji.
 
@@ -218,7 +217,7 @@ public class ValuesController : Controller
 }
 ```
 
-Poniższy kod przedstawia wywołanie na określonej partycji usługi stanowej. W takim przypadku nazwa DNS zawiera nazwę partycji (partition1). Wywołanie przyjmuje klaster z wartościami domyślnymi dla `PartitionPrefix` i. `PartitionSuffix`
+Poniższy kod przedstawia wywołanie na określonej partycji usługi stanowej. W takim przypadku nazwa DNS zawiera nazwę partycji (partition1). Wywołanie przyjmuje klaster z wartościami domyślnymi dla `PartitionPrefix` i `PartitionSuffix` .
 
 ```csharp
 public class ValuesController : Controller

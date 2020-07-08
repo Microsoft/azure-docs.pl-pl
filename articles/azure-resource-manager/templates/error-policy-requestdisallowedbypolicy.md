@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75477670"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Błąd RequestDisallowedByPolicy z zasadami zasobów platformy Azure
@@ -37,7 +36,7 @@ Aby pobrać szczegóły dotyczące zasad, które zablokowały wdrożenie, należ
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W programie PowerShell podaj identyfikator zasad jako `Id` parametr, aby pobrać szczegóły dotyczące zasad, które zablokowały wdrożenie.
+W programie PowerShell podaj identyfikator zasad jako parametr, `Id` Aby pobrać szczegóły dotyczące zasad, które zablokowały wdrożenie.
 
 ```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -56,7 +55,7 @@ az policy definition show --name regionPolicyAssignment
 Aby zapewnić bezpieczeństwo lub zgodność, Administratorzy subskrypcji mogą przypisywać zasady ograniczające sposób wdrażania zasobów. Na przykład Twoja subskrypcja może mieć zasady, które uniemożliwiają tworzenie publicznych adresów IP, sieciowych grup zabezpieczeń, tras zdefiniowanych przez użytkownika lub tabel tras. Komunikat o błędzie w sekcji **objawy** zawiera nazwę zasad.
 Aby rozwiązać ten problem, przejrzyj zasady zasobów i określ sposób wdrażania zasobów, które są zgodne z tymi zasadami.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Co to jest Azure Policy?](../../governance/policy/overview.md)
 - [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../../governance/policy/tutorials/create-and-manage.md)
