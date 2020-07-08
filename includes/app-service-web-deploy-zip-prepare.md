@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75945154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570137"
 ---
 ## <a name="create-a-project-zip-file"></a>Tworzenie pliku ZIP projektu
 
@@ -23,11 +23,11 @@ ms.locfileid: "75945154"
 
 W lokalnym oknie terminalu przejdź do katalogu głównego projektu aplikacji. 
 
-Ten katalog powinien zawierać plik wpisu do aplikacji sieci Web, taki jak _index. html_, _index. php_i _App. js_. Może również zawierać pliki zarządzania pakietami, takie jak _Project. JSON_, _Composer. JSON_, _Package. JSON_, _Bower. JSON_i _Requirements. txt_.
+Ten katalog powinien zawierać plik wpisu do aplikacji sieci Web, taki jak _index.html_, _index. php_i _app.js_. Może również zawierać pliki zarządzania pakietami, takie jak _project.json_, _composer.json_, _package.json_, _bower.json_i _requirements.txt_.
 
-Jeśli nie chcesz, aby App Service do uruchamiania automatyzacji wdrażania, uruchom wszystkie zadania kompilacji (na `npm`przykład `bower` `gulp` `composer`,,, i `pip`) i upewnij się, że masz wszystkie pliki potrzebne do uruchomienia aplikacji. Ten krok jest wymagany, jeśli chcesz [uruchomić pakiet bezpośrednio](../articles/app-service/deploy-run-package.md).
+Jeśli nie chcesz, aby App Service do uruchamiania automatyzacji wdrażania, uruchom wszystkie zadania kompilacji (na przykład,, `npm` , `bower` `gulp` `composer` i `pip` ) i upewnij się, że masz wszystkie pliki potrzebne do uruchomienia aplikacji. Ten krok jest wymagany, jeśli chcesz [uruchomić pakiet bezpośrednio](../articles/app-service/deploy-run-package.md).
 
-Utwórz archiwum ZIP z wszystkimi elementami w projekcie. Następujące polecenie używa domyślnego narzędzia w terminalu:
+Utwórz archiwum ZIP z wszystkimi elementami w projekcie. W przypadku `dotnet` projektów ten folder jest folderem wyjściowym `dotnet publish` polecenia. Następujące polecenie używa domyślnego narzędzia w terminalu:
 
 ```
 # Bash

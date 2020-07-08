@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: d282cec55d5534957478d6268c8bbd6d74245d8d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85514862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565952"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Wskazówki dotyczące automatyzacji dla partnerów wirtualnych sieci WAN
 

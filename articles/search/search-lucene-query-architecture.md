@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ab40b5c811fd75e6927be41d4cf4cc7524e868a1
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85130459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565917"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze
 
@@ -52,7 +52,7 @@ Na poniższym diagramie przedstawiono składniki używane do przetwarzania żąd
 Poniższy przykład to żądanie wyszukiwania, które może zostać wysłane do usługi Azure Wyszukiwanie poznawcze przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -391,7 +391,7 @@ W tym artykule zbadano wyszukiwanie pełnotekstowe w kontekście usługi Azure W
 
 + [Skonfiguruj Niestandardowe analizatory](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) dla minimalnej ilości przetwarzania lub wyspecjalizowanego przetwarzania dla określonych pól.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

@@ -9,15 +9,15 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/21/2020
-ms.openlocfilehash: b8869eee4e44001f5d4aeafbbdb32f93f0a7e0c8
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/27/2020
+ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433339"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601461"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym (wersja zapoznawcza)
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dowiedz się, jak uruchamiać notesy Jupyter bezpośrednio w obszarze roboczym w programie Azure Machine Learning Studio. Chociaż możesz uruchomić [Jupyter](https://jupyter.org/) lub [JupyterLab](https://jupyterlab.readthedocs.io), możesz również edytować i uruchamiać notesy bez opuszczania obszaru roboczego.
@@ -51,10 +51,12 @@ Aby utworzyć nowy Notes:
 1. Wybierz katalog plików.
 1. Wybierz pozycję **Utwórz**.
 
-> [!TIP]
-> Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład MyFile.py lub plik txt)  
+Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
 Możesz również przekazać foldery i pliki, w tym notesy, za pomocą narzędzi w górnej części strony notesy.  Notesy i większość typów plików tekstowych są wyświetlane w sekcji Podgląd.  Wersja zapoznawcza nie jest dostępna dla większości innych typów plików.
+
+> [!IMPORTANT]
+> Zawartość w notesach i skryptach może potencjalnie odczytywać dane z sesji i uzyskiwać dostęp do danych bez Twojej organizacji na platformie Azure.  Ładuj tylko pliki z zaufanych źródeł. Aby uzyskać więcej informacji, zobacz [Secure Best Practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### <a name="clone-samples"></a>Klonowanie próbek
 
@@ -95,15 +97,37 @@ Skopiuj i wklej adres URL, aby udostępnić Notes lub plik.  Tylko inni użytkow
 
 Aby edytować Notes, Otwórz dowolny Notes znajdujący się w sekcji **pliki użytkownika** w obszarze roboczym. Kliknij komórkę, którą chcesz edytować. 
 
-Gdy uruchomione wystąpienie obliczeniowe jest uruchomione, można również użyć uzupełniania kodu obsługiwanego przez [technologię IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)w dowolnym notesie języka Python.
+Notes można edytować bez nawiązywania połączenia z wystąpieniem obliczeniowym.  Gdy chcesz uruchomić komórki w notesie, wybierz lub Utwórz wystąpienie obliczeniowe.  W przypadku wybrania zatrzymanego wystąpienia obliczeniowego zostanie ono automatycznie uruchomione po uruchomieniu pierwszej komórki.
+
+Po uruchomieniu wystąpienia obliczeniowego można także użyć uzupełniania kodu obsługiwanego przez funkcję [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense)w dowolnym notesie języka Python.
 
 Na pasku narzędzi notesu można również uruchomić Jupyter lub JupyterLab.  Azure Machine Learning nie dostarcza aktualizacji i naprawia usterki z Jupyter lub JupyterLab, ponieważ są to produkty typu open source spoza granicy pomoc techniczna firmy Microsoft.
+
+### <a name="use-intellisense"></a>Korzystanie z funkcji IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Te funkcje pozwalają dowiedzieć się więcej o kodzie, którego używasz, śledzić parametry, które wpisujesz, i dodawać wywołania do właściwości i metod za pomocą tylko kilku naciśnięć klawiszy.  
+
+Podczas wpisywania kodu naciśnij klawisze CTRL + SPACJA, aby wyzwolić funkcję IntelliSense.
+
+### <a name="save-and-checkpoint-a-notebook"></a>Zapisz i Utwórz punkt kontrolny notesu
+
+Azure Machine Learning tworzy plik punktu kontrolnego podczas tworzenia pliku *ipynb*   .
+
+Na pasku narzędzi Notes wybierz menu, a następnie **Zapisz plik &gt; i punkt kontrolny** , aby ręcznie zapisać Notes i dodać plik punktu kontrolnego skojarzony z notesem.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Zrzut ekranu narzędzia zapisywania na pasku narzędzi notesu":::
+
+Każdy Notes jest automatycznie zapisywany co 30 sekund.Funkcja autozapisywania aktualizuje tylko początkowy plik *ipynb*   , a nie plik punktu kontrolnego.
+ 
+Wybierz **punkty kontrolne** w menu Notes, aby utworzyć nazwany punkt kontrolny i przywrócić Notes do zapisanego punktu kontrolnego.
+
 
 ### <a name="useful-keyboard-shortcuts"></a>Przydatne skróty klawiaturowe
 
 |Klawiatura  |Akcja  |
 |---------|---------|
 |Shift+Enter     |  Uruchom komórkę       |
+|Ctrl+Space | Aktywuj technologię IntelliSense |
 |Ctrl + M (Windows)     |  Włącz/Wyłącz zalewkowanie kart w notesie.       |
 |Ctrl + Shift + M (Mac & Linux)     |    Włącz/Wyłącz zalewkowanie kart w notesie.     |
 |Karta (gdy jest włączona funkcja pułapki kart) | Dodawanie znaku "\t" (wcięcie)
@@ -176,7 +200,7 @@ Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest r
 
 |Kolor |Stan obliczeń |
 |---------|---------| 
-| Zielony | Uruchomione obliczenia |
+| Green | Uruchomione obliczenia |
 | Red |Obliczanie nie powiodło się | 
 | Czarny | Obliczenia zatrzymane |
 |  Jasnoniebieski |Tworzenie, uruchamianie, ponowne uruchamianie, Konfigurowanie |
@@ -186,7 +210,7 @@ Wskaźnik obok menu rozwijanego **jądra** pokazuje jego stan.
 
 |Kolor |Stan jądra |
 |---------|---------|
-|  Zielony |Jądro połączone, bezczynne, zajęte|
+|  Green |Jądro połączone, bezczynne, zajęte|
 |  Szary |Jądro niepołączone |
 
 ## <a name="find-compute-details"></a>Znajdź szczegóły obliczeń 

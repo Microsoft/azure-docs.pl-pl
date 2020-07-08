@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 97b13118eb0299f042bdadfebecbc1a23d1ce59f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602520"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -62,7 +62,7 @@ Użyj tych narzędzi dla Azure Machine Learning:
             * [Uruchom konfigurację](#run-configurations)
             * [Snapshot](#snapshots)
             * [Śledzenie git](#github-tracking-and-integration)
-            * [Rejestrowanie](#logging)
+            * [Rejestrować](#logging)
     * [Potoki uczenia maszynowego](#ml-pipelines)
     * [Modele](#models)
         * [Środowiska](#environments)
@@ -212,7 +212,7 @@ Jeśli włączono monitorowanie, platforma Azure zbiera dane telemetryczne z mod
 Azure IoT Edge zapewnia, że moduł jest uruchomiony, i monitoruje urządzenie, które je obsługuje.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Wystąpienie obliczeniowe (wersja zapoznawcza)
+### <a name="compute-instance"></a><a name="compute-instance"></a>Wystąpienie obliczeniowe
 
 **Wystąpienie obliczeniowe Azure Machine Learning** (dawniej jest maszyną wirtualną) to w pełni zarządzana stacja robocza oparta na chmurze, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Wystąpienia obliczeniowe mogą służyć jako element docelowy obliczeń dla zadań szkoleniowych i inferencing. W przypadku dużych zadań [Azure Machine Learning klastrów obliczeniowych](how-to-set-up-training-targets.md#amlcompute) z możliwościami skalowania wielu węzłów jest lepszym rozwiązaniem docelowym obliczeń.
 

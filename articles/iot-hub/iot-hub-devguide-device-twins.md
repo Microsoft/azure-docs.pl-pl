@@ -1,20 +1,20 @@
 ---
 title: Informacje o usłudze Azure IoT Hub Device bliźniaczych reprezentacji | Microsoft Docs
 description: Przewodnik dla deweloperów — używanie bliźniaczych reprezentacji urządzeń do synchronizowania danych stanu i konfiguracji między IoT Hub i urządzeniami
-author: wesmc7777
+author: ash2017
 manager: philmea
-ms.author: wesmc
+ms.author: asrastog
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.custom: mqtt
-ms.openlocfilehash: 3bec3d19ed68b7eb8bb50baa8f6c11135ef778cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731469"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601857"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Zrozumienie i używanie bliźniaczych reprezentacji urządzeń w IoT Hub
 
@@ -109,11 +109,11 @@ W poniższym przykładzie przedstawiono dokument JSON:
 }
 ```
 
-W obiekcie głównym są właściwości tożsamości urządzenia i obiekty kontenera dla `tags` i obie `reported` i `desired` właściwości. `properties` Kontener zawiera elementy tylko`$metadata`do odczytu (, `$etag`i `$version`) opisane w [metadanych przędzy za urządzeniem](iot-hub-devguide-device-twins.md#device-twin-metadata) i [optymistyczne współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
+W obiekcie głównym są właściwości tożsamości urządzenia i obiekty kontenera dla `tags` i obie `reported` i `desired` właściwości. `properties`Kontener zawiera elementy tylko do odczytu ( `$metadata` , `$etag` i `$version` ) opisane w [metadanych przędzy za urządzeniem](iot-hub-devguide-device-twins.md#device-twin-metadata) i [optymistyczne współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
 ### <a name="reported-property-example"></a>Przykład raportowanej właściwości
 
-W poprzednim przykładzie sznurek urządzenia zawiera `batteryLevel` właściwość, która jest raportowana przez aplikację urządzenia. Ta właściwość umożliwia wykonywanie zapytań i obsługi na urządzeniach na podstawie ostatniego zgłoszonego poziomu baterii. Inne przykłady obejmują możliwości urządzeń z raportowaniem aplikacji urządzeń lub opcje łączności.
+W poprzednim przykładzie sznurek urządzenia zawiera `batteryLevel` Właściwość, która jest raportowana przez aplikację urządzenia. Ta właściwość umożliwia wykonywanie zapytań i obsługi na urządzeniach na podstawie ostatniego zgłoszonego poziomu baterii. Inne przykłady obejmują możliwości urządzeń z raportowaniem aplikacji urządzeń lub opcje łączności.
 
 > [!NOTE]
 > Raportowane właściwości upraszczają scenariusze, w których zaplecze rozwiązania jest zainteresowane ostatnią znaną wartością właściwości. Użyj [komunikatów z urządzenia do chmury](iot-hub-devguide-messages-d2c.md) , jeśli zaplecze rozwiązania musi przetworzyć dane telemetryczne urządzenia w postaci sekwencji zdarzeń z sygnaturami czasowymi, takich jak szeregi czasowe.
@@ -133,7 +133,7 @@ W poprzednim przykładzie `telemetryConfig` pożądane i zgłoszone właściwoś
    },
    ```
 
-2. Aplikacja urządzenia zostanie powiadomiona o zmianie natychmiast po powiązaniu połączenia lub przy pierwszym ponownym połączeniu. Następnie aplikacja urządzenia zgłosi zaktualizowaną konfigurację (lub warunek błędu za pomocą `status` właściwości). Oto część raportowanych właściwości:
+2. Aplikacja urządzenia zostanie powiadomiona o zmianie natychmiast po powiązaniu połączenia lub przy pierwszym ponownym połączeniu. Następnie aplikacja urządzenia zgłosi zaktualizowaną konfigurację (lub warunek błędu za pomocą `status` Właściwości). Oto część raportowanych właściwości:
 
    ```json
    "reported": {
@@ -159,7 +159,7 @@ Zaplecze rozwiązania działa na bliźniaczych urządzeniach przy użyciu nastę
 
 * **Pobierz sznurki urządzenia według identyfikatora**. Ta operacja zwraca dokument z przędzą na urządzeniu, w tym Tagi i odpowiednie i zgłoszone właściwości systemu.
 
-* **Częściowo Aktualizuj sznurek urządzeń**. Ta operacja umożliwia zapleczu rozwiązania częściowo aktualizowanie tagów lub żądanych właściwości w postaci sznurka urządzenia. Aktualizacja częściowa jest wyrażona jako dokument JSON, który dodaje lub aktualizuje każdą właściwość. Właściwości ustawione na `null` są usuwane. Poniższy przykład tworzy nową pożądaną właściwość o `{"newProperty": "newValue"}`wartości, zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"`i usuwa. `otherOldProperty` Nie wprowadzono żadnych innych zmian do istniejących żądanych właściwości lub tagów:
+* **Częściowo Aktualizuj sznurek urządzeń**. Ta operacja umożliwia zapleczu rozwiązania częściowo aktualizowanie tagów lub żądanych właściwości w postaci sznurka urządzenia. Aktualizacja częściowa jest wyrażona jako dokument JSON, który dodaje lub aktualizuje każdą właściwość. Właściwości ustawione na `null` są usuwane. Poniższy przykład tworzy nową pożądaną właściwość o wartości `{"newProperty": "newValue"}` , zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"` i usuwa `otherOldProperty` . Nie wprowadzono żadnych innych zmian do istniejących żądanych właściwości lub tagów:
 
    ```json
    {
@@ -175,9 +175,9 @@ Zaplecze rozwiązania działa na bliźniaczych urządzeniach przy użyciu nastę
    }
    ```
 
-* **Zastąp żądane właściwości**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących żądanych właściwości i zastąpienie nowego dokumentu JSON `properties/desired`.
+* **Zastąp żądane właściwości**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących żądanych właściwości i zastąpienie nowego dokumentu JSON `properties/desired` .
 
-* **Zamień Tagi**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących tagów i zastąpienie nowego dokumentu JSON `tags`.
+* **Zamień Tagi**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących tagów i zastąpienie nowego dokumentu JSON `tags` .
 
 * **Otrzymywanie powiadomień bliźniaczych**. Ta operacja umożliwia zaplecze rozwiązania powiadamianie o modyfikacji dwuosiowej. W tym celu Twoje rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *twinChangeEvents*. Domyślnie żadna taka trasa nie istnieje, więc nie są wysyłane żadne powiadomienia o przędze. Jeśli współczynnik zmiany jest zbyt wysoki lub z innych przyczyn, takich jak błędy wewnętrzne, IoT Hub może wysłać tylko jedno powiadomienie zawierające wszystkie zmiany. W związku z tym, jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośrednich, należy użyć komunikatów z urządzenia do chmury. Wiadomość z powiadomieniem o przędzy obejmuje właściwości i treść.
 
@@ -199,7 +199,7 @@ Zaplecze rozwiązania działa na bliźniaczych urządzeniach przy użyciu nastę
 
   - Treść
         
-    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład:
+    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład
 
     ```json
     {
@@ -246,7 +246,7 @@ Wszystkie poprzednie operacje wymagają uprawnienia **DeviceConnect** , zgodnie 
 
 Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z następującymi ograniczeniami:
 
-* **Klucze**: wszystkie klucze w obiektach JSON są zakodowane w formacie UTF-8, z uwzględnieniem wielkości liter i do 1 KB. Dozwolone znaki wykluczają znaki kontrolne Unicode (segmenty C0 i `.`C1 `$`), oraz, i Sp.
+* **Klucze**: wszystkie klucze w obiektach JSON są zakodowane w formacie UTF-8, z uwzględnieniem wielkości liter i do 1 KB. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i C1), oraz `.` , `$` i Sp.
 
 * **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są niedozwolone.
 
@@ -288,7 +288,7 @@ Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z 
 
 ## <a name="device-twin-size"></a>Rozmiar przędzy urządzenia
 
-IoT Hub wymusza limit rozmiaru 8 KB dla wartości `tags`, a rozmiar 32 KB jest ograniczony do wartości `properties/desired` i. `properties/reported` Te sumy są wyłącznie poza elementami tylko do odczytu, `$etag`takimi `$version`jak, `$metadata/$lastUpdated`i.
+IoT Hub wymusza limit rozmiaru 8 KB dla wartości `tags` , a rozmiar 32 KB jest ograniczony do wartości `properties/desired` i `properties/reported` . Te sumy są wyłącznie poza elementami tylko do odczytu, takimi jak `$etag` , `$version` i `$metadata/$lastUpdated` .
 
 Rozmiar bliźniaczy jest obliczany w następujący sposób:
 
@@ -302,11 +302,11 @@ Rozmiar bliźniaczy jest obliczany w następujący sposób:
 
 * Złożone wartości właściwości (obiekty zagnieżdżone) są obliczane na podstawie zagregowanego rozmiaru kluczy właściwości i wartości właściwości, które zawierają.
 
-IoT Hub odrzuca z powodu błędu wszystkie operacje, które spowodują zwiększenie rozmiaru `tags`, `properties/desired`lub `properties/reported` dokumentów przekraczających limit.
+IoT Hub odrzuca z powodu błędu wszystkie operacje, które spowodują zwiększenie rozmiaru `tags` , `properties/desired` lub `properties/reported` dokumentów przekraczających limit.
 
 ## <a name="device-twin-metadata"></a>Metadane dotyczące sznurka urządzenia
 
-IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej sznurze urządzenia i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie `YYYY-MM-DDTHH:MM:SS.mmmZ`UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) .
+IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej sznurze urządzenia i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 
 Przykład:
 

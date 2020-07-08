@@ -8,24 +8,23 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/13/2019
-ms.openlocfilehash: 8713e7538ae65fc8e750d5b3244482a5503b0e37
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.date: 06/22/2020
+ms.openlocfilehash: b53a2c0cb3c709a6f22b57b45bef8b2894594a4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602463"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
-Wystąpienie obliczeniowe Azure Machine Learning (wersja zapoznawcza) to w pełni zarządzana stacja robocza oparta na chmurze dla analityków danych. 
+Wystąpienie obliczeniowe Azure Machine Learning to zarządzana stacja robocza oparta na chmurze dla analityków danych.
 
 Wystąpienia obliczeniowe ułatwiają rozpoczęcie pracy z programowaniem Azure Machine Learning, a także zapewnianie możliwości zarządzania i gotowości przedsiębiorstwa dla administratorów IT.  
 
-Użyj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska programistycznego w chmurze.
+Użyj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska programistycznego w chmurze na potrzeby uczenia maszynowego. Mogą one również służyć jako obiekt docelowy obliczeń na potrzeby szkoleń i inferencing na potrzeby tworzenia i testowania.  
 
-Wystąpienia obliczeniowe są zwykle używane jako środowiska deweloperskie.  Mogą one również służyć jako cel obliczeniowy do szkolenia i inferencing na potrzeby programowania i testowania.  W przypadku dużych zadań [klaster obliczeniowy Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) z funkcjami skalowania wielu węzłów jest lepszym rozwiązaniem docelowym obliczeń.
-
+W przypadku szkolenia modelu klasy produkcyjnej Użyj [Azure Machine Learning klastra obliczeniowego](how-to-set-up-training-targets.md#amlcompute) z możliwościami skalowania wielowęzłowego. W celu wdrożenia modelu klasy produkcyjnej należy użyć [klastra usługi Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Dlaczego warto używać wystąpienia obliczeniowego?
 
@@ -33,9 +32,9 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 
 |Najważniejsze korzyści||
 |----|----|
-|Produktywność|Analityki danych mogą tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w swojej przeglądarce internetowej:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)|
-|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH|
-|Wstępnie skonfigurowany &nbsp; lub &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
+|Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym. Możesz również skonfigurować VS Code zdalne Programowanie przy użyciu protokołu [SSH](how-to-set-up-vs-code-remote.md) |
+|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
+|Wstępnie skonfigurowane &nbsp; dla &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Narzędzia i środowiska
@@ -76,8 +75,6 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 
 Wszystkie pakiety języka Python są zainstalowane w środowisku **python 3,6-Azure** .  
 
-Wystąpienia obliczeniowe są zwykle używane jako środowiska deweloperskie.  Mogą one również służyć jako cel obliczeniowy do szkolenia i inferencing na potrzeby programowania i testowania.  W przypadku dużych zadań [klaster obliczeniowy Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) z funkcjami skalowania wielu węzłów jest lepszym rozwiązaniem docelowym obliczeń.
-
 ### <a name="installing-packages"></a>Instalowanie pakietów
 
 Pakiety można instalować bezpośrednio w notesie Jupyter lub RStudio:
@@ -96,13 +93,15 @@ Możesz też uzyskać dostęp do okna terminalu w dowolny z następujących spos
 
 Notesy i skrypty języka R są przechowywane na domyślnym koncie magazynu Twojego obszaru roboczego w udziale plików platformy Azure.  Te pliki znajdują się w katalogu "pliki użytkownika". Ten magazyn ułatwia udostępnianie notesów między wystąpieniami obliczeniowymi. Konto magazynu umożliwia również bezpieczne zachowywanie Twoich notesów po zatrzymaniu lub usunięciu wystąpienia obliczeniowego.
 
-Konto udziału plików platformy Azure w obszarze roboczym jest zainstalowane jako dysk w wystąpieniu obliczeniowym. Ten dysk jest domyślnym katalogiem roboczym dla Jupyter, Jupyter Labs i RStudio.
+Konto udziału plików platformy Azure w obszarze roboczym jest zainstalowane jako dysk w wystąpieniu obliczeniowym. Ten dysk jest domyślnym katalogiem roboczym dla Jupyter, Jupyter Labs i RStudio. Oznacza to, że Notesy i inne pliki tworzone w Jupyter, JupyterLab lub RStudio są automatycznie przechowywane w udziale plików i dostępne do użycia również w innych wystąpieniach obliczeniowych.
 
 Pliki w udziale plików są dostępne we wszystkich wystąpieniach obliczeniowych w tym samym obszarze roboczym. Wszelkie zmiany tych plików w wystąpieniu obliczeniowym będą niezawodnie utrwalane w udziale plików.
 
 Najnowsze przykłady Azure Machine Learning można także klonować do folderu w katalogu plików użytkownika w udziale plików obszaru roboczego.
 
-Pisanie małych plików może być wolniejsze na dyskach sieciowych niż w przypadku zapisu do samej maszyny wirtualnej.  Jeśli piszesz wiele małych plików, spróbuj użyć katalogu bezpośrednio w wystąpieniu obliczeniowym, takim jak `/tmp` katalog. Pamiętaj, że te pliki nie będą dostępne z innych wystąpień obliczeniowych w obszarze roboczym.
+Pisanie małych plików może być wolniejsze na dyskach sieciowych niż zapis na dysku lokalnym wystąpienia obliczeniowego.  Jeśli piszesz wiele małych plików, spróbuj użyć katalogu bezpośrednio w wystąpieniu obliczeniowym, takim jak `/tmp` katalog. Pamiętaj, że te pliki nie będą dostępne z innych wystąpień obliczeniowych. 
+
+Możesz użyć `/tmp` katalogu w wystąpieniu obliczeniowym dla danych tymczasowych.  Nie należy jednak zapisywać dużych plików danych na dysku systemu operacyjnego wystąpienia obliczeniowego.  Zamiast nich należy używać [magazynów](concept-azure-machine-learning-architecture.md#datasets-and-datastores) danych. Jeśli zainstalowano rozszerzenie git JupyterLab, może to również prowadzić do spowolnienia wydajności wystąpienia obliczeniowego.
 
 ## <a name="managing-a-compute-instance"></a>Zarządzanie wystąpieniem obliczeniowym
 
@@ -112,38 +111,75 @@ W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **ob
 
 Można wykonać następujące czynności:
 
-* Tworzenie wystąpienia obliczeniowego. Określ nazwę, typ maszyny wirtualnej platformy Azure, w tym procesory GPU (Uwaga: nie można zmienić typu maszyny wirtualnej po utworzeniu), Włącz/Wyłącz dostęp SSH i skonfiguruj ustawienia sieci wirtualnej opcjonalnie. Można również utworzyć wystąpienie bezpośrednio z poziomu zintegrowanych notesów, Azure Portal, szablonu Menedżer zasobów lub zestawu SDK Azure Machine Learning. Przydziały dedykowanych rdzeni na region, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane Azure Machine Learning przydziału klastra obliczeniowego.
-* Odśwież kartę wystąpienia obliczeniowe
-* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego. Zatrzymaj maszynę wirtualną, gdy nie używasz jej do obniżenia kosztów. Następnie uruchom ją ponownie, gdy będzie potrzebna.
-* Usuwanie wystąpienia obliczeniowego
+* [Utwórz wystąpienie obliczeniowe](#create). 
+* Odśwież kartę wystąpienia obliczeniowe.
+* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego.  Płatność za wystąpienie jest dokonywana za każdym razem, gdy jest ono uruchomione. Zatrzymaj wystąpienie obliczeniowe, gdy nie jest używane, aby obniżyć koszty. Zatrzymywanie wystąpienia obliczeniowego powoduje jego przydział. Następnie uruchom ją ponownie, gdy będzie potrzebna. 
+* Usuń wystąpienie obliczeniowe.
+* Przefiltruj listę wystąpień obliczeniowych do utworzonych przez siebie.  Są to wystąpienia obliczeniowe, do których można uzyskać dostęp.
 
-Dla każdego wystąpienia obliczeniowego w obszarze roboczym możesz:
+Dla każdego wystąpienia obliczeniowego w obszarze roboczym, do którego masz dostęp, możesz:
 
 * Dostęp do Jupyter, JupyterLab, RStudio w wystąpieniu obliczeniowym
 * Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
 * Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
 
-[RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Twórca wystąpienia obliczeniowego ma dla nich przypisane wystąpienie obliczeniowe, ma dostęp do katalogu głównego i może być terminalem za pomocą Jupyter. Wystąpienie obliczeniowe będzie miało jednokrotne logowanie użytkownika Creator, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC i naliczania przebiegów eksperymentu. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Twórca wystąpienia obliczeniowego ma dla nich przypisane wystąpienie obliczeniowe, ma dostęp do katalogu głównego i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało jednokrotne logowanie użytkownika Creator, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC i naliczania przebiegów eksperymentu. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+
+Te akcje można kontrolować za pomocą RBAC:
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego
+
+W obszarze roboczym programu Azure Machine Learning Studio Utwórz nowe wystąpienie obliczeniowe z sekcji **obliczenia** lub w sekcji **notesy** , gdy wszystko będzie gotowe do uruchomienia jednego z notesów.
+
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Tworzenie nowego wystąpienia obliczeniowego":::
+
+
+|Pole  |Opis  |
+|---------|---------|
+|Nazwa obliczeniowa     |  <li>Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.</li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-** jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
+|Typ maszyny wirtualnej |  Wybierz procesor CPU lub GPU. Tego typu nie można zmienić po utworzeniu     |
+|Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+|Włącz/Wyłącz dostęp SSH     |   Dostęp SSH jest domyślnie wyłączony.  Nie można uzyskać dostępu do protokołu SSH. Zmieniono po utworzeniu. Upewnij się, że włączono dostęp, jeśli planujesz interaktywną debugowanie za pomocą usługi [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
+|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną**i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](how-to-enable-virtual-network.md#compute-instance) wirtualnej.        |
 
 Można również utworzyć wystąpienie
-* Bezpośrednio w środowisku zintegrowanych notesów
+* Bezpośrednio w [środowisku zintegrowanych notesów](tutorial-1st-experiment-sdk-setup.md#azure)
 * W Azure Portal
 * Z szablonu Azure Resource Manager
-* Z zestawem SDK Azure Machine Learning
+* Z [zestawem SDK Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Z [rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Przydziały dedykowanych rdzeni na region, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane przy użyciu Azure Machine Learninggo przydziału klastra szkoleniowego. 
+Dedykowane rdzenie na region według przydziału rodziny maszyn wirtualnych i łączny limit przydziału regionalnego, który ma zastosowanie do tworzenia wystąpienia obliczeniowego. jest ujednolicony i udostępniany przy użyciu Azure Machine Learning szkolenia dotyczące klastrów obliczeniowych. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe.
 
-## <a name="compute-target"></a>Docelowy obiekt obliczeniowy
+## <a name="compute-target"></a>Docelowy zasób obliczeniowy
 
-Wystąpienia obliczeniowe mogą służyć jako [obiekt docelowy obliczeń szkoleniowych](concept-compute-target.md#train) podobny do klastrów szkoleniowych Azure Machine Learning COMPUTE. Zainicjuj obsługę wieloprocesorowej maszyny wirtualnej w celu uruchamiania zadań szkolenia rozproszonego przy użyciu TensorFlow/PyTorch szacowania. Możesz również utworzyć konfigurację uruchomieniową i użyć jej do uruchomienia eksperymentu w wystąpieniu obliczeniowym. Wystąpienia obliczeniowego można użyć jako lokalnego celu wdrożenia inferencing na potrzeby scenariuszy testowania/debugowania.
+Wystąpienia obliczeniowe mogą służyć jako [obiekt docelowy obliczeń szkoleniowych](concept-compute-target.md#train) podobny do klastrów szkoleniowych Azure Machine Learning COMPUTE. 
+
+Wystąpienie obliczeniowe:
+* Ma kolejkę zadań.
+* Bezpieczne uruchamianie zadań w środowisku sieci wirtualnej, bez konieczności otwierania portu SSH przez przedsiębiorstwa. Zadanie jest wykonywane w środowisku kontenerowym i pakuje zależności modelu w kontenerze platformy Docker.
+* Może uruchamiać wiele małych zadań równolegle (wersja zapoznawcza).  Dwa zadania na rdzeń mogą działać równolegle, podczas gdy pozostałe zadania są umieszczane w kolejce.
+
+Wystąpienia obliczeniowego można użyć jako lokalnego celu wdrożenia inferencing na potrzeby scenariuszy testowania/debugowania.
+
+> [!NOTE]
+> Zadania szkoleniowe rozproszone nie są obsługiwane w wystąpieniu obliczeniowym.  Użyj (klastrów obliczeniowych) (instrukcje dotyczące konfiguracji-szkolenia-targets. MD # amlcompute) dla szkolenia rozproszonego.
+
+Aby uzyskać więcej informacji, zobacz [szkolenie dotyczące notesu w computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Ten Notes jest również dostępny w folderze Studio **Samples** *(szkolenia/uczenie na computeinstance*).
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Co się stało z maszyną wirtualną notesu?
 
 Wystąpienia obliczeniowe zamieniają maszynę wirtualną notesu.  
 
-Wszystkie pliki notesu przechowywane w udziale plików obszaru roboczego i dane w magazynach danych obszaru roboczego będą dostępne z wystąpienia obliczeniowego. Jednak wszystkie pakiety niestandardowe zainstalowane wcześniej na maszynie wirtualnej notesu będą musiały zostać ponownie zainstalowane w wystąpieniu obliczeniowym. Ograniczenia przydziałów, które dotyczą tworzenia klastrów obliczeniowych, będą również stosowane do tworzenia wystąpień obliczeniowych. 
+Wszystkie pliki notesu przechowywane w udziale plików obszaru roboczego i dane w magazynach danych obszaru roboczego będą dostępne z wystąpienia obliczeniowego. Jednak wszystkie pakiety niestandardowe zainstalowane wcześniej na maszynie wirtualnej notesu będą musiały zostać ponownie zainstalowane w wystąpieniu obliczeniowym. Ograniczenia przydziałów, które dotyczą tworzenia klastrów obliczeniowych, będą również stosowane do tworzenia wystąpień obliczeniowych.
 
-Nie można utworzyć nowych maszyn wirtualnych notesu. Można jednak nadal uzyskiwać dostęp do utworzonych maszyn wirtualnych Notes i korzystać z nich z pełną funkcjonalnością. Wystąpienia obliczeniowe można tworzyć w tym samym obszarze roboczym, co istniejące maszyny wirtualne notesu. 
+Nie można utworzyć nowych maszyn wirtualnych notesu. Można jednak nadal uzyskiwać dostęp do utworzonych maszyn wirtualnych Notes i korzystać z nich z pełną funkcjonalnością. Wystąpienia obliczeniowe można tworzyć w tym samym obszarze roboczym, co istniejące maszyny wirtualne notesu.
 
 
 ## <a name="next-steps"></a>Następne kroki

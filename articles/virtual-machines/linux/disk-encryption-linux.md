@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1ec7328363cf835c733a4d0c266732c6748c829
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601393"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
 
@@ -388,23 +388,7 @@ W przeciwieństwie do składni programu PowerShell interfejs wiersza polecenia n
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>Wyłącz szyfrowanie dla maszyn wirtualnych z systemem Linux
-Szyfrowanie można wyłączyć przy użyciu Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu Menedżer zasobów. 
-
->[!IMPORTANT]
->Wyłączanie szyfrowania przy użyciu Azure Disk Encryption na maszynach wirtualnych z systemem Linux jest obsługiwane tylko dla woluminów danych. Nie jest obsługiwany na woluminach danych lub systemu operacyjnego, jeśli wolumin systemu operacyjnego został zaszyfrowany.  
-
-- **Wyłącz szyfrowanie dysków przy użyciu Azure PowerShell:** Aby wyłączyć szyfrowanie, należy użyć polecenia cmdlet [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType DATA]
-     ```
-
-- **Wyłącz szyfrowanie za pomocą interfejsu wiersza polecenia platformy Azure:** Aby wyłączyć szyfrowanie, użyj polecenia [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
-     ```
-- **Wyłącz szyfrowanie przy użyciu szablonu Menedżer zasobów:** Aby wyłączyć szyfrowanie, użyj szablonu [wyłącz szyfrowanie w uruchomionym szablonie maszyny wirtualnej systemu Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) .
-     1. Kliknij pozycję **Wdrażanie na platformie Azure**.
-     2. Wybierz subskrypcję, grupę zasobów, lokalizację, maszynę wirtualną, warunki prawne i umowę.
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
@@ -420,12 +404,15 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Woluminy dynamiczne.
 - Tymczasowe dyski systemu operacyjnego.
 - Szyfrowanie współużytkowanych/rozproszonych systemów plików, takich jak (ale nie ograniczone do): DFS, GFS, DRDB i CephFS.
-- Przeniesienie zaszyfrowanej maszyny wirtualnej do innej subskrypcji.
+- Przeniesienie zaszyfrowanej maszyny wirtualnej na inną subskrypcję lub region.
+- Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
 - Zrzut awaryjny jądra (kdump).
 - Oracle ACFS (system plików klastra ASM).
 - Maszyny wirtualne Gen2 (zobacz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Maszyny wirtualne serii Lsv2 (zobacz: [Lsv2-Series](../lsv2-series.md)).
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
+- Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
+- Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 
 ## <a name="next-steps"></a>Następne kroki
 

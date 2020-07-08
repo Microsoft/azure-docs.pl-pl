@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych Cisco z platformą Azure Microsoft Docs
-description: Dowiedz się, jak połączyć dane Cisco z platformą Azure.
+description: Dowiedz się, jak połączyć urządzenie Cisco ASA z platformą Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8a64dd3e47384ba2bf7579f8052177252634622
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566044"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Łączenie programu Cisco ASA z platformą Azure — wskaźnikiem
 
@@ -38,7 +38,7 @@ Cisco ASA nie obsługuje CEF, więc dzienniki są wysyłane jako dziennik system
     - Ustaw **port** na 514 lub port ustawiony w agencie.
     - Ustaw **syslog_ip** na adres IP agenta.
 
-1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń Cisco, wyszukaj ciąg `CommonSecurityLog`.
+1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń Cisco, wyszukaj ciąg `CommonSecurityLog` .
 
 1. Przejdź do [kroku 3: weryfikowanie łączności](connect-cef-verify.md).
 

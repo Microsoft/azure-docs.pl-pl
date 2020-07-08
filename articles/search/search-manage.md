@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565906"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -22,13 +22,12 @@ ms.locfileid: "85368281"
 >
 > * [Program PowerShell](search-manage-powershell.md)
 > * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Wyszukiwanie poznawcze to w pełni zarządzana usługa wyszukiwania oparta na chmurze służąca do tworzenia bogatego środowiska wyszukiwania w aplikacjach niestandardowych. W tym artykule omówiono zadania administracyjne usługi, które można wykonać w [Azure Portal](https://portal.azure.com) dla usługi wyszukiwania, która została już zainicjowana. Administrowanie usługami jest lekkie przez projektowanie, ograniczone do następujących zadań:
 
-* Uzyskaj informacje na temat swojej usługi i zawartości na stronie głównej **przeglądu** .
 * Sprawdź magazyn przy użyciu linku **użycie** na średnim poziomie strony.
 * Sprawdź woluminy zapytań i czas oczekiwania przy użyciu linku **monitorowania** średniej strony i czy żądania zostały ograniczone.
 * Zarządzanie dostępem przy użyciu strony **klucze** po lewej stronie.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 100e4b88589f3731d127ccb1060e556c1f3a2f39
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413250"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601636"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -103,7 +103,7 @@ Użytkownicy końcowi, którzy podlegają zasadom, które wymagają zarządzania
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Co to jest logowanie bez hasła?](concept-authentication-passwordless.md)
+[Dowiedz się, jak działa uwierzytelnianie bezhasłem](concept-authentication-passwordless.md)
 
 [Informacje o rejestracji urządzeń](../devices/overview.md#getting-devices-in-azure-ad)
 

@@ -1,26 +1,24 @@
 ---
-title: Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza) przy użyciu programu PowerShell
-description: Dowiedz się, jak migrować konfiguracje zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza)
+title: Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure przy użyciu programu PowerShell
+description: Dowiedz się, jak migrować konfiguracje zapory platformy Azure do zasad zapory platformy Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9dadc875e5e6d35a78930b4a02c48e9cbb6f6ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601330"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure (wersja zapoznawcza) przy użyciu programu PowerShell
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>Migrowanie konfiguracji zapory platformy Azure do zasad zapory platformy Azure przy użyciu programu PowerShell
 
 Za pomocą skryptu Azure PowerShell można migrować istniejące konfiguracje zapory platformy Azure do zasobu zasad zapory platformy Azure. Do wdrożenia zasad można użyć Menedżera zapory platformy Azure.
 
-`AZFWMigrationScript.ps1` Skrypt tworzy firewallpolicy z trzema obiektami RuleCollectionGroup odpowiednio dla ApplicationRuleCollections, NetworkRuleCollections i NatRuleCollections. 
+`AZFWMigrationScript.ps1`Skrypt tworzy firewallpolicy z trzema obiektami RuleCollectionGroup odpowiednio dla ApplicationRuleCollections, NetworkRuleCollections i NatRuleCollections. 
 
 RuleCollectionGroup to nowe grupowanie najwyższego poziomu dla kolekcji reguł na potrzeby przyszłej rozszerzalności. Używanie powyższych wartości domyślnych jest zalecane i jest wykonywane automatycznie z poziomu portalu.
 
@@ -161,4 +159,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o wdrożeniu Menedżera zapory platformy Azure: [Omówienie wdrożenia programu Azure firewall Manager w wersji zapoznawczej](deployment-overview.md).
+Dowiedz się więcej o wdrożeniu Menedżera zapory platformy Azure: [Omówienie wdrażania Menedżera zapory platformy Azure](deployment-overview.md).

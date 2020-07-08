@@ -2,13 +2,13 @@
 title: Przechowywanie i przechowywanie danych w usłudze Azure Application Insights | Microsoft Docs
 description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.openlocfilehash: d77eaa32c8487d1aa87626683b4c29bf1cee0e75
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/30/2020
+ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718686"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601364"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
 
@@ -18,8 +18,8 @@ Najpierw krótka odpowiedź:
 
 * Standardowe moduły telemetrii, które działają "poza Box", prawdopodobnie nie będą wysyłać poufnych danych do usługi. Dane telemetryczne są powiązane z metrykami obciążenia, wydajności i użycia, raportami o wyjątkach i innymi danymi diagnostycznymi. Główne dane użytkownika widoczne w raportach diagnostycznych są adresami URL; Jednak aplikacja nie powinna w żadnym przypadku umieszczać poufnych danych w postaci zwykłego tekstu w adresie URL.
 * Można napisać kod, który wysyła dodatkowe niestandardowe dane telemetryczne, aby ułatwić diagnostykę i użycie monitorowania. (To rozszerzalność to świetna funkcja Application Insights.) Można to zrobić przez pomyłkę, aby napisać ten kod w taki sposób, aby zawierał dane osobowe i inne poufne. Jeśli aplikacja współpracuje z takimi danymi, należy zastosować proces dokładnego przeglądu do całego kodu, który napiszesz.
-* Podczas tworzenia i testowania aplikacji można łatwo sprawdzić, co jest wysyłane przez zestaw SDK. Dane są wyświetlane w oknach wyjściowych debugowania środowiska IDE i przeglądarki. 
-* Dane są przechowywane na serwerach [Microsoft Azure](https://azure.com) w Stanach Zjednoczonych i Europie. (Ale aplikacja może działać w dowolnym miejscu). Platforma Azure ma [silne procesy zabezpieczeń i spełnia szeroki zakres standardów zgodności](https://azure.microsoft.com/support/trust-center/). Tylko ty i Twój Wyznaczeni zespół mają dostęp do danych. Pracownicy firmy Microsoft mogą mieć ograniczony dostęp do niego tylko w określonych ograniczonych okolicznościach z Twoją wiedzą. Jest on szyfrowany podczas przesyłania i przechowywania.
+* Podczas tworzenia i testowania aplikacji można łatwo sprawdzić, co jest wysyłane przez zestaw SDK. Dane są wyświetlane w oknach wyjściowych debugowania środowiska IDE i przeglądarki.
+* Lokalizację można wybrać podczas tworzenia nowego zasobu Application Insights. Dowiedz się więcej o dostępności Application Insights [na region.](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 *   Przejrzyj zebrane dane, ponieważ mogą one obejmować dane, które są dozwolone w pewnych okolicznościach, ale nie w innych.  Dobrym przykładem jest nazwa urządzenia. Nazwa urządzenia z serwera nie ma wpływu na prywatność i jest przydatna, ale nazwa urządzenia z telefonu lub laptopu może mieć wpływ na prywatność i być mniej przydatna. Zestaw SDK opracowany głównie dla serwerów docelowych, domyślnie zbiera nazwę urządzenia i może być zastąpiony w normalnych zdarzeniach i wyjątkach.
 
 W dalszej części tego artykułu szczegółowo opracowano te odpowiedzi. Jest ona zaprojektowana jako samodzielna, aby można było ją pokazać współpracownikom, którzy nie są częścią swojego bezpośredniego zespołu.
