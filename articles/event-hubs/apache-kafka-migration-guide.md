@@ -4,13 +4,12 @@ description: W tym artykule pokazano, jak konsumenci i producenci korzystający 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322739"
 ---
-# <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrowanie do Event Hubs platformy Azure dla ekosystemów Apache Kafka
+# <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migracja do usługi Azure Event Hubs z ekosystemu Apache Kafka
 Usługa Azure Event Hubs udostępnia punkt końcowy Apache Kafka, który umożliwia nawiązywanie połączenia z Event Hubs przy użyciu protokołu Kafka. Wprowadzając minimalne zmiany w istniejącej aplikacji Kafka, możesz połączyć się z usługą Azure Event Hubs i skorzystać korzyści z ekosystemu platformy Azure. Event Hubs obsługi Kafka [Apache Kafka wersja 1,0](https://kafka.apache.org/10/documentation.html) i nowsza.
 
 ## <a name="pre-migration"></a>Czynności przed migracją 

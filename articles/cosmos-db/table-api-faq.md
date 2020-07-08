@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392356"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
@@ -43,7 +42,7 @@ Istnieją pewne różnice w zachowaniu, które użytkownicy pochodzą z usługi 
 
 * W przypadku interfejsu API REST istnieje kilka punktów końcowych/opcji zapytania, które nie są obsługiwane przez Azure Cosmos DB interfejs API tabel:
 
-  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Wyjaśnienie |
+  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Objaśnienie |
   | ------------| ------------- | ---------- | ----------- |
   | GET, PUT | `/?restype=service@comp=properties`| [Ustawianie właściwości usługi Table Service](/rest/api/storageservices/set-table-service-properties) i [pobieranie właściwości usługi Table Service](/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy służy do ustawiania reguł CORS, konfiguracji analizy magazynu i ustawień rejestrowania. Mechanizm CORS nie jest obecnie obsługiwany, a analiza i rejestrowanie są obsługiwane inaczej w Azure Cosmos DB niż tabele usługi Azure Storage |
   | Opcje | `/<table-resource-name>` | [Żądanie tabeli CORS przed lotem](/rest/api/storageservices/preflight-table-request) | Jest to część mechanizmu CORS, który Azure Cosmos DB obecnie nie jest obsługiwany. |

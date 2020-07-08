@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 61f555dc8f24ce303934187d36ee994b25b31920
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920080"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Typowe problemy, które powodują odtwarzanie ról
 W tym artykule omówiono niektóre typowe przyczyny problemów z wdrażaniem i przedstawiono wskazówki dotyczące rozwiązywania problemów, aby pomóc w rozwiązaniu tych problemów. Wskazanie, że problem występuje w przypadku aplikacji, gdy uruchomienie wystąpienia roli nie powiedzie się lub przechodzi między stanem inicjowania, zajętości i zatrzymywania.
@@ -32,7 +31,7 @@ Jeśli rola w aplikacji korzysta z dowolnego zestawu, który nie jest częścią
 Przed skompilowaniem i spakowaniem aplikacji sprawdź następujące kwestie:
 
 * Jeśli używasz programu Visual Studio, upewnij się, że właściwość **copy Local** jest ustawiona na **wartość true** dla każdego przywoływanego zestawu w projekcie, który nie jest częścią zestawu Azure SDK lub .NET Framework.
-* Upewnij się, że plik Web. config nie odwołuje się do żadnych nieużywanych zestawów w elemencie compilation.
+* Upewnij się, że plik web.config nie odwołuje się do żadnych nieużywanych zestawów w elemencie compilation.
 * **Akcja kompilacji** każdego pliku. cshtml ma ustawioną **zawartość**. Daje to pewność, że pliki będą prawidłowo wyświetlane w pakiecie i umożliwią wyświetlanie innych plików, do których istnieją odwołania w pakiecie.
 
 ## <a name="assembly-targets-wrong-platform"></a>Niewłaściwa platforma dla zestawu
@@ -45,15 +44,17 @@ Wszystkie wyjątki, które są zgłaszane przez metody klasy [RoleEntryPoint] , 
 Metoda [Run] jest przeznaczona do uruchamiania na czas nieokreślony. Jeśli kod zastępuje metodę [Run] , powinien on być uśpiony w nieskończoność. Jeśli metoda [Run] zwraca metodę, odtwarzana jest rola.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Nieprawidłowe ustawienie DiagnosticsConnectionString
-Jeśli aplikacja używa Diagnostyka Azure, plik konfiguracji usługi musi określać ustawienie `DiagnosticsConnectionString` konfiguracji. To ustawienie powinno określać połączenie HTTPS z kontem magazynu na platformie Azure.
+Jeśli aplikacja używa Diagnostyka Azure, plik konfiguracji usługi musi określać `DiagnosticsConnectionString` ustawienie konfiguracji. To ustawienie powinno określać połączenie HTTPS z kontem magazynu na platformie Azure.
 
-Aby upewnić się `DiagnosticsConnectionString` , że Twoje ustawienie jest poprawne przed wdrożeniem pakietu aplikacji na platformie Azure, sprawdź następujące kwestie:  
+Aby upewnić się, że Twoje `DiagnosticsConnectionString` ustawienie jest poprawne przed wdrożeniem pakietu aplikacji na platformie Azure, sprawdź następujące kwestie:  
 
-* `DiagnosticsConnectionString` Ustawienie wskazuje na prawidłowe konto magazynu na platformie Azure.  
+* `DiagnosticsConnectionString`Ustawienie wskazuje na prawidłowe konto magazynu na platformie Azure.  
   Domyślnie to ustawienie wskazuje na emulowane konto magazynu, dlatego należy jawnie zmienić to ustawienie przed wdrożeniem pakietu aplikacji. Jeśli to ustawienie nie zostanie zmienione, wyjątek jest zgłaszany, gdy wystąpienie roli podejmie próbę uruchomienia monitora diagnostycznego. Może to spowodować, że wystąpienie roli będzie odtwarzane w nieskończoność.
 * Parametry połączenia są określone w następującym [formacie](../storage/common/storage-configure-connection-string.md). (Protokół musi być określony jako HTTPS). Zastąp ciąg moje *AccountName* nazwą konta magazynu i *MyAccountKey* z kluczem dostępu:    
 
-        DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```console
+DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+```
 
   Jeśli tworzysz aplikację przy użyciu narzędzi platformy Azure dla Microsoft Visual Studio, możesz użyć stron właściwości do ustawienia tej wartości.
 
@@ -68,4 +69,4 @@ Zobacz więcej scenariuszy tworzenia ról na [seriach blogów Jan Williamson](ht
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Uruchom]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

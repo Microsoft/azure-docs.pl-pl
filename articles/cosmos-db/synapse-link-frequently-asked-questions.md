@@ -6,16 +6,15 @@ ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d16da1588c2fa90c4a40a829ed660fd089ff29ac
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921186"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
-Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics. Umożliwia klientom Uruchamianie analizy niemal w czasie rzeczywistym na podstawie danych operacyjnych z pełną izolacją wydajności z obciążeń transakcyjnych i bez potoku ETL. Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Synapse Azure Cosmos DB.
+Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics. Umożliwia klientom Uruchamianie analizy niemal w czasie rzeczywistym na podstawie danych operacyjnych z pełną izolacją wydajności z obciążeń transakcyjnych i bez potoku ETL. W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące usługi Synapse Link dla usługi Azure Cosmos DB.
 
 ## <a name="general-faq"></a>Ogólne często zadawane pytania
 
@@ -29,6 +28,9 @@ Podczas planowania konfigurowania wieloregionowego konta platformy Azure Cosmos 
 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Czy mogę włączyć link Synapse tylko dla pewnego regionu, a nie wszystkich regionów w konfiguracji konta wieloregionowego?
 W wersji zapoznawczej, gdy łącze Synapse jest włączone dla konta wieloregionowego, magazyn analityczny jest tworzony we wszystkich regionach. Dane podstawowe są zoptymalizowane pod kątem przepływności i spójności transakcyjnej w magazynie transakcyjnym.
+
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Czy funkcja tworzenia kopii zapasowych i przywracania jest obsługiwana dla kont Synapse z linkami?
+W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń produkcyjnych, które wymagają funkcji tworzenia kopii zapasowych i przywracania, zaleca się, aby nie włączać linku Synapse na tych kontach baz danych. 
 
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Czy mogę wyłączyć funkcję linku Synapse dla konta usługi Azure Cosmos?
 Obecnie po włączeniu funkcji usługi Synapse Link na poziomie konta nie można jej wyłączyć.  Jeśli chcesz wyłączyć tę funkcję, musisz usunąć i ponownie utworzyć nowe konto usługi Azure Cosmos.

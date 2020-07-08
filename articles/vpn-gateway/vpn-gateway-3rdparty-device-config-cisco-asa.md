@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986097"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/No BGP)
@@ -53,7 +52,7 @@ Aby uzyskać instrukcje krok po kroku dotyczące kompilowania konfiguracji platf
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Informacje o sieci wirtualnej i bramie sieci VPN
 Ta sekcja zawiera listę parametrów dla przykładu.
 
-| **Konstruktora**                | **Wartość**                    |
+| **Parametr**                | **Wartość**                    |
 | ---                          | ---                          |
 | Prefiksy adresów sieci wirtualnej        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Adres IP bramy sieci VPN platformy Azure         | Azure_Gateway_Public_IP      |

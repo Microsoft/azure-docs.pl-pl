@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042624"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Udostępnianie i katalogowanie nowych dzierżawców w aplikacji SaaS przy użyciu wielodostępnego podzielonej na fragmenty Azure SQL Database
@@ -103,7 +102,7 @@ Podobnie jak w przypadku dowolnej aplikacji, Wingtip będzie się rozwijać z up
 
 W przypadku aplikacji SaaS zmiany te muszą zostać wprowadzone w sposób skoordynowany — potencjalnie w bardzo wielu bazach danych dzierżaw. Aby te zmiany znajdowały się w przyszłych bazach danych dzierżaw, należy je włączyć w procesie aprowizacji. To wyzwanie jest szczegółowo opisane w [samouczku zarządzania schematami](saas-tenancy-schema-management.md).
 
-#### <a name="scripts"></a>Scripts
+#### <a name="scripts"></a>Skrypty
 
 Skrypty aprowizacji dzierżawców w tym samouczku obsługują oba z następujących scenariuszy:
 - Inicjowanie obsługi dzierżawy w istniejącej bazie danych udostępnionej innym dzierżawcom.
@@ -156,7 +155,7 @@ Poniżej przedstawiono najważniejsze elementy przepływu pracy aprowizacji, kt�
 
 Aby zrozumieć, w jaki sposób aplikacja Wingtip implementuje nowe udostępnianie dzierżawy w udostępnionej bazie danych, Dodaj punkt przerwania i przejdź przez przepływ pracy:
 
-1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* i ustawiają następujące parametry:
+1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły edukacyjne \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* i ustawiają następujące parametry:
    - **$TenantName**  =  **Bushwillow Blues**, nazwa nowego miejsca.
    - **$VenueType**  =  **Blues**, jeden ze wstępnie zdefiniowanych typów miejsc: blues, ClassicalMusic, odpowiedzialna, Jazz, judo, motorracing, Multipurpose, Opera, ROCKMUSIC, piłka nożna (małe litery, bez spacji).
    - **$DemoScenario**  =  **1**, aby udostępnić dzierżawcę w udostępnionej bazie danych innym dzierżawcom.
@@ -196,7 +195,7 @@ Poniżej przedstawiono najważniejsze elementy przepływu pracy, które należy 
 
 Teraz przechodzenie przez proces skryptu podczas tworzenia dzierżawy we własnej bazie danych:
 
-1. Nadal w... \\ Moduły uczenia \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* ustawiają następujące parametry:
+1. Nadal w... \\ Moduły uczenia \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* ustawiać następujące parametry:
    - **$TenantName**  =  **Sequoia piłka nożna**, nazwisko nowego miejsca.
    - **$VenueType**  =  **piłka nożna**, jeden ze wstępnie zdefiniowanych typów miejsc: blues, ClassicalMusic, odpowiedzialna, Jazz, judo, motorracing, Multipurpose, Opera, ROCKMUSIC, piłka nożna (małe litery, bez spacji).
    - **$DemoScenario**  =  **2**, aby udostępnić dzierżawcom swoją własną bazę danych.
@@ -213,7 +212,7 @@ Teraz przechodzenie przez proces skryptu podczas tworzenia dzierżawy we własne
 
 W tym ćwiczeniu zainicjujemy partię 17 dzierżawców. Zaleca się zainicjowanie tej partii dzierżawców przed rozpoczęciem innych samouczków Wingtip, aby umożliwić pracę z innymi bazami danych.
 
-1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1* i Zmień parametr *$DemoScenario* na 4:
+1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* i zmienić parametr *$DemoScenario* na 4:
    - **$DemoScenario**  =  **4**, aby zainicjować obsługę partii dzierżawców w udostępnionej bazie danych.
 
 2. Naciśnij klawisz **F5** i uruchom skrypt.

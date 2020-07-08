@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83674228"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
@@ -38,7 +37,7 @@ Zespół ds. operacyjnych jest odpowiedzialny za zarządzanie infrastrukturą, a
 
 Dane można skonsolidować z różnych źródeł i połączyć dane z usług platformy Azure z istniejącym środowiskiem lokalnym. Dzienniki Azure Monitor również wyraźnie oddzielają kolekcję danych od akcji podjętej na tych danych, dzięki czemu wszystkie akcje są dostępne dla wszystkich rodzajów danych.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 [Azure Automation](/azure/automation/automation-intro) zapewnia sposób automatyzacji ręcznych, długotrwałych, podatnych na błędy i często powtarzanych zadań, które są często wykonywane w chmurze i środowisku przedsiębiorstwa. Oszczędza czas i zwiększa niezawodność zadań administracyjnych. Program planuje również automatyczne wykonywanie tych zadań w regularnych odstępach czasu. Procesy można zautomatyzować za pomocą elementów Runbook lub automatyzując zarządzanie konfiguracją przy użyciu konfiguracji żądanego stanu.
 
@@ -54,7 +53,7 @@ Aby uzyskać więcej informacji, zobacz [tabelę składników Azure Backup](/azu
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) zapewnia ciągłość działania przez organizowanie replikacji lokalnych maszyn wirtualnych i fizycznych na platformę Azure lub do lokacji dodatkowej. Jeśli lokacja główna jest niedostępna, przełączenie w tryb failover do lokalizacji dodatkowej spowoduje, że użytkownicy będą mogli kontynuować pracę. Powrót po awarii, gdy system wróci do kolejności roboczej. Użyj Azure Security Center, aby wykonywać bardziej inteligentne i efektywne wykrywanie zagrożeń.
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-enable-sso-scenario) to kompleksowa usługa tożsamości:
 

@@ -7,10 +7,9 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391846"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710545"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
@@ -55,7 +54,7 @@ Utwórz dwie aplikacje sieci Web, jeden w każdym planie App Service.
 1. W lewym górnym rogu strony Azure Portal wybierz pozycję **Utwórz zasób**.
 2. Wpisz ciąg **aplikacja sieci Web** na pasku wyszukiwania i naciśnij klawisz ENTER.
 3. Wybierz pozycję **aplikacja sieci Web**.
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 5. Zaakceptuj wartości domyślne i Skorzystaj z poniższej tabeli, aby skonfigurować dwie aplikacje sieci Web:
 
    |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|App Service plan/lokalizacja

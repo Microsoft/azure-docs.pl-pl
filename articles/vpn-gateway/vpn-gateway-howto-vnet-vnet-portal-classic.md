@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84985475"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurowanie połączenia Sieć wirtualna-sieć wirtualna (klasyczna)
@@ -23,7 +22,7 @@ Ten artykuł pomaga utworzyć połączenie bramy sieci VPN między sieciami wirt
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)

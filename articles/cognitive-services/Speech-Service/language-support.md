@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 88c116121452fb00397b8d99c21e9f02b1796f00
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
-ms.translationtype: MT
+ms.openlocfilehash: 148b344d469c78936b56b96090c76e379bb63731
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85559825"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027498"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -36,53 +35,53 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Regionalne  | Język                          | Obsługiwane | Dostosowania                                    |
-|---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)                      | Tak       | Nie                                                |
-| `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Tak       | Model językowy                                    |
-| `ar-EG` | Arabski (Egipt)                    | Tak       | Model językowy                                    |
-| `ar-IL` | Arabski (Izrael)                   | Tak       | Nie                                                |
-| `ar-JO` | Arabski (Jordania)                   | Tak       | Nie                                                |
-| `ar-KW` | Arabski (Kuwejt)                   | Tak       | Nie                                                |
-| `ar-LB` | Arabski (Liban)                  | Tak       | Nie                                                |
-| `ar-PS` | Arabski (palestyński)                | Tak       | Nie                                                |
-| `ar-QA` | Arabski (katar)                    | Tak       | Nie                                                |
-| `ar-SA` | Arabski (Arabia Saudyjska)             | Tak       | Nie                                                |
-| `ar-SY` | Arabski (Syria)                    | Tak       | Model językowy                                    |
-| `ca-ES` | Kataloński                           | Tak       | Model językowy                                    |
-| `da-DK` | Duński (Dania)                  | Tak       | Model językowy                                    |
-| `de-DE` | Niemiecki (Niemcy)                  | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `en-AU` | Angielski (Australia)               | Tak       | Model akustyczny<br>Model językowy                  |
-| `en-CA` | Angielski (Kanada)                  | Tak       | Model akustyczny<br>Model językowy                  |
-| `en-GB` | Angielski (Zjednoczone Królestwo)          | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `en-IN` | Angielski (Indie)                   | Tak       | Model akustyczny<br>Model językowy                  |
-| `en-NZ` | Angielski (Nowa Zelandia)             | Tak       | Model akustyczny<br>Model językowy                  |
-| `en-US` | Angielski (Stany Zjednoczone)           | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `es-ES` | hiszpański (Hiszpania)                   | Tak       | Model akustyczny<br>Model językowy                  |
-| `es-MX` | Hiszpański (Meksyk)                  | Tak       | Model akustyczny<br>Model językowy                  |
-| `fi-FI` | Fiński (Finlandia)                 | Tak       | Model językowy                                    |
-| `fr-CA` | francuski (Kanada)                   | Tak       | Model akustyczny<br>Model językowy                  |
-| `fr-FR` | Francuski (Francja)                   | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `gu-IN` | Gudżarati (Indyjski)                 | Tak       | Model językowy                                    |
-| `hi-IN` | Hindi (Indie)                     | Tak       | Model akustyczny<br>Model językowy                  |
-| `it-IT` | Włoski (Włochy)                   | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `ja-JP` | Japoński (Japonia)                  | Tak       | Model językowy                                    |
-| `ko-KR` | Koreański (Korea)                    | Tak       | Model językowy                                    |
-| `mr-IN` | Marathi (Indie)                   | Tak       | Model językowy                                    |
-| `nb-NO` | Norweski (bokmål) (Norwegia)       | Tak       | Model językowy                                    |
-| `nl-NL` | Niderlandzki (Holandia)               | Tak       | Model językowy                                    |
-| `pl-PL` | Polski (Polska)                   | Tak       | Model językowy                                    |
-| `pt-BR` | Portugalski (Brazylia)               | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `pt-PT` | Portugalski (Portugalia)             | Tak       | Model językowy                                    |
-| `ru-RU` | Rosyjski (Rosja)                  | Tak       | Model akustyczny<br>Model językowy                  |
-| `sv-SE` | Szwedzki (Szwecja)                  | Tak       | Model językowy                                    |
-| `ta-IN` | Tamilski (Indie)                     | Tak       | Model językowy                                    |
-| `te-IN` | Telugu (Indie)                    | Tak       | Model językowy                                    |
-| `th-TH` | Tajski (Tajlandia)                   | Tak       | Nie                                                |
-| `tr-TR` | Turecki (Turcja)                  | Tak       | Model językowy                                    |
-| `zh-CN` | Chiński (mandarynki, uproszczony)    | Tak       | Model akustyczny<br>Model językowy                  |
-| `zh-HK` | Chiński (kantoński, tradycyjny)  | Tak       | Model językowy                                    |
-| `zh-TW` | Chiński (tajwański mandarynki)      | Tak       | Model językowy                                    |
+| Regionalne  | Język                          | Dostosowania                                    |
+|---------|-----------------------------------|---------------------------------------------------|
+| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)                      | Nie                                                |
+| `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Model językowy                                    |
+| `ar-EG` | Arabski (Egipt)                    | Model językowy                                    |
+| `ar-IL` | Arabski (Izrael)                   | Nie                                                |
+| `ar-JO` | Arabski (Jordania)                   | Nie                                                |
+| `ar-KW` | Arabski (Kuwejt)                   | Nie                                                |
+| `ar-LB` | Arabski (Liban)                  | Nie                                                |
+| `ar-PS` | Arabski (palestyński)                | Nie                                                |
+| `ar-QA` | Arabski (katar)                    | Nie                                                |
+| `ar-SA` | Arabski (Arabia Saudyjska)             | Nie                                                |
+| `ar-SY` | Arabski (Syria)                    | Model językowy                                    |
+| `ca-ES` | Kataloński                           | Model językowy                                    |
+| `da-DK` | Duński (Dania)                  | Model językowy                                    |
+| `de-DE` | Niemiecki (Niemcy)                  | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-AU` | Angielski (Australia)               | Model akustyczny<br>Model językowy                  |
+| `en-CA` | Angielski (Kanada)                  | Model akustyczny<br>Model językowy                  |
+| `en-GB` | Angielski (Zjednoczone Królestwo)          | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-IN` | Angielski (Indie)                   | Model akustyczny<br>Model językowy                  |
+| `en-NZ` | Angielski (Nowa Zelandia)             | Model akustyczny<br>Model językowy                  |
+| `en-US` | Angielski (Stany Zjednoczone)           | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `es-ES` | hiszpański (Hiszpania)                   | Model akustyczny<br>Model językowy                  |
+| `es-MX` | Hiszpański (Meksyk)                  | Model akustyczny<br>Model językowy                  |
+| `fi-FI` | Fiński (Finlandia)                 | Model językowy                                    |
+| `fr-CA` | francuski (Kanada)                   | Model akustyczny<br>Model językowy                  |
+| `fr-FR` | Francuski (Francja)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `gu-IN` | Gudżarati (Indyjski)                 | Model językowy                                    |
+| `hi-IN` | Hindi (Indie)                     | Model akustyczny<br>Model językowy                  |
+| `it-IT` | Włoski (Włochy)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `ja-JP` | Japoński (Japonia)                  | Model językowy                                    |
+| `ko-KR` | Koreański (Korea)                    | Model językowy                                    |
+| `mr-IN` | Marathi (Indie)                   | Model językowy                                    |
+| `nb-NO` | Norweski (bokmål) (Norwegia)       | Model językowy                                    |
+| `nl-NL` | Niderlandzki (Holandia)               | Model językowy                                    |
+| `pl-PL` | Polski (Polska)                   | Model językowy                                    |
+| `pt-BR` | Portugalski (Brazylia)               | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `pt-PT` | Portugalski (Portugalia)             | Model językowy                                    |
+| `ru-RU` | Rosyjski (Rosja)                  | Model akustyczny<br>Model językowy                  |
+| `sv-SE` | Szwedzki (Szwecja)                  | Model językowy                                    |
+| `ta-IN` | Tamilski (Indie)                     | Model językowy                                    |
+| `te-IN` | Telugu (Indie)                    | Model językowy                                    |
+| `th-TH` | Tajski (Tajlandia)                   | Nie                                                |
+| `tr-TR` | Turecki (Turcja)                  | Model językowy                                    |
+| `zh-CN` | Chiński (mandarynki, uproszczony)    | Model akustyczny<br>Model językowy                  |
+| `zh-HK` | Chiński (kantoński, tradycyjny)  | Model językowy                                    |
+| `zh-TW` | Chiński (tajwański mandarynki)      | Model językowy                                    |
 
 ## <a name="text-to-speech"></a>Zamiana tekstu na mowę
 

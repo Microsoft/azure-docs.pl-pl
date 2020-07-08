@@ -3,12 +3,11 @@ title: Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Dowiedz się, jak opublikować ofertę usługi zarządzanej, która dołączy klientów do zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 05/04/2020
 ms.topic: how-to
-ms.openlocfilehash: f1aef8bbf5279891fb8edf2222cc1dda3326bdd6
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.openlocfilehash: 214a71faca59072660f1e1f413cb107d8e8f6fc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920902"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -18,7 +17,7 @@ W tym artykule dowiesz się, jak opublikować publiczną lub prywatną ofertę u
 
 Musisz mieć prawidłowe [konto w centrum partnerskim](../../marketplace/partner-center-portal/create-account.md) , aby tworzyć i publikować oferty. Jeśli nie masz jeszcze konta, [proces rejestracji](https://aka.ms/joinmarketplace) przeprowadzi Cię przez kroki tworzenia konta w centrum partnerskim i rejestrowania się w komercyjnym programie Marketplace.
 
-Zgodnie z [wymaganiami dotyczącymi certyfikacji oferty usługi zarządzanej](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements)musisz mieć [poziom kompetencji w chmurze Silver lub Gold](https://docs.microsoft.com/partner-center/learn-about-competencies) , aby opublikować ofertę [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) usługi zarządzanej.
+Zgodnie z [wymaganiami dotyczącymi certyfikacji oferty usługi zarządzanej](/legal/marketplace/certification-policies#7004-business-requirements)musisz mieć [poziom kompetencji w chmurze Silver lub Gold](/partner-center/learn-about-competencies) , aby opublikować ofertę [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) usługi zarządzanej.
 
 Identyfikator Microsoft Partner Network (MPN) zostanie [automatycznie skojarzony](../../billing/billing-partner-admin-link-started.md) z ofertami, które publikujesz, aby śledzić swój wpływ na zaangażowanie klientów.
 
@@ -29,7 +28,7 @@ Identyfikator Microsoft Partner Network (MPN) zostanie [automatycznie skojarzony
 
 Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia oferty, w tym wszystkich informacji i zasobów, które należy podać, zobacz [Tworzenie oferty usługi zarządzanej](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Aby dowiedzieć się więcej o ogólnym procesie publikowania, zobacz artykuł [Azure Marketplace i Podręcznik publikowania AppSource](../../marketplace/marketplace-publishers-guide.md). Należy również zapoznać się z [komercyjnymi zasadami certyfikacji portalu Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies), szczególnie w sekcji [usługi zarządzane](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) .
+Aby dowiedzieć się więcej o ogólnym procesie publikowania, zobacz artykuł [Azure Marketplace i Podręcznik publikowania AppSource](../../marketplace/marketplace-publishers-guide.md). Należy również zapoznać się z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies), szczególnie w sekcji [usługi zarządzane](/legal/marketplace/certification-policies#700-managed-services) .
 
 Po dodaniu oferty przez klienta będzie można delegować jedną lub więcej subskrypcji lub grup zasobów, które zostaną następnie dołączone [do zarządzania zasobami delegowanymi przez platformę Azure](#the-customer-onboarding-process).
 
@@ -47,7 +46,7 @@ Po zakończeniu wszystkich sekcji następnym krokiem jest opublikowanie oferty w
 Po dodaniu oferty przez klienta będzie można [delegować co najmniej jedną określoną subskrypcję lub grupę zasobów](view-manage-service-providers.md#delegate-resources), która następnie zostanie dołączona do zarządzania zasobami delegowanymi przez platformę Azure. Jeśli klient zaakceptuje ofertę, ale nie oddelegowano jeszcze żadnych zasobów, w górnej części **strony dostawcy** [**usług**](view-manage-service-providers.md) w Azure Portal zostanie wyświetlona Uwaga.
 
 > [!IMPORTANT]
-> Delegowanie musi odbywać się przez konto niebędące Gośćmi w dzierżawie klienta, które ma [wbudowaną rolę właściciela](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) dla dołączanej subskrypcji (lub która zawiera grupy zasobów, które są dołączane). Aby wyświetlić wszystkich użytkowników, którzy mogą delegować subskrypcję, użytkownik w dzierżawie może wybrać subskrypcję w Azure Portal, otworzyć funkcję **Kontrola dostępu (IAM)** i [wyświetlić wszystkich użytkowników z rolą właściciela](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Delegowanie musi odbywać się przez konto niebędące Gośćmi w dzierżawie klienta, które ma [wbudowaną rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) dla dołączanej subskrypcji (lub która zawiera grupy zasobów, które są dołączane). Aby wyświetlić wszystkich użytkowników, którzy mogą delegować subskrypcję, użytkownik w dzierżawie może wybrać subskrypcję w Azure Portal, otworzyć funkcję **Kontrola dostępu (IAM)** i [wyświetlić wszystkich użytkowników z rolą właściciela](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Gdy klient deleguje subskrypcję (lub co najmniej jedną grupę zasobów w ramach subskrypcji), dostawca zasobów **Microsoft. ManagedServices** zostanie zarejestrowany dla tej subskrypcji, a użytkownicy w Twojej dzierżawie będą mogli uzyskiwać dostęp do delegowanych zasobów zgodnie z autoryzacjami w ofercie.
 

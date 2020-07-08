@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
 ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984885"
 ---
 # <a name="create-python-model-module"></a>Utwórz moduł modelu języka Python

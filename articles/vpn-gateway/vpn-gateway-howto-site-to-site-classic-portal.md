@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1f096993645aca6999667af88c91d3f55f79d914
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983057"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
@@ -21,7 +20,7 @@ Ten artykuł pokazuje, jak używać witryny Azure Portal do tworzenia połączen
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Interfejs wiersza polecenia](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
 > 

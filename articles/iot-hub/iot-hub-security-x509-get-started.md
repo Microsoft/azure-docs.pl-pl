@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759637"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurowanie zabezpieczeń X.509 w usłudze Azure IoT Hub
@@ -47,7 +46,7 @@ Możesz wybrać jeden z następujących sposobów uzyskiwania certyfikatów:
 
 W tych krokach pokazano, jak dodać nowy urząd certyfikacji do centrum IoT Hub za pomocą portalu.
 
-1. W Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **Ustawienia** > **Certyfikaty** dla centrum.
+1. W Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **Ustawienia**  >  **Certyfikaty** dla centrum.
 
 1. Wybierz pozycję **Dodaj** , aby dodać nowy certyfikat.
 
@@ -73,7 +72,7 @@ W tych krokach pokazano, jak dodać nowy urząd certyfikacji do centrum IoT Hub 
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Tworzenie urządzenia X. 509 dla Centrum IoT Hub
 
-1. W Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **Explorer** > **urządzenia IoT**.
+1. W Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **Explorer**  >  **urządzenia IoT**.
 
 1. Wybierz pozycję **Nowy** , aby dodać nowe urządzenie.
 
@@ -181,7 +180,7 @@ Następnie pokażemy, jak utworzyć aplikację w języku C# w celu symulowania u
 
    1. Przejdź do folderu, który zawiera Twoje rozwiązanie, a następnie przejdź do ścieżki *bin/debug* w folderze rozwiązania.
 
-   1. Uruchom aplikację **SimulateX509Device. exe** z wiersza polecenia.
+   1. Uruchom **SimulateX509Device.exe** aplikacji z wiersza polecenia.
 
    Urządzenie powinno być widoczne, aby pomyślnie nawiązać połączenie z centrum i wysłać zdarzenia.
 

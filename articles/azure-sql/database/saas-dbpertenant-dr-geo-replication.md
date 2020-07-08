@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 53d12510c4960b16d56ee32f07ca96bc398f999a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84043156"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
@@ -110,7 +109,7 @@ W tym zadaniu zostanie rozpoczęty proces, który synchronizuje konfigurację se
 
 1. W _ISE programu PowerShell_Otwórz plik. ..\Learning Modules\UserConfig.PSM1. Zastąp `<resourcegroup>` `<user>` wartości i w wierszach 10 i 11 wartością używaną podczas wdrażania aplikacji.  Zapisz plik!
 
-2. W *ISE programu PowerShell*Otwórz skrypt. ..\Learning Modules\Business, a następnie wybierz polecenie:
+2. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw:
     * **$DemoScenario = 1**, uruchom zadanie w tle, które synchronizuje serwer dzierżawy i informacje o konfiguracji puli do wykazu
 
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt synchronizacji. Zostanie otwarta nowa sesja programu PowerShell w celu zsynchronizowania konfiguracji zasobów dzierżawy.
@@ -128,7 +127,7 @@ W tym zadaniu zostanie rozpoczęty proces służący do wdrażania zduplikowaneg
 > [!Note]
 > W tym samouczku Dodano ochronę replikacji geograficznej do przykładowej aplikacji biletów Wingtip. W scenariuszu produkcyjnym dla aplikacji korzystającej z replikacji geograficznej każda dzierżawa zostanie zainicjowana z bazą danych z replikacją geograficzną od samego początku. Zobacz [Projektowanie usług o wysokiej dostępności przy użyciu Azure SQL Database](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
-1. W *ISE programu PowerShell*Otwórz skrypt. ..\Learning Modules\Business, a następnie ustaw następujące wartości:
+1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
     * **$DemoScenario = 2**, Tworzenie dublowanego środowiska odzyskiwania obrazu i replikowanie wykazu oraz baz danych dzierżaw
 
 2. Naciśnij klawisz **F5**, aby uruchomić skrypt. Zostanie otwarta nowa sesja programu PowerShell w celu utworzenia replik.
@@ -181,7 +180,7 @@ Skrypt odzyskiwania wykonuje następujące zadania:
 
 Teraz Załóżmy, że wystąpi awaria w regionie, w którym aplikacja jest wdrażana, i uruchomienie skryptu odzyskiwania:
 
-1. W *ISE programu PowerShell*Otwórz skrypt. ..\Learning Modules\Business, a następnie ustaw następujące wartości:
+1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
     * **$DemoScenario = 3**, Odzyskaj aplikację do regionu odzyskiwania, przełączając w tryb failover do replik
 
 2. Naciśnij klawisz **F5**, aby uruchomić skrypt.  
@@ -212,7 +211,7 @@ Gdy punkt końcowy aplikacji jest wyłączony w Traffic Manager, aplikacja jest 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
 Nawet przed przełączeniem wszystkich istniejących baz danych dzierżaw do trybu failover można udostępnić nowe dzierżawy w regionie odzyskiwania.  
 
-1. W *ISE programu PowerShell*Otwórz skrypt. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1) i Ustaw następującą właściwość:
+1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii i Ustaw następującą właściwość:
     * **$DemoScenario = 4**, Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
 
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i udostępnić nową dzierżawę. 
@@ -253,7 +252,7 @@ Po zakończeniu procesu odzyskiwania aplikacja i wszystkie dzierżawy są w peł
 W tym zadaniu należy zaktualizować jedną z baz danych dzierżawy. 
 
 1. W przeglądarce Znajdź listę zdarzeń dla korytarza wspólnie Contoso i zanotuj nazwę ostatniego zdarzenia.
-2. W *ISE programu PowerShell*w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1) Ustaw następującą wartość:
+2. W *ISE programu PowerShell*w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii) Ustaw następującą wartość:
     * **$DemoScenario = 5** Usuwanie zdarzenia z dzierżawy w regionie odzyskiwania
 3. Naciśnij klawisz **F5** , aby wykonać skrypt
 4. Odśwież stronę ze zdarzeniami korytarzy w http://events.wingtip-dpt.&lt firmie Contoso (; User &gt; . trafficmanager.NET/contosoconcerthall — podstawianie &lt; użytkownika &gt; z wartością użytkownika wdrożenia) i Zauważ, że ostatnie zdarzenie zostało usunięte.
@@ -278,7 +277,7 @@ Praca w trybie failover efektywnie przenosi bazę danych do regionu oryginalnego
 ### <a name="run-the-repatriation-script"></a>Uruchom skrypt repatriacji
 Teraz wyobraź sobie, że awaria zostanie rozwiązany i uruchomisz skrypt repatriacji.
 
-1. W programie *POWERSHELL ISE*w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1).
+1. W programie *POWERSHELL ISE*w skrypcie. ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii.
 
 2. Sprawdź, czy proces synchronizacji katalogu jest nadal uruchomiony w jego wystąpieniu programu PowerShell.  W razie potrzeby uruchom ją ponownie przez ustawienie:
     * **$DemoScenario = 1**, uruchom synchronizację informacji o konfiguracji serwera dzierżawy, puli i bazy danych do wykazu

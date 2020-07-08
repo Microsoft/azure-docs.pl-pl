@@ -4,10 +4,9 @@ description: W tym artykule opisano sposób rozwiązywania problemów z usługą
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322683"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs

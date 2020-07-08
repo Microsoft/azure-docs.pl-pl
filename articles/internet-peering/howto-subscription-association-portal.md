@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710851"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85323175"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoryzacja dostępu do usługi Azure Event Hubs

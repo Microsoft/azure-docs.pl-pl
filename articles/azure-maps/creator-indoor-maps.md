@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83677801"
 ---
 # <a name="creator-for-indoor-maps"></a>Kreator dla map pomieszczeń
@@ -95,7 +94,7 @@ Usługa Azure Maps [renderowania w wersji 2 — Interfejs API tworzenia kafelkó
 
 Do zestawów danych można wykonywać zapytania przy użyciu [interfejsu API usługi funkcji sieci Web (WFS)](https://docs.microsoft.com/rest/api/maps/wfs). WFS jest zgodna z [funkcjami interfejsu API Open Geospatial Consortium](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). Interfejs API WFS umożliwia wykonywanie zapytań dotyczących funkcji w ramach samego zestawu danych. Na przykład można użyć WFS, aby znaleźć wszystkie pokoje spotkań na średnim poziomie danego obiektu i piętra.
 
-### <a name="indoor-maps-module"></a>Moduł Maps (mapy wewnętrzne)
+### <a name="indoor-maps-module"></a>Moduł planów wnętrz
 
 [Zestaw SDK sieci Web Azure Maps](https://docs.microsoft.com/azure/azure-maps/) zawiera moduł Maps. Ten moduł oferuje rozszerzone funkcje biblioteki *kontrolka mapy* Azure Maps. Moduł mapy wewnętrzne renderuje mapy wewnętrzne utworzone w ramach twórcy. Integruje widżety, takie jak *Selektor piętr*, który pomaga użytkownikom wizualizować różne piętra.
 

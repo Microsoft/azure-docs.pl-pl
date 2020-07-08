@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392577"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
@@ -647,7 +646,7 @@ Właściwość i tekst wskazują, który interfejs API został zablokowany. Kole
 
 - **IStatefulServiceReplica. ChangeRole (P)**: najbardziej typowym przypadkiem jest to, że usługa nie zwróciła zadania z `RunAsync` .
 
-Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Na przykład:
+Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Przykład:
 
 - **IReplicator. CatchupReplicaSet**: to ostrzeżenie wskazuje jedną z dwóch rzeczy. Istnieją niewystarczające repliki. Aby sprawdzić, czy tak jest, sprawdź stan repliki replik w partycji lub raporcie o kondycji System.FM dla zablokowanej ponownej konfiguracji. Lub repliki nie potwierdzają operacji. Polecenia cmdlet programu PowerShell `Get-ServiceFabricDeployedReplicaDetail` można użyć do określenia postępu wszystkich replik. Problem polega na replikach `LastAppliedReplicationSequenceNumber` , których wartość znajduje się za `CommittedSequenceNumber` wartością podstawową.
 

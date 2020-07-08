@@ -6,10 +6,9 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 04/16/2020
 ms.openlocfilehash: aadc9c7bfaa9ad6338015f5dd085b5ab865673f2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83697205"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej w języku Java Azure Monitor Application Insights — publiczna wersja zapoznawcza

@@ -13,10 +13,9 @@ ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
 ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83683791"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Rozwiązywanie problemów z aplikacjami, które nie obsługują protokołu TLS 1,2
@@ -51,7 +50,7 @@ Serwer zawiera również ograniczony zestaw mechanizmów szyfrowania:
 
 ## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Krok 1. utworzenie skryptu programu PowerShell w celu włączenia protokołu TLS 1,0 i TLS 1,1 
 
-Użyj poniższego kodu jako przykładu, aby utworzyć skrypt, który umożliwia używanie starszych protokołów i mechanizmów szyfrowania. Na potrzeby tej dokumentacji ten skrypt będzie miał nazwę: **TLSsettings. ps1**. Zapisz ten skrypt na pulpicie lokalnym, aby uzyskać łatwy dostęp do kolejnych kroków. 
+Użyj poniższego kodu jako przykładu, aby utworzyć skrypt, który umożliwia używanie starszych protokołów i mechanizmów szyfrowania. Na potrzeby tej dokumentacji ten skrypt będzie miał nazwę: **TLSsettings.ps1**. Zapisz ten skrypt na pulpicie lokalnym, aby uzyskać łatwy dostęp do kolejnych kroków. 
 
 
 ```Powershell
@@ -344,7 +343,7 @@ Oto przykład, który pokazuje rolę procesu roboczego i rolę sieci Web.
 1) W programie Visual Studio kliknij prawym przyciskiem myszy rolę webrole lub rola procesu roboczego
 2) Wybierz pozycję **Dodaj**
 3) Wybierz **istniejący element**
-4) W Eksploratorze plików przejdź do pulpitu, na którym zapisano pliki **TLSsettings. ps1** i **RunTLSSettings. cmd** 
+4) W Eksploratorze plików przejdź do pulpitu, na którym są przechowywane **TLSsettings.ps1** i pliki **RunTLSSettings. cmd** 
 5) Wybierz dwa pliki, aby dodać je do projektu Cloud Services
 
 ## <a name="step-5-enable-copy-to-output-directory"></a>Krok 5. Włączanie kopiowania do katalogu wyjściowego
@@ -354,7 +353,7 @@ Aby zapewnić, że skrypty są przekazywane z każdą aktualizacją wypychaną z
 1) W obszarze webrole lub rola procesu roboczego kliknij prawym przyciskiem myszy pozycję RunTLSSettings. cmd
 2) Wybierz **Właściwości**
 3) Na karcie Właściwości zmień wartość *Kopiuj do katalogu wyjściowego* , aby była *zawsze kopiowana "*
-4) Powtórz kroki dla **TLSsettings. ps1**
+4) Powtórz kroki dla **TLSsettings.ps1**
 
 ## <a name="step-6-publish--validate"></a>Krok 6. publikowanie & Weryfikuj
 

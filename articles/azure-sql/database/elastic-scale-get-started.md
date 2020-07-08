@@ -12,10 +12,9 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 8a7efdee772c3a871fb8f26655dfc1160c275959
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84044185"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Wprowadzenie do narzędzi Elastic Database
@@ -87,7 +86,7 @@ Aby pobrać i uruchomić przykład, wykonaj następujące kroki:
 
 2. Aby utworzyć projekt, Otwórz rozwiązanie *ElasticScaleStarterKit. sln* z katalogu *języka C#* .
 
-3. W rozwiązaniu dla przykładowego projektu Otwórz plik *App. config* . Następnie postępuj zgodnie z instrukcjami w pliku, aby dodać nazwę serwera i informacje logowania (nazwa użytkownika i hasło).
+3. W rozwiązaniu dla przykładowego projektu Otwórz plik *app.config* . Następnie postępuj zgodnie z instrukcjami w pliku, aby dodać nazwę serwera i informacje logowania (nazwa użytkownika i hasło).
 
 4. Skompiluj i uruchom aplikację. Po wyświetleniu monitu włącz program Visual Studio, aby przywrócić pakiety NuGet rozwiązania. Ta akcja spowoduje pobranie najnowszej wersji biblioteki klienta Elastic Database z narzędzia NuGet.
 

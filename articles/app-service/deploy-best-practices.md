@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770696"
 ---
 # <a name="deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania
@@ -119,7 +118,7 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --sdk-auth
 ```
 
-W skrypcie Zaloguj się przy użyciu `az login --service-principal`, dostarczając informacje o podmiotu zabezpieczeń. Można następnie użyć `az webapp config container set` , aby ustawić nazwę kontenera, tag, adres URL rejestru i hasło rejestru. Poniżej znajdują się przydatne linki służące do konstruowania procesu elementu konfiguracji kontenera.
+W skrypcie Zaloguj się przy użyciu `az login --service-principal` , dostarczając informacje o podmiotu zabezpieczeń. Można następnie użyć `az webapp config container set` , aby ustawić nazwę kontenera, tag, adres URL rejestru i hasło rejestru. Poniżej znajdują się przydatne linki służące do konstruowania procesu elementu konfiguracji kontenera.
 
 - [Jak zalogować się do interfejsu wiersza polecenia platformy Azure w ramach elementu konfiguracji okręgu](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
@@ -131,11 +130,11 @@ Użyj kudu [zipdeploy/](deploy-zip.md) API do wdrażania aplikacji jar i [Narzę
 
 ### <a name="node"></a>Węzeł
 
-Domyślnie kudu wykonuje kroki kompilacji dla aplikacji węzła (`npm install`). Jeśli używasz usługi kompilacji, takiej jak Azure DevOps, kompilacja kudu jest niepotrzebna. Aby wyłączyć kompilację kudu, Utwórz ustawienie `SCM_DO_BUILD_DURING_DEPLOYMENT`aplikacji o wartości. `false`
+Domyślnie kudu wykonuje kroki kompilacji dla aplikacji węzła ( `npm install` ). Jeśli używasz usługi kompilacji, takiej jak Azure DevOps, kompilacja kudu jest niepotrzebna. Aby wyłączyć kompilację kudu, Utwórz ustawienie aplikacji `SCM_DO_BUILD_DURING_DEPLOYMENT` o wartości `false` .
 
 ### <a name="net"></a>.NET 
 
-Domyślnie kudu wykonuje kroki kompilacji dla aplikacji .NET (`dotnet build`). Jeśli używasz usługi kompilacji, takiej jak Azure DevOps, kompilacja kudu jest niepotrzebna. Aby wyłączyć kompilację kudu, Utwórz ustawienie `SCM_DO_BUILD_DURING_DEPLOYMENT`aplikacji o wartości. `false`
+Domyślnie kudu wykonuje kroki kompilacji dla aplikacji .NET ( `dotnet build` ). Jeśli używasz usługi kompilacji, takiej jak Azure DevOps, kompilacja kudu jest niepotrzebna. Aby wyłączyć kompilację kudu, Utwórz ustawienie aplikacji `SCM_DO_BUILD_DURING_DEPLOYMENT` o wartości `false` .
 
 ## <a name="other-deployment-considerations"></a>Inne zagadnienia dotyczące wdrażania
 
@@ -156,4 +155,4 @@ Aby uzyskać więcej informacji na temat najlepszych rozwiązań, odwiedź stron
 - Wybierz kafelek strony głównej **najlepszych** rozwiązań.
 - Kliknij pozycję **najlepsze rozwiązania dotyczące dostępności & wydajność** lub **najlepsze rozwiązania w zakresie optymalnej konfiguracji** , aby wyświetlić bieżący stan aplikacji w odniesieniu do tych najlepszych rozwiązań.
 
-Za pomocą tego linku można również bezpośrednio otworzyć App Service Diagnostics dla zasobu: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+Za pomocą tego linku można również bezpośrednio otworzyć App Service Diagnostics dla zasobu: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot` .

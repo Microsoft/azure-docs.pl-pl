@@ -12,10 +12,9 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212347"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Ważność obciążeń usługi Azure Synapse Analytics

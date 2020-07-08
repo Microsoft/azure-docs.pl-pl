@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042799"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Przywracanie pojedynczej dzierżawy za pomocą aplikacji SaaS dla dzierżawy
@@ -74,7 +73,7 @@ Aby zademonstrować te scenariusze odzyskiwania, najpierw "przypadkowo" usunąć
 
 ### <a name="accidentally-delete-the-last-event"></a>"Przypadkowe" Usuwanie ostatniego zdarzenia
 
-1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ciągłość biznesowa i odzyskiwanie po awarii \\ RestoreTenant \\ *demo-RestoreTenant. ps1*i ustawiają następującą wartość:
+1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ciągłość biznesowa i odzyskiwanie po awarii \\ RestoreTenant \\ *Demo-RestoreTenant.ps1*i ustawiają następującą wartość:
 
    * **$DemoScenario**  =  **1**, *Usuń ostatnie zdarzenie (bez sprzedaży biletów)*.
 2. Naciśnij klawisz F5, aby uruchomić skrypt i usunąć ostatnie zdarzenie. Zostanie wyświetlony następujący komunikat z potwierdzeniem:
@@ -91,10 +90,10 @@ Aby zademonstrować te scenariusze odzyskiwania, najpierw "przypadkowo" usunąć
 
 To ćwiczenie przywraca bazę danych korytarza firmy Contoso do punktu w czasie przed usunięciem zdarzenia. W tym scenariuszu przyjęto założenie, że chcesz przejrzeć usunięte dane w równoległej bazie danych.
 
- Skrypt *Restore-TenantInParallel. ps1* tworzy równoległą bazę danych dzierżawy o nazwie *ContosoConcertHall \_ Old*z wpisem katalogu równoległego. Ten wzorzec przywracania najlepiej nadaje się do odzyskiwania po niewielkiej utracie danych. Tego wzorca można także użyć, jeśli trzeba przejrzeć dane pod kątem zgodności lub inspekcji. Jest to zalecane podejście w przypadku korzystania [z aktywnej replikacji geograficznej](active-geo-replication-overview.md).
+ Skrypt *Restore-TenantInParallel.ps1* tworzy równoległą bazę danych dzierżawy o nazwie *ContosoConcertHall \_ Old*z wpisem katalogu równoległego. Ten wzorzec przywracania najlepiej nadaje się do odzyskiwania po niewielkiej utracie danych. Tego wzorca można także użyć, jeśli trzeba przejrzeć dane pod kątem zgodności lub inspekcji. Jest to zalecane podejście w przypadku korzystania [z aktywnej replikacji geograficznej](active-geo-replication-overview.md).
 
 1. Ukończ sekcję [symulowanie przypadkowego usuwania danych w dzierżawie](#simulate-a-tenant-accidentally-deleting-data) .
-2. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ciągłość biznesowa i odzyskiwanie po awarii \\ RestoreTenant \\ _demo-RestoreTenant. ps1_.
+2. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ciągłość biznesowa i odzyskiwanie po awarii \\ RestoreTenant \\ _Demo-RestoreTenant.ps1_.
 3. Ustaw **$DemoScenario**  =  **2**, *Przywróć dzierżawę równolegle*.
 4. Aby uruchomić skrypt, naciśnij klawisz F5.
 
@@ -114,7 +113,7 @@ Udostępnienie przywróconej dzierżawy jako dodatkowej dzierżawy z własną ap
 
 W tym ćwiczeniu firma Contoso uzgadnia dzierżawcę z punktem przed usunięciem zdarzenia. Skrypt *Restore-TenantInPlace* przywraca bazę danych dzierżawy do nowej bazy danych i usuwa oryginalną. Ten wzorzec przywracania najlepiej nadaje się do odzyskiwania po poważnych uszkodzeniach danych, a Dzierżawca może wymagać znacznej utraty danych.
 
-1. W ISE programu PowerShell Otwórz plik **demo-RestoreTenant. ps1** .
+1. W ISE programu PowerShell Otwórz plik **Demo-RestoreTenant.ps1** .
 2. Ustaw **$DemoScenario**  =  **5**i *Przywróć dzierżawę*.
 3. Aby uruchomić skrypt, naciśnij klawisz F5.
 

@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920354"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning odpowiedzialny (ML)
 
@@ -36,7 +35,7 @@ Ponieważ sztuczna inteligencja i autonomiczne systemy integrują się z siecią
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretuj i wyjaśnij zachowanie modelu
 
-Trudne w wyjaśnieniu i czarne systemy mogą być problematyczne, ponieważ utrudniają one zainteresowanym podmiotom, takim jak deweloperzy systemu, systemy nadzoru, użytkownicy i osoby podejmujące decyzje biznesowe, aby zrozumieć, dlaczego systemy podejmują pewne decyzje. Niektóre systemy AI są bardziej wyjaśnione niż inne, a czasami istnieje kompromis między systemem i większą dokładnością, który jest bardziej wyjaśniony.
+Trudne do wyjaśnienia i nieprzezroczyste systemy mogą być problematyczne, ponieważ utrudniają one uczestnikom, takim jak deweloperzy systemu, organy nadzorujące, użytkownicy i osoby podejmujące decyzje biznesowe, aby zrozumieć, dlaczego systemy podejmują pewne decyzje. Niektóre systemy AI są bardziej wyjaśnione niż inne, a czasami istnieje kompromis między systemem i większą dokładnością, który jest bardziej wyjaśniony.
 
 Aby utworzyć interpretowane systemy AI, użyj [InterpretML](https://github.com/interpretml/interpret), pakietu open source utworzonego przez firmę Microsoft. [InterpretML można używać wewnątrz Azure Machine Learning](how-to-machine-learning-interpretability.md) do [interpretacji i wyjaśnienia modeli uczenia maszynowego](how-to-machine-learning-interpretability-aml.md), w tym [zautomatyzowanych modeli uczenia maszynowego](how-to-machine-learning-interpretability-automl.md).
 
@@ -68,7 +67,7 @@ Implementacja różnicowych systemów prywatnych jest trudna. [WhiteNoise](https
 
 Dokumentowanie właściwych informacji w procesie uczenia maszynowego jest kluczem do podejmowania właściwych decyzji na każdym etapie. Arkusze danych to sposób dokumentowania zasobów uczenia maszynowego, które są używane i tworzone w ramach cyklu życia uczenia maszynowego.
 
-Modele są uważane za "czarne pola" i często znajdują się na nich małe informacje. Ponieważ systemy uczenia maszynowego stają się coraz bardziej rozpowszechnione i są używane do podejmowania decyzji, korzystanie z arkuszy danych to krok w kierunku tworzenia bardziej odpowiedzialnych systemów uczenia maszynowego.
+Modele są uważane za "pola nieprzezroczyste" i często są niewielkimi informacjami na ich temat. Ponieważ systemy uczenia maszynowego stają się coraz bardziej rozpowszechnione i są używane do podejmowania decyzji, korzystanie z arkuszy danych to krok w kierunku tworzenia bardziej odpowiedzialnych systemów uczenia maszynowego.
 
 Niektóre informacje o modelu, które można chcieć udokumentować w ramach arkusza danych:
 

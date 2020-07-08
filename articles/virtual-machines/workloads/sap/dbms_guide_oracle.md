@@ -16,10 +16,9 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022546"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
@@ -377,7 +376,7 @@ Minimalna konfiguracja jest następująca:
 | \oracle \<SID> \origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
 | \oracle \<SID> \origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
 | \oracle \<SID> \sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| \oracle \<SID> \oraarch | Standardowa | Brak | Nie jest wymagany |
+| \oracle \<SID> \oraarch | Standardowa (Standard) | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 
@@ -467,7 +466,7 @@ Minimalna konfiguracja:
 | /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
 | /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
 | /Oracle/ \<SID> /sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| /Oracle/ \<SID> /oraarch | Standardowa | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /oraarch | Standardowa (Standard) | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 * Odcięcie: LVM lub MDADM przy użyciu RAID0

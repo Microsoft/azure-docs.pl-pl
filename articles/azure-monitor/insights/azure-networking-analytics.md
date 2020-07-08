@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
 ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684649"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor

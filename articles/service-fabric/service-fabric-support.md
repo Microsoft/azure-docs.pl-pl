@@ -5,12 +5,11 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921823"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej platformy Azure Service Fabric
 
@@ -20,13 +19,13 @@ Aby zapewnić odpowiednie wsparcie dla klastrów Service Fabric, na których jes
 
 W przypadku problemów z raportowaniem w klastrze Service Fabric wdrożonym na platformie Azure Otwórz bilet pomocy technicznej [w witrynie Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) lub [portalu pomocy technicznej firmy Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
  
 - [Pomoc techniczna firmy Microsoft dla platformy Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Klastry działające w ramach warstwy niezawodności Bronów lub klastra z jednym węzłem będą umożliwiały uruchamianie obciążeń testowych. Jeśli występują problemy z klastrem uruchomionym w usłudze Bronze lub klastrze z jednym węzłem, zespół pomocy technicznej firmy Microsoft pomoże Ci uniknąć problemu, ale nie będzie wykonywał analizy głównej przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [charakterystyką niezawodności klastra](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
+> Klastry działające w ramach warstwy niezawodności Bronów lub klastra z jednym węzłem będą umożliwiały uruchamianie obciążeń testowych. Jeśli występują problemy z klastrem uruchomionym w usłudze Bronze lub klastrze z jednym węzłem, zespół pomocy technicznej firmy Microsoft pomoże Ci uniknąć problemu, ale nie będzie wykonywał analizy głównej przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [charakterystyką niezawodności klastra](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) .
 >
 > Aby uzyskać więcej informacji o tym, co jest wymagane w przypadku klastra gotowego do produkcji, zapoznaj się z [listą kontrolną gotowości produkcyjnej](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
@@ -36,7 +35,7 @@ Dowiedz się więcej o usługach:
 
 W przypadku problemów z raportowaniem w klastrze Service Fabric wdrożonym lokalnie lub w innych chmurach Otwórz bilet dla profesjonalnej pomocy technicznej w [portalu pomocy technicznej firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 - [Profesjonalne wsparcie firmy Microsoft dla firm lokalnych](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
@@ -51,7 +50,7 @@ Zgłoś problemy dotyczące Service Fabric platformy Azure w [usłudze Service-F
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Fora StackOverflow i MSDN
 
-[Tag Service Fabric na StackOverflow][stackoverflow] i [Service Fabric forum w witrynie MSDN] [MSDN-forum] najlepiej sprawdza się w przypadku zadawania pytań dotyczących działania platformy i sposobu wykonywania określonych zadań.
+[Tag Service Fabric na StackOverflow][stackoverflow] i [forum Service Fabric w witrynie MSDN][msdn-forum] są najlepiej używane do zadawania pytań dotyczących działania platformy i sposobu wykonywania określonych zadań.
 
 ### <a name="azure-feedback-forum"></a>Forum opinii na platformie Azure
 
@@ -72,3 +71,4 @@ Brak płatnych opcji pomocy technicznej dla tych wersji zapoznawczych. Skorzysta
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs
 [sample-repos]: https://aka.ms/servicefabricsamples
+[msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b115b410547b37e6cfa369b825c94b6b22436941
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042176"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Zarządzanie schematem w aplikacji SaaS, która używa baz danych z wieloma dzierżawcami podzielonej na fragmenty
@@ -75,10 +74,10 @@ Wingtip bilety SaaS wielodostępnych skryptów bazy danych i kodu źródłowego 
 
 Ten samouczek wymaga użycia programu PowerShell do utworzenia bazy danych i agenta zadań agenta zadań. Podobnie jak w przypadku bazy danych MSDB używanej przez program SQL Agent, Agent zadań korzysta z bazy danych w Azure SQL Database do przechowywania definicji zadań, stanu zadania i historii. Po utworzeniu agenta zadań można natychmiast utworzyć i monitorować zadania.
 
-1. W programie **POWERSHELL ISE**Otwórz *... \\ \\Zarządzanie schematami modułów uczenia \\ demo-SchemaManagement. ps1*.
+1. W programie **POWERSHELL ISE**Otwórz *... \\ \\ \\Demo-SchemaManagement.ps1zarządzania schematami modułów szkoleniowych *.
 2. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
-Skrypt *demo-SchemaManagement. ps1* wywołuje skrypt *Deploy-SchemaManagement. ps1* w celu utworzenia bazy danych o nazwie _jobagent_ na serwerze wykazu. Następnie skrypt tworzy agenta zadania, przekazując bazę danych _jobagent_ jako parametr.
+Skrypt *Demo-SchemaManagement.ps1* wywołuje skrypt *Deploy-SchemaManagement.ps1* , aby utworzyć bazę danych o nazwie _jobagent_ na serwerze wykazu. Następnie skrypt tworzy agenta zadania, przekazując bazę danych _jobagent_ jako parametr.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Tworzenie zadania służącego do wdrożenia nowych danych referencyjnych we wszystkich dzierżawach
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83699126"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Praca z JSON w Azure Cosmos DB
@@ -263,7 +262,7 @@ Wyniki są następujące:
 
 Nie można użyć aliasu, aby zaprojektować wartość jako nazwę właściwości ze spacją, znakiem specjalnym lub słowem zastrzeżonym. Jeśli chcesz zmienić projekcję wartości na przykład, jeśli ma nazwę właściwości z spacją, możesz użyć [wyrażenia JSON](#json-expressions).
 
-Oto przykład:
+Przykład:
 
 ```sql
     SELECT
@@ -275,6 +274,6 @@ Oto przykład:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
 - [Klauzula WHERE](sql-query-where.md)
