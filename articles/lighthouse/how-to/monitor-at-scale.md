@@ -4,10 +4,9 @@ description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor
 ms.date: 02/03/2020
 ms.topic: how-to
 ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84634119"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę

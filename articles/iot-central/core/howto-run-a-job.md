@@ -8,10 +8,9 @@ ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
 ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609746"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure

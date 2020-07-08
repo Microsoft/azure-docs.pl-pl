@@ -9,10 +9,9 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: femila
 ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559430"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schemat zdarzeń Azure Event Grid
@@ -83,10 +82,10 @@ Wszystkie zdarzenia mają takie same dane jak najwyższego poziomu:
 | Właściwość | Typ | Wymagane | Opis |
 | -------- | ---- | -------- | ----------- |
 | temat | ciąg | Nie, ale jeśli ta wartość jest uwzględniona, musi dokładnie odpowiadać Event Grid tematu Azure Resource Manager identyfikator. Jeśli nie jest uwzględniony, Event Grid będzie sygnaturą zdarzenia. | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Yes | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Yes | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Yes | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| identyfikator | ciąg | Yes | Unikatowy identyfikator zdarzenia. |
+| Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| Klasę | ciąg | Tak | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
+| identyfikator | ciąg | Tak | Unikatowy identyfikator zdarzenia. |
 | dane | object | Nie | Dane zdarzenia specyficzne dla dostawcy zasobów. |
 | dataVersion | ciąg | Nie, ale zostanie opatrzona pustą wartością. | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Niewymagane, ale jeśli to konieczne, musi być dokładnie zgodne ze schematem Event Grid `metadataVersion` (obecnie tylko `1` ). Jeśli nie jest uwzględniony, Event Grid będzie sygnaturą zdarzenia. | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
@@ -95,7 +94,7 @@ Aby dowiedzieć się więcej o właściwościach w obiekcie danych, zobacz Źró
 
 * [Subskrypcje platformy Azure (operacje zarządzania)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
-* [Blob Storage](event-schema-blob-storage.md)
+* [BLOB Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)

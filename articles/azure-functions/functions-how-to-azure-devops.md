@@ -7,10 +7,9 @@ ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559122"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps

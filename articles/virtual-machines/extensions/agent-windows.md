@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
 ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608693"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie agenta maszyny wirtualnej platformy Azure
@@ -107,14 +106,14 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>Wykrywanie ręczne
 
-Po zalogowaniu się do maszyny wirtualnej z systemem Windows Menedżer zadań może służyć do badania uruchomionych procesów. Aby sprawdzić agenta maszyny wirtualnej platformy Azure, Otwórz Menedżera zadań, kliknij kartę *szczegóły* , a następnie wyszukaj nazwę procesu **WindowsAzureGuestAgent. exe**. Obecność tego procesu wskazuje, że Agent maszyny wirtualnej jest zainstalowany.
+Po zalogowaniu się do maszyny wirtualnej z systemem Windows Menedżer zadań może służyć do badania uruchomionych procesów. Aby sprawdzić agenta maszyny wirtualnej platformy Azure, Otwórz Menedżera zadań, kliknij kartę *szczegóły* , a następnie wyszukaj nazwę procesu **WindowsAzureGuestAgent.exe**. Obecność tego procesu wskazuje, że Agent maszyny wirtualnej jest zainstalowany.
 
 
 ## <a name="upgrade-the-vm-agent"></a>Uaktualnianie agenta maszyny wirtualnej
 Agent maszyny wirtualnej platformy Azure dla systemu Windows jest automatycznie uaktualniany. Gdy nowe maszyny wirtualne są wdrażane na platformie Azure, otrzymują najnowszego agenta maszyny wirtualnej na czas udostępniania maszyny wirtualnej. Niestandardowe obrazy maszyn wirtualnych należy zaktualizować ręcznie, aby uwzględnić nowego agenta maszyny wirtualnej podczas tworzenia obrazu.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Automatyczne zbieranie dzienników agenta gościa systemu Windows
-Agent gościa systemu Windows zawiera funkcję automatycznego zbierania niektórych dzienników. Ta funkcja jest kontrolerem przez proces plik collectguestlogs. exe. Istnieje zarówno dla PaaS Cloud Services, jak i Virtual Machines IaaS, a jej celem jest szybkie & Automatyczne zbieranie niektórych dzienników diagnostycznych z maszyny wirtualnej, dzięki czemu mogą one być używane do analizy w trybie offline. Zbierane dzienniki to dzienniki zdarzeń, Dzienniki systemu operacyjnego, dzienniki platformy Azure i niektóre klucze rejestru. Tworzy plik ZIP, który jest przesyłany do hosta maszyny wirtualnej. Ten plik ZIP może następnie być oglądany przez zespoły inżynieryjne i specjalistów pomocy technicznej w celu zbadania problemów na żądanie klienta będącego właścicielem maszyny wirtualnej.
+Agent gościa systemu Windows zawiera funkcję automatycznego zbierania niektórych dzienników. Ta funkcja jest kontrolerem przez proces CollectGuestLogs.exe. Istnieje zarówno dla PaaS Cloud Services, jak i Virtual Machines IaaS, a jej celem jest szybkie & Automatyczne zbieranie niektórych dzienników diagnostycznych z maszyny wirtualnej, dzięki czemu mogą one być używane do analizy w trybie offline. Zbierane dzienniki to dzienniki zdarzeń, Dzienniki systemu operacyjnego, dzienniki platformy Azure i niektóre klucze rejestru. Tworzy plik ZIP, który jest przesyłany do hosta maszyny wirtualnej. Ten plik ZIP może następnie być oglądany przez zespoły inżynieryjne i specjalistów pomocy technicznej w celu zbadania problemów na żądanie klienta będącego właścicielem maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji o rozszerzeniach maszyn wirtualnych, zobacz [Omówienie rozszerzeń i funkcji maszyny wirtualnej platformy Azure](overview.md).

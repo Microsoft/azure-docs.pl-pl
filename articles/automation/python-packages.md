@@ -7,10 +7,9 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: tracking-python
 ms.openlocfilehash: f3ba52c1396928d8c76fb85fda3f29c625e60919
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561850"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation

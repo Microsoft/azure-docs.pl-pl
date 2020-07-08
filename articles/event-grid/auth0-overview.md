@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: femila
 ms.openlocfilehash: 80226822e89344705c24094b073868d8ac0e1e42
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560727"
 ---
 # <a name="auth0-partner-topics"></a>Tematy dotyczące partnerów rozwiązanie Auth0

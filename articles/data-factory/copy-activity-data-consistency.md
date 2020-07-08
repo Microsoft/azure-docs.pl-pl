@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84610240"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
@@ -51,7 +50,7 @@ Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory 
 -   [System plików](connector-file-system.md)
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójności danych w działaniu kopiowania: 
 
 ```json
@@ -85,8 +84,8 @@ Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójno
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | W przypadku ustawienia wartości true dla tej właściwości działanie Copy sprawdzi rozmiar pliku, lastModifiedDate i sumę kontrolną MD5 dla każdego obiektu skopiowanego ze źródła do magazynu docelowego, aby zapewnić spójność danych między magazynem źródłowym a docelowym. Należy pamiętać, że ta opcja będzie miała wpływ na wydajność kopiowania.  | True<br/>False (domyślnie) | Nie
-dataInconsistency | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane.<br/> -True: chcesz skopiować resztę, pomijając niespójne dane.<br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych.<br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true.  | True<br/>False (domyślnie) | Nie
+validateDataConsistency | W przypadku ustawienia wartości true dla tej właściwości działanie Copy sprawdzi rozmiar pliku, lastModifiedDate i sumę kontrolną MD5 dla każdego obiektu skopiowanego ze źródła do magazynu docelowego, aby zapewnić spójność danych między magazynem źródłowym a docelowym. Należy pamiętać, że ta opcja będzie miała wpływ na wydajność kopiowania.  | Prawda<br/>False (domyślnie) | Nie
+dataInconsistency | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane.<br/> -True: chcesz skopiować resztę, pomijając niespójne dane.<br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych.<br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true.  | Prawda<br/>False (domyślnie) | Nie
 logStorageSettings | Grupa właściwości, które można określić, aby umożliwić dziennikowi sesji rejestrowanie pominiętych obiektów. | | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonych usług lub typów, które odnoszą się do wystąpienia używanego do przechowywania plików dziennika. | Nie
 ścieżka | Ścieżka do plików dziennika. | Określ ścieżkę, w której mają być przechowywane pliki dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
@@ -149,7 +148,7 @@ Przykładowy plik dziennika jest następujący:
 Timestamp, Level, OperationName, OperationItem, Message
 2020-02-26 06:22:56.3190846, Warning, FileSkip, "sample1.csv", "File is skipped after read 548000000 bytes: ErrorCode=DataConsistencySourceDataChanged,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Source file 'sample1.csv' is changed by other clients during the copy activity run.,Source=,'." 
 ```
-W pliku dziennika powyżej można zobaczyć, że sample1. csv został pominięty, ponieważ nie można było zweryfikować, że jest on spójny między magazynem źródłowym i docelowym. Możesz uzyskać więcej szczegółów na temat tego, dlaczego sample1. csv stanie się niespójny, ponieważ został zmieniony przez inne aplikacje, gdy kopiowanie odbywa się w tym samym czasie. 
+W pliku dziennika powyżej można zobaczyć, że sample1.csv został pominięty, ponieważ nie można było zweryfikować, że jest on spójny między magazynem źródłowym i docelowym. Możesz uzyskać więcej szczegółów na temat tego, dlaczego sample1.csv stanie się niespójna, ponieważ była zmieniana przez inne aplikacje, gdy kopiowanie odbywa się w tym samym czasie. 
 
 
 

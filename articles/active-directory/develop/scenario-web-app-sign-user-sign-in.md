@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558937"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie
@@ -74,7 +73,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-W naszym przewodniku szybki start dla języka Java przycisk logowania znajduje się w pliku [Main/Resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) .
+W naszym przewodniku szybki start dla języka Java przycisk logowania znajduje się w pliku [Main/sources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) .
 
 ```html
 <!DOCTYPE html>
@@ -291,7 +290,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-W naszym przewodniku szybki start dla języka Java przycisk Wyloguj znajduje się w pliku main/resources/templates/auth_page.html.
+W naszym przewodniku szybki start dla języka Java przycisk Wyloguj znajduje się w pliku Main/sources/templates/auth_page.html.
 
 ```html
 <!DOCTYPE html>
@@ -306,7 +305,7 @@ W naszym przewodniku szybki start dla języka Java przycisk Wyloguj znajduje si�
 
 # <a name="python"></a>[Python](#tab/python)
 
-W przewodniku szybki start w języku Python przycisk Wyloguj znajduje się w pliku [templates/index. html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
+W przewodniku szybki start w języku Python przycisk Wyloguj znajduje się w pliku [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
 
 ```html
 <!DOCTYPE html>
@@ -335,7 +334,7 @@ W poprzednich wersjach szablonów ASP.NET Core `Account` kontroler został osadz
 - Wywołania `Signout()` , dzięki którym program OpenID Connect nawiązuje połączenie z punktem końcowym platformy tożsamości firmy Microsoft `logout` . Następnie punkt końcowy:
 
   - Czyści plik cookie sesji z przeglądarki.
-  - Wywołuje adres URL wylogowania. Domyślnie adres URL wylogowania wyświetla stronę widoku z podpisem [SignedOut. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Ta strona jest również dostępna jako część elementu MIcrosoft. Identity. Web.
+  - Wywołuje adres URL wylogowania. Domyślnie adres URL wylogowywania wyświetla stronę widoku wylogowanego [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Ta strona jest również dostępna jako część elementu MIcrosoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -418,11 +417,11 @@ public class AccountController : Controller
 
 # <a name="java"></a>[Java](#tab/java)
 
-W przewodniku szybki start w języku Java identyfikator URI przekierowania po wylogowaniu po prostu wyświetla stronę index. html.
+W przewodniku szybki start w języku Java identyfikator URI przekierowania po wylogowaniu po prostu wyświetla stronę index.html.
 
 # <a name="python"></a>[Python](#tab/python)
 
-W przewodniku szybki start w języku Python identyfikator URI przekierowania po wylogowaniu po prostu wyświetla stronę index. html.
+W przewodniku szybki start w języku Python identyfikator URI przekierowania po wylogowaniu po prostu wyświetla stronę index.html.
 
 ---
 
@@ -433,4 +432,4 @@ Jeśli chcesz dowiedzieć się więcej o wylogowaniu, Przeczytaj dokumentację d
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przenoszenie do środowiska produkcyjnego](scenario-web-app-sign-user-production.md)
+> [Przenieś do środowiska produkcyjnego](scenario-web-app-sign-user-production.md)

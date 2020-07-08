@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 2084bf136300126e56414599caa63d24c98f4542
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84604239"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie notesu Jupyter na komputerze i nawiązywanie połączenia z usługą Apache Spark w usłudze HDInsight
@@ -100,7 +99,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
     exit()
     ```
 
-3. W folderze `.sparkmagic` Utwórz plik o nazwie **config. JSON** i Dodaj do niego Poniższy fragment kodu JSON.  
+3. W folderze `.sparkmagic` Utwórz plik o nazwie **config.jsna** i Dodaj do niego Poniższy fragment kodu JSON.  
 
     ```json
     {
@@ -135,7 +134,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
     |{BASE64ENCODEDPASSWORD}|Zakodowane w formacie base64 hasło do rzeczywistego hasła.  Hasło Base64 można wygenerować pod adresem [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
     |`"livy_server_heartbeat_timeout_seconds": 60`|Kontynuuj, jeśli jest używany `sparkmagic 0.12.7` (klastry v 3.5 i 3.6).  W przypadku używania `sparkmagic 0.2.3` (klastrów v 3.4) Zastąp ciąg opcją `"should_heartbeat": true` .|
 
-    W przykładowym pliku [config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)można zobaczyć pełny przykładowy plik.
+    Możesz zobaczyć pełny przykładowy plik w [przykładowym config.jsna](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
    > Pulsy są wysyłane w celu zapewnienia braku przecieku sesji. Gdy komputer przejdzie w tryb uśpienia lub jest wyłączony, puls nie zostanie wysłany, co spowodowało wyczyszczenie sesji. W przypadku klastrów w wersji 3.4, jeśli chcesz wyłączyć to zachowanie, można ustawić konfigurację usługi Livy `livy.server.interactive.heartbeat.timeout` `0` z poziomu interfejsu użytkownika Ambari. Jeśli w przypadku klastrów 3.5 nie zostanie ustawiona Powyższa konfiguracja 3,5, sesja nie zostanie usunięta.
@@ -164,7 +163,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
     Jeśli można pomyślnie pobrać dane wyjściowe, zostanie przetestowane połączenie z klastrem usługi HDInsight.
 
-    Jeśli chcesz zaktualizować konfigurację notesu w celu nawiązania połączenia z innym klastrem, zaktualizuj plik config. JSON przy użyciu nowego zestawu wartości, jak pokazano w kroku 3 powyżej.
+    Jeśli chcesz zaktualizować konfigurację notesu w celu nawiązania połączenia z innym klastrem, zaktualizuj config.jsprzy użyciu nowego zestawu wartości, jak pokazano w kroku 3 powyżej.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Dlaczego należy zainstalować program Jupyter na komputerze?
 

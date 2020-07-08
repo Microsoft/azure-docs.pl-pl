@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
 ms.openlocfilehash: c67e8a79e2339c4a329e276c52703bd749137037
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84608421"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
@@ -38,7 +37,7 @@ Podsumowując, proces regresji logistycznej produkuje *funkcję logistyczną*. F
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Przykład analizy predykcyjnej na danych inspekcji żywności
 
-W tym przykładzie użyto platformy Spark do przeprowadzenia analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1. csv**). Dane nabyte w [mieście portalu danych w Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach związanych z działalnością żywnościową, które zostały przeprowadzone w Chicago. W tym informacje dotyczące każdego zakładu, wykryte naruszenia (jeśli istnieją) oraz wyniki inspekcji. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem w **/hdisamples/hdisamples/foodinspectiondata/Food_Inspections1. csv**.
+W tym przykładzie używasz platformy Spark do analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1.csv**). Dane nabyte w [mieście portalu danych w Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach związanych z działalnością żywnościową, które zostały przeprowadzone w Chicago. W tym informacje dotyczące każdego zakładu, wykryte naruszenia (jeśli istnieją) oraz wyniki inspekcji. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem w **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 W poniższych krokach opracowujesz model, aby zobaczyć, co jest potrzebne do przekazania lub niepowodzenia inspekcji żywności.
 
@@ -252,7 +251,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Oceń model przy użyciu innego zestawu danych
 
-Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony w zestawie danych **Food_Inspections1. csv**. Możesz użyć drugiego zestawu danych, **Food_Inspections2. csv**, aby *oszacować* siłę tego modelu dla nowych danych. Ten drugi zestaw danych (**Food_Inspections2. csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
+Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony na **Food_Inspections1.csv**zestawu danych. Aby *oszacować* siłę tego modelu dla nowych danych, można użyć drugiego zestawu danych **Food_Inspections2.csv**. Ten drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
 
 1. Uruchom następujący kod, aby utworzyć nową ramkę danych, **predictionsDf** , która zawiera prognozę wygenerowaną przez model. Fragment kodu tworzy również tabelę tymczasową o nazwie **przewidywania** na podstawie ramki Dataframe.
 

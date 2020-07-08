@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
 ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560646"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux

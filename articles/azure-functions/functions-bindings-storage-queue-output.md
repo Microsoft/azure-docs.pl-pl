@@ -7,10 +7,9 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
 ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559974"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Powiązania wyjściowe usługi Azure queue storage dla Azure Functions
@@ -41,9 +40,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza HTTP w pliku *Function. JSON* i kodzie [skryptu C# (. CSX)](functions-reference-csharp.md) , który używa powiązania. Funkcja tworzy element kolejki z ładunkiem obiektu **CustomQueueMessage** dla każdego odebranego żądania HTTP.
+Poniższy przykład przedstawia powiązanie wyzwalacza HTTP w *function.jsw* kodzie pliku i [skrypcie C# (CSX)](functions-reference-csharp.md) , który używa powiązania. Funkcja tworzy element kolejki z ładunkiem obiektu **CustomQueueMessage** dla każdego odebranego żądania HTTP.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -102,9 +101,9 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza HTTP w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja tworzy element kolejki dla każdego odebranego żądania HTTP.
+Poniższy przykład pokazuje powiązanie wyzwalacza HTTP w *function.jsw* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja tworzy element kolejki dla każdego odebranego żądania HTTP.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -153,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład ilustruje sposób wyprowadzania pojedynczych i wielu wartości do kolejek magazynu. Konfiguracja wymagana dla *funkcji Function. JSON* jest taka sama jak w obu kierunkach.
+Poniższy przykład ilustruje sposób wyprowadzania pojedynczych i wielu wartości do kolejek magazynu. Konfiguracja wymagana dla *function.js* jest taka sama w obu przypadkach.
 
-Powiązanie kolejki magazynu jest zdefiniowane w *funkcji Function. JSON* , w której *Typ* jest ustawiony na `queue` .
+Powiązanie kolejki magazynu jest zdefiniowane w *function.jsna* miejscu, w którym ustawiono *Typ* `queue` .
 
 ```json
 {
@@ -313,9 +312,9 @@ Parametr skojarzony z `QueueOutput` adnotacją jest typem wystąpienia elementu 
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `Queue` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `Queue` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `queue` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `out` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
@@ -345,7 +344,7 @@ W skrypcie C# i C# Napisz wiele komunikatów w kolejce przy użyciu jednego z na
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Napisz pojedynczy komunikat w kolejce przy użyciu parametru metody, takiego jak `out T paramName` . `paramName`Jest wartością określoną we `name` właściwości *Function. JSON*. Można użyć typu zwracanego metody zamiast `out` parametru i `T` może być dowolny z następujących typów:
+Napisz pojedynczy komunikat w kolejce przy użyciu parametru metody, takiego jak `out T paramName` . `paramName`Jest wartością określoną we `name` właściwości *function.jsna*. Można użyć typu zwracanego metody zamiast `out` parametru i `T` może być dowolny z następujących typów:
 
 * Obiekt możliwy do serializacji jako plik JSON
 * `string`
@@ -361,13 +360,13 @@ W skrypcie C# i C# Napisz wiele komunikatów w kolejce przy użyciu jednego z na
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Element kolejki wyjściowej jest dostępny za pośrednictwem `context.bindings.<NAME>` Where `<NAME>` , gdzie pasuje do nazwy zdefiniowanej w *funkcji Function. JSON*. Dla ładunku elementu kolejki można użyć ciągu lub obiektu możliwego do serializacji w formacie JSON.
+Element kolejki wyjściowej jest dostępny za pośrednictwem `context.bindings.<NAME>` Where `<NAME>` , gdzie pasuje do nazwy zdefiniowanej w *function.jsna*. Dla ładunku elementu kolejki można użyć ciągu lub obiektu możliwego do serializacji w formacie JSON.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Istnieją dwie opcje wyprowadzania komunikatu centrum zdarzeń z funkcji:
 
-- **Wartość zwracana**: Ustaw `name` Właściwość w *funkcji Function. JSON* na `$return` . W przypadku tej konfiguracji wartość zwracana przez funkcję jest utrwalana jako komunikat magazynu kolejki.
+- **Wartość zwracana**: Ustaw `name` Właściwość w *function.jsna* wartość `$return` . W przypadku tej konfiguracji wartość zwracana przez funkcję jest utrwalana jako komunikat magazynu kolejki.
 
 - Bezwzględnie **: Przekaż**wartość do metody [Set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) parametru zadeklarowanego jako typ [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Wartość przeniesiona do `set` jest utrwalana jako komunikat magazynu kolejki.
 
@@ -391,12 +390,12 @@ Istnieją dwie opcje wyprowadzania komunikatu centrum zdarzeń z funkcji przy u�
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>Ustawienia pliku host. JSON
+## <a name="hostjson-settings"></a>host.jsustawień
 
-W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x i nowszych. Poniższy przykładowy plik host. JSON zawiera tylko ustawienia wersji 2. x dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej w wersjach 2. x i więcej, zobacz informacje dotyczące pliku [host. JSON dla Azure Functions](functions-host-json.md).
+W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x i nowszych. Przykład host.jsna poniższym pliku zawiera tylko ustawienia wersji 2. x dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej w wersjach 2. x i więcej, zobacz [host.json Reference for Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> Aby uzyskać odwołanie do pliku host. JSON w funkcjach 1. x, zobacz informacje dotyczące pliku [host. JSON dla Azure Functions 1. x](functions-host-json-v1.md).
+> Aby uzyskać informacje na temat host.jsw funkcjach 1. x, zobacz [host.json Reference for Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {

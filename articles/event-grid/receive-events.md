@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: femila
 ms.openlocfilehash: dd7535030ea4f6d6769630e463618faab62944a0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558468"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
@@ -32,7 +31,7 @@ W przypadku tworzenia aplikacji w programie .NET należy [dodać zależność](.
 
 Zestawy SDK dla innych języków są dostępne za pośrednictwem referencyjnego [publikowania zestawów SDK](./sdk-overview.md#data-plane-sdks) . Te pakiety mają modele dla natywnych typów zdarzeń, takich jak `EventGridEvent` , `StorageBlobCreatedEventData` , i `EventHubCaptureFileCreatedEventData` .
 
-Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w portalu usługi Azure Functions) i Utwórz plik o nazwie Project. JSON. Dodaj następującą zawartość do `project.json` pliku i Zapisz go:
+Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w portalu usługi Azure Functions) i Utwórz plik o nazwie project.json. Dodaj następującą zawartość do `project.json` pliku i Zapisz go:
 
  ```json
 {

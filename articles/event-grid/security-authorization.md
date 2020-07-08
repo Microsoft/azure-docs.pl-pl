@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: femila
 ms.openlocfilehash: 87d436024dae21b0122bf6b861b8a3ae4299db73
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559011"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
@@ -112,7 +111,7 @@ Jeśli musisz określić uprawnienia, które są inne niż wbudowane role, może
 
 Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwiają użytkownikom podejmowanie różnych akcji. Te role niestandardowe różnią się od wbudowanych ról, ponieważ udzielają szerszego dostępu niż tylko subskrypcje zdarzeń.
 
-**EventGridReadOnlyRole. JSON**: Zezwalaj tylko na operacje tylko do odczytu.
+**EventGridReadOnlyRole.js**: Zezwalaj tylko na operacje tylko do odczytu.
 
 ```json
 {
@@ -131,7 +130,7 @@ Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwia
 }
 ```
 
-**EventGridNoDeleteListKeysRole. JSON**: Zezwalaj na ograniczone akcje post, ale nie Zezwalaj na akcje usuwania.
+**EventGridNoDeleteListKeysRole.js**: Zezwalaj na ograniczone akcje post, ale nie Zezwalaj na akcje usuwania.
 
 ```json
 {
@@ -154,7 +153,7 @@ Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwia
 }
 ```
 
-**EventGridContributorRole. JSON**: zezwala na wszystkie akcje związane z siatką zdarzeń.
+**EventGridContributorRole.js**: zezwala na wszystkie akcje związane z siatką zdarzeń.
 
 ```json
 {

@@ -7,10 +7,9 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 1dbd3765b691d1ba7b958d765a59f6451f380a2e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559088"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
@@ -40,9 +39,9 @@ public static void Run(
 
 <!--Same example for input and output. -->
 
-Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i kodzie [skryptu C# (CSX)](functions-reference-csharp.md) , który używa powiązań. Funkcja tworzy kopię tekstu obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i [skrypcie C# (CSX)](functions-reference-csharp.md) , który używa powiązań. Funkcja tworzy kopię tekstu obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *Function. JSON* `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
+W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -89,9 +88,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i [kodzie JavaScript](functions-reference-node.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i [JavaScript](functions-reference-node.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *Function. JSON* `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
+W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -138,9 +137,9 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w pliku *Function. JSON* i [kodzie Python](functions-reference-python.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
+Poniższy przykład przedstawia powiązania danych wejściowych i wyjściowych obiektów BLOB w *function.jsw* kodzie pliku i języku [Python](functions-reference-python.md) , który używa powiązań. Funkcja tworzy kopię obiektu BLOB. Funkcja jest wyzwalana przez komunikat kolejki, który zawiera nazwę obiektu BLOB do skopiowania. Nowy obiekt BLOB ma nazwę *{originalblobname}-Copy*.
 
-W pliku *Function. JSON* `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
+W *function.jsw* pliku `queueTrigger` Właściwość metadanych służy do określania nazwy obiektu BLOB we `path` właściwościach:
 
 ```json
 {
@@ -300,9 +299,9 @@ Ten `@BlobInput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcję
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `Blob` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `Blob` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Wyjątki są zanotowane w sekcji [użycie](#usage) . |
@@ -325,7 +324,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do danych obiektów BLOB przy użyciu metody `context.bindings.<NAME>` Where `<NAME>` odpowiada wartości zdefiniowanej w *funkcji Function. JSON*.
+Dostęp do danych obiektów BLOB przy użyciu `context.bindings.<NAME>` `<NAME>` wartości WHERE, która jest zgodna z wartością zdefiniowaną w *function.jsna*.
 
 # <a name="python"></a>[Python](#tab/python)
 

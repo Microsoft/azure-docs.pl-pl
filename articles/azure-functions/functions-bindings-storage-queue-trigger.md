@@ -7,17 +7,16 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
 ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559914"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
 Wyzwalacz magazynu kolejki uruchamia funkcję, gdy do usługi Azure queue storage są dodawane komunikaty.
 
-## <a name="encoding"></a>Kodowanie
+## <a name="encoding"></a>Encoding
 
 Funkcja oczekuje ciągu zakodowanego w *formacie base64* . Wszelkie zmiany typu kodowania (w celu przygotowania danych jako ciągu zakodowanego *algorytmem Base64* ) muszą zostać zaimplementowane w usłudze wywołującej.
 
@@ -44,9 +43,9 @@ public static class QueueFunctions
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza kolejki w pliku *Function. JSON* i kodzie [skryptu C# (. CSX)](functions-reference-csharp.md) , który używa powiązania. Funkcja sonduje `myqueue-items` kolejkę i zapisuje dziennik za każdym razem, gdy element kolejki jest przetwarzany.
+Poniższy przykład przedstawia powiązanie wyzwalacza kolejki w *function.jsw* kodzie pliku i [skrypcie C# (CSX)](functions-reference-csharp.md) , który używa powiązania. Funkcja sonduje `myqueue-items` kolejkę i zapisuje dziennik za każdym razem, gdy element kolejki jest przetwarzany.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -95,13 +94,13 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w Function. JSON.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
+W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w function.json.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza kolejki w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja sonduje `myqueue-items` kolejkę i zapisuje dziennik za każdym razem, gdy element kolejki jest przetwarzany.
+Poniższy przykład pokazuje powiązanie wyzwalacza kolejki w *function.jsw* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja sonduje `myqueue-items` kolejkę i zapisuje dziennik za każdym razem, gdy element kolejki jest przetwarzany.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -140,13 +139,13 @@ module.exports = async function (context, message) {
 };
 ```
 
-W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w Function. JSON.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
+W sekcji [użycie](#usage) objaśniono `myQueueItem` , że nazwa jest określana przez `name` Właściwość w function.json.  W [sekcji metadane wiadomości](#message-metadata) objaśniono wszystkie inne wyświetlane zmienne.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Poniższy przykład ilustruje sposób odczytywania komunikatu kolejki przekazanego do funkcji za pośrednictwem wyzwalacza.
 
-Wyzwalacz kolejki magazynu jest zdefiniowany w *funkcji Function. JSON* , w której *Typ* jest ustawiony na `queueTrigger` .
+Wyzwalacz kolejki magazynu jest zdefiniowany w *function.jsna* miejscu, w którym ustawiono *Typ* `queueTrigger` .
 
 ```json
 {
@@ -309,12 +308,12 @@ public class QueueTriggerDemo {
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `QueueTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `QueueTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy| Musi być ustawiony na `queueTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
-|**wskazywa**| nie dotyczy | Tylko w pliku *Function. JSON* . Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
+|**wskazywa**| nie dotyczy | W *function.jstylko na* pliku. Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
 |**Nazwij** | nie dotyczy |Nazwa zmiennej, która zawiera ładunek elementu kolejki w kodzie funkcji.  |
 |**Zmienną QueueName** | **Zmienną QueueName**| Nazwa kolejki do sondowania. |
 |**połączenia** | **Połączenie** |Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "WebStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
@@ -336,7 +335,7 @@ Jeśli próbujesz powiązać z `CloudQueueMessage` i otrzymać komunikat o błę
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego jak `string paramName` . `paramName`Jest wartością określoną we `name` właściwości *Function. JSON*. Można powiązać z dowolnym z następujących typów:
+Uzyskaj dostęp do danych komunikatów przy użyciu parametru metody, takiego jak `string paramName` . `paramName`Jest wartością określoną we `name` właściwości *function.jsna*. Można powiązać z dowolnym z następujących typów:
 
 * Object — środowisko uruchomieniowe funkcji deserializacji ładunek JSON do wystąpienia dowolnej klasy zdefiniowanej w kodzie. 
 * `string`
@@ -347,7 +346,7 @@ Jeśli próbujesz powiązać z `CloudQueueMessage` i otrzymać komunikat o błę
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Ładunek elementu kolejki jest dostępny za pośrednictwem `context.bindings.<NAME>` Where `<NAME>` , gdzie pasuje do nazwy zdefiniowanej w *funkcji Function. JSON*. Jeśli ładunek jest w formacie JSON, wartość jest deserializowana do obiektu.
+Ładunek elementu kolejki jest dostępny za pośrednictwem `context.bindings.<NAME>` Where `<NAME>` , gdzie pasuje do nazwy zdefiniowanej w *function.jsna*. Jeśli ładunek jest w formacie JSON, wartość jest deserializowana do obiektu.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -365,7 +364,7 @@ Wyzwalacz kolejki zawiera kilka [właściwości metadanych](./functions-bindings
 
 |Właściwość|Typ|Opis|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Ładunek kolejki (w przypadku prawidłowego ciągu). Jeśli ładunek komunikatu w kolejce jest ciągiem, `QueueTrigger` ma taką samą wartość jak zmienna o nazwie określonej przez `name` Właściwość w *funkcji Function. JSON*.|
+|`QueueTrigger`|`string`|Ładunek kolejki (w przypadku prawidłowego ciągu). Jeśli ładunek komunikatu w kolejce jest ciągiem, `QueueTrigger` ma taką samą wartość jak zmienna o nazwie określona przez `name` właściwość w *function.js*.|
 |`DequeueCount`|`int`|Liczba przypadków, w których ten komunikat został usunięty z kolejki.|
 |`ExpirationTime`|`DateTimeOffset`|Godzina wygaśnięcia komunikatu.|
 |`Id`|`string`|Identyfikator komunikatu kolejki.|
@@ -388,7 +387,7 @@ Algorytm używa następującej logiki:
 - Po znalezieniu komunikatu środowisko uruchomieniowe czeka dwa sekundy, a następnie sprawdza inny komunikat
 - Gdy nie zostanie znaleziony żaden komunikat, czeka około czterech sekund przed ponowieniem próby.
 - Po kolejnych nieudanych próbach pobrania komunikatu w kolejce czas oczekiwania będzie się zwiększać do momentu osiągnięcia maksymalnego czasu oczekiwania, który jest wartością domyślną jednej minuty.
-- Maksymalny czas oczekiwania można skonfigurować za pomocą `maxPollingInterval` właściwości w [pliku host. JSON](functions-host-json.md#queues).
+- Maksymalny czas oczekiwania można skonfigurować za pomocą `maxPollingInterval` właściwości w [host.jspliku](functions-host-json.md#queues).
 
 W przypadku lokalnego tworzenia maksymalnego interwału sondowania wartość domyślna to dwie sekundy.
 
@@ -398,13 +397,13 @@ W odniesieniu do rozliczania czas spędzony na sondowaniu przez środowisko uruc
 
 Gdy oczekuje wiele komunikatów w kolejce, wyzwalacz kolejki pobiera partię komunikatów i wywołuje wystąpienia funkcji współbieżnie, aby je przetworzyć. Domyślnie rozmiar wsadu wynosi 16. Gdy przetworzona liczba jest równa 8, środowisko uruchomieniowe pobiera kolejną partię i uruchamia przetwarzanie tych komunikatów. Maksymalna liczba współbieżnych komunikatów przetwarzanych na funkcję na jednej maszynie wirtualnej wynosi 24. Ten limit dotyczy osobno każdej funkcji wyzwalanej przez kolejkę na każdej maszynie wirtualnej. Jeśli aplikacja funkcji jest skalowana do wielu maszyn wirtualnych, każda maszyna wirtualna będzie czekać na wyzwalacze i próbować uruchamiać funkcje. Na przykład jeśli aplikacja funkcji jest skalowana do 3 maszyn wirtualnych, domyślna maksymalna liczba równoczesnych wystąpień jednej funkcji wyzwalanej przez kolejkę to 72.
 
-Rozmiar partii i próg pobierania nowej partii można skonfigurować w [pliku host. JSON](functions-host-json.md#queues). Jeśli chcesz zminimalizować wykonywanie równoległe dla funkcji wyzwalanych przez kolejki w aplikacji funkcji, możesz ustawić rozmiar wsadu na 1. To ustawienie eliminuje współbieżność tylko wtedy, gdy aplikacja funkcji działa na jednej maszynie wirtualnej (VM). 
+Rozmiar partii i próg pobierania nowej partii można skonfigurować w [host.jsna pliku](functions-host-json.md#queues). Jeśli chcesz zminimalizować wykonywanie równoległe dla funkcji wyzwalanych przez kolejki w aplikacji funkcji, możesz ustawić rozmiar wsadu na 1. To ustawienie eliminuje współbieżność tylko wtedy, gdy aplikacja funkcji działa na jednej maszynie wirtualnej (VM). 
 
 Wyzwalacz kolejki automatycznie zapobiega przetwarzaniu komunikatów w kolejce przez funkcję wielokrotnie; funkcje nie muszą być zapisywane w taki sposób, aby były idempotentne.
 
-## <a name="hostjson-properties"></a>Właściwości pliku host. JSON
+## <a name="hostjson-properties"></a>host.jswłaściwości
 
-Plik [host. JSON](functions-host-json.md#queues) zawiera ustawienia sterujące zachowaniem wyzwalacza kolejki. Szczegóły dotyczące dostępnych ustawień można znaleźć w sekcji [Ustawienia hosta. JSON](functions-bindings-storage-queue-output.md#hostjson-settings) .
+[host.jsw](functions-host-json.md#queues) pliku zawiera ustawienia sterujące zachowaniem wyzwalacza kolejki. Aby uzyskać szczegółowe informacje na temat dostępnych ustawień, zobacz sekcję [host.jsw ustawieniach](functions-bindings-storage-queue-output.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Następne kroki
 

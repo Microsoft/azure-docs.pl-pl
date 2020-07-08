@@ -10,10 +10,9 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, tracking-python
 ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559576"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Technologie open source — często zadawane pytania dotyczące Web Apps na platformie Azure
@@ -31,8 +30,8 @@ Aby włączyć rejestrowanie w języku PHP:
 3. Wybierz folder **witryny** .
 4. Wybierz folder **wwwroot** .
 5. Wybierz **+** ikonę, a następnie wybierz pozycję **nowy plik**.
-6. Ustaw nazwę pliku na **. User. ini**.
-7. Wybierz ikonę ołówka obok **pliku. User. ini**.
+6. Ustaw nazwę pliku na **.user.ini**.
+7. Wybierz ikonę ołówka obok pozycji **.user.ini**.
 8. W pliku Dodaj następujący kod:`log_errors=on`
 9. Wybierz pozycję **Zapisz**.
 10. Wybierz ikonę ołówka obok pozycji **wp-config. php**.
@@ -48,31 +47,31 @@ Aby uzyskać więcej informacji, zobacz [Włączanie dzienników błędów oprog
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Jak mogę rejestrować błędy aplikacji w języku Python w aplikacjach hostowanych w usłudze App Service?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
-## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Jak mogę zmienić wersję aplikacji node. js hostowaną w App Service?
+## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>Jak mogę zmienić wersję Node.js aplikacji hostowanej w App Service?
 
-Aby zmienić wersję aplikacji node. js, można użyć jednej z następujących opcji:
+Aby zmienić wersję aplikacji Node.js, można użyć jednej z następujących opcji:
 
 * W Azure Portal Użyj **ustawień aplikacji**.
   1. W Azure Portal przejdź do aplikacji sieci Web.
   2. W bloku **Ustawienia** wybierz pozycję **Ustawienia aplikacji**.
-  3. W obszarze **Ustawienia aplikacji**można uwzględnić WEBSITE_NODE_DEFAULT_VERSION jako klucz oraz wersję środowiska Node. js, która ma być wartością.
+  3. W obszarze **Ustawienia aplikacji**można uwzględnić WEBSITE_NODE_DEFAULT_VERSION jako klucz i wersję Node.js, która ma być wartością.
   4. Przejdź do **konsoli kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
-  5. Aby sprawdzić wersję środowiska Node. js, wprowadź następujące polecenie:  
+  5. Aby sprawdzić wersję Node.js, wprowadź następujące polecenie:  
      ```
      node -v
      ```
-* Zmodyfikuj plik programu iisnode. yml. Zmiana wersji środowiska Node. js w pliku programu iisnode. yml ustawia tylko środowisko uruchomieniowe używane przez programu iisnode. Kudu cmd i inne nadal korzystają z wersji środowiska Node. js, która została ustawiona w **ustawieniach aplikacji** w Azure Portal.
+* Zmodyfikuj plik programu iisnode. yml. Zmiana wersji Node.js w pliku programu iisnode. yml ustawia tylko środowisko uruchomieniowe używane przez programu iisnode. Kudu cmd i inne nadal używają wersji Node.js, która jest ustawiona w **ustawieniach aplikacji** w Azure Portal.
 
   Aby ręcznie ustawić programu iisnode. yml, Utwórz plik programu iisnode. yml w folderze głównym aplikacji. W pliku Uwzględnij następujący wiersz:
   ```yml
   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
   ```
    
-* Ustaw plik programu iisnode. yml przy użyciu pliku Package. JSON podczas wdrażania kontroli źródła.
+* Ustaw plik programu iisnode. yml przy użyciu package.jsna etapie wdrażania kontroli źródła.
   Proces wdrażania kontroli źródła platformy Azure obejmuje następujące kroki:
   1. Przenosi zawartość do aplikacji sieci Web platformy Azure.
   2. Tworzy domyślny skrypt wdrażania, jeśli w folderze głównym aplikacji sieci Web nie ma żadnego pliku (Deploy. cmd,. Deployment Files).
-  3. Uruchamia skrypt wdrażania, w którym tworzy plik programu iisnode. yml w przypadku podawania wersji Node. js w pliku Package. JSON > aparacie`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Uruchamia skrypt wdrażania, w którym tworzy plik programu iisnode. yml w przypadku podawania wersji Node.js w package.jsna aparacie plików >`"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. Plik programu iisnode. yml ma następujący wiersz kodu:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -89,11 +88,11 @@ Po włączeniu dzienników Odtwórz błąd, a następnie sprawdź dzienniki, aby
 
 Jeśli ten błąd wystąpi w plikach Debug. log lub php_errors. log, aplikacja przekracza liczbę połączeń. Jeśli przechowujesz w usłudze ClearDB, sprawdź liczbę połączeń dostępnych w [planie usługi](https://www.cleardb.com/pricing.view).
 
-## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Jak mogę debugować aplikację Node. js hostowaną w App Service?
+## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Jak mogę debugować aplikację Node.js hostowaną w App Service?
 
 1.  Przejdź do **konsoli kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Przejdź do folderu logs aplikacji (D:\home\LogFiles\Application).
-3.  W pliku logging_errors. txt sprawdź zawartość.
+3.  W pliku logging_errors.txt Sprawdź zawartość.
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Jak mogę zainstalować natywne moduły języka Python w App Service aplikacji sieci Web lub aplikacji interfejsu API?
 
@@ -138,7 +137,7 @@ Aby rozwiązać ten problem:
 
 1. Usuń plik JAR sqljdbc* z folderu App/lib.
 2. Jeśli używasz niestandardowego serwera sieci Web Tomcat lub Azure Marketplace Tomcat, Skopiuj ten plik jar do folderu Tomcat lib.
-3. W przypadku włączania języka Java z poziomu Azure Portal (wybierz pozycję **Java 1,8**  >  **Tomcat Server**) Skopiuj plik JAR sqljdbc. * w folderze, który jest równoległy do aplikacji. Następnie Dodaj następujące ustawienie ścieżki klasy do pliku Web. config:
+3. W przypadku włączania języka Java z poziomu Azure Portal (wybierz pozycję **Java 1,8**  >  **Tomcat Server**) Skopiuj plik JAR sqljdbc. * w folderze, który jest równoległy do aplikacji. Następnie Dodaj następujące ustawienie ścieżki klasy do pliku web.config:
 
     ```xml
     <httpPlatform>
@@ -206,7 +205,7 @@ Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących zabezpiec
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Próbuję użyć PHPMyAdmin, a widzę komunikat "odmowa dostępu". Jak rozwiązać ten problem?
 
-Ten problem może wystąpić, jeśli funkcja MySQL w aplikacji nie została jeszcze uruchomiona w tym wystąpieniu App Service. Aby rozwiązać ten problem, spróbuj uzyskać dostęp do witryny sieci Web. Spowoduje to uruchomienie wymaganych procesów, w tym procesu MySQL w aplikacji. Aby sprawdzić, czy MySQL w aplikacji jest uruchomiona, w Eksploratorze procesów upewnij się, że w procesach znajduje się plik MySQL. exe.
+Ten problem może wystąpić, jeśli funkcja MySQL w aplikacji nie została jeszcze uruchomiona w tym wystąpieniu App Service. Aby rozwiązać ten problem, spróbuj uzyskać dostęp do witryny sieci Web. Spowoduje to uruchomienie wymaganych procesów, w tym procesu MySQL w aplikacji. Aby sprawdzić, czy MySQL w aplikacji jest uruchomiona, w Eksploratorze procesów upewnij się, że mysqld.exe jest wymieniona w procesach.
 
 Po upewnieniu się, że MySQL w aplikacji jest uruchomiona, spróbuj użyć PHPMyAdmin.
 

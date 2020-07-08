@@ -10,10 +10,9 @@ ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
 ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84606891"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
@@ -625,7 +624,7 @@ Gdy element Runbook lub aplikacja próbuje działać w piaskownicy platformy Azu
 
 ### <a name="cause"></a>Przyczyna
 
-Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą wywoływać do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (MSIServer. exe). 
+Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą odwoływać się do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (msiserver.exe). 
 
 ### <a name="resolution"></a>Rozwiązanie
 

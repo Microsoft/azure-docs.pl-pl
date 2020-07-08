@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629679"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
@@ -62,7 +61,7 @@ Zasobami docelowymi można zarządzać w następujący sposób:
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Wartooć**
+**Ustawienie zasad** | **Szczegóły** | **Domyślne**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny

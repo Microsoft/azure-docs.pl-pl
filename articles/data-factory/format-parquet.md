@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ad0ccdabd0320d8821d0760ca9802db37049149
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84611061"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet w Azure Data Factory
@@ -156,7 +155,7 @@ Parquet złożone typy danych nie są obecnie obsługiwane (na przykład mapy, l
 W przypadku kopiowania uruchomionego na samoobsługowym środowisku IR przy użyciu serializacji/deserializacji pliku Parquet można zlokalizować środowisko uruchomieniowe języka Java, sprawdzając najpierw rejestr *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* dla środowiska JRE, jeśli nie zostanie on znaleziony, a następnie w celu sprawdzenia zmiennej systemowej *`JAVA_HOME`* dla OpenJDK.
 
 - **Aby użyć środowiska JRE**: 64-bitowy IR wymaga 64-bitowego środowiska JRE. Można je znaleźć w [tym miejscu](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Aby użyć OpenJDK**: jest obsługiwana od czasu IR w wersji 3,13. Spakuj plik JVM. dll ze wszystkimi innymi wymaganymi zestawami OpenJDK do samodzielnej maszyny IR, a następnie ustaw dla zmiennej środowiskowej systemowe JAVA_HOME odpowiednio.
+- **Aby użyć OpenJDK**: jest obsługiwana od czasu IR w wersji 3,13. Zapakuj jvm.dll ze wszystkimi innymi wymaganymi zestawami OpenJDK na samodzielną maszynę podczerwieni i ustaw dla zmiennej środowiskowej system JAVA_HOME odpowiednie.
 - **Aby zainstalować pakiet redystrybucyjny Visual C++ 2010**: pakiet redystrybucyjny Visual C++ 2010 nie jest instalowany z własnymi obsługiwanymi instalacjami środowiska IR. Można je znaleźć w [tym miejscu](https://www.microsoft.com/download/details.aspx?id=14632).
 
 > [!TIP]

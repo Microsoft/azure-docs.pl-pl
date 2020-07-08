@@ -12,10 +12,9 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558560"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
@@ -57,7 +56,7 @@ Plik konfiguracji definiuje:
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-plik [appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) z przykładu [demona konsoli .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+[appsettings.jsna](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) podstawie przykładu [demona konsoli .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
 
 ```json
 {
@@ -73,7 +72,7 @@ Podajesz `ClientSecret` albo lub `CertificateName` . Te ustawienia są wyłączn
 
 # <a name="python"></a>[Python](#tab/python)
 
-W przypadku tworzenia poufnego klienta z kluczami tajnymi klienta plik config [. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) w przykładzie [demona języka Python](https://github.com/Azure-Samples/ms-identity-python-daemon) jest następujący:
+Podczas budowania klienta poufnego przy użyciu kluczy tajnych klienta [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) pliku konfiguracyjnego w przykładzie [demona języka Python](https://github.com/Azure-Samples/ms-identity-python-daemon) jest następujący:
 
 ```Json
 {
@@ -85,7 +84,7 @@ W przypadku tworzenia poufnego klienta z kluczami tajnymi klienta plik config [.
 }
 ```
 
-Podczas budowania klienta poufnego za pomocą certyfikatów, plik konfiguracyjny [Parameters. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) w przykładzie [demona języka Python](https://github.com/Azure-Samples/ms-identity-python-daemon) jest następujący:
+Podczas tworzenia poufnego klienta z certyfikatami [parameters.js](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) pliku konfiguracyjnego w przykładzie [demona języka Python](https://github.com/Azure-Samples/ms-identity-python-daemon) jest następująca:
 
 ```Json
 {

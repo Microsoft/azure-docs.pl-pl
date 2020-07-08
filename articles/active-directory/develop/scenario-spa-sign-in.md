@@ -12,17 +12,16 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558765"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplikacja jednostronicowa: Logowanie i wylogowywanie
 
 Dowiedz się, jak dodać logowanie do kodu dla aplikacji jednostronicowej.
 
-Aby uzyskać tokeny umożliwiające dostęp do interfejsów API w aplikacji, wymagany jest kontekst uwierzytelnionego użytkownika. Użytkowników można zalogować do aplikacji w MSAL. js na dwa sposoby:
+Aby uzyskać tokeny umożliwiające dostęp do interfejsów API w aplikacji, wymagany jest kontekst uwierzytelnionego użytkownika. Użytkowników można zalogować do aplikacji w MSAL.js na dwa sposoby:
 
 * [Okno podręczne](#sign-in-with-a-pop-up-window), przy użyciu `loginPopup` metody
 * [Przekieruj](#sign-in-with-redirect)przy użyciu `loginRedirect` metody
@@ -30,7 +29,7 @@ Aby uzyskać tokeny umożliwiające dostęp do interfejsów API w aplikacji, wym
 Opcjonalnie można również przekazać zakresy interfejsów API, dla których użytkownik musi wyrazić zgodę w czasie logowania.
 
 > [!NOTE]
-> Jeśli aplikacja ma już dostęp do kontekstu uwierzytelnionego użytkownika lub tokenu identyfikatora, można pominąć krok logowania i bezpośrednio uzyskać tokeny. Aby uzyskać szczegółowe informacje, zobacz [Logowanie jednokrotne bez logowania MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
+> Jeśli aplikacja ma już dostęp do kontekstu uwierzytelnionego użytkownika lub tokenu identyfikatora, można pominąć krok logowania i bezpośrednio uzyskać tokeny. Aby uzyskać szczegółowe informacje, zobacz [Logowanie jednokrotne bez logowania MSAL.js](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Wybieranie między podręcznym i przekierowaniami
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: femila
 ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560677"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps jako źródło Event Grid
@@ -129,7 +128,7 @@ Obiekt Error jest zwracany, gdy w interfejsie API Maps wystąpi błąd. Obiekt E
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| error | ErrorDetails |Ten obiekt jest zwracany w przypadku wystąpienia błędu w interfejsie API Maps  |
+| Błąd | ErrorDetails |Ten obiekt jest zwracany w przypadku wystąpienia błędu w interfejsie API Maps  |
 
 Obiekt ErrorDetails jest zwracany, gdy w interfejsie API Maps wystąpi błąd. ErrorDetails lub obiekt ma następujące właściwości:
 

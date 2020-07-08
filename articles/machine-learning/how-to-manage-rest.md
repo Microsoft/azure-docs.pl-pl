@@ -11,10 +11,9 @@ ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560171"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
@@ -271,7 +270,7 @@ Pomyślne żądanie otrzyma `201 Created` odpowiedź, ale należy zauważyć, ż
 
 ### <a name="create-an-experimental-run"></a>Utwórz przebieg eksperymentalny
 
-Aby rozpocząć Uruchamianie w ramach eksperymentu, potrzebujesz folderu zip zawierającego skrypt szkoleniowy i powiązane pliki oraz plik JSON definicji uruchomienia. Folder zip musi mieć plik wpisu w języku Python w katalogu głównym. Na przykład kod zip programu w języku Python, taki jak poniższy, do folderu o nazwie **uczenie. zip**.
+Aby rozpocząć Uruchamianie w ramach eksperymentu, potrzebujesz folderu zip zawierającego skrypt szkoleniowy i powiązane pliki oraz plik JSON definicji uruchomienia. Folder zip musi mieć plik wpisu w języku Python w katalogu głównym. Przykładowo w folderze o nazwie **train.zip**należy umieścić w pliku zip prosty program Python, taki jak poniższy.
 
 ```python
 # hello.py
@@ -279,7 +278,7 @@ Aby rozpocząć Uruchamianie w ramach eksperymentu, potrzebujesz folderu zip zaw
 print("Hello, REST!")
 ```
 
-Zapisz ten Następny fragment kodu jako **definicję. JSON**. Potwierdź, że wartość "skrypt" jest zgodna z nazwą pliku języka Python, który właśnie został spakowany. Potwierdź, że wartość "target" jest zgodna z nazwą dostępnego zasobu obliczeniowego. 
+Zapisz ten Następny fragment kodu jako **definition.js**. Potwierdź, że wartość "skrypt" jest zgodna z nazwą pliku języka Python, który właśnie został spakowany. Potwierdź, że wartość "target" jest zgodna z nazwą dostępnego zasobu obliczeniowego. 
 
 ```json
 {

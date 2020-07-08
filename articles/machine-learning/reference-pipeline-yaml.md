@@ -12,10 +12,9 @@ author: sanpil
 ms.date: 11/11/2019
 ms.custom: tracking-python
 ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560948"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiowanie potoków uczenia maszynowego w YAML
@@ -26,15 +25,15 @@ W poniższej tabeli przedstawiono, co jest i nie jest obecnie obsługiwane podcz
 
 | Typ kroku | Obsługiwane? |
 | ----- | :-----: |
-| PythonScriptStep | Yes |
-| ParallelRunStep | Yes |
-| AdlaStep | Yes |
-| AzureBatchStep | Yes |
-| DatabricksStep | Yes |
-| DataTransferStep | Yes |
+| PythonScriptStep | Tak |
+| ParallelRunStep | Tak |
+| AdlaStep | Tak |
+| AzureBatchStep | Tak |
+| DatabricksStep | Tak |
+| DataTransferStep | Tak |
 | AutoMLStep | Nie |
 | HyperDriveStep | Nie |
-| ModuleStep | Yes |
+| ModuleStep | Tak |
 | MPIStep | Nie |
 | EstimatorStep | Nie |
 
@@ -230,7 +229,7 @@ pipeline:
 | `run_name` | Nazwa w datakostkach dla tego przebiegu. |
 | `source_directory` | Katalog zawierający skrypt i inne pliki. |
 | `num_workers` | Statyczna liczba procesów roboczych dla elementów datakostks uruchamia klaster. |
-| `runconfig` | Ścieżka do `.runconfig` pliku. Ten plik jest reprezentacją YAML klasy [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) . Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | Ścieżka do `.runconfig` pliku. Ten plik jest reprezentacją YAML klasy [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) . Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Określa, czy krok ma ponownie używać poprzednich wyników po ponownym uruchomieniu z tymi samymi ustawieniami. |
 
 Poniższy przykład zawiera krok datakostki:
@@ -326,7 +325,7 @@ pipeline:
 | `outputs` | Wynikami może być [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) lub [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | Nazwa skryptu języka Python (względem `source_directory` ). |
 | `source_directory` | Katalog zawierający skrypt, środowisko Conda itp. |
-| `runconfig` | Ścieżka do `.runconfig` pliku. Ten plik jest reprezentacją YAML klasy [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) . Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [runconfig. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `runconfig` | Ścieżka do `.runconfig` pliku. Ten plik jest reprezentacją YAML klasy [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) . Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Określa, czy krok ma ponownie używać poprzednich wyników po ponownym uruchomieniu z tymi samymi ustawieniami. |
 
 Poniższy przykład zawiera krok skryptu języka Python:

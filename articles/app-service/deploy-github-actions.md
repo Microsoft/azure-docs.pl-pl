@@ -8,10 +8,9 @@ ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: tracking-python
 ms.openlocfilehash: b40da0c8746bc63a99394027b61d777a611727e3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559594"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
@@ -185,7 +184,7 @@ W poniższych przykładach przedstawiono część przepływu pracy, który kompi
 
 Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
 
-| **Konstruktora**  | **Wyjaśnienie**  |
+| **Parametr**  | **Objaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
@@ -194,7 +193,7 @@ Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji
 
 ### <a name="deploy-using-publish-profile"></a>Wdróż przy użyciu profilu publikowania
 
-Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji node. js na platformie Azure przy użyciu profilu publikowania.
+Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji Node.js na platformie Azure przy użyciu profilu publikowania.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -228,7 +227,7 @@ jobs:
 
 ### <a name="deploy-using-azure-service-principal"></a>Wdrażanie przy użyciu nazwy głównej usługi platformy Azure
 
-Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji node. js na platformie Azure przy użyciu jednostki usługi platformy Azure.
+Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji Node.js na platformie Azure przy użyciu nazwy głównej usługi platformy Azure.
 
 ```yaml
 on: [push]

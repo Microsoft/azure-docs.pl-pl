@@ -1,6 +1,6 @@
 ---
 title: Parametry połączenia — Azure Database for MariaDB
-description: Ten dokument zawiera listę obecnie obsługiwanych parametrów połączenia dla aplikacji, które łączą się z Azure Database for MariaDB, w tym ADO.NET (C#), JDBC, Node. js, ODBC, PHP, Python i Ruby.
+description: Ten dokument zawiera listę obecnie obsługiwanych parametrów połączenia dla aplikacji, które łączą się z Azure Database for MariaDB, w tym ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python i Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558300"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Jak połączyć aplikacje z usługą Azure Database for MariaDB

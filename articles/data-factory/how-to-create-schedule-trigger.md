@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.custom: tracking-python
 ms.openlocfilehash: 360d01d01c163e494340c2da3182192dc15612a2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560799"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok zgodnie z harmonogramem
@@ -81,7 +80,7 @@ Można utworzyć **wyzwalacz harmonogramu** , aby zaplanować okresowe uruchamia
 
 W tej sekcji przedstawiono sposób użycia Azure PowerShell do tworzenia, uruchamiania i monitorowania wyzwalacza harmonogramu. Aby zobaczyć ten przykład pracy, najpierw przejdź do [przewodnika Szybki Start: Tworzenie fabryki danych przy użyciu Azure PowerShell](quickstart-create-data-factory-powershell.md). Następnie Dodaj następujący kod do metody Main, która tworzy i uruchamia wyzwalacz harmonogramu, który jest uruchamiany co 15 minut. Wyzwalacz jest skojarzony z potokiem o nazwie **Adfv2QuickStartPipeline** , który tworzysz w ramach przewodnika Szybki Start.
 
-1. Utwórz plik JSON o nazwie C:\ADFv2QuickStartPSH\ **. JSON** w folderze o następującej zawartości:
+1. Utwórz plik JSON o nazwie **MyTrigger.js** w folderze C:\ADFv2QuickStartPSH\ o następującej zawartości:
 
     > [!IMPORTANT]
     > Przed zapisaniem pliku JSON ustaw wartość parametru **StartTime** na bieżący czas UTC. Ustaw wartość elementu **Endtime** na godzinę wcześniejszą od bieżącego czasu UTC.
@@ -326,7 +325,7 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 | **endTime** | Data i godzina zakończenia wyzwalacza. Wyzwalacz nie jest wykonywany po określonej dacie i godzinie zakończenia. Wartość właściwości nie może odnosić się do przeszłości. Ta właściwość jest opcjonalna. |
 | **timeZone** | Strefa czasowa. Obecnie jest obsługiwana tylko strefa czasowa UTC. |
 | **wystąpieniu** | Obiekt cyklu określający reguły powtarzania wyzwalacza. Obiekt cyklu obsługuje elementy właściwości **frequency**, **interval**, **endTime**, **count** i **schedule**. Po zdefiniowaniu obiektu cyklu wymagany jest element właściwości **frequency**. Inne elementy obiektu cyklu są opcjonalne. |
-| **frequency** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
+| **jaką** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
 | **dat** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co 3 tygodnie. |
 | **rozkład** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia.
 
@@ -335,10 +334,10 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 
 | Właściwość JSON | Typ | Wymagane | Wartość domyślna | Prawidłowe wartości | Przykład |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Yes | Brak | Daty i godziny ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **wystąpieniu** | Obiekt | Yes | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | String | Tak | Brak | Daty i godziny ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **wystąpieniu** | Obiekt | Tak | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **dat** | Liczba | Nie | 1 | Od 1 do 1000 | `"interval":10` |
-| **endTime** | String | Yes | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Tak | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **rozkład** | Obiekt | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Właściwość startTime

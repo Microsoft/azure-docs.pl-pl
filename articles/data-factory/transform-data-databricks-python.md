@@ -13,10 +13,9 @@ ms.reviewer: maghan
 manager: anandsub
 ms.custom: tracking-python
 ms.openlocfilehash: 6ae42c9cb68b28e5d2f0b5a2ba3cf7eab74a74b4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561123"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Przekształcanie danych przez uruchomienie działania języka Python w Azure Databricks
@@ -66,11 +65,11 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 
 |Właściwość|Opis|Wymagane|
 |---|---|---|
-|name|Nazwa działania w potoku.|Yes|
+|name|Nazwa działania w potoku.|Tak|
 |description|Tekst opisujący działanie działania.|Nie|
-|typ|Dla działania języka Python dla elementów datakostks typem działania jest DatabricksSparkPython.|Yes|
-|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie języka Python. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md)   .|Yes|
-|pythonFile|Identyfikator URI pliku języka Python, który ma zostać wykonany. Obsługiwane są tylko ścieżki DBFS.|Yes|
+|typ|Dla działania języka Python dla elementów datakostks typem działania jest DatabricksSparkPython.|Tak|
+|linkedServiceName|Nazwa połączonej usługi datakostki, w której działa działanie języka Python. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md)   .|Tak|
+|pythonFile|Identyfikator URI pliku języka Python, który ma zostać wykonany. Obsługiwane są tylko ścieżki DBFS.|Tak|
 |parameters|Parametry wiersza polecenia, które zostaną przesłane do pliku języka Python. To jest tablica ciągów.|Nie|
 |biblioteki|Lista bibliotek do zainstalowania w klastrze, w którym będą wykonywane zadania. Może to być tablica <String, Object>|Nie|
 

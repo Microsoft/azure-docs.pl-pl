@@ -8,10 +8,9 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
 ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559778"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacja telemetrii w Application Insights
@@ -137,7 +136,7 @@ public void ConfigureServices(IServiceCollection services)
 #### <a name="java-sdk"></a>Zestaw SDK Java
 - **Konfiguracja przychodząca**
 
-  - W przypadku aplikacji Java EE Dodaj następujący kod do `<TelemetryModules>` znacznika w ApplicationInsights. XML:
+  - W przypadku aplikacji Java EE Dodaj następujący kod do `<TelemetryModules>` znacznika w ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
@@ -153,7 +152,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Konfiguracja wychodząca**
 
-  Dodaj następujący kod do AI-Agent. XML:
+  Dodaj następujące elementy do AI-Agent.xml:
 
   ```xml
   <Instrumentation>
@@ -353,7 +352,7 @@ Można dostosować sposób wyświetlania nazw składników na [mapie aplikacji](
     ```
     Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` .
 
-- Za pomocą Application Insights Java SDK 2.5.0 i nowszych można określić `cloud_RoleName` przez dodanie `<RoleName>` do pliku ApplicationInsights. XML:
+- Za pomocą Application Insights Java SDK 2.5.0 i nowszych można określić `cloud_RoleName` przez dodanie `<RoleName>` do ApplicationInsights.xml pliku:
 
   ```XML
   <?xml version="1.0" encoding="utf-8"?>

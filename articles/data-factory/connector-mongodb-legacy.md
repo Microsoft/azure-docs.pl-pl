@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558179"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
@@ -57,11 +56,11 @@ Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ |Właściwość Type musi mieć wartość: **MongoDB** |Yes |
-| serwer |Adres IP lub nazwa hosta serwera MongoDB. |Yes |
+| typ |Właściwość Type musi mieć wartość: **MongoDB** |Tak |
+| serwer |Adres IP lub nazwa hosta serwera MongoDB. |Tak |
 | port |Port TCP, którego serwer MongoDB używa do nasłuchiwania połączeń klientów. |Nie (domyślnie 27017) |
-| Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Yes |
-| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Yes |
+| Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Tak |
+| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Tak |
 | nazwa użytkownika |Konto użytkownika do uzyskiwania dostępu do MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, która ma zostać użyta do sprawdzenia poświadczeń w celu uwierzytelnienia. |Nie. W przypadku uwierzytelniania podstawowego wartość domyślna to użycie konta administratora i bazy danych określonej przy użyciu właściwości databaseName. |
@@ -100,8 +99,8 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbCollection** | Yes |
-| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Yes |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbCollection** | Tak |
+| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
 
 **Przykład:**
 
@@ -131,7 +130,7 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbSource** | Yes |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbSource** | Tak |
 | query |Użyj niestandardowej kwerendy SQL-92 do odczytu danych. Na przykład: select * from MyTable. |Nie (Jeśli określono "CollectionName" w zestawie danych) |
 
 **Przykład:**

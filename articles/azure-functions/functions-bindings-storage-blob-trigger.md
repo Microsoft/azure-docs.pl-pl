@@ -7,10 +7,9 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559978"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
@@ -59,9 +58,9 @@ Aby uzyskać więcej informacji na temat `BlobTrigger` atrybutu, zobacz [atrybut
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza obiektu BLOB w pliku *Function. JSON* i kodzie, który używa tego powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` [kontenerze](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+Poniższy przykład przedstawia powiązanie wyzwalacza obiektu BLOB w *function.jsw* pliku i kodzie, który używa powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` [kontenerze](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -80,7 +79,7 @@ Oto dane powiązania w pliku *Function. JSON* :
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji na temat właściwości pliku *Function. JSON* , zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod skryptu w języku C#, który jest powiązany z `Stream` :
 
@@ -106,9 +105,9 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza obiektów BLOB w pliku *Function. JSON* i [kodu JavaScript](functions-reference-node.md) , który używa powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` kontenerze.
+Poniższy przykład przedstawia powiązanie wyzwalacza obiektu BLOB w *function.jsw* kodzie pliku i [JavaScript](functions-reference-node.md) , który używa powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` kontenerze.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -127,7 +126,7 @@ Oto plik *Function. JSON* :
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji na temat właściwości pliku *Function. JSON* , zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod JavaScript:
 
@@ -140,9 +139,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza obiektów BLOB w pliku *Function. JSON* i [kodu Python](functions-reference-python.md) , który używa powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` [kontenerze](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+Poniższy przykład przedstawia powiązanie wyzwalacza obiektu BLOB w *function.jsw* kodzie pliku i języku [Python](functions-reference-python.md) , który używa tego powiązania. Funkcja zapisuje dziennik w przypadku dodania lub zaktualizowania obiektu BLOB w `samples-workitems` [kontenerze](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -162,7 +161,7 @@ Oto plik *Function. JSON* :
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji na temat właściwości pliku *Function. JSON* , zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod języka Python:
 
@@ -273,9 +272,9 @@ Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, któ
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `BlobTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `BlobTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blobTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
@@ -297,7 +296,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do danych obiektów BLOB przy użyciu metody `context.bindings.<NAME>` Where `<NAME>` odpowiada wartości zdefiniowanej w *funkcji Function. JSON*.
+Dostęp do danych obiektów BLOB przy użyciu `context.bindings.<NAME>` `<NAME>` wartości WHERE, która jest zgodna z wartością zdefiniowaną w *function.jsna*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +310,7 @@ Ten `@BlobTrigger` atrybut służy do zapewnienia dostępu do obiektu BLOB, któ
 
 ## <a name="blob-name-patterns"></a>Wzorce nazw obiektów BLOB
 
-Można określić wzorzec nazwy obiektu BLOB we `path` właściwości w *funkcji Function. JSON* lub w `BlobTrigger` konstruktorze atrybutu. Wzorzec nazwy może być [wyrażeniem filtru lub powiązania](./functions-bindings-expressions-patterns.md). W poniższych sekcjach przedstawiono przykłady.
+Można określić wzorzec nazwy obiektu BLOB we `path` właściwości w *function.jsna* lub w `BlobTrigger` konstruktorze atrybutu. Wzorzec nazwy może być [wyrażeniem filtru lub powiązania](./functions-bindings-expressions-patterns.md). W poniższych sekcjach przedstawiono przykłady.
 
 ### <a name="get-file-name-and-extension"></a>Pobierz nazwę i rozszerzenie pliku
 
@@ -321,7 +320,7 @@ Poniższy przykład pokazuje, jak powiązać z nazwą pliku i rozszerzeniem obie
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Jeśli obiekt BLOB ma nazwę *Original-Blob1. txt*, wartości `blobname` `blobextension` zmiennych i w kodzie funkcji są *oryginalne-Blob1* i *txt*.
+Jeśli obiekt BLOB ma nazwę *original-Blob1.txt*, wartości `blobname` `blobextension` zmiennych i w kodzie funkcji są *oryginalne-Blob1* i *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtruj według nazwy obiektu BLOB
 
@@ -331,7 +330,7 @@ Poniższy przykład wyzwala wyzwalacze tylko w obiektach Blob w `input` kontener
 "path": "input/original-{name}",
 ```
 
-Jeśli obiekt BLOB ma nazwę *Original-Blob1. txt*, wartość `name` zmiennej w kodzie funkcji to `Blob1` .
+Jeśli nazwa obiektu BLOB jest *original-Blob1.txt*, wartość `name` zmiennej w kodzie funkcji to `Blob1` .
 
 ### <a name="filter-on-file-type"></a>Filtruj według typu pliku
 
@@ -349,7 +348,7 @@ Aby wyszukać nawiasy klamrowe w nazwach plików, należy wprowadzić nawiasy kl
 "path": "images/{{20140101}}-{name}",
 ```
 
-Jeśli obiekt BLOB ma nazwę * {20140101} -soundfile. mp3*, `name` wartość zmiennej w kodzie funkcji to *soundfile. mp3*.
+Jeśli obiekt BLOB ma nazwę * {20140101}-soundfile.mp3*, `name` wartość zmiennej w kodzie funkcji jest *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadane
 
@@ -408,7 +407,7 @@ W przypadku niepowodzenia wszystkich 5 prób Azure Functions dodaje komunikat do
 
 ## <a name="concurrency-and-memory-usage"></a>Użycie współbieżności i pamięci
 
-Wyzwalacz obiektów BLOB używa kolejki wewnętrznie, więc Maksymalna liczba współbieżnych wywołań funkcji jest kontrolowana przez [konfigurację kolejek w pliku host. JSON](functions-host-json.md#queues). Ustawienia domyślne ograniczają współbieżność do 24 wywołań. Ten limit dotyczy osobno każdej funkcji, która używa wyzwalacza obiektu BLOB.
+Wyzwalacz obiektów BLOB używa kolejki wewnętrznie, więc Maksymalna liczba współbieżnych wywołań funkcji jest kontrolowana przez [konfigurację kolejek w host.jsna](functions-host-json.md#queues). Ustawienia domyślne ograniczają współbieżność do 24 wywołań. Ten limit dotyczy osobno każdej funkcji, która używa wyzwalacza obiektu BLOB.
 
 [Plan zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work) ogranicza aplikację funkcji na jednej maszynie wirtualnej (VM) do 1,5 GB pamięci. Pamięć jest używana przez wszystkie jednocześnie wykonywane wystąpienia funkcji i przez sam czas wykonywania funkcji. Jeśli funkcja wyzwalana przez obiekt BLOB ładuje cały obiekt BLOB do pamięci, maksymalna ilość pamięci używana przez tę funkcję tylko dla obiektów BLOB to 24 * maksymalny rozmiar obiektu BLOB. Na przykład aplikacja funkcji mająca trzy funkcje wyzwalane przez obiekt BLOB i ustawienia domyślne byłyby w maksymalnym zakresie współbieżności maszyny wirtualnej równym 3 * 24 = 72 wywołań funkcji.
 

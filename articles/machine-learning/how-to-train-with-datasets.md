@@ -13,10 +13,9 @@ ms.reviewer: nibaccam
 ms.date: 04/20/2020
 ms.custom: tracking-python
 ms.openlocfilehash: a9b9faed111e6126bfdb30e4237a988afd947823
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560136"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Uczenie się z zestawami danych w Azure Machine Learning

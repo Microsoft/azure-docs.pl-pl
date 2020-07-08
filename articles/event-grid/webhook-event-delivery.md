@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: femila
 ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558436"
 ---
 # <a name="webhook-event-delivery"></a>Dostarczanie zdarzeń elementu webhook

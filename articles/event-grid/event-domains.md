@@ -8,10 +8,9 @@ ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559508"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informacje o domenach zdarzeń związanych z zarządzaniem Event Grid tematy

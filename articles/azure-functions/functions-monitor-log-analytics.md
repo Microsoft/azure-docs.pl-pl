@@ -7,10 +7,9 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561711"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions monitorowania z dziennikami Azure Monitor

@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609414"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
@@ -157,7 +156,7 @@ Ten wyzwalacz sprawdza lub *sonduje* punkt końcowy przy użyciu [interfejsów A
 | kod stanu | Integer | Kod stanu z odpowiedzi |
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja wyzwalacza sprawdza pocztę e-mail codziennie w skrzynce odbiorczej dla konta programu Outlook w usłudze Office 365:
 
@@ -238,7 +237,7 @@ Ten wyzwalacz wysyła żądanie subskrypcji do punktu końcowego przy użyciu [i
 | <*Operation — opcja*> | String | Zachowanie domyślne można zmienić, ustawiając `operationOptions` Właściwość. Aby uzyskać więcej informacji, zobacz [Opcje operacji](#operation-options). | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja wyzwalacza subskrybuje interfejs API pakietu Office 365, udostępnia adres URL wywołania zwrotnego do punktu końcowego interfejsu API i czeka na odpowiedź punktu końcowego po nadejściu nowej wiadomości e-mail.
 
@@ -426,7 +425,7 @@ Niektóre wartości, takie jak <*typu metody*>, są dostępne zarówno dla `"sub
 | kod stanu | Integer | Kod stanu z odpowiedzi | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ten wyzwalacz tworzy subskrypcję określonego punktu końcowego, zapewnia unikatowy adres URL wywołania zwrotnego i czeka na nowo opublikowane artykuły technologiczne.
 
@@ -618,7 +617,7 @@ Aby wywołać ten wyzwalacz, należy użyć `listCallbackUrl` interfejsu API, kt
 | <*Operation — opcja*> | String | Zachowanie domyślne można zmienić, ustawiając `operationOptions` Właściwość. Aby uzyskać więcej informacji, zobacz [Opcje operacji](#operation-options). | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ten wyzwalacz określa, że żądanie przychodzące musi używać metody HTTP POST do wywołania wyzwalacza i zawiera schemat, który sprawdza poprawność danych wejściowych z żądania przychodzącego:
 
@@ -689,7 +688,7 @@ Jeśli wyzwalacz zwraca tablicę dla aplikacji logiki do przetworzenia, czasami 
  
 Jeśli plik struktury Swagger wyzwalacza opisuje ładunek, który jest tablicą, właściwość **SplitOn** jest automatycznie dodawana do wyzwalacza. W przeciwnym razie Dodaj tę właściwość do ładunku odpowiedzi, który ma tablicę, którą chcesz departii.
 
-*Przyklad*
+*Przykład*
 
 Załóżmy, że masz interfejs API, który zwraca tę odpowiedź: 
   
@@ -820,7 +819,7 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 |-------------|-------------| 
 | [**Redagowanie**](#compose-action) | Tworzy pojedyncze dane wyjściowe z danych wejściowych, które mogą mieć różne typy. | 
 | [**Wykonaj kod JavaScript**](#run-javascript-code) | Uruchom fragmenty kodu JavaScript zgodne z określonymi kryteriami. Aby uzyskać wymagania dotyczące kodu i uzyskać więcej informacji, zobacz [Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu wbudowanego](../logic-apps/logic-apps-add-run-inline-code.md). |
-| [**Funkcja**](#function-action) | Wywołuje funkcję platformy Azure. | 
+| [**Funkcyjn**](#function-action) | Wywołuje funkcję platformy Azure. | 
 | [**HTTP**](#http-action) | Wywołuje punkt końcowy HTTP. | 
 | [**Join**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
@@ -854,7 +853,7 @@ Te akcje ułatwiają kontrolowanie wykonywania przepływu pracy i obejmują inne
 | [**ForEach**](#foreach-action) | Uruchom te same akcje w pętli dla każdego elementu w tablicy. | 
 | [**Przypadku**](#if-action) | Uruchom akcje w zależności od tego, czy określony warunek ma wartość true, czy false. | 
 | [**Zakres**](#scope-action) | Uruchom akcje na podstawie stanu grupy z zestawu akcji. | 
-| [**Przełącznika**](#switch-action) | Uruchamiaj akcje zorganizowane w przypadkach, gdy wartości z wyrażeń, obiektów lub tokenów pasują do wartości określonych w każdym przypadku. | 
+| [**Przełącznik**](#switch-action) | Uruchamiaj akcje zorganizowane w przypadkach, gdy wartości z wyrażeń, obiektów lub tokenów pasują do wartości określonych w każdym przypadku. | 
 | [**Zanim**](#until-action) | Uruchom akcje w pętli do momentu, gdy określony warunek ma wartość true. | 
 |||  
 
@@ -906,7 +905,7 @@ Ta akcja wysyła żądanie HTTP do zarządzanego przez [firmę Microsoft interfe
 | <*inne — właściwości specyficzne dla akcji*> | JSON, obiekt | Wszystkie inne właściwości, które mają zastosowanie do tej konkretnej akcji | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja opisuje akcję **Wyślij wiadomość e-mail** dotyczącą łącznika programu Outlook pakietu Office 365, który jest interfejsem API zarządzanym przez firmę Microsoft: 
 
@@ -1174,7 +1173,7 @@ Po zapisaniu aplikacji logiki aparat Logic Apps wykonuje te testy na funkcji, kt
 
 * Dozwolone są tylko poziomy autoryzacji "Function" i "Anonymous". 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji wywołuje wcześniej utworzoną funkcję "getproductid":
 
@@ -1242,7 +1241,7 @@ Ta akcja wysyła żądanie do określonego punktu końcowego HTTP lub HTTPS i sp
 | <*inne — właściwości specyficzne dla akcji*> | <*wartość właściwości*> | JSON, obiekt | Wszystkie inne właściwości, które mają zastosowanie do tej konkretnej akcji |
 |||||
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji pobiera najnowsze wiadomości, wysyłając żądanie do określonego punktu końcowego:
 
@@ -1281,7 +1280,7 @@ Ta akcja tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy 
 | <*ogranicznik*> | Pojedynczy ciąg znaków | Znak oddzielający każdy element w ciągu | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Załóżmy, że masz wcześniej utworzoną zmienną "myIntegerArray", która zawiera tę tablicę liczb całkowitych: 
 
@@ -1325,7 +1324,7 @@ Ta akcja tworzy przyjazne dla użytkownika pola lub *tokeny* na podstawie właś
 | <*JSON — schemat*> | JSON, obiekt | Schemat JSON, który opisuje podstawową zawartość JSON, której używa akcja do analizowania źródłowej zawartości JSON. <p>**Porada**: w projektancie Logic Apps można dostarczyć schemat lub dostarczyć przykładowy ładunek, aby akcja mogła generować schemat. | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji tworzy te tokeny, których można użyć w przepływie pracy, ale tylko w akcjach uruchamianych po akcji **Przeanalizuj dane JSON** :
 
@@ -1427,7 +1426,7 @@ Ta akcja tworzy tablicę z elementów w innej tablicy na podstawie określonego 
 | <*warunek lub filtr*> | String | Warunek używany do filtrowania elementów w tablicy źródłowej <p>**Uwaga**: Jeśli żadna wartość nie spełnia warunku, wówczas akcja tworzy pustą tablicę. |
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji tworzy tablicę, która ma wartości większe niż określona wartość, czyli dwa:
 
@@ -1475,7 +1474,7 @@ Ta akcja tworzy ładunek odpowiedzi na żądanie HTTP.
 | <*odpowiedź — treść*> | Poszczególne | Treść odpowiedzi, która może być ciągiem, obiektem JSON lub nawet zawartością binarną z poprzedniej akcji | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji tworzy odpowiedź na żądanie HTTP z określonym kodem stanu, treścią komunikatu i nagłówkami komunikatów:
 
@@ -1546,7 +1545,7 @@ Ta akcja tworzy tablicę z obiektami JSON przez transformowanie elementów z inn
 
 Akcja **Wybierz** powoduje utworzenie tablicy jako danych wyjściowych, dlatego wszelkie akcje, które chcą korzystać z tych danych wyjściowych, muszą przyjmować tablicę lub należy skonwertować tablicę na typ, który akcja odbiorcy akceptuje. Na przykład, aby przekonwertować tablicę wyjściową na ciąg, można przekazać tę tablicę do akcji **redagowania** , a następnie odwołać się do danych wyjściowych **akcji tworzenia w innych akcjach** .
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji tworzy tablicę obiektów JSON z tablicy liczb całkowitych. Akcja iteruje za pośrednictwem tablicy źródłowej, pobiera każdą wartość całkowitą przy użyciu `@item()` wyrażenia i przypisuje każdej wartości do właściwości " `number` " w każdym obiekcie JSON:
 
@@ -1763,7 +1762,7 @@ Właściwości obiektu "runStatus" są stosowane tylko wtedy, gdy właściwość
 | <*błąd-komunikat*> | String | Komunikat lub tekst opisujący błąd oraz wszystkie akcje, które może wykonać użytkownik aplikacji | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji przerywa przebieg przepływu pracy, ustawia stan uruchomienia na "Niepowodzenie" i zwraca stan, kod błędu i komunikat o błędzie:
 
@@ -1912,7 +1911,7 @@ Aparat Logic Apps sprawdza dostęp do wyzwalacza, który ma zostać wywołany, w
 
 Wyniki tej akcji różnią się w zależności od akcji odpowiedzi zagnieżdżonej aplikacji logiki. Jeśli zagnieżdżona aplikacja logiki nie zawiera akcji odpowiedzi, dane wyjściowe są puste.
 
-*Przyklad*
+*Przykład*
 
 Po pomyślnym zakończeniu akcji "Start_search" Ta definicja akcji przepływu pracy wywołuje inną aplikację logiki o nazwie "Get_product_information", która przekazuje określone dane wejściowe:
 
@@ -1983,7 +1982,7 @@ Ta akcja zapętlenia wykonuje iterację przez tablicę i wykonuje akcje dla każ
 | <*Operation — opcja*> | String | Aby uruchomić pętlę "for each" sekwencyjnie, a nie równolegle, należy ustawić opcję <*operacji*> na `Sequential` lub <*liczbę*> do `1` , ale nie do obu jednocześnie. Aby uzyskać więcej informacji, zobacz [Uruchom polecenie "for each" sekwencyjnie](#sequential-for-each). | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta pętla "for each" wysyła wiadomość e-mail dla każdego elementu w tablicy, który zawiera załączniki z przychodzącej wiadomości e-mail. Pętla wysyła wiadomość e-mail, w tym załącznik, do osoby, która przegląda załącznik.
 
@@ -2055,7 +2054,7 @@ Akcje w `actions` `else` obiekcie lub uzyskują te stany:
 * "Niepowodzenie", gdy są uruchamiane i kończą się niepowodzeniem
 * "Pominięte", gdy odpowiednia gałąź nie jest uruchomiona
 
-*Przyklad*
+*Przykład*
 
 Ten stan określa, że gdy zmienna całkowita ma wartość większą od zera, przepływ pracy sprawdza witrynę sieci Web. Jeśli zmienna ma wartość zero lub mniejszą, przepływ pracy sprawdza inną witrynę sieci Web.
 
@@ -2188,7 +2187,7 @@ Ta akcja, znana także jako *instrukcja SWITCH*, organizuje inne akcje w *przypa
 | <*Default — definicja akcji*> | JSON, obiekt | Definicja akcji, która ma być uruchamiana, gdy nie istnieje żaden pasujący przypadek | 
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji służy do obliczania, czy osoba odpowiadająca na wiadomość e-mail z żądaniem zatwierdzenia została wybrana opcja "Zatwierdź" lub "Odrzuć". Na podstawie tego wyboru Akcja **przełączenia** uruchamia akcje dla przypadku dopasowania, które polega na wysłaniu kolejnej wiadomości e-mail do obiektu odpowiadającego, ale z różnymi słowami w każdym przypadku. 
 
@@ -2308,7 +2307,7 @@ Ta akcja pętli zawiera akcje, które są uruchamiane do momentu, gdy określony
 | <*Pętla — limit czasu*> | String | Limit najdłuższego czasu, w którym można uruchomić pętlę. Wartość domyślna `timeout` to `PT1H` , który jest wymaganym [formatem ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
-*Przyklad*
+*Przykład*
 
 Ta definicja akcji pętli wysyła żądanie HTTP do określonego adresu URL do momentu spełnienia jednego z następujących warunków:
 

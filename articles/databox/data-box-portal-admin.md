@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 22fd67797bbec516317aadaa4b33371c5d335b36
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609458"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Użyj Azure Portal, aby administrować Azure Data Box i Azure Data Box Heavy
@@ -48,7 +47,7 @@ Aby sklonować zamówienie, wykonaj następujące czynności.
 
     ![Klonowanie zamówienia — 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij przycisk **Utwórz**.
+2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij pozycję **Utwórz**.
 
 W ciągu kilku minut sklonowanie zamówienie zostanie utworzone i wyświetlone w portalu.
 

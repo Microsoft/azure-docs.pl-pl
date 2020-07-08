@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: ae61f58f2ac44db77db496dd5d3e38fad268129f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84613054"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Nawiązywanie połączenia z usługą Azure Database for MariaDB przy użyciu przekierowania
@@ -18,7 +17,7 @@ ms.locfileid: "84613054"
 W tym temacie opisano sposób łączenia aplikacji Azure Database for MariaDB serwerze z trybem przekierowywania. Przekierowywanie ma na celu zredukowanie opóźnień sieci między aplikacjami klienckimi a serwerami MariaDB, umożliwiając aplikacjom bezpośrednie łączenie się z węzłami serwera zaplecza.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Zaloguj się do [portalu Azure](https://portal.azure.com). Utwórz serwer Azure Database for MariaDB przy użyciu aparatu w wersji 10,2 lub 10,3. 
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MariaDB przy użyciu aparatu w wersji 10,2 lub 10,3. 
 
 Aby uzyskać szczegółowe informacje, zobacz jak utworzyć serwer Azure Database for MariaDB przy użyciu [Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quickstart-create-mariadb-server-database-using-azure-cli.md).
 

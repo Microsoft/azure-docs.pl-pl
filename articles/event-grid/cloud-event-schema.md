@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: femila
 ms.openlocfilehash: 57827b1c5a43a3408d374e8bddb7b91113b2929a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84560692"
 ---
 # <a name="cloudevents-v10-schema-with-event-grid"></a>Schemat CloudEvents v 1.0 z Event Grid

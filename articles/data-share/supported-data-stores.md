@@ -7,10 +7,9 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84635972"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Obsługiwane magazyny danych w udziale danych platformy Azure

@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629562"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
@@ -26,7 +25,7 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do swojego konta magazynu.
 3. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja**.
 4. W obszarze **rodzaj konta**kliknij pozycję **Uaktualnij**.

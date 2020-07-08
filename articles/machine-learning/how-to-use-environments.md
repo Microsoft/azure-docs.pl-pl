@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558419"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Ponowne używanie środowisk do szkolenia i wdrażania przy użyciu Azure Machine Learning

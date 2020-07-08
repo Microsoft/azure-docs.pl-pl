@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609934"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
@@ -34,11 +33,11 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
 4. Wybierz pozycję **Włączone**, aby umożliwić hostowanie statycznej witryny internetowej na koncie magazynu.
 
-5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index. html*). 
+5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index.html*). 
 
    Gdy użytkownik przejdzie do głównego elementu statycznej witryny internetowej, wyświetlona zostanie domyślna strona indeksu.  
 
-6. W polu **ścieżka dokumentu błędu** określ domyślną stronę błędu (na przykład: *404. html*). 
+6. W polu **ścieżka dokumentu błędu** określ domyślną stronę błędów (na przykład: *404.html*). 
 
    Gdy użytkownik spróbuje przejść do strony, która nie istnieje w statycznej witrynie internetowej, wyświetlona zostanie domyślna strona błędu.
 
@@ -72,7 +71,7 @@ Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejs
 
    * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie widoczny dla użytkowników, gdy przeglądarka zażąda strony, która nie istnieje.
 
-   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index. html".
+   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index.html".
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -124,7 +123,7 @@ Można włączyć hosting statycznej witryny sieci Web przy użyciu modułu Azur
 
    * Zastąp `<error-document-name>` symbol zastępczy nazwą dokumentu błędu, który będzie widoczny dla użytkowników, gdy przeglądarka zażąda strony, która nie istnieje.
 
-   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index. html".
+   * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index.html".
 
 ---
 

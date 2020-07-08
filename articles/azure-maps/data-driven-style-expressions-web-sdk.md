@@ -10,10 +10,9 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 79f1188665208ec95e5d1d855d2247858e98653c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561645"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
@@ -85,11 +84,11 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Pobiera element z tablicy. |
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
-| `['get', string]` | value | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['get', string, object]` | value | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string]` | wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string, object]` | wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['has', string]` | wartość logiczna | Określa, czy właściwości funkcji mają określoną właściwość. |
 | `['has', string, object]` | wartość logiczna | Określa, czy właściwości obiektu mają określoną właściwość. |
-| `['id']` | value | Pobiera identyfikator funkcji, jeśli ma. |
+| `['id']` | wartość | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
 | `['in', boolean | string | number, array]` | wartość logiczna | Określa, czy element istnieje w tablicy |
 | `['in', substring, string]` | wartość logiczna | Określa, czy podciąg istnieje w ciągu |

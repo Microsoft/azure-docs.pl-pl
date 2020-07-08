@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
 ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84634515"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu platformy Azure IoT Hub przy użyciu Power BI
@@ -36,7 +35,7 @@ Dowiesz się, jak wizualizować dane czujników w czasie rzeczywistym, które us
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi przy użyciu środowiska Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Te artykuły obejmują następujące wymagania:
+* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Te artykuły obejmują następujące wymagania:
   
   * Aktywna subskrypcja platformy Azure.
   * Usługa Azure IoT Hub w ramach Twojej subskrypcji.
@@ -64,7 +63,7 @@ Zacznijmy od utworzenia zadania Stream Analytics. Po utworzeniu zadania należy 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 

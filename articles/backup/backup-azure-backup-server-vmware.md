@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak używać Azure Backup Server do tw
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84628446"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
@@ -62,7 +61,7 @@ Skonfiguruj bezpieczny kanał w następujący sposób:
 
 4. Zapisz plik na maszynie Azure Backup Server z rozszerzeniem. zip.
 
-5. Kliknij prawym przyciskiem myszy pozycję **Pobierz. zip**  >  **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
+5. Kliknij prawym przyciskiem myszy pozycję **download.zip**  >  **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
    - Plik certyfikatu głównego z rozszerzeniem rozpoczynającym się od numerowanej sekwencji takiej jak. 0 i. 1.
    - Plik listy CRL ma rozszerzenie zaczynające się od sekwencji like. r0 lub. R1. Plik listy CRL jest skojarzony z certyfikatem.
 
@@ -136,7 +135,7 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
 | Uprawnienia dla konta użytkownika vCenter 6,7                     | Uprawnienia dla konta użytkownika vCenter 6,5                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Klaster magazynu danych. Konfigurowanie klastra datatstore            | Klaster magazynu danych. Konfigurowanie klastra datatstore            |
+| Magazyn danych cluster.Configuruj klaster datatstore            | Magazyn danych cluster.Configuruj klaster datatstore            |
 | Magazyn danych. AllocateSpace                                      | Magazyn danych. AllocateSpace                                      |
 | Magazyn danych. Przeglądaj magazyn danych                                   | Magazyn danych. Przeglądaj magazyn danych                                   |
 | Magazyn danych. operacje na plikach niskiego poziomu                          | Magazyn danych. operacje na plikach niskiego poziomu                          |
@@ -152,15 +151,15 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 | vApp. Dodaj maszynę wirtualną                                     | vApp. Dodaj maszynę wirtualną                                     |
 | vApp. Przypisz pulę zasobów                                    | vApp. Przypisz pulę zasobów                                    |
 | vApp. Unregister                                              | vApp. Unregister                                              |
-| VirtualMachine. Configuration. Dodaj lub Usuń urządzenie          | VirtualMachine. Configuration. Dodaj lub Usuń urządzenie          |
-| Maszyna wirtualna. Konfiguracja. pozyskiwanie dzierżawy dysku            | Maszyna wirtualna. Konfiguracja. dzierżawa dysku                     |
-| Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                   | Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                   |
-| Maszyna wirtualna. Konfiguracja. zaawansowana        | Maszyna wirtualna. Konfiguracja. Advanced                       |
-| Maszyna wirtualna. Konfiguracja. Przełączanie śledzenia zmian dysku   | Maszyna wirtualna. Konfiguracja. śledzenie zmian dysku          |
-| Maszyna wirtualna. Konfiguracja. Konfigurowanie urządzenia USB hosta     | Maszyna wirtualna. Konfiguracja. host USB Device               |
-| Maszyna wirtualna. Konfiguracja. zwiększanie dysku wirtualnego           | Maszyna wirtualna. Konfiguracja. zwiększanie dysku wirtualnego           |
-| Maszyna wirtualna. Configuration. Query — pliki nienależące           | Maszyna wirtualna. Configuration. Query — pliki nienależące           |
-| Maszyna wirtualna. Konfiguracja. zmiana rozmieszczenia swapfile     | Maszyna wirtualna. Swapfile            |
+| VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie          | VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie          |
+| Wersja Virtual machine.Config. Pozyskiwanie dzierżawy dysku            | Wersja Virtual machine.Config. Dzierżawa dysku                     |
+| Wersja Virtual machine.Config. Dodaj nowy dysk                   | Wersja Virtual machine.Config. Dodaj nowy dysk                   |
+| Wersja Virtual machine.Config. Konfiguracja zaawansowana        | Wersja Virtual machine.Config. Doświadczonych                       |
+| Wersja Virtual machine.Config. Przełącz śledzenie zmian dysku   | Wersja Virtual machine.Config. Śledzenie zmian dysku          |
+| Wirtualne urządzenie USB hosta uruj machine.Configuration.Config     | Wersja Virtual machine.Config. Urządzenie hosta USB               |
+| Wersja Virtual machine.Config. Zwiększ dysk wirtualny           | Wersja Virtual machine.Config. Zwiększ dysk wirtualny           |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika           | Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika           |
+| Wersja Virtual machine.Config. Zmień umieszczanie swapfile     | Wersja Virtual machine.Config. Swapfile            |
 | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa |
 | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa |
 | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    |
@@ -184,16 +183,16 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 | ---------------------------------------------------------- | ------------------------------------------- |
 | Magazyn danych. AllocateSpace                                    | Network. Assign                              |
 | Global. Zarządzaj atrybutami niestandardowymi                           | Magazyn danych. AllocateSpace                     |
-| Global. Set — atrybut niestandardowy                               | VirtualMachine. config. śledzenia zmian        |
+| Global. Set — atrybut niestandardowy                               | VirtualMachine.Config. Śledzenia zmian        |
 | Operacje hosta. local. Utwórz maszynę wirtualną              | VirtualMachine. State. RemoveSnapshot         |
 | NFS.  Przypisywanie sieci                                   | VirtualMachine. State. issnapshot         |
 | Zasoby.  Przypisz maszynę wirtualną do puli zasobów         | VirtualMachine. Provisioning. DiskRandomRead  |
-| Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                | VirtualMachine. współdziała. wyłączenie            |
-| Maszyna wirtualna. Konfiguracja. Advanced                    | VirtualMachine. Inventory. Create             |
-| Maszyna wirtualna. Konfiguracja. śledzenie zmian dysku        | VirtualMachine. config. AddNewDisk            |
-| Maszyna wirtualna. Konfiguracja. host USB Device             | VirtualMachine. config. HostUSBDevice         |
-| Maszyna wirtualna. Configuration. Query — pliki nienależące         | VirtualMachine. config. AdvancedConfig        |
-| Maszyna wirtualna. Swapfile          | VirtualMachine. config. SwapPlacement         |
+| Wersja Virtual machine.Config. Dodaj nowy dysk                | VirtualMachine. współdziała. wyłączenie            |
+| Wersja Virtual machine.Config. Doświadczonych                    | VirtualMachine. Inventory. Create             |
+| Wersja Virtual machine.Config. Śledzenie zmian dysku        | VirtualMachine.Config. AddNewDisk            |
+| Wersja Virtual machine.Config. Urządzenie hosta USB             | VirtualMachine.Config. HostUSBDevice         |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika         | VirtualMachine.Config. AdvancedConfig        |
+| Wersja Virtual machine.Config. Swapfile          | VirtualMachine.Config. SwapPlacement         |
 | Maszyna wirtualna. Interakcja. Zasilanie wyłączone                     | Global. ManageCustomFields                   |
 | Maszyna wirtualna. Towar. Tworzenie nowego elementu                     |                                             |
 | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku            |                                             |
@@ -422,7 +421,7 @@ Windows Registry Editor Version 5.00
 > [!NOTE]
 > Ta funkcja ma zastosowanie do serwera usługi MAB v3 UR1.
 
-Za pomocą serwera usługi MAB v3 UR1 można wykluczyć określony dysk z kopii zapasowej maszyny wirtualnej VMware. Skrypt konfiguracyjny **ExcludeDisk. ps1** znajduje się w `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+Za pomocą serwera usługi MAB v3 UR1 można wykluczyć określony dysk z kopii zapasowej maszyny wirtualnej VMware. **ExcludeDisk.ps1** skryptu konfiguracyjnego znajduje się w `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
 
 Aby skonfigurować wykluczenie dysku, wykonaj następujące czynności:
 
@@ -479,7 +478,7 @@ Przejdź do serwera serwera usługi MAB, na którym maszyna wirtualna VMware zos
         Vcentervm1   TestVM4   VMware
         ```
 
-  4. Aby wykluczyć dysk, przejdź do `Bin` folderu i uruchom skrypt *ExcludeDisk. ps1* z następującymi parametrami:
+  4. Aby wykluczyć dysk, przejdź do `Bin` folderu i uruchom skrypt *ExcludeDisk.ps1* z następującymi parametrami:
 
         > [!NOTE]
         > Przed uruchomieniem tego polecenia Zatrzymaj usługę DPMRA na serwerze serwera usługi MAB. W przeciwnym razie skrypt zwraca sukces, ale nie aktualizuje listy wykluczeń. Przed zatrzymaniem usługi upewnij się, że żadne zadania nie są w toku.
@@ -511,7 +510,7 @@ Przejdź do serwera serwera usługi MAB, na którym maszyna wirtualna VMware zos
         ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
         ```
 
-     **Przyklad**
+     **Przykład**
 
         ```powershell
         C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
