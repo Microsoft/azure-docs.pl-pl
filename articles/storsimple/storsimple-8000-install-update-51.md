@@ -13,10 +13,10 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
 ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508218"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Zainstaluj aktualizację 5,1 na urządzeniu StorSimple

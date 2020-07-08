@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 699df6ab44a08645c9f46e95cd2ad279de75ea70
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509663"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple jako miejsce docelowe kopii zapasowej przy użyciu programu Backup Exec
@@ -313,7 +313,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
-| Miesięczne  | Sobota  |   |
+| Co miesiąc  | Sobota  |   |
 | Roczne | Sobota  |   |
 
 
@@ -387,7 +387,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Tydzień 2 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
-| Miesięczne | StorSimple miesięcznie |   |   |   |   |   |
+| Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
 | Roczne | StorSimple rocznie  |   |   |   |   |   |
 
 
@@ -478,7 +478,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Błąd serwera programu Backup Exec | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych zgodnie z opisem w temacie [jak wykonać ręczną kopię zapasową i przywrócić bazę danych Backup Exec (BEDB)](http://www.veritas.com/docs/000041083). | Należy ponownie skompilować lub przywrócić serwer Backup Exec w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych Backup Exec nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć kopię zapasową exec. | Najpierw Przywróć StorSimple, a następnie Przywróć kopię zapasową exec. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Następujące dokumenty odwołują się do tego artykułu:
 

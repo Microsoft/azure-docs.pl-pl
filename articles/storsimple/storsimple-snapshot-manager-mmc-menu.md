@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508830"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Użyj akcji menu programu MMC w StorSimple Snapshot Manager
@@ -30,7 +30,7 @@ W StorSimple Snapshot Manager zostaną wyświetlone następujące akcje wymienio
 * Nowe okno w tym miejscu 
 * Odśwież 
 * Eksportuj listę 
-* Help 
+* Pomoc 
 
 Te akcje są częścią programu Microsoft Management Console (MMC) i nie są specyficzne dla StorSimple Snapshot Manager. W tym samouczku opisano te akcje i wyjaśniono, jak używać poszczególnych z nich w programie StorSimple Snapshot Manager.
 
@@ -91,7 +91,7 @@ Za pomocą akcji **Eksportuj listę** można zapisać listę w pliku z wartości
       
       ![Eksportuj listę jako plik z wartościami rozdzielanymi przecinkami](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Help
+## <a name="help"></a>Pomoc
 Możesz użyć menu **Pomoc** , aby wyświetlić dostępną pomoc online do StorSimple Snapshot Manager i programu MMC.
 
 #### <a name="to-view-available-online-help"></a>Aby wyświetlić dostępną pomoc online

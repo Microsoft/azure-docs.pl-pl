@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
 ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85509187"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Wywoływanie operacji interfejsu API REST przy użyciu autoryzacji klucza wspólnego

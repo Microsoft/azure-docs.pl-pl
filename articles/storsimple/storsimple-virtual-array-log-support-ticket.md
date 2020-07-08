@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85507674"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do rejestrowania Support request dla macierzy wirtualnej StorSimple
@@ -27,7 +27,7 @@ ms.locfileid: "85507674"
 
 StorSimple Menedżer urządzeń zapewnia możliwość **rejestrowania nowego żądania obsługi** w bloku podsumowania usługi. W tym artykule wyjaśniono, jak można rejestrować nowe żądanie pomocy technicznej i zarządzać jego cyklem życia z poziomu portalu.
 
-## <a name="new-support-request"></a>Nowe żądanie pomocy technicznej
+## <a name="new-support-request"></a>Nowy wniosek o pomoc techniczną
 
 W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/plans/)technicznej możesz utworzyć bilety dla problemu w macierzy wirtualnej StorSimple bezpośrednio z bloku podsumowania usługi StorSimple Menedżer urządzeń.
 
@@ -35,7 +35,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
 1. Przejdź do usługi Menedżer urządzeń StorSimple. W ustawieniach bloku podsumowanie usługi przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie kliknij pozycję **nowe żądanie obsługi**.
    
-    ![Nowe żądanie pomocy technicznej](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. W bloku **podstawy** wykonaj następujące czynności:
 
@@ -49,11 +49,11 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
 3. W **kroku 2**wybierz **ważność** i określ, czy problem jest związany z tablicą lub usługą StorSimple Menedżer urządzeń. Ponadto wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
    
-    ![Nowe żądanie pomocy technicznej](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. W **kroku 3**podaj informacje kontaktowe. Pomoc techniczna firmy Microsoft będzie używać tych informacji w celu uzyskania dalszych informacji, diagnozowania i rozwiązywania problemów.
    
-    ![Nowe żądanie pomocy technicznej](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Zarządzanie żądaniem obsługi
 

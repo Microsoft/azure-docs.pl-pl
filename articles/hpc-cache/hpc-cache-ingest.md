@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: ac963fd01016506193aae0fab5582224b3957de8
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85508966"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Przenoszenie danych do usługi Azure Blob Storage
