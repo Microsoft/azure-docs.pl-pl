@@ -5,14 +5,14 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: 4472909b731af5067b4d38c2a04a2d10a4039242
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560006"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044570"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurowanie zasad określania kolejności zdarzeń dla Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Zapoznaj się z przykładem tych zasad w działaniu.
 <br> **Zasady późnego przybycia:** 15 sekund
 <br> **Zasady poza kolejnością:** 8 sekund
 
-| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Wyjaśnienie |
+| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Objaśnienie |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Zdarzenie dotarło do najpóźnego i zewnętrznego poziomu tolerancji. W związku z tym czas zdarzenia jest dostosowywany do maksymalnej tolerancji późnego przybycia.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Zdarzenie zostało odebrane z opóźnieniem, ale w ramach poziomu tolerancji. Czas zdarzenia nie zostanie dostosowany.  |

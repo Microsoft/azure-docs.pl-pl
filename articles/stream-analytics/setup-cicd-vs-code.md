@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76962225"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045828"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Wdróż zadanie Azure Stream Analytics przy użyciu pakietu CI/CD npm 
 
@@ -27,7 +27,7 @@ Możesz włączyć ciągłą integrację i wdrażanie dla Azure Stream Analytics
 
 Możesz [pobrać pakiet](https://www.npmjs.com/package/azure-streamanalytics-cicd) bezpośrednio lub zainstalować go [globalnie](https://docs.npmjs.com/downloading-and-installing-packages-globally) za pomocą `npm install -g azure-streamanalytics-cicd` polecenia. Jest to zalecane podejście, które może być również używane w ramach zadania skryptu interfejsu wiersza polecenia platformy Azure w ramach potoku kompilacji w **Azure Pipelines**.
 
-Po zainstalowaniu pakietu Użyj następującego polecenia, aby uzyskać dane wyjściowe szablonów Azure Resource Manager. Argument **scriptPath** jest ścieżką bezwzględną do pliku **asaql** w projekcie. Upewnij się, że pliki asaproj. JSON i JobConfig. JSON znajdują się w tym samym folderze, w którym znajduje się plik skryptu. Jeśli **outputPath** nie zostanie określony, szablony zostaną umieszczone w folderze **Deploy** w folderze **bin** projektu.
+Po zainstalowaniu pakietu Użyj następującego polecenia, aby uzyskać dane wyjściowe szablonów Azure Resource Manager. Argument **scriptPath** jest ścieżką bezwzględną do pliku **asaql** w projekcie. Upewnij się, że asaproj.jsi JobConfig.jsdla plików znajdują się w tym samym folderze, w którym znajduje się plik skryptu. Jeśli **outputPath** nie zostanie określony, szablony zostaną umieszczone w folderze **Deploy** w folderze **bin** projektu.
 
 ```powershell
 azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
@@ -39,15 +39,19 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 W przypadku pomyślnego skompilowania Stream Analytics Visual Studio Code projektu generowane są następujące dwa pliki szablonów Azure Resource Manager w folderze **bin/[Debug/retails]/Deploy** : 
 
-*  Plik szablonu Menedżer zasobów
+* Plik szablonu Menedżer zasobów
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Plik parametrów Menedżer zasobów
+* Plik parametrów Menedżer zasobów
 
-       [ProjectName].JobTemplate.parameters.json   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```   
 
-Parametry domyślne w pliku Parameters. JSON pochodzą z ustawień w projekcie Visual Studio Code. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
+Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie Visual Studio Code. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
 
 > [!NOTE]
 > Dla wszystkich poświadczeń wartości domyślne są ustawiane na wartość null. Musisz ustawić **required** wartości przed wdrożeniem w chmurze.
@@ -110,7 +114,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
    |-|-|
    |Nazwa wyświetlana|Kopiuj pliki do: $ (Build. artifactstagingdirectory)|
    |Folder źródłowy|`$(system.defaultworkingdirectory)`| 
-   |Spis treści| `**\Deploy\**` |
+   |Zawartość| `**\Deploy\**` |
    |Folder docelowy| `$(build.artifactstagingdirectory)`|
 
    ![Wprowadź konfiguracje dla zadania kopiowania](./media/setup-cicd-vs-code/copy-config.png)
@@ -145,7 +149,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
 
 1. Z listy rozwijanej zadania wybierz pozycję **Wdróż zadanie w środowisku testowym**. 
 
-2. **+** Wybierz **zadanie agent** i Wyszukaj *wdrożenie grupy zasobów platformy Azure*. Wprowadź następujące parametry:
+2. Wybierz **+** **zadanie agent** i Wyszukaj *wdrożenie grupy zasobów platformy Azure*. Wprowadź następujące parametry:
 
    |Ustawienie|Wartość|
    |-|-|
@@ -155,14 +159,14 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
    |Grupa zasobów| Wybierz nazwę grupy zasobów testowych, która będzie zawierać zadanie Stream Analytics.|
    |Lokalizacja|Wybierz lokalizację grupy zasobów testowych.|
    |Lokalizacja szablonu| *Połączony artefakt*|
-   |Szablon| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parametry szablonu|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Szablon| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsna |
+   |Parametry szablonu|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsna|
    |Zastąp parametry szablonu|-Input_IoTHub1_iotHubNamespace $ (test_eventhubname)|
    |Tryb wdrożenia|Przyrostowy|
 
 3. Z listy rozwijanej zadania wybierz pozycję **Wdróż zadanie w środowisku produkcyjnym**.
 
-4. **+** Wybierz **zadanie agent** i Wyszukaj *wdrożenie grupy zasobów platformy Azure*. Wprowadź następujące parametry:
+4. Wybierz **+** **zadanie agent** i Wyszukaj *wdrożenie grupy zasobów platformy Azure*. Wprowadź następujące parametry:
 
    |Ustawienie|Wartość|
    |-|-|
@@ -172,8 +176,8 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
    |Grupa zasobów| Wybierz nazwę produkcyjnej grupy zasobów, która będzie zawierać zadanie Stream Analytics.|
    |Lokalizacja|Wybierz lokalizację produkcyjnej grupy zasobów.|
    |Lokalizacja szablonu| *Połączony artefakt*|
-   |Szablon| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.json |
-   |Parametry szablonu|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.json|
+   |Szablon| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsna |
+   |Parametry szablonu|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsna|
    |Zastąp parametry szablonu|-Input_IoTHub1_iotHubNamespace $ (eventhubname)|
    |Tryb wdrożenia|Przyrostowy|
 
@@ -183,7 +187,7 @@ Aby utworzyć wydanie, wybierz pozycję **Utwórz wydanie** w prawym górnym rog
 
 ![Tworzenie wydania przy użyciu Azure Pipelines](./media/setup-cicd-vs-code/create-release.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia danych wyjściowych, musisz zapewnić dostęp do jednostki usługi przy użyciu programu PowerShell przed wdrożeniem na platformie Azure. Dowiedz się więcej na temat sposobu [wdrażania ADLS Gen1 z zarządzaną tożsamością przy użyciu szablonu Menedżer zasobów](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

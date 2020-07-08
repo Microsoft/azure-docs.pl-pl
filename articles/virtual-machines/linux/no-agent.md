@@ -6,21 +6,21 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e5e47b5822127bcd00fd2d67efff9a786f00a258
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85306975"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045335"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Tworzenie uogólnionych obrazów bez agenta aprowizacji
 
 Microsoft Azure udostępnia agentów aprowizacji dla maszyn wirtualnych z systemem Linux w postaci [walinuxagent](https://github.com/Azure/WALinuxAgent) lub [Cloud-init](https://github.com/canonical/cloud-init) (zalecane). Może jednak wystąpić scenariusz, gdy nie chcesz używać żadnej z tych aplikacji dla agenta aprowizacji, na przykład:
 
-- W systemie Linux dystrybucji/Version nie jest obsługiwana Usługa Cloud-init.
+- Dystrybucji systemu Linux/wersja nie obsługuje agenta Cloud-init/Linux.
 - Wymagane są określone właściwości maszyny wirtualnej, takie jak nazwa hosta.
 
 > [!NOTE] 
@@ -70,7 +70,7 @@ $ az vm create \
 Po aprowizacji maszyny wirtualnej można do niej wykonać protokół SSH i usunąć agenta systemu Linux:
 
 ```bash
-$ sudo apt remove -y waagent
+$ sudo apt purge -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
 

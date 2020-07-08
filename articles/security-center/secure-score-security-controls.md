@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 46b78ca6f385f62d265210b41e634bbbd9a2041c
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262722"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044315"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Ulepszony bezpieczny wynik w Azure Security Center
 
@@ -132,7 +132,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Włącz szyfrowanie w spoczynku (maksymalny wynik 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">Szyfrowanie w spoczynku</a> zapewnia ochronę danych przechowywanych danych. Ataki na dane przechowywane w spoczynku obejmują próby uzyskania fizycznego dostępu do sprzętu, na którym dane są zapisywane. Platformy Azure używają szyfrowania symetrycznego do szyfrowania i odszyfrowywania dużych ilości danych przechowywanych w stanie spoczynku. Symetryczny klucz szyfrowania jest używany do szyfrowania danych podczas zapisywania w magazynie. Ten klucz szyfrowania jest również używany do odszyfrowywania tych danych, ponieważ jest readied do użycia w pamięci. Klucze muszą być przechowywane w bezpiecznej lokalizacji z kontrolą dostępu opartą na tożsamości i zasadami inspekcji. Jedna taka bezpieczna lokalizacja jest Azure Key Vault. Jeśli osoba atakująca uzyska zaszyfrowane dane, ale nie klucze szyfrowania, osoba atakująca nie może uzyskać dostępu do danych bez przerywania szyfrowania.</td>
-    <td class="tg-lboi"; width=55%>-Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych<br>-Należy włączyć Transparent Data Encryption baz danych SQL<br>-Zmienne konta usługi Automation powinny być szyfrowane<br>-W klastrach Service Fabric Właściwość ClusterProtectionLevel ma ustawioną wartość EncryptAndSign<br>-Funkcja ochrony programu SQL Server TDE powinna być szyfrowana przy użyciu własnego klucza</td>
+    <td class="tg-lboi"; width=55%>-Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych<br>-Transparent Data Encryption na SQL Database powinna być włączona<br>-Zmienne konta usługi Automation powinny być szyfrowane<br>-W klastrach Service Fabric Właściwość ClusterProtectionLevel ma ustawioną wartość EncryptAndSign<br>-Funkcja ochrony programu SQL Server TDE powinna być szyfrowana przy użyciu własnego klucza</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Szyfruj dane podczas przesyłania (max Score 4)</p></strong>Dane są przesyłane podczas przesyłania między składnikami, lokalizacjami lub programami. Organizacje, które nie chronią danych podczas przesyłania, są podatne na ataki typu man-in-the-Middle, podsłuchiwanie i przejmowanie sesji. Protokoły SSL/TLS powinny być używane do wymiany danych, a sieć VPN jest zalecana. Podczas wysyłania zaszyfrowanych danych między maszyną wirtualną platformy Azure i lokalizacją lokalną za pośrednictwem Internetu można użyć bramy sieci wirtualnej, takiej jak <a href="https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways">Azure VPN Gateway</a> , aby wysyłać zaszyfrowany ruch sieciowy.</td>
@@ -151,7 +151,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
     <td class="tg-lboi"; width=55%>-Przekazywanie adresów IP na maszynie wirtualnej powinno być wyłączone<br>-Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services (wersja zapoznawcza)<br>-PRZESTARZAŁE Dostęp do App Services powinien być ograniczony (wersja zapoznawcza)<br>-PRZESTARZAŁE Reguły dla aplikacji sieci Web na IaaS sieciowych grup zabezpieczeń powinny być zaostrzone<br>-Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>-Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji interfejsu API<br>-Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacja funkcji<br>-Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji sieci Web<br>-Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API<br>-Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji<br>-Zdalne debugowanie powinno zostać wyłączone dla aplikacji sieci Web<br>-Dostęp powinien być ograniczony do ograniczeń sieciowych grup zabezpieczeń z maszynami wirtualnymi z Internetu<br>-Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj adaptacyjną kontrolę aplikacji (maksymalny wynik 3)</p></strong>Adaptacyjna kontrola aplikacji (AAC) to inteligentne, zautomatyzowane i kompleksowe rozwiązanie, które umożliwia kontrolowanie, które aplikacje mogą być uruchamiane na maszynach Azure i poza platformą Azure. Pomaga również w zabezpieczaniu maszyn przed złośliwym oprogramowaniem.<br>Security Center używa uczenia maszynowego do tworzenia dozwolonych znanych bezpiecznych aplikacji dla grupy maszyn.<br>To innowacyjne podejście do aplikacji listy dozwolonych zapewnia korzyści związane z bezpieczeństwem bez złożoności zarządzania.<br>AAC jest szczególnie istotny dla serwerów utworzonych specjalnie dla celów, które muszą uruchamiać określony zestaw aplikacji.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj adaptacyjną kontrolę aplikacji (maksymalny wynik 3)</p></strong>Adaptacyjna kontrola aplikacji (AAC) to inteligentne, zautomatyzowane i kompleksowe rozwiązanie, które umożliwia kontrolowanie, które aplikacje mogą być uruchamiane na maszynach Azure i poza platformą Azure. Pomaga również w zabezpieczaniu maszyn przed złośliwym oprogramowaniem.<br>Security Center używa usługi Machine Learning, aby utworzyć listę znanych bezpiecznych aplikacji dla grupy komputerów.<br>To innowacyjne podejście do zatwierdzonej listy aplikacji zapewnia korzyści związane z bezpieczeństwem bez złożoności zarządzania.<br>AAC jest szczególnie istotny dla serwerów utworzonych specjalnie dla celów, które muszą uruchamiać określony zestaw aplikacji.</td>
     <td class="tg-lboi"; width=55%>-Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji<br>-Agent monitorowania powinien być zainstalowany na maszynach wirtualnych<br>-Agent monitorowania powinien być zainstalowany na swoich maszynach<br>-Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)<br>-Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)<br>-Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania</td>
   </tr>
   <tr>

@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56fb677ca80c047fb90c58a3e0aedb41e6d4a3f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354458"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045097"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Użyj pakietu NuGet pozostałej CI/CD Azure Stream Analytics na potrzeby integracji i programowania 
 W tym artykule opisano sposób użycia pakietu NuGet Azure Stream Analytics/CD w celu skonfigurowania ciągłego procesu integracji i wdrażania.
@@ -34,15 +34,19 @@ Podobnie jak w przypadku standardowego środowiska MSBuild programu Visual Studi
 
 Po pomyślnym skompilowaniu projektu programu Stream Analytics Visual Studio generowane są dwa Azure Resource Manager pliki szablonów w folderze **bin/[Debug/retails]/Deploy** : 
 
-*  Plik szablonu Menedżer zasobów
+* Plik szablonu Menedżer zasobów
 
-       [ProjectName].JobTemplate.json 
+   ```
+   [ProjectName].JobTemplate.json 
+   ```
 
-*  Plik parametrów Menedżer zasobów
+* Plik parametrów Menedżer zasobów
+   
+   ```
+   [ProjectName].JobTemplate.parameters.json
+   ```
 
-       [ProjectName].JobTemplate.parameters.json   
-
-Parametry domyślne w pliku Parameters. JSON pochodzą z ustawień w projekcie programu Visual Studio. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
+Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie programu Visual Studio. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
 
 > [!NOTE]
 > Dla wszystkich poświadczeń wartości domyślne są ustawiane na wartość null. Musisz ustawić **required** wartości przed wdrożeniem w chmurze.
@@ -60,7 +64,7 @@ Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia
 ## <a name="command-line-tool"></a>Narzędzie wiersza polecenia
 
 ### <a name="build-the-project"></a>Kompilowanie projektu
-Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **sa. exe**. Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
+Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **SA.exe**. Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
 
 Pliki wdrożenia są domyślnie umieszczane w bieżącym katalogu. Ścieżkę wyjściową można określić za pomocą następującego parametru-OutputPath:
 

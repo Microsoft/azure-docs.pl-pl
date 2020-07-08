@@ -1,5 +1,5 @@
 ---
-title: Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
+title: Notesy programu Synapse Studio
 description: W tym artykule dowiesz się, jak tworzyć i opracowywać notesy usługi Azure Synapse Studio (wersja zapoznawcza) w celu przygotowania i wizualizacji danych.
 services: synapse analytics
 author: ruixinxu
@@ -10,16 +10,16 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373373"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045692"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
+# <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-Notes usługi Azure Synapse Studio (wersja zapoznawcza) to interfejs sieci Web służący do tworzenia plików, które zawierają kod na żywo, wizualizacje i tekst opisowy. Notesy są dobrym miejscem do weryfikowania pomysłów i używania szybkich eksperymentów w celu uzyskania szczegółowych informacji na podstawie danych. Notesy są również szeroko używane podczas przygotowywania danych, wizualizacji danych, uczenia maszynowego i innych scenariuszy danych Big Data.
+Notes programu Synapse Studio (wersja zapoznawcza) to interfejs sieci Web służący do tworzenia plików, które zawierają kod na żywo, wizualizacje i tekst opisowy. Notesy są dobrym miejscem do weryfikowania pomysłów i używania szybkich eksperymentów w celu uzyskania szczegółowych informacji na podstawie danych. Notesy są również szeroko używane podczas przygotowywania danych, wizualizacji danych, uczenia maszynowego i innych scenariuszy danych Big Data.
 
 Za pomocą notesu usługi Azure Synapse Studio można:
 
@@ -110,7 +110,7 @@ Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych j�
 
 ### <a name="ide-style-intellisense"></a>Technologia IntelliSense w stylu IDE
 
-Notesy usługi Azure Synapse Studio są zintegrowane z edytorem Monako w celu przełączenia funkcji IntelliSense w stylu IDE do edytora komórek. Wyróżnianie składni, tworzenie błędów i automatyczne uzupełnianie kodu ułatwia pisanie kodu i szybsze identyfikowanie problemów.
+Notesy usługi Azure Synapse Studio są zintegrowane z edytorem Monako w celu przełączenia funkcji IntelliSense w stylu IDE do edytora komórek. Wyróżnianie składni, znacznik błędów i automatyczne uzupełnianie kodu ułatwiają pisanie kodu i szybsze identyfikowanie problemów.
 
 Funkcje IntelliSense są na różnych poziomach dojrzałości dla różnych języków. Skorzystaj z poniższej tabeli, aby zobaczyć, co jest obsługiwane.
 

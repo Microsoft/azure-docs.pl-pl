@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186020"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045505"
 ---
 # <a name="plan-virtual-networks"></a>Planowanie sieci wirtualnych
 
@@ -61,7 +61,7 @@ Sieć wirtualna może zostać ujęta w jedną lub więcej podsieci do [limitów]
 - Każda podsieć musi mieć unikatowy zakres adresów określony w formacie CIDR w przestrzeni adresowej sieci wirtualnej. Zakres adresów nie może pokrywać się z innymi podsieciami w sieci wirtualnej.
 - Jeśli planujesz wdrożenie niektórych zasobów usługi platformy Azure w sieci wirtualnej, mogą oni potrzebować lub utworzyć własną podsieć, więc musi być wystarczająca ilość wolnego miejsca do wykonania. Aby ustalić, czy usługa platformy Azure tworzy własną podsieć, zobacz informacje dotyczące poszczególnych [usług platformy Azure, które można wdrożyć w sieci wirtualnej](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Jeśli na przykład Sieć wirtualna jest podłączona do sieci lokalnej przy użyciu VPN Gateway platformy Azure, Sieć wirtualna musi mieć dedykowaną podsieć dla bramy. Dowiedz się więcej o [podsieciach bramy](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Platforma Azure domyślnie kieruje ruchem sieciowym między wszystkimi podsieciami w sieci wirtualnej. Można zastąpić domyślny Routing platformy Azure, aby zapobiec routingowi platformy Azure między podsieciami lub kierować ruchem między podsieciami za pomocą wirtualnego urządzenia sieciowego. Jeśli potrzebujesz tego ruchu między zasobami w tym samym przepływie sieci wirtualnej za pomocą wirtualnego urządzenia sieciowego (urządzenie WUS), wdróż zasoby w różnych podsieciach. Dowiedz się więcej o [zabezpieczeniach](#security).
-- Możesz ograniczyć dostęp do zasobów platformy Azure, takich jak konto usługi Azure Storage lub usługa Azure SQL Database, do określonych podsieci za pomocą punktu końcowego usługi sieci wirtualnej. Ponadto możesz odmówić dostępu do zasobów z Internetu. Można utworzyć wiele podsieci i włączyć punkt końcowy usługi dla niektórych podsieci, ale nie do innych. Dowiedz się więcej o [punktach końcowych usługi](virtual-network-service-endpoints-overview.md)i zasobach platformy Azure, na których można je włączyć.
+- Możesz ograniczyć dostęp do zasobów platformy Azure, takich jak konto usługi Azure Storage lub Azure SQL Database, do określonych podsieci za pomocą punktu końcowego usługi sieci wirtualnej. Ponadto możesz odmówić dostępu do zasobów z Internetu. Można utworzyć wiele podsieci i włączyć punkt końcowy usługi dla niektórych podsieci, ale nie do innych. Dowiedz się więcej o [punktach końcowych usługi](virtual-network-service-endpoints-overview.md)i zasobach platformy Azure, na których można je włączyć.
 - Można skojarzyć zero lub jedną sieciową grupę zabezpieczeń z każdą podsiecią w sieci wirtualnej. Do każdej podsieci można skojarzyć tę samą lub inną sieciową grupę zabezpieczeń. Każda sieciowa Grupa zabezpieczeń zawiera reguły, które zezwalają na ruch do i ze źródeł i miejsc docelowych lub odmawiają go. Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](#traffic-filtering).
 
 ## <a name="security"></a>Zabezpieczenia

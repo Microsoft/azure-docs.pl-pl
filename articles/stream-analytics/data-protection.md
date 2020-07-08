@@ -4,14 +4,14 @@ description: W tym artykule wyjaśniono, jak szyfrować dane prywatne używane p
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
-ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857291"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045352"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -32,11 +32,11 @@ Nie można zaktualizować ani obrócić kluczy do konta magazynu przy użyciu po
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**. 
 
-1. Wybierz pozycję **Analiza** > **Stream Analytics zadania** z listy wyników. 
+1. Wybierz pozycję **Analiza**   >  **Stream Analytics zadania**   z listy wyników. 
 
 1. Wypełnij stronę Stream Analytics zadania, aby uzyskać niezbędne szczegóły, takie jak nazwa, region i skala. 
 

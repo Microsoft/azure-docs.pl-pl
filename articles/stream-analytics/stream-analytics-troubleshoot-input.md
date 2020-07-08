@@ -5,15 +5,15 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9d8d87e0a2fb21603802f533a3566aa6743a9a79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831895"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045080"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Znajdź centrum zdarzeń.
 
@@ -138,6 +138,28 @@ FROM data
 ### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Upewnij się, że dane wejściowe są powiązane z różnymi grupami odbiorców
 
 W przypadku zapytań, w których trzy lub więcej danych wejściowych są połączone z tą samą Event Hubs grupą konsumentów, Utwórz osobne grupy odbiorców. Wymaga to utworzenia dodatkowych Stream Analytics danych wejściowych.
+
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>Tworzenie oddzielnych danych wejściowych z różnymi grupami odbiorców
+
+Można utworzyć osobne dane wejściowe z różnymi grupami odbiorców dla tego samego centrum zdarzeń. Poniższe zapytanie UNION to przykład, w którym *InputOne* i *InputTwo* odnoszą się do tego samego źródła centrum zdarzeń. Każde zapytanie może mieć oddzielne dane wejściowe z różnymi grupami odbiorców. Kwerenda UNION ma tylko jeden przykład.
+
+```sql
+WITH 
+DataOne AS 
+(
+SELECT * FROM InputOne 
+),
+
+DataTwo AS 
+(
+SELECT * FROM InputTwo 
+),
+
+SELECT foo FROM DataOne
+UNION 
+SELECT foo FROM DataTwo
+
+```
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 

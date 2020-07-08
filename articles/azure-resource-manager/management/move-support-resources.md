@@ -2,13 +2,13 @@
 title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 3e27c319493613464dd6f1360171db6154064b0a
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.date: 07/06/2020
+ms.openlocfilehash: 7f241e12200101e2f8f9efa7cf31e4483b2d4229
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781043"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044536"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -26,7 +26,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. ApiManagement](#microsoftapimanagement)
 > - [Microsoft. AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft. AppPlatform](#microsoftappplatform)
-> - [Microsoft. AppService](#microsoftappservice)
+> - [Programu. APPSERVICE](#microsoftappservice)
 > - [Microsoft. zaświadczanie](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft. Automation](#microsoftautomation)
@@ -38,7 +38,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
-> - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
+> - [MICROSOFT. BIZTALKSERVICES](#microsoftbiztalkservices)
 > - [Microsoft. łańcucha bloków](#microsoftblockchain)
 > - [Microsoft. BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft. plan](#microsoftblueprint)
@@ -56,25 +56,26 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft. zużycie](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft. ContainerService](#microsoftcontainerservice)
-> - [Microsoft. ContentModerator](#microsoftcontentmoderator)
-> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Programu. CONTENTMODERATOR](#microsoftcontentmoderator)
+> - [Programu. CORTANAANALYTICS](#microsoftcortanaanalytics)
 > - [Microsoft. CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CostManagementExports](#microsoftcostmanagementexports)
-> - [Microsoft. CustomerInsights](#microsoftcustomerinsights)
+> - [Programu. CUSTOMERINSIGHTS](#microsoftcustomerinsights)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
 > - [Microsoft. DataBox](#microsoftdatabox)
 > - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft. datacegły](#microsoftdatabricks)
 > - [Microsoft. datacatalog](#microsoftdatacatalog)
-> - [Microsoft. dataconnect](#microsoftdataconnect)
-> - [Microsoft. dataexchange](#microsoftdataexchange)
+> - [Programu. Łączenie dataconnect](#microsoftdataconnect)
+> - [Programu. Wymiana dataexchange](#microsoftdataexchange)
 > - [Microsoft. DataFactory](#microsoftdatafactory)
-> - [Microsoft. datalake](#microsoftdatalake)
+> - [Programu. DATALAKE](#microsoftdatalake)
 > - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft. kontach datalakestore](#microsoftdatalakestore)
 > - [Migracja Microsoft.](#microsoftdatamigration)
@@ -98,7 +99,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. eksperymentowanie](#microsoftexperimentation)
 > - [Microsoft. Falcon](#microsoftfalcon)
 > - [Microsoft. Features](#microsoftfeatures)
-> - [Microsoft. genomika](#microsoftgenomics)
+> - [Programu. GENOMICS](#microsoftgenomics)
 > - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft. HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
@@ -117,17 +118,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft. LabServices](#microsoftlabservices)
-> - [Microsoft. LocationBasedServices](#microsoftlocationbasedservices)
-> - [Microsoft. LocationServices](#microsoftlocationservices)
+> - [Programu. LOCATIONBASEDSERVICES](#microsoftlocationbasedservices)
+> - [Programu. LOCATIONSERVICES](#microsoftlocationservices)
 > - [Microsoft. Logic](#microsoftlogic)
 > - [Microsoft. MachineLearning](#microsoftmachinelearning)
-> - [Microsoft. MachineLearningCompute](#microsoftmachinelearningcompute)
-> - [Microsoft. MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
-> - [Microsoft. MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Programu. MACHINELEARNINGCOMPUTE](#microsoftmachinelearningcompute)
+> - [Programu. MACHINELEARNINGEXPERIMENTATION](#microsoftmachinelearningexperimentation)
+> - [Programu. MACHINELEARNINGMODELMANAGEMENT](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft. Maintenance](#microsoftmaintenance)
 > - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft. ManagedNetwork](#microsoftmanagednetwork)
+> - [Programu. MANAGEDNETWORK](#microsoftmanagednetwork)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft. Maps](#microsoftmaps)
@@ -135,7 +136,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft. Media](#microsoftmedia)
-> - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
+> - [Programu. MICROSERVICES4SPRING](#microsoftmicroservices4spring)
 > - [Microsoft. Migrowanie](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
@@ -165,24 +166,24 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft. SerialConsole](#microsoftserialconsole)
-> - [Microsoft. ServerManagement](#microsoftservermanagement)
+> - [Programu. SERVERMANAGEMENT](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft. servicefabric](#microsoftservicefabric)
 > - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft. Services](#microsoftservices)
+> - [Programu. SERVICES](#microsoftservices)
 > - [Microsoft. SignalRService](#microsoftsignalrservice)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Programu. STORAGECACHE](#microsoftstoragecache)
 > - [Microsoft. StorageSync](#microsoftstoragesync)
-> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Programu. STORAGESYNCDEV](#microsoftstoragesyncdev)
+> - [Programu. STORAGESYNCINT](#microsoftstoragesyncint)
 > - [Microsoft. StorSimple](#microsoftstorsimple)
 > - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft. StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Programu. STREAMANALYTICSEXPLORER](#microsoftstreamanalyticsexplorer)
 > - [Microsoft. Subscription](#microsoftsubscription)
 > - [Microsoft. Support](#microsoftsupport)
 > - [Microsoft. Synapse](#microsoftsynapse)
@@ -216,11 +217,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
+> | azureadmetrics | Nie | Nie |
 > | diagnosticsettings | Nie | Nie |
 > | diagnosticsettingscategories | Nie | Nie |
 > | operacje | Nie | Nie |
-> | privatelinkforazuread | Tak | Tak |
-> | dzierżaw | Tak | Tak |
+> | privatelinkforazuread | Nie | Nie |
+> | dzierżaw | Nie | Nie |
 
 ## <a name="microsoftaddons"></a>Microsoft. Dodatki
 
@@ -264,14 +266,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | actionrules | Tak | Tak |
+> | actionrules | Nie | Nie |
 > | alerts | Nie | Nie |
 > | alertslist | Nie | Nie |
 > | alertsmetadata | Nie | Nie |
 > | alertssummary | Nie | Nie |
 > | alertssummarylist | Nie | Nie |
 > | operacje | Nie | Nie |
-> | smartdetectoralertrules | Tak | Tak |
+> | smartdetectoralertrules | Nie | Nie |
 > | smartgroups | Nie | Nie |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
@@ -284,7 +286,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operationresults | Nie | Nie |
 > | Lokalizacje/operationstatuses | Nie | Nie |
 > | operacje | Nie | Nie |
-> | serwerem | Tak | Tak |
+> | serwerem | Nie | Nie |
 
 ## <a name="microsoftapimanagement"></a>Microsoft. ApiManagement
 
@@ -308,7 +310,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
-> | configurationstores | Tak | Tak |
+> | configurationstores | Nie | Nie |
 > | configurationstores / eventgridfilters | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/operationsstatus | Nie | Nie |
@@ -324,11 +326,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operationresults | Nie | Nie |
 > | Lokalizacje/operationstatus | Nie | Nie |
 > | operacje | Nie | Nie |
-> | Spring | Tak | Tak |
+> | Spring | Nie | Nie |
 > | sprężynowe/aplikacje | Nie | Nie |
 > | sprężynowe/aplikacje/wdrożenia | Nie | Nie |
 
-## <a name="microsoftappservice"></a>Microsoft. AppService
+## <a name="microsoftappservice"></a>Programu. APPSERVICE
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -345,7 +347,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | attestationproviders | Tak | Tak |
+> | attestationproviders | Nie | Nie |
+> | defaultproviders | Nie | Nie |
+> | locations | Nie | Nie |
+> | Lokalizacje/wartości właściwości defaultProvider | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -379,18 +384,20 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Tak | Tak |
-> | automationaccounts/konfiguracje | Tak | Tak |
+> | automationaccounts/konfiguracje | Nie | Nie |
 > | automationaccounts/zadania | Nie | Nie |
 > | automationaccounts / privateendpointconnectionproxies | Nie | Nie |
 > | automationaccounts / privateendpointconnections | Nie | Nie |
 > | automationaccounts / privatelinkresources | Nie | Nie |
-> | automationaccounts/elementy Runbook | Tak | Tak |
+> | automationaccounts/elementy Runbook | Nie | Nie |
 > | automationaccounts / softwareupdateconfigurations | Nie | Nie |
 > | automationaccounts/elementy webhook | Nie | Nie |
 > | operacje | Nie | Nie |
 
 > [!IMPORTANT]
 > Elementy Runbook muszą istnieć w tej samej grupie zasobów co konto usługi Automation.
+>
+> Aby uzyskać więcej informacji, zobacz [Przenoszenie konta Azure Automation do innej subskrypcji](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft. Automatyczna synchronizacja
 
@@ -401,7 +408,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/checkquotaavailability | Nie | Nie |
 > | Lokalizacje/checktrialavailability | Nie | Nie |
 > | operacje | Nie | Nie |
-> | privateclouds | Tak | Tak |
+> | privateclouds | Nie | Nie |
 > | privateclouds/klastry | Nie | Nie |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft. usługi azureactivedirectory
@@ -412,6 +419,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | b2cdirectories | Tak | Tak |
 > | b2ctenants | Nie | Nie |
 > | checknameavailability | Nie | Nie |
+> | guestusages | Tak | Tak |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
@@ -419,13 +427,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | Kontrolery datacontrollers | Nie | Nie |
-> | hybriddatamanagers | Nie | Nie |
+> | Kontrolery datacontrollers | Tak | Tak |
+> | hybriddatamanagers | Tak | Tak |
 > | operacje | Nie | Nie |
-> | postgresinstances | Nie | Nie |
-> | wystąpienia sqlinstances | Nie | Nie |
-> | sqlmanagedinstances | Nie | Nie |
-> | sqlserverinstances | Nie | Nie |
+> | postgresinstances | Tak | Tak |
+> | wystąpienia sqlinstances | Tak | Tak |
+> | sqlmanagedinstances | Tak | Tak |
+> | sqlserverinstances | Tak | Tak |
 > | sqlserverregistrations | Tak | Tak |
 > | SqlServerRegistrations/SQLServers | Nie | Nie |
 
@@ -435,8 +443,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | cloudmanifestfiles | Nie | Nie |
+> | edgesubscriptions | Nie | Nie |
 > | operacje | Nie | Nie |
-> | rejestracje | Tak | Tak |
+> | rejestracje | Nie | Nie |
 > | rejestracje/customersubscriptions | Nie | Nie |
 > | rejestracje/produkty | Nie | Nie |
 
@@ -514,8 +523,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | billingaccounts/klienci/transakcje | Nie | Nie |
 > | billingaccounts/klienci/transfery | Nie | Nie |
 > | billingaccounts/działy | Nie | Nie |
+> | billingaccounts/działy/billingpermissions | Nie | Nie |
+> | billingaccounts/działy/billingroleassignments | Nie | Nie |
+> | billingaccounts/działy/billingroledefinitions | Nie | Nie |
 > | billingaccounts / enrollmentaccounts | Nie | Nie |
+> | billingaccounts / enrollmentaccounts / billingpermissions | Nie | Nie |
+> | billingaccounts / enrollmentaccounts / billingroleassignments | Nie | Nie |
+> | billingaccounts / enrollmentaccounts / billingroledefinitions | Nie | Nie |
 > | billingaccounts/faktury | Nie | Nie |
+> | billingaccounts/faktury/transakcje | Nie | Nie |
 > | billingaccounts / invoicesections | Nie | Nie |
 > | billingaccounts / invoicesections / billingsubscriptionmoveoperations | Nie | Nie |
 > | billingaccounts / invoicesections / billingsubscriptions | Nie | Nie |
@@ -566,7 +582,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | updatecommunicationpreference | Nie | Nie |
 
-## <a name="microsoftbiztalkservices"></a>Microsoft. BizTalkServices
+## <a name="microsoftbiztalkservices"></a>MICROSOFT. BIZTALKSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -615,7 +631,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | botservices | Tak | Tak |
+> | botservices | Nie | Nie |
 > | botservices/kanały | Nie | Nie |
 > | botservices/połączenia | Nie | Nie |
 > | checknameavailability | Nie | Nie |
@@ -635,7 +651,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Redis | Tak | Tak |
 > | Redis/eventgridfilters | Nie | Nie |
 > | Redis/privatelinkresources | Nie | Nie |
-> | redisenterprise | Nie | Nie |
+> | redisenterprise | Tak | Tak |
 
 > [!IMPORTANT]
 > Jeśli wystąpienie usługi Azure cache for Redis jest skonfigurowane przy użyciu sieci wirtualnej, nie można przenieść wystąpienia do innej subskrypcji. Zobacz [ograniczenia dotyczące przenoszenia sieci](./move-limitations/networking-move-limitations.md).
@@ -678,7 +694,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallmanagedrulesets | Nie | Nie |
-> | cdnwebapplicationfirewallpolicies | Tak | Tak |
+> | cdnwebapplicationfirewallpolicies | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | checkresourceusage | Nie | Nie |
 > | edgenodes | Nie | Nie |
@@ -690,7 +706,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operationresults / profileresults / endpointresults / originresults | Nie | Nie |
 > | operacje | Nie | Nie |
 > | Profil | Tak | Tak |
-> | Profile/punkty końcowe | Tak | Tak |
+> | Profile/punkty końcowe | Nie | Nie |
 > | Profile/punkty końcowe/customdomains | Nie | Nie |
 > | Profile/punkty końcowe/origingroups | Nie | Nie |
 > | Profile/punkty końcowe/źródła | Nie | Nie |
@@ -721,9 +737,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | checkdomainnameavailability | Nie | Nie |
-> | domainnames | Yes | Nie |
+> | domainnames | Nie | Nie |
 > | DomainNames/możliwości | Nie | Nie |
 > | domainnames / internalloadbalancers | Nie | Nie |
 > | DomainNames/servicecertificates | Nie | Nie |
@@ -739,7 +755,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | quotas | Nie | Nie |
 > | resourcetypes | Nie | Nie |
 > | validatesubscriptionmoveavailability | Nie | Nie |
-> | virtualmachines | Tak | Nie |
+> | virtualmachines | Nie | Nie |
 > | virtualmachines/diagnosticsettings | Nie | Nie |
 > | virtualmachines/metricdefinitions | Nie | Nie |
 > | virtualmachines/metryki | Nie | Nie |
@@ -762,7 +778,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | expressroutecrossconnections | Nie | Nie |
 > | expressroutecrossconnections/Komunikacja równorzędna | Nie | Nie |
 > | gatewaysupporteddevices | Nie | Nie |
@@ -782,7 +798,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | checkstorageaccountavailability | Nie | Nie |
 > | dysku | Nie | Nie |
 > | images | Nie | Nie |
@@ -791,7 +807,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | osplatformimages | Nie | Nie |
 > | publicimages | Nie | Nie |
 > | quotas | Nie | Nie |
-> | storageaccounts | Yes | Nie |
+> | storageaccounts | Nie | Nie |
 > | storageaccounts/blobservices | Nie | Nie |
 > | storageaccounts/FileServices | Nie | Nie |
 > | storageaccounts/metricdefinitions | Nie | Nie |
@@ -823,7 +839,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | Konta | Tak | Tak |
+> | Konta | Nie | Nie |
 > | checkdomainavailability | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/checkskuavailability | Nie | Nie |
@@ -846,6 +862,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Tak | Tak |
+> | cloudservices | Nie | Nie |
 > | diskaccesses | Nie | Nie |
 > | diskencryptionsets | Nie | Nie |
 > | dysku | Tak | Tak |
@@ -876,10 +893,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedvmimages/wersje | Nie | Nie |
 > | Migawki | Tak | Tak |
 > | sshpublickeys | Nie | Nie |
+> | swiftlets | Nie | Nie |
 > | virtualmachines | Tak | Tak |
 > | virtualmachines/rozszerzenia | Tak | Tak |
 > | virtualmachines/metricdefinitions | Nie | Nie |
-> | virtualmachines/runcommands | Nie | Nie |
+> | virtualmachines/runcommands | Tak | Tak |
 > | virtualmachinescalesets | Tak | Tak |
 > | virtualmachinescalesets/rozszerzenia | Nie | Nie |
 > | virtualmachinescalesets/NetworkInterfaces | Nie | Nie |
@@ -889,6 +907,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 > [!IMPORTANT]
 > Zobacz [Virtual Machines wskazówki dotyczące przenoszenia](./move-limitations/virtual-machines-move-limitations.md).
+
+## <a name="microsoftconnectedcache"></a>Microsoft. ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Grupa zasobów | Subskrypcja |
+> | ------------- | ----------- | ---------- |
+> | cachenodes | Nie | Nie |
 
 ## <a name="microsoftconsumption"></a>Microsoft. zużycie
 
@@ -948,12 +973,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/setupauth | Nie | Nie |
 > | operacje | Nie | Nie |
 > | wołuje | Tak | Tak |
-> | rejestry/agentpools | Tak | Tak |
+> | rejestry/agentpools | Nie | Nie |
 > | rejestry/agentpools/listqueuestatus | Nie | Nie |
 > | rejestry/kompilacje | Nie | Nie |
 > | rejestry/kompilacje/anulowanie | Nie | Nie |
 > | rejestry/kompilacje/getloglink | Nie | Nie |
-> | rejestry/BuildTasks | Tak | Tak |
+> | rejestry/BuildTasks | Nie | Nie |
 > | rejestry/BuildTasks/listsourcerepositoryproperties | Nie | Nie |
 > | rejestry/BuildTasks/kroki | Nie | Nie |
 > | rejestry/BuildTasks/etapy/listbuildarguments | Nie | Nie |
@@ -976,7 +1001,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | rejestry/queuebuild | Nie | Nie |
 > | rejestry/regeneratecredential | Nie | Nie |
 > | rejestry/regeneratecredentials | Nie | Nie |
-> | rejestry/replikacje | Tak | Tak |
+> | rejestry/replikacje | Nie | Nie |
 > | rejestry/uruchomienia | Nie | Nie |
 > | rejestry/uruchomienia/Anuluj | Nie | Nie |
 > | rejestry/uruchomienia/listlogsasurl | Nie | Nie |
@@ -984,11 +1009,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | rejestry/scopemaps | Nie | Nie |
 > | rejestry/taskruns | Nie | Nie |
 > | rejestry/taskruns/ListDetails | Nie | Nie |
-> | rejestry/zadania | Tak | Tak |
+> | rejestry/zadania | Nie | Nie |
 > | rejestry/zadania/ListDetails | Nie | Nie |
 > | rejestry/tokeny | Nie | Nie |
 > | rejestry/updatepolicies | Nie | Nie |
-> | rejestry/elementy webhook | Tak | Tak |
+> | rejestry/elementy webhook | Nie | Nie |
 > | rejestry/elementy webhook/getcallbackconfig | Nie | Nie |
 > | rejestry/elementy webhook/ListEvents | Nie | Nie |
 > | rejestry/elementy webhook/polecenie ping | Nie | Nie |
@@ -1008,14 +1033,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | openshiftmanagedclusters | Nie | Nie |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
+## <a name="microsoftcontentmoderator"></a>Programu. CONTENTMODERATOR
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | aplikacje | Nie | Nie |
 
-## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
+## <a name="microsoftcortanaanalytics"></a>Programu. CORTANAANALYTICS
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1031,7 +1056,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | billingaccounts | Nie | Nie |
 > | budżetów | Nie | Nie |
 > | cloudconnectors | Nie | Nie |
-> | konta integracji | Tak | Tak |
+> | konta integracji | Nie | Nie |
+> | costallocationrules | Nie | Nie |
 > | działów | Nie | Nie |
 > | Wymiary | Nie | Nie |
 > | enrollmentaccounts | Nie | Nie |
@@ -1052,7 +1078,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | zarejestruj | Nie | Nie |
 > | reportconfigs | Nie | Nie |
 > | raporty | Nie | Nie |
-> | settings | Nie | Nie |
+> | ustawienia | Nie | Nie |
 > | showbackrules | Nie | Nie |
 > | widoki | Nie | Nie |
 
@@ -1063,7 +1089,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft. CustomerInsights
+## <a name="microsoftcustomerinsights"></a>Programu. CUSTOMERINSIGHTS
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1087,7 +1113,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | locations | Nie | Nie |
 > | Lokalizacje/operationstatuses | Nie | Nie |
 > | operacje | Nie | Nie |
-> | resourceproviders | Tak | Tak |
+> | resourceproviders | Nie | Nie |
 
 ## <a name="microsoftdatabox"></a>Microsoft. DataBox
 
@@ -1132,7 +1158,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | wykazy | Tak | Tak |
+> | wykazy | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | wykazy | Nie | Nie |
 > | locations | Nie | Nie |
@@ -1140,14 +1166,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftdataconnect"></a>Microsoft. dataconnect
+## <a name="microsoftdataconnect"></a>Programu. Łączenie dataconnect
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | connectionmanagers | Nie | Nie |
 
-## <a name="microsoftdataexchange"></a>Microsoft. dataexchange
+## <a name="microsoftdataexchange"></a>Programu. Wymiana dataexchange
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1162,7 +1188,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | checkazuredatafactorynameavailability | Nie | Nie |
 > | checkdatafactorynameavailability | Nie | Nie |
-> | fabryki datafactors | Tak | Tak |
+> | fabryki datafactors | Nie | Nie |
 > | datafactors/diagnosticsettings | Nie | Nie |
 > | datafactors/metricdefinitions | Nie | Nie |
 > | datafactoryschema | Nie | Nie |
@@ -1173,7 +1199,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/getfeaturevalue | Nie | Nie |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftdatalake"></a>Microsoft. datalake
+## <a name="microsoftdatalake"></a>Programu. DATALAKE
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1185,7 +1211,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | Konta | Tak | Tak |
+> | Konta | Nie | Nie |
 > | konta/datalakestoreaccounts | Nie | Nie |
 > | konta/storageaccounts | Nie | Nie |
 > | konta/storageaccounts/kontenery | Nie | Nie |
@@ -1202,7 +1228,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | Konta | Tak | Tak |
+> | Konta | Nie | Nie |
 > | konta/eventgridfilters | Nie | Nie |
 > | konta/firewallrules | Nie | Nie |
 > | locations | Nie | Nie |
@@ -1235,6 +1261,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | backupvaults | Nie | Nie |
 > | locations | Nie | Nie |
 > | operacje | Nie | Nie |
+> | resourceoperationgatekeepers | Nie | Nie |
 
 ## <a name="microsoftdatashare"></a>Microsoft. dataudział
 
@@ -1368,30 +1395,30 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | artifactsources | Tak | Tak |
+> | artifactsources | Nie | Nie |
 > | operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
-> | wprowadzanie | Tak | Tak |
-> | servicetopologie | Tak | Tak |
-> | servicetopologie/usługi | Tak | Tak |
-> | servicetopologie/usługi/serviceunits | Tak | Tak |
-> | kroki | Tak | Tak |
+> | wprowadzanie | Nie | Nie |
+> | servicetopologie | Nie | Nie |
+> | servicetopologie/usługi | Nie | Nie |
+> | servicetopologie/usługi/serviceunits | Nie | Nie |
+> | kroki | Nie | Nie |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | Tak | Tak |
+> | applicationgroups | Nie | Nie |
 > | applicationgroups/aplikacje | Nie | Nie |
 > | applicationgroups/komputery stacjonarne | Nie | Nie |
 > | applicationgroups / startmenuitems | Nie | Nie |
-> | hostpools | Tak | Tak |
+> | hostpools | Nie | Nie |
 > | hostpools / sessionhosts | Nie | Nie |
 > | hostpools / sessionhosts / usersessions | Nie | Nie |
 > | hostpools / usersessions | Nie | Nie |
 > | operacje | Nie | Nie |
-> | obszary robocze | Tak | Tak |
+> | obszary robocze | Nie | Nie |
 
 ## <a name="microsoftdevices"></a>Microsoft. urządzenia
 
@@ -1400,8 +1427,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
 > | checkprovisioningservicenameavailability | Nie | Nie |
-> | elasticpools | Nie | Nie |
-> | elasticpools / iothubtenants | Nie | Nie |
+> | elasticpools | Tak | Tak |
+> | elasticpools / iothubtenants | Tak | Tak |
 > | iothubs | Tak | Tak |
 > | iothubs/eventgridfilters | Nie | Nie |
 > | iothubs/SECURITYSETTINGS | Nie | Nie |
@@ -1415,14 +1442,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | potoki | Tak | Tak |
+> | potoki | Nie | Nie |
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | kontrolery | Tak | Tak |
+> | kontrolery | Nie | Nie |
 > | Kontrolery/listconnectiondetails | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/checkcontainerhostmapping | Nie | Nie |
@@ -1435,14 +1462,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Nie | Nie |
-> | Labs | Yes | Nie |
-> | laboratoria/środowiska | Tak | Tak |
-> | laboratoria/servicerunner | Tak | Tak |
-> | Labs/virtualmachines | Yes | Nie |
+> | Labs | Nie | Nie |
+> | laboratoria/środowiska | Nie | Nie |
+> | laboratoria/servicerunner | Nie | Nie |
+> | Labs/virtualmachines | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/operacje | Nie | Nie |
 > | operacje | Nie | Nie |
-> | Uruchamianie | Tak | Tak |
+> | Uruchamianie | Nie | Nie |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
 
@@ -1450,8 +1477,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | digitaltwinsinstances | Nie | Nie |
+> | digitaltwinsinstances/punkty końcowe | Nie | Nie |
 > | digitaltwinsinstances / operationresults | Nie | Nie |
 > | locations | Nie | Nie |
+> | Lokalizacje/checknameavailability | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -1490,14 +1519,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | locations | Nie | Nie |
 > | Lokalizacje/operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
-> | services | Tak | Tak |
+> | services | Nie | Nie |
 
 ## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | 3.x | Tak | Tak |
+> | 3.x | Nie | Nie |
 > | domeny/tematy | Nie | Nie |
 > | eventsubscriptions | Nie — nie można przenieść niezależnie, ale automatycznie przeniesiono z subskrybowanym zasobem. | Nie — nie można przenieść niezależnie, ale automatycznie przeniesiono z subskrybowanym zasobem. |
 > | extensiontopics | Nie | Nie |
@@ -1509,14 +1538,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
 > | operationsstatus | Nie | Nie |
-> | partnernamespaces | Tak | Tak |
+> | partnernamespaces | Nie | Nie |
 > | partnernamespaces/eventchannels | Nie | Nie |
 > | partnerregistrations | Nie | Nie |
-> | partnertopics | Tak | Tak |
+> | partnertopics | Nie | Nie |
 > | partnertopics / eventsubscriptions | Nie | Nie |
-> | systemtopics | Tak | Tak |
+> | systemtopics | Nie | Nie |
 > | systemtopics / eventsubscriptions | Nie | Nie |
-> | opisano | Tak | Tak |
+> | opisano | Nie | Nie |
 > | topictypes | Nie | Nie |
 
 ## <a name="microsofteventhub"></a>Microsoft. EventHub
@@ -1527,10 +1556,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | availableclusterregions | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | checknamespaceavailability | Nie | Nie |
-> | oparty | Tak | Tak |
+> | oparty | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/deletevirtualnetworkorsubnets | Nie | Nie |
-> | przestrzeni | Tak | Tak |
+> | przestrzeni | Nie | Nie |
 > | przestrzenie nazw/reguł autoryzacji | Nie | Nie |
 > | przestrzenie nazw/disasterrecoveryconfigs | Nie | Nie |
 > | przestrzenie nazw/disasterrecoveryconfigs/checknameavailability | Nie | Nie |
@@ -1555,7 +1584,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | przestrzeni | Tak | Tak |
+> | przestrzeni | Nie | Nie |
 
 ## <a name="microsoftfeatures"></a>Microsoft. Features
 
@@ -1568,7 +1597,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dostawców | Nie | Nie |
 > | subscriptionfeatureregistrations | Nie | Nie |
 
-## <a name="microsoftgenomics"></a>Microsoft. genomika
+## <a name="microsoftgenomics"></a>Programu. GENOMICS
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1598,7 +1627,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operacje | Nie | Nie |
 > | Lokalizacje/operationsstatus | Nie | Nie |
 > | operacje | Nie | Nie |
-> | sapmonitors | Tak | Tak |
+> | sapmonitors | Nie | Nie |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
 
@@ -1640,7 +1669,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | locations | Nie | Nie |
 > | Lokalizacje/operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
-> | services | Tak | Tak |
+> | services | Nie | Nie |
 > | usługi/privateendpointconnections | Nie | Nie |
 > | usługi/privatelinkresources | Nie | Nie |
 
@@ -1652,7 +1681,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | locations | Nie | Nie |
 > | Lokalizacje/operationresults | Nie | Nie |
 > | Lokalizacje/operationstatus | Nie | Nie |
-> | Win64 | Tak | Tak |
+> | Win64 | Nie | Nie |
 > | Maszyny/rozszerzenia | Tak | Tak |
 > | operacje | Nie | Nie |
 
@@ -1661,7 +1690,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Tak | Tak |
+> | datamanagers | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsofthybridnetwork"></a>Microsoft. HybridNetwork
@@ -1700,7 +1729,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | actiongroups | Tak | Tak |
+> | actiongroups | Nie | Nie |
 > | activitylogalerts | Nie | Nie |
 > | alertrules | Tak | Tak |
 > | autoscalesettings | Tak | Tak |
@@ -1749,8 +1778,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | vminsightsonboardingstatuses | Nie | Nie |
 > | testów internetowych | Tak | Tak |
 > | webtests/gettestresultfile | Nie | Nie |
-> | skoroszyty | Tak | Tak |
-> | workbooktemplates | Tak | Tak |
+> | skoroszyty | Nie | Nie |
+> | workbooktemplates | Nie | Nie |
 
 > [!IMPORTANT]
 > Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
@@ -1763,7 +1792,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | apptemplates | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | checksubdomainavailability | Nie | Nie |
-> | iotapps | Tak | Tak |
+> | iotapps | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
@@ -1771,8 +1800,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | checknameavailability | Tak | Tak |
-> | ziół | Tak | Tak |
+> | checknameavailability | Nie | Nie |
+> | ziół | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftkeyvault"></a>Microsoft. kluczy — magazyn
@@ -1782,7 +1811,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
 > | deletedvaults | Nie | Nie |
-> | hsmpools | Nie | Nie |
+> | hsmpools | Tak | Tak |
 > | locations | Nie | Nie |
 > | Lokalizacje/deletedvaults | Nie | Nie |
 > | Lokalizacje/deletevirtualnetworkorsubnets | Nie | Nie |
@@ -1802,7 +1831,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | connectedclusters | Tak | Tak |
+> | connectedclusters | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/operationstatuses | Nie | Nie |
 > | operacje | Nie | Nie |
@@ -1820,7 +1849,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | oparty | Tak | Tak |
+> | oparty | Nie | Nie |
 > | klastry/attacheddatabaseconfigurations | Nie | Nie |
 > | klastry/bazy danych | Nie | Nie |
 > | klastry/bazy danych/połączenia Databases | Nie | Nie |
@@ -1843,14 +1872,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | users | Nie | Nie |
 
-## <a name="microsoftlocationbasedservices"></a>Microsoft. LocationBasedServices
+## <a name="microsoftlocationbasedservices"></a>Programu. LOCATIONBASEDSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | Konta | Nie | Nie |
 
-## <a name="microsoftlocationservices"></a>Microsoft. LocationServices
+## <a name="microsoftlocationservices"></a>Programu. LOCATIONSERVICES
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1864,8 +1893,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Nie | Nie |
 > | integrationaccounts | Tak | Tak |
-> | integrationserviceenvironments | Yes | Nie |
-> | integrationserviceenvironments/managedapis | Yes | Nie |
+> | integrationserviceenvironments | Nie | Nie |
+> | integrationserviceenvironments/managedapis | Nie | Nie |
 > | isolatedenvironments | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/przepływy pracy | Nie | Nie |
@@ -1882,17 +1911,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operacje | Nie | Nie |
 > | Lokalizacje/operationsstatus | Nie | Nie |
 > | operacje | Nie | Nie |
-> | WebServices | Yes | Nie |
-> | obszary robocze | Tak | Tak |
+> | WebServices | Nie | Nie |
+> | obszary robocze | Nie | Nie |
 
-## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
+## <a name="microsoftmachinelearningcompute"></a>Programu. MACHINELEARNINGCOMPUTE
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | operationalizationclusters | Nie | Nie |
 
-## <a name="microsoftmachinelearningexperimentation"></a>Microsoft. MachineLearningExperimentation
+## <a name="microsoftmachinelearningexperimentation"></a>Programu. MACHINELEARNINGEXPERIMENTATION
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1904,7 +1933,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | teamaccounts/obszary robocze | Nie | Nie |
 > | teamaccounts/obszary robocze/projekty | Nie | Nie |
 
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft. MachineLearningModelManagement
+## <a name="microsoftmachinelearningmodelmanagement"></a>Programu. MACHINELEARNINGMODELMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1935,7 +1964,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | applyupdates | Nie | Nie |
 > | configurationassignments | Nie | Nie |
-> | maintenanceconfigurations | Tak | Tak |
+> | maintenanceconfigurations | Nie | Nie |
 > | aktualizacje | Nie | Nie |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
@@ -1947,7 +1976,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | resourceidentity | Nie | Nie |
 
-## <a name="microsoftmanagednetwork"></a>Microsoft. ManagedNetwork
+## <a name="microsoftmanagednetwork"></a>Programu. MANAGEDNETWORK
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -1989,9 +2018,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | Konta | Tak | Tak |
+> | Konta | Nie | Nie |
 > | konta/eventgridfilters | Nie | Nie |
-> | konta/privateatlases | Tak | Tak |
+> | konta/privateatlases | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsoftmarketplace"></a>Microsoft. Marketplace
@@ -2046,25 +2075,25 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | checknameavailability | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/checknameavailability | Nie | Nie |
-> | MediaServices | Tak | Tak |
+> | MediaServices | Nie | Nie |
 > | MediaServices/accountfilters | Nie | Nie |
 > | MediaServices/zasoby | Nie | Nie |
 > | MediaServices/assetfilters | Nie | Nie |
 > | MediaServices/contentkeypolicies | Nie | Nie |
 > | MediaServices/eventgridfilters | Nie | Nie |
 > | MediaServices/liveeventoperations | Nie | Nie |
-> | MediaServices/liveevents | Tak | Tak |
+> | MediaServices/liveevents | Nie | Nie |
 > | MediaServices/liveevents/liveoutputs | Nie | Nie |
 > | MediaServices/liveoutputoperations | Nie | Nie |
 > | MediaServices/streamingendpointoperations | Nie | Nie |
-> | MediaServices/streamingendpoints | Tak | Tak |
+> | MediaServices/streamingendpoints | Nie | Nie |
 > | MediaServices/streaminglocators | Nie | Nie |
 > | MediaServices/streamingpolicies | Nie | Nie |
 > | MediaServices/transformacje | Nie | Nie |
 > | MediaServices/transformacje/zadania | Nie | Nie |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>Programu. MICROSERVICES4SPRING
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -2095,8 +2124,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/checknameavailability | Nie | Nie |
 > | objectunderstandingaccounts | Nie | Nie |
 > | operacje | Nie | Nie |
-> | remoterenderingaccounts | Tak | Tak |
-> | spatialanchorsaccounts | Tak | Tak |
+> | remoterenderingaccounts | Nie | Nie |
+> | spatialanchorsaccounts | Nie | Nie |
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
@@ -2123,19 +2152,19 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | applicationgatewayavailablewafrulesets | Nie | Nie |
 > | applicationgateways | Nie | Nie |
 > | applicationgatewaywebapplicationfirewallpolicies | Nie | Nie |
-> | applicationsecuritygroups | Tak | Tak |
+> | applicationsecuritygroups | Nie | Nie |
 > | azurefirewallfqdntags | Nie | Nie |
 > | azurefirewalls | Nie | Nie |
 > | bastionhosts | Nie | Nie |
 > | bgpservicecommunities | Nie | Nie |
 > | checkfrontdoornameavailability | Nie | Nie |
 > | checktrafficmanagernameavailability | Nie | Nie |
-> | Licznik | Tak | Tak |
-> | ddoscustompolicies | Tak | Tak |
+> | Licznik | Nie | Nie |
+> | ddoscustompolicies | Nie | Nie |
 > | ddosprotectionplans | Nie | Nie |
 > | dnsoperationresults | Nie | Nie |
 > | dnsoperationstatuses | Nie | Nie |
-> | dnszones | Tak | Tak |
+> | dnszones | Nie | Nie |
 > | dnszones/a | Nie | Nie |
 > | dnszones/AAAA | Nie | Nie |
 > | dnszones/wszystkie | Nie | Nie |
@@ -2151,7 +2180,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | expressroutecircuits | Nie | Nie |
 > | expressroutegateways | Nie | Nie |
 > | expressrouteserviceproviders | Nie | Nie |
-> | firewallpolicies | Tak | Tak |
+> | firewallpolicies | Nie | Nie |
 > | frontdooroperationresults | Nie | Nie |
 > | usługi frontdoor | Nie | Nie |
 > | usługi frontdoor/frontendendpoints | Nie | Nie |
@@ -2159,10 +2188,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | frontdoorwebapplicationfirewallpolicies | Nie | Nie |
 > | getdnsresourcereference | Nie | Nie |
 > | internalnotify | Nie | Nie |
-> | ipallocations | Tak | Tak |
-> | ipgroups | Tak | Tak |
+> | ipallocations | Nie | Nie |
+> | ipgroups | Nie | Nie |
 > | loadbalancers | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
-> | localnetworkgateways | Tak | Tak |
+> | localnetworkgateways | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/autoapprovedprivatelinkservices | Nie | Nie |
 > | Lokalizacje/availabledelegations | Nie | Nie |
@@ -2186,21 +2215,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/użycia | Nie | Nie |
 > | Lokalizacje/validateresourceownership | Nie | Nie |
 > | Lokalizacje/virtualnetworkavailableendpointservices | Nie | Nie |
-> | natgateways | Tak | Tak |
+> | natgateways | Nie | Nie |
 > | networkexperimentprofiles | Nie | Nie |
-> | networkintentpolicies | Tak | Tak |
-> | networkinterfaces | Tak | Tak |
+> | networkintentpolicies | Nie | Nie |
+> | networkinterfaces | Nie | Nie |
 > | networkprofiles | Nie | Nie |
-> | networksecuritygroups | Tak | Tak |
-> | networkwatchers | Yes | Nie |
-> | networkwatchers / connectionmonitors | Yes | Nie |
-> | networkwatchers / flowlogs | Yes | Nie |
-> | networkwatchers / pingmeshes | Yes | Nie |
+> | networksecuritygroups | Nie | Nie |
+> | networkwatchers | Tak | Nie |
+> | networkwatchers / connectionmonitors | Tak | Nie |
+> | networkwatchers / flowlogs | Tak | Nie |
+> | networkwatchers / pingmeshes | Tak | Nie |
 > | operacje | Nie | Nie |
 > | p2svpngateways | Nie | Nie |
 > | privatednsoperationresults | Nie | Nie |
 > | privatednsoperationstatuses | Nie | Nie |
-> | privatednszones | Tak | Tak |
+> | privatednszones | Nie | Nie |
 > | privatednszones/a | Nie | Nie |
 > | privatednszones/AAAA | Nie | Nie |
 > | privatednszones/wszystkie | Nie | Nie |
@@ -2210,26 +2239,26 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privatednszones/SOA | Nie | Nie |
 > | privatednszones/SRV | Nie | Nie |
 > | privatednszones/txt | Nie | Nie |
-> | privatednszones / virtualnetworklinks | Tak | Tak |
+> | privatednszones / virtualnetworklinks | Nie | Nie |
 > | privatednszonesinternal | Nie | Nie |
 > | privateendpointredirectmaps | Nie | Nie |
-> | privateendpoints | Tak | Tak |
+> | privateendpoints | Nie | Nie |
 > | privatelinkservices | Nie | Nie |
 > | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
-> | publicipprefixes | Tak | Tak |
+> | publicipprefixes | Nie | Nie |
 > | routefilters | Nie | Nie |
-> | routetables | Tak | Tak |
-> | securitypartnerproviders | Tak | Tak |
-> | serviceendpointpolicies | Tak | Tak |
+> | routetables | Nie | Nie |
+> | securitypartnerproviders | Nie | Nie |
+> | serviceendpointpolicies | Nie | Nie |
 > | trafficmanagergeographichierarchies | Nie | Nie |
-> | trafficmanagerprofiles | Tak | Tak |
+> | trafficmanagerprofiles | Nie | Nie |
 > | trafficmanagerprofiles/map cieplnych | Nie | Nie |
 > | trafficmanagerusermetricskeys | Nie | Nie |
 > | virtualhubs | Nie | Nie |
-> | virtualnetworkgateways | Tak | Tak |
-> | virtualnetworks | Tak | Tak |
+> | virtualnetworkgateways | Nie | Nie |
+> | virtualnetworks | Nie | Nie |
 > | virtualnetworktaps | Nie | Nie |
-> | virtualrouters | Tak | Tak |
+> | virtualrouters | Nie | Nie |
 > | virtualwans | Nie | Nie |
 > | vpngateways (wirtualna sieć WAN) | Nie | Nie |
 > | vpnserverconfigurations | Nie | Nie |
@@ -2245,8 +2274,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
 > | checknamespaceavailability | Nie | Nie |
-> | przestrzeni | Tak | Tak |
-> | przestrzenie nazw/notificationhubs | Tak | Tak |
+> | przestrzeni | Nie | Nie |
+> | przestrzenie nazw/notificationhubs | Nie | Nie |
 > | operationresults | Nie | Nie |
 > | operacje | Nie | Nie |
 
@@ -2255,7 +2284,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | osnamespaces | Tak | Tak |
+> | osnamespaces | Nie | Nie |
 
 ## <a name="microsoftoffazure"></a>Microsoft. OffAzure
 
@@ -2273,7 +2302,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | oparty | Nie | Nie |
+> | oparty | Tak | Tak |
 > | deletedworkspaces | Nie | Nie |
 > | linktargets | Nie | Nie |
 > | locations | Nie | Nie |
@@ -2299,10 +2328,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | managementassociations | Nie | Nie |
-> | managementconfigurations | Tak | Tak |
+> | managementconfigurations | Nie | Nie |
 > | operacje | Nie | Nie |
-> | rozwiązania | Tak | Tak |
-> | widoki | Tak | Tak |
+> | rozwiązania | Nie | Nie |
+> | widoki | Nie | Nie |
 
 ## <a name="microsoftpeering"></a>Microsoft. Komunikacja równorzędna
 
@@ -2338,7 +2367,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | Konsole programu | Nie | Nie |
-> | pulpity nawigacyjne | Tak | Tak |
+> | pulpity nawigacyjne | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/konsole | Nie | Nie |
 > | Lokalizacje/UserSettings | Nie | Nie |
@@ -2352,7 +2381,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | locations | Nie | Nie |
 > | Lokalizacje/checknameavailability | Nie | Nie |
-> | workspacecollections | Tak | Tak |
+> | operacje | Nie | Nie |
+> | privatelinkservicesforpowerbi | Nie | Nie |
+> | privatelinkservicesforpowerbi / operationresults | Nie | Nie |
+> | dzierżaw | Nie | Nie |
+> | workspacecollections | Nie | Nie |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
@@ -2389,6 +2422,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | availableaccounts | Nie | Nie |
 > | providerregistrations | Nie | Nie |
+> | providerregistrations / defaultrollouts | Nie | Nie |
 > | providerregistrations / resourcetyperegistrations | Nie | Nie |
 > | wprowadzanie | Nie | Nie |
 
@@ -2445,7 +2479,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
-> | przestrzeni | Tak | Tak |
+> | przestrzeni | Nie | Nie |
 > | przestrzenie nazw/reguł autoryzacji | Nie | Nie |
 > | przestrzenie nazw/hybridconnections | Nie | Nie |
 > | przestrzenie nazw/hybridconnections/reguł autoryzacji | Nie | Nie |
@@ -2521,7 +2555,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | aplikacje | Tak | Nie |
+> | aplikacje | Nie | Nie |
 > | checkmoderneligibility | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | operationresults | Nie | Nie |
@@ -2550,12 +2584,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | adaptivenetworkhardenings | Nie | Nie |
 > | advancedthreatprotectionsettings | Nie | Nie |
 > | alerts | Nie | Nie |
+> | alertssuppressionrules | Nie | Nie |
 > | allowedconnections | Nie | Nie |
 > | applicationwhitelistings | Nie | Nie |
 > | assessmentmetadata | Nie | Nie |
 > | oceny | Nie | Nie |
 > | autodismissalertsrules | Nie | Nie |
-> | automatyzacji | Tak | Tak |
+> | automatyzacji | Nie | Nie |
 > | autoprovisioningsettings | Nie | Nie |
 > | complianceresults | Nie | Nie |
 > | zachowania zgodności prawnymi | Nie | Nie |
@@ -2564,10 +2599,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | discoveredsecuritysolutions | Nie | Nie |
 > | externalsecuritysolutions | Nie | Nie |
 > | informationprotectionpolicies | Nie | Nie |
-> | iotsecuritysolutions | Tak | Tak |
+> | iotsecuritysolutions | Nie | Nie |
 > | iotsecuritysolutions / analyticsmodels | Nie | Nie |
 > | iotsecuritysolutions / analyticsmodels / aggregatedalerts | Nie | Nie |
 > | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Nie | Nie |
+> | iotsecuritysolutions / iotalerts | Nie | Nie |
+> | iotsecuritysolutions / iotalerttypes | Nie | Nie |
 > | jitnetworkaccesspolicies | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/alerty | Nie | Nie |
@@ -2586,13 +2623,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | regulatorycompliancestandards | Nie | Nie |
 > | regulatorycompliancestandards / regulatorycompliancecontrols | Nie | Nie |
 > | regulatorycompliancestandards / regulatorycompliancecontrols / regulatorycomplianceassessments | Nie | Nie |
+> | securescorecontroldefinitions | Nie | Nie |
+> | securescorecontrols | Nie | Nie |
+> | securescores | Nie | Nie |
+> | securescores / securescorecontrols | Nie | Nie |
 > | securitycontacts | Nie | Nie |
 > | securitysolutions | Nie | Nie |
 > | securitysolutionsreferencedata | Nie | Nie |
 > | securitystatuses | Nie | Nie |
 > | securitystatusessummaries | Nie | Nie |
 > | servervulnerabilityassessments | Nie | Nie |
-> | settings | Nie | Nie |
+> | ustawienia | Nie | Nie |
 > | podoceny | Nie | Nie |
 > | zadania | Nie | Nie |
 > | replikacji | Nie | Nie |
@@ -2616,7 +2657,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | zdarzenia | Nie | Nie |
 > | officeconsents | Nie | Nie |
 > | operacje | Nie | Nie |
-> | settings | Nie | Nie |
+> | ustawienia | Nie | Nie |
 > | threatintelligence | Nie | Nie |
 
 ## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole
@@ -2629,7 +2670,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/consoleservices | Nie | Nie |
 > | operacje | Nie | Nie |
 
-## <a name="microsoftservermanagement"></a>Microsoft. ServerManagement
+## <a name="microsoftservermanagement"></a>Programu. SERVERMANAGEMENT
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -2646,7 +2687,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | checknamespaceavailability | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/deletevirtualnetworkorsubnets | Nie | Nie |
-> | przestrzeni | Tak | Tak |
+> | przestrzeni | Nie | Nie |
 > | przestrzenie nazw/reguł autoryzacji | Nie | Nie |
 > | przestrzenie nazw/disasterrecoveryconfigs | Nie | Nie |
 > | przestrzenie nazw/disasterrecoveryconfigs/checknameavailability | Nie | Nie |
@@ -2668,7 +2709,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | aplikacje | Nie | Nie |
-> | oparty | Tak | Tak |
+> | oparty | Nie | Nie |
 > | klastry/aplikacje | Nie | Nie |
 > | containergroups | Nie | Nie |
 > | containergroupsets | Nie | Nie |
@@ -2689,21 +2730,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | aplikacje | Tak | Tak |
+> | aplikacje | Nie | Nie |
 > | containergroups | Nie | Nie |
-> | bram | Tak | Tak |
+> | bram | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/applicationoperations | Nie | Nie |
 > | Lokalizacje/gatewayoperations | Nie | Nie |
 > | Lokalizacje/networkoperations | Nie | Nie |
 > | Lokalizacje/secretoperations | Nie | Nie |
 > | Lokalizacje/volumeoperations | Nie | Nie |
-> | sieci | Tak | Tak |
+> | sieci | Nie | Nie |
 > | operacje | Nie | Nie |
-> | wpisy tajne | Tak | Tak |
-> | volumes | Tak | Tak |
+> | wpisy tajne | Nie | Nie |
+> | volumes | Nie | Nie |
 
-## <a name="microsoftservices"></a>Microsoft. Services
+## <a name="microsoftservices"></a>Programu. SERVICES
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -2851,25 +2892,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | managedinstances / tdecertificates | Nie | Nie |
 > | managedinstances / vulnerabilityassessments | Nie | Nie |
 > | operacje | Nie | Nie |
-> | serwerem | Tak | Tak |
+> | serwerem | Nie | Nie |
 > | serwery/administratoroperationresults | Nie | Nie |
 > | serwery/Administratorzy | Nie | Nie |
 > | serwery/doradcy | Nie | Nie |
 > | serwery/aggregateddatabasemetrics | Nie | Nie |
-> | serwery/auditingpolicies | Nie | Nie |
 > | serwery/auditingsettings | Nie | Nie |
 > | serwery/automatictuning | Nie | Nie |
 > | serwery/communicationlinks | Nie | Nie |
-> | serwery/connectionpolicies | Nie | Nie |
-> | Serwery/bazy danych | Tak | Tak |
+> | Serwery/bazy danych | Nie | Nie |
 > | Serwery/bazy danych/doradcy | Nie | Nie |
-> | Serwery/bazy danych/auditingpolicies | Nie | Nie |
 > | Serwery/bazy danych/auditingsettings | Nie | Nie |
 > | Serwery/bazy danych/AuditRecords | Nie | Nie |
 > | Serwery/bazy danych/automatictuning | Nie | Nie |
 > | Serwery/bazy danych/backuplongtermretentionpolicies | Nie | Nie |
 > | Serwery/bazy danych/backupshorttermretentionpolicies | Nie | Nie |
-> | Serwery/bazy danych/connectionpolicies | Nie | Nie |
 > | Serwery/bazy danych/datamaskingpolicies | Nie | Nie |
 > | Serwery/bazy danych/datamaskingpolicies/reguły | Nie | Nie |
 > | Serwery/bazy danych/rozszerzenia | Nie | Nie |
@@ -2892,7 +2929,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | serwery/disasterrecoveryconfiguration | Nie | Nie |
 > | serwery/dnsaliases | Nie | Nie |
 > | serwery/elasticpoolestimates | Nie | Nie |
-> | serwery/elasticpools | Tak | Tak |
+> | serwery/elasticpools | Nie | Nie |
 > | serwery/elasticpools/doradcy | Nie | Nie |
 > | serwery/elasticpools/metricdefinitions | Nie | Nie |
 > | serwery/elasticpools/metryki | Nie | Nie |
@@ -2901,8 +2938,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | serwery/failovergroups | Nie | Nie |
 > | serwery/Importowanie | Nie | Nie |
 > | serwery/importexportoperationresults | Nie | Nie |
-> | serwery/jobaccounts | Tak | Tak |
-> | serwery/jobagents | Tak | Tak |
+> | serwery/jobaccounts | Nie | Nie |
+> | serwery/jobagents | Nie | Nie |
 > | serwery/jobagents/zadania | Nie | Nie |
 > | serwery/jobagents/zadania/wykonania | Nie | Nie |
 > | serwery/jobagents/zadania/kroki | Nie | Nie |
@@ -2918,7 +2955,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | serwery/użycia | Nie | Nie |
 > | serwery/virtualnetworkrules | Nie | Nie |
 > | serwery/vulnerabilityassessments | Nie | Nie |
-> | virtualclusters | Tak | Tak |
+> | virtualclusters | Nie | Nie |
 
 > [!IMPORTANT]
 > Baza danych i serwer muszą znajdować się w tej samej grupie zasobów. Podczas przenoszenia programu SQL Server wszystkie jego bazy danych również są przenoszone. To zachowanie ma zastosowanie do baz danych Azure SQL Database i Azure SQL Data Warehouse.
@@ -2961,7 +2998,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | storageaccounts/tableservices | Nie | Nie |
 > | użycia | Nie | Nie |
 
-## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
+## <a name="microsoftstoragecache"></a>Programu. STORAGECACHE
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -2979,21 +3016,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operacje | Nie | Nie |
 > | Lokalizacje/przepływy pracy | Nie | Nie |
 > | operacje | Nie | Nie |
-> | storagesyncservices | Tak | Tak |
+> | storagesyncservices | Nie | Nie |
 > | storagesyncservices/RegisteredServers | Nie | Nie |
 > | storagesyncservices / syncgroups | Nie | Nie |
 > | storagesyncservices / syncgroups / cloudendpoints | Nie | Nie |
 > | storagesyncservices / syncgroups / serverendpoints | Nie | Nie |
 > | storagesyncservices/przepływy pracy | Nie | Nie |
 
-## <a name="microsoftstoragesyncdev"></a>Microsoft. StorageSyncDev
+## <a name="microsoftstoragesyncdev"></a>Programu. STORAGESYNCDEV
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Nie | Nie |
 
-## <a name="microsoftstoragesyncint"></a>Microsoft. StorageSyncInt
+## <a name="microsoftstoragesyncint"></a>Programu. STORAGESYNCINT
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -3013,7 +3050,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | oparty | Nie | Nie |
+> | oparty | Tak | Tak |
 > | locations | Nie | Nie |
 > | Lokalizacje/przydziały | Nie | Nie |
 > | operacje | Nie | Nie |
@@ -3022,7 +3059,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!IMPORTANT]
 > Nie można przenieść zadań Stream Analytics, gdy stan jest uruchomiony.
 
-## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft. StreamAnalyticsExplorer
+## <a name="microsoftstreamanalyticsexplorer"></a>Programu. STREAMANALYTICSEXPLORER
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -3068,21 +3105,22 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Nie | Nie |
 > | operacje | Nie | Nie |
-> | obszary robocze | Tak | Tak |
-> | obszary robocze/bigdatapools | Tak | Tak |
+> | privatelinkhubs | Nie | Nie |
+> | obszary robocze | Nie | Nie |
+> | obszary robocze/bigdatapools | Nie | Nie |
 > | obszary robocze/operationresults | Nie | Nie |
 > | obszary robocze/operationstatuses | Nie | Nie |
-> | obszary robocze/pule | Tak | Tak |
+> | obszary robocze/pule | Nie | Nie |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | wiejski | Tak | Tak |
+> | wiejski | Nie | Nie |
 > | środowiska/accesspolicies | Nie | Nie |
-> | środowiska/źródła zdarzeń | Tak | Tak |
-> | środowiska/referencedatasets | Tak | Tak |
+> | środowiska/źródła zdarzeń | Nie | Nie |
+> | środowiska/referencedatasets | Nie | Nie |
 > | operacje | Nie | Nie |
 
 ## <a name="microsofttoken"></a>Microsoft. token
@@ -3090,7 +3128,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | przechowywać | Tak | Tak |
+> | przechowywać | Nie | Nie |
 > | Sklepy/accesspolicies | Nie | Nie |
 > | Sklepy/usługi | Nie | Nie |
 > | Sklepy/usługi/tokeny | Nie | Nie |
@@ -3181,7 +3219,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | Nie | Nie |
 > | billingmeters | Nie | Nie |
-> | certyfikaty | Nie | Yes |
+> | certyfikaty | Nie | Nie |
 > | checknameavailability | Nie | Nie |
 > | connectiongateways | Tak | Tak |
 > | Licznik | Tak | Tak |
@@ -3196,7 +3234,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ishostingenvironmentnameavailable | Nie | Nie |
 > | ishostnameavailable | Nie | Nie |
 > | isusernameavailable | Nie | Nie |
-> | kubeenvironments | Tak | Tak |
+> | kubeenvironments | Nie | Nie |
 > | listsitesassignedtohostname | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/apioperations | Nie | Nie |
@@ -3221,8 +3259,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokacje/eventgridfilters | Nie | Nie |
 > | Lokacje/hostnamebindings | Nie | Nie |
 > | Lokacje/NetworkConfig | Nie | Nie |
-> | Lokacje/premieraddons | Tak | Tak |
-> | Lokacje/miejsca | Tak | Tak |
+> | Lokacje/premieraddons | Nie | Nie |
+> | Lokacje/miejsca | Nie | Nie |
 > | Lokacje/miejsca/eventgridfilters | Nie | Nie |
 > | Lokacje/miejsca/hostnamebindings | Nie | Nie |
 > | Lokacje/miejsca/NetworkConfig | Nie | Nie |

@@ -1,16 +1,16 @@
 ---
-title: Jak utworzyć zasady konfiguracji gościa dla systemu Windows
+title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a8231840cc20f03da44d489ae5226e7a0b4e0d48
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835958"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045131"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Windows
+# <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
 Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje na temat przeglądu koncepcyjnego na stronie [Azure Policy konfiguracji gościa](../concepts/guest-configuration.md).
  
@@ -84,11 +84,14 @@ Omówienie pojęć i terminologii DSC można znaleźć w temacie [Omówienie DSC
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Jak moduły konfiguracji gościa różnią się od modułów DSC środowiska Windows PowerShell
 
-Gdy w konfiguracji gościa jest przeprowadzana inspekcja komputera:
+Gdy konfiguracja gościa przeprowadza inspekcję komputera, sekwencja zdarzeń jest inna niż w przypadku programu Windows PowerShell DSC.
 
 1. Agent najpierw uruchamia `Test-TargetResource` się w celu ustalenia, czy konfiguracja jest w poprawnym stanie.
 1. Wartość logiczna zwrócona przez funkcję określa, czy stan Azure Resource Manager dla przypisania gościa powinien być zgodny/niezgodny.
 1. Dostawca uruchamia program `Get-TargetResource` w celu zwrócenia bieżącego stanu każdego ustawienia, dlatego szczegółowe informacje o tym, dlaczego komputer nie jest zgodny, i upewnić się, że bieżący stan jest zgodny.
+
+Parametry w Azure Policy, które przekazują wartości do przypisań konfiguracji gościa, muszą być typu _String_ .
+Nie można przekazać tablic za pomocą parametrów, nawet jeśli zasób DSC obsługuje tablice.
 
 ### <a name="get-targetresource-requirements"></a>Wymagania Get-TargetResource
 
@@ -138,7 +141,7 @@ class ResourceName : OMI_BaseResource
 
 ### <a name="configuration-requirements"></a>Wymagania dotyczące konfiguracji
 
-Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip pakietu zawartości, nazwa konfiguracji w pliku MOF i nazwa przypisania gościa w szablonie Menedżer zasobów muszą być takie same.
+Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip pakietu zawartości, nazwa konfiguracji w pliku MOF i nazwa przypisywania gościa w szablonie Azure Resource Manager (szablon ARM) musi być taka sama.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Tworzenie szkieletu projektu konfiguracji gościa
 
@@ -163,7 +166,7 @@ Format pakietu musi być plikiem zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Przechowywanie artefaktów konfiguracji gościa
 
 Pakiet ZIP musi być przechowywany w lokalizacji dostępnej dla zarządzanych maszyn wirtualnych.
-Przykłady obejmują repozytoria GitHub, repozytorium platformy Azure lub usługę Azure Storage. Jeśli wolisz nie udostępniać pakietu publicznie, możesz dołączyć [token sygnatury dostępu współdzielonego](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) w adresie URL.
+Przykłady obejmują repozytoria GitHub, repozytorium platformy Azure lub usługę Azure Storage. Jeśli wolisz nie udostępniać pakietu publicznie, możesz dołączyć [token sygnatury dostępu współdzielonego](../../../storage/common/storage-sas-overview.md) w adresie URL.
 Można również zaimplementować [punkt końcowy usługi](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) dla maszyn w sieci prywatnej, chociaż ta konfiguracja ma zastosowanie tylko do uzyskiwania dostępu do pakietu i nie komunikuje się z usługą.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Krok po kroku, tworzenie niestandardowych zasad inspekcji konfiguracji Gości dla systemu Windows
@@ -320,9 +323,9 @@ New-GuestConfigurationPolicy `
 
 Następujące pliki są tworzone przez `New-GuestConfigurationPolicy` :
 
-- **auditIfNotExists. JSON**
-- **deployIfNotExists. JSON**
-- **Initiative. JSON**
+- **auditIfNotExists.jsna**
+- **deployIfNotExists.jsna**
+- **Initiative.jsna**
 
 Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetlaną inicjatywy i ścieżkę plików zasad.
 
@@ -408,7 +411,7 @@ Przykładowy fragment definicji zasad, który filtruje pod kątem tagów, znajdu
 
 Konfiguracja gościa obsługuje Zastępowanie właściwości konfiguracji w czasie wykonywania. Ta funkcja oznacza, że wartości w pliku MOF w pakiecie nie muszą być uznawane za statyczne. Wartości przesłonięć są udostępniane za pomocą Azure Policy i nie mają wpływu na sposób tworzenia lub kompilowania konfiguracji.
 
-Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameters**. Ten parametr przyjmuje definicję obiektu Hashtable obejmującą wszystkie szczegóły każdego z parametrów i tworzy wymagane sekcje każdego pliku używanego do Azure Policy definicji.
+Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameter**. Ten parametr przyjmuje definicję obiektu Hashtable obejmującą wszystkie szczegóły każdego z parametrów i tworzy wymagane sekcje każdego pliku używanego do Azure Policy definicji.
 
 Poniższy przykład tworzy definicję zasad w celu przeprowadzenia inspekcji usługi, w której użytkownik wybiera z listy w momencie przypisywania zasad.
 
@@ -431,15 +434,15 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Rozszerzanie konfiguracji gościa za pomocą narzędzi innych firm
 
 > [!Note]
-> Ta funkcja jest dostępna w wersji zapoznawczej i wymaga modułu konfiguracji gościa 1.20.1, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
-> W wersji 1.20.1 Ta funkcja jest dostępna tylko dla definicji zasad, które przeprowadzają inspekcję maszyn z systemem Windows
+> Ta funkcja jest dostępna w wersji zapoznawczej i wymaga modułu konfiguracji gościa 1.20.3, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
+> W wersji 1.20.3 Ta funkcja jest dostępna tylko dla definicji zasad, które przeprowadzają inspekcję maszyn z systemem Windows
 
 Pakiety artefaktów dla konfiguracji gościa można rozszerzyć w celu uwzględnienia narzędzi innych firm.
 Rozszerzanie konfiguracji gościa wymaga opracowania dwóch składników.
@@ -465,7 +468,14 @@ Tylko `New-GuestConfigurationPackage` polecenie cmdlet wymaga zmiany instrukcji 
 Zainstaluj wymagane moduły w środowisku deweloperskim:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 Najpierw utwórz plik YaML używany przez specyfikację. Plik zawiera podstawowe informacje o środowisku. Poniżej przedstawiono przykład:
@@ -482,7 +492,7 @@ supports:
   - os-family: windows
 ```
 
-Zapisz ten plik w folderze o nazwie `wmi_service` w katalogu projektu.
+Zapisz ten plik o nazwie `wmi_service.yml` w folderze o nazwie `wmi_service` w katalogu projektu.
 
 Następnie utwórz plik Ruby przy użyciu abstrakcji języka INSPEC użytego do inspekcji maszyny.
 
@@ -501,7 +511,7 @@ end
 
 ```
 
-Zapisz ten plik w nowym folderze o nazwie `controls` wewnątrz `wmi_service` katalogu.
+Zapisz ten plik `wmi_service.rb` w nowym folderze o nazwie `controls` wewnątrz `wmi_service` katalogu.
 
 Na koniec Utwórz konfigurację, zaimportuj moduł zasobów **GuestConfiguration** i użyj zasobu, `gcInSpec` Aby ustawić nazwę profilu INSPEC.
 
@@ -509,7 +519,7 @@ Na koniec Utwórz konfigurację, zaimportuj moduł zasobów **GuestConfiguration
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -552,7 +562,8 @@ Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji 
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## <a name="policy-lifecycle"></a>Cykl życia zasad

@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76847201"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045403"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w programie Visual Studio
 
@@ -52,7 +52,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Diagram zadań — dynamiczne źródła danych wejściowych](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Metryka|Opis|
+|Metric|Opis|
 |-|-|
 |**TaxiRide**| Nazwa danych wejściowych.|
 |**Centrum zdarzeń** | Typ źródła danych wejściowych.|
@@ -68,7 +68,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne źródła danych wejściowych diagramu zadania](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Metryka|Opis|
+|Metric|Opis|
 |-|-|
 |**TaxiRide**| Nazwa danych wejściowych.|
 |**Liczba wierszy**| Liczba wierszy wygenerowanych z kroku.|
@@ -79,7 +79,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Krok zapytania diagramu zadania](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Metryka|Opis|
+|Metric|Opis|
 |-|-|
 |**TripData**|Nazwa tymczasowego zestawu wyników.|
 |**Liczba wierszy**| Liczba wierszy wygenerowanych z kroku.|
@@ -89,7 +89,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne ujścia danych wyjściowych diagramu zadań](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Metryka|Opis|
+|Metric|Opis|
 |-|-|
 |**regionaggEH**|Nazwa danych wyjściowych.|
 |**Zdarzenia**|Liczba danych wyjściowych zdarzeń do ujścia.|
@@ -98,7 +98,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne ujścia danych wyjściowych diagramu zadań](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Metryka|Opis|
+|Metric|Opis|
 |-|-|
 |**regionaggEH**|Nazwa danych wyjściowych.|
 |**Dane wyjściowe lokalnego**| Wynikowe dane wyjściowe do pliku lokalnego.|

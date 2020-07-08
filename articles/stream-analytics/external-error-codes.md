@@ -3,15 +3,15 @@ title: Kody błędów zewnętrznych — Azure Stream Analytics
 description: Rozwiązywanie problemów Azure Stream Analytics z zewnętrznymi kodami błędów.
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: fad0794a3628e6a89d1c2b2c80bb27d70937db95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650029"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045250"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Azure Stream Analytics zewnętrzne kody błędów
 

@@ -1,6 +1,6 @@
 ---
 title: Ustawienia łączności dla Azure SQL Database i magazynu danych
-description: W tym dokumencie wyjaśniono wybór wersji protokołu TLS oraz ustawienia proxy i przekierowania dla Azure SQL Database i usługi Azure Synapse Analytics
+description: W tym dokumencie wyjaśniono wybór wersji usługi Transport Layer Security (TLS) oraz ustawienia proxy i przekierowania dla Azure SQL Database i usługi Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 07/06/2020
+ms.openlocfilehash: 04c5d9c8eceb14ab68ca0d96f994bf6a64bbc431
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266087"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045380"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,9 +33,17 @@ Ustawienia łączności są dostępne z ekranu **zapory i sieci wirtualne** , ja
 
 ## <a name="deny-public-network-access"></a>Odmów dostępu do sieci publicznej
 
-W Azure Portal, gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość **nie**, klienci mogą łączyć się przy użyciu prywatnego lub publicznego punktu końcowego.
+Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie jest ustawione na wartość **nie** (domyślnie), klienci mogą łączyć się przy użyciu publicznych punktów końcowych (reguł zapory opartych na protokole IP, reguł zapory opartych na sieci wirtualnej) lub prywatnych punktów końcowych (za pomocą prywatnego linku), jak opisano w temacie [dostęp sieciowy](network-access-controls-overview.md). 
 
-Klienci mogą łączyć się z SQL Database przy użyciu publicznych punktów końcowych (reguł zapory opartych na protokole IP, reguł zapory opartych na sieci wirtualnej) lub prywatnych punktów końcowych (przy użyciu prywatnego linku), jak opisano w temacie [dostęp](network-access-controls-overview.md)do zasobów. 
+ ![Zrzut ekranu z łącznością z odmową dostępu do sieci publicznej][2]
+
+Wszystkie próby ustawienia **Odmów dostępu do sieci publicznej** na **wartość tak** bez istniejących prywatnych punktów końcowych na serwerze logicznym zakończą się niepowodzeniem z komunikatem o błędzie podobnym do:  
+
+```output
+Error 42102
+Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
+Please set up private endpoints and retry the operation. 
+```
 
 Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych, a wszystkie połączenia za pośrednictwem publicznych punktów końcowych są odrzucane z komunikatem o błędzie podobnym do:  
 
@@ -44,6 +52,14 @@ Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. 
 The public network interface on this server is not accessible. 
 To connect to this server, use the Private Endpoint from inside your virtual network.
+```
+
+Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, wszelkie próby dodania lub aktualizacji reguł zapory zostaną odrzucone z komunikatem o błędzie podobnym do:
+
+```output
+Error 42101
+Unable to create or modify firewall rules when public network interface for the server is disabled. 
+To manage server or database level firewall rules, please enable the public network interface.
 ```
 
 ## <a name="change-public-network-access-via-powershell"></a>Zmień dostęp do sieci publicznej za pomocą programu PowerShell
@@ -86,9 +102,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 Ustawienie wersji minimalnej [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) umożliwia klientom kontrolowanie wersji protokołu TLS używanej przez ich Azure SQL Database.
 
-Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji protokołu TLS zapewnia, że są obsługiwane kolejne nowsze wersje protokołu TLS. Na przykład wybranie wersji TLS większej niż 1,1. oznacza, że akceptowane są tylko połączenia z protokołem TLS 1,1 i 1,2, a protokół TLS 1,0 jest odrzucany. Po przetestowaniu do sprawdzenia, czy aplikacje obsługują tę funkcję, zalecamy ustawienie minimalnej wersji protokołu TLS na 1,2, ponieważ zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wersjach i stanowi najwyższą wersję protokołu TLS obsługiwaną w Azure SQL Database.
+Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji protokołu TLS zapewnia, że są obsługiwane kolejne nowsze wersje protokołu TLS. Na przykład wybranie wersji protokołu TLS większej niż 1,1. oznacza, że akceptowane są tylko połączenia z protokołem TLS 1,1 i 1,2, a protokół TLS 1,0 jest odrzucany. Po przetestowaniu w celu potwierdzenia, że obsługuje ona aplikacje, zalecamy ustawienie minimalnej wersji protokołu TLS na 1,2, ponieważ zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wersjach i stanowi najwyższą wersję protokołu TLS obsługiwaną w Azure SQL Database.
 
-W przypadku klientów mających aplikacje korzystające ze starszych wersji protokołu TLS zalecamy ustawienie minimalnej wersji protokołu TLS zgodnie z wymaganiami aplikacji. W przypadku klientów korzystających z aplikacji do łączenia się z nieszyfrowanym połączeniem nie zaleca się stosowania żadnej minimalnej wersji protokołu TLS. 
+> [!IMPORTANT]
+> Wartością domyślną dla minimalnej wersji protokołu TLS jest Zezwalanie na wszystkie wersje. Jednak po wymuszeniu wersji protokołu TLS nie można przywrócić jej do wartości domyślnej.
+
+W przypadku klientów mających aplikacje korzystające ze starszych wersji protokołu TLS zalecamy ustawienie minimalnej wersji protokołu TLS zgodnie z wymaganiami aplikacji. W przypadku klientów korzystających z aplikacji do łączenia się z nieszyfrowanym połączeniem nie zaleca się stosowania żadnej minimalnej wersji protokołu TLS.
 
 Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące protokołu TLS dotyczące SQL Database łączności](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
@@ -205,3 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

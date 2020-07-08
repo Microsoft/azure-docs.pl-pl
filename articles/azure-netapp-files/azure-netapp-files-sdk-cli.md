@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731682"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045471"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
 
@@ -33,7 +33,7 @@ Poniższa tabela zawiera listę obsługiwanych zestawów SDK.  Szczegółowe inf
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure — zestaw SDK dla sieci](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure — zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
-|    Go    |    [Azure/Azure — zestaw SDK dla języka go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
+|    Przejdź    |    [Azure/Azure — zestaw SDK dla języka go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
 |    Java |     [Azure/Azure — zestaw SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
 |    JavaScript    |    [Azure/Azure-SDK-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure — zestaw SDK dla języka Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
@@ -45,16 +45,11 @@ W poniższej tabeli wymieniono obsługiwane narzędzia interfejsu wiersza polece
 |    Narzędzie    |    Dokumentacja polecenia    |
 |------------------|--------------------------------------------|
 |    Interfejs wiersza polecenia platformy Azure  |    [AZ netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    Program PowerShell   |    [Azure PowerShell Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    PowerShell   |    [Azure PowerShell Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-W poniższej tabeli przedstawiono przykłady kodu dla danego odwołania.   
-
-|    Język/narzędzie    |    Przykładowa Dokumentacja kodu    |
-|------------------|--------------------------------------------|
-|    .NET   |    [Przykład Azure NetApp Files zestawu SDK dla. NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-net-core/) |    
-|    Python    |    [Przykład Azure NetApp Files zestawu SDK dla języka Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+Zobacz [przykłady kodu dla Azure NetApp Files](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
 ## <a name="next-steps"></a>Następne kroki   
  [Pobierz zestawy Azure SDK](https://azure.microsoft.com/downloads/)

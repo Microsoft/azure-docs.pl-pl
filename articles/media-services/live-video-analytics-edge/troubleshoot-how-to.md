@@ -1,14 +1,16 @@
 ---
 title: Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge — Azure
 description: W tym artykule opisano kroki rozwiązywania problemów z analizą filmów wideo na żywo na IoT Edge.
+author: IngridAtMicrosoft
 ms.topic: how-to
+ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: c235dd27da1d370531c1668c40586d4ae479aec7
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: dd55050521a1791a11f220cd5617d9df2fa2d160
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261121"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045584"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -128,7 +130,7 @@ Aby rozwiązać ten problem:
     ```
 1. Upewnij się, że masz zainstalowane następujące rozszerzenia. W przypadku pisania w tym przewodniku wersja rozszerzeń była następująca:
 
-    |||
+    | Wewnętrzny | Wersja |
     |---|---|
     |azure-cli   |      2.5.1|
     |Moduły Command-nspkg         |   2.0.3|
@@ -199,7 +201,7 @@ W ramach naszej wersji podano jakiś przykładowy kod platformy .NET, aby uzyska
     sudo iotedge support-bundle --since 2h
     ```
 1. Jeśli otrzymasz kod z odpowiedzią na błąd 400, upewnij się, że ładunek wywołania metody jest poprawnie sformułowany zgodnie z przewodnikiem [metody bezpośredniej](direct-methods.md) .
-1. Jeśli zostanie wyświetlony kod stanu 200, oznacza to, że koncentrator działa prawidłowo, a wdrożenie modułu jest poprawne i trwa. Następnym krokiem jest sprawdzenie, czy konfiguracje aplikacji są dokładne. Konfiguracja aplikacji składa się z następujących pól w pliku appSettings. JSON. Sprawdź dokładnie, czy deviceId i moduleId są dokładne. Można to łatwo sprawdzić za pośrednictwem sekcji rozszerzenia usługi Azure IoT Hub w programu vscode. Wartości w pliku appSettings. JSON oraz sekcja IoT Hub powinny być zgodne.
+1. Jeśli zostanie wyświetlony kod stanu 200, oznacza to, że koncentrator działa prawidłowo, a wdrożenie modułu jest poprawne i trwa. Następnym krokiem jest sprawdzenie, czy konfiguracje aplikacji są dokładne. Konfiguracja aplikacji składa się z następujących pól w appsettings.jspliku. Sprawdź dokładnie, czy deviceId i moduleId są dokładne. Można to łatwo sprawdzić za pośrednictwem sekcji rozszerzenia usługi Azure IoT Hub w programu vscode. Wartości w appsettings.jsw pliku oraz sekcja IoT Hub powinny być zgodne.
     
     ```
     {
@@ -211,7 +213,7 @@ W ramach naszej wersji podano jakiś przykładowy kod platformy .NET, aby uzyska
 
     ![CENTRUM IOT](./media/troubleshoot-how-to/iot-hub.png)
 
-1. Upewnij się, że w pliku appSettings. JSON podano IoT Hub parametry połączenia, a nie parametry połączenia z urządzeniem IoT Hub, ponieważ ich [formaty](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/) są różne.
+1. Na koniec upewnij się, że w appsettings.jsIoT Hub parametry połączenia, a nie parametry połączenia z urządzeniem IoT Hub, ponieważ ich [formaty](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/) są różne.
 
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analiza wideo na żywo pracująca z modułami zewnętrznymi
 
@@ -241,9 +243,94 @@ Analiza wideo na żywo za pośrednictwem procesora rozszerzeń HTTP może rozsze
 
 Usługa Analiza filmów wideo na żywo na IoT Edge zapewnia bezpośredni model programowania oparty na metodzie, który umożliwia konfigurowanie wielu topologii i wystąpień wielu wykresów. W ramach konfiguracji topologii i wykresu zostanie wywołane wiele wywołań metody bezpośredniej w module Edge. Jeśli wywołasz te wywołania wielu metod, szczególnie te, które zaczynają i zatrzymują wykresy, mogą wystąpić pewne błędy przekroczenia limitu czasu, takie jak poniżej. 
 
-Metoda inicjowania zestawu Microsoft. Media. LiveVideoAnalytics. test. feature. Edge. AssemblyInitializer. InitializeAssemblyAsync zgłosiła wyjątek. Microsoft. Azure. Devices. Common. Exceptions. IotHubException: Microsoft. Azure. Devices. Common. Exceptions. IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
+Metoda inicjująca zestaw Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync zgłosiła wyjątek. Microsoft. Azure. Devices. Common. Exceptions. IotHubException: Microsoft. Azure. Devices. Common. Exceptions. IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-Zaleca się, aby nie należy wywoływać metod bezpośrednich w sposób równoległy, ale należy to zrobić w sposób sekwencyjny, tj.  jedno wywołanie metody bezpośredniej tylko po zakończeniu poprzedniego. 
+Zaleca się, aby nie należy wywoływać metod bezpośrednich w sposób równoległy, ale należy to zrobić w sposób sekwencyjny, tj.  jedno wywołanie metody bezpośredniej tylko po zakończeniu poprzedniego.
+
+### <a name="collecting-logs-for-submitting-a-support-ticket"></a>Zbieranie dzienników do przesyłania biletu pomocy technicznej
+
+Gdy Samodzielne rozwiązywanie problemów nie rozwiąże problemów, należy przejść do Azure Portal i [otworzyć bilet pomocy technicznej](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Wykonaj następujące kroki, aby zebrać odpowiednie dzienniki, które należy dodać do biletu. Pliki dziennika można przekazać na karcie **szczegóły** żądania obsługi.
+
+### <a name="support-bundle"></a>Obsługa — pakiet
+
+Gdy zachodzi potrzeba zebrania dzienników z urządzenia IoT Edge, najprostszym sposobem jest użycie `support-bundle` polecenia. To polecenie zbiera dane:
+
+- Dzienniki modułów
+- Dzienniki programu IoT Edge Security Manager i aparatu kontenera
+- Iotedge sprawdzanie danych wyjściowych JSON
+- Przydatne informacje debugowania
+
+#### <a name="use-the-iot-edge-security-manager"></a>Korzystanie z programu IoT Edge Security Manager
+ 
+IoT Edge Security Manager jest odpowiedzialny za operacje, takie jak inicjowanie systemu IoT Edge przy uruchamianiu i aprowizacji urządzeń. Jeśli IoT Edge nie zostanie uruchomiona, dzienniki Menedżera zabezpieczeń mogą dostarczyć przydatne informacje. Aby wyświetlić bardziej szczegółowe dzienniki programu IoT Edge Security Manager:
+
+1. Edytuj ustawienia demona IoT Edge na urządzeniu IoT Edge:
+
+    ```
+    sudo systemctl edit iotedge.service
+    ```
+
+1. Zaktualizuj następujące wiersze:
+
+    ```
+    [Service]
+    Environment=IOTEDGE_LOG=edgelet=debug
+    ```
+
+1. Uruchom ponownie demona Security IoT Edge, uruchamiając następujące polecenia:
+
+    ```
+    sudo systemctl cat iotedge.service
+    sudo systemctl daemon-reload
+    sudo systemctl restart iotedge
+    ```
+
+1. Uruchom `support-bundle` polecenie z flagą--od, aby określić, jak długo od dawna chcesz pobrać dzienniki. Na przykład, 2H będzie pobierać dzienniki od ostatnich dwóch godzin. Można zmienić wartość tej flagi, aby uwzględnić dzienniki w innym okresie.
+
+    ```
+    sudo iotedge support-bundle --since 2h
+    ```
+
+### <a name="lva-debug-logs"></a>Dzienniki debugowania LVA
+
+Wykonaj następujące kroki, aby skonfigurować LVA IoT Edge module do generowania dzienników debugowania:
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
+1. Wybierz **IoT Edge** z menu.
+1. Kliknij identyfikator urządzenia docelowego z listy urządzeń.
+1. Kliknij link **Ustaw moduły** w górnym menu.
+
+  ![Ustawianie modułów w witrynie Azure Portal](media/troubleshoot-how-to/set-modules.png)
+
+5. W sekcji IoT Edge modułów Znajdź i kliknij pozycję **lvaEdge**.
+1. Kliknij pozycję **kontener Utwórz opcje**.
+1. W sekcji powiązania Dodaj następujące polecenie:
+
+    `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
+
+    To wiąże foldery dzienników między urządzeniem brzegowym i kontenerem.
+
+1. Kliknij przycisk **Aktualizuj**
+1. Kliknij przycisk **Recenzja + Utwórz** w dolnej części strony. Prosta weryfikacja zostanie przeprowadzona i po pomyślnym zakończeniu walidacji zostanie wyświetlony zielony baner.
+1. Kliknij przycisk **Utwórz** .
+1. Następnie zaktualizuj **sznury identyfikatora modułu** , aby wskazywały parametr DebugLogsDirectory, aby wskazywał katalog, w którym będą zbierane dzienniki:
+    1. W tabeli **moduły** wybierz pozycję **lvaEdge** .
+    1. Kliknij link do **identyfikacji modułu** . Znajdziesz to w górnej części strony. Spowoduje to otwarcie okienka edytowalnego.
+    1. Dodaj następującą parę klucz-wartość w **odpowiednim kluczu**:
+
+        `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+    1. Kliknij pozycję **Zapisz**.
+
+1. Odtwórz problem.
+1. Połącz się z maszyną wirtualną ze strony IoT Hub w portalu.
+1. Przejdź do `/var/local/mediaservices/logs` folderu, a następnie zawartość pliku zip tego folderu i udostępnij go nam. (Te pliki dziennika nie są przeznaczone do samodiagnostyki. Są one przeznaczone dla inżynierów platformy Azure, aby analizować swoje problemy.
+
+1. Zbieranie dzienników można zatrzymać, ustawiając tę wartość w polu " **tożsamość modułu** " do wartości *null* . Wróć do strony z niezależną **tożsamością modułu** i zaktualizuj następujący parametr jako:
+
+    `"DebugLogsDirectory": ""`
 
 ## <a name="next-steps"></a>Następne kroki
 

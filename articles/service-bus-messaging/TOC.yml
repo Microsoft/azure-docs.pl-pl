@@ -182,6 +182,10 @@
           href: service-bus-nodejs-how-to-use-queues.md
         - name: Publikowanie i subskrybowanie komunikatów (starsza wersja platformy Azure — SB)
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+    - name: Integracja
+      items:
+        - name: Integracja z oprogramowaniem RabbitMQ
+          href: service-bus-integrate-with-rabbitmq.md
     - name: Zarządzanie
       items:
         - name: Automatyczne aktualizowanie jednostek obsługi komunikatów

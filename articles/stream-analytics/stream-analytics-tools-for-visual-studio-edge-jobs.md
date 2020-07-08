@@ -5,15 +5,15 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354568"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045165"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Opracowywanie zadań Stream Analytics Edge przy użyciu narzędzi Visual Studio Tools
 
@@ -29,7 +29,7 @@ Aby ukończyć ten samouczek, potrzebne są następujące wymagania wstępne:
  
 ## <a name="create-a-stream-analytics-edge-project"></a>Tworzenie projektu Stream Analytics Edge 
 
-W programie Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt**. Przejdź do listy **Szablony** po lewej stronie > rozwiń węzeł **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics krawędź aplikacji**. Podaj nazwę, lokalizację i nazwę rozwiązania dla projektu, a następnie wybierz **przycisk OK**.
+W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. Przejdź do listy **Szablony** po lewej stronie > rozwiń węzeł **Azure Stream Analytics**  >  **Stream Analytics Edge**  >  **Azure Stream Analytics krawędź aplikacji**. Podaj nazwę, lokalizację i nazwę rozwiązania dla projektu, a następnie wybierz **przycisk OK**.
 
 ![Nowy projekt Stream Analytics Edge w programie Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
@@ -46,7 +46,7 @@ Po utworzeniu projektu przejdź do **Eksplorator rozwiązań** , aby wyświetli�
 
 ## <a name="define-inputs"></a>Definiowanie danych wejściowych
 
-1. Na **Eksplorator rozwiązań**rozwiń węzeł **wejśćs** , który powinien zobaczyć dane wejściowe o nazwie **EdgeInput. JSON**. Kliknij dwukrotnie, aby wyświetlić jego ustawienia.  
+1. Na **Eksplorator rozwiązań** **rozwiń węzeł dane wejściowe,** który powinien zostać wyświetlony na wejściu o nazwie **EdgeInput.jsna**. Kliknij dwukrotnie, aby wyświetlić jego ustawienia.  
 
 2. Ustaw typ źródła na **strumień danych**. Następnie ustaw wartość Source na **Hub Edge**, format serializacji zdarzenia na **JSON**i kodowanie na **UTF8**. Opcjonalnie możesz zmienić nazwę **aliasu wejściowego**, pozostawićmy ją jako przeznaczoną dla tego przykładu. W przypadku zmiany nazwy aliasu wejściowego Użyj nazwy określonej podczas definiowania zapytania. Wybierz pozycję **Zapisz**, aby zapisać ustawienia.  
    ![Konfiguracja danych wejściowych zadania Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
@@ -55,7 +55,7 @@ Po utworzeniu projektu przejdź do **Eksplorator rozwiązań** , aby wyświetli�
 
 ## <a name="define-outputs"></a>Definiowanie danych wyjściowych
 
-1. Na **Eksplorator rozwiązań** **rozwiń węzeł** Outputs, aby wyświetlić dane wyjściowe o nazwie **EdgeOutput. JSON**. Kliknij dwukrotnie, aby wyświetlić jego ustawienia.  
+1. W **Eksplorator rozwiązań**rozwiń węzeł Outputs ( **dane wyjściowe)** powinien zostać wyświetlony komunikat o nazwie **EdgeOutput.jsna stronie**. Kliknij dwukrotnie, aby wyświetlić jego ustawienia.  
 
 2. Upewnij się, że ustawiono opcję ujścia, aby wybrać **centrum brzegowe**, ustawić format serializacji zdarzenia na **JSON**, ustawić kodowanie na **UTF8**i ustawić **tablicę**formatu. Opcjonalnie można zmienić nazwę **aliasu danych wyjściowych**, pozostawićmy ją jako przeznaczoną dla tego przykładu. W przypadku zmiany nazwy aliasu wyjściowego Użyj nazwy podanej podczas definiowania zapytania. Wybierz pozycję **Zapisz**, aby zapisać ustawienia. 
    ![Konfiguracja wyjściowa Stream Analytics zadania](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
@@ -82,12 +82,12 @@ FROM EdgeInput
 
 Aby przetestować zapytanie lokalnie, należy przekazać przykładowe dane. Możesz uzyskać przykładowe dane, pobierając dane rejestracji z [repozytorium GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) i zapisując je na komputerze lokalnym. 
 
-1. Aby przekazać przykładowe dane, kliknij prawym przyciskiem myszy plik **EdgeInput. JSON** i wybierz polecenie **Dodaj lokalne dane wejściowe**  
+1. Aby przekazać przykładowe dane, kliknij prawym przyciskiem myszy **EdgeInput.jsw** pliku i wybierz polecenie **Dodaj lokalne dane wejściowe**  
 
 2. W oknie podręcznym > **przeglądać** przykładowe dane ze ścieżki lokalnej > wybierz pozycję **Zapisz**.
    ![Lokalna konfiguracja danych wejściowych w programie Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
-3. Plik o nazwie **local_EdgeInput. JSON** zostanie automatycznie dodany do folderu Inputs.  
+3. Plik o nazwie **local_EdgeInput.json** jest automatycznie dodawany do folderu Inputs.  
 4. Można uruchomić je lokalnie lub przesłać na platformę Azure. Aby przetestować zapytanie, wybierz pozycję **Uruchom lokalnie**.  
    ![Opcje przebiegu zadania Stream Analytics w programie Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
  
@@ -99,7 +99,7 @@ Aby przetestować zapytanie lokalnie, należy przekazać przykładowe dane. Moż
 
 ## <a name="submit-the-job-to-azure"></a>Prześlij zadanie na platformę Azure
 
-1. Przed przesłaniem zadania do platformy Azure musisz nawiązać połączenie z subskrypcją platformy Azure. Otwórz > **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure** > **Connect, aby Microsoft Azure subskrypcję** > zalogować się do subskrypcji platformy Azure.  
+1. Przed przesłaniem zadania do platformy Azure musisz nawiązać połączenie z subskrypcją platformy Azure. Otwórz > **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure**  >  **Connect, aby Microsoft Azure subskrypcję** > zalogować się do subskrypcji platformy Azure.  
 
 2. Aby przesłać zadanie na platformę Azure, przejdź do edytora zapytań, > wybierz pozycję **Prześlij do platformy Azure**.  
 

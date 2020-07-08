@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
-ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464e8fbf624dfa84ec54bf6a7e0ce202d047e15d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75354363"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045114"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Zainstaluj narzędzia Azure Stream Analytics Tools for Visual Studio
 
@@ -24,11 +24,11 @@ Aby uzyskać więcej informacji na temat korzystania z narzędzi, zobacz [Szybki
 
 Narzędzia są obsługiwane w wersjach Visual Studio Enterprise (Ultimate/Premium), Professional i Community. Wersje Express i Visual Studio dla komputerów Mac nie obsługują tych funkcji.
 
-Zalecamy korzystanie z programu Visual Studio 2019.
+Zalecamy użycie programu Visual Studio 2019.
 
 ### <a name="install-for-visual-studio-2019-and-2017"></a>Zainstaluj dla programu Visual Studio 2019 i 2017<a name="recommended-visual-studio-2019-and-2017"></a>
 
-Narzędzia Azure Data Lake i Stream Analytics są częścią obciążeń związanych z projektowaniem i **przetwarzaniem danych** **platformy Azure** . Włączenie jednego z tych dwóch obciążeń podczas instalacji. Jeśli program Visual Studio jest już zainstalowany, wybierz pozycję **Narzędzia** > **Pobierz narzędzia i funkcje** , aby dodać obciążenia.
+Narzędzia Azure Data Lake i Stream Analytics są częścią obciążeń związanych z projektowaniem i **przetwarzaniem danych** **platformy Azure** . Włączenie jednego z tych dwóch obciążeń podczas instalacji. Jeśli program Visual Studio jest już zainstalowany, wybierz pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby dodać obciążenia.
 
 Pobierz [program Visual studio 2019 (wersja zapoznawcza 2 lub nowsza) lub program Visual studio 2017 (15,3 lub nowszy)](https://www.visualstudio.com/) i postępuj zgodnie z instrukcjami dotyczącymi instalacji.
 
@@ -42,7 +42,7 @@ Wybierz obciążenie **Programowanie na platformie Azure** , jak pokazano:
 
 Po dodaniu obciążenia należy zaktualizować narzędzia. Ta procedura odwołuje się do programu Visual Studio 2019:
 
-1. Wybierz pozycję **rozszerzenia** > **Zarządzanie rozszerzeniami**.
+1. Wybierz pozycję **rozszerzenia**  >  **Zarządzanie rozszerzeniami**.
 
 1. W obszarze **Zarządzanie rozszerzeniami**wybierz pozycję **aktualizacje** , a następnie wybierz pozycję **narzędzia Azure Data Lake i Stream Analytics**.
 
@@ -64,8 +64,8 @@ W przypadku programów Visual Studio 2019 i Visual Studio 2017 nowe przypomnieni
 
 W przypadku programu Visual Studio 2015 i Visual Studio 2013 narzędzia sprawdzają, czy są nowe wersje automatycznie. Postępuj zgodnie z instrukcjami, aby zainstalować najnowszą wersję.
 
-## <a name="uninstall"></a>Odinstaluj
+## <a name="uninstall"></a>Dezinstalacja
 
-Można odinstalować narzędzia Azure Data Lake i Stream Analytics. Dla programu Visual Studio 2019 lub Visual Studio 2017 wybierz kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**. W obszarze **Modyfikowanie**wybierz pozycję **narzędzia Azure Data Lake i Stream Analytics**. Jest on wyświetlany w obszarze obciążenia **magazynu danych i przetwarzania** lub obciążenie **Programowanie na platformie Azure** .
+Można odinstalować narzędzia Azure Data Lake i Stream Analytics. Dla programu Visual Studio 2019 lub Visual Studio 2017 wybierz kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**. W obszarze **Modyfikowanie**wybierz pozycję **narzędzia Azure Data Lake i Stream Analytics**. Jest on wyświetlany w obszarze obciążenia **magazynu danych i przetwarzania** lub obciążenie **Programowanie na platformie Azure** .
 
-Aby odinstalować program z programu Visual Studio 2015 lub Visual Studio 2013, przejdź do pozycji **panel** > sterowania**programy i funkcje**. Odinstaluj **narzędzia Microsoft Azure Data Lake i Stream Analytics Tools for Visual Studio**.
+Aby odinstalować program z programu Visual Studio 2015 lub Visual Studio 2013, przejdź do pozycji **Panel sterowania**  >  **programy i funkcje**. Odinstaluj **narzędzia Microsoft Azure Data Lake i Stream Analytics Tools for Visual Studio**.

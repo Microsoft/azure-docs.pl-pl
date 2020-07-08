@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75425972"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044417"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Obróć poświadczenia logowania dla danych wejściowych i wyjściowych zadania Stream Analytics
 
@@ -49,11 +49,11 @@ W tej sekcji przeprowadzimy Cię przez ponowne generowanie poświadczeń dla Blo
 
 ### <a name="sql-database"></a>Baza danych SQL
 
-Musisz nawiązać połączenie z bazą danych SQL, aby zaktualizować poświadczenia logowania istniejącego użytkownika. Poświadczenia można aktualizować za pomocą Azure Portal lub narzędzia po stronie klienta, takiego jak SQL Server Management Studio. W tej sekcji przedstawiono proces aktualizowania poświadczeń przy użyciu Azure Portal.
+Musisz nawiązać połączenie z usługą SQL Database, aby zaktualizować poświadczenia logowania istniejącego użytkownika. Poświadczenia można aktualizować za pomocą Azure Portal lub narzędzia po stronie klienta, takiego jak SQL Server Management Studio. W tej sekcji przedstawiono proces aktualizowania poświadczeń przy użyciu Azure Portal.
 
 1. Zaloguj się do Azure Portal > Przeglądaj bazę danych SQL, która została użyta jako dane wyjściowe dla zadania Stream Analytics.    
 2. Z **poziomu Eksploratora danych**Zaloguj się/Połącz z bazą danych > wybierz typ autoryzacji **jako uwierzytelnianie programu SQL Server** > wpisz nazwę **logowania** i **hasło** , > wybierz **przycisk OK**.  
-   ![Wygeneruj ponownie poświadczenia dla bazy danych SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
+   ![Wygeneruj ponownie poświadczenia dla SQL Database](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Na karcie zapytanie Zmień hasło jednego z użytkowników, uruchamiając następujące zapytanie (Pamiętaj, aby zamienić `<user_name>` nazwę użytkownika i `<new_password>` nowe hasło):  
 
@@ -64,7 +64,7 @@ Musisz nawiązać połączenie z bazą danych SQL, aby zaktualizować poświadcz
 
 4. Zanotuj nowe hasło.    
 5. W Azure Portal Przeglądaj zadanie Stream Analytics > wybierz pozycję **Zatrzymaj** i poczekaj na zatrzymanie zadania.    
-6. Znajdź dane wyjściowe bazy danych SQL, dla którego chcesz obrócić poświadczenia. Zaktualizuj hasło i Zapisz zmiany.    
+6. Znajdź SQL Database dane wyjściowe, dla których chcesz obrócić poświadczenia. Zaktualizuj hasło i Zapisz zmiany.    
 7. Test połączenia zostanie automatycznie uruchomiony po zapisaniu zmian, upewnij się, że pomyślnie przeszedł.    
 8. Wykonaj [zadania z ostatniej zatrzymanej sekcji czas](#start-your-job-from-the-last-stopped-time) .
 

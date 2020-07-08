@@ -66,6 +66,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Wbudowane mechanizmy zabezpieczeń
       href: load-balancer-security-controls.md
+    - name: Zarządzanie pulą zaplecza
+      href: backend-pool-management.md
 - name: Instrukcje
   items:
     - name: Zestawy skalowania maszyn wirtualnych

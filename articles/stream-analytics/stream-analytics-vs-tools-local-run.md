@@ -5,14 +5,14 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: 34c8555356d5c0142d7b677c8119fe66806ab064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76834913"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045641"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testowanie Stream Analytics zapytań lokalnie za pomocą programu Visual Studio
 
@@ -36,7 +36,7 @@ W oknie podręcznym wybierz pozycję dane przykładowe z ścieżki lokalnej i **
    
 ![Dodawanie lokalnych danych wejściowych](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
-Plik o nazwie **local_EntryStream. JSON** zostanie automatycznie dodany do folderu Inputs.
+Plik o nazwie **local_EntryStream.json** jest automatycznie dodawany do folderu Inputs.
    
 ![Lista plików lokalnych folderów wejściowych](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
