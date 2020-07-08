@@ -8,17 +8,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75897964"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z włączonymi dyskami zarządzanymi przez klienta (CMK)
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączonymi kluczami zarządzanymi przez klienta (CMK) z jednego regionu świadczenia usługi Azure do innego.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 Aby włączyć replikację dla maszyn wirtualnych z dyskami zarządzanymi przy użyciu usługi CMK, należy utworzyć zestawy szyfrowania dysków w regionie docelowym dla subskrypcji docelowej.
 
 ## <a name="enable-replication"></a>Włączanie replikacji
@@ -33,7 +32,7 @@ W tym przykładzie głównym regionem świadczenia usługi Azure jest Azja Wscho
     - **Subskrypcja źródłowa**: subskrypcja, do której należą źródłowe maszyny wirtualne. Może to być dowolna subskrypcja, która znajduje się w tej samej dzierżawie Azure Active Directory, co magazyn usługi Recovery Services.
     - **Grupa zasobów**: Grupa zasobów, do której należą źródłowe maszyny wirtualne. W następnym kroku zostaną wyświetlone wszystkie maszyny wirtualne w wybranej grupie zasobów do ochrony.
 
-3. W obszarze **Virtual Machines** > **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
+3. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
 
 4. W obszarze **Ustawienia**można skonfigurować następujące ustawienia lokacji docelowej.
 
@@ -64,7 +63,7 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 
 3. Wybierz pozycję **Dostosuj** obok pozycji "ustawienia szyfrowania magazynu", aby wybrać docelowy algorytm DES dla każdego włączonego klucza zarządzanego przez klienta (CMK). W czasie zaznaczania zobaczysz również, który docelowy Magazyn kluczy jest skojarzony z algorytmem DES.
 
-4. Wybierz pozycję **Utwórz zasób** > docelowy**Włącz replikację**.
+4. Wybierz pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 5. Po włączeniu maszyn wirtualnych na potrzeby replikacji można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**.
 
 ![Włącz replikację dla maszyny z włączonymi dyskami CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)

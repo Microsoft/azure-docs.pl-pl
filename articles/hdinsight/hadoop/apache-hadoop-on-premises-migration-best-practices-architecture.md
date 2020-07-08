@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934688"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące architektury
@@ -43,7 +42,7 @@ W poniższej tabeli przedstawiono różne metody, których można użyć do utwo
 |[Interfejs wiersza polecenia platformy Azure (Ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
+|[Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
 |[Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[Zestaw SDK Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Szablony usługi Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
@@ -107,7 +106,7 @@ Poniżej przedstawiono niektóre najlepsze rozwiązania dotyczące usługi HDIns
 
 ## <a name="best-practices-for-different-workloads"></a>Najlepsze rozwiązania dotyczące różnych obciążeń
 
-- Rozważ użycie klastra LLAP na potrzeby interaktywnych zapytań Hive przy użyciu ulepszonego czasu odpowiedzi [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) to nowa funkcja w programie Hive 2,0, która umożliwia buforowanie zapytań w pamięci. LLAP sprawia, że zapytania Hive znacznie szybsze, do [26x szybciej niż w przypadku programu Hive 1. x w niektórych przypadkach](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Rozważ użycie klastra LLAP na potrzeby interaktywnych zapytań Hive przy użyciu ulepszonego czasu odpowiedzi [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)   to nowa funkcja w programie Hive 2,0, która umożliwia buforowanie zapytań w pamięci. LLAP sprawia, że zapytania Hive znacznie szybsze, do [26x szybciej niż w przypadku programu Hive 1. x w niektórych przypadkach](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Rozważ użycie zadań platformy Spark zamiast zadań Hive.
 - Rozważ zamianę zapytań opartych na Impala z zapytaniami LLAP.
 - Rozważ zastępowanie zadań MapReduce za pomocą zadań platformy Spark.

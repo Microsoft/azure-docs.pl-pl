@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934204"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Dodawanie węzłów do autonomicznego klastra usługi Service Fabric uruchomionego na serwerze Windows Server lub usuwanie go
@@ -29,7 +28,7 @@ Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Win
 
 5. Uruchom program PowerShell z podwyższonym poziomem uprawnień i przejdź do lokalizacji rozpakowanego pakietu.
 
-6. Uruchom skrypt *AddNode. ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, z typem NodeType0 i adresem IP 182.17.34.52, do UD1 i FD:/DC1/R0. `ExistingClusterConnectionEndPoint`jest punktem końcowym połączenia dla węzła znajdującego się już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
+6. Uruchom skrypt *AddNode.ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, z typem NodeType0 i adresem IP 182.17.34.52, do UD1 i FD:/DC1/R0. `ExistingClusterConnectionEndPoint`jest punktem końcowym połączenia dla węzła znajdującego się już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
 
    Niezabezpieczone (prototypowanie):
 
@@ -69,7 +68,7 @@ Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Win
    Postęp uaktualniania można monitorować na Service Fabric Explorer. Alternatywnie można uruchomić polecenie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Dodawanie węzłów do klastrów skonfigurowanych z zabezpieczeniami systemu Windows przy użyciu gMSA
-W przypadku klastrów skonfigurowanych za pomocą konta usługi zarządzanego przez grupęhttps://technet.microsoft.com/library/hh831782.aspx)(gMSA) (nowy węzeł można dodać przy użyciu uaktualnienia konfiguracji:
+W przypadku klastrów skonfigurowanych za pomocą konta usługi zarządzanego przez grupę (gMSA) ( https://technet.microsoft.com/library/hh831782.aspx) nowy węzeł można dodać przy użyciu uaktualnienia konfiguracji:
 1. Uruchom [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) na dowolnym z istniejących węzłów, aby uzyskać najnowszy plik konfiguracji, i Dodaj szczegółowe informacje o nowym węźle, który chcesz dodać do sekcji "węzły". Upewnij się, że nowy węzeł jest częścią tego samego konta zarządzanego przez grupę. To konto powinno być kontem administratora na wszystkich komputerach.
 
     ```
@@ -127,7 +126,7 @@ Dodaj parametr "NodesToBeRemoved" do sekcji "Setup" w sekcji "FabricSettings". "
     Postęp uaktualniania można monitorować na Service Fabric Explorer. Alternatywnie można uruchomić polecenie [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
-> Usunięcie węzłów może inicjować wiele uaktualnień. Niektóre węzły są oznaczone `IsSeedNode=”true”` tagami i mogą być identyfikowane przez przeszukiwanie manifestu klastra przy użyciu `Get-ServiceFabricClusterManifest`. Usunięcie takich węzłów może potrwać dłużej niż inne, ponieważ węzły inicjatora będą musiały zostać przeniesione w taki sposób. Klaster musi obsługiwać co najmniej 3 węzły podstawowego typu węzła.
+> Usunięcie węzłów może inicjować wiele uaktualnień. Niektóre węzły są oznaczone `IsSeedNode=”true”` tagami i mogą być identyfikowane przez przeszukiwanie manifestu klastra przy użyciu `Get-ServiceFabricClusterManifest` . Usunięcie takich węzłów może potrwać dłużej niż inne, ponieważ węzły inicjatora będą musiały zostać przeniesione w taki sposób. Klaster musi obsługiwać co najmniej 3 węzły podstawowego typu węzła.
 > 
 > 
 

@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887210"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Nie można uruchomić oprogramowania Apache HBase Master (serwera hmaster) w usłudze Azure HDInsight
@@ -34,7 +33,7 @@ Serwera hmaster wykonuje podstawowe polecenie list w folderach WAL. Jeśli w dow
 
 Sprawdź stos wywołań i spróbuj ustalić, który folder może powodować problem (na przykład może być folderem WAL lub folderem. tmp). Następnie w Eksploratorze chmury lub przy użyciu poleceń systemu plików HDFS Spróbuj zlokalizować plik problemu. Zwykle jest to `*-renamePending.json` plik. ( `*-renamePending.json` Plik jest plikiem dziennika używanym do implementowania operacji niepodzielnej zmiany nazwy w sterowniku WASB. Ze względu na błędy w tej implementacji te pliki mogą pozostać po awarii procesu i tak dalej.) Wymuś usunięcie tego pliku w programie Cloud Explorer lub przy użyciu systemu plików HDFS.
 
-Czasami może być również plik tymczasowy o nazwie podobnej `$$$.$$$` do tej lokalizacji. Aby wyświetlić ten plik, `ls` należy użyć systemu HDFS. nie można wyświetlić pliku w programie Cloud Explorer. Aby usunąć ten plik, użyj polecenia `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`HDFS.
+Czasami może być również plik tymczasowy o nazwie podobnej do `$$$.$$$` tej lokalizacji. Aby `ls` wyświetlić ten plik, należy użyć systemu HDFS. plik nie jest widoczny w programie Cloud Explorer. Aby usunąć ten plik, użyj polecenia HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` .
 
 Po uruchomieniu tych poleceń serwera hmaster powinny zacząć działać od razu.
 
@@ -44,7 +43,7 @@ Po uruchomieniu tych poleceń serwera hmaster powinny zacząć działać od razu
 
 ### <a name="issue"></a>Problem
 
-Może zostać wyświetlony komunikat informujący o tym, `hbase: meta` że tabela nie jest w trybie online. Uruchomienie `hbck` programu może zgłosić `hbase: meta table replicaId 0 is not found on any region.` , że w dziennikach serwera hmaster może zostać wyświetlony komunikat: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
+Może zostać wyświetlony komunikat informujący o tym, że `hbase: meta` tabela nie jest w trybie online. Uruchomienie programu `hbck` może zgłosić, że `hbase: meta table replicaId 0 is not found on any region.` w dziennikach serwera hmaster może zostać wyświetlony komunikat: `No server address listed in hbase: meta for region hbase: backup <region name>` .  
 
 ### <a name="cause"></a>Przyczyna
 
@@ -59,7 +58,7 @@ Nie można zainicjować serwera hmaster po ponownym uruchomieniu HBase.
     delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. Usuń `hbase: namespace` wpis. Ten wpis może być tym samym błędem, który jest raportowany `hbase: namespace` podczas skanowania tabeli.
+1. Usuń `hbase: namespace` wpis. Ten wpis może być tym samym błędem, który jest raportowany podczas `hbase: namespace` skanowania tabeli.
 
 1. Uruchom ponownie aktywne serwera hmaster z interfejsu użytkownika Ambari, aby wyświetlić stan HBase w stanie uruchomienia.
 
@@ -75,7 +74,7 @@ Nie można zainicjować serwera hmaster po ponownym uruchomieniu HBase.
 
 ### <a name="issue"></a>Problem
 
-Serwera hmaster limit czasu dla wyjątku krytycznego podobnego do `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`:.
+Serwera hmaster limit czasu dla wyjątku krytycznego podobnego do: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned` .
 
 ### <a name="cause"></a>Przyczyna
 
@@ -83,7 +82,7 @@ Ten problem może wystąpić, jeśli masz wiele tabel i regionów, które nie zo
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. W interfejsie użytkownika Apache Ambari przejdź do pozycji **HBase** > **configs**. W pliku niestandardowym `hbase-site.xml` Dodaj następujące ustawienie:
+1. W interfejsie użytkownika Apache Ambari przejdź do pozycji **HBase**  >  **configs**. W pliku niestandardowym `hbase-site.xml` Dodaj następujące ustawienie:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -107,15 +106,15 @@ Okresowe ponowne uruchamianie węzłów. W dziennikach serwera regionów mogą p
 
 ### <a name="cause"></a>Przyczyna
 
-Długotrwałe `regionserver` wstrzymywanie JVM GC. Wstrzymanie spowoduje `regionserver` niereagowanie i nie będzie możliwe wysłanie pulsu do serwera hmaster w ramach limitu czasu sesji ZK 40s. Serwera hmaster będą uważane `regionserver` za `regionserver` martwe i spowoduje przerwanie i ponowne uruchomienie.
+Długotrwałe `regionserver` wstrzymywanie JVM GC. Wstrzymanie spowoduje `regionserver` niereagowanie i nie będzie możliwe wysłanie pulsu do serwera hmaster w ramach limitu czasu sesji ZK 40s. Serwera hmaster będą uważane `regionserver` za martwe i spowoduje przerwanie `regionserver` i ponowne uruchomienie.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zmień limit czasu `hbase-site` sesji dozorcy, `zookeeper.session.timeout` ale również ustawienie dozorcy `zoo.cfg` `maxSessionTimeout` należy zmienić.
+Zmień limit czasu sesji dozorcy, `hbase-site` `zookeeper.session.timeout` ale również ustawienie dozorcy `zoo.cfg` `maxSessionTimeout` należy zmienić.
 
 1. Dostęp do interfejsu użytkownika Ambari, przejdź do **HBase-> configs-> ustawienia**, w sekcji Limity czasu, Zmień wartość limitu czasu sesji dozorcy.
 
-1. Dostęp do interfejsu użytkownika Ambari, przejdź do **dozorcy-> configs-> Custom** `zoo.cfg`, Dodaj/Zmień następujące ustawienie. Upewnij się, że wartość jest taka sama jak `zookeeper.session.timeout`HBase.
+1. Dostęp do interfejsu użytkownika Ambari, przejdź do **dozorcy-> configs-> Custom** `zoo.cfg` , Dodaj/Zmień następujące ustawienie. Upewnij się, że wartość jest taka sama jak HBase `zookeeper.session.timeout` .
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -147,6 +146,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

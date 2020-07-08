@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979405"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Przekształć kod XML przy użyciu map w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
-Aby przesłać dane XML między formatami scenariuszy integracji dla przedsiębiorstw w Azure Logic Apps, aplikacja logiki może korzystać z map lub bardziej szczegółowych, w odniesieniu do map przekształceń języka arkusza stylów (XSLT). Mapa to dokument XML, który opisuje sposób konwersji danych z dokumentu XML na inny format. 
+Aby przesłać dane XML między formatami dla scenariuszy integracji przedsiębiorstw w usłudze Azure Logic Apps, aplikacja logiki musi używać map, a właściwie map XSLT (Extensible Style sheet Language Transformations). Mapa to dokument XML, który opisuje sposób konwersji danych z dokumentu XML na inny format. 
 
 Załóżmy na przykład, że regularnie otrzymujesz zamówienia B2B lub faktury od klienta, który używa formatu daty YYYMMDD. Organizacja używa jednak formatu daty MMDDYYY. Można zdefiniować i użyć mapy, która przekształca format daty YYYMMDD w format MMDDYYY przed zapisaniem szczegółów zamówienia lub faktury w bazie danych działań klienta.
 
@@ -150,7 +149,7 @@ Na stronie **Przegląd** konta integracji w obszarze **składniki**kafelek **zes
 1. Po zakończeniu przekazywania Wygeneruj sygnaturę dostępu współdzielonego dla Twojego zestawu. 
    Z menu skrótów zestawu wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**.
 
-1. W okienku **sygnatura dostępu współdzielonego** wybierz pozycję >  **Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera****Utwórz**. 
+1. W okienku **sygnatura dostępu współdzielonego** wybierz pozycję **Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera**  >  **Utwórz**. 
    Po wygenerowaniu adresu URL sygnatury dostępu współdzielonego obok pola **adres URL** wybierz **Kopiuj**.
 
 1. Wróć do Azure Portal, w którym jest otwarte okienko **Dodawanie zestawu** . 

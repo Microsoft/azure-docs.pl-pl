@@ -7,13 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979395"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Tworzenie, edytowanie lub rozszerzone dane JSON dla definicji przepływu pracy aplikacji logiki w Azure Logic Apps
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Tworzenie, edytowanie lub rozszerzanie danych JSON dla definicji przepływu pracy aplikacji logiki w usłudze Azure Logic Apps
 
 W przypadku tworzenia rozwiązań integracji dla przedsiębiorstw przy użyciu zautomatyzowanych przepływów pracy w [Azure Logic Apps](../logic-apps/logic-apps-overview.md), bazowe definicje aplikacji logiki używają prostych i deklaratywnych JavaScript Object Notation (JSON) wraz ze [schematem języka definicji przepływu pracy (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) do ich opisu i walidacji. Te formaty umożliwiają łatwiejsze odczytywanie i zrozumienie definicji aplikacji logiki, nie wiedząc o kodzie.
 Aby zautomatyzować tworzenie i wdrażanie aplikacji logiki, możesz uwzględnić definicje aplikacji logiki jako [zasoby platformy Azure](../azure-resource-manager/management/overview.md) w ramach [szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md).
@@ -46,7 +45,7 @@ W programie Visual Studio można otwierać aplikacje logiki, które zostały utw
 
 1. Otwórz rozwiązanie Visual Studio lub projekt [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) , który zawiera aplikację logiki.
 
-2. Znajdź i Otwórz definicję aplikacji logiki, która domyślnie jest wyświetlana w [szablonie Menedżer zasobów](../azure-resource-manager/templates/overview.md)o nazwie **LogicApp. JSON**.
+2. Znajdź i Otwórz definicję aplikacji logiki, która domyślnie jest wyświetlana w [szablonie Menedżer zasobów](../azure-resource-manager/templates/overview.md), o nazwie **LogicApp.jsna**.
 Można użyć i dostosować ten szablon do wdrożenia w różnych środowiskach.
 
 3. Otwórz menu skrótów dla definicji i szablonu aplikacji logiki.
@@ -127,18 +126,18 @@ W tych krokach opisano, jak ten przykład przetwarza ten ciąg, pracując od wew
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) Pobierz nazwę firmy, aby uzyskać całkowitą liczbę znaków.
+1. Pobierz [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) nazwę firmy, aby uzyskać całkowitą liczbę znaków.
 
-2. Aby uzyskać krótszy ciąg, Odejmij `5`.
+2. Aby uzyskać krótszy ciąg, Odejmij `5` .
 
-3. Uzyskaj teraz [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
-Rozpocznij od indeksu `5`i przejdź do pozostałej części ciągu.
+3. Uzyskaj teraz [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md) .
+Rozpocznij od indeksu `5` i przejdź do pozostałej części ciągu.
 
 4. Przekonwertuj ten podciąg na [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) ciąg.
 
 5. Teraz [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) wszystkie `+` znaki z `-` znakami.
 
-6. Na [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) `/` koniec wszystkie znaki z `_` znakami.
+6. Na koniec [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) wszystkie `/` znaki z `_` znakami.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mapuj elementy listy na wartości właściwości, a następnie użyj map jako parametrów
 
@@ -147,7 +146,7 @@ Aby uzyskać różne wyniki na podstawie wartości właściwości, można utworz
 Na przykład ten przepływ pracy definiuje niektóre kategorie jako parametry i mapę, która pasuje do tych kategorii z określonym adresem URL.
 Pierwszy przepływ pracy pobiera listę artykułów. Następnie przepływ pracy używa mapy, aby znaleźć adres URL zgodny z kategorią dla każdego artykułu.
 
-*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) Funkcja sprawdza, czy kategoria pasuje do znanej zdefiniowanej kategorii.
+*   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)Funkcja sprawdza, czy kategoria pasuje do znanej zdefiniowanej kategorii.
 
 *   Po otrzymaniu pasującej kategorii przykład ściąga element z mapy przy użyciu nawiasów kwadratowych:`parameters[...]`
 
@@ -228,19 +227,19 @@ Na przykład to wyrażenie stwierdza, jak długo trwa wykonywanie kroków tego p
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Z `order` akcji Wyodrębnij `startTime`.
-2. Pobierz bieżącą godzinę w usłudze `utcNow()`.
+1. Z `order` akcji Wyodrębnij `startTime` .
+2. Pobierz bieżącą godzinę w usłudze `utcNow()` .
 3. Odejmij jedną sekundę:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
-   Możesz użyć innych jednostek czasu, takich jak `minutes` lub. `hours`
+   Możesz użyć innych jednostek czasu, takich jak `minutes` lub `hours` .
 
 3. Teraz można porównać te dwie wartości.
 
    Jeśli pierwsza wartość jest mniejsza od drugiej wartości, to więcej niż jedna sekunda została przeniesiona od momentu pierwszego umieszczenia kolejności.
 
-Aby sformatować daty, można użyć elementów formatujących ciągi. Na przykład, aby uzyskać RFC1123, użyj [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Aby sformatować daty, można użyć elementów formatujących ciągi. Na przykład, aby uzyskać RFC1123, użyj [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md) .
 Dowiedz się więcej na temat [formatowania dat](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json

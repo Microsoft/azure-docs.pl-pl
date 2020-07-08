@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75977297"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor drzwi — używanie Azure Functions i SendGrid, wysyłanie wiadomości e-mail po otwarciu drzwi           
@@ -81,7 +80,7 @@ Po zakończeniu wdrażania kliknij je, a następnie kliknij przycisk **Zarządza
 
 ![SendGrid Zarządzaj](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-Na stronie SendGrid kliknij pozycję **Ustawienia** > **klucze** > interfejsu API**Utwórz klucz interfejsu API**.
+Na stronie SendGrid kliknij pozycję **Ustawienia**  >  **klucze interfejsu API**  >  **Utwórz klucz interfejsu API**.
 
 ![SendGrid najpierw Utwórz interfejs API](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -134,12 +133,12 @@ Rozwiń sekcję **przykłady Arduino** po lewej stronie, przejdź do **przykład
 
 ![Mini-Solution — przykłady](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Możesz również otworzyć przykładową aplikację z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
+Możesz również otworzyć przykładową aplikację z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P` ), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
 
 ### <a name="provision-azure-services"></a>Udostępnianie usług platformy Azure
 
 W oknie rozwiązanie Uruchom zadanie aprowizacji w chmurze:
-- Typ `Ctrl+P` (macOS: `Cmd+P`).
+- Typ `Ctrl+P` (macOS: `Cmd+P` ).
 - Wprowadź `task cloud-provision` w podanym polu tekstowym.
 
 W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces aprowizacji wymaganych usług platformy Azure. Zaznacz wszystkie te same elementy z listy monitów, które zostały wcześniej zainicjowane w ramach [wdrażania IoT Hub na platformie Azure](#deploy-iot-hub-in-azure).
@@ -155,7 +154,7 @@ Następnie Przekaż kod dla urządzenia.
 
 #### <a name="windows"></a>Windows
 
-1. Użyj `Ctrl+P` do uruchomienia `task device-upload`.
+1. Użyj `Ctrl+P` do uruchomienia `task device-upload` .
 
 2. Na terminalu zostanie wyświetlony komunikat z prośbą o wprowadzenie do trybu konfiguracji. Aby to zrobić, przytrzymaj przycisk A, a następnie wypchnij i zwolnij przycisk Resetuj. Na ekranie zostanie wyświetlony numer identyfikacyjny DevKit i *konfigurację*słowa.
 
@@ -163,7 +162,7 @@ Następnie Przekaż kod dla urządzenia.
 
 1. Ustaw DevKit do trybu konfiguracji: przytrzymaj przycisk A, a następnie wypchnij i zwolnij przycisk Resetuj. Na ekranie zostanie wyświetlony komunikat "Konfiguracja".
 
-2. Kliknij `Cmd+P` , aby `task device-upload`uruchomić.
+2. Kliknij `Cmd+P` , aby uruchomić `task device-upload` .
 
 #### <a name="verify-upload-and-run-the-sample-app"></a>Weryfikowanie, przekazywanie i uruchamianie przykładowej aplikacji
 
@@ -182,7 +181,7 @@ DevKit wykonuje ponowny rozruch i uruchamia kod.
 
 Program jest inicjowany najpierw, gdy DevKit jest w obecności trwałego pola magnetycznego.
 
-Po inicjacji `Door closed` jest wyświetlana na ekranie. W przypadku zmiany pola magnetycznego stan zmieni się na `Door opened`. Za każdym razem, gdy zmieni się stan drzwi, otrzymasz powiadomienie e-mail. (Odbieranie tych wiadomości e-mail może potrwać do 5 minut).
+Po inicjacji `Door closed` jest wyświetlana na ekranie. W przypadku zmiany pola magnetycznego stan zmieni się na `Door opened` . Za każdym razem, gdy zmieni się stan drzwi, otrzymasz powiadomienie e-mail. (Odbieranie tych wiadomości e-mail może potrwać do 5 minut).
 
 ![Magnets blisko czujnika: drzwi zamknięte](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magnets blisko czujnika: drzwi zamknięte")
 

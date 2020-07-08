@@ -14,10 +14,9 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75965621"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrożeniem przy ponownym uruchamianiu lub zmienianiu rozmiaru istniejącej maszyny wirtualnej z systemem Windows na platformie Azure
@@ -41,7 +40,7 @@ Podjęto próbę uruchomienia zatrzymanej maszyny wirtualnej, ale wystąpił bł
 ### <a name="resolution"></a>Rozwiązanie
 * Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności, a następnie uruchom ponownie każdą maszynę wirtualną.
   
-  1. Kliknij **pozycję grupy** > zasobów**zasoby** > *grupy* > zasobów*Twój zestaw* > **dostępności Virtual Machines** > **zatrzymać***maszynę* > wirtualną.
+  1. Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >  **Resources**  >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  **Stop**.
   2. Po zatrzymaniu wszystkich maszyn wirtualnych zaznacz wszystkie zatrzymane maszyny wirtualne, a następnie kliknij przycisk Uruchom.
 * Ponów żądanie ponownego uruchomienia w późniejszym czasie.
 
@@ -57,7 +56,7 @@ Podjęto próbę zmiany rozmiaru istniejącej maszyny wirtualnej, ale wystąpił
   
   1. Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności.
      
-     * Kliknij **pozycję grupy** > zasobów**zasoby** > *grupy* > zasobów*Twój zestaw* > **dostępności Virtual Machines** > **zatrzymać***maszynę* > wirtualną.
+     * Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >  **Resources**  >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  **Stop**.
   2. Po zatrzymaniu wszystkich maszyn wirtualnych Zmień rozmiar żądanej maszyny wirtualnej na większy.
   3. Wybierz maszynę wirtualną o zmienionym rozmiarze, a następnie kliknij przycisk **Start**, a następnie uruchom wszystkie zatrzymane maszyny wirtualne.
 

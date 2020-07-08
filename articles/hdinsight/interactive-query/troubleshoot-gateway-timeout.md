@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
 ms.openlocfilehash: 809b2e383eb57b730fd76ec2194764178aa810c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895052"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Wyjątek podczas uruchamiania zapytań z widoku Hive programu Apache Ambari w usłudze Azure HDInsight
@@ -33,9 +32,9 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 
 Limit czasu bramy.
 
-Wartość limitu czasu bramy wynosi 2 minuty. Zapytania z widoku programu Hive Ambari są przesyłane do `/hive2` punktu końcowego za pośrednictwem bramy. Po pomyślnym skompilowaniu i zaakceptowaniu zapytania HiveServer zwraca `queryid`wartość. Następnie klienci kontynuują sondowanie stanu zapytania. W trakcie tego procesu, jeśli HiveServer nie zwróci odpowiedzi HTTP w ciągu 2 minut, Brama HDI zgłasza błąd przekroczenia limitu czasu bramy 502,3 do obiektu wywołującego. Błędy mogą wystąpić, gdy zapytanie zostanie przesłane do przetwarzania (bardziej prawdopodobnie), a także w wywołaniu get status (mniej możliwe). Użytkownicy mogą zobaczyć jeden z nich.
+Wartość limitu czasu bramy wynosi 2 minuty. Zapytania z widoku programu Hive Ambari są przesyłane do `/hive2` punktu końcowego za pośrednictwem bramy. Po pomyślnym skompilowaniu i zaakceptowaniu zapytania HiveServer zwraca wartość `queryid` . Następnie klienci kontynuują sondowanie stanu zapytania. W trakcie tego procesu, jeśli HiveServer nie zwróci odpowiedzi HTTP w ciągu 2 minut, Brama HDI zgłasza błąd przekroczenia limitu czasu bramy 502,3 do obiektu wywołującego. Błędy mogą wystąpić, gdy zapytanie zostanie przesłane do przetwarzania (bardziej prawdopodobnie), a także w wywołaniu get status (mniej możliwe). Użytkownicy mogą zobaczyć jeden z nich.
 
-Wątek obsługi http powinien być szybki: Przygotuj zadanie i zwróć `queryid`. Jednak ze względu na kilka powodów wszystkie wątki obsługi mogą być zajęte, co powoduje przekroczenie limitu czasu dla nowych zapytań i wywołań stanu pobierania.
+Wątek obsługi http powinien być szybki: Przygotuj zadanie i zwróć `queryid` . Jednak ze względu na kilka powodów wszystkie wątki obsługi mogą być zajęte, co powoduje przekroczenie limitu czasu dla nowych zapytań i wywołań stanu pobierania.
 
 ### <a name="responsibilities-of-the-http-handler-thread"></a>Obowiązki wątku obsługi HTTP
 
@@ -54,13 +53,13 @@ Niektóre ogólne zalecenia dotyczące poprawy sytuacji:
 
 * W przypadku korzystania z zewnętrznego magazynu metadanych Hive należy sprawdzić metryki bazy danych i upewnić się, że nie jest przeciążona. Rozważ przeskalowanie warstwy bazy danych magazynu metadanych.
 
-* Upewnij się, że równoległe operacje Ops są włączone (umożliwia równoległe uruchamianie wątków obsługi HTTP). Aby sprawdzić wartość, uruchom oprogramowanie [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) i przejdź do **Hive** > **Konfiguracja** > Hive $**Advanced** > **Custom Hive-site**. Wartość parametru for `hive.server2.parallel.ops.in.session` powinna być `true`równa.
+* Upewnij się, że równoległe operacje Ops są włączone (umożliwia równoległe uruchamianie wątków obsługi HTTP). Aby sprawdzić wartość, uruchom oprogramowanie [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) i przejdź do **Hive**  >  **Konfiguracja**Hive $  >  **Advanced**  >  **Custom Hive-site**. Wartość parametru for `hive.server2.parallel.ops.in.session` powinna być równa `true` .
 
 * Upewnij się, że jednostka SKU maszyny wirtualnej klastra nie jest zbyt mała dla obciążenia. Rozważ podzielenie pracy między wieloma klastrami. Aby uzyskać więcej informacji, zobacz [Wybieranie typu klastra](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
 * Jeśli Ranger jest zainstalowany w klastrze, sprawdź, czy istnieje zbyt wiele zasad Ranger, które należy ocenić dla każdego zapytania. Poszukaj zduplikowanych lub niepotrzebnych zasad.
 
-* Sprawdź wartość **serwera hiveserver2 rozmiaru sterty** z Ambari. Przejdź do **Hive** > **Configs** > **Settings****optymalizacji**ustawień > konfiguracji programu Hive. Upewnij się, że wartość jest większa niż 10 GB. Dostosuj w miarę potrzeby, aby zoptymalizować wydajność.
+* Sprawdź wartość **serwera hiveserver2 rozmiaru sterty** z Ambari. Przejdź do **Hive**  >  **Configs**  >  **optymalizacji ustawień**konfiguracji programu Hive  >  **Optimization**. Upewnij się, że wartość jest większa niż 10 GB. Dostosuj w miarę potrzeby, aby zoptymalizować wydajność.
 
 * Upewnij się, że zapytanie programu Hive jest prawidłowo dopasowane. Aby uzyskać więcej informacji, zobacz [optymalizowanie Apache Hive zapytań w usłudze Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
@@ -70,6 +69,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

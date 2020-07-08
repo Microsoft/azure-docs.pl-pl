@@ -10,10 +10,9 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75976735"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Tworzenie Centrum IoT Hub przy użyciu szablonu Azure Resource Manager (.NET)
@@ -74,9 +73,9 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 Użyj szablonu i pliku parametrów JSON, aby utworzyć Centrum IoT w grupie zasobów. Możesz również użyć szablonu Azure Resource Manager, aby wprowadzić zmiany w istniejącym Centrum IoT.
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **nowy element**. Dodaj plik JSON o nazwie **Template. JSON** do projektu.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **nowy element**. Dodaj plik JSON o nazwie **template.js** do projektu.
 
-2. Aby dodać standardowe Centrum IoT do regionu **Wschodnie stany USA** , Zastąp zawartość pliku **Template. JSON** poniższą definicją zasobu. Aby zapoznać się z bieżącą listą regionów, które obsługują IoT Hub zobacz [Stan platformy Azure][lnk-status]:
+2. Aby dodać standardowe Centrum IoT do regionu **Wschodnie stany USA** , Zastąp zawartość **template.js** przy użyciu następującej definicji zasobu. Aby zapoznać się z bieżącą listą regionów, które obsługują IoT Hub zobacz [Stan platformy Azure][lnk-status]:
 
     ```json
     {
@@ -112,9 +111,9 @@ Użyj szablonu i pliku parametrów JSON, aby utworzyć Centrum IoT w grupie zaso
     }
     ```
 
-3. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **nowy element**. Dodaj plik JSON o nazwie **Parameters. JSON** do projektu.
+3. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **nowy element**. Dodaj plik JSON o nazwie **parameters.js** do projektu.
 
-4. Zastąp zawartość pliku **Parameters. JSON** następującymi informacjami o parametrach, które określają nazwę nowego centrum IoT, takiego jak **{Initials} mynewiothub**. Nazwa Centrum IoT musi być globalnie unikatowa, dlatego powinna zawierać nazwę lub inicjały:
+4. Zastąp zawartość **parameters.js** przy użyciu następujących informacji o parametrach, które określają nazwę nowego centrum IoT, takiego jak **{Initials} mynewiothub**. Nazwa Centrum IoT musi być globalnie unikatowa, dlatego powinna zawierać nazwę lub inicjały:
 
     ```json
     {
@@ -129,7 +128,7 @@ Użyj szablonu i pliku parametrów JSON, aby utworzyć Centrum IoT w grupie zaso
 
 5. W **Eksplorator serwera**Połącz się z subskrypcją platformy Azure, a na koncie usługi Azure Storage Utwórz kontener o nazwie **templates**. W panelu **Właściwości ustaw właściwość** **publiczny dostęp do odczytu** dla kontenera **templates** na **obiekt BLOB**.
 
-6. W **Eksplorator serwera**kliknij prawym przyciskiem myszy kontener **szablonów** , a następnie kliknij polecenie **Wyświetl kontener obiektów BLOB**. Kliknij przycisk **Przekaż obiekt BLOB** , wybierz dwa pliki, **Parameters. JSON** i **Templates. JSON**, a następnie kliknij przycisk **Otwórz** , aby przekazać pliki JSON do kontenera **szablonów** . Adresy URL obiektów BLOB zawierających dane JSON to:
+6. W **Eksplorator serwera**kliknij prawym przyciskiem myszy kontener **szablonów** , a następnie kliknij polecenie **Wyświetl kontener obiektów BLOB**. Kliknij przycisk **Przekaż obiekt BLOB** , wybierz dwa pliki, **parameters.json** i **templates.json**, a następnie kliknij przycisk **Otwórz** , aby przekazać pliki JSON do kontenera **szablonów** . Adresy URL obiektów BLOB zawierających dane JSON to:
 
     ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json

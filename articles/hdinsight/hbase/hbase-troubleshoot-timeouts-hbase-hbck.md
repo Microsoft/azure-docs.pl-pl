@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887193"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scenariusz: przekroczenie limitu czasu za pomocą polecenia "HBase hbck" w usłudze Azure HDInsight
@@ -20,11 +19,11 @@ W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązani
 
 ## <a name="issue"></a>Problem
 
-Napotkaj limity czasu `hbase hbck` przy użyciu polecenia przy rozwiązywaniu przypisań regionów.
+Napotkaj limity czasu przy użyciu `hbase hbck` polecenia przy rozwiązywaniu przypisań regionów.
 
 ## <a name="cause"></a>Przyczyna
 
-Potencjalną przyczyną problemów z przekroczeniem limitu czasu `hbck` , gdy użycie polecenia może być w stanie "w przejściu" przez długi czas. Te regiony można zobaczyć jako offline w interfejsie użytkownika HBase Master. Ze względu na to, że duża liczba regionów próbuje przejść, HBase Master może przekroczyć limit czasu i nie można przywrócić tych regionów z powrotem do trybu online.
+Potencjalną przyczyną problemów z przekroczeniem limitu czasu, gdy użycie `hbck` polecenia może być w stanie "w przejściu" przez długi czas. Te regiony można zobaczyć jako offline w interfejsie użytkownika HBase Master. Ze względu na to, że duża liczba regionów próbuje przejść, HBase Master może przekroczyć limit czasu i nie można przywrócić tych regionów z powrotem do trybu online.
 
 ## <a name="resolution"></a>Rozwiązanie
 
@@ -32,7 +31,7 @@ Potencjalną przyczyną problemów z przekroczeniem limitu czasu `hbck` , gdy u�
 
 1. Uruchom `hbase zkcli` polecenie, aby nawiązać połączenie z powłoką Apache ZooKeeper.
 
-1. Uruchom `rmr /hbase/regions-in-transition` polecenie `rmr /hbase-unsecure/regions-in-transition` lub.
+1. Uruchom `rmr /hbase/regions-in-transition` `rmr /hbase-unsecure/regions-in-transition` polecenie lub.
 
 1. Wyjdź z `hbase zkcli` powłoki przy użyciu `exit` polecenia.
 
@@ -48,6 +47,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 - Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

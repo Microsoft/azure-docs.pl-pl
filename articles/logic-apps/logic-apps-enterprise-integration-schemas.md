@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75979378"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Waliduj kod XML przy użyciu schematów w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
@@ -135,7 +134,7 @@ Po zakończeniu przekazywania schematu na liście **schematy** zostanie wyświet
 1. Po zakończeniu przekazywania Wygeneruj sygnaturę dostępu współdzielonego (SAS) dla schematu. 
    Z menu podręcznego schematu wybierz pozycję **Pobierz sygnaturę dostępu współdzielonego**.
 
-1. W okienku **sygnatura dostępu współdzielonego** wybierz pozycję >  **Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera****Utwórz**. 
+1. W okienku **sygnatura dostępu współdzielonego** wybierz pozycję **Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera**  >  **Utwórz**. 
    Po wygenerowaniu adresu URL sygnatury dostępu współdzielonego obok pola **adres URL** wybierz **Kopiuj**.
 
 1. Wróć do Azure Portal, w którym jest otwarte okienko **Dodaj schemat** . Wybierz **duży plik**.

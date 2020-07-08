@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75930223"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalowanie i Konfigurowanie adaptera StorSimple dla programu SharePoint
@@ -170,7 +169,7 @@ Po zainstalowaniu adaptera StorSimple dla programu SharePoint Skonfiguruj strukt
 ## <a name="configure-garbage-collection"></a>Konfigurowanie wyrzucania elementów bezużytecznych
 Po usunięciu obiektów z witryny programu SharePoint nie są one automatycznie usuwane z woluminu magazynu SPZ. Zamiast tego, asynchroniczny program konserwacji w tle usuwa oddzielone obiekty blob z magazynu plików. Administratorzy systemu mogą zaplanować okresowe uruchamianie tego procesu lub uruchamiać je w razie potrzeby.
 
-Ten program konserwacyjny (Microsoft. Data. SqlRemoteBlobs. maintenanceer. exe) jest automatycznie instalowany na wszystkich serwerach i serwerach aplikacji programu SharePoint WFE po włączeniu SPZ. Program jest instalowany w następującej lokalizacji: *dysk rozruchowy*: \Program Files\Microsoft SQL Remote BLOB Storage 10.50 \ utrzymujący \
+Ten program obsługi (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) jest automatycznie instalowany na wszystkich serwerach i serwerach aplikacji programu SharePoint WFE po włączeniu SPZ. Program jest instalowany w następującej lokalizacji: *dysk rozruchowy*: \Program Files\Microsoft SQL Remote BLOB Storage 10.50 \ utrzymujący \
 
 Aby uzyskać informacje o konfigurowaniu i korzystaniu z programu obsługi, zobacz temat [konserwowanie SPZ w programie SharePoint Server 2013][8].
 

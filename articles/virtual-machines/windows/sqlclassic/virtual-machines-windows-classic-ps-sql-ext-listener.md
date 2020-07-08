@@ -16,10 +16,9 @@ ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75978182"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurowanie zewnętrznego odbiornika dla grup dostępności na maszynach wirtualnych platformy Azure SQL Server

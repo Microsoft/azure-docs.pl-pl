@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887159"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
@@ -39,7 +38,7 @@ Udzielenie odpowiedzi na następujące pytania pomoże Ci lepiej zrozumieć Apac
 * Czy wszystkie Twoje "odczyty" są używane do skanowania?
     * Jeśli tak, jakie są cechy tych skanów?
     * Czy schemat tabeli platformy Phoenix został zoptymalizowany dla tych skanów, w tym do odpowiedniego indeksowania?
-* Czy użyto `EXPLAIN` instrukcji, aby zrozumieć plany zapytania dotyczące generowania "operacji odczytu"?
+* Czy użyto instrukcji, `EXPLAIN` Aby zrozumieć plany zapytania dotyczące generowania "operacji odczytu"?
 * Czy Twoje zapisy to "upsert-Select"?
     * Jeśli tak, również będą wykonywały skanowanie. Oczekiwane opóźnienie skanowania orednie około 100 milisekund, w porównaniu do 10 milisekund dla punktu, w HBase.  
 
@@ -65,17 +64,17 @@ W przypadku migrowania do usługi Azure HDInsight upewnij się, że migracja jes
 
 ## <a name="server-side-configuration-tunings"></a>Dostrajania konfiguracji po stronie serwera
 
-W usłudze HDInsight HBase HFiles są przechowywane w magazynie zdalnym. W przypadku braku miejsca w pamięci podręcznej koszt odczytu jest wyższy niż w przypadku systemów lokalnych, ponieważ dane w systemach lokalnych są obsługiwane przez lokalny system plików HDFS. W przypadku większości scenariuszy inteligentne użycie pamięci podręcznej HBase (pamięć podręczna bloków i pamięć podręczna zasobników) zostało zaprojektowane w celu obejścia tego problemu. W przypadkach, gdy problem nie jest omijany, użycie konta blokowego obiektu BLOB w warstwie Premium może pomóc w tym problemie. Sterownik Azure Storage Blob systemu Windows opiera się na pewnych właściwościach, `fs.azure.read.request.size` takich jak pobieranie danych w blokach na podstawie tego, co jest określane jako tryb odczytu (sekwencyjne i losowe), dzięki czemu mogą być nadal wystąpienia większej liczby opóźnień z odczytami. W wyniku eksperymentów doświadczalnych znaleźliśmy, że ustawienie rozmiaru bloku żądania odczytu (`fs.azure.read.request.size`) na 512 KB i dopasowanie rozmiaru bloku tabel HBase do tego samego rozmiaru daje najlepszy wynik.
+W usłudze HDInsight HBase HFiles są przechowywane w magazynie zdalnym. W przypadku braku miejsca w pamięci podręcznej koszt odczytu jest wyższy niż w przypadku systemów lokalnych, ponieważ dane w systemach lokalnych są obsługiwane przez lokalny system plików HDFS. W przypadku większości scenariuszy inteligentne użycie pamięci podręcznej HBase (pamięć podręczna bloków i pamięć podręczna zasobników) zostało zaprojektowane w celu obejścia tego problemu. W przypadkach, gdy problem nie jest omijany, użycie konta blokowego obiektu BLOB w warstwie Premium może pomóc w tym problemie. Sterownik Azure Storage Blob systemu Windows opiera się na pewnych właściwościach, takich jak `fs.azure.read.request.size` pobieranie danych w blokach na podstawie tego, co jest określane jako tryb odczytu (sekwencyjne i losowe), dzięki czemu mogą być nadal wystąpienia większej liczby opóźnień z odczytami. W wyniku eksperymentów doświadczalnych znaleźliśmy, że ustawienie rozmiaru bloku żądania odczytu ( `fs.azure.read.request.size` ) na 512 KB i dopasowanie rozmiaru bloku tabel HBase do tego samego rozmiaru daje najlepszy wynik.
 
-W przypadku większości klastrów węzłów o dużej wielkości Usługa HDInsight HBase `bucketcache` udostępnia jako plik w lokalnym SSD w warstwie Premium, który jest podłączony do maszyny wirtualnej, która jest uruchamiana `regionservers`. Użycie pamięci podręcznej poza stertą może zapewnić pewne udoskonalenia. To obejście ma ograniczenie wykorzystania dostępnej pamięci i potencjalnie mniejszej niż pamięć podręczna oparta na plikach, dzięki czemu może nie zawsze być najlepszym wyborem.
+W przypadku większości klastrów węzłów o dużej wielkości Usługa HDInsight HBase udostępnia `bucketcache` jako plik w lokalnym SSD w warstwie Premium, który jest podłączony do maszyny wirtualnej, która jest uruchamiana `regionservers` . Użycie pamięci podręcznej poza stertą może zapewnić pewne udoskonalenia. To obejście ma ograniczenie wykorzystania dostępnej pamięci i potencjalnie mniejszej niż pamięć podręczna oparta na plikach, dzięki czemu może nie zawsze być najlepszym wyborem.
 
 Poniżej przedstawiono niektóre z innych określonych parametrów, które zostały dostrojone i które były pomocne w różnych stopniach:
 
-- Zwiększ `memstore` rozmiar z domyślnych 128 mb do 256 MB. Zwykle to ustawienie jest zalecane w przypadku dużych scenariuszy zapisu.
+- Zwiększ `memstore` rozmiar z domyślnych 128 MB do 256 MB. Zwykle to ustawienie jest zalecane w przypadku dużych scenariuszy zapisu.
 
 - Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4**. To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
 
-- Unikaj `memstore` blokowania opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` ustawienia na **100**.
+- Unikaj blokowania `memstore` opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` Ustawienia na **100**.
 
 - Aby kontrolować opróżnianie, użyj następujących ustawień:
 
@@ -104,7 +103,7 @@ Poniżej przedstawiono niektóre z innych określonych parametrów, które zosta
 - Limity czasu wywołań RPC: **3 minuty**
 
    - Limity czasu wywołań RPC obejmują limit czasu usługi HBase RPC, limit czasu skanera klienta HBase i limit czasu zapytania w Phoenix. 
-   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException`. Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100**.
+   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException` . Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100**.
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
@@ -122,6 +121,6 @@ Jeśli problem nie zostanie rozwiązany, odwiedź jeden z następujących kanał
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz się [@AzureSupport](https://twitter.com/azuresupport)z. Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+- Połącz się z [@AzureSupport](https://twitter.com/azuresupport) . Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
 - Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Twoja subskrypcja Microsoft Azure obejmuje dostęp do zarządzania subskrypcjami i rozliczeń, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
