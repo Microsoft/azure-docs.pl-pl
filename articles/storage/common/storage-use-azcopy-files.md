@@ -8,15 +8,14 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514956"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu plików 
 
-AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob lub plików do lub z konta magazynu. Ten artykuł zawiera przykładowe polecenia, które współpracują z Azure Files.
+AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować obiekty blob lub pliki do lub z konta magazynu. Ten artykuł zawiera przykładowe polecenia, które współpracują z Azure Files.
 
 Przed rozpoczęciem Zobacz artykuł [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i zapoznaj się z narzędziem.
 
@@ -215,7 +214,7 @@ Można również wykluczyć pliki przy użyciu `--exclude-pattern` opcji. Aby do
 
 ## <a name="copy-files-between-storage-accounts"></a>kopiować pliki między kontami magazynu;
 
-Można użyć AzCopy do kopiowania plików na inne konta magazynu. Operacja kopiowania jest synchroniczna, dlatego gdy polecenie zwróci wartość, która wskazuje, że wszystkie pliki zostały skopiowane.
+Można użyć AzCopy do kopiowania plików na inne konta magazynu. Operacja kopiowania jest synchroniczna, dlatego gdy polecenie zostanie zwrócone, oznacza to, że pliki zostały skopiowane.
 
 AzCopy używa [interfejsów API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [serwer-serwer](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , aby dane były kopiowane bezpośrednio między serwerami magazynu. Te operacje kopiowania nie korzystają z przepustowości sieci komputera. Przepływność tych operacji można zwiększyć, ustawiając wartość `AZCOPY_CONCURRENCY_VALUE` zmiennej środowiskowej. Aby dowiedzieć się więcej, zobacz [Optymalizowanie przepływności](storage-use-azcopy-configure.md#optimize-throughput).
 

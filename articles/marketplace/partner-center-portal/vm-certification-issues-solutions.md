@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 ms.date: 06/16/2020
-ms.openlocfilehash: dcf687a369b32b2055f579f2599a0c3097f9f9f3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
-ms.translationtype: MT
+ms.openlocfilehash: 7bd3f1a5b242ee5196e92456cb3fc8c97f8f5b27
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977764"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958535"
 ---
 # <a name="virtual-machine-certification---issues-and-solutions"></a>Certyfikacja maszyn wirtualnych — problemy i rozwiązania
 
@@ -31,8 +30,8 @@ Ten błąd wystąpi, gdy użyto obrazu podstawowego, który należy do innego wy
 
 Aby rozwiązać ten problem, Pobierz najnowszy obraz z witryny Azure Marketplace i wprowadź zmiany w tym obrazie. Zapoznaj się z następującymi tematami, aby wyświetlić zatwierdzone obrazy podstawowe, w których można wyszukać obraz:
 
-- [Linux — obrazy](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows — obrazy](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
+- [Linux — obrazy](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base))
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -55,15 +54,15 @@ Sprawdź, czy rozszerzenia maszyn wirtualnych są prawidłowo aktywowane:
 
    ![Inicjowanie obsługi powiodło się](./media/vm-certification-issues-solutions-2.png)
 
-   Jeśli rozszerzenie maszyny wirtualnej nie powiedzie się, przejdź do pozycji [Użyj rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) , aby je włączyć. Jeśli nie chcesz, aby rozszerzenie maszyny wirtualnej zostało włączone, skontaktuj się z zespołem pomocy technicznej i poproś o wyłączenie rozszerzenia.
+   Jeśli rozszerzenie maszyny wirtualnej nie powiedzie się, przejdź do pozycji [Użyj rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md) , aby je włączyć. Jeśli nie chcesz, aby rozszerzenie maszyny wirtualnej zostało włączone, skontaktuj się z zespołem pomocy technicznej i poproś o wyłączenie rozszerzenia.
 
 ## <a name="virtual-machine-provisioning-issue"></a>Problem z obsługą maszyny wirtualnej
 
-Przed przesłaniem oferty Sprawdź, czy proces aprowizacji jest ściśle przestrzegany dla maszyny wirtualnej. Aby wyświetlić format JSON obsługi administracyjnej maszyny wirtualnej, przejdź do [certyfikatu obrazu maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
+Przed przesłaniem oferty Sprawdź, czy proces aprowizacji jest ściśle przestrzegany dla maszyny wirtualnej. Aby wyświetlić format JSON obsługi administracyjnej maszyny wirtualnej, przejdź do [certyfikatu obrazu maszyny wirtualnej platformy Azure](azure-vm-image-certification.md).
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|S.NO|error|reason|Narzędzie|
+|S.NO|Błąd|reason|Narzędzie|
 |---|---|---|---|
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce wirtualnego dysku twardego nie jest poprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
@@ -71,8 +70,8 @@ Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
 > [!NOTE]
 > Skorzystaj z poniższych linków, aby uzyskać dokumentację dotyczącą generalizacji maszyn wirtualnych:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> - [Linux](create-azure-vm-technical-asset.md#generalize-the-image))
+> - [System Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
 
 ## <a name="software-compliance-for-windows"></a>Zgodność oprogramowania dla systemu Windows
 
@@ -82,13 +81,13 @@ Nie należy tworzyć własnego obrazu systemu Windows z zainstalowanym programem
 
 Jeśli próbujesz zainstalować program Visual Studio lub dowolny licencjonowany produkt pakietu Office, skontaktuj się z zespołem pomocy technicznej w celu uzyskania wcześniejszej zgody.
 
-Aby uzyskać więcej informacji, odwiedź stronę [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) w celu wybrania zatwierdzonej podstawy.
+Aby uzyskać więcej informacji, odwiedź stronę [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)), aby wybrać zatwierdzoną bazę.
 
 ## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się
 
 Zestaw narzędzi certyfikacji firmy Microsoft pomoże Ci wykonać przypadki testowe, aby upewnić się, że dysk VHD/obraz jest zgodny ze środowiskiem platformy Azure.
 
-Pobierz [zestaw narzędzi certyfikacji firmy Microsoft](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Pobierz [zestaw narzędzi certyfikacji firmy Microsoft](azure-vm-image-certification.md).
 
 ## <a name="linux-test-cases"></a>Przypadki testowe systemu Linux
 
@@ -111,7 +110,7 @@ Poniżej przedstawiono przypadki testowe systemu Linux, które będą wykonywane
 
 Napotkano typowe błędy podczas wykonywania poprzednich przypadków testowych.
  
-|S.NO|przypadek testowy|error|Narzędzie|
+|S.NO|przypadek testowy|Błąd|Narzędzie|
 |---|---|---|---|
 |1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2,241 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020|Aby [przesłać żądanie](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), należy zaktualizować obraz przy użyciu wymaganej wersji.|
 |2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie jest większy niż 1 KB. Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, należy zainstalować wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadzić wszelkie zmiany (na przykład usunąć `.bash` pliki historii), aby zmniejszyć rozmiar do wartości mniejszej niż 1 KB.|
@@ -249,7 +248,7 @@ Jeśli obraz nie został zainstalowany z jedną z następujących wersji jądra,
 
 Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do wielokrotności 1 MB. Jeśli wirtualny dysk twardy nie jest zgodny z zalecanym rozmiarem wirtualnym, żądanie może zostać odrzucone.
 
-Postępuj zgodnie z zaleceniami podczas konwertowania z dysku surowego na dysk VHD i upewnij się, że rozmiar dysku pierwotnego jest wielokrotnością 1 MB. Aby uzyskać więcej informacji, zobacz [informacje dotyczące dystrybucji niepotwierdzonych](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+Postępuj zgodnie z zaleceniami podczas konwertowania z dysku surowego na dysk VHD i upewnij się, że rozmiar dysku pierwotnego jest wielokrotnością 1 MB. Aby uzyskać więcej informacji, zobacz [informacje dotyczące dystrybucji niepotwierdzonych](../../virtual-machines/linux/create-upload-generic.md)
 
 ## <a name="vm-access-denied"></a>Odmowa dostępu do maszyny wirtualnej
 
@@ -261,7 +260,7 @@ Sprawdź, czy w ramach konta, na którym są wykonywane przypadki testowe, jest 
     
 W poniższej tabeli zawarto informacje dotyczące problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego.
 
-|S.NO|error|reason|Narzędzie|
+|S.NO|Błąd|reason|Narzędzie|
 |---|---|---|---|
 |1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji|| 
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania adresu URL sygnatury dostępu współdzielonego.|

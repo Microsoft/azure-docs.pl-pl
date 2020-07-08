@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
 ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214506"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego

@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9b651776ccd8c93271b57eab0efa24c6a79f50a3
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676237"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
@@ -35,7 +34,7 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje te dystrybucje systemu Linu
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault. Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są traktowane jako informacje bez wpływu na bezpieczeństwo. Rozszerzenie wymaga listy monitorowanych wpisów tajnych, częstotliwości sondowania i docelowego magazynu certyfikatów. Są to:  
+Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault. Rozszerzenie nie wymaga ustawień chronionych — wszystkie jego ustawienia są traktowane jako informacje bez wpływu na bezpieczeństwo. Rozszerzenie wymaga listy monitorowanych wpisów tajnych, częstotliwości sondowania i docelowego magazynu certyfikatów. W szczególności:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",

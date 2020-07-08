@@ -11,10 +11,9 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
 ms.openlocfilehash: 15cfa56f718290af3ae5fb87aadab70016cc8594
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430243"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet

@@ -8,12 +8,11 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: d7c00a2cd8363ae67a7a82d54e1b779bec9e94b9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84984678"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040757"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
 
@@ -21,7 +20,7 @@ Ten artykuł pomaga połączyć klasyczne sieci wirtualnych z Menedżer zasobów
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Program PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
 
@@ -99,44 +98,50 @@ W elemencie **VirtualNetworkSites** Dodaj podsieć bramy do sieci wirtualnej, je
 
 **Przykład:**
 
-    <VirtualNetworkSites>
-      <VirtualNetworkSite name="ClassicVNet" Location="West US">
-        <AddressSpace>
-          <AddressPrefix>10.0.0.0/24</AddressPrefix>
-        </AddressSpace>
-        <Subnets>
-          <Subnet name="Subnet-1">
-            <AddressPrefix>10.0.0.0/27</AddressPrefix>
-          </Subnet>
-          <Subnet name="GatewaySubnet">
-            <AddressPrefix>10.0.0.32/29</AddressPrefix>
-          </Subnet>
-        </Subnets>
-      </VirtualNetworkSite>
-    </VirtualNetworkSites>
+```xml
+<VirtualNetworkSites>
+  <VirtualNetworkSite name="ClassicVNet" Location="West US">
+    <AddressSpace>
+      <AddressPrefix>10.0.0.0/24</AddressPrefix>
+    </AddressSpace>
+    <Subnets>
+      <Subnet name="Subnet-1">
+        <AddressPrefix>10.0.0.0/27</AddressPrefix>
+      </Subnet>
+      <Subnet name="GatewaySubnet">
+        <AddressPrefix>10.0.0.32/29</AddressPrefix>
+      </Subnet>
+    </Subnets>
+  </VirtualNetworkSite>
+</VirtualNetworkSites>
+```
 
 ### <a name="3-add-the-local-network-site"></a>3. Dodaj lokację sieci lokalnej
 Dodana lokacja sieci lokalnej reprezentuje sieć wirtualną RM, z którą chcesz nawiązać połączenie. Dodaj element **LocalNetworkSites** do pliku, jeśli taki jeszcze nie istnieje. Na tym etapie konfiguracji VPNGatewayAddress może być dowolnym prawidłowym publicznym adresem IP, ponieważ Brama nie została jeszcze utworzona dla Menedżer zasobów sieci wirtualnej. Po utworzeniu bramy zastępujemy ten symbol zastępczy adres IP poprawnym publicznym adresem IP przypisanym do bramy RM.
 
-    <LocalNetworkSites>
-      <LocalNetworkSite name="RMVNetLocal">
-        <AddressSpace>
-          <AddressPrefix>192.168.0.0/16</AddressPrefix>
-        </AddressSpace>
-        <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
-      </LocalNetworkSite>
-    </LocalNetworkSites>
+```xml
+<LocalNetworkSites>
+  <LocalNetworkSite name="RMVNetLocal">
+    <AddressSpace>
+      <AddressPrefix>192.168.0.0/16</AddressPrefix>
+    </AddressSpace>
+    <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
+  </LocalNetworkSite>
+</LocalNetworkSites>
+```
 
 ### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. Skojarz sieć wirtualną z lokacją sieci lokalnej
 W tej sekcji określimy lokację sieci lokalnej, z którą chcesz połączyć sieć wirtualną. W tym przypadku jest to Menedżer zasobów sieci wirtualnej, do której odwołuje się wcześniej. Upewnij się, że nazwy są zgodne. Ten krok nie powoduje utworzenia bramy. Określa sieć lokalną, z którą zostanie nawiązane połączenie z bramą.
 
-        <Gateway>
-          <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="RMVNetLocal">
-              <Connection type="IPsec" />
-            </LocalNetworkSiteRef>
-          </ConnectionsToLocalNetwork>
-        </Gateway>
+```xml
+<Gateway>
+  <ConnectionsToLocalNetwork>
+    <LocalNetworkSiteRef name="RMVNetLocal">
+      <Connection type="IPsec" />
+    </LocalNetworkSiteRef>
+  </ConnectionsToLocalNetwork>
+</Gateway>
+```
 
 ### <a name="5-save-the-file-and-upload"></a>5. Zapisz plik i przekaż go
 Zapisz plik, a następnie zaimportuj go do platformy Azure, uruchamiając następujące polecenie. Upewnij się, że ścieżka pliku jest zmieniana w zależności od potrzeb środowiska.
@@ -147,9 +152,11 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 Zobaczysz podobny wynik wskazujący, że importowanie zakończyło się pomyślnie.
 
-        OperationDescription        OperationId                      OperationStatus                                                
-        --------------------        -----------                      ---------------                                                
-        Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
+```output
+OperationDescription        OperationId                      OperationStatus                                                
+--------------------        -----------                      ---------------                                                
+Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
+```
 
 ### <a name="6-create-the-gateway"></a>6. Tworzenie bramy
 

@@ -9,10 +9,9 @@ ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 3e4e80048453b7d6e0804bbef670f0544efaca49
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85514847"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure

@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84729246"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
@@ -20,7 +19,7 @@ W tym artykule opisano łączenie sieci wirtualnych (sieci wirtualnych) z obwody
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-linkvnet-classic.md)

@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 87c915330fdc0d59d0d32c0747c7dc7647c342ba
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.openlocfilehash: 8f32313529da965573a6c9884daee678e3bc64cc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700987"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958603"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
@@ -20,7 +19,7 @@ W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzen
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](https://docs.microsoft.com/azure/container-instances).
+Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](../../container-instances/index.yml).
 
 ## <a name="fundamental-technical-knowledge"></a>Podstawowa wiedza techniczna
 
@@ -43,7 +42,7 @@ Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić 
 
 Zalecamy dodanie tych narzędzi do środowiska deweloperskiego:
 
-- [Eksplorator usługi Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+- [Eksplorator usługi Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Rozszerzenie: [narzędzia Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Rozszerzenie: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -55,9 +54,9 @@ Zapoznaj się z dostępnymi narzędziami na stronie [Narzędzia deweloperskie pl
 
 Aby uzyskać więcej informacji, zobacz następujące samouczki:
 
-- [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-- [Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą Azure Container Registryych zadań](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
+- [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
+- [Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą Azure Container Registryych zadań](../../container-registry/container-registry-tutorial-quick-task.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz ofertę kontenera](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).
+- [Utwórz ofertę kontenera](create-azure-container-offer.md).

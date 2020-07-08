@@ -16,10 +16,9 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85077975"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w przeglądach dostępu do usługi Azure AD
@@ -126,7 +125,7 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 
 3. Kliknij przycisk **Wypróbuj!** na banerze u góry strony. Spowoduje to przejście do nowego środowiska dostępu.
   
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 
   >[!IMPORTANT]
 > W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.

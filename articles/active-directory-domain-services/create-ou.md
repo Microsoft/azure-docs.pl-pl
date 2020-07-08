@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 5f0bc803c8f05f34a46f9e496446a3ce07bad179
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.openlocfilehash: e0188a35289c22da784ca856c80212638052a609
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734898"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040286"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Tworzenie jednostki organizacyjnej (OU) w Azure Active Directory Domain Services domenie zarządzanej
 
-Jednostki organizacyjne (OU) w Active Directory Domain Services (AD DS) umożliwiają logiczne grupowanie obiektów, takich jak konta użytkowników, konta usług lub konta komputerów. Następnie można przypisać administratorów do określonych jednostek organizacyjnych i zastosować zasady grupy w celu wymuszenia ustawień konfiguracji.
+Jednostki organizacyjne (OU) w domenie zarządzanej Active Directory Domain Services (AD DS) umożliwiają logiczne grupowanie obiektów, takich jak konta użytkowników, konta usług lub konta komputerów. Następnie można przypisać administratorów do określonych jednostek organizacyjnych i zastosować zasady grupy w celu wymuszenia ustawień konfiguracji.
 
 Domeny zarządzane AD DS platformy Azure obejmują dwa następujące wbudowane jednostki organizacyjne:
 
@@ -29,7 +28,7 @@ Domeny zarządzane AD DS platformy Azure obejmują dwa następujące wbudowane j
 
 Podczas tworzenia i uruchamiania obciążeń korzystających z usługi Azure AD DS może być konieczne utworzenie kont usługi dla aplikacji w celu samodzielnego uwierzytelnienia. Aby zorganizować te konta usług, często należy utworzyć niestandardową jednostkę organizacyjną w domenie zarządzanej, a następnie utworzyć konta usług w tej jednostce organizacyjnej.
 
-W środowisku hybrydowym jednostki organizacyjne utworzone w środowisku lokalnym AD DS nie są zsynchronizowane z usługą Azure AD DS. Domeny zarządzane używają płaskiej struktury jednostki organizacyjnej. Wszystkie konta użytkowników i grupy są przechowywane w kontenerze *AADDC users* , mimo że są synchronizowane z różnych domen lokalnych lub lasów, nawet jeśli skonfigurowano hierarchiczną strukturę jednostki organizacyjnej.
+W środowisku hybrydowym jednostki organizacyjne utworzone w środowisku lokalnym AD DS nie są synchronizowane z domeną zarządzaną. Domeny zarządzane używają płaskiej struktury jednostki organizacyjnej. Wszystkie konta użytkowników i grupy są przechowywane w kontenerze *AADDC users* , mimo że są synchronizowane z różnych domen lokalnych lub lasów, nawet jeśli skonfigurowano hierarchiczną strukturę jednostki organizacyjnej.
 
 W tym artykule opisano sposób tworzenia jednostki organizacyjnej w domenie zarządzanej.
 
@@ -49,7 +48,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="custom-ou-considerations-and-limitations"></a>Niestandardowe zagadnienia i ograniczenia jednostki organizacyjnej
 
-Podczas tworzenia niestandardowych jednostek organizacyjnych w domenie zarządzanej można uzyskać dodatkową elastyczność zarządzania użytkownikami i zastosować zasady grupy. W porównaniu do lokalnego środowiska AD DS, istnieją pewne ograniczenia i zagadnienia dotyczące tworzenia niestandardowej struktury jednostki organizacyjnej w usłudze Azure AD DS i zarządzania nią:
+Podczas tworzenia niestandardowych jednostek organizacyjnych w domenie zarządzanej można uzyskać dodatkową elastyczność zarządzania użytkownikami i zastosować zasady grupy. W porównaniu do lokalnego środowiska AD DS, istnieją pewne ograniczenia i zagadnienia związane z tworzeniem niestandardowej struktury jednostek organizacyjnych w domenie zarządzanej oraz zarządzaniem nią:
 
 * Aby utworzyć niestandardowe jednostki organizacyjne, użytkownicy muszą być członkami grupy *administratorów kontrolera domeny usługi AAD* .
 * Użytkownik, który tworzy niestandardową jednostkę organizacyjną, otrzymuje uprawnienia administracyjne (Pełna kontrola) w tej jednostce organizacyjnej i jest właścicielem zasobu.

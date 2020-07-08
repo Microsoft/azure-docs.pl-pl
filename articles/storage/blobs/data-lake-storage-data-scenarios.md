@@ -9,10 +9,9 @@ ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84193505"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Używanie Azure Data Lake Storage Gen2 do wymagań dotyczących danych Big Data
@@ -43,7 +42,7 @@ Poniżej znajduje się lista narzędzi, których można użyć do pozyskiwania d
 
 | Źródło danych | Pozyskiwanie przy użyciu |
 | --- | --- |
-| Komputer lokalny |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Interfejs wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md)<br><br>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Narzędzie AzCopy](../common/storage-use-azcopy-v10.md)|
+| Komputer lokalny |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Interfejs wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md)<br><br>[Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Narzędzie AzCopy](../common/storage-use-azcopy-v10.md)|
 | Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Narzędzie AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[Pomocą distcp uruchomione w klastrze usługi HDInsight](data-lake-storage-use-distcp.md)|
 
 ### <a name="streamed-data"></a>Dane przesyłane strumieniowo

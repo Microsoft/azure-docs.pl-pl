@@ -7,7 +7,7 @@ author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
@@ -15,12 +15,11 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1193bfc08ccbd86d4da09c4de472f09bb49208f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c49d795b80ed5e9536740e0d8fe877d070da87a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85799375"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory
 Firma Microsoft oferuje globalne wsparcie techniczne, przedsprzedaży, rozliczeń i subskrypcji dla Azure Active Directory (Azure AD). Pomoc techniczna jest dostępna zarówno w trybie online, jak i telefonicznie w przypadku subskrypcji Microsoft Azure płatnych i próbnych. Telefoniczna pomoc techniczna i pomoc online związana z rozliczeniami są dostępne w dodatkowych językach. 
@@ -46,30 +45,29 @@ Jeśli nie możesz znaleźć odpowiedzi przy użyciu zasobów samopomocowych, mo
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Otwórz **Azure Active Directory**.
    
-2. Przewiń w dół do opcji **Rozwiązywanie problemów i obsługa** i wybierz pozycję **nowe żądanie obsługi**.
+1. Przewiń w dół do opcji **Rozwiązywanie problemów i obsługa** i wybierz pozycję **nowe żądanie obsługi**.
    
-3. W bloku **podstawowe** , w polu **typ problemu**wybierz pozycję **techniczne**.
+1. W bloku **podstawowe** , w polu **typ problemu**wybierz pozycję **techniczne**.
 
-4. Wybierz swoją **subskrypcję**.
+1. Wybierz swoją **subskrypcję**.
 
-5. W obszarze **Usługa**wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Usługa**wybierz pozycję **Azure Active Directory**.
 
-6. Utwórz **Podsumowanie** dla żądania. Podsumowanie musi zawierać mniej niż 140 znaków.
+1. Utwórz **Podsumowanie** dla żądania. Podsumowanie musi zawierać mniej niż 140 znaków.
   
-7. Wybierz **typ problemu**, a następnie wybierz kategorię dla tego typu. W tym momencie są również oferowane informacje samopomocowe dotyczące kategorii problemu.
+1. Wybierz **typ problemu**, a następnie wybierz kategorię dla tego typu. W tym momencie są również oferowane informacje samopomocowe dotyczące kategorii problemu.
   
-7. Dodaj pozostałe informacje o problemie i kliknij przycisk **dalej**. 
+1. Dodaj pozostałe informacje o problemie i kliknij przycisk **dalej**. 
 
-8. W tym momencie są oferowane rozwiązania samopomocowe i dokumentacja w bloku **rozwiązania** . Jeśli żaden z rozwiązań nie rozwiąże problemu, kliknij przycisk **dalej**. 
+1. W tym momencie są oferowane rozwiązania samopomocowe i dokumentacja w bloku **rozwiązania** . Jeśli żaden z rozwiązań nie rozwiąże problemu, kliknij przycisk **dalej**. 
 
-9. W bloku **szczegóły** wprowadź wymagane szczegóły i wybierz [ważność](https://azure.microsoft.com/support/plans/response/). 
+1. W bloku **szczegóły** wprowadź wymagane szczegóły i wybierz [ważność](https://azure.microsoft.com/support/plans/response/). 
  
-![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+    ![image (obraz)](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
  
-10. Podaj informacje kontaktowe i wybierz pozycję **dalej**. 
+1. Podaj informacje kontaktowe i wybierz pozycję **dalej**. 
 
-
-8. Podaj informacje kontaktowe i wybierz pozycję **Utwórz**.
+1. Podaj informacje kontaktowe i wybierz pozycję **Utwórz**.
   ![Zrzut ekranu przedstawiający kategorię problemu](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Jak otworzyć bilet pomocy technicznej dla usługi Azure AD w centrum administracyjnym Microsoft 365
@@ -79,19 +77,19 @@ Jeśli nie możesz znaleźć odpowiedzi przy użyciu zasobów samopomocowych, mo
 
 1. Zaloguj się do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) przy użyciu konta z licencją Enterprise Mobility + Security (EMS).
 
-2. Na kafelku **Pomoc techniczna** wybierz pozycję **nowe żądanie obsługi**:
+1. Na kafelku **Pomoc techniczna** wybierz pozycję **nowe żądanie obsługi**:
 
-3. Na stronie **Przegląd pomocy technicznej** wybierz pozycję **Zarządzanie tożsamościami** lub **Zarządzanie użytkownikami i domeną**:
+1. Na stronie **Przegląd pomocy technicznej** wybierz pozycję **Zarządzanie tożsamościami** lub **Zarządzanie użytkownikami i domeną**:
 
-4. W obszarze **Funkcja**wybierz funkcję usługi Azure AD, dla której chcesz uzyskać pomoc techniczną.
+1. W obszarze **Funkcja**wybierz funkcję usługi Azure AD, dla której chcesz uzyskać pomoc techniczną.
 
-5. W przypadku **symptomu**wybierz odpowiedni objaw, Podsumuj swój problem i podaj odpowiednie szczegóły, a następnie wybierz przycisk **dalej**.
+1. W przypadku **symptomu**wybierz odpowiedni objaw, Podsumuj swój problem i podaj odpowiednie szczegóły, a następnie wybierz przycisk **dalej**.
 
-6. Wybierz jeden z oferowanych zasobów samoobsługi lub wybierz pozycję **tak, Kontynuuj** lub **nie, Anuluj żądanie**.
+1. Wybierz jeden z oferowanych zasobów samoobsługi lub wybierz pozycję **tak, Kontynuuj** lub **nie, Anuluj żądanie**.
 
-7. Jeśli będziesz kontynuować, zostanie wyświetlony monit o podanie dodatkowych informacji. Możesz dołączyć wszystkie pliki, które reprezentują ten problem, a następnie wybierz przycisk **dalej**.
+1. Jeśli będziesz kontynuować, zostanie wyświetlony monit o podanie dodatkowych informacji. Możesz dołączyć wszystkie pliki, które reprezentują ten problem, a następnie wybierz przycisk **dalej**.
 
-8. Podaj informacje kontaktowe i wybierz pozycję **Prześlij żądanie**.
+1. Podaj informacje kontaktowe i wybierz pozycję **Prześlij żądanie**.
 
 ## <a name="get-phone-support"></a>Uzyskiwanie pomocy telefonicznej
 

@@ -11,10 +11,9 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85250716"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wzorce dzierżawy bazy danych SaaS z wieloma dzierżawcami

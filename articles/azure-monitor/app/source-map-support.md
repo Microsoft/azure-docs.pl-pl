@@ -6,10 +6,9 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249741"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Obsługa mapy źródłowej dla aplikacji JavaScript

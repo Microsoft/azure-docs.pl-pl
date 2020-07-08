@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84456797"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Wybieranie i wdrażanie agenta zabezpieczeń na urządzeniu IoT
@@ -60,7 +59,7 @@ Agent zabezpieczeń oparty na języku C ma mniejszą ilość pamięci i jest ide
 
 ## <a name="security-agent-installation-guidelines"></a>Wskazówki dotyczące instalacji agenta zabezpieczeń
 
-Dla **systemu Windows**: skrypt install SecurityAgent. ps1 musi zostać wykonany z okna programu PowerShell administratora.
+Dla **systemu Windows**: skrypt instalacji SecurityAgent.ps1 musi zostać wykonany z okna programu PowerShell administratora.
 
 Dla systemu **Linux**: InstallSecurityAgent.sh musi być uruchomiona jako administratora. Zalecamy prefiks polecenia instalacji z "sudo".
 

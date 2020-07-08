@@ -10,10 +10,9 @@ ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
 ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433139"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Interaktywna debugowanie w wystąpieniu obliczeniowym Azure Machine Learning przy użyciu VS Code zdalnego

@@ -5,12 +5,11 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 4ab42509930e76989a67f45deb33e370e6e9adf4
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
-ms.translationtype: MT
+ms.openlocfilehash: 66138fb04b1053215a2c2ec07cec1b56e38fed0b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800651"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
 
@@ -140,10 +139,7 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
 
 ## <a name="query-ingested-weather-data"></a>Kwerenda pozyskiwania danych pogodowych
 
-Po zakończeniu zadań pogodowych możesz wysyłać zapytania do pozyskanych danych pogodowych, aby tworzyć modele lub szczegółowe informacje umożliwiające podjęcie odpowiednich działań. Istnieją dwa sposoby uzyskiwania dostępu do danych pogody z FarmBeats i wykonywania na nich zapytań:
-
-- Interfejs API i
-- Time Series Insights (TSI).
+Po zakończeniu zadań pogodowych możesz wysyłać zapytania do pozyskanych danych pogodowych w celu tworzenia modeli lub szczegółowych informacji z możliwością podejmowania działań za pomocą interfejsów API REST FarmBeats Datahub.
 
 ### <a name="query-using-rest-api"></a>Zapytanie przy użyciu interfejsu API REST
 
@@ -208,20 +204,6 @@ Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats, wykonaj na
    ```
 
 W poprzednim przykładzie odpowiedź zawiera dane dla dwóch sygnatur czasowych wraz z nazwą miary ("temperatura") i wartościami danych o raportowanych Pogoda w dwóch sygnaturach czasowych. Należy odwołać się do skojarzonego modelu danych pogody (zgodnie z opisem w kroku 2 powyżej), aby interpretować typ i jednostkę raportowanych wartości.
-
-### <a name="query-using-azure-time-series-insights-tsi"></a>Zapytanie przy użyciu Azure Time Series Insights (TSI)
-
-FarmBeats korzysta z [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) do pozyskiwania, przechowywania, wykonywania zapytań i wizualizacji danych w skali IoT — dane, które są wysoce kontekstowe i zoptymalizowane pod kątem szeregów czasowych.
-
-Dane o pogodzie są odbierane w centrum EventHub, a następnie wypychane do środowiska TSI w ramach grupy zasobów FarmBeats. Dane mogą następnie być wysyłane bezpośrednio z TSI. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Postępuj zgodnie z instrukcjami, aby wizualizować dane w ramach TSI:
-
-1. Przejdź do **Azure portal**  >  **grupy zasobów Azure Portal FarmBeats DataHub** > wybierz pozycję **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
-
-2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights**. Teraz można wizualizować pozyskane dane pogodowe.
-
-Oprócz przechowywania, wykonywania zapytań i wizualizacji danych pogody, TSI również umożliwia integrację z pulpitem nawigacyjnym Power BI. Aby uzyskać więcej informacji, zobacz [Wizualizacja danych z Time Series Insights w Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 
 ## <a name="appendix"></a>Dodatek
 

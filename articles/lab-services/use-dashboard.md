@@ -4,10 +4,9 @@ description: Dowiedz się, jak używać pulpitu nawigacyjnego dla laboratorium z
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444322"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Pulpit nawigacyjny dla laboratoriów zajęć

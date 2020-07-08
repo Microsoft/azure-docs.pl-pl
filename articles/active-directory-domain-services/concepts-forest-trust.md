@@ -8,14 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d5c0878a5999f1d7d716d8caaf9f3fffa5e401dc
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982366"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040337"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Jak działają relacje zaufania dla lasów zasobów w Azure Active Directory Domain Services
 
@@ -26,6 +25,10 @@ Aby sprawdzić, czy ta relacja zaufania, system zabezpieczeń systemu Windows ob
 Mechanizmy kontroli dostępu zapewniane przez AD DS i model zabezpieczeń rozproszonych systemu Windows zapewniają środowisko dla operacji zaufania domen i lasów. Aby te zaufania działały prawidłowo, każdy zasób lub komputer musi mieć bezpośrednią ścieżkę zaufania do kontrolera domeny w domenie, w której się znajduje.
 
 Ścieżka zaufania jest implementowana przez usługę logowania sieciowego przy użyciu uwierzytelnionego połączenia zdalnego wywołania procedury (RPC) z zaufanym urzędem domeny. Bezpieczny kanał rozciąga się również do innych domen AD DS za pośrednictwem relacji zaufania między domenami. Ten zabezpieczony kanał służy do uzyskiwania i weryfikowania informacji o zabezpieczeniach, w tym identyfikatorów zabezpieczeń (SID) dla użytkowników i grup.
+
+Aby zapoznać się z omówieniem sposobu stosowania relacji zaufania do usługi Azure AD DS, zobacz temat [zagadnienia i funkcje lasu zasobów][create-forest-trust].
+
+Aby rozpocząć korzystanie z relacji zaufania w usłudze Azure AD DS, [Utwórz domenę zarządzaną, która używa relacji zaufania lasu][tutorial-create-advanced].
 
 ## <a name="trust-relationship-flows"></a>Przepływy relacji zaufania
 
@@ -58,7 +61,7 @@ Przechodniość określa, czy można rozszerzyć zaufanie poza dwie domeny, z kt
 
 Za każdym razem, gdy tworzysz nową domenę w lesie, zostanie automatycznie utworzona Dwukierunkowa relacja zaufania przechodniego między nową domeną a jej domeną nadrzędną. Jeśli domeny podrzędne są dodawane do nowej domeny, ścieżka zaufania przepływa w górę przez hierarchię domeny, rozszerzając początkową ścieżkę zaufania utworzoną między nową domeną a jej domeną nadrzędną. Przechodnie relacje zaufania przepływają w górę przez drzewo domeny w miarę tworzenia, tworząc relacje zaufania przechodniego między wszystkimi domenami w drzewie domen.
 
-Żądania uwierzytelniania są zgodne z tymi ścieżkami zaufania, więc konta z dowolnej domeny w lesie mogą być uwierzytelniane przez dowolną inną domenę w lesie. W przypadku pojedynczego procesu logowania konta z odpowiednimi uprawnieniami mogą uzyskiwać dostęp do zasobów w dowolnej domenie w lesie.
+Żądania uwierzytelniania są zgodne z tymi ścieżkami zaufania, więc konta z dowolnej domeny w lesie mogą być uwierzytelniane przez dowolną inną domenę w lesie. W przypadku logowania jednokrotnego konta z odpowiednimi uprawnieniami mogą uzyskiwać dostęp do zasobów w dowolnej domenie w lesie.
 
 ## <a name="forest-trusts"></a>Relacje zaufania lasów
 
@@ -152,7 +155,7 @@ Gdy dwa lasy są połączone zaufaniem lasu, żądania uwierzytelniania wysyłan
 
 Po pierwszym ustanowieniu zaufania lasu każdy Las zbiera wszystkie zaufane przestrzenie nazw w lesie partnerskim i zapisuje informacje w [obiekcie zaufanej domeny](#trusted-domain-object). Zaufane przestrzenie nazw obejmują nazwy drzewa domen, sufiksy głównej nazwy użytkownika (UPN), sufiksy głównej nazwy usługi (SPN) i przestrzenie nazw zabezpieczeń (SID) używane w innym lesie. Obiekty TDO są replikowane do wykazu globalnego.
 
-Aby protokoły uwierzytelniania mogły wystąpić po ścieżce zaufania lasu, nazwa główna usługi (SPN) komputera zasobu musi zostać rozpoznana do lokalizacji w innym lesie. Nazwa SPN może być jedną z następujących:
+Aby protokoły uwierzytelniania mogły wystąpić po ścieżce zaufania lasu, nazwa główna usługi (SPN) komputera zasobu musi zostać rozpoznana do lokalizacji w innym lesie. Nazwa SPN może być jedną z następujących nazw:
 
 * Nazwa DNS hosta.
 * Nazwa DNS domeny.
@@ -164,7 +167,7 @@ Poniższy diagram i kroki zawierają szczegółowy opis procesu uwierzytelniania
 
 ![Diagram procesu Kerberos w ramach zaufania lasu](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
-1. *Użytkownik1* loguje się do *Workstation1* przy użyciu poświadczeń z domeny *Europe.tailspintoys.com* . Użytkownik próbuje uzyskać dostęp do zasobu udostępnionego w *FileServer1* znajdującym się w lesie *USA.wingtiptoys.com* .
+1. *Użytkownik1* logowanie do *Workstation1* przy użyciu poświadczeń z domeny *Europe.tailspintoys.com* . Użytkownik próbuje uzyskać dostęp do zasobu udostępnionego w *FileServer1* znajdującym się w lesie *USA.wingtiptoys.com* .
 
 2. *Workstation1* kontaktuje się z centrum dystrybucji kluczy Kerberos na kontrolerze domeny w swojej domenie, *ChildDC1*i żąda biletu usługi dla *FileServer1* SPN.
 
@@ -228,7 +231,7 @@ Zmiana hasła nie zostanie zakończona do momentu pomyślnego uwierzytelnienia p
 
 Jeśli uwierzytelnianie przy użyciu nowego hasła nie powiedzie się, ponieważ hasło jest nieprawidłowe, kontroler domeny ufającej próbuje przeprowadzić uwierzytelnienie przy użyciu starego hasła. W przypadku pomyślnego uwierzytelnienia przy użyciu starego hasła wznawia proces zmiany hasła w ciągu 15 minut.
 
-Aktualizacje hasła zaufania muszą być replikowane do kontrolerów domeny obu stron relacji zaufania w ciągu 30 dni. Jeśli hasło zaufania zostanie zmienione po 30 dniach, a kontroler domeny będzie miał tylko hasło N-2, nie może on używać zaufania ze strony zaufania i nie może utworzyć bezpiecznego kanału po stronie zaufanej.
+Aktualizacje hasła zaufania muszą być replikowane do kontrolerów domeny obu stron relacji zaufania w ciągu 30 dni. Jeśli hasło zaufania zostanie zmienione po upływie 30 dni, a kontroler domeny ma tylko hasło N-2, nie może on używać zaufania po stronie ufającej i nie może utworzyć bezpiecznego kanału po stronie zaufanej.
 
 ## <a name="network-ports-used-by-trusts"></a>Porty sieciowe używane przez relacje zaufania
 

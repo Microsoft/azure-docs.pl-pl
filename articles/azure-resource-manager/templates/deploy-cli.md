@@ -4,10 +4,9 @@ description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platfor
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432083"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
@@ -145,7 +144,7 @@ az deployment group create \
 
 Pobieranie wartości parametru z pliku jest przydatne, gdy trzeba podać wartości konfiguracyjne. Można na przykład udostępnić [wartości z usługi Cloud-init dla maszyny wirtualnej z systemem Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-Format arrayContent. JSON to:
+arrayContent.jsw formacie:
 
 ```json
 [
@@ -160,7 +159,7 @@ Zamiast przekazywać parametry jako wartości wbudowane w skrypcie, można ułat
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów Menedżer zasobów](parameter-files.md).
 
-Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie Storage. Parameters. JSON.
+Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie storage.parameters.json.
 
 ```azurecli-interactive
 az deployment group create \

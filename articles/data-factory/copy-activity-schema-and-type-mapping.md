@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249656"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
@@ -283,16 +282,16 @@ Działanie kopiowania obsługuje obecnie następujące pośrednie typy danych: B
 
 Następujące konwersje typu danych są obsługiwane między typami tymczasowymi ze źródła do ujścia.
 
-| Source\Sink | Wartość logiczna | Tablica bajtów | Wartość dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | Ciąg | przedział_czasu |
+| Source\Sink | Boolean | Tablica bajtów | Wartość dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | String | przedział_czasu |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Wartość logiczna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Tablica bajtów  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/godzina   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Wartość dziesiętna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Zmiennoprzecinkowe | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Liczba całkowita     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Ciąg      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | przedział_czasu    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) Data/godzina obejmuje wartości DateTime i DateTimeOffset.

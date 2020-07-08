@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252002"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
@@ -57,7 +56,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
     * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)

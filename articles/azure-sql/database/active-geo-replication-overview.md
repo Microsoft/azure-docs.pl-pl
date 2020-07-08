@@ -12,10 +12,9 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/28/2020
 ms.openlocfilehash: 5449bb335232d3c7a6f2b97c5cce41a8bd2cf0f4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249775"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database

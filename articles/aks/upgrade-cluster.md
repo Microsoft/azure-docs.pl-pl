@@ -4,12 +4,11 @@ description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 5f0391c10a99173e7a2d87c1dd08a36852fc0450
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
-ms.translationtype: MT
+ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887973"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800498"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -53,6 +52,8 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 
 > [!Important]
 > Przepięcia węzłów wymagają przydziału subskrypcji dla wymaganej maksymalnej liczby przeskoków dla każdej operacji uaktualniania. Na przykład klaster, który ma 5 pul węzłów, każdy z liczbą 4 węzłów, ma łącznie 20 węzłów. Jeśli każda pula węzłów ma maksymalną wartość przepięcia wynoszącą 50%, do ukończenia uaktualnienia jest wymagane dodatkowe zasoby obliczeniowe i IP z 10 węzłów (2 węzły * 5 pul).
+>
+> Jeśli korzystasz z usługi Azure CNI, sprawdź, czy w podsieci są dostępne adresy IP, a także [wymagania dotyczące usługi Azure CNI](configure-azure-cni.md).
 
 Domyślnie AKS konfiguruje uaktualnienia, aby przepięcia z jednym dodatkowym węzłem. Wartość domyślna dla ustawienia Maksymalna przeskoku umożliwia AKS zminimalizowanie przerwy w obciążeniu przez utworzenie dodatkowego węzła przed Cordon/opróżnieniem istniejących aplikacji w celu zastąpienia starszego węzła. Maksymalna wartość przepięcia może być dostosowana dla puli węzłów w celu zapewnienia wymiany między szybkością uaktualniania a przerwaniem uaktualniania. Zwiększając maksymalną wartość przepięcia, proces uaktualniania kończy się szybciej, ale ustawienie dużej wartości maksymalnego przepięcia może spowodować zakłócenia w trakcie procesu uaktualniania. 
 

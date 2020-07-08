@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
 ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84434102"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC

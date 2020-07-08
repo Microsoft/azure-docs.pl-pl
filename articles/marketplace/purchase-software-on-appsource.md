@@ -7,12 +7,11 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: 450a97b0be1b11980d65477d396431170180d00f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 0271bd08e01cdbd442e64db0c04184995f7d8d09
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746638"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958450"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Jak kupić oprogramowanie w Microsoft AppSource
 
@@ -65,4 +64,4 @@ W przypadku produktów firmowych [skontaktuj się z pomocą techniczną tutaj](h
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji można znaleźć w [dokumentacji komercyjnej portalu Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) .
+- Więcej informacji można znaleźć w [dokumentacji komercyjnej portalu Marketplace](partner-center-portal/commercial-marketplace-overview.md) .

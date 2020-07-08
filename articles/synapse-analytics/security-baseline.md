@@ -1,20 +1,19 @@
 ---
-title: Linia bazowa zabezpieczeń dla usługi Azure Synapse Analytics
-description: Podstawowa usługa Azure Security Synapse Analytics
+title: Linia bazowa zabezpieczeń Synapse Analytics dla usługi Azure Security Baseline
+description: Linia bazowa zabezpieczeń Synapse Analytics zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
-ms.service: security
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ae5aba888077be9e15d327c9dc18c097b130c2ca
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255977"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040660"
 ---
-# <a name="azure-security-baseline-for-synapse-analytics"></a>Podstawowa usługa Azure Security Synapse Analytics
+# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Linia bazowa zabezpieczeń Synapse Analytics dla usługi Azure Security Baseline
 
 Podstawowa baza danych zabezpieczeń Azure dla usługi Synapse Analytics zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
 
@@ -24,13 +23,13 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
-**Wskazówki**: zabezpiecz swoje SQL Server platformy Azure w sieci wirtualnej za pośrednictwem prywatnego linku. Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft.
+**Wskazówki**: bezpieczny Azure SQL Database do sieci wirtualnej za pośrednictwem prywatnego linku. Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft.
 
-Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, należy zawęzić zakres połączeń wychodzących do bazy danych SQL przy użyciu sieciowej grupy zabezpieczeń. Wyłącz cały ruch usługi platformy Azure do bazy danych SQL za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne publiczne adresy IP nie są dozwolone w regułach zapory.
+Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, Zawęź zakres wychodzących połączeń do SQL Database przy użyciu sieciowej grupy zabezpieczeń. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne publiczne adresy IP nie są dozwolone w regułach zapory.
 
 * [Opis linku prywatnego platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -124,7 +123,7 @@ Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą 
 
 **Wskazówki**: Użyj tagów usługi sieci wirtualnej, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. ApiManagement) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 
-W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure Synapse wymagane jest wychodzące publiczne adresy IP w usłudze Azure SQL Database: aby Azure SQL Database adresy IP, należy otworzyć grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń). Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
+W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure Synapse wymagane jest wychodzące do Azure SQL Database publicznych adresów IP: grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń) muszą być otwarte dla Azure SQL Database adresów IP, aby umożliwić łączność. Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
 * [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -136,7 +135,7 @@ W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure S
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie konfiguracji zabezpieczeń sieci dla zasobów związanych z pulą SQL przy użyciu Azure Policy. Możesz użyć przestrzeni nazw "Microsoft. SQL", aby zdefiniować niestandardowe definicje zasad lub użyć dowolnych wbudowanych definicji zasad przeznaczonych dla ochrony sieci usługi Azure SQL Database/serwera. Przykładem odpowiednich wbudowanych zasad zabezpieczeń sieci dla serwera Azure SQL Database powinna być: "SQL Server powinna używać punktu końcowego usługi sieci wirtualnej".
+**Wskazówki**: Definiowanie i implementowanie konfiguracji zabezpieczeń sieci dla zasobów związanych z pulą SQL przy użyciu Azure Policy. Możesz użyć przestrzeni nazw "Microsoft. SQL", aby zdefiniować niestandardowe definicje zasad lub użyć dowolnych wbudowanych definicji zasad zaprojektowanych na potrzeby ochrony sieci Azure SQL Database/serwera. Przykładem odpowiednich wbudowanych zasad zabezpieczeń sieci dla serwera Azure SQL Database powinna być: "SQL Server powinna używać punktu końcowego usługi sieci wirtualnej".
 
 Korzystając z planów platformy Azure, można uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony zarządzania zasobami platformy Azure, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
@@ -176,7 +175,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
@@ -190,7 +189,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
-**Wskazówki**: zasady inspekcji można zdefiniować dla konkretnej bazy danych lub jako domyślne zasady serwera na platformie Azure (które hostuje SQL Database lub Azure Synapse). Zasady serwera dotyczą wszystkich istniejących i nowo utworzonych baz danych na serwerze.
+**Wskazówki**: zasady inspekcji można zdefiniować dla konkretnej bazy danych lub jako domyślne zasady serwera na platformie Azure (która hostuje usługę Azure Synapse). Zasady serwera dotyczą wszystkich istniejących i nowo utworzonych baz danych na serwerze.
 
 Jeśli Inspekcja serwera jest włączona, zawsze ma zastosowanie do bazy danych programu. Baza danych będzie poddawana inspekcji, niezależnie od ustawień inspekcji bazy danych.
 
@@ -213,6 +212,8 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 Inspekcję można włączyć zarówno na poziomie bazy danych, jak i na serwerze, a następnie można ją włączyć tylko na poziomie serwera, chyba że wymagane jest skonfigurowanie osobnego ujścia danych lub przechowywanie dla określonej bazy danych.
 
 * [Jak włączyć inspekcję dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
+
+* [Jak włączyć inspekcję serwera](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
 
 * [Różnice w zasadach inspekcji na poziomie serwera i na poziomie bazy danych](https://docs.microsoft.com/azure/sql-database/sql-database-auditing#server-vs-database-level)
 
@@ -304,19 +305,29 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) ma wbudowane role, które muszą być jawnie przypisane i queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+**Wskazówki**: użytkownicy są uwierzytelniani przy użyciu uwierzytelniania Azure Active Directory lub SQL.
 
-Możesz również skonfigurować role na poziomie bazy danych, a także tworzyć role niestandardowe dla użytkowników uzyskujących dostęp do zasobów Azure SQL Database. Role na poziomie serwera nie są obecnie dostępne dla usługi Azure Synapse SQL.
+Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę administrator serwera. Można zidentyfikować konta administratorów dla bazy danych, otwierając Azure Portal i przechodząc do karty właściwości serwera lub wystąpienia zarządzanego. Istnieje również możliwość skonfigurowania konta administratora usługi Azure AD z pełnymi uprawnieniami administracyjnymi, co jest wymagane, jeśli chcesz włączyć uwierzytelnianie Azure Active Directory.
+
+W przypadku operacji zarządzania Użyj wbudowanej funkcji kontroli dostępu opartej na rolach platformy Azure (RBAC), która musi być jawnie przypisana. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+
+* [Uwierzytelnianie dla SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+
+* [Tworzenie kont dla użytkowników niebędących administratorami](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+
+* [Użyj konta Azure Active Directory na potrzeby uwierzytelniania](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
 * [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 * [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Informacje o rolach na poziomie bazy danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15)
+* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+
+* [Wbudowane role RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -324,9 +335,11 @@ Możesz również skonfigurować role na poziomie bazy danych, a także tworzyć
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
-**Wskazówki**: Azure Active Directory nie ma koncepcji domyślnych haseł. W przypadku inicjowania obsługi puli SQL Azure SQL Database/Server lub Synapse zaleca się integrację uwierzytelniania z Azure Active Directory.
+**Wskazówki**: Azure Active Directory nie ma koncepcji domyślnych haseł. Po zainicjowaniu obsługi puli SQL usługi Azure Synapse zaleca się wybranie integracji uwierzytelniania z Azure Active Directory. Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
 * [Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
+
+* [Informacje o uwierzytelnianiu w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -334,9 +347,13 @@ Możesz również skonfigurować role na poziomie bazy danych, a także tworzyć
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
-**Wskazówki**: Tworzenie zasad i procedur dotyczących korzystania z dedykowanych kont administracyjnych. Użyj Azure Security Center Zarządzanie tożsamościami i dostępem, aby monitorować liczbę kont administracyjnych.
+**Wskazówki**: Tworzenie zasad i procedur dotyczących korzystania z dedykowanych kont administracyjnych. Użyj Azure Security Center Zarządzanie tożsamościami i dostępem, aby monitorować liczbę kont administracyjnych, które logują się za pośrednictwem Azure Active Directory.
+
+Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty właściwości serwera lub wystąpienia zarządzanego.
 
 * [Informacje o tożsamości i dostępie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
+* [Jak zarządzać istniejącymi nazwami logowania i kontami administratora w usłudze Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -488,7 +505,7 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
@@ -566,7 +583,7 @@ Ponadto można skonfigurować zasady dynamicznego maskowania danych (DDM) w Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby zarządzać dostępem do baz danych Azure SQL Database w puli SQL Synapse.
+**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby zarządzać dostępem do Azure SQL Database w puli SQL Synapse.
 
 Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta użytkownika i uprawnień na poziomie obiektów. Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 
@@ -620,13 +637,13 @@ Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse p
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
-**Wskazówki**: Włącz zaawansowane zabezpieczenia danych i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach w bazach danych Azure SQL Database.
+**Wskazówki**: Włącz zaawansowane zabezpieczenia danych i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania oceny luk w zabezpieczeniach na SQL Database.
 
-* [Jak uruchomić oceny luk w zabezpieczeniach w bazach danych Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Jak uruchomić oceny luk w zabezpieczeniach na Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Jak włączyć zaawansowane zabezpieczenia danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -678,7 +695,7 @@ Klasyfikacja odnajdywania danych &amp; jest wbudowana w usługę Azure Synapse S
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
@@ -824,11 +841,12 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. SQL", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji zasobów związanych z pulą SQL Synapse. Możesz również korzystać z wbudowanych definicji zasad usługi Azure Database/Server, takich jak:
+**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. SQL", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji zasobów związanych z pulą SQL Synapse. Możesz również używać wbudowanych definicji zasad dla baz danych platformy Azure, takich jak:
+
 - Wdrażanie wykrywania zagrożeń na serwerach SQL
 - SQL Server powinien używać punktu końcowego usługi sieci wirtualnej
 
@@ -958,7 +976,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 
@@ -990,7 +1008,7 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
@@ -1048,7 +1066,7 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -1114,13 +1132,13 @@ Domyślnie dane na koncie magazynu są szyfrowane za pomocą kluczy zarządzanyc
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
-**Wskazówki**: Postępuj zgodnie z [zasadami firmy Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft.
+**Wskazówki**: * [postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-W [tym miejscu](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)znajdziesz więcej informacji na temat strategii i sposobu wykonywania czerwonych zespołów i testowania aplikacji na żywo w witrynie firmy Microsoft w chmurze.
+* [Aby uzyskać więcej informacji na temat strategii i sposobu działania tworzenia zespołu Red-and-testowego na żywo w ramach infrastruktury, usług i aplikacji chmurowych firmy Microsoft, zobacz](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1128,5 +1146,5 @@ W [tym miejscu](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

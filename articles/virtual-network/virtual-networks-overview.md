@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0577b61cd30ef0f8fd5fc8ef1593d210c00bb25c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
-ms.translationtype: MT
+ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300088"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040609"
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest usługa Azure Virtual Network?
 
@@ -52,7 +51,7 @@ Wszystkie zasoby w sieci wirtualnej mogą domyślnie komunikować się z Interne
 Zasoby platformy Azure komunikują się bezpiecznie ze sobą nawzajem, korzystając z jednego z następujących sposobów:
 
 - **Za pośrednictwem sieci wirtualnej**: możesz wdrożyć maszyny wirtualne i kilka innych typów zasobów platformy Azure w sieci wirtualnej, np. środowiskach Azure App Service Environment, usłudze Azure Kubernetes Service (AKS) oraz zestawach usługi Azure Virtual Machine Scale Sets. Aby wyświetlić kompletną listę zasobów platformy Azure, które można wdrożyć w sieci wirtualnej, zobacz [Integracja sieci wirtualnej z usługą](virtual-network-for-azure-services.md).
-- **Za pośrednictwem punktu końcowego usługi dla sieci wirtualnej**: możesz rozszerzyć prywatną przestrzeń adresową oraz tożsamość sieci wirtualnej na zasoby usług Azure, takie jak konta usługi Azure Storage i bazy danych Azure SQL Database, korzystając z połączenia bezpośredniego. Punkty końcowe usługi umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnej. Aby dowiedzieć się więcej, zobacz [Omówienie punktów końcowych usługi dla sieci wirtualnej](virtual-network-service-endpoints-overview.md).
+- **Za pośrednictwem punktu końcowego usługi sieci wirtualnej**: Zwiększ prywatną przestrzeń adresową sieci wirtualnej i tożsamość sieci wirtualnej do zasobów usługi platformy Azure, takich jak konta usługi Azure Storage i Azure SQL Database, za pośrednictwem bezpośredniego połączenia. Punkty końcowe usługi umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnej. Aby dowiedzieć się więcej, zobacz [Omówienie punktów końcowych usługi dla sieci wirtualnej](virtual-network-service-endpoints-overview.md).
 - **Za pośrednictwem komunikacji równorzędnej**sieci wirtualnych: można połączyć między sobą między sobą, aby umożliwić komunikację między sieciami wirtualnymi za pomocą komunikacji równorzędnej sieci wirtualnych. Łączone sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach świadczenia usługi Azure. Aby dowiedzieć się więcej, zobacz [Komunikacja równorzędna sieci wirtualnych](virtual-network-peering-overview.md).
 
 ## <a name="communicate-with-on-premises-resources"></a>Komunikacja z zasobami lokalnymi

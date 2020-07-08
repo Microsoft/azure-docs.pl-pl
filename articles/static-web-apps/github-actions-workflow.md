@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340941"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview

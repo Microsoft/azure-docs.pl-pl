@@ -10,10 +10,9 @@ author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
 ms.openlocfilehash: 317c771daca146660c62eb0cba14facc701b1b2c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430155"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Wizualizuj przebiegi eksperymentu i metryki za pomocą TensorBoard i Azure Machine Learning

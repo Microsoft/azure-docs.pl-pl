@@ -12,10 +12,9 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85251191"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Tworzenie, Konfigurowanie i zarządzanie zadaniami elastycznymi

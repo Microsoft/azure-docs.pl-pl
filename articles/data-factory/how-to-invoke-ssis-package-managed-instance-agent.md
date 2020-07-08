@@ -10,10 +10,9 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: f911a8dad094949f0a515116a79fff698a326547
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84191070"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Uruchamianie pakietów SSIS za pomocą agenta wystąpienia zarządzanego usługi Azure SQL
@@ -105,12 +104,12 @@ W ramach tej procedury należy użyć agenta wystąpienia zarządzanego SQL, aby
 ## <a name="cancel-ssis-package-execution"></a>Anuluj wykonywanie pakietu SSIS
 Aby anulować wykonywanie pakietu z zadania agenta wystąpienia zarządzanego SQL, wykonaj następujące czynności zamiast bezpośredniego zatrzymywania zadania agenta:
 
-1. Znajdź identyfikator **jobId** agenta SQL z bazy danych **msdb. dbo. tabela sysjobs**.
+1. Znajdź identyfikator **jobId** agenta SQL z **msdb.dbo.syszadań**.
 1. Znajdź odpowiednie **EXECUTIONID** SSIS na podstawie identyfikatora zadania, korzystając z tego zapytania:
    ```sql
    select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
    ```
-   Jeśli pakiety SSIS są w SSISDB, użyj **SSISDB. Internal. execution_parameter_values** jako tabeli do wykonania zadania. Jeśli pakiety SSIS znajdują się w systemie plików, użyj **SSISDB. Internal. execution_parameter_values_noncatalog**.
+   Jeśli pakiety SSIS są w SSISDB, użyj **cution_parameter_valuesssisdb.internal.exe** jako tabeli do wykonania zadania. Jeśli pakiety SSIS znajdują się w systemie plików, użyj **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Kliknij prawym przyciskiem myszy katalog SSISDB, a następnie wybierz pozycję **aktywne operacje**.
 
    !["Operacje aktywne" w menu skrótów dla katalogu SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)

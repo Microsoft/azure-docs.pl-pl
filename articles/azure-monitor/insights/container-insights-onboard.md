@@ -2,13 +2,12 @@
 title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 519238837831a67714894ee44f4694321fb999d4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: d85dd4f1eb89ddba96ec012acb7fb7550800ce7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85508116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800634"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
 
@@ -54,6 +53,8 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 - Jesteś członkiem [grupy *właścicieli* ](../../role-based-access-control/built-in-roles.md#owner) w zasobie klastra AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+- Aby wyświetlić dane monitorowania, należy mieć rolę [*czytnika log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, skonfigurowany przy użyciu Azure monitor dla kontenerów.
 
 - Metryki Prometheus nie są zbierane domyślnie. Przed [skonfigurowaniem agenta](container-insights-prometheus-integration.md) do zbierania metryk należy zapoznać się z [dokumentacją Prometheus](https://prometheus.io/) , aby zrozumieć, jakie dane mogą być odpadków i jakie metody są obsługiwane.
 

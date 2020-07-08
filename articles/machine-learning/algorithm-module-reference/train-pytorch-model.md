@@ -1,5 +1,5 @@
 ---
-title: Uczenie modelu Pytorch
+title: Trenowanie modelu Pytorch
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak szkolić model pytorch od podstaw lub Finetune go.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450661"
 ---
-# <a name="train-pytorch-model"></a>Uczenie modelu Pytorch
+# <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
 
 W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu uczenia modeli Pytorch, takich jak DenseNet. Szkolenia odbywają się po zdefiniowaniu modelu i ustawieniu jego parametrów i wymaganiu etykiet danych. 
 

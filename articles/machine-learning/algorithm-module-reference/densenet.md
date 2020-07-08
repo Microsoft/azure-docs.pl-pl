@@ -1,5 +1,5 @@
 ---
-title: DenseNet
+title: Model DenseNet
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak utworzyć model klasyfikacji obrazów przy użyciu algorytmu densenet.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: db0e2f90ee45d4e1c0173cbc037084793a66e149
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450647"
 ---
-# <a name="densenet"></a>DenseNet
+# <a name="densenet"></a>Model DenseNet
 
 W tym artykule opisano, jak używać modułu **DenseNet** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia modelu klasyfikacji obrazów przy użyciu algorytmu DenseNet.  
 

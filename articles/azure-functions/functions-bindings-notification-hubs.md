@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: f500e7cac7a049152057f7fc7c3349fb028a31a4
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444543"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs powiązanie danych wyjściowych dla Azure Functions
@@ -243,7 +242,7 @@ W [bibliotekach klas języka C#](functions-dotnet-class-library.md), Użyj atryb
 
 Parametry i właściwości konstruktora atrybutu są opisane w sekcji [konfiguracji](#configuration) .
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `NotificationHub` atrybutu:
 

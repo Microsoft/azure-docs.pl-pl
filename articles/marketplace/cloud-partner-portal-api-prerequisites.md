@@ -7,12 +7,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1a20abf72ca25ba7c4b5600953766be4d62c708d
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.openlocfilehash: c435e171c7e3cabea4007c7b78cf60727bf55efd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516268"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958233"
 ---
 <a name="api-prerequisites"></a>Wymagania wstępne dotyczące interfejsu API
 ================
@@ -26,7 +25,7 @@ Istnieją dwa wymagane zasoby programistyczne, które muszą używać portal Clo
 <a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Tworzenie nazwy głównej usługi w dzierżawie Azure Active Directory
 ----------------------------------------------------------------
 
-Najpierw musisz utworzyć nazwę główną usługi w dzierżawie usługi Azure AD. Do tej dzierżawy zostanie przypisany własny zestaw uprawnień w portal Cloud Partner. Kod będzie wywoływał interfejsy API używające jako tej dzierżawy zamiast korzystać z poświadczeń osobistych.  Aby uzyskać pełne wyjaśnienie tworzenia nazwy głównej usługi, zobacz temat [Używanie portalu do tworzenia Azure Active Directory aplikacji i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+Najpierw musisz utworzyć nazwę główną usługi w dzierżawie usługi Azure AD. Do tej dzierżawy zostanie przypisany własny zestaw uprawnień w portal Cloud Partner. Kod będzie wywoływał interfejsy API używające jako tej dzierżawy zamiast korzystać z poświadczeń osobistych.  Aby uzyskać pełne wyjaśnienie tworzenia nazwy głównej usługi, zobacz [How to: Use the Portal, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 <a name="add-the-service-principal-to-your-account"></a>Dodawanie jednostki usługi do konta
@@ -63,7 +62,7 @@ Podczas uwierzytelniania portal Cloud Partner interfejsy API używają następuj
 
 - Token okaziciela sieci Web JSON (JWT), aby zażądać dostępu do zasobów
 - Protokół [OpenID Connect Connect](https://openid.net/connect/) (OIDC) do weryfikacji tożsamości
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) jako urząd tożsamości
+- [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) jako urząd tożsamości
 
 Istnieją dwie podejścia do programistycznego uzyskiwania tokenu JWT:
 

@@ -8,10 +8,9 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249419"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
@@ -54,7 +53,7 @@ W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu n
 | Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Tak |
 | Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Tak |
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md) .
 

@@ -7,10 +7,9 @@ ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676850"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Włącz Snapshot Debugger dla aplikacji .NET w programie Azure App Service

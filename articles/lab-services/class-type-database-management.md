@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 49f1528f1bb8b422374050512a9ae642ad129fac
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85444016"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Konfigurowanie laboratorium do uczenia zarządzania bazami danych dla relacyjnych baz danych

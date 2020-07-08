@@ -1,5 +1,5 @@
 ---
-title: Zastosuj transformację obrazu
+title: Stosowanie transformacji obrazów
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak zastosować transformację obrazu do katalogu obrazu przy użyciu modułu Zastosuj transformację obrazu.
 services: machine-learning
@@ -10,13 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84450724"
 ---
-# <a name="apply-image-transformation"></a>Zastosuj transformację obrazu 
+# <a name="apply-image-transformation"></a>Stosowanie transformacji obrazów 
 
 W tym artykule opisano, jak za pomocą modułu Zastosuj transformację obrazu w programie Azure Machine Learning Designer (wersja zapoznawcza) zmodyfikować katalog obrazu wejściowego na podstawie wcześniej określonej transformacji obrazu.  
 

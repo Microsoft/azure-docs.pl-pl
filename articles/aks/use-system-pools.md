@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85052656"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)

@@ -11,10 +11,9 @@ author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
 ms.openlocfilehash: 679e44a8949f283c0e01c47ca3e602ae6fc0eacf
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433797"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Twórz TensorFlow model uczenia głębokiego na dużą skalę dzięki Azure Machine Learning

@@ -4,10 +4,9 @@ description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasob
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: af255e0248c029f42c9c2999ae7c0389d60c58fc
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431840"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
@@ -54,7 +53,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz mieć szablon do wdrożenia. Jeśli jeszcze tego nie zrobiono, Pobierz i Zapisz [przykładowy szablon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) z repozytorium szablonów szybkiego startu platformy Azure. Nazwa pliku lokalnego użyta w tym artykule to **c:\MyTemplates\azuredeploy.JSON**.
+Musisz mieć szablon do wdrożenia. Jeśli jeszcze tego nie zrobiono, Pobierz i Zapisz [przykładowy szablon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) z repozytorium szablonów szybkiego startu platformy Azure. Nazwa pliku lokalnego użyta w tym artykule jest **c:\MyTemplates\azuredeploy.jsw dniu**.
 
 Jeśli nie używasz Azure Cloud Shell do wdrażania szablonów, musisz zainstalować Azure PowerShell i połączyć się z platformą Azure:
 

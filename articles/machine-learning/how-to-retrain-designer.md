@@ -11,10 +11,9 @@ author: likebupt
 ms.date: 04/06/2020
 ms.custom: designer
 ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84430078"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)

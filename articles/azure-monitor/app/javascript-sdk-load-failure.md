@@ -6,10 +6,9 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84451067"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Rozwiązywanie problemów z błędem ładowania zestawu SDK dla aplikacji sieci Web JavaScript
@@ -101,7 +100,7 @@ Poniższe sekcje zawierają różne opcje raportowania, dlatego zalecamy utworze
 
 Najpierw można sprawdzić obecność wyjątków JavaScript przy użyciu przeglądarki, która obsługuje narzędzia deweloperskie (F12), Załaduj stronę i sprawdź, czy wystąpiły wyjątki.
 
-W przypadku zgłaszania wyjątków w skrypcie zestawu SDK (na przykład AI. 2. min. js) może to wskazywać, że konfiguracja przekazana do zestawu SDK zawiera nieoczekiwaną lub brakującą konfigurację lub została wdrożona wadliwa wersja w sieci CDN.
+W przypadku zgłaszania wyjątków w skrypcie zestawu SDK (na przykład ai.2.min.js) może to wskazywać, że konfiguracja przekazana do zestawu SDK zawiera nieoczekiwaną lub brakującą konfigurację lub w usłudze CDN wdrożono wadliwą wersję.
 
 Aby sprawdzić, czy konfiguracja jest błędna, należy zmienić konfigurację przekazaną do fragmentu (jeśli nie jest jeszcze), tak aby zawierała tylko klucz Instrumentacji jako wartość ciągu.
 
@@ -128,7 +127,7 @@ Przy założeniu, że żadne wyjątki nie są zgłaszane, następnym krokiem jes
 > [!NOTE]
 > Podczas inicjowania zestaw SDK wykonuje podstawowe testy dla znanych głównych zależności. Jeśli nie są one dostarczane przez bieżące środowisko uruchomieniowe, będzie zgłaszać błędy jako komunikaty ostrzegawcze do konsoli, ale tylko wtedy, gdy wartość `loggingLevelConsole` jest większa od zera.
 
-Jeśli nadal nie można zainicjować, spróbuj włączyć ```enableDebug``` ustawienie konfiguracji. Spowoduje to, że wszystkie błędy wewnętrzne będą zgłaszane jako wyjątek (co spowoduje utratę danych telemetrycznych). Ponieważ jest to ustawienie tylko dla deweloperów, prawdopodobnie otrzymasz zakłócenia z wyjątkami, które są zgłaszane w ramach niektórych testów wewnętrznych, dlatego należy przejrzeć każdy wyjątek, aby ustalić, który problem powoduje niepowodzenie działania zestawu SDK. Użyj niezminimalizowanegoj wersji skryptu (Zwróć uwagę na rozszerzenie poniżej ". js", a nie ". min. js"), w przeciwnym razie wyjątki nie będą czytelne.
+Jeśli nadal nie można zainicjować, spróbuj włączyć ```enableDebug``` ustawienie konfiguracji. Spowoduje to, że wszystkie błędy wewnętrzne będą zgłaszane jako wyjątek (co spowoduje utratę danych telemetrycznych). Ponieważ jest to ustawienie tylko dla deweloperów, prawdopodobnie otrzymasz zakłócenia z wyjątkami, które są zgłaszane w ramach niektórych testów wewnętrznych, dlatego należy przejrzeć każdy wyjątek, aby ustalić, który problem powoduje niepowodzenie działania zestawu SDK. Użyj niezminimalizowanegoj wersji skryptu (Zwróć uwagę na rozszerzenie poniżej ". js", a nie ".min.js"), w przeciwnym razie wyjątki nie będą czytelne.
 
 > [!WARNING]
 > Jest to ustawienie tylko dla deweloperów i nigdy nie powinno być włączone w pełnym środowisku produkcyjnym, ponieważ spowoduje to utratę danych telemetrycznych.
@@ -194,7 +193,7 @@ Jeśli użytkownicy końcowi znajdują się w sieci firmowej, najprawdopodobniej
 
 #### <a name="host-the-sdk-on-your-own-cdn"></a>Hostowanie zestawu SDK w ramach własnej sieci CDN
 
- Użytkownicy końcowi nie pobierają zestawu SDK Application Insights z publicznej sieci CDN, który może być hostem Application Insights SDK z własnego punktu końcowego usługi CDN. Zaleca się użycie określonej wersji (AI. 2. #. #. min. js), aby ułatwić identyfikację używanej wersji. Należy również regularnie aktualizować ją do bieżącej wersji (AI. 2. min. js), aby można było korzystać z wszelkich poprawek błędów i nowych funkcji, które staną się dostępne.
+ Użytkownicy końcowi nie pobierają zestawu SDK Application Insights z publicznej sieci CDN, który może być hostem Application Insights SDK z własnego punktu końcowego usługi CDN. Zaleca się użycie określonej wersji (AI. 2. #. # .min.js), aby ułatwić identyfikację używanej wersji. Należy również regularnie aktualizować je do bieżącej wersji (ai.2.min.js), aby można było korzystać z dowolnych poprawek błędów i nowych funkcji, które staną się dostępne.
 
 #### <a name="use-npm-packages-to-embed-the-application-insight-sdk"></a>Osadź zestaw SDK usługi Application Insights za pomocą pakietów NPM
 

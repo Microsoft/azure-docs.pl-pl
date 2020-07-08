@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437064"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958399"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Rozwiązywanie problemów z połączeniem RDP maszyny wirtualnej platformy Azure według identyfikatora zdarzenia 
 
@@ -138,8 +137,8 @@ Aby rozwiązać ten problem, należy skonfigurować odpowiednie uprawnienia do c
 
 Po uruchomieniu skryptu można sprawdzić następujące pliki, na których występują problemy z uprawnieniami:
 
-* lokalizacji c:\Temp\ BeforeScript_permissions. txt
-* lokalizacji c:\Temp\ AfterScript_permissions. txt
+* c:\temp\BeforeScript_permissions.txt
+* c:\temp\AfterScript_permissions.txt
 
 #### <a name="renew-rdp-self-signed-certificate"></a>Odnów certyfikat z podpisem własnym RDP
 

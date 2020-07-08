@@ -12,10 +12,9 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782028"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników

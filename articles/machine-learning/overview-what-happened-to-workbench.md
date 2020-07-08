@@ -11,10 +11,9 @@ author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
 ms.openlocfilehash: 53f8fb79e965c09ad59ada085b9cfd27014bd140
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433059"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Co się stało z aplikacją Azure Machine Learning Workbench?

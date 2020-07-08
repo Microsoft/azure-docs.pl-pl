@@ -11,12 +11,11 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03533bba588560f9c0058631d35508157f8bec5e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: dac1d66242dc88c1b2d96c7af1930e36f225ff4e
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85385369"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040507"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
 
@@ -110,8 +109,8 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
         <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
         <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
         <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="00000000-0000-0000-0000-000000000000" />
-        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="00000000-0000-0000-0000-000000000000" />
+        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
       </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />

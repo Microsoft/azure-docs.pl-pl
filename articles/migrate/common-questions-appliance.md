@@ -4,10 +4,9 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzen
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078981"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania

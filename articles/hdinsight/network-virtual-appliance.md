@@ -6,13 +6,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: cbc2104ae3c55ae3670867b7a253d812f3a4be0e
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.date: 06/30/2020
+ms.openlocfilehash: abedaf6f66bdd7aea36512c90bb5ee799f8e7a99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800948"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurowanie sieciowego urządzenia wirtualnego w usłudze Azure HDInsight
 
@@ -21,15 +20,16 @@ ms.locfileid: "82864710"
 
 Zapora platformy Azure jest automatycznie konfigurowana w taki sposób, aby zezwalała na ruch dla wielu typowych scenariuszy. Użycie innego sieciowego urządzenia wirtualnego wymaga skonfigurowania szeregu dodatkowych funkcji. Podczas konfigurowania wirtualnego urządzenia sieciowego należy wziąć pod uwagę następujące czynniki:
 
-* Usługi obsługujące punkt końcowy usługi należy skonfigurować za pomocą punktów końcowych usługi.
+* Usługi obsługujące punkt końcowy usługi można skonfigurować za pomocą punktów końcowych usługi, które w wyniku pomijania urządzenie WUS zazwyczaj dotyczą kosztów lub problemów dotyczących wydajności.
 * Zależności adresów IP są związane z ruchem innym niż HTTP/S (ruchem TCP i UDP).
-* Punkty końcowe HTTP/HTTPS w nazwie FQDN można umieścić na urządzeniu urządzenie WUS.
-* Symbole wieloznaczne protokołu HTTP/HTTPS są zależnościami, które mogą się różnić w zależności od liczby kwalifikatorów.
+* Punkty końcowe HTTP/HTTPS w nazwie FQDN można listy dozwolonych na urządzeniu urządzenie WUS.
 * Przypisz tabelę tras utworzoną w podsieci usługi HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Zależności obsługujące punkt końcowy usługi
 
-| **Punktu końcowego** |
+Opcjonalnie można włączyć co najmniej jeden z następujących punktów końcowych usługi, co spowoduje ominięcie urządzenie WUS. Ta opcja może być przydatna w przypadku dużych ilości transferów danych do oszczędności przy kosztach, a także dla optymalizacji wydajności. 
+
+| **Punkt końcowy** |
 |---|
 | Azure SQL |
 | Azure Storage |
@@ -37,35 +37,21 @@ Zapora platformy Azure jest automatycznie konfigurowana w taki sposób, aby zezw
 
 ### <a name="ip-address-dependencies"></a>Zależności adresów IP
 
-| **Punktu końcowego** | **Szczegóły** |
+| **Punkt końcowy** | **Szczegóły** |
 |---|---|
-| \*: 123 | Sprawdzanie zegara NTP. Ruch jest sprawdzany w wielu punktach końcowych na porcie 123 |
-| Adresy IP opublikowane w [tym miejscu](hdinsight-management-ip-addresses.md) | Te adresy IP to Usługa HDInsight |
-| AAD — prywatne adresy IP DS dla klastrów ESP |
-| \*: 16800 dla aktywacji usługi KMS systemu Windows |
-| \*12000 dla Log Analytics |
+| Adresy IP opublikowane w [tym miejscu](hdinsight-management-ip-addresses.md) | Te adresy IP są przeznaczone do celów kontroli usługi HDInsight i powinny być zawarte w UDR, aby uniknąć asymetrycznego routingu |
+| AAD — prywatne adresy IP usługi DS | Wymagany tylko w przypadku klastrów ESP|
+
 
 ### <a name="fqdn-httphttps-dependencies"></a>Zależności HTTP/HTTPS w nazwie FQDN
 
 > [!Important]
-> Poniższa lista zawiera tylko kilka najważniejszych nazw FQDN. Aby skonfigurować urządzenie WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json), można uzyskać dodatkowe nazwy FQDN (głównie Magazyn Azure i Azure Service Bus).
+> Poniższa lista zawiera tylko kilka najważniejszych nazw FQDN. Aby skonfigurować urządzenie WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json), można uzyskać pełną listę nazw FQDN (głównie usługi Azure Storage i Azure Service Bus). Te zależności są używane przez operacje płaszczyzny kontroli usługi HDInsight w celu pomyślnego utworzenia klastra.
 
-| **Punktu końcowego**                                                          |
+| **Punkt końcowy**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 

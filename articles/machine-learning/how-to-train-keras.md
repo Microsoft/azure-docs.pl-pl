@@ -12,10 +12,9 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 14649d3e7bc12205283863f725a902a3cef20290
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84433861"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Uczenie i rejestrowanie modelu klasyfikacji Keras przy użyciu Azure Machine Learning

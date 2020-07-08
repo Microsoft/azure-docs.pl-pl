@@ -2,18 +2,14 @@
 title: Rozwiązywanie problemów z wdrażaniem funkcji Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów, które powstają podczas wdrażania Azure Automation funkcji.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/22/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
-ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739383"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801033"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem funkcji
 
@@ -71,7 +67,7 @@ Ten błąd jest spowodowany przez nieprawidłowe lub brakujące uprawnienia do m
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że masz poprawne [uprawnienia wdrażania funkcji](../automation-role-based-access-control.md#feature-setup-permissions), a następnie spróbuj ponownie wdrożyć tę funkcję. Jeśli zostanie wyświetlony komunikat o błędzie `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna jest włączona dla obszaru roboczego.
+Upewnij się, że masz poprawne [uprawnienia wdrażania funkcji](../automation-role-based-access-control.md#feature-setup-permissions), a następnie spróbuj ponownie wdrożyć tę funkcję. Jeśli zostanie wyświetlony komunikat o błędzie `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , zobacz następujące [informacje dotyczące rozwiązywania problemów](update-management.md#failed-to-enable-error).
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: Wdrażanie funkcji kończy się niepowodzeniem z komunikatem "nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego"
 

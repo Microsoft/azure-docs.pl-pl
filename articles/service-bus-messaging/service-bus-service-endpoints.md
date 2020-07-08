@@ -4,10 +4,9 @@ description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340983"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bus

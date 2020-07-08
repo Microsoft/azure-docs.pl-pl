@@ -12,10 +12,9 @@ author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84432856"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning

@@ -7,10 +7,9 @@ ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
 ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84782572"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Śledzenie zależności przy użyciu języka Python OpenCensus
