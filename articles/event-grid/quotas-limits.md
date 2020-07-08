@@ -10,10 +10,9 @@ ms.topic: reference
 ms.date: 05/12/2020
 ms.author: shvija
 ms.openlocfilehash: decfc6659ea38ea35ab41615ff5077492cfa03b5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83598101"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Przydziały i limity Azure Event Grid

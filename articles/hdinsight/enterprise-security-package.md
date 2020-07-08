@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997258"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>pakiet Enterprise Security usługi Azure HDInsight
@@ -64,4 +63,4 @@ Aby uzyskać informacje o cenach i umowie SLA dla pakiet Enterprise Security, zo
 * [Konfiguracja klastra dla Apache Hadoop, Spark i nie tylko w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Pracuj w Apache Hadoop w usłudze HDInsight z komputera z systemem Windows](hdinsight-hadoop-windows-tools.md)
 * [Informacje o wersji Hortonworks skojarzone z wersjami usługi Azure HDInsight](./hortonworks-release-notes.md)
-* [Składniki Apache w usłudze HDInsight](./hdinsight-component-versioning.md)
+* [Składniki platformy Apache w usłudze HDInsight](./hdinsight-component-versioning.md)

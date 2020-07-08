@@ -11,21 +11,20 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005815"
 ---
 # <a name="common-parameters-and-headers"></a>Typowe parametry i nagłówki
 
 Następujące informacje są wspólne dla wszystkich operacji, które mogą być powiązane z Key Vault zasobami:
 
-- Nagłówek HTTP `Host` musi być zawsze obecny i musi określać nazwę hosta magazynu. Przykład: `Host: contoso.vault.azure.net`. Należy pamiętać, że większość technologii klienta `Host` wypełnia nagłówek identyfikatorem URI. Na przykład `GET https://contoso.vault.azure.net/secrets/mysecret{...}` ustawi wartość `Host` jako. `contoso.vault.azure.net` Oznacza to, że jeśli dostęp do Key Vault za pomocą surowego `GET https://10.0.0.23/secrets/mysecret{...}`adresu IP, na przykład `Host` , automatyczna wartość nagłówka będzie nieprawidłowa i trzeba ręcznie upewnić się, że `Host` nagłówek zawiera nazwę hosta magazynu.
-- Zamień `{api-version}` na wersję interfejsu API w identyfikatorze URI.
-- Zamień `{subscription-id}` na identyfikator subskrypcji w identyfikatorze URI
-- Zamień `{resource-group-name}` na grupę zasobów. Aby uzyskać więcej informacji, zobacz Używanie grup zasobów do zarządzania zasobami platformy Azure.
-- Zamień `{vault-name}` na nazwę magazynu kluczy w identyfikatorze URI.
+- Nagłówek HTTP `Host` musi być zawsze obecny i musi określać nazwę hosta magazynu. Przykład: `Host: contoso.vault.azure.net`. Należy pamiętać, że większość technologii klienta wypełnia `Host` nagłówek identyfikatorem URI. Na przykład `GET https://contoso.vault.azure.net/secrets/mysecret{...}` ustawi wartość `Host` jako `contoso.vault.azure.net` . Oznacza to, że jeśli dostęp do Key Vault za pomocą surowego adresu IP `GET https://10.0.0.23/secrets/mysecret{...}` , na przykład, automatyczna wartość `Host` nagłówka będzie nieprawidłowa i trzeba ręcznie upewnić się, że `Host` Nagłówek zawiera nazwę hosta magazynu.
+- Zamień na `{api-version}` wersję interfejsu API w identyfikatorze URI.
+- Zamień na `{subscription-id}` Identyfikator subskrypcji w identyfikatorze URI
+- Zamień na `{resource-group-name}` grupę zasobów. Aby uzyskać więcej informacji, zobacz Używanie grup zasobów do zarządzania zasobami platformy Azure.
+- Zamień na `{vault-name}` nazwę magazynu kluczy w identyfikatorze URI.
 - Ustaw nagłówek Content-Type na wartość Application/JSON.
 - Ustaw nagłówek autoryzacji na token sieci Web JSON uzyskany z Azure Active Directory (AAD). Aby uzyskać więcej informacji, zobacz [uwierzytelnianie żądań Azure Resource Manager](authentication-requests-and-responses.md) .
 

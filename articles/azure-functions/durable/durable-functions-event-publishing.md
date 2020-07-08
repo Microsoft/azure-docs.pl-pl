@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować automatyczne publikowanie Azure Ev
 ms.topic: conceptual
 ms.date: 04/25/2020
 ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124286"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
@@ -101,7 +100,7 @@ Dodaj `notifications` sekcję do `durableTask` właściwości pliku, zastępują
 }
 ```
 
-Możliwe właściwości konfiguracji Azure Event Grid można znaleźć w [dokumentacji pliku host. JSON](../functions-host-json.md#durabletask). Po skonfigurowaniu `host.json` pliku aplikacja funkcji wysyła zdarzenia cyklu życia do tematu Event Grid. Ta akcja jest uruchamiana, gdy uruchamiasz aplikację funkcji lokalnie i na platformie Azure.
+Możliwe Azure Event Grid właściwości konfiguracji można znaleźć w [host.jsw dokumentacji](../functions-host-json.md#durabletask). Po skonfigurowaniu `host.json` pliku aplikacja funkcji wysyła zdarzenia cyklu życia do tematu Event Grid. Ta akcja jest uruchamiana, gdy uruchamiasz aplikację funkcji lokalnie i na platformie Azure.
 
 Ustaw ustawienie aplikacji dla klucza tematu w aplikacja funkcji i `local.settings.json` . Poniższy kod JSON jest przykładem `local.settings.json` dla debugowania lokalnego. Zamień `<topic_key>` na klucz tematu.  
 
@@ -182,7 +181,7 @@ Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. 
 
 1. Wybierz subskrypcję. Następnie wybierz grupę zasobów i zasób utworzony dla Event Grid tematu. 
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Tworzy subskrypcję usługi Event Grid." border="true":::
 

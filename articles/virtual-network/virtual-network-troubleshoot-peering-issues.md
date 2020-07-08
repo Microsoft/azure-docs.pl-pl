@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83587735"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
@@ -95,14 +94,14 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów z konfiguracją i routi
 
 Przesyłanie za pośrednictwem globalnej komunikacji równorzędnej sieci wirtualnej jest teraz obsługiwane. Łączność nie działa w przypadku globalnej komunikacji równorzędnej sieci wirtualnej dla następujących zasobów:
 
-* Maszyny wirtualne za podstawową jednostką SKU ILB
+* Maszyny wirtualne za jednostką SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa
 * Pamięć podręczna Redis (używa podstawowej jednostki SKU ILB)
 * Application Gateway (używa podstawowej jednostki SKU ILB)
 * Zestawy skalowania (używa podstawowej jednostki SKU ILB)
-* Klastry Service Fabric (używa podstawowej jednostki SKU ILB)
+* Klastry usługi Service Fabric (używają jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
 * SQL Server zawsze włączone (używa podstawowej jednostki SKU ILB)
 * App Service Environment (używa podstawowej jednostki SKU ILB)
-* API Management (używa podstawowej jednostki SKU ILB)
+* API Management (używa jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
 * Azure AD DS (używa podstawowej jednostki SKU ILB)
 
 Aby dowiedzieć się więcej o globalnych wymaganiach dotyczących komunikacji równorzędnej i ograniczeniach, zobacz [wirtualne sieci równorzędne](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
@@ -135,14 +134,14 @@ Aby rozwiązać ten problem:
    > [!Note]
    > Nie można połączyć się z następującymi typami zasobów za pośrednictwem globalnej komunikacji równorzędnej sieci wirtualnej (sieci wirtualne w różnych regionach):
    >
-   > * Maszyny wirtualne za podstawową jednostką SKU ILB
+   > * Maszyny wirtualne za jednostką SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa
    > * Pamięć podręczna Redis (używa podstawowej jednostki SKU ILB)
    > * Application Gateway (używa podstawowej jednostki SKU ILB)
    > * Zestawy skalowania (używa podstawowej jednostki SKU ILB)
-   > * Klastry Service Fabric (używa podstawowej jednostki SKU ILB)
+   > * Klastry usługi Service Fabric (używają jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
    > * SQL Server zawsze włączone (używa podstawowej jednostki SKU ILB)
    > * App Service Environment (używa podstawowej jednostki SKU ILB)
-   > * API Management (używa podstawowej jednostki SKU ILB)
+   > * API Management (używa jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
    > * Azure AD DS (używa podstawowej jednostki SKU ILB)
 
 Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) globalnej komunikacji równorzędnej.
@@ -196,14 +195,14 @@ Aby uzyskać więcej informacji, zobacz Tworzenie [łańcucha usług](https://do
 
 Przesyłanie za pośrednictwem globalnej komunikacji równorzędnej sieci wirtualnej jest teraz obsługiwane. Łączność między globalnymi sieciami wirtualnymi nie działa w przypadku następujących zasobów:
 
-* Maszyny wirtualne za podstawową jednostką SKU ILB
+* Maszyny wirtualne za jednostką SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa
 * Pamięć podręczna Redis (używa podstawowej jednostki SKU ILB)
 * Application Gateway (używa podstawowej jednostki SKU ILB)
 * Zestawy skalowania (używa podstawowej jednostki SKU ILB)
-* Klastry Service Fabric (używa podstawowej jednostki SKU ILB)
+* Klastry usługi Service Fabric (używają jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
 * SQL Server zawsze włączone (używa podstawowej jednostki SKU ILB)
 * App Service Environment (używa podstawowej jednostki SKU ILB)
-* API Management (używa podstawowej jednostki SKU ILB)
+* API Management (używa jednostki SKU wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa)
 * Azure AD DS (używa podstawowej jednostki SKU ILB)
 
 Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) globalnej komunikacji równorzędnej i [różnych topologii sieci VPN](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
@@ -212,7 +211,7 @@ Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](https://docs.
 
 Aby rozwiązać ten problem:
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się do witryny Azure Portal. 
 1. W aplikacji sieci Web wybierz pozycję **Sieć**, a następnie wybierz pozycję integracja z siecią **wirtualną**.
 1. Sprawdź, czy jest wyświetlana zdalna Sieć wirtualna. Ręcznie wprowadź zdalną przestrzeń adresową sieci wirtualnej (**Synchronizacja sieci** i **Dodawanie tras**).
 

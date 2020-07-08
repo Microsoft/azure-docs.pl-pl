@@ -7,15 +7,14 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122781"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Dostosowywanie punktu końcowego HTTP w Azure Functions
 
-W tym artykule dowiesz się, jak Azure Functions pozwala tworzyć wysoce skalowalne interfejsy API. Azure Functions zawiera kolekcję wbudowanych wyzwalaczy i powiązań HTTP, które ułatwiają tworzenie punktów końcowych w różnych językach, w tym Node. js, C# i innych. W tym artykule opisano Dostosowywanie wyzwalacza protokołu HTTP w celu obsługi określonych akcji w projekcie interfejsu API. Przygotowuje się również do wzrostu interfejsu API, integrując go z serwery proxy usługi Azure Functions i konfigurując interfejsy API do tworzenia obrazu. Te zadania są wykonywane w oparciu o środowisko obliczeniowe bez serwera funkcji, więc nie trzeba martwić się o skalowanie zasobów — możesz po prostu skupić się na logice interfejsu API.
+W tym artykule dowiesz się, jak Azure Functions pozwala tworzyć wysoce skalowalne interfejsy API. Azure Functions zawiera kolekcję wbudowanych wyzwalaczy i powiązań HTTP, które ułatwiają tworzenie punktów końcowych w różnych językach, w tym Node.js, C# i innych. W tym artykule opisano Dostosowywanie wyzwalacza protokołu HTTP w celu obsługi określonych akcji w projekcie interfejsu API. Przygotowuje się również do wzrostu interfejsu API, integrując go z serwery proxy usługi Azure Functions i konfigurując interfejsy API do tworzenia obrazu. Te zadania są wykonywane w oparciu o środowisko obliczeniowe bez serwera funkcji, więc nie trzeba martwić się o skalowanie zasobów — możesz po prostu skupić się na logice interfejsu API.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -128,7 +127,7 @@ Aby utworzyć ten interfejs API, utworzymy nowy serwer proxy, tym razem używaj�
 
 Wybierz pozycję `proxies.json` na lewym pasku nawigacyjnym. Ten plik przechowuje konfigurację dla wszystkich serwerów proxy. Jeśli używasz jednej z [metod wdrażania funkcji](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), ten plik jest zachowywany w kontroli źródła. Aby dowiedzieć się więcej na temat tego pliku, zobacz [Konfiguracja zaawansowana serwerów proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
-Po wykonaniu tej czynności Twoje serwery proxy. JSON powinny wyglądać następująco:
+Po wykonaniu tej czynności proxies.jspowinien wyglądać następująco:
 
 ```json
 {
@@ -144,7 +143,7 @@ Po wykonaniu tej czynności Twoje serwery proxy. JSON powinny wyglądać następ
 }
 ```
 
-Następnie dodasz interfejs API służący do zapamiętania. Zastąp plik proxy. JSON następującym kodem:
+Następnie dodasz interfejs API służący do zapamiętania. Zastąp proxies.jsw pliku następującym kodem:
 
 ```json
 {

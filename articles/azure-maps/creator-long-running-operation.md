@@ -10,10 +10,9 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83598388"
 ---
 # <a name="creator-long-running-operation-api"></a>Interfejs API długotrwałej operacji wykonywanej przez twórcę

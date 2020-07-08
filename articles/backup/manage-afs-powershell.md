@@ -4,10 +4,9 @@ description: Dowiedz się, jak używać programu PowerShell do zarządzania udzi
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201961"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure przy użyciu programu PowerShell

@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: bf6865d2756579f457dded90b247326d2eec137c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123126"
 ---
 # <a name="create-a-function-in-azure-thats-triggered-by-blob-storage"></a>Tworzenie funkcji na platformie Azure wyzwalanej przez usługę BLOB Storage
@@ -101,7 +100,7 @@ Teraz, gdy masz już kontener obiektów Blob, możesz przetestować funkcję, pr
     >[!NOTE]
     > Gdy aplikacja funkcji zostanie uruchomiona w domyślnym planie Zużycie, może wystąpić nawet kilkuminutowe opóźnienie między dodaniem lub zaktualizowaniem obiektu Blob a wyzwoleniem funkcji. Jeśli zależy Ci na małych opóźnieniach w funkcjach wyzwalanych przez obiekty Blob, rozważ uruchomienie aplikacji funkcji w planie usługi App Service.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

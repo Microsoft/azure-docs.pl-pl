@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83402608"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Analiza wydajności zapytań w usłudze Azure Database for MySQL

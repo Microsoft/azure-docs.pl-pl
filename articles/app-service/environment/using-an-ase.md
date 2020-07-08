@@ -8,10 +8,9 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125812"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
@@ -62,7 +61,7 @@ Aby utworzyć aplikację w środowisku ASE:
 
     f. Wybierz stos środowiska uruchomieniowego.
 
-    g. Wybierz pozycję **Linux** lub **Windows**. 
+    przykład Wybierz pozycję **Linux** lub **Windows**. 
 
     h. Wybierz środowisko ASE na liście rozwijanej **region** . 
 

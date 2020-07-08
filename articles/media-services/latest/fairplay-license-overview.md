@@ -15,10 +15,9 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: d348f2696ef865616669af311477cb3a90a59a50
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995867"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple 
@@ -39,7 +38,7 @@ Poniższe informacje są wymagane w przypadku korzystania z Media Services w cel
 
         W poniższych krokach opisano sposób generowania pliku certyfikatu PFX dla FairPlay:
 
-        1. Zainstaluj OpenSSL z https://slproweb.com/products/Win32OpenSSL.html.
+        1. Zainstaluj OpenSSL z https://slproweb.com/products/Win32OpenSSL.html .
 
             Przejdź do folderu, w którym znajduje się certyfikat FairPlay i inne pliki dostarczone przez firmę Apple.
         2. W wierszu polecenia uruchom następujące polecenie. Spowoduje to przekonwertowanie pliku CER na plik PEM.
@@ -47,7 +46,7 @@ Poniższe informacje są wymagane w przypadku korzystania z Media Services w cel
             "C:\OpenSSL-Win32\bin\openssl.exe" x509 — informowanie algorytmu der-in FairPlay. cer-out FairPlay-out. pem
         3. W wierszu polecenia uruchom następujące polecenie. Spowoduje to przekonwertowanie pliku PEM na plik PFX z kluczem prywatnym. Hasło do pliku PFX jest następnie zadawane przez OpenSSL.
 
-            "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12-Export-out FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem-Passing File: PrivateKey-PEM-Pass. txt
+            "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12 — wyeksportuj FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem — passer file:privatekey-pem-pass.txt
             
     * **Hasło certyfikatu aplikacji**: hasło do tworzenia pliku PFX.
     * **Poproszenie**: ten klucz jest odbierany podczas generowania certyfikacji przy użyciu portalu dla deweloperów firmy Apple. Każdy zespół programistyczny otrzymuje unikatowe żądanie. Zapisz kopię pytania i przechowuj ją w bezpiecznym miejscu. Musisz skonfigurować program FairPlayAsk z Media Services.

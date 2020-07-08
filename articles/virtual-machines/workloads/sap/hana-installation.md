@@ -14,10 +14,9 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117125"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
@@ -144,8 +143,8 @@ Konwencje nazewnictwa woluminów magazynu są wymienione w poniższej tabeli:
 
 | Użycie magazynu | Nazwa instalacji | Nazwa woluminu | 
 | --- | --- | ---|
-| Dane platformy HANA | /hana/data/SID/mnt0000 \< m> | Hana_data_SID_mnt00001_tenant_vol IP:/magazynu |
-| Dziennik platformy HANA | /hana/log/SID/mnt0000 \< m> | Hana_log_SID_mnt00001_tenant_vol IP:/magazynu |
+| Dane platformy HANA | /hana/data/SID/mnt0000\<m> | Hana_data_SID_mnt00001_tenant_vol IP:/magazynu |
+| Dziennik platformy HANA | /hana/log/SID/mnt0000\<m> | Hana_log_SID_mnt00001_tenant_vol IP:/magazynu |
 | Kopia zapasowa dziennika HANA | /hana/log/backups | Hana_log_backups_SID_mnt00001_tenant_vol IP:/magazynu |
 | Platformy HANA — udostępnione | /hana/shared/SID | Magazyn IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |
 | usr/SAP | /usr/sap/SID | Magazyn IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -198,7 +197,7 @@ Możesz również skonfigurować parametry po instalacji bazy danych SAP HANA pr
 Magazyn używany w dużych wystąpieniach platformy HANA ma ograniczenie rozmiaru pliku. [Ograniczenie rozmiaru wynosi 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) na plik. W przeciwieństwie do ograniczeń rozmiaru plików w systemach plików EXT3, HANA nie jest nieświadomy niejawnie ograniczenia magazynu wymuszonego przez magazyn dużych wystąpień platformy HANA. W efekcie program HANA nie utworzy automatycznie nowego pliku danych, gdy zostanie osiągnięty limit rozmiaru pliku 16TB. W miarę jak HANA próbuje zwiększyć plik poza 16 TB, program HANA zgłosi błędy i na końcu zakończy się awaria serwera indeksów.
 
 > [!IMPORTANT]
-> Aby zapobiec próbie zwiększenia rozmiaru plików danych poza 16 TB pamięci masowej magazynu platformy HANA, należy ustawić następujące parametry w pliku konfiguracyjnym SAP HANA Global. ini
+> Aby zapobiec próbie zwiększenia rozmiaru plików danych poza 16 TB pamięci masowej magazynu platformy HANA, należy ustawić następujące parametry w pliku konfiguracji global.ini SAP HANA
 > 
 > - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000

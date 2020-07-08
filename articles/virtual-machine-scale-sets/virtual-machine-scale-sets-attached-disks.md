@@ -10,10 +10,9 @@ ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: e5bdb30929b4d93b05d850a56c9a6baf32f9856b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125013"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Zestawy skalowania i dołączone dyski danych maszyn wirtualnych platformy Azure

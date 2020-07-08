@@ -10,10 +10,9 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648223"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Wprowadzenie do Azure Maps Android SDK
@@ -84,7 +83,7 @@ Następnym krokiem tworzenia aplikacji jest zainstalowanie Android SDK Azure Map
         ```
     
     4. Przejdź do **pliku** na pasku narzędzi, a następnie kliknij pozycję **Synchronizuj projekt z plikami Gradle**.
-3. Dodawanie fragmentu mapy do działania głównego ( \> \> podstawowe działanie układu res \_ . xml):
+3. Dodaj fragment mapy do działania głównego ( \> aktywność układu zasobu \> \_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

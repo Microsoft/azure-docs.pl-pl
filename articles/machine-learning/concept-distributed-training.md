@@ -10,10 +10,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995006"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Uczenie rozproszone z Azure Machine Learning

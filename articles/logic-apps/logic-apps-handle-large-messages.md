@@ -8,10 +8,9 @@ ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117567"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Obsługa dużych komunikatów z fragmentacją w Azure Logic Apps
@@ -116,15 +115,15 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
    | Pole nagłówka żądania Logic Apps | Wartość | Typ | Opis |
    |---------------------------------|-------|------|-------------|
    | **x-MS-Transfer-Mode** | podzielony | String | Wskazuje, że zawartość jest przekazywana w fragmentach |
-   | **x-MS-Content-Length** | <*Długość zawartości*> | Liczba całkowita | Cały rozmiar zawartości w bajtach przed fragmentem |
+   | **x-MS-Content-Length** | <*Długość zawartości*> | Integer | Cały rozmiar zawartości w bajtach przed fragmentem |
    ||||
 
 2. Punkt końcowy odpowiada za pomocą kodu stanu sukcesu "200" i informacji dodatkowych:
 
    | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
-   | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
-   | **Lokalizacja** | String | Yes | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
+   | **x-MS-fragment rozmiaru** | Integer | Nie | Sugerowany rozmiar fragmentu w bajtach |
+   | **Lokalizacja** | String | Tak | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
    ||||
 
 3. Aplikacja logiki tworzy i wysyła komunikaty poprawek protokołu HTTP z monitami o następujące informacje:
@@ -144,8 +143,8 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
 
    | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
-   | **Zakresu** | String | Yes | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
-   | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
+   | **Zakresu** | String | Tak | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
+   | **x-MS-fragment rozmiaru** | Integer | Nie | Sugerowany rozmiar fragmentu w bajtach |
    ||||
 
 Na przykład ta definicja akcji przedstawia żądanie HTTP POST dotyczące przekazywania fragmentarycznej zawartości do punktu końcowego. We właściwości akcji właściwość `runTimeConfiguration` `contentTransfer` ustawia `transferMode` `chunked` :

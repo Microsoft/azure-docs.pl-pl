@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122305"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
@@ -67,7 +66,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-Podczas lokalnego tworzenia aplikacji funkcji należy zachować lokalne kopie tych wartości w pliku projektu Local. Settings. JSON. Aby dowiedzieć się więcej, zobacz [plik ustawień lokalnych](functions-run-local.md#local-settings-file).
+Podczas lokalnego tworzenia aplikacji funkcji należy zachować lokalne kopie tych wartości w local.settings.jsw pliku projektu. Aby dowiedzieć się więcej, zobacz [plik ustawień lokalnych](functions-run-local.md#local-settings-file).
 
 ## <a name="platform-features"></a>Funkcje platformy
 

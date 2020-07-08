@@ -9,10 +9,9 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83195254"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export

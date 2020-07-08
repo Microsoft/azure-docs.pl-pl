@@ -16,10 +16,9 @@ ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83120967"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrażaniem podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure
@@ -51,7 +50,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **N<sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi administracyjnej maszyny wirtualnej zablokowanej na ekranie OOBE, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
 
-**Tłumaczenia**
+**Rozdzielczość**
 
 Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania oryginalnego wirtualnego dysku twardego](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), dostępnego lokalnie, z tym samym ustawieniem jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić program Sysprep.
 
@@ -61,7 +60,7 @@ Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania or
 
 **N<sup>4</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
 
-**Tłumaczenia**
+**Rozdzielczość**
 
 Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../windows/create-vm-specialized.md) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
 
@@ -70,7 +69,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 
 **Przyczyna 1:** Klaster nie obsługuje żądanego rozmiaru maszyny wirtualnej.
 
-**Rozwiązanie 1.**
+**Rozwiązanie 1:**
 
 * Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 * Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
@@ -81,7 +80,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 
 **Przyczyna 2:** W klastrze nie ma bezpłatnych zasobów.
 
-**Rozwiązanie 2.**
+**Rozwiązanie 2:**
 
 * Ponów żądanie w późniejszym czasie.
 * Jeśli nowa maszyna wirtualna może być częścią innego zestawu dostępności

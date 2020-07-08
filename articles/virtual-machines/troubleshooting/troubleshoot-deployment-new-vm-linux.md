@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: daberry
 ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83118230"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów z wdrażaniem Menedżer zasobów przy tworzeniu nowej maszyny wirtualnej z systemem Linux na platformie Azure
@@ -69,7 +68,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 
 **Przyczyna 1:** Klaster nie obsługuje żądanego rozmiaru maszyny wirtualnej.
 
-**Rozwiązanie 1.**
+**Rozwiązanie 1:**
 
 * Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 * Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
@@ -80,7 +79,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 
 **Przyczyna 2:** W klastrze nie ma bezpłatnych zasobów.
 
-**Rozwiązanie 2.**
+**Rozwiązanie 2:**
 
 * Ponów żądanie w późniejszym czasie.
 * Jeśli nowa maszyna wirtualna może być częścią innego zestawu dostępności

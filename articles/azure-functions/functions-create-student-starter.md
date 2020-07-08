@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: alkarche
 ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122875"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Tworzenie funkcji przy użyciu platformy Azure for Students Starter
@@ -77,7 +76,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-student-starter/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
@@ -89,7 +88,7 @@ Na platformie Azure for Students Starter masz dostęp do większości funkcji ś
     * Wszystkie powiązania danych wejściowych i danych wyjściowych są obsługiwane. [Zapoznaj się z pełną listą tutaj.](functions-triggers-bindings.md)
 * Obsługiwane języki: 
     * C# (.NET Core 2)
-    * JavaScript (Node. js 8 & 10)
+    * JavaScript (Node.js 8 & 10)
     * F # (.NET Core 2)
     * [Zobacz języki obsługiwane w wyższych planach tutaj](supported-languages.md)
 * System Windows jest jedynym obsługiwanym systemem operacyjnym.

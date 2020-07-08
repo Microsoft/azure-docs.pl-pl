@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: c29526bdee5ad70b3acb23117ee003877f52a55e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83592461"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Programy obsługi zdarzeń w Azure Event Grid
@@ -23,7 +22,7 @@ Oto obsługiwane programy obsługi zdarzeń:
 - Elementy [webhook](handler-webhooks.md). Azure Automation elementy Runbook i Logic Apps są obsługiwane za pośrednictwem elementów webhook. 
 - [Usługa Azure Functions](handler-functions.md)
 - [Centra zdarzeń](handler-event-hubs.md)
-- [Przekazuj połączenia hybrydowe](handler-relay-hybrid-connections.md)
+- [Połączenia hybrydowe w usłudze Relay](handler-relay-hybrid-connections.md)
 - [Service Bus kolejki i tematy](handler-service-bus.md)
 - [Kolejki magazynu](handler-storage-queues.md)
 

@@ -4,10 +4,9 @@ description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, st
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83115663"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
@@ -40,7 +39,7 @@ Jeśli nie masz jeszcze odwołania do Application Insights SDK:
   * [Projekt ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Projekt ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
   * [Projekt Java](../../azure-monitor/app/java-get-started.md)
-  * [Projekt node. js](../../azure-monitor/app/nodejs.md)
+  * [ProjektNode.js](../../azure-monitor/app/nodejs.md)
   * [Język JavaScript na każdej stronie sieci Web](../../azure-monitor/app/javascript.md) 
 * W kodzie urządzenia lub serwera sieci Web należy uwzględnić następujące:
 
@@ -50,7 +49,7 @@ Jeśli nie masz jeszcze odwołania do Application Insights SDK:
 
     *Język Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node. js:*`var applicationInsights = require("applicationinsights");`
+    *Node.js:*`var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Pobierz wystąpienie TelemetryClient
 
@@ -60,7 +59,7 @@ W przypadku aplikacji [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-t
 
 Jeśli używasz AzureFunctions v2 + lub Azure WebJobs v3 +-wykonaj następujące czynności:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
-*S #*
+*C#*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
@@ -89,7 +88,7 @@ TelemetryClient jest bezpieczny wątkowo.
 
 W przypadku projektów ASP.NET i Java przychodzące żądania HTTP są przechwytywane automatycznie. Możesz chcieć utworzyć dodatkowe wystąpienia TelemetryClient dla innego modułu aplikacji. Na przykład może istnieć jedno wystąpienie TelemetryClient w klasie pośredniczącej do raportowania zdarzeń logiki biznesowej. Możesz ustawić właściwości, takie jak UserId i DeviceId, aby zidentyfikować maszynę. Te informacje są dołączone do wszystkich zdarzeń wysyłanych przez wystąpienie.
 
-*S #*
+*C#*
 
 ```csharp
 TelemetryClient.Context.User.Id = "...";
@@ -103,7 +102,7 @@ telemetry.getContext().getUser().setId("...");
 telemetry.getContext().getDevice().setId("...");
 ```
 
-W projektach środowiska Node. js można użyć `new applicationInsights.TelemetryClient(instrumentationKey?)` programu, aby utworzyć nowe wystąpienie, ale jest to zalecane tylko w scenariuszach, które wymagają wyizolowanej konfiguracji z pojedynczej `defaultClient` .
+W projektach Node.js można użyć `new applicationInsights.TelemetryClient(instrumentationKey?)` programu do utworzenia nowego wystąpienia, ale jest to zalecane tylko w scenariuszach, które wymagają wyizolowanej konfiguracji z pojedynczej `defaultClient` .
 
 ## <a name="trackevent"></a>Poleceń trackEvent
 
@@ -119,7 +118,7 @@ Na przykład w aplikacji do gier Wyślij zdarzenie za każdym razem, gdy użytko
 appInsights.trackEvent({name:"WinGame"});
 ```
 
-*S #*
+*C#*
 
 ```csharp
 telemetry.TrackEvent("WinGame");
@@ -178,7 +177,7 @@ Aby wysłać pojedynczą wartość metryki:
 appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*S #*
+*C#*
 
 ```csharp
 var sample = new MetricTelemetry();
@@ -220,7 +219,7 @@ Dane użytkownika i sesji są wysyłane jako właściwości wraz z widokami stro
 appInsights.trackPageView("tab1");
 ```
 
-*S #*
+*C#*
 
 ```csharp
 telemetry.TrackPageView("GameReviewPage");
@@ -313,7 +312,7 @@ Aby uzyskać więcej informacji na temat korelacji, zobacz [korelacja telemetrii
 
 Podczas ręcznego śledzenia telemetrii, najprostszym sposobem zapewnienia korelacji telemetrii za pomocą tego wzorca:
 
-*S #*
+*C#*
 
 ```csharp
 // Establish an operation context and associated telemetry item:
@@ -363,7 +362,7 @@ Wyślij wyjątki do Application Insights:
 
 Raporty obejmują ślady stosu.
 
-*S #*
+*C#*
 
 ```csharp
 try
@@ -458,7 +457,7 @@ Na [kartach dzienników](../../azure-monitor/app/asp-net-trace-logs.md) .NET Uż
 
 W języku Java dla [rejestratorów standardowych, takich jak Log4J, Logback](../../azure-monitor/app/java-trace-logs.md) używają Application Insights Log4J lub Logback do wysyłania dzienników innych firm do portalu.
 
-*S #*
+*C#*
 
 ```csharp
 telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
@@ -501,7 +500,7 @@ Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w k
 
 Ponadto do wiadomości można dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
 
-*S #*
+*C#*
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -530,7 +529,7 @@ Jeśli [próbkowanie](../../azure-monitor/app/sampling.md) jest w operacji, wła
 
 Użyj wywołania TrackDependency, aby śledzić czasy odpowiedzi i szybkość powodzeń wywołań do zewnętrznego fragmentu kodu. Wyniki są wyświetlane na wykresach zależności w portalu. Poniższego fragmentu kodu należy dodać wszędzie tam, gdzie jest wykonywane wywołanie zależności.
 
-*S #*
+*C#*
 
 ```csharp
 var success = false;
@@ -597,7 +596,7 @@ W języku Java niektóre wywołania zależności mogą być automatycznie śledz
 
 To wywołanie jest używane, jeśli chcesz śledzić wywołania, które nie są przechwytywane przez automatyczne śledzenie, lub jeśli nie chcesz instalować agenta.
 
-Aby wyłączyć standardowy moduł śledzenia zależności w języku C#, Edytuj [plik ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) i usuń odwołanie do `DependencyCollector.DependencyTrackingTelemetryModule` . W języku Java nie należy instalować programu Java Agent, jeśli nie chcesz automatycznie zbierać zależności standardowych.
+Aby wyłączyć standardowy moduł śledzenia zależności w języku C#, Edytuj [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) i usuń odwołanie do `DependencyCollector.DependencyTrackingTelemetryModule` . W języku Java nie należy instalować programu Java Agent, jeśli nie chcesz automatycznie zbierać zależności standardowych.
 
 ### <a name="dependencies-in-analytics"></a>Zależności w analizie
 
@@ -621,7 +620,7 @@ dependencies
 
 Zwykle zestaw SDK wysyła dane w stałych interwałach (zwykle 30 s) lub zawsze, gdy bufor jest pełny (zazwyczaj 500 elementy). Jednak w niektórych przypadkach może być konieczne opróżnienie buforu — na przykład, jeśli używasz zestawu SDK w aplikacji, która jest zamykana.
 
-*S #*
+*C#*
 
  ```csharp
 telemetry.Flush();
@@ -727,7 +726,7 @@ appInsights.trackPageView
         );
 ```
 
-*S #*
+*C#*
 
 ```csharp
 // Set up some properties and metrics:
@@ -828,7 +827,7 @@ Zwróć uwagę, że:
 
 Czasami chcesz utworzyć wykres, jak długo trwa wykonywanie akcji. Na przykład możesz chcieć wiedzieć, jak długo użytkownicy mogą rozważyć wybór w grze. W tym celu można użyć parametru pomiaru.
 
-*S #*
+*C#*
 
 ```csharp
 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -871,7 +870,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 
 Jeśli chcesz ustawić domyślne wartości właściwości dla niektórych zdarzeń niestandardowych, które można napisać, możesz je ustawić w wystąpieniu TelemetryClient. Są one dołączone do każdego elementu telemetrii, który jest wysyłany z tego klienta.
 
-*S #*
+*C#*
 
 ```csharp
 using Microsoft.ApplicationInsights.DataContracts;
@@ -937,7 +936,7 @@ Można napisać kod, aby przetworzyć dane telemetryczne przed ich wysłaniem z 
 
 Aby *dynamicznie zatrzymywać i uruchamiać* zbieranie i przesyłanie danych telemetrycznych:
 
-*S #*
+*C#*
 
 ```csharp
 using  Microsoft.ApplicationInsights.Extensibility;
@@ -951,7 +950,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-Aby *wyłączyć wybrane standardowe moduły zbierające*— na przykład liczniki wydajności, żądania HTTP lub zależności — Usuń lub Dodaj komentarz do odpowiednich wierszy w [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Możesz to zrobić na przykład, jeśli chcesz wysłać własne dane TrackRequest.
+Aby *wyłączyć wybrane standardowe moduły zbierające*— na przykład liczniki wydajności, żądania HTTP lub zależności — Usuń lub Dodaj komentarz do odpowiednich wierszy w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Możesz to zrobić na przykład, jeśli chcesz wysłać własne dane TrackRequest.
 
 *Node.js*
 
@@ -977,7 +976,7 @@ Aby wyłączyć te moduły zbierające po zainicjowaniu, użyj obiektu konfigura
 
 Podczas debugowania warto przeanalizować dane telemetryczne za pomocą potoku, aby można było natychmiast zobaczyć wyniki. Uzyskasz również dodatkowe komunikaty, które pomagają śledzić wszelkie problemy związane z telemetrią. Przełączaj ją w środowisku produkcyjnym, ponieważ może to spowolnić aplikację.
 
-*S #*
+*C#*
 
 ```csharp
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
@@ -991,7 +990,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-W przypadku środowiska Node. js można włączyć tryb dewelopera, włączając rejestrowanie wewnętrzne przy użyciu `setInternalLogging` i ustawiając `maxBatchSize` wartość 0, co powoduje wysyłanie danych telemetrycznych zaraz po ich zebraniu.
+W przypadku Node.js można włączyć tryb dewelopera, włączając rejestrowanie wewnętrzne przy użyciu `setInternalLogging` i ustawiając `maxBatchSize` wartość 0, co powoduje wysłanie danych telemetrycznych od razu po ich zebraniu.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1002,7 +1001,7 @@ applicationInsights.defaultClient.config.maxBatchSize = 0;
 
 ## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Ustawianie klucza Instrumentacji dla wybranej niestandardowej telemetrii
 
-*S #*
+*C#*
 
 ```csharp
 var telemetry = new TelemetryClient();
@@ -1016,7 +1015,7 @@ Aby uniknąć mieszania danych telemetrycznych ze środowiska deweloperskiego, t
 
 Zamiast pobierać klucz Instrumentacji z pliku konfiguracji, można ustawić go w kodzie. Ustaw klucz w metodzie inicjującej, na przykład global.aspx.cs w usłudze ASP.NET:
 
-*S #*
+*C#*
 
 ```csharp
 protected void Application_Start()
@@ -1068,11 +1067,11 @@ TelemetryClient ma Właściwość kontekstu, która zawiera wartości, które s�
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-Jeśli samodzielnie ustawisz dowolne z tych wartości, Rozważ usunięcie odpowiedniego wiersza z [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), tak aby wartości i wartości standardowych nie były mylone.
+Jeśli samodzielnie ustawisz dowolne z tych wartości, Rozważ usunięcie odpowiedniego wiersza z [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), dzięki czemu wartości i wartości standardowych nie zostaną pomylone.
 
 * **Składnik**: aplikacja i jej wersja.
 * **Urządzenie**: dane dotyczące urządzenia, na którym działa aplikacja. (W usłudze Web Apps jest to serwer lub urządzenie klienckie, z którego jest wysyłana Telemetria).
-* **InstrumentationKey**: zasób Application Insights na platformie Azure, w którym pojawia się dane telemetryczne. Zwykle jest ona pobierana z ApplicationInsights. config.
+* **InstrumentationKey**: zasób Application Insights na platformie Azure, w którym pojawia się dane telemetryczne. Zwykle jest ona pobierana z ApplicationInsights.config.
 * **Lokalizacja**: Lokalizacja geograficzna urządzenia.
 * **Operacja**: w usłudze Web Apps bieżące żądanie HTTP. W przypadku innych typów aplikacji można ustawić tę opcję, aby grupować zdarzenia jednocześnie.
   * **ID**: wygenerowana wartość, która jest skorelowana z różnymi zdarzeniami, dzięki czemu podczas inspekcji dowolnego zdarzenia w przeszukiwaniu diagnostycznym można znaleźć powiązane elementy.

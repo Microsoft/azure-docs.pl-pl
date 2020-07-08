@@ -8,10 +8,9 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83125778"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla zestawu skalowania maszyn wirtualnych z systemem Windows
@@ -38,14 +37,14 @@ Rozszerzenie Diagnostyka Azure używa funkcji o nazwie **ujścia danych** do kie
 ## <a name="author-a-resource-manager-template"></a>Tworzenie szablonu Menedżer zasobów 
 Na potrzeby tego przykładu można użyć dostępnego publicznie [przykładowego szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
 
-- **Azuredeploy. JSON** jest wstępnie skonfigurowanym szablonem Menedżer zasobów na potrzeby wdrożenia zestawu skalowania maszyn wirtualnych.
+- **Azuredeploy.json** jest wstępnie skonfigurowanym szablonem Menedżer zasobów do wdrożenia zestawu skalowania maszyn wirtualnych.
 
-- **Azuredeploy. Parameters. JSON** to plik parametrów, który przechowuje informacje takie jak nazwa użytkownika i hasło, które mają być ustawione dla maszyny wirtualnej. Podczas wdrażania szablon Menedżer zasobów używa parametrów ustawionych w tym pliku. 
+- **Azuredeploy.parameters.json** to plik parametrów, który przechowuje informacje takie jak nazwa użytkownika i hasło, które chcesz ustawić dla maszyny wirtualnej. Podczas wdrażania szablon Menedżer zasobów używa parametrów ustawionych w tym pliku. 
 
 Pobierz i Zapisz oba pliki lokalnie. 
 
-###  <a name="modify-azuredeployparametersjson"></a>Modyfikuj azuredeploy. Parameters. JSON
-Otwórz plik **azuredeploy. Parameters. JSON** :  
+###  <a name="modify-azuredeployparametersjson"></a>Modyfikuj azuredeploy.parameters.jsna
+Otwórz **azuredeploy.parameters.jsw** pliku:  
  
 - Podaj **vmSKU** do wdrożenia. Zalecamy Standard_D2_v3. 
 - Określ **windowsOSVersion** dla zestawu skalowania maszyn wirtualnych. Zalecamy 2016 — centrum danych. 
@@ -54,8 +53,8 @@ Otwórz plik **azuredeploy. Parameters. JSON** :
 - Wprowadź wartości dla **adminUsername** i **adminPassword** dla zestawu skalowania maszyn wirtualnych. Te parametry są używane na potrzeby dostępu zdalnego do maszyn wirtualnych w zestawie skalowania. Aby uniknąć przejęcia maszyny **wirtualnej, nie należy używać** tych elementów w tym szablonie. Botów Skanuj Internet pod kątem nazw użytkowników i haseł w publicznych repozytoriach usługi GitHub. Te wartości domyślne mogą testować maszyny wirtualne. 
 
 
-###  <a name="modify-azuredeployjson"></a>Modyfikuj plik azuredeploy. JSON
-Otwórz plik **azuredeploy. JSON** . 
+###  <a name="modify-azuredeployjson"></a>Modyfikuj azuredeploy.jsna
+Otwórz **azuredeploy.js** pliku. 
 
 Dodaj zmienną do przechowywania informacji o koncie magazynu w szablonie Menedżer zasobów. Wszystkie dzienniki i liczniki wydajności określone w pliku konfiguracyjnym diagnostyki są zapisywane w magazynie metryk Azure Monitor i na koncie magazynu określonym w tym miejscu: 
 
@@ -266,12 +265,12 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
 1. Po pomyślnym wdrożeniu należy znaleźć zestaw skalowania maszyn wirtualnych w Azure Portal. Powinna emitować metryki do Azure Monitor. 
 
    > [!NOTE]  
-   > Można napotkać błędy dotyczące wybranych **vmSkuSize**. W takim przypadku Wróć do pliku **azuredeploy. JSON** i zaktualizuj wartość domyślną parametru **vmSkuSize** . Zalecamy wypróbowanie **Standard_DS1_v2**. 
+   > Można napotkać błędy dotyczące wybranych **vmSkuSize**. W takim przypadku Wróć do **azuredeploy.jsw** pliku i zaktualizuj wartość domyślną parametru **vmSkuSize** . Zalecamy wypróbowanie **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Tworzenie wykresów metryk 
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się do witryny Azure Portal. 
 
 1. W menu po lewej stronie wybierz pozycję **monitorowanie**. 
 

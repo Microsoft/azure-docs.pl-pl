@@ -8,10 +8,9 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201447"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
@@ -34,7 +33,7 @@ Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla niektó
 | Aplikacja usługi Power BI     |     Do ogłaszania       |
 |  |
 
-## <a name="listing"></a>Zawierające
+## <a name="listing"></a>Lista
 
 Aukcje ze wspólną sprzedażą będą pomocne dla zespołów sprzedaży firmy Microsoft na rynku Twojego rozwiązania dla szerszego grona odbiorców.
 
@@ -88,7 +87,7 @@ Możesz również wyeksportować istniejącą listę kontaktów oferty, a nastę
 * *Stanowisko (wymagane)*: stanowisko stanowiska.
 * *Rola (wymagana)*: Użyj jednej z następujących ról w tym polu w szablonie.
 
-    | **Rola**    | **Opis**  |
+    | **Role**    | **Opis**  |
     | :------------------- | :-------------------|
     | *:::no-loc text="Partner marketing":::* | Ta rola koncentruje się na wprowadzaniu rozwiązań marketingowych i współpracy z zespołem ds. sprzedaży firmy Microsoft oraz odsprzedawców kanałów. Główny punkt kontaktu dotyczący zaangażowania marketingowego i oferowania oferty dotyczącej zawartości, na przykład opisów produktów, obrazów i filmów wideo. |
     | *:::no-loc text="Partner sales":::* | Ta rola koncentruje się na sprzedawaniu rozwiązania i współpracy nad sprzedażą za pośrednictwem zespołów sprzedaży firmy Microsoft i odsprzedawców kanałów. W przypadku rozwiązań do współsprzedaży należy wskazać co najmniej jednego partnera sprzedaży dla partnerów w regionie, w którym ma być gotowa do sprzedaży. Ten sam kontakt sprzedaży partnera może obejmować wiele regionów. |

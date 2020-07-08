@@ -4,10 +4,9 @@ description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej a
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200662"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
@@ -154,7 +153,7 @@ Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platform
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
-* [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md)
+* [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->

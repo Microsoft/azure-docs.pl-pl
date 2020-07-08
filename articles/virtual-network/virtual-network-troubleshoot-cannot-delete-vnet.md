@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2a64f42c8672972939bb2870ba40876e5cc8d855
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83591951"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: nie można usunąć sieci wirtualnej na platformie Azure
@@ -92,5 +91,5 @@ Jeśli sieć wirtualna jest zablokowana w stanie migracji, nie można jej usuną
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Virtual Network platformy Azure](virtual-networks-overview.md)
+- [Azure Virtual Network](virtual-networks-overview.md)
 - [Często zadawane pytania dotyczące sieci wirtualnych platformy Azure](virtual-networks-faq.md)

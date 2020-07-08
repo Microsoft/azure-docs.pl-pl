@@ -6,10 +6,9 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83210543"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
@@ -167,7 +166,7 @@ Starsza tabela: zależności
 |powodzenie|ciąg|Powodzenie|Wartość logiczna|
 |obiektów|ciąg|Środowisko docelowe|ciąg|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
-|type|ciąg|DependencyType|ciąg|
+|typ|ciąg|DependencyType|ciąg|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
@@ -243,7 +242,7 @@ Starsza tabela: customMetrics
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|usunięte||
+|wartość|liczba rzeczywista|usunięte||
 |valueCount|int|ValueCount|int|
 |valueMax|liczba rzeczywista|ValueMax|liczba rzeczywista|
 |valueMin|liczba rzeczywista|ValueMin|liczba rzeczywista|
@@ -328,7 +327,7 @@ Starsza tabela: Liczniki wydajności
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|value|liczba rzeczywista|Wartość|liczba rzeczywista|
+|wartość|liczba rzeczywista|Wartość|liczba rzeczywista|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -421,7 +420,7 @@ Starsza tabela: wyjątki
 |session_Id|ciąg|SessionId|ciąg|
 |severityLevel|int|SeverityLevel|int|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
-|type|ciąg|Typ|ciąg|
+|typ|ciąg|Typ|ciąg|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
@@ -466,5 +465,5 @@ Starsza tabela: ślady
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md)
+* [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)

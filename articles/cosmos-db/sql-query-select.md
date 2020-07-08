@@ -7,15 +7,14 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005949"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Klauzula SELECT w Azure Cosmos DB
 
-Każde zapytanie składa się `SELECT` z klauzuli i opcjonalnych klauzul from i [WHERE](sql-query-where.md) , zgodnie [ze](sql-query-from.md) standardami ANSI języka SQL. Typowo, źródło w `FROM` klauzuli jest wyliczane i `WHERE` klauzula stosuje filtr na źródle, aby pobrać podzestaw elementów JSON. Następnie `SELECT` klauzula umożliwia projekty żądanych wartości JSON na liście wyboru.
+Każde zapytanie składa się z `SELECT` klauzuli i opcjonalnych klauzul [from](sql-query-from.md) i [WHERE](sql-query-where.md) , zgodnie ze standardami ANSI języka SQL. Typowo, źródło w `FROM` klauzuli jest wyliczane i `WHERE` klauzula stosuje filtr na źródle, aby pobrać PODZESTAW elementów JSON. `SELECT`Następnie klauzula umożliwia projekty żądanych wartości JSON na liście wyboru.
 
 ## <a name="syntax"></a>Składnia
 
@@ -47,7 +46,7 @@ SELECT <select_specification>
   
 - `VALUE`  
 
-  Określa, że wartość JSON ma być pobierana zamiast pełnego obiektu JSON. W przeciwieństwie `<property_list>` do nie powoduje zawijania przewidywanej wartości w obiekcie.  
+  Określa, że wartość JSON ma być pobierana zamiast pełnego obiektu JSON. W przeciwieństwie do `<property_list>` nie powoduje zawijania przewidywanej wartości w obiekcie.  
 
 - `DISTINCT`
   
@@ -59,7 +58,7 @@ SELECT <select_specification>
 
 ## <a name="remarks"></a>Uwagi
 
-Składnia `SELECT *` jest prawidłowa tylko wtedy, gdy klauzula FROM deklaruje dokładnie jeden alias. `SELECT *`dostarcza projekcję tożsamości, która może być przydatna, jeśli nie jest wymagana projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadza tylko pojedyncze źródło danych wejściowych.  
+`SELECT *`Składnia jest prawidłowa tylko wtedy, gdy klauzula FROM deklaruje dokładnie jeden alias. `SELECT *`dostarcza projekcję tożsamości, która może być przydatna, jeśli nie jest wymagana projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadza tylko pojedyncze źródło danych wejściowych.  
   
 Zarówno `SELECT <select_list>` , `SELECT *` jak i są "cukrem" i mogą być również wyrażone przy użyciu prostych instrukcji SELECT, jak pokazano poniżej.  
   
@@ -77,7 +76,7 @@ Zarówno `SELECT <select_list>` , `SELECT *` jak i są "cukrem" i mogą być ró
   
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład `address` zapytania SELECT zwraca, z `Families` którego `id` pasuje `AndersenFamily`:
+Poniższy przykład zapytania SELECT zwraca, `address` z `Families` którego `id` pasuje `AndersenFamily` :
 
 ```sql
     SELECT f.address
@@ -99,6 +98,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pierwsze kroki](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [Przykłady dla platformy .NET w usłudze Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Klauzula WHERE](sql-query-where.md)

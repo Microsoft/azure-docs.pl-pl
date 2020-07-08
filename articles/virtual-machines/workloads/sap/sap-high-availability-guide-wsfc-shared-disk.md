@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982959"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure
@@ -60,15 +59,15 @@ W systemie Windows wystąpienie SAP ASCS/SCS zawiera usługi SAP Central Service
 Wystąpienie SAP ASCS/SCS ma następujące składniki:
 
 * Usługi SAP Central:
-    * Dwa procesy, serwer wiadomości i kolejki oraz nazwa hosta wirtualnego \<ASCS/SCS>, które są używane do uzyskiwania dostępu do tych dwóch procesów.
-    * Struktura pliku: S:\usr\sap\\&lt;SID&gt;\ ASCS/SCS\<wystąpienie numeru\>
+    * Dwa procesy, serwer wiadomości i kolejki oraz \<ASCS/SCS virtual host name> , które są używane do uzyskiwania dostępu do tych dwóch procesów.
+    * Struktura pliku: S:\usr\sap \\ &lt; SID &gt; \ ASCS/SCS\<instance number\>
 
 
 * Pliki hosta globalnego SAP:
-  * Struktura pliku: S:\usr\sap\\&lt;SID&gt;\SYS\...
-  * Udział plików sapmnt, który umożliwia dostęp do tych globalnych identyfikatorów SID\\&lt;&gt;S:\usr\sap \SYS\... pliki przy użyciu następującej ścieżki UNC:
+  * Struktura pliku: S:\usr\sap \\ &lt; SID &gt; \SYS \. ..
+  * Udział plików sapmnt, który umożliwia dostęp do tych globalnych S:\usr\sap \\ &lt; SID &gt; \SYS \. .. plików przy użyciu następującej ścieżki UNC:
 
-    \\\\<ASCS\>/SCS nazwa hosta wirtualnego \sapmnt\\&lt;identyfikator&gt;SID\.\SYS..
+    \\\\<ASCS/SCS nazwa hosta wirtualnego \> \Sapmnt \\ &lt; Identyfikator SID &gt; \SYS \. ..
 
 
 ![Rysunek 2. procesy, struktura plików i globalny udział plików sapmnt w wystąpieniu SAP ASCS/SCS][sap-ha-guide-figure-8001]
@@ -83,7 +82,7 @@ _**Rysunek 3.** Architektura architektury SAP ASCS/SCS z udostępnionym dyskiem_
 
 > [!IMPORTANT]
 > Te dwa składniki są uruchamiane w ramach tego samego wystąpienia SAP ASCS/SCS:
->* Ta sama \<nazwa hosta wirtualnego ASCS/SCS> jest używana w celu uzyskania dostępu do procesów serwera komunikatów SAP i kolejki oraz plików hosta globalnego SAP za pośrednictwem udziału plików sapmnt.
+>* Ta sama \<ASCS/SCS virtual host name> jest używana do uzyskiwania dostępu do procesów serwera komunikatów SAP i kolejki oraz plików hosta globalnego SAP za pośrednictwem udziału plików sapmnt.
 >* Ten sam dysk udostępniony dysku S jest współużytkowany między nimi.
 >
 

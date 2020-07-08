@@ -4,10 +4,9 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do w
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83116209"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Tworzenie aplikacji funkcji w systemie Linux w planie Azure App Service
@@ -26,7 +25,7 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com> przy
 
 Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcji. Aplikacja funkcji zapewnia środowisko do wykonywania kodu funkcji. Umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie, skalowanie i udostępnianie zasobów. W tym artykule opisano tworzenie planu App Service podczas tworzenia aplikacji funkcji.
 
-1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu Azure Portal lub stronie **głównej** wybierz pozycję **Utwórz zasób**.
 
 1. Na stronie **Nowy** wybierz pozycję **obliczeniowe**  >  **aplikacja funkcji**.
 
@@ -42,7 +41,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     |**Publikowanie**| **Kod** (domyślny) | Opcja publikowania plików kodu lub kontenera Docker. |
     | **Stos środowiska uruchomieniowego** | Preferowany język | Wybierz środowisko uruchomieniowe, które obsługuje ulubiony język programowania funkcji. Wybierz pozycję **.NET Core** dla języków C# i F #. |
     |**Wersja**| Numer wersji | Wybierz wersję zainstalowanego środowiska uruchomieniowego.  |
-    |**Region**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
+    |**Okolicy**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
 
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Strona Podstawy":::
 

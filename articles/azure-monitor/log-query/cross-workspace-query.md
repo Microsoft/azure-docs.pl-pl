@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199909"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor  
@@ -55,7 +54,7 @@ Identyfikację obszaru roboczego można wykonać na jeden z kilku sposobów:
 
 * Identyfikator zasobu platformy Azure — unikatowa tożsamość obszaru roboczego zdefiniowana przez platformę Azure. Identyfikator zasobu jest używany, gdy nazwa zasobu jest niejednoznaczna.  W przypadku obszarów roboczych format: */subscriptions/subscriptionId/ResourceGroups/resourceGroup/Providers/Microsoft. OperationalInsights/Workspaces/ComponentName*.  
 
-    Na przykład:
+    Przykład:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -86,7 +85,7 @@ Identyfikowanie aplikacji w Application Insights można wykonać za pomocą wyra
 
 * Identyfikator zasobu platformy Azure — zdefiniowana przez platformę Azure unikatowa tożsamość aplikacji. Identyfikator zasobu jest używany, gdy nazwa zasobu jest niejednoznaczna. Format to: */subscriptions/subscriptionId/ResourceGroups/resourceGroup/Providers/Microsoft. OperationalInsights/Components/ComponentName*.  
 
-    Na przykład:
+    Przykład:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

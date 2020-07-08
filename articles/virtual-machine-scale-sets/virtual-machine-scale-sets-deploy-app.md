@@ -10,10 +10,9 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124928"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Wdrażanie aplikacji na zestawach skalowania maszyn wirtualnych
@@ -35,7 +34,7 @@ Rozszerzenie niestandardowego skryptu pobiera i wykonuje skrypty na maszynach wi
 
 - [Interfejs wiersza polecenia platformy Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Szablon Azure Resource Manager](tutorial-install-apps-template.md)
+- [Szablon usługi Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalowanie aplikacji na maszynie wirtualnej z systemem Windows przy użyciu programu PowerShell DSC
@@ -90,9 +89,9 @@ Jeśli zasady uaktualniania zestawu skalowania są *Ręczne*, zaktualizuj wystą
 
 Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie używa się poleceń **apt-get install** lub **yum install** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Pakiet cloud-init automatycznie używa natywnego narzędzia do zarządzania pakietami dla wybranej dystrybucji.
 
-Aby uzyskać więcej informacji, w tym przykład pliku *Cloud-init. txt* , zobacz [use Cloud-init do dostosowywania maszyn wirtualnych platformy Azure](../virtual-machines/linux/using-cloud-init.md).
+Aby uzyskać więcej informacji, w tym przykładowy plik *cloud-init.txt* , zobacz [Używanie funkcji Cloud-init do dostosowywania maszyn wirtualnych platformy Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Aby utworzyć zestaw skalowania i użyć pliku Cloud-init, należy dodać `--custom-data` parametr do polecenia [AZ VMSS Create](/cli/azure/vmss) i określić nazwę pliku Cloud-init. Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet* w liście *zasobów* i konfiguruje wystąpienia maszyn wirtualnych przy użyciu pliku o nazwie *Cloud-init. txt*. Wprowadź własne nazwy w następujący sposób:
+Aby utworzyć zestaw skalowania i użyć pliku Cloud-init, należy dodać `--custom-data` parametr do polecenia [AZ VMSS Create](/cli/azure/vmss) i określić nazwę pliku Cloud-init. Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet* w liście *zasobów* i konfiguruje wystąpienia maszyn wirtualnych przy użyciu pliku o nazwie *cloud-init.txt*. Wprowadź własne nazwy w następujący sposób:
 
 ```azurecli
 az vmss create \

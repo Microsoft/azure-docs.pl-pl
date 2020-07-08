@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 8407aafdb9b9dadcbc8e220ac42e5d7856116959
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996783"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące infrastruktury
@@ -101,7 +100,7 @@ Usługa HDInsight udostępnia wstępnie zapisane skrypty umożliwiające zainsta
 
 Akcje skryptu można również publikować w portalu Azure Marketplace jako aplikację usługi HDInsight.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Instalowanie aplikacji Apache Hadoop innych firm w usłudze HDInsight](../hdinsight-apps-install-applications.md)
 - [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -109,7 +108,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Dostosowywanie konfiguracji usługi HDInsight przy użyciu narzędzia Bootstrap
 
-Zmiany w konfiguracjach w plikach konfiguracyjnych, takich `core-site.xml`jak `hive-site.xml` , `oozie-env.xml` i można wykonać przy użyciu Bootstrap. Poniższy skrypt jest przykładem przy użyciu polecenia [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)programu PowerShell:
+Zmiany w konfiguracjach w plikach konfiguracyjnych, takich jak `core-site.xml` , `hive-site.xml` i `oozie-env.xml` można wykonać przy użyciu Bootstrap. Poniższy skrypt jest przykładem przy użyciu polecenia [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)programu PowerShell:
 
 ```powershell
 # hive-site.xml configuration
@@ -144,7 +143,7 @@ Pusty węzeł brzegowy to maszyna wirtualna z systemem Linux z tymi samymi narz�
 - Testowanie aplikacji klienckich
 - Hostowanie aplikacji klienckich
 
-Węzły brzegowe można tworzyć i usuwać za pomocą Azure Portal i mogą być używane podczas tworzenia klastra lub po nim. Po utworzeniu węzła brzegowego można połączyć się z węzłem brzegowym przy użyciu protokołu SSH, a następnie uruchomić narzędzia klienckie w celu uzyskania dostępu do klastra Hadoop w usłudze HDInsight. Punkt końcowy SSH węzła brzegowego `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`to.
+Węzły brzegowe można tworzyć i usuwać za pomocą Azure Portal i mogą być używane podczas tworzenia klastra lub po nim. Po utworzeniu węzła brzegowego można połączyć się z węzłem brzegowym przy użyciu protokołu SSH, a następnie uruchomić narzędzia klienckie w celu uzyskania dostępu do klastra Hadoop w usłudze HDInsight. Punkt końcowy SSH węzła brzegowego to `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22` .
 
 
 Aby uzyskać więcej informacji, zobacz [używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight](../hdinsight-apps-use-edge-node.md).
@@ -172,16 +171,16 @@ Usługę HDInsight można dodać do nowego lub istniejącego Virtual Network pla
 > [!Note]  
 > Usługa HDInsight nie obsługuje obecnie wymuszonego tunelowania. Wymuszone tunelowanie to ustawienie podsieci, które wymusza wychodzący ruch internetowy do urządzenia w celu przeprowadzenia inspekcji i rejestrowania. Usuń wymuszone tunelowanie przed zainstalowaniem usługi HDInsight w podsieci lub Utwórz nową podsieć dla usługi HDInsight. Usługa HDInsight nie obsługuje również ograniczania łączności sieciowej wychodzącej.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Azure Virtual-Networks — Omówienie](../../virtual-network/virtual-networks-overview.md)
-- [Poszerzanie usługi Azure HDInsight przy użyciu usługi Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
+- [Rozszerzanie usługi Azure HDInsight za pomocą usługi Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Bezpieczne łączenie z usługami platformy Azure za pomocą punktów końcowych usługi Azure Virtual Network
 
 Usługa HDInsight obsługuje [punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md), które umożliwiają bezpieczne łączenie się z bazami danych platformy Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB i SQL. Po włączeniu punktu końcowego usługi Azure HDInsight ruch przepływów odbywa się za pośrednictwem zabezpieczonej trasy z centrum danych platformy Azure. Dzięki temu zwiększonemu poziomowi zabezpieczeń w warstwie sieciowej można zablokować konta magazynu danych Big Data do określonych sieci wirtualnych (sieci wirtualnych) i nadal używać klastrów usługi HDInsight bezproblemowo, aby uzyskać dostęp do tych danych i ich przetworzyć.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Punkty końcowe usługi dla sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Rozszerzanie zabezpieczeń usługi HDInsight za pomocą punktów końcowych usług](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)

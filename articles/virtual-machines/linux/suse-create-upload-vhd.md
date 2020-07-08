@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83643430"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem SLES lub openSUSE dla platformy Azure

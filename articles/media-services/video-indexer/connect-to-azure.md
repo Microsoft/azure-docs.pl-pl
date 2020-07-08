@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005925"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
@@ -131,7 +130,7 @@ Jeśli połączenie z platformą Azure zakończyło się niepowodzeniem, możesz
     2. Wybierz [metodę uwierzytelniania nazwy głównej usługi](../previous/media-services-portal-get-started-with-aad.md).
     3. Pobierz identyfikator klienta i klucz tajny klienta
 
-        Po **wybraniu opcji**->**klucze**, Dodaj **Opis**, naciśnij przycisk **Zapisz**, a wartość klucza zostanie wypełniona.
+        Po **wybraniu opcji** -> **klucze**, Dodaj **Opis**, naciśnij przycisk **Zapisz**, a wartość klucza zostanie wypełniona.
 
         Jeśli klucz zostanie wygaśnie, właściciel konta będzie musiał skontaktować się z pomocą techniczną Video Indexer, aby odnowić klucz.
 
@@ -163,7 +162,7 @@ Możliwość importowania zawartości jest ważna zarówno w przypadku zautomaty
 > [!NOTE]
 > Zawartość można zaimportować tylko raz z każdego konta.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Stosuje się następujące Azure Media Services powiązane zagadnienia:
 

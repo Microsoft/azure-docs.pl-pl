@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122276"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Zarządzanie środowiskami hybrydowymi przy użyciu programu PowerShell w Azure Functions i App Service Połączenia hybrydowe
@@ -50,7 +49,7 @@ cmd.exe /C $Cmd
 
 Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w warstwach Podstawowa, standardowa i izolowana. Podczas tworzenia aplikacji funkcji przy użyciu programu PowerShell Utwórz lub wybierz jeden z tych planów.
 
-1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu Azure Portal lub stronie **głównej** wybierz pozycję **Utwórz zasób**.
 
 1. Na stronie **Nowy** wybierz pozycję **obliczeniowe**  >  **aplikacja funkcji**.
 
@@ -61,7 +60,7 @@ Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w 
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której jest tworzona ta nowa aplikacja funkcji. |
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nazwa nowej grupy zasobów, w której ma zostać utworzona aplikacja funkcji. |
     | **Nazwa aplikacja funkcji** | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. Prawidłowe znaki to `a-z` (bez uwzględniania wielkości liter), `0-9` i `-` .  |
-    |**Publikowanie**| Code | Opcja publikowania plików kodu lub kontenera Docker. |
+    |**Publikowanie**| Kod | Opcja publikowania plików kodu lub kontenera Docker. |
     | **Stos środowiska uruchomieniowego** | Preferowany język | Wybierz pozycję PowerShell Core. |
     |**Wersja**| Numer wersji | Wybierz wersję zainstalowanego środowiska uruchomieniowego.  |
     |**Okolicy**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
@@ -82,7 +81,7 @@ Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w 
 
     | Ustawienie      | Sugerowana wartość  | Opis |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | Domyślny | Tworzy zasób Application Insights o tej samej *nazwie aplikacji* w najbliższym obsługiwanym regionie. Rozszerzając to ustawienie lub wybierając pozycję **Utwórz nowe**, możesz zmienić nazwę Application Insights lub wybrać inny region w obszarze [geograficznym platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , w którym chcesz przechowywać dane. |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | Domyślne | Tworzy zasób Application Insights o tej samej *nazwie aplikacji* w najbliższym obsługiwanym regionie. Rozszerzając to ustawienie lub wybierając pozycję **Utwórz nowe**, możesz zmienić nazwę Application Insights lub wybrać inny region w obszarze [geograficznym platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , w którym chcesz przechowywać dane. |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Tworzenie aplikacji funkcji — monitorowanie." border="true":::
 

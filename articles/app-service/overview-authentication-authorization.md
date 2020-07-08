@@ -7,10 +7,9 @@ ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196433"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
@@ -125,7 +124,7 @@ Ta opcja zapewnia większą elastyczność obsługi żądań anonimowych. Na prz
 
 ### <a name="allow-only-authenticated-requests"></a>Zezwalaj tylko na uwierzytelnione żądania
 
-Opcja ta umożliwia **zalogowanie się przy użyciu \<>dostawcy **. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
+Opcja jest **Logowanie za pomocą programu \<provider> **. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
 
 W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardziej precyzyjne uwierzytelnianie, takie jak autoryzacja specyficzna dla ról, może być obsługiwane przez sprawdzenie oświadczeń użytkownika (zobacz [dostęp do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims)).
 
@@ -136,7 +135,7 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 > Uwierzytelnianie/autoryzacja były wcześniej znane jako łatwe uwierzytelnianie.
 >
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)  

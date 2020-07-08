@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
 ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83199030"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
@@ -41,7 +40,7 @@ Zakres jest określany przez metodę, która jest używana do uruchamiania Log A
 
 Gdy zakres zapytania jest obszarem roboczym Log Analytics lub aplikacją Application Insights, dostępne są wszystkie opcje w portalu i wszystkie polecenia zapytań. W przypadku określania zakresu zasobu następujące opcje w portalu nie są dostępne, ponieważ są skojarzone z pojedynczym obszarem roboczym lub aplikacją:
 
-- Zapisywanie
+- Zapisz
 - Eksplorator zapytań
 - Nowa reguła alertu
 

@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
 ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006328"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
@@ -132,7 +131,7 @@ Utwórz zasób ExportPipeline dla rejestru kontenerów źródłowych przy użyci
 
 Skopiuj [pliki szablonów](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) Menedżer zasobów ExportPipeline do folderu lokalnego.
 
-Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json`:
+Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json` :
 
 |Parametr  |Wartość  |
 |---------|---------|
@@ -144,7 +143,7 @@ Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.js
 
 ### <a name="export-options"></a>Opcje eksportu
 
-`options` Właściwość dla potoku eksportu obsługuje opcjonalne wartości logiczne. Zalecane są następujące wartości:
+`options`Właściwość dla potoku eksportu obsługuje opcjonalne wartości logiczne. Zalecane są następujące wartości:
 
 |Parametr  |Wartość  |
 |---------|---------|
@@ -162,7 +161,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-W danych wyjściowych polecenia Zanotuj identyfikator zasobu (`id`) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
+W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -178,7 +177,7 @@ Utwórz zasób ImportPipeline w docelowym rejestrze kontenera przy użyciu wdro�
 
 Skopiuj [pliki szablonów](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) Menedżer zasobów ImportPipeline do folderu lokalnego.
 
-Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json`:
+Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json` :
 
 Parametr  |Wartość  |
 |---------|---------|
@@ -190,7 +189,7 @@ Parametr  |Wartość  |
 
 ### <a name="import-options"></a>Opcje importowania
 
-`options` Właściwość potoku importu obsługuje opcjonalne wartości logiczne. Zalecane są następujące wartości:
+`options`Właściwość potoku importu obsługuje opcjonalne wartości logiczne. Zalecane są następujące wartości:
 
 |Parametr  |Wartość  |
 |---------|---------|
@@ -208,7 +207,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu (`id`) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
+Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -224,7 +223,7 @@ Utwórz zasób PipelineRun dla rejestru kontenerów źródłowych przy użyciu w
 
 Skopiuj [pliki szablonów](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Export) Menedżer zasobów PipelineRun do folderu lokalnego.
 
-Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json`:
+Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json` :
 
 |Parametr  |Wartość  |
 |---------|---------|
@@ -282,7 +281,7 @@ Można również użyć zasobu PipelineRun, aby wyzwolić ImportPipeline do impo
 
 Skopiuj [pliki szablonów](https://github.com/Azure/acr/tree/master/docs/image-transfer/PipelineRun/PipelineRun-Import) Menedżer zasobów PipelineRun do folderu lokalnego.
 
-Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json`:
+Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.json` :
 
 |Parametr  |Wartość  |
 |---------|---------|
@@ -327,7 +326,7 @@ az deployment group delete \
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * **Niepowodzenia Template deployment lub błędy**
-  * Jeśli uruchomienie potoku nie powiedzie się, `pipelineRunErrorMessage` Sprawdź Właściwość uruchomienia zasobu.
+  * Jeśli uruchomienie potoku nie powiedzie się, sprawdź `pipelineRunErrorMessage` Właściwość uruchomienia zasobu.
   * Typowe błędy wdrażania szablonów można znaleźć w temacie [Rozwiązywanie problemów z wdrożeniami szablonów ARM](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
 * **Problemy z eksportem lub importem obiektów blob magazynu**
   * Token SAS może wygasnąć lub mieć niewystarczające uprawnienia do określonego eksportu lub przebiegu importowania

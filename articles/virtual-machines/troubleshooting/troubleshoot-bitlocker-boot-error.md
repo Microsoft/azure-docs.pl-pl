@@ -14,10 +14,9 @@ ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
 ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201347"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure

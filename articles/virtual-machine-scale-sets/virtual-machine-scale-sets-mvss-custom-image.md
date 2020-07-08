@@ -10,10 +10,9 @@ ms.date: 04/26/2018
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124911"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Add a custom image to an Azure scale set template (Dodawanie obrazu niestandardowego do szablonu zestawu skalowania platformy Azure)

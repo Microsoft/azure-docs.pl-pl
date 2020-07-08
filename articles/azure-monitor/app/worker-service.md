@@ -4,10 +4,9 @@ description: Monitorowanie aplikacji .NET Core/. NET Framework bez protokołu HT
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 1f9b35022e63c4c3fe671237149602f8db465466
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83117881"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights aplikacji usługi Worker (aplikacje inne niż HTTP)
@@ -351,7 +350,7 @@ Należy pamiętać, że `ApplicationInsightsServiceOptions` w tym zestawie SDK z
 
 Najczęściej używane ustawienia w programie`ApplicationInsightsServiceOptions`
 
-|Ustawienie | Opis | Domyślny
+|Ustawienie | Opis | Domyślne
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Włącz/Wyłącz funkcję LiveMetrics | true
 |EnableAdaptiveSampling | Włącz/Wyłącz próbkowanie adaptacyjne | true

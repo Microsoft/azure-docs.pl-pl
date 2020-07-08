@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83402238"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MySQL przy użyciu magazynu zapytań

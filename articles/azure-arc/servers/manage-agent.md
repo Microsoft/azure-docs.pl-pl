@@ -9,10 +9,9 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83648094"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
@@ -52,7 +51,7 @@ Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Window
 
 1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Wykonaj **AzureConnectedMachineAgent. msi** , aby uruchomić Kreatora instalacji.
+2. Wykonaj **AzureConnectedMachineAgent.msi** , aby uruchomić Kreatora instalacji.
 
 Kreator instalacji wykrywa, czy Poprzednia wersja istnieje, a następnie automatycznie wykonuje uaktualnienie agenta. Po zakończeniu uaktualniania Kreator instalacji zostanie automatycznie zamknięty.
 
@@ -125,7 +124,7 @@ Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zyppe
 
 ## <a name="about-the-azcmagent-tool"></a>Informacje o narzędziu Azcmagent
 
-Narzędzie Azcmagent (Azcmagent. exe) służy do konfigurowania usługi Azure ARC dla serwerów (wersja zapoznawcza) podczas instalacji lub modyfikacji konfiguracji początkowej agenta po zakończeniu instalacji. Azcmagent. exe dostarcza parametrów wiersza polecenia, aby dostosować agenta i wyświetlić jego stan:
+Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania usługi Azure ARC dla serwerów (wersja zapoznawcza) podczas instalacji lub modyfikacji konfiguracji początkowej agenta po zakończeniu instalacji. Azcmagent.exe zawiera parametry wiersza polecenia umożliwiające dostosowanie agenta i wyświetlenie jego stanu:
 
 * **Połącz** , aby połączyć maszynę z usługą Azure Arc
 
@@ -212,11 +211,11 @@ Obie następujące metody usuwają agenta, ale nie usuwają folderu *C:\Program 
     c. W obszarze **programy i funkcje**wybierz pozycję **Agent połączonej maszyny Azure**, wybierz pozycję **Odinstaluj**, a następnie wybierz pozycję **tak**.  
 
     >[!NOTE]
-    > Możesz również uruchomić Kreatora instalacji agenta, klikając dwukrotnie pakiet Instalatora **AzureConnectedMachineAgent. msi** .
+    > Możesz również uruchomić Kreatora instalacji agenta, klikając dwukrotnie pakiet Instalatora **AzureConnectedMachineAgent.msi** .
 
 #### <a name="uninstall-from-the-command-line"></a>Odinstalowywanie z wiersza polecenia
 
-Aby odinstalować agenta ręcznie z wiersza polecenia lub użyć metody zautomatyzowanej, takiej jak skrypt, można użyć poniższego przykładu. Najpierw należy pobrać kod produktu, który jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń pakietu aplikacji, z systemu operacyjnego. Odinstalowywanie odbywa się przy użyciu wiersza polecenia msiexec. exe- `msiexec /x {Product Code}` .
+Aby odinstalować agenta ręcznie z wiersza polecenia lub użyć metody zautomatyzowanej, takiej jak skrypt, można użyć poniższego przykładu. Najpierw należy pobrać kod produktu, który jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń pakietu aplikacji, z systemu operacyjnego. Odinstalowywanie odbywa się przy użyciu wiersza polecenia Msiexec.exe — `msiexec /x {Product Code}` .
 
 1. Otwórz Edytor rejestru.
 

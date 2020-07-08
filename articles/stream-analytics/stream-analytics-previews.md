@@ -8,10 +8,9 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 7391fbccaf7983a070d80da64a2908333280420b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83609005"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funkcje w wersji zapoznawczej Azure Stream Analytics
