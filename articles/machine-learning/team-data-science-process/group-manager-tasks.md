@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721357"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Zadania kierownika ds. przetwarzania danych zespołowych
@@ -57,7 +56,7 @@ Poniższy samouczek zawiera szczegółowe instrukcje.
    
    ![Tworzenie projektu](./media/group-manager-tasks/create-project.png)
 
-Zostanie otwarta strona **Podsumowanie** projektu **GroupCommon** . Adres URL strony to *https:\//\<ServerName>/\<Organization-Name>/groupcommon*.
+Zostanie otwarta strona **Podsumowanie** projektu **GroupCommon** . Adres URL strony to *https: \/ / \<servername> / \<organization-name> /GroupCommon*.
 
 ![Strona podsumowania projektu](./media/group-manager-tasks/project-summary.png)
 
@@ -121,13 +120,13 @@ Aby zaimportować repozytoria zespołu przetwarzania TDSP:
    
    ![Wybierz pozycję Importuj](./media/group-manager-tasks/import-repo.png)
    
-1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź wartość *https:\//GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* dla **adresu URL klonowania**. Następnie wybierz pozycję **Importuj**. Zawartość repozytorium Microsoft przetwarzania TDSP Team ProjectTemplate jest zaimportowana do repozytorium GroupProjectTemplate. 
+1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź wartość *https: \/ /GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* dla **adresu URL klonowania**. Następnie wybierz pozycję **Importuj**. Zawartość repozytorium Microsoft przetwarzania TDSP Team ProjectTemplate jest zaimportowana do repozytorium GroupProjectTemplate. 
    
    ![Importuj repozytorium zespołu przetwarzania TDSP firmy Microsoft](./media/group-manager-tasks/import-repo-2.png)
    
 1. W górnej części strony **repozytoria** wybierz pozycję repozytorium **GroupUtilities** .
    
-1. Powtórz proces importowania, aby zaimportować zawartość repozytorium Microsoft przetwarzania TDSP Team **Utilities** , *https:\//GitHub.com/Azure/Azure-TDSP-Utilities.git*do repozytorium **GroupUtilities** . 
+1. Powtórz proces importowania, aby zaimportować zawartość repozytorium Microsoft przetwarzania TDSP Team **Utilities** , *https: \/ /GitHub.com/Azure/Azure-TDSP-Utilities.git*do repozytorium **GroupUtilities** . 
    
 Każdy z dwóch repozytoriów grup zawiera teraz wszystkie pliki, z wyjątkiem tych znajdujących się w katalogu *. git* , z odpowiedniego repozytorium programu Microsoft przetwarzania tdspe. 
 

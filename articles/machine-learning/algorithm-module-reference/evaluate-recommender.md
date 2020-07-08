@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76312264"
 ---
 # <a name="evaluate-recommender"></a>Ocena modułu poleceń
@@ -65,7 +64,7 @@ Gdy oceniasz przewidywane klasyfikacje, wynikowy zestaw danych (drugie dane wej�
 -   Trzecia kolumna zawiera odpowiednie oceny elementów użytkownika.  
   
 > [!IMPORTANT] 
-> Aby obliczanie powiodło się, nazwy kolumn muszą być `User`odpowiednio `Item`,, `Rating`i.  
+> Aby obliczanie powiodło się, nazwy kolumn muszą być `User` `Item` odpowiednio,, i `Rating` .  
   
 Ocena polecania porównuje klasyfikacje w zestawie danych "Uziemienie", do przewidywanych klasyfikacji zestawu danych. Następnie oblicza średni błąd bezwzględny (MAE) i pierwiastek średniego błędu kwadratowego (RMSE).
 
@@ -81,7 +80,7 @@ Gdy oceniasz zalecenia dotyczące elementów, użyj oceny zestawu danych, który
 Przed nawiązaniem połączenia z tym zestawem danych zalecamy posortowanie zestawu danych, tak aby najbardziej odpowiednie elementy były wcześniej dostępne.  
 
 > [!IMPORTANT] 
-> Aby można było wykonać ocenę problemu, nazwy kolumn muszą `User`być, `Item 1`, `Item 2`, `Item 3` i tak dalej.  
+> Aby można było wykonać ocenę problemu, nazwy kolumn muszą być `User` , `Item 1` , `Item 2` , `Item 3` i tak dalej.  
   
 Funkcja oceniania zaleca obliczanie średniego znormalizowanego zysku z rabatem skumulowanym (NDCG) i zwraca go do wyjściowego zestawu danych.  
   

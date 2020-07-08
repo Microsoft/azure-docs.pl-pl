@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
 ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76513375"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ograniczenia importu interfejsu API i znane problemy
@@ -50,8 +49,8 @@ Jeśli otrzymujesz błędy podczas importowania dokumentu OpenAPI, upewnij się,
 
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>Openapi wersja 3
 
--   Jeśli określono `servers` wiele, API Management spróbuje wybrać pierwszy adres URL https. Jeśli nie ma żadnych adresów URL HTTPs — pierwszy adres URL protokołu HTTP. Jeśli nie ma adresów URL protokołu HTTP, adres URL serwera będzie pusty.
--   `Examples`nie jest obsługiwana, `example` ale jest.
+-   Jeśli `servers` określono wiele, API Management spróbuje wybrać pierwszy adres URL https. Jeśli nie ma żadnych adresów URL HTTPs — pierwszy adres URL protokołu HTTP. Jeśli nie ma adresów URL protokołu HTTP, adres URL serwera będzie pusty.
+-   `Examples`nie jest obsługiwana, ale `example` jest.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI mechanizmy importowania, aktualizowania i eksportowania
 
@@ -59,9 +58,9 @@ Jeśli otrzymujesz błędy podczas importowania dokumentu OpenAPI, upewnij się,
 
 Dla każdej operacji znalezionej w dokumencie OpenAPI zostanie utworzona nowa operacja z nazwą zasobu platformy Azure, a nazwa wyświetlana zostanie ustawiona na `operationId` `summary` odpowiednio. `operationId`wartość jest znormalizowana po zasadach opisanych poniżej. `summary`wartość jest zaimportowana jako-is, a jej długość jest ograniczona do 300 znaków.
 
-Jeśli `operationId` nie zostanie określony (oznacza to, że nie `null`jest obecny, lub pusty), wartość nazwy zasobu platformy Azure zostanie wygenerowana przez połączenie metody http i szablonu ścieżki, `get-foo`na przykład.
+Jeśli `operationId` nie zostanie określony (oznacza to, że nie jest obecny, `null` lub pusty), wartość nazwy zasobu platformy Azure zostanie wygenerowana przez połączenie metody http i szablonu ścieżki, na przykład `get-foo` .
 
-Jeśli `summary` nie zostanie określony (to oznacza, że nie `null`jest obecny, lub pusty `display name` ), wartość zostanie `operationId`ustawiona na. Jeśli `operationId` nie jest określony, wyświetlana wartość nazwy będzie generowana przez połączenie metody http i szablonu ścieżki, na przykład `Get - /foo`.
+Jeśli `summary` nie zostanie określony (to oznacza, że nie jest obecny, `null` lub pusty), `display name` wartość zostanie ustawiona na `operationId` . Jeśli `operationId` nie jest określony, wyświetlana wartość nazwy będzie generowana przez połączenie metody http i szablonu ścieżki, na przykład `Get - /foo` .
 
 ### <a name="update-an-existing-api-via-openapi-import"></a>Aktualizowanie istniejącego interfejsu API za pomocą importu OpenAPI
 
@@ -75,20 +74,20 @@ Wszystkie istniejące niedopasowane operacje zostaną usunięte.
 
 Aby zaimportować bardziej przewidywalne instrukcje, postępuj zgodnie z następującymi wskazówkami:
 
-- Upewnij się, że `operationId` określono właściwość dla każdej operacji.
+- Upewnij się, że określono `operationId` Właściwość dla każdej operacji.
 - Nie należy zmieniać `operationId` po początkowym imporcie.
-- W tym `operationId` samym czasie nigdy nie zmieniaj metody ani szablonu ścieżki.
+- `operationId`W tym samym czasie nigdy nie zmieniaj metody ani szablonu ścieżki.
 
 ### <a name="export-api-as-openapi"></a>Eksportowanie interfejsu API jako OpenAPI
 
-Dla każdej operacji nazwa zasobu platformy Azure zostanie wyeksportowana jako `operationId`, a nazwa wyświetlana zostanie wyeksportowana jako. `summary`
+Dla każdej operacji nazwa zasobu platformy Azure zostanie wyeksportowana jako `operationId` , a nazwa wyświetlana zostanie wyeksportowana jako `summary` .
 Reguły normalizacji dla operationId
 
 - Konwertuj na małe litery.
-- Zastąp każdą sekwencję znaków innych niż alfanumeryczne pojedynczą kreską, na `GET-/foo/{bar}?buzz={quix}` przykład, zostanie przekształcona w `get-foo-bar-buzz-quix-`.
-- Przycinanie łączników na obu stronach, na przykład `get-foo-bar-buzz-quix-` , stanie się`get-foo-bar-buzz-quix`
+- Zastąp każdą sekwencję znaków innych niż alfanumeryczne pojedynczą kreską, na przykład, `GET-/foo/{bar}?buzz={quix}` zostanie przekształcona w `get-foo-bar-buzz-quix-` .
+- Przycinanie łączników na obu stronach, na przykład, `get-foo-bar-buzz-quix-` stanie się`get-foo-bar-buzz-quix`
 - Obcinaj do 76 znaków, cztery znaki poniżej maksymalnego limitu dla nazwy zasobu.
-- Użyj pozostałych czterech znaków dla sufiksu deduplikacji, w razie potrzeby, w postaci `-1, -2, ..., -999`.
+- Użyj pozostałych czterech znaków dla sufiksu deduplikacji, w razie potrzeby, w postaci `-1, -2, ..., -999` .
 
 
 ## <a name="wsdl"></a><a name="wsdl"> </a>WSDL

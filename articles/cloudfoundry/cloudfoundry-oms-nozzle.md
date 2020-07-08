@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277361"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Wdrażanie usługi Azure Log Analytics dysz dla monitorowania systemu Cloud Foundry
@@ -36,7 +35,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące wdrażania dysz.
 
 Możesz użyć dyszy z wdrożeniem CF typu "open source" lub wdrożeniem Cloud Foundry (PCF).
 
-* [Usługa Cloud Foundry na platformie Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
+* [Wdrażanie rozwiązania Cloud Foundry na platformie Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
 * [Wdrażanie Cloud Foundry Pivot na platformie Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
@@ -183,7 +182,7 @@ Jeśli utworzono ręcznie obszar roboczy Log Analytics, wykonaj poniższe czynno
 
 ### <a name="1-import-the-oms-view"></a>1. Zaimportuj widok pakietu OMS
 
-W portalu pakietu**OMS przejdź do** **widoku widok** > **importowania** > projektanta i wybierz jeden z plików omsview. Na przykład wybierz *Cloud Foundry. omsview*i Zapisz widok. Teraz kafelek zostanie wyświetlony na stronie **Przegląd** . Wybierz go, aby zobaczyć wizualizacje metryki.
+W portalu pakietu OMS przejdź do **widoku widok**  >  **importowania**projektanta  >  **Browse**i wybierz jeden z plików omsview. Na przykład wybierz *Cloud Foundry. omsview*i Zapisz widok. Teraz kafelek zostanie wyświetlony na stronie **Przegląd** . Wybierz go, aby zobaczyć wizualizacje metryki.
 
 Można dostosować te widoki lub utworzyć nowe widoki za poorednictwem **projektanta widoków**.
 
@@ -219,7 +218,7 @@ Aby skalować w górę dysz, użyj Menedżera aplikacji lub interfejsu wiersza p
 Loggregator wysyła komunikat dziennika **LGR** w celu wskazania problemów z procesem rejestrowania. Można monitorować alert, aby określić, czy Loggregator musi być skalowane w górę.
 Aby skalować w górę Loggregator, Zwiększ rozmiar buforu Doppler lub Dodaj kolejne wystąpienia serwera Doppler w manifeście CF. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące skalowania Loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Aktualizowanie
+## <a name="update"></a>Aktualizacja
 
 Aby zaktualizować dyszę przy użyciu nowszej wersji, Pobierz nową wersję z dyszą, wykonaj kroki opisane w poprzedniej sekcji "wdróż dyszę" i ponownie wypchnij aplikację.
 

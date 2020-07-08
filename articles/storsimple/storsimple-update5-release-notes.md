@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76275167"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 Series Update 5 — informacje o wersji
@@ -44,9 +43,9 @@ W aktualizacji Update 5 wprowadzono następujące ulepszenia dotyczące kluczy i
 
 Poniższa tabela zawiera podsumowanie problemów, które zostały rozwiązane w aktualizacji Update 5.
 
-| Nie | Funkcja | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie | Cecha | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- |
-| 1 |Komunikacja zdalna programu Windows PowerShell |W poprzedniej wersji użytkownik Wystąpił błąd podczas próby nawiązania połączenia zdalnego z urządzeniem w chmurze StorSimple za pośrednictwem programu Windows PowerShell. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Nie |Tak |
+| 1 |Komunikacja zdalna programu Windows PowerShell |W poprzedniej wersji użytkownik Wystąpił błąd podczas próby nawiązania połączenia zdalnego z urządzeniem w chmurze StorSimple za pośrednictwem programu Windows PowerShell. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Nie |Yes |
 | 2 |Szablony przepustowości |W starszej wersji wystąpił problem z szablonami przepustowości, które spowodowały zmniejszenie przepustowości niż to, dla którego urządzenie zostało skonfigurowane. Ten problem został rozwiązany w tej wersji. |Tak |Tak |
 | 3 |Tryb failover |W poprzedniej wersji, gdy urządzenie z dużą liczbą woluminów zostało przełączone w tryb failover na inne urządzenie z aktualizacją Update 4, proces zakończy się niepowodzeniem podczas próby zastosowania rekordów kontroli dostępu. Ten problem został rozwiązany w tej wersji. |Tak |Tak |
 

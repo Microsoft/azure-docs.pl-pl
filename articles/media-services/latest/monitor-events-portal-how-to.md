@@ -16,10 +16,9 @@ ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76509227"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Tworzenie i monitorowanie zdarzeń usługi Media Services za pomocą usługi Event Grid przy użyciu witryny Azure Portal
@@ -73,7 +72,7 @@ Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzen
 
 1. Wyświetl aplikację sieci Web ponownie i zwróć uwagę, że zdarzenie sprawdzania poprawności subskrypcji zostało do niej wysłane. 
 
-    Usługa Event Grid wysyła zdarzenie weryfikacji, aby w punkcie końcowym mogło nastąpić sprawdzenie, czy dane zdarzenia mają być odbierane. Punkt końcowy musi mieć `validationResponse` ustawioną `validationCode`wartość. Aby uzyskać więcej informacji, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](../../event-grid/security-authentication.md). Możesz wyświetlić kod aplikacji sieci Web, aby zobaczyć, w jaki sposób sprawdzać poprawność subskrypcji.
+    Usługa Event Grid wysyła zdarzenie weryfikacji, aby w punkcie końcowym mogło nastąpić sprawdzenie, czy dane zdarzenia mają być odbierane. Punkt końcowy musi mieć ustawioną wartość `validationResponse` `validationCode` . Aby uzyskać więcej informacji, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](../../event-grid/security-authentication.md). Możesz wyświetlić kod aplikacji sieci Web, aby zobaczyć, w jaki sposób sprawdzać poprawność subskrypcji.
 
 Teraz Wyzwólmy zdarzenia, aby zobaczyć, jak Event Grid dystrybuuje komunikat do punktu końcowego.
 

@@ -7,10 +7,9 @@ ms.author: rohogue
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76152973"
 ---
 # <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Dokumentacja platformy Azure vFXT na platformie Azure i inne zasoby

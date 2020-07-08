@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76311958"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Opracowywanie programów MapReduce w języku Java dla usługi Apache Hadoop w usłudze HDInsight
@@ -50,7 +49,7 @@ cd C:\HDI
     * src\main\java\org\apache\hadoop\examples: zawiera kod aplikacji.
     * src\test\java\org\apache\hadoop\examples: zawiera testy dla aplikacji.
 
-1. Usuń wygenerowany przykładowy kod. Usuń wygenerowane pliki `AppTest.java`testowe i aplikacje, a `App.java` następnie wprowadź poniższe polecenia:
+1. Usuń wygenerowany przykładowy kod. Usuń wygenerowane pliki testowe i aplikacje `AppTest.java` , a następnie `App.java` Wprowadź poniższe polecenia:
 
     ```cmd
     cd wordcountjava
@@ -60,7 +59,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Aktualizowanie modelu obiektów projektu
 
-Pełne odwołanie do pliku pliku pom. XML można znaleźć w temacie https://maven.apache.org/pom.html. Otwórz `pom.xml` , wprowadzając następujące polecenie:
+Pełne odwołanie do pliku pom.xml można znaleźć w temacie https://maven.apache.org/pom.html . Otwórz `pom.xml` , wprowadzając następujące polecenie:
 
 ```cmd
 notepad pom.xml
@@ -68,7 +67,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Dodaj zależności
 
-W `pom.xml`programie Dodaj następujący tekst do `<dependencies>` sekcji:
+W programie `pom.xml` Dodaj następujący tekst do `<dependencies>` sekcji:
 
 ```xml
 <dependency>
@@ -91,9 +90,9 @@ W `pom.xml`programie Dodaj następujący tekst do `<dependencies>` sekcji:
 </dependency>
 ```
 
-Definiuje wymagane biblioteki (wymienione &lt;w artifactId\>) z określoną wersją (wymienioną w ramach &lt;wersji\>). W czasie kompilacji te zależności są pobierane z domyślnego repozytorium Maven. Aby wyświetlić więcej, możesz użyć [wyszukiwania w repozytorium Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) .
+Definiuje wymagane biblioteki (wymienione w &lt; artifactId \> ) z określoną wersją (wymienioną w ramach &lt; wersji \> ). W czasie kompilacji te zależności są pobierane z domyślnego repozytorium Maven. Aby wyświetlić więcej, możesz użyć [wyszukiwania w repozytorium Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) .
 
-`<scope>provided</scope>` Informuje o tym, że te zależności nie powinny być pakowane z aplikacją, ponieważ są one dostarczane przez klaster usługi HDInsight w czasie wykonywania.
+`<scope>provided</scope>`Informuje o tym, że te zależności nie powinny być pakowane z aplikacją, ponieważ są one dostarczane przez klaster usługi HDInsight w czasie wykonywania.
 
 > [!IMPORTANT]
 > Używana wersja powinna być zgodna z wersją usługi Hadoop znajdującą się w klastrze. Aby uzyskać więcej informacji na temat wersji, zobacz dokument dotyczący [wersji składnika usługi HDInsight](../hdinsight-component-versioning.md) .
@@ -102,7 +101,7 @@ Definiuje wymagane biblioteki (wymienione &lt;w artifactId\>) z określoną wers
 
 Wtyczki Maven umożliwiają dostosowanie etapów kompilacji projektu. Ta sekcja służy do dodawania dodatków plug-in, zasobów i innych opcji konfiguracji kompilacji.
 
-Dodaj następujący kod do `pom.xml` pliku, a następnie Zapisz i zamknij plik. Ten tekst musi znajdować się `<project>...</project>` wewnątrz tagów w pliku, na przykład między `</dependencies>` i. `</project>`
+Dodaj następujący kod do `pom.xml` pliku, a następnie Zapisz i zamknij plik. Ten tekst musi znajdować się wewnątrz `<project>...</project>` tagów w pliku, na przykład między `</dependencies>` i `</project>` .
 
 ```xml
 <build>
@@ -147,7 +146,7 @@ Zapisz plik `pom.xml`.
 
 ## <a name="create-the-mapreduce-application"></a>Tworzenie aplikacji MapReduce
 
-1. Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `WordCount.java`. Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
+1. Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `WordCount.java` . Wybierz opcję **tak** w wierszu polecenia, aby utworzyć nowy plik.
 
     ```cmd
     notepad src\main\java\org\apache\hadoop\examples\WordCount.java
@@ -226,7 +225,7 @@ Zapisz plik `pom.xml`.
     }
     ```
 
-    Zwróć uwagę, że nazwa `org.apache.hadoop.examples` pakietu to i nazwa klasy `WordCount`. Te nazwy są używane podczas przesyłania zadania MapReduce.
+    Zwróć uwagę, że nazwa pakietu to `org.apache.hadoop.examples` i nazwa klasy `WordCount` . Te nazwy są używane podczas przesyłania zadania MapReduce.
 
 ## <a name="build-and-package-the-application"></a>Kompilowanie i pakowanie aplikacji
 
@@ -238,14 +237,14 @@ mvn clean package
 
 To polecenie czyści wszystkie poprzednie artefakty kompilacji, pobiera wszystkie zależności, które nie zostały jeszcze zainstalowane, a następnie kompiluje i pakuje aplikację.
 
-Po zakończeniu wykonywania polecenia `wordcountjava/target` katalog zawiera plik o nazwie. `wordcountjava-1.0-SNAPSHOT.jar`
+Po zakończeniu wykonywania polecenia `wordcountjava/target` katalog zawiera plik o nazwie `wordcountjava-1.0-SNAPSHOT.jar` .
 
 > [!NOTE]
-> `wordcountjava-1.0-SNAPSHOT.jar` Plik to uberjar, który zawiera nie tylko zadanie WORDCOUNT, ale również zależności wymagane przez zadanie w czasie wykonywania.
+> `wordcountjava-1.0-SNAPSHOT.jar`Plik to uberjar, który zawiera nie tylko zadanie WORDCOUNT, ale również zależności wymagane przez zadanie w czasie wykonywania.
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Przekaż zadania JAR i Run (SSH)
 
-Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła głównego platformy Apache HBase w klastrze usługi HDInsight. `ssh` Polecenie jest następnie używane do nawiązania połączenia z klastrem i uruchomienia przykładu bezpośrednio w węźle głównym.
+Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła głównego platformy Apache HBase w klastrze usługi HDInsight. `ssh`Polecenie jest następnie używane do nawiązania połączenia z klastrem i uruchomienia przykładu bezpośrednio w węźle głównym.
 
 1. Przekaż plik jar do klastra. Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight, a następnie wprowadź następujące polecenie:
 
@@ -265,7 +264,7 @@ Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła główn
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
 
-    To polecenie uruchamia aplikację WordCount MapReduce. Plik wejściowy jest `/example/data/gutenberg/davinci.txt`i katalog wyjściowy `/example/data/wordcountout`. Plik wejściowy i dane wyjściowe są przechowywane w domyślnym magazynie klastra.
+    To polecenie uruchamia aplikację WordCount MapReduce. Plik wejściowy jest `/example/data/gutenberg/davinci.txt` i katalog wyjściowy `/example/data/wordcountout` . Plik wejściowy i dane wyjściowe są przechowywane w domyślnym magazynie klastra.
 
 1. Po zakończeniu zadania użyj następującego polecenia, aby wyświetlić wyniki:
 

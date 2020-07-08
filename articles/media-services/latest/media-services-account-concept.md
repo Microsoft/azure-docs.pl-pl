@@ -12,10 +12,9 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980385"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Zarządzaj kontami Azure Media Services v3
@@ -29,7 +28,7 @@ Jeśli musisz przenieść konto Media Services do nowej subskrypcji, musisz najp
 > [!NOTE]
 > Media Services v3 obsługuje model z obsługą wielu dzierżawców.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 * Utwórz kopie zapasowe wszystkich danych na koncie przed migracją do innej subskrypcji.
 * Należy zatrzymać wszystkie punkty końcowe przesyłania strumieniowego i zasoby przesyłania strumieniowego na żywo. Użytkownicy nie będą mogli uzyskać dostępu do zawartości na czas trwania przenoszenia grupy zasobów. 

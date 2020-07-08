@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721748"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Tworzenie funkcji dla danych w programie SQL Server przy użyciu języka SQL i Python
@@ -63,7 +62,7 @@ Poniższy przykład pokazuje, jak generować funkcje binned przez pakowania (prz
 ### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Wdrażanie funkcji z pojedynczej kolumny
 W tej sekcji pokazano, jak wdrożyć pojedynczą kolumnę w tabeli w celu wygenerowania dodatkowych funkcji. W przykładzie przyjęto założenie, że w tabeli znajduje się kolumna Latitude lub długość geograficzna, z której próbujesz generować funkcje.
 
-Oto krótkie miejsce na dane lokalizacji szerokości geograficznej (StackOverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Oto kilka przydatnych zagadnień, które należy zrozumieć, aby poznać dane lokalizacji przed utworzeniem funkcji z pola:
+Oto krótkie miejsce na dane lokalizacji szerokości geograficznej (StackOverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude` ). Oto kilka przydatnych zagadnień, które należy zrozumieć, aby poznać dane lokalizacji przed utworzeniem funkcji z pola:
 
 * Znak wskazuje, czy na świecie mamy północ, południe, wschód czy zachód.
 * Niezerowych setek cyfr wskazuje długość geograficzna, a nie Szerokość geograficzna.
@@ -76,7 +75,7 @@ Oto krótkie miejsce na dane lokalizacji szerokości geograficznej (StackOverflo
 * Piąte miejsce dziesiętne jest równe 1,1 m: odróżnia drzewa od siebie. Dokładność tego poziomu z komercyjnymi jednostkami GPS można osiągnąć tylko przy użyciu korekty różnicowej.
 * Szóste miejsce dziesiętne jest równe 0,11 m: można użyć tego poziomu, aby uzyskać szczegółowe informacje o strukturach, na potrzeby projektowania Landscapes, tworzenia dróg. Powinien być wystarczająco dobry, aby można było śledzić ruchy Glaciers i rzek. Ten cel można osiągnąć, pobierając miary painstaking z GPS, takie jak rozwiązane z różnicą GPS.
 
-Informacje o lokalizacji można featurized, oddzielając informacje o regionie, lokalizacji i miejscowości. Można również wywołać punkt końcowy REST, taki jak interfejs API usługi mapy Bing ( `https://msdn.microsoft.com/library/ff701710.aspx` Zobacz, aby uzyskać informacje o regionie/okręgu).
+Informacje o lokalizacji można featurized, oddzielając informacje o regionie, lokalizacji i miejscowości. Można również wywołać punkt końcowy REST, taki jak interfejs API usługi mapy Bing (zobacz `https://msdn.microsoft.com/library/ff701710.aspx` , aby uzyskać informacje o regionie/okręgu).
 
     select
         <location_columnname>

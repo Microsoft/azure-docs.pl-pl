@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76717912"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalowalna nauka danych dzięki Azure Data Lake: kompleksowy przewodnik
@@ -28,7 +27,7 @@ Te technologie są używane w tym instruktażu.
 * U-SQL i Visual Studio
 * Python
 * Azure Machine Learning
-* Scripts
+* Skrypty
 
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -47,7 +46,7 @@ Ten Instruktaż zawiera również sekcję przedstawiającą sposób kompilowania
 ### <a name="azure-machine-learning"></a>Azure Machine Learning 
 Azure Machine Learning Studio (klasyczny) służy do kompilowania i wdrażania modeli predykcyjnych przy użyciu dwóch metod: najpierw ze skryptami języka Python, a następnie z tabelami programu Hive w klastrze usługi HDInsight (Hadoop).
 
-### <a name="scripts"></a>Scripts
+### <a name="scripts"></a>Skrypty
 W tym instruktażu opisano tylko podstawowe czynności. Możesz pobrać pełny **skrypt U-SQL** i **Jupyter Notebook** z usługi [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -131,7 +130,7 @@ Wolumin CSV "trip_fare" zawiera szczegółowe informacje o opłatach za każdą 
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Unikatowy klucz do przyłączenia\_danych podróży i\_opłaty za podróż są złożone z następujących trzech pól: Medallion,\_licencja na hakera i Data i godzina pobrania\_. Dostęp do nieprzetworzonych plików CSV można uzyskać z poziomu obiektu BLOB usługi Azure Storage. Skrypt U-SQL dla tego sprzężenia znajduje się w sekcji dotyczącej [podróży i taryf za sprzężenie](#join) .
+Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z następujących trzech pól: Medallion, licencja na hakera \_ i \_ Data i godzina pobrania. Dostęp do nieprzetworzonych plików CSV można uzyskać z poziomu obiektu BLOB usługi Azure Storage. Skrypt U-SQL dla tego sprzężenia znajduje się w sekcji dotyczącej [podróży i taryf za sprzężenie](#join) .
 
 ## <a name="process-data-with-u-sql"></a>Przetwarzanie danych za pomocą języka U-SQL
 Zadania przetwarzania danych przedstawione w tej sekcji obejmują pozyskiwanie, sprawdzanie jakości, eksplorowanie i próbkowanie danych. Przedstawiono również sposób sprzęgania tabel podróży i opłat. W ostatniej sekcji przedstawiono zadanie uruchamiania skryptu U-SQL na podstawie Azure Portal. Poniżej przedstawiono linki do każdej podsekcji:
@@ -158,7 +157,7 @@ Aby wykonać polecenie U-SQL, Otwórz program Visual Studio, kliknij **plik--> N
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Pozyskiwanie danych: odczytywanie danych z publicznego obiektu BLOB
 
-Lokalizacja danych w obiekcie blob platformy Azure jest przywoływana jako **nazwa\_\@wasb://container konta\_\_usługi\_BLOB Storage Name.blob.Core.Windows.NET/blob_name** i może zostać wyodrębniona przy użyciu **ekstraktorów. CSV ()**. Zastąp własną nazwę kontenera i nazwę konta magazynu w następujących skryptach dla\_nazwy\@kontenera\_nazwa\_konta\_usługi BLOB Storage w adresie wasb. Ponieważ nazwy plików są w tym samym formacie, można użyć pliku **\_\_\{\*\}Data. csv** w celu odczytania wszystkich 12 plików podróży.
+Lokalizacja danych w obiekcie blob platformy Azure jest przywoływana jako ** \_ Nazwa wasb://Container \@ konta usługi BLOB \_ Storage \_ \_ name.blob.Core.Windows.NET/blob_name** i może zostać wyodrębniona przy użyciu **Extractors.Csv ()**. Zastąp własną nazwę kontenera i nazwę konta magazynu w następujących skryptach dla nazwy kontenera nazwa \_ \@ konta usługi BLOB \_ Storage \_ \_ w adresie wasb. Ponieważ nazwy plików są w tym samym formacie, można użyć pliku ** \_ Data \_ \{ \* \} . csv** w celu odczytania wszystkich 12 plików podróży.
 
     ///Read in Trip data
     @trip0 =
@@ -181,7 +180,7 @@ Lokalizacja danych w obiekcie blob platformy Azure jest przywoływana jako **naz
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Ponieważ istnieją nagłówki w pierwszym wierszu, należy usunąć nagłówki i zmienić typy kolumn na odpowiednie. Przetworzone dane można zapisać do Azure Data Lake Storage przy użyciu **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/folder_name/file_name**_ lub do konta usługi Azure Blob Storage przy użyciu **wasb://\@container_name blob_storage_account_name. blob. Core. Windows. NET/blob_name**.
+Ponieważ istnieją nagłówki w pierwszym wierszu, należy usunąć nagłówki i zmienić typy kolumn na odpowiednie. Przetworzone dane można zapisać do Azure Data Lake Storage przy użyciu **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/folder_name/file_name**_ lub do konta usługi Azure Blob Storage przy użyciu **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/blob_name**.
 
     // change data types
     @trip =
@@ -569,7 +568,7 @@ W tym miejscu utworzysz binarny model klasyfikacji w celu przewidywania, czy pod
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Tworzenie interfejsu API usługi sieci Web i korzystanie z niego w języku Python
 Chcesz operacjonalizować model uczenia maszynowego po jego skompilowaniu. Binarny model logistyczny jest używany tutaj jako przykład. Upewnij się, że wersja scikit-Dowiedz się na komputerze lokalnym, jest 0.15.1 (Azure Machine Learning Studio jest już co najmniej w tej wersji).
 
-* Znajdź poświadczenia obszaru roboczego z ustawień Azure Machine Learning Studio (klasycznych). W Azure Machine Learning Studio kliknij pozycję **Ustawienia** --> **Name** --> **tokeny autoryzacji**.
+* Znajdź poświadczenia obszaru roboczego z ustawień Azure Machine Learning Studio (klasycznych). W Azure Machine Learning Studio kliknij pozycję **Ustawienia**  -->  **Name**  -->  **tokeny autoryzacji**.
 
     ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -612,7 +611,7 @@ Utwórz klaster usługi HDInsight (Linux) na podstawie [Azure Portal](https://po
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Tworzenie tabeli programu Hive w usłudze HDInsight
-Teraz utworzysz tabele Hive, które będą używane w Azure Machine Learning Studio (klasyczne) w klastrze usługi HDInsight przy użyciu danych przechowywanych w Azure Data Lake Storage w poprzednim kroku. Przejdź do utworzonego klastra usługi HDInsight. Kliknij kolejno pozycje **Ustawienia** --> **Właściwości** --> **klaster AAD Identity** --> **ADLS Access**, upewnij się, że konto Azure Data Lake Storage zostało dodane na liście z prawami odczyt, zapis i wykonywanie.
+Teraz utworzysz tabele Hive, które będą używane w Azure Machine Learning Studio (klasyczne) w klastrze usługi HDInsight przy użyciu danych przechowywanych w Azure Data Lake Storage w poprzednim kroku. Przejdź do utworzonego klastra usługi HDInsight. Kliknij kolejno pozycje **Ustawienia**  -->  **Właściwości**  -->  **klaster AAD Identity**  -->  **ADLS Access**, upewnij się, że konto Azure Data Lake Storage zostało dodane na liście z prawami odczyt, zapis i wykonywanie.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -675,7 +674,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytywanie danych z tabeli prog
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-Po utworzeniu eksperymentu kliknij pozycję Skonfiguruj usługę sieci **Web** --> **predykcyjną usługę sieci** Web
+Po utworzeniu eksperymentu kliknij pozycję Skonfiguruj usługę sieci **Web**  -->  **predykcyjną usługę sieci** Web
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 

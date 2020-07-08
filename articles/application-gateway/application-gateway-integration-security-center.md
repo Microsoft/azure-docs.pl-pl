@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76277188"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Omówienie integracji między Application Gateway i Azure Security Center
@@ -30,7 +29,7 @@ Kliknięcie wszelkich zaleceń dotyczących zapory aplikacji sieci Web otwiera n
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Dodawanie zapory aplikacji sieci Web do istniejącego zasobu
 
-Przejdź do **wszystkich usług** > **zabezpieczenia + tożsamość** > **Security Center** i **Security Center — przegląd**kliknij pozycję **aplikacje**. W przypadku **aplikacji Security Center**w tabeli znajduje się lista aplikacji, które Security Center wykryte w ramach subskrypcji.
+Przejdź do **wszystkich usług**  >  **zabezpieczenia + tożsamość**  >  **Security Center** i **Security Center — przegląd**kliknij pozycję **aplikacje**. W przypadku **aplikacji Security Center**w tabeli znajduje się lista aplikacji, które Security Center wykryte w ramach subskrypcji.
 
 ![aplikacje sieci Web][3]
 
@@ -50,7 +49,7 @@ Dodawanie aplikacji sieci Web do bramy aplikacji za pomocą Security Center nie 
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Dodawanie zasobu do istniejącej zapory aplikacji sieci Web
 
-Przejdź do **wszystkich usług** > **zabezpieczenia + tożsamość** > **Security Center** i **Security Center — przegląd**kliknij pozycję **rozwiązania partnerskie**. Istniejące Security Center bramy aplikacji obsługujące aplikacje są wyświetlane na stronie **rozwiązania partnerskie** .
+Przejdź do **wszystkich usług**  >  **zabezpieczenia + tożsamość**  >  **Security Center** i **Security Center — przegląd**kliknij pozycję **rozwiązania partnerskie**. Istniejące Security Center bramy aplikacji obsługujące aplikacje są wyświetlane na stronie **rozwiązania partnerskie** .
 
 ![rozwiązania partnerskie][7]
 
@@ -66,7 +65,7 @@ Security Center śledzi aplikacje dodane do bramy aplikacji jako zasób chronion
 
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
 
-W obszarze Security Center przejdź do**alertów zabezpieczeń**dotyczących **wykrywania** > .  Tutaj znajdziesz alerty WAF dla bram aplikacji. Alerty są podzielone według reguły WAF.
+W obszarze Security Center przejdź **DETECTION**do  >  **alertów zabezpieczeń**dotyczących wykrywania.  Tutaj znajdziesz alerty WAF dla bram aplikacji. Alerty są podzielone według reguły WAF.
 
 ![alerty zabezpieczeń][8]
 

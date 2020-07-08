@@ -9,10 +9,9 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: ce566080c6ddbc4784365ceda6011c3f6612732a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76276867"
 ---
 # <a name="connect-time-series-insights-to-power-bi"></a>Połącz Time Series Insights z Power BI  
@@ -21,7 +20,7 @@ Szukasz rozwiązania ułatwiającego skorelowanie danych szeregów czasowych, tw
 
 Azure Time Series Insights teraz bezproblemowo integrują się z [Power BI](https://powerbi.microsoft.com/), zapewniając bardziej zaawansowane możliwości wizualizacji i pulpitów nawigacyjnych na potrzeby danych przesyłanych strumieniowo i umożliwia udostępnianie szczegółowych informacji i wyników w całej organizacji.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 ### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Dowiedz się więcej na temat integrowania Azure Time Series Insights z Power BI.</br>
 

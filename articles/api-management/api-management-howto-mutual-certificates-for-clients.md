@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76713134"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczać interfejsy API przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze API Management
@@ -51,8 +50,8 @@ Poniższe zasady można skonfigurować w celu sprawdzenia wystawcy i tematu cert
 ```
 
 > [!NOTE]
-> Aby wyłączyć sprawdzanie użycia `context.Request.Certificate.VerifyNoRevocation()` listy odwołania certyfikatów zamiast. `context.Request.Certificate.Verify()`
-> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do `context.Request.Certificate.Verify()` API Management `context.Request.Certificate.VerifyNoRevocation()` programu i do pracy.
+> Aby wyłączyć sprawdzanie użycia listy odwołania certyfikatów `context.Request.Certificate.VerifyNoRevocation()` zamiast `context.Request.Certificate.Verify()` .
+> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do API Management programu `context.Request.Certificate.Verify()` i `context.Request.Certificate.VerifyNoRevocation()` do pracy.
 
 ## <a name="checking-the-thumbprint"></a>Sprawdzanie odcisku palca
 
@@ -69,8 +68,8 @@ Poniższe zasady można skonfigurować w celu sprawdzenia odcisku palca certyfik
 ```
 
 > [!NOTE]
-> Aby wyłączyć sprawdzanie użycia `context.Request.Certificate.VerifyNoRevocation()` listy odwołania certyfikatów zamiast. `context.Request.Certificate.Verify()`
-> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do `context.Request.Certificate.Verify()` API Management `context.Request.Certificate.VerifyNoRevocation()` programu i do pracy.
+> Aby wyłączyć sprawdzanie użycia listy odwołania certyfikatów `context.Request.Certificate.VerifyNoRevocation()` zamiast `context.Request.Certificate.Verify()` .
+> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do API Management programu `context.Request.Certificate.Verify()` i `context.Request.Certificate.VerifyNoRevocation()` do pracy.
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Sprawdzanie odcisku palca w odniesieniu do certyfikatów przekazanych do API Management
 
@@ -88,11 +87,11 @@ Poniższy przykład pokazuje, jak sprawdzić odcisk palca certyfikatu klienta wz
 ```
 
 > [!NOTE]
-> Aby wyłączyć sprawdzanie użycia `context.Request.Certificate.VerifyNoRevocation()` listy odwołania certyfikatów zamiast. `context.Request.Certificate.Verify()`
-> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do `context.Request.Certificate.Verify()` API Management `context.Request.Certificate.VerifyNoRevocation()` programu i do pracy.
+> Aby wyłączyć sprawdzanie użycia listy odwołania certyfikatów `context.Request.Certificate.VerifyNoRevocation()` zamiast `context.Request.Certificate.Verify()` .
+> Jeśli certyfikat klienta jest podpisany z podpisem własnym, certyfikaty urzędu certyfikacji głównego (lub pośredniego) muszą zostać [przekazane](api-management-howto-ca-certificates.md) do API Management programu `context.Request.Certificate.Verify()` i `context.Request.Certificate.VerifyNoRevocation()` do pracy.
 
 > [!TIP]
-> Problem zakleszczenia certyfikatu klienta opisany w tym [artykule](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) może być manifestem na kilka sposobów, np. żądania zawieszania `403 Forbidden` , żądania powodują powstanie kodu stanu `context.Request.Certificate` po `null`upływie limitu czasu. Ten problem ma zwykle `POST` wpływ `PUT` na żądania z zawartością o długości około 60KB lub większą.
+> Problem zakleszczenia certyfikatu klienta opisany w tym [artykule](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) może być manifestem na kilka sposobów, np. żądania zawieszania, żądania powodują powstanie `403 Forbidden` kodu stanu po upływie limitu czasu `context.Request.Certificate` `null` . Ten problem ma zwykle wpływ na `POST` `PUT` żądania z zawartością o długości około 60KB lub większą.
 > Aby zapobiec wystąpieniu tego problemu, Włącz ustawienie "Negocjuj certyfikat klienta" dla żądanych nazw hostów w bloku "domeny niestandardowe", jak pokazano poniżej. Ta funkcja nie jest dostępna w warstwie zużycia.
 
 ![Negocjuj certyfikat klienta](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)

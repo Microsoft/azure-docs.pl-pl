@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721561"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Opublikuj w temacie niestandardowym dla Azure Event Grid
@@ -23,9 +22,9 @@ W tym artykule opisano sposób publikowania zdarzenia w temacie niestandardowym.
 
 ## <a name="endpoint"></a>Endpoint
 
-Podczas wysyłania wpisu HTTP do niestandardowego tematu Użyj formatu identyfikatora URI: `https://<topic-endpoint>?api-version=2018-01-01`.
+Podczas wysyłania wpisu HTTP do niestandardowego tematu Użyj formatu identyfikatora URI: `https://<topic-endpoint>?api-version=2018-01-01` .
 
-Na przykład prawidłowy identyfikator URI to: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
+Na przykład prawidłowy identyfikator URI to: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 
 Aby uzyskać punkt końcowy dla niestandardowego tematu za pomocą interfejsu wiersza polecenia platformy Azure, użyj:
 
@@ -39,11 +38,11 @@ Aby uzyskać punkt końcowy dla niestandardowego tematu z Azure PowerShell, uży
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 W żądaniu Dołącz wartość nagłówka o nazwie `aeg-sas-key` , która zawiera klucz do uwierzytelniania.
 
-Na przykład prawidłowa wartość nagłówka to `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`.
+Na przykład prawidłowa wartość nagłówka to `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==` .
 
 Aby uzyskać klucz niestandardowego tematu za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia:
 

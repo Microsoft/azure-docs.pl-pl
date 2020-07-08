@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76544722"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Rozszerzenie maszyny wirtualnej Chef dla systemów Linux i Windows
@@ -36,7 +35,7 @@ Rozszerzenie maszyny wirtualnej Chef wymaga, aby docelowa maszyna wirtualna był
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Rozszerzenie wymaga co najmniej adresu URL serwera Chef, nazwy klienta weryfikacji i klucza weryfikacji dla serwera Chef; te wartości można znaleźć w `knife.rb` pliku Starter-Kit. zip, który jest pobierany podczas instalowania [Chef automatyzuje](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) lub autonomicznego [serwera Chef](https://downloads.chef.io/chef-server). Ponieważ klucz weryfikacji powinien być traktowany jako dane poufne, powinien być skonfigurowany w ramach elementu **protectedSettings** , co oznacza, że zostanie on odszyfrowany tylko na docelowej maszynie wirtualnej.
+Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Rozszerzenie wymaga co najmniej adresu URL serwera Chef, nazwy klienta weryfikacji i klucza weryfikacji dla serwera Chef; te wartości można znaleźć w `knife.rb` pliku w starter-kit.zip pobranym podczas instalowania [Chef Automatyzuj](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) lub autonomicznego [serwera Chef](https://downloads.chef.io/chef-server). Ponieważ klucz weryfikacji powinien być traktowany jako dane poufne, powinien być skonfigurowany w ramach elementu **protectedSettings** , co oznacza, że zostanie on odszyfrowany tylko na docelowej maszynie wirtualnej.
 
 ```json
 {
@@ -71,7 +70,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Roz
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | ciąg (Date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | ciąg |
-| type | `LinuxChefClient`(Linux), `ChefClient` (system Windows) | ciąg |
+| typ | `LinuxChefClient`(Linux), `ChefClient` (system Windows) | ciąg |
 | typeHandlerVersion | `1210.13` | ciąg (Double) |
 
 ### <a name="settings"></a>Ustawienia

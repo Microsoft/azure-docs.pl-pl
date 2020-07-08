@@ -14,10 +14,9 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76045361"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Rozwiązywanie problemów dotyczących błędów ograniczania przepływności interfejsu API 
@@ -28,11 +27,11 @@ ms.locfileid: "76045361"
 
 Jako przód do platformy Azure Azure Resource Manager wykonuje uwierzytelnianie i sprawdzanie poprawności i ograniczanie wszystkich przychodzących żądań interfejsu API. W [tym miejscu](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling)opisano Azure Resource Manager limity szybkości wywołań i powiązane nagłówki HTTP odpowiedzi diagnostycznej.
  
-Gdy klient interfejsu API platformy Azure uzyska błąd ograniczania przepustowości, stan HTTP to 429 zbyt wiele żądań. Aby zrozumieć, czy ograniczenie żądania jest wykonywane przez Azure Resource Manager lub dostawcę zasobów, takich jak CRP, sprawdź, czy `x-ms-ratelimit-remaining-subscription-reads` są to żądania get `x-ms-ratelimit-remaining-subscription-writes` i for Response dla żądań nieget. Jeśli pozostała liczba wywołań zbliża się do 0, osiągnięto ogólny limit wywołań dla subskrypcji zdefiniowany przez Azure Resource Manager. Działania wszystkich klientów subskrypcji są zliczane razem. W przeciwnym razie ograniczanie przepływności pochodzi od docelowego dostawcy zasobów (jeden `/providers/<RP>` adres URL żądania). 
+Gdy klient interfejsu API platformy Azure uzyska błąd ograniczania przepustowości, stan HTTP to 429 zbyt wiele żądań. Aby zrozumieć, czy ograniczenie żądania jest wykonywane przez Azure Resource Manager lub dostawcę zasobów, takich jak CRP, sprawdź, czy są to żądania `x-ms-ratelimit-remaining-subscription-reads` Get i for `x-ms-ratelimit-remaining-subscription-writes` Response dla żądań nieget. Jeśli pozostała liczba wywołań zbliża się do 0, osiągnięto ogólny limit wywołań dla subskrypcji zdefiniowany przez Azure Resource Manager. Działania wszystkich klientów subskrypcji są zliczane razem. W przeciwnym razie ograniczanie przepływności pochodzi od docelowego dostawcy zasobów (jeden adres `/providers/<RP>` URL żądania). 
 
 ## <a name="call-rate-informational-response-headers"></a>Nagłówki odpowiedzi informacyjnych o szybkości wywołania 
 
-| Nagłówek                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
+| Header                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-MS-ratelimit — pozostało-zasób |```<source RP>/<policy or bucket>;<count>```| Microsoft. COMPUTE/HighCostGet3Min; 159 | Pozostała liczba wywołań interfejsu API dla zasad ograniczania przepływności obejmujących zasobnik zasobów lub grupę operacji, w tym element docelowy tego żądania                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Liczba wywołań "naliczona" dla tego żądania HTTP w kierunku limitu obowiązujących zasad. Zwykle jest to 1. Żądania usługi Batch, takie jak skalowanie zestawu skalowania maszyn wirtualnych, mogą obciążać wiele liczników. |
@@ -73,7 +72,7 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-Zasady o pozostałej liczbie wywołań równej 0 to ta, z powodu której zwracany jest błąd ograniczający. W tym przypadku jest `HighCostGet30Min`to. Ogólny format treści odpowiedzi to ogólny format błędu interfejsu API Azure Resource Manager (zgodny z OData). Główny kod błędu, `OperationNotAllowed`, jest jednym z dostawców zasobów obliczeniowych używa do raportowania błędów ograniczania (między innymi rodzajami błędów klienta). `message` Właściwość błędów wewnętrznych zawiera serializowaną strukturę JSON z szczegółowymi informacjami o naruszeniu ograniczenia przepustowości.
+Zasady o pozostałej liczbie wywołań równej 0 to ta, z powodu której zwracany jest błąd ograniczający. W tym przypadku jest to `HighCostGet30Min` . Ogólny format treści odpowiedzi to ogólny format błędu interfejsu API Azure Resource Manager (zgodny z OData). Główny kod błędu, `OperationNotAllowed` , jest jednym z dostawców zasobów obliczeniowych używa do raportowania błędów ograniczania (między innymi rodzajami błędów klienta). `message`Właściwość błędów wewnętrznych zawiera serializowaną strukturę JSON z szczegółowymi informacjami o naruszeniu ograniczenia przepustowości.
 
 Jak pokazano powyżej, każdy błąd ograniczania przepustowości obejmuje `Retry-After` nagłówek, który zapewnia minimalną liczbę sekund oczekiwania przez klienta przed ponowieniem próby wykonania żądania. 
 
@@ -95,8 +94,8 @@ Polecenia cmdlet programu PowerShell używają interfejsu API usługi REST, któ
 - W przypadku funkcji automatyzacji w dużej liczbie interfejsów API należy rozważyć zaimplementowanie samoczynnej samodzielnej przepustowości po stronie klienta, gdy liczba dostępnych wywołań dla docelowej grupy operacji spadnie poniżej pewnego dolnego progu. 
 - Podczas śledzenia operacji asynchronicznych należy przestrzegać wskazówek dotyczących ponownych prób po nagłówku. 
 - Jeśli kod klienta wymaga informacji o określonej maszynie wirtualnej, należy wykonać zapytanie dotyczące bezpośrednio tej maszyny wirtualnej zamiast wyświetlania wszystkich maszyn wirtualnych w zawierającej ją grupy zasobów lub całej subskrypcji, a następnie wybrać wymaganą maszynę wirtualną po stronie klienta. 
-- Jeśli kod klienta wymaga maszyn wirtualnych, dysków i migawek z określonej lokalizacji platformy Azure, użyj formularza opartego na lokalizacji zapytania zamiast zapytania o wszystkie maszyny wirtualne subskrypcji, a następnie Przefiltruj według lokalizacji na stronie `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` klienta: zapytanie do regionalnych punktów końcowych dostawcy zasobów obliczeniowych. 
--   W przypadku tworzenia lub aktualizowania zasobów interfejsu API w określonych maszynach wirtualnych i zestawach skalowania maszyn wirtualnych jest znacznie bardziej wydajna śledzenie zwracanej asynchronicznej operacji do ukończenia niż sondowanie samego adresu URL zasobu (na `provisioningState`podstawie).
+- Jeśli kod klienta wymaga maszyn wirtualnych, dysków i migawek z określonej lokalizacji platformy Azure, użyj formularza opartego na lokalizacji zapytania zamiast zapytania o wszystkie maszyny wirtualne subskrypcji, a następnie Przefiltruj według lokalizacji na stronie klienta: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` zapytanie do regionalnych punktów końcowych dostawcy zasobów obliczeniowych. 
+-   W przypadku tworzenia lub aktualizowania zasobów interfejsu API w określonych maszynach wirtualnych i zestawach skalowania maszyn wirtualnych jest znacznie bardziej wydajna śledzenie zwracanej asynchronicznej operacji do ukończenia niż sondowanie samego adresu URL zasobu (na podstawie `provisioningState` ).
 
 ## <a name="next-steps"></a>Następne kroki
 

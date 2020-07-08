@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721901"
 ---
 # <a name="collaborative-coding-with-git"></a>Wspólne kodowanie przy użyciu narzędzia Git
@@ -39,7 +38,7 @@ Możesz również utworzyć nową gałąź przy użyciu następującego poleceni
 git checkout -b <new branch name> <base branch name>
 
 ```
-Jeśli nie określisz nazwy \<gałęzi bazowej>, Nowa gałąź jest oparta na `master`. 
+Jeśli nie określisz \<base branch name> , Nowa gałąź jest oparta na `master` . 
 
 Aby przełączyć się do gałęzi roboczej, uruchom następujące polecenie: 
 
@@ -61,7 +60,7 @@ Można również połączyć element roboczy z istniejącą gałęzią. Na stron
 
 ## <a name="work-on-the-branch-and-commit-changes"></a><a name='WorkonaBranchandCommittheChanges-2'></a>Pracuj nad gałęzią i zatwierdzaj zmiany 
 
-Po wprowadzeniu zmian w elemencie roboczym, takim jak dodanie pliku skryptu języka R do `script` gałęzi komputera lokalnego, można zatwierdzić zmianę gałęzi lokalnej do nadrzędnej gałęzi roboczej przy użyciu następujących poleceń usługi git bash:
+Po wprowadzeniu zmian w elemencie roboczym, takim jak dodanie pliku skryptu języka R do gałęzi komputera lokalnego `script` , można zatwierdzić zmianę gałęzi lokalnej do nadrzędnej gałęzi roboczej przy użyciu następujących poleceń usługi git bash:
 
 ```bash
 git status
@@ -76,7 +75,7 @@ git push origin script
 
 Po zakończeniu jednego lub kilku zatwierdzeń i wypchnięciu, gdy wszystko jest gotowe do scalenia bieżącej gałęzi roboczej z gałęzią podstawową, można utworzyć i przesłać *żądanie ściągnięcia* w Azure Repos. 
 
-Na stronie głównej projektu usługi Azure DevOps wskaż pozycję **repozytoria** > **żądań ściągnięcia** w lewym okienku nawigacji. Następnie wybierz jeden z przycisków **nowe żądanie ściągnięcia** lub link **Utwórz żądanie ściągnięcia** .
+Na stronie głównej projektu usługi Azure DevOps wskaż pozycję **repozytoria**  >  **żądań ściągnięcia** w lewym okienku nawigacji. Następnie wybierz jeden z przycisków **nowe żądanie ściągnięcia** lub link **Utwórz żądanie ściągnięcia** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
@@ -98,11 +97,11 @@ Upewnij się, że żądanie zostało oznaczone jako **ukończone**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Po powrocie do **repozytoriów** w lewym okienku nawigacji można zobaczyć, że została przełączona do gałęzi głównej od momentu usunięcia `script` gałęzi.
+Po powrocie do **repozytoriów** w lewym okienku nawigacji można zobaczyć, że została przełączona do gałęzi głównej od momentu `script` usunięcia gałęzi.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Można również użyć następujących poleceń git bash do scalenia gałęzi `script` roboczej z gałęzią podstawową i usunięcia gałęzi roboczej po scaleniu:
+Można również użyć następujących poleceń git bash do scalenia `script` gałęzi roboczej z gałęzią podstawową i usunięcia gałęzi roboczej po scaleniu:
 
 ```bash
 git checkout master

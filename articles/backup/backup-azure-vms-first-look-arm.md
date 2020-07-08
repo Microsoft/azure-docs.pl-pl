@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową pojedyn
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705449"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure z ustawień maszyny wirtualnej
@@ -64,7 +63,7 @@ Aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure, Azure Backup 
 
 ## <a name="run-a-backup-immediately"></a>Natychmiastowe uruchamianie kopii zapasowej
 
-1. Aby natychmiast uruchomić kopię zapasową, w menu maszyny wirtualnej kliknij pozycję **Utwórz** > kopię zapasową**teraz**.
+1. Aby natychmiast uruchomić kopię zapasową, w menu maszyny wirtualnej kliknij pozycję **Utwórz**kopię zapasową  >  **teraz**.
 
     ![Uruchom kopię zapasową](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 

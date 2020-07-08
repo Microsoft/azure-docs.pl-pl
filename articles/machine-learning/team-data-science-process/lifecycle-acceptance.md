@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720524"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołowych
@@ -44,7 +43,7 @@ W tym etapie są uwzględnione dwa podstawowe zadania:
 
 Klient powinien sprawdzić, czy system spełnia Twoje wymagania biznesowe i czy ma odpowiedzi na pytania z akceptowalną dokładnością, aby wdrożyć system w środowisku produkcyjnym do użytku przez aplikację klienta. Wszystkie dokumenty są finalizowane i analizowane. Projekt jest przekazywany do jednostki odpowiedzialnej za operacje. Ta jednostka może być na przykład zespołem ds. IT lub klientem, który jest odpowiedzialny za uruchamianie systemu w środowisku produkcyjnym. 
 
-## <a name="artifacts"></a>Artefakty
+## <a name="artifacts"></a>Artifacts
 Głównym artefaktem utworzonym w tym ostatnim etapie jest **raport zakończenia projektu dla klienta**. Ten raport techniczny zawiera wszystkie szczegóły dotyczące projektu, które są przydatne do uczenia się, jak korzystać z systemu. PRZETWARZANIA TDSP udostępnia szablon [raportu zakończenia](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) . Możesz użyć szablonu jako lub można go dostosować do konkretnych potrzeb klienta. 
 
 

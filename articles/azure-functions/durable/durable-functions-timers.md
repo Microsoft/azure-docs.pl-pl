@@ -5,31 +5,30 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76261487"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Czasomierze w Durable Functions (Azure Functions)
 
-[Durable Functions](durable-functions-overview.md) zapewnia *trwałe czasomierze* do użycia w funkcjach programu Orchestrator do implementowania opóźnień lub skonfigurowania limitów czasu dla akcji asynchronicznych. Trwałe czasomierze powinny być używane w funkcjach programu `Thread.Sleep` Orchestrator `Task.Delay` , a nie (C# `setTimeout()` ) `setInterval()` , lub i (JavaScript).
+[Durable Functions](durable-functions-overview.md) zapewnia *trwałe czasomierze* do użycia w funkcjach programu Orchestrator do implementowania opóźnień lub skonfigurowania limitów czasu dla akcji asynchronicznych. Trwałe czasomierze powinny być używane w funkcjach programu Orchestrator, a nie `Thread.Sleep` `Task.Delay` (C#), lub `setTimeout()` i `setInterval()` (JavaScript).
 
-Aby utworzyć trwały czasomierz, należy wywołać `CreateTimer` metodę (.NET) lub metodę `createTimer` (JavaScript) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger). Metoda zwraca zadanie, które kończy się w określonym dniu i o określonej godzinie.
+Aby utworzyć trwały czasomierz, należy wywołać `CreateTimer` metodę (.NET) lub `createTimer` metodę (JavaScript) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger). Metoda zwraca zadanie, które kończy się w określonym dniu i o określonej godzinie.
 
 ## <a name="timer-limitations"></a>Ograniczenia czasomierza
 
 Podczas tworzenia czasomierza, który wygaśnie o 4:30 PM, podstawowa infrastruktura zadań trwałych enqueues komunikat, który zostanie widoczny tylko na 4:30 PM. Po uruchomieniu w planie zużycia Azure Functions, nowo widoczny komunikat czasomierza zapewni, że aplikacja funkcji zostanie aktywowana na odpowiedniej maszynie wirtualnej.
 
 > [!NOTE]
-> * Trwałe czasomierze są obecnie ograniczone do 7 dni. Jeśli są potrzebne dłuższe opóźnienia, można je symulowane przy użyciu interfejsów API czasomierzy `while` w pętli.
-> * Zawsze używaj `CurrentUtcDateTime` zamiast `DateTime.UtcNow` programu .NET lub `currentUtcDateTime` zamiast `Date.now` lub `Date.UTC` w języku JavaScript podczas obliczania czasu ognia dla trwałych czasomierzy. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [ograniczeń kodu funkcji programu Orchestrator](durable-functions-code-constraints.md) .
+> * Trwałe czasomierze są obecnie ograniczone do 7 dni. Jeśli są potrzebne dłuższe opóźnienia, można je symulowane przy użyciu interfejsów API czasomierzy w `while` pętli.
+> * Zawsze używaj `CurrentUtcDateTime` zamiast programu `DateTime.UtcNow` .NET lub `currentUtcDateTime` zamiast `Date.now` lub `Date.UTC` w języku JavaScript podczas obliczania czasu ognia dla trwałych czasomierzy. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [ograniczeń kodu funkcji programu Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Użycie opóźnienia
 
 Poniższy przykład ilustruje sposób użycia trwałych czasomierzy do opóźnienia wykonywania. Przykład wysyła powiadomienie o rozliczeniach codziennie przez 10 dni.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -46,7 +45,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Poprzedni przykład w języku C# jest celem Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni przykład w języku C# jest celem Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -72,7 +71,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Ten przykład ilustruje sposób używania trwałych czasomierzy do implementowania limitów czasu.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -104,7 +103,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> Poprzedni przykład w języku C# jest celem Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni przykład w języku C# jest celem Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

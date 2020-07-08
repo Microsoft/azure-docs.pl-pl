@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721782"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań programu Hive
@@ -89,14 +88,14 @@ Program Hive zawiera zestaw UDF do przetwarzania pól DateTime. W programie Hive
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-W tej kwerendzie Hive założono, że * \<pole DateTime>* ma domyślny format DateTime.
+W tej kwerendzie Hive założono, że *\<datetime field>* jest ona w domyślnym formacie DateTime.
 
 Jeśli pole DateTime nie ma formatu domyślnego, należy najpierw skonwertować pole DateTime na sygnaturę czasową systemu UNIX, a następnie przekonwertować sygnaturę czasową systemu UNIX na ciąg DateTime, który jest w formacie domyślnym. Gdy element DateTime ma format domyślny, użytkownicy mogą zastosować osadzoną UDF DateTime w celu wyodrębnienia funkcji.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-W tym zapytaniu, jeśli * \<pole DateTime>* ma wzorca, takiego jak 03/26/2015 12:04:39, * \<wzorzec pola DateTime> '* powinien być. *03/26/2015 12:04:39* `'MM/dd/yyyy HH:mm:ss'` Aby go przetestować, użytkownicy mogą uruchamiać
+W tej kwerendzie, jeśli *\<datetime field>* ma wzór podobny do *03/26/2015 12:04:39*, wartość * \<pattern of the datetime field> "* powinna być `'MM/dd/yyyy HH:mm:ss'` . Aby go przetestować, użytkownicy mogą uruchamiać
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -112,7 +111,7 @@ Gdy tabela programu Hive ma pole tekstowe, które zawiera ciąg słów, które s
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Obliczanie odległości między zestawami współrzędnych GPS
 Zapytanie zawarte w tej sekcji można bezpośrednio zastosować do danych podróży z NYCą. Celem tego zapytania jest pokazanie, jak zastosować osadzoną funkcję matematyczną w programie Hive w celu wygenerowania funkcji.
 
-Pola, które są używane w tym zapytaniu, to współrzędne GPS dotyczące lokalizacji odbioru i Dropoff, nazwanych *\_długości*geograficznej, *pobrania\_szerokości geograficznej*, *Dropoff\_* i *Dropoff\_szerokości geograficznej*. Zapytania obliczające bezpośrednią odległość między współrzędnymi odbioru i Dropoff są następujące:
+Pola, które są używane w tym zapytaniu, to współrzędne GPS dotyczące lokalizacji odbioru i Dropoff, nazwanych * \_ długości*geograficznej, *pobrania \_ szerokości geograficznej*, *Dropoff \_ *i *Dropoff \_ szerokości geograficznej*. Zapytania obliczające bezpośrednią odległość między współrzędnymi odbioru i Dropoff są następujące:
 
         set R=3959;
         set pi=radians(180);
@@ -130,7 +129,7 @@ Pola, które są używane w tym zapytaniu, to współrzędne GPS dotyczące loka
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Równania matematyczne obliczające odległość między dwoma współrzędnymi GPS można znaleźć w witrynie <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type scripters</a> , utworzonej przez Peterowi Lapisu. W tym języku JavaScript funkcja `toRad()` jest tylko *lat_or_lon*pi/180, która konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest szerokość lub długość geograficzna. Ponieważ gałąź nie udostępnia `atan2`funkcji, ale udostępnia funkcję `atan`, `atan2` funkcja jest implementowana przez `atan` funkcję w powyższym zapytaniu Hive przy użyciu definicji podanej w witrynie <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Równania matematyczne obliczające odległość między dwoma współrzędnymi GPS można znaleźć w witrynie <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type scripters</a> , utworzonej przez Peterowi Lapisu. W tym języku JavaScript funkcja `toRad()` jest tylko *lat_or_lon*pi/180, która konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest szerokość lub długość geograficzna. Ponieważ gałąź nie udostępnia funkcji `atan2` , ale udostępnia funkcję `atan` , `atan2` Funkcja jest implementowana przez `atan` funkcję w powyższym zapytaniu Hive przy użyciu definicji podanej w witrynie <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Tworzenie obszaru roboczego](./media/create-features-hive/atan2new.png)
 

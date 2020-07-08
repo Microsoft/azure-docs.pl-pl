@@ -14,10 +14,9 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696218"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Obsługa Active Directory Federation Services w programie MSAL for Java
@@ -32,7 +31,7 @@ MSAL for Java nawiązuje połączenie z usługą Azure AD, co oznacza, że użyt
 
 ## <a name="acquire-a-token-interactively-for-a-federated-user"></a>Interaktywny pozyskiwanie tokenu dla użytkownika federacyjnego
 
-Podczas wywoływania `ConfidentialClientApplication.AcquireToken()` lub `PublicClientApplication.AcquireToken()` z `AuthorizationCodeParameters` lub `DeviceCodeParameters`, środowisko użytkownika jest zwykle:
+Podczas wywoływania `ConfidentialClientApplication.AcquireToken()` lub `PublicClientApplication.AcquireToken()` z `AuthorizationCodeParameters` lub `DeviceCodeParameters` , środowisko użytkownika jest zwykle:
 
 1. Użytkownik wprowadza swój identyfikator konta.
 2. Usługa Azure AD krótko wyświetli "przejście do strony organizacji" i użytkownik zostanie przekierowany do strony logowania dostawcy tożsamości. Strona logowania jest zwykle dostosowana do logo organizacji.
@@ -44,7 +43,7 @@ Obsługiwane wersje AD FS w tym scenariuszu federacyjnym są następujące:
 
 ## <a name="acquire-a-token-via-username-and-password"></a>Uzyskiwanie tokenu za pomocą nazwy użytkownika i hasła
 
-Po pozyskaniu tokenu przy `ConfidentialClientApplication.AcquireToken()` użyciu `PublicClientApplication.AcquireToken()` programu `IntegratedWindowsAuthenticationParameters` lub `UsernamePasswordParameters`z lub, MSAL for Java pobiera dostawcę tożsamości do kontaktu na podstawie nazwy użytkownika. MSAL for Java pobiera token [tokenu SAML 1,1](reference-saml-tokens.md) od dostawcy tożsamości, który następnie udostępnia usługę Azure AD, która zwraca token sieci Web JSON (JWT).
+Po pozyskaniu tokenu przy użyciu programu `ConfidentialClientApplication.AcquireToken()` lub `PublicClientApplication.AcquireToken()` z `IntegratedWindowsAuthenticationParameters` lub `UsernamePasswordParameters` , MSAL for Java pobiera dostawcę tożsamości do kontaktu na podstawie nazwy użytkownika. MSAL for Java pobiera token [tokenu SAML 1,1](reference-saml-tokens.md) od dostawcy tożsamości, który następnie udostępnia usługę Azure AD, która zwraca token sieci Web JSON (JWT).
 
 ## <a name="next-steps"></a>Następne kroki
 

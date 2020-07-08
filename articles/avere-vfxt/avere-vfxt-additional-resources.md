@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76153772"
 ---
 # <a name="additional-documentation"></a>Dodatkowa dokumentacja
@@ -19,7 +18,7 @@ Ten artykuł zawiera linki do dodatkowej dokumentacji dotyczącej interfejsu zar
 
 ## <a name="avere-cluster-documentation"></a>Dokumentacja klastra avere
 
-Dodatkową dokumentację dotyczącą klastrów avere można znaleźć w witrynie sieci <https://azure.github.io/Avere/>Web pod adresem. Te dokumenty mogą pomóc zrozumieć możliwości klastra i sposób konfigurowania jego ustawień.
+Dodatkową dokumentację dotyczącą klastrów avere można znaleźć w witrynie sieci Web pod adresem <https://azure.github.io/Avere/> . Te dokumenty mogą pomóc zrozumieć możliwości klastra i sposób konfigurowania jego ustawień.
 
 * [Przewodnik tworzenia klastra FXT](<https://azure.github.io/Avere/#fxt_cluster>) jest przeznaczony dla klastrów składających się z fizycznych węzłów sprzętowych, ale niektóre informacje zawarte w dokumencie dotyczą również klastrów vFXT. W szczególności nowe Administratorzy klastrów vFXT mogą skorzystać z odczytania tych sekcji:
   * [Dostosowanie ustawień obsługi i monitorowania](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) wyjaśnia, jak dostosować obsługę ustawień przekazywania i włączyć zdalne monitorowanie.

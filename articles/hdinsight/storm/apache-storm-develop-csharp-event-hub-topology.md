@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75981634"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Przetwarzanie zdarzeń z usługi Azure Event Hubs przy użyciu Apache Storm w usłudze HDInsight (C#)
@@ -35,7 +34,7 @@ Topologie języka C# muszą również kierować platformą .NET 4,5.
 
 ## <a name="how-to-work-with-event-hubs"></a>Jak korzystać z Event Hubs
 
-Firma Microsoft udostępnia zestaw składników języka Java, których można użyć do komunikowania się z Event Hubs z topologii burzy. Plik archiwum Java (JAR) zawierający zgodną wersję usługi HDInsight 3,6 można znaleźć pod adresem [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Firma Microsoft udostępnia zestaw składników języka Java, których można użyć do komunikowania się z Event Hubs z topologii burzy. Plik archiwum Java (JAR) zawierający zgodną wersję usługi HDInsight 3,6 można znaleźć pod adresem [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
 > [!IMPORTANT]  
 > Chociaż składniki są zapisywane w języku Java, można je łatwo wykorzystać z poziomu topologii języka C#.
@@ -113,9 +112,9 @@ Możesz pobrać kompletną wersję projektu utworzoną w tym artykule z usługi 
 
 ## <a name="download-the-event-hubs-components"></a>Pobierz składniki Event Hubs
 
-Pobierz Event Hubs i składnik elementu Spout z [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Pobierz Event Hubs i składnik elementu Spout z [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) .
 
-Utwórz katalog o nazwie `eventhubspout`i Zapisz plik w katalogu.
+Utwórz katalog o nazwie `eventhubspout` i Zapisz plik w katalogu.
 
 ## <a name="configure-event-hubs"></a>Konfigurowanie Event Hubs
 
@@ -138,9 +137,9 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 2. Pobierz rozwiązanie z [centrum eventhub — burze hybrydowe](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. Otwórz **EventHubExample. sln**. W projekcie **EventHubWriter** Otwórz plik **App. config** . Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
+3. Otwórz **EventHubExample. sln**. W projekcie **EventHubWriter** otwórz plik **App.config** . Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
 
-   | Key | Wartość |
+   | Klucz | Wartość |
    | --- | --- |
    | EventHubPolicyName |składnik zapisywania (Jeśli użyto innej nazwy dla zasad z uprawnieniami do *wysyłania* , Użyj zamiast niej). |
    | EventHubPolicyKey |Klucz dla zasad składnika zapisywania. |
@@ -148,15 +147,15 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
    | EventHubName |Nazwa centrum zdarzeń. |
    | EventHubPartitionCount |Liczba partycji w centrum zdarzeń. |
 
-4. Zapisz i zamknij plik **App. config** .
+4. Zapisz i zamknij plik **App.config** .
 
 ## <a name="configure-the-eventhubreader"></a>Konfigurowanie EventHubReader
 
 1. Otwórz projekt **EventHubReader** .
 
-2. Otwórz plik **App. config** dla **EventHubReader**. Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
+2. Otwórz plik **App.config** dla **EventHubReader**. Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
 
-   | Key | Wartość |
+   | Klucz | Wartość |
    | --- | --- |
    | EventHubPolicyName |czytnik (Jeśli użyto innej nazwy dla zasad z uprawnieniami *nasłuchiwania* , Użyj zamiast niej). |
    | EventHubPolicyKey |Klucz dla zasad czytnika. |
@@ -164,7 +163,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
    | EventHubName |Nazwa centrum zdarzeń. |
    | EventHubPartitionCount |Liczba partycji w centrum zdarzeń. |
 
-3. Zapisz i zamknij plik **App. config** .
+3. Zapisz i zamknij plik **App.config** .
 
 ## <a name="deploy-the-topologies"></a>Wdrażanie topologii
 

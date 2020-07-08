@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
 ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511148"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Łączenie urządzeń Modbus TCP za pośrednictwem bramy urządzenia IoT Edge
@@ -33,7 +32,7 @@ W tym artykule założono, że użytkownik korzysta z protokołu Modbus TCP. Wi�
 
 ## <a name="prepare-a-modbus-container"></a>Przygotowanie kontenera Modbus
 
-Jeśli chcesz przetestować funkcje bramy Modbus, firma Microsoft przygotowała przykładowy moduł, którego możesz użyć. Możesz uzyskać dostęp do modułu z witryny Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)lub z identyfikatorem URI obrazu `mcr.microsoft.com/azureiotedge/modbus:1.0`.
+Jeśli chcesz przetestować funkcje bramy Modbus, firma Microsoft przygotowała przykładowy moduł, którego możesz użyć. Możesz uzyskać dostęp do modułu z witryny Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)lub z identyfikatorem URI obrazu `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
 Jeśli chcesz utworzyć własny moduł i dostosować go do swojego środowiska, istnieje [Azure IoT Edge projektu modułu](https://github.com/Azure/iot-edge-modbus) "open source" w witrynie GitHub. Wykonaj instrukcje zawarte w tym projekcie, aby utworzyć własny obraz kontenera. Aby utworzyć obraz kontenera, zapoznaj się z tematem [Tworzenie modułów C# w programie Visual Studio](how-to-visual-studio-develop-csharp-module.md) lub [opracowywanie modułów w Visual Studio Code](how-to-vs-code-develop-module.md). Te artykuły zawierają instrukcje dotyczące tworzenia nowych modułów i publikowania obrazów kontenerów w rejestrze.
 
@@ -54,7 +53,7 @@ Ta sekcja zawiera instrukcje wdrażania przykładowego modułu Modbus firmy Micr
    3. Moduł jest automatycznie konfigurowany dla IoT Hub i pojawia się na liście modułów IoT Edge. Trasy są również automatycznie konfigurowane. Wybierz pozycję **Przegląd + utwórz**.
    4. Przejrzyj manifest wdrożenia i wybierz pozycję **Utwórz**.
 
-5. Wybierz moduł Modbus, `ModbusTCPModule`na liście i wybierz kartę **Ustawienia sznurka modułu** . Wymagany kod JSON dla potrzebnych właściwości sznurka modułu jest wypełniany automatycznie.
+5. Wybierz moduł Modbus, `ModbusTCPModule` na liście i wybierz kartę **Ustawienia sznurka modułu** . Wymagany kod JSON dla potrzebnych właściwości sznurka modułu jest wypełniany automatycznie.
 
 6. Wyszukaj Właściwość **SlaveConnection** w formacie JSON i ustaw jej wartość na adres IPv4 urządzenia Modbus.
 

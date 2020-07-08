@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/14/2020
 ms.openlocfilehash: f0f767273a40bc91b1d49477c896b0b157623106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157070"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Uruchamianie zadań Apache Sqoop przy użyciu zestawu SDK platformy .NET dla Apache Hadoop w usłudze HDInsight
@@ -37,7 +36,7 @@ Zestaw SDK platformy .NET dla usługi HDInsight udostępnia biblioteki klienckie
 
 1. Uruchom program Visual Studio i Utwórz aplikację konsolową w języku C#.
 
-1. Przejdź do **menu Narzędzia** > Menedżer**pakietów** > NuGet**konsola Menedżera pakietów** i uruchom następujące polecenie:
+1. Przejdź do **menu Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** i uruchom następujące polecenie:
 
     ```
     Install-Package Microsoft.Azure.Management.HDInsight.Job
@@ -45,9 +44,9 @@ Zestaw SDK platformy .NET dla usługi HDInsight udostępnia biblioteki klienckie
 
 ## <a name="sqoop-export"></a>Eksport Sqoop
 
-Z programu Hive do SQL Server.  Ten przykład eksportuje dane z tabeli `hivesampletable` programu Hive do `mobiledata` tabeli w SQL Database.
+Z programu Hive do SQL Server.  Ten przykład eksportuje dane z tabeli programu Hive `hivesampletable` do `mobiledata` tabeli w SQL Database.
 
-1. Użyj poniższego kodu w pliku Program.cs. Edytuj kod, aby ustawić wartości dla `ExistingClusterName`i. `ExistingClusterPassword`
+1. Użyj poniższego kodu w pliku Program.cs. Edytuj kod, aby ustawić wartości dla `ExistingClusterName` i `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;

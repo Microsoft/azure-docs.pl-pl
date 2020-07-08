@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76153789"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Konfiguracja DNS klastra Avere
@@ -48,7 +47,7 @@ Każdy adres IP skierowany na klienta musi mieć unikatową nazwę do użytku we
 
 Klienci instalują klaster przy użyciu nazwy vserver jako argumentu serwera.
 
-Zmodyfikuj ``named.conf`` plik serwera DNS w celu ustawienia kolejności cyklicznej dla zapytań do vserver. Ta opcja zapewnia, że wszystkie dostępne wartości są przetwarzane przez. Dodaj następującą instrukcję:
+Zmodyfikuj plik serwera DNS ``named.conf`` w celu ustawienia kolejności cyklicznej dla zapytań do vserver. Ta opcja zapewnia, że wszystkie dostępne wartości są przetwarzane przez. Dodaj następującą instrukcję:
 
 ```
 options {
@@ -74,7 +73,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>Ustawienia DNS klastra
 
-Określ serwer DNS, którego używa klaster vFXT na stronie ustawień **Cluster** > **sieci administracyjnej** klastra. Ustawienia na tej stronie obejmują:
+Określ serwer DNS, którego używa klaster vFXT na **Cluster**  >  stronie ustawień**sieci administracyjnej** klastra. Ustawienia na tej stronie obejmują:
 
 * Adres serwera DNS
 * Nazwa domeny DNS

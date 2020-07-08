@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68727213"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Składniki i granice systemu informacji platformy Azure
@@ -47,7 +46,7 @@ Centrum danych jest podzielone na klastry. Klastry izolują błędy na poziomie 
 
 ### <a name="hardware-inventory"></a>Spis sprzętu
 
-FC przygotowuje spis sprzętu i urządzeń sieciowych platformy Azure podczas procesu konfiguracji ładowania początkowego. Każdy nowy sprzęt i składniki sieciowe wprowadzane do środowiska produkcyjnego platformy Azure muszą być zgodne z procesem konfiguracji ładowania początkowego. FC jest odpowiedzialny za zarządzanie całym spisem wymienionym w pliku konfiguracyjnym centrum danych. XML.
+FC przygotowuje spis sprzętu i urządzeń sieciowych platformy Azure podczas procesu konfiguracji ładowania początkowego. Każdy nowy sprzęt i składniki sieciowe wprowadzane do środowiska produkcyjnego platformy Azure muszą być zgodne z procesem konfiguracji ładowania początkowego. FC jest odpowiedzialny za zarządzanie całym spisem wymienionym w pliku konfiguracji datacenter.xml.
 
 ### <a name="fc-managed-operating-system-images"></a>Obrazy systemu operacyjnego zarządzane przez FC
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: e8077068a265d659cf6009eb7762188637c373d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76721663"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapowanie pól niestandardowych na schemat usługi Event Grid
@@ -47,9 +46,9 @@ Podczas tworzenia tematu niestandardowego Określ sposób mapowania pól z orygi
 
 * Wartość **schematu wejściowego** określa typ schematu. Dostępne opcje to schemat CloudEvents, niestandardowy schemat zdarzeń lub schemat Event Grid. Wartość domyślna to Event Grid Schema. Podczas tworzenia mapowania niestandardowego między schematem i schematem siatki zdarzeń należy użyć niestandardowego schematu zdarzeń. Gdy zdarzenia znajdują się w schemacie CloudEvents, Użyj schematu Cloudevents.
 
-* Właściwość **mapowania wartości domyślnych** określa wartości domyślne dla pól w schemacie Event Grid. Można ustawić wartości domyślne dla `subject`, `eventtype`, i. `dataversion` Zazwyczaj ten parametr jest używany, gdy niestandardowy schemat nie zawiera pola odpowiadającego jednemu z tych trzech pól. Można na przykład określić, że wersja danych ma zawsze wartość **1,0**.
+* Właściwość **mapowania wartości domyślnych** określa wartości domyślne dla pól w schemacie Event Grid. Można ustawić wartości domyślne dla `subject` , `eventtype` , i `dataversion` . Zazwyczaj ten parametr jest używany, gdy niestandardowy schemat nie zawiera pola odpowiadającego jednemu z tych trzech pól. Można na przykład określić, że wersja danych ma zawsze wartość **1,0**.
 
-* Wartość **pola mapowania** mapuje pola ze schematu do schematu usługi Event Grid. Należy określić wartości w parach klucz/wartość rozdzielaną spacją. Dla nazwy klucza Użyj nazwy pola usługi Event Grid. Dla wartości Użyj nazwy pola. Nazwy `id`kluczy można użyć dla, `topic` `eventtime` `subject`,,, `eventtype`, i. `dataversion`
+* Wartość **pola mapowania** mapuje pola ze schematu do schematu usługi Event Grid. Należy określić wartości w parach klucz/wartość rozdzielaną spacją. Dla nazwy klucza Użyj nazwy pola usługi Event Grid. Dla wartości Użyj nazwy pola. Nazwy kluczy można użyć dla,,,, `id` `topic` `eventtime` `subject` `eventtype` , i `dataversion` .
 
 Aby utworzyć niestandardowy temat za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenia:
 

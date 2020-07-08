@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76264037"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
@@ -51,7 +50,7 @@ Kluczowym elementem na tym diagramie architektury jest Azure Service Bus, w któ
 1. Aplikacja mobilna
    * Odbiera i wyświetla powiadomienie
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 1. Rozdzielenie między odbiornikiem (aplikacją mobilną/usługą za pośrednictwem Centrum powiadomień) i nadawcą (systemy zaplecza) umożliwia integrację dodatkowych systemów zaplecza z minimalnymi zmianami.
 1. Ponadto scenariusz wielu aplikacji mobilnych może odbierać zdarzenia z co najmniej jednego systemu zaplecza.  
@@ -234,7 +233,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 
     ![][3]
 
-    g. Skonfiguruj zadanie jako "Uruchom w sposób ciągły", aby podczas logowania się do [Azure Portal] powinna wyglądać podobnie do poniższego:
+    przykład Skonfiguruj zadanie jako "Uruchom w sposób ciągły", aby podczas logowania się do [Azure Portal] powinna wyglądać podobnie do poniższego:
 
     ![][4]
 
@@ -244,7 +243,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 
     b. Upewnij się, że aplikacja jest włączona, aby otrzymywać wyskakujące powiadomienia.
 
-    c. Upewnij się, że następujący kod rejestracji Notification Hubs jest wywoływany podczas uruchamiania aplikacji (po zastępowaniu wartości `HubName` i `DefaultListenSharedAccessSignature` :
+    c. Upewnij się, że następujący kod rejestracji Notification Hubs jest wywoływany podczas uruchamiania aplikacji (po zastępowaniu `HubName` wartości i `DefaultListenSharedAccessSignature` :
 
     ```csharp
     private async void InitNotificationsAsync()

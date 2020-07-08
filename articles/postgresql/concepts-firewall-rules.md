@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 5d462be1caa3787cb7ff9a455be595ec5784eefe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76157274"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reguły zapory w Azure Database for PostgreSQL-pojedynczym serwerze
@@ -29,7 +28,7 @@ Próby połączenia z Internetu i platformy Azure muszą być przekazywane przez
 Reguły zapory na poziomie serwera mają zastosowanie do wszystkich baz danych na tym samym serwerze Azure Database for PostgreSQL. Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, ustanawiane jest połączenie.
 Jeśli adres IP żądania nie należy do zakresów określonych w regułach zapory na poziomie serwera, żądanie połączenia kończy się niepowodzeniem.
 Jeśli na przykład aplikacja nawiązuje połączenie z sterownikiem JDBC dla PostgreSQL, może wystąpić błąd podczas próby nawiązania połączenia, gdy Zapora blokuje połączenie.
-> Java. util. współbieżne. ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy:\_brak PG HBA. conf wpis dla hosta "123.45.67.890", User "AdminUser", baza danych "PostgreSQL", SSL
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: brak PG \_ HBA. conf wpis dla hosta "123.45.67.890", użytkownika "AdminUser", bazy danych "PostgreSQL", SSL
 
 ## <a name="connecting-from-azure"></a>Łączenie z platformy Azure
 Zalecane jest, aby znaleźć wychodzący adres IP dowolnej aplikacji lub usługi i jawnie zezwolić na dostęp do tych pojedynczych adresów IP lub zakresów. Na przykład można znaleźć wychodzący adres IP Azure App Service lub użyć publicznego adresu IP powiązanego z maszyną wirtualną lub innym zasobem (zobacz poniżej, aby uzyskać informacje na temat nawiązywania połączenia z prywatnym adresem IP maszyny wirtualnej za pośrednictwem punktów końcowych usługi). 
@@ -57,7 +56,7 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
 * **Logowanie nie jest autoryzowane lub użyto nieprawidłowego hasła:** Jeśli logowanie nie ma uprawnień na serwerze Azure Database for PostgreSQL lub użyte hasło jest nieprawidłowe, nastąpiło odmowa połączenia z serwerem Azure Database for PostgreSQL. Utworzenie ustawienia zapory zapewnia klientom możliwość próby nawiązania połączenia z serwerem; Każdy klient musi nadal podawać niezbędne poświadczenia zabezpieczeń.
 
    Na przykład przy użyciu klienta JDBC może pojawić się następujący błąd.
-   > Java. util. współbieżne. ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: uwierzytelnianie hasła dla użytkownika "yourUserName" nie powiodło się
+   > java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: uwierzytelnianie hasła dla użytkownika "yourUserName" nie powiodło się
 
 * **Dynamiczny adres IP:** jeśli używane jest połączenie internetowe za pomocą dynamicznego adresowania IP i występują problemy z przejściem przez zaporę, można wypróbować jedno z poniższych rozwiązań:
 

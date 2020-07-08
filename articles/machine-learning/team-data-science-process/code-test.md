@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722066"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testowanie kodu analizy danych na platformie Azure z zespołowym procesem nauki danych i Azure DevOps Services
@@ -138,7 +137,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
     
     ![Szczegóły programu PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Wybierz pozycję **zapisz & kolejkę** , aby ukończyć proces kompilacji potoku.
+    przykład Wybierz pozycję **zapisz & kolejkę** , aby ukończyć proces kompilacji potoku.
 
     ![Przycisk "Zapisz & kolejki"](./media/code-test/save_and_queue_build_definition.PNG)
 
@@ -154,8 +153,8 @@ Jeśli alerty są prawidłowo skonfigurowane, użytkownik zostanie powiadomiony 
 * Zapoznaj się z [repozytorium przewidywania dochodu UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) dla konkretnych przykładów testów jednostkowych na potrzeby scenariuszy analizy danych.
 * Postępuj zgodnie z powyższym zarysem i przykładami w scenariuszu przewidywania dochodu UCI w swoich projektach analizy danych.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 * [Zespołowe przetwarzanie danych dla celów naukowych](https://aka.ms/tdsp)
 * [Narzędzia testowania programu Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Zasoby testowe usługi Azure DevOps](https://www.visualstudio.com/team-services/)
-* [Maszyny Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Maszyny wirtualne Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
