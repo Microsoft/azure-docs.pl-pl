@@ -3,12 +3,12 @@ title: Mechanizmy zabezpieczeń
 description: Lista kontrolna wbudowanych mechanizmów zabezpieczeń do oceny usługi Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: d0a0625153e428a0d261e52d40b31ef5142eddfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb8742c38fae88dc1fd1fd1ec175b248f30df3a0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75485626"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054461"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Kontrolki zabezpieczeń dla Azure Resource Manager
 
@@ -47,7 +47,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Resource Manage
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak | Na podstawie [Azure Active Directory](/azure/active-directory) .|
+| Authentication| Tak | Na podstawie [Azure Active Directory](../../active-directory/index.yml) .|
 | Autoryzacja| Tak | |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

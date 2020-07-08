@@ -11,6 +11,10 @@
       href: ./quickstarts/client-libraries.md
 - name: Samouczki
   items:
+    - name: Uruchamianie czytnika immersyjnego (Android)
+      href: tutorial-android.md
+    - name: Uruchamianie czytnika immersyjnego (iOS)
+      href: tutorial-ios.md
     - name: Uruchamianie czytnika immersyjnego (Python)
       href: tutorial-python.md
     - name: Korzystanie z wielu zasobów czytnika immersyjnego

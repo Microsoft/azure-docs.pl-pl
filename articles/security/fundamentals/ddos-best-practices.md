@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 87f1fcfa08ef2b7d2e4f72588eff8576c5ace146
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254297"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054444"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -30,7 +30,6 @@ Oprócz podstawowej ochrony DDoS na platformie, [Azure DDoS Protection Standard]
 
 ![Rola Azure DDoS Protection w ochronie klientów i sieci wirtualnej od osoby atakującej](./media/ddos-best-practices/image1.png)
 
-Aby uzyskać zalecenia dotyczące zabezpieczeń dotyczące tej technologii, zobacz [podstawy zabezpieczeń platformy Azure dla DDoS Protection](ddos-protection-security-baseline.md).
 
 ## <a name="fundamental-best-practices"></a>Podstawowe najlepsze rozwiązania
 
@@ -269,7 +268,6 @@ Więcej informacji na temat tej architektury referencyjnej można znaleźć w do
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Podstawa zabezpieczeń platformy Azure dla DDoS Protection](ddos-protection-security-baseline.md)
 * [Wspólna odpowiedzialność w chmurze](shared-responsibility.md)
 * [Strona produktu Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 * [Dokumentacja Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)

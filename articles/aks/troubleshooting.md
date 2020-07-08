@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 36b3f20b866e7bad1d27f9fa92c02601ec21602c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125433"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054393"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -31,11 +31,34 @@ Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypad
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Otrzymuję błąd insufficientSubnetSize podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
 
-W przypadku korzystania z wtyczki sieciowej usługi Azure CNI AKS przydziela adresy IP na podstawie parametru "--Max-" na węzeł. Rozmiar podsieci musi być większy niż liczba węzłów pomnożona przez ustawienie maksymalna liczba numerów na węzeł. Poniższe równanie zawiera opis:
+Ten błąd wskazuje, że podsieć w użyciu dla klastra nie ma już dostępnych adresów IP w ramach CIDR dla pomyślnego przypisania zasobu. W przypadku klastrów korzystającą wtyczki kubenet wymaga wystarczającej przestrzeni adresowej IP dla każdego węzła w klastrze. W przypadku klastrów usługi Azure CNI wymagane jest wystarczające miejsce na adresy IP dla każdego węzła i znajdującego się w klastrze.
+Przeczytaj więcej na temat [projektowania usługi Azure CNI, aby przypisać adresy IP do zasobników](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Rozmiar podsieci > liczbę węzłów w klastrze (biorąc pod uwagę przyszłe wymagania dotyczące skalowania) * Maksymalna liczba zasobników na zestaw węzłów.
+Te błędy są również nawiązane w [diagnostyce AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
 
-Aby uzyskać więcej informacji, zobacz [Planowanie adresów IP w klastrze](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Następujące trzy przypadki (3) powodują niewystarczający rozmiar podsieci:
+
+1. Skalowanie AKS lub AKS Nodepool
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of new nodes requested` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. Uaktualnienie AKS lub uaktualnienie Nodepool AKS
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of buffer nodes needed to upgrade` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) jedną (1), ale to zachowanie uaktualnienia można dostosować, ustawiając [maksymalną wartość przepięcia puli węzłów](upgrade-cluster.md#customize-node-surge-upgrade-preview) , która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do przeprowadzenia uaktualnienia.
+
+1. AKS Utwórz lub AKS Nodepool Dodaj
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of nodes requested for the node pool` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+Poniższe środki zaradcze mogą być podejmowane przez utworzenie nowych podsieci. Uprawnienie do tworzenia nowej podsieci jest wymagane w celu ograniczenia ryzyka ze względu na niezdolność do aktualizowania zakresu CIDR istniejącej podsieci.
+
+1. Odbuduj nową podsieć o większym zakresie CIDR wystarczającym dla celów operacji:
+   1. Utwórz nową podsieć z nowym żądanym nienakładanym zakresem.
+   1. Utwórz nowy nodepool w nowej podsieci.
+   1. Opróżnij zasobniki ze starego nodepool znajdującego się w starej podsieci, aby zostać zastąpione.
+   1. Usuń starą podsieć i stare nodepool.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mój pod jest zablokowany w trybie CrashLoopBackOff. Co mam zrobić?
 
@@ -126,6 +149,7 @@ Ograniczenia nazewnictwa są implementowane przez platformę Azure i AKS. Jeśli
 * Nazwa grupy zasobów Node/*MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* musi zaczynać i kończyć się wartościami alfanumerycznymi i muszą zawierać od 1-54 znaków. Prawidłowe znaki to wartości alfanumeryczne i łączniki (-). *DnsPrefix* nie może zawierać znaków specjalnych, takich jak kropka (.).
 * Nazwy puli węzłów AKS muszą składać się z małych liter i zawierać 1-11 znaków dla pul węzłów systemu Linux i 1-6 znaków dla pul węzłów Windows. Nazwa musi zaczynać się od litery i Jedyne dozwolone znaki to litery i cyfry.
+* *Nazwa użytkownika administratora*, która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Otrzymuję błędy podczas próby utworzenia, zaktualizowania, skalowania, usunięcia lub uaktualnienia klastra, ta operacja nie jest dozwolona, ponieważ inna operacja jest w toku.
 

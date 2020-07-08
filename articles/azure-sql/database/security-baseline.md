@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 26456c09975fa49bae17a3cfeef8ecc1ef913815
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315886"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045947"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Podstawowa usługa Azure Security dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -639,7 +639,7 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych baz danych SQL Azure i innych krytycznych lub powiązanych zasobów.
+**Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych Azure SQL Database i innych krytycznych lub powiązanych zasobów.
 
 Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:
 
@@ -657,7 +657,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Wskazówki**: Włącz zaawansowane zabezpieczenia danych dla Azure SQL Database i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania oceny luk w zabezpieczeniach na serwerach.
 
-Jak uruchamiać oceny luk w zabezpieczeniach w bazach danych Azure SQL:
+Jak uruchomić oceny luk w zabezpieczeniach w Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 

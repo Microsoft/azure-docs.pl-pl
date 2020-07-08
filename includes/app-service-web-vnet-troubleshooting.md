@@ -4,25 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: 652d42d6e2d9e909c3a03bd82a3a36f91bc73807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419548"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050224"
 ---
-Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia** > **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź do**konsoli** **Narzędzia** > .
+Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools**do  >  **konsoli**narzędzia.
 
-#### <a name="tools"></a>Narzędzia
-Narzędzia **ping**, **nslookup**i **tracert** nie będą przełączane przez konsolę ze względu na ograniczenia zabezpieczeń. Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver. exe**. Składnia jest następująca:
+#### <a name="tools"></a>narzędzia
+Narzędzia **ping**, **nslookup**i **tracert** nie będą przełączane przez konsolę ze względu na ograniczenia zabezpieczeń. Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```console
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 Możesz użyć nameresolver, aby sprawdzić nazwy hostów, od których zależy aplikacja. W ten sposób można testować, czy masz jakieś błędnie skonfigurowane w systemie DNS lub prawdopodobnie nie masz dostępu do serwera DNS. Możesz zobaczyć serwer DNS używany przez aplikację w konsoli programu, przeglądając zmienne środowiskowe WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER.
 
 Można użyć następnego narzędzia do testowania łączności TCP z kombinacją hosta i portu. To narzędzie ma nazwę **tcpping** , a Składnia:
 
-    tcpping.exe hostname [optional: port]
+```console
+tcpping.exe hostname [optional: port]
+```
 
 Narzędzie **tcpping** informuje o tym, czy można nawiązać połączenie z określonym hostem i portem. Może to potrwać tylko wtedy, gdy istnieje aplikacja nasłuchująca na hoście i w kombinacji portów oraz dostęp sieciowy z aplikacji do określonego hosta i portu.
 
@@ -62,7 +66,9 @@ Dodatkowe kroki debugowania obejmują:
 
 * Połącz się z MASZYNą wirtualną w sieci wirtualnej i spróbuj skontaktować się z hostem zasobów: z tego miejsca. Aby przetestować dostęp do protokołu TCP, użyj polecenia programu PowerShell **test-NetConnection**. Składnia jest następująca:
 
-      test-netconnection hostname [optional: -Port]
+```powershell
+test-netconnection hostname [optional: -Port]
+```
 
 * Wywołaj aplikację na maszynie wirtualnej i przetestuj dostęp do tego hosta i portu z konsoli programu z poziomu aplikacji za pomocą **tcpping**.
 

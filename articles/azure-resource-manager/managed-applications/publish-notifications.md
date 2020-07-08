@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76715670"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054529"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplikacje zarządzane przez platformę Azure z powiadomieniami
 
@@ -20,7 +20,7 @@ Powiadomienia aplikacji zarządzanych przez platformę Azure umożliwiają wydaw
 Aby zacząć otrzymywać zarządzane aplikacje, uruchom publiczny punkt końcowy HTTPS i określ go podczas publikowania definicji aplikacji katalogu usług lub oferty portalu Azure Marketplace.
 
 Poniżej przedstawiono zalecane kroki umożliwiające szybkie rozpoczęcie pracy:
-1. Uruchom publiczny punkt końcowy HTTPS, który rejestruje przychodzące żądania POST i zwraca `200 OK`.
+1. Uruchom publiczny punkt końcowy HTTPS, który rejestruje przychodzące żądania POST i zwraca `200 OK` .
 2. Dodaj punkt końcowy do definicji aplikacji katalogu usług lub oferty portalu Azure Marketplace zgodnie z opisem w dalszej części tego artykułu.
 3. Utwórz wystąpienie aplikacji zarządzanej, które odwołuje się do definicji aplikacji lub oferty portalu Azure Marketplace.
 4. Sprawdź, czy powiadomienia są odbierane.
@@ -61,7 +61,7 @@ Aby rozpocząć, zobacz [publikowanie aplikacji katalogu usług za pomocą Azure
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Dodawanie powiadomień aplikacji zarządzanych przez portal Azure Marketplace
-Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ![Powiadomienia aplikacji zarządzane w portalu Azure Marketplace w Azure Portal](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Wyzwalacze zdarzeń
@@ -69,11 +69,11 @@ W poniższej tabeli opisano wszystkie możliwe kombinacje elementów EventType i
 
 Typ zdarzenia | ProvisioningState | Wyzwalacz dla powiadomienia
 ---|---|---
-PUT | Zaakceptowane | Zarządzana Grupa zasobów została utworzona i została pomyślnie zastawiona po rozpoczęciu aplikacji (przed rozpoczęciem wdrażania w ramach zarządzanej grupy zasobów).
+PUT | Zaakceptowano | Zarządzana Grupa zasobów została utworzona i została pomyślnie zastawiona po rozpoczęciu aplikacji (przed rozpoczęciem wdrażania w ramach zarządzanej grupy zasobów).
 PUT | Sukces | Pełna aprowizacji aplikacji zarządzanej zakończyła się pomyślnie po UMIESZCZENIU.
 PUT | Niepowodzenie | Niepowodzenie inicjowania aprowizacji wystąpienia aplikacji w dowolnym momencie.
 WYSŁANA | Sukces | Po pomyślnej poprawek w wystąpieniu aplikacji zarządzanej w celu zaktualizowania tagów, zasad dostępu JIT lub tożsamości zarządzanej.
-DELETE | Usunąć | Zaraz po zainicjowaniu przez użytkownika usunięcia wystąpienia aplikacji zarządzanej.
+DELETE | Usuwanie | Zaraz po zainicjowaniu przez użytkownika usunięcia wystąpienia aplikacji zarządzanej.
 DELETE | Usunięte | Po pełnym i pomyślnym usunięciu zarządzanej aplikacji.
 DELETE | Niepowodzenie | Po wystąpieniu błędu w trakcie anulowania aprowizacji, który blokuje usunięcie.
 ## <a name="notification-schema"></a>Schemat powiadomień
@@ -182,14 +182,14 @@ Klasę | Typ zdarzenia, które wyzwoliło powiadomienie. (Na przykład PUT, PATC
 applicationId | W pełni kwalifikowany identyfikator zasobu zarządzanej aplikacji, dla którego zostało wyzwolone powiadomienie.
 eventTime | Sygnatura czasowa zdarzenia, które wyzwoliło powiadomienie. (Data i godzina w formacie UTC ISO 8601).
 provisioningState | Stan aprowizacji wystąpienia aplikacji zarządzanej. (Na przykład pomyślne, Niepowodzenie, usunięcie, usunięcie.)
-error | *Określany tylko wtedy, gdy provisioningState się nie powiodło*. Zawiera kod błędu, komunikat i szczegóły problemu, który spowodował awarię.
+Błąd | *Określany tylko wtedy, gdy provisioningState się nie powiodło*. Zawiera kod błędu, komunikat i szczegóły problemu, który spowodował awarię.
 applicationDefinitionId | *Określony tylko dla aplikacji zarządzanych przez katalog usług*. Reprezentuje w pełni kwalifikowany identyfikator zasobu definicji aplikacji, dla którego Zainicjowano obsługę administracyjną wystąpienia aplikacji zarządzanej.
 plan | *Określona tylko dla aplikacji zarządzanych przez portal Azure Marketplace*. Reprezentuje wydawcę, ofertę, jednostkę SKU i wersję wystąpienia aplikacji zarządzanej.
 billingDetails | *Określona tylko dla aplikacji zarządzanych przez portal Azure Marketplace.* Szczegóły rozliczeń wystąpienia aplikacji zarządzanej. Zawiera resourceUsageId, którego można użyć do wysyłania zapytań do witryny Azure Marketplace w celu uzyskania szczegółów dotyczących użycia.
 
 ## <a name="endpoint-authentication"></a>Uwierzytelnianie punktu końcowego
 Aby zabezpieczyć punkt końcowy elementu webhook i zapewnić autentyczność powiadomienia:
-1. Podaj parametr zapytania na górze identyfikatora URI elementu webhook, np.: https\://Your-Endpoint.com? SIG = GUID. W przypadku każdego powiadomienia Sprawdź, czy parametr `sig` zapytania ma oczekiwaną wartość `Guid`.
+1. Podaj parametr zapytania na górze identyfikatora URI elementu webhook, np.: https \: //Your-Endpoint.com? SIG = GUID. W przypadku każdego powiadomienia Sprawdź, czy parametr zapytania `sig` ma oczekiwaną wartość `Guid` .
 2. Wydaj element GET w wystąpieniu aplikacji zarządzanej przy użyciu aplikacji. Sprawdź, czy provisioningState pasuje do provisioningState powiadomienia, aby zapewnić spójność.
 
 ## <a name="notification-retries"></a>Ponowne próby powiadomień

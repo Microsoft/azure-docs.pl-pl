@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/26/2020
-ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.date: 7/6/2020
+ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506705"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045964"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Bezserwerowy jest warstwą obliczeniową dla pojedynczej bazy danych Azure SQL Database, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia i rachunków dla ilości użytych obliczeń na sekundę. Warstwa obliczeniowa bezserwerowa również automatycznie wstrzymuje bazy danych w trakcie okresów nieaktywnych, gdy są naliczane opłaty za magazyn i automatycznie wznawiają bazy danych po powrocie działania.
+Bezserwerowy jest warstwą obliczeniową dla pojedynczych baz danych w Azure SQL Database, która automatycznie skaluje obliczenia na podstawie zapotrzebowania na obciążenia i rachunków dla ilości użytych obliczeń na sekundę. Warstwa obliczeniowa bezserwerowa również automatycznie wstrzymuje bazy danych w trakcie okresów nieaktywnych, gdy są naliczane opłaty za magazyn i automatycznie wznawiają bazy danych po powrocie działania.
 
 ## <a name="serverless-compute-tier"></a>Warstwa bezserwerowych usług obliczeniowych
 
@@ -88,9 +88,9 @@ Pamięć dla baz danych bezserwerowych jest odzyskiwana częściej niż dla zain
 
 #### <a name="cache-reclamation"></a>Odzyskiwanie pamięci podręcznej
 
-W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej SQL jest odzyskiwana z bazy danych bezserwerowej, gdy użycie procesora lub pamięci podręcznej jest niskie.
+W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej SQL jest odzyskiwana z bazy danych bezserwerowej, gdy użycie procesora CPU lub aktywnej pamięci podręcznej jest niskie.  Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.
 
-- Użycie pamięci podręcznej jest uznawane za niskie, gdy łączny rozmiar ostatnio używanych wpisów w pamięci podręcznej spadnie poniżej wartości progowej przez pewien czas.
+- Użycie aktywnej pamięci podręcznej jest uznawane za niskie, gdy łączny rozmiar ostatnio używanych wpisów w pamięci podręcznej spadnie poniżej wartości progowej przez pewien czas.
 - Gdy odzyskiwanie pamięci podręcznej jest wyzwalane, rozmiar docelowej pamięci podręcznej jest zmniejszany przyrostowo do ułamka poprzedniego rozmiaru i odzyskiwanie odbywa się tylko w przypadku, gdy użycie będzie niskie.
 - Gdy następuje odzyskiwanie pamięci podręcznej, zasady wyboru wpisów pamięci podręcznej do wykluczenia są takie same jak w przypadku zainicjowanych baz danych obliczeniowych, gdy wykorzystanie pamięci jest wysokie.
 - Rozmiar pamięci podręcznej nigdy nie jest mniejszy niż minimalny limit pamięci określony przez minimalną rdzeni wirtualnych, który można skonfigurować.
@@ -112,7 +112,7 @@ Autowstrzymywanie jest wyzwalane, jeśli wszystkie poniższe warunki są spełni
 
 Opcja umożliwia wyłączenie autowstrzymywanie w razie potrzeby.
 
-Następujące funkcje nie obsługują autowstrzymywanie.  Oznacza to, że jeśli są używane jakiekolwiek z następujących funkcji, baza danych pozostanie w trybie online, niezależnie od czasu trwania nieaktywności bazy danych:
+Następujące funkcje nie obsługują automatycznego wstrzymywania, ale obsługują automatyczne skalowanie.  Oznacza to, że jeśli są używane jakiekolwiek z następujących funkcji, baza danych pozostanie w trybie online, niezależnie od czasu trwania nieaktywności bazy danych:
 
 - Replikacja geograficzna (aktywna replikacja geograficzna i grupy autotrybu failover).
 - Długoterminowe przechowywanie kopii zapasowych (LTR).
