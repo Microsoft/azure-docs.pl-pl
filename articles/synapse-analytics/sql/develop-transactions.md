@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8c921b05dd98c55c8e7db8beac93d1b724de1cd7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 07c507eb139c4c4d339db1ede46956cb09a61dcf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869306"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962921"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
 

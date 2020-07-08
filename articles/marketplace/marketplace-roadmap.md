@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ae482a4c7b656a4bc84895501c49bf0a98517acc
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 89a60016f8f4496e44c138a79a3864782791d1db
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800645"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963295"
 ---
 # <a name="microsoft-commercial-marketplace-resources"></a>Komercyjne zasoby portalu Microsoft Marketplace
 
@@ -28,9 +28,8 @@ Zapoznaj się z poniższymi zasobami, aby uzyskać informacje dotyczące najnows
 * [Analiza komercyjnego portalu Marketplace w centrum partnerskim](./partner-center-portal/analytics.md)
 * [Blog Microsoft Build Marketplace](https://aka.ms/marketplacebuildblog)
 * [Portal Marketplace może aktualizować blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
-* Centrum partnerskie: [Tworzenie konta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)  /  [Zarządzanie](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)  /  [migracją kont z programu CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
-* Centrum partnerskie: [Tworzenie](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)  /  [stanu publikowania](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
-)SaaS oferty  /  [Aktualizowanie istniejącej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)oferty oferta  /  [analizy](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
-* [Uzyskaj pomoc techniczną dotyczącą portalu Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+* Centrum partnerskie: [Tworzenie konta](partner-center-portal/create-account.md)  /  [Zarządzanie](partner-center-portal/manage-account.md)  /  [migracją kont z programu CPP](partner-center-portal/account-migration-from-cpp-to-pc.md)
+* Centrum partnerskie: [Tworzenie](partner-center-portal/create-new-saas-offer.md)  /  [stanu publikowania](partner-center-portal/publishing-status.md) oferty SaaS)/ [Aktualizowanie istniejącej](partner-center-portal/update-existing-offer.md)oferty usługi  /  [Analytics](partner-center-portal/analytics.md)
+* [Uzyskaj pomoc techniczną dotyczącą portalu Marketplace w centrum partnerskim](partner-center-portal/support.md)
 
 Chętnie poznamy Twoje propozycje! Dołącz do konwersacji w [społeczności partnerów firmy Microsoft](https://www.microsoftpartnercommunity.com/) , aby uzyskać najnowsze aktualizacje dotyczące nowych możliwości, programów i zdarzeń.

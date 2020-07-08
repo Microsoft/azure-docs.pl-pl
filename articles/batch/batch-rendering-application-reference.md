@@ -5,16 +5,16 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726506"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964876"
 ---
 # <a name="rendering-applications"></a>Renderowanie aplikacji
 
-Renderowanie aplikacji jest używane przez tworzenie zadań i zadań wsadowych. Właściwość wiersza polecenia zadania określa odpowiedni wiersz polecenia i parametry.  Najprostszym sposobem tworzenia zadań zadania jest użycie szablonów Batch Explorer zgodnie z opisem w [tym artykule](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  Szablony mogą być przeglądane i modyfikowane w razie potrzeby.
+Renderowanie aplikacji jest używane przez tworzenie zadań i zadań wsadowych. Właściwość wiersza polecenia zadania określa odpowiedni wiersz polecenia i parametry.  Najprostszym sposobem tworzenia zadań zadania jest użycie szablonów Batch Explorer zgodnie z opisem w [tym artykule](./batch-rendering-using.md#using-batch-explorer).  Szablony mogą być przeglądane i modyfikowane w razie potrzeby.
 
 Ten artykuł zawiera krótki opis sposobu uruchamiania każdej aplikacji renderowania.
 
@@ -31,7 +31,7 @@ Oprócz renderowania wbudowanych w 3ds Max, następujące moduły renderowania s
 
 Wywołaj `3dsmaxcmdio.exe` aplikację, aby wykonać renderowanie wiersza polecenia w węźle puli.  Ta aplikacja znajduje się na ścieżce, gdy zadanie jest uruchomione. `3dsmaxcmdio.exe`Aplikacja ma te same parametry, `3dsmaxcmd.exe` które są opisane w [dokumentacji 3ds Max help](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderowanie | Sekcja renderowania wiersza polecenia).
 
-Na przykład:
+Przykład:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

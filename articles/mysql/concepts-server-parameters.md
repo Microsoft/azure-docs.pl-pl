@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: e147e896966f88f05f60732da9d85308b8e4bd0f
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85389636"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963210"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -28,6 +28,32 @@ Azure Database for MySQL uwidacznia możliwość zmiany wartości różnych para
 Lista obsługiwanych parametrów serwera stale rośnie. Użyj karty parametry serwera w Azure Portal, aby wyświetlić pełną listę i skonfigurować wartości parametrów serwera.
 
 Zapoznaj się z poniższymi sekcjami poniżej, aby dowiedzieć się więcej o limitach kilku często aktualizowanych parametrów serwera. Limity są ustalane na podstawie warstwy cenowej i rdzeni wirtualnych serwera.
+
+### <a name="thread-pools"></a>Pule wątków
+
+MySQL tradycyjnie przypisuje wątek dla każdego połączenia z klientem. Wraz ze wzrostem liczby równoczesnych użytkowników istnieje odpowiedni spadek wydajności. Wiele aktywnych wątków może mieć wpływ na wydajność znacząco z powodu zwiększonego przełączenia kontekstu, rywalizacji o wątki i nieprawidłowej lokalizacji pamięci podręcznych procesora CPU.
+
+Pule wątków, które są funkcją po stronie serwera i różnią się od puli połączeń, maksymalizują wydajność dzięki wprowadzeniu dynamicznej puli wątków roboczych, która może służyć do ograniczenia liczby aktywnych wątków uruchomionych na serwerze i minimalizowania zmian wątków. Pozwala to zagwarantować, że nastąpi brak zasobów na serwerze lub awaria z powodu braku pamięci. Pule wątków są najbardziej wydajne w przypadku krótkich zapytań i obciążeń intensywnie korzystających z procesora CPU, na przykład obciążeń OLTP.
+
+Aby dowiedzieć się więcej na temat pul wątków, zobacz [wprowadzenie do pul wątków w Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+
+> [!NOTE]
+> Funkcja puli wątków nie jest obsługiwana w wersji MySQL 5,6. 
+
+### <a name="configuring-the-thread-pool"></a>Konfigurowanie puli wątków
+Aby włączyć pulę wątków, zaktualizuj `thread_handling` parametr serwera do "puli wątków". Domyślnie ten parametr jest ustawiony na `one-thread-per-connection` , co oznacza, że program MySQL tworzy nowy wątek dla każdego nowego połączenia. Należy pamiętać, że jest to parametr statyczny i wymaga ponownego uruchomienia serwera.
+
+Możesz również skonfigurować maksymalną i minimalną liczbę wątków w puli, ustawiając następujące parametry serwera: 
+- `thread_pool_max_threads`: Ta wartość zapewnia, że w puli nie będzie więcej niż liczba wątków.
+- `thread_pool_min_threads`: Ta wartość ustawia liczbę wątków, które zostaną zarezerwowane nawet po zamknięciu połączeń.
+
+W celu poprawienia problemów z wydajnością krótkich zapytań w puli wątków Azure Database for MySQL pozwala na włączenie wykonywania wsadowego, gdzie zamiast powrotu z powrotem do puli wątków natychmiast po wykonaniu zapytania, wątki będą nadal aktywne przez krótki czas oczekiwania na następne zapytanie za pomocą tego połączenia. Następnie wątek wykonuje zapytanie szybko i po jego zakończeniu, czeka na następny czas, aż całkowite użycie tego procesu przekroczy wartość progową. Zachowanie wykonywania wsadowego jest określane przy użyciu następujących parametrów serwera:  
+
+-  `thread_pool_batch_wait_timeout`: Ta wartość określa czas oczekiwania wątku na inne zapytanie do przetworzenia.
+- `thread_pool_batch_max_time`: Ta wartość określa maksymalny czas, przez który wątek będzie powtarzał cykl wykonywania zapytania i oczekuje na następne zapytanie.
+
+> [!IMPORTANT]
+> Przetestuj pulę wątków przed włączeniem jej w środowisku produkcyjnym. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -220,7 +246,7 @@ Po wstępnym wdrożeniu serwer platformy Azure dla programu MySQL zawiera tabele
 
 Następujące parametry serwera nie są konfigurowalne w usłudze:
 
-|**Konstruktora**|**Stała wartość**|
+|**Parametr**|**Stała wartość**|
 | :------------------------ | :-------- |
 |innodb_file_per_table w warstwie Podstawowa|WYŁ.|
 |innodb_flush_log_at_trx_commit|1|

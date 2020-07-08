@@ -1,5 +1,5 @@
 ---
-title: Przewodnik dołączania programu Microsoft Business Applications niezależnych dostawców oprogramowania (ISV)
+title: Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 description: Oto jak dołączyć do programu Business Applications ISV Connect.
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: dsindona
-ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f312fad8e4cbdbfae6bd17f293f65fc3bb637a3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80288975"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964893"
 ---
-# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania programu Microsoft Business Applications niezależnych dostawców oprogramowania (ISV)
+# <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
 [Program Business Applications niezależnego dostawcy](https://partner.microsoft.com/solutions/business-applications/isv-overview) oprogramowania ma na celu przyspieszenie wzrostu i całkowitego sukcesu niezależnych dostawców oprogramowanie (ISV) tworzących nowoczesne, oparte na chmurze rozwiązania biznesowe (LOB), które umożliwiają zarządzanie w systemie *Dynamics 365 klienta i powerapps* ("Dynamics ce offers") lub *Dynamics 365 Finanse i operacje* ("usługa Dynamics Ops — oferty"). Oto jak to zrobić.
 
@@ -43,7 +43,7 @@ Jeśli już opublikowano oferty programu Dynamics CE lub Dynamics Ops, prawdopod
 1. Zaloguj się do strony **profilu wydawcy** w [Portal Cloud partner](https://cloudpartner.azure.com/).
 2. Jeśli zobaczysz transparent informujący o tym, że ustawienia Twojego konta zostały zmigrowane do Centrum partnerskiego, przejdź do następnej sekcji. W przeciwnym razie wybierz transparent z monitem o aktywację konta Centrum partnerskiego.
 
-Aby uzyskać więcej informacji, zobacz [Migracja konta z Portal Cloud partner do Centrum partnerskiego](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
+Aby uzyskać więcej informacji, zobacz [Migracja konta z Portal Cloud partner do Centrum partnerskiego](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Zaakceptuj uzupełnienie programu Business Applications niezależnego dostawcy oprogramowania
 
@@ -88,7 +88,7 @@ Po wykonaniu powyższych czynności Twoje istniejące oferty usługi Dynamics CE
 Ostatnim krokiem rejestracji w programie Business Applications niezależnego dostawcy oprogramowania jest ponowne zatwierdzenie istniejących aplikacji.
 
 1. [Wykonaj następujące kroki](https://partner.microsoft.com/solutions/business-applications/isv-publish) , aby zatwierdzić swoją aplikację w usłudze AppSource.
-2. [Utwórz i Opublikuj nową ofertę](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). Ta oferta będzie całkowicie nowa i nie zastępuje istniejącej oferty.
+2. [Utwórz i Opublikuj nową ofertę](../partner-center-portal/create-new-customer-engagement-offer.md). Ta oferta będzie całkowicie nowa i nie zastępuje istniejącej oferty.
 
 ## <a name="further-info"></a>Więcej informacji
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792908"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963754"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Często zadawane pytania dotyczące interfejsów API realizacji SaaS
 
@@ -46,7 +46,7 @@ Gdy użytkownik platformy Azure zostanie przekierowany do strony docelowej, zost
 
 ![Przepływ subskrypcji klienta](media/saas-metering-service-integration-flow-a.png)
 
-Aby uzyskać więcej informacji na temat kontraktu interfejsu API do obsługi scenariuszy Transact w cyklu życia oferty SaaS, zobacz [SaaS API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+Aby uzyskać więcej informacji na temat kontraktu interfejsu API do obsługi scenariuszy Transact w cyklu życia oferty SaaS, zobacz [SaaS API](pc-saas-fulfillment-api-v2.md).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Jak poznać ofertę SaaS, do której użytkownik subskrybuje platformę Azure?
 

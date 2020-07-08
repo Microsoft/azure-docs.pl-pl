@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 5a867243e57790bf72cef6991d6d8ac06639be49
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736177"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963924"
 ---
 # <a name="managed-application-metered-billing"></a>Rozliczenia taryfowe zarządzanej aplikacji 
 
@@ -125,7 +125,7 @@ Wykonaj poniższe kroki, aby przesłać bilet pomocy technicznej:
 4. W obszarze "Wybierz problem, który najlepiej opisuje problem" Wybierz pozycję **naliczanie opłat**.
 5. Po wybraniu przycisku **dalej** nastąpi przekierowanie do strony **szczegółów problemu** , na której można wprowadzić więcej szczegółów dotyczących problemu.
 
-Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

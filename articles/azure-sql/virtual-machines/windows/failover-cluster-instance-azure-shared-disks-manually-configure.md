@@ -1,0 +1,235 @@
+---
+title: Tworzenie FCI przy użyciu dysków udostępnionych na platformie Azure (wersja zapoznawcza)
+description: Użyj usługi Azure Shared disks, aby utworzyć wystąpienie klastra trybu failover (FCI) z SQL Server na platformie Azure Virtual Machines.
+services: virtual-machines
+documentationCenter: na
+author: MashaMSFT
+editor: monicar
+tags: azure-service-management
+ms.service: virtual-machines-sql
+ms.custom: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
+ms.date: 06/26/2020
+ms.author: mathoma
+ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965573"
+---
+# <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+W tym artykule opisano sposób tworzenia wystąpienia klastra trybu failover (FCI) przy użyciu dysków udostępnionych platformy Azure z SQL Server na platformie Azure Virtual Machines. 
+
+Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach wirtualnych platformy Azure](failover-cluster-instance-overview.md) i [najlepszych rozwiązaniach klastra](hadr-cluster-best-practices.md). 
+
+
+## <a name="prerequisites"></a>Wymagania wstępne 
+
+Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać następujące czynności:
+
+- Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
+- [Co najmniej dwie zachodnie środkowe stany USA maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md) w tym samym [zestawie dostępności](../../../virtual-machines/linux/tutorial-availability-sets.md) i w [grupie umieszczania bliskości](../../../virtual-machines/windows/co-location.md#proximity-placement-groups)z zestawem dostępności utworzonym z domeną błędów i domeną aktualizacji o wartości **1**. 
+- Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
+- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+
+
+## <a name="add-azure-shared-disk"></a>Dodaj dysk udostępniony platformy Azure
+Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udostępnionego. Ustaw `maxShares` wartość **2** , aby umożliwić udostępnianie dysku w obu węzłach FCI. 
+
+Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności: 
+
+
+1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw*: 
+
+   ```JSON
+   { 
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "dataDiskName": {
+         "type": "string",
+         "defaultValue": "mySharedDisk"
+       },
+       "dataDiskSizeGB": {
+         "type": "int",
+         "defaultValue": 1024
+       },
+       "maxShares": {
+         "type": "int",
+         "defaultValue": 2
+       }
+     },
+     "resources": [
+       {
+         "type": "Microsoft.Compute/disks",
+         "name": "[parameters('dataDiskName')]",
+         "location": "[resourceGroup().location]",
+         "apiVersion": "2019-07-01",
+         "sku": {
+           "name": "Premium_LRS"
+         },
+         "properties": {
+           "creationData": {
+             "createOption": "Empty"
+           },
+           "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+           "maxShares": "[parameters('maxShares')]"
+         }
+       }
+     ] 
+   }
+   ```
+
+
+2. Uruchom *SharedDiskConfig.js* przy użyciu programu PowerShell: 
+
+   ```powershell
+   $rgName = < specify your resource group name>
+       $location = 'westcentralus'
+       New-AzResourceGroupDeployment -ResourceGroupName $rgName `
+   -TemplateFile "SharedDiskConfig.json"
+   ```
+
+3. Dla każdej maszyny wirtualnej zainicjuj dołączone dyski udostępnione jako tabelę partycji GUID (GPT) i sformatuj je jako nowy system plików (NTFS), uruchamiając następujące polecenie: 
+
+   ```powershell
+   $resourceGroup = "<your resource group name>"
+       $location = "<region of your shared disk>"
+       $ppgName = "<your proximity placement groups name>"
+       $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+           -Name "<your VM node name>"
+       $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+           -DiskName "<your shared disk name>"
+       $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+           -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+           -Lun <available LUN  check disk setting of the VM>
+    update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+   ```
+
+
+## <a name="create-failover-cluster"></a>Utwórz klaster trybu failover
+
+Aby utworzyć klaster trybu failover, potrzebne są:
+
+- Nazwy maszyn wirtualnych, które staną się węzłami klastra.
+- Nazwa klastra trybu failover.
+- Adres IP klastra trybu failover. Można użyć adresu IP, który nie jest używany w tej samej sieci wirtualnej platformy Azure i podsieci co węzły klastra.
+
+
+# <a name="windows-server-2012-2016"></a>[System Windows Server 2012-2016](#tab/windows2012)
+
+Poniższy skrypt programu PowerShell tworzy klaster trybu failover. Zaktualizuj skrypt przy użyciu nazw węzłów (nazw maszyn wirtualnych) i dostępnego adresu IP z sieci wirtualnej platformy Azure.
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+```   
+
+# <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows2019)
+
+Poniższy skrypt programu PowerShell tworzy klaster trybu failover. Zaktualizuj skrypt przy użyciu nazw węzłów (nazw maszyn wirtualnych) i dostępnego adresu IP z sieci wirtualnej platformy Azure.
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
+Aby uzyskać więcej informacji, zobacz [klaster trybu failover: obiekt sieci klastra](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
+
+---
+
+
+## <a name="configure-quorum"></a>Konfigurowanie kworum
+
+Skonfiguruj rozwiązanie kworum, które najlepiej odpowiada Twoim potrzebom biznesowym. Można skonfigurować [monitor dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), [monitor w chmurze](/windows-server/failover-clustering/deploy-cloud-witness)lub [monitor udostępniania plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). Aby uzyskać więcej informacji, zobacz [kworum z maszynami wirtualnymi SQL Server](hadr-cluster-best-practices.md#quorum). 
+
+## <a name="validate-cluster"></a>Weryfikuj klaster
+Sprawdź poprawność klastra w interfejsie użytkownika lub za pomocą programu PowerShell.
+
+Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykonaj następujące czynności na jednej z maszyn wirtualnych:
+
+1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
+1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
+1. Wybierz pozycję **Dalej**.
+1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
+1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
+1. Wybierz pozycję **Dalej**.
+1. W obszarze **wybór testu**zaznacz wszystkie testy *oprócz* **bezpośrednie miejsca do magazynowania**.
+
+## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
+
+Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover**kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł**, a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
+
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testowanie trybu failover klastra przez przeniesienie zasobu podstawowego do innych węzłów":::
+
+## <a name="create-sql-server-fci"></a>Utwórz SQL Server FCI
+
+Po skonfigurowaniu klastra trybu failover i wszystkich składników klastra, w tym magazynu, można utworzyć SQL Server FCI.
+
+1. Połącz się z pierwszą maszyną wirtualną przy użyciu Remote Desktop Protocol (RDP).
+
+1. W **Menedżer klastra trybu failover**upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby na tę maszynę wirtualną.
+
+1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . 
+
+1. Wybierz pozycję **Konfiguracja**.
+
+1. W **SQL Server centrum instalacji**wybierz opcję **Instalacja**.
+
+1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
+
+   Katalogi danych FCI muszą znajdować się w magazynie klastrowanym. W przypadku Bezpośrednie miejsca do magazynowania nie jest to dysk udostępniony, ale punkt instalacji do woluminu na każdym serwerze. Bezpośrednie miejsca do magazynowania synchronizuje wolumin między obydwoma węzłami. Wolumin jest prezentowany w klastrze jako udostępniony wolumin klastra (CSV). Użyj punktu instalacji woluminu CSV dla katalogów danych.
+
+   ![Katalogi danych](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+
+1. Po wykonaniu instrukcji w Kreatorze Instalator zainstaluje SQL Server FCI na pierwszym węźle.
+
+1. Po zainstalowaniu przez Instalatora FCI na pierwszym węźle Nawiąż połączenie z drugim węzłem przy użyciu protokołu RDP.
+
+1. Otwórz **centrum instalacji programu SQL Server**, a następnie wybierz pozycję **Instalacja**.
+
+1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
+
+   >[!NOTE]
+   >W przypadku korzystania z obrazu galerii portalu Azure Marketplace zawierającego SQL Server narzędzia SQL Server zostały dołączone do obrazu. Jeśli nie korzystasz z jednego z tych obrazów, zainstaluj SQL Server narzędzia osobno. Aby uzyskać więcej informacji, zobacz [pobieranie SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
+
+## <a name="register-with-the-sql-vm-rp"></a>Rejestrowanie w ramach jednostki odzyskiwania maszyny wirtualnej SQL
+
+Aby zarządzać maszyną wirtualną SQL Server z poziomu portalu, zarejestruj ją za pomocą dostawcy zasobów maszyny wirtualnej SQL (RP) w [trybie zarządzania uproszczonego](sql-vm-resource-provider-register.md#lightweight-management-mode), obecnie jedynym trybem obsługiwanym z FCI i SQL Server na maszynach wirtualnych platformy Azure. 
+
+
+Rejestrowanie maszyny wirtualnej SQL Server w trybie uproszczonym przy użyciu programu PowerShell:  
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+         
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+   -LicenseType PAYG -SqlManagementType LightWeight  
+```
+
+## <a name="configure-connectivity"></a>Konfigurowanie łączności 
+
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Możesz utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2019, możesz zamiast tego wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+
+## <a name="limitations"></a>Ograniczenia
+
+- Obsługiwane są tylko SQL Server 2019 w systemie Windows Server 2019. 
+- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
+
+## <a name="next-steps"></a>Następne kroki
+
+Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+
+Jeśli udostępnione dyski platformy Azure nie są odpowiednim rozwiązaniem magazynu FCI, rozważ utworzenie FCI przy użyciu [udziałów plików Premium](failover-cluster-instance-premium-file-share-manually-configure.md) lub [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) zamiast tego. 
+
+Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach wirtualnych platformy Azure](failover-cluster-instance-overview.md) i [najlepszych rozwiązaniach dotyczących konfiguracji klastra](hadr-cluster-best-practices.md).
+
+Aby uzyskać więcej informacji, zobacz: 
+- [Technologie klastrów systemu Windows](/windows-server/failover-clustering/failover-clustering-overview)   
+- [SQL Server wystąpienia klastra trybu failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

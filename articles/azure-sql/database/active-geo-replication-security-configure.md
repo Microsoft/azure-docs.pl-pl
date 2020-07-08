@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 7db83535b7e6257159e0a0eb363e6d05c5e916b9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3699191229a53735a62235cf8688cdfab9335339
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047909"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963652"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurowanie zabezpieczeń Azure SQL Database i zarządzanie nimi na potrzeby przywracania geograficznego lub przełączenia w tryb failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,15 +55,19 @@ Pierwszym krokiem procesu jest określenie, które nazwy logowania muszą być z
 
 Tylko administrator serwera lub członek roli serwera **LoginManager** może określić nazwy logowania na serwerze źródłowym przy użyciu następującej instrukcji SELECT.
 
-    SELECT [name], [sid]
-    FROM [sys].[sql_logins]
-    WHERE [type_desc] = 'SQL_Login'
+```sql
+SELECT [name], [sid]
+FROM [sys].[sql_logins]
+WHERE [type_desc] = 'SQL_Login'
+```
 
 Tylko członek roli bazy danych db_owner, użytkownik dbo lub administrator serwera, może określić wszystkie nazwy główne użytkownika bazy danych w podstawowej bazie danych.
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+```sql
+SELECT [name], [sid]
+FROM [sys].[database_principals]
+WHERE [type_desc] = 'SQL_USER'
+```
 
 #### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Znajdź identyfikator SID dla logowań zidentyfikowanych w kroku 1
 
@@ -71,9 +75,11 @@ Porównując dane wyjściowe zapytań z poprzedniej sekcji i pasujące do identy
 
 Poniższe zapytanie może służyć do wyświetlania wszystkich podmiotów zabezpieczeń i ich identyfikatorów SID w bazie danych. Tylko członek roli bazy danych db_owner lub administrator serwera może uruchomić to zapytanie.
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+```sql
+SELECT [name], [sid]
+FROM [sys].[database_principals]
+WHERE [type_desc] = 'SQL_USER'
+```
 
 > [!NOTE]
 > Użytkownicy **INFORMATION_SCHEMA** i **sys** mają *null* identyfikatorów SID, a identyfikator SID **gościa** to **0x00**. Identyfikator SID **dbo** może zaczynać się od *0x01060000000001648000000000048454*, jeśli twórca bazy danych był administratorem serwera, a nie członkiem programu **DBManager**.
@@ -82,9 +88,11 @@ Poniższe zapytanie może służyć do wyświetlania wszystkich podmiotów zabez
 
 Ostatnim krokiem jest przejście do serwera docelowego lub serwerów, a następnie wygenerowanie identyfikatorów logowania przy użyciu odpowiednich identyfikatorów SID. Podstawowa składnia jest następująca.
 
-    CREATE LOGIN [<login name>]
-    WITH PASSWORD = <login password>,
-    SID = <desired login SID>
+```sql
+CREATE LOGIN [<login name>]
+WITH PASSWORD = <login password>,
+SID = <desired login SID>
+```
 
 > [!NOTE]
 > Jeśli chcesz udzielić użytkownikowi dostępu do pomocniczego, ale nie do podstawowego, możesz to zrobić, zmieniając nazwę logowania użytkownika na serwerze podstawowym przy użyciu następującej składni.

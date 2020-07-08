@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 6c1cc8c08fa4dc09d033cf4752a81f01419e8f2c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 361e35aea90a9817e365d66014faf5f23433c1dc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694930"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964791"
 ---
 # <a name="marketplace-metered-billing-apis---faq"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace — często zadawane pytania
 
@@ -76,7 +76,7 @@ Na przykład klient anulował subskrypcję usługi SaaS dzisiaj o godzinie 3 god
 
 ### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Czy możesz uzyskać listę wszystkich subskrypcji SaaS, w tym aktywnych i niesubskrybowanych subskrypcji?
 
-Tak, gdy wywołasz [interfejs API listy Pobierz subskrypcje](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#subscription-api) , ponieważ zawiera on listę wszystkich subskrypcji SaaS. Pole Stan w odpowiedzi dla każdej subskrypcji SaaS przechwytuje, czy subskrypcja jest aktywna, czy nie została anulowana.
+Tak, gdy wywołasz [interfejs API listy Pobierz subskrypcje](pc-saas-fulfillment-api-v2.md#subscription-apis) , ponieważ zawiera on listę wszystkich subskrypcji SaaS. Pole Stan w odpowiedzi dla każdej subskrypcji SaaS przechwytuje, czy subskrypcja jest aktywna, czy nie została anulowana.
 
 ### <a name="are-the-start-and-end-dates-of-saas-subscription-term-and-overage-usage-emission-connected"></a>Czy Data początkowa i końcowa okresu subskrypcji SaaS i nadmierna emisja użycia są połączone?
 

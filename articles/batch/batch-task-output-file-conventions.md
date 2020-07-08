@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać biblioteki Konwencji plików Azure Batch
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8dea7f503536a4eb2b0c36db7b3d35b70eb8a67
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726336"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965199"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Utrwalanie danych zadań i zadań w usłudze Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET
 
@@ -153,7 +153,7 @@ using (ITrackedSaveOperation stdout =
 
 Sekcja z komentarzem `Code to process data and produce output file(s)` jest symbolem zastępczym dla kodu, który zwykle wykonuje zadanie. Przykładowo może być kod, który pobiera dane z usługi Azure Storage i wykonuje transformację lub obliczenie. Ważna część tego fragmentu kodu przedstawia sposób, w jaki można otoczyć ten kod w `using` bloku, aby okresowo aktualizować plik za pomocą [SaveTrackedAsync][net_savetrackedasync].
 
-Agent węzła jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. `Task.Delay`Wywołanie jest wymagane na końcu tego `using` bloku, aby upewnić się, że Agent węzła ma czas, aby opróżnić zawartość Standard do pliku stdout. txt w węźle. Bez tego opóźnienia można pominąć ostatnie kilka sekund danych wyjściowych. To opóźnienie może nie być wymagane dla wszystkich plików.
+Agent węzła jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. `Task.Delay`Wywołanie jest wymagane na końcu tego `using` bloku, aby upewnić się, że Agent węzła ma czas, aby opróżnić zawartość Standard do pliku stdout.txt w węźle. Bez tego opóźnienia można pominąć ostatnie kilka sekund danych wyjściowych. To opóźnienie może nie być wymagane dla wszystkich plików.
 
 > [!NOTE]
 > Po włączeniu śledzenia plików przy użyciu usługi **SaveTrackedAsync**tylko *dołączanie* do śledzonego pliku są utrwalane w usłudze Azure Storage. Tej metody należy używać tylko do śledzenia plików dziennika nieobracania lub innych plików, które są zapisywane przy użyciu operacji dołączania na końcu pliku.
@@ -198,7 +198,7 @@ Aby wyświetlić pliki i dzienniki danych wyjściowych zadania w Azure Portal, p
 Przykładowy projekt [PersistOutputs][github_persistoutputs] jest jednym z [przykładów kodu Azure Batch][github_samples] w witrynie GitHub. W tym rozwiązaniu programu Visual Studio pokazano, jak używać biblioteki Konwencji plików Azure Batch do utrwalania danych wyjściowych zadań w magazynie trwałym. Aby uruchomić przykład, wykonaj następujące kroki:
 
 1. Otwórz projekt w programie **Visual Studio 2019**.
-2. Dodaj **poświadczenia konta** usługi Batch i Storage do **AccountSettings. Settings** w projekcie Microsoft. Azure. Batch. Samples. Common.
+2. Dodaj **poświadczenia konta** magazynu i partii do **AccountSettings. settings** w projekcie Microsoft.Azure.Batch. Samples. Common.
 3. **Kompiluj** (ale nie uruchamiaj) rozwiązanie. Jeśli zostanie wyświetlony monit, Przywróć wszystkie pakiety NuGet.
 4. Użyj Azure Portal, aby przekazać [pakiet aplikacji](batch-application-packages.md) dla **PersistOutputsTask**. Uwzględnij `PersistOutputsTask.exe` i jej zestawy zależne w pakiecie. zip, ustaw identyfikator aplikacji na "PersistOutputsTask" i wersję pakietu aplikacji na "1,0".
 5. **Uruchom** (Uruchom) projekt **PersistOutputs** .
@@ -208,7 +208,7 @@ Przykładowy projekt [PersistOutputs][github_persistoutputs] jest jednym z [przy
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>Pobierz bibliotekę Konwencji plików wsadowych dla platformy .NET
 
-Biblioteka Konwencji plików wsadowych dla platformy .NET jest dostępna w programie [NuGet][nuget_package]. Biblioteka rozszerza klasy [CloudJob][net_cloudjob] i [CloudTask][net_cloudtask] o nowe metody. Zobacz również [dokumentację referencyjną](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) biblioteki Konwencji plików.
+Biblioteka Konwencji plików wsadowych dla platformy .NET jest dostępna w programie [NuGet][nuget_package]. Biblioteka rozszerza klasy [CloudJob][net_cloudjob] i [CloudTask][net_cloudtask] o nowe metody. Zobacz również [dokumentację referencyjną](/dotnet/api/microsoft.azure.batch.conventions.files) biblioteki Konwencji plików.
 
 [Kod źródłowy][github_file_conventions] biblioteki Konwencji plików jest dostępny w witrynie GitHub w repozytorium zestaw Microsoft Azure SDK dla platformy .NET. 
 
@@ -222,20 +222,20 @@ Biblioteka Konwencji plików wsadowych dla platformy .NET jest dostępna w progr
 [github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount
-[net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
+[net_cloudstorageaccount]: /java/api/com.microsoft.azure.storage.cloudstorageaccount
+[net_cloudtask]: /dotnet/api/microsoft.azure.batch.cloudtask
 [net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
-[net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
-[net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
-[net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx
-[net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync.aspx
-[net_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx
-[net_savetrackedasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync.aspx
-[net_taskoutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputkind.aspx
-[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx
+[net_joboutputkind]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputkind
+[net_joboutputstorage]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputstorage
+[net_joboutputstorage_saveasync]: /dotnet/api/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync
+[net_msdn]: /dotnet/api/microsoft.azure.batch
+[net_prepareoutputasync]: /dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync
+[net_saveasync]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync
+[net_savetrackedasync]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync
+[net_taskoutputkind]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputkind
+[net_taskoutputstorage]: /dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage
 [nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com

@@ -7,19 +7,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 0f8078c52945b52a27144c1f73ea4a136bf536d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783405"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963159"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
 
 Usługa pomiaru Marketplace obsługuje dwie strategie uwierzytelniania:
 
-* [Token zabezpieczający usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [Zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Token zabezpieczający usługi Azure AD](../../active-directory/develop/access-tokens.md)
+* [Tożsamości zarządzane](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 Wyjaśnimy, kiedy i jak używać różnych strategii uwierzytelniania do bezpiecznego przesyłania niestandardowych liczników przy użyciu usługi pomiaru Marketplace.
 
@@ -38,7 +38,7 @@ W przypadku aplikacji platformy Azure z zarządzanym planem aplikacji należy ro
 
 Po zarejestrowaniu aplikacji można programowo zażądać tokenu zabezpieczeń usługi Azure AD. Wydawca powinien używać tego tokenu i wysłać żądanie rozwiązania problemu.
 
-Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Directory tokeny dostępu](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Directory tokeny dostępu](../../active-directory/develop/access-tokens.md).
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Uzyskaj token oparty na aplikacji usługi Azure AD
 
@@ -54,24 +54,24 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 
 |  **Nazwa parametru** |  **Wymagane**  |  **Opis**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `tenantId`         |   True         | Identyfikator dzierżawy zarejestrowanej aplikacji usługi Azure AD.   |
+|  `tenantId`         |   Prawda         | Identyfikator dzierżawy zarejestrowanej aplikacji usługi Azure AD.   |
 | | | |
 
 #### <a name="request-header"></a>*Nagłówek żądania*
 
 |  **Nazwa nagłówka**    |  **Wymagane**  |  **Opis**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Content-Type`     |   True         | Typ zawartości skojarzony z żądaniem. Wartość domyślna to `application/x-www-form-urlencoded`.  |
+|  `Content-Type`     |   Prawda         | Typ zawartości skojarzony z żądaniem. Wartość domyślna to `application/x-www-form-urlencoded`.  |
 | | | |
 
 #### <a name="request-body"></a>*Treść żądania*
 
 |  **Nazwa właściwości**  |  **Wymagane**  |  **Opis**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Typ udzielania. Użyj witryny `client_credentials`. |
-|  `Client_id`        |   True         | Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.|
-|  `client_secret`    |   True         | Wpis tajny skojarzony z aplikacją usługi Azure AD.  |
-|  `Resource`         |   True         | Zasób docelowy, dla którego zażądano tokenu. Użyj witryny `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
+|  `Grant_type`       |   Prawda         | Typ udzielania. Użyj witryny `client_credentials`. |
+|  `Client_id`        |   Prawda         | Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.|
+|  `client_secret`    |   Prawda         | Wpis tajny skojarzony z aplikacją usługi Azure AD.  |
+|  `Resource`         |   Prawda         | Zasób docelowy, dla którego zażądano tokenu. Użyj witryny `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Reakcji*
@@ -106,17 +106,17 @@ Zastosowanie tej metody umożliwi uwierzytelnienie wdrożonych zasobów tożsamo
 >[!Note]
 >Wydawca powinien upewnić się, że zasoby, które emitują użycie, są zablokowane, więc nie zostanie naruszone.
 
-Aplikacja zarządzana może zawierać różne typy zasobów, od Virtual Machines do Azure Functions.  Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu tożsamości zarządzanych dla różnych usług, zobacz [jak używać tożsamości zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Aplikacja zarządzana może zawierać różne typy zasobów, od Virtual Machines do Azure Functions.  Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu tożsamości zarządzanych dla różnych usług, zobacz [jak używać tożsamości zarządzanych dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources).
 
 Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić się za pomocą maszyny wirtualnej z systemem Windows.
 
 1. Upewnij się, że zarządzana tożsamość została skonfigurowana przy użyciu jednej z metod:
-    * [Interfejs użytkownika Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [Program PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [Zestawy Azure SDK](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Interfejs użytkownika Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [Interfejs wiersza polecenia](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [Program PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Szablon Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [Rest](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [Zestawy Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Uzyskaj token dostępu dla identyfikatora aplikacji usługi pomiaru Marketplace ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) przy użyciu tożsamości systemowej, protokołu RDP z maszyną wirtualną, Otwórz konsolę programu PowerShell i uruchom poniższe polecenie
 

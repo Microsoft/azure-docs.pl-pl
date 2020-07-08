@@ -3,12 +3,12 @@ title: Obsługa błędów i wykrywanie w Azure Batch
 description: Dowiedz się więcej o obsłudze błędów w przepływach pracy usługi Batch z punktu widzenia rozwoju.
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 07b9d43ea9bdf21fe3188c4481e6dd0c86374607
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791092"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964281"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Obsługa błędów i wykrywanie w Azure Batch
 
@@ -23,13 +23,13 @@ Typy ogólne błędów obejmują:
 - Błędy związane z ograniczaniem wydajności, takie jak 429 lub 503 kod stanu odpowiedzi HTTP przy użyciu nagłówka retry-After.
 - 4xx błędy, takie jak już istnieje i InvalidOperation. Oznacza to, że zasób nie jest w poprawnym stanie dla przejścia stanu.
 
-Aby uzyskać szczegółowe informacje o określonych kodach błędów, w tym o kodach błędów dla interfejsu API REST, usługi Batch i zadania/planowania, zobacz [stan partii i kody błędów](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+Aby uzyskać szczegółowe informacje o określonych kodach błędów, w tym o kodach błędów dla interfejsu API REST, usługi Batch i zadania/planowania, zobacz [stan partii i kody błędów](/rest/api/batchservice/batch-status-and-error-codes).
 
 ## <a name="application-failures"></a>Błędy aplikacji
 
 W czasie wykonywania aplikacja może tworzyć diagnostyczne dane wyjściowe, których można użyć do rozwiązywania problemów. Zgodnie z opisem w temacie [pliki i katalogi](files-and-directories.md)usługa Batch zapisuje standardowe dane wyjściowe i standardowe wyjście błędu `stdout.txt` do `stderr.txt` plików w katalogu zadań w węźle obliczeniowym.
 
-Aby pobrać te pliki, można użyć portalu Azure lub jednego z zestawów SDK usługi Batch. Te pliki można pobrać w celu rozwiązania problemów za pomocą elementów [ComputeNode.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) i [CloudTask.GetNodeFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) w bibliotece platformy .NET usługi Batch.
+Aby pobrać te pliki, można użyć portalu Azure lub jednego z zestawów SDK usługi Batch. Te pliki można pobrać w celu rozwiązania problemów za pomocą elementów [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) i [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) w bibliotece platformy .NET usługi Batch.
 
 ## <a name="task-errors"></a>Błędy zadań
 
@@ -73,10 +73,10 @@ Istnieje również możliwość, że sporadyczny problem może przestać odpowia
 
 ## <a name="connect-to-compute-nodes"></a>Łączenie z węzłami obliczeniowymi
 
-Aby przeprowadzić dodatkowe debugowanie i rozwiązywanie problemów, można zalogować się zdalnie do węzła obliczeniowego. W portalu Azure można pobrać plik protokołu RDP w przypadku węzłów systemu Windows oraz uzyskać informacje o połączeniu z protokołem SSH w przypadku węzłów systemu Linux. Można to zrobić również przy użyciu interfejsów API usługi Batch, takich jak program [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) lub [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+Aby przeprowadzić dodatkowe debugowanie i rozwiązywanie problemów, można zalogować się zdalnie do węzła obliczeniowego. W portalu Azure można pobrać plik protokołu RDP w przypadku węzłów systemu Windows oraz uzyskać informacje o połączeniu z protokołem SSH w przypadku węzłów systemu Linux. Można to zrobić również przy użyciu interfejsów API usługi Batch, takich jak program [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) lub [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Aby połączyć się z węzłem za pośrednictwem protokołu RDP lub SSH, musisz najpierw utworzyć użytkownika w węźle. W tym celu możesz użyć witryny Azure Portal, [dodać konto użytkownika do węzła](https://docs.microsoft.com/rest/api/batchservice/computenode/adduser) za pomocą interfejsu API REST usługi Batch, wywołać metodę [ComputeNode.CreateComputeNodeUser](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) na platformie .NET usługi Batch lub wywołać metodę [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) w module języka Python usługi Batch.
+> Aby połączyć się z węzłem za pośrednictwem protokołu RDP lub SSH, musisz najpierw utworzyć użytkownika w węźle. W tym celu możesz użyć witryny Azure Portal, [dodać konto użytkownika do węzła](/rest/api/batchservice/computenode/adduser) za pomocą interfejsu API REST usługi Batch, wywołać metodę [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) na platformie .NET usługi Batch lub wywołać metodę [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) w module języka Python usługi Batch.
 
 Jeśli chcesz ograniczyć lub wyłączyć dostęp do węzłów obliczeniowych za pośrednictwem protokołu RDP lub SSH, zobacz [Configure or disable remote access to compute nodes in an Azure Batch pool (Konfigurowanie lub wyłączanie dostępu zdalnego do węzłów obliczeniowych w puli usługi Azure Batch)](pool-endpoint-configuration.md).
 
@@ -84,21 +84,21 @@ Jeśli chcesz ograniczyć lub wyłączyć dostęp do węzłów obliczeniowych za
 
 W sytuacjach, w których niektóre z zadań kończą się niepowodzeniem, aplikacja kliencka lub usługa Batch mogą badać metadane nieudanych zadań w celu identyfikacji nieprawidłowo funkcjonującego węzła. Każdemu węzłowi w puli zostaje nadany unikatowy identyfikator, a węzeł, w którym jest uruchomione zadanie, jest dołączany do metadanych zadania. Po zidentyfikowaniu problemu dotyczącego węzła można wykonać kilka powiązanych czynności:
 
-- **Ponowne uruchamianie węzła** ([rest](https://docs.microsoft.com/rest/api/batchservice/computenode/reboot)  |  [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reboot))
+- **Ponowne uruchamianie węzła** ([rest](/rest/api/batchservice/computenode/reboot)  |  [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot))
 
     Ponowne uruchomienie węzła może czasami usunąć ukryte problemy, takie jak zablokowane procesy lub procesy, które uległy awarii. Jeśli pula używa zadania uruchamiania, a zadanie zawiera zadanie przygotowania zadania, zostaną one wykonane po ponownym uruchomieniu węzła.
-- **Odtwórz węzeł z obrazu** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.reimage))
+- **Odtwórz węzeł z obrazu** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
 
     Spowoduje to ponowne zainstalowanie systemu operacyjnego w węźle. Podobnie jak w przypadku ponownego rozruchu węzła zadania uruchamiania i zadania przygotowania zadania są uruchamiane ponownie po odtworzeniu węzła z obrazu.
-- **Usuń węzeł z puli** ([REST](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations))
+- **Usuń węzeł z puli** ([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
 
     Czasami konieczne jest całkowite usunięcie węzła z puli.
-- **Wyłącz planowanie zadań podrzędnych w węźle** ([REST](https://docs.microsoft.com/rest/api/batchservice/computenode/disablescheduling) | [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+- **Wyłącz planowanie zadań podrzędnych w węźle** ([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
 
-    Ta czynność przełącza węzeł w tryb „offline”, aby nie zostały do niego przypisane żadne dalsze zadania podrzędne, ale pozwala na dalsze działanie węzła i jego obecność w puli. Dzięki temu można dalej badać przyczyny błędów bez utraty danych nieudanego zadania, podczas gdy węzeł nie powoduje dodatkowych błędów zadania. Można na przykład wyłączyć planowanie zadań podrzędnych w węźle, a następnie zalogować się zdalnie, aby sprawdzić dzienniki zdarzeń węzła lub wykonać inne operacje związane z rozwiązywaniem problemów. Po zakończeniu badania można przenieść węzeł z powrotem do trybu online, włączając planowanie zadań ([rest](https://docs.microsoft.com/rest/api/batchservice/computenode/enablescheduling)  |  [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)lub wykonując jedną z innych akcji omówionych wcześniej poniżej.
+    Ta czynność przełącza węzeł w tryb „offline”, aby nie zostały do niego przypisane żadne dalsze zadania podrzędne, ale pozwala na dalsze działanie węzła i jego obecność w puli. Dzięki temu można dalej badać przyczyny błędów bez utraty danych nieudanego zadania, podczas gdy węzeł nie powoduje dodatkowych błędów zadania. Można na przykład wyłączyć planowanie zadań podrzędnych w węźle, a następnie zalogować się zdalnie, aby sprawdzić dzienniki zdarzeń węzła lub wykonać inne operacje związane z rozwiązywaniem problemów. Po zakończeniu badania można przenieść węzeł z powrotem do trybu online, włączając planowanie zadań ([rest](/rest/api/batchservice/computenode/enablescheduling)  |  [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)lub wykonując jedną z innych akcji omówionych wcześniej poniżej.
 
 > [!IMPORTANT]
-> Dzięki opisanym powyżej akcjom youc można określić, jak zadania aktualnie uruchomione w węźle są obsługiwane podczas wykonywania akcji. Na przykład po wyłączeniu planowania zadań podrzędnych w węźle za pomocą biblioteki klienta platformy .NET w usłudze Batch można określić wartość wyliczeniową [DisableComputeNodeSchedulingOption](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption), aby wskazać, czy należy **przerwać** uruchomione zadania podrzędne, **umieścić je ponownie w kolejce** do planowania w innych węzłach lub zezwolić na ukończenie uruchomionych zadań przed wykonaniem akcji (**TaskCompletion**).
+> Dzięki opisanym powyżej akcjom youc można określić, jak zadania aktualnie uruchomione w węźle są obsługiwane podczas wykonywania akcji. Na przykład po wyłączeniu planowania zadań podrzędnych w węźle za pomocą biblioteki klienta platformy .NET w usłudze Batch można określić wartość wyliczeniową [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption), aby wskazać, czy należy **przerwać** uruchomione zadania podrzędne, **umieścić je ponownie w kolejce** do planowania w innych węzłach lub zezwolić na ukończenie uruchomionych zadań przed wykonaniem akcji (**TaskCompletion**).
 
 ## <a name="retry-after-errors"></a>Ponów próbę po wystąpieniu błędów
 
@@ -110,4 +110,4 @@ Po awarii należy poczekać chwilę (kilka sekund między ponownymi próbami) pr
 
 - Dowiedz się, jak [sprawdzać występowanie błędów puli i węzłów](batch-pool-node-error-checking.md).
 - Dowiedz się [, jak sprawdzać występowanie błędów zadań i zadań](batch-job-task-error-checking.md).
-- Przejrzyj listę [Stanów partii i kodów błędów](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+- Przejrzyj listę [Stanów partii i kodów błędów](/rest/api/batchservice/batch-status-and-error-codes).

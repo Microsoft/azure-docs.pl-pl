@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: 0201ea7b207b7d4c0eaa56de1ee062ea405f0bbb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 630dceedcac36cf6d37d54612d73fabe676d74f6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119243"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963720"
 ---
 # <a name="register-a-saas-application"></a>Rejestrowanie aplikacji SaaS
 
@@ -20,7 +20,7 @@ W tym artykule wyjaśniono, jak zarejestrować aplikację SaaS przy użyciu [Azu
 
 W witrynie Azure Marketplace nie są narzucane żadne ograniczenia dotyczące metody uwierzytelniania używanej przez usługę SaaS dla użytkowników końcowych. Poniższy przepływ jest wymagany tylko do uwierzytelniania usługi SaaS w portalu Azure Marketplace.
 
-Aby uzyskać więcej informacji na temat usługi Azure AD (Active Directory), zobacz [co to jest uwierzytelnianie](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)?
+Aby uzyskać więcej informacji na temat usługi Azure AD (Active Directory), zobacz [co to jest uwierzytelnianie](../../active-directory/develop/authentication-scenarios.md)?
 
 ## <a name="register-an-azure-ad-secured-app"></a>Rejestrowanie aplikacji zabezpieczonej przy użyciu usługi Azure AD
 
@@ -36,10 +36,10 @@ Każda aplikacja, która ma korzystać z funkcji usługi Azure AD, musi najpierw
     -   **Nazwa**: wprowadź zrozumiałą nazwę aplikacji
     -   **Typ aplikacji**:  
         
-        Wybierz pozycję **aplikacja sieci Web/interfejs API** dla aplikacji [klienckich](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) i [aplikacji typu zasób/interfejs API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) , które są zainstalowane na serwerze zabezpieczonym. To ustawienie jest używane w przypadku [klientów sieci Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) poufnych z uwierzytelnianiem OAuth i publicznych [klientów opartych na agentach](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+        Wybierz pozycję **aplikacja sieci Web/interfejs API** dla [aplikacji klienckich](../../active-directory/develop/active-directory-dev-glossary.md#client-application)) i [aplikacje typu zasób/interfejs API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server), które są zainstalowane na serwerze zabezpieczonym. To ustawienie jest używane w przypadku [klientów w sieci Web](../../active-directory/develop/active-directory-dev-glossary.md#web-client)poufnych z uwierzytelnianiem OAuth i publicznych [klientów opartych na agentach](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client).
         Ta sama aplikacja może ujawniać zarówno klienta, jak i interfejs API lub zasób.
 
-        Aby zapoznać się z konkretnymi przykładami aplikacji sieci Web, zapoznaj się z przewodnikiem Szybki Start, które są dostępne w sekcji [wprowadzenie](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) w [przewodniku deweloperów usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/).
+        Aby zapoznać się z konkretnymi przykładami aplikacji sieci Web, zapoznaj się z przewodnikiem Szybki Start, które są dostępne w sekcji [wprowadzenie](../../active-directory/develop/quickstart-create-new-tenant.md) w [przewodniku deweloperów usługi Azure AD](../../active-directory/develop/index.yml).
 
 5. Po zakończeniu kliknij pozycję **zarejestruj**.  Usługa Azure AD przypisuje do nowej aplikacji unikatowy *Identyfikator aplikacji* . Zalecamy zarejestrowanie jednej aplikacji, która uzyskuje dostęp do interfejsu API, i jako pojedynczej dzierżawy.
 
@@ -54,7 +54,7 @@ Każda aplikacja, która ma korzystać z funkcji usługi Azure AD, musi najpierw
 
 Po zarejestrowaniu aplikacji można programowo zażądać tokenu autoryzacji wydawcy (token dostępu usługi Azure AD przy użyciu punktu końcowego usługi Azure AD w wersji 1). Wydawca musi używać tego tokenu podczas wywoływania różnych interfejsów API realizacji SaaS. Ten token jest prawidłowy tylko przez jedną godzinę. 
 
-Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Directory tokeny dostępu](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Należy zauważyć, że w przepływie jest używany token punktu końcowego v1.
+Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Directory tokeny dostępu](../../active-directory/develop/access-tokens.md).  Należy zauważyć, że w przepływie jest używany token punktu końcowego v1.
 
 ### <a name="get-the-token-with-an-http-post"></a>Pobieranie tokenu przy użyciu protokołu HTTP POST
 
@@ -70,22 +70,22 @@ Wpis<br>
 
 |  Nazwa parametru    |  Wymagane         |  Opis |
 |  ---------------   |  ---------------  | ------------ |
-|  `tenantId`        |  True      |  Identyfikator dzierżawy zarejestrowanej aplikacji usługi AAD. |
+|  `tenantId`        |  Prawda      |  Identyfikator dzierżawy zarejestrowanej aplikacji usługi AAD. |
 
 ##### <a name="request-header"></a>*Nagłówek żądania*
 
 |  Nazwa nagłówka       |  Wymagane         |  Opis |
 |  ---------------   |  ---------------  | ------------ |
-|  `content-type`    |  True      |  Typ zawartości skojarzony z żądaniem. Wartość domyślna to `application/x-www-form-urlencoded`. |
+|  `content-type`    |  Prawda      |  Typ zawartości skojarzony z żądaniem. Wartość domyślna to `application/x-www-form-urlencoded`. |
 
 ##### <a name="request-body"></a>*Treść żądania*
 
 |  Nazwa właściwości     |  Wymagane         |  Opis |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Typ udzielania. Użyj witryny `"client_credentials"`. |
-|  `client_id`       |  True      |  Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD. |
-|  `client_secret`   |  True      |  Wpis tajny skojarzony z aplikacją usługi Azure AD. |
-|  `resource`        |  True      |  Zasób docelowy, dla którego zażądano tokenu. Użyj `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` , ponieważ interfejs API SaaS Marketplace jest zawsze zasobem docelowym w tym przypadku. |
+|  `grant-type`      |  Prawda      |  Typ udzielania. Użyj witryny `"client_credentials"`. |
+|  `client_id`       |  Prawda      |  Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD. |
+|  `client_secret`   |  Prawda      |  Wpis tajny skojarzony z aplikacją usługi Azure AD. |
+|  `resource`        |  Prawda      |  Zasób docelowy, dla którego zażądano tokenu. Użyj `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` , ponieważ interfejs API SaaS Marketplace jest zawsze zasobem docelowym w tym przypadku. |
 
 ##### <a name="response"></a>*Reakcji*
 

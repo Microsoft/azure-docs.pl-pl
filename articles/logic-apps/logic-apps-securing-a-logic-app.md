@@ -5,17 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: dec14f54c0c0994594e86793c998d02ca6781801
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.date: 07/03/2020
+ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296903"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964247"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
-Aby kontrolować dostęp i chronić poufne dane w Azure Logic Apps, można skonfigurować zabezpieczenia dla następujących obszarów:
+Azure Logic Apps korzysta z [usługi Azure Storage](https://docs.microsoft.com/azure/storage/) , aby przechowywać i automatycznie [szyfrować dane](../security/fundamentals/encryption-atrest.md)przechowywane. To szyfrowanie chroni dane i pomaga sprostać zobowiązaniom dotyczącym bezpieczeństwa i zgodności w organizacji. Domyślnie usługa Azure Storage używa kluczy zarządzanych przez firmę Microsoft do szyfrowania danych. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md).
+
+Aby dodatkowo kontrolować dostęp i chronić poufne dane w Azure Logic Apps, można skonfigurować dodatkowe zabezpieczenia w następujących obszarach:
 
 * [Dostęp do wyzwalaczy opartych na żądaniach](#secure-triggers)
 * [Dostęp do operacji aplikacji logiki](#secure-operations)
@@ -23,6 +25,14 @@ Aby kontrolować dostęp i chronić poufne dane w Azure Logic Apps, można skonf
 * [Dostęp do danych wejściowych parametrów](#secure-action-parameters)
 * [Dostęp do usług i systemów wywoływanych z usługi Logic Apps](#secure-outbound-requests)
 * [Blokuj tworzenie połączeń dla określonych łączników](#block-connections)
+* [Wskazówki dotyczące izolacji aplikacji logiki](#isolation-logic-apps)
+* [Podstawa zabezpieczeń platformy Azure dla Azure Logic Apps](../logic-apps/security-baseline.md)
+
+Aby uzyskać więcej informacji o zabezpieczeniach na platformie Azure, zobacz następujące tematy:
+
+* [Omówienie usługi Azure Encryption](../security/fundamentals/encryption-overview.md)
+* [Szyfrowanie danych platformy Azure — w spoczynku](../security/fundamentals/encryption-atrest.md)
+* [Test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
 
 <a name="secure-triggers"></a>
 
@@ -185,7 +195,7 @@ Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wyma
 
 ### <a name="restrict-inbound-ip-addresses"></a>Ogranicz przychodzące adresy IP
 
-Wraz z sygnaturą dostępu współdzielonego można jawnie ograniczyć liczbę klientów, którzy mogą wywołać aplikację logiki. Na przykład Jeśli zarządzasz punktem końcowym żądania przy użyciu usługi Azure API Management, możesz ograniczyć aplikację logiki do akceptowania żądań tylko z adresu IP dla wystąpienia API Management.
+Wraz z sygnaturą dostępu współdzielonego można jawnie ograniczyć liczbę klientów, którzy mogą wywołać aplikację logiki. Na przykład Jeśli zarządzasz punktem końcowym żądania przy użyciu [usługi Azure API Management](../api-management/api-management-key-concepts.md), możesz ograniczyć aplikację logiki do akceptowania żądań tylko z adresu IP dla [tworzonego wystąpienia usługi API Management](../api-management/get-started-create-service-instance.md).
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w Azure Portal
 
@@ -202,7 +212,7 @@ Wraz z sygnaturą dostępu współdzielonego można jawnie ograniczyć liczbę k
 Jeśli aplikacja logiki ma być wyzwalana tylko jako zagnieżdżona aplikacja logiki, z listy **dozwolone przychodzące adresy IP** wybierz **tylko inne Logic Apps**. Ta opcja umożliwia zapisanie pustej tablicy do zasobu aplikacji logiki. Dzięki temu tylko wywołania z usługi Logic Apps (nadrzędne Aplikacje logiki) mogą wyzwolić zagnieżdżoną aplikację logiki.
 
 > [!NOTE]
-> Niezależnie od adresu IP można nadal uruchamiać aplikację logiki, która ma wyzwalacz oparty na żądaniach za `/triggers/<trigger-name>/run` pośrednictwem interfejsu API REST platformy Azure lub za pośrednictwem API Management. Jednak ten scenariusz nadal wymaga [uwierzytelniania](../active-directory/develop/authentication-scenarios.md) względem interfejsu API REST platformy Azure. Wszystkie zdarzenia pojawiają się w dzienniku inspekcji platformy Azure. Upewnij się, że zasady kontroli dostępu zostały odpowiednio skonfigurowane.
+> Niezależnie od adresu IP można nadal uruchamiać aplikację logiki, która ma wyzwalacz oparty na żądaniach za pomocą [interfejsu API REST Logic Apps: wyzwalacze przepływu pracy — żądanie uruchomienia](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) lub użycie API Management. Jednak ten scenariusz nadal wymaga [uwierzytelniania](../active-directory/develop/authentication-scenarios.md) względem interfejsu API REST platformy Azure. Wszystkie zdarzenia pojawiają się w dzienniku inspekcji platformy Azure. Upewnij się, że zasady kontroli dostępu zostały odpowiednio skonfigurowane.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager
 
@@ -687,7 +697,28 @@ Oto kilka sposobów zabezpieczania punktów końcowych, które odbierają wywoł
 
   * Nawiązywanie połączenia za pomocą usługi Azure API Management
 
-    [Usługa Azure API Management](../api-management/api-management-key-concepts.md) udostępnia opcje połączenia lokalnego, takie jak wirtualna sieć prywatna typu lokacja-lokacja i integracja ExpressRoute dla zabezpieczonego serwera proxy i komunikacji z systemami lokalnymi. W przepływie pracy aplikacji logiki w Projektancie aplikacji logiki można wybrać interfejs API, który jest udostępniany przez API Management, który zapewnia szybki dostęp do systemów lokalnych.
+    [Usługa Azure API Management](../api-management/api-management-key-concepts.md) udostępnia opcje połączenia lokalnego, takie jak wirtualna sieć prywatna typu lokacja-lokacja i integracja [ExpressRoute](../expressroute/expressroute-introduction.md) dla zabezpieczonego serwera proxy i komunikacji z systemami lokalnymi. Jeśli masz interfejs API, który zapewnia dostęp do systemu lokalnego i został on uwidoczniony przez utworzenie [wystąpienia usługi API Management](../api-management/get-started-create-service-instance.md), możesz wywołać ten interfejs API w przepływie pracy aplikacji logiki, wybierając wbudowany wyzwalacz API Management lub akcję w Projektancie aplikacji logiki.
+
+    > [!NOTE]
+    > Łącznik pokazuje tylko te usługi API Management, do których masz uprawnienia do wyświetlania i nawiązywania połączeń, ale nie wyświetlają usług API Management opartych na użyciu.
+
+    1. W Projektancie aplikacji logiki wprowadź `api management` w polu wyszukiwania. Wybierz krok w zależności od tego, czy dodajesz wyzwalacz, czy akcję:<p>
+
+       * Jeśli dodajesz wyzwalacz, który jest zawsze pierwszym krokiem w przepływie pracy, wybierz pozycję **Wybierz wyzwalacz usługi Azure API Management**.
+
+       * Jeśli dodajesz akcję, wybierz pozycję **Wybierz akcję API Management platformy Azure**.
+
+       Ten przykład dodaje wyzwalacz:
+
+       ![Dodawanie wyzwalacza API Management platformy Azure](./media/logic-apps-securing-a-logic-app/select-api-management.png)
+
+    1. Wybierz wcześniej utworzone wystąpienie usługi API Management.
+
+       ![Wybierz wystąpienie usługi API Management](./media/logic-apps-securing-a-logic-app/select-api-management-service-instance.png)
+
+    1. Wybierz wywołanie interfejsu API, które ma być używane.
+
+       ![Wybierz istniejący interfejs API](./media/logic-apps-securing-a-logic-app/select-api.png)
 
 <a name="add-authentication-outbound"></a>
 
@@ -717,7 +748,7 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Uwierzytelnianie** | `type` | Tak | Podstawowa | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
 | **Uż** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 | **Hasło** | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
@@ -748,7 +779,7 @@ Jeśli opcja [certyfikat klienta](../active-directory/authentication/active-dire
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Uwierzytelnianie** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania do użycia. Można zarządzać certyfikatami za pomocą [usługi Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Uwaga**: Łączniki niestandardowe nie obsługują uwierzytelniania opartego na certyfikatach dla wywołań przychodzących i wychodzących. |
+| **Authentication** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania do użycia. Można zarządzać certyfikatami za pomocą [usługi Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Uwaga**: Łączniki niestandardowe nie obsługują uwierzytelniania opartego na certyfikatach dla wywołań przychodzących i wychodzących. |
 | **PFX** | `pfx` | Tak | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format szyfrowany algorytmem Base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj zawartość certyfikatu przy użyciu `ToBase64String()` funkcji i Zapisz tę zawartość do pliku tekstowego: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Hasło** | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
@@ -787,7 +818,7 @@ Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po 
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Uwierzytelnianie** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodny z [protokołem OAuth 2,0](../active-directory/develop/v2-overview.md). |
+| **Authentication** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodny z [protokołem OAuth 2,0](../active-directory/develop/v2-overview.md). |
 | **Urząd** | `authority` | Nie | <*Adres URL-urząd-token-wystawca*> | Adres URL urzędu dostarczającego token uwierzytelniania. Domyślnie ta wartość to `https://login.windows.net` . |
 | **Dzierżawa** | `tenant` | Tak | <*Identyfikator dzierżawy*> | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
 | **Grupy odbiorców** | `audience` | Tak | <*zasób do autoryzacji*> | Zasób, który ma być używany na potrzeby autoryzacji, na przykład`https://management.core.windows.net/` |
@@ -841,7 +872,7 @@ W wyzwalaczu lub akcji, która obsługuje uwierzytelnianie surowe, określ nast�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Uwierzytelnianie** | `type` | Tak | Nieprzetworzone | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Nieprzetworzone | Typ uwierzytelniania do użycia |
 | **Wartość** | `value` | Tak | <*Authorization-header-Value*> | Wartość nagłówka autoryzacji do użycia na potrzeby uwierzytelniania |
 ||||||
 
@@ -876,7 +907,7 @@ Jeśli opcja [zarządzana tożsamość](../active-directory/managed-identities-a
 
    | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Uwierzytelnianie** | `type` | Tak | **Tożsamość zarządzana** <br>lub <br>`ManagedServiceIdentity` | Typ uwierzytelniania do użycia |
+   | **Authentication** | `type` | Tak | **Tożsamość zarządzana** <br>lub <br>`ManagedServiceIdentity` | Typ uwierzytelniania do użycia |
    | **Tożsamość zarządzana** | `identity` | Tak | * **Tożsamość zarządzana przypisana przez system** <br>lub <br>`SystemAssigned` <p><p>* <*przypisanej do użytkownika-Identity-Name*> | Zarządzana tożsamość do użycia |
    | **Grupy odbiorców** | `audience` | Tak | <*docelowy — identyfikator zasobu*> | Identyfikator zasobu dla zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Załóżmy na przykład, że `https://storage.azure.com/` [tokeny dostępu](../active-directory/develop/access-tokens.md) są prawidłowe dla wszystkich kont magazynu. Można jednak określić adres URL usługi głównej, `https://fabrikamstorageaccount.blob.core.windows.net` na przykład dla określonego konta magazynu. <p>**Uwaga**: Właściwość **odbiorców** może być ukryta w niektórych wyzwalaczach lub akcjach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **odbiorcy**. <p><p>**Ważne**: Upewnij się, że identyfikator zasobu docelowego *dokładnie pasuje* do wartości oczekiwanej przez usługę Azure AD, w tym wszystkich wymaganych końcowych ukośników. W związku z tym `https://storage.azure.com/` Identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga końcowej kreski ułamkowej. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure, które obsługują usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
@@ -905,9 +936,37 @@ Jeśli opcja [zarządzana tożsamość](../active-directory/managed-identities-a
 
 Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami przy użyciu ich łączników w Azure Logic Apps, można [zablokować możliwość tworzenia tych połączeń](../logic-apps/block-connections-connectors.md) dla określonych łączników w przepływach pracy aplikacji logiki przy użyciu [Azure Policy](../governance/policy/overview.md). Aby uzyskać więcej informacji, zobacz [blok połączeń utworzonych przez określone łączniki w Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
+<a name="isolation-logic-apps"></a>
+
+## <a name="isolation-guidance-for-logic-apps"></a>Wskazówki dotyczące izolacji aplikacji logiki
+
+Azure Logic Apps w [Azure Government](../azure-government/documentation-government-welcome.md) obsłużyć wszystkie poziomy wpływu w regionach opisanych przez [Azure Government poziomu wpływu na poziom 5 wpływ na wskazówki dotyczące izolacji](../azure-government/documentation-government-impact-level-5.md#azure-logic-apps) i [działu obrony w chmurze (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). Aby spełnić te wymagania, Logic Apps obsługuje możliwość tworzenia i uruchamiania przepływów pracy w środowisku z dedykowanymi zasobami, dzięki czemu można zmniejszyć wpływ na wydajność innych dzierżawców platformy Azure w usłudze Logic Apps i uniknąć udostępniania zasobów obliczeniowych innym dzierżawcom.
+
+* Aby uruchomić własny kod lub przeprowadzić transformację XML, [Utwórz i wywołaj funkcję platformy Azure](../logic-apps/logic-apps-azure-functions.md)zamiast korzystać z funkcji [kodu wbudowanego](../logic-apps/logic-apps-add-run-inline-code.md) lub dostarczaj [zestawy do użycia jako mapy](../logic-apps/logic-apps-enterprise-integration-maps.md), odpowiednio. Ponadto skonfiguruj środowisko hostingu dla aplikacji funkcji, aby zachować zgodność z wymaganiami dotyczącymi izolacji.
+
+  Aby na przykład spełnić wymagania dotyczące poziomu 5, należy utworzyć aplikację funkcji z [planem App Service](../azure-functions/functions-scale.md#app-service-plan) przy użyciu [warstwy cenowej **izolowanej** ](../app-service/overview-hosting-plans.md) wraz z [App Service Environment (ASE)](../app-service/environment/intro.md) , która również korzysta z **wyizolowanej** warstwy cenowej. W tym środowisku aplikacje funkcji są uruchamiane na dedykowanych maszynach wirtualnych platformy Azure i dedykowanych sieciach wirtualnych platformy Azure, które zapewniają izolację sieci w oparciu o izolację obliczeniową dla aplikacji i maksymalne możliwości skalowania w poziomie. Aby uzyskać więcej informacji, zobacz [Azure Government poziomu wpływu 5 wskazówek dotyczących izolacji — Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+
+  Więcej informacji można znaleźć w następujących tematach:<p>
+
+  * [Plany Azure App Service](../app-service/overview-hosting-plans.md)
+  * [Opcje sieciowe usługi Azure Functions](../azure-functions/functions-networking-options.md)
+  * [Dedykowane hosty platformy Azure dla maszyn wirtualnych](../virtual-machines/windows/dedicated-hosts.md)
+  * [Izolacja maszyny wirtualnej na platformie Azure](../virtual-machines/windows/isolation.md)
+  * [Wdrażanie dedykowanych usług platformy Azure w sieciach wirtualnych](../virtual-network/virtual-network-for-azure-services.md)
+
+* Aby utworzyć Aplikacje logiki, które są uruchamiane na dedykowanych zasobach i uzyskać dostęp do zasobów chronionych przez sieć wirtualną platformy Azure, można utworzyć [środowisko usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Niektóre sieci wirtualne platformy Azure używają prywatnych punktów końcowych ([prywatnego linku platformy Azure](../private-link/private-link-overview.md)) do zapewniania dostępu do usług PaaS platformy Azure, takich jak Azure Storage, Azure Cosmos DB lub Azure SQL Database, usług partnerskich lub usług klienta hostowanych na platformie Azure. Jeśli aplikacje logiki wymagają dostępu do sieci wirtualnych, które używają prywatnych punktów końcowych, należy utworzyć, wdrożyć i uruchomić te aplikacje logiki w ramach ISE.
+
+  * Aby uzyskać większą kontrolę nad kluczami szyfrowania używanymi przez usługę Azure Storage, możesz skonfigurować własny klucz, korzystać z niego i zarządzać nim przy użyciu [Azure Key Vault](../key-vault/general/overview.md). Ta funkcja jest również znana jako "Bring Your Own Key" (BYOK), a klucz jest nazywany "kluczem zarządzanym przez klienta". Aby uzyskać więcej informacji, zobacz [Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania danych przechowywanych w środowiskach usługi integracji (ISEs) w Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
+
+Więcej informacji można znaleźć w następujących tematach:
+
+* [Izolacja w chmurze publicznej platformy Azure](../security/fundamentals/isolation-choices.md)
+* [Zabezpieczenia wysoce poufnych aplikacji IaaS na platformie Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+
 ## <a name="next-steps"></a>Następne kroki
 
-* [Automatyzowanie wdrażania Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitorowanie aplikacji logiki](../logic-apps/monitor-logic-apps-log-analytics.md)  
-* [Diagnozowanie błędów i problemów aplikacji logiki](../logic-apps/logic-apps-diagnosing-failures.md)  
-* [Tworzenie wdrożenia aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Podstawa zabezpieczeń platformy Azure dla Azure Logic Apps](../logic-apps/security-baseline.md)
+* [Automatyzowanie wdrażania Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Monitorowanie aplikacji logiki](../logic-apps/monitor-logic-apps-log-analytics.md)

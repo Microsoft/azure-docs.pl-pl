@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 6683dd445b4d209a6420c7490216b8e325b34c91
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669974"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965012"
 ---
 # <a name="edit-metadata-module"></a>Edytuj moduł metadanych
 
@@ -55,8 +55,8 @@ Typowe zmiany metadanych mogą obejmować:
     + Typ kolumny i jej wartości zmienią się po wykonaniu operacji Edytuj metadane. Możesz w dowolnym momencie odzyskać oryginalny typ danych za pomocą polecenia Edytuj metadane, aby zresetować typ danych kolumny.  
 
     > [!NOTE]
-        > **Format daty i godziny** jest zgodny z [wbudowanym formatem DateTime języka Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
-        > W przypadku zmiany dowolnego typu liczby na typ **DateTime** pozostaw pole **format DateTime** puste. Obecnie nie można określić docelowego formatu danych.
+    > **Format daty i godziny** jest zgodny z [wbudowanym formatem DateTime języka Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > W przypadku zmiany dowolnego typu liczby na typ **DateTime** pozostaw pole **format DateTime** puste. Obecnie nie można określić docelowego formatu danych.
 
 1. Wybierz opcję **kategorii** , aby określić, że wartości w wybranych kolumnach mają być traktowane jako kategorie.
 

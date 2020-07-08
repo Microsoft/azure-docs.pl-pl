@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996367"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964689"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
 
@@ -47,7 +47,7 @@ Po przesłaniu model nie będzie już dostępny na karcie **niewymagane szkoleni
 
 ## <a name="whats-next"></a>Co dalej?
 
-Modele wybrane do wdrożenia są zapisywane po zlikwidowaniu centrum i rozmieszczeniu wszystkich modeli.  Do momentu 24 maja przesłać żądania wdrożenia nieobsługiwanych modeli.  Firma Microsoft wdroży te modele od 15 czerwca, w tym momencie będą one dostępne za pomocą interfejsu API usługi Translator v3.  Ponadto będą one dostępne za pomocą interfejsu API v2 do 1 lipca.  
+Modele wybrane do wdrożenia są zapisywane po zlikwidowaniu centrum i rozmieszczeniu wszystkich modeli.  Do momentu 24 maja przesłać żądania wdrożenia nieobsługiwanych modeli.  Firma Microsoft wdroży te modele w dniu 15 czerwca, w którym ten punkt będzie dostępny za poorednictwem translatora v3.  Ponadto będą one dostępne za poorednictwem translatora v2 do 1 lipca.  
 
 Aby uzyskać więcej informacji na temat ważnych dat wycofania centrum, zobacz [tutaj](https://www.microsoft.com/translator/business/hub/).
 Po wdrożeniu będą stosowane normalne opłaty za hosting.  Aby uzyskać szczegółowe informacje, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) .  

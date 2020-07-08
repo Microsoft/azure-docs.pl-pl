@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: df9d1989253bd1e6b168aa00dad941917ca2dfd3
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85412485"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964638"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
 
@@ -49,7 +49,7 @@ Dowiedz się więcej o tym, jak rozliczenia działają na poziomach [wyzwalaczy]
 
 * **Deweloper** ISE: Ta jednostka SKU nie ma możliwości skalowania w górę, bez umowy dotyczącej poziomu usług i braku opublikowanych limitów. Tej jednostki SKU można używać tylko na potrzeby eksperymentowania, programowania i testowania, a nie produkcji ani testowania wydajności.
 
-W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE, naliczana jest [stała cena miesięczna](https://azure.microsoft.com/pricing/details/logic-apps) za następujące możliwości:
+W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE, opłaty są naliczane za użycie [w ramach następujących](https://azure.microsoft.com/pricing/details/logic-apps) możliwości:
 
 * [Wbudowane](../connectors/apis-list.md#built-in) wyzwalacze i akcje
 
@@ -57,7 +57,7 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE
 
 * Łączniki [standardowe](../connectors/apis-list.md#managed-connectors) i łączniki [Enterprise](../connectors/apis-list.md#enterprise-connectors) , które pozwalają na dołączenie do wielu połączeń w przedsiębiorstwie
 
-   Łączniki standardowe i Enterprise, które wyświetlają etykietę **ISE** , działają w tym samym ISE, jak aplikacje logiki. Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w publicznej "globalnej" Logic Apps usłudze z wieloma dzierżawcami. Stałe ceny miesięczne dotyczą również łączników, które działają w usłudze z wieloma dzierżawcami, gdy są używane z aplikacjami logiki, które działają w ISE.
+   Łączniki standardowe i Enterprise, które wyświetlają etykietę **ISE** , działają w tym samym ISE, jak aplikacje logiki. Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w publicznej "globalnej" Logic Apps usłudze z wieloma dzierżawcami. Stałe ceny dotyczą również łączników, które działają w usłudze z wieloma dzierżawcami, gdy są używane z aplikacjami logiki, które są uruchamiane w ISE.
 
 * Użycie [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) bez dodatkowych kosztów na podstawie [jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 

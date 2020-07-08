@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 82e131b0e6209089b658c622b415e997b40e9e4b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837842"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964655"
 ---
 # <a name="power-bi-app-creation-overview"></a>Omówienie tworzenia aplikacji Power BI
 
@@ -66,16 +66,16 @@ Aplikację Power BI można utworzyć tylko w środowisku [Power BI](https://powe
 2. Utwórz i przetestuj swoją aplikację w Power BI.
 3. Po otrzymaniu adresu internetowego instalacji aplikacji należy dodać go do strony **konfiguracji technicznej** w centrum partnerskim.
 
-Po utworzeniu i przetestowaniu aplikacji w Power BI Zapisz adres internetowy instalacji aplikacji, ponieważ będzie on potrzebny do [utworzenia oferty aplikacji Power BI](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
+Po utworzeniu i przetestowaniu aplikacji w Power BI Zapisz adres internetowy instalacji aplikacji, ponieważ będzie on potrzebny do [utworzenia oferty aplikacji Power BI](create-power-bi-app-offer.md).
 
 ### <a name="business-requirements"></a>Wymagania biznesowe
 
 Wymagania biznesowe obejmują proceduralne, umowne i prawne zobowiązania. Należy:
 
-- Być zarejestrowanym komercyjnym wydawcą portalu Marketplace. Jeśli nie jesteś zarejestrowanym, postępuj zgodnie z instrukcjami w polu [Zostań a komercyjnym wydawcą portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Być zarejestrowanym komercyjnym wydawcą portalu Marketplace. Jeśli nie masz rejestracji, postępuj zgodnie z instrukcjami w temacie [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](create-account.md).
 - Podaj zawartość, która spełnia kryteria oferty do wystawienia w witrynie AppSource. Aby uzyskać więcej informacji, zobacz temat [czy aplikacja ma być wyświetlana w witrynie AppSource? Oto jak to zrobić](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Zaakceptuj [zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement)i postępuj zgodnie z tymi zasadami.
 
 ## <a name="next-step"></a>Następny krok
 
-- [Tworzenie oferty aplikacji Power BI w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [Tworzenie oferty aplikacji Power BI w centrum partnerskim](create-power-bi-app-offer.md)

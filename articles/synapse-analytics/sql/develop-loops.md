@@ -6,18 +6,18 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429956"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964995"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
+# <a name="use-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
 Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań z pulą SQL w Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Przeznaczenie pętli WHILE

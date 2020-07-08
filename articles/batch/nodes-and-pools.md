@@ -3,12 +3,12 @@ title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 46c78fe1c45d2effe03008667dd424d943d75ec4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888362"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964046"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -80,7 +80,7 @@ Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services
 
 ### <a name="node-agent-skus"></a>Jednostki SKU agenta węzła
 
-W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) .
+W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Niestandardowe obrazy dla pul usługi Virtual Machines
 
@@ -129,7 +129,7 @@ Formuła skalowania może opierać się na następujących metrykach:
 - **Metryki zasobów** — na podstawie użycia procesora, wykorzystania przepustowości, użycia pamięci i liczby węzłów.
 - **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone*.
 
-Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
+Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
 
 Więcej informacji na temat automatycznego skalowania aplikacji znajduje się w temacie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) (Automatyczne skalowanie węzłów obliczeniowych w puli usługi Azure Batch).
 
@@ -189,7 +189,7 @@ Połączone podejście jest zwykle używane do obsługi zmiennej, ale trwająceg
 
 Zazwyczaj certyfikatów należy użyć podczas szyfrowania i odszyfrowywania poufnych informacji dotyczących zadań podrzędnych, np. klucza [konta usługi Azure Storage](accounts.md#azure-storage-accounts). Aby to umożliwić, można zainstalować certyfikaty w węzłach. Zaszyfrowane klucze tajne są przekazywane do zadań za pomocą parametrów wiersza polecenia lub osadzane w jednym z zasobów zadań, a zainstalowanych certyfikatów można użyć do ich odszyfrowania.
 
-Aby dodać certyfikat do konta usługi Batch, należy użyć operacji [Dodaj certyfikat](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (interfejs API REST usługi Batch) lub metody [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (platforma .NET usługi Batch). Następnie można skojarzyć certyfikat z nową lub istniejącą pulą.
+Aby dodać certyfikat do konta usługi Batch, należy użyć operacji [Dodaj certyfikat](/rest/api/batchservice/certificate/add) (interfejs API REST usługi Batch) lub metody [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (platforma .NET usługi Batch). Następnie można skojarzyć certyfikat z nową lub istniejącą pulą.
 
 Gdy certyfikat zostaje skojarzony z pulą, usługa Batch instaluje certyfikat w każdym węźle w puli. Usługa Batch instaluje odpowiednie certyfikaty podczas uruchamiania węzła, przed uruchomieniem jakichkolwiek zadań (w tym zadania podrzędnego [Uruchom zadanie](jobs-and-tasks.md#start-task) i [Menedżer zadań](jobs-and-tasks.md#job-manager-task)).
 

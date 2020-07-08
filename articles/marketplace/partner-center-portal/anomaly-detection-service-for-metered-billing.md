@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 856555008f5edb04c167e00f3db49abc9e5e6402
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b83b6fc0da6a8b2016676d7fb748fc87880868f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740008"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964570"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń naliczanych
 
-[Usługa pomiarów w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis-faq) umożliwia tworzenie ofert w komercyjnym programie Marketplace, który jest naliczany zgodnie z jednostkami niestandardowymi. Korzystając z naliczanych rozliczeń, możesz wysyłać do firmy Microsoft zdarzenia użycia dotyczące użycia klienta i przygotować rozliczenia na podstawie tego użycia.
+[Usługa pomiarów w portalu Marketplace](marketplace-metering-service-apis-faq.md) umożliwia tworzenie ofert w komercyjnym programie Marketplace, który jest naliczany zgodnie z jednostkami niestandardowymi. Korzystając z naliczanych rozliczeń, możesz wysyłać do firmy Microsoft zdarzenia użycia dotyczące użycia klienta i przygotować rozliczenia na podstawie tego użycia.
 
 Nieprawidłowe dane użycia mogą pochodzić z różnych przyczyn, takich jak błędy, błędne konfiguracje w śledzeniu użycia lub oszustwa. Nieprawidłowe dane dotyczące użycia spowodują nieprawidłowe opłaty dla klientów i kwestie dotyczące rozliczeń.
 
@@ -74,8 +74,8 @@ Aby przesłać bilet:
     - **Komercyjne witryny Marketplace**  >  **Naliczanie opłat**  >  **Wysłano nieprawidłowe użycie dla oferty SaaS**
 3. W **następnym kroku**wybierz przycisk **Przejrzyj rozwiązania** , aby skierować do Centrum partnerskiego, aby przesłać bilet pomocy technicznej.
 
-Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
 
 ## <a name="next-step"></a>Następny krok
 
-- Dowiedz się więcej o [interfejsie API usługi pomiaru Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis).
+- Dowiedz się więcej o [interfejsie API usługi pomiaru Marketplace](marketplace-metering-service-apis.md).

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: dsindona
-ms.openlocfilehash: 7224badd5668ca37ca062867109ca25710eac8e7
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 1a833f86a0d8de3f5b8c83e899a58fa83f3153c4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125162"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963771"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
 
@@ -39,18 +39,18 @@ W celu utworzenia konta:
 
 Przykładem takiego wywołania jest `https://contoso.com/signup?token=<blob>` , podczas gdy adres URL strony docelowej dla tej oferty SaaS w centrum partnerskim jest skonfigurowany jako `https://contoso.com/signup` . Token ten zawiera wydawcę o IDENTYFIKATORze, który jednoznacznie identyfikuje SaaS zakupu i klienta.
 
->[!Note]
+>[!NOTE]
 >Wydawca nie otrzyma powiadomienia o zakupie SaaS, dopóki klient nie zainicjuje procesu konfiguracji od firmy Microsoft.
 
 Adres URL strony docelowej musi być ustawiony na 24x7 i być gotowy do otrzymywania nowych wywołań od firmy Microsoft przez cały czas. Jeśli strona docelowa stanie się niedostępna, klienci nie będą mogli zarejestrować się w usłudze SaaS i rozpocząć korzystanie z niej.
 
-Następnie *token* musi zostać przesłany z powrotem do firmy Microsoft przez wydawcę, wywołując [interfejs API rozpoznawania SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription)jako wartość `x-ms-marketplace-token header` parametru nagłówka.  W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany ze szczegółowymi informacjami o zakupie SaaS, takimi jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty, IDENTYFIKATORem zakupionego planu itd.
+Następnie *token* musi zostać przesłany z powrotem do firmy Microsoft przez wydawcę, wywołując [interfejs API rozpoznawania SaaS](#resolve-a-purchased-subscription)jako wartość `x-ms-marketplace-token header` parametru nagłówka.  W wyniku wywołania interfejsu API rozpoznawania token jest wymieniany ze szczegółowymi informacjami o zakupie SaaS, takimi jak unikatowy identyfikator zakupu, zakupionego identyfikatora oferty, IDENTYFIKATORem zakupionego planu itd.
 
-Na stronie miejsce docelowe klient powinien być zalogowany na nowym lub istniejącym koncie SaaS za pośrednictwem rejestracji jednokrotnej (SSO) usługi Azure Active Directory (AAD). 
+Na stronie miejsce docelowe klient powinien być zalogowany na nowym lub istniejącym koncie SaaS za pośrednictwem rejestracji jednokrotnej (SSO) usługi Azure Active Directory (AAD).
 
 Wydawca powinien zaimplementować logowanie za pomocą logowania jednokrotnego, aby zapewnić użytkownikowi środowisko wymagane przez firmę Microsoft dla tego przepływu.  Upewnij się, że używasz wielodostępnej aplikacji usługi Azure AD, podczas konfigurowania logowania jednokrotnego Zezwól na konta służbowe lub osobiste konta Microsoft.  To wymaganie dotyczy tylko strony docelowej i dla użytkowników, którzy są przekierowywani do usługi SaaS, gdy jest już zalogowany przy użyciu poświadczeń firmy Microsoft. Nie dotyczy to wszystkich logowań do usługi SaaS.
 
->[!Note]
+> [!NOTE]
 >Jeśli logowanie za pomocą logowania jednokrotnego wymaga, aby administrator przyznał uprawnienia do aplikacji, opis oferty w centrum partnerskim musi ujawnić, że wymagany jest dostęp na poziomie administratora. Jest to zgodne z [zasadami certyfikacji portalu Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 Po zalogowaniu klient powinien zakończyć konfigurację SaaS po stronie wydawcy. Następnie Wydawca musi wywołać [aktywację subskrypcji API](#activate-a-subscription) , aby wysłać sygnał do witryny Marketplace, że inicjowanie obsługi konta SaaS zostało ukończone.
@@ -61,7 +61,7 @@ Spowoduje to rozpoczęcie cyklu rozliczeniowego klienta. Jeśli wywołanie inter
 
 #### <a name="active-subscribed"></a>Aktywne (subskrybowane)
 
-Ten stan jest stałym stanem zainicjowanej subskrypcji SaaS. Po przetworzeniu wywołania [interfejsu API aktywacji subskrypcji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#activate-a-subscription) po stronie firmy Microsoft subskrypcja SaaS jest oznaczona jako subskrybowana. Usługa SaaS jest teraz gotowa do użycia przez klienta po stronie wydawcy, a klient jest rozliczany.
+Ten stan jest stałym stanem zainicjowanej subskrypcji SaaS. Po przetworzeniu wywołania [interfejsu API aktywacji subskrypcji](#activate-a-subscription) po stronie firmy Microsoft subskrypcja SaaS jest oznaczona jako subskrybowana. Usługa SaaS jest teraz gotowa do użycia przez klienta po stronie wydawcy, a klient jest rozliczany.
 
 Gdy subskrypcja usługi SaaS jest już aktywna i klient zdecyduje się na uruchomienie funkcji **zarządzania** SaaS w centrum administracyjnym usługi Azure Portal lub M365, **adres URL strony docelowej** jest ponownie wywoływany przez firmę Microsoft z parametrem *tokenu* tak samo jak w przepływie aktywacji.  Wydawca powinien rozróżnić nowe zakupy i zarządzać istniejącymi kontami SaaS i obsłużyć odpowiednie wywołanie adresu URL strony docelowej.
 
@@ -85,7 +85,7 @@ Można aktualizować tylko aktywną subskrypcję. Gdy subskrypcja jest aktualizo
 W tym przepływie klient zmienia plan subskrypcji lub liczbę stanowisk z centrum administracyjnego M365.  
 
 1. Po wprowadzeniu aktualizacji firma Microsoft będzie wywoływała adres URL elementu webhook wydawcy, który został skonfigurowany w polu **elementu webhook** w centrum partnerskim, z odpowiednią wartością dla *akcji* i innych odpowiednich parametrów.  
-1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft o zakończeniu zmiany, wywołując [stan aktualizacji interfejsu API operacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. Po stronie wydawcy należy wprowadzić wymagane zmiany w usłudze SaaS i powiadomić firmę Microsoft o zakończeniu zmiany, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
 1. Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces aktualizacji nie zostanie ukończony po stronie firmy Microsoft.  Subskrypcja usługi SaaS zostanie pozostawiona z istniejącym planem i ilością stanowisk.
 
 Poniżej przedstawiono sekwencję wywołań interfejsu API dla scenariusza aktualizacji zainicjowanej w portalu Marketplace.
@@ -96,11 +96,11 @@ Poniżej przedstawiono sekwencję wywołań interfejsu API dla scenariusza aktua
 
 W tym przepływie klient zmienia plan subskrypcji lub ilość miejsc zakupionych w ramach usługi SaaS. 
 
-1. Kod wydawcy musi wywołać [interfejs API planu zmiany](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-plan-on-the-subscription) i/lub [zmienić liczbę interfejsów API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-quantity-on-the-subscription) , zanim przeniesiesz żądaną zmianę po stronie wydawcy. 
+1. Kod wydawcy musi wywołać [interfejs API planu zmiany](#change-the-plan-on-the-subscription) i/lub [zmienić liczbę interfejsów API](#change-the-quantity-of-seats-on-the-saas-subscription) , zanim przeniesiesz żądaną zmianę po stronie wydawcy. 
 
 1. Firma Microsoft zastosuje zmianę do subskrypcji, a następnie powiadomi wydawcę za pośrednictwem **elementu webhook** , aby zastosować tę samą zmianę.  
 
-1. Tylko Wydawca powinien wprowadzić wymaganą zmianę w subskrypcji usługi SaaS i powiadomić firmę Microsoft, gdy zmiana zostanie wykonana, wywołując [stan aktualizacji interfejsu API operacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. Tylko Wydawca powinien wprowadzić wymaganą zmianę w subskrypcji usługi SaaS i powiadomić firmę Microsoft, gdy zmiana zostanie wykonana, wywołując [stan aktualizacji interfejsu API operacji](#update-the-status-of-an-operation).
 
 Sekwencja wywołań interfejsu API dla scenariusza zainicjowanej aktualizacji po stronie wydawcy.
 
@@ -127,7 +127,7 @@ Ta akcja wskazuje, że instrument płatniczy klienta został ponownie ważny i p
 
 1. Firma Microsoft wywołuje element webhook z parametrem *Action* ustawionym na wartość *przywracania* .  
 1. Wydawca sprawdza, czy ta subskrypcja jest w pełni funkcjonalna po stronie wydawcy.
-1. Wydawca wywołuje [interfejs API operacji patch](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation) o stanie sukces.  
+1. Wydawca wywołuje [interfejs API operacji patch](#update-the-status-of-an-operation) o stanie sukces.  
 1. Następnie przywracanie zakończy się pomyślnie, a klient zostanie rozliczony ponownie dla subskrypcji SaaS. 
 1. Jeśli poprawka zostanie wysłana ze stanem niepowodzenia, proces przywracania nie zostanie ukończony po stronie firmy Microsoft. Subskrypcja pozostanie zawieszona.
 
@@ -151,7 +151,7 @@ Po odebraniu wywołania elementu webhook anulowania Wydawca powinien zachować d
 
 Subskrypcję usługi SaaS można anulować w dowolnym momencie jej cyklu życia. Po anulowaniu subskrypcji nie można ponownie aktywować.
 
-## <a name="api-reference"></a>Odwołanie API
+## <a name="api-reference"></a>Dokumentacja interfejsu API
 
 Ta sekcja dokumentuje interfejsy API subskrypcji i operacji SaaS.
 
@@ -170,7 +170,7 @@ Wersja 1,2 protokołu TLS zostanie wymuszona wkrótce po minimalnej wersji komun
 
 #### <a name="resolve-a-purchased-subscription"></a>Rozwiązywanie zakupionej subskrypcji
 
-Rozwiązanie punktu końcowego umożliwia wydawcy wymianę tokenów identyfikacji zakupu w portalu Marketplace (nazywanego [tutaj](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2?branch=pr-en-us-107193#purchased-but-not-yet-activated-pendingfulfillmentstart) *tokenem*) z trwałym zakupionym identyfikatorem subskrypcji SaaS i jego szczegółami.
+Rozwiązywanie punktu końcowego umożliwia wydawcy wymianę tokenów identyfikacji zakupu w portalu Marketplace (nazywanego *tokenem* [zakupionego, ale jeszcze nie aktywowanego](#purchased-but-not-yet-activated-pendingfulfillmentstart)) z trwałym zakupionym identyfikatorem subskrypcji SaaS i jego szczegółami.
 
 Gdy klient zostanie przekierowany do adresu URL strony docelowej partnera, token identyfikacji klienta jest przenoszona jako parametr *tokenu* tego wywołania adresu URL. Partner powinien używać tego tokenu i wysłać żądanie rozwiązania problemu. Rozwiązywanie odpowiedzi interfejsu API zawiera identyfikator subskrypcji SaaS oraz inne szczegóły, które jednoznacznie identyfikują zakup. *Token* dostarczony z adresem URL strony docelowej jest zwykle ważny przez 24 godziny. Jeśli otrzymany *token* już wygasł, zalecamy podanie następujących wskazówek dla klienta końcowego:
 
@@ -178,29 +178,28 @@ Gdy klient zostanie przekierowany do adresu URL strony docelowej partnera, token
 
 Wywołanie interfejsu API rozwiązywania problemów zwróci szczegóły subskrypcji i stan subskrypcji SaaS we wszystkich obsługiwanych Stanach.
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Wpis<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Wpis`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość            |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.   |
 
 *Nagłówki żądania:*
- 
-|                    |                   |
+
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json` |
 |  `x-ms-requestid`    |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 |  `x-ms-correlationid` |  Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
 |  `authorization`     |  Unikatowy token dostępu identyfikujący wydawcę wykonującą to wywołanie interfejsu API. Format to, `"Bearer <accessaccess_token>"` kiedy wartość tokenu jest pobierana przez wydawcę, zgodnie z opisem w temacie [pobieranie tokenu na podstawie aplikacji usługi Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | Parametr *tokenu* zakupu w witrynie Marketplace do rozwiązania.  Token jest przesyłany do wywołania adresu URL strony docelowej, gdy klient zostanie przekierowany do witryny sieci Web partnera SaaS (na przykład: https://contoso.com/signup?token= <token><authorization_token>). <br> <br>  *Uwaga:* Zakodowana wartość *tokenu* jest częścią adresu URL strony docelowej, dlatego należy ją zdekodować przed użyciem jako parametru w tym wywołaniu interfejsu API.  <br> <br> Przykład zakodowanego ciągu w adresie URL wygląda następująco: `contoso.com/signup?token=ab%2Bcd%2Fef` , gdzie token jest `ab%2Bcd%2Fef` .  Ten sam token zdekodowany będzie:`Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | Parametr *tokenu* zakupu w witrynie Marketplace do rozwiązania.  Token jest przesyłany do wywołania adresu URL strony docelowej, gdy klient zostanie przekierowany do witryny sieci Web partnera SaaS (na przykład: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *Uwaga:* Zakodowana wartość *tokenu* jest częścią adresu URL strony docelowej, dlatego należy ją zdekodować przed użyciem jako parametru w tym wywołaniu interfejsu API.  <br> <br> Przykład zakodowanego ciągu w adresie URL wygląda następująco: `contoso.com/signup?token=ab%2Bcd%2Fef` , gdzie token jest `ab%2Bcd%2Fef` .  Ten sam token zdekodowany będzie:`Ab+cd/ef` |
 | | |
 
 *Kody odpowiedzi:*
 
-Kod: 200<br>
-Zwraca unikatowe identyfikatory subskrypcji SaaS na podstawie `x-ms-marketplace-token` podanego typu.
+Kod: 200 zwraca unikatowe identyfikatory subskrypcji SaaS na podstawie `x-ms-marketplace-token` podanego typu.
 
 Przykład treści odpowiedzi:
 
@@ -249,34 +248,31 @@ Przykład treści odpowiedzi:
 
 ```
 
-Kod: 400<br>
-Nieprawidłowe żądanie. `x-ms-marketplace-token`Brak, źle sformułowany, nieprawidłowy lub wygasł.
+Kod: 400 Nieprawidłowe żądanie. `x-ms-marketplace-token`Brak, źle sformułowany, nieprawidłowy lub wygasł.
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) .
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="activate-a-subscription"></a>Aktywuj subskrypcję
 
 Po skonfigurowaniu konta SaaS dla klienta końcowego Wydawca musi wywołać interfejs API aktywacji subskrypcji na stronie firmy Microsoft.  Klient nie będzie obciążany opłatami, chyba że wywołanie interfejsu API zakończy się pomyślnie.
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Wpis<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Wpis`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|             |                   |
+|  Parametr         | Wartość             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Użyj 2018-08-31.   |
-| `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu [interfejsu API rozpoznawania](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription).
+| `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu [interfejsu API rozpoznawania](#resolve-a-purchased-subscription).
  |
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -294,29 +290,24 @@ Po skonfigurowaniu konta SaaS dla klienta końcowego Wydawca musi wywołać inte
 
 *Kody odpowiedzi:*
 
-Kod: 200 <br/>
-Subskrypcja została oznaczona jako zasubskrybowana po stronie firmy Microsoft.
+Kod: 200 subskrypcja została oznaczona jako subskrybowana po stronie firmy Microsoft.
 
 Brak treści odpowiedzi dla tego wywołania.
 
-Kod: 400 <br>
-Złe żądanie: Walidacja nie powiodła się.
+Kod: 400 Nieprawidłowe żądanie: Walidacja nie powiodła się.
 
 * `planId`nie istnieje w ładunku żądania.
 * `planId`w ładunku żądania nie jest zgodny z zakupionym pakietem.
 * `quantity`w ładunku żądania nie jest zgodny z zakupionym
 * Subskrypcja SaaS jest w stanie subskrybowanym lub zawieszonym.
 
-Kod: 403 <br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która została opublikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD z klucza użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) .
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Kod: 404 <br>
-Nie znaleziono. Subskrypcja SaaS jest w stanie niesubskrybowanym.
+Nie znaleziono kodu: 404. Subskrypcja SaaS jest w stanie niesubskrybowanym.
 
-Kod: 500 <br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="get-list-of-all-subscriptions"></a>Pobierz listę wszystkich subskrypcji
 
@@ -324,18 +315,18 @@ Pobiera listę wszystkich zakupionych subskrypcji SaaS dla wszystkich ofert opub
 
 Ten interfejs API zwraca wyniki z podziałem na strony. Rozmiar strony wynosi 100.
 
-##### <a name="getbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|             |                   |
+|  Parametr         | Wartość             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Użyj 2018-08-31.  |
 | `continuationToken`  | Parametr opcjonalny. Aby pobrać pierwszą stronę wyników, pozostaw to pole puste.  Użyj wartości zwróconej w `@nextLink` parametrze, aby pobrać następną stronę. |
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -344,8 +335,7 @@ Ten interfejs API zwraca wyniki z podziałem na strony. Rozmiar strony wynosi 10
 
 *Kody odpowiedzi:*
 
-Kod: 200 <br/>
-Zwraca listę wszystkich istniejących subskrypcji dla wszystkich ofert tego wydawcy, na podstawie tokenu autoryzacji wydawcy.
+Kod: 200 zwraca listę wszystkich istniejących subskrypcji dla wszystkich ofert tego wydawcy, na podstawie tokenu autoryzacji wydawcy.
 
 *Przykład treści odpowiedzi:*
 
@@ -426,30 +416,28 @@ Zwraca listę wszystkich istniejących subskrypcji dla wszystkich ofert tego wyd
 
 Jeśli nie znaleziono żadnych zakupionych subskrypcji SaaS dla tego wydawcy, zwracana jest pusta treść odpowiedzi.
 
-Kod: 403 <br>
-Zabrania. Token autoryzacji jest niedostępny, nieprawidłowy lub wygasł.
+Kod: 403 zabroniony. Token autoryzacji jest niedostępny, nieprawidłowy lub wygasł.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 500<br>
-Wewnętrzny błąd serwera. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="get-subscription"></a>Pobierz subskrypcję
 
 Pobiera określoną zakupioną subskrypcję SaaS dla oferty SaaS opublikowanej w portalu Marketplace przez wydawcę. Użyj tego wywołania, aby uzyskać wszystkie dostępne informacje dla określonej subskrypcji SaaS za pomocą jej identyfikatora zamiast wywołania interfejsu API w celu uzyskania listy wszystkich subskrypcji.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Użyj 2018-08-31. |
 | `subscriptionId`     |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`  |
 |  `x-ms-requestid`    |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -458,8 +446,7 @@ Pobiera określoną zakupioną subskrypcję SaaS dla oferty SaaS opublikowanej w
 
 *Kody odpowiedzi:*
 
-Kod: 200<br>
-Zwraca szczegóły dotyczące subskrypcji SaaS na podstawie `subscriptionId` podanego elementu.
+Kod: 200 zwraca szczegóły dotyczące subskrypcji SaaS na podstawie `subscriptionId` podanego elementu.
 
 *Przykład treści odpowiedzi:*
 
@@ -497,16 +484,13 @@ Zwraca szczegóły dotyczące subskrypcji SaaS na podstawie `subscriptionId` pod
 }
 ```
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł i nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł i nie został podany. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 404<br>
-Nie znaleziono.  Nie można znaleźć subskrypcji SaaS z określoną usługą `subscriptionId` .
+Nie znaleziono kodu: 404.  Nie można znaleźć subskrypcji SaaS z określoną usługą `subscriptionId` .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="list-available-plans"></a>Wyświetl dostępne plany
 
@@ -514,18 +498,18 @@ Pobiera wszystkie plany dla oferty SaaS identyfikowanej przez `subscriptionId` o
 
 To wywołanie zwraca listę planów dostępnych dla tego klienta (oprócz już zakupionego).  Lista może być prezentowana klientowi końcowemu w witrynie wydawcy.  Klient końcowy może zmienić plan subskrypcji na jeden z planów na liście zwracanych.  Zmiana planu na taki, który nie znajduje się na liście, zakończy się niepowodzeniem.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
 |  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |   `content-type`     |  `application/json` |
 |   `x-ms-requestid`   |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -534,8 +518,7 @@ To wywołanie zwraca listę planów dostępnych dla tego klienta (oprócz już z
 
 *Kody odpowiedzi:*
 
-Kod: 200<br>
-Zwraca listę wszystkich dostępnych planów dla istniejącej subskrypcji SaaS, w tym już zakupionej.
+Kod: 200 zwraca listę wszystkich dostępnych planów dla istniejącej subskrypcji SaaS, w tym już zakupionej.
 
 Przykład treści odpowiedzi:
 
@@ -557,13 +540,11 @@ Przykład treści odpowiedzi:
 
 Jeśli `subscriptionId` nie zostanie znaleziona, zwracana jest pusta treść odpowiedzi.
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie może próbować uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie może próbować uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="change-the-plan-on-the-subscription"></a>Zmiana planu subskrypcji
 
@@ -571,18 +552,18 @@ Zaktualizuj istniejący plan zakupiony dla subskrypcji SaaS na nowy plan (public
 
 Ten interfejs API można wywołać tylko dla aktywnych subskrypcji.  Każdy plan można zmienić na inny istniejący plan (publiczny lub prywatny), ale nie do samego siebie.  W przypadku planów prywatnych dzierżawa klienta musi być zdefiniowana jako część odbiorcy planu w centrum partnerskim.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Wysłana`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
 | `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
 
 *Nagłówki żądania:*
  
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
@@ -599,35 +580,30 @@ Ten interfejs API można wywołać tylko dla aktywnych subskrypcji.  Każdy plan
 
 *Kody odpowiedzi:*
 
-Kod: 202<br>
-Żądanie zmiany planu zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany planu.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji powinien być zwracany szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie zmiany planu zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany planu.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji powinien być zwracany szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
 Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie portalu Marketplace.  Tylko Wydawca powinien zmienić plan po stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  Adres URL umożliwiający uzyskanie stanu operacji.  Na przykład `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
-Kod: 400<br>
-Złe żądanie: Błędy walidacji.
+Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
 * Nowy plan nie istnieje lub nie jest dostępny dla tej konkretnej subskrypcji SaaS.
 * Podjęto próbę zmiany tego samego planu.
 * Stan subskrypcji SaaS nie jest subskrybowany.
 * Operacja aktualizacji dla subskrypcji SaaS nie jest dołączona do programu `allowedCustomerOperations` .
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) .
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Kod: 404<br>
-Nie znaleziono.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
+Nie znaleziono kodu: 404.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 >[!NOTE]
 >Plan lub ilość siedzeń można zmienić jednocześnie, nie obu.
@@ -641,18 +617,18 @@ Aktualizowanie (zwiększanie lub zmniejszanie) liczby miejsc zakupionych w ramac
 
 Liczba stanowisk nie może być większa niż dozwolona w bieżącym planie.  W takim przypadku należy zmienić plan przed zmianą ilości.
 
-##### <a name="patchbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
 |  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
@@ -669,19 +645,17 @@ Liczba stanowisk nie może być większa niż dozwolona w bieżącym planie.  W 
 
 *Kody odpowiedzi:*
 
-Kod: 202<br>
-Żądanie zmiany ilości zostało zaakceptowane i obsłużone asynchronicznie. Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany ilości.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie zmiany ilości zostało zaakceptowane i obsłużone asynchronicznie. Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia żądania zmiany ilości.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
 Partner otrzyma również powiadomienie elementu webhook, gdy akcja będzie gotowa do pomyślnego zakończenia pracy po stronie portalu Marketplace.  Tylko Wydawca powinien wprowadzać zmiany w stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  Połącz z zasobem, aby uzyskać stan operacji.  Na przykład `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
-Kod: 400<br>
-Złe żądanie: Błędy walidacji.
+Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
 * Nowa ilość jest większa lub mniejsza od bieżącego limitu planu.
 * Brak nowej ilości.
@@ -689,16 +663,13 @@ Złe żądanie: Błędy walidacji.
 * Stan subskrypcji SaaS nie jest subskrybowany.
 * Operacja aktualizacji dla subskrypcji SaaS nie jest dołączona do programu `allowedCustomerOperations` .
 
-Kod: 403<br>
-Zabrania.  Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
+Kod: 403 zabroniony.  Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 404<br>
-Nie znaleziono.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
+Nie znaleziono kodu: 404.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 >[!Note]
 >Jednocześnie można zmienić tylko plan lub ilość, ale nie oba naraz.
@@ -719,18 +690,18 @@ Jeśli subskrypcja zostanie anulowana w ramach następujących okresów prolonga
 
 Jeśli subskrypcja zostanie anulowana po powyższym okresie prolongaty, klient zostanie rozliczony.  Po pomyślnym zakończeniu anulowania klient natychmiast utraci dostęp do subskrypcji SaaS na stronie firmy Microsoft.
 
-##### <a name="deletebrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Usuń<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>usuwanie`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
 |  `subscriptionId`     | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
@@ -739,51 +710,46 @@ Jeśli subskrypcja zostanie anulowana po powyższym okresie prolongaty, klient z
 
 *Kody odpowiedzi:*
 
-Kod: 202<br>
-Żądanie anulowania subskrypcji zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia tego żądania.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
+Kod: 202 żądanie anulowania subskrypcji zostało zaakceptowane i obsłużone asynchronicznie.  Partner oczekuje na sondowanie **adresu URL lokalizacji operacji** w celu ustalenia sukcesu lub niepowodzenia tego żądania.  Sondowanie należy wykonać co kilka sekund do momentu, aż końcowy stan zakończył się niepowodzeniem, powodzenie lub odebranie konfliktu dla operacji.  Końcowy stan operacji należy zwrócić szybko, ale w niektórych przypadkach może upłynąć kilka minut.
 
 Partner otrzyma również powiadomienie elementu webhook, gdy akcja zostanie zakończona pomyślnie po stronie portalu Marketplace.  A następnie Wydawca powinien anulować subskrypcję po stronie wydawcy.
 
 *Nagłówki odpowiedzi:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `Operation-Location`        |  Połącz z zasobem, aby uzyskać stan operacji.  Na przykład `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
-Kod: 400<br>
-Nieprawidłowe żądanie.  Usuwanie nie znajduje się na `allowedCustomerOperations` liście dla tej subskrypcji SaaS.
+Kod: 400 Nieprawidłowe żądanie.  Usuwanie nie znajduje się na `allowedCustomerOperations` liście dla tej subskrypcji SaaS.
 
-Kod: 403<br>
-Zabrania.  Token autoryzacji jest nieprawidłowy, wygasł lub niedostępny. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony.  Token autoryzacji jest nieprawidłowy, wygasł lub niedostępny. Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) .
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Kod: 404<br>
-Nie znaleziono.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
+Nie znaleziono kodu: 404.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### <a name="operations-apis"></a>Interfejsy API operacji
 
 #### <a name="list-outstanding-operations"></a>Utwórz listę zaległych operacji 
 
-Pobierz listę oczekujących operacji dla określonej subskrypcji SaaS.  Zwrócone operacje powinny zostać potwierdzone przez wydawcę przez wywołanie [interfejsu API poprawek operacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+Pobierz listę oczekujących operacji dla określonej subskrypcji SaaS.  Zwrócone operacje powinny zostać potwierdzone przez wydawcę przez wywołanie [interfejsu API poprawek operacji](#update-the-status-of-an-operation).
 
 Obecnie tylko **operacje przywracania** są zwracane jako odpowiedź dla tego wywołania interfejsu API.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|             |        |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Użyj 2018-08-31.         |
 |    `subscriptionId` | Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
 
 *Nagłówki żądania:*
  
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`     |  `application/json` |
 |  `x-ms-requestid`    |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
@@ -792,7 +758,7 @@ Obecnie tylko **operacje przywracania** są zwracane jako odpowiedź dla tego wy
 
 *Kody odpowiedzi:*
 
-Kod: 200<br> Zwraca oczekującą operację przywracania dla określonej subskrypcji SaaS.
+Kod: 200 zwraca oczekującą operację przywracania dla określonej subskrypcji SaaS.
 
 *Przykład ładunku odpowiedzi:*
 
@@ -814,19 +780,15 @@ Kod: 200<br> Zwraca oczekującą operację przywracania dla określonej subskryp
 
 Zwraca pusty kod JSON, jeśli operacje przywracania nie są oczekiwane.
 
-Kod: 400<br>
-Złe żądanie: Błędy walidacji.
+Kod: 400 Nieprawidłowe żądanie: Błędy walidacji.
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 404<br>
-Nie znaleziono.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
+Nie znaleziono kodu: 404.  Nie znaleziono subskrypcji SaaS `subscriptionId` .
 
-Kod: 500<br>
-Wewnętrzny błąd serwera. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500. Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="get-operation-status"></a>Pobierz stan operacji
 
@@ -834,11 +796,11 @@ Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej: **unsu
 
 `operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Pobierz`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Użyj 2018-08-31.  |
 |  `subscriptionId`    |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania. |
@@ -846,16 +808,16 @@ Umożliwia wydawcy śledzenie stanu określonej operacji asynchronicznej: **unsu
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |  `content-type`      |  `application/json`   |
 |  `x-ms-requestid`    |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 |  `x-ms-correlationid` |  Unikatowa wartość ciągu dla operacji na kliencie.  Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi.  |
 |  `authorization`     |  Unikatowy token dostępu identyfikujący wydawcę wykonującą to wywołanie interfejsu API.  Format to, `"Bearer <access_token>"` kiedy wartość tokenu jest pobierana przez wydawcę, zgodnie z opisem w temacie [pobieranie tokenu na podstawie aplikacji usługi Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
-*Kody odpowiedzi:*<br>
+*Kody odpowiedzi:*
 
-Kod: 200<br> Pobiera szczegóły dla określonej operacji SaaS. 
+Kod: 200 pobiera szczegóły dla określonej operacji SaaS. 
 
 *Przykład ładunku odpowiedzi:*
 
@@ -878,19 +840,16 @@ Response body:
 }
 ```
 
-Kod: 403<br>
-Zabrania. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
+Kod: 403 zabroniony. Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) . 
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) . 
 
-Kod: 404<br>
-Nie znaleziono.  
+Nie znaleziono kodu: 404.  
 
 * Nie znaleziono subskrypcji z usługą `subscriptionId` .
 * Operacja z `operationId` nie została znaleziona.
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="update-the-status-of-an-operation"></a>Aktualizowanie stanu operacji
 
@@ -898,11 +857,11 @@ Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzeni
 
 `operationId`Dla tego wywołania interfejsu API można pobrać z wartości zwracanej przez **lokalizację operacji**, pobrać oczekujące wywołanie interfejsu API operacji lub `<id>` wartość parametru odebraną w wywołaniu elementu webhook.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Wysłana`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |   `ApiVersion`       |  Użyj 2018-08-31.  |
 |   `subscriptionId`   |  Unikatowy identyfikator zakupionej subskrypcji SaaS.  Ten identyfikator jest uzyskiwany po rozwiązaniu tokenu autoryzacji portalu Marketplace przy użyciu interfejsu API rozpoznawania.  |
@@ -910,7 +869,7 @@ Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzeni
 
 *Nagłówki żądania:*
 
-|                    |                   |
+|  Parametr         | Wartość             |
 |  ---------------   |  ---------------  |
 |   `content-type`   | `application/json`   |
 |   `x-ms-requestid`   |  Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID.  Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -927,25 +886,21 @@ Zaktualizuj stan oczekującej operacji, aby wskazać powodzenie lub niepowodzeni
 
 *Kody odpowiedzi:*
 
-Kod: 200<br> Wywołanie do informowania o zakończeniu operacji po stronie partnera.  Na przykład ta odpowiedź może sygnalizować zakończenie zmiany stanowisk lub planów po stronie wydawcy.
+Kod: 200 wywołanie do informowania o zakończeniu operacji po stronie partnera.  Na przykład ta odpowiedź może sygnalizować zakończenie zmiany stanowisk lub planów po stronie wydawcy.
 
-Kod: 403<br>
-Zabrania.  Token autoryzacji jest niedostępny, nieprawidłowy lub wygasł. Żądanie może próbować uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
+Kod: 403 zabroniony.  Token autoryzacji jest niedostępny, nieprawidłowy lub wygasł. Żądanie może próbować uzyskać dostęp do subskrypcji, która nie należy do bieżącego wydawcy.
 Zabrania.  Token autoryzacji jest nieprawidłowy, wygasł lub nie został podany.  Żądanie próbuje uzyskać dostęp do subskrypcji SaaS dla oferty, która jest publikowana przy użyciu innego identyfikatora aplikacja usługi Azure AD od użytego do utworzenia tokenu autoryzacji.
 
-Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) .
+Ten błąd jest często objawem niepoprawnego wykonywania [rejestracji SaaS](pc-saas-registration.md) .
 
-Kod: 404<br>
-Nie znaleziono.
+Nie znaleziono kodu: 404.
 
 * Nie znaleziono subskrypcji z usługą `subscriptionId` .
 * Operacja z `operationId` nie została znaleziona.
 
-Kod: 409<br>
-Kolizj.  Na przykład nowsze aktualizacje są już spełnione.
+Kod: konflikt 409.  Na przykład nowsze aktualizacje są już spełnione.
 
-Kod: 500<br>
-Wewnętrzny błąd serwera.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
+Kod: błąd wewnętrzny serwera 500.  Ponów wywołanie interfejsu API.  Jeśli błąd będzie się powtarzać, skontaktuj się z [pomocą techniczną firmy Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementowanie elementu webhook w usłudze SaaS
 
@@ -1016,11 +971,11 @@ Akcje *zmiany planu*, *ilości*i *anulowania subskrypcji* są testowane po stron
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) dla opcji pomocy technicznej wydawcy.
+Zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md) dla opcji pomocy technicznej wydawcy.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [interfejsy API usługi pomiaru](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis) w witrynie Marketplace, aby uzyskać więcej opcji dla ofert SaaS w portalu Marketplace.
+Zobacz [interfejsy API usługi pomiaru](marketplace-metering-service-apis.md) w witrynie Marketplace, aby uzyskać więcej opcji dla ofert SaaS w portalu Marketplace.
 
 Przejrzyj i Użyj [zestawu SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) , który został utworzony na podstawie interfejsów API opisanych w tym dokumencie.

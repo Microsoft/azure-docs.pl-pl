@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 70085cda4252e5435c450ae80dae2e49829b1474
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 63c4c7b596a32901d127642118d224c2b318510f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101811"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963023"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Zmiana w miejscu SQL Server wersji na maszynie wirtualnej platformy Azure
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Zmiana w miejscu dotycząca wersji programu SQL Server na maszynie wirtualnej platformy Azure
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -107,7 +107,7 @@ Po zmianie wersji SQL Server należy ponownie zarejestrować maszynę wirtualną
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Weryfikuj wersję":::
 
 > [!NOTE]
-> Jeśli masz już zainstalowany dostawca zasobów, [Wyrejestruj zasób maszyny wirtualnej SQL](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) , a następnie ponownie [zarejestruj zasób maszyny wirtualnej SQL](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) , aby wykryje poprawną wersję i wydanie SQL Server zainstalowanej na maszynie wirtualnej. Spowoduje to zaktualizowanie informacji o metadanych i rozliczeniach skojarzonych z tą maszyną wirtualną.
+> Jeśli zarejestrowano już dostawcę zasobów maszyny wirtualnej SQL, [Wyrejestruj z jednostki uzależnionej](sql-vm-resource-provider-register.md#unregister-from-rp) , a następnie ponownie [zarejestruj zasób maszyny wirtualnej SQL](sql-vm-resource-provider-register.md#register-with-rp) , aby wykryje poprawną wersję i wydanie SQL Server zainstalowanej na maszynie wirtualnej. Spowoduje to zaktualizowanie informacji o metadanych i rozliczeniach skojarzonych z tą maszyną wirtualną.
 
 ## <a name="remarks"></a>Uwagi
 

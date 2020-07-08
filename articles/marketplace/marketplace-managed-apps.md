@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 5bd89e406c3067585595479dc1d8351e9ea7eea8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a4b788749e6178c49010b153fb5caae35b79abf9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856120"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963584"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Przewodnik publikowania dla aplikacji zarządzanych przez platformę Azure
 
@@ -34,7 +34,7 @@ Użyj typu oferty aplikacji zarządzanej w następujących warunkach:
 |---------|---------|
 |Subskrypcja platformy Azure | Zarządzane aplikacje muszą być wdrożone w ramach subskrypcji klienta, ale mogą być zarządzane przez inną firmę. |
 |Rozliczenia i pomiary    |  Zasoby są udostępniane w ramach subskrypcji platformy Azure klienta. Maszyny wirtualne korzystające z modelu płatności zgodnie z rzeczywistym użyciem są transakcyjne dla klienta przez firmę Microsoft i rozliczane za pośrednictwem subskrypcji platformy Azure klienta. <br><br> W przypadku maszyn wirtualnych służących do przenoszenia własnych licencji firma Microsoft rozlicza wszelkie koszty związane z infrastrukturą, które są naliczane w ramach subskrypcji klienta, ale bezpośrednio obciążają opłaty za Licencjonowanie oprogramowania.        |
-|Wirtualny dysk twardy (VHD) zgodny z platformą Azure    |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux.<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego z systemem Linux, zobacz [dystrybucje systemu Linux zatwierdzone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego systemu Windows, zobacz [Tworzenie oferty aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
+|Wirtualny dysk twardy (VHD) zgodny z platformą Azure    |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux.<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego z systemem Linux, zobacz [dystrybucje systemu Linux zatwierdzone na platformie Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego systemu Windows, zobacz [Tworzenie oferty aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
 
 ---
 

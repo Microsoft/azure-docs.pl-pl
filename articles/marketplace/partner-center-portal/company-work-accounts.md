@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 3c0ee2f8d5291f7904435dea32d913adeaaf25c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27a51a1203b0c25474bdb292c467a40b67309757
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262370"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964434"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Firmowe konta służbowe i centrum partnerskie
 
@@ -23,7 +23,7 @@ Centrum partnerskie korzysta z firmowych kont służbowych, znanych również ja
 Jeśli Twoja firma subskrybuje usługę firmy Microsoft w chmurze, taką jak Azure, Microsoft Intune lub Office 365, masz już służbową domenę konta e-mail (nazywaną również dzierżawą Azure Active Directory), która może być używana z centrum partnerskim.
 
 Wykonaj następujące kroki, aby sprawdzić:
-1. Zaloguj się do portalu administracyjnego platformy Azure pod https://portal.azure.comadresem.
+1. Zaloguj się do portalu administracyjnego platformy Azure pod adresem https://portal.azure.com .
 2. Wybierz pozycję **Azure Active Directory** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **niestandardowe nazwy domen**.
 3. Jeśli masz już konto służbowe, nazwa domeny zostanie wyświetlona.
 
@@ -38,13 +38,13 @@ Przed podjęciem decyzji o użyciu istniejącego konta służbowego należy wzi�
 Aby utworzyć nowe konto służbowe dla swojej firmy, wykonaj poniższe kroki. Może być konieczne zażądanie pomocy od osoby, która ma uprawnienia administracyjne na koncie Microsoft Azure Twojej firmy.
 
 1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
-2. W menu nawigacji po lewej stronie wybierz pozycję **Azure Active Directory** -> **Użytkownicy**Azure Active Directory.
+2. W menu nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**  ->  **Użytkownicy**Azure Active Directory.
 3. Wybierz pozycję **nowy użytkownik** i Utwórz nowe konto służbowe platformy Azure, wprowadzając nazwę i adres e-mail. Upewnij się, że **rola katalogu** jest ustawiona na **użytkownika** , a następnie zaznacz pole wyboru **Pokaż hasło** u dołu, aby wyświetlić i zanotować hasło generowane automatycznie.
 4. Wybierz pozycję **Utwórz** , aby zapisać nowego użytkownika.
 
-Adres e-mail konta użytkownika musi być zweryfikowaną nazwą domeny w Twoim katalogu. Aby wyświetlić listę wszystkich zweryfikowanych domen w katalogu, wybierz pozycję **Azure Active Directory** -> **niestandardowe nazwy domen** w menu nawigacji po lewej stronie.
+Adres e-mail konta użytkownika musi być zweryfikowaną nazwą domeny w Twoim katalogu. Aby wyświetlić listę wszystkich zweryfikowanych domen w katalogu, wybierz pozycję **Azure Active Directory**  ->  **niestandardowe nazwy domen** w menu nawigacji po lewej stronie.
 
-Aby dowiedzieć się więcej o dodawaniu domen niestandardowych w Azure Active Directory, zobacz [Dodawanie lub kojarzenie domeny w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Aby dowiedzieć się więcej o dodawaniu domen niestandardowych w Azure Active Directory, zobacz [Dodawanie lub kojarzenie domeny w usłudze Azure AD](../../active-directory/active-directory-add-domain.md).
 
 ## <a name="troubleshoot-work-email-sign-in"></a>Rozwiązywanie problemów z logowaniem do służbowej poczty e-mail
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 62e3eb73b165a190e9234470471bd699141e8a5f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050492"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963941"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Nawiązywanie połączenia z SQL Database przy użyciu języka C i C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ W [Azure Portal](https://portal.azure.com/)przejdź do Azure SQL Database parame
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Skopiuj zawartość **ODBC (obejmuje Node. js) [SQL Authentication]** . Ten ciąg jest używany później do łączenia się z naszym interpreterem wiersza polecenia języka C++ ODBC. Ten ciąg zawiera szczegółowe informacje, takie jak sterownik, serwer i inne parametry połączenia z bazą danych.
+Skopiuj zawartość **ODBC (w tym Node.js) [uwierzytelnianie SQL]** . Ten ciąg jest używany później do łączenia się z naszym interpreterem wiersza polecenia języka C++ ODBC. Ten ciąg zawiera szczegółowe informacje, takie jak sterownik, serwer i inne parametry połączenia z bazą danych.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Krok 3. Dodawanie adresu IP do zapory
 
@@ -91,12 +91,14 @@ W tym samouczku Przypuśćmy, że masz konfigurację dystrybucji systemu Linux U
 
 Poniższe kroki instalują biblioteki wymagane przez SQL i ODBC dla dystrybucji:
 
+```console
     sudo su
     sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     apt-get update
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
+```
 
 Uruchom program Visual Studio. W obszarze Narzędzia — Opcje > — > wielu platform — > Menedżer połączeń, Dodaj połączenie do pola systemu Linux:
 
@@ -109,11 +111,13 @@ Po ustanowieniu połączenia za pośrednictwem protokołu SSH Utwórz pusty szab
 Następnie można dodać [nowy plik źródłowy C i zastąpić go tą zawartością](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c). Korzystając z interfejsów API ODBC SQLAllocHandle, SQLSetConnectAttr i SQLDriverConnect, powinno być możliwe zainicjowanie i nawiązanie połączenia z bazą danych.
 Podobnie jak w przypadku przykładu ODBC dla systemu Windows, należy zastąpić Wywołanie SQLDriverConnect danymi z parametrów połączenia bazy danych skopiowanych z Azure Portal wcześniej.
 
+```c
      retcode = SQLDriverConnect(
         hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
                     "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
                     "yourpassword>;database=<yourdatabase>",
         SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
+```
 
 Ostatnim zadaniem do wykonania przed kompilacją jest dodanie **ODBC** jako zależności biblioteki:
 

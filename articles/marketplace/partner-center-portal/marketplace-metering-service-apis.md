@@ -7,20 +7,20 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 6a5335a1048adaa50344e75662b4ad593955f34d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7bc5dc0e21bc9218c0e67b4e8e96299d73628e97
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694947"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963176"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace
 
 Należy używać mierzonych interfejsów API rozliczeń, gdy wydawca tworzy niestandardowe wymiary pomiaru dla oferty do opublikowania w centrum partnerskim. Integracja z mierzonymi interfejsami API rozliczeń jest wymagana dla każdej zakupionej oferty, która ma co najmniej jeden plan z wymiarami niestandardowymi do emisji zdarzeń użycia.
 
-Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiarowych dla SaaS, zobacz [SaaS naliczanie opłat](https://docs.microsoft.com/azure/marketplace/partner-center-portal/saas-metered-billing).
+Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiarowych dla SaaS, zobacz [SaaS naliczanie opłat](saas-metered-billing.md).
 
-Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiaru dla oferty aplikacji platformy Azure z zarządzanym planem aplikacji, zapoznaj się [z sekcją konfiguracja techniczna w temacie Tworzenie nowej oferty usługi Azure Apps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer#technical-configuration-managed-application-plans-only).
+Aby uzyskać więcej informacji na temat tworzenia niestandardowych wymiarów pomiaru dla oferty aplikacji platformy Azure z zarządzanym planem aplikacji, zobacz [sekcję konfiguracja techniczna w temacie Tworzenie nowej oferty aplikacji platformy Azure](create-new-azure-apps-offer.md#technical-configuration)).
 
 ## <a name="enforcing-tls-12-note"></a>Wymuszanie uwagi dotyczącej protokołu TLS 1,2
 
@@ -38,14 +38,14 @@ Dla każdej godziny dnia kalendarzowego dla każdego zasobu może być emitowane
 
 *Parametry zapytania:*
 
-|            |          |
+| Parametru | Zalecenie          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Użyj 2018-08-31. |
 | | |
 
 *Nagłówki żądania:*
 
-| Typ zawartości       | `application/json`    |
+| Typ zawartości       | Użycie rozszerzenia `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
@@ -151,13 +151,13 @@ Interfejs API zdarzeń użycia usługi Batch umożliwia emitowanie zdarzeń uży
 
 *Parametry zapytania:*
 
-|            |     |
+| Parametr  | Zalecenie     |
 | ---------- | -------------------- |
 | `ApiVersion` | Użyj 2018-08-31. |
 
 *Nagłówki żądania:*
 
-| Typ zawartości       | `application/json`       |
+| Typ zawartości       | Użycie rozszerzenia `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie określona, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |

@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 34f55d628b4e334df4b3e74edfd3c0defbdeaa93
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114245"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964587"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 
 Jako w pełni zarządzana usługa bazy danych w chmurze, Azure Cosmos DB upraszcza rozliczenia przez naliczanie opłat tylko za zainicjowaną przepływność i magazyn użyty. Nie ma dodatkowych opłat licencyjnych, sprzętu, kosztów narzędzi ani kosztów infrastruktury w porównaniu z rozwiązaniami lokalnymi lub IaaS. Gdy rozważasz możliwości wieloregionu Azure Cosmos DB, usługa bazy danych zapewnia znaczną redukcję kosztów w porównaniu do istniejących rozwiązań lokalnych lub IaaS.
 
-W przypadku Azure Cosmos DB opłaty są naliczane godzinowo na podstawie zainicjowanej przepływności i zużywanej pamięci masowej. W przypadku przewidzianych przepływności jednostką rozliczeniową jest 100 RU/s na godzinę, naliczana na $0,008 za godzinę, przy założeniu, że standardowe ceny publiczne są dostępne, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/). W przypadku zużytego magazynu opłaty są naliczane $0,25 za 1 GB magazynu miesięcznie, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+W przypadku Azure Cosmos DB opłaty są naliczane godzinowo na podstawie zainicjowanej przepływności i zużywanej pamięci masowej. W przypadku przepływności z zainicjowaną obsługą jednostka rozliczeniowa to 100 RU/s na godzinę. Aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) . W przypadku zużytego magazynu opłaty są naliczane za 1 GB magazynu miesięcznie. Aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
-W tym artykule przedstawiono kilka przykładów, które ułatwiają zapoznanie się z informacjami widocznymi na rachunku miesięcznym. Liczby pokazane w przykładach mogą się różnić, jeśli dla kontenerów usługi Azure Cosmos aprowizowano inną przepływność, jeśli są one dostępne w wielu regionach lub są uruchamiane dla innych okresów w ciągu miesiąca.
+W tym artykule przedstawiono kilka przykładów, które ułatwiają zapoznanie się z informacjami widocznymi na rachunku miesięcznym. Liczby pokazane w przykładach mogą się różnić, jeśli dla kontenerów usługi Azure Cosmos aprowizowano inną przepływność, jeśli są one dostępne w wielu regionach lub są uruchamiane dla innych okresów w ciągu miesiąca. Wszystkie przykłady w tym artykule obliczają rachunk na podstawie informacji o cenach wyświetlanych na [stronie cennika.](https://azure.microsoft.com/pricing/details/cosmos-db/)
 
 > [!NOTE]
-> Opłaty są naliczane za każdą część godziny zegarowej, a nie czas trwania 60 minuty.
+> Opłaty są naliczane za każdą część godziny zegarowej, a nie czas trwania 60 minuty. Wszystkie przykłady przedstawione w tym dokumencie są oparte na cenie konta usługi Azure Cosmos, które zostało wdrożone w regionie nierządowym w Stanach Zjednoczonych. Ceny i obliczenia różnią się w zależności od regionu, z którego korzystasz, aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
 ## <a name="billing-examples"></a>Przykłady rozliczeń
 
@@ -234,19 +234,18 @@ W tym przykładzie uwzględniono [Cennik wieloskładnikowy](https://azure.micros
 
 Rozważmy inny przykład, w którym chcesz proaktywnie oszacować swój rachunek przed końcem miesiąca. Możesz oszacować swój rachunek w następujący sposób:
 
-|**Koszt magazynu** | |
-|----|----|
-|Średni rozmiar rekordu (KB) |1 |
-|Liczba rekordów  |100 000 000  |
-|Łączny magazyn (GB)  |100 |
-|Koszt miesięczny za GB  |$0,25  |
-|Oczekiwany miesięczny koszt magazynu   |$25,00  |
+**Koszty magazynu**
 
-<br>
+* Średni rozmiar rekordu (KB) = 1 
+* Liczba rekordów = 100 000 000 
+* Łączny magazyn (GB) = 100 
+* Koszt miesięczny za GB = $0,25 
+* Oczekiwany miesięczny koszt magazynu = $25,00 
 
-|**Koszt przepływności** | | | |
-|----|----|----|----|
+**Koszt przepływności**
+
 |Typ operacji| Liczba żądań na sekundę| Średni/RU/żądanie| Jednostek ru|
+|----|----|----|----|
 |Zapisywanie| 100 | 5 | 500|
 |Odczyt| 400| 1| 400|
 
@@ -268,7 +267,7 @@ Azure Cosmos DB zarezerwowana pojemność umożliwia zakupienie alokowanej przep
 
 Łączny rachunek (bez zarezerwowanej pojemności) (przy założeniu 30 dni lub 720 godzin): 
 
-|**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**|**Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
+|**Okolicy**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**|**Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |Wschodnie stany USA|$0,008 |50 K|$4|$2 880 |
 |Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
@@ -282,7 +281,7 @@ Rozważmy, że zamiast tego zakupiono zastrzeżoną pojemność. Możesz kupić 
 
 Rzeczywiste zakupione dane to kredyt z $8 USD za godzinę dla 100 K/s, przy użyciu cennika na wschód, przy cenie $6,40 za godzinę. Następnie można wystawić na podstawie tej wstępnie płatnej rezerwacji dotyczącej przepływności co godzinę dla alokowanej przepływności w dowolnym globalnym regionie platformy Azure, zgodnie z odpowiednimi cenami list regionalnych ustawionymi dla Twojej subskrypcji. W tym przykładzie, gdzie zainicjujesz 50 K RU/s każdego w regionach Wschodnie stany USA i Japonia Wschodnia, będziesz mieć możliwość naliczania na $8,00. zainicjowanej przepływności na godzinę i zostanie naliczona nadwyżka za $0,50 za godzinę (lub USD za miesiąc). 
 
-|**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**| **Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
+|**Okolicy**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**| **Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |Wschodnie stany USA|$0,008 |50 K|$4|$2 880 |
 |Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |

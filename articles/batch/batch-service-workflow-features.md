@@ -3,18 +3,18 @@ title: Przepływ pracy i zasoby usługi Batch
 description: Dowiedz się więcej o funkcjach usługi Batch i przepływie pracy wysokiego poziomu z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: 5084ae222d0a9da0d8aa171bc89dba48377a9dd4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835924"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965216"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Przepływ pracy i zasoby usługi Batch
 
 W tym przeglądzie najważniejszych składników usługi Azure Batch omówiono przepływ pracy wysokiego poziomu, którego deweloperzy mogą używać do tworzenia równoległych rozwiązań obliczeniowych na dużą skalę wraz z używanymi zasobami usług podstawowych.
 
-Bez względu na to, czy tworzysz rozproszoną aplikację obliczeniową lub usługę, która wystawia bezpośrednie wywołania [interfejsu API REST](https://docs.microsoft.com/rest/api/batchservice/) , czy używasz innego jednego z [zestawów SDK usługi Batch](batch-apis-tools.md#batch-service-apis), będziesz używać wielu zasobów i funkcji omówionych w tym miejscu.
+Bez względu na to, czy tworzysz rozproszoną aplikację obliczeniową lub usługę, która wystawia bezpośrednie wywołania [interfejsu API REST](/rest/api/batchservice/) , czy używasz innego jednego z [zestawów SDK usługi Batch](batch-apis-tools.md#batch-service-apis), będziesz używać wielu zasobów i funkcji omówionych w tym miejscu.
 
 > [!TIP]
 > Bardziej szczegółowe wprowadzenie do usługi Batch można znaleźć w temacie [Podstawy usługi Azure Batch](batch-technical-overview.md). Zobacz też najnowsze [aktualizacje usługi Batch](https://azure.microsoft.com/updates/?product=batch).
@@ -47,4 +47,4 @@ W poniższych tematach omówiono zasoby partii, które umożliwiają dystrybuowa
 - Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 - Poznaj podstawy tworzenia aplikacji wykorzystujących usługę Batch za pomocą biblioteki klienta [Batch .NET](quick-run-dotnet.md) lub języka [Python](quick-run-python.md). Te przewodniki Szybki start zawierają omówienie przykładowej aplikacji, która korzysta z usługi Batch do wykonywania obciążenia na wielu węzłach obliczeniowych i stosuje usługę Azure Storage do tymczasowego przechowywania i pobierania pliku obciążenia.
 - Pobierz i zainstaluj narzędzie [Batch Explorer](https://azure.github.io/BatchExplorer/), aby używać go podczas opracowywania rozwiązań usługi Batch. Użyj narzędzia Batch Explorer do tworzenia, debugowania i monitorowania aplikacji usługi Azure Batch.
-- Zobacz zasoby społecznościowe, w tym [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [repozytorium społeczności partii](https://github.com/Azure/Batch)i [forum Azure Batch](https://docs.microsoft.com/answers/topics/azure-batch.html).
+- Zobacz zasoby społecznościowe, w tym [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), [repozytorium społeczności partii](https://github.com/Azure/Batch)i [forum Azure Batch](/answers/topics/azure-batch.html).
