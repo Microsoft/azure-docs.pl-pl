@@ -1,5 +1,5 @@
 ---
-title: Czytnik immersyjny — Biblioteka kliencka Node. js — Szybki Start
+title: Czytnik immersyjny Node.js Biblioteka kliencka — Szybki Start
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
 services: cognitive-services
@@ -25,12 +25,12 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](../../how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. Podczas konfigurowania właściwości środowiska będą potrzebne pewne wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
-* [Node. js](https://nodejs.org/) i [przędza](https://yarnpkg.com)
+* [Node.js](https://nodejs.org/) i [przędza](https://yarnpkg.com)
 * IDE, takie jak [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Tworzenie aplikacji sieci Web w języku Node. js za pomocą języka Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Tworzenie aplikacji sieci Web Node.js za pomocą programu Express
 
-Utwórz aplikację sieci Web Node. js za pomocą `express-generator` Narzędzia.
+Utwórz Node.js aplikację sieci Web za pomocą `express-generator` Narzędzia.
 
 ```bash
 npm install express-generator -g
@@ -62,7 +62,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Nie należy zatwierdzić tego pliku w kontroli źródła, ponieważ zawiera on klucze tajne, które nie powinny być publiczne.
 
-Następnie otwórz plik _App. js_ i Dodaj następujący na początku pliku. Spowoduje to załadowanie właściwości zdefiniowanych w pliku ENV jako zmiennych środowiskowych do węzła.
+Następnie otwórz _app.js_ i Dodaj następujący na początku pliku. Spowoduje to załadowanie właściwości zdefiniowanych w pliku ENV jako zmiennych środowiskowych do węzła.
 
 ```javascript
 require('dotenv').config();
