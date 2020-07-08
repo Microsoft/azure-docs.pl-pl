@@ -4,10 +4,10 @@ description: Dowiedz się, jak włączyć pulpit zdalny dla maszyn wirtualnych z
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445767"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Włączanie graficznego pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w Azure Lab Services

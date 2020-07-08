@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478131"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Instrukcje: Dostosowywanie przeglądarek i WebViews dla systemu iOS/macOS
@@ -96,7 +96,7 @@ Każde żądanie można skonfigurować w celu przesłaniania domyślnej przeglą
 
 Ponadto MSAL obsługuje przekazywanie w niestandardowym `WKWebView` przez ustawienie `MSALInteractiveTokenParameters.webviewParameters.customWebView` właściwości.
 
-Na przykład:
+Przykład:
 
 Obiektowy C
 ```objc

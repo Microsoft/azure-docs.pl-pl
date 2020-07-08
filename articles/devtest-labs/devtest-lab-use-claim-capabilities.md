@@ -4,10 +4,10 @@ description: Poznaj różne scenariusze korzystania z możliwości usługi Claim
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476533"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Korzystanie z funkcji roszczeń w Azure DevTest Labs

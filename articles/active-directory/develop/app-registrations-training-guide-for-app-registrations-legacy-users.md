@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85478148"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Nowy przewodnik szkoleniowy na temat rejestracji aplikacji w witrynie Azure Portal

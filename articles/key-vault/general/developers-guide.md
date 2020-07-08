@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85476771"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
@@ -127,7 +127,7 @@ W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają 
 - [Informacje o kluczach konta usługi Key Vault Storage](../secrets/overview-storage-keys.md)) Opisuje Key Vault integracji kluczy kont usługi Azure Storage.
 - [Key Vault światy zabezpieczeń](overview-security-worlds.md) opisuje relacje między regionami i obszarami zabezpieczeń.
 
-## <a name="social"></a>Społeczności
+## <a name="social"></a>Funkcje społecznościowe
 
 - [Blog Key Vault](https://aka.ms/kvblog)
 - [Forum Key Vault](https://aka.ms/kvforum)
