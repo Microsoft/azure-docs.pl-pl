@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265911"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847563"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -60,9 +60,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi OData.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi być ustawiona na wartość: **OData** |Tak |
+| typ |Właściwość Type musi być ustawiona na wartość: **OData** |Tak |
 | url |Adres URL usługi OData. |Tak |
 | authenticationType |Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. <br/><br/> W przypadku protokołu OData w chmurze możliwe wartości to Anonymous, Basic i OAuth (Uwaga Azure Data Factory obecnie obsługuje tylko Azure Active Directory uwierzytelniania OAuth). <br/><br/> W przypadku lokalnego protokołu OData możliwe wartości to anonimowe, podstawowe i Windows. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika w przypadku korzystania z uwierzytelniania podstawowego. |Tak (tylko w przypadku korzystania z uwierzytelniania podstawowego) |
@@ -145,7 +145,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties zestawu danych typu **ODataResource** (który zawiera zestaw danych OData) ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | ścieżka |Ścieżka do zasobu OData |Nie |
 
@@ -156,7 +156,7 @@ Właściwości dostępne w sekcji typeProperties działania z drugiej strony ró
 
 Jeśli źródło jest typu **RelationalSource** (w tym OData), w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Przykład | Wymagany |
+| Właściwość | Opis | Przykład | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |"? $select = nazwa, opis&$top = 5" |Nie |
 
@@ -176,7 +176,7 @@ Podczas przemieszczania danych z usługi OData następujące mapowania są używ
 | EDM. DateTime |DateTime |
 | EDM. Decimal |Wartość dziesiętna |
 | Edm.Double |Double |
-| EDM. Single |Single |
+| EDM. Single |Pojedyncze |
 | EDM. GUID |Guid (identyfikator GUID) |
 | EDM. Int16 |Int16 |
 | Edm.Int32 |Int32 |

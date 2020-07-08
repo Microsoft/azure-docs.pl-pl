@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847879"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne odzyskiwanie pamięci i usuwanie ręczne
 Aktor jest uaktywniany podczas pierwszego wywołania każdej z jego metod. Aktor jest dezaktywowany (elementy bezużyteczne zbierane przez środowisko uruchomieniowe aktorów), jeśli nie jest używany przez konfigurowalny okres czasu. Aktor i jego stan można również usunąć ręcznie w dowolnym momencie.
@@ -20,14 +20,14 @@ Po aktywowaniu aktora następuje:
 
 * Gdy wywołanie pochodzi z aktora, a jeden z nich nie jest już aktywny, tworzony jest nowy aktor.
 * Stan aktora jest ładowany, jeśli jest on konserwowany.
-* Wywoływana `OnActivateAsync` jest metoda (C# `onActivateAsync` ) lub (Java) (która może zostać przesłonięta w implementacji aktora).
+* `OnActivateAsync`Wywoływana jest metoda (C#) lub `onActivateAsync` (Java) (która może zostać przesłonięta w implementacji aktora).
 * Aktor jest teraz uznawany za aktywny.
 
 ## <a name="actor-deactivation"></a>Dezaktywacja aktora
 Gdy aktor zostanie zdezaktywowany, następuje:
 
 * Gdy aktor nie jest używany przez jakiś czas, jest usuwany z tabeli aktywnych aktorów.
-* Wywoływana `OnDeactivateAsync` jest metoda (C# `onDeactivateAsync` ) lub (Java) (która może zostać przesłonięta w implementacji aktora). Czyści wszystkie czasomierze aktora. Operacji aktora, takich jak zmiany stanu, nie należy wywoływać z tej metody.
+* `OnDeactivateAsync`Wywoływana jest metoda (C#) lub `onDeactivateAsync` (Java) (która może zostać przesłonięta w implementacji aktora). Czyści wszystkie czasomierze aktora. Operacji aktora, takich jak zmiany stanu, nie należy wywoływać z tej metody.
 
 > [!TIP]
 > Środowisko uruchomieniowe aktorów sieci szkieletowych emituje niektóre [zdarzenia związane z aktywacją aktora i dezaktywacją](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Są one przydatne w przypadku diagnostyki i monitorowania wydajności.
@@ -85,9 +85,9 @@ public class Program
     }
 }
 ```
-Dla każdego aktywnego aktora środowisko uruchomieniowe aktora śledzi ilość czasu, przez który był bezczynny (tj. nie jest używany). Środowisko wykonawcze aktora sprawdza każdy aktory `ScanIntervalInSeconds` w celu sprawdzenia, czy może być odzyskiwane jako elementy bezużyteczne i oznacza, że `IdleTimeoutInSeconds`jest bezczynny dla.
+Dla każdego aktywnego aktora środowisko uruchomieniowe aktora śledzi ilość czasu, przez który był bezczynny (tj. nie jest używany). Środowisko wykonawcze aktora sprawdza każdy aktory w `ScanIntervalInSeconds` celu sprawdzenia, czy może być odzyskiwane jako elementy bezużyteczne i oznacza, że jest bezczynny dla `IdleTimeoutInSeconds` .
 
-Gdy aktor jest używany, jego czas bezczynności jest resetowany do wartości 0. Po wykonaniu tej czynności aktor może być odzyskiwany tylko wtedy, gdy ponowna `IdleTimeoutInSeconds`wartość jest bezczynna dla. Odwołaj, że aktor jest uznawany za używany, jeśli jest wykonywana metoda interfejsu aktora lub wywołanie zwrotne przypomnienia aktora. Aktor **nie** jest uważany za używany, jeśli jest wykonywane wywołanie zwrotne czasomierza.
+Gdy aktor jest używany, jego czas bezczynności jest resetowany do wartości 0. Po wykonaniu tej czynności aktor może być odzyskiwany tylko wtedy, gdy ponowna wartość jest bezczynna dla `IdleTimeoutInSeconds` . Odwołaj, że aktor jest uznawany za używany, jeśli jest wykonywana metoda interfejsu aktora lub wywołanie zwrotne przypomnienia aktora. Aktor **nie** jest uważany za używany, jeśli jest wykonywane wywołanie zwrotne czasomierza.
 
 Na poniższym diagramie przedstawiono cykl życia pojedynczego aktora ilustrującego te koncepcje.
 

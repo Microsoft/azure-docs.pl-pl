@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 681b81fa7f6ce74f7e48eb518a2c951e94c4b00d
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848485"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -73,9 +73,13 @@ Należy ręcznie zainstalować następującą bibliotekę:
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany do Azure Active Directory przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 
-Po zainstalowaniu rozszerzenia wymagany jest identyfikator katalogu i poświadczenia administratora dla dzierżawy usługi Azure AD. Identyfikator katalogu można znaleźć w [Azure Portal](https://portal.azure.com). Zaloguj się jako administrator. Wyszukaj i wybierz **Azure Active Directory**a następnie wybierz pozycję **Właściwości**. Skopiuj identyfikator GUID w polu **Identyfikator katalogu** i Zapisz go. Ten identyfikator GUID jest używany jako identyfikator dzierżawy podczas instalowania rozszerzenia serwera NPS.
+Po zainstalowaniu rozszerzenia wymagany jest *Identyfikator dzierżawy* i poświadczenia administratora dla dzierżawy usługi Azure AD. Aby uzyskać identyfikator dzierżawy, wykonaj następujące czynności:
 
-![Znajdź identyfikator katalogu w obszarze Azure Active Directory właściwości](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy platformy Azure.
+1. Wyszukaj i wybierz **Azure Active Directory**.
+1. Na stronie **Przegląd** są wyświetlane *Informacje o dzierżawie* . Wybierz ikonę **kopiowania** obok *identyfikatora dzierżawy*, jak pokazano na poniższym przykładzie zrzutu ekranu:
+
+   ![Pobieranie identyfikatora dzierżawy z Azure Portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -206,7 +210,7 @@ Jeśli nie chcesz używać własnych certyfikatów (zamiast certyfikatów z podp
    ```
 
 4. Zaloguj się do usługi Azure AD jako administrator.
-5. Program PowerShell zapyta o identyfikator dzierżawy. Użyj identyfikatora GUID, który został skopiowany z Azure Portal w sekcji wymagania wstępne.
+5. Program PowerShell zapyta o identyfikator dzierżawy. Użyj identyfikatora *GUID,* który został skopiowany z Azure Portal w sekcji wymagania wstępne.
 6. Po zakończeniu skryptu program PowerShell wyświetla komunikat o powodzeniu.  
 
 Powtórz te kroki na wszystkich dodatkowych serwerach NPS, które chcesz skonfigurować do równoważenia obciążenia.

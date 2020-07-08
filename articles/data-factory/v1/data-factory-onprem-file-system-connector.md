@@ -13,11 +13,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847596"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopiowanie danych do i z lokalnego systemu plików przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -70,9 +70,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Lokalny system plików można połączyć z fabryką danych Azure przy użyciu połączonej usługi **lokalnego serwera plików** . Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla połączonej usługi lokalnego serwera plików.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Upewnij się, że Właściwość Type ma wartość **OnPremisesFileServer**. |Tak |
+| typ |Upewnij się, że Właściwość Type ma wartość **OnPremisesFileServer**. |Tak |
 | host |Określa ścieżkę katalogu głównego folderu, który ma zostać skopiowany. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Przykłady można znaleźć w temacie [przykładowe połączone usługi i zestawy danych](#sample-linked-service-and-dataset-definitions) . |Tak |
 | userid |Określ identyfikator użytkownika, który ma dostęp do serwera. |Nie (w przypadku wybrania opcji encryptedCredential) |
 | hasło |Określ hasło użytkownika (UserID). |Nie (w przypadku wybrania opcji encryptedCredential |
@@ -83,11 +83,11 @@ Lokalny system plików można połączyć z fabryką danych Azure przy użyciu p
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Przykładowa połączona usługa i definicje zestawu danych
 | Scenariusz | Definicja hosta w połączonej usłudze | folderPath w definicji zestawu danych |
 | --- | --- | --- |
-| Folder lokalny na maszynie Zarządzanie danymi bramy: <br/><br/>Przykłady: D:\\ \* lub D:\folder\subfolder\\\* |D:\\ \\ (for zarządzanie danymi Gateway 2,0 i nowsze wersje) <br/><br/> localhost (dla wcześniejszych wersji niż Zarządzanie danymi Gateway 2,0) |. lub podfolder\\\\folderu (dla zarządzanie danymi Gateway 2,0 i nowsze wersje) \\ \\ <br/><br/>D:\\ \\ lub d:\\\\podfolder\\\\folderu (dla wersji bramy poniżej 2,0) |
-| Zdalny folder udostępniony: <br/><br/>Przykłady: \\ \\\\\\ udział\* / \\folder udziału\\w udziale\\\\ \\\\\* |\\\\\\\\\\\\Udostępnij udział |. lub podfolder\\\\folderu \\ \\ |
+| Folder lokalny na maszynie Zarządzanie danymi bramy: <br/><br/>Przykłady: D: \\ \* lub D:\folder\subfolder\\\* |D: \\ \\ (for Zarządzanie danymi Gateway 2,0 i nowsze wersje) <br/><br/> localhost (dla wcześniejszych wersji niż Zarządzanie danymi Gateway 2,0) |.\\\\ lub \\ \\ podfolder folderu (dla Zarządzanie danymi Gateway 2,0 i nowsze wersje) <br/><br/>D: \\ \\ lub d: podfolder \\ \\ folderu \\ \\ (dla wersji bramy poniżej 2,0) |
+| Zdalny folder udostępniony: <br/><br/>Przykłady: \\ \\ \\ udział \\ \* /folder \\ \\ \\ udziału \\ \\ w udziale\\\* |\\\\\\\\\\ \\ Udostępnij udział |.\\\\ lub \\ \\ podfolder folderu |
 
 >[!NOTE]
->Podczas tworzenia za pośrednictwem interfejsu użytkownika nie trzeba wprowadzać podwójnego ukośnika`\\`odwrotnego () w taki sposób, jak w przypadku kodu JSON, należy określić pojedynczy ukośnik odwrotny.
+>Podczas tworzenia za pośrednictwem interfejsu użytkownika nie trzeba wprowadzać podwójnego ukośnika odwrotnego ( `\\` ) w taki sposób, jak w przypadku kodu JSON, należy określić pojedynczy ukośnik odwrotny.
 
 ### <a name="example-using-username-and-password-in-plain-text"></a>Przykład: używanie nazwy użytkownika i hasła w postaci zwykłego tekstu
 
@@ -127,10 +127,10 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 Sekcja typeProperties jest inna dla każdego typu zestawu danych. Zawiera informacje, takie jak lokalizacja i format danych w magazynie danych. Sekcja typeProperties dla zestawu **danych typu "** DataSet" ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| folderPath |Określa ścieżkę podrzędną do folderu. Użyj znaku ucieczki "\' dla znaków specjalnych w ciągu. Filtr symboli wieloznacznych nie jest obsługiwany. Przykłady można znaleźć w temacie [przykładowe połączone usługi i zestawy danych](#sample-linked-service-and-dataset-definitions) .<br/><br/>Możesz połączyć tę właściwość z **partitionBy** , aby mieć ścieżki folderu na podstawie daty rozpoczęcia/zakończenia wycinka. |Tak |
-| fileName |Określ nazwę pliku w **folderPath** , jeśli chcesz, aby tabela odnosiła się do określonego pliku w folderze. Jeśli nie określisz żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Jeśli nie określono **nazwy pliku** dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, nazwa wygenerowanego pliku ma następujący format: <br/><br/>`Data.<Guid>.txt`(Przykład: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Nie |
+| folderPath |Określa ścieżkę podrzędną do folderu. Użyj znaku ucieczki " \' dla znaków specjalnych w ciągu. Filtr symboli wieloznacznych nie jest obsługiwany. Przykłady można znaleźć w temacie [przykładowe połączone usługi i zestawy danych](#sample-linked-service-and-dataset-definitions) .<br/><br/>Możesz połączyć tę właściwość z **partitionBy** , aby mieć ścieżki folderu na podstawie daty rozpoczęcia/zakończenia wycinka. |Tak |
+| fileName |Określ nazwę pliku w **folderPath** , jeśli chcesz, aby tabela odnosiła się do określonego pliku w folderze. Jeśli nie określisz żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Jeśli nie określono **nazwy pliku** dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, nazwa wygenerowanego pliku ma następujący format: <br/><br/>`Data.<Guid>.txt`(Przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
 | fileFilter |Określ filtr, który ma być używany do wybierania podzbioru plików w folderPath, a nie wszystkich plików. <br/><br/>Dozwolone wartości to: `*` (wiele znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1: "fileFilter": "*. log"<br/>Przykład 2: "fileFilter": 2014-1-?. zawierającego<br/><br/>Należy zauważyć, że fileFilter ma zastosowanie do wejściowego zestawu danych. |Nie |
 | partitionedBy |Możesz użyć partitionedBy, aby określić dynamiczny folderPath/fileName dla danych szeregów czasowych. Przykładem jest folderPath sparametryzowane dla każdej godziny danych. |Nie |
 | format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i sekcje [formatu Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
@@ -179,13 +179,13 @@ W przypadku działania kopiowania różnią się w zależności od typów źród
 
 **FileSystemSource** obsługuje następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | rozpoznawania |Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. |Prawda, FAŁSZ (wartość domyślna) |Nie |
 
 **FileSystemSink** obsługuje następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | copyBehavior |Definiuje zachowanie kopiowania, gdy źródłem jest BlobSource lub system plików. |**PreserveHierarchy:** Zachowuje hierarchię plików w folderze docelowym. Oznacza to, że ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><br/>**FlattenHierarchy:** Wszystkie pliki z folderu źródłowego są tworzone przy użyciu pierwszego poziomu folderu docelowego. Pliki docelowe są tworzone z automatycznie wygenerowaną nazwą.<br/><br/>**MergeFiles:** Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku/obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. |Nie |
 

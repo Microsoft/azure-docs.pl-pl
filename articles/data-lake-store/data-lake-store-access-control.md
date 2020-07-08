@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847816"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Access control in Azure Data Lake Storage Gen1 (Kontrola dostępu w usłudze Azure Data Lake Storage Gen1)
 
@@ -71,15 +71,15 @@ W modelu w stylu POSIX, który jest używany przez Data Lake Storage Gen1, upraw
 
 Poniżej przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumienie, które uprawnienia są potrzebne do wykonania niektórych operacji na koncie Data Lake Storage Gen1.
 
-| Operacja | Obiekt              |    /      | Biuro   | Biura   | Data. txt       |
+| Operacja | Obiekt              |    /      | Biuro   | Biura   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| Odczyt      | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Dołącz do | Data. txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Usuwanie    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Utwórz    | Data. txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List      | Biuro           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Odczyt      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Dołącz do | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Usuń    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Utwórz    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista      | Biuro           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -214,7 +214,7 @@ Gdy nowy plik lub folder jest tworzony w istniejącym folderze, domyślna lista 
 - domyślną listę ACL i listę ACL dostępu folderu podrzędnego;
 - listę ACL dostępu pliku podrzędnego (pliki nie mają domyślnej listy ACL);
 
-### <a name="umask"></a>maska umask
+### <a name="umask"></a>umask
 
 Podczas tworzenia pliku lub folderu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w folderach nadrzędnych, która zawiera wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem**i **innych**.
 

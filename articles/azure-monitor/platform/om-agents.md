@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274348"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847396"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Połącz Operations Manager z Azure Monitor
 
@@ -71,7 +71,7 @@ W poniższych informacjach przedstawiono informacje o konfiguracji serwera proxy
 
 |Zasób | Numer portu| Obejście inspekcji HTTP|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Odczynnik**|||  
 |\*.ods.opinsights.azure.com| 443 |Tak|  
 |\*.oms.opinsights.azure.com| 443|Tak|  
 |\*.blob.core.windows.net| 443|Tak|  
@@ -110,7 +110,7 @@ Podczas początkowej rejestracji grupy zarządzania Operations Manager z obszare
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Po wykonaniu poniższych kroków w celu zintegrowania z programem Azure Monitor można usunąć konfigurację, uruchamiając `netsh winhttp reset proxy` polecenie, a następnie używając opcji **Konfiguruj serwer proxy** w konsoli operacje, aby określić serwer proxy lub log Analytics bramy.
+Po wykonaniu poniższych kroków w celu zintegrowania z programem Azure Monitor można usunąć konfigurację, uruchamiając polecenie, `netsh winhttp reset proxy` a następnie używając opcji **Konfiguruj serwer proxy** w konsoli operacje, aby określić serwer proxy lub log Analytics bramy.
 
 1. W konsoli programu Operations Manager wybierz obszar roboczy **Administracja**.
 1. Rozwiń węzeł Operations Management Suite i kliknij pozycję **Połączenie**.
@@ -163,14 +163,14 @@ Jeśli serwer proxy wymaga uwierzytelnienia, wykonaj następujące kroki, aby sk
 Po utworzeniu połączenia i skonfigurowaniu agentów, którzy będą zbierać i raportować dane dziennika do Azure Monitor, następująca konfiguracja zostanie zastosowana w grupie zarządzania, niekoniecznie w kolejności:
 
 * Tworzone jest konto Uruchom jako o nazwie **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**. Zostaje ono skojarzone z profilem Uruchom jako **Microsoft System Center Advisor Run As Profile Blob** i dotyczy dwóch klas — **Collection Server** i **Operations Manager Management Group**.
-* Tworzone są dwa łączniki.  Pierwszy nosi nazwę **Microsoft. Center. Advisor. Dataconnecter** i jest automatycznie konfigurowany z subskrypcją, która przekazuje wszystkie alerty wygenerowane z wystąpień wszystkich klas w grupie zarządzania do Azure monitor. Drugi łącznik to **Łącznik usługi Advisor**, który jest odpowiedzialny za komunikowanie się z Azure monitor i udostępnianiem danych.
+* Tworzone są dwa łączniki.  Pierwszy nosi nazwę **Microsoft.SystemCenter. Advisor. Dataconnecter** i jest automatycznie konfigurowany z subskrypcją, która przekazuje wszystkie alerty wygenerowane z wystąpień wszystkich klas w grupie zarządzania do Azure monitor. Drugi łącznik to **Łącznik usługi Advisor**, który jest odpowiedzialny za komunikowanie się z Azure monitor i udostępnianiem danych.
 * Agenci i grupy wybrane do zbierania danych w grupie zarządzania są dodawane do **grupy serwera monitorowania usługi Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Aktualizacje pakietu administracyjnego
 
 Po zakończeniu konfiguracji Operations Manager grupy zarządzania nawiązuje połączenie z Azure Monitor. Serwer zarządzania synchronizuje się z usługą internetową i odbiera zaktualizowane informacje o konfiguracji w postaci pakietów administracyjnych dla włączonych rozwiązań zintegrowanych z programem Operations Manager. Operations Manager sprawdza aktualizacje tych pakietów administracyjnych i automatycznie pobiera i importuje je, gdy są dostępne. To zachowanie jest kontrolowane w szczególności przez dwie reguły:
 
-* **Microsoft. System Center. Advisor. MPUpdate** — aktualizuje podstawowe Azure monitor pakiety administracyjne. Ta reguła jest domyślnie uruchamiana co 12 godzin.
+* **Microsoft.SystemCenter. Advisor. MPUpdate** — aktualizuje podstawowe Azure monitor pakiety administracyjne. Ta reguła jest domyślnie uruchamiana co 12 godzin.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** — aktualizuje pakiety administracyjne rozwiązań, które zostały włączone w obszarze roboczym. Ta reguła jest domyślnie uruchamiana co pięć (5) minut.
 
 Te dwie reguły można przesłonić, aby zapobiec automatycznemu pobieraniu, wyłączając je lub modyfikując częstotliwość synchronizacji serwera zarządzania z Azure Monitor, aby określić, czy nowy pakiet administracyjny jest dostępny i czy powinien zostać pobrany. Wykonaj instrukcje [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) (Jak przesłonić regułę lub monitor), aby zmodyfikować parametr **Frequency** (Częstotliwość) wartością w sekundach w celu zmiany harmonogramu synchronizacji lub parametr **Enabled** (Włączone) w celu wyłączenia reguł. Przesłonięcie dotyczy wszystkich obiektów klasy Operations Manager Management Group.
@@ -347,10 +347,10 @@ Aby usunąć dwa łączniki — jeden o nazwie Microsoft.SystemCenter.Advisor.Da
     Remove-Connector $connectorName
 ```
 
-W przyszłości, jeśli planujesz ponowne połączenie grupy zarządzania z obszarem roboczym Log Analytics, musisz ponownie zaimportować plik pakietu `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` administracyjnego. W zależności od wersji programu System Center Operations Manager wdrożonego w środowisku ten plik można znaleźć w następującej lokalizacji:
+W przyszłości, jeśli planujesz ponowne połączenie grupy zarządzania z obszarem roboczym Log Analytics, musisz ponownie zaimportować `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` plik pakietu administracyjnego. W zależności od wersji programu System Center Operations Manager wdrożonego w środowisku ten plik można znaleźć w następującej lokalizacji:
 
 * Na nośniku źródłowym w folderze `\ManagementPacks` dla programu System Center 2016 — Operations Manager lub nowszego.
-* W najnowszym pakiecie zbiorczym aktualizacji zastosowanym w grupie zarządzania. W przypadku Operations Manager 2012 folder źródłowy jest `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` i dla 2012 R2 znajduje się w. `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`
+* W najnowszym pakiecie zbiorczym aktualizacji zastosowanym w grupie zarządzania. W przypadku Operations Manager 2012 folder źródłowy jest `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` i dla 2012 R2 znajduje się w `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
 ## <a name="next-steps"></a>Następne kroki
 

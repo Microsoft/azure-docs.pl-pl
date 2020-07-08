@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ef454871f242adb9de5e5c567c1a76e00478cc
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848761"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
 
@@ -115,16 +115,15 @@ Postępuj zgodnie z instrukcjami w sekcji [co to jest usługa Azure Multi-Factor
 
 Ta sekcja zawiera instrukcje dotyczące konfigurowania infrastruktury RDS do korzystania z usługi Azure MFA na potrzeby uwierzytelniania klientów za pomocą bramy Pulpit zdalny.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Pozyskaj identyfikator GUID Azure Active Directory
+### <a name="acquire-azure-active-directory-tenant-id"></a>Uzyskaj identyfikator dzierżawy Azure Active Directory
 
-W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia administratora i identyfikator usługi Azure AD dla dzierżawy usługi Azure AD. Poniższe kroki pokazują, jak uzyskać identyfikator dzierżawy.
+W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia administratora i identyfikator usługi Azure AD dla dzierżawy usługi Azure AD. Aby uzyskać identyfikator dzierżawy, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy platformy Azure.
 1. W menu Azure Portal wybierz pozycję **Azure Active Directory**lub Wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
-1. Wybierz pozycję **Właściwości**.
-1. W bloku właściwości obok identyfikatora katalogu kliknij ikonę **kopiowania** , jak pokazano poniżej, aby skopiować identyfikator do Schowka.
+1. Na stronie **Przegląd** są wyświetlane *Informacje o dzierżawie* . Wybierz ikonę **kopiowania** obok *identyfikatora dzierżawy*, jak pokazano na poniższym przykładzie zrzutu ekranu:
 
-   ![Pobieranie identyfikatora katalogu z Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
+   ![Pobieranie identyfikatora dzierżawy z Azure Portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalowanie rozszerzenia serwera NPS
 
@@ -167,9 +166,9 @@ Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administratora
 
    ![Uwierzytelnianie w usłudze Azure AD w programie PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-1. Po wyświetleniu monitu wklej skopiowany wcześniej identyfikator katalogu do schowka, a następnie naciśnij klawisz **Enter**.
+1. Po wyświetleniu monitu wklej *Identyfikator dzierżawy* , który został wcześniej skopiowany do schowka, a następnie naciśnij klawisz **Enter**.
 
-   ![Umieszczanie identyfikatora katalogu w programie PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Umieszczanie identyfikatora dzierżawy w programie PowerShell](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Skrypt tworzy certyfikat z podpisem własnym i wykonuje inne zmiany w konfiguracji. Dane wyjściowe powinny być podobne do poniższej ilustracji.
 

@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847657"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Powiązania magazynu obiektów blob platformy Azure dla Azure Functions — Omówienie
 
@@ -24,7 +24,7 @@ Azure Functions integruje się z usługą [Azure Storage](https://docs.microsoft
 
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
-### <a name="functions-2x-and-higher"></a>Funkcje 2. x i nowsze
+### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 

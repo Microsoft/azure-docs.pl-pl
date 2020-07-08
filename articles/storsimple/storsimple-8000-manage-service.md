@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267783"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847109"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi StorSimple Menedżer urządzeń dla urządzeń z serii StorSimple 8000
 
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby usunąć usługę.
 
     ![Usługa wyszukiwania do usunięcia](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Spowoduje to przejście do bloku usługi StorSimple Menedżer urządzeń. Kliknij przycisk **Usuń**.
+2. Spowoduje to przejście do bloku usługi StorSimple Menedżer urządzeń. Kliknij polecenie **Usuń**.
 
     ![Usuń usługę](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
@@ -134,7 +134,7 @@ Zazwyczaj administrator urządzenia będzie żądać, aby administrator usługi 
 
 Ten krok jest wykonywany przy użyciu skryptu opartego na Azure Resource Manager. Administrator usługi może wybrać urządzenie, które ma uprawnienia do autoryzacji. Urządzenie jest następnie autoryzowane do uruchomienia procesu zmiany klucza szyfrowania danych usługi. 
 
-Aby uzyskać więcej informacji o używaniu skryptu, przejdź do [Authorize-ServiceEncryptionRollover. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Aby uzyskać więcej informacji o używaniu skryptu, przejdź do [Authorize-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
 #### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Które urządzenia mogą być autoryzowane, aby można było zmienić klucze szyfrowania danych usługi?
 Aby można było autoryzować zmiany klucza szyfrowania danych usługi, urządzenie musi spełniać następujące kryteria:
@@ -181,7 +181,7 @@ Wykonaj następujące kroki, aby zaktualizować szyfrowanie danych usługi na ur
 3. Podaj klucz szyfrowania danych usługi uzyskany w [kroku 2: użyj program Windows PowerShell dla usługi StorSimple do zainicjowania zmiany klucza szyfrowania danych usługi](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Aby zaktualizować klucz szyfrowania danych usługi na wszystkich urządzeniach chmury 8010/8020
-1. Pobierz i zainstaluj skrypt programu PowerShell [Update-CloudApplianceServiceEncryptionKey. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) . 
+1. Pobierz i skonfiguruj [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) skrypt programu PowerShell. 
 2. Otwórz program PowerShell i w wierszu polecenia wpisz:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Ten skrypt zapewni, że klucz szyfrowania danych usługi jest ustawiony na wszystkich urządzeniach chmury 8010/8020 w ramach Menedżera urządzeń.

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74770190"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848203"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optymalizowanie autopróżni na Azure Database for PostgreSQL-pojedynczym serwerze
 W tym artykule opisano sposób efektywnego optymalizowania autopróżni na serwerze Azure Database for PostgreSQL.
@@ -47,7 +47,7 @@ Poniżej przedstawiono niektóre parametry konfiguracji autopróżniowa, które 
 Parametr|Opis|Wartość domyślna
 ---|---|---
 autovacuum_vacuum_threshold|Określa minimalną liczbę zaktualizowanych lub usuniętych krotek wymaganych do wyzwolenia operacji próżniowej w jednej tabeli. Wartość domyślna to 50 krotek. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|50
-autovacuum_vacuum_scale_factor|Określa ułamek rozmiaru tabeli, który ma zostać dodany do autovacuum_vacuum_threshold podczas decydowania o tym, czy wyzwolić operację próżniową. Wartość domyślna to 0,2, czyli 20 procent rozmiaru tabeli. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|5 procent
+autovacuum_vacuum_scale_factor|Określa ułamek rozmiaru tabeli, który ma zostać dodany do autovacuum_vacuum_threshold podczas decydowania o tym, czy wyzwolić operację próżniową. Wartość domyślna to 0,2, czyli 20 procent rozmiaru tabeli. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|0,2
 autovacuum_vacuum_cost_limit|Określa wartość limitu kosztu używaną w automatycznych operacjach próżniowych. Jeśli określono wartość-1, która jest wartością domyślną, używana jest zwykła vacuum_cost_limit. Jeśli istnieje więcej niż jeden proces roboczy, wartość jest dystrybuowana proporcjonalnie między uruchomionymi pracownikami autopróżniowymi. Suma limitów dla każdego pracownika nie przekracza wartości tej zmiennej. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|-1
 autovacuum_vacuum_cost_delay|Określa wartość opóźnienia kosztu używaną w automatycznych operacjach próżniowych. Jeśli określono wartość-1, stosowana jest zwykła vacuum_cost_delay. Wartość domyślna to 20 milisekund. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|20 MS
 autovacuum_nap_time|Określa minimalne opóźnienie między uruchomieniami autopróżniowymi w danej bazie danych. W każdej rundzie demon sprawdza bazę danych i wystawia problemy PRÓŻNIOWe i analizuje polecenia zgodnie z wymaganiami dla tabel w tej bazie danych. Opóźnienie jest mierzone w sekundach, a wartość domyślna to jedna minuta (1 min). Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera.|15 s

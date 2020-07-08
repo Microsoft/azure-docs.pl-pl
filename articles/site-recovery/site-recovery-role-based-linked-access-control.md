@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847916"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (RBAC)
 
@@ -43,11 +43,11 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 
 | **Typ zasobu** | **Model wdrażania** | **Uprawnienie** |
 | --- | --- | --- |
-| Wystąpienia obliczeniowe | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
+| Compute | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Write |
 |  |  | Microsoft. COMPUTE/virtualMachines/Delete |
-|  | Wdrożenie klasyczne | Microsoft. ClassicCompute/domainNames/odczyt |
+|  | Klasyczny | Microsoft. ClassicCompute/domainNames/odczyt |
 |  |  | Microsoft. ClassicCompute/domainNames/Write |
 |  |  | Microsoft. ClassicCompute/domainNames/Delete |
 |  |  | Microsoft. ClassicCompute/virtualMachines/odczyt |
@@ -60,11 +60,11 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 |  |  | Microsoft. Network/virtualNetworks/odczyt |
 |  |  | Microsoft.Network/virtualNetworks/subnets/read |
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
-|  | Wdrożenie klasyczne | Microsoft. ClassicNetwork/virtualNetworks/odczyt |
+|  | Klasyczny | Microsoft. ClassicNetwork/virtualNetworks/odczyt |
 |  |  | Microsoft. ClassicNetwork/virtualNetworks/Join/Action |
 | Magazyn | Resource Manager | Microsoft. Storage/storageAccounts/Read |
 |  |  | Microsoft. Storage/storageAccounts/ListKeys/akcja |
-|  | Wdrożenie klasyczne | Microsoft. ClassicStorage/storageAccounts/odczyt |
+|  | Klasyczny | Microsoft. ClassicStorage/storageAccounts/odczyt |
 |  |  | Microsoft. ClassicStorage/storageAccounts/listKeys/akcja |
 | Grupa zasobów | Resource Manager | Microsoft. resources/Deployments/* |
 |  |  | Microsoft. resources/subscriptions/resourceGroups/Read |
@@ -74,7 +74,7 @@ Rozważ użycie [wbudowanych ról](../role-based-access-control/built-in-roles.m
 ## <a name="next-steps"></a>Następne kroki
 * [Access Control oparte na rolach](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli RBAC w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:
-  * [Narzędzia](../role-based-access-control/role-assignments-powershell.md)
+  * [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
-  * [INTERFEJS API REST](../role-based-access-control/role-assignments-rest.md)
+  * [Interfejs API REST](../role-based-access-control/role-assignments-rest.md)
 * [Rozwiązywanie problemów Access Control opartych na rolach](../role-based-access-control/troubleshooting.md): Uzyskaj sugestie dotyczące rozwiązywania typowych problemów.

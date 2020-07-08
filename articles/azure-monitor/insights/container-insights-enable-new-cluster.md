@@ -4,11 +4,11 @@ description: Dowiedz się, jak włączyć monitorowanie dla nowego klastra usłu
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275440"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847216"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Włącz monitorowanie nowego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Można włączyć monitorowanie klastra AKS przy użyciu jednej z obsługiwanych
 Aby włączyć monitorowanie nowego klastra AKS utworzonego za pomocą interfejsu wiersza polecenia platformy Azure, wykonaj kroki opisane w artykule szybki start w sekcji [Tworzenie klastra AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.74 lub nowszej. Aby zidentyfikować swoją wersję, uruchom `az --version`polecenie. Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Jeśli zainstalowano rozszerzenie wiersza polecenia AKS-Preview w wersji 0.4.12 lub nowszej, Usuń wszelkie zmiany wprowadzone w celu włączenia rozszerzenia w wersji zapoznawczej, ponieważ może ono zastąpić domyślne zachowanie interfejsu wiersza polecenia platformy Azure, ponieważ funkcja AKS Preview nie jest dostępna w chmurze usługi Azure US governmnet.
+>Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.74 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Jeśli zainstalowano rozszerzenie wiersza polecenia AKS-Preview w wersji 0.4.12 lub nowszej, Usuń wszelkie zmiany wprowadzone w celu włączenia rozszerzenia w wersji zapoznawczej, ponieważ może ono zastąpić domyślne zachowanie interfejsu wiersza polecenia platformy Azure, ponieważ funkcja AKS Preview nie jest dostępna w chmurze usługi Azure US governmnet.
 
 ## <a name="enable-using-terraform"></a>Włącz korzystanie z Terraform
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ac046f3480b08fdc3b8d582d9e724f4b9b93d5
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848446"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach
 
@@ -43,7 +43,9 @@ Na przykład, Jeśli opublikujesz ścieżkę `https://yourapp/app` , ale aplikac
 
 Jeśli rejestracja kończy się niepowodzeniem podczas instalacji kreatora łącznika, istnieją dwa sposoby wyświetlenia przyczyny niepowodzenia. W dzienniku zdarzeń w obszarze **aplikacje i usługi Logs\Microsoft\AadApplicationProxy\Connector\Admin**lub uruchom następujące polecenie programu Windows PowerShell:
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 Po znalezieniu błędu łącznika z dziennika zdarzeń Użyj tej tabeli typowych błędów, aby rozwiązać ten problem:
 
@@ -87,7 +89,7 @@ Ta lista zawiera błędy, które użytkownicy końcowi mogą napotkać podczas p
 
 Jeśli wystąpi błąd lub problem z usługą Azure serwer proxy aplikacji usługi Azure AD, która nie jest wymieniona w tym przewodniku rozwiązywania problemów, chcemy wiedzieć o tym. Wyślij wiadomość e-mail do [zespołu ds. opinii](mailto:aadapfeedback@microsoft.com) z informacjami o napotkanym błędzie.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Włącz serwer proxy aplikacji dla Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publikowanie aplikacji za pomocą serwera proxy aplikacji](application-proxy-add-on-premises-application.md)
 * [Włącz logowanie jednokrotne](application-proxy-configure-single-sign-on-with-kcd.md)

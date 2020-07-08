@@ -1,68 +1,68 @@
 ---
-title: Zbieranie i analizowanie wiadomości syslogu w usłudze Azure Monitor | Dokumenty firmy Microsoft
-description: Syslog to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. W tym artykule opisano sposób konfigurowania kolekcji wiadomości Syslog w usłudze Log Analytics i szczegółów rekordów, które tworzą.
+title: Zbieranie i analizowanie komunikatów dziennika systemowego w Azure Monitor | Microsoft Docs
+description: Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. W tym artykule opisano sposób konfigurowania kolekcji komunikatów dziennika systemu w Log Analytics i szczegóły dotyczące tworzonych przez siebie rekordów.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
 ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847411"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)
-Syslog to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać wiadomości, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego Syslog. Po zainstalowaniu agenta usługi Log Analytics dla systemu Linux konfiguruje lokalny demon Syslog do przekazywania wiadomości do agenta. Agent następnie wysyła wiadomość do usługi Azure Monitor, gdzie tworzony jest odpowiedni rekord.  
+Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać komunikaty, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego dziennik systemowy. Po zainstalowaniu agenta Log Analytics dla systemu Linux program skonfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta. Następnie Agent wysyła komunikat do Azure Monitor, w którym zostanie utworzony odpowiedni rekord.  
 
 > [!NOTE]
-> Usługa Azure Monitor obsługuje zbieranie wiadomości wysyłanych przez rsyslog lub syslog-ng, gdzie rsyslog jest domyślnym demonem. Domyślny demon syslog w wersji 5 red hat enterprise linux, CentOS i Oracle Linux wersja (sysklog) nie jest obsługiwana dla kolekcji zdarzeń syslog. Aby zebrać dane syslog z tej wersji tych dystrybucji, [demon rsyslog](http://rsyslog.com) powinien być zainstalowany i skonfigurowany do zastąpienia sysklog.
+> Azure Monitor obsługuje zbieranie komunikatów wysyłanych przez rsyslog lub Dziennik systemowy, gdzie rsyslog jest demonem domyślnym. Domyślny demon dziennika systemowego w wersji 5 Red Hat Enterprise Linux, CentOS i Oracle Linux wersja (sysklog) nie jest obsługiwany w przypadku zbierania zdarzeń dziennika systemowego. Aby zebrać dane dziennika systemu z tej wersji dystrybucji, [demona rsyslog](http://rsyslog.com) powinna zostać zainstalowana i skonfigurowana do zastępowania sysklog.
 >
 >
 
-![Kolekcja Syslog](media/data-sources-syslog/overview.png)
+![Kolekcja dziennika systemowego](media/data-sources-syslog/overview.png)
 
-Następujące obiekty są obsługiwane przez kolektor syslog:
+W module zbierającym dziennik systemu są obsługiwane następujące obiekty:
 
-* Kern
+* Kerning
 * użytkownik
 * mail (poczta)
-* Daemon
-* Auth
+* Demon
+* uwierzytelniania
 * syslog
-* Lpr
+* usługę
 * news
-* Uucp
-* Cron
+* uucp
+* zaczyna
 * authpriv
 * ftp
 * local0-local7
 
-W przypadku dowolnej innej funkcji [skonfiguruj źródło danych dzienników niestandardowych](data-sources-custom-logs.md) w usłudze Azure Monitor.
+W przypadku każdej innej funkcji [Skonfiguruj niestandardowe źródło danych dzienników](data-sources-custom-logs.md) w Azure monitor.
  
-## <a name="configuring-syslog"></a>Konfigurowanie sysloga
-Agent usługi Log Analytics dla systemu Linux będzie zbierać tylko zdarzenia z obiektami i ważnościami, które są określone w jego konfiguracji. Syslog można skonfigurować za pośrednictwem witryny Azure portal lub zarządzając plikami konfiguracyjnymi na swoich agentów systemu Linux.
+## <a name="configuring-syslog"></a>Konfigurowanie dziennika systemowego
+Agent Log Analytics dla systemu Linux będzie zbierać tylko zdarzenia z obiektami i serwerami, które są określone w jego konfiguracji. Dziennik systemowy można skonfigurować za pomocą Azure Portal lub przez zarządzanie plikami konfiguracji w agentach systemu Linux.
 
-### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurowanie sysloga w witrynie Azure portal
-Skonfiguruj syslog z [menu Dane w ustawieniach zaawansowanych](agent-data-sources.md#configuring-data-sources). Ta konfiguracja jest dostarczana do pliku konfiguracyjnego dla każdego agenta systemu Linux.
+### <a name="configure-syslog-in-the-azure-portal"></a>Skonfiguruj dziennik systemowy w Azure Portal
+Skonfiguruj dziennik systemowy z poziomu [menu dane w oknie Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources). Ta konfiguracja jest dostarczana do pliku konfiguracji na każdym agencie systemu Linux.
 
-Możesz dodać nową placówkę, najpierw wybierając opcję **Zastosuj poniżej konfigurację do moich maszyn,** a następnie wpisując jej nazwę i klikając **+** przycisk . Dla każdej placówki będą zbierane tylko wiadomości o wybranych ważnościach.  Sprawdź ważność dla konkretnej placówki, którą chcesz zebrać. Nie można podać żadnych dodatkowych kryteriów filtrowania wiadomości.
+Aby dodać nową funkcję, należy najpierw wybrać opcję **Zastosuj poniższą konfigurację do moich maszyn** , a następnie wpisać ją i kliknąć **+** . Dla każdej funkcji zbierane będą tylko komunikaty z wybranymi serwerami.  Sprawdź, czy w przypadku konkretnej funkcji mają być zbierane. Nie można podać żadnych dodatkowych kryteriów filtrowania komunikatów.
 
-![Konfigurowanie sysloga](media/data-sources-syslog/configure.png)
+![Konfigurowanie dziennika systemowego](media/data-sources-syslog/configure.png)
 
-Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów. Jeśli chcesz skonfigurować Syslog ręcznie na każdym agencie Linuksa, a następnie odznacz pole *Zastosuj poniżej konfiguracji do moich maszyn*.
+Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów. Jeśli chcesz ręcznie skonfigurować dziennik systemu na każdym agencie systemu Linux, usuń zaznaczenie pola *Zastosuj poniżej konfiguracji do moich maszyn*.
 
-### <a name="configure-syslog-on-linux-agent"></a>Konfigurowanie Sysloga w programie Linux agent
-Gdy [agent usługi Log Analytics jest zainstalowany na kliencie systemu Linux,](../../azure-monitor/learn/quick-collect-linux-computer.md)instaluje domyślny plik konfiguracji syslog, który definiuje obiekt i ważność wiadomości, które są zbierane. Można zmodyfikować ten plik, aby zmienić konfigurację. Plik konfiguracyjny różni się w zależności od demona Sysloga zainstalowanego przez klienta.
+### <a name="configure-syslog-on-linux-agent"></a>Konfigurowanie dziennika systemowego w agencie systemu Linux
+Po [zainstalowaniu agenta log Analytics na kliencie z systemem Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)instalowany jest domyślny plik konfiguracji dziennika systemowego, który określa zakres i ważność komunikatów, które są zbierane. Możesz zmodyfikować ten plik, aby zmienić konfigurację. Plik konfiguracji różni się w zależności od demona dziennika systemu zainstalowanego przez klienta programu.
 
 > [!NOTE]
-> W przypadku edycji konfiguracji syslog należy ponownie uruchomić demon syslog, aby zmiany zostały wprowadzone.
+> W przypadku edytowania konfiguracji dziennika systemowego należy ponownie uruchomić demona dziennika systemu, aby zmiany zaczęły obowiązywać.
 >
 >
 
-#### <a name="rsyslog"></a>Rsyslog
-Plik konfiguracyjny dla rsyslog znajduje się na **/etc/rsyslog.d/95-omsagent.conf**. Jego domyślna zawartość przedstawiona jest poniżej. To zbiera syslog wiadomości wysyłane z lokalnego agenta dla wszystkich obiektów z poziomem ostrzeżenia lub wyższym.
+#### <a name="rsyslog"></a>rsyslog
+Plik konfiguracji rsyslog znajduje się w lokalizacji **/etc/rsyslog.d/95-omsagent.conf**. Jego domyślna zawartość jest pokazana poniżej. W ten sposób zbierane są komunikaty dziennika systemowego wysyłane z agenta lokalnego dla wszystkich urządzeń z poziomem ostrzegawczym lub wyższym.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -82,13 +82,13 @@ Plik konfiguracyjny dla rsyslog znajduje się na **/etc/rsyslog.d/95-omsagent.co
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Obiekt można usunąć, usuwając jej sekcję pliku konfiguracyjnego. Można ograniczyć ważność, które są zbierane dla określonego obiektu, modyfikując wpis tej placówki. Na przykład, aby ograniczyć ść użytkownika do komunikatów o ważności błędu lub wyższej, należy zmodyfikować ten wiersz pliku konfiguracyjnego do następujących:
+Można usunąć obiekt, usuwając jego sekcję w pliku konfiguracji. Można ograniczyć liczbę zbieranych danych dla konkretnej funkcji, modyfikując wpis tej funkcji. Na przykład, aby ograniczyć możliwości użytkownika do komunikatów o ważności błędu lub nowszej, należy zmodyfikować ten wiersz pliku konfiguracji na następujący:
 
     user.error    @127.0.0.1:25224
 
 
-#### <a name="syslog-ng"></a>syslog-ng
-Plik konfiguracyjny dla syslog-ng znajduje się pod adresem **/etc/syslog-ng/syslog-ng.conf**.  Jego domyślna zawartość przedstawiona jest poniżej. To zbiera syslog wiadomości wysyłane z lokalnego agenta dla wszystkich obiektów i wszystkie ważność.   
+#### <a name="syslog-ng"></a>Dziennik systemowy — ng
+Plik konfiguracji dla dziennika systemowego jest lokalizacją o godzinie **/etc/syslog-ng/syslog-ng.conf**.  Jego domyślna zawartość jest pokazana poniżej. W ten sposób zbierane są komunikaty dziennika systemowego wysyłane z agenta lokalnego dla wszystkich obiektów i wszystkich serwerów.   
 
     #
     # Warnings (except iptables) in one file:
@@ -139,22 +139,22 @@ Plik konfiguracyjny dla syslog-ng znajduje się pod adresem **/etc/syslog-ng/sys
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Obiekt można usunąć, usuwając jej sekcję pliku konfiguracyjnego. Można ograniczyć ważność, które są zbierane dla określonej placówki, usuwając je z listy.  Na przykład, aby ograniczyć możliwości użytkownika do tylko alertów i krytycznych komunikatów, należy zmodyfikować tę sekcję pliku konfiguracyjnego do następujących czynności:
+Można usunąć obiekt, usuwając jego sekcję w pliku konfiguracji. Można ograniczyć liczbę zbieranych danych dla konkretnej funkcji, usuwając je z listy.  Aby na przykład ograniczyć możliwości użytkownika tylko do alertów i komunikatów o krytycznym znaczeniu, należy zmodyfikować tę sekcję w pliku konfiguracji na następujące:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
 
-### <a name="collecting-data-from-additional-syslog-ports"></a>Zbieranie danych z dodatkowych portów Syslog
-Agent usługi Log Analytics nasłuchuje komunikatów Syslog na kliencie lokalnym na porcie 25224.  Po zainstalowaniu agenta domyślna konfiguracja syslog jest stosowana i znajdowana w następującej lokalizacji:
+### <a name="collecting-data-from-additional-syslog-ports"></a>Zbieranie danych z dodatkowych portów dziennika systemu
+Agent Log Analytics nasłuchuje komunikatów dziennika systemowego na kliencie lokalnym na porcie 25224.  Po zainstalowaniu agenta zostanie zastosowana domyślna konfiguracja dziennika systemowego i znaleziona w następującej lokalizacji:
 
-* Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog`/etc/rsyslog.d/95-omsagent.conf`
+* Dziennik systemowy — NG:`/etc/syslog-ng/syslog-ng.conf`
 
-Numer portu można zmienić, tworząc dwa pliki konfiguracyjne: plik konfiguracyjny FluentD i plik rsyslog-or-syslog-ng w zależności od zainstalowanego demona Syslog.  
+Aby zmienić numer portu, można utworzyć dwa pliki konfiguracji: plik konfiguracji z systemem i plik rsyslog-lub-dziennika systemu w zależności od zainstalowanego demona dziennika systemowego.  
 
-* Plik konfiguracyjny FluentD powinien być `/etc/opt/microsoft/omsagent/conf/omsagent.d` nowym plikiem znajdującym się w: i zastąpić wartość wpisu **portu** niestandardowym numerem portu.
+* Plik konfiguracji, który został pozostały, musi być nowym plikiem znajdującym się w lokalizacji: `/etc/opt/microsoft/omsagent/conf/omsagent.d` i zastąpić wartość w wpisie **portu** numerem portu niestandardowego.
 
         <source>
           type syslog
@@ -167,10 +167,10 @@ Numer portu można zmienić, tworząc dwa pliki konfiguracyjne: plik konfiguracy
           type filter_syslog
         </filter>
 
-* W przypadku rsyslog należy utworzyć nowy plik `/etc/rsyslog.d/` konfiguracyjny znajdujący się w: i zastąpić wartość %SYSLOG_PORT% niestandardowym numerem portu.  
+* W przypadku rsyslog należy utworzyć nowy plik konfiguracji znajdujący się w: `/etc/rsyslog.d/` i zastąpić wartość% SYSLOG_PORT% numerem portu niestandardowego.  
 
     > [!NOTE]
-    > Jeśli zmodyfikujesz tę `95-omsagent.conf`wartość w pliku konfiguracyjnym, zostanie ona zastąpiona, gdy agent zastosuje konfigurację domyślną.
+    > Jeśli zmodyfikujesz tę wartość w pliku konfiguracji `95-omsagent.conf` , zostanie ona nadpisywana, gdy Agent zastosuje konfigurację domyślną.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -179,43 +179,43 @@ Numer portu można zmienić, tworząc dwa pliki konfiguracyjne: plik konfiguracy
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Syslog-ng config powinien zostać zmodyfikowany przez skopiowanie przykładowej konfiguracji pokazanej poniżej i dodanie niestandardowych zmodyfikowanych ustawień na `/etc/syslog-ng/`końcu pliku konfiguracyjnego syslog-ng.conf znajdującego się w pliku . **Nie** należy używać etykiety domyślnej **%WORKSPACE_ID%_oms** lub **%WORKSPACE_ID_OMS**, zdefiniuj etykietę niestandardową, aby odróżnić zmiany.  
+* Konfigurację dziennika systemowego-NG należy zmodyfikować przez skopiowanie przykładowej konfiguracji pokazanej poniżej i dodanie niestandardowych ustawień zmodyfikowanych na końcu pliku konfiguracji dziennika systemowego — ng. conf znajdującego się w temacie `/etc/syslog-ng/` . **Nie** Używaj domyślnej etykiety **% WORKSPACE_ID% _oms** lub **% WORKSPACE_ID_OMS**, zdefiniuj etykietę niestandardową, aby ułatwić odróżnienie zmian.  
 
     > [!NOTE]
-    > Jeśli zmodyfikujesz wartości domyślne w pliku konfiguracyjnym, zostaną one zastąpione, gdy agent zastosuje konfigurację domyślną.
+    > Jeśli zmodyfikujesz wartości domyślne w pliku konfiguracji, zostaną one nadpisywane, gdy Agent zastosuje konfigurację domyślną.
     >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-After completing the changes, the Syslog and the Log Analytics agent service needs to be restarted to ensure the configuration changes take effect.   
+Po wprowadzeniu zmian należy ponownie uruchomić dziennik systemowy i usługę agenta Log Analytics, aby upewnić się, że zmiany konfiguracji zostały wprowadzone.   
 
-## <a name="syslog-record-properties"></a>Właściwości rekordu Syslog
-Rekordy Syslog mają typ **Syslog** i mają właściwości w poniższej tabeli.
+## <a name="syslog-record-properties"></a>Właściwości rekordu dziennika systemowego
+Rekordy dziennika systemu mają typ **dziennika** systemowego i mają właściwości w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Computer (Komputer) |Komputer, z których odebrano zdarzenie. |
-| Obiektu |Definiuje część systemu, która wygenerowała wiadomość. |
-| HostIP (HostIP) |Adres IP systemu wysyłającego wiadomość. |
-| HostName |Nazwa systemu wysyłającego wiadomość. |
-| WażnośćPoziom |Poziom ważności zdarzenia. |
-| SyslogMessage (SyslogMessage) |Tekst wiadomości. |
-| ProcessId |Identyfikator procesu, który wygenerował wiadomość. |
-| Eventtime |Data i godzina wygenerowania zdarzenia. |
+| Computer (Komputer) |Komputer, z którego zostało zebrane zdarzenie. |
+| Urządzenia |Definiuje część systemu, która wygenerowała komunikat. |
+| HostIP |Adres IP systemu, w którym jest wysyłany komunikat. |
+| HostName |Nazwa systemu wysyłającego komunikat. |
+| SeverityLevel |Poziom ważności zdarzenia. |
+| SyslogMessage |Tekst komunikatu. |
+| ProcessId |Identyfikator procesu, który wygenerował komunikat. |
+| EventTime |Data i godzina wygenerowania zdarzenia. |
 
-## <a name="log-queries-with-syslog-records"></a>Rejestrowanie zapytań z rekordami Syslog
-Poniższa tabela zawiera różne przykłady zapytań dziennika, które pobierają rekordy Syslog.
+## <a name="log-queries-with-syslog-records"></a>Rejestruj zapytania przy użyciu rekordów dziennika systemowego
+W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, które pobierają rekordy dziennika systemowego.
 
 | Zapytanie | Opis |
 |:--- |:--- |
-| Dziennik systemu |Wszystkie Syslogs. |
-| Syslog &#124; gdzie SeverityLevel == "błąd" |Wszystkie rekordy Syslog z ważnością błędu. |
-| Syslog &#124; podsumować AggregatedValue = count() przez komputer |Liczba rekordów Syslog według komputera. |
-| Syslog &#124; podsumować AggregatedValue = count() według obiektu |Liczba rekordów Syslog według obiektu. |
+| Dziennik systemu |Wszystkie dziennik systemowy. |
+| Dziennik systemowy &#124;, gdzie SeverityLevel = = "Error" |Wszystkie rekordy dziennika systemu o ważności błędu. |
+| Dziennik systemowy &#124; podsumowujący AggregatedValue = Count () według komputera |Liczba rekordów dziennika systemowego według komputera. |
+| Dziennik systemowy &#124; Sumuj AggregatedValue = Count () według funkcji |Liczba rekordów dziennika systemowego według funkcji. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [zapytaniach dziennika](../../azure-monitor/log-query/log-query-overview.md) do analizowania danych zebranych ze źródeł danych i rozwiązań.
-* [Użyj pól niestandardowych,](../../azure-monitor/platform/custom-fields.md) aby przeanalizować dane z rekordów syslogu w poszczególnych polach.
+* Informacje na temat [zapytań dzienników](../../azure-monitor/log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.
+* [Pola niestandardowe](../../azure-monitor/platform/custom-fields.md) służą do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.
 * [Skonfiguruj agentów systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) do zbierania innych typów danych.
