@@ -4,10 +4,9 @@ description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworz
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80672820"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
@@ -50,12 +49,12 @@ Jeśli jeszcze nie zalogowano się na koncie, zaloguj się do [Azure Portal](htt
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Azure Backup grupę zasobów dla Virtual Machines
 
-Usługa Backup tworzy oddzielną grupę zasobów (RG), inną niż grupa zasobów maszyny wirtualnej, do przechowywania kolekcji punktów przywracania (RPC). Usługa RPC przechowuje natychmiastowe punkty odzyskiwania zarządzanych maszyn wirtualnych. Domyślny format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: `AzureBackupRG_<Geo>_<number>`. Na przykład: *AzureBackupRG_northeurope_1*. Teraz można dostosować nazwę grupy zasobów utworzoną przez Azure Backup.
+Usługa Backup tworzy oddzielną grupę zasobów (RG), inną niż grupa zasobów maszyny wirtualnej, do przechowywania kolekcji punktów przywracania (RPC). Usługa RPC przechowuje natychmiastowe punkty odzyskiwania zarządzanych maszyn wirtualnych. Domyślny format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: `AzureBackupRG_<Geo>_<number>` . Na przykład: *AzureBackupRG_northeurope_1*. Teraz można dostosować nazwę grupy zasobów utworzoną przez Azure Backup.
 
 Punkty do uwagi:
 
 1. Możesz użyć domyślnej nazwy RG lub edytować ją zgodnie z wymaganiami firmy.
-2. Wzorzec nazwy RG można podać jako dane wejściowe podczas tworzenia zasad kopii zapasowej maszyny wirtualnej. Nazwa RG powinna mieć następujący format: `<alpha-numeric string>* n <alpha-numeric string>`. element "n" jest zastępowany liczbą całkowitą (rozpoczynając od 1) i jest używany do skalowania w górę, jeśli pierwszy RG jest pełny. Jedna RG może mieć maksymalnie 600 wywołań RPC.
+2. Wzorzec nazwy RG można podać jako dane wejściowe podczas tworzenia zasad kopii zapasowej maszyny wirtualnej. Nazwa RG powinna mieć następujący format: `<alpha-numeric string>* n <alpha-numeric string>` . element "n" jest zastępowany liczbą całkowitą (rozpoczynając od 1) i jest używany do skalowania w górę, jeśli pierwszy RG jest pełny. Jedna RG może mieć maksymalnie 600 wywołań RPC.
               ![Wybierz nazwę podczas tworzenia zasad](./media/backup-during-vm-creation/create-policy.png)
 3. Wzorzec powinien być zgodny z regułami nazewnictwa RG poniżej, a łączna długość nie powinna przekraczać maksymalnej dozwolonej długości nazwy RG.
     1. Nazwa grupy zasobów zezwala tylko na znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Nie mogą kończyć się kropką.

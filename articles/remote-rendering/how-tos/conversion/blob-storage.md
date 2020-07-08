@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681651"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Używanie usługi Azure Blob Storage do konwersji modelu
@@ -57,7 +56,7 @@ Identyfikator URI sygnatury dostępu współdzielonego można wygenerować przy 
   - Kliknij prawym przyciskiem myszy kontener "Uzyskaj sygnaturę dostępu współdzielonego" (odczyt, dostęp do listy dla kontenera danych wejściowych, dostęp do zapisu dla kontenera wyjściowego)
 - Zestawy SDK (C#, Python...)
 
-Przykład użycia sygnatur dostępu współdzielonego w konwersji zasobów jest pokazywany w konwersji. ps1 [przykładowych skryptów programu PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Przykład użycia sygnatur dostępu współdzielonego w konwersji zasobów przedstawiono w Conversion.ps1 [przykładowych skryptów programu PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="upload-an-input-model"></a>Przekaż model wejściowy
 
@@ -70,7 +69,7 @@ Aby rozpocząć konwertowanie modelu, należy go przekazać przy użyciu jednej 
 - [Korzystanie z zestawu SDK magazynu (Python, C#...)](https://docs.microsoft.com/azure/storage/)
 - [Korzystanie z interfejsów API REST usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-Przykład przekazywania danych do konwersji odwołuje się do metody Conversion. ps1 [przykładowych skryptów programu PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+Przykład przekazywania danych do konwersji można znaleźć w Conversion.ps1 [przykładowych skryptów programu PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Pobierz identyfikator URI sygnatury dostępu współdzielonego dla przekonwertowanego modelu
 

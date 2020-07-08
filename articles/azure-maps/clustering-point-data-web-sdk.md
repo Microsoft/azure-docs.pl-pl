@@ -10,10 +10,9 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen
 ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804575"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
@@ -46,13 +45,13 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > Jeśli dwa punkty danych są blisko siebie, możliwe, że klaster nigdy nie ulegnie przerwie, niezależnie od tego, jak zamyka się użytkownik. Aby rozwiązać ten potrzeba, można ustawić `clusterMaxZoom` opcję wyłączania logiki klastrowania i po prostu wyświetlić wszystko.
 
-Oto dodatkowe metody zapewniane przez `DataSource` klasę dla klastrowania:
+Oto dodatkowe metody `DataSource` zapewniane przez klasę dla klastrowania:
 
-| Metoda | Zwracany typ | Opis |
+| Metoda | Typ zwracany | Opis |
 |--------|-------------|-------------|
-| getClusterChildren (clusterId: Number) | &lt;Geometria&lt;funkcji&lt;macierzy Promise&gt; \| , dowolny kształt&gt;&gt; | Pobiera elementy podrzędne danego klastra na następnym poziomie powiększenia. Te elementy podrzędne mogą być kombinacją kształtów i podklastrów. Podklastry będą funkcjami o właściwościach pasujących do ClusteredProperties. |
-| getClusterExpansionZoom (clusterId: Number) | Numer&lt;obietnicy&gt; | Oblicza poziom powiększenia, przy którym klaster rozpocznie rozszerzanie lub przerywanie. |
-| getClusterLeaves (clusterId: Number, limit: Number, offset: Number) | &lt;Geometria&lt;funkcji&lt;macierzy Promise&gt; \| , dowolny kształt&gt;&gt; | Pobiera wszystkie punkty w klastrze. Ustaw wartość `limit` na, aby zwracała podzestaw punktów, i użyj strony `offset` do za pomocą punktów. |
+| getClusterChildren (clusterId: Number) | &lt; &lt; Geometria funkcji macierzy Promise &lt; , dowolny &gt; \| kształt&gt;&gt; | Pobiera elementy podrzędne danego klastra na następnym poziomie powiększenia. Te elementy podrzędne mogą być kombinacją kształtów i podklastrów. Podklastry będą funkcjami o właściwościach pasujących do ClusteredProperties. |
+| getClusterExpansionZoom (clusterId: Number) | Numer obietnicy &lt;&gt; | Oblicza poziom powiększenia, przy którym klaster rozpocznie rozszerzanie lub przerywanie. |
+| getClusterLeaves (clusterId: Number, limit: Number, offset: Number) | &lt; &lt; Geometria funkcji macierzy Promise &lt; , dowolny &gt; \| kształt&gt;&gt; | Pobiera wszystkie punkty w klastrze. Ustaw wartość `limit` na, aby zwracała podzestaw punktów, i Użyj `offset` strony do za pomocą punktów. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Wyświetlanie klastrów przy użyciu warstwy bąbelkowej
 
@@ -63,29 +62,29 @@ Aby wyświetlić rozmiar klastra w górnej części bąbelka, użyj warstwy symb
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Podstawowe klastrowanie warstwy bąbelków" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>warstwą pęcherzykową bąbelki w warstwie Podstawowa</a> przez Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>warstwą pęcherzykową bąbelki w warstwie Podstawowa</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="display-clusters-using-a-symbol-layer"></a>Wyświetlanie klastrów przy użyciu warstwy symboli
 
-Podczas wizualizacji punktów danych warstwa symboli automatycznie ukrywa symbole, które nakładają się na siebie, aby zapewnić oczyszczarkę interfejsu użytkownika. To zachowanie domyślne może być niepożądane, jeśli chcesz pokazać gęstość punktów danych na mapie. Można jednak zmienić te ustawienia. Aby wyświetlić wszystkie symbole, ustaw `allowOverlap` opcję Właściwości warstwy `iconOptions` symboli na. `true` 
+Podczas wizualizacji punktów danych warstwa symboli automatycznie ukrywa symbole, które nakładają się na siebie, aby zapewnić oczyszczarkę interfejsu użytkownika. To zachowanie domyślne może być niepożądane, jeśli chcesz pokazać gęstość punktów danych na mapie. Można jednak zmienić te ustawienia. Aby wyświetlić wszystkie symbole, ustaw `allowOverlap` opcję Właściwości warstwy symboli `iconOptions` na `true` . 
 
 Użyj klastrowania, aby pokazać gęstość punktów danych przy zachowaniu czystego interfejsu użytkownika. Poniższy przykład pokazuje, jak dodawać niestandardowe symbole i reprezentować klastry oraz poszczególne punkty danych przy użyciu warstwy symboli.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Klastrowana warstwa symboli" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>warstwę symboli grupowanych</a> piórem według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>warstwę symboli grupowanych</a> piórem według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="clustering-and-the-heat-maps-layer"></a>Klastrowanie i warstwa mapy cieplnej
 
-Mapy cieplne to doskonały sposób wyświetlania gęstości danych na mapie. Ta metoda wizualizacji może samodzielnie obsłużyć dużą liczbę punktów danych. Jeśli punkty danych są klastrowane i rozmiar klastra jest używany jako waga mapy cieplnej, Mapa cieplna może obsłużyć jeszcze więcej danych. Aby osiągnąć tę opcję, należy ustawić `weight` opcję warstwy mapy cieplnej na `['get', 'point_count']`. Gdy promień klastra jest mały, Mapa cieplna będzie wyglądać niemal identycznie jak mapa cieplna korzystająca z nieklastrowanych punktów danych, ale będzie działać znacznie lepiej. Jednak im mniejsza jest wartość promienia klastra, tym dokładniejsza jest mapa cieplna, ale z mniejszą wydajnością.
+Mapy cieplne to doskonały sposób wyświetlania gęstości danych na mapie. Ta metoda wizualizacji może samodzielnie obsłużyć dużą liczbę punktów danych. Jeśli punkty danych są klastrowane i rozmiar klastra jest używany jako waga mapy cieplnej, Mapa cieplna może obsłużyć jeszcze więcej danych. Aby osiągnąć tę opcję, należy ustawić `weight` opcję warstwy mapy cieplnej na `['get', 'point_count']` . Gdy promień klastra jest mały, Mapa cieplna będzie wyglądać niemal identycznie jak mapa cieplna korzystająca z nieklastrowanych punktów danych, ale będzie działać znacznie lepiej. Jednak im mniejsza jest wartość promienia klastra, tym dokładniejsza jest mapa cieplna, ale z mniejszą wydajnością.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mapa cieplna ważona klastra" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zapoznaj się <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>z Azure Maps</a> (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zapoznaj się <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>z Azure Maps</a> ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="mouse-events-on-clustered-data-points"></a>Zdarzenia myszy w klastrowanych punktach danych
@@ -95,16 +94,16 @@ Gdy zdarzenia myszy wystąpią na warstwie zawierającej klastrowane punkty dany
 | Nazwa właściwości             | Typ    | Opis   |
 |---------------------------|---------|---------------|
 | `cluster`                 | wartość logiczna | Wskazuje, czy funkcja reprezentuje klaster. |
-| `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom`, `getClusterChildren`i `getClusterLeaves` metodami. |
-| `point_count`             | numer  | Liczba punktów, które zawiera klaster.  |
-| `point_count_abbreviated` | ciąg  | Ciąg, który skraca `point_count` wartość, jeśli jest długi. (na przykład 4 000 to 4K)  |
+| `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |
+| `point_count`             | liczba  | Liczba punktów, które zawiera klaster.  |
+| `point_count_abbreviated` | ciąg  | Ciąg, który skraca wartość, `point_count` Jeśli jest długi. (na przykład 4 000 to 4K)  |
 
-Ten przykład pobiera warstwę bąbelkową, która renderuje punkty klastra i dodaje zdarzenie kliknięcia. Gdy wyzwalane jest zdarzenie kliknięcia, kod oblicza i powiększa mapę do następnego stopnia powiększenia, przy czym klaster zostaje podzielony na siebie. Ta funkcja jest implementowana przy `getClusterExpansionZoom` użyciu metody `DataSource` klasy i `cluster_id` właściwości klikniętego klastrowanego punktu danych.
+Ten przykład pobiera warstwę bąbelkową, która renderuje punkty klastra i dodaje zdarzenie kliknięcia. Gdy wyzwalane jest zdarzenie kliknięcia, kod oblicza i powiększa mapę do następnego stopnia powiększenia, przy czym klaster zostaje podzielony na siebie. Ta funkcja jest implementowana przy użyciu `getClusterExpansionZoom` metody `DataSource` klasy i `cluster_id` Właściwości klikniętego klastrowanego punktu danych.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="GetClusterExpansionZoom klastra" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/moZWeV/'>GetClusterExpansionZoom klastra</a> pióra według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/moZWeV/'>GetClusterExpansionZoom klastra</a> pióra według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="display-cluster-area"></a>Wyświetlanie obszaru klastra 
@@ -114,17 +113,17 @@ Dane punktów reprezentowane przez klaster są rozłożone na obszar. W tym przy
 <br/>
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Kadłub wypukłych obszarów klastra" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>kadłubem obszar klastra</a> piórem<a href='https://codepen.io/azuremaps'>@azuremaps</a>wypukły przez Azure Maps () w witrynie <a href='https://codepen.io'>CodePen</a>.
+Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>kadłubem obszar klastra piórem wypukły</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="aggregating-data-in-clusters"></a>Agregowanie danych w klastrach
 
-Często klastry są reprezentowane przy użyciu symbolu z liczbą punktów znajdujących się w klastrze. Jednak czasami pożądane jest dostosowanie stylu klastrów przy użyciu dodatkowych metryk. W przypadku agregacji klastra właściwości niestandardowe można tworzyć i wypełniać przy użyciu obliczeń [wyrażeń agregujących](data-driven-style-expressions-web-sdk.md#aggregate-expression) .  Agregacje klastrów można definiować w `clusterProperties` opcjach. `DataSource`
+Często klastry są reprezentowane przy użyciu symbolu z liczbą punktów znajdujących się w klastrze. Jednak czasami pożądane jest dostosowanie stylu klastrów przy użyciu dodatkowych metryk. W przypadku agregacji klastra właściwości niestandardowe można tworzyć i wypełniać przy użyciu obliczeń [wyrażeń agregujących](data-driven-style-expressions-web-sdk.md#aggregate-expression) .  Agregacje klastrów można definiować w `clusterProperties` opcjach `DataSource` .
 
 W poniższym przykładzie zastosowano wyrażenie agregujące. Kod oblicza liczbę na podstawie właściwości typu jednostki każdego punktu danych w klastrze. Gdy użytkownik kliknie klaster, zostanie wyświetlone okno podręczne z dodatkowymi informacjami o klastrze.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Agregacje klastra" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregaty klastra</a> piórem według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregaty klastra</a> piórem według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Następne kroki

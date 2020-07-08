@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804626"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Deploy the Azure Blob Storage on IoT Edge module to your device (Wdrażanie modułu usługi Azure Blob Storage w usłudze IoT Edge na urządzeniu)
@@ -84,16 +83,16 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 
    - Zamień `<your storage account name>` na nazwę, którą można zapamiętać. Nazwy kont powinny składać się z od 3 do 24 znaków, z małymi literami i cyframi. Bez spacji.
 
-   - Zamień `<your storage account key>` na 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
+   - Zamień na `<your storage account key>` 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
 
    - Zamień `<storage mount>` według systemu operacyjnego kontenera. Podaj nazwę [woluminu](https://docs.docker.com/storage/volumes/) lub ścieżkę bezwzględną do istniejącego katalogu na urządzeniu IoT Edge, w którym moduł obiektów BLOB będzie przechowywał swoje dane. Instalacja magazynu mapuje lokalizację na urządzeniu dostarczaną do lokalizacji zestawu w module.
 
-     - W przypadku kontenerów systemu Linux format jest ** \<ścieżką magazynu lub woluminem>:/blobroot**. Przykład:
+     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Przykład:
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
-         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - W przypadku kontenerów systemu Windows format jest ** \<ścieżką magazynu lub woluminem>: C:/BlobRoot**. Przykład:
-         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
+         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Przykład:
+         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - Zamiast korzystać z dysku lokalnego, możesz zmapować lokalizację sieciową SMB, aby uzyskać więcej informacji, zobacz [Używanie udziału SMB jako magazynu lokalnego](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) .
 
      > [!IMPORTANT]
@@ -155,7 +154,7 @@ Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zg�
 
 Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają opracowywanie rozwiązań brzegowych. Wykonaj następujące kroki, aby utworzyć nowe rozwiązanie IoT Edge przy użyciu modułu BLOB Storage i skonfigurować manifest wdrożenia.
 
-1. Wybierz pozycję **Widok** > **paleta poleceń**.
+1. Wybierz pozycję **Widok**  >  **paleta poleceń**.
 
 1. W palecie poleceń wprowadź i uruchom polecenie **Azure IoT Edge: nowe rozwiązanie usługi IoT Edge**.
 
@@ -173,7 +172,7 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
 
    Visual Studio Code pobiera podane informacje, tworzy rozwiązanie IoT Edge, a następnie ładuje je w nowym oknie. Szablon rozwiązania tworzy szablon manifestu wdrożenia, który zawiera obraz modułu magazynu obiektów blob, ale należy skonfigurować opcje tworzenia modułu.
 
-1. Otwórz plik *Deployment. Template. JSON* w nowym obszarze roboczym rozwiązania i Znajdź sekcję **modułów** . Wprowadź następujące zmiany w konfiguracji:
+1. Otwórz *deployment.template.jsna* nowym obszarze roboczym rozwiązania i Znajdź sekcję **modułów** . Wprowadź następujące zmiany w konfiguracji:
 
    1. Usuń moduł **SimulatedTemperatureSensor** , ponieważ nie jest to konieczne w przypadku tego wdrożenia.
 
@@ -196,22 +195,22 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
 
 1. Zamień `<your storage account name>` na nazwę, którą można zapamiętać. Nazwy kont powinny składać się z od 3 do 24 znaków, z małymi literami i cyframi. Bez spacji.
 
-1. Zamień `<your storage account key>` na 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
+1. Zamień na `<your storage account key>` 64-bajtowy klucz Base64. Klucz można wygenerować za pomocą narzędzi, takich jak [GeneratePlus](https://generate.plus/en/base64). Te poświadczenia będą używane do uzyskiwania dostępu do magazynu obiektów blob z innych modułów.
 
 1. Zamień `<storage mount>` według systemu operacyjnego kontenera. Podaj nazwę [woluminu](https://docs.docker.com/storage/volumes/) lub ścieżkę bezwzględną do katalogu na urządzeniu IoT Edge, w którym moduł obiektów BLOB ma przechowywać swoje dane. Instalacja magazynu mapuje lokalizację na urządzeniu dostarczaną do lokalizacji zestawu w module.  
 
-     - W przypadku kontenerów systemu Linux format jest ** \<ścieżką magazynu lub woluminem>:/blobroot**. Przykład:
+     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Przykład:
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
-         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - W przypadku kontenerów systemu Windows format jest ** \<ścieżką magazynu lub woluminem>: C:/BlobRoot**. Na przykład:
-         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
+         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Na przykład
+         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - Zamiast korzystać z dysku lokalnego, można zmapować lokalizację sieciową SMB. Aby uzyskać więcej informacji, zobacz [Używanie udziału SMB jako magazynu lokalnego](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) .
 
      > [!IMPORTANT]
      > Nie należy zmieniać drugiej połowy wartości instalacji magazynu, która wskazuje konkretną lokalizację w Blob Storage na IoT Edge module. Instalacja magazynu musi być zawsze zakończona **:/blobroot** dla kontenerów systemu Linux i **: C:/blobroot** dla kontenerów Windows.
 
-1. Skonfiguruj [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) i [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) dla modułu, dodając następujący kod JSON do pliku *Deployment. Template. JSON* . Skonfiguruj każdą właściwość z odpowiednią wartością i Zapisz plik. Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) i [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
+1. Skonfiguruj [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) i [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) dla modułu, dodając następujący kod JSON do *deployment.template.js* pliku. Skonfiguruj każdą właściwość z odpowiednią wartością i Zapisz plik. Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) i [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
@@ -242,15 +241,15 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
 
 1. Zapisz plik *deployment.template.json*.
 
-1. Kliknij prawym przyciskiem myszy pozycję **Deployment. Template. JSON** i wybierz polecenie **Generuj IoT Edge manifest wdrożenia**.
+1. Kliknij prawym przyciskiem myszy **deployment.template.jsna** i wybierz polecenie **Generuj IoT Edge manifest wdrożenia**.
 
-1. Visual Studio Code pobiera informacje podane we *wdrożeniu. Template. JSON* i używa go do utworzenia nowego pliku manifestu wdrożenia. Manifest wdrożenia jest tworzony w nowym folderze **konfiguracji** w obszarze roboczym rozwiązania. Po umieszczeniu tego pliku można wykonać kroki opisane w sekcji [wdrażanie modułów Azure IoT Edge z Visual Studio Code](how-to-deploy-modules-vscode.md) lub [wdrożyć moduły Azure IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure 2,0](how-to-deploy-modules-cli.md).
+1. Visual Studio Code pobiera informacje podane w *deployment.template.json* i używa go do utworzenia nowego pliku manifestu wdrożenia. Manifest wdrożenia jest tworzony w nowym folderze **konfiguracji** w obszarze roboczym rozwiązania. Po umieszczeniu tego pliku można wykonać kroki opisane w sekcji [wdrażanie modułów Azure IoT Edge z Visual Studio Code](how-to-deploy-modules-vscode.md) lub [wdrożyć moduły Azure IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure 2,0](how-to-deploy-modules-cli.md).
 
 ## <a name="deploy-multiple-module-instances"></a>Wdróż wiele wystąpień modułów
 
 Jeśli chcesz wdrożyć wiele wystąpień Blob Storage platformy Azure w module IoT Edge, musisz podać inną ścieżkę magazynu i zmienić `HostPort` wartość, z którą jest powiązany moduł. Moduły magazynu obiektów BLOB zawsze uwidaczniają port 11002 w kontenerze, ale można zadeklarować, który port jest powiązany z hostem.
 
-Edytuj **Opcje tworzenia kontenera** (w Azure Portal) lub **w polu "** w pliku *Deployment. Template. JSON* w Visual Studio Code), aby zmienić `HostPort` wartość:
+Edytuj **Opcje tworzenia kontenera** (w Azure Portal) lub pole " **isoptions** " (w *deployment.template.js* pliku w Visual Studio Code), aby zmienić `HostPort` wartość:
 
 ```json
 "PortBindings":{

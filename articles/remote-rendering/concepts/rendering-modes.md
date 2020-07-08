@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681703"
 ---
 # <a name="rendering-modes"></a>Tryby renderowania
@@ -38,7 +37,7 @@ W trybie **DepthBasedComposition** każdy procesor GPU jest renderowany w pełne
 
 Każdy pojedynczy procesor GPU używa technologii MSAA do AntiAlias zawartości lokalnej. Jednak może istnieć nieodłączne aliasowanie między krawędziami z różnych procesorów GPU. Ten efekt jest skorygowany przez dostosujesz końcowego obrazu, ale jakość technologii MSAA nadal jest gorsza niż w trybie **TileBasedComposition** .
 
-Artefakty MSAA są zilustrowane na poniższym obrazie ![: MSAA w DepthBasedComposition](./media/service-render-mode-balanced.png)
+Artefakty MSAA są zilustrowane na poniższym obrazie: ![ MSAA w DepthBasedComposition](./media/service-render-mode-balanced.png)
 
 Antyaliasowanie działa prawidłowo między rzeźbami i Curtain, ponieważ obie części są renderowane na tym samym procesorze GPU. Z drugiej strony krawędzie między Curtain i ścianą pokazują pewne aliasy, ponieważ te dwie części składają się z różnych procesorów GPU.
 
@@ -50,7 +49,7 @@ Charakterystyki wydajności obu trybów różnią się w zależności od przypad
 
 ## <a name="setting-the-render-mode"></a>Ustawianie trybu renderowania
 
-Tryb renderowania używany przez maszynę wirtualną renderowania zdalnego jest określany `AzureSession.ConnectToRuntime` w trakcie `ConnectToRuntimeParams`za pośrednictwem.
+Tryb renderowania używany przez maszynę wirtualną renderowania zdalnego jest określany w trakcie `AzureSession.ConnectToRuntime` za pośrednictwem `ConnectToRuntimeParams` .
 
 ```cs
 async void ExampleConnect(AzureSession session)

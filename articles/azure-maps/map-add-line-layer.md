@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80802352"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Dodawanie warstwy liniowej do mapy
@@ -21,7 +20,7 @@ ms.locfileid: "80802352"
 Warstwa linii może służyć do renderowania `LineString` i `MultiLineString` funkcji jako ścieżki lub trasy na mapie. Warstwa linii może również służyć do renderowania konspektu `Polygon` i `MultiPolygon` funkcji. Źródło danych jest połączone z warstwą linii w celu zapewnienia jej danych do renderowania. 
 
 > [!TIP]
-> Warstwy liniowe domyślnie będą renderować współrzędne wielokątów, jak również linie w źródle danych. Aby ograniczyć warstwę, która jest renderowana tylko w celu renderowania funkcji `filter` LineString, ustaw właściwość warstwy `['==', ['geometry-type'], 'LineString']` na `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` lub, jeśli chcesz również uwzględnić funkcje MultiLineString.
+> Warstwy liniowe domyślnie będą renderować współrzędne wielokątów, jak również linie w źródle danych. Aby ograniczyć warstwę, która jest renderowana tylko w celu renderowania funkcji LineString, ustaw `filter` Właściwość warstwy na `['==', ['geometry-type'], 'LineString']` lub, `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` Jeśli chcesz również uwzględnić funkcje MultiLineString.
 
 Poniższy kod pokazuje, jak utworzyć wiersz. Dodaj wiersz do źródła danych, a następnie Renderuj go za pomocą warstwy liniowej za pomocą klasy [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
@@ -44,7 +43,7 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany z powyższymi funkc
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Dodawanie linii do mapy' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Dodaj linię do mapy</a> według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Dodawanie linii do mapy' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Dodaj linię do mapy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Warstwy linii można stylować za pomocą [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) i [używać wyrażeń opartych na danych](data-driven-style-expressions-web-sdk.md).
@@ -56,7 +55,7 @@ Ten przykład pokazuje, jak dodać ikony strzałek wzdłuż linii na mapie. W pr
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Pokaż strzałkę wzdłuż linii" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/drBJwX/'>strzałka Pokaż strzałkę obok pozycji</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/drBJwX/'>strzałka Pokaż strzałkę obok pozycji</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -66,12 +65,12 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/drBJwX/'>strzałka Pokaż strza
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Dodawanie gradientu obrysu do linii
 
-Możesz zastosować jeden kolor pociągnięcia do linii. Możesz również wypełnić linię gradientem kolorów, aby pokazać przejście z jednego segmentu linii do następnego segmentu wiersza. Na przykład gradienty linii mogą służyć do reprezentowania zmian w czasie i odległości lub w różnych temperaturach w połączonej linii obiektów. Aby można było zastosować tę funkcję do wiersza, do źródła danych musi być ustawiona `lineMetrics` opcja true, a następnie wyrażenie gradientu koloru może być przesyłane do `strokeColor` opcji wiersza. Wyrażenie gradientu obrysu musi odwoływać `['line-progress']` się do wyrażenia danych, które uwidacznia obliczane metryki linii dla wyrażenia.
+Możesz zastosować jeden kolor pociągnięcia do linii. Możesz również wypełnić linię gradientem kolorów, aby pokazać przejście z jednego segmentu linii do następnego segmentu wiersza. Na przykład gradienty linii mogą służyć do reprezentowania zmian w czasie i odległości lub w różnych temperaturach w połączonej linii obiektów. Aby można było zastosować tę funkcję do wiersza, do źródła danych musi być `lineMetrics` ustawiona opcja true, a następnie wyrażenie gradientu koloru może być przesyłane do `strokeColor` opcji wiersza. Wyrażenie gradientu obrysu musi odwoływać się do `['line-progress']` wyrażenia danych, które uwidacznia obliczane metryki linii dla wyrażenia.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Linia z gradientem pociągnięcia" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz linię pióra <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>z gradientem pociągnięcia</a> ,<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () na <a href='https://codepen.io'>CodePen</a>.
+Zobacz linię pióra <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>z gradientem pociągnięcia</a> , Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-line-layer"></a>Dostosowywanie warstwy liniowej
@@ -80,7 +79,7 @@ Warstwa linii ma kilka opcji stylów. Oto narzędzie do wypróbowania.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opcje warstwy linii' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opcje warstwy</a> pióra według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opcje warstwy linii' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opcje warstwy</a> pióra według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Następne kroki

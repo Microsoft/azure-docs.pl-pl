@@ -9,15 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804660"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Korzystanie z modułu Azure Maps Services
 
-Zestaw SDK sieci Web Azure Maps zawiera *moduł usług*. Ten moduł jest biblioteką pomocniczą, która ułatwia używanie Azure Maps usług REST w aplikacjach sieci Web lub Node. js przy użyciu języka JavaScript lub TypeScript.
+Zestaw SDK sieci Web Azure Maps zawiera *moduł usług*. Ten moduł jest biblioteką pomocników ułatwiającą korzystanie z Azure Maps usług REST w aplikacjach sieci Web lub Node.js za pomocą języka JavaScript lub TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Korzystanie z modułu usług na stronie sieci Web
 
@@ -160,7 +159,7 @@ Zestaw SDK sieci Web Azure Maps zawiera *moduł usług*. Ten moduł jest bibliot
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Korzystanie z modułu usług" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz pióro <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>przy użyciu modułu usług</a> według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) w witrynie <a href='https://codepen.io'>CodePen</a>.
+Zobacz pióro <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>przy użyciu modułu usług</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
@@ -183,7 +182,7 @@ W przypadku korzystania z modułu usługi domena dla usług musi być ustawiona 
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Jeśli bezpośredni dostęp do usług REST Azure Maps, Zmień domenę adresu URL na `atlas.azure.us`. Na przykład jeśli korzystasz z usługi interfejsu API wyszukiwania, Zmień domenę adresu URL `https://atlas.microsoft.com/search/` z `https://atlas.azure.us/search/`na.
+Jeśli bezpośredni dostęp do usług REST Azure Maps, Zmień domenę adresu URL na `atlas.azure.us` . Na przykład jeśli korzystasz z usługi interfejsu API wyszukiwania, Zmień domenę adresu URL z `https://atlas.microsoft.com/search/` na `https://atlas.azure.us/search/` .
 
 ## <a name="next-steps"></a>Następne kroki
 

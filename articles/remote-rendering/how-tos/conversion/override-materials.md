@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681482"
 ---
 # <a name="override-materials-during-model-conversion"></a>Zastępowanie materiałów podczas konwersji modelu
@@ -38,7 +37,7 @@ W takim przypadku `box_materials_override.json` plik można utworzyć w następu
 ]
 ```
 
-`box_materials_override.json` Plik znajduje się w kontenerze wejściowym i `ConversionSettings.json` jest dodawany obok `box.fbx`, który informuje o konwersji, gdzie znaleźć plik przesłonięcia (zobacz [Konfigurowanie konwersji modelu](configure-model-conversion.md)):
+`box_materials_override.json`Plik znajduje się w kontenerze wejściowym i `ConversionSettings.json` jest dodawany obok `box.fbx` , który informuje o konwersji, gdzie znaleźć plik przesłonięcia (zobacz [Konfigurowanie konwersji modelu](configure-model-conversion.md)):
 
 ```json
 {
@@ -52,7 +51,7 @@ Po przekonwertowaniu modelu zostaną zastosowane nowe ustawienia.
 
 Model [materiału kolorów](../../overview/features/color-materials.md) opisuje ciągle zacieniowaną powierzchnię, która jest niezależna od oświetlenia.
 Jest to przydatne w przypadku zasobów dokonywanych przez algorytmy photogrammetry, na przykład.
-W plikach zastąpienia plików materiał może być zadeklarowany jako materiał koloru przez ustawienie `unlit` do. `true`
+W plikach zastąpienia plików materiał może być zadeklarowany jako materiał koloru przez ustawienie `unlit` do `true` .
 
 ```json
 [
@@ -86,7 +85,7 @@ Aby zapoznać się z pełną listą map tekstury, które można zignorować, zob
 
 ## <a name="json-schema"></a>Schemat JSON
 
-Pełny schemat JSON dla plików materiałów jest podawany w tym miejscu. Z wyjątkiem `unlit` i `ignoreTextureMaps`, dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiałach kolorów](../../overview/features/color-materials.md) i w modelu. [PBR material](../../overview/features/pbr-materials.md)
+Pełny schemat JSON dla plików materiałów jest podawany w tym miejscu. Z wyjątkiem `unlit` i `ignoreTextureMaps` , dostępne właściwości są podzbiorem właściwości opisanych w sekcjach na [materiałach kolorów](../../overview/features/color-materials.md) i w modelu. [PBR material](../../overview/features/pbr-materials.md)
 
 ```json
 {

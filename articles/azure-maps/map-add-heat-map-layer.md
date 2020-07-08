@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804558"
 ---
 # <a name="add-a-heat-map-layer"></a>Dodawanie warstwy mapy cieplnej
@@ -29,7 +28,7 @@ W wielu różnych scenariuszach można używać map cieplnych, takich jak:
 - **Śledzenie GPS**: zawiera szybkość jako mapę ważonej wysokości, w której intensywność każdego punktu danych jest oparta na szybkości. Na przykład ta funkcja zapewnia sposób, aby zobaczyć, gdzie nastąpiło przyspieszenie pojazdu.
 
 > [!TIP]
-> Warstwy mapy cieplnej domyślnie renderują współrzędne wszystkich geometrie w źródle danych. Aby ograniczyć warstwę tak, aby była renderowana tylko funkcja geometrii punktu, należy `filter` ustawić właściwość warstwy na `['==', ['geometry-type'], 'Point']`. Jeśli chcesz również uwzględnić funkcje systemu MultiPoint, ustaw `filter` Właściwość warstwy na. `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`
+> Warstwy mapy cieplnej domyślnie renderują współrzędne wszystkich geometrie w źródle danych. Aby ograniczyć warstwę tak, aby była renderowana tylko funkcja geometrii punktu, należy ustawić `filter` Właściwość warstwy na `['==', ['geometry-type'], 'Point']` . Jeśli chcesz również uwzględnić funkcje systemu MultiPoint, ustaw `filter` Właściwość warstwy na `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` .
 
 <br/>
 
@@ -60,7 +59,7 @@ Oto kompletny przykładowy kod dla poprzedniego kodu.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Prosta warstwa mapy cieplnej' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>warstwą prostej mapy ciepła</a> piórem Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Prosta warstwa mapy cieplnej' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>warstwą prostej mapy ciepła</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-the-heat-map-layer"></a>Dostosowywanie warstwy mapy cieplnej
@@ -76,20 +75,20 @@ Poprzedni przykład dostosowany do mapy cieplnej przez ustawienie opcji promień
 
   | Wyrażenie koloru interpolacji | Wyrażenie koloru z możliwością | 
   |--------------------------------|--------------------------|
-  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Interpolacja",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["liniowe\]",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["mapę cieplną-gęstość"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "przezroczyste",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "purpurowe",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, "#fb00fb",<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, "#00c3ff"<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"krok",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["mapę cieplną-gęstość"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;"transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "Granat",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, "zielony",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "żółty",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, czerwony<br/>\] |   
+  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Interpolacja",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["liniowe" \] ,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["mapę cieplną-gęstość" \] ,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "przezroczyste",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "purpurowe",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, "#fb00fb",<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, "#00c3ff"<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"krok",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["mapę cieplną-gęstość" \] ,<br/>&nbsp;&nbsp;&nbsp;&nbsp;"transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "Granat",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, "zielony",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "żółty",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, czerwony<br/>\] |   
 
 - `opacity`: Określa sposób nieprzezroczystości lub przezroczystości warstwy mapy cieplnej.
 - `intensity`: Stosuje mnożnik do wagi każdego punktu danych w celu zwiększenia całkowitego intensywności mapę cieplną. Powoduje to różnicę wagi punktów danych, ułatwiając wizualizację.
 - `weight`: Domyślnie wszystkie punkty danych mają wagę 1 i są ważone w równym stopniu. Opcja wagi pełni rolę mnożnika i można ją ustawić jako liczbę lub wyrażenie. Jeśli liczba jest ustawiona jako waga, to równoważność umieszczania każdego punktu danych na mapie dwa razy. Na przykład, jeśli waga wynosi 2, to gęstość podwaja się. Ustawienie opcji wagi na liczbę renderuje mapę cieplną w podobny sposób, aby użyć opcji intensywność. 
 
   Jeśli jednak używasz wyrażenia, waga każdego punktu danych może opierać się na właściwościach poszczególnych punktów danych. Załóżmy na przykład, że każdy punkt danych reprezentuje trzęsienie ziemi. Wartość wielkości jest ważną metryką dla każdego punktu danych trzęsienia. Zdarza się cały czas, ale większość z nich ma niską wartość i nie są zauważalne. Użyj wartości wielkości w wyrażeniu, aby przypisać wagę do każdego punktu danych. Przy użyciu wartości wielkości do przypisywania wagi, uzyskuje się lepszą reprezentację znaczenia ziemi w ramach mapy cieplnej.
-- `source`i `source-layer`: umożliwiają zaktualizowanie źródła danych.
+- `source`i `source-layer` : umożliwiają zaktualizowanie źródła danych.
 
 Oto narzędzie do testowania różnych opcji warstwy mapy cieplnej.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opcje warstwy mapy cieplnej' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Opcje warstwy mapy ciepła</a> pióra według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opcje warstwy mapy cieplnej' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Opcje warstwy mapy ciepła</a> pióra według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="consistent-zoomable-heat-map"></a>Spójna Mapa cieplna z powiększaniem
@@ -98,12 +97,12 @@ Domyślnie promienie punktów danych renderowane w warstwie mapy cieplnej mają 
 
 Użyj `zoom` wyrażenia, aby skalować promień dla każdego poziomu powiększenia, w taki sposób, że każdy punkt danych obejmuje ten sam obszar fizyczny mapy. To wyrażenie sprawia, że warstwa mapy cieplnej jest bardziej statyczna i spójna. Każdy poziom powiększenia mapy ma dwa piksele w pionie i poziomie jako poprzedni poziom powiększenia. 
 
-Skalowanie promienia tak, aby podwajał się przy każdym poziomie powiększenia tworzy mapę cieplną, która wygląda spójnie na wszystkich poziomach powiększenia. Aby zastosować to skalowanie, `zoom` należy użyć z wyrażeniem podstawowym 2 `exponential interpolation` , z zestawem pikseli dla minimalnego poziomu powiększenia i skalowanego promienia dla maksymalnego poziomu powiększenia obliczonego jak `2 * Math.pow(2, minZoom - maxZoom)` pokazano w poniższym przykładzie. Powiększ mapę, aby zobaczyć, jak mapa cieplna jest skalowana z poziomem powiększenia.
+Skalowanie promienia tak, aby podwajał się przy każdym poziomie powiększenia tworzy mapę cieplną, która wygląda spójnie na wszystkich poziomach powiększenia. Aby zastosować to skalowanie, należy użyć `zoom` z `exponential interpolation` wyrażeniem podstawowym 2, z zestawem pikseli dla minimalnego poziomu powiększenia i skalowanego promienia dla maksymalnego poziomu powiększenia obliczonego jak `2 * Math.pow(2, minZoom - maxZoom)` pokazano w poniższym przykładzie. Powiększ mapę, aby zobaczyć, jak mapa cieplna jest skalowana z poziomem powiększenia.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Spójna Mapa cieplna z powiększaniem" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>spójną mapę termiczną o powiększeniu powiększenia</a> przez Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>spójną mapę termiczną o powiększeniu powiększenia</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]

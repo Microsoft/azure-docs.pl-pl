@@ -11,10 +11,9 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757261"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorowanie punktu końcowego usługi Traffic Manager
@@ -40,7 +39,7 @@ Aby skonfigurować monitorowanie punktu końcowego, należy określić następuj
 
 ## <a name="how-endpoint-monitoring-works"></a>Jak działa monitorowanie punktów końcowych
 
-Jeśli protokół monitorowania jest ustawiony jako HTTP lub HTTPS, Traffic Manager Agent sondowania wysyła żądanie GET do punktu końcowego przy użyciu protokołu, portu i ścieżki względnej. Jeśli zostanie przywrócona odpowiedź 200-OK lub wszystkie odpowiedzi skonfigurowane w **oczekiwanych zakresach \*kodu stanu**, ten punkt końcowy jest traktowany jako zdrowy. Jeśli odpowiedź ma inną wartość lub jeśli w określonym limicie czasu nie zostanie odebrana żadna odpowiedź, Usługa Traffic Manager sondowania agenta próbuje ponownie zgodnie z tolerowaną liczbą niepowodzeń (bez ponawiania próby, jeśli to ustawienie ma wartość 0). Jeśli liczba kolejnych niepowodzeń jest większa niż tolerowana liczba błędów, ten punkt końcowy jest oznaczony jako w złej kondycji. 
+Jeśli protokół monitorowania jest ustawiony jako HTTP lub HTTPS, Traffic Manager Agent sondowania wysyła żądanie GET do punktu końcowego przy użyciu protokołu, portu i ścieżki względnej. Jeśli zostanie przywrócona odpowiedź 200-OK lub wszystkie odpowiedzi skonfigurowane w **oczekiwanych \* zakresach kodu stanu**, ten punkt końcowy jest traktowany jako zdrowy. Jeśli odpowiedź ma inną wartość lub jeśli w określonym limicie czasu nie zostanie odebrana żadna odpowiedź, Usługa Traffic Manager sondowania agenta próbuje ponownie zgodnie z tolerowaną liczbą niepowodzeń (bez ponawiania próby, jeśli to ustawienie ma wartość 0). Jeśli liczba kolejnych niepowodzeń jest większa niż tolerowana liczba błędów, ten punkt końcowy jest oznaczony jako w złej kondycji. 
 
 Jeśli protokół monitorowania to TCP, Agent Traffic Manager sondowania inicjuje żądanie połączenia TCP przy użyciu określonego portu. Jeśli punkt końcowy odpowiada na żądanie z odpowiedzią na nawiązanie połączenia, sprawdzanie kondycji zostanie oznaczone jako powodzenie, a agent Traffic Manager sondowania resetuje połączenie TCP. Jeśli odpowiedź ma inną wartość lub jeśli w określonym limicie czasu nie zostanie odebrana żadna odpowiedź, Traffic Manager próbnego agenta sondowania zgodnie z tolerowaną liczbą niepowodzeń (żadne ponowne próby nie są wykonywane, jeśli to ustawienie ma wartość 0). Jeśli liczba kolejnych niepowodzeń jest większa niż akceptowalna liczba błędów, oznacza to, że punkt końcowy jest oznaczony jako w złej kondycji.
 
@@ -87,7 +86,7 @@ Stan monitora profilu jest kombinacją skonfigurowanego stanu profilu oraz warto
 
 | Stan profilu (zgodnie z konfiguracją) | Stan monitora punktu końcowego | Stan monitora profilu | Uwagi |
 | --- | --- | --- | --- |
-| Disabled (Wyłączony) |&lt;dowolny&gt; lub profil bez zdefiniowanych punktów końcowych. |Disabled (Wyłączony) |Profil został wyłączony. |
+| Disabled (Wyłączony) |&lt;dowolny &gt; lub profil bez zdefiniowanych punktów końcowych. |Disabled (Wyłączony) |Profil został wyłączony. |
 | Enabled (Włączony) |Stan co najmniej jednego punktu końcowego ma obniżoną wydajność. |Obniżona wydajność |Przejrzyj wartości stanu poszczególnych punktów końcowych, aby określić, które punkty końcowe wymagają dalszej uwagi. |
 | Enabled (Włączony) |Stan co najmniej jednego punktu końcowego jest w trybie online. Żadne punkty końcowe nie mają stanu obniżonej wydajności. |Online |Usługa akceptuje ruch. Nie są wymagane żadne dalsze działania. |
 | Enabled (Włączony) |Stan co najmniej jednego punktu końcowego to CheckingEndpoint. Żadne punkty końcowe nie są w trybie online ani nie są w stanie obniżenia wydajności. |CheckingEndpoints |Ten stan przejścia występuje, gdy profil zostanie utworzony lub włączony. Kondycja punktu końcowego jest sprawdzana po raz pierwszy. |

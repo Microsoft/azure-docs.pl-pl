@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803386"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego w usłudze Azure Kubernetes Service (AKS)
@@ -26,13 +25,13 @@ Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza pol
 
 ## <a name="egress-traffic-overview"></a>Ruch wychodzący — Omówienie
 
-Ruch wychodzący z klastra AKS jest zgodny z [konwencjami Azure Load Balancer][outbound-connections]. Przed utworzeniem pierwszej usługi Kubernetes typu `LoadBalancer` , węzły agenta w klastrze AKS nie będą częścią żadnej puli Azure Load Balancer. W tej konfiguracji węzły nie mają publicznego adresu IP na poziomie wystąpienia. Platforma Azure tłumaczy przepływ wychodzący na publiczny adres IP, który nie jest konfigurowalny ani deterministyczny.
+Ruch wychodzący z klastra AKS jest zgodny z [konwencjami Azure Load Balancer][outbound-connections]. Przed utworzeniem pierwszej usługi Kubernetes typu `LoadBalancer` , węzły agenta w KLASTRZE AKS nie będą częścią żadnej puli Azure Load Balancer. W tej konfiguracji węzły nie mają publicznego adresu IP na poziomie wystąpienia. Platforma Azure tłumaczy przepływ wychodzący na publiczny adres IP, który nie jest konfigurowalny ani deterministyczny.
 
 Po utworzeniu usługi Kubernetes typu `LoadBalancer` , węzły agentów są dodawane do puli Azure Load Balancer. W przypadku przepływu wychodzącego platforma Azure tłumaczy ją na pierwszy publiczny adres IP skonfigurowany w ramach modułu równoważenia obciążenia. Ten publiczny adres IP jest prawidłowy tylko dla cykl życia tego zasobu. Po usunięciu usługi równoważenia obciążenia Kubernetes zostanie również usunięty skojarzony z nią moduł równoważenia i adres IP. Jeśli chcesz przypisać określony adres IP lub zachować adres IP dla ponownie wdrożonych usług Kubernetes, możesz utworzyć statyczny publiczny adres IP i używać go.
 
 ## <a name="create-a-static-public-ip"></a>Tworzenie statycznego publicznego adresu IP
 
-Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj parametr `--query nodeResourceGroup` zapytania. Poniższy przykład pobiera grupę zasobów węzła *dla nazwy klastra*AKS *myAKSCluster* w grupie zasobów nazwa zasobu:
+Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła *dla nazwy klastra*AKS *myAKSCluster* w grupie zasobów nazwa zasobu:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -97,7 +96,7 @@ Ta usługa konfiguruje nowy adres IP frontonu na Azure Load Balancer. Jeśli nie
 
 ## <a name="verify-egress-address"></a>Weryfikuj adres ruchu wychodzącego
 
-Aby sprawdzić, czy statyczny publiczny adres IP jest używany, można użyć usługi wyszukiwania DNS, takiej jak `checkip.dyndns.org`.
+Aby sprawdzić, czy statyczny publiczny adres IP jest używany, można użyć usługi wyszukiwania DNS, takiej jak `checkip.dyndns.org` .
 
 Rozpocznij i Dołącz do podstawowego *Debian* pod:
 
@@ -105,7 +104,7 @@ Rozpocznij i Dołącz do podstawowego *Debian* pod:
 kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
-Aby uzyskać dostęp do witryny sieci Web z poziomu kontenera, `apt-get` Użyj do `curl` zainstalowania w kontenerze.
+Aby uzyskać dostęp do witryny sieci Web z poziomu kontenera, użyj `apt-get` do zainstalowania `curl` w kontenerze.
 
 ```console
 apt-get update && apt-get install curl -y

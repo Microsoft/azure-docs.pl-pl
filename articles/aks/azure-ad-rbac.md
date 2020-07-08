@@ -6,10 +6,9 @@ services: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80803573"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w usłudze Azure Kubernetes Service
@@ -50,7 +49,7 @@ Utwórz pierwszą przykładową grupę w usłudze Azure AD dla deweloperów apli
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-Teraz Utwórz przypisanie roli platformy Azure dla grupy *appdev* za pomocą polecenia [AZ role przypisanie Create][az-role-assignment-create] . To przypisanie umożliwia członkom grupy korzystanie `kubectl` z programu w celu współdziałania z klastrem AKS, przyznając im *rolę użytkownika klastra usługi Azure Kubernetes*.
+Teraz Utwórz przypisanie roli platformy Azure dla grupy *appdev* za pomocą polecenia [AZ role przypisanie Create][az-role-assignment-create] . To przypisanie umożliwia członkom grupy korzystanie z programu w `kubectl` celu współdziałania z klastrem AKS, przyznając im *rolę użytkownika klastra usługi Azure Kubernetes*.
 
 ```azurecli-interactive
 az role assignment create \
@@ -60,7 +59,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Jeśli wystąpi błąd `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, na przykład, odczekaj kilka sekund, aby identyfikator obiektu grupy usługi Azure AD został rozpropagowany przez katalog, `az role assignment create` a następnie spróbuj ponownie wykonać polecenie.
+> Jeśli wystąpi błąd, na przykład `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.` , odczekaj kilka sekund, aby identyfikator obiektu grupy usługi Azure AD został rozpropagowany przez katalog, a następnie spróbuj `az role assignment create` ponownie wykonać polecenie.
 
 Utwórz drugą przykładową grupę, która dla SREs o nazwie *opssre*:
 
@@ -83,7 +82,7 @@ W przypadku dwóch przykładowych grup utworzonych w usłudze Azure AD dla naszy
 
 Utwórz pierwsze konto użytkownika w usłudze Azure AD za pomocą polecenia [AZ AD User Create][az-ad-user-create] .
 
-Poniższy przykład tworzy użytkownika o nazwie wyświetlanej *AKS dev* i głównej nazwy użytkownika (UPN) `aksdev@contoso.com`. Zaktualizuj nazwę UPN w taki sposób, aby zawierała zweryfikowaną domenę dla dzierżawy usługi Azure AD (Zastąp *contoso.com* własną domeną) `--password` i podaj swoje własne bezpieczne poświadczenia:
+Poniższy przykład tworzy użytkownika o nazwie wyświetlanej *AKS dev* i głównej nazwy użytkownika (UPN) `aksdev@contoso.com` . Zaktualizuj nazwę UPN w taki sposób, aby zawierała zweryfikowaną domenę dla dzierżawy usługi Azure AD (Zastąp *contoso.com* własną domeną) i podaj swoje własne bezpieczne `--password` poświadczenia:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -99,7 +98,7 @@ Teraz Dodaj użytkownika do grupy *appdev* utworzonej w poprzedniej sekcji za po
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Utwórz drugie konto użytkownika. Poniższy przykład tworzy użytkownika o nazwie wyświetlanej *AKS SRE* i głównej nazwy użytkownika (UPN) `akssre@contoso.com`. Ponownie zaktualizuj nazwę UPN w celu uwzględnienia zweryfikowanej domeny dla dzierżawy usługi Azure AD (Zastąp *contoso.com* własną domeną) i podaj własne bezpieczne `--password` poświadczenia:
+Utwórz drugie konto użytkownika. Poniższy przykład tworzy użytkownika o nazwie wyświetlanej *AKS SRE* i głównej nazwy użytkownika (UPN) `akssre@contoso.com` . Ponownie zaktualizuj nazwę UPN w celu uwzględnienia zweryfikowanej domeny dla dzierżawy usługi Azure AD (Zastąp *contoso.com* własną domeną) i podaj własne bezpieczne `--password` poświadczenia:
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -328,7 +327,7 @@ Zresetuj kontekst *kubeconfig* za pomocą polecenia [AZ AKS Get-Credentials][az-
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-Spróbuj zaplanować i wyświetlić w przypisanej przestrzeni nazw *SRE* . Po wyświetleniu monitu zaloguj się przy `opssre@contoso.com` użyciu własnych poświadczeń utworzonych na początku artykułu:
+Spróbuj zaplanować i wyświetlić w przypisanej przestrzeni nazw *SRE* . Po wyświetleniu monitu zaloguj się przy użyciu własnych `opssre@contoso.com` poświadczeń utworzonych na początku artykułu:
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
@@ -357,7 +356,7 @@ kubectl get pods --all-namespaces
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 ```
 
-Polecenia `kubectl` te kończą się niepowodzeniem, jak pokazano w poniższych przykładowych danych wyjściowych. Członkostwo w grupach użytkowników i rola Kubernetes oraz RoleBindings nie udzielają uprawnień do tworzenia i zarządzania zasobami w innych obszarach nazw:
+`kubectl`Polecenia te kończą się niepowodzeniem, jak pokazano w poniższych przykładowych danych wyjściowych. Członkostwo w grupach użytkowników i rola Kubernetes oraz RoleBindings nie udzielają uprawnień do tworzenia i zarządzania zasobami w innych obszarach nazw:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -367,7 +366,7 @@ $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule opisano tworzenie zasobów w klastrze AKS oraz użytkowników i grup w usłudze Azure AD. Aby wyczyścić wszystkie te zasoby, uruchom następujące polecenia:
 
