@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195898"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory

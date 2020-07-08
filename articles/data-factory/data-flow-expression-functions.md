@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
 ms.openlocfilehash: 9894bb2c6ead38b2770f572f7f5000c770d555e7
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267753"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych

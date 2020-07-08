@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 3733989ad6eed113e37c87eb7da6748cec10e34d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485768"
 ---
 Aby w spójny sposób tworzyć maszyny wirtualne platformy Azure i zarządzać nimi w odpowiedniej skali, zwykle jest wymagana pewna forma automatyzacji. Istnieje wiele narzędzi i rozwiązań umożliwiających automatyzację całego cyklu wdrażania infrastruktury platformy Azure i zarządzania nimi. W tym artykule przedstawiono niektóre narzędzia automatyzacji infrastruktury, których można użyć na platformie Azure. Te narzędzia często pasują do jednej z następujących metod:
