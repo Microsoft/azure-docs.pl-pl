@@ -5,19 +5,19 @@ services: active-directory
 author: CelesteDG
 manager: daveba
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339555"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054716"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Skonfigurować "pozostania w Twojej rejestracji?" Monituj o konta usługi Azure AD
 
@@ -55,7 +55,18 @@ Szczegóły dotyczące błędu logowania są następujące i wyróżnione w przy
 
 :::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Przykład wpisu dziennika logowania z przerwaniem "nie wylogowuj mnie"":::
 
-Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **opcję Pokaż na** wartość **nie** w ustawieniach zaawansowanych znakowania.
+Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **opcję Pokaż na** wartość **nie** w ustawieniach zaawansowanych znakowania. Spowoduje to wyłączenie monitu KMSI dla wszystkich użytkowników w katalogu usługi Azure AD.
+
+Można również użyć formantów sesji trwałej przeglądarki w dostępie warunkowym, aby uniemożliwić użytkownikom wyświetlenie monitu KMSI. Ta opcja umożliwia wyłączenie monitu KMSI dla wybranej grupy użytkowników (na przykład administratorów globalnych) bez wpływu na zachowanie logowania dla pozostałych użytkowników w katalogu. Aby uzyskać więcej informacji, zobacz [częstotliwość logowania użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+
+Aby upewnić się, że monit KMSI jest wyświetlany tylko wtedy, gdy może korzystać z użytkownika, monit KMSI nie jest zamierzony w następujących scenariuszach:
+
+* Użytkownik jest zalogowany za pomocą bezproblemowego logowania jednokrotnego i zintegrowanego uwierzytelniania systemu Windows (IWA)
+* Użytkownik jest zalogowany za pośrednictwem Active Directory Federation Services i IWA
+* Użytkownik jest gościem w dzierżawie
+* Ocena ryzyka użytkownika jest wysoka
+* Logowanie odbywa się podczas przepływu zgody użytkownika lub administratora
+* W zasadach dostępu warunkowego jest konfigurowana trwała kontrolka sesji przeglądarki
 
 ## <a name="next-steps"></a>Następne kroki
 

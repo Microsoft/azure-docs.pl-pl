@@ -4,18 +4,18 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343544"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054852"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Usługa Language Understanding — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
 
-## <a name="whats-new"></a>Co nowego?
+## <a name="whats-new"></a>Co nowego
 
 [Dowiedz się więcej](whats-new.md) na temat Nowości w programie Language UNDERSTANDING (Luis).
 
@@ -43,7 +43,7 @@ Tak. dobrym sposobem jest uczenie się, że **nie ma żadnych** zamiaru wyrażen
 Zobacz samouczek [Sprawdzanie pisowni Bing API wersji 7](luis-tutorial-bing-spellcheck.md) . LUIS wymusza limity narzucone przez sprawdzanie pisowni Bing API wersji 7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Jak mogę programowo edytować moją aplikację LUIS?
-Aby programowo edytować aplikację LUIS, użyj [interfejsu API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087). Zobacz [wywoływanie interfejsu API tworzenia Luis](./get-started-get-model-rest-apis.md) i [Tworzenie aplikacji Luis programowo przy użyciu środowiska Node. js](./luis-tutorial-node-import-utterances-csv.md) , aby poznać Przykłady sposobu wywoływania interfejsu API tworzenia. Interfejs API tworzenia wymaga użycia [klucza tworzenia](luis-concept-keys.md#azure-resources-for-luis) zamiast klucza punktu końcowego. Program programistyczny umożliwia tworzenie do 1 000 000 wywołań miesięcznie i pięć transakcji na sekundę. Aby uzyskać więcej informacji na temat kluczy używanych z usługą LUIS, zobacz [Zarządzanie kluczami](./luis-concept-keys.md).
+Aby programowo edytować aplikację LUIS, użyj [interfejsu API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087). Zobacz [wywołanie interfejsu API tworzenia Luis](./get-started-get-model-rest-apis.md) i [skompiluj aplikację Luis programowo przy użyciu Node.js](./luis-tutorial-node-import-utterances-csv.md) , aby poznać Przykłady sposobu wywoływania interfejsu API tworzenia. Interfejs API tworzenia wymaga użycia [klucza tworzenia](luis-how-to-azure-subscription.md#azure-resources-for-luis) zamiast klucza punktu końcowego. Program programistyczny umożliwia tworzenie do 1 000 000 wywołań miesięcznie i pięć transakcji na sekundę. Aby uzyskać więcej informacji na temat kluczy używanych z usługą LUIS, zobacz [Zarządzanie kluczami](./luis-how-to-azure-subscription.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Gdzie jest funkcja wzorca, która zapewnia dopasowanie wyrażenia regularnego?
 Funkcja poprzedniego **wzorca** jest obecnie przestarzała, zastępowana przez **[wzorce](luis-concept-patterns.md)**.
@@ -123,7 +123,7 @@ Zapoznaj się z [najlepszymi rozwiązaniami](luis-concept-best-practices.md) dot
 LUIS [tokenizes](luis-glossary.md#token) wypowiedź w oparciu o [kulturę](luis-language-support.md#tokenization). Zarówno oryginalna wartość, jak i wartość z tokenami są dostępne do [wyodrębnienia danych](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Jak mogę utworzyć i przypisać klucz punktu końcowego LUIS?
-[Utwórz klucz punktu końcowego](luis-how-to-azure-subscription.md) na platformie Azure dla poziomu [usługi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) . [Przypisz klucz](luis-how-to-azure-subscription.md) na stronie **[zasobów platformy Azure](luis-how-to-azure-subscription.md)** . Brak odpowiedniego interfejsu API dla tej akcji. Następnie należy zmienić żądanie HTTP do punktu końcowego, aby [użyć nowego klucza punktu końcowego](luis-concept-keys.md).
+[Utwórz klucz punktu końcowego](luis-how-to-azure-subscription.md) na platformie Azure dla poziomu [usługi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) . [Przypisz klucz](luis-how-to-azure-subscription.md) na stronie **[zasobów platformy Azure](luis-how-to-azure-subscription.md)** . Brak odpowiedniego interfejsu API dla tej akcji. Następnie należy zmienić żądanie HTTP do punktu końcowego, aby [użyć nowego klucza punktu końcowego](luis-how-to-azure-subscription.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Jak mogę interpretować wyników LUIS?
 System powinien używać najwyższego przeznaczenie oceny, niezależnie od jego wartości. Na przykład, wynik poniżej 0,5 (mniejszy niż 50%) nie musi oznaczać, że LUIS ma niski poziom pewności. Zapewnianie większej ilości danych szkoleniowych może pomóc w zwiększeniu [oceny](luis-concept-prediction-score.md) najbardziej najprawdopodobniej zamierzonego celu.
@@ -144,10 +144,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Moja aplikacja LUIS działała wczoraj, ale dzisiaj otrzymuję błędy 403. Aplikacja nie została zmieniona. Jak go naprawić?
-Postępuj zgodnie z tymi [instrukcjami](#how-do-i-create-and-assign-a-luis-endpoint-key) , aby utworzyć klucz punktu końcowego Luis i przypisać go do aplikacji. Następnie należy zmienić żądanie HTTP aplikacji klienta do punktu końcowego, aby [użyć nowego klucza punktu końcowego](luis-concept-keys.md). Jeśli nowy zasób został utworzony w innym regionie, Zmień również region żądania klienta HTTP.
+Postępuj zgodnie z tymi [instrukcjami](#how-do-i-create-and-assign-a-luis-endpoint-key) , aby utworzyć klucz punktu końcowego Luis i przypisać go do aplikacji. Następnie należy zmienić żądanie HTTP aplikacji klienta do punktu końcowego, aby [użyć nowego klucza punktu końcowego](luis-how-to-azure-subscription.md). Jeśli nowy zasób został utworzony w innym regionie, Zmień również region żądania klienta HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Jak mogę zabezpieczyć mojego punktu końcowego LUIS?
-Zobacz [Zabezpieczanie punktu końcowego](luis-concept-keys.md#securing-the-endpoint).
+Zobacz [Zabezpieczanie punktu końcowego](luis-how-to-azure-subscription.md#securing-the-endpoint).
 
 ## <a name="working-within-luis-limits"></a>Praca w granicach LUIS
 
@@ -206,7 +206,7 @@ Jeśli aplikacja istniała, zanim LUIS była ogólnie dostępna (GA), klucze pun
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Jak mogę dowiedzieć się, jakiego klucza potrzebuję, gdzie go mam, i co mam z nim korzystać?
 
-Aby dowiedzieć się więcej o różnicach między kluczem tworzenia i kluczem środowiska uruchomieniowego przewidywania, zobacz [Tworzenie i wykonywanie zapytań dotyczących kluczy punktu końcowego prognoz w programie Luis](luis-concept-keys.md) .
+Aby dowiedzieć się więcej o różnicach między kluczem tworzenia i kluczem środowiska uruchomieniowego przewidywania, zobacz [Tworzenie i wykonywanie zapytań dotyczących kluczy punktu końcowego prognoz w programie Luis](luis-how-to-azure-subscription.md) .
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Wystąpił błąd dotyczący braku limitu przydziału. Jak go naprawić?
 
@@ -301,7 +301,7 @@ Funkcja [Speech napełnianiu](https://docs.microsoft.com/bot-framework/bot-servi
 
 ### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Jak mogę programowo pobrać region LUIS zasobu?
 
-Użyj przykładu LUIS, aby [znaleźć region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programowo przy użyciu języka C# lub Node. js.
+Użyj przykładu LUIS, aby [znaleźć region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programowo przy użyciu języka C# lub Node.Js.
 
 ## <a name="luis-service"></a>Usługa LUIS
 

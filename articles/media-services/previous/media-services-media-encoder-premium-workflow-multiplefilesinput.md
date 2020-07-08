@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712347"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056807"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Korzystanie z wielu plików wejściowych i właściwości składników przy użyciu kodera Premium
 ## <a name="overview"></a>Omówienie
@@ -366,7 +366,7 @@ Teraz Dodaj elementy **multipleksera ISO MPEG-4** i **pliki wyjściowe** , a nas
 
 Należy ustawić nazwę pliku wyjściowego. Kliknij składnik **dane wyjściowe pliku** i Edytuj wyrażenie dla tego pliku:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![Nazwa wyjściowa pliku](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
@@ -466,7 +466,7 @@ Aby zakodować, wykonaj następujące kroki:
 
 * Zakodowany element zawartości będzie zawierać ścieżki audio w wielu językach, a ścieżki powinny być wybierane w Azure Media Player.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Jak używać kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

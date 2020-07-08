@@ -3,12 +3,12 @@ title: Odnajdź właściwości zasobów
 description: Opisuje sposób wyszukiwania właściwości zasobów.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e00ee875d9b0f7fadf27a44c55920872c815045
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668563"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057079"
 ---
 # <a name="discover-resource-properties"></a>Odnajdź właściwości zasobów
 
@@ -16,7 +16,7 @@ Przed utworzeniem Menedżer zasobów szablonów należy zrozumieć, jakie typy z
 
 ## <a name="find-resource-provider-namespaces"></a>Znajdowanie przestrzeni nazw dostawcy zasobów
 
-Zasoby w szablonie ARM są zdefiniowane za pomocą przestrzeni nazw dostawcy zasobów i typu zasobu. Na przykład, Microsoft. Storage/storageAccounts to pełna nazwa typu zasobu konta magazynu. Microsoft. Storage jest przestrzenią nazw. Jeśli nie znasz jeszcze przestrzeni nazw dla typów zasobów, których chcesz użyć, zobacz [dostawcy zasobów dla usług platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers).
+Zasoby w szablonie ARM są zdefiniowane za pomocą przestrzeni nazw dostawcy zasobów i typu zasobu. Na przykład, Microsoft. Storage/storageAccounts to pełna nazwa typu zasobu konta magazynu. Microsoft. Storage jest przestrzenią nazw. Jeśli nie znasz jeszcze przestrzeni nazw dla typów zasobów, których chcesz użyć, zobacz [dostawcy zasobów dla usług platformy Azure](../management/azure-services-resource-providers.md).
 
 ![Mapowanie przestrzeni nazw dostawcy zasobów Menedżer zasobów](./media/view-resources/resource-provider-namespace-and-azure-service-mapping.png)
 

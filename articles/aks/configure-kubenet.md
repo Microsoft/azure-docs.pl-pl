@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079047"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055498"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub no
 
 W wielu środowiskach zdefiniowano sieci wirtualne i podsieci z przydzielonymi zakresami adresów IP. Te zasoby sieci wirtualnej są używane do obsługi wielu usług i aplikacji. Aby zapewnić łączność sieciową, klastry AKS mogą korzystać z *korzystającą wtyczki kubenet* (Basic Network) lub Azure CNI (*Advanced Network*).
 
-W przypadku *korzystającą wtyczki kubenet*tylko węzły otrzymują adres IP w podsieci sieci wirtualnej. Nie mogą komunikować się ze sobą bezpośrednio. Zamiast tego, zdefiniowane przez użytkownika Routing (UDR) i przekazywanie adresów IP są używane do łączności między różnymi węzłami. Można również wdrożyć moduły równoważenia obciążenia za usługą, która odbiera przypisany adres IP i równoważy obciążenie dla aplikacji. Na poniższym diagramie przedstawiono sposób, w jaki węzły AKS odbierają adres IP w podsieci sieci wirtualnej, ale nie są to:
+W przypadku *korzystającą wtyczki kubenet*tylko węzły otrzymują adres IP w podsieci sieci wirtualnej. Nie mogą komunikować się ze sobą bezpośrednio. Zamiast tego, zdefiniowane przez użytkownika Routing (UDR) i przekazywanie adresów IP są używane do łączności między różnymi węzłami. Domyślnie konfiguracja przesyłania dalej UDR i IP jest tworzona i utrzymywana przez usługę AKS, ale należy wybrać opcję [przeprowadzenia własnej tabeli tras na potrzeby zarządzania trasami niestandardowymi][byo-subnet-route-table]. Można również wdrożyć moduły równoważenia obciążenia za usługą, która odbiera przypisany adres IP i równoważy obciążenie dla aplikacji. Na poniższym diagramie przedstawiono sposób, w jaki węzły AKS odbierają adres IP w podsieci sieci wirtualnej, ale nie są to:
 
 ![Model sieci korzystającą wtyczki kubenet z klastrem AKS](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ Użyj *usługi Azure CNI* , gdy:
 
 - Dostępna jest przestrzeń adresów IP.
 - Większość komunikacji pod względem źródła jest zasobami spoza klastra.
-- Nie chcesz zarządzać UDR.
+- Nie chcesz zarządzać trasami zdefiniowanymi przez użytkownika pod kątem łączności pod.
 - Potrzebujesz AKS zaawansowanych funkcji, takich jak węzły wirtualne lub zasady sieci platformy Azure.  Użyj [zasad sieciowych Calico][calico-network-policies].
 
 Aby uzyskać więcej informacji ułatwiających decydowanie o modelu sieci, który ma być używany, zobacz [porównanie modeli sieci i ich zakresu obsługi][network-comparisons].
@@ -139,10 +139,10 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Teraz Przypisz jednostkę usługi do uprawnień *współautora* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własne *\<appId>* , jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
+Teraz Przypisz jednostkę usługi do uprawnień *współautora sieci* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własne *\<appId>* , jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Tworzenie klastra AKS w sieci wirtualnej
@@ -253,6 +253,7 @@ W przypadku klastra AKS wdrożonego w istniejącej podsieci sieci wirtualnej mo�
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md

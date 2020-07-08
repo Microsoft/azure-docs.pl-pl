@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 459a34d104e01dca2cdf997c6aedd6f54f3adbaa
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677682"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055243"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
@@ -487,7 +487,7 @@ Aby pobrać listę dostępnych obrazów maszyn wirtualnych w lokalizacji, urucho
 az vm image list -all
 ```
 
-Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Na przykład:
+Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -574,7 +574,7 @@ Te same zmiany dotyczą także [dysków danych](../../virtual-machines/windows/u
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Sprawdź, czy rozszerzenia maszyn wirtualnych są dostępne w Azure Stack
 
-Inną kwestią dotyczącą spójności chmury jest użycie [rozszerzeń maszyny wirtualnej](../../virtual-machines/windows/extensions-features.md) w celu skonfigurowania zasobów w ramach maszyny wirtualnej. Nie wszystkie rozszerzenia maszyn wirtualnych są dostępne w Azure Stack. Szablon może określać zasoby przeznaczone dla rozszerzenia maszyny wirtualnej, tworząc zależności i warunki w ramach szablonu.
+Inną kwestią dotyczącą spójności chmury jest użycie [rozszerzeń maszyny wirtualnej](../../virtual-machines/extensions/features-windows.md) w celu skonfigurowania zasobów w ramach maszyny wirtualnej. Nie wszystkie rozszerzenia maszyn wirtualnych są dostępne w Azure Stack. Szablon może określać zasoby przeznaczone dla rozszerzenia maszyny wirtualnej, tworząc zależności i warunki w ramach szablonu.
 
 Na przykład jeśli chcesz skonfigurować maszynę wirtualną z Microsoft SQL Server, rozszerzenie maszyny wirtualnej może skonfigurować SQL Server jako część wdrożenia szablonu. Zastanów się, co się stanie, jeśli szablon wdrożenia zawiera również serwer aplikacji skonfigurowany do tworzenia bazy danych na maszynie wirtualnej z systemem SQL Server. Oprócz korzystania z rozszerzenia maszyny wirtualnej dla serwerów aplikacji można skonfigurować zależność serwera aplikacji po pomyślnym powrocie zasobu rozszerzenia maszyny wirtualnej SQL Server. Takie podejście zapewnia, że maszyna wirtualna z SQL Server jest skonfigurowana i dostępna, gdy serwer aplikacji zostanie utworzony w celu utworzenia bazy danych.
 
@@ -590,7 +590,7 @@ Aby pobrać listę rozszerzeń maszyn wirtualnych, które są dostępne dla okre
 az vm extension image list --location myLocation
 ```
 
-Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć, `-Location` Aby określić lokalizację obrazu maszyny wirtualnej. Na przykład:
+Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć, `-Location` Aby określić lokalizację obrazu maszyny wirtualnej. Przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

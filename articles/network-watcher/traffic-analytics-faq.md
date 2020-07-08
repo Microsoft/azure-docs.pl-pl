@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87b4f0573fbcc73573c508a7f8e39acadcfa05af
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189049"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056484"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -264,7 +264,7 @@ Analiza ruchu nie ma wbudowaną obsługę alertów. Jednak ponieważ Analiza ruc
 - Kliknij pozycję "Nowa reguła alertu", aby utworzyć alert
 - Zapoznaj się z [dokumentacją alertów dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) , aby utworzyć alert
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Jak mogę sprawdzić, które maszyny wirtualne odbierają większość ruchu lokalnego
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Jak mogę sprawdzić, które maszyny wirtualne odbierają większość ruchu lokalnego?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -288,7 +288,7 @@ Analiza ruchu nie ma wbudowaną obsługę alertów. Jednak ponieważ Analiza ruc
 
 Na czas Użyj formatu: rrrr-mm-dd 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Jak mogę sprawdzaj odchylenie standardowe w ruchu odbieranym przez maszyny wirtualne z maszyn lokalnych
+## <a name="how-do-i-check-standard-deviation-in-traffic-received-by-my-vms-from-on-premises-machines"></a>Jak mogę sprawdzić odchylenie standardowe w ruchu odbieranym przez maszyny wirtualne z maszyn lokalnych?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ Dla adresów IP:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Jak mogę sprawdzić, które porty są osiągalne (lub bocked) między parami adresów IP a regułami sieciowej grupy zabezpieczeń
+## <a name="how-do-i-check-which-ports-are-reachable-or-blocked-between-ip-pairs-with-nsg-rules"></a>Jak mogę sprawdzić, które porty są osiągalne (lub zablokowane) między parami adresów IP a regułami sieciowej grupy zabezpieczeń?
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -347,7 +347,7 @@ Strona mapy geograficznej zawiera dwie główne sekcje:
 ### <a name="keyboard-navigation-at-any-stage"></a>Nawigacja przy użyciu klawiatury na dowolnym etapie
     
 - `Esc`zwija rozwinięty wybór.
-- `Up arrow`Klucz wykonuje tę samą akcję co `Esc` . `Down arrow`Klucz wykonuje tę samą akcję co `Enter` .
+- `Up-arrow`Klucz wykonuje tę samą akcję co `Esc` . `Down arrow`Klucz wykonuje tę samą akcję co `Enter` .
 - Użyj `Shift+Plus` , aby powiększyć i `Shift+Minus` pomniejszyć.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Jak nawigować przy użyciu klawiatury w widoku topologia sieci wirtualnej?

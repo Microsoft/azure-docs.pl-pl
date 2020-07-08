@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 440162d6cddd790cdb2859c119d60a6dbe28dcbf
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374881"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055464"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
 
@@ -25,7 +25,7 @@ Language Understanding (LUIS) uwierzytelnianie autorstwa zostało zmienione z ko
 
 ## <a name="what-is-migration"></a>Co to jest migracja?
 
-Migracja to proces zmiany uwierzytelniania autorstwa z konta e-mail na zasób platformy Azure. Twoje konto zostanie połączone z subskrypcją platformy Azure i zasobem tworzenia platformy Azure po przeprowadzeniu migracji. *Wszyscy użytkownicy LUIS (właściciele lub współpracownicy) będą ostatecznie musieli przeprowadzić migrację.* 
+Migracja to proces zmiany uwierzytelniania autorstwa z konta e-mail na zasób platformy Azure. Twoje konto zostanie połączone z subskrypcją platformy Azure i zasobem tworzenia platformy Azure po przeprowadzeniu migracji. *Wszyscy użytkownicy LUIS (właściciele lub współpracownicy) będą ostatecznie musieli przeprowadzić migrację.*
 
 Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzenia przy użyciu interfejsu wiersza polecenia LUIS, na przykład musisz ukończyć proces migracji w portalu LUIS. Po migracji można nadal korzystać z współautorów aplikacji, ale zostaną one dodane na poziomie zasobów platformy Azure, a nie na poziomie aplikacji.
 
@@ -81,7 +81,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
 3. Jeśli dowolna z aplikacji ma współpracowników, zostanie wyświetlony monit o wysłanie do nich wiadomości e-mail z informacją o migracji. Jest to opcjonalny krok.
 
    Dla każdego współpracownika i aplikacji zostanie otwarta domyślna aplikacja poczty e-mail z lekko sformatowaną wiadomością e-mail. Wiadomość e-mail można edytować przed jej wysłaniem. Szablon wiadomości e-mail zawiera dokładny identyfikator aplikacji i nazwę aplikacji.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -89,10 +89,10 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > Po przeprowadzeniu migracji konta na platformę Azure aplikacje nie będą już dostępne dla współpracowników.
 
@@ -162,7 +162,7 @@ Lista **Moje aplikacje** zawiera aplikacje migrowane do nowego zasobu tworzenia.
  > [!div class="mx-imgBorder"]
  > ![Pola dla subskrypcji i zasobu tworzenia](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-Nie musisz znać klucza zasobu tworzenia, aby kontynuować edytowanie aplikacji w portalu LUIS. 
+Nie musisz znać klucza zasobu tworzenia, aby kontynuować edytowanie aplikacji w portalu LUIS.
 
 Jeśli planujesz edytować aplikacje programowo, będziesz potrzebować wartości klucza tworzenia. Te wartości są wyświetlane na stronie **Zarządzanie**  >  **zasobami platformy Azure** w portalu Luis. Są one również dostępne w Azure Portal na stronie **klucze** zasobu. Możesz również utworzyć więcej zasobów autorstwa i przypisać je z tej samej strony.
 
@@ -246,5 +246,5 @@ Jeśli zobaczysz następujący błąd, sprawdź [zalecane kroki, jeśli jesteś 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się [z pojęciami dotyczącymi tworzenia i kluczy czasu wykonywania](luis-concept-keys.md). 
+* Zapoznaj się [z pojęciami dotyczącymi tworzenia i kluczy czasu wykonywania](luis-how-to-azure-subscription.md).
 * Zapoznaj się z tematem [przypisywanie kluczy](luis-how-to-azure-subscription.md) i [Dodawanie współautorów](luis-how-to-collaborate.md).

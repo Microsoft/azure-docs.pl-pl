@@ -4,16 +4,16 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 77a1359f81df1df9508e942ff6fa1f73ece51ca8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391234"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055668"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
-W tym artykule opisano niektóre typowe błędy wdrażania platformy Azure i przedstawiono informacje umożliwiające rozwiązanie tych błędów. Jeśli nie możesz znaleźć kodu błędu dla błędu wdrożenia, zobacz [Znajdź kod błędu](#find-error-code).
+W tym artykule opisano niektóre typowe błędy wdrażania platformy Azure i przedstawiono informacje umożliwiające rozwiązanie tych błędów. Jeśli nie możesz znaleźć kodu błędu wdrażania, zobacz [Znajdowanie kodu błędu](#find-error-code).
 
 Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w tym artykule, powiadom nas o tym. W dolnej części tej strony możesz opuścić opinię. Opinie są śledzone za pomocą usługi GitHub.
 
@@ -25,7 +25,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Postępuj zgodnie z ograniczeniami nazw dla kont magazynu. | [Rozpoznawanie nazwy konta magazynu](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Sprawdź dostępne właściwości konta magazynu. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | W klastrze lub regionie nie ma dostępnych zasobów lub nie można obsłużyć żądanego rozmiaru maszyny wirtualnej. Ponów próbę żądania w późniejszym czasie lub zażądaj innego rozmiaru maszyny wirtualnej. | [Problemy z obsługą i alokacją dla](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md)problemów z systemem Linux, [aprowizacji i alokacji dla systemu Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) i [Rozwiązywanie problemów z błędami alokacji](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | W klastrze lub regionie nie ma dostępnych zasobów lub nie można obsłużyć żądanego rozmiaru maszyny wirtualnej. Ponów próbę żądania w późniejszym czasie lub zażądaj innego rozmiaru maszyny wirtualnej. | [Problemy z obsługą i alokacją dla](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md)problemów z systemem Linux, [aprowizacji i alokacji dla systemu Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) i [Rozwiązywanie problemów z błędami alokacji](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Poczekaj na zakończenie operacji współbieżności. | |
 | AuthorizationFailed | Twoje konto lub jednostka usługi nie ma wystarczających uprawnień, aby ukończyć wdrażanie. Sprawdź rolę, do której należy konto, i dostęp do zakresu wdrożenia.<br><br>Ten błąd może pojawić się, jeśli nie zarejestrowano wymaganego dostawcy zasobów. | [Access Control oparte na rolach na platformie Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | BadRequest | Wartości wdrożeń są wysyłane, które nie są zgodne z oczekiwaniami Menedżer zasobów. Sprawdź wewnętrzny komunikat o stanie, aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołania do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-location.md) |

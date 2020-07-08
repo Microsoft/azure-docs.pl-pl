@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory | Microsoft Docs
-description: Omówienie korzystania z Azure Active Directory (AD) jako systemu zarządzania tożsamościami i autoryzacją dla aplikacji lokalnych i w chmurze.
+description: Omówienie korzystania z usługi Azure Active Directory (AD) jako systemu zarządzania tożsamościami i dostępem w chmurze i aplikacji lokalnych.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,16 +12,16 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d69da3f1e9a505d14974a7a3089acca0e17c713
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85549548"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055209"
 ---
 # <a name="what-is-application-management"></a>Co to jest zarządzanie aplikacjami?
 
-Usługa Azure AD to system zarządzania tożsamościami i autoryzacją (IAM). Zawiera ono pojedyncze miejsce do przechowywania informacji o tożsamościach cyfrowych. Aplikacje można skonfigurować do korzystania z usługi Azure AD jako miejsca, w którym są przechowywane informacje o użytkowniku. 
+Usługa Azure AD to system zarządzania tożsamościami i dostępem. Zawiera ono pojedyncze miejsce do przechowywania informacji o tożsamościach cyfrowych. Aplikacje można skonfigurować do korzystania z usługi Azure AD jako miejsca, w którym są przechowywane informacje o użytkowniku. 
 
 Usługa Azure AD musi być skonfigurowana do integracji z aplikacją. Innymi słowy, musi wiedzieć, które aplikacje używają go jako systemu tożsamości. Proces zapewniania, że usługa Azure AD wie o tych aplikacjach oraz jak powinny je obsługiwać, jest znana jako Zarządzanie aplikacjami.
 
@@ -29,12 +29,12 @@ Zarządzasz aplikacjami w bloku **aplikacje dla przedsiębiorstw** , które znaj
 
 ![Opcja aplikacje dla przedsiębiorstw w sekcji Zarządzanie w portalu usługi Azure AD.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
-## <a name="what-is-an-identity-and-authorization-management-iam-system"></a>Co to jest system zarządzania tożsamościami i autoryzacją (IAM)?
+## <a name="what-is-an-identity-and-access-management-iam-system"></a>Co to jest system zarządzania tożsamościami i dostępem (IAM)?
 Aplikacja to oprogramowanie, które jest używane do pewnego celu. Większość aplikacji wymaga od użytkowników logowania się, aby aplikacja mogła zapewnić dostosowane środowisko dla danego użytkownika. Innymi słowy, aplikacja musi znać tożsamość użytkownika przy użyciu aplikacji. Ponieważ informacje o funkcjach, które należy zaoferować lub usunąć, nie są dostępne dla użytkownika.
 
 Jeśli każda aplikacja śledzi użytkowników oddzielnie, wynik będzie silosem różnych nazw użytkownika i nazw logowania dla każdej aplikacji. Jedna aplikacja nie wie niczego o użytkowników w innych aplikacjach.
 
-Scentralizowany system tożsamości rozwiązuje ten problem, zapewniając w jednym miejscu przechowywanie informacji o użytkownikach, które mogą być następnie używane przez wszystkie aplikacje. Systemy te są znane jako systemy zarządzania tożsamościami i autoryzacją (IAM). Azure Active Directory to system mapy IAM dla chmury firmy Microsoft.
+Scentralizowany system tożsamości rozwiązuje ten problem, zapewniając w jednym miejscu przechowywanie informacji o użytkownikach, które mogą być następnie używane przez wszystkie aplikacje. Systemy te są znane jako systemy zarządzania tożsamościami i dostępem (IAM). Azure Active Directory to system mapy IAM dla chmury firmy Microsoft.
 
 >[!TIP]
 >System IAM zapewnia pojedyncze miejsce do śledzenia tożsamości użytkowników. Usługa Azure AD to system IAM dla chmury firmy Microsoft.

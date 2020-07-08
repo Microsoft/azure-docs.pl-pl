@@ -3,18 +3,19 @@ title: Jak używać kluczy tworzenia i środowiska uruchomieniowego — LUIS
 description: Przy pierwszym użyciu Language Understanding (LUIS) nie trzeba tworzyć klucza tworzenia. Jeśli zamierzasz opublikować aplikację, użyj punktu końcowego środowiska uruchomieniowego, aby utworzyć aplikację i przypisać do niej klucz środowiska uruchomieniowego.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 5f6d62a63ea5ae0d3e4ca5913d6e7834ba07692a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/07/2020
+ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560424"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055770"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
 Tworzenie zasobów środowiska uruchomieniowego i prognozowanie zapytań zapewnia uwierzytelnianie w aplikacji LUIS i punkcie końcowym przewidywania.
 
+<a name="azure-resources-for-luis"></a>
 <a name="programmatic-key" ></a>
 <a name="endpoint-key"></a>
 <a name="authoring-key"></a>
@@ -38,7 +39,7 @@ Ważne jest, aby tworzyć aplikacje LUIS w [regionach](luis-reference-regions.md
 
 Zasób platformy Azure, taki jak LUIS, należy do subskrypcji zawierającej zasób.
 
-Aby przenieść własność zasobu, jednostka organizacyjna może:
+Aby przenieść własność zasobu, można:
 * Przenieś [własność](../../cost-management-billing/manage/billing-subscription-transfer.md) subskrypcji
 * Wyeksportuj aplikację LUIS jako plik, a następnie zaimportuj aplikację w innej subskrypcji. Eksport jest dostępny na stronie **Moje aplikacje** w portalu Luis.
 
@@ -70,6 +71,8 @@ W przypadku aplikacji, które nie zostały jeszcze zmigrowane: klucz jest reseto
 
 Wygeneruj ponownie klucze platformy Azure z Azure Portal na stronie **klucze** .
 
+
+<a name="securing-the-endpoint"></a>
 
 ## <a name="app-ownership-access-and-security"></a>Własność aplikacji, dostęp i zabezpieczenia
 
@@ -158,11 +161,10 @@ Można kontrolować, kto może wyświetlać klucz punktu końcowego środowiska 
 1. Po zakończeniu procesu wyboru zasobów [Utwórz nową aplikację](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-## <a name="create-azure-resources"></a>Tworzenie zasobów platformy Azure
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
-[!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
 ### <a name="create-resources-in-azure-cli"></a>Tworzenie zasobów w interfejsie wiersza polecenia platformy Azure
 

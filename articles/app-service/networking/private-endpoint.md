@@ -1,20 +1,20 @@
 ---
-title: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
+title: Połącz się prywatnie z aplikacją internetową platformy Azure przy użyciu prywatnego punktu końcowego
 description: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 462de426a365a2aca4572dae6bff9261e4ee37f7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445478"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054580"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -108,8 +108,6 @@ W przypadku konsoli usługi kudu lub interfejsu API REST (na przykład wdrożeni
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> Te dwa rekordy są wypełniane automatycznie, jeśli masz prywatną strefę DNS o nazwie privatelink.azurewebsites.net połączonej z siecią wirtualną, w której tworzysz prywatny punkt końcowy.
 
 
 ## <a name="pricing"></a>Cennik
@@ -126,8 +124,9 @@ Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją internetową][howtoguide]
-
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją sieci Web za pomocą portalu][howtoguide1]
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [jak połączyć się prywatnie z aplikacją internetową przy użyciu interfejsu wiersza polecenia platformy Azure][howtoguide2]
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu programu PowerShell, zobacz [jak połączyć się prywatnie z aplikacją sieci Web za pomocą programu PowerShell][howtoguide3]
 
 
 
@@ -141,4 +140,6 @@ Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

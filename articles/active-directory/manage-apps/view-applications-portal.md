@@ -13,16 +13,16 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d04953789dc3fc864dd2809783b0d214a91738f
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983123"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055396"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Szybki Start: Wyświetlanie listy aplikacji korzystających z dzierżawy usługi Azure Active Directory (Azure AD) na potrzeby zarządzania tożsamościami
 
-Rozpocznij korzystanie z usługi Azure AD jako systemu zarządzania tożsamościami i autoryzacją dla aplikacji używanych przez organizację. W tym przewodniku szybki start zobaczysz aplikacje, znane także jako aplikacje, które zostały już skonfigurowane do korzystania z dzierżawy usługi Azure AD jako dostawcy tożsamości.
+Rozpocznij korzystanie z usługi Azure AD jako systemu zarządzania tożsamościami i dostępem (IAM) dla aplikacji używanych przez organizację. W tym przewodniku szybki start zobaczysz aplikacje, znane także jako aplikacje, które zostały już skonfigurowane do korzystania z dzierżawy usługi Azure AD jako dostawcy tożsamości.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

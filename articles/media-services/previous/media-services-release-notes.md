@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836400"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057300"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -50,7 +50,7 @@ Informacje o historii wersji interfejsu API REST Media Services można znaleźć
 
 Niektóre procesory multimediów analitycznych zostaną wycofane. Aby uzyskać daty wycofania, zobacz temat [starsze składniki](legacy-components.md) .
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ### <a name="deprecation-of-media-processors"></a>Wycofanie procesorów multimediów
 
@@ -60,7 +60,7 @@ Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-compone
 
 Zobacz również [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="deprecation-of-media-processors"></a>Wycofanie procesorów multimediów
 
@@ -68,15 +68,15 @@ Ogłaszamy przestarzałe procesory multimediów w *systemie Windows Azure Media 
 
 Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) i [Migrowanie azwa do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 Funkcja w wersji zapoznawczej Azure Media Services była przestarzała.
 
-## <a name="december-2018"></a>Grudzień 2018 r.
+## <a name="december-2018"></a>Grudzień 2018
 
 Funkcja w wersji zapoznawczej Azure Media Services zostanie wkrótce wycofana. Od 19 grudnia 2018, Media Services nie będą już wprowadzać zmian ani ulepszeń w odniesieniu do multimediów. 29 marca 2019, zostanie wycofana i nie będzie już dostępna.
 
-## <a name="october-2018"></a>Październik 2018 r.
+## <a name="october-2018"></a>Październik 2018
 
 ### <a name="cmaf-support"></a>Obsługa CMAF
 
@@ -90,7 +90,7 @@ Teraz możesz używać Media Services do generowania miniaturowych ikon VTT siec
 
 Najnowsza wersja usługi zawiera niewielkie zmiany formatowania komunikatów o błędach zwracanych przez usługę, gdy zadanie nie powiedzie się, w odniesieniu do tego, w jaki sposób jest podzielony na dwa lub więcej wierszy.
 
-## <a name="may-2018"></a>Maj 2018 r. 
+## <a name="may-2018"></a>Maj 2018 
 
 Od 12 maja 2018 kanały na żywo nie będą już obsługiwać protokołu pozyskiwania strumienia transportowego RTP/MPEG-2. Przeprowadź migrację z protokołów RTP/MPEG-2 do protokołu RTMP lub pofragmentowanych plików MP4 (Smooth Streaming).
 
@@ -191,12 +191,14 @@ Teraz możesz używać Media Services do dynamicznego szyfrowania zawartości HT
 ## <a name="february-2016-release"></a><a id="feb_changes16"></a>Wydanie z lutego 2016
 Najnowsza wersja zestawu Media Services SDK dla platformy .NET (3.5.3) zawiera rozwiązanie do usuwania błędów związanych z usługą Google Widevine. Nie można ponownie użyć AssetDeliveryPolicy w przypadku wielu zasobów zaszyfrowanych za pomocą Widevine. W ramach tej poprawki błędu dodano następującą właściwość do zestawu SDK: WidevineBaseLicenseAcquisitionUrl.
 
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-    {
-        {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+```csharp
+Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+{
+    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
 
-    };
+};
+```
 
 ## <a name="january-2016-release"></a><a id="jan_changes_16"></a>Wydanie z stycznia 2016
 Zmieniono nazwy jednostek zarezerwowanych na kodowanie, aby zmniejszyć liczbę pomyłek z nazwami koderów.
@@ -323,7 +325,9 @@ Zestaw SDK Media Services platformy .NET jest teraz w wersji 3.1.0.1.
 
 W tej wersji oznaczono Konstruktor default Microsoft. WindowsAzure. MediaServices. Client. ContentKeyAuthorization. TokenRestrictionTemplate jako przestarzały. Nowy Konstruktor przyjmuje wartość TokenType jako argument.
 
-    TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```csharp
+TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```
 
 
 ## <a name="december-2014-release"></a><a id="december_changes_14"></a>Wydanie z grudnia 2014
@@ -367,7 +371,7 @@ Metadane REST Media Services są teraz w wersji 2,7. Aby uzyskać więcej inform
 
 Zestaw Media Services SDK dla platformy .NET jest teraz w wersji 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Fundamentalne zmiany
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Zmiany powodujące niezgodność
 * Zmieniono nazwę pochodzenia na [StreamingEndpoint].
 * Zmiana została wprowadzona w domyślnym zachowaniu w przypadku używania Azure Portal do kodowania i publikowania plików MP4.
 
@@ -502,8 +506,8 @@ W Czerwiec Media Services 2013 wersjach zestawu SDK uwzględniono następujące 
     * Microsoft. WindowsAzure. MediaServices. Client. IJobNotificationSubscription — typ
     * Microsoft. WindowsAzure. MediaServices. Client. NotificationEndPointCollection — typ
     * Microsoft. WindowsAzure. MediaServices. Client. NotificationEndPointType — typ
-* Zależność od zestawu SDK klienta magazynu 2,0 (Microsoft. WindowsAzure. StorageClient. dll)
-* Zależność od protokołu OData 5,5 (Microsoft. Data. OData. dll)
+* Zależność od zestawu SDK klienta magazynu 2,0 (Microsoft.WindowsAzure.StorageClient.dll)
+* Zależność od protokołu OData 5,5 (Microsoft.Data.OData.dll)
 
 ## <a name="december-2012-release"></a><a id="december_changes_12"></a>Wydanie z grudnia 2012
 ### <a name="media-services-net-sdk-changes"></a><a name="dec_12_dotnet_changes"></a>Zmiany Media Services zestawu SDK platformy .NET
@@ -565,7 +569,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych plików i folderów — często zadawane pytan
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254754"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056178"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów
 
@@ -112,7 +112,7 @@ Rozmiar folderu pamięci podręcznej określa ilość danych, które można umie
 1. Uruchom to polecenie w wierszu polecenia z podwyższonym poziomem uprawnień, aby zatrzymać aparat kopii zapasowych:
 
     ```Net stop obengine```
-2. Jeśli skonfigurowano kopię zapasową stanu systemu, Otwórz przystawkę Zarządzanie dyskami i Odinstaluj dyski z nazwami w `"CBSSBVol_<ID>"`formacie.
+2. Jeśli skonfigurowano kopię zapasową stanu systemu, Otwórz przystawkę Zarządzanie dyskami i Odinstaluj dyski z nazwami w formacie `"CBSSBVol_<ID>"` .
 3. Domyślnie folder tymczasowy znajduje się w lokalizacji`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Skopiuj cały `\Scratch` folder na inny dysk, na którym jest wystarczająca ilość miejsca. Upewnij się, że zawartość jest kopiowana, a nie przeniesiona.
 5. Zaktualizuj następujące wpisy rejestru ze ścieżką nowo przeniesionego folderu tymczasowego.
@@ -159,7 +159,8 @@ Tak, możesz użyć opcji **Zmień właściwości** w agencie Mars, aby dostosow
 
 ### <a name="manage"></a>Zarządzanie
 
-**Czy mogę odzyskać, jeśli nie pamiętam mojego hasła?**
+#### <a name="can-i-recover-if-i-forgot-my-passphrase"></a>Czy mogę odzyskać, jeśli nie pamiętam mojego hasła?
+
 Agent Azure Backup wymaga hasła (podanego podczas rejestracji) do odszyfrowania danych kopii zapasowej podczas przywracania. Zapoznaj się z poniższymi scenariuszami, aby poznać opcje obsługi utraconego hasła:
 
 | Oryginalna maszyna <br> *(maszyna źródłowa, w której zostały wykonane kopie zapasowe)* | Danym | Dostępne opcje |
@@ -177,14 +178,18 @@ Należy rozważyć następujące kwestie:
   * *Innym hasłem*nie będzie można przywrócić danych kopii zapasowej.
 * Jeśli oryginalny komputer jest uszkodzony (nie można ponownie wygenerować hasła za pośrednictwem konsoli MARS), ale można przywrócić lub uzyskać dostęp do oryginalnego folderu tymczasowego używanego przez agenta MARS, można przywrócić (jeśli nie pamiętasz hasła). Aby uzyskać więcej pomocy, skontaktuj się z działem obsługi klienta.
 
-**Jak mogę Odzyskaj, Jeśli utracisz moją oryginalną maszynę (w której wykonano kopie zapasowe)?**
+#### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Jak mogę Odzyskaj, Jeśli utracisz moją oryginalną maszynę (w której wykonano kopie zapasowe)?
 
 Jeśli masz takie samo hasło (podane podczas rejestracji) oryginalnego komputera, możesz przywrócić kopię zapasową danych na alternatywnej maszynie. Zapoznaj się z poniższymi scenariuszami, aby poznać Opcje przywracania.
 
 | Oryginalna maszyna | Danym | Dostępne opcje |
 | --- | --- | --- |
-| Następuje |Dostępne |Agenta MARS można zainstalować i zarejestrować na innym komputerze z hasłem podanym podczas rejestracji oryginalnej maszyny. Wybierz **opcję** > odzyskiwania w**innej lokalizacji** , aby przeprowadzić przywracanie. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Następuje |Dostępne |Agenta MARS można zainstalować i zarejestrować na innym komputerze z hasłem podanym podczas rejestracji oryginalnej maszyny. Wybierz **opcję odzyskiwania**  >  w**innej lokalizacji** , aby przeprowadzić przywracanie. Więcej informacji znajduje się w tym [artykule](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Następuje |Następuje |Nie można odzyskać danych lub dane są niedostępne |
+
+### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Zadania tworzenia kopii zapasowej kończą się niepowodzeniem lub nie działają przez długi czas. Upłynął okres przechowywania. Czy nadal mogę przywrócić?
+
+Ze względów bezpieczeństwa Azure Backup zachowuje ostatni punkt odzyskiwania, nawet jeśli jest wcześniejszy niż okres przechowywania. Po wznowieniu tworzenia kopii zapasowych i udostępnieniu nowych punktów odzyskiwania starszy punkt odzyskiwania zostanie usunięty zgodnie z określonym przechowywaniem.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Co się stanie w przypadku anulowania trwającego zadania przywracania?
 

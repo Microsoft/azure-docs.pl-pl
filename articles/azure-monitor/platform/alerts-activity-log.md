@@ -4,12 +4,12 @@ description: Tworzenie alertów dziennika aktywności przy użyciu Azure Portal,
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744265"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056263"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
 
@@ -199,7 +199,12 @@ Aby utworzyć regułę alertu dziennika aktywności przy użyciu szablonu Azure 
   ]
 }
 ```
-Poprzedni przykładowy kod JSON można zapisać jako, na przykład sampleActivityLogAlert. JSON na potrzeby tego przewodnika i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Poprzedni przykładowy kod JSON można zapisać jako, na przykład sampleActivityLogAlert.jsna potrzeby tego przewodnika i można go wdrożyć przy użyciu [Azure Resource Manager w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Należy zauważyć, że można zdefiniować alerty dziennika aktywności najwyższego poziomu.
+  > Oznacza to, że nie ma możliwości zdefiniowania alertu dla kilku subskrypcji, dlatego definicja powinna mieć wartość alert na subskrypcję.
 
 Następujące pola są opcjami, których można użyć w szablonie Azure Resource Manager dla pól warunki: należy zauważyć, że "Resource Health", "Advisor" i "Service Health" mają dodatkowe pola właściwości dla ich pól specjalnych. 
 1. resourceId: Identyfikator zasobu zasobu, którego dotyczy problem, w zdarzeniu dziennika aktywności, w którym ma zostać wygenerowany alert.
@@ -251,7 +256,7 @@ Aby użyć programu PowerShell do wdrożenia przykładowego szablonu Menedżer z
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 
-gdzie sampleActivityLogAlert. Parameters. JSON zawiera wartości podane dla parametrów wymaganych do utworzenia reguły alertu.
+gdzie sampleActivityLogAlert.parameters.json zawiera wartości podane dla parametrów wymaganych do utworzenia reguły alertu.
 
 ### <a name="use-activity-log-powershell-cmdlets"></a>Korzystanie z poleceń cmdlet programu PowerShell dotyczących dzienników aktywności
 

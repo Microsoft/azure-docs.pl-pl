@@ -105,9 +105,6 @@
           href: luis-concept-test.md
         - name: Testowanie wsadowe
           href: luis-concept-batch-test.md
-    - name: Tworzenie i klucze środowiska uruchomieniowego
-      displayName: 'shared, transfer, ownership, author, access, import'
-      href: luis-concept-keys.md
     - name: Zarządzanie danymi
       items:
         - name: Zmienianie danych

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacj
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb9e5cf48f960a70c6a699df1163089eb4e8bc31
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598015"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056619"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
 
@@ -165,6 +165,25 @@ Set-ExecutionPolicy Unrestricted
 Błąd | Możliwe przyczyny | Zalecane akcje
 --- | --- | ---
 Bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi "zasób nie został zainicjowany w sygnaturze usługi". Spróbuj ponownie wykonać operację po pewnym czasie. (IDENTYFIKATOR: 230006) | Zmieniono nazwę chronionego serwera. | <li> Zmień nazwę serwera z powrotem na oryginalną nazwę zarejestrowanego w magazynie. <br> <li> Zarejestruj ponownie serwer w magazynie przy użyciu nowej nazwy.
+
+## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Nie można uruchomić zadania, ponieważ inne zadanie było w toku
+
+Jeśli zauważysz komunikat ostrzegawczy w **MARS console**  >  **historii zadań**konsoli Mars, mówiąc "nie można uruchomić zadania, ponieważ inne zadanie było w toku", może to być spowodowane zduplikowanym wystąpieniem zadania wyzwalanym przez harmonogram zadań.
+
+![Nie można uruchomić zadania, ponieważ inne zadanie było w toku](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
+
+Aby rozwiązać ten problem:
+
+1. Uruchom przystawkę Harmonogram zadań, wpisując *taskschd. msc* w oknie uruchamiania
+1. W lewym okienku przejdź do **harmonogram zadań bibliotece**  ->  **Microsoft**  ->  **OnlineBackup**.
+1. Dla każdego zadania w tej bibliotece kliknij dwukrotnie zadanie, aby otworzyć właściwości, i wykonaj następujące czynności:
+    1. Przejdź do karty **Ustawienia** .
+
+         ![Karta Ustawienia](./media/backup-azure-mars-troubleshoot/settings-tab.png)
+
+    1. Zmień opcję **, jeśli zadanie jest już uruchomione, a następnie zastosowana zostanie następująca reguła**. Wybierz pozycję nie **uruchamiaj nowego wystąpienia**.
+
+         ![Zmień regułę, aby nie uruchamiać nowego wystąpienia](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
 ## <a name="troubleshoot-restore-problems"></a>Rozwiązywanie problemów z przywracaniem
 

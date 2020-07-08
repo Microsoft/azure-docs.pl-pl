@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6c38f3bc695db0e27547e434a81f95fa556e84b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296002"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056790"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -167,6 +167,53 @@ Poniższa tabela zawiera listę dostępnych zastąpień błędów platformy:
 | `Unauthorized_TooManyUsers` | 401 | Lokacja osiągnęła maksymalną liczbę użytkowników, a serwer ogranicza dalsze dodatki. Ten błąd jest narażony na klienta, ponieważ nie ma limitu liczby [zaproszeń](authentication-authorization.md) , które można wygenerować, a niektórzy użytkownicy nigdy nie akceptują zaproszenia.|
 | `Unauthorized_Unknown` | 401 | Wystąpił nieznany problem podczas próby uwierzytelnienia użytkownika. Jedną z przyczyn tego błędu może być to, że użytkownik nie został rozpoznany, ponieważ nie udzieli zgody na aplikację.|
 
+## <a name="custom-mime-types"></a>Niestandardowe typy MIME
+
+`mimeTypes`Obiekt, który znajduje się na tym samym poziomie co `routes` Tablica, umożliwia kojarzenie [typów MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) z rozszerzeniami plików.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "custom": "text/html"
+    }
+}
+```
+
+W powyższym przykładzie wszystkie pliki z `.custom` rozszerzeniem są obsługiwane za pomocą `text/html` typu MIME.
+
+Poniższe zagadnienia są ważne podczas pracy z typami MIME:
+
+- Klucze nie mogą mieć wartości null ani być puste lub mieć więcej niż 50 znaków
+- Wartości nie mogą być zerowe ani puste ani mieć więcej niż 1000 znaków
+
+## <a name="default-headers"></a>Nagłówki domyślne
+
+`defaultHeaders`Obiekt, który znajduje się na tym samym poziomie co `routes` Tablica, umożliwia dodawanie, modyfikowanie lub usuwanie [nagłówków odpowiedzi](https://developer.mozilla.org/docs/Web/HTTP/Headers).
+
+Podanie wartości nagłówka powoduje dodanie lub zmodyfikowanie nagłówka. Podanie pustej wartości spowoduje, że nagłówek zostanie doręczony do klienta.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+W powyższym przykładzie `content-security-policy` zostanie dodany nowy nagłówek, zostanie `cache-control` zmodyfikowana wartość domyślna serwera, a `x-dns-prefectch-control` nagłówek zostanie usunięty.
+
+Poniższe zagadnienia są ważne podczas pracy z nagłówkami:
+
+- Klucze nie mogą mieć wartości null ani być puste.
+- Wartości null lub puste usuwają nagłówek z przetwarzania.
+- Klucze lub wartości nie mogą zawierać więcej niż 8 000 znaków.
+- Zdefiniowane nagłówki są obsługiwane we wszystkich żądaniach.
+- Nagłówki zdefiniowane w _routes.js_ dotyczą tylko zawartości statycznej. Można dostosować nagłówki odpowiedzi punktu końcowego interfejsu API w kodzie funkcji.
+
 ## <a name="example-route-file"></a>Przykładowy plik trasy
 
 Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w _routes.js_ pliku. Niektóre trasy używają [folderu systemowego _/.auth_ ](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
@@ -222,24 +269,33 @@ Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycz
       "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "custom": "text/html"
+  }
 }
 ```
 
 W poniższych przykładach opisano, co się dzieje, gdy żądanie jest zgodne z regułą.
 
-|Żądania do...  | Wynik... |
-|---------|---------|---------|
+| Żądania do... | Wynik... |
+|--|--|--|
 | _/Profile_ | Uwierzytelnieni użytkownicy obsługują plik _/profile/index.html_ . Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/admin/reports_ | Użytkownicy uwierzytelnieni w roli _administratorzy_ są obsługiwani _/admin/Reports/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratorzy_ , są obsługiwani 401 Błąd<sup>2</sup>. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/api/admin_ | Żądania od uwierzytelnionych użytkowników w roli _administratorzy_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _administratorzy_ , a nieuwierzytelnieni użytkownicy są obsługiwani błędem 401. |
 | _/customers/contoso_ | Użytkownicy uwierzytelnieni, którzy należą do roli firmy _ \_ contoso lub klienci_ _, są_ obsługiwani _/Customers/contoso/index.html_ pliku<sup>2</sup>. Uwierzytelnieni użytkownicy, którzy nie _znajdują się w_ rolach firmy _ \_ contoso lub klienci_ , są obsługiwani 401 błędu. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
-| _/Login_     | Nieuwierzytelnionym użytkownikom wzywa się do uwierzytelnienia w usłudze GitHub. |
-| _/.auth/login/twitter_     | Autoryzacja za pomocą usługi Twitter jest wyłączona. Serwer reaguje na błąd 404. |
-| _/logout_     | Użytkownicy są wyrejestrowani z dowolnego dostawcy uwierzytelniania. |
+| _/Login_ | Nieuwierzytelnionym użytkownikom wzywa się do uwierzytelnienia w usłudze GitHub. |
+| _/.auth/login/twitter_ | Autoryzacja za pomocą usługi Twitter jest wyłączona. Serwer reaguje na błąd 404. |
+| _/logout_ | Użytkownicy są wyrejestrowani z dowolnego dostawcy uwierzytelniania. |
 | _/calendar/2020/01_ | Przeglądarka obsługuje plik _/calendar.html_ . |
 | _/specials_ | Przeglądarka zostanie przekierowana do _/Deals_. |
-| _/unknown-folder_     | Obsługiwany jest plik _/custom-404.html_ . |
+| _/unknown-folder_ | Obsługiwany jest plik _/custom-404.html_ . |
+| Pliki z `.custom` rozszerzeniem | Są obsługiwane za pomocą `text/html` typu MIME |
+
+- Wszystkie odpowiedzi zawierają `content-security-policy` nagłówki o wartości `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> reguły trasy dla funkcji API obsługują tylko [przekierowywanie](#redirects) i [Zabezpieczanie tras z rolami](#securing-routes-with-roles).
 

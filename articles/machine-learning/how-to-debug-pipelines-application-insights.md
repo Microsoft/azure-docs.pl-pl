@@ -1,5 +1,5 @@
 ---
-title: Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights
+title: Monitorowanie &zbieranie plików dziennika potoku
 titleSuffix: Azure Machine Learning
 description: Dodaj rejestrowanie do potoków szkoleń i wsadowych oceniania, a następnie Wyświetl zarejestrowane wyniki w Application Insights.
 services: machine-learning
@@ -7,18 +7,17 @@ author: sanpil
 ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: faf83ad35e6aed191d07d7a297a547ec0d9921b2
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555748"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055719"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights
+# <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Zbierz pliki dziennika potoku uczenia maszynowego w Application Insights na potrzeby alertów i debugowania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Biblioteka języka Python [OpenCensus](https://opencensus.io/quickstart/python/) może służyć do kierowania dzienników do Application Insights ze skryptów. Agregowanie dzienników z uruchamiania potoków w jednym miejscu umożliwia tworzenie zapytań i diagnozowanie problemów. Użycie Application Insights umożliwi śledzenie dzienników w czasie i porównywanie dzienników potoku w ramach przebiegów.
@@ -35,7 +34,7 @@ Umieszczenie dzienników w miejscu spowoduje udostępnienie historii wyjątków 
   ```
 * Utwórz [wystąpienie Application Insights](../azure-monitor/app/opencensus-python.md) (ten dokument zawiera również informacje dotyczące uzyskiwania parametrów połączenia dla zasobu)
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="getting-started"></a>Getting Started
 
 Ta sekcja zawiera wprowadzenie do korzystania z programu OpenCensus z potoku Azure Machine Learning. Aby uzyskać szczegółowy samouczek, zobacz [OpenCensus Azure monitor exports](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
