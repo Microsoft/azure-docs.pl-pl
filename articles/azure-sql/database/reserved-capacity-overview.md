@@ -3,8 +3,8 @@ title: Zapisz koszty obliczeń z zarezerwowaną pojemnością
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Dowiedz się, jak kupić Azure SQL Database i zarezerwowaną pojemność wystąpienia zarządzanego SQL, aby zaoszczędzić na kosztach obliczeniowych.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 1a733ea631b5c11b9686682420311a0d35cf46a5
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075777"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności — Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -44,7 +44,7 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 1
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz pozycję **Dodaj** , a następnie w okienku **rezerwacje zakupu** wybierz pozycję **SQL Database** , aby zakupić nową rezerwację dla SQL Database.
-4. Wypełnij pola wymagane. Istniejące bazy danych (pojedyncze lub w puli) lub wystąpienia zarządzane, które pasują do wybranych atrybutów, kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba baz danych lub wystąpień zarządzanych, które pobierają rabat, zależy od wybranego zakresu i ilości.
+4. Wypełnij pola wymagane. Istniejące bazy danych w SQL Database i wystąpieniu zarządzanym SQL, które pasują do wybranych atrybutów, kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba baz danych lub wystąpień zarządzanych, które pobierają rabat, zależy od wybranego zakresu i ilości.
 
     ![Zrzut ekranu przed przesłaniem zarezerwowanej pojemności](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 
@@ -57,7 +57,7 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 1
     |Region      |Region świadczenia usługi Azure objęty rezerwacją pojemności.|
     |Typ wdrożenia|Typ zasobu SQL, dla którego chcesz kupić rezerwację.|
     |Warstwa wydajności|Warstwa usług dla baz danych lub wystąpień zarządzanych. |
-    |Termin        |Jeden rok lub trzy lata.|
+    |Okres        |Jeden rok lub trzy lata.|
     |Liczba    |Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji pojemności. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania lub planowania uruchamiania wielu baz danych o całkowitej pojemności obliczeniowej 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich baz danych. |
 
 1. Sprawdź koszt rezerwacji zdolności produkcyjnych w sekcji **koszty** .

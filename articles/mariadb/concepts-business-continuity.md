@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532395"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076576"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Zrozumienie ciągłości działania w Azure Database for MariaDB
 
@@ -48,11 +48,12 @@ Drugą opcją jest użycie funkcji przywracania geograficznego Azure Database fo
 > [!IMPORTANT]
 > Przywracanie geograficzne jest możliwe tylko w przypadku aprowizacji serwera z magazynem kopii zapasowych nadmiarowego.
 
+## <a name="cross-region-read-replicas"></a>Repliki odczytu między regionami
+
+Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie za pomocą technologii replikacji dzienników binarnych MariaDB. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej na temat zautomatyzowanych kopii zapasowych, zobacz [kopie zapasowe w Azure Database for MariaDB](concepts-backup.md).
-- Aby przywrócić do punktu w czasie za pomocą Azure Portal, zobacz [przywracanie bazy danych do punktu w czasie przy użyciu Azure Portal](howto-restore-server-portal.md).
-
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md). 
--->
+- Więcej informacji na temat [zautomatyzowanych kopii zapasowych znajduje się w Azure Database for MariaDB](concepts-backup.md).
+- Dowiedz się, jak przywrócić za pomocą [Azure Portal](howto-restore-server-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-restore-server-cli.md).
+- Dowiedz się więcej [na temat odczytywania replik w Azure Database for MariaDB](concepts-read-replicas.md).

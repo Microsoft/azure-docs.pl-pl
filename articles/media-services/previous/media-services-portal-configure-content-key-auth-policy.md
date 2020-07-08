@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968803"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058167"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurowanie zasad autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -42,7 +42,7 @@ Jeśli planujesz używanie wielu kluczy zawartości lub chcesz określić adres 
 * Po utworzeniu konta usług Media Services do Twojego konta dodawany jest domyślny punkt końcowy przesyłania strumieniowego w stanie „Zatrzymany”. Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego musi być w stanie "uruchomiony". 
 * Element zawartości musi zawierać zestaw plików z adaptacyjną szybkością transmisji bitów pliki MP4 lub z adaptacyjną szybkością transmisji bitów Smooth Streaming. Aby uzyskać więcej informacji, zobacz [kodowanie elementu zawartości](media-services-encode-asset.md).
 * Usługa dostarczania kluczy buforuje ContentKeyAuthorizationPolicy i powiązane z nią obiekty (opcje i ograniczenia zasad) przez 15 minut. Można utworzyć ContentKeyAuthorizationPolicy i określić, aby użyć ograniczenia tokenu, przetestować go, a następnie zaktualizować zasady do ograniczenia Open. Ten proces trwa około 15 minut przed przełączeniem zasad do otwartej wersji.
-* Punkt końcowy przesyłania strumieniowego Media Services ustawia wartość nagłówka "Access-Control-Allow-Origin" w odpowiedzi wstępnej jako symbol wieloznaczny "\*". Ta wartość działa dobrze w przypadku większości graczy, w tym Azure Media Player, roku i JWPlayer i innych. Jednak niektórzy gracze, którzy korzystają z łącznika. js, nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich łączniku.\*JS nie zezwala na użycie symbolu wieloznacznego "" jako wartości parametru Access-Control-Allow-Origin. Jako obejście tego ograniczenia w programie kreskowany. js, jeśli klient jest hostem z pojedynczej domeny, Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, Otwórz bilet pomocy technicznej za pomocą Azure Portal.
+* Punkt końcowy przesyłania strumieniowego Media Services ustawia wartość nagłówka "Access-Control-Allow-Origin" w odpowiedzi wstępnej jako symbol wieloznaczny " \* ". Ta wartość działa dobrze w przypadku większości graczy, w tym Azure Media Player, roku i JWPlayer i innych. Jednak niektórzy gracze, którzy używają dash.js nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich dash.js nie zezwalają na symbol wieloznaczny " \* " jako wartość parametru Access-Control-Allow-Origin. Aby obejść to ograniczenie w dash.js, jeśli klient jest hostem z pojedynczej domeny, Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, Otwórz bilet pomocy technicznej za pomocą Azure Portal.
 
 ## <a name="configure-the-key-authorization-policy"></a>Konfigurowanie zasad autoryzacji klucza
 Aby skonfigurować zasady autoryzacji klucza, wybierz stronę **Ochrona zawartości** .
@@ -66,17 +66,19 @@ Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawo
 ### <a name="playready"></a>PlayReady
 W przypadku ochrony zawartości za pomocą oprogramowania PlayReady jednym z rzeczy, które należy określić w zasadach autoryzacji, jest ciąg XML, który definiuje szablon licencji PlayReady. Domyślnie ustawione są następujące zasady:
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-          <LicenseTemplates>
-            <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-              <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-              <LicenseType>Nonpersistent</LicenseType>
-              <PlayRight>
-                <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-              </PlayRight>
-            </PlayReadyLicenseTemplate>
-          </LicenseTemplates>
-        </PlayReadyLicenseResponseTemplate>
+```xml
+<PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+  <LicenseTemplates>
+    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+      <LicenseType>Nonpersistent</LicenseType>
+      <PlayRight>
+        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+      </PlayRight>
+    </PlayReadyLicenseTemplate>
+  </LicenseTemplates>
+</PlayReadyLicenseResponseTemplate>
+```
 
 Można wybrać przycisk **Importuj XML zasad** i podać inny kod XML, który jest zgodny ze schematem XML zdefiniowanym w zasobie [Media Services Omówienie szablonu licencji PlayReady](media-services-playready-license-template-overview.md).
 
@@ -87,7 +89,7 @@ Można wybrać przycisk **Importuj XML zasad** i podać inny kod XML, który jes
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

@@ -4,19 +4,23 @@ description: Dowiedz się, jak dodać nazwę główną usługi Automation do rol
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697532"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077562"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
 
- Aby zautomatyzować nienadzorowane zadania programu PowerShell, jednostka usługi musi mieć uprawnienia **administratora serwera** na zarządzanym serwerze Analysis Services. W tym artykule opisano sposób dodawania nazwy głównej usługi do roli Administratorzy serwera na platformie Azure jako serwer. Można to zrobić przy użyciu SQL Server Management Studio lub szablonu Menedżer zasobów.
+ Aby zautomatyzować nienadzorowane zadania programu PowerShell, jednostka usługi musi mieć uprawnienia **administratora serwera** na zarządzanym serwerze Analysis Services. W tym artykule opisano sposób dodawania nazwy głównej usługi do roli Administratorzy serwera na platformie Azure jako serwer. Można to zrobić przy użyciu SQL Server Management Studio lub szablonu Menedżer zasobów. 
+
+> [!NOTE]
+> Nazwy główne usługi należy dodać bezpośrednio do roli administratora serwera. Dodanie nazwy głównej usługi do grupy zabezpieczeń, a następnie dodanie tej grupy zabezpieczeń do roli administratora serwera nie jest obsługiwane. 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestrowaną w Azure Active Directory.

@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: c289892246cfce3ffac3f668577073a2af92511f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1627fccb49f0ddbf7a3a0a42f5a483059101dae2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82509554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076066"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Użyj Apache Hive jako narzędzia wyodrębniania, przekształcania i ładowania (ETL)
 

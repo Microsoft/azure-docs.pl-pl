@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253668"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077659"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Rozgałęzianie działań i łączenie łańcuchów w potoku Azure Data Factory przy użyciu Azure Portal
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Nazwa fabryki danych "ADFTutorialDataFactory" jest niedostępna.*
+
 3. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych.
 4. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
 
@@ -202,10 +203,11 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
    ![Nowa połączona usługa Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Wprowadź wartość `@pipeline().parameters.sourceBlobContainer` jako folder oraz `emp.txt` jako nazwę pliku. Parametr potoku sourceBlobContainer umożliwia ustawienie ścieżki folderu dla zestawu danych.
 
-   ![Ustawienia zestawu danych źródłowych](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Przejdź do karty **potoku** lub kliknij potok w widoku drzewa. Upewnij się, że dla ustawienia **Zestaw danych źródłowych** wybrano wartość **SourceBlobDataset**.
+    ![Ustawienia zestawu danych źródłowych](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Zestaw danych źródłowych](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Przejdź do karty **potoku** lub kliknij potok w widoku drzewa. Upewnij się, że dla ustawienia **Zestaw danych źródłowych** wybrano wartość **SourceBlobDataset**.
+      
+   ![Zestaw danych źródłowych](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. W oknie Właściwości przejdź do karty **Ujście**, a następnie kliknij pozycję **+ Nowy** dla elementu **Zestaw danych ujścia**. W tym kroku utworzysz zestaw danych ujścia dla działania kopiowania w podobny sposób do tworzenia zestawu danych źródłowych.
 

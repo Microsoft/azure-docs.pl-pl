@@ -11,11 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075437"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -42,6 +43,16 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Aby uzyskać więcej informacji, zobacz informacje o [wersji](../live-video-analytics-edge/release-notes.md).
 
 Analiza filmów wideo na żywo na IoT Edge jest rozszerzeniem rodziny usługi Media Service. Umożliwia ona analizowanie wideo na żywo przy użyciu wybranych przez Ciebie modeli AI na własnych urządzeniach brzegowych, a opcjonalnie Przechwytywanie i rejestrowanie tego wideo. Teraz możesz tworzyć aplikacje z analizą wideo w czasie rzeczywistym na brzegu bez obaw o złożoność tworzenia i obsługi potoku wideo na żywo.
+
+### <a name="search-by-topics"></a>Wyszukaj według tematów
+
+Teraz możesz użyć interfejsu API wyszukiwania do wyszukiwania filmów wideo z określonymi tematami (tylko interfejsy API).
+
+Tematy są dodawane jako część `textScope` parametru opcjonalnego. Aby uzyskać szczegółowe informacje, zobacz [interfejs API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) .  
+
+### <a name="labels-enhancement"></a>Ulepszanie etykiet
+
+Etykieta moduł tagujący została uaktualniona i teraz zawiera więcej etykiet wizualizacji, które można zidentyfikować.
 
 ## <a name="may-2020"></a>Maj 2020 r.
 
@@ -375,7 +386,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

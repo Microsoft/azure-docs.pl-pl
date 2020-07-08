@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania dotyczące szablonów
 description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource Manager. Oferuje sugestie pozwalające uniknąć typowych problemów związanych z korzystaniem z szablonów.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: c00a3a1162ffec4ce89c43ef2f76796fb5943438
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254093"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058065"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
 
@@ -230,7 +230,7 @@ Poniższe informacje mogą być przydatne podczas pracy z [zasobami](template-sy
    * [Konfigurowanie dostępu do usługi WinRM dla maszyn wirtualnych w Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Zezwalaj na dostęp zewnętrzny do maszyny wirtualnej przy użyciu Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Zezwalanie na dostęp zewnętrzny do maszyny wirtualnej przy użyciu programu PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Zezwalanie na dostęp zewnętrzny do maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Zezwalanie na dostęp zewnętrzny do maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
 * Właściwość **wartość domainnamelabel** dla publicznych adresów IP musi być unikatowa. Wartość **wartość domainnamelabel** musi mieć długość od 3 do 63 znaków i postępować zgodnie z regułami określonymi w tym wyrażeniu regularnym: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Ponieważ funkcja **uniqueString** generuje ciąg o długości 13 znaków, parametr **dnsPrefixString** jest ograniczony do 50 znaków:
 

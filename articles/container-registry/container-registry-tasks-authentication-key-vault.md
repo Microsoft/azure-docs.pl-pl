@@ -2,13 +2,13 @@
 title: Uwierzytelnianie zewnętrzne z zadania ACR
 description: Skonfiguruj zadanie Azure Container Registry (zadanie ACR) w celu odczytania poświadczeń usługi Docker Hub przechowywanych w magazynie kluczy platformy Azure przy użyciu tożsamości zarządzanej dla zasobów platformy Azure.
 ms.topic: article
-ms.date: 01/14/2020
-ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/06/2020
+ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842524"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058133"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Uwierzytelnianie zewnętrzne w ACR zadania przy użyciu tożsamości zarządzanej przez platformę Azure 
 
@@ -91,7 +91,7 @@ steps:
 Kroki zadania wykonaj następujące czynności:
 
 * Zarządzaj poświadczeniami tajnymi w celu uwierzytelniania za pomocą narzędzia Docker Hub.
-* Uwierzytelnianie za pomocą narzędzia Docker Hub przez przekazanie wpisów `docker login` tajnych do polecenia.
+* Uwierzytelnianie za pomocą narzędzia Docker Hub przez przekazanie wpisów tajnych do `docker login` polecenia.
 * Kompilowanie obrazu przy użyciu przykładowej pliku dockerfile w repozytorium [Azure-Samples/ACR-Tasks](https://github.com/Azure-Samples/acr-tasks.git) .
 * Wypchnij obraz do prywatnego repozytorium centrum platformy Docker.
 
@@ -104,7 +104,7 @@ Kroki opisane w tej sekcji umożliwiają utworzenie zadania i włączenie tożsa
 
 ### <a name="create-task"></a>Tworzenie zadania
 
-Utwórz zadanie *dockerhubtask* , wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zadanie jest uruchamiane bez kontekstu kodu źródłowego, a polecenie odwołuje się do pliku `dockerhubtask.yaml` w katalogu roboczym. `--assign-identity` Parametr przekazuje identyfikator zasobu tożsamości przypisanej do użytkownika. 
+Utwórz zadanie *dockerhubtask* , wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zadanie jest uruchamiane bez kontekstu kodu źródłowego, a polecenie odwołuje się do pliku `dockerhubtask.yaml` w katalogu roboczym. `--assign-identity`Parametr przekazuje identyfikator zasobu tożsamości przypisanej do użytkownika. 
 
 ```azurecli
 az acr task create \
@@ -117,13 +117,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+
+### <a name="grant-identity-access-to-key-vault"></a>Udzielanie tożsamości dostępu do magazynu kluczy
+
+Uruchom następujące polecenie [AZ KeyBinding Set-Policy][az-keyvault-set-policy] , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości odczytywanie wpisów tajnych z magazynu kluczy. 
+
+```azurecli
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
+```
+
+W tym celu należy wykonać [zadanie ręcznie](#manually-run-the-task).
+
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Opcja 2: Tworzenie zadania przy użyciu tożsamości przypisanej do systemu
 
 Kroki opisane w tej sekcji umożliwiają utworzenie zadania i włączenie tożsamości przypisanej do systemu. Jeśli zamiast tego chcesz włączyć tożsamość przypisaną przez użytkownika, zobacz [Opcja 1. Tworzenie zadania z tożsamością przypisaną przez użytkownika](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Tworzenie zadania
 
-Utwórz zadanie *dockerhubtask* , wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zadanie jest uruchamiane bez kontekstu kodu źródłowego, a polecenie odwołuje się do pliku `dockerhubtask.yaml` w katalogu roboczym. `--assign-identity` Parametr bez wartości umożliwia włączenie do zadania tożsamości przypisanej do systemu.  
+Utwórz zadanie *dockerhubtask* , wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zadanie jest uruchamiane bez kontekstu kodu źródłowego, a polecenie odwołuje się do pliku `dockerhubtask.yaml` w katalogu roboczym. `--assign-identity`Parametr bez wartości umożliwia włączenie do zadania tożsamości przypisanej do systemu.  
 
 ```azurecli
 az acr task create \
@@ -136,7 +150,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Udzielanie tożsamości dostępu do magazynu kluczy
+### <a name="grant-identity-access-to-key-vault"></a>Udzielanie tożsamości dostępu do magazynu kluczy
 
 Uruchom następujące polecenie [AZ KeyBinding Set-Policy][az-keyvault-set-policy] , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości odczytywanie wpisów tajnych z magazynu kluczy. 
 
@@ -149,7 +163,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>Ręczne uruchamianie zadania
 
-Aby sprawdzić, czy zadanie, w którym włączono tożsamość zarządzaną, zostało pomyślnie uruchomione, ręcznie Wyzwól zadanie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] . `--set` Parametr jest używany do przekazywania nazwy repozytorium prywatnego do zadania. W tym przykładzie nazwa repozytorium zastępczego to *hubuser/hubrepo*.
+Aby sprawdzić, czy zadanie, w którym włączono tożsamość zarządzaną, zostało pomyślnie uruchomione, ręcznie Wyzwól zadanie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] . `--set`Parametr jest używany do przekazywania nazwy repozytorium prywatnego do zadania. W tym przykładzie nazwa repozytorium zastępczego to *hubuser/hubrepo*.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
@@ -202,7 +216,7 @@ Sending build context to Docker daemon    129kB
 Run ID: cf24 was successful after 15s
 ```
 
-Aby potwierdzić, że obraz jest wypychany, sprawdź tag (`cf24` w tym przykładzie) w prywatnym repozytorium usługi Docker Hub.
+Aby potwierdzić, że obraz jest wypychany, sprawdź tag ( `cf24` w tym przykładzie) w prywatnym repozytorium usługi Docker Hub.
 
 ## <a name="next-steps"></a>Następne kroki
 

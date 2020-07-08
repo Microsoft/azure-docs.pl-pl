@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83a5543aa2d1f30696bed05caf85b04ed6685bae
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077443"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -22,8 +22,8 @@ ms.locfileid: "84197219"
 
 |Źródło danych  |W pamięci  |DirectQuery  |Uwagi |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Tak      |    Tak      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Analiza usługi Azure Synapse (SQL Data Warehouse)      |   Tak      |   Tak       |<sup>[dwóch](#azprovider)</sup>|
+|Azure SQL Database      |   Tak      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Tak      |   Yes       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
 |Azure Table Storage     |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Yes        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
@@ -33,11 +33,11 @@ ms.locfileid: "84197219"
 |Azure HDInsight Spark     |   Yes       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
-**O**
+**Uwagi:**
 
 tylko <a name="tab1400a">1</a> -tabelaryczny model 1400 i wyższe.  
 <a name="azprovider">2</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, zarówno modele w pamięci, jak i zapytania bezpośredniego wymagają sterownika OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
-<a name="azsqlmanaged">3</a> — obsługiwane jest wystąpienie zarządzane Azure SQL. Ponieważ wystąpienie zarządzane działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .  
+<a name="azsqlmanaged">3</a> — obsługiwane jest wystąpienie zarządzane Azure SQL. Ponieważ wystąpienie zarządzane SQL działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .  
 <a name="databricks">4</a> Azure Databricks używanie łącznika Spark nie jest obecnie obsługiwane.  
 Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, jednak łącznik usługi Azure Blob Storage może być używany ze źródłem danych ADLS Gen2.
 
@@ -53,7 +53,7 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |Dynamics 365     |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Skoroszyt programu Excel     |  Yes | Nie |  |
 |Exchange      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Folder      |Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Folder      |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |IBM Informix  |Yes | Nie |  |
 |Dokument JSON      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Wiersze z pliku binarnego      | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
@@ -61,22 +61,22 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |Źródło danych OData      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Zapytanie ODBC     | Yes | Nie |  |
 |OLE DB     |   Yes | Nie |  |
-|Oracle  | Tak  |Tak  | <sup>[9](#oracle)</sup> |
+|Oracle  | Tak  |Yes  | <sup>[9](#oracle)</sup> |
 |Baza danych PostgreSQL   | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Obiekty Salesforce|  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Raporty Salesforce |Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Raporty usługi Salesforce |Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |SAP HANA     |  Yes | Nie |  |
 |SAP Business Warehouse    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Listy programu SharePoint      |   Yes | Nie | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Magazyn danych SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Magazyn danych SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Baza danych Sybase     |  Yes | Nie |  |
-|Teradata | Tak  | Tak  | <sup>[dziesięć](#teradata)</sup> |
+|Teradata | Tak  | Yes  | <sup>[10](#teradata)</sup> |
 |Plik TXT  |Yes | Nie |  |
 |Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
 
-**O**  
+**Uwagi:**  
 <a name="tab1400b">6</a> -tabelaryczne 1400 i wyższe modele.  
 <a name="sqlim">7</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, określ Sterownik OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
 <a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  

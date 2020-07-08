@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 52f90f3ce6d6cd53fcf17f7c735dafe5411303c4
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85514503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077885"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Tworzenie aplikacji usługi HDInsight platformy .NET z uwierzytelnianiem nieinterakcyjnym
 
@@ -47,9 +47,9 @@ Przypisywanie [roli](../role-based-access-control/built-in-roles.md)do aplikacji
 1. Utwórz aplikację konsolową języka C#.
 2. Dodaj następujące pakiety [NuGet](https://www.nuget.org/) :
 
-        Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
+    * `Install-Package Microsoft.Azure.Common.Authentication -Pre`
+    * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
+    * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
 3. Uruchom następujący kod:
 

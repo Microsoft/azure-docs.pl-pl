@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4146553d59607e1512d8f15391d143d44815cea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bdca30c82b31bda2e843b3712cfbe772952f3e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016478"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077307"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Skonfiguruj odzyskiwanie po awarii dla SQL Server
 
@@ -37,7 +38,7 @@ SQL Server na maszynę wirtualną usługi Azure Infrastructure as Service (IaaS)
 SQL Server na maszynie wirtualnej IaaS platformy Azure lub w środowisku lokalnym.| [Klaster trybu failover (zawsze na FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Czas przejścia w tryb failover między węzłami. | Ponieważ usługa Always On FCI używa magazynu udostępnionego, ten sam widok wystąpienia magazynu jest dostępny w trybie failover.
 SQL Server na maszynie wirtualnej IaaS platformy Azure lub w środowisku lokalnym.| [Dublowanie bazy danych (tryb wysokiej wydajności)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Czas wymuszania usługi, która używa serwera dublowanego jako serwera rezerwy ciepłej. | Replikacja jest asynchroniczna. Duplikat bazy danych może być nieco opóźniony za główną bazą danych. Opóźnienie jest zwykle małe. Może to jednak być duże, jeśli system serwera głównego lub dublowanego jest w dużym obciążeniu.<br/><br/>Wysyłanie dziennika może być uzupełnieniem funkcji dublowania baz danych. Jest to bardziej korzystne rozwiązanie do asynchronicznej dublowania baz danych.
 Platforma SQL jako usługa (PaaS) na platformie Azure.<br/><br/>Ten typ wdrożenia obejmuje pojedyncze bazy danych i pule elastyczne. | Aktywna replikacja geograficzna | 30 sekund po wyzwoleniu trybu failover.<br/><br/>Po aktywowaniu trybu failover dla jednej z pomocniczych baz danych wszystkie inne serwery podrzędne są automatycznie łączone z nowym serwerem podstawowym. | Cel punktu odzyskiwania przez pięć sekund.<br/><br/>Aktywna replikacja geograficzna używa technologii Always On w SQL Server. Asynchronicznie replikuje zatwierdzone transakcje w podstawowej bazie danych do pomocniczej bazy danych za pomocą izolacji migawki.<br/><br/>Dane pomocnicze mają gwarancję, że nigdy nie mają transakcji częściowych.
-Program SQL as PaaS skonfigurowany z aktywną replikacją geograficzną na platformie Azure.<br/><br/>Ten typ wdrożenia obejmuje SQL Database wystąpienia zarządzane, pule elastyczne i pojedyncze bazy danych. | Grupy automatycznego trybu failover | RTO o godzinie. | Cel punktu odzyskiwania przez pięć sekund.<br/><br/>Grupy autotrybu failover zapewniają semantykę grupy na aktywnej replikacji geograficznej. Jednak używany jest ten sam mechanizm replikacji asynchronicznej.
+Program SQL as PaaS skonfigurowany z aktywną replikacją geograficzną na platformie Azure.<br/><br/>Ten typ wdrożenia obejmuje wystąpienia zarządzane, elastyczne pule i pojedyncze bazy danych. | Grupy automatycznego trybu failover | RTO o godzinie. | Cel punktu odzyskiwania przez pięć sekund.<br/><br/>Grupy autotrybu failover zapewniają semantykę grupy na aktywnej replikacji geograficznej. Jednak używany jest ten sam mechanizm replikacji asynchronicznej.
 SQL Server na maszynie wirtualnej IaaS platformy Azure lub w środowisku lokalnym.| Replikacja przy użyciu Azure Site Recovery | RTO jest zwykle krótszy niż 15 minut. Aby dowiedzieć się więcej, przeczytaj umowę [SLA RTO zapewnianą przez Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Jedna godzina dla spójności aplikacji i pięć minut na potrzeby spójności awaryjnej. Jeśli szukasz mniejszego celu punktu odzyskiwania, użyj innych technologii BCDR.
 
 > [!NOTE]

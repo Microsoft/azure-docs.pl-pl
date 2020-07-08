@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ad06d0e37b7cf464c311e28e546e1b7f1ebd183
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968769"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058252"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Ochrona zawartości HLS za pomocą oprogramowania Apple FairPlay lub Microsoft PlayReady
 
@@ -65,7 +65,7 @@ Następujące elementy muszą zostać ustawione w Media Services stronie dostarc
 
       W poniższych krokach opisano sposób generowania pliku certyfikatu PFX dla FairPlay:
 
-    1. Zainstaluj OpenSSL z https://slproweb.com/products/Win32OpenSSL.html.
+    1. Zainstaluj OpenSSL z https://slproweb.com/products/Win32OpenSSL.html .
 
         Przejdź do folderu, w którym znajduje się certyfikat FairPlay i inne pliki dostarczone przez firmę Apple.
     2. W wierszu polecenia uruchom następujące polecenie. Spowoduje to przekonwertowanie pliku CER na plik PEM.
@@ -73,7 +73,7 @@ Następujące elementy muszą zostać ustawione w Media Services stronie dostarc
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 — informowanie algorytmu der-in FairPlay. cer-out FairPlay-out. pem
     3. W wierszu polecenia uruchom następujące polecenie. Spowoduje to przekonwertowanie pliku PEM na plik PFX z kluczem prywatnym. Hasło do pliku PFX jest następnie zadawane przez OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12-Export-out FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem-Passing File: PrivateKey-PEM-Pass. txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" PKCS12 — wyeksportuj FairPlay-out. pfx-INKEY PrivateKey. pem-in FairPlay-out. pem — passer file:privatekey-pem-pass.txt
   * **Hasło certyfikatu aplikacji**: hasło do tworzenia pliku PFX.
   * **Identyfikator hasła certyfikatu aplikacji**: należy przekazać hasło, podobnie jak w przypadku przekazywania innych kluczy Media Services. Użyj wartości wyliczenia **ContentKeyType. FairPlayPfxPassword** , aby uzyskać identyfikator Media Services. Jest to potrzebne do użycia w opcji zasady dostarczania kluczy.
   * **IV**: jest to wartość losowa o 16 bajtów. Musi być zgodna z IV w ramach zasad dostarczania elementów zawartości. Wygenerujesz IV i umieścisz ją w obydwu miejscach: zasady dostarczania zasobów i opcja zasady dostarczania kluczy.
@@ -127,7 +127,7 @@ Poniżej przedstawiono ogólne kroki ochrony zasobów w programie FairPlay przy 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Używanie dostarczania kluczy FairPlay przez aplikacje odtwarzacza
 Aplikacje odtwarzacza można opracowywać przy użyciu zestawu iOS SDK. Aby można było odtwarzać zawartość FairPlay, należy zaimplementować protokół wymiany licencji. Ten protokół nie jest określony przez firmę Apple. Jest to każda aplikacja, w której można wysyłać żądania dostarczania kluczy. Usługa dostarczania kluczy Media Services FairPlay oczekuje, że SPC ma być komunikatem post w formacie www-form-URL, w następującej postaci:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player obsługuje odtwarzanie FairPlay. Więcej informacji można znaleźć w [dokumentacji Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) .
@@ -164,7 +164,7 @@ Poniższy przykład demonstruje możliwość używania Media Services do dostarc
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) artykuł.
 
 Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 
@@ -562,5 +562,5 @@ namespace DynamicEncryptionWithFairPlay
 ## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

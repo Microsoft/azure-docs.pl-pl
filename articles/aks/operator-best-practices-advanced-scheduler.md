@@ -5,11 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: f63db0efb509223715efd4848a91d0435ab54af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340849"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077851"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -100,7 +101,7 @@ Przydziały i tolerowania są używane do logicznego izolowania zasobów przy u�
 Spójrzmy na przykład węzłów z dużą ilością pamięci. Te węzły mogą dać preferencję do zasobników, które żądają dużej ilości pamięci. Aby upewnić się, że zasoby nie są bezczynne, zezwalają również na uruchamianie innych zasobów.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 Specyfikacja pod, następnie dodaje `nodeSelector` Właściwość w celu zdefiniowania selektora węzła, który pasuje do zestawu etykiet w węźle:

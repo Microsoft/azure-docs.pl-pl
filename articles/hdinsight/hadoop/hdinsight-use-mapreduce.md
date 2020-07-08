@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b683f12a17d6aabbcdce3190a34675951567f64
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75435721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075845"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Korzystanie z technologii MapReduce na platformie Apache Hadoop w usłudze HDInsight
 

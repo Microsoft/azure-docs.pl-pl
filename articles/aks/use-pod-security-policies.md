@@ -3,15 +3,23 @@ title: Używanie zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS
 description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą PodSecurityPolicy w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bd4e1b85513ed5473b4136b458d20fef4faa79c
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.date: 06/30/2020
+ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374495"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077630"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
+
+<!--
+> [!WARNING]
+> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
+> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
+
+**This document and feature are set for deprecation.**
+-->
 
 Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zaplanować. Nie można uruchomić z nich zasobników, które żądają niedozwolonych zasobów w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń pod. W tym artykule pokazano, jak za pomocą zasad zabezpieczeń w programie ograniczyć wdrażanie zasobników w AKS.
 
@@ -106,7 +114,7 @@ Zasady zabezpieczeń *uprzywilejowany* pod są stosowane do każdego uwierzyteln
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Jak pokazano w następujących wąskich danych wyjściowych, *PSP: ClusterRole z ograniczeniami* jest przypisany do dowolnego *systemu: Użytkownicy uwierzytelnieni* . Ta możliwość zapewnia podstawowy poziom ograniczeń bez zdefiniowanych zasad.
+Jak pokazano w następujących wąskich danych wyjściowych, wartość *PSP: Privileged* ClusterRole jest przypisywana do dowolnego *systemu: Użytkownicy uwierzytelnieni* . Ta możliwość zapewnia podstawowy poziom uprawnień bez definiowania własnych zasad.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +172,7 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>Testowanie tworzenia uprzywilejowanego pod
 
-Najpierw Przetestuj, co się dzieje, gdy planujesz go z kontekstem zabezpieczeń `privileged: true` . Ten kontekst zabezpieczeń przekazuje uprawnienia administratora. W poprzedniej sekcji, która wykazała domyślne zasady zabezpieczeń AKS pod, zasady z *ograniczeniami* powinny odmówić tego żądania.
+Najpierw Przetestuj, co się dzieje, gdy planujesz go z kontekstem zabezpieczeń `privileged: true` . Ten kontekst zabezpieczeń przekazuje uprawnienia administratora. W poprzedniej sekcji, która wykazała domyślne zasady zabezpieczeń AKS pod, zasady *uprawnień* powinny odmówić tego żądania.
 
 Utwórz plik o nazwie `nginx-privileged.yaml` i wklej następujący manifest YAML:
 
@@ -199,7 +207,7 @@ Nie dociera do etapu planowania, dlatego nie ma żadnych zasobów do usunięcia 
 
 ## <a name="test-creation-of-an-unprivileged-pod"></a>Tworzenie testu dla nieuprzywilejowanego pod
 
-W poprzednim przykładzie Specyfikacja "pod" zażądała eskalacji uprzywilejowanej. To żądanie jest odrzucane przez domyślne zasady zabezpieczeń *ograniczone* pod względem zasad, więc nie można zaplanować uruchomienia. Spróbujmy teraz uruchomić ten sam NGINX pod bez żądania eskalacji uprawnień.
+W poprzednim przykładzie Specyfikacja "pod" zażądała eskalacji uprzywilejowanej. To żądanie jest odrzucane przez domyślne *uprawnienia* w ramach zasad zabezpieczeń, dlatego nie można zaplanować uruchomienia. Spróbujmy teraz uruchomić ten sam NGINX pod bez żądania eskalacji uprawnień.
 
 Utwórz plik o nazwie `nginx-unprivileged.yaml` i wklej następujący manifest YAML:
 
@@ -232,7 +240,7 @@ Nie dociera do etapu planowania, dlatego nie ma żadnych zasobów do usunięcia 
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>Tworzenie testów pod kątem określonego kontekstu użytkownika
 
-W poprzednim przykładzie obraz kontenera automatycznie próbował użyć elementu głównego do powiązania NGINX z portem 80. To żądanie zostało odrzucone przez domyślne zasady zabezpieczeń *ograniczone* pod względem zasad, więc uruchomienie nie powiodło się. Spróbujmy teraz uruchomić te same NGINX pod kątem określonego kontekstu użytkownika, takich jak `runAsUser: 2000` .
+W poprzednim przykładzie obraz kontenera automatycznie próbował użyć elementu głównego do powiązania NGINX z portem 80. To żądanie zostało odrzucone przez domyślne *uprawnienia* do zasad zabezpieczeń, dlatego nie można uruchomić. Spróbujmy teraz uruchomić te same NGINX pod kątem określonego kontekstu użytkownika, takich jak `runAsUser: 2000` .
 
 Utwórz plik o nazwie `nginx-unprivileged-nonroot.yaml` i wklej następujący manifest YAML:
 
@@ -298,7 +306,7 @@ Utwórz zasady za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i o
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Aby wyświetlić dostępne zasady, użyj polecenia [polecenia kubectl Get PSP][kubectl-get] , jak pokazano w poniższym przykładzie. Porównaj zasady *PSP-Deny-Privileged* z domyślnymi zasadami *ograniczonymi* , które zostały wymuszone w poprzednich przykładach, aby utworzyć element pod. Zasady odrzucają tylko użycie eskalacji *priv* . Nie ma żadnych ograniczeń dla użytkownika lub grupy dla zasad *"PSP-Deny-Privileged* ".
+Aby wyświetlić dostępne zasady, użyj polecenia [polecenia kubectl Get PSP][kubectl-get] , jak pokazano w poniższym przykładzie. Porównaj zasady *PSP-Deny-Privileged* z domyślnymi zasadami *uprawnień* , które zostały wymuszone w poprzednich przykładach, aby utworzyć element pod. Zasady odrzucają tylko użycie eskalacji *priv* . Nie ma żadnych ograniczeń dla użytkownika lub grupy dla zasad *"PSP-Deny-Privileged* ".
 
 ```console
 $ kubectl get psp
@@ -387,7 +395,7 @@ Usuń NGINX nieuprzywilejowany pod za pomocą polecenia [Delete polecenia kubect
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyłączyć zasady zabezpieczeń pod, ponownie Użyj polecenia [AZ AKS Update][az-aks-update] . W poniższym przykładzie zostały wyłączone zasady zabezpieczeń pod nazwą klastra *myAKSCluster* w grupie zasobów o nazwie Moja *zasobów*:
 

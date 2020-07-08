@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0b5fbb49e2f60f101f16988538af86c2caf550eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16c14774b1b032132040ea3fdcf810a4f9de8f18
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202858"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077358"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importowanie i publikowanie pierwszego interfejsu API
 
-W tym samouczku przedstawiono sposób importowania interfejsu API zaplecza specyfikacji OpenAPI w formacie JSON do usługi Azure API Management. Firma Microsoft udostępnia interfejs API zaplecza i hostuje go [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json)na platformie Azure pod adresem.
+W tym samouczku przedstawiono sposób importowania interfejsu API zaplecza specyfikacji OpenAPI w formacie JSON do usługi Azure API Management. Firma Microsoft udostępnia interfejs API zaplecza i hostuje go na platformie Azure pod adresem [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json) .
 
 Po zaimportowaniu interfejsu API zaplecza do API Management, interfejs API API Management stał się elewacją dla interfejsu API zaplecza. Możesz dostosować elewację do swoich potrzeb w API Management bez dotykania interfejsu API zaplecza. Aby uzyskać więcej informacji, zobacz [Przekształcanie i ochrona interfejsu API](transform-api.md).
 
@@ -55,21 +55,21 @@ W tej sekcji przedstawiono sposób importowania i publikowania interfejsu API za
 
    |Ustawienie|Wartość|Opis|
    |-------|-----|-----------|
-   |**Specyfikacja OpenAPI**|*https:\//conferenceapi.azurewebsites.NET? format = JSON*|Usługa implementująca interfejs API. Usługa API Management przekazuje żądania na ten adres.|
+   |**Specyfikacja OpenAPI**|*https: \/ /conferenceapi.azurewebsites.NET? format = JSON*|Usługa implementująca interfejs API. Usługa API Management przekazuje żądania na ten adres.|
    |**Nazwa wyświetlana**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Nazwa wyświetlana w portalu dla deweloperów.|
    |**Nazwa**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Unikatowa nazwa interfejsu API.|
    |**Opis**|Po wprowadzeniu powyższego adresu URL usługi API Management wypełnia to pole na podstawie kodu JSON.|Opcjonalny opis interfejsu API.|
-   |**Schemat adresu URL**|**Schemat**|Protokołów, które mogą być używane do uzyskiwania dostępu do interfejsu API.|
+   |**Schemat adresu URL**|**HTTPS**|Protokołów, które mogą być używane do uzyskiwania dostępu do interfejsu API.|
    |**Sufiks adresu URL interfejsu API**|*conference*|Sufiks dołączany do podstawowego adresu URL usługi API Management. API Management odróżnia interfejsy API według ich sufiksów, więc sufiks musi być unikatowy dla każdego interfejsu API dla danego wydawcy.|
    |**Tagi**| |Tagi służące do organizowania interfejsów API do wyszukiwania, grupowania lub filtrowania.|
    |**Produkty**|**Nieograniczona liczba**|Skojarzenie jednego lub więcej interfejsów API. Każde wystąpienie API Management zawiera dwa przykładowe produkty: **Starter** i **nieograniczone**. Interfejs API jest publikowany przez skojarzenie interfejsu API z produktem, **nieograniczoną** w tym przykładzie.<br/>Możesz dołączyć kilka interfejsów API w produkcie i zaoferować je deweloperom za pomocą portalu dla deweloperów. Aby dodać ten interfejs API do innego produktu, wpisz lub wybierz nazwę produktu. Powtórz ten krok, aby dodać interfejs API do wielu produktów. Możesz również dodać interfejsy API do produktów później ze strony **ustawień** .<br/>Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania uzyskują klucz subskrypcji dobry dla każdego interfejsu API w tym produkcie. <br/>Jeśli utworzono wystąpienie API Management, jesteś już administratorem, więc subskrybujesz każdy produkt w wystąpieniu.|
-   |**Bramy**|**Zarządzani**|Bramy interfejsu API, które uwidaczniają interfejs API. To pole jest dostępne tylko w ramach usług dla **deweloperów** i warstwy **Premium** .<br/>Brama **zarządzana** wskazuje bramę wbudowaną w usługę API Management i obsługiwaną przez firmę Microsoft na platformie Azure. Inne bramy są [bramami samoobsługowymi](self-hosted-gateway-overview.md) i są dostępne tylko w warstwach usług premium i developer. Można je wdrożyć w środowisku lokalnym lub w innych chmurach.<br/>Jeśli nie wybrano żadnych bram, interfejs API nie będzie dostępny i żądania interfejsu API nie powiodą się.|
+   |**Bramy**|**Zarządzany**|Bramy interfejsu API, które uwidaczniają interfejs API. To pole jest dostępne tylko w ramach usług dla **deweloperów** i warstwy **Premium** .<br/>Brama **zarządzana** wskazuje bramę wbudowaną w usługę API Management i obsługiwaną przez firmę Microsoft na platformie Azure. Inne bramy są [bramami samoobsługowymi](self-hosted-gateway-overview.md) i są dostępne tylko w warstwach usług premium i developer. Można je wdrożyć w środowisku lokalnym lub w innych chmurach.<br/>Jeśli nie wybrano żadnych bram, interfejs API nie będzie dostępny i żądania interfejsu API nie powiodą się.|
    |**Czy chcesz utworzyć wersję tego interfejsu API?**|Zaznacz lub usuń zaznaczenie|Aby uzyskać więcej informacji na temat przechowywania wersji, zobacz [Publikowanie wielu wersji interfejsu API](api-management-get-started-publish-versions.md).|
 
    > [!NOTE]
    > Aby opublikować interfejs API dla odbiorców interfejsu API, należy skojarzyć go z produktem.
 
-2. Wybierz przycisk **Utwórz**.
+2. Wybierz pozycję **Utwórz**.
 
 Jeśli masz problemy z importowaniem definicji interfejsu API, zobacz [listę znanych problemów i ograniczeń](api-management-api-import-restrictions.md).
 
@@ -79,7 +79,7 @@ Operacje interfejsu API można wywoływać bezpośrednio z Azure Portal, co zape
 
 1. W lewym panelu nawigacyjnym wystąpienia API Management wybierz opcję **interfejsy API** z sekcji **API Management** , a następnie wybierz pozycję **interfejs API konferencji demonstracyjnej**.
 1. Wybierz kartę **test** , a następnie wybierz pozycję **getgłośników**. Na stronie są wyświetlane parametry i **nagłówki** **zapytania** , jeśli istnieją. Wartość **OCP-APIM-Subscription-Key** jest automatycznie wypełniana dla klucza subskrypcji skojarzonego z tym interfejsem API.
-1. Wybierz pozycję **Wyślij**.
+1. Wybierz pozycję **Send** (Wyślij).
 
    ![Mapa testowania interfejsu API](./media/api-management-import-and-publish/01-import-first-api-01.png)
 
@@ -97,3 +97,8 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć i opublik
 
 > [!div class="nextstepaction"]
 > [Tworzenie i publikowanie produktu](api-management-howto-add-products.md)
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

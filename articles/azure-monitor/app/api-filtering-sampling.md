@@ -1,38 +1,38 @@
 ---
-title: Filtrowanie i wstępne przetwarzanie w zestawie SDK Application Insights platformy Azure | Microsoft Docs
+title: Filtrowanie i wstępne przetwarzanie w zestawie Application Insights SDK | Microsoft Docs
 description: Napisz procesory telemetrii i inicjatory telemetrii dla zestawu SDK w celu filtrowania lub dodawania właściwości do danych przed wysłaniem telemetrii do portalu Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 8b81849726ad546a24ce1bb56a139b384eb54c42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405364"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075794"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i wstępne przetwarzanie danych telemetrycznych w zestawie Application Insights SDK
+# <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i wstępne przetwarzanie danych telemetrycznych w zestawie Application Insights SDK
 
 Można napisać i skonfigurować wtyczki dla zestawu SDK Application Insights, aby dostosować sposób wzbogacania i przetwarzania danych telemetrycznych przed wysłaniem ich do usługi Application Insights.
 
-* [Próbkowanie](sampling.md) zmniejsza ilość danych telemetrycznych bez wpływu na dane statystyczne. Przechowuje on wspólnie powiązane punkty danych, dzięki czemu można przechodzić między nimi podczas diagnozowania problemu. W portalu łączna liczba jest mnożona, aby skompensować próbkowanie.
-* Filtrowanie za pomocą procesorów telemetrii umożliwia filtrowanie danych telemetrycznych w zestawie SDK przed wysłaniem ich do serwera. Na przykład można zmniejszyć ilość danych telemetrycznych, wykluczając żądania od robotów. Filtrowanie to bardziej podstawowe podejście do ograniczania ruchu niż próbkowanie. Pozwala ona na większą kontrolę nad tym, co jest przesyłane, ale należy pamiętać, że ma to wpływ na dane statystyczne — na przykład w przypadku filtrowania wszystkich pomyślnych żądań.
-* [Inicjatory telemetrii dodają lub modyfikują właściwości](#add-properties) do wszelkich danych telemetrycznych wysyłanych z aplikacji, w tym danych telemetrycznych z modułów standardowych. Można na przykład dodać wartości obliczone; lub numery wersji, przez które mają być filtrowane dane w portalu.
+* [Próbkowanie](sampling.md) zmniejsza ilość danych telemetrycznych bez wpływu na dane statystyczne. Przechowuje on wspólnie powiązane punkty danych, dzięki czemu można przechodzić między nimi, gdy diagnozowanie problemu. W portalu łączna liczba jest mnożona, aby skompensować próbkowanie.
+* Filtrowanie za pomocą procesorów telemetrii umożliwia filtrowanie danych telemetrycznych w zestawie SDK przed ich wysłaniem do serwera. Na przykład można zmniejszyć ilość danych telemetrycznych, wykluczając żądania od robotów. Filtrowanie to bardziej podstawowe podejście do ograniczania ruchu niż próbkowanie. Zapewnia większą kontrolę nad tym, co jest przesyłane, ale ma wpływ na dane statystyczne. Na przykład można odfiltrować wszystkie pomyślne żądania.
+* [Inicjatory telemetrii dodają lub modyfikują właściwości](#add-properties) do wszelkich danych telemetrycznych wysyłanych z aplikacji, które obejmują dane telemetryczne z modułów standardowych. Można na przykład dodać wartości obliczeniowe lub numery wersji, według których mają być filtrowane dane w portalu.
 * [Interfejs API zestawu SDK](../../azure-monitor/app/api-custom-events-metrics.md) służy do wysyłania niestandardowych zdarzeń i metryk.
 
 Przed rozpoczęciem:
 
-* Zainstaluj odpowiedni zestaw SDK dla aplikacji: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [nie http/Worker dla platformy .NET/.NET Core](worker-service.md)lub [JavaScript](javascript.md)
+* Zainstaluj odpowiedni zestaw SDK dla swojej aplikacji: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [non http/Worker dla platformy .NET/.NET Core](worker-service.md)lub [JavaScript](javascript.md).
 
 <a name="filtering"></a>
 
 ## <a name="filtering"></a>Filtrowanie
 
-Ta technika zapewnia bezpośrednią kontrolę nad tym, co jest uwzględnione lub wykluczone ze strumienia telemetrii. Filtrowanie może służyć do porzucania elementów telemetrycznych z wysyłania do Application Insights. Można jej używać w połączeniu z próbkami lub oddzielnie.
+Ta technika zapewnia bezpośrednią kontrolę nad tym, co jest dołączone lub wykluczone ze strumienia telemetrii. Filtrowanie może służyć do porzucania elementów telemetrycznych z wysyłania do Application Insights. Można użyć filtrowania w połączeniu z próbką lub oddzielnie.
 
-Aby odfiltrować dane telemetryczne, napisz procesor telemetrii `TelemetryConfiguration`i zarejestruj go przy użyciu. Wszystkie dane telemetryczne przechodzą przez procesor i można je usunąć ze strumienia lub przekazać do następnego procesora w łańcuchu. Obejmuje to dane telemetryczne z modułów standardowych, takich jak moduł zbierający żądania HTTP i moduł zbierający zależności oraz dane telemetryczne, które zostały przez Ciebie śledzone. Można na przykład odfiltrować dane telemetryczne dotyczące żądań z robotów lub pomyślnych wywołań zależności.
+Aby odfiltrować dane telemetryczne, napisz procesor telemetrii i zarejestruj go w usłudze `TelemetryConfiguration` . Wszystkie dane telemetryczne przechodzą przez procesor. Możesz wybrać opcję porzucenia ze strumienia lub przekazać ją do następnego procesora w łańcuchu. Dane telemetryczne z modułów standardowych, takich jak moduł zbierający żądania HTTP i moduł zbierający zależność, są uwzględniane przez śledzone dane telemetryczne. Na przykład można odfiltrować dane telemetryczne dotyczące żądań z robotów lub pomyślnych wywołań zależności.
 
 > [!WARNING]
-> Filtrowanie danych telemetrycznych wysyłanych z zestawu SDK przy użyciu procesorów może spowodować pochylenie statystyk, które są widoczne w portalu, i utrudnia obserwowanie powiązanych elementów.
+> Filtrowanie danych telemetrycznych wysyłanych z zestawu SDK przy użyciu procesorów może pochylić statystyki widoczne w portalu i utrudniać wykonywanie pokrewnych elementów.
 >
 > Zamiast tego należy rozważyć użycie [próbkowania](../../azure-monitor/app/sampling.md).
 >
@@ -40,9 +40,9 @@ Aby odfiltrować dane telemetryczne, napisz procesor telemetrii `TelemetryConfig
 
 ### <a name="create-a-telemetry-processor-c"></a>Tworzenie procesora telemetrii (C#)
 
-1. Aby utworzyć filtr, zaimplementuj `ITelemetryProcessor`.
+1. Aby utworzyć filtr, zaimplementuj `ITelemetryProcessor` .
 
-    Należy zauważyć, że procesory telemetrii konstruują łańcuch przetwarzania. Podczas tworzenia wystąpienia procesora telemetrii otrzymujesz odwołanie do następnego procesora w łańcuchu. Gdy punkt danych telemetrii jest przesyłany do metody procesu, wykonuje jego działanie, a następnie wywołuje (lub nie wywołuje) następnego procesora telemetrii w łańcuchu.
+    Procesory telemetrii konstruują łańcuch przetwarzania. Podczas tworzenia wystąpienia procesora telemetrii otrzymujesz odwołanie do następnego procesora w łańcuchu. Gdy punkt danych telemetrii jest przesyłany do metody procesu, wykonuje jego działanie, a następnie wywołuje (lub nie wywołuje) następnego procesora telemetrii w łańcuchu.
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
@@ -79,7 +79,9 @@ Aby odfiltrować dane telemetryczne, napisz procesor telemetrii `TelemetryConfig
 
 2. Dodaj procesor.
 
-**Aplikacje ASP.NET** Wstaw ten fragment kodu w pliku ApplicationInsights. config:
+**Aplikacje** ASP.NET
+
+Wstaw następujący fragment kodu w ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
@@ -93,10 +95,10 @@ Aby odfiltrować dane telemetryczne, napisz procesor telemetrii `TelemetryConfig
 Można przekazać wartości ciągu z pliku. config, podając publiczne właściwości o nazwie w klasie.
 
 > [!WARNING]
-> Należy zachować ostrożność dopasowania nazwy typu i wszystkich nazw właściwości w pliku. config do nazw klas i właściwości w kodzie. Jeśli plik. config odwołuje się do nieistniejącego typu lub właściwości, zestaw SDK może dyskretnie niepowodzeniem wysyłać żadnych danych telemetrycznych.
+> Należy zachować ostrożność dopasowania nazwy typu i wszystkich nazw właściwości w pliku. config do nazw klas i właściwości w kodzie. Jeśli plik. config odwołuje się do nieistniejącego typu lub właściwości, zestaw SDK może w trybie dyskretnym nie mógł wysyłać żadnych danych telemetrycznych.
 >
 
-**Alternatywnie** można zainicjować filtr w kodzie. W odpowiedniej klasie inicjującej — na przykład AppStart w `Global.asax.cs` — Włóż procesor do łańcucha:
+Alternatywnie można zainicjować filtr w kodzie. W odpowiedniej klasie inicjującej, na przykład AppStart w `Global.asax.cs` , włóż procesor do łańcucha:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -108,14 +110,14 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-TelemetryClients utworzony po tym punkcie będzie używać procesorów.
+Klienci telemetrii utworzeni po tym punkcie będą korzystać z procesorów.
 
-**ASP.NET Core/aplikacje usługi Worker**
+ASP.NET **podstawowe/aplikacje usług roboczych**
 
 > [!NOTE]
-> Dodawanie procesora przy `ApplicationInsights.config` użyciu lub `TelemetryConfiguration.Active` użycie nie jest prawidłowe dla aplikacji ASP.NET Core lub jeśli używasz zestawu Microsoft. ApplicationInsights. WorkerService SDK.
+> Dodawanie procesora przez użycie `ApplicationInsights.config` lub `TelemetryConfiguration.Active` nieprawidłowe dla aplikacji ASP.NET Core lub użycie zestawu SDK Microsoft. ApplicationInsights. WorkerService.
 
-W przypadku aplikacji pisanych przy użyciu [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) lub [WorkerService](worker-service.md#adding-telemetry-processors)Dodawanie nowej `TelemetryProcessor` jest wykonywane przy użyciu `AddApplicationInsightsTelemetryProcessor` metody rozszerzającej `IServiceCollection`na, jak pokazano poniżej. Ta metoda jest wywoływana w `ConfigureServices` metodzie `Startup.cs` klasy.
+W przypadku aplikacji pisanych przy użyciu [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) lub [WorkerService](worker-service.md#adding-telemetry-processors)Dodawanie nowego procesora telemetrii odbywa się przy użyciu `AddApplicationInsightsTelemetryProcessor` metody rozszerzenia na `IServiceCollection` , jak pokazano. Ta metoda jest wywoływana w `ConfigureServices` metodzie `Startup.cs` klasy.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -168,10 +170,10 @@ public void Process(ITelemetry item)
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>Odfiltruj szybkie zdalne wywołania zależności
 
-Jeśli chcesz tylko zdiagnozować wywołania, które są powolne, odfiltruj szybkie.
+Jeśli chcesz zdiagnozować tylko wywołania, które są powolne, odfiltruj szybkie.
 
 > [!NOTE]
-> Spowoduje to pochylenie statystyk widocznych w portalu.
+> To filtrowanie spowoduje pochylenie statystyk widocznych w portalu.
 >
 >
 
@@ -196,9 +198,9 @@ W [tym blogu](https://azure.microsoft.com/blog/implement-an-application-insights
 
 ### <a name="javascript-web-applications"></a>Aplikacje sieci Web w języku JavaScript
 
-**Filtrowanie przy użyciu ITelemetryInitializer**
+**Filtrowanie za pomocą ITelemetryInitializer**
 
-1. Utwórz funkcję wywołania zwrotnego inicjatora telemetrii. Funkcja wywołania zwrotnego `ITelemetryItem` przyjmuje jako parametr, który jest przetwarzanym zdarzeniem. Powrót `false` z tego wywołania zwrotnego powoduje odfiltrowanie elementu telemetrii.  
+1. Utwórz funkcję wywołania zwrotnego inicjatora telemetrii. Funkcja wywołania zwrotnego przyjmuje `ITelemetryItem` jako parametr, który jest zdarzeniem, które jest przetwarzane. Powrót `false` z tego wywołania zwrotnego powoduje odfiltrowanie elementu telemetrii.
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -218,16 +220,15 @@ W [tym blogu](https://azure.microsoft.com/blog/implement-an-application-insights
 
 ## <a name="addmodify-properties-itelemetryinitializer"></a>Dodaj/Modyfikuj właściwości: ITelemetryInitializer
 
+Za pomocą inicjatorów telemetrii można wzbogacać dane telemetryczne o dodatkowe informacje lub przesłaniać właściwości telemetryczne ustawione przez standardowe moduły telemetrii.
 
-Użyj inicjatorów telemetrii, aby wzbogacić telemetrię z dodatkowymi informacjami i/lub aby zastąpić właściwości telemetryczne ustawione przez standardowe moduły telemetrii.
+Na przykład Application Insights pakietu sieci Web zbiera dane telemetryczne o żądaniach HTTP. Domyślnie flaguje jako nieudane wszystkie żądania z kodem odpowiedzi >= 400. Jeśli jednak chcesz traktować 400 jako pomyślne, możesz podać inicjator telemetrii, który ustawia właściwość Success.
 
-Na przykład Application Insights dla pakietu sieci Web zbiera dane telemetryczne o żądaniach HTTP. Domyślnie flaguje jako nieudane wszystkie żądania z kodem odpowiedzi >= 400. Jeśli jednak chcesz traktować 400 jako pomyślne, możesz podać inicjator telemetrii, który ustawia właściwość Success.
-
-W przypadku dostarczania inicjatora telemetrii jest on wywoływany za każdym razem, gdy wywoływana jest jakakolwiek metoda Track * (). Obejmuje `Track()` to metody wywoływane przez standardowe moduły telemetrii. Zgodnie z Konwencją te moduły nie ustawiają żadnej właściwości, która została już ustawiona przez inicjator. Inicjatory telemetrii są wywoływane przed wywołaniem procesorów telemetrycznych. W związku z tym wszystkie wzbogacania wykonywane przez inicjatorów są widoczne dla procesorów.
+W przypadku dostarczania inicjatora telemetrii jest on wywoływany za każdym razem, gdy wywoływana jest jakakolwiek metoda Track * (). Obejmuje to `Track()` metody wywoływane przez standardowe moduły telemetrii. Zgodnie z Konwencją te moduły nie ustawiają żadnej właściwości, która została już ustawiona przez inicjator. Inicjatory telemetrii są wywoływane przed wywołaniem procesorów telemetrycznych. W związku z tym wszystkie wzbogacania wykonywane przez inicjatorów są widoczne dla procesorów.
 
 **Definiowanie inicjatora**
 
-*S #*
+*C#*
 
 ```csharp
 using System;
@@ -266,9 +267,9 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**ASP.NET Apps: Załaduj inicjator**
+ASP.NET **Apps: Załaduj inicjator**
 
-W pliku ApplicationInsights. config:
+W ApplicationInsights.config:
 
 ```xml
 <ApplicationInsights>
@@ -280,7 +281,7 @@ W pliku ApplicationInsights. config:
 </ApplicationInsights>
 ```
 
-*Alternatywnie* można utworzyć wystąpienie inicjatora w kodzie, na przykład w Global.aspx.cs:
+Alternatywnie można utworzyć wystąpienie inicjatora w kodzie, na przykład w Global.aspx.cs:
 
 ```csharp
 protected void Application_Start()
@@ -290,14 +291,14 @@ protected void Application_Start()
 }
 ```
 
-[Zobacz więcej tego przykładu.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+Zobacz więcej [tego przykładu](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-**ASP.NET Core/aplikacje usługi Worker: ładowanie inicjatora**
+ASP.NET **podstawowe/aplikacje usługi Worker: Załaduj inicjator**
 
 > [!NOTE]
-> Dodawanie inicjatora `ApplicationInsights.config` za pomocą `TelemetryConfiguration.Active` lub użycie jest nieprawidłowe dla aplikacji ASP.NET Core lub jeśli używasz zestawu Microsoft. ApplicationInsights. WorkerService SDK.
+> Dodawanie inicjatora przy użyciu `ApplicationInsights.config` lub `TelemetryConfiguration.Active` nie jest prawidłowe dla aplikacji ASP.NET Core lub jeśli używasz zestawu SDK Microsoft. ApplicationInsights. WorkerService.
 
-W przypadku aplikacji pisanych przy użyciu [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) lub [WorkerService](worker-service.md#adding-telemetryinitializers)Dodawanie nowego `TelemetryInitializer` jest wykonywane przez dodanie go do kontenera iniekcji zależności, jak pokazano poniżej. Jest to realizowane w `Startup.ConfigureServices` metodzie.
+W przypadku aplikacji pisanych przy użyciu [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) lub [WorkerService](worker-service.md#adding-telemetryinitializers)Dodawanie nowego inicjatora telemetrii odbywa się przez dodanie go do kontenera iniekcji zależności, jak pokazano. Jest to wykonywane w `Startup.ConfigureServices` metodzie.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -351,20 +352,20 @@ Wstaw inicjatora telemetrii bezpośrednio po kodzie inicjalizacji uzyskanym z po
 </script>
 ```
 
-Podsumowanie właściwości nieniestandardowych dostępnych w telemetryItem można znaleźć w temacie [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+Aby uzyskać podsumowanie nieniestandardowych właściwości dostępnych dla elementu telemetrii, zobacz [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
 
-Można dodać tyle inicjatorów, ile chcesz, i są one wywoływane w kolejności, w jakiej zostały dodane.
+Możesz dodać dowolną liczbę inicjatorów. Są one wywoływane w kolejności, w jakiej zostały dodane.
 
 ### <a name="opencensus-python-telemetry-processors"></a>OpenCensus procesory telemetryczne języka Python
 
-Aby przetwarzać dane telemetryczne przed ich wyeksportowaniem, procesory telemetryczne w języku OpenCensus Python są po prostu wywoływana funkcjami Funkcja wywołania zwrotnego musi akceptować typ danych [koperty](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) jako parametr. Aby odfiltrować dane telemetryczne z eksportu, upewnij się, `False`że funkcja wywołania zwrotnego zwróci wartość. Schemat dla Azure Monitor typów danych można zobaczyć [tutaj](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+Aby przetwarzać dane telemetryczne przed ich wyeksportowaniem, procesory telemetryczne w OpenCensus Python są po prostu wywoływana funkcjami Funkcja wywołania zwrotnego musi akceptować typ danych [koperty](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) jako parametr. Aby odfiltrować dane telemetryczne z eksportu, upewnij się, że funkcja wywołania zwrotnego zwróci wartość `False` . Schemat dla Azure Monitor typów danych można zobaczyć na kopercie [w serwisie GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 > [!NOTE]
 > Możesz zmodyfikować `cloud_RoleName` , zmieniając `ai.cloud.role` atrybut w `tags` polu.
 
 ```python
 def callback_function(envelope):
-    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+    envelope.tags['ai.cloud.role'] = 'new_role_name'
 ```
 
 ```python
@@ -462,11 +463,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Możesz dodać dowolną liczbę procesorów i są one wywoływane w kolejności, w jakiej zostały dodane. Jeśli jeden procesor powinien zgłosić wyjątek, nie ma to wpływu na następujące procesory.
+Możesz dodać dowolną liczbę procesorów. Są one wywoływane w kolejności, w jakiej zostały dodane. Jeśli jeden procesor zgłasza wyjątek, nie ma to wpływu na następujące procesory.
 
 ### <a name="example-telemetryinitializers"></a>Przykład TelemetryInitializers
 
-#### <a name="add-custom-property"></a>Dodaj właściwość niestandardową
+#### <a name="add-a-custom-property"></a>Dodaj właściwość niestandardową
 
 Poniższy przykładowy inicjator dodaje właściwość niestandardową do wszystkich śledzonych danych telemetrycznych.
 
@@ -481,7 +482,7 @@ public void Initialize(ITelemetry item)
 }
 ```
 
-#### <a name="add-cloud-role-name"></a>Dodaj nazwę roli w chmurze
+#### <a name="add-a-cloud-role-name"></a>Dodaj nazwę roli w chmurze
 
 Poniższy przykładowy inicjator ustawia nazwę roli chmury dla każdej śledzonej telemetrii.
 
@@ -497,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Dodaj informacje z obiektu HttpContext
 
-Poniższy przykładowy inicjator odczytuje dane z [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) i dołącza je do `RequestTelemetry` wystąpienia. `IHttpContextAccessor` Jest automatycznie udostępniany przez iniekcję zależności konstruktora.
+Poniższy przykładowy inicjator odczytuje dane z [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) i dołącza je do `RequestTelemetry` wystąpienia. `IHttpContextAccessor`Jest automatycznie udostępniany przez iniekcję zależności konstruktora.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -527,17 +528,17 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 Jaka jest różnica między procesorami telemetrii i inicjatorami telemetrii?
 
-* Istnieją pewne nakładanie się na to, co można zrobić z nimi: obie mogą służyć do dodawania lub modyfikowania właściwości telemetrii, ale zalecane jest używanie inicjatorów w tym celu.
-* TelemetryInitializers zawsze uruchamiaj przed TelemetryProcessors.
-* TelemetryInitializers może być wywoływana więcej niż raz. Według Konwencji nie ustawili żadnej właściwości, która została już ustawiona.
-* TelemetryProcessors umożliwia całkowite zastępowanie lub odrzucanie elementu telemetrii.
-* Wszystkie zarejestrowane TelemetryInitializers są gwarantowane dla każdego elementu telemetrii. W przypadku procesorów telemetrii zestaw SDK gwarantuje wywołanie bardzo pierwszego procesora telemetrii. Bez względu na to, czy pozostała część procesorów jest wywoływana, czy nie, jest określana przez poprzednie procesory telemetrii.
-* Użyj TelemetryInitializers, aby wzbogacić dane telemetryczne z dodatkowymi właściwościami, lub Zastąp istniejący. Użyj TelemetryProcessor, aby odfiltrować dane telemetryczne.
+* Niektóre z nich nakładają się na to, co możesz zrobić z nimi. Oba te elementy mogą służyć do dodawania lub modyfikowania właściwości telemetrii, chociaż zalecamy korzystanie z inicjatorów w tym celu.
+* Inicjatory telemetrii są zawsze uruchamiane przed procesorami telemetrii.
+* Inicjatory telemetrii mogą być wywoływane więcej niż raz. Według Konwencji nie ustawili żadnej właściwości, która została już ustawiona.
+* Procesory telemetrii umożliwiają całkowite zastępowanie lub odrzucanie elementu telemetrii.
+* Wszystkie zarejestrowane inicjatory telemetrii są gwarantowane dla każdego elementu telemetrii. W przypadku procesorów telemetrii zestaw SDK gwarantuje wywołanie pierwszego procesora telemetrii. Bez względu na to, czy pozostały zakres procesorów jest wywoływany przez poprzednie procesory telemetrii.
+* Użyj inicjatorów telemetrii, aby wzbogacić dane telemetryczne z dodatkowymi właściwościami, lub Zastąp istniejący. Użyj procesora telemetrii do odfiltrowania danych telemetrycznych.
 
-## <a name="troubleshooting-applicationinsightsconfig"></a>Rozwiązywanie problemów z ApplicationInsights. config
+## <a name="troubleshoot-applicationinsightsconfig"></a>Rozwiązywanie problemów ApplicationInsights.config
 
 * Upewnij się, że w pełni kwalifikowana nazwa typu i nazwa zestawu są poprawne.
-* Upewnij się, że plik ApplicationInsights. config znajduje się w katalogu wyjściowym i zawiera wszystkie ostatnie zmiany.
+* Upewnij się, że plik applicationinsights.config znajduje się w katalogu wyjściowym i zawiera wszystkie ostatnie zmiany.
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 

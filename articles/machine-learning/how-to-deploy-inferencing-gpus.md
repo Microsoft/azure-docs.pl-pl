@@ -11,12 +11,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c115b641ca5c22ebe227af5349d7ef133e198b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976748"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077001"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Wdrażanie modelu uczenia głębokiego na potrzeby wnioskowania z procesorem GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -161,6 +161,9 @@ channels:
 Na potrzeby tego przykładu plik jest zapisywany jako `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definiowanie konfiguracji wdrożenia
+
+> [!IMPORTANT]
+> AKS nie zezwala na współużytkowanie procesorów GPU, ale może mieć tylko tyle replik usługi sieci Web obsługujących procesor GPU, ponieważ w klastrze są dostępne procesory GPU.
 
 Konfiguracja wdrożenia definiuje środowisko usługi Azure Kubernetes, które jest używane do uruchamiania usługi sieci Web:
 

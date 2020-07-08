@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085709"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076763"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Przykładowe skrypty usługi Azure Disk Encryption 
 
@@ -76,22 +76,30 @@ Skonfiguruj ustawienia zasady grupy funkcji BitLocker **szyfrowanie dysków funk
 ### <a name="install-bitlocker-feature-components"></a>Zainstaluj składniki funkcji funkcji BitLocker
 W przypadku systemu Windows Server 2012 i nowszych Użyj następującego polecenia:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 W przypadku systemu Windows Server 2008 R2 Użyj następującego polecenia:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Przygotowanie woluminu systemu operacyjnego na potrzeby funkcji BitLocker za pomocą`bdehdcfg`
 Aby skompresować partycję systemu operacyjnego i przygotować maszynę do obsługi funkcji BitLocker, należy w razie potrzeby wykonać [BdeHdCfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) :
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet 
+```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Ochrona woluminu systemu operacyjnego za pomocą funkcji BitLocker
 Użyj [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) polecenia, aby włączyć szyfrowanie na woluminie rozruchowym przy użyciu funkcji ochrony klucza zewnętrznego. Umieść również klucz zewnętrzny (plik. klucz szyfrowania bloków) na dysku zewnętrznym lub woluminie. Szyfrowanie jest włączone w woluminie systemowym/rozruchowym po następnym ponownym uruchomieniu.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Przygotuj maszynę wirtualną z osobnym dyskiem VHD danych/zasobów na potrzeby uzyskiwania klucza zewnętrznego przy użyciu funkcji BitLocker.

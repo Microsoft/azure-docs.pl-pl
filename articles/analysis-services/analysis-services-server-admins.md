@@ -4,21 +4,21 @@ description: W tym artykule opisano sposób zarządzania administratorami serwer
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077511"
 ---
 # <a name="manage-server-administrators"></a>Zarządzanie administratorami serwerów
 
-Administratorzy serwera muszą być prawidłowymi użytkownikami lub grupami zabezpieczeń w Azure Active Directory (Azure AD) dla dzierżawy, w której znajduje się serwer. Do zarządzania administratorami serwera można używać administratorów **Analysis Services** serwera w Azure Portal, właściwości serwera w programie SSMS, PowerShell lub interfejsie API REST. 
+Administratorzy serwera muszą być prawidłowymi użytkownikami, jednostkami usługi lub grupami zabezpieczeń w Azure Active Directory (Azure AD) dla dzierżawy, w której znajduje się serwer. Do zarządzania administratorami serwera można używać administratorów **Analysis Services** serwera w Azure Portal, właściwości serwera w programie SSMS, PowerShell lub interfejsie API REST. 
 
-Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
+Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` . Nazwy główne usług nie są obsługiwane w grupach zabezpieczeń dodanych do roli administratora serwera.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Aby dodać administratorów serwera przy użyciu Azure Portal
 
@@ -36,7 +36,7 @@ Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
    
     ![Dodawanie administratorów serwera w programie SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

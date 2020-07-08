@@ -5,12 +5,12 @@ description: Dowiedz się, jak zaktualizować lub zresetować poświadczenia naz
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 914e043e2c0cf39c18480b5ca5e34332398806f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dcbd91063d4f36c4d78023b6548db0c968eda74
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905378"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077698"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aktualizowanie lub obracanie poświadczeń usługi Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,16 @@ Jeśli chcesz zaktualizować poświadczenia dla klastra AKS, możesz wybrać nas
 
 * Zaktualizuj poświadczenia istniejącej nazwy głównej usługi używanej przez klaster lub
 * Utwórz nazwę główną usługi i zaktualizuj klaster, aby użyć tych nowych poświadczeń.
+
+### <a name="check-the-expiration-date-of-your-service-principal"></a>Sprawdzanie daty wygaśnięcia nazwy głównej usługi
+
+Aby sprawdzić datę wygaśnięcia nazwy głównej usługi, użyj polecenia [AZ AD Sp Credential list][az-ad-sp-credential-list] . Poniższy przykład pobiera identyfikator jednostki usługi dla klastra o nazwie *myAKSCluster* w grupie zasobów zasobu *zasobów* przy użyciu polecenia [AZ AKS show][az-aks-show] . Identyfikator jednostki usługi jest ustawiany jako zmienna o nazwie *SP_ID* do użycia z poleceniem [AZ AD Sp Credential list][az-ad-sp-credential-list] .
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
 
 ### <a name="reset-existing-service-principal-credential"></a>Zresetuj istniejące poświadczenia jednostki usługi
 
@@ -88,7 +98,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 Aktualizacja nazwy głównej usługi w AKS może chwilę potrwać.
@@ -120,4 +130,5 @@ W tym artykule opisano nazwę główną usługi dla klastra AKS oraz aplikacje i
 [aad-integration]: azure-ad-integration.md
 [create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

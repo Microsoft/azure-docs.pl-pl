@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 07e11e3dbd7141ed3f54debfe4bafbda9431486b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 44f9261c8054ea0575f2fcab0dc8bb6c0d6f0ce4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84703884"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058269"
 ---
 # <a name="fsv2-series"></a>Seria Fsv2
 
-Seria Fsv2 jest uruchamiana na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake) oraz procesorach Intel® Xeon® Platinum 8168. Oferuje on stałą prędkość zegara Turbo o częstotliwości 3,4 GHz i maksymalną jednordzeniową częstotliwość Turbo 3,7 GHz. Instrukcje Intel® AVX-512 są nowe w skalowalnych procesorach Intel. Te instrukcje umożliwiają zwiększenie wydajności do obciążeń przetwarzania wektorowego zarówno w przypadku operacji zmiennoprzecinkowych o pojedynczej, jak i podwójnej precyzji. Innymi słowy, są one bardzo szybkie w przypadku obciążeń obliczeniowych.
+Seria Fsv2 jest uruchamiana na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake) oraz procesorach Intel® Xeon® Platinum 8168 (Skylake). Oferuje on stałą prędkość zegara Turbo o częstotliwości 3,4 GHz i maksymalną jednordzeniową częstotliwość Turbo 3,7 GHz. Instrukcje Intel® AVX-512 są nowe w skalowalnych procesorach Intel. Te instrukcje umożliwiają zwiększenie wydajności do obciążeń przetwarzania wektorowego zarówno w przypadku operacji zmiennoprzecinkowych o pojedynczej, jak i podwójnej precyzji. Innymi słowy, są one bardzo szybkie w przypadku obciążeń obliczeniowych.
 
 Maszyny wirtualne z serii Fsv2 są wyposażone w technologię Hyper-Threading firmy Intel®.
 

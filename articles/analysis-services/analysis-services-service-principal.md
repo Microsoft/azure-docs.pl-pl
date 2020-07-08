@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć jednostkę usługi do automatyzowania A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f2ffd1ea098bcf98e25958ca40318a65b0ef6605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361459"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077375"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -38,7 +38,7 @@ Poświadczenia i certyfikaty jednostki usługi mogą być bezpiecznie przechowyw
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Dodawanie jednostek usługi do roli administratora serwera
 
-Aby można było użyć nazwy głównej usługi dla operacji zarządzania serwerem Analysis Services, należy dodać ją do roli Administratorzy serwera. Aby dowiedzieć się więcej, zobacz [Dodawanie nazwy głównej usługi do roli administratora serwera](analysis-services-addservprinc-admins.md).
+Aby można było użyć nazwy głównej usługi dla operacji zarządzania serwerem Analysis Services, należy dodać ją do roli Administratorzy serwera. Nazwy główne usługi należy dodać bezpośrednio do roli administratora serwera. Dodanie nazwy głównej usługi do grupy zabezpieczeń, a następnie dodanie tej grupy zabezpieczeń do roli administratora serwera nie jest obsługiwane. Aby dowiedzieć się więcej, zobacz [Dodawanie nazwy głównej usługi do roli administratora serwera](analysis-services-addservprinc-admins.md).
 
 ## <a name="service-principals-in-connection-strings"></a>Nazwy główne usług w ciągach połączeń
 
