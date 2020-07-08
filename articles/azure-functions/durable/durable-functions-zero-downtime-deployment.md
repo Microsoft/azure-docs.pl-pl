@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231253"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
@@ -54,17 +53,17 @@ Aby skonfigurować ten scenariusz, należy wykonać poniższą procedurę.
 
 1. Dla każdego gniazda należy ustawić [ustawienie aplikacji AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) na parametry połączenia dla konta magazynu udostępnionego. Te parametry połączenia konta magazynu są używane przez środowisko uruchomieniowe Azure Functions. To konto jest używane przez środowisko uruchomieniowe Azure Functions i zarządza kluczami funkcji.
 
-1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage`. Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](durable-functions-checkpointing-and-replay.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
+1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage` . Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](durable-functions-checkpointing-and-replay.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
 
-1. W [sekcji durableTask pliku host. JSON](durable-functions-bindings.md#hostjson-settings)aplikacji funkcji Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
+1. Whost.jsaplikacji funkcji w [sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
 
 Na poniższym diagramie przedstawiono opisaną konfigurację miejsc wdrożenia i kont magazynu. W tym potencjalnym scenariuszu preinstalacji wersja 2 aplikacji funkcji jest uruchomiona w miejscu produkcyjnym, natomiast wersja 1 pozostaje w miejscu przejściowym.
 
 ![Gniazda wdrożenia i konta magazynu](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>Przykłady pliku host. JSON
+### <a name="hostjson-examples"></a>host.jsna przykład
 
-Poniższe fragmenty kodu JSON to przykłady ustawienia parametrów połączenia w pliku *host. JSON* .
+Poniższe fragmenty kodu JSON to przykłady ustawienia parametrów połączenia w *host.js* pliku.
 
 #### <a name="functions-20"></a>Funkcje 2,0
 
@@ -164,7 +163,7 @@ Router monitoruje stan aranżacji w wersji 1.0.1 i usuwa aplikacje po zakończen
 
 ### <a name="tracking-store-settings"></a>Śledzenie ustawień magazynu
 
-Każda aplikacja funkcji powinna używać oddzielnych kolejek planowania, prawdopodobnie w oddzielnym koncie magazynu. Jeśli chcesz wysyłać zapytania o wszystkie wystąpienia aranżacji we wszystkich wersjach aplikacji, możesz udostępniać tabele wystąpień i historii w aplikacjach funkcji. Tabele można udostępniać, konfigurując ustawienia `trackingStoreConnectionStringName` i `trackingStoreNamePrefix` w pliku [ustawień hosta. JSON](durable-functions-bindings.md#host-json) , tak aby wszystkie te same wartości były używane.
+Każda aplikacja funkcji powinna używać oddzielnych kolejek planowania, prawdopodobnie w oddzielnym koncie magazynu. Jeśli chcesz wysyłać zapytania o wszystkie wystąpienia aranżacji we wszystkich wersjach aplikacji, możesz udostępniać tabele wystąpień i historii w aplikacjach funkcji. Tabele można udostępniać przez skonfigurowanie `trackingStoreConnectionStringName` `trackingStoreNamePrefix` ustawień i whost.jsw pliku [ustawień](durable-functions-bindings.md#host-json) , aby wszystkie te same wartości były używane.
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie wystąpieniami w Durable Functions na platformie Azure](durable-functions-instance-management.md).
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671625"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcjonalność systemu operacyjnego na Azure App Service
@@ -33,7 +32,7 @@ Ponieważ App Service obsługuje bezproblemowe skalowanie między różnymi wars
 ## <a name="development-frameworks"></a>Platformy programistyczne
 App Service warstwy cenowe kontrolują ilość zasobów obliczeniowych (procesor CPU, magazyn dyskowy, pamięć i ruch wychodzący w sieci), które są dostępne dla aplikacji. Jednak szerokość platformy dostępna dla aplikacji pozostaje taka sama niezależnie od warstw skalowania.
 
-App Service obsługuje różne platformy programistyczne, w tym ASP.NET, klasyczne ASP, Node. js, PHP i Python — wszystkie te, które są uruchamiane jako rozszerzenia w ramach usług IIS. Aby uprościć i znormalizować konfigurację zabezpieczeń, App Service aplikacje zwykle uruchamiają różne platformy programistyczne z ustawieniami domyślnymi. Jednym z metod konfigurowania aplikacji może być dostosowanie obszaru powierzchni interfejsu API do poszczególnych platform programistycznych. App Service zamiast tego przyjmuje bardziej ogólne podejście, włączając wspólną podstawę funkcji systemu operacyjnego niezależnie od struktury projektowania aplikacji.
+App Service obsługuje różne platformy programistyczne, w tym ASP.NET, klasyczne ASP, node.js, PHP i Python — wszystkie uruchomienia jako rozszerzenia w ramach usług IIS. Aby uprościć i znormalizować konfigurację zabezpieczeń, App Service aplikacje zwykle uruchamiają różne platformy programistyczne z ustawieniami domyślnymi. Jednym z metod konfigurowania aplikacji może być dostosowanie obszaru powierzchni interfejsu API do poszczególnych platform programistycznych. App Service zamiast tego przyjmuje bardziej ogólne podejście, włączając wspólną podstawę funkcji systemu operacyjnego niezależnie od struktury projektowania aplikacji.
 
 Poniższe sekcje zawierają podsumowanie ogólnych rodzajów funkcji systemu operacyjnego dostępnych dla App Service aplikacji.
 
@@ -45,7 +44,7 @@ Istnieją różne dyski w App Service, w tym dyski lokalne i dyski sieciowe.
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Dyski lokalne
-App Service to usługa działająca w oparciu o infrastrukturę platformy Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, które są "dołączone" do maszyny wirtualnej, są tymi samymi dyskami, które są dostępne dla każdej roli procesu roboczego działającej na platformie Azure. Obejmuje to:
+App Service to usługa działająca w oparciu o infrastrukturę platformy Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, które są "dołączone" do maszyny wirtualnej, są tymi samymi dyskami, które są dostępne dla każdej roli procesu roboczego działającej na platformie Azure. Obejmuje on:
 
 - Dysk systemu operacyjnego (D:\ litera
 - Dysk aplikacji zawierający pliki cspkg pakietu platformy Azure używane wyłącznie przez App Service (i niedostępne dla klientów)
@@ -55,7 +54,7 @@ Ważne jest, aby monitorować wykorzystanie dysku w miarę zwiększania się apl
 
 - Aplikacja może zgłosić błąd informujący o braku wystarczającej ilości miejsca na dysku.
 - Błędy dysku mogą być widoczne podczas przeglądania do konsoli kudu.
-- Wdrożenie z usługi Azure DevOps lub programu Visual Studio może `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`zakończyć się niepowodzeniem.
+- Wdrożenie z usługi Azure DevOps lub programu Visual Studio może zakończyć się niepowodzeniem `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` .
 - Aplikacja może mieć negatywny wpływ na wydajność.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +75,7 @@ Na dyskach lokalnych podłączonych do maszyny wirtualnej, na której działa ap
 
 Dwa przykłady użycia tymczasowego magazynu lokalnego przez App Service są katalogiem plików tymczasowych ASP.NET i katalogiem skompresowanych plików usług IIS. System kompilacji ASP.NET używa katalogu "Temporary ASP.NET Files" jako tymczasowej lokalizacji pamięci podręcznej kompilacji. Usługi IIS używają katalogu "tymczasowe pliki skompresowane usługi IIS" do przechowywania danych wyjściowych skompresowanych odpowiedzi. Oba typy użycia plików (a także inne) są ponownie mapowane w App Service do tymczasowego magazynu lokalnego dla aplikacji. To ponowne mapowanie zapewnia, że funkcje będą nadal działać zgodnie z oczekiwaniami.
 
-Każda aplikacja w App Service jest uruchamiana jako Losowa unikatowa tożsamość procesu roboczego o niskim poziomie uprawnień o nazwie "tożsamość puli aplikacji", opisana tutaj [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities):. Kod aplikacji używa tej tożsamości do podstawowego dostępu tylko do odczytu do dysku systemu operacyjnego (D:\ dysk). Oznacza to, że kod aplikacji może wyświetlać listę wspólnych struktur katalogów i odczytywać typowe pliki na dysku z systemem operacyjnym. Chociaż może to być nieco szerszego poziomu dostępu, te same katalogi i pliki są dostępne podczas aprowizacji roli proces roboczy w usłudze hostowanej platformy Azure i odczytywania zawartości dysku. 
+Każda aplikacja w App Service jest uruchamiana jako Losowa unikatowa tożsamość procesu roboczego o niskim poziomie uprawnień o nazwie "tożsamość puli aplikacji", opisana tutaj: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) . Kod aplikacji używa tej tożsamości do podstawowego dostępu tylko do odczytu do dysku systemu operacyjnego (D:\ dysk). Oznacza to, że kod aplikacji może wyświetlać listę wspólnych struktur katalogów i odczytywać typowe pliki na dysku z systemem operacyjnym. Chociaż może to być nieco szerszego poziomu dostępu, te same katalogi i pliki są dostępne podczas aprowizacji roli proces roboczy w usłudze hostowanej platformy Azure i odczytywania zawartości dysku. 
 
 <a name="multipleinstances"></a>
 
@@ -115,7 +114,7 @@ Obszary rejestrowania i śledzenia diagnostyki, które nie są dostępne dla apl
 <a id="RegistryAccess"></a>
 
 ## <a name="registry-access"></a>Dostęp do rejestru
-Aplikacje mają dostęp tylko do odczytu do wielu (choć nie wszystkie) rejestru maszyny wirtualnej, w której są uruchomione. W rzeczywistości oznacza to, że klucze rejestru zezwalające na dostęp tylko do odczytu do grupy Użytkownicy lokalni są dostępne dla aplikacji. Jednym z obszarów rejestru, który nie jest obecnie obsługiwany w przypadku dostępu do odczytu lub zapisu, jest\_HKEY\_bieżącej gałęzi użytkownika.
+Aplikacje mają dostęp tylko do odczytu do wielu (choć nie wszystkie) rejestru maszyny wirtualnej, w której są uruchomione. W rzeczywistości oznacza to, że klucze rejestru zezwalające na dostęp tylko do odczytu do grupy Użytkownicy lokalni są dostępne dla aplikacji. Jednym z obszarów rejestru, który nie jest obecnie obsługiwany w przypadku dostępu do odczytu lub zapisu, jest HKEY \_ bieżącej \_ gałęzi użytkownika.
 
 Dostęp do zapisu w rejestrze jest blokowany, w tym dostęp do dowolnych kluczy rejestru dla poszczególnych użytkowników. Z punktu widzenia aplikacji dostęp do zapisu w rejestrze nigdy nie powinien być w środowisku platformy Azure, ponieważ aplikacje mogą wykonywać migrację między różnymi maszynami wirtualnymi. Jedyną trwałym magazynem zapisywalnym, z którym może być zależna aplikacja, jest struktura katalogów zawartości dla aplikacji przechowywana w App Service udziałach UNC. 
 

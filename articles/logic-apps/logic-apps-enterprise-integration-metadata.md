@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792471"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Zarządzanie metadanymi artefaktów na kontach integracji z Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
+# <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Zarządzanie metadanymi artefaktów na kontach integracji za pomocą usługi Azure Logic Apps i Pakietu integracyjnego dla przedsiębiorstw
 
-Można zdefiniować niestandardowe metadane dla artefaktów na kontach integracji i pobrać te metadane w czasie wykonywania aplikacji logiki do użycia. Na przykład można dostarczyć metadanych dla artefaktów, takich jak partnerzy, umowy, schematy i mapy — wszystkie metadane magazynu z użyciem par klucz-wartość. 
+Możesz zdefiniować niestandardowe metadane dla artefaktów na kontach integracji i pobrać te metadane w czasie wykonywania, aby aplikacja logiki mogła ich użyć. Na przykład można dostarczyć metadanych dla artefaktów, takich jak partnerzy, umowy, schematy i mapy — wszystkie metadane magazynu z użyciem par klucz-wartość. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,9 +25,9 @@ Można zdefiniować niestandardowe metadane dla artefaktów na kontach integracj
 * Podstawowe [konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) z artefaktami, w których chcesz dodać metadane, na przykład: 
 
   * [Partner](logic-apps-enterprise-integration-partners.md)
-  * [Rozumie](logic-apps-enterprise-integration-agreements.md)
+  * [Umowa](logic-apps-enterprise-integration-agreements.md)
   * [Schemat](logic-apps-enterprise-integration-schemas.md)
-  * [Zmapować](logic-apps-enterprise-integration-maps.md)
+  * [Mapa](logic-apps-enterprise-integration-maps.md)
 
 * Aplikacja logiki, która jest połączona z kontem integracji i metadanymi artefaktów, których chcesz użyć. Jeśli Twoja aplikacja logiki nie jest już połączona, Dowiedz się, [jak połączyć Aplikacje logiki z kontami integracji](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
@@ -53,7 +52,7 @@ Można zdefiniować niestandardowe metadane dla artefaktów na kontach integracj
 
 1. W Azure Portal Otwórz aplikację logiki, która jest połączona z żądanym kontem integracji. 
 
-1. W Projektancie aplikacji logiki, jeśli dodajesz krok do pobierania metadanych w ramach wyzwalacza lub ostatniej akcji w przepływie pracy, wybierz pozycję **nowy krok** > **Dodaj akcję**. 
+1. W Projektancie aplikacji logiki, jeśli dodajesz krok do pobierania metadanych w ramach wyzwalacza lub ostatniej akcji w przepływie pracy, wybierz pozycję **nowy krok**  >  **Dodaj akcję**. 
 
 1. W polu wyszukiwania wprowadź ciąg "konto integracji". W polu wyszukiwania wybierz pozycję **Wszystko**. Z listy Akcje wybierz tę akcję: **Wyszukiwanie artefaktów konta integracji — konto integracji**
 
@@ -86,9 +85,9 @@ Można zdefiniować niestandardowe metadane dla artefaktów na kontach integracj
       | Właściwość | Wymagany | Wartość | Opis | 
       |----------|----------|-------|-------------| 
       | **Metoda** | Tak | <*Operacja do uruchomienia*> | Operacja HTTP do uruchomienia na artefaktie. Na przykład ta akcja HTTP używa metody **Get** . | 
-      | **Identyfikator URI** | Tak | <*metadane — lokalizacja*> | Aby uzyskać dostęp `routingUrl` do wartości metadanych z pobranego artefaktu, można użyć wyrażenia, na przykład: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Nagłówki** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość `headers` właściwości wyzwalacza: można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
-      | **Treść** | Nie | <*treść — zawartość*> | Każda inna zawartość, która ma zostać przekazana przez `body` Właściwość akcji http. Ten przykład przekazuje `properties` wartości artefaktu do akcji http: <p>1. kliknij wewnątrz właściwości **Body** , aby wyświetlić listę zawartości dynamicznej. Jeśli nie zostaną wyświetlone żadne właściwości, wybierz pozycję **Zobacz więcej**. <br>2. z listy zawartości dynamicznej w obszarze **Wyszukiwanie artefaktów konta integracji**wybierz pozycję **Właściwości**. | 
+      | **Identyfikator URI** | Tak | <*metadane — lokalizacja*> | Aby uzyskać dostęp do `routingUrl` wartości metadanych z pobranego artefaktu, można użyć wyrażenia, na przykład: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Nagłówki** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość właściwości wyzwalacza `headers` : można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
+      | **Treść** | Nie | <*treść — zawartość*> | Każda inna zawartość, która ma zostać przekazana przez właściwość akcji HTTP `body` . Ten przykład przekazuje wartości artefaktu `properties` do akcji http: <p>1. kliknij wewnątrz właściwości **Body** , aby wyświetlić listę zawartości dynamicznej. Jeśli nie zostaną wyświetlone żadne właściwości, wybierz pozycję **Zobacz więcej**. <br>2. z listy zawartości dynamicznej w obszarze **Wyszukiwanie artefaktów konta integracji**wybierz pozycję **Właściwości**. | 
       |||| 
 
       Przykład:

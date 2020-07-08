@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74888499"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
@@ -33,7 +32,7 @@ W tym artykule Visual Studio Code jest używany do tworzenia przykładowej aplik
    - Zestaw JDK.
    - Apache Maven
    - Pakiet rozszerzeń języka Java
-- Upewnij się, że `JAVA_HOME` ustawisz zmienne środowiskowe i `PATH` .
+- Upewnij się, że ustawisz `JAVA_HOME` `PATH` zmienne środowiskowe i.
 - [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 - Wykonaj kroki opisane w temacie [interfejsy API dostępu](access-api-cli-how-to.md) . Zapisz identyfikator subskrypcji, identyfikator aplikacji (identyfikator klienta), klucz uwierzytelniania (klucz tajny) i identyfikator dzierżawy, które są potrzebne w późniejszym kroku.
 
@@ -53,7 +52,7 @@ Otwórz narzędzie wiersza polecenia i `cd` do katalogu, w którym chcesz utworz
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-Po uruchomieniu polecenia są tworzone pliki `pom.xml`, `App.java`i. 
+Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i. 
 
 ## <a name="add-dependencies"></a>Dodaj zależności
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873424"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB stałe zapytania SQL  
@@ -23,13 +22,13 @@ ms.locfileid: "74873424"
 |-|-|  
 |**Niezdefiniowane**|Pojedyncza wartość: **undefined**|  
 |**Null**|Pojedyncza wartość: **null**|  
-|**Wartość logiczna**|Wartości: **false**, **true**.|  
+|**Boolean**|Wartości: **false**, **true**.|  
 |**Liczba**|Liczba zmiennoprzecinkowa podwójnej precyzji, IEEE 754 Standard.|  
 |**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w pojedyncze lub podwójne cudzysłowy.|  
 |**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
-|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Obiekt**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
   
-## <a name="syntax"></a><a name="bk_syntax"></a>Obowiązuje
+## <a name="syntax"></a><a name="bk_syntax"></a>Składnia
   
 ```sql  
 <constant> ::=  
@@ -107,7 +106,7 @@ ms.locfileid: "74873424"
 |-|-|-|  
 |\\'|apostrof (')|U + 0027|  
 |\\"|cudzysłów (")|U + 0022|  
-|\\\ |odwrócony ukośnik (\\)|U + 005C|  
+|\\\ |odwrócony ukośnik ( \\ )|U + 005C|  
 |\\/|Solid (/)|U + 002F|  
 |\b|Backspace|U + 0008|  
 |\f|kanał informacyjny formularza|U + 000C|  

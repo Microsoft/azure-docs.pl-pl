@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74885640"
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego  
@@ -33,7 +32,7 @@ Azure Media Services dodano następujące właściwości do jednostki punktu ko�
 Podczas tworzenia konta Azure Media Services jest tworzony domyślny standardowy punkt końcowy przesyłania strumieniowego w stanie **zatrzymany** . Nie można usunąć domyślnego punktu końcowego przesyłania strumieniowego. W zależności od Azure CDN dostępności w regionie wskazywanym domyślnie nowo utworzony domyślny punkt końcowy przesyłania strumieniowego obejmuje również integrację z dostawcą usługi CDN "StandardVerizon". 
                 
 > [!NOTE]
-> Integrację Azure CDN można wyłączyć przed uruchomieniem punktu końcowego przesyłania strumieniowego. `hostname` I adres URL przesyłania strumieniowego pozostaje taki sam niezależnie od tego, czy jest włączona sieć CDN.
+> Integrację Azure CDN można wyłączyć przed uruchomieniem punktu końcowego przesyłania strumieniowego. `hostname`I adres URL przesyłania strumieniowego pozostaje taki sam niezależnie od tego, czy jest włączona sieć CDN.
 
 Ten temat zawiera omówienie głównych funkcji udostępnianych przez punkty końcowe przesyłania strumieniowego.
 
@@ -52,7 +51,7 @@ Począwszy od wersji 2017 stycznia Media Services, istnieją dwa typy przesyłan
 
 |Typ|Opis|
 |--------|--------|  
-|**Standardowa**|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** , można go zmienić na typ Premium przez dostosowanie jednostek przesyłania strumieniowego.|
+|**Standardowa (Standard)**|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** , można go zmienić na typ Premium przez dostosowanie jednostek przesyłania strumieniowego.|
 |**Premium** |Ta opcja jest odpowiednia dla profesjonalnych scenariuszy, które wymagają wyższego poziomu skalowania lub kontroli. Przechodzenie do typu **Premium** przez dostosowanie jednostek przesyłania strumieniowego.<br/>Dedykowane punkty końcowe przesyłania strumieniowego na żywo w środowisku izolowanym i nie konkurują o zasoby.|
 
 W przypadku klientów chcących dostarczyć zawartość do dużych odbiorców internetowych zalecamy włączenie usługi CDN w punkcie końcowym przesyłania strumieniowego.
@@ -77,18 +76,18 @@ Jeśli w **wersji "1,0"** punkt końcowy przesyłania strumieniowego ma >= 1 Pre
 
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Wdrożenie klasyczne|1.0|0|Nie dotyczy|Bezpłatna|
+|Klasyczny|1.0|0|Nie dotyczy|Bezpłatna|
 |Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2.0|0|Tak|Święcona|
 |Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Święcona|
 |Jednostki przesyłania strumieniowego w warstwie Premium|2.0|>0|Tak|Święcona|
 
 ### <a name="features"></a>Funkcje
 
-Funkcja|Standardowa|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
-Opłaty są naliczane proporcjonalnie| Dzienna|Dzienna
+Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
 Szyfrowanie dynamiczne|Tak|Tak
 Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe jednostki przesyłania strumieniowego.
@@ -104,9 +103,9 @@ Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.
 
 Z | Do | Akcja
 ---|---|---
-Wdrożenie klasyczne|Standardowa|Trzeba się zadecydować
-Wdrożenie klasyczne|Premium| Skalowanie (dodatkowe jednostki przesyłania strumieniowego)
-Standard/Premium|Wdrożenie klasyczne|Niedostępne (Jeśli wersja punktu końcowego przesyłania strumieniowego to 1,0). Można zmienić na klasyczny z ustawieniem scaleunits na "0".
+Wdrożenie klasyczne|Standardowa (Standard)|Trzeba się zadecydować
+Klasyczny|Premium| Skalowanie (dodatkowe jednostki przesyłania strumieniowego)
+Standard/Premium|Klasyczny|Niedostępne (Jeśli wersja punktu końcowego przesyłania strumieniowego to 1,0). Można zmienić na klasyczny z ustawieniem scaleunits na "0".
 Standardowa (z usługą CDN/bez)|Premium z tymi samymi konfiguracjami|Dozwolone w stanie **uruchomienia** . (za pośrednictwem Azure Portal)
 Premium (z usługą CDN/bez)|Standardowa z tymi samymi konfiguracjami|Dozwolone w stanie **uruchomienia** (za pośrednictwem Azure Portal)
 Standardowa (z usługą CDN/bez)|Premium z inną konfiguracją|Dozwolone w stanie **zatrzymania** (za pośrednictwem Azure Portal). Niedozwolone w stanie uruchomienia.
@@ -120,6 +119,6 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

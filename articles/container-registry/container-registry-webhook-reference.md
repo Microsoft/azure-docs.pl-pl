@@ -4,10 +4,9 @@ description: Dokumentacja ładunku JSON dla żądań elementu webhook w rejestrz
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455962"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry odwołanie elementu webhook
@@ -22,11 +21,11 @@ Informacje o konfigurowaniu elementów webhook dla usługi Azure Container Regis
 
 ### <a name="http-request"></a>Żądanie HTTP
 
-Wyzwolony element webhook wysyła żądanie `POST` http do punktu końcowego adresu URL, który został określony podczas konfigurowania elementu webhook.
+Wyzwolony element webhook wysyła `POST` żądanie HTTP do punktu końcowego adresu URL, który został określony podczas konfigurowania elementu webhook.
 
 ### <a name="http-headers"></a>Nagłówki HTTP
 
-Żądania elementu webhook zawierają `Content-Type` element `application/json` , jeśli nie określono `Content-Type` niestandardowego nagłówka elementu webhook.
+Żądania elementu webhook zawierają element, `Content-Type` `application/json` Jeśli nie określono `Content-Type` niestandardowego nagłówka elementu webhook.
 
 Żadne inne nagłówki nie są dodawane do żądania poza tymi niestandardowymi nagłówkami, które mogły zostać określone dla elementu webhook.
 
@@ -38,9 +37,9 @@ Element webhook wyzwolony, gdy obraz kontenera jest wypychany do repozytorium.
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
-|`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
+|`id`|String|Identyfikator zdarzenia elementu webhook.|
 |`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
-|`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
+|`action`|String|Akcja, która wyzwoliła zdarzenie elementu webhook.|
 |[obiektów](#target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 |[żądając](#request)|Typ złożony|Żądanie, które spowodowało wygenerowanie zdarzenia elementu webhook.|
 
@@ -48,21 +47,21 @@ Element webhook wyzwolony, gdy obraz kontenera jest wypychany do repozytorium.
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
+|`mediaType`|String|Typ MIME obiektu, do którego istnieje odwołanie.|
 |`size`|Int32|Liczba bajtów zawartości. Takie samo jak długość pola.|
-|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
+|`digest`|String|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
 |`length`|Int32|Liczba bajtów zawartości. Takie samo jak rozmiar pola.|
-|`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa tagu obrazu.|
+|`repository`|String|Nazwa repozytorium.|
+|`tag`|String|Nazwa tagu obrazu.|
 
 ### <a name="request"></a><a name="request"></a>żądając
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`id`|Ciąg|Identyfikator żądania, który zainicjował zdarzenie.|
-|`host`|Ciąg|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
-|`method`|Ciąg|Metoda żądania, która wygenerowała zdarzenie.|
-|`useragent`|Ciąg|Nagłówek agenta użytkownika żądania.|
+|`id`|String|Identyfikator żądania, który zainicjował zdarzenie.|
+|`host`|String|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
+|`method`|String|Metoda żądania, która wygenerowała zdarzenie.|
+|`useragent`|String|Nagłówek agenta użytkownika żądania.|
 
 ### <a name="payload-example-image-push-event"></a>Przykład ładunku: zdarzenie wypychania obrazu
 
@@ -102,22 +101,22 @@ Element webhook wyzwalany podczas wypychania wykresu Helm do repozytorium.
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
-|`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
+|`id`|String|Identyfikator zdarzenia elementu webhook.|
 |`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
-|`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
+|`action`|String|Akcja, która wyzwoliła zdarzenie elementu webhook.|
 |[obiektów](#helm_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 
 ### <a name="target"></a><a name="helm_target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
+|`mediaType`|String|Typ MIME obiektu, do którego istnieje odwołanie.|
 |`size`|Int32|Liczba bajtów zawartości.|
-|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
-|`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa tagu wykresu.|
-|`name`|Ciąg|Nazwa wykresu.|
-|`version`|Ciąg|Wersja wykresu.|
+|`digest`|String|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
+|`repository`|String|Nazwa repozytorium.|
+|`tag`|String|Nazwa tagu wykresu.|
+|`name`|String|Nazwa wykresu.|
+|`version`|String|Wersja wykresu.|
 
 ### <a name="payload-example-chart-push-event"></a>Przykład ładunku: zdarzenie push wykresu
 
@@ -152,9 +151,9 @@ Element webhook wyzwalany po usunięciu repozytorium lub manifestu obrazu. Niewy
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
-|`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
+|`id`|String|Identyfikator zdarzenia elementu webhook.|
 |`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
-|`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
+|`action`|String|Akcja, która wyzwoliła zdarzenie elementu webhook.|
 |[obiektów](#delete_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 |[żądając](#delete_request)|Typ złożony|Żądanie, które spowodowało wygenerowanie zdarzenia elementu webhook.|
 
@@ -162,18 +161,18 @@ Element webhook wyzwalany po usunięciu repozytorium lub manifestu obrazu. Niewy
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
-|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
-|`repository`|Ciąg|Nazwa repozytorium.|
+|`mediaType`|String|Typ MIME obiektu, do którego istnieje odwołanie.|
+|`digest`|String|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
+|`repository`|String|Nazwa repozytorium.|
 
 ### <a name="request"></a><a name="delete_request"></a>żądając
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`id`|Ciąg|Identyfikator żądania, który zainicjował zdarzenie.|
-|`host`|Ciąg|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
-|`method`|Ciąg|Metoda żądania, która wygenerowała zdarzenie.|
-|`useragent`|Ciąg|Nagłówek agenta użytkownika żądania.|
+|`id`|String|Identyfikator żądania, który zainicjował zdarzenie.|
+|`host`|String|Dostępna zewnętrznie nazwa hosta wystąpienia rejestru określona przez nagłówek hosta HTTP w żądaniach przychodzących.|
+|`method`|String|Metoda żądania, która wygenerowała zdarzenie.|
+|`useragent`|String|Nagłówek agenta użytkownika żądania.|
 
 ### <a name="payload-example-image-delete-event"></a>Przykład ładunku: zdarzenie usunięcia obrazu
 
@@ -214,22 +213,22 @@ Element webhook wyzwalany po usunięciu wykresu lub repozytorium Helm.
 
 |Element|Typ|Opis|
 |-------------|----------|-----------|
-|`id`|Ciąg|Identyfikator zdarzenia elementu webhook.|
+|`id`|String|Identyfikator zdarzenia elementu webhook.|
 |`timestamp`|DateTime|Godzina, o której wyzwolono zdarzenie elementu webhook.|
-|`action`|Ciąg|Akcja, która wyzwoliła zdarzenie elementu webhook.|
+|`action`|String|Akcja, która wyzwoliła zdarzenie elementu webhook.|
 |[obiektów](#chart_delete_target)|Typ złożony|Obiekt docelowy zdarzenia, które wyzwoliło zdarzenie elementu webhook.|
 
 ### <a name="target"></a><a name="chart_delete_target"></a>obiektów
 
 |Element|Typ|Opis|
 |------------------|----------|-----------|
-|`mediaType`|Ciąg|Typ MIME obiektu, do którego istnieje odwołanie.|
+|`mediaType`|String|Typ MIME obiektu, do którego istnieje odwołanie.|
 |`size`|Int32|Liczba bajtów zawartości.|
-|`digest`|Ciąg|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
-|`repository`|Ciąg|Nazwa repozytorium.|
-|`tag`|Ciąg|Nazwa tagu wykresu.|
-|`name`|Ciąg|Nazwa wykresu.|
-|`version`|Ciąg|Wersja wykresu.|
+|`digest`|String|Podsumowanie zawartości zgodnie ze specyfikacją interfejsu API protokołu HTTP w rejestrze w wersji 2.|
+|`repository`|String|Nazwa repozytorium.|
+|`tag`|String|Nazwa tagu wykresu.|
+|`name`|String|Nazwa wykresu.|
+|`version`|String|Wersja wykresu.|
 
 ### <a name="payload-example-chart-delete-event"></a>Przykład ładunku: zdarzenie usunięcia wykresu
 

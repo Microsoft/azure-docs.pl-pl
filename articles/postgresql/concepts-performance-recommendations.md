@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74768473"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Zalecenia dotyczące wydajności w Azure Database for PostgreSQL-pojedynczym serwerze
@@ -47,7 +46,7 @@ Obecnie obsługiwane są dwa typy rekomendacji: *create index* i *Drop index*.
 ### <a name="drop-index-recommendations"></a>Porzuć zalecenia dotyczące indeksów
 Oprócz wykrywania brakujących indeksów Azure Database for PostgreSQL analizuje wydajność istniejących indeksów. Jeśli indeks jest rzadko używany lub nadmiarowy, Analizator zaleca jego usunięcie.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 * Zalecenia dotyczące wydajności nie są dostępne dla [replik odczytu](concepts-read-replicas.md).
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [monitorowaniu i dostrajaniu](concepts-monitoring.md) w usłudze Azure Database for PostgreSQL.

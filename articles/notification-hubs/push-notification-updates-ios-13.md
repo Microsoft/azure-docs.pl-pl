@@ -9,10 +9,9 @@ ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228140"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Aktualizacje usługi Azure Notification Hubs dla systemu iOS 13
@@ -23,7 +22,7 @@ Firma Apple wprowadziła niedawno pewne zmiany do ich publicznej usługi wypycha
 
 ### <a name="apns-push-type"></a>Typ wypychania APNS
 
-Firma Apple wymaga teraz, aby deweloperzy identyfikli powiadomienia jako alerty lub powiadomienia w tle `apns-push-type` za pomocą nowego nagłówka w interfejsie API usługi APNs. Zgodnie z [dokumentacją firmy Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "wartość tego nagłówka musi dokładnie odzwierciedlać zawartość ładunku powiadomienia. W przypadku niezgodności lub braku nagłówka w wymaganych systemach usługi APNs mogą zwrócić błąd, opóźnić dostarczenie powiadomienia lub usunąć je całkowicie. "
+Firma Apple wymaga teraz, aby deweloperzy identyfikli powiadomienia jako alerty lub powiadomienia w tle za pomocą nowego `apns-push-type` nagłówka w interfejsie API usługi APNs. Zgodnie z [dokumentacją firmy Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "wartość tego nagłówka musi dokładnie odzwierciedlać zawartość ładunku powiadomienia. W przypadku niezgodności lub braku nagłówka w wymaganych systemach usługi APNs mogą zwrócić błąd, opóźnić dostarczenie powiadomienia lub usunąć je całkowicie. "
 
 Deweloperzy muszą teraz ustawić ten nagłówek w aplikacjach wysyłających powiadomienia za pomocą usługi Azure Notification Hubs. Ze względu na ograniczenie techniczne klienci muszą używać uwierzytelniania opartego na tokenach dla poświadczeń usługi APNS z żądaniami, które zawierają ten atrybut. Jeśli używasz uwierzytelniania opartego na certyfikatach dla poświadczeń usługi APNS, musisz przełączyć się do korzystania z uwierzytelniania opartego na tokenach.
 
@@ -58,11 +57,11 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-Aby pomóc w tym przejściu, gdy usługa Azure Notification Hubs wykryje powiadomienie, które nie `apns-push-type` ma ustawionego zestawu, usługi wnioskuje typ wypychania z żądania powiadomienia i ustawi wartość automatycznie. Należy pamiętać, że usługi Azure Notification Hubs należy skonfigurować do używania uwierzytelniania opartego na tokenach w celu ustawienia wymaganego nagłówka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie oparte na tokenach (http/2) dla usługi APNs](notification-hubs-push-notification-http2-token-authentification.md).
+Aby pomóc w tym przejściu, gdy usługa Azure Notification Hubs wykryje powiadomienie, które nie ma `apns-push-type` ustawionego zestawu, usługi wnioskuje typ wypychania z żądania powiadomienia i ustawi wartość automatycznie. Należy pamiętać, że usługi Azure Notification Hubs należy skonfigurować do używania uwierzytelniania opartego na tokenach w celu ustawienia wymaganego nagłówka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie oparte na tokenach (http/2) dla usługi APNs](notification-hubs-push-notification-http2-token-authentification.md).
 
 ## <a name="apns-priority"></a>Priorytet usługi APNS
 
-Inna niewielka zmiana, ale taka, która wymaga zmiany w aplikacji zaplecza, która wysyła powiadomienia, jest wymagana dla powiadomień w tle `apns-priority` , a nagłówek musi teraz mieć wartość 5. Wiele aplikacji ustawia `apns-priority` nagłówek na 10 (wskazujący natychmiastowe dostarczanie) lub nie ustawia go i pobiera wartość domyślną (10).
+Inna niewielka zmiana, ale taka, która wymaga zmiany w aplikacji zaplecza, która wysyła powiadomienia, jest wymagana dla powiadomień w tle, a `apns-priority` nagłówek musi teraz mieć wartość 5. Wiele aplikacji ustawia `apns-priority` nagłówek na 10 (wskazujący natychmiastowe dostarczanie) lub nie ustawia go i pobiera wartość domyślną (10).
 
 Ustawienie tej wartości na 10 nie jest już dozwolone w przypadku powiadomień w tle i należy ustawić wartość dla każdego żądania. Jeśli ta wartość nie zostanie podana, firma Apple nie będzie dostarczać powiadomień w tle. Przykład:
 

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74327208"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Używanie formatu UDF języka Java z Apache Hive w usłudze HDInsight
@@ -24,7 +23,7 @@ Dowiedz się, jak utworzyć opartą na języku Java funkcję (UDF), która dzia�
 * Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks)
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
-* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Będzie to wasb://dla usługi Azure Storage, abfs://dla Azure Data Lake Storage Gen2 lub adl://dla Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby `wasbs://`być.  Zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
+* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Będzie to wasb://dla usługi Azure Storage, abfs://dla Azure Data Lake Storage Gen2 lub adl://dla Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` .  Zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 
 * Edytor tekstu lub środowisko IDE języka Java
 
@@ -50,7 +49,7 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    To polecenie tworzy katalog o nazwie `exampleudf`, który zawiera projekt Maven.
+    To polecenie tworzy katalog o nazwie `exampleudf` , który zawiera projekt Maven.
 
 2. Po utworzeniu projektu Usuń `exampleudf/src/test` katalog, który został utworzony w ramach projektu, wprowadzając następujące polecenie:
 
@@ -144,7 +143,7 @@ cd C:\HDI
 
     Zapisz plik po wprowadzeniu zmian.
 
-4. Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `ExampleUDF.java`:
+4. Wprowadź poniższe polecenie, aby utworzyć i otworzyć nowy plik `ExampleUDF.java` :
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
@@ -189,9 +188,9 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
     mvn compile package
     ```
 
-    To polecenie kompiluje i pakuje `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` plik UDF do pliku.
+    To polecenie kompiluje i pakuje plik UDF do `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` pliku.
 
-2. Użyj polecenia `scp` , aby skopiować plik do klastra usługi HDInsight, wprowadzając następujące polecenie:
+2. Użyj `scp` polecenia, aby skopiować plik do klastra usługi HDInsight, wprowadzając następujące polecenie:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:

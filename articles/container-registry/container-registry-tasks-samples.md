@@ -4,33 +4,32 @@ description: Przykładowe zadania Azure Container Registry (zadania ACR) do komp
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456084"
 ---
 # <a name="acr-tasks-samples"></a>Przykłady zadań ACR
 
-Ten artykuł zawiera linki do `task.yaml` przykładowych plików i skojarzonych wieloetapowe dockerfile dla kilku scenariuszy [Azure Container Registry zadań](container-registry-tasks-overview.md) (ACR Tasks). 
+Ten artykuł zawiera linki do przykładowych `task.yaml` plików i skojarzonych wieloetapowe dockerfile dla kilku scenariuszy [Azure Container Registry zadań](container-registry-tasks-overview.md) (ACR Tasks). 
 
 Aby uzyskać więcej przykładów, zobacz repozytorium [przykładów platformy Azure][task-examples] .
 
 ## <a name="scenarios"></a>Scenariusze
 
-* **Kompilacja obrazu** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Obraz kompilacji**  -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Uruchom** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml) kontenera
+* **Uruchom kontener**  -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml)
 
-* **Kompilacja i wypychanie obrazu** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Kompilowanie i wypychanie obrazu**  -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Kompilowanie i uruchamianie obrazu** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Kompilowanie i uruchamianie obrazu**  -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Kompilowanie i wypychanie wielu obrazów** -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **Kompilowanie i wypychanie wielu obrazów**  -   [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Twórz i Testuj obrazy w równoległych** -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* Równoległe Kompilowanie **i testowanie obrazów**  -   [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
 
-* **Kompilowanie i wypychanie obrazów do wielu rejestrów** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
+* **Kompilowanie i wypychanie obrazów do wielu rejestrów**  -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [pliku dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
 
 
 ## <a name="next-steps"></a>Następne kroki

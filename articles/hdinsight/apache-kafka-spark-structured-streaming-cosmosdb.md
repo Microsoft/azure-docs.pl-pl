@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74406171"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Używanie Apache Spark strukturalnych przesyłania strumieniowego z Apache Kafka i Azure Cosmos DB
@@ -47,7 +46,7 @@ Mimo że można utworzyć ręcznie klastry usługi Azure Virtual Network, Kafka 
     <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
-    Szablon Azure Resource Manager znajduje się w repozytorium GitHub dla tego projektu ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
+    Szablon Azure Resource Manager znajduje się w repozytorium GitHub dla tego projektu ( [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) ).
 
     Ten szablon umożliwia utworzenie następujących zasobów:
 
@@ -86,7 +85,7 @@ Mimo że można utworzyć ręcznie klastry usługi Azure Virtual Network, Kafka 
 
 W projekcie używanym w tym dokumencie są przechowywane dane w Cosmos DB. Przed uruchomieniem kodu należy najpierw utworzyć _bazę danych_ i _kolekcję_ w wystąpieniu Cosmos DB. Należy również pobrać punkt końcowy dokumentu oraz _klucz_ używany do uwierzytelniania żądań do Cosmos DB.
 
-Jednym ze sposobów jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Poniższy skrypt spowoduje utworzenie bazy danych o nazwie `kafkadata` i kolekcji o nazwie `kafkacollection`. Następnie zwraca klucz podstawowy.
+Jednym ze sposobów jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Poniższy skrypt spowoduje utworzenie bazy danych o nazwie `kafkadata` i kolekcji o nazwie `kafkacollection` . Następnie zwraca klucz podstawowy.
 
 ```azurecli
 #!/bin/bash
@@ -128,7 +127,7 @@ Informacje o punkcie końcowym dokumentu i kluczu podstawowym są podobne do nas
 
 ## <a name="get-the-notebooks"></a>Pobierz notesy
 
-Kod dla przykładu opisanego w tym dokumencie jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb).
+Kod dla przykładu opisanego w tym dokumencie jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) .
 
 ## <a name="upload-the-notebooks"></a>Przekazywanie notesów
 

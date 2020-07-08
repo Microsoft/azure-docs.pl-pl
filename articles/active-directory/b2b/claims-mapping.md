@@ -12,17 +12,16 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3508865d9f89501cf70e09087c6a609beb6662b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74273185"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapowanie oświadczeń użytkowników współpracy B2B w Azure Active Directory
 
 Azure Active Directory (Azure AD) obsługuje Dostosowywanie oświadczeń wystawionych w tokenie SAML dla użytkowników współpracy B2B. Gdy użytkownik uwierzytelnia się w aplikacji, usługa Azure AD wystawia token języka SAML aplikacji zawierającej informacje (lub oświadczenia) o użytkowniku, który jednoznacznie identyfikuje je. Domyślnie obejmuje to nazwę użytkownika, adres e-mail, imię i nazwisko.
 
-W [Azure Portal](https://portal.azure.com)można wyświetlić lub edytować oświadczenia, które są wysyłane w tokenie SAML do aplikacji. Aby uzyskać dostęp do tych ustawień, wybierz pozycję **Azure Active Directory** > **aplikacje dla przedsiębiorstw** > aplikację, która została skonfigurowana do logowania jednokrotnego > **rejestracji**jednokrotnej. Zobacz ustawienia tokenu SAML w sekcji **atrybuty użytkownika** .
+W [Azure Portal](https://portal.azure.com)można wyświetlić lub edytować oświadczenia, które są wysyłane w tokenie SAML do aplikacji. Aby uzyskać dostęp do tych ustawień, wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw** > aplikację, która została skonfigurowana do logowania jednokrotnego > **rejestracji**jednokrotnej. Zobacz ustawienia tokenu SAML w sekcji **atrybuty użytkownika** .
 
 ![Pokazuje atrybuty tokenu SAML w interfejsie użytkownika](media/claims-mapping/view-claims-in-saml-token.png)
 

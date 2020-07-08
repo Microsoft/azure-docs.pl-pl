@@ -7,10 +7,9 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74770139"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optymalizacja zbiorczych operacji wstawiania i używania danych przejściowych na Azure Database for PostgreSQL-pojedynczym serwerze 
@@ -24,10 +23,10 @@ Niezarejestrowane tabele to funkcja PostgreSQL, która może być efektywnie uż
 Wstawianie do nierejestrowanej tabeli oznacza, że PostgreSQL wstawia bez zapisywania w dzienniku transakcji, który sam jest operacją we/wy. W związku z tym te tabele są znacznie szybsze niż zwykłe tabele.
 
 Użyj następujących opcji, aby utworzyć nierejestrowaną tabelę:
-- Utwórz nową nierejestrowaną tabelę przy użyciu składni `CREATE UNLOGGED TABLE <tableName>`.
-- Przekonwertuj istniejącą zarejestrowana tabelę na niezarejestrowana tabelę przy użyciu składni `ALTER TABLE <tableName> SET UNLOGGED`.  
+- Utwórz nową nierejestrowaną tabelę przy użyciu składni `CREATE UNLOGGED TABLE <tableName>` .
+- Przekonwertuj istniejącą zarejestrowana tabelę na niezarejestrowana tabelę przy użyciu składni `ALTER TABLE <tableName> SET UNLOGGED` .  
 
-Aby wycofać ten proces, użyj `ALTER TABLE <tableName> SET LOGGED`składni.
+Aby wycofać ten proces, użyj składni `ALTER TABLE <tableName> SET LOGGED` .
 
 ## <a name="unlogged-table-tradeoff"></a>Wady nierejestrowanej tabeli
 Niezarejestrowane tabele nie są bezpieczne. Nierejestrowana tabela jest automatycznie obcinana po awarii lub podlega nieczystemu zamknięciu. Zawartość niezarejestrowanej tabeli również nie jest replikowana na serwery rezerwy. Wszystkie indeksy utworzone w nierejestrowanej tabeli są również automatycznie rejestrowane. Po zakończeniu operacji wstawiania Konwertuj tabelę na zarejestrowaną, aby wstawić ją do postaci trwałej.

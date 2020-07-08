@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74873339"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
@@ -23,7 +22,7 @@ Azure Cosmos DB konta interfejsu API SQL obsługują wykonywanie zapytań dotycz
 
 ## <a name="upload-sample-data"></a>Przekazywanie przykładowych danych
 
-Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families`. Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w Azure Cosmos DB dokumentach zapytań przy użyciu tego zestawu danych.
+Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families` . Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w Azure Cosmos DB dokumentach zapytań przy użyciu tego zestawu danych.
 
 ### <a name="create-json-items"></a>Tworzenie elementów JSON
 
@@ -52,7 +51,7 @@ Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy
 }
 ```
 
-`givenName` Drugi element używa `familyName` i zamiast `firstName` i. `lastName`
+Drugi element używa `givenName` i `familyName` zamiast `firstName` i `lastName` .
 
 ```json
 {
@@ -88,7 +87,7 @@ Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy
 
 Wypróbuj kilka zapytań dotyczących danych JSON, aby poznać niektóre kluczowe aspekty języka zapytań SQL Azure Cosmos DB.
 
-Poniższe zapytanie zwraca elementy, w których pole `id` jest zgodne `AndersenFamily`. Ponieważ jest to `SELECT *` zapytanie, dane wyjściowe zapytania są kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [SELECT Statement](sql-query-select.md). 
+Poniższe zapytanie zwraca elementy, w których `id` pole jest zgodne `AndersenFamily` . Ponieważ jest to `SELECT *` zapytanie, dane wyjściowe zapytania są kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [SELECT Statement](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +117,7 @@ Wyniki zapytania są następujące:
     }]
 ```
 
-Poniższe zapytanie umożliwia przeformatowanie danych wyjściowych JSON do innego kształtu. Zapytanie projektuje nowy obiekt JSON `Family` z dwoma wybranymi polami `Name` i `City`, gdy miasto adresu jest taka sama jak stan. "NY, NY" pasuje do tego przypadku.
+Poniższe zapytanie umożliwia przeformatowanie danych wyjściowych JSON do innego kształtu. Zapytanie projektuje nowy obiekt JSON `Family` z dwoma wybranymi polami `Name` i `City` , gdy miasto adresu jest taka sama jak stan. "NY, NY" pasuje do tego przypadku.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +136,7 @@ Wyniki zapytania są następujące:
     }]
 ```
 
-Następujące zapytanie zwraca wszystkie nazwy elementów podrzędnych w rodzinie, których `id` dopasowania `WakefieldFamily`są uporządkowane według miasta.
+Następujące zapytanie zwraca wszystkie nazwy elementów podrzędnych w rodzinie `id` , których dopasowania są `WakefieldFamily` uporządkowane według miasta.
 
 ```sql
     SELECT c.givenName
@@ -160,7 +159,7 @@ Wyniki są następujące:
 
 W powyższych przykładach przedstawiono kilka aspektów języka zapytań Cosmos DB:  
 
-* Ponieważ interfejs API SQL działa na wartościach JSON, zajmuje on się jednostkami w kształcie drzewa zamiast wierszy i kolumn. Możesz odwoływać się do węzłów drzewa na dowolnym dowolnym poziomie, na `Node1.Node2.Node3…..Nodem`przykład, podobnie jak `<table>.<column>` w przypadku odwołania DWUCZĘŚCIOWEGO w języku SQL ANSI.
+* Ponieważ interfejs API SQL działa na wartościach JSON, zajmuje on się jednostkami w kształcie drzewa zamiast wierszy i kolumn. Możesz odwoływać się do węzłów drzewa na dowolnym dowolnym poziomie, na przykład `Node1.Node2.Node3…..Nodem` , podobnie jak w przypadku odwołania dwuczęściowego `<table>.<column>` w języku SQL ANSI.
 
 * Ponieważ język zapytań działa z danymi bez schematu, system typu musi być powiązany dynamicznie. To samo wyrażenie może spowodować uzyskiwanie różnych typów w różnych elementach. Wynikiem zapytania jest prawidłowa wartość JSON, ale nie ma gwarancji, że jest to stała schemat.  
 

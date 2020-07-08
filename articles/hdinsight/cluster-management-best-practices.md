@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74782023"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania klastrem usługi HDInsight
@@ -47,7 +46,7 @@ Poznaj najlepsze rozwiązania dotyczące zarządzania klastrami usługi HDInsigh
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>Jakie błędy mogą wystąpić podczas tworzenia klastrów?
 
-| Error | Więcej informacji |
+| Błąd | Więcej informacji |
 |---|---|
 | Brak limitu przydziału | Istnieją przydziały dla liczby przydziałów, które można utworzyć w ramach subskrypcji w poszczególnych regionach. Aby uzyskać więcej informacji, zobacz [Planowanie pojemności: przydziały](./hdinsight-capacity-planning.md). |
 | Nie ma więcej dostępnych adresów IP | Każda sieć wirtualna ma ograniczoną liczbę adresów IP. Podczas tworzenia klastra usługi HDInsight każdy węzeł (w tym węzły dozorcy i Gateway) używa niektórych z tych przydzielonych adresów IP. Jeśli wszystkie adresy IP są używane, ten błąd wystąpi.  |

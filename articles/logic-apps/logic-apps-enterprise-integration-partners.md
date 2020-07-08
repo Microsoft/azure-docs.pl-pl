@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792439"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Dodawanie partnerów handlowych do kont integracji dla Azure Logic Apps
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Dodawanie partnerów handlowych do kont integracji dla usługi Azure Logic Apps
 
-W [Azure Logic Apps](../logic-apps/logic-apps-overview.md)można tworzyć zautomatyzowane przepływy pracy integracji B2B (Business-to-Business) przy użyciu [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) z aplikacjami logiki. Aby przedstawić swoją organizację i inne osoby, możesz tworzyć i dodawać partnerów handlowych jako artefakty do konta integracji. Partnerzy to jednostki, które uczestniczą w transakcjach B2B i wymieniają wiadomości ze sobą.
+W [Azure Logic Apps](../logic-apps/logic-apps-overview.md)można tworzyć zautomatyzowane przepływy pracy integracji B2B (Business-to-Business) przy użyciu [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) z aplikacjami logiki. Aby przedstawić swoją organizację i inne osoby, możesz tworzyć i dodawać partnerów handlowych jako artefakty do konta integracji. Partnerzy to jednostki, które uczestniczą w transakcjach B2B i wymieniają wiadomości między sobą.
 
 Przed utworzeniem tych partnerów należy omówić i udostępnić informacje partnerom dotyczącym sposobu identyfikowania i weryfikowania komunikatów wysyłanych przez inne. Po zaakceptowaniu tych informacji możesz utworzyć partnerów na koncie integracji.
 
@@ -53,11 +52,11 @@ W umowie należy określić szczegóły dotyczące obsługi komunikatów przycho
 
    ![Wybierz pozycję "Dodaj" i podaj szczegóły partnera](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa** | Tak | Nazwa partnera |
    | **Kwalifikator** | Tak | Uwierzytelniana treść, która udostępnia unikatowe tożsamości biznesowe organizacjom, na przykład **D-U-N-S (Dun & Bradstreet)**. <p>Partnerzy mogą wybrać wzajemnie zdefiniowaną tożsamość biznesową. W tych scenariuszach wybierz **wspólnie zdefiniowane** dla EDIFACT lub **wzajemnie zdefiniowane (X12)** dla X12. <p>Dla RosettaNet wybierz tylko **Duns**, który jest standardem. |
-   | **Wartościami** | Tak | Wartość, która identyfikuje dokumenty odbierane przez aplikacje logiki. <p>Dla RosettaNet ta wartość musi być cyfrą dziewięciu cyfr, która odpowiada numerowi DUNS. |
+   | **Wartość** | Tak | Wartość, która identyfikuje dokumenty odbierane przez aplikacje logiki. <p>Dla RosettaNet ta wartość musi być cyfrą dziewięciu cyfr, która odpowiada numerowi DUNS. |
    ||||
 
    > [!NOTE]
@@ -84,11 +83,11 @@ Wybierz kafelek **partnerzy** .
 
    W przypadku RosettaNet, w obszarze **Właściwości partnera RosettaNet**, można określić następujące informacje dodatkowe:
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Klasyfikacja partnera** | Nie | Typ organizacji partnera |
    | **Kod łańcucha dostaw** | Nie | Kod łańcucha dostaw partnera, na przykład "technologia informacyjna" lub "składniki elektroniczne" |
-   | **Nazwisko osoby kontaktowej** | Nie | Nazwa kontaktu partnera |
+   | **Nazwa kontaktu** | Nie | Nazwa kontaktu partnera |
    | **Poczta e-mail** | Nie | Adres e-mail partnera |
    | **Faks** | Nie | Numer faksu partnera |
    | **Telephone** | Nie | Numer telefonu partnera |

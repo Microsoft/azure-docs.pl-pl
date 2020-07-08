@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703206"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania trzody chlewnej w Azure Data Factory
@@ -82,11 +81,11 @@ Działanie świni w [usłudze](data-factory-compute-linked-services.md#azure-hdi
 
 ## <a name="syntax-details"></a>Szczegóły składni
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania |Tak |
 | description |Tekst opisujący działanie używanego działania |Nie |
-| type |HDinsightPig |Tak |
+| typ |HDinsightPig |Tak |
 | danych wejściowych |Co najmniej jedno wejście używane przez działanie świni |Nie |
 | wydajności |Jedno lub więcej danych wyjściowych wytwarzanych przez działanie trzody chlewnej |Tak |
 | linkedServiceName |Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory |Tak |

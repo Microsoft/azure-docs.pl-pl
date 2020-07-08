@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703150"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Wywoływanie programów MapReduce z Data Factory
@@ -183,11 +182,11 @@ Potok w tym przykładzie ma tylko jedno działanie, którego typem jest: HDInsig
 
 | Właściwość | Uwagi |
 |:--- |:--- |
-| type |Typ musi być ustawiony na **HDInsightMapReduce**. |
+| typ |Typ musi być ustawiony na **HDInsightMapReduce**. |
 | Nazwą |Nazwa klasy to: **WORDCOUNT** |
 | jarFilePath |Ścieżka do pliku JAR zawierającego klasę. Jeśli skopiujesz/wkleisz Poniższy kod, nie zapomnij zmienić nazwy klastra. |
 | jarLinkedService |Połączona usługa Azure Storage, która zawiera plik JAR. Ta połączona usługa odwołuje się do magazynu skojarzonego z klastrem usługi HDInsight. |
-| argumentu |Program WORDCOUNT przyjmuje dwa argumenty, dane wejściowe i wyjściowe. Plik wejściowy jest plikiem DaVinci. txt. |
+| argumentu |Program WORDCOUNT przyjmuje dwa argumenty, dane wejściowe i wyjściowe. Plik wejściowy jest plikiem davinci.txt. |
 | frequency/interval |Wartości tych właściwości pasują do wyjściowego zestawu danych. |
 | linkedServiceName |odwołuje się do utworzonej wcześniej usługi HDInsight. |
 

@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228969"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Twórz Apache Spark zadania przesyłania strumieniowego z przetwarzaniem zdarzeń dokładnie raz
@@ -49,7 +48,7 @@ W przypadku przesyłania strumieniowego Spark źródła, takie jak Event Hubs i 
 
 ### <a name="use-the-write-ahead-log"></a>Korzystanie z dziennika zapisu
 
-Funkcja przesyłania strumieniowego Spark obsługuje zapisywanie w dzienniku z wyprzedzeniem, gdzie każde odebrane zdarzenie jest najpierw zapisywane w katalogu punktów kontrolnych platformy Spark w magazynie odpornym na błędy, a następnie przechowywane w odpornym na rozdzielonym zestawie danych (RDD). Na platformie Azure Magazyn Odporny na uszkodzenia to system plików HDFS objęty usługą Azure Storage lub Azure Data Lake Storage. W aplikacji do przesyłania strumieniowego Spark dziennik zapisu jest włączony dla wszystkich odbiorników przez ustawienie ustawienia `spark.streaming.receiver.writeAheadLog.enable` konfiguracji na. `true` Dziennik zapisu z wyprzedzeniem zapewnia odporność na uszkodzenia w przypadku awarii sterownika i modułów wykonujących.
+Funkcja przesyłania strumieniowego Spark obsługuje zapisywanie w dzienniku z wyprzedzeniem, gdzie każde odebrane zdarzenie jest najpierw zapisywane w katalogu punktów kontrolnych platformy Spark w magazynie odpornym na błędy, a następnie przechowywane w odpornym na rozdzielonym zestawie danych (RDD). Na platformie Azure Magazyn Odporny na uszkodzenia to system plików HDFS objęty usługą Azure Storage lub Azure Data Lake Storage. W aplikacji do przesyłania strumieniowego Spark dziennik zapisu jest włączony dla wszystkich odbiorników przez ustawienie `spark.streaming.receiver.writeAheadLog.enable` Ustawienia konfiguracji na `true` . Dziennik zapisu z wyprzedzeniem zapewnia odporność na uszkodzenia w przypadku awarii sterownika i modułów wykonujących.
 
 W przypadku pracowników, którzy uruchamiają zadania dotyczące danych zdarzeń, każda RDD jest określana jako replikacja i dystrybucja między wieloma pracownikami. Jeśli zadanie nie powiedzie się z powodu awarii procesu roboczego, zadanie zostanie uruchomione ponownie w innym procesie roboczym, który ma replikę danych zdarzenia, więc zdarzenie nie zostanie utracone.
 

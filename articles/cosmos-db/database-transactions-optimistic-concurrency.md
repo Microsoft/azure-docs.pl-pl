@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74806528"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transakcje i optymistyczna kontrola współbieżności
@@ -53,9 +52,9 @@ Optymistyczna kontrola współbieżności umożliwia Zapobieganie utracie aktual
 
 Współbieżne aktualizacje elementu są uzależnione od warstwy protokołu komunikacyjnego OCC przez Azure Cosmos DB. Usługa Azure Cosmos Database gwarantuje, że wersja elementu po stronie klienta aktualizowana (lub usuwana) jest taka sama jak wersja elementu w kontenerze usługi Azure Cosmos. Gwarantuje to, że zapisy są chronione przed przypadkowym zastąpieniem przez zapisy innych i na odwrót. W środowisku z obsługą kilku użytkowników optymistyczna kontrola współbieżności chroni przed przypadkowym usunięciem lub aktualizacją nieprawidłowej wersji elementu. W związku z tym elementy są chronione przed problemami z inFAMOUS "utraconej aktualizacji" lub "utracone usuwanie".
 
-Każdy element przechowywany w kontenerze usługi Azure Cosmos ma właściwość zdefiniowaną przez `_etag` system. Wartość `_etag` jest automatycznie generowana i aktualizowana przez serwer za każdym razem, gdy element zostanie zaktualizowany. `_etag`może być używany z nagłówkiem żądania `if-match` dostarczonego przez klienta, aby umożliwić serwerowi podjęcie decyzji o tym, czy element może być aktualizowany warunkowo. Wartość `if-match` nagłówka jest zgodna z wartością `_etag` na serwerze, a następnie jest aktualizowana. Jeśli wartość nagłówka `if-match` żądania nie jest już aktualna, serwer odrzuca operację z komunikatem odpowiedzi "Niepowodzenie warunku wstępnego http 412". Następnie klient może ponownie pobrać element, aby uzyskać bieżącą wersję elementu na serwerze, lub zastąpić wersję elementu na serwerze własną `_etag` wartością dla tego elementu. Ponadto, można `_etag` użyć z `if-none-match` nagłówkiem, aby określić, czy konieczne jest ponowne pobranie zasobu.
+Każdy element przechowywany w kontenerze usługi Azure Cosmos ma właściwość zdefiniowaną przez system `_etag` . Wartość `_etag` jest automatycznie generowana i aktualizowana przez serwer za każdym razem, gdy element zostanie zaktualizowany. `_etag`może być używany z nagłówkiem żądania dostarczonego przez klienta, `if-match` Aby umożliwić serwerowi podjęcie decyzji o tym, czy element może być aktualizowany warunkowo. Wartość `if-match` nagłówka jest zgodna z wartością na `_etag` serwerze, a następnie jest aktualizowana. Jeśli wartość `if-match` nagłówka żądania nie jest już aktualna, serwer odrzuca operację z komunikatem odpowiedzi "Niepowodzenie warunku wstępnego HTTP 412". Następnie klient może ponownie pobrać element, aby uzyskać bieżącą wersję elementu na serwerze, lub zastąpić wersję elementu na serwerze własną `_etag` wartością dla tego elementu. Ponadto, `_etag` można użyć z `if-none-match` nagłówkiem, aby określić, czy konieczne jest ponowne pobranie zasobu.
 
-`_etag` Wartość elementu jest zmieniana za każdym razem, gdy element zostanie zaktualizowany. W przypadku operacji Zamień element `if-match` musi być jawnie wyrażona jako część opcji żądania. Aby zapoznać się z przykładem, zobacz przykładowy kod w usłudze [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`wartości są niejawnie sprawdzane dla wszystkich elementów zapisanych przez procedurę składowaną. W przypadku wykrycia dowolnego konfliktu procedura składowana wycofa transakcję i zgłosi wyjątek. W przypadku tej metody wszystkie lub żadne zapisy w procedurze składowanej są stosowane niepodzielnie. Jest to sygnał do aplikacji w celu ponownego zastosowania aktualizacji i ponowienia próby oryginalnego żądania klienta.
+Wartość elementu jest `_etag` zmieniana za każdym razem, gdy element zostanie zaktualizowany. W przypadku operacji Zamień element `if-match` musi być jawnie wyrażona jako część opcji żądania. Aby zapoznać się z przykładem, zobacz przykładowy kod w usłudze [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`wartości są niejawnie sprawdzane dla wszystkich elementów zapisanych przez procedurę składowaną. W przypadku wykrycia dowolnego konfliktu procedura składowana wycofa transakcję i zgłosi wyjątek. W przypadku tej metody wszystkie lub żadne zapisy w procedurze składowanej są stosowane niepodzielnie. Jest to sygnał do aplikacji w celu ponownego zastosowania aktualizacji i ponowienia próby oryginalnego żądania klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

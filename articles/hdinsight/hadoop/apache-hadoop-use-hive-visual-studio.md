@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687801"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uruchamianie zapytań Apache Hive przy użyciu wtyczki Data Lake Tools for Visual Studio
@@ -58,7 +57,7 @@ Zapytania ad hoc mogą być wykonywane w trybie **wsadowym** lub **interaktywnym
 
     ![Przesyłanie zapytania programu Hive w usłudze Batch, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
 
-    Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM`, IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF. Funkcja IntelliSense zasugeruje tylko metadane klastra zaznaczonego na pasku narzędzi usługi HDInsight.
+    Edytor Hive obsługuje funkcję IntelliSense. Narzędzia Data Lake Tools for Visual Studio obsługują ładowanie zdalnych metadanych podczas edycji skryptu Hive. Na przykład, jeśli wpiszesz `SELECT * FROM` , IntelliSense wyświetla wszystkie sugerowane nazwy tabel. Po określeniu nazwy tabeli funkcja IntelliSense wyświetla nazwy kolumn. Narzędzia obsługują większość instrukcji DML programu Hive, podzapytań i wbudowanych sterowników UDF. Funkcja IntelliSense zasugeruje tylko metadane klastra zaznaczonego na pasku narzędzi usługi HDInsight.
 
 7. Na pasku narzędzi zapytania (obszar poniżej karty zapytania i powyżej tekstu zapytania) wybierz pozycję **Prześlij**lub wybierz rozwijaną strzałkę obok pola **Prześlij** i wybierz pozycję **Zaawansowane** z listy rozwijanej. Jeśli wybierzesz ostatnią opcję,
 
@@ -104,7 +103,7 @@ Aby uruchomić zapytanie programu Hive przez utworzenie aplikacji Hive, wykonaj 
 
     * `STORED AS TEXTFILE LOCATION`: Instruuje gałąź, że dane są przechowywane w *przykładowym katalogu danych* i są przechowywane jako tekst.
 
-    * `SELECT`: Wybiera liczbę wszystkich wierszy, w których kolumna `t4` zawiera wartość `[ERROR]`. Ta instrukcja zwraca wartość `3`, ponieważ trzy wiersze zawierają tę wartość.
+    * `SELECT`: Wybiera liczbę wszystkich wierszy, w których kolumna `t4` zawiera wartość `[ERROR]` . Ta instrukcja zwraca wartość `3` , ponieważ trzy wiersze zawierają tę wartość.
 
     * `INPUT__FILE__NAME LIKE '%.log'`: Instruuje gałąź, aby zwracała tylko dane z plików kończących się na. log. Ta klauzula ogranicza wyszukiwanie do pliku *Sample. log* , który zawiera dane.
 
@@ -114,11 +113,11 @@ Aby uruchomić zapytanie programu Hive przez utworzenie aplikacji Hive, wykonaj 
 
    ![Ukończono podsumowanie zadania Hive, aplikacja Hive, program Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
 
-7. Wybierz pozycję **dane wyjściowe zadania** , aby wyświetlić dane wyjściowe tego zadania. Zostanie wyświetlona `[ERROR] 3`, która jest wartością zwracaną przez to zapytanie.
+7. Wybierz pozycję **dane wyjściowe zadania** , aby wyświetlić dane wyjściowe tego zadania. Zostanie wyświetlona `[ERROR] 3` , która jest wartością zwracaną przez to zapytanie.
 
 ### <a name="additional-example"></a>Dodatkowy przykład
 
-Poniższy przykład opiera się `log4jLogs` na tabeli utworzonej w poprzedniej procedurze, [Tworzenie aplikacji Hive](#create-a-hive-application).
+Poniższy przykład opiera się na `log4jLogs` tabeli utworzonej w poprzedniej procedurze, [Tworzenie aplikacji Hive](#create-a-hive-application).
 
 1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy klaster i wybierz polecenie **Napisz zapytanie Hive**.
 
@@ -139,11 +138,11 @@ Poniższy przykład opiera się `log4jLogs` na tabeli utworzonej w poprzedniej p
 
     * `STORED AS ORC`: Przechowuje dane w formacie Orc ( *zoptymalizowany wiersz kolumnowy* ). ORC to wysoce zoptymalizowany i wydajny format służący do przechowywania danych programu Hive.
 
-    * `INSERT OVERWRITE ... SELECT`: Wybiera wiersze z `log4jLogs` tabeli, która zawiera `[ERROR]`, a następnie wstawia dane do `errorLogs` tabeli.
+    * `INSERT OVERWRITE ... SELECT`: Wybiera wiersze z `log4jLogs` tabeli, która zawiera `[ERROR]` , a następnie wstawia dane do `errorLogs` tabeli.
 
 3. W razie potrzeby zmień **interaktywną** pozycję **Batch** , a następnie wybierz pozycję **Prześlij**.
 
-4. Aby sprawdzić, czy zadanie utworzyło tabelę, przejdź do **Eksplorator serwera** i rozwiń węzeł **Azure** > **HDInsight**. Rozwiń klaster usługi HDInsight, a następnie rozwiń węzeł **bazy danych** > Hive**default**. Zostanie wyświetlona tabela **errorLogs** i tabela **log4jLogs** .
+4. Aby sprawdzić, czy zadanie utworzyło tabelę, przejdź do **Eksplorator serwera** i rozwiń węzeł **Azure**  >  **HDInsight**. Rozwiń klaster usługi HDInsight, a następnie rozwiń węzeł **bazy danych Hive**  >  **default**. Zostanie wyświetlona tabela **errorLogs** i tabela **log4jLogs** .
 
 ## <a name="next-steps"></a>Następne kroki
 

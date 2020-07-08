@@ -8,10 +8,9 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74763627"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Dostosowywanie parametrów konfiguracji serwera dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -32,14 +31,14 @@ az postgres server configuration list --resource-group myresourcegroup --server 
 ## <a name="show-server-configuration-parameter-details"></a>Pokaż szczegóły parametru konfiguracji serwera
 Aby wyświetlić szczegóły dotyczące określonego parametru konfiguracji dla serwera, uruchom polecenie [AZ Postgres Server Configuration show](/cli/azure/postgres/server/configuration) .
 
-W tym przykładzie przedstawiono szczegóły parametru konfiguracja serwera **komunikatów min\_\_dziennika** dla serwera **mydemoserver.Postgres.Database.Azure.com** w obszarze Grupa zasobów **.**
+W tym przykładzie przedstawiono szczegóły parametru konfiguracja serwera ** \_ \_ komunikatów min dziennika** dla serwera **mydemoserver.Postgres.Database.Azure.com** w obszarze Grupa zasobów **.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Modyfikuj wartość parametru konfiguracji serwera
 Można również zmodyfikować wartość określonego parametru konfiguracji serwera, który aktualizuje podstawową wartość konfiguracyjną dla aparatu serwera PostgreSQL. Aby zaktualizować konfigurację, użyj polecenia [AZ Postgres Server Configuration Set](/cli/azure/postgres/server/configuration) . 
 
-Aby zaktualizować parametr **Konfiguracja\_serwera\_minimalnych komunikatów w dzienniku** **mydemoserver.Postgres.Database.Azure.com** w obszarze Grupa zasobów **.**
+Aby zaktualizować parametr konfiguracja serwera ** \_ minimalnych \_ komunikatów w dzienniku** **mydemoserver.Postgres.Database.Azure.com** w obszarze Grupa zasobów **.**
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver --value INFO
 ```
@@ -47,7 +46,7 @@ Jeśli chcesz zresetować wartość parametru konfiguracji, po prostu wybierz op
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
-To polecenie Resetuje konfigurację **\_minimalnych\_komunikatów dziennika** do wartości domyślnej **Ostrzeżenie**. Aby uzyskać więcej informacji na temat konfiguracji serwera i dozwolonych wartości, zobacz dokumentację PostgreSQL na [serwerze konfiguracji](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+To polecenie Resetuje konfigurację ** \_ minimalnych \_ komunikatów dziennika** do wartości domyślnej **Ostrzeżenie**. Aby uzyskać więcej informacji na temat konfiguracji serwera i dozwolonych wartości, zobacz dokumentację PostgreSQL na [serwerze konfiguracji](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Następne kroki
 - [Dowiedz się, jak ponownie uruchomić serwer](howto-restart-server-cli.md)

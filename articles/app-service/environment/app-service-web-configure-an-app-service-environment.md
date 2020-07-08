@@ -8,10 +8,9 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74687262"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Konfigurowanie App Service Environment v1
@@ -125,13 +124,13 @@ W środowisku ASE wszystkie plany App Service są dedykowane App Service plany. 
 ### <a name="settings"></a>Ustawienia
 W bloku ASE istnieje sekcja **ustawień** , która zawiera kilka ważnych funkcji:
 
-**Settings** > **Właściwości**ustawień: blok **Ustawienia** zostanie automatycznie otwarty po wyświetleniu bloku środowiska ASE. U góry jest **Właściwości**. W tym miejscu znajduje się wiele elementów, które są nadmiarowe w programie **Essentials**, ale co jest bardzo przydatne w przypadku **wirtualnego adresu IP**, a także **wychodzących adresów IP**.
+**Ustawienia**  >  **Właściwości**: blok **Ustawienia** zostanie automatycznie otwarty po wyświetleniu bloku środowiska ASE. U góry jest **Właściwości**. W tym miejscu znajduje się wiele elementów, które są nadmiarowe w programie **Essentials**, ale co jest bardzo przydatne w przypadku **wirtualnego adresu IP**, a także **wychodzących adresów IP**.
 
 ![Blok ustawień i właściwości][4]
 
-**Settings** > **Adresy IP**ustawień: w przypadku tworzenia aplikacji SSL IP (SSL) w środowisku ASE wymagany jest adres połączenie SSL z adresu IP. Aby można było uzyskać ten element, środowisko ASE wymaga Połączenie SSL z adresu IP adresów, do których należy przydzielenia. Po utworzeniu środowisko ASE ma jeden adres Połączenie SSL z adresu IP do tego celu, ale możesz dodać więcej. Jest naliczana opłata za dodatkowe adresy Połączenie SSL z adresu IP, jak pokazano w [App Service cenach][AppServicePricing] (w sekcji połączeń SSL). Cena dodatkowa to Połączenie SSL z adresu IP cena.
+**Ustawienia**  >  **Adresy IP**: w przypadku tworzenia aplikacji SSL IP (SSL) w środowisku ASE wymagany jest adres połączenie SSL z adresu IP. Aby można było uzyskać ten element, środowisko ASE wymaga Połączenie SSL z adresu IP adresów, do których należy przydzielenia. Po utworzeniu środowisko ASE ma jeden adres Połączenie SSL z adresu IP do tego celu, ale możesz dodać więcej. Jest naliczana opłata za dodatkowe adresy Połączenie SSL z adresu IP, jak pokazano w [App Service cenach][AppServicePricing] (w sekcji połączeń SSL). Cena dodatkowa to Połączenie SSL z adresu IP cena.
 
-**Zestawy frontonów**pul / **procesów roboczych**Pula: Każda z tych bloków puli zasobów umożliwia wyświetlanie informacji tylko dla tej puli zasobów, a także zapewnianie kontroli w celu pełnego skalowania tej puli zasobów.**Front End Pool** >   
+**Ustawienia**  >  **Pula**  /  frontonu **Pule procesów roboczych**: Każda z tych bloków puli zasobów umożliwia wyświetlanie informacji tylko w tej puli zasobów, a także zapewnianie kontroli w celu pełnego skalowania tej puli zasobów.  
 
 Blok podstawowy dla każdej puli zasobów zawiera wykres z metrykami dla tej puli zasobów. Podobnie jak w przypadku wykresów z bloku ASE, możesz przejść do wykresu i skonfigurować alerty zgodnie z potrzebami. Ustawienie alertu z bloku ASE dla określonej puli zasobów jest takie samo, jak w przypadku tej samej puli zasobów. W bloku **Ustawienia** puli procesów roboczych masz dostęp do wszystkich aplikacji lub planów App Service, które są uruchomione w tej puli procesów roboczych.
 
@@ -154,7 +153,7 @@ Aby użyć operacji skalowania w bloku ASE, przeciągnij suwak do odpowiedniej i
 
 ![Interfejs użytkownika skalowania][6]
 
-Aby użyć funkcji ręcznych lub skalowania automatycznego w określonej puli zasobów, przejdź do pozycji **Ustawienia** > **Pule procesów roboczych** **puli** / frontonu zgodnie z potrzebami. Następnie otwórz pulę, którą chcesz zmienić. Przejdź do pozycji **Ustawienia** > **Skaluj w poziomie lub** **Ustawienia** > **Skaluj w górę**. Blok **skalowanie w poziomie** pozwala sterować ilością wystąpień. **Skalowanie w górę** umożliwia sterowanie rozmiarem zasobów.  
+Aby użyć funkcji ręcznych lub skalowania automatycznego w określonej puli zasobów, przejdź do pozycji **Ustawienia**  >  **Front End Pool**  /  **Pule procesów roboczych** puli frontonu zgodnie z potrzebami. Następnie otwórz pulę, którą chcesz zmienić. Przejdź do pozycji **Ustawienia**Skaluj w poziomie  >  **Scale Out** lub **Ustawienia**  >  **Skaluj w górę**. Blok **skalowanie w poziomie** pozwala sterować ilością wystąpień. **Skalowanie w górę** umożliwia sterowanie rozmiarem zasobów.  
 
 ![Interfejs użytkownika ustawień skalowania][7]
 

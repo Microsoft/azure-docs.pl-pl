@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74887072"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services kody błędów
@@ -106,8 +105,8 @@ Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany p
 Możliwe opisy stanu są następujące:
 
 * "Serwer jest zajęty. Poprzednie uruchomienia tego typu żądania trwały ponad {0} sekund. "
-* "Serwer jest zajęty. Można ograniczyć {0} liczbę żądań na sekundę.
-* "Serwer jest zajęty. Maksymalna {0} liczba żądań w {1} ciągu kilku sekund może być ograniczona. "
+* "Serwer jest zajęty. {0}Można ograniczyć liczbę żądań na sekundę.
+* "Serwer jest zajęty. Maksymalna {0} Liczba żądań w ciągu kilku {1} sekund może być ograniczona. "
 
 Aby obsłużyć ten błąd, zalecamy korzystanie z logiki ponawiania prób z powrotem. Oznacza to, że użycie stopniowo dłużej czeka między ponownymi próbami kolejnych odpowiedzi na błędy.  Aby uzyskać więcej informacji, zobacz [blok aplikacji obsługa błędów przejściowych](https://msdn.microsoft.com/library/hh680905.aspx).
 
@@ -122,6 +121,6 @@ Aby obsłużyć ten błąd, zalecamy korzystanie z logiki ponawiania prób z pow
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

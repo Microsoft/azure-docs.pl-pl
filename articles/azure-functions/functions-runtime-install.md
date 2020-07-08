@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74226735"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Zainstaluj wersję zapoznawczą środowisko uruchomieniowe usługi Azure Functions 2
@@ -91,7 +90,7 @@ Aby ukończyć instalację środowisko uruchomieniowe usługi Azure Functions, n
 
     ![Zakończono środowisko uruchomieniowe usługi Azure Functions konfigurację podglądu][12]
 
-1. Przejdź do **portalu środowisko uruchomieniowe usługi Azure Functions** jako `https://<machinename>.<domain>/`.
+1. Przejdź do **portalu środowisko uruchomieniowe usługi Azure Functions** jako `https://<machinename>.<domain>/` .
 
     ![Portal środowisko uruchomieniowe usługi Azure Functions w wersji zapoznawczej][13]
 
@@ -99,7 +98,7 @@ Aby ukończyć instalację środowisko uruchomieniowe usługi Azure Functions, n
 
 Aby utworzyć swoją pierwszą funkcję w wersji zapoznawczej środowisko uruchomieniowe usługi Azure Functions
 
-1. Przejdź do **portalu środowisko uruchomieniowe usługi Azure Functions** , jak `https://<machinename>.<domain>` na przykład `https://mycomputer.mydomain.com`.
+1. Przejdź do **portalu środowisko uruchomieniowe usługi Azure Functions** , jak `https://<machinename>.<domain>` na przykład `https://mycomputer.mydomain.com` .
 
 1. Zostanie wyświetlony monit o **zalogowanie**się, jeśli został wdrożony w domenie, użyj nazwy użytkownika i hasła konta domeny, w przeciwnym razie użyj nazwy użytkownika i hasła konta lokalnego, aby zalogować się do portalu.
 

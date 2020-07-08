@@ -4,10 +4,9 @@ description: Użyj Azure Portal, aby wyświetlić Azure Container Registry repoz
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456297"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Wyświetlanie repozytoriów rejestru kontenera w Azure Portal
@@ -24,7 +23,7 @@ Azure Container Registry umożliwia przechowywanie obrazów kontenerów platform
 
 Można wyświetlić listę repozytoriów obsługujących obrazy, a także Tagi obrazu w Azure Portal.
 
-Jeśli wykonano kroki opisane w sekcji [wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md) (i dopiero po usunięciu obrazu), w rejestrze kontenerów powinien znajdować się obraz Nginx. Instrukcje zawarte w tym artykule podano po oznaczeniu obrazu za pomocą przestrzeni nazw, "Przykłady" w `/samples/nginx`. Jako odświeżacz, polecenie [Docker push][docker-push] określone w tym artykule było następujące:
+Jeśli wykonano kroki opisane w sekcji [wypychanie i ściąganie obrazu](container-registry-get-started-docker-cli.md) (i dopiero po usunięciu obrazu), w rejestrze kontenerów powinien znajdować się obraz Nginx. Instrukcje zawarte w tym artykule podano po oznaczeniu obrazu za pomocą przestrzeni nazw, "Przykłady" w `/samples/nginx` . Jako odświeżacz, polecenie [Docker push][docker-push] określone w tym artykule było następujące:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx

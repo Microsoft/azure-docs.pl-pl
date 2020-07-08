@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74267327"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — motywacji i korzyści
@@ -51,9 +50,9 @@ Usługa Azure HDInsight to dystrybucja w chmurze składników usługi Hadoop. Us
 
 - **Produktywność** — możesz używać różnych narzędzi dla usługi Hadoop i platformy Spark w preferowanym środowisku programistycznym.
 
-- **Rozszerzalność z narzędziami niestandardowymi lub aplikacjami innych** firm — klastry usługi HDInsight można rozszerzać z zainstalowanymi składnikami i można je również zintegrować z innymi rozwiązaniami do obsługi danych Big Data, korzystając z wdrożeń [jednego kliknięcia](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) z miejsca na rynku platformy Azure.
+- **Rozszerzalność z narzędziami niestandardowymi lub aplikacjami innych** firm — klastry usługi HDInsight można rozszerzać z zainstalowanymi składnikami i można je również zintegrować z innymi rozwiązaniami do obsługi danych Big Data, korzystając z wdrożeń [jednego kliknięcia](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)   z miejsca na rynku platformy Azure.
 
-- **Łatwe zarządzanie, administrowanie i monitorowanie** — usługa Azure HDInsight integruje się z [dziennikami](../hdinsight-hadoop-oms-log-analytics-tutorial.md) Azure monitor, aby zapewnić pojedynczy interfejs, za pomocą którego można monitorować wszystkie klastry.
+- **Łatwe zarządzanie, administrowanie i monitorowanie** — usługa Azure HDInsight integruje się z [dziennikami Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md)   , aby zapewnić pojedynczy interfejs, za pomocą którego można monitorować wszystkie klastry.
 
 - **Integracja z innymi usługami Azure** — HDInsight można łatwo zintegrować z innymi popularnymi usługami platformy Azure, takimi jak następujące:
 
@@ -87,7 +86,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 
 ### <a name="on-premises-deployment-questionnaire"></a>Kwestionariusz wdrożenia lokalnego
 
-| **Zainteresowany** | **Przykład** | **Udzielić** |
+| **Pytanie** | **Przykład** | **Odpowiedź** |
 |---|---|---|
 |**Temat**: **środowisko**|||
 |Wersja dystrybucji klastra|HDP 2.6.5, PROGRAMU CDH 5,7|
@@ -119,7 +118,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 
 ### <a name="project-details-questionnaire"></a>Kwestionariusz szczegółów projektu
 
-|**Zainteresowany**|**Przykład**|**Udzielić**|
+|**Pytanie**|**Przykład**|**Odpowiedź**|
 |---|---|---|
 |**Temat**: **obciążenia i częstotliwość**|||
 |Zadania MapReduce|10 zadań — dwa razy dziennie||
@@ -129,7 +128,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 |Zadania przesyłania strumieniowego ze strukturą|5 zadań — co minutę||
 |Zadania szkoleniowe dotyczące modelu ML|2 zadania — raz w tygodniu||
 |Języki programowania|Python, Scala, Java||
-|Wykonywanie skryptów|Shell, Python||
+|Obsługa skryptów|Shell, Python||
 |**Temat**: **dane**|||
 |Źródła danych|Pliki płaskie, JSON, Kafka, RDBMS||
 |Aranżacja danych|Przepływy pracy Oozie, przepływ powietrza||
@@ -165,7 +164,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 
 |**Temat**: **infrastruktura** |||
 |---|---|---|
-|**Zainteresowany**|**Przykład**|**Udzielić**|
+|**Pytanie**|**Przykład**|**Odpowiedź**|
 | Preferowany region|Wschodnie stany USA||
 |Preferowana Sieć wirtualna?|Tak||
 |Wymagana HA/DR?|Tak||

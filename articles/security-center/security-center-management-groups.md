@@ -14,10 +14,9 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74559344"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
@@ -40,7 +39,7 @@ Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządz
 
  
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+2. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 3. Na stronie głównej wybierz pozycję **Nowa grupa zarządzania.** 
 
     ![Grupa główna](./media/security-center-management-groups/main.png) 

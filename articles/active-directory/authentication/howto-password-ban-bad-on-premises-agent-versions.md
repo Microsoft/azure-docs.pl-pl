@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74847853"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historia wersji agenta ochrony haseł usługi Azure AD
@@ -42,9 +41,9 @@ Data wydania: 3/13/2019
   * W systemach Server Core może być konieczne przekazanie flagi/q do Instalatora .NET 4,7 w celu pomyślnego przeprowadzenia.
 * Usługa serwera proxy obsługuje teraz automatyczne uaktualnianie. Automatyczne uaktualnianie Microsoft Azure AD używa usługi Aktualizator Connect Agent, która jest zainstalowana równolegle z usługą proxy. Automatyczne uaktualnianie jest domyślnie włączone.
 * Automatyczne uaktualnianie można włączyć lub wyłączyć za pomocą polecenia cmdlet Set-AzureADPasswordProtectionProxyConfiguration. Bieżące ustawienie można wykonać przy użyciu polecenia cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
-* Nazwa pliku binarnego usługi dla usługi agenta kontrolera domeny została zmieniona na AzureADPasswordProtectionDCAgent. exe.
-* Nazwa pliku binarnego usługi dla usługi serwera proxy została zmieniona na AzureADPasswordProtectionProxy. exe. W przypadku korzystania z zapory innej firmy może być konieczne zmodyfikowanie reguł zapory.
-  * Uwaga: Jeśli plik konfiguracyjny serwera proxy HTTP był używany w poprzedniej instalacji serwera proxy, należy zmienić jego nazwę (z *proxyservice. exe. config* do *AzureADPasswordProtectionProxy. exe. config*) po tym uaktualnieniu.
+* Nazwa pliku binarnego usługi dla usługi agenta kontrolera domeny została zmieniona na AzureADPasswordProtectionDCAgent.exe.
+* Nazwa pliku binarnego usługi dla usługi serwera proxy została zmieniona na AzureADPasswordProtectionProxy.exe. W przypadku korzystania z zapory innej firmy może być konieczne zmodyfikowanie reguł zapory.
+  * Uwaga: Jeśli plik konfiguracyjny serwera proxy HTTP był używany w poprzedniej instalacji serwera proxy, należy zmienić jego nazwę (z *proxyservice.exe.config* na *AzureADPasswordProtectionProxy.exe.config*) po tym uaktualnieniu.
 * Wszystkie testy funkcji ograniczone przez czas zostały usunięte z agenta kontrolera domeny.
 * Poprawki i ulepszenia rejestrowania drobnych usterek.
 

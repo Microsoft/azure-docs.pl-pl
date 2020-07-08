@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456357"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Wypchnij swój pierwszy obraz do prywatnego rejestru kontenerów platformy Docker za pomocą interfejsu wiersza polecenia platformy Docker
@@ -36,10 +35,10 @@ Możesz też zalogować się przy użyciu [logowania Docker](https://docs.docker
 docker login myregistry.azurecr.io
 ```
 
-Oba polecenia są `Login Succeeded` zwracane po zakończeniu.
+Oba polecenia są zwracane `Login Succeeded` po zakończeniu.
 
 > [!TIP]
-> Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas `docker login` korzystania z programu i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO*.
+> Zawsze określaj w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery) podczas korzystania z programu `docker login` i podczas oznaczania obrazów do wypchnięcia do rejestru. W przykładach w tym artykule, w pełni kwalifikowana nazwa to *myregistry.azurecr.IO*.
 
 ## <a name="pull-the-official-nginx-image"></a>Ściąganie oficjalnego obrazu Nginx
 
@@ -51,7 +50,7 @@ docker pull nginx
 
 ## <a name="run-the-container-locally"></a>Uruchamianie kontenera w środowisku lokalnym
 
-Wykonaj następujące polecenie [Docker Run](https://docs.docker.com/engine/reference/run/) , aby uruchomić lokalnie wystąpienie kontenera Nginx (`-it`) w porcie 8080. `--rm` Argument określa, że kontener powinien zostać usunięty po jego zatrzymaniu.
+Wykonaj następujące polecenie [Docker Run](https://docs.docker.com/engine/reference/run/) , aby uruchomić lokalnie wystąpienie kontenera Nginx ( `-it` ) w porcie 8080. `--rm`Argument określa, że kontener powinien zostać usunięty po jego zatrzymaniu.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -61,9 +60,9 @@ Przejdź do `http://localhost:8080` strony, aby wyświetlić domyślną stronę 
 
 ![Kontener Nginx na komputerze lokalnym](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Ze względu na to, że interaktywnie `-it`uruchomiono kontener za pomocą programu, w wierszu polecenia można zobaczyć dane wyjściowe serwera Nginx po przejściu do niego w przeglądarce.
+Ze względu na to, że interaktywnie uruchomiono kontener za pomocą programu `-it` , w wierszu polecenia można zobaczyć dane wyjściowe serwera Nginx po przejściu do niego w przeglądarce.
 
-Aby zatrzymać i usunąć kontener, naciśnij klawisz `Control` + `C`.
+Aby zatrzymać i usunąć kontener, naciśnij klawisz `Control` + `C` .
 
 ## <a name="create-an-alias-of-the-image"></a>Tworzenie aliasu obrazu
 
@@ -99,9 +98,9 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/run/) , ab
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Przeglądaj w `http://localhost:8080` celu wyświetlenia uruchomionego kontenera.
+Przeglądaj w celu `http://localhost:8080` wyświetlenia uruchomionego kontenera.
 
-Aby zatrzymać i usunąć kontener, naciśnij klawisz `Control` + `C`.
+Aby zatrzymać i usunąć kontener, naciśnij klawisz `Control` + `C` .
 
 ## <a name="remove-the-image-optional"></a>Usuń obraz (opcjonalnie)
 

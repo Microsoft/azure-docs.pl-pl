@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792383"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Tworzenie map, które przekształcają XML między formatami w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Tworzenie map, które przekształcają kod XML między formatami w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
-Łącznik transformacji integracji przedsiębiorstwa konwertuje dane z jednego formatu na inny. Na przykład może istnieć komunikat przychodzący zawierający bieżącą datę w formacie YearMonthDay. Możesz użyć przekształcenia, aby ponownie sformatować datę, która ma być w formacie MonthDayYear.
+Łącznik przekształceń integracji przedsiębiorstwa konwertuje dane z jednego formatu na inny. Na przykład możesz mieć wiadomość przychodzącą zawierającą bieżącą datę a formacie RokMiesiącDzień. Przy użyciu przekształcenia możesz zmienić format daty na MiesiącDzieńRok.
 
 ## <a name="what-does-a-transform-do"></a>Co to jest transformacja?
 Transformacja, która jest również znana jako mapa, składa się ze źródłowego schematu XML (dane wejściowe) i docelowego schematu XML (dane wyjściowe). Można użyć różnych wbudowanych funkcji, które ułatwiają manipulowanie danymi, w tym manipulowanie ciągami, przypisania warunkowe, wyrażenia arytmetyczne, Programy formatujące daty i godziny, a nawet konstrukcje pętli.
@@ -84,7 +83,7 @@ Akcja przekształcenia obsługuje również mapy lub przekształcenia z odwołan
     * **Nazwa** jest nazwą niestandardowego zestawu.
     * **przestrzeń nazw** jest przestrzenią nazw w zestawie, która zawiera kod niestandardowy.
 
-  Ten przykład pokazuje mapę, która odwołuje się do zestawu o nazwie "XslUtilitiesLib" `circumreference` i wywołuje metodę z zestawu.
+  Ten przykład pokazuje mapę, która odwołuje się do zestawu o nazwie "XslUtilitiesLib" i wywołuje `circumreference` metodę z zestawu.
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -133,7 +132,7 @@ Domyślnie odpowiedź z transformacji zaczyna się od znacznika kolejności bajt
 
 
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 * [Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw")  
 * [Dowiedz się więcej o mapach](../logic-apps/logic-apps-enterprise-integration-maps.md "Dowiedz się więcej na temat map integracji przedsiębiorstwa")  
 
