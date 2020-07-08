@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 678a605ce1585b58cfc5f9aaea3423efa8d53ad3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610070"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -46,16 +46,16 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 
    Jest to znane ograniczenie typu PIP, ponieważ nie ma działającego programu rozpoznawania zależności podczas instalacji jako pojedynczej linii. Pierwsza unikatowa zależność jest tylko jednym z nich. 
 
-   W poniższym kodzie `azure-ml-datadrift` i `azureml-train-automl` są instalowane przy użyciu jednowierszowej instalacji PIP. 
+   W poniższym kodzie `azureml-datadrift` i `azureml-train-automl` są instalowane przy użyciu jednowierszowej instalacji PIP. 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   Na potrzeby tego przykładu Załóżmy, że jest `azure-ml-datadrift` wymagana wersja > 1,0 i `azureml-train-automl` wymaga wersji < 1,2. Jeśli Najnowsza wersja programu `azure-ml-datadrift` to 1,3, oba pakiety zostaną uaktualnione do 1,3, niezależnie od `azureml-train-automl` wymagań pakietu dla starszej wersji. 
+   Na potrzeby tego przykładu Załóżmy, że jest `azureml-datadrift` wymagana wersja > 1,0 i `azureml-train-automl` wymaga wersji < 1,2. Jeśli Najnowsza wersja programu `azureml-datadrift` to 1,3, oba pakiety zostaną uaktualnione do 1,3, niezależnie od `azureml-train-automl` wymagań pakietu dla starszej wersji. 
 
    Aby upewnić się, że odpowiednie wersje są zainstalowane dla pakietów, zainstaluj przy użyciu wielu wierszy, takich jak w poniższym kodzie. W tym miejscu nie jest to problem, ponieważ program PIP został jawnie obniżony jako część wywołania następnego wiersza. W związku z tym stosowane są odpowiednie zależności wersji.
     
      ```
-        pip install azure-ml-datadrift
+        pip install azureml-datadrift
         pip install azureml-train-automl 
      ```
      

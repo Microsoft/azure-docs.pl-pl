@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: a4cbe49efd605e2104dbbc9f389a85e8fc4c468e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 92a8e129188f2790a3e46162b207373b5d6e6ce4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611360"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -144,11 +144,15 @@ Jeśli odnalezione maszyny wirtualne nie są wyświetlane w portalu lub dane mas
 
 Jeśli usuniesz maszyny wirtualne i nadal pojawią się one w portalu, odczekaj 30 minut. Jeśli nadal są wyświetlane, Odśwież zgodnie z powyższym opisem.
 
-## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Błąd: przekazany plik ma nieoczekiwany format
-Niektóre narzędzia mają ustawienia regionalne, które tworzą plik CSV z średnikiem jako ogranicznikiem. Zmień ustawienia, aby upewnić się, że ogranicznik jest przecinkiem.
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Nie widzę danych o wydajności niektórych kart sieciowych na serwerach fizycznych
 
-## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Zaimportowano wolumin CSV, ale widzę "odnajdywanie jest w toku"
-Ten stan jest wyświetlany, jeśli przekazywanie pliku CSV nie powiodło się z powodu błędu walidacji. Spróbuj ponownie zaimportować wolumin CSV. Możesz pobrać raport o błędach poprzedniego przekazywania i postępować zgodnie z zaleceniami w pliku, aby naprawić błędy. Raport o błędach można pobrać z sekcji "Importuj szczegóły" na stronie "odnajdywanie maszyn".
+Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Z powodu przerwy w działaniu produktu przepustowość sieci jest przechwytywana na odnalezionych wirtualnych kartach sieciowych.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Błąd: przekazany plik ma nieoczekiwany format
+Niektóre narzędzia mają ustawienia regionalne, które tworzą plik CSV ze średnikiem jako ogranicznikiem. Zmień ustawienia, aby upewnić się, że ogranicznikiem jest przecinek.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Zaimportowano plik CSV, ale widzę komunikat „Trwa odnajdywanie”
+Ten stan jest wyświetlany, jeśli przekazywanie pliku CSV nie powiodło się z powodu błędu walidacji. Spróbuj ponownie zaimportować plik CSV. Możesz pobrać raport o błędach poprzedniego przekazywania i postępować zgodnie z zaleceniami w pliku, aby naprawić błędy. Raport o błędach można pobrać z sekcji „Importowanie szczegółów” na stronie „Odnajdywanie maszyn”.
 
 ## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Nie wyświetlaj szczegółów aplikacji nawet po zaktualizowaniu poświadczeń gościa
 Odnajdywanie aplikacji jest uruchamiane co 24 godziny. Jeśli chcesz natychmiast zobaczyć szczegóły, Odśwież w następujący sposób. Może to potrwać kilka minut, w zależności od tego, czy nie. wykrytych maszyn wirtualnych.

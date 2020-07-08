@@ -6,13 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: 660645f69126d631a8190ce2bfd99f6fd9949db8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.topic: how-to
+ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610663"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
@@ -248,7 +248,7 @@ Teraz sprawdzono, że reguły zapory działają:
 * Możesz rozpoznać nazwy DNS przy użyciu skonfigurowanego zewnętrznego serwera DNS.
 * Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zasoby zapory można zachować w następnym samouczku lub, jeśli nie są już potrzebne, Usuń grupę zasobów **test-PD-RG** , aby usunąć wszystkie zasoby związane z zaporą:
 

@@ -3,12 +3,12 @@ title: Tworzenie klastra usługi Service Fabric w witrynie Azure Portal
 description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric na platformie Azure przy użyciu Azure Portal i Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792483"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611156"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra Service Fabric na platformie Azure przy użyciu Azure Portal
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Jest to przewodnik krok po kroku, który przeprowadzi Cię przez kroki konfiguro
 ## <a name="cluster-security"></a>Zabezpieczenia klastra 
 W usłudze Service Fabric używa się certyfikatów, aby zapewniać uwierzytelnianie i szyfrowanie w celu zabezpieczania różnych aspektów klastra i jego aplikacji. Aby uzyskać więcej informacji o sposobie wykorzystania certyfikatów w usłudze Service Fabric, zobacz [Scenariusze zabezpieczeń klastra usługi Service Fabric][service-fabric-cluster-security].
 
-Jeśli tworzysz klaster usługi Service Fabric lub wdrażasz klaster dla obciążeń testowych po raz pierwszy, możesz przejść do następnej sekcji (**Utwórz klaster w witrynie Azure Portal**) i utworzyć certyfikaty potrzebne dla klastrów, które uruchamiają obciążenia testowe. W przypadku konfigurowania klastra dla obciążeń produkcyjnych, należy kontynuować odczytywanie.
+Jeśli tworzysz klaster usługi Service Fabric lub wdrażasz klaster do obsługi obciążeń testowych, możesz przejść do następnej sekcji (**utworzyć klaster w Azure Portal**), a system generować certyfikaty potrzebne dla klastrów, które uruchamiają obciążenia testowe. W przypadku konfigurowania klastra dla obciążeń produkcyjnych, należy kontynuować odczytywanie.
 
 #### <a name="cluster-and-server-certificate-required"></a>Certyfikat klastra i serwera (wymagany)
 Ten certyfikat jest wymagany do zabezpieczenia klastra i uniemożliwia nieautoryzowany dostęp do niego. Zapewnia zabezpieczenia klastra na kilka sposobów:
@@ -209,7 +209,7 @@ W tym momencie istnieje bezpieczny klaster używający certyfikatów do uwierzyt
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md
-[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[service-fabric-cluster-durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55264f1fe0526773db5af299c37e4ea077e6d63f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f6794559c2296b02ef61d0e280d29456904ae607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483333"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609303"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -225,12 +225,11 @@ Oto przykład powiadomienia dotyczącego tworzenia lub usuwania relacji:
 
 ```json
 {
-    "$relationshipId": "building_to_floor",
+    "$relationshipId": "device_to_device",
     "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
 

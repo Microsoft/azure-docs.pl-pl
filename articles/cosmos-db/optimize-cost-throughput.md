@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: afbf0bee86a3d600892ed562ee939d48168ddfdc
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85112943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610731"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 
@@ -155,7 +155,7 @@ Poniższe kroki pomagają zapewnić wysoką skalowalność i opłacalność rozw
 
 1. Jeśli znacznie przekraczasz zainicjowaną przepływność w kontenerach i bazach danych, zapoznaj się z tematem jednostek ru zainicjowanymi a jednostek ru i Dostosuj obciążenia.  
 
-2. Jedną z metod oszacowania ilości zarezerwowanej przepływności wymaganej przez aplikację jest zarejestrowanie opłaty za jednostkę żądania RU skojarzoną z uruchamianiem typowych operacji względem reprezentatywnego kontenera usługi Azure Cosmos lub bazy danych używanej przez aplikację, a następnie oszacowanie liczby przewidywanych operacji wykonywanych w każdej sekundzie. Pamiętaj, aby mierzyć i uwzględniać typowe zapytania oraz ich użycie. Aby dowiedzieć się, jak oszacować koszty usługi RU dla zapytań programowo lub za pomocą portalu [, zobacz Optymalizacja kosztów zapytań](online-backup-and-restore.md). 
+2. Jedną z metod oszacowania ilości zarezerwowanej przepływności wymaganej przez aplikację jest zarejestrowanie opłaty za jednostkę żądania RU skojarzoną z uruchamianiem typowych operacji względem reprezentatywnego kontenera usługi Azure Cosmos lub bazy danych używanej przez aplikację, a następnie oszacowanie liczby przewidywanych operacji wykonywanych w każdej sekundzie. Pamiętaj, aby mierzyć i uwzględniać typowe zapytania oraz ich użycie. Aby dowiedzieć się, jak oszacować koszty usługi RU dla zapytań programowo lub za pomocą portalu [, zobacz Optymalizacja kosztów zapytań](optimize-cost-queries.md). 
 
 3. Innym sposobem na uzyskanie operacji i ich kosztów w programie jednostek ru jest włączenie dzienników Azure Monitor, co zapewnia podział operacji na czas trwania i opłaty za żądania. Azure Cosmos DB zapewnia opłaty za żądania dla każdej operacji, więc każda opłata za operacje może zostać zapisana z powrotem z odpowiedzi, a następnie użyta do analizy. 
 

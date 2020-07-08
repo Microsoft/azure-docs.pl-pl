@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: a6e7e01917ac6499b9836b460077a5513782a4ce
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610850"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -34,7 +34,7 @@ Synchronizacja danych używa topologii gwiazdy do synchronizowania danych. Jedn�
 
 - **Baza danych centrum** musi być Azure SQL Database.
 - **Bazy danych elementów członkowskich** mogą być albo bazami danych w Azure SQL Database, albo w wystąpieniach SQL Server.
-- **Baza danych synchronizacji** zawiera metadane i Dziennik synchronizacji danych. Baza danych synchronizacji musi być Azure SQL Database umieszczona w tym samym regionie, w którym znajduje się baza danych centrów. Baza danych synchronizacji jest tworzona przez klienta i jest własnością klienta.
+- **Baza danych metadanych synchronizacji** zawiera metadane i Dziennik synchronizacji danych. Baza danych metadanych synchronizacji musi być Azure SQL Database umieszczona w tym samym regionie, w którym znajduje się baza danych centrów. Baza danych metadanych synchronizacji jest tworzona przez klienta i jest własnością klienta. Możesz mieć tylko jedną bazę danych metadanych synchronizacji na region i subskrypcję. Nie można usunąć bazy danych metadanych synchronizacji ani zmienić jej nazwy, gdy istnieją grupy synchronizacji lub agenci synchronizacji. Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako baza danych metadanych synchronizacji. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie.
 
 > [!NOTE]
 > W przypadku korzystania z lokalnej bazy danych jako bazy danych będącej członkiem należy [zainstalować i skonfigurować lokalnego agenta synchronizacji](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -155,7 +155,7 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Ograniczenia dotyczące wymiarów usługi i bazy danych
 
-| **Wymiary**                                                  | **Limit**              | **Poprawkę**              |
+| **Wymiary**                                                  | **Limit**              | **Obejście**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maksymalna liczba grup synchronizacji, do których może należeć baza danych.       | 5                      |                             |
 | Maksymalna liczba punktów końcowych w pojedynczej grupie synchronizacji              | 30                     |                             |
@@ -235,6 +235,10 @@ Tak. SQL Data Sync obsługuje sortowanie w następujących scenariuszach:
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Czy Federacja jest obsługiwana w SQL Data Sync
 
 Główna baza danych Federacji może być używana w usłudze SQL Data Sync bez ograniczeń. Nie można dodać punktu końcowego bazy danych federacyjnych do bieżącej wersji SQL Data Sync.
+
+### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Czy można używać funkcji synchronizacji danych do synchronizowania danych wyeksportowanych z systemu Dynamics 365 przy użyciu narzędzia do przenoszenia własnych baz danych (BYOD)?
+
+Funkcja Dynamics 365 umożliwia administratorom eksportowanie jednostek danych z aplikacji do własnych Microsoft Azure bazy danych SQL. Synchronizacja danych może służyć do synchronizowania tych danych z innymi bazami danych, jeśli dane są eksportowane przy użyciu **wypychania przyrostowego** (pełna wypychanie nie jest obsługiwana), a **wyzwalacze włączania w docelowej bazie danych** są ustawione na **wartość tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 

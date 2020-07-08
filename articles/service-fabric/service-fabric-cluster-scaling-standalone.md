@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
-ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3195f1f409ab5cb87cd0520192a3dd362e188a3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610238"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Skalowanie Service Fabric klastrów autonomicznych
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Klastry mogą zawierać potencjalnie tysiące węzłów. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie (zmienić liczbę węzłów) lub w pionie (zmienić zasoby węzłów).  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -28,7 +28,7 @@ Klastry autonomiczne umożliwiają wdrożenie klastra Service Fabric lokalnie lu
 Usunięcie węzłów może inicjować wiele uaktualnień. Niektóre węzły są oznaczone `IsSeedNode=”true”` tagami i mogą być identyfikowane przez zapytanie do manifestu klastra przy użyciu polecenia [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Usunięcie takich węzłów może potrwać dłużej niż inne, ponieważ węzły inicjatora będą musiały zostać przeniesione w taki sposób. Klaster musi obsługiwać co najmniej trzy węzły podstawowego typu węzła.
 
 > [!WARNING]
-> Zaleca się, aby nie obniżyć liczby węzłów poniżej [rozmiaru klastra warstwy niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) dla klastra. Będzie to zakłócać możliwość replikowania Service Fabric usług systemowych w ramach klastra i zostanie ona utrwalona lub prawdopodobnie zniszczy klaster.
+> Zaleca się, aby nie obniżyć liczby węzłów poniżej [rozmiaru klastra warstwy niezawodności](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) dla klastra. Będzie to zakłócać możliwość replikowania Service Fabric usług systemowych w ramach klastra i zostanie ona utrwalona lub prawdopodobnie zniszczy klaster.
 >
 
 Podczas skalowania klastra autonomicznego należy pamiętać o następujących kwestiach:

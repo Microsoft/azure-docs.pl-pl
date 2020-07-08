@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609269"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Po utworzeniu magazynu danych sprawdzanie poprawności jest wykonywane tylko w p
 
 Wszystkie metody rejestrowania znajdują się w [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klasie i mają postać `register_azure_*` .
 > [!IMPORTANT]
-> Jeśli konto magazynu znajduje się w sieci wirtualnej, obsługiwane jest tylko tworzenie magazynów danych **za pośrednictwem zestawu SDK** .
+> Jeśli planujesz utworzenie magazynu danych dla kont magazynu, które znajdują się w sieci wirtualnej, zobacz sekcję dostęp do danych w sieci wirtualnej.
 
 Możesz znaleźć informacje potrzebne do wypełnienia `register_azure_*()` metody na [Azure Portal](https://portal.azure.com).
 
@@ -185,7 +185,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Utwórz nowy magazyn danych w kilku krokach w programie Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Jeśli konto magazynu znajduje się w sieci wirtualnej, obsługiwane jest tylko tworzenie magazynów danych [za pośrednictwem zestawu SDK](#python-sdk) . 
+> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Aby upewnić się, że stosowane są odpowiednie kroki konfiguracyjne, zobacz [izolacja sieci & prywatność] (jak to-enable-Virtual-Network. MD # Machine-Learning-Studio). 
 
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Wybierz pozycję **magazyny** danych w lewym okienku w obszarze **Zarządzaj**.
@@ -201,7 +201,7 @@ Informacje potrzebne do wypełnienia formularza można znaleźć na [Azure Porta
 > [!IMPORTANT]
 > Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS). W tym celu należy zsynchronizować nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Informacje o synchronizowaniu zaktualizowanych poświadczeń z [tymi krokami](how-to-change-storage-access-key.md). 
 
-Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia magazynu danych obiektów blob platformy Azure: 
+Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure**: 
     
 ![Formularz dla nowego magazynu danych](media/how-to-access-data/new-datastore-form.png)
 
@@ -299,6 +299,11 @@ Azure Machine Learning oferuje kilka sposobów na korzystanie z modeli do ocenia
 | [Moduł Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele na IoT Edge urządzeniach. |
 
 W sytuacjach, w których zestaw SDK nie zapewnia dostępu do magazynów danych, może być możliwe utworzenie niestandardowego kodu przy użyciu odpowiedniego zestawu Azure SDK, aby uzyskać dostęp do tego programu. Na przykład [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python) jest biblioteką kliencką, za pomocą której można uzyskać dostęp do danych przechowywanych w obiektach Blob lub plikach.
+
+
+## <a name="access-data-in-a-virtual-network"></a>Dostęp do danych w sieci wirtualnej
+
+Jeśli magazyn znajduje się za siecią wirtualną, należy wykonać dodatkowe czynności konfiguracyjne dla obszaru roboczego i magazynu danych w celu uzyskania dostępu do Twoich potrzeb. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 

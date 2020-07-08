@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 4e5969b4c3a42fc8a2c4b1cd537c22a4422ca131
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269029"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610867"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -53,11 +53,11 @@ Typowy scenariusz przejęcia domeny podrzędnej:
 
 
 
-## <a name="the-risks-of-dangling-dns-records"></a>Ryzyko związane z rekordami DNS zawieszonego
+## <a name="the-risks-of-subdomain-takeover"></a>Ryzyko przejęcia domeny podrzędnej
 
-Gdy rekord DNS wskazuje na zasób, który nie jest dostępny, rekord ten powinien zostać usunięty ze strefy DNS. Jeśli nie została usunięta, jest to rekord "zawieszonego DNS" i zagrożenie bezpieczeństwa.
+Gdy rekord DNS wskazuje na zasób, który nie jest dostępny, rekord ten powinien zostać usunięty ze strefy DNS. Jeśli nie została usunięta, jest to rekord "zawieszonego DNS" i tworzy możliwość przejęcia poddomeny.
 
-Ryzyko dla organizacji polega na tym, że umożliwia aktorowi zagrożeń przejęcie kontroli nad skojarzoną nazwą DNS w celu hostowania złośliwej witryny sieci Web lub usługi. Ta złośliwa witryna sieci Web w poddomenie organizacji może skutkować:
+Zawieszonego wpisy DNS umożliwiają uczestnikom zagrożeń przejęcie kontroli nad skojarzoną nazwą DNS w celu hostowania złośliwej witryny sieci Web lub usługi. Złośliwe strony i usługi w poddomenie organizacji mogą skutkować:
 
 - **Utrata kontroli nad zawartością poddomeny** — nieprzerwana prasa dotycząca niezdolności do zabezpieczania swojej zawartości przez organizację oraz uszkodzenia marki i utraty zaufania.
 
@@ -65,7 +65,7 @@ Ryzyko dla organizacji polega na tym, że umożliwia aktorowi zagrożeń przeję
 
 - **Kampanie wyłudzające informacje** — w przypadku kampanii wyłudzających informacje mogą być używane jako autentyczne. Dotyczy to złośliwych witryn, a także dla rekordów MX, które umożliwiają aktorowi zagrożeń odbieranie wiadomości e-mail skierowanych do uprawnionej poddomeny o znanej, bezpiecznej marki.
 
-- **Dalsze czynniki ryzyka** — eskalacja do innych klasycznych ataków, takich jak XSS, CSRF, obejście CORS i nie tylko.
+- **Dalsze zagrożenia** — złośliwe witryny mogą służyć do eskalacji innych klasycznych ataków, takich jak XSS, CSRF, obejście CORS i nie tylko.
 
 
 
@@ -78,7 +78,7 @@ Dostępne obecnie miary zapobiegawcze są wymienione poniżej.
 
 ### <a name="use-azure-dns-alias-records"></a>Użyj Azure DNS rekordów aliasów
 
-Poprzez ścisłe sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure funkcja [rekordów aliasów](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS może uniemożliwić odwołania zawieszonego. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
+Poprzez ścisłe sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure, [rekordy aliasów](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS mogą uniemożliwiać odwołania zawieszonego. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
 
 - Azure Front Door
 - Profile usługi Traffic Manager
@@ -95,7 +95,7 @@ Jeśli masz zasoby, które mogą być chronione przed przejęciem domeny przy u�
 
 Podczas tworzenia wpisów DNS dla Azure App Service Utwórz asuid. poddomeny Rekord TXT z IDENTYFIKATORem weryfikacji domeny. Gdy taki rekord TXT istnieje, żadna inna subskrypcja platformy Azure nie może zweryfikować domeny niestandardowej, która jest w tej chwili przełączona. 
 
-Te rekordy nie uniemożliwiają innej osobie tworzenia Azure App Service o tej samej nazwie, która znajduje się w wpisie CNAME, ale nie będzie można odbierać ruchu ani kontrolować zawartości, ponieważ nie mogą one udowodnić własności nazwy domeny.
+Te rekordy nie uniemożliwiają innej osobie tworzenia Azure App Service o tej samej nazwie, która znajduje się we wpisie rekordu CNAME. Bez możliwości udowodnienia własności nazwy domeny, aktorzy zagrożeń nie mogą odbierać ruchu ani kontrolować zawartości.
 
 [Dowiedz się więcej](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) o sposobie mapowania istniejącej NIESTANDARDOWEJ nazwy DNS na Azure App Service.
 
@@ -111,7 +111,7 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
 
     - W przypadku likwidowania usługi należy umieścić na liście wymaganych sprawdzeń pozycję "Usuń wpis DNS".
 
-    - Umieść [blokady usuwania](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) dla wszystkich zasobów, które mają niestandardowy wpis DNS. Powinno to służyć jako wskaźnik, że mapowanie musi zostać usunięte przed anulowaniem obsługi administracyjnej zasobu. Takie działania mogą być wykonywane tylko w połączeniu z wewnętrznymi programami edukacyjnymi.
+    - Umieść [blokady usuwania](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) dla wszystkich zasobów, które mają niestandardowy wpis DNS. Blokada usuwania służy jako wskaźnik, że mapowanie musi zostać usunięte przed anulowaniem aprowizacji zasobu. Takie działania mogą być wykonywane tylko w połączeniu z wewnętrznymi programami edukacyjnymi.
 
 - **Utwórz procedury odnajdywania:**
 

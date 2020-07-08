@@ -3,12 +3,12 @@ title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7d42de52d35d5a3c5e9a54673d8cd933fbee04aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610306"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -29,10 +29,34 @@ Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-supp
 
 Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych funkcji Hyper-V, a nawet do 1000 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej maszyn, zapoznaj się [z tematem skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)lub [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
 
+## <a name="how-do-i-choose-the-assessment-type"></a>Jak mogę wybrać typ oceny?
+
+- Korzystając z **ocen maszyn wirtualnych platformy Azure** , można ocenić lokalne [maszyny wirtualne programu VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na maszyny wirtualne platformy Azure. [Więcej informacji](concepts-assessment-calculation.md)
+
+- Korzystając z funkcji oceny **rozwiązań VMware firmy Azure (Automatyczna synchronizacja)** , możesz ocenić swoje lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction) przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- Grupy wspólnej można używać tylko z maszynami VMware do uruchamiania obu typów ocen. Należy pamiętać, że jeśli używasz ocen automatycznej synchronizacji w Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
+
+## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Nie widzę niektórych grup podczas tworzenia rozwiązania Azure VMware (Automatyczna synchronizacja)
+
+- Ocenę wersji zaautomatycznej można przeprowadzić w grupach, które mają tylko maszyny wirtualne. Jeśli zamierzasz przeprowadzić ocenę automatycznej synchronizacji, Usuń z grupy wszystkie maszyny spoza programu VMware.
+- Jeśli używasz ocen automatycznej synchronizacji w Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
+
+## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Jak mogę wybrać poziom FTT-RAID w ocenie automatycznej synchronizacji?
+
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielenia magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
+
+**Niepowodzenia do tolerowania (FTT)** | **Konfiguracja RAID** | **Minimalna wymagana ilość hostów** | **Uwzględnianie wielkości**
+--- | --- | --- | --- 
+1 | RAID-1 (dublowanie) | 3 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 200 GB.
+1 | RAID-5 (Wymazywanie kodowania) | 4 | Maszyna wirtualna 100 GB zużywa 133.33 GB
+2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna 100 GB zużywa 300 GB.
+2 | RAID-6 (Wymazywanie kodowania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 150 GB.
+3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna 100 GB zużywa 400 GB.
+
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Nie widzę niektórych typów maszyn wirtualnych w Azure Government
 
 Typy maszyn wirtualnych obsługiwane na potrzeby oceny i migracji zależą od dostępności w Azure Government lokalizacji. Możesz [przejrzeć i porównać](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) typy maszyn wirtualnych w Azure Government.
-
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Zmieniono rozmiar maszyny wirtualnej. Czy mogę ponownie uruchomić ocenę?
 
@@ -47,7 +71,7 @@ Urządzenie Azure Migrate ciągle zbiera informacje o środowisku lokalnym.  Oce
 
 Tak, Azure Migrate wymaga vCenter Server w środowisku VMware w celu przeprowadzenia odnajdywania. Azure Migrate nie obsługuje odnajdywania hostów ESXi, które nie są zarządzane przez vCenter Server.
 
-## <a name="what-are-the-sizing-options"></a>Jakie są opcje ustalania wielkości?
+## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Jakie są opcje ustalania wielkości w ocenie maszyny wirtualnej platformy Azure?
 
 W przypadku ustalania rozmiarów lokalnych Azure Migrate nie uwzględnia danych wydajności maszyny wirtualnej w celu oceny. Azure Migrate ocenia rozmiary maszyn wirtualnych na podstawie konfiguracji lokalnej. W przypadku ustalania rozmiarów na podstawie wydajności rozmiar jest oparty na danych użycia.
 
@@ -59,18 +83,18 @@ Podobnie rozmiary dysku są zależne od kryteriów ustalania rozmiarów i typu m
 - Jeśli kryteria ustalania wielkości są oparte na wydajności i typ magazynu jest automatyczny, Azure Migrate pobiera wartości IOPS i przepływności dysku do konta, gdy identyfikuje docelowy typ dysku (standardowa lub Premium).
 - Jeśli kryterium ustalania rozmiaru jest oparte na wydajności, a typ magazynu to Premium, Azure Migrate zaleca SKU dysku w warstwie Premium na podstawie rozmiaru dysku lokalnego. Ta sama logika jest stosowana do wielkości dysku, gdy wielkość liter jest jako lokalna, a typ magazynu to standardowa lub Premium.
 
-## <a name="does-performance-history-and-utilization-affect-sizing"></a>Czy historia wydajności i wykorzystanie wpływają na rozmiar?
+## <a name="does-performance-history-and-utilization-affect-sizing-in-an-azure-vm-assessment"></a>Czy historia wydajności i wykorzystanie wpływają na zmianę rozmiarów w ramach oceny maszyny wirtualnej platformy Azure?
 
-Tak, historia wydajności i wykorzystanie wpływają na rozmiar w Azure Migrate.
+Tak, historia wydajności i wykorzystanie wpływają na rozmiar w ocenie maszyny wirtualnej platformy Azure.
 
 ### <a name="performance-history"></a>Historia wydajności
 
 W przypadku tylko ustalania rozmiaru na podstawie wydajności Azure Migrate zbiera historię wydajności maszyn lokalnych, a następnie używa jej w celu zaproponowania rozmiaru maszyny wirtualnej i typu dysku na platformie Azure:
 
 1. Urządzenie nieustannie profiluje środowisko lokalne, aby gromadzić dane dotyczące użycia w czasie rzeczywistym co 20 sekund.
-1. Urządzenie zbiera zebrane 20-sekundowe próbki i używa ich do tworzenia jednego punktu danych co 15 minut.
-1. Aby utworzyć punkt danych, urządzenie wybiera wartość szczytu ze wszystkich próbek 20-sekund.
-1. Urządzenie wysyła punkt danych do platformy Azure.
+2. Urządzenie zbiera zebrane 20-sekundowe próbki i używa ich do tworzenia jednego punktu danych co 15 minut.
+3. Aby utworzyć punkt danych, urządzenie wybiera wartość szczytu ze wszystkich próbek 20-sekund.
+4. Urządzenie wysyła punkt danych do platformy Azure.
 
 ### <a name="utilization"></a>Wykorzystanie
 
@@ -80,11 +104,17 @@ Na przykład jeśli ustawisz czas trwania wydajności na jeden dzień i wartoś�
 
 Użycie wartości percentylu używany 95. gwarantuje, że elementy odstające są ignorowane. Elementy odstające mogą być dołączane, jeśli Azure Migrate używa percentylu 99. Aby wybrać szczytowe użycie dla tego okresu bez braku żadnych wartości odstających, ustaw Azure Migrate na użycie 99 percentyl.
 
+
 ## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Jak są oceniane oceny oparte na imporcie, które różnią się od ocen ze źródłem odnajdywania jako urządzenie?
 
-Oceny oparte na imporcie są ocenami utworzonymi w przypadku maszyn zaimportowanych do Azure Migrate przy użyciu pliku CSV. Tylko cztery pola są wymagane do zaimportowania: Nazwa serwera, rdzenie, pamięć i system operacyjny. Poniżej przedstawiono kilka kwestii, które należy zwrócić uwagę: 
+Oparte na imporcie oceny maszyn wirtualnych platformy Azure są ocenami utworzonymi w przypadku maszyn zaimportowanych do Azure Migrate przy użyciu pliku CSV. Tylko cztery pola są wymagane do zaimportowania: Nazwa serwera, rdzenie, pamięć i system operacyjny. Poniżej przedstawiono kilka kwestii, które należy zwrócić uwagę: 
  - Kryteria gotowości są mniej rygorystyczne w przypadku ocen opartych na imporcie w parametrze typu rozruchu. Jeśli typ rozruchu nie zostanie podany, zakłada się, że maszyna ma typ rozruchu w systemie BIOS, a maszyna nie jest oznaczona jako **warunkowo gotowa**. W obszarze oceny ze źródłem odnajdywania jako urządzenie gotowość jest oznaczona jako **warunkowo gotowa** , jeśli brakuje typu rozruchu. Różnica w obliczaniu gotowości wynika z faktu, że użytkownicy mogą nie mieć wszystkich informacji na maszynach na wczesnych etapach planowania migracji w przypadku wykonywania ocen opartych na imporcie. 
  - Oceny importowe oparte na wydajności używają wartości wykorzystania dostarczonej przez użytkownika do obliczeń o odpowiednim wymiarze. Ponieważ wartość użycia jest dostarczana przez użytkownika, w oknie właściwości oceny są wyłączone opcje **historia wydajności** i **użycie percentylu** . W obszarze oceny ze źródłem odnajdywania jako urządzenie wybrana wartość percentylu jest wybierana z danych wydajności zbieranych przez urządzenie.
+
+## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Dlaczego sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie zostało oznaczone jako nieznane?
+
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania VMWare hybryd Cloud Extension (HCX). [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
 
 ## <a name="what-is-dependency-visualization"></a>Co to jest Wizualizacja zależności?
 

@@ -3,16 +3,16 @@ title: Określanie punktów końcowych usługi Service Fabric
 description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym sposób konfigurowania punktów końcowych HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417591"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610748"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
-Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku servicemanifest. XML jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Punkty końcowe
 Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, Service Fabric przypisuje porty z zakresu portów aplikacji zastrzeżonej, gdy port nie jest jawnie określony. Na przykład poszukaj w punkcie końcowym *ServiceEndpoint1* określonym we fragmencie kodu manifestu dostarczonym po tym akapicie. Ponadto usługi mogą również zażądać określonego portu w zasobie. Do replik usługi uruchomionych w różnych węzłach klastra można przypisać różne numery portów, natomiast repliki usługi uruchomionej w tym samym węźle współużytkują port. Repliki usług mogą następnie używać tych portów w razie potrzeby replikacji i nasłuchiwania żądań klientów.
@@ -48,12 +48,10 @@ W przypadku wielu pakietów kodu w jednym pakiecie usługi, w sekcji **punkty ko
 </Resources>
 ```
 
-Zapoznaj się z tematem [konfigurowanie Reliable Services stanowych](service-fabric-reliable-services-configuration.md) , aby dowiedzieć się więcej na temat odwołań do punktów końcowych z pliku ustawień pakietu konfiguracji (Settings. xml).
+Zapoznaj się z tematem [konfigurowanie Reliable Services stanowych](service-fabric-reliable-services-configuration.md) , aby dowiedzieć się więcej na temat odwołań do punktów końcowych z pliku ustawień pakietu konfiguracji (settings.xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Przykład: Określanie punktu końcowego HTTP dla usługi
-Poniższy manifest usługi definiuje jeden zasób punktu końcowego TCP i dwa zasoby punktu końcowego HTTP w &lt;elemencie&gt; Resources.
-
-Punkty końcowe HTTP są automatycznie listą ACL pochodzącą przez Service Fabric.
+Poniższy manifest usługi definiuje jeden zasób punktu końcowego TCP i dwa zasoby punktu końcowego HTTP w &lt; elemencie Resources &gt; .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,8 +155,10 @@ Poniżej znajduje się przykład ApplicationManifest pokazujący konfigurację w
 
 W przypadku klastrów systemu Linux magazyn **My** default jest domyślnie używany w folderze **/var/lib/sfcerts**.
 
+## <a name="port-acling-for-http-endpoints"></a>ACLing portów dla punktów końcowych HTTP
+W Service Fabric automatycznie są określane punkty końcowe HTTP (S) listy ACL. **Nie** zostanie wykonana automatyczna acling, jeśli punkt końcowy nie ma skojarzonego z nim [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) i Service Fabric jest skonfigurowany do uruchamiania przy użyciu konta z uprawnieniami administratora.
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a>Zastępowanie punktów końcowych w pliku servicemanifest. XML
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Zastępowanie punktów końcowych w ServiceManifest.xml
 
 W sekcji ApplicationManifest Dodaj ResourceOverrides, która będzie częścią elementu równorzędnego do ConfigOverrides. W tej sekcji można określić przesłonięcie dla sekcji punktów końcowych w sekcji Resources (zasoby) określonej w manifeście usługi. Przesłanianie punktów końcowych jest obsługiwane w środowisku uruchomieniowym 5.7.217/SDK 2.7.217 i wyższym.
 

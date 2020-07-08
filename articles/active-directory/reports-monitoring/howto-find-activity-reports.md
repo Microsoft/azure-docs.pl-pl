@@ -7,19 +7,19 @@ author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608215"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal
 
@@ -52,10 +52,10 @@ Możesz użyć filtrowania zaawansowanego w raporcie inspekcji, aby uzyskać dos
 
 Kategorie obejmują:
 
-- Wszystkie
+- Wszystko
 - AdministrativeUnit
 - ApplicationManagement
-- Uwierzytelnianie
+- Authentication
 - Autoryzacja
 - Kontakt
 - Urządzenie
@@ -73,7 +73,7 @@ Możesz również filtrować określoną usługę za pomocą filtru listy rozwij
 
 Usługi obejmują:
 
-- Wszystkie
+- Wszystko
 - Przeglądy dostępu
 - Aprowizacja kont 
 - Logowanie jednokrotne aplikacji
@@ -171,10 +171,10 @@ W witrynie Azure Portal wykonano pewne akcje, które powinny zostać odzwiercied
 
 Akcje nie pojawiają się natychmiast w dziennikach aktywności. W poniższej tabeli wyliczono wartości opóźnień dla dzienników aktywności. 
 
-| Raport | &nbsp; | Opóźnienie (P95) | Opóźnienie (P99) |
-|--------|--------|---------------|---------------|
-| Inspekcja katalogu | &nbsp; | 2 min | 5 min |
-| Aktywność związana z logowaniem | &nbsp; | 2 min | 5 min | 
+| Raport | Opóźnienie (P95) | Opóźnienie (P99) |
+|--------|---------------|---------------|
+| Inspekcja katalogu | 2 min | 5 min |
+| Aktywność związana z logowaniem | 2 min | 5 min |
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -192,10 +192,10 @@ Po ostatnim zalogowaniu się do witryny Azure Portal oczekiwano wyświetlenia dz
 
 Akcje nie pojawiają się natychmiast w dziennikach aktywności. W poniższej tabeli wyliczono wartości opóźnień dla dzienników aktywności. 
 
-| Raport | &nbsp; | Opóźnienie (P95) | Opóźnienie (P99) |
-|--------|--------|---------------|---------------|
-| Inspekcja katalogu | &nbsp; | 2 min | 5 min |
-| Aktywność związana z logowaniem | &nbsp; | 2 min | 5 min | 
+| Raport | Opóźnienie (P95) | Opóźnienie (P99) |
+|--------|---------------|---------------|
+| Inspekcja katalogu | 2 min | 5 min |
+| Aktywność związana z logowaniem | 2 min | 5 min |
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -213,10 +213,10 @@ Nie mogę wyświetlić danych logowania i inspekcji obejmujących więcej niż 3
 
 W zależności od licencji w obszarze akcji usługi Azure Active Directory raporty aktywności są przechowywane przez następujący okres:
 
-| Raport           | &nbsp; |  Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Inspekcja katalogu  | &nbsp; |   7 dni     | 30 dni             | 30 dni             |
-| Aktywność związana z logowaniem | &nbsp; | Niedostępne. Możesz uzyskać dostęp do własnych logowań przez 7 dni z poziomu bloku profilu użytkownika | 30 dni | 30 dni             |
+| Raport           | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
+| ---              | ---           | ---                 | ---
+| Inspekcja katalogu  | 7 dni        | 30 dni             | 30 dni             |
+| Aktywność związana z logowaniem | Niedostępne. Możesz uzyskać dostęp do własnych logowań przez 7 dni z poziomu bloku profilu użytkownika | 30 dni | 30 dni             |
 
 Aby uzyskać więcej informacji, zobacz [Azure Active Directory report retention policies (Zasady przechowywania raportów w usłudze Azure Active Directory)](reference-reports-data-retention.md).  
 

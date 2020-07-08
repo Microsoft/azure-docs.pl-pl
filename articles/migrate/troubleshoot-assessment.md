@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611377"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -47,8 +47,14 @@ Nie znaleziono maszyny wirtualnej z wymaganymi rdzeniami i pamięcią | Platform
 Nie można określić przydatności maszyny wirtualnej z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
 Nie można określić przydatności dla co najmniej jednego dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
 Nie można określić przydatności dla co najmniej jednej karty sieciowej z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
+Nie znaleziono rozmiaru maszyny wirtualnej dla zarezerwowanego wystąpienia waluty oferty | Maszyna jest oznaczona jako nieodpowiednia, ponieważ nie znaleziono rozmiaru maszyny wirtualnej dla wybranej kombinacji RI, oferta i waluta. Edytuj właściwości oceny, aby wybrać prawidłowe kombinacje i ponownie obliczyć ocenę. 
+Protokół internetowy gotowości warunkowej | Dotyczy wyłącznie ocen systemu Azure VMware (Automatyczna synchronizacja). Automatyczna synchronizacja nie obsługuje współczynnika adresów internetowych IPv6.Skontaktuj się z zespołem automatycznej synchronizacji w celu uzyskania wskazówek dotyczących korygowania, jeśli komputer został wykryty przy użyciu protokołu IPv6.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Maszyny wirtualne z systemem Linux są "warunkowo gotowe"
+## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie oznaczono jako nieznane
+
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMWare (HCX). [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Maszyny wirtualne z systemem Linux są gotowe do oceny maszyn wirtualnych platformy Azure
 
 W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza maszyny wirtualne z systemem Linux jako "warunkowo gotowe" ze względu na znaną przerwę w ocenie serwera. 
 
@@ -61,7 +67,7 @@ W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza ma
 Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
 
 
-## <a name="azure-skus-bigger-than-on-premises"></a>Jednostki SKU platformy Azure większe niż lokalne
+## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
 
 Ocena serwera Azure Migrate może zalecać jednostki SKU maszyny wirtualnej platformy Azure z większą liczbą rdzeni i pamięci niż bieżąca alokacja lokalna na podstawie typu oceny:
 
@@ -79,7 +85,7 @@ Mamy lokalną maszynę wirtualną z czterema rdzeniami i 8 GB pamięci, z użyci
 - Jeśli ocena jest oparta na wydajności, w oparciu o efektywne wykorzystanie procesora CPU i pamięci (50% z 4 rdzeni * 1,3 = 2,6 rdzenie i 50% 8 GB pamięci * 1,3 = 5,3 GB pamięci), zalecana jest najtańsza jednostka SKU maszyny wirtualnej czterech rdzeni (najbliższa obsługiwana liczba rdzeni) i osiem GB pamięci (najbliższy obsługiwany rozmiar pamięci).
 - [Dowiedz się więcej](concepts-assessment-calculation.md#types-of-assessments) o ustalaniu wielkości ocen.
 
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>Jednostki SKU dysku platformy Azure większe niż lokalne
+## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU dysku platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
 
 Ocena serwera Azure Migrate może zalecić większy dysk na podstawie typu oceny.
 - Ustalanie rozmiarów dysków w ocenie serwera zależy od dwóch właściwości oceny: ustalania rozmiarów kryteriów i typu magazynu.
@@ -97,16 +103,37 @@ Raporty oceny serwera "PercentageOfCoresUtilizedMissing" lub "PercentageOfMemory
 - Jeśli brakuje któregokolwiek z liczników wydajności, Azure Migrate oceny serwera powróci do przyznanych rdzeni i pamięci, a następnie zaleca rozmiar maszyny wirtualnej.
 - Jeśli brakuje wszystkich liczników wydajności, upewnij się, że zostały spełnione wymagania dotyczące dostępu do portów dla oceny. Dowiedz się więcej o wymaganiach dostępu do portów dla oprogramowania [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) i oceny serwera [fizycznego](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
 
-## <a name="is-the-operating-system-license-included"></a>Czy uwzględniono licencję systemu operacyjnego?
+## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Czy licencja systemu operacyjnego jest uwzględniona w ocenie maszyny wirtualnej platformy Azure?
 
 Ocena serwera Azure Migrate obecnie uwzględnia koszt licencji systemu operacyjnego tylko dla maszyn z systemem Windows. Koszty licencji dla maszyn z systemem Linux nie są obecnie uwzględniane.
 
-## <a name="how-does-performance-based-sizing-work"></a>Jak działa Wymiarowanie oparte na wydajności?
+## <a name="how-does-performance-based-sizing-work-in-an-azure-vm-assessment"></a>Jak zmienia się rozmiar na podstawie wydajności w ramach oceny maszyny wirtualnej platformy Azure?
 
 Narzędzie Server Assessment nieprzerwanie zbiera dane wydajności maszyn lokalnych i używa ich do określania zalecanych jednostek SKU maszyn wirtualnych i jednostek SKU dysków na platformie Azure. [Dowiedz się, jak](concepts-assessment-calculation.md#calculate-sizing-performance-based) zbierane są dane oparte na wydajności.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Dlaczego moja Ocena pokazuje ostrzeżenie, że zostało utworzone przy użyciu nieprawidłowej kombinacji wystąpień zarezerwowanych, czasu działania maszyny wirtualnej i rabatu (%)?
 Po wybraniu opcji "zarezerwowane wystąpienia" rabat (%) i nie mają zastosowania właściwości "czas pracy maszyny wirtualnej". Po utworzeniu oceny z nieprawidłową kombinacją tych właściwości przyciski Edytuj i Oblicz ponownie są wyłączone. Utwórz nową ocenę. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Nie widzę danych o wydajności niektórych kart sieciowych na serwerach fizycznych
+
+Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach z powodu przerwy w działaniu produktu Azure Migrate obecnie są odnajdywane fizyczne i wirtualne karty sieciowe. Przepływność sieci jest przechwytywana tylko na odnalezionych wirtualnych kartach sieciowych.
+
+## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>Zalecana jednostka SKU maszyny wirtualnej platformy Azure dla mojego serwera fizycznego jest zbyt duży
+
+Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach Azure Migrate obecnie są odnajdywane fizyczne i wirtualne karty sieciowe. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W miarę jak Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych, może to spowodować, że maszyna wirtualna jest powiększona. [Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) o wpływie nie. kart sieciowych w przypadku zmiany rozmiarów. Jest to przerwy w działaniu produktu, które zostaną rozkierowane do przodu.
+
+## <a name="readiness-category-not-ready-for-my-physical-server"></a>Kategoria gotowości "niegotowa" dla mojego serwera fizycznego
+
+Kategoria gotowość może zostać niepoprawnie oznaczona jako "niegotowa" w przypadku serwera fizycznego z włączoną wirtualizacją funkcji Hyper-V. Na tych serwerach z powodu przerwy w działaniu produktu Azure Migrate obecnie są odnajdywane zarówno karty fizyczne, jak i wirtualne. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W przypadku ocen zarówno lokalnych, jak i opartych na wydajności Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych. Jeśli liczba wykrytych kart sieciowych jest większa niż 32, wartość maksymalna to. Kart sieciowych obsługiwanych na maszynach wirtualnych platformy Azure, maszyna zostanie oznaczona jako "niegotowa".  [Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) o wpływie nie. Kart sieciowych na wymiarze.
+
+
+## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Liczba odnalezionych kart sieciowych wyższych niż rzeczywista dla serwerów fizycznych
+
+Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach Azure Migrate obecnie są odnajdywane zarówno fizyczne, jak i wirtualne karty sieciowe. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste.
+
+
+## <a name="low-confidence-rating-on-physical-server-assessments"></a>Ocena niskiej pewności dotyczącej ocen serwera fizycznego
+Klasyfikacja jest przypisywana na podstawie dostępności punktów danych, które są konieczne do obliczenia oceny. W przypadku serwerów fizycznych, na których jest włączona Wirtualizacja funkcji Hyper-V, istnieje znany problem z produktem, ze względu na to, że Ocena niskiego zaufania może być niepoprawnie przypisana do oceny serwera fizycznego. Na tych serwerach Azure Migrate obecnie są odnajdywane zarówno fizyczne, jak i wirtualne karty sieciowe. Przepływność sieci jest przechwytywana z odnalezionych wirtualnych kart sieciowych, ale nie na fizycznych kartach sieciowych. Ze względu na brak punktów danych na fizycznych kartach sieciowych można mieć wpływ na ocenę zaufania, co może mieć niską ocenę. Jest to przerwy w działaniu produktu, które zostaną rozkierowane do przodu.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
 

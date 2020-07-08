@@ -4,14 +4,14 @@ description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Az
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/30/2020
 ms.author: mlearned
-ms.openlocfilehash: 5854f512eb5a85430fbf95499274187a6d66016c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610289"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 
 | Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
 |----------------------------|-----------|----------|
-| Płaszczyzna kontroli | niewidoczne | Używane przez AKS do zarządzania zasobami sieciowymi, np. tworzenia modułu równoważenia obciążenia dla ruchu przychodzącego, publicznego adresu IP itp.| Rola współautora dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
+| Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzania zasobami sieciowymi, np. tworzenia modułu równoważenia obciążenia dla ruchu przychodzącego, publicznego adresu IP itp.| Rola współautora dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
 | Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | Rola czytnika dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
 | Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
@@ -105,3 +105,9 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 Klaster zostanie utworzony w ciągu kilku minut. Następnie można wdrożyć obciążenia aplikacji w nowym klastrze i korzystać z nich w taki sam sposób, jak w przypadku klastrów AKS opartych na głównej usłudze.
+
+## <a name="next-steps"></a>Następne kroki
+* Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] , aby utworzyć Klastry obsługujące tożsamość zarządzaną.
+
+<!-- LINKS - external -->
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters

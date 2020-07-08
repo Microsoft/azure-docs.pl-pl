@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cba16f59944f94d505dd3da92e00830885ce86cf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a9fcca72234340a6284dbba5443ae6fb735d4a04
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693908"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608283"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu programu PowerShell
 

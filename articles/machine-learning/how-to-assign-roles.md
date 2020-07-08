@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: eaa78637a2a88c1fceddf5b7ac9cd928ed8a444a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609252"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [
 
 Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role dla obszaru roboczego. Możesz również przypisywać role do użytkowników. Skorzystaj z poniższych linków, aby dowiedzieć się, jak zarządzać dostępem:
 - [Interfejs użytkownika Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+- [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
@@ -61,6 +61,11 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 > [!NOTE]
 > polecenie "AZ ml Workspace Share" nie działa w przypadku konta federacyjnego przez Azure Active Directory B2B. Zamiast polecenia Użyj portalu interfejsu użytkownika platformy Azure.
+
+
+## <a name="azure-machine-learning-operations"></a>Operacje Azure Machine Learning
+
+Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcami zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Tworzenie roli niestandardowej
 
@@ -90,7 +95,8 @@ Aby utworzyć rolę niestandardową, należy najpierw skonstruować plik JSON de
 }
 ```
 
-Można zmienić pole, `AssignableScopes` Aby ustawić zakres tej roli niestandardowej na poziomie subskrypcji, na poziomie grupy zasobów lub na określonym poziomie obszaru roboczego.
+> [!TIP]
+> Można zmienić pole, `AssignableScopes` Aby ustawić zakres tej roli niestandardowej na poziomie subskrypcji, na poziomie grupy zasobów lub na określonym poziomie obszaru roboczego.
 
 Ta rola niestandardowa może wykonywać wszystkie czynności w obszarze roboczym, z wyjątkiem następujących akcji:
 
@@ -113,9 +119,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](/azure/role-based-access-control/custom-roles).
 
-Aby uzyskać więcej informacji o operacjach (działania), których można użyć z rolami niestandardowymi, zobacz [operacje dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
-
-
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 
@@ -129,7 +132,7 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
 | Utwórz nową maszynę wirtualną notesu | Niewymagane | Właściciel lub współautor | Niemożliwe |
 | Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
-| Działanie płaszczyzny danych, takie jak przesyłanie przebiegu, uzyskiwanie dostępu do danych, Wdrażanie modelu lub potoku publikowania | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/*/write` <br/> Należy zauważyć, że magazyn danych jest również wymagany w obszarze roboczym, aby umożliwić plikowi MSI dostęp do tych samych zasobów na koncie magazynu. |
+| Działanie płaszczyzny danych, takie jak przesyłanie, uzyskiwanie dostępu do danych, Wdrażanie modelu lub potok publikowania | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/*/write` <br/> Musisz również mieć magazyn danych zarejestrowany w obszarze roboczym, aby umożliwić programowi MSI dostęp do danych na koncie magazynu. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>PYTANIE: Jak mogę wyświetlić listę wszystkich ról niestandardowych w mojej subskrypcji?
@@ -142,7 +145,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>PYTANIE: Jak mogę znaleźć definicję roli dla roli w mojej subskrypcji?
 
-W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie. Należy pamiętać, że `<role-name>` powinny być w tym samym formacie zwracanym przez polecenie powyżej.
+W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie. `<role-name>`Powinien być w tym samym formacie zwracanym przez polecenie powyżej.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -156,7 +159,7 @@ W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Należy pamiętać, że należy mieć uprawnienia do całego zakresu nowej definicji roli. Jeśli na przykład ta nowa rola ma zakres między trzema subskrypcjami, musisz mieć uprawnienia do wszystkich trzech subskrypcji. 
+Musisz mieć uprawnienia do całego zakresu nowej definicji roli. Jeśli na przykład ta nowa rola ma zakres między trzema subskrypcjami, musisz mieć uprawnienia do wszystkich trzech subskrypcji. 
 
 > [!NOTE]
 > Zastosowanie aktualizacji ról może zająć od 15 minut do godziny.
@@ -168,7 +171,7 @@ Tak, możesz zdefiniować rolę, która uniemożliwi Aktualizowanie wersji obsza
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>PYTANIE: Jakie uprawnienia są potrzebne do wykonania operacji przydziałów w obszarze roboczym? 
 
-Do wykonywania operacji związanych z przydziałami w obszarze roboczym wymagane są uprawnienia na poziomie subskrypcji. Oznacza to, że limity przydziału poziomu subskrypcji lub poziomu obszaru roboczego dla zarządzanych zasobów obliczeniowych mogą wystąpić tylko wtedy, gdy masz uprawnienia do zapisu w zakresie subskrypcji. 
+Aby wykonać wszystkie operacje związane z przydziałami w obszarze roboczym, musisz mieć uprawnienia na poziomie subskrypcji. Oznacza to, że limity przydziału poziomu subskrypcji lub poziomu obszaru roboczego dla zarządzanych zasobów obliczeniowych mogą wystąpić tylko wtedy, gdy masz uprawnienia do zapisu w zakresie subskrypcji. 
 
 
 ## <a name="next-steps"></a>Następne kroki

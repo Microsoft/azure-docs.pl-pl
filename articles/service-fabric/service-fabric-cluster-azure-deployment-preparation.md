@@ -3,12 +3,12 @@ title: Planowanie wdrożenia klastra Service Fabric platformy Azure
 description: Dowiedz się więcej o planowaniu i przygotowaniu dla środowiska produkcyjnego wdrożenia klastra Service Fabric na platformie Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610595"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planowanie i przygotowywanie wdrożenia klastra
 
@@ -28,7 +28,7 @@ W przypadku wszystkich wdrożeń produkcyjnych planowanie pojemności jest ważn
 * Charakterystyka niezawodności i trwałości klastra
 
 ### <a name="select-the-initial-number-of-node-types"></a>Wybierz początkową liczbę typów węzłów
-Najpierw należy ustalić, co tworzony klaster ma być używany dla programu. Jakiego rodzaju aplikacje są planowane do wdrożenia w tym klastrze? Czy Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu? Czy usługi (które tworzą aplikację) mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU? Klaster Service Fabric może składać się z więcej niż jednego typu węzła: podstawowego typu węzła i jednego lub więcej typów węzłów innych niż podstawowe. Każdy typ węzła jest mapowany na zestaw skalowania maszyn wirtualnych. Następnie każdy typ węzła może być niezależnie skalowany w górę lub w dół oraz może mieć różne zestawy otwartych portów i różne metryki pojemności. [Właściwości węzła i ograniczenia umieszczania][placementconstraints] można skonfigurować w celu ograniczenia określonych usług do określonych typów węzłów.  Aby uzyskać więcej informacji, zapoznaj [się z liczbą typów węzłów, których klaster potrzebuje do uruchomienia](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+Najpierw należy ustalić, co tworzony klaster ma być używany dla programu. Jakiego rodzaju aplikacje są planowane do wdrożenia w tym klastrze? Czy Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu? Czy usługi (które tworzą aplikację) mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU? Klaster Service Fabric może składać się z więcej niż jednego typu węzła: podstawowego typu węzła i jednego lub więcej typów węzłów innych niż podstawowe. Każdy typ węzła jest mapowany na zestaw skalowania maszyn wirtualnych. Następnie każdy typ węzła może być niezależnie skalowany w górę lub w dół oraz może mieć różne zestawy otwartych portów i różne metryki pojemności. [Właściwości węzła i ograniczenia umieszczania][placementconstraints] można skonfigurować w celu ograniczenia określonych usług do określonych typów węzłów.  Aby uzyskać więcej informacji, zobacz [Service Fabric planowanie pojemności klastra](service-fabric-cluster-capacity.md).
 
 ### <a name="select-node-properties-for-each-node-type"></a>Wybierz właściwości węzła dla każdego typu węzła
 Typy węzłów definiują jednostkę SKU, liczbę i właściwości maszyn wirtualnych w skojarzonym zestawie skalowania.
@@ -37,7 +37,7 @@ Minimalny rozmiar maszyn wirtualnych dla każdego typu węzła jest określany n
 
 Minimalna liczba maszyn wirtualnych dla typu węzła podstawowego jest określana na podstawie wybranej [warstwy niezawodności][reliability] .
 
-Zapoznaj się z minimalnymi zaleceniami dotyczącymi [typów węzłów podstawowych](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [obciążeń stanowych dla typów węzłów innych niż podstawowe](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)i [bezstanowych obciążeń dla typów węzłów innych niż podstawowe](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Zapoznaj się z minimalnymi zaleceniami dotyczącymi [typów węzłów podstawowych](service-fabric-cluster-capacity.md#primary-node-type), [obciążeń stanowych dla typów węzłów innych niż podstawowe](service-fabric-cluster-capacity.md#stateful-workloads)i [bezstanowych obciążeń dla typów węzłów innych niż podstawowe](service-fabric-cluster-capacity.md#stateless-workloads).
 
 Każda większa niż minimalna liczba węzłów powinna być oparta na liczbie replik aplikacji/usług, które mają być uruchamiane w tym typie węzła.  [Planowanie wydajności aplikacji Service Fabric](service-fabric-capacity-planning.md) ułatwia oszacowanie zasobów potrzebnych do uruchamiania aplikacji. Klaster można zawsze skalować w górę lub w dół w celu dostosowania się do zmieniających się obciążeń aplikacji. 
 
@@ -62,14 +62,14 @@ Tymczasowe dyski systemu operacyjnego nie są konkretną funkcją Service Fabric
     > [!NOTE]
     > Pamiętaj, aby wybrać rozmiar maszyny wirtualnej z rozmiarem pamięci podręcznej równym lub większym niż rozmiar dysku systemu operacyjnego maszyny wirtualnej. w przeciwnym razie wdrożenie platformy Azure może spowodować błąd (nawet jeśli jest to początkowo zaakceptowane).
 
-2. Określ wersję zestawu skalowania maszyn wirtualnych (`vmssApiVersion`) `2018-06-01` lub nowszą:
+2. Określ wersję zestawu skalowania maszyn wirtualnych ( `vmssApiVersion` ) `2018-06-01` lub nowszą:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. W sekcji zestaw skalowania maszyn wirtualnych szablonu wdrożenia Określ `Local` opcję dla: `diffDiskSettings`
+3. W sekcji zestaw skalowania maszyn wirtualnych szablonu wdrożenia Określ `Local` opcję dla `diffDiskSettings` :
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -123,5 +123,5 @@ Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? P
 * [Tworzenie klastra Service Fabric z systemem Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

@@ -1,18 +1,18 @@
 ---
 title: Opis usługi Azure IoT Hub module bliźniaczych reprezentacji | Microsoft Docs
 description: Przewodnik dla deweloperów — Używanie modułu bliźniaczych reprezentacji do synchronizowania danych stanu i konfiguracji między IoT Hub i urządzeniami
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 9d45da11b26a3c16c2be544fa449bdf36c0bcd25
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610153"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Zrozumienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub
 
@@ -236,35 +236,45 @@ Wszystkie poprzednie operacje wymagają uprawnienia **ModuleConnect** , zgodnie 
 
 Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z następującymi ograniczeniami:
 
-* **Klucze**: wszystkie klucze w obiektach JSON są zależne od wielkości liter 64 bajtów UTF-8 Unicode. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i C1), oraz `.` SP i `$` .
+* **Klucze**: wszystkie klucze w obiektach JSON są zakodowane w formacie UTF-8, z uwzględnieniem wielkości liter i do 1 KB. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i C1), oraz `.` , `$` i Sp.
 
 * **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są niedozwolone.
 
     * Liczby całkowite mogą mieć minimalną wartość-4503599627370496 i maksymalną wartość 4503599627370495.
 
-    * Wartości ciągów są kodowane w formacie UTF-8 i mogą mieć maksymalną długość 512 bajtów.
+    * Wartości ciągów są kodowane w formacie UTF-8 i mogą mieć maksymalną długość 4 KB.
 
-* **Głębokość**: wszystkie obiekty JSON w tagach, żądanych i raportowanych właściwościach mogą mieć maksymalną głębokość wynoszącą 5. Na przykład następujący obiekt jest prawidłowy:
+* **Głębokość**: Maksymalna głębokość obiektów JSON w tagach, wymaganych właściwościach i raportowanych właściwościach wynosi 10. Na przykład następujący obiekt jest prawidłowy:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Rozmiar sznurka modułu
 

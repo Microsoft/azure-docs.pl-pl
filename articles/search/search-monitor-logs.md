@@ -7,37 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611615"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
-Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie dzienniki znajdują się w zapleczu przez krótki czas, co jest wystarczające do zbadania i analizy w przypadku utworzenia biletu pomocy technicznej. Jeśli jednak chcesz mieć własny kierunek danych operacyjnych, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
+Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie niektóre informacje o systemie znajdują się w zapleczu przez krótki czas, co jest wystarczające do zbadania i analizy, jeśli zostanie umieszczony bilet pomocy technicznej. Jeśli jednak chcesz mieć własny kierunek danych operacyjnych, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
 
-Konfigurowanie dzienników jest przydatne w przypadku diagnostyki i zachowania historii operacyjnej. Po włączeniu rejestrowania można uruchamiać zapytania lub tworzyć raporty na potrzeby analizy strukturalnej.
+Rejestrowanie diagnostyczne jest włączane w ramach integracji z [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/). 
 
-W poniższej tabeli przedstawiono opcje zbierania i utrwalania danych.
+Podczas konfigurowania rejestrowania diagnostycznego zostanie wyświetlony monit o określenie mechanizmu magazynu. W poniższej tabeli przedstawiono opcje zbierania i utrwalania danych.
 
 | Zasób | Sposób użycia |
 |----------|----------|
-| [Wyślij do obszaru roboczego Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Wysyłanie do obszaru roboczego usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Archiwizowanie przy użyciu magazynu obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów blob i przechowywane w plikach JSON. Dzienniki mogą być bardzo szczegółowe (przez godzinę/minutę), przydatne do przeszukiwania konkretnego zdarzenia, ale nie dla badania otwartego. Użyj edytora JSON, aby wyświetlić Nieprzetworzony plik dziennika lub Power BI do agregowania i wizualizacji danych dziennika.|
 | [Przesyłanie strumieniowe do centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Event Hubs platformy Azure. Wybierz tę opcję jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
 
-Zarówno dzienniki Azure Monitor, jak i magazyn obiektów BLOB są dostępne jako bezpłatna usługa, dzięki czemu można wypróbować ją bezpłatnie w okresie istnienia subskrypcji platformy Azure. Application Insights jest bezpłatny, aby zarejestrować się i używać tak długo, jak rozmiar danych aplikacji ma określone limity (szczegółowe informacje znajdują się na [stronie cennika](https://azure.microsoft.com/pricing/details/monitor/) ).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W przypadku korzystania z usługi Log Analytics lub magazynu Azure można z góry utworzyć zasoby.
+Utwórz zasoby z wyprzedzeniem, aby można było wybrać co najmniej jeden podczas konfigurowania rejestrowania diagnostycznego.
 
-+ [Tworzenie obszaru roboczego usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Tworzenie obszaru roboczego usługi log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Tworzenie konta magazynu](../storage/common/storage-quickstart-create-account.md)
+
++ [Tworzenie centrum zdarzeń](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>Włączanie zbierania danych
 
@@ -91,11 +91,50 @@ Dwie tabele zawierają dzienniki i metryki dla usługi Azure Wyszukiwanie poznaw
 
    ![Tabela AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Tabela AzureDiagnostics")
 
+## <a name="kusto-query-examples"></a>Przykłady zapytań Kusto
+
+Jeśli włączono rejestrowanie diagnostyczne, można wysłać zapytanie do **AzureDiagnostics** , aby uzyskać listę operacji uruchomionych w usłudze i kiedy. Możesz również skorelować działanie, aby zbadać zmiany wydajności.
+
+#### <a name="example-list-operations"></a>Przykład: operacje na liście 
+
+Zwróć listę operacji i liczbę każdej z nich.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### <a name="example-correlate-operations"></a>Przykład: skorelowanie operacji
+
+Skorelować żądanie zapytania z operacjami indeksowania i Renderuj punkty danych na wykresie czasu, aby zobaczyć operacje, które się pokrywają.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## <a name="logged-operations"></a>Zarejestrowane operacje
+
+Zarejestrowane zdarzenia przechwycone przez Azure Monitor obejmują te związane z indeksowaniem i zapytaniami. Tabela **AzureDiagnostics** w log Analytics zbiera dane operacyjne powiązane z zapytaniami i indeksowanie.
+
+| OperationName | Opis |
+|---------------|-------------|
+| Servicestatystyka | Ta operacja to rutynowe wywołanie [pobierania statystyk usługi](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), wywoływane bezpośrednio lub niejawnie, aby wypełnić stronę omówienia portalu po jej załadowaniu lub odświeżeniu. |
+| Zapytanie. Search |  Zażądaj zapytań względem indeksu, aby uzyskać informacje na temat zarejestrowanych zapytań, zobacz temat [monitorowanie zapytań](search-monitor-queries.md) .|
+| Indeksowanie. index  | Ta operacja jest wywołaniem do [dodawania, aktualizowania lub usuwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| zwiększa. Prototyp | Jest to indeks utworzony przez Kreatora importu danych. |
+| Indeksatory. Utwórz | Utwórz indeksator jawnie lub niejawnie za pomocą Kreatora importu danych. |
+| Indeksatory. Get | Zwraca nazwę indeksatora za każdym razem, gdy indeksator jest uruchomiony. |
+| Indeksatory. stan | Zwraca stan indeksatora za każdym razem, gdy indeksator jest uruchomiony. |
+| Źródła danych. Pobierz | Zwraca nazwę źródła danych przy każdym uruchomieniu indeksatora.|
+| Indeksy. Get | Zwraca nazwę indeksu za każdym razem, gdy indeksator jest uruchamiany. |
+
 ## <a name="log-schema"></a>Schemat dziennika
 
-Struktury danych zawierające dane dziennika usługi Azure Wyszukiwanie poznawcze są zgodne ze schematem poniżej. 
-
-W przypadku usługi BLOB Storage każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika. Każdy obiekt BLOB zawiera rekordy dla wszystkich operacji, które miały miejsce w danej godzinie.
+W przypadku tworzenia niestandardowych raportów struktury danych zawierające dane dziennika usługi Azure Wyszukiwanie poznawcze są zgodne ze schematem poniżej. W przypadku usługi BLOB Storage każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika. Każdy obiekt BLOB zawiera rekordy dla wszystkich operacji, które miały miejsce w danej godzinie.
 
 Poniższa tabela jest częściową listą pól wspólnych dla rejestrowania zasobów.
 
@@ -104,12 +143,12 @@ Poniższa tabela jest częściową listą pól wspólnych dla rejestrowania zaso
 | timeGenerated |datetime |"2018 R-12-07T00:00:43.6872559 Z" |Sygnatura czasowa operacji |
 | resourceId |ciąg |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DOMYŚLNE/DOSTAWCY/<br/> Programu. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Identyfikator zasobu |
 | operationName |ciąg |"Query. Search" |Nazwa operacji |
-| operationVersion |ciąg |"2019-05-06" |Używana wersja interfejsu API |
+| operationVersion |ciąg |"2020-06-30" |Używana wersja interfejsu API |
 | category |ciąg |"OperationLogs" | — stała |
 | resultType |ciąg |Prawnego |Możliwe wartości: sukces lub niepowodzenie |
 | resultSignature |int |200 |Kod wyniku HTTP |
 | Milisekundach) |int |50 |Czas trwania operacji w milisekundach |
-| properties |obiekt |Zapoznaj się z poniższą tabelą. |Obiekt zawierający dane specyficzne dla operacji |
+| properties |object |Zapoznaj się z poniższą tabelą. |Obiekt zawierający dane specyficzne dla operacji |
 
 ### <a name="properties-schema"></a>Schemat właściwości
 
@@ -120,7 +159,7 @@ Poniższe właściwości są specyficzne dla Wyszukiwanie poznawcze platformy Az
 | Description_s |ciąg |"GET/Indexes (" Content ")/docs" |Punkt końcowy operacji |
 | Documents_d |int |42 |Liczba przetworzonych dokumentów |
 | IndexName_s |ciąg |"test-index" |Nazwa indeksu skojarzonego z operacją |
-| Query_s |ciąg |"? Search = AzureSearch&$count = true&API-Version = 2019-05-06" |Parametry zapytania |
+| Query_s |ciąg |"? Search = AzureSearch&$count = true&API-Version = 2020-06-30" |Parametry zapytania |
 
 ## <a name="metrics-schema"></a>Schemat metryk
 

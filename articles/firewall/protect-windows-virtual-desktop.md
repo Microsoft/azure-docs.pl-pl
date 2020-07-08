@@ -4,21 +4,21 @@ description: Dowiedz się, jak używać zapory platformy Azure do ochrony wdroż
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864077"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611139"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Używanie zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Ochrona wdrożeń pulpitów wirtualnych systemu Windows przy użyciu usługi Azure Firewall
 
 Windows Virtual Desktop to usługa wirtualizacji pulpitu i aplikacji działająca na platformie Azure. Gdy użytkownik końcowy nawiązuje połączenie ze środowiskiem pulpitu wirtualnego systemu Windows, jego sesja jest uruchamiana przez pulę hostów. Pula hostów jest kolekcją maszyn wirtualnych platformy Azure, które są rejestrowane na pulpicie wirtualnym systemu Windows jako hosty sesji. Te maszyny wirtualne działają w sieci wirtualnej i podlegają kontrolkom zabezpieczeń sieci wirtualnej. Potrzebują one wychodzącego dostępu do Internetu do usługi pulpitów wirtualnych systemu Windows, aby działać prawidłowo i mogą również potrzebować wychodzącego dostępu do Internetu dla użytkowników końcowych. Zapora platformy Azure może pomóc w zablokowaniu środowiska i przefiltrowania ruchu wychodzącego.
 
-[![Architektura](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) pulpitu wirtualnego systemu Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
+[![Architektura ](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) pulpitu wirtualnego systemu Windows](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
 Postępuj zgodnie z wytycznymi w tym artykule, aby zapewnić dodatkową ochronę puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu zapory platformy Azure.
 

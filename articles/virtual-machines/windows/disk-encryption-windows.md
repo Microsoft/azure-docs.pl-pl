@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790902"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610573"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -134,7 +134,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | vmName | Nazwa maszyny wirtualnej do uruchomienia operacji szyfrowania. |
 | Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego należy przekazać klucz funkcji BitLocker. Można to zrobić za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nazwa grupy zasobów zawierającej Magazyn kluczy|
-|  keyEncryptionKeyURL | Adres URL&lt;klucza szyfrowania klucza w formacie https://nazwa magazynu&gt;kluczy. Vault.Azure.NET/Key/.&lt;&gt; Jeśli nie chcesz używać elementu KEK, pozostaw to pole puste. |
+|  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza w formacie https://nazwa magazynu kluczy. &lt; &gt; Vault.Azure.NET/Key/ &lt; &gt; . Jeśli nie chcesz używać elementu KEK, pozostaw to pole puste. |
 | liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_, _dane_i _wszystkie_. 
 | forceUpdateTag | Przekazuj unikatową wartość, taką jak identyfikator GUID za każdym razem, gdy operacja musi zostać wymuszona. |
 | resizeOSDisk | Należy zmienić rozmiar partycji systemu operacyjnego w celu zajmowania całego wirtualnego dysku twardego systemu operacyjnego przed podziałem woluminu systemowego. |
@@ -217,22 +217,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
 
 ## <a name="disable-encryption"></a>Wyłącz szyfrowanie
-Szyfrowanie można wyłączyć przy użyciu Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu Menedżer zasobów. Wyłączenie szyfrowania dysku danych na maszynie wirtualnej z systemem Windows, gdy zaszyfrowano zarówno dysk systemu operacyjnego, jak i dysk danych, nie działa zgodnie z oczekiwaniami. Zamiast tego należy wyłączyć szyfrowanie na wszystkich dyskach.
-
-- **Wyłącz szyfrowanie dysków przy użyciu Azure PowerShell:** Aby wyłączyć szyfrowanie, należy użyć polecenia cmdlet [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Wyłącz szyfrowanie za pomocą interfejsu wiersza polecenia platformy Azure:** Aby wyłączyć szyfrowanie, użyj polecenia [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Wyłącz szyfrowanie przy użyciu szablonu Menedżer zasobów:** 
-
-    1. Kliknij pozycję **Wdróż na platformie Azure** , korzystając z szablonu [wyłącz szyfrowanie dysków na URUCHOMIONYM szablonie maszyny wirtualnej systemu Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) .
-    2. Wybierz subskrypcję, grupę zasobów, lokalizację, maszynę wirtualną, typ woluminu, warunki prawne i umowę.
-    3.  Kliknij przycisk **Kup** , aby wyłączyć szyfrowanie dysków na działającej maszynie wirtualnej z systemem Windows. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
@@ -248,9 +233,11 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Kontenery systemu Windows Server, które tworzą woluminy dynamiczne dla każdego kontenera.
 - Tymczasowe dyski systemu operacyjnego.
 - Szyfrowanie współużytkowanych/rozproszonych systemów plików, takich jak (ale nie ograniczone do) systemu plików DFS, GFS, DRDB i CephFS.
-- Przeniesienie szyfrowanych maszyn wirtualnych do innej subskrypcji.
+- Przeniesienie szyfrowanych maszyn wirtualnych do innej subskrypcji lub regionu.
+- Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
 - Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii Lsv2 (patrz: [Lsv2-Series](../lsv2-series.md))
+- Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 
 ## <a name="next-steps"></a>Następne kroki
 

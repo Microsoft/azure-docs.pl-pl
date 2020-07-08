@@ -4,16 +4,16 @@ description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471758"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611207"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Wdrażanie i konfigurowanie usługi Azure Firewall w sieci hybrydowej za pomocą programu Azure PowerShell
 
@@ -71,7 +71,7 @@ Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym artykule, aby
 
 Aby zapoznać się z powiązaną dokumentacją programu Azure PowerShell, zobacz [dokumentacja programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="declare-the-variables"></a>Deklarowanie zmiennych
 
@@ -464,7 +464,7 @@ W witrynie Azure Portal połącz się z maszyną wirtualną **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Otwórz przeglądarkę internetową na maszynie wirtualnej **VM-Onprem**, a następnie przejdź do lokalizacji http://\<VM-spoke-01 private IP\>.
+Otwórz przeglądarkę internetową w obszarze **VM-lokalnego**, a następnie przejdź do http:// \<VM-spoke-01 private IP\> .
 
 Powinna zostać wyświetlona domyślna strona usług Internet Information Services.
 
@@ -489,7 +489,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Teraz ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem. Zamknij wszystkie zdalne pulpity, zanim zaczniesz testować zmienione zasady.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a672db649323a82c75a7e8c0cd6556eadce8089d
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414559"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609354"
 ---
 # <a name="ocr-cognitive-skill"></a>Umiejętność OCR
 
-Umiejętność **optycznego rozpoznawania znaków (OCR)** rozpoznaje drukowany i odręczny tekst w plikach obrazu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) w Cognitive Services. Umiejętność **OCR** jest mapowana na następujące funkcje:
+Umiejętność **optycznego rozpoznawania znaków (OCR)** rozpoznaje drukowany i odręczny tekst w plikach obrazu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) w Cognitive Services. Umiejętność **OCR** jest mapowana na następujące funkcje:
 
-+ W języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim jest używany nowy interfejs API [odczytu](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
-+ W przypadku wszystkich innych języków używany jest interfejs API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md) .
++ Interfejs API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) jest używany w językach innych niż angielski. 
++ W przypadku języka angielskiego jest używany nowy interfejs API ["read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
 
 Umiejętność **OCR** wyodrębnia tekst z plików obrazów. Obsługiwane formaty plików to:
 
@@ -208,7 +208,7 @@ W powyższym przykładzie zestawu umiejętności założono, że istnieje pole N
 }
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Umiejętność scalania](cognitive-search-skill-textmerger.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

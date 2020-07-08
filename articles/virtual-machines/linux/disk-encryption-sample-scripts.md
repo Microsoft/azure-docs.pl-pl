@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585957"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610357"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Przykładowe skrypty usługi Azure Disk Encryption 
 
@@ -104,7 +104,7 @@ W poniższej tabeli przedstawiono parametry, których można użyć w skrypcie p
 4. Aby zaszyfrować system operacyjny, określ wartość volumetype jako **All** lub **OS** po włączeniu szyfrowania.
 
    > [!NOTE]
-   > Wszystkie procesy miejsca użytkownika, które nie są uruchomione jako `systemd` usługi, powinny być zabite `SIGKILL`z. Uruchom ponownie maszynę wirtualną. Po włączeniu szyfrowania dysków systemu operacyjnego na uruchomionej maszynie wirtualnej Zaplanuj przestoje maszyny wirtualnej.
+   > Wszystkie procesy miejsca użytkownika, które nie są uruchomione jako `systemd` usługi, powinny być zabite z `SIGKILL` . Uruchom ponownie maszynę wirtualną. Po włączeniu szyfrowania dysków systemu operacyjnego na uruchomionej maszynie wirtualnej Zaplanuj przestoje maszyny wirtualnej.
 
 5. Okresowo Monitoruj postęp szyfrowania przy użyciu instrukcji w [następnej sekcji](#monitoring-os-encryption-progress).
 
@@ -132,7 +132,7 @@ Postęp szyfrowania systemu operacyjnego można monitorować na trzy sposoby:
     ```
   Po osiągnięciu przez maszynę wirtualną "rozpoczęto szyfrowanie dysku systemu operacyjnego, zajmie od 40 do 50 minut na maszynie wirtualnej z magazynem w warstwie Premium.
 
-  Ze względu na [problem #388](https://github.com/Azure/WALinuxAgent/issues/388) w `OsVolumeEncrypted` programie `DataVolumesEncrypted` WALinuxAgent i przedstawiono `Unknown` je w niektórych dystrybucjach. W programie WALinuxAgent w wersji 2.1.5 lub nowszej ten problem został rozwiązany automatycznie. Jeśli widzisz `Unknown` w danych wyjściowych, możesz zweryfikować stan szyfrowania dysku przy użyciu Azure Resource Explorer.
+  Ze względu na [problem #388](https://github.com/Azure/WALinuxAgent/issues/388) w programie WALinuxAgent `OsVolumeEncrypted` i `DataVolumesEncrypted` przedstawiono je `Unknown` w niektórych dystrybucjach. W programie WALinuxAgent w wersji 2.1.5 lub nowszej ten problem został rozwiązany automatycznie. Jeśli widzisz `Unknown` w danych wyjściowych, możesz zweryfikować stan szyfrowania dysku przy użyciu Azure Resource Explorer.
 
   Przejdź do [Azure Resource Explorer](https://resources.azure.com/), a następnie rozwiń tę hierarchię w panelu wyboru po lewej stronie:
 
@@ -152,7 +152,7 @@ Postęp szyfrowania systemu operacyjnego można monitorować na trzy sposoby:
 
   ![Widok wystąpienia maszyny wirtualnej](./media/disk-encryption/vm-instanceview.png)
 
-* Spójrz na [diagnostykę rozruchu](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Komunikaty z rozszerzenia ADE powinny być poprzedzone prefiksem `[AzureDiskEncryption]`.
+* Spójrz na [diagnostykę rozruchu](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Komunikaty z rozszerzenia ADE powinny być poprzedzone prefiksem `[AzureDiskEncryption]` .
 
 * Zaloguj się do maszyny wirtualnej za pośrednictwem protokołu SSH i Pobierz dziennik rozszerzeń z:
 
@@ -244,7 +244,7 @@ Skonfiguruj szyfrowanie do pracy z platformą Azure, wykonując następujące cz
     nls_utf8
     nls_iso8859-1
    ```
-6. Uruchom `update-initramfs -u -k all` , aby zaktualizować initramfs, aby `keyscript` zastosować efekt.
+6. Uruchom, `update-initramfs -u -k all` Aby zaktualizować initramfs, aby `keyscript` zastosować efekt.
 
 7. Teraz można anulować obsługę administracyjną maszyny wirtualnej.
 
@@ -316,11 +316,11 @@ Aby skonfigurować szyfrowanie do pracy z platformą Azure, wykonaj następując
     fi
     done
     ```
-5. Uruchom `/usr/sbin/dracut -f -v` , aby zaktualizować oryginalnych initrd.
+5. Uruchom, `/usr/sbin/dracut -f -v` Aby zaktualizować oryginalnych initrd.
 
 6. Teraz możesz anulować obsługę administracyjną maszyny wirtualnej i przekazać dysk VHD na platformę Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 i RHEL 8,1
+### <a name="centos-7-and-rhel-7"></a>CentOS 7 i RHEL 7
 
 Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następujące czynności:
 1. Wybierz opcję **Szyfruj moje dane** podczas partycjonowania dysków.
@@ -534,7 +534,7 @@ Użyj `$KeyEncryptionKey` i `$secretUrl` w następnym kroku, aby [dołączyć dy
 ##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Określ tajny adres URL podczas dołączania dysku systemu operacyjnego
 
 ###  <a name="without-using-a-kek"></a>Bez użycia KEK
-Podczas dołączania dysku systemu operacyjnego należy przekazać `$secretUrl`. Adres URL został wygenerowany w sekcji "wpis tajny dysku bez szyfrowania za pomocą KEK".
+Podczas dołączania dysku systemu operacyjnego należy przekazać `$secretUrl` . Adres URL został wygenerowany w sekcji "wpis tajny dysku bez szyfrowania za pomocą KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -547,7 +547,7 @@ Podczas dołączania dysku systemu operacyjnego należy przekazać `$secretUrl`.
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Korzystanie z KEK
-Po dołączeniu dysku systemu operacyjnego, `$KeyEncryptionKey` należy `$secretUrl`przejść i. Ten adres URL został wygenerowany w sekcji "klucz tajny szyfrowania dysku zaszyfrowany za pomocą KEK".
+Po dołączeniu dysku systemu operacyjnego, należy przejść `$KeyEncryptionKey` i `$secretUrl` . Ten adres URL został wygenerowany w sekcji "klucz tajny szyfrowania dysku zaszyfrowany za pomocą KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak skonfigurować nazwy FQDN SQL w re
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: e7b21a4ebf18cad51898e3a83b622e518c6b391e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610510"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Konfigurowanie reguł aplikacji zapory platformy Azure przy użyciu nazw FQDN programu SQL
 
