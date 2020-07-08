@@ -2,13 +2,13 @@
 title: Usuwanie w trybie pełnym
 description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w szablonach Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 4c16b8a0ffa1a4756a3063ca63f8c0eae2166f3e
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.date: 07/06/2020
+ms.openlocfilehash: 5e247fc20a128b3dd8b3fe646ef956388e0d2c2d
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791167"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027831"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
 
@@ -40,7 +40,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft. AzureStackHCI](#microsoftazurestackhci)
-> - [Microsoft. AzureStackResourceMonitor](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
@@ -60,6 +59,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft. zużycie](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
@@ -288,6 +288,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | attestationProviders | Tak |
+> | defaultProviders | Nie |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -374,6 +375,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | cloudManifestFiles | Nie |
+> | edgeSubscriptions | Tak |
 > | rejestracje | Tak |
 > | rejestracje/customerSubscriptions | Nie |
 > | rejestracje/produkty | Nie |
@@ -384,13 +386,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | oparty | Tak |
-
-## <a name="microsoftazurestackresourcemonitor"></a>Microsoft. AzureStackResourceMonitor
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Usuwanie w trybie pełnym |
-> | ------------- | ----------- |
-> | storageAccountMonitor | Tak |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -452,8 +447,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | billingAccounts/klienci/transakcje | Nie |
 > | billingAccounts/klienci/transfery | Nie |
 > | billingAccounts/działy | Nie |
+> | billingAccounts/działy/billingPermissions | Nie |
+> | billingAccounts/działy/billingRoleAssignments | Nie |
+> | billingAccounts/działy/billingRoleDefinitions | Nie |
 > | billingAccounts / enrollmentAccounts | Nie |
+> | billingAccounts / enrollmentAccounts / billingPermissions | Nie |
+> | billingAccounts / enrollmentAccounts / billingRoleAssignments | Nie |
+> | billingAccounts / enrollmentAccounts / billingRoleDefinitions | Nie |
 > | billingAccounts/faktury | Nie |
+> | billingAccounts/faktury/transakcje | Nie |
 > | billingAccounts / invoiceSections | Nie |
 > | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | Nie |
 > | billingAccounts / invoiceSections / billingSubscriptions | Nie |
@@ -617,7 +619,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
-> | możliwość | Nie |
+> | możliwości | Nie |
 > | domainNames | Tak |
 > | domainNames/możliwości | Nie |
 > | domainNames / internalLoadBalancers | Nie |
@@ -649,7 +651,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
-> | możliwość | Nie |
+> | możliwości | Nie |
 > | expressRouteCrossConnections | Nie |
 > | expressRouteCrossConnections/Komunikacja równorzędna | Nie |
 > | gatewaySupportedDevices | Nie |
@@ -665,7 +667,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
-> | możliwość | Nie |
+> | możliwości | Nie |
 > | dysku | Nie |
 > | images | Nie |
 > | osImages | Nie |
@@ -727,7 +729,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedVMImages/wersje | Nie |
 > | Migawki | Tak |
 > | sshPublicKeys | Tak |
-> | swiftlets | Tak |
 > | virtualMachines | Tak |
 > | virtualMachines/rozszerzenia | Tak |
 > | virtualMachines/metricDefinitions | Nie |
@@ -738,6 +739,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualMachineScaleSets/adresów publicipaddress | Nie |
 > | virtualMachineScaleSets/virtualMachines | Nie |
 > | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nie |
+
+## <a name="microsoftconnectedcache"></a>Microsoft. ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | CacheNodes | Tak |
 
 ## <a name="microsoftconsumption"></a>Microsoft. zużycie
 
@@ -754,7 +762,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie |
 > | ilości | Nie |
 > | Platform handlowych | Nie |
-> | Pricesheets | Nie |
+> | Arkusze cen | Nie |
 > | wyrobów | Nie |
 > | ReservationDetails | Nie |
 > | ReservationRecommendationDetails | Nie |
@@ -906,9 +914,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | wykazy danych/źródła danych | Nie |
 > | wykazy danych/źródła danych/skany | Nie |
 > | wykazy danych/źródła danych/skany/zestawy danych | Nie |
-> | wykazy danych/źródła danych/skanowania/filtry | Nie |
 > | wykazy danych/źródła danych/skanowania/wyzwalacze | Nie |
-> | webcatalogs/scanrulesets | Nie |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
@@ -956,6 +962,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | BackupVaults | Tak |
+> | ResourceOperationGateKeepers | Tak |
 
 ## <a name="microsoftdatashare"></a>Microsoft. dataudział
 
@@ -1758,6 +1765,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
+> | privateLinkServicesForPowerBI | Tak |
+> | dzierżaw | Tak |
+> | dzierżawy/obszary robocze | Nie |
 > | workspaceCollections | Tak |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
@@ -1780,6 +1790,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | providerRegistrations | Nie |
+> | providerRegistrations / defaultRollouts | Nie |
 > | providerRegistrations / resourceTypeRegistrations | Nie |
 > | wprowadzanie | Tak |
 
@@ -1905,6 +1916,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | iotSecuritySolutions / analyticsModels | Nie |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Nie |
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Nie |
+> | iotSecuritySolutions / iotAlerts | Nie |
+> | iotSecuritySolutions / iotAlertTypes | Nie |
 > | jitNetworkAccessPolicies | Nie |
 > | policies | Nie |
 > | cen | Nie |
@@ -1921,7 +1934,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | securityStatuses | Nie |
 > | securityStatusesSummaries | Nie |
 > | serverVulnerabilityAssessments | Nie |
-> | settings | Nie |
+> | ustawienia | Nie |
 > | podoceny | Nie |
 > | zadania | Nie |
 > | replikacji | Nie |
@@ -1952,7 +1965,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | entityQueries | Nie |
 > | zdarzenia | Nie |
 > | officeConsents | Nie |
-> | settings | Nie |
+> | ustawienia | Nie |
 > | threatIntelligence | Nie |
 
 ## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole

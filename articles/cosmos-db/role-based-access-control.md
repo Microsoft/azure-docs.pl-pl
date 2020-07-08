@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0782d5f091671a235df1ab85a8b9706c7efe9170
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509036"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027022"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach w usłudze Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono wbudowane role obsługiwane przez Azure Cosmos DB:
 
 Okienko **kontroli dostępu (IAM)** w Azure Portal służy do konfigurowania kontroli dostępu opartej na rolach dla zasobów usługi Azure Cosmos. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup. Poniższy zrzut ekranu przedstawia Active Directory integrację (RBAC) przy użyciu funkcji kontroli dostępu (IAM) w Azure Portal:
 
-![Kontrola dostępu (IAM) w zabezpieczeniach bazy danych Azure Portal.](./media/role-based-access-control/database-security-identity-access-management-rbac.png)
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Kontrola dostępu (IAM) w zabezpieczeniach bazy danych Azure Portal.":::
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
@@ -110,6 +110,6 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../role-based-access-control/overview.md)
+- [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)
 - [Niestandardowe role dla zasobów platformy Azure](../role-based-access-control/custom-roles.md)
 - [Operacje dostawcy zasobów Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

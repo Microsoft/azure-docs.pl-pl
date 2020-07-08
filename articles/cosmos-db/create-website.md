@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30a80a2e2eb5522768c08a24535b0fb3f8d86a44
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261991"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027755"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Wdrażanie Azure Cosmos DB i Azure App Service za pomocą aplikacji internetowej z usługi GitHub przy użyciu szablonu Azure Resource Manager
 
@@ -36,7 +36,7 @@ W wyniku wdrożenia jest w pełni funkcjonalna aplikacja sieci Web, która może
 
 Najpierw wybierz poniższy przycisk **Wdróż na platformie Azure** , aby otworzyć Azure Portal, aby utworzyć wdrożenie niestandardowe. Możesz również wyświetlić szablon zarządzanie zasobami platformy Azure w [galerii szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
 
-[![Wdrażanie na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
 
 Raz w Azure Portal wybierz subskrypcję do wdrożenia, a następnie wybierz lub Utwórz nową grupę zasobów. Następnie Wypełnij poniższe wartości.
 
@@ -98,7 +98,7 @@ Aby to działało, należy wykonać trzy elementy.
 
 Najpierw aplikacja musi zażądać punktu końcowego Cosmos DB i klucza w `Startup` klasie w aplikacji sieci web ASP.NET MVC. [Cosmos DB do wykonania przykład](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) może działać lokalnie, gdzie można wprowadzać informacje o połączeniu do appsettings.js. Jednak po wdrożeniu ten plik jest wdrażany razem z aplikacją. Jeśli te linie w kolorze czerwonym nie mogą uzyskać dostępu do ustawień z appsettings.jsna, spróbuje użyć ustawień aplikacji w Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Folderze":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Uruchamianie":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Używanie specjalnych funkcji zarządzania zasobami platformy Azure
 

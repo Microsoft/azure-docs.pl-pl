@@ -7,18 +7,18 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: 157f0a710a0b3aed25455600bbf19d4ae84ed848
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391948"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027823"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
 Usługa Azure Cosmos DB udostępnia metryki dotyczące przepływności, magazynu, spójności, dostępności i opóźnienia. Witryna Azure Portal oferuje zagregowany widok tych metryk. Możesz również wyświetlić metryki usługi Azure Cosmos DB z poziomu interfejsu API usługi Azure Monitor. Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
 
-W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metryki Azure Cosmos DB mogą być używane do analizowania i debugowania tych problemów. Metryki są zbierane co pięć minut i są przechowywane przez siedem dni.
+W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metryki usługi Azure Cosmos DB mogą być używane do analizowania i debugowania tych problemów. Metryki są zbierane co pięć minut i są przechowywane przez siedem dni.
 
 ## <a name="view-metrics-from-azure-portal"></a>Wyświetl metryki z Azure Portal
 
@@ -56,7 +56,7 @@ Najbardziej typowym kodem stanu błędu jest 429 (ograniczanie szybkości/ograni
 
 Dobrą kardynalnością kluczy partycji jest istotna dla każdej skalowalnej aplikacji. Aby określić dystrybucję przepływności dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do **bloku metryki** w [Azure Portal](https://portal.azure.com). Na karcie **przepływność** , podział magazynu jest pokazywany w polu **Maksymalna liczba ZUŻYTych jednostek ru na sekundę według poszczególnych wykresów partycji fizycznej** . Na poniższej ilustracji przedstawiono przykład słabej dystrybucji danych, jak pokazano na partycji skośnej po lewej stronie.
 
-![Użycie pojedynczej partycji na 3:05 PM](media/use-metrics/metrics-17.png)
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Użycie pojedynczej partycji":::
 
 Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
 

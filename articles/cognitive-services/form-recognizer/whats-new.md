@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ad87c7e3517aad8a611c711773c5e1cc99b24f88
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bbf098feccaf760718b97b1afb2d24bc55eef9ad
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562873"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027039"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -22,6 +22,19 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 > [!NOTE]
 > Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
+
+## <a name="july-2020"></a>Lipiec 2020 r.
+
+### <a name="new-features"></a>Nowe funkcje
+* **dostępna jest dokumentacja v 2.0** Wyświetl [Informacje o interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowane zestawy SDK dla [platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)i [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* Udoskonalenia **tabel i ulepszenia wyodrębniania** zawierają ulepszenia dokładności i ulepszenia wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w niestandardowym pouczeniu bez etykiet. 
+* **Obsługa waluty** Wykrywanie i wyodrębnianie symboli waluty globalnej.
+* **Azure gov** Aparat rozpoznawania formularzy jest teraz również dostępny w usłudze Azure gov.
+*   **Ulepszone funkcje zabezpieczeń**: 
+    *   **Przenoszenie własnego klucza**  Aparat rozpoznawania formularzy automatycznie szyfruje dane, gdy są utrwalane w chmurze, aby chronić go i pomóc w spełnieniu zobowiązań dotyczących bezpieczeństwa i zgodności organizacji. Domyślnie Twoja subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+    *   **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
@@ -46,8 +59,8 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
  
 * **Kopiuj model niestandardowy** Teraz można kopiować modele między regionami i subskrypcjami przy użyciu nowej funkcji kopiowania modelu niestandardowego. Przed wywołaniem interfejsu API kopiowania niestandardowych modeli należy najpierw uzyskać autoryzację do skopiowania do zasobu docelowego, wywołując operację kopiowania autoryzacji do docelowego punktu końcowego zasobu.
-   * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
-   * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) INTERFEJS API REST 
+   * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
+   * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) INTERFEJS API REST 
 
 ### <a name="security-improvements"></a>Ulepszenia zabezpieczeń
 
@@ -97,7 +110,7 @@ Aby uzyskać więcej informacji na temat narzędzia do etykietowania przykładow
 
 Protokół TLS 1,2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [Azure Cognitive Services Security](../cognitive-services-security.md).
 
-## <a name="january-2020"></a>Styczeń 2020 r.
+## <a name="january-2020"></a>Styczeń 2020 r.
 
 W tej wersji wprowadzono aparat rozpoznawania formularzy 2,0 (wersja zapoznawcza). W poniższych sekcjach znajdziesz więcej informacji na temat nowych funkcji, ulepszeń i zmian. 
 
@@ -137,4 +150,4 @@ Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niek
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).

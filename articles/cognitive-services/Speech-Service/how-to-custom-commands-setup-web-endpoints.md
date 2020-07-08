@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: eb2a7d4f83b3d8bda0d06e14b4dab9bb4872885e
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414287"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027685"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -46,11 +46,12 @@ W tym artykule dowiesz się, jak skonfigurować punkty końcowe sieci Web w apli
    | Nazwa | UpdateDeviceState | Nazwa punktu końcowego sieci Web. |
    | Adres URL | https://webendpointexample.azurewebsites.net/api/DeviceState | Adres URL punktu końcowego, z którym aplikacja polecenia niestandardowego ma komunikować się. |
    | Metoda | POST | Dozwolone interakcje (takie jak GET, POST) z punktem końcowym.|
-   | Nagłówki | Klucz: aplikacja, wartość: unikatowa nazwa aplikacji | Parametry nagłówka do uwzględnienia w nagłówku żądania.|
+   | Nagłówki | Klucz: App, wartość: Weź pierwsze 8 cyfr Twojej aplikacji | Parametry nagłówka do uwzględnienia w nagłówku żądania.|
 
     > [!NOTE]
     > - Przykładowy punkt końcowy sieci Web utworzony przy użyciu [funkcji platformy Azure](https://docs.microsoft.com/azure/azure-functions/), który łączy się z bazą danych, która zapisuje stan urządzenia telewizora i wentylatoru
     > - Sugerowany nagłówek jest wymagany tylko w przypadku przykładowego punktu końcowego
+    > - Aby upewnić się, że wartość nagłówka jest unikatowa w naszym przykładowym punkcie końcowym, weź pierwsze 8 cyfr Twojej aplikacji
     > - W świecie rzeczywistym punktem końcowym sieci Web może być punkt końcowy [Centrum IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) , które zarządza urządzeniami.
 
 1. Kliknij pozycję **Zapisz**.
@@ -74,6 +75,8 @@ W tym artykule dowiesz się, jak skonfigurować punkty końcowe sieci Web w apli
     > - Sugestie parametrów zapytania są zbędne tylko dla przykładowego punktu końcowego
 
 1. W obszarze **po powodzeniu akcja do wykonania**wybierz pozycję **Wyślij odpowiedź na mowę**.
+    
+    W **prostym edytorze**wprowadź `{SubjectDevice} is {OnOff}` .
    
    > [!div class="mx-imgBorder"]
    > ![Wywołaj akcję punktów końcowych sieci Web po powodzeniu](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -86,6 +89,9 @@ W tym artykule dowiesz się, jak skonfigurować punkty końcowe sieci Web w apli
    > - Można również bezpośrednio uzyskać dostęp do pól w odpowiedzi HTTP przy użyciu `{YourWebEndpointName.FieldName}` . Na przykład: `{UpdateDeviceState.TV}`
 
 1. W przypadku **niepowodzenia akcja do wykonania**wybierz pozycję **Wyślij odpowiedź na mowę**
+
+    W **prostym edytorze**wprowadź `Sorry, {WebEndpointErrorMessage}` .
+
    > [!div class="mx-imgBorder"]
    > ![Akcja wywołania punktów końcowych sieci Web w przypadku niepowodzenia](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 

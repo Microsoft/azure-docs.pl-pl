@@ -2,13 +2,13 @@
 title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 6a7f7d52bf2e7e8e144cd7a247607219fad0a514
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.date: 07/06/2020
+ms.openlocfilehash: f59e50e3eadb50db97756aa990f4de822a8ba089
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791439"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026376"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -35,7 +35,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft. AzureStackHCI](#microsoftazurestackhci)
-> - [Microsoft. AzureStackResourceMonitor](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
@@ -55,6 +54,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft. ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft. zużycie](#microsoftconsumption)
 > - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
@@ -284,6 +284,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | attestationProviders | Tak | Tak |
+> | defaultProviders | Nie | Nie |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -370,6 +371,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | Nie | Nie |
+> | edgeSubscriptions | Tak | Tak |
 > | rejestracje | Tak | Tak |
 > | rejestracje/customerSubscriptions | Nie | Nie |
 > | rejestracje/produkty | Nie | Nie |
@@ -380,13 +382,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | oparty | Tak | Tak |
-
-## <a name="microsoftazurestackresourcemonitor"></a>Microsoft. AzureStackResourceMonitor
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
-> | ------------- | ----------- | ----------- |
-> | storageAccountMonitor | Tak | Tak |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -448,8 +443,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | billingAccounts/klienci/transakcje | Nie | Nie |
 > | billingAccounts/klienci/transfery | Nie | Nie |
 > | billingAccounts/działy | Nie | Nie |
+> | billingAccounts/działy/billingPermissions | Nie | Nie |
+> | billingAccounts/działy/billingRoleAssignments | Nie | Nie |
+> | billingAccounts/działy/billingRoleDefinitions | Nie | Nie |
 > | billingAccounts / enrollmentAccounts | Nie | Nie |
+> | billingAccounts / enrollmentAccounts / billingPermissions | Nie | Nie |
+> | billingAccounts / enrollmentAccounts / billingRoleAssignments | Nie | Nie |
+> | billingAccounts / enrollmentAccounts / billingRoleDefinitions | Nie | Nie |
 > | billingAccounts/faktury | Nie | Nie |
+> | billingAccounts/faktury/transakcje | Nie | Nie |
 > | billingAccounts / invoiceSections | Nie | Nie |
 > | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | Nie | Nie |
 > | billingAccounts / invoiceSections / billingSubscriptions | Nie | Nie |
@@ -613,7 +615,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | domainNames | Nie | Nie |
 > | domainNames/możliwości | Nie | Nie |
 > | domainNames / internalLoadBalancers | Nie | Nie |
@@ -645,7 +647,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | expressRouteCrossConnections | Nie | Nie |
 > | expressRouteCrossConnections/Komunikacja równorzędna | Nie | Nie |
 > | gatewaySupportedDevices | Nie | Nie |
@@ -661,7 +663,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | możliwość | Nie | Nie |
+> | możliwości | Nie | Nie |
 > | dysku | Nie | Nie |
 > | images | Nie | Nie |
 > | osImages | Nie | Nie |
@@ -723,7 +725,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedVMImages/wersje | Nie | Nie |
 > | Migawki | Tak | Tak |
 > | sshPublicKeys | Tak | Tak |
-> | swiftlets | Tak | Tak |
 > | virtualMachines | Tak | Tak |
 > | virtualMachines/rozszerzenia | Tak | Tak |
 > | virtualMachines/metricDefinitions | Nie | Nie |
@@ -737,6 +738,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 > [!NOTE]
 > Nie można dodać znacznika do maszyny wirtualnej, która została oznaczona jako uogólniona. Maszyna wirtualna jest oznaczana jako uogólniona za pomocą [opcji Set-AzVm-uogólnione](/powershell/module/Az.Compute/Set-AzVM) lub [AZ VM generalize](/cli/azure/vm#az-vm-generalize).
+
+## <a name="microsoftconnectedcache"></a>Microsoft. ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
+> | ------------- | ----------- | ----------- |
+> | CacheNodes | Tak | Tak |
 
 ## <a name="microsoftconsumption"></a>Microsoft. zużycie
 
@@ -753,7 +761,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie | Nie |
 > | ilości | Nie | Nie |
 > | Platform handlowych | Nie | Nie |
-> | Pricesheets | Nie | Nie |
+> | Arkusze cen | Nie | Nie |
 > | wyrobów | Nie | Nie |
 > | ReservationDetails | Nie | Nie |
 > | ReservationRecommendationDetails | Nie | Nie |
@@ -905,9 +913,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | wykazy danych/źródła danych | Nie | Nie |
 > | wykazy danych/źródła danych/skany | Nie | Nie |
 > | wykazy danych/źródła danych/skany/zestawy danych | Nie | Nie |
-> | wykazy danych/źródła danych/skanowania/filtry | Nie | Nie |
 > | wykazy danych/źródła danych/skanowania/wyzwalacze | Nie | Nie |
-> | webcatalogs/scanrulesets | Nie | Nie |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
@@ -955,6 +961,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | BackupVaults | Tak | Tak |
+> | ResourceOperationGateKeepers | Tak | Tak |
 
 ## <a name="microsoftdatashare"></a>Microsoft. dataudział
 
@@ -1419,7 +1426,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | hostingEnvironments | Tak | Tak |
 > | integrationAccounts | Tak | Tak |
 > | integrationServiceEnvironments | Tak | Tak |
-> | integrationServiceEnvironments/managedApis | Tak | Tak |
+> | integrationServiceEnvironments/managedApis | Nie | Nie |
 > | isolatedEnvironments | Tak | Tak |
 > | przebieg | Tak | Tak |
 
@@ -1791,6 +1798,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
+> | privateLinkServicesForPowerBI | Tak | Tak |
+> | dzierżaw | Tak | Tak |
+> | dzierżawy/obszary robocze | Nie | Nie |
 > | workspaceCollections | Tak | Tak |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
@@ -1813,6 +1823,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | providerRegistrations | Nie | Nie |
+> | providerRegistrations / defaultRollouts | Nie | Nie |
 > | providerRegistrations / resourceTypeRegistrations | Nie | Nie |
 > | wprowadzanie | Tak | Tak |
 
@@ -1938,6 +1949,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | iotSecuritySolutions / analyticsModels | Nie | Nie |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Nie | Nie |
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Nie | Nie |
+> | iotSecuritySolutions / iotAlerts | Nie | Nie |
+> | iotSecuritySolutions / iotAlertTypes | Nie | Nie |
 > | jitNetworkAccessPolicies | Nie | Nie |
 > | policies | Nie | Nie |
 > | cen | Nie | Nie |
@@ -1954,7 +1967,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | securityStatuses | Nie | Nie |
 > | securityStatusesSummaries | Nie | Nie |
 > | serverVulnerabilityAssessments | Nie | Nie |
-> | settings | Nie | Nie |
+> | ustawienia | Nie | Nie |
 > | podoceny | Nie | Nie |
 > | zadania | Nie | Nie |
 > | replikacji | Nie | Nie |
@@ -1985,7 +1998,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | entityQueries | Nie | Nie |
 > | zdarzenia | Nie | Nie |
 > | officeConsents | Nie | Nie |
-> | settings | Nie | Nie |
+> | ustawienia | Nie | Nie |
 > | threatIntelligence | Nie | Nie |
 
 ## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole
@@ -2109,7 +2122,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 <a id="sqlnote"></a>
 
 > [!NOTE]
-> Baza danych Master nie obsługuje tagów, ale inne bazy danych, w tym bazy danych Azure SQL Data Warehouse, obsługują Tagi. Azure SQL Data Warehouse bazy danych muszą znajdować się w stanie aktywnym (niewstrzymanym).
+> Baza danych Master nie obsługuje tagów, ale inne bazy danych, w tym bazy danych usługi Azure Synapse Analytics, obsługują Tagi. Bazy danych usługi Azure Synapse Analytics muszą znajdować się w stanie aktywnym (niewstrzymanym).
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 

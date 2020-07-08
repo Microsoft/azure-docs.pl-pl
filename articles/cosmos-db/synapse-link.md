@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1acb01ceb9747fa833e998bd5501ce8a8a51babb
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ff64f3f4891aac27a32b642b50ebd51dea9bd34a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119464"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025781"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -122,6 +122,8 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 * Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów (zarówno w nowych, jak i istniejących Azure Cosmos DB kontach).
 
+* W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń produkcyjnych, które wymagają funkcji tworzenia kopii zapasowych i przywracania, zaleca się, aby nie włączać linku Synapse na tych kontach baz danych. 
+
 * Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
@@ -134,7 +136,7 @@ Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzy
 
 Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
-* [Omówienie magazynu analitycznego usługi Azure Cosmos DB](analytical-store-introduction.md)
+* [Omówienie magazynu analitycznego Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
  

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124991"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027169"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -247,9 +247,9 @@ Dostęp do programu `download.microsoft.com` jest wymagany do pobierania składn
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych z dużymi dyskami
 
-W tej sekcji wyjaśniono, jak przeprowadzić odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure z więcej niż 16 dyskami, a każdy dysk ma rozmiar większy niż 32 TB.
+W tej sekcji wyjaśniono, jak przeprowadzać odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure z więcej niż 16 dyskami lub rozmiar każdego dysku jest większy niż 4 TB.
 
-Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowej, w przypadku użycia dużej liczby dysków (>16) lub dużych dysków (> 32 TB każdego) są zalecane następujące punkty akcji:
+Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowej, w przypadku użycia dużej liczby dysków (>16) lub dużych dysków (> 4 TB) zalecane są następujące punkty akcji:
 
 - Zachowaj oddzielny serwer przywracania (maszyny wirtualne D2v3 maszyny wirtualnej platformy Azure) do odzyskiwania plików. Można go użyć tylko do odzyskiwania plików, a następnie zamknąć go, gdy nie jest to wymagane. Przywracanie na oryginalnej maszynie nie jest zalecane, ponieważ ma znaczący wpływ na maszynę wirtualną.
 - Następnie uruchom skrypt jeden raz, aby sprawdzić, czy operacja odzyskiwania plików powiodła się.

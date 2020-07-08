@@ -1,24 +1,24 @@
 ---
 title: View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
-description: Jako dostawca usług korzystający z funkcji zarządzania zasobami delegowanymi przez platformę Azure możesz wyświetlić wszystkie delegowane zasoby i subskrypcje klientów, przechodząc do moich klientów w Azure Portal.
-ms.date: 01/22/2020
+description: Jako dostawca usług korzystający z usługi Azure Lighthouse można wyświetlić wszystkie delegowane zasoby i subskrypcje klientów, przechodząc do moich klientów w Azure Portal.
+ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 4b069c2e78021c31a85ea8fca005152e2d28231e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a850dc8cfe7667a75ced64ef0bd0afc352b20daa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636482"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026274"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
 
-Dostawcy usług korzystający z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md) mogą używać strony **moi klienci** w [Azure Portal](https://portal.azure.com) , aby wyświetlić delegowane zasoby i subskrypcje klientów. Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, przedsiębiorstwa zarządzające wieloma dzierżawcami mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
+Dostawcy usług korzystający z usługi Azure Lighthouse mogą użyć strony **moi klienci** w [Azure Portal](https://portal.azure.com) , aby wyświetlić delegowane zasoby i subskrypcje klientów. Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, przedsiębiorstwa zarządzające wieloma dzierżawcami mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
 
 Aby uzyskać dostęp do strony **moi klienci** w Azure Portal, wybierz pozycję **wszystkie usługi**, a następnie wyszukaj pozycję **moi klienci** i wybierz ją. Można ją również znaleźć, wpisując "My Customers" w polu wyszukiwania w górnej części Azure Portal.
 
-Należy pamiętać, że na stronie **moi klienci** są wyświetlane tylko informacje **o klientach** , którzy mają delegowane subskrypcje lub grupy zasobów. Jeśli pracujesz z innymi klientami (na przykład za pomocą [programu Cloud Solution Provider](https://docs.microsoft.com/partner-center/csp-overview)), nie zobaczysz informacji o klientach w sekcji **Customers** , chyba że dołączysz swoje zasoby do zarządzania zasobami delegowanymi przez platformę Azure.
+Należy pamiętać, że na stronie **moi klienci** są wyświetlane tylko informacje **o klientach** , którzy mają delegowane subskrypcje lub grupy zasobów. Jeśli pracujesz z innymi klientami (na przykład za pomocą [programu Cloud Solution Provider](/partner-center/csp-overview)), nie zobaczysz informacji o tych klientach w sekcji **Customers (klienci** ), chyba że Twoje zasoby zostały dołączone do [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md).
 
-Na tej stronie oddzielna sekcja o nazwie **dostawca rozwiązań w chmurze (wersja zapoznawcza)** zawiera informacje o rozliczeniach i zasoby dla klientów programu CSP, którzy [podpisali umowę klienta firmy Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie [do rozliczeń umowy partnerskiej firmy Microsoft](../../billing/mpa-overview.md). Należy zauważyć, że tacy klienci korzystający z programu CSP są wyświetlani w tej sekcji, niezależnie od tego, czy zostały również dołączone do zarządzania zasobami delegowanymi przez platformę Azure. Podobnie klient dostawcy usług kryptograficznych nie musi być widoczny w sekcji **dostawca rozwiązań w chmurze (wersja zapoznawcza)** w obszarze **moi klienci** w celu dodania ich do zarządzania zasobami delegowanymi przez platformę Azure.
+Na tej stronie oddzielna sekcja o nazwie **dostawca rozwiązań w chmurze (wersja zapoznawcza)** zawiera informacje o rozliczeniach i zasoby dla klientów programu CSP, którzy [podpisali umowę klienta firmy Microsoft (MCA)](/partner-center/confirm-customer-agreement) i są [objęte planem platformy Azure](/partner-center/azure-plan-get-started). Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie [do rozliczeń umowy partnerskiej firmy Microsoft](../../billing/mpa-overview.md). Należy zauważyć, że tacy klienci korzystający z programu CSP są wyświetlani w tej sekcji, niezależnie od tego, czy zostały również dołączone do zarządzania zasobami delegowanymi przez platformę Azure. Podobnie klient dostawcy usług kryptograficznych nie musi być widoczny w sekcji **dostawca rozwiązań w chmurze (wersja zapoznawcza)** w obszarze **moi klienci** w celu dodania ich do zarządzania zasobami delegowanymi przez platformę Azure.
 
 > [!NOTE]
 > Klienci mogą wyświetlać informacje o dostawcach usług, przechodząc do **dostawców usług** w Azure Portal. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i zarządzanie dostawcami usług](view-manage-service-providers.md).
@@ -53,7 +53,6 @@ Użytkownicy i uprawnienia skojarzone z każdym delegowaniem są wyświetlane w 
 ### <a name="remove-delegations"></a>Usuń delegowania
 
 W przypadku uwzględnienia użytkowników z [przypisaniem przypisania rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) podczas dołączania klienta do zarządzania zasobami delegowanymi przez platformę Azure Ci użytkownicy mogą usunąć delegowanie, wybierając ikonę kosza, która pojawia się w wierszu dla tego delegowania. W takim przypadku żaden użytkownik w dzierżawie dostawcy usług nie będzie w stanie uzyskać dostępu do zasobów, które zostały wcześniej delegowane.
-
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Pracuj w kontekście delegowanej subskrypcji
 

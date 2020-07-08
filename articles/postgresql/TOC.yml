@@ -112,6 +112,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: Szyfrowanie danych
               href: concepts-data-encryption-postgresql.md
+            - name: Podwójne szyfrowanie infrastruktury
+              href: concepts-infrastructure-double-encryption.md
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
         - name: Ciągłość działalności biznesowej
@@ -305,8 +307,12 @@
               href: howto-data-encryption-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-data-encryption-cli.md
-            - name: Weryfikowanie szyfrowania danych
+            - name: Walidacja szyfrowania danych
               href: howto-data-encryption-validation.md
+        - name: Podwójne szyfrowanie infrastruktury
+          items:
+            - name: Konfigurowanie podwójnego szyfrowania infrastruktury
+              href: howto-double-encryption.md
         - name: Ponowne uruchamianie serwera
           items:
             - name: Azure Portal

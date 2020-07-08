@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 124d81651cd937dc9671f725f54826b1ff9a42a5
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362326"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026699"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tworzenie dzierżawy i puli hosta
 
@@ -405,6 +405,12 @@ Jeśli uruchamiasz szablon Azure Resource Manager GitHub, podaj wartości nastę
 - Hasło administratora dzierżawy: hasło wygenerowane dla jednostki usługi
 - IsServicePrincipal: **true**
 - AadTenantId: Identyfikator dzierżawy usługi Azure AD, która została utworzona przez użytkownika
+
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Błąd: podsieć vmSubnet jest niedostępna podczas konfigurowania sieci wirtualnych
+
+**Przyczyna:** W szablonie WVD Marketplace interfejs użytkownika wyświetla tylko podsieci, które mają co najmniej tyle adresów IP jako łączną liczbę maszyn wirtualnych określonych w szablonie. Rzeczywista liczba dostępnych adresów IP w podsieci musi być równa liczbie wdrożonych nowych maszyn wirtualnych, ale nie może ona być obliczana przez bieżący interfejs użytkownika.
+
+**Poprawka:** Można określić podsieć z co najmniej tylu adresami IP dostępnymi jako liczba maszyn wirtualnych, które są dodawane przy użyciu interfejsu użytkownika portalu Marketplace, można to zrobić przez określenie nazwy podsieci w parametrze "**existingSubnetName**" podczas [ponownego wdrażania istniejącego wdrożenia](expand-existing-host-pool-2019.md#redeploy-from-azure) lub [wdrożenia przy użyciu podstawowego szablonu ARM z usługi GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Następne kroki
 

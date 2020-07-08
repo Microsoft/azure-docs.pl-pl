@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: db0addfbc2fc5b322c2f6dd9b51f3ace10935589
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261415"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026971"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -23,12 +23,12 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * [Zarejestruj urządzenie IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
-    * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Zachodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
+    * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
     * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurowanie zasobów platformy Azure do korzystania z analizy filmów wideo na żywo
 
-### <a name="create-custom-azure-resource-manager-role"></a>Utwórz niestandardową rolę Azure Resource Manager
+### <a name="create-custom-azure-resource-manager-role"></a>Tworzenie niestandardowej roli usługi Azure Resource Manager
 
 Zobacz [Tworzenie roli niestandardowego Azure Resource Manager](create-custom-azure-resource-manager-role-how-to.md) i przypisywanie jej do jednostki usługi w celu użycia na żywo analizy wideo.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682700"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028132"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -110,16 +110,18 @@ Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe prze
 
 Jeśli korzystasz z usługi przetwarzania TDSP w **systemie Windows**, musisz zainstalować program **git Credential Manager (GCM)** , aby komunikować się z repozytoriami git. Aby zainstalować GCM, należy najpierw zainstalować **Chocolaty**. Aby zainstalować Chocolaty i GCM, uruchom następujące polecenia w programie Windows PowerShell jako **administrator**:  
 
-    iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-    choco install git-credential-manager-for-windows -y
-    
+```powershell
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco install git-credential-manager-for-windows -y
+```  
 
 ### <a name="install-git-on-linux-centos-machines"></a>Instalowanie usługi Git na maszynach z systemem Linux (CentOS)
 
 Uruchom następujące polecenie bash, aby zainstalować narzędzia Git na komputerach z systemem Linux (CentOS):
 
-    sudo yum install git
-
+```powershell
+sudo yum install git
+```
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Generuj publiczny klucz SSH na maszynach z systemem Linux (CentOS)
 
