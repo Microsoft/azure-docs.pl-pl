@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e4f26b21ad7458b4f5bcad9a902f4e048d726f1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042435"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie wydajnością podzielonej na fragmenty wielodostępnego Azure SQL Database w aplikacji SaaS z wieloma dzierżawcami
@@ -64,7 +63,7 @@ Aby zrozumieć, jak monitorowanie wydajności i zarządzanie działa w odpowiedn
 
 Jeśli masz już zainicjowaną partię dzierżawców w poprzednim samouczku, przejdź do sekcji [symulowanie użycia we wszystkich bazach danych dzierżaw](#simulate-usage-on-all-tenant-databases) .
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Monitorowanie wydajności modułów szkoleniowych \\ i zarządzanie \\ *demo-PerformanceMonitoringAndManagement. ps1*. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ \\Demo-PerformanceMonitoringAndManagement.ps1monitorowania wydajności modułów szkoleniowych i zarządzania nimi \\ * *. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
 1. Ustawianie **$DemoScenario**  =  **1**, _Inicjowanie obsługi partii dzierżawców_
 1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
@@ -74,7 +73,7 @@ Skrypt *New-TenantBatch* tworzy nowe dzierżawy z unikatowymi kluczami dzierżaw
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Symulowanie użycia we wszystkich baz danych dzierżaw
 
-Podano skrypt *demo-PerformanceMonitoringAndManagement. ps1* , który symuluje obciążenie działające z wielodostępną bazą danych. Obciążenie jest generowane przy użyciu jednego z dostępnych scenariuszy ładowania:
+Zostanie udostępniony skrypt *Demo-PerformanceMonitoringAndManagement.ps1* , który symuluje obciążenie uruchomione względem bazy danych z wieloma dzierżawcami. Obciążenie jest generowane przy użyciu jednego z dostępnych scenariuszy ładowania:
 
 | Demonstracja | Scenariusz |
 |:--|:--|
@@ -85,7 +84,7 @@ Podano skrypt *demo-PerformanceMonitoringAndManagement. ps1* , który symuluje o
 
 Generator obciążenia stosuje obciążenie *syntetyczne* wyłącznie do procesorów dla każdej bazy danych dzierżawy. Generator uruchamia zadanie dla każdej bazy danych dzierżawy, co powoduje cykliczne wywołanie procedury składowanej, która generuje obciążenie. Poziomy obciążenia (w DTU), czas trwania i interwały są zróżnicowane dla wszystkich baz danych, co symuluje nieprzewidywalne działanie dzierżawy.
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Monitorowanie wydajności modułów szkoleniowych \\ i zarządzanie \\ *demo-PerformanceMonitoringAndManagement. ps1*. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ \\Demo-PerformanceMonitoringAndManagement.ps1monitorowania wydajności modułów szkoleniowych i zarządzania nimi \\ * *. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
 1. Ustawianie **$DemoScenario**  =  **2**, _generowanie normalnego obciążenia o natężeniu_
 1. Naciśnij klawisz **F5** , aby zastosować obciążenie do wszystkich dzierżawców.
 
@@ -154,7 +153,7 @@ Model z wieloma dzierżawcami podzielonej na fragmenty umożliwia wybranie, czy 
 
 Jeśli została już zainicjowana Nowa dzierżawa w swojej bazie danych, Pomiń kilka następnych kroków.
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Moduły uczenia \\ ProvisionTenants \\ *demo-ProvisionTenants. ps1*. 
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ Moduły uczenia \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1*. 
 1. Modyfikuj **$TenantName = "Salix Salsa"** i **$VenueType = "odpowiedzialna"**
 1. Ustawianie **$Scenario**  =  **2**, _Inicjowanie obsługi dzierżawy w nowej bazie danych z jedną dzierżawą_
 1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
@@ -167,7 +166,7 @@ Jeśli pojedyncza dzierżawa w ramach wielodostępnej bazy danych korzysta z du�
 
 To ćwiczenie symuluje efekt Salix Salsa, gdy bilety przechodzą do sprzedaży dla popularnego zdarzenia.
 
-1. Otwórz... \\ Skrypt *demo-PerformanceMonitoringAndManagement. ps1* .
+1. Otwórz... \\ Skrypt *Demo-PerformanceMonitoringAndManagement.ps1* .
 1. Ustaw **$DemoScenario = 5**, _Wygeneruj normalne obciążenie i wysokie obciążenie dla pojedynczej dzierżawy (około 90 jednostek DTU)._
 1. Ustaw **$SingleTenantName = Salix Salsa**
 1. Wykonaj skrypt, używając klawisza **F5**.

@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021266"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Resetowanie lokalnego hasła systemu Windows dla maszyny wirtualnej platformy Azure w trybie offline
@@ -45,7 +44,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
 1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną, Stwórz dysk na podstawie migawki, a następnie Dołącz dysk do maszyny wirtualnej rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](troubleshoot-recovery-disks-portal-windows.md).
 2. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny.
-3. Utwórz `gpt.ini` na `\Windows\System32\GroupPolicy` dysku ŹRÓDŁOWEJ maszyny wirtualnej (jeśli istnieje tabela GPT. ini, Zmień nazwę na GPT. ini. bak):
+3. Utwórz `gpt.ini` na `\Windows\System32\GroupPolicy` dysku ŹRÓDŁOWEJ maszyny wirtualnej (jeśli gpt.ini istnieje, Zmień nazwę na gpt.ini. bak):
    
    > [!WARNING]
    > Upewnij się, że nie utworzysz przypadkowo następujących plików w folderze C:\Windows, dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
@@ -59,7 +58,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      Version=1
      ```
      
-     ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
+     ![Utwórz gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
 4. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machine\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
@@ -71,7 +70,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      0Parameters=
      ```
      
-     ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Utwórz scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
 5. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    
@@ -96,9 +95,9 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
     * Z%windir%\System32
       * Usuń FixAzureVM. cmd
     * Z%windir%\System32\GroupPolicy\Machine\Scripts
-      * Usuń skrypty. ini
+      * Usuń scripts.ini
     * Z%windir%\System32\GroupPolicy
-      * Usuń plik GPT. ini (Jeśli plik GPT. ini istniał wcześniej i zmieniono jego nazwę na GPT. ini. bak, Zmień nazwę pliku. bak z powrotem na GPT. ini)
+      * Usuń gpt.ini (jeśli gpt.ini istniała wcześniej, a następnie zmień nazwę gpt.ini pliku na gpt.ini.
 
 ## <a name="detailed-steps-for-classic-vm"></a>Szczegółowe kroki dla klasycznej maszyny wirtualnej
 
@@ -163,7 +162,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      Version=1
      ```
      
-     ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Utwórz gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
@@ -175,7 +174,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      0Parameters=
      ```
      
-     ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Utwórz scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
 
 6. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    

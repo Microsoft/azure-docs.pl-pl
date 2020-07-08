@@ -15,10 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014863"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurowanie grupy dostępności zawsze włączone na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell
@@ -179,7 +178,7 @@ Pomyślnie zainicjowano teraz serwer kontrolera domeny. Następnie skonfigurujes
 ## <a name="configure-the-domain-controller"></a>Konfiguruj kontroler domeny
 1. Połącz się z serwerem kontrolera domeny przez uruchomienie pliku pulpitu zdalnego. Użyj nazwy użytkownika i hasła administratora komputera **contoso! 000**, która została określona podczas tworzenia nowej maszyny wirtualnej.
 2. Otwórz okno programu PowerShell w trybie administratora.
-3. Uruchom następujący program **dcpromo. EXE** polecenie, aby skonfigurować domenę **Corp.contoso.com** z katalogami danych na dysku M.
+3. Uruchom następujące polecenie **DCPROMO.EXE** , aby skonfigurować domenę **Corp.contoso.com** z katalogami danych na dysku M.
 
         dcpromo.exe `
             /unattend `
@@ -377,7 +376,7 @@ Pomyślnie zainicjowano teraz serwer kontrolera domeny. Następnie skonfigurujes
     Maszyny wirtualne SQL Server są teraz inicjowane i uruchamiane, ale są instalowane z SQL Server z opcjami domyślnymi.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>Inicjowanie maszyn wirtualnych klastra trybu failover
-W tej sekcji należy zmodyfikować trzy serwery, które będą używane w klastrze trybu failover i instalacji SQL Server. Są to:
+W tej sekcji należy zmodyfikować trzy serwery, które będą używane w klastrze trybu failover i instalacji SQL Server. W szczególności:
 
 * Wszystkie serwery: należy zainstalować funkcję **klaster trybu failover** .
 * Wszystkie serwery: należy dodać **CORP\Install** jako **administratora**komputera.
@@ -481,7 +480,7 @@ Na koniec możesz skonfigurować grupę dostępności. Użyjesz dostawcy SQL Ser
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Pobierz **CreateAzureFailoverCluster. ps1** z [tworzenia klastra trybu failover dla zawsze dostępnych grup dostępności na maszynie wirtualnej platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) do lokalnego katalogu roboczego. Ten skrypt służy do tworzenia funkcjonalnego klastra trybu failover. Aby uzyskać ważne informacje dotyczące sposobu, w jaki klaster trybu failover systemu Windows współdziała z siecią platformy Azure, zobacz [wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Pobierz **CreateAzureFailoverCluster.ps1** z [tworzenia klastra trybu failover dla zawsze dostępnych grup dostępności na maszynie wirtualnej platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) do lokalnego katalogu roboczego. Ten skrypt służy do tworzenia funkcjonalnego klastra trybu failover. Aby uzyskać ważne informacje dotyczące sposobu, w jaki klaster trybu failover systemu Windows współdziała z siecią platformy Azure, zobacz [wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Przejdź do katalogu roboczego i Utwórz klaster trybu failover z pobranym skryptem.
 
         Set-ExecutionPolicy Unrestricted -Force
