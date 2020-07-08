@@ -4,10 +4,9 @@ description: Utwórz token z uprawnieniami objętymi zakresem określonych repoz
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84509410"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
@@ -341,7 +340,7 @@ Przykładowe dane wyjściowe:
 
 ### <a name="list-scope-maps"></a>Mapowanie listy zakresów
 
-Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Na przykład:
+Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Przykład:
 
 ```azurecli
 az acr scope-map list \
@@ -361,14 +360,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Pokaż szczegóły tokenu
 
-Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Na przykład:
+Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Przykład:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Na przykład:
+Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Przykład:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -390,7 +389,7 @@ Aby użyć Azure Portal do wygenerowania hasła tokenu, zapoznaj się z instrukc
 
 ### <a name="update-token-with-new-scope-map"></a>Aktualizowanie tokenu przy użyciu nowej mapy zakresu
 
-Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Na przykład:
+Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Przykład:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

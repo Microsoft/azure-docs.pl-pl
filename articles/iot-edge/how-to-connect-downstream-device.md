@@ -12,10 +12,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309224"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge
@@ -130,9 +129,9 @@ Przygotuj dwa rzeczy przed użyciem przykładów na poziomie aplikacji:
 
 Ta sekcja zawiera przykładową aplikację łączącą klienta urządzenia usługi Azure IoT NodeJS z bramą IoT Edge. W przypadku aplikacji NodeJS należy zainstalować certyfikat głównego urzędu certyfikacji na poziomie aplikacji, jak pokazano poniżej. Aplikacje NodeJS nie używają magazynu certyfikatów systemu.
 
-1. Pobierz przykład dla **edge_downstream_device. js** z [zestawu SDK urządzenia usługi Azure IoT dla repozytorium przykładów środowiska Node. js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+1. Pobierz przykład dla **edge_downstream_device.js** z [zestawu SDK urządzeń Azure IoT dla Node.js repozytorium przykładów](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
 2. Upewnij się, że masz wszystkie wymagania wstępne, aby uruchomić próbkę, przeglądając plik **README.MD** .
-3. W pliku edge_downstream_device. js zaktualizuj zmienne **ConnectionString** i **edge_ca_cert_path** .
+3. W pliku edge_downstream_device.js zaktualizuj zmienne **ConnectionString** i **edge_ca_cert_path** .
 4. Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać instrukcje dotyczące uruchamiania przykładowego na urządzeniu.
 
 Aby zrozumieć przykład, w którym pracujesz, Poniższy fragment kodu przedstawia sposób, w jaki zestaw SDK klienta odczytuje plik certyfikatu i używa go do ustanowienia bezpiecznego połączenia TLS:
@@ -151,7 +150,7 @@ W tej sekcji przedstawiono przykładową aplikację łączącą klienta urządze
 
 1. Pobierz przykład dla **EdgeDownstreamDevice** z [folderu IoT Edge .NET Samples](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice).
 2. Upewnij się, że masz wszystkie wymagania wstępne, aby uruchomić próbkę, przeglądając plik **README.MD** .
-3. W pliku **Properties/profilu launchsettings. JSON** zaktualizuj zmienne **DEVICE_CONNECTION_STRING** i **CA_CERTIFICATE_PATH** . Jeśli chcesz użyć certyfikatu zainstalowanego w zaufanym magazynie certyfikatów w systemie hosta, pozostaw tę zmienną pustą.
+3. W oknie **Właściwości/launchSettings.jsw** pliku zaktualizuj zmienne **DEVICE_CONNECTION_STRING** i **CA_CERTIFICATE_PATH** . Jeśli chcesz użyć certyfikatu zainstalowanego w zaufanym magazynie certyfikatów w systemie hosta, pozostaw tę zmienną pustą.
 4. Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać instrukcje dotyczące uruchamiania przykładowego na urządzeniu.
 
 Aby programowo zainstalować zaufany certyfikat w magazynie certyfikatów za pośrednictwem aplikacji .NET, zapoznaj się z funkcją **InstallCACert ()** w pliku **EdgeDownstreamDevice/program.cs** . Ta operacja to idempotentne, więc można uruchamiać wiele razy z tymi samymi wartościami bez dodatkowych efektów.

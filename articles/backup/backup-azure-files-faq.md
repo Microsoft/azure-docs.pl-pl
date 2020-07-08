@@ -4,10 +4,9 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.date: 04/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488702"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
@@ -105,7 +104,7 @@ Oto przykład tego, jak to działa:
 | -------------- | ------------------------------ | --------- |
 | Codziennie          | Codziennie o godzinie 9 PM              | 50 dni   |
 | Co tydzień         | W niedzielę o godzinie 9 PM              | 3 tygodnie   |
-| Miesięczne        | W ubiegłym poniedziałek o godzinie 9 PM         | 1 miesiąc   |
+| Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM         | 1 miesiąc   |
 | Roczne         | W sty w trzeciej niedzielę o godzinie 9 PM | 4 lata   |
 
 #### <a name="impact"></a>Wpływ
@@ -140,7 +139,7 @@ Oto przykład tego, jak to działa:
 | -------------- | ---------------------- | --------- |
 | Codziennie          | Codziennie o godzinie 9 PM     | 10 dni   |
 | Co tydzień         | W poniedziałek o godzinie 9 PM      | 2 tygodnie   |
-| Miesięczne        | W ubiegłym poniedziałek o godzinie 9 PM | 2 miesiące  |
+| Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM | 2 miesiące  |
 
 #### <a name="impact-of-change"></a>Wpływ zmiany
 

@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84488039"
 ---
 # <a name="references"></a>Odwołania
@@ -162,7 +161,7 @@ Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą
     - Wróć do **omówienia**i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym**.
     - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu**.
 
-4. Przejdź do Datahub Swagger (https:// <yourdatahub> . azurewebsites.NET/Swagger/index.html) i wykonaj następujące czynności:
+4. Przejdź do Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) i wykonaj następujące czynności:
     - Przejdź do **interfejsu API RoleAssignment**.
     - Wykonaj wpis, aby utworzyć obiekt **RoleAssignment** dla właśnie utworzonego **identyfikatora obiektu** .
  

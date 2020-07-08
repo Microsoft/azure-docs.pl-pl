@@ -11,10 +11,9 @@ author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
 ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84556939"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
@@ -425,7 +424,7 @@ Wybierz **pozycję kliknij tutaj, aby zobaczyć przebieg uruchamiania w programi
 
 Wykres **episode_reward_mean** pokazuje średnią liczbę punktów ocenionych dla każdej epoki szkoleniowej. Można zobaczyć, że Agent szkoleniowy początkowo wykonał słabo, tracąc jego dopasowania bez oceniania pojedynczego punktu (pokazywanego przez reward_mean-21). W ciągu 100 iteracji Agent szkoleniowy mógł nauczyć się przeciwnika komputera przez średnią 18 punktów.
 
-W przypadku przeglądania dzienników przebiegu podrzędnego można zobaczyć wyniki oceny zapisane w pliku driver_log. txt. Może być konieczne odczekanie kilku minut, zanim te metryki staną się dostępne na stronie uruchomienia.
+W przypadku przeglądania dzienników przebiegu podrzędnego można zobaczyć wyniki oceny zapisane w pliku driver_log.txt. Może być konieczne odczekanie kilku minut, zanim te metryki staną się dostępne na stronie uruchomienia.
 
 W krótkim obszarze wiesz już, jak skonfigurować wiele zasobów obliczeniowych, aby szkolić agenta uczenia wzmocnić do Pong.
 

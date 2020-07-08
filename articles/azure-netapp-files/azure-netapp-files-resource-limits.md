@@ -15,10 +15,9 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: b-juche
 ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84553472"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limity zasobów dla usługi Azure NetApp Files
@@ -31,9 +30,9 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 
 |  Zasób  |  Limit domyślny  |  Regulowane przez żądanie pomocy technicznej  |
 |----------------|---------------------|--------------------------------------|
-|  Liczba kont NetApp na region platformy Azure   |  10    |  Yes   |
-|  Liczba pul pojemności na konto NetApp   |    25     |   Yes   |
-|  Liczba woluminów na pulę pojemności     |    500   |    Yes     |
+|  Liczba kont NetApp na region platformy Azure   |  10    |  Tak   |
+|  Liczba pul pojemności na konto NetApp   |    25     |   Tak   |
+|  Liczba woluminów na pulę pojemności     |    500   |    Tak     |
 |  Liczba migawek na wolumin       |    255     |    Nie        |
 |  Liczba podsieci delegowanych do Azure NetApp Files (Microsoft. NetApp/Volumes) na platformie Azure Virtual Network    |   1   |    Nie    |
 |  Liczba używanych adresów IP w sieci wirtualnej (w tym natychmiastowo sieci wirtualnych komunikacji równorzędnej) z Azure NetApp Files   |    1000   |    Nie   |
@@ -43,7 +42,7 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 |  Maksymalny rozmiar pojedynczego woluminu     |    100 TiB    |    Nie    |
 |  Maksymalny rozmiar pojedynczego pliku     |    16 TiB    |    Nie    |    
 |  Maksymalny rozmiar metadanych katalogu w jednym katalogu      |    320 MB    |    Nie    |    
-|  Maksymalna liczba plików ([maxfiles](#maxfiles)) na wolumin     |    100 000 000    |    Yes    |    
+|  Maksymalna liczba plików ([maxfiles](#maxfiles)) na wolumin     |    100 000 000    |    Tak    |    
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące zarządzania pojemnością](azure-netapp-files-faqs.md#capacity-management-faqs).
 

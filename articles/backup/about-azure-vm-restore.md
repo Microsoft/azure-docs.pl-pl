@@ -4,13 +4,12 @@ description: Dowiedz się, jak usługa Azure Backup przywraca usługi Azure Virt
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: b9a2636a2144ea40457bdc3d88786785cb012e0d
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84325824"
 ---
-# <a name="about-azure-vm-restore"></a>Informacje o przywracaniu maszyn wirtualnych platformy Azure
+# <a name="about-azure-vm-restore"></a>Informacje o przywracaniu maszyny wirtualnej platformy Azure
 
 W tym artykule opisano, jak [usługa Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) przywraca maszyny wirtualne platformy Azure. Istnieje kilka opcji przywracania. Omawiamy różne scenariusze, które obsługują.
 

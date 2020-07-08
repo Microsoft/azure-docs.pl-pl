@@ -12,10 +12,9 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484295"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
@@ -68,7 +67,7 @@ Przetestuj i automatyzuj implementację Azure AD B2C.
 | Testowanie A/B | Przed przeprowadzeniem całego wypełniania, aby przetworzyć nowe funkcje przy użyciu małego, losowego zestawu użytkowników. Dzięki włączeniu języka JavaScript w Azure AD B2C można zintegrować z narzędziami do testowania/B, takimi jak optymalizacja, przejrzystość i inne. |
 | Testowanie obciążeniowe | Azure AD B2C można skalować, ale aplikacja może skalować się tylko wtedy, gdy wszystkie jej zależności można skalować. Przetestuj testowanie interfejsów API i sieci CDN. |
 | Ograniczanie przepływności |  Azure AD B2C ogranicza ruch, jeśli zbyt wiele żądań jest wysyłanych z tego samego źródła w krótkim czasie. Używaj kilku źródeł ruchu podczas testowania obciążenia i `AADB2C90229` łagodnie Obsługuj kod błędu w aplikacjach. |
-| Automatyzacja | Korzystaj z potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrożenia, na przykład [Azure DevOps](deploy-custom-policies-devops.md). |
+| Automation | Korzystaj z potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrożenia, na przykład [Azure DevOps](deploy-custom-policies-devops.md). |
 
 ## <a name="operations"></a>Operacje
 

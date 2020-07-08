@@ -12,10 +12,9 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: tracking-python
 ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555628"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach

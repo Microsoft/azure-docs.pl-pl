@@ -4,10 +4,9 @@ description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485171"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
@@ -104,9 +103,9 @@ Logowanie firmy Microsoft, które zostało ostatnio użyte w domyślnej przeglą
 Prawdopodobna przyczyna:
 
 * Zasób Application Insights aplikacji został usunięty. oraz
-* Klucz Instrumentacji został ustawiony lub zmieniony w pliku ApplicationInsights. config, edytując go bezpośrednio, bez aktualizowania pliku projektu.
+* Klucz Instrumentacji został ustawiony lub zmieniony w ApplicationInsights.config przez edytowanie go bezpośrednio, bez aktualizowania pliku projektu.
 
-Klucz Instrumentacji w ApplicationInsights. config kontroluje, gdzie jest wysyłana Telemetria. Wiersz w pliku projektu określa, który zasób jest otwierany podczas korzystania z polecenia w programie Visual Studio.
+Klucz Instrumentacji w ApplicationInsights.config kontroluje, gdzie jest wysyłana Telemetria. Wiersz w pliku projektu określa, który zasób jest otwierany podczas korzystania z polecenia w programie Visual Studio.
 
 Wiązane
 
@@ -127,14 +126,14 @@ Wiązane
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * W portalu Application Insights Otwórz pozycję [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md). Dane zazwyczaj pojawiają się w tym miejscu jako pierwsze.
 * Kliknij przycisk Odśwież. Blok jest odświeżany okresowo, ale można go również wykonać ręcznie. Interwał odświeżania jest dłuższy dla większych zakresów czasu.
-* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz plik ApplicationInsights. config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  
+* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz ApplicationInsights.config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  
   * W portalu kliknij Application Insights i wyszukaj zasób aplikacji z właściwym kluczem; oraz
   * W programie Visual Studio Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję Application Insights, skonfiguruj. Zresetuj aplikację, aby wysłać dane telemetryczne do odpowiedniego zasobu.
   * Jeśli nie możesz znaleźć pasujących kluczy, sprawdź, czy używasz tych samych poświadczeń logowania w programie Visual Studio jak w portalu.
 * Na [głównym pulpicie nawigacyjnym Microsoft Azure](https://portal.azure.com)obejrzyj mapę Service Health. Jeśli istnieją jakieś wskazania alertów, poczekaj, aż powróci do programu OK, a następnie zamknij i ponownie otwórz blok aplikacji Application Insights.
 * Sprawdź również [nasz blog o stanie](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Czy piszesz kod dla [zestawu SDK po stronie serwera](../../azure-monitor/app/api-custom-events-metrics.md) , który może zmienić klucz Instrumentacji w `TelemetryClient` wystąpieniach lub w `TelemetryContext` ? Lub napisać [Filtr lub konfigurację próbkowania](../../azure-monitor/app/api-filtering-sampling.md) , która może być zbyt duża?
-* Jeśli edytowano plik ApplicationInsights. config, należy uważnie sprawdzić konfigurację [TelemetryInitializers i TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Nieprawidłowo nazwany typ lub parametr może spowodować, że zestaw SDK nie wyśle danych.
+* W przypadku edytowania ApplicationInsights.config należy uważnie sprawdzić konfigurację [TelemetryInitializers i TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Nieprawidłowo nazwany typ lub parametr może spowodować, że zestaw SDK nie wyśle danych.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Brak danych w widokach stron, przeglądarkach, użyciu
 *Widzę dane na wykresach czas odpowiedzi serwera i żądania serwera, ale nie ma danych w czasie ładowania strony ani w przeglądarce ani w blokach użycia.*
@@ -152,9 +151,9 @@ Zobacz [Telemetria zależności](../../azure-monitor/app/asp-net-dependencies.md
 Dane wydajności (procesor CPU, szybkość operacji we/wy itd.) są dostępne dla [usług sieci Web Java](../../azure-monitor/app/java-collectd.md), [aplikacji klasycznych systemu Windows](../../azure-monitor/app/windows-desktop.md), [aplikacji sieci Web i usług IIS, jeśli jest instalowany monitor stanu](../../azure-monitor/app/monitor-performance-live-website-now.md)i [usługa Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). znajdziesz je w obszarze Ustawienia, serwery.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Nie ma danych (serwer) od momentu opublikowania aplikacji na serwerze
-* Sprawdź, czy wszystkie firmy Microsoft zostały faktycznie skopiowane. ApplicationInsights biblioteki dll na serwerze wraz z Microsoft. Diagnostics. Instrumentation. Extensions. przechwycony. dll
+* Sprawdź, czy wszystkie firmy Microsoft zostały faktycznie skopiowane. ApplicationInsights biblioteki dll na serwerze programu wraz z Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * W zaporze może być konieczne [otwarcie niektórych portów TCP](../../azure-monitor/app/ip-addresses.md).
-* Jeśli musisz użyć serwera proxy do wysłania z sieci firmowej, ustaw [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) w pliku Web. config
+* Jeśli musisz użyć serwera proxy do wysłania z sieci firmowej, ustaw [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) w Web.config
 * Windows Server 2008: Upewnij się, że zainstalowano następujące aktualizacje: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Użyto, aby wyświetlić dane, ale zostało ono zatrzymane
@@ -187,7 +186,7 @@ Postępuj zgodnie z tymi instrukcjami, aby przechwytywać dzienniki rozwiązywan
 
 1. Zainstaluj pakiet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) z narzędzia NuGet. Instalowana wersja musi być zgodna z aktualnie zainstalowaną wersją programu`Microsoft.ApplicationInsighs`
 
-2. Zmodyfikuj plik ApplicationInsights. config w taki sposób, aby obejmował następujące elementy:
+2. Zmodyfikuj plik applicationinsights.config w taki sposób, aby obejmował następujące elementy:
 
     ```xml
     <TelemetryModules>

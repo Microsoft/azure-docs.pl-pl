@@ -4,15 +4,14 @@ description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za p
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309768"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje usługi i składniki zaplecza po wdrożeniu, aby ułatwić odnajdywanie i Szybkie diagnozowanie wydajności i innych problemów. Za pomocą Application Insights dla usług Node. js hostowanych w centrum danych, maszynach wirtualnych platformy Azure i aplikacjach sieci Web, a nawet w innych chmurach publicznych.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje usługi i składniki zaplecza po wdrożeniu, aby ułatwić odnajdywanie i Szybkie diagnozowanie wydajności i innych problemów. Application Insights dla usług Node.js, które są hostowane w centrum danych, na maszynach wirtualnych platformy Azure i aplikacjach sieci Web, a nawet w innych chmurach publicznych.
 
 Aby móc odbierać, przechowywać i eksplorować dane monitorowania, uwzględnij zestaw SDK w kodzie, a następnie skonfiguruj odpowiedni zasób usługi Application Insights na platformie Azure. Zestaw SDK wysyła dane do zasobu na potrzeby przyszłej analizy i eksploracji.
 
@@ -68,7 +67,7 @@ Uwzględnij zestaw SDK w aplikacji, aby mógł zbierać dane.
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorowanie aplikacji
 
-Zestaw SDK automatycznie zbiera dane telemetryczne dotyczące środowiska uruchomieniowego Node. js i niektórych popularnych modułów innych firm. Użyj swojej aplikacji, aby wygenerować niektóre z tych danych.
+Zestaw SDK automatycznie zbiera dane telemetryczne dotyczące środowiska uruchomieniowego Node.js i niektórych popularnych modułów innych firm. Użyj swojej aplikacji, aby wygenerować niektóre z tych danych.
 
 Następnie w witrynie [Azure Portal][portal] przejdź do usługi Application Insights i otwórz utworzony zasób. W obszarze **Oś czasu przeglądu** wyszukaj kilka pierwszych punktów danych. Aby wyświetlić bardziej szczegółowe dane, wybierz inne składniki wykresów.
 
@@ -190,7 +189,7 @@ Aby włączyć wysyłanie metryk na żywo z aplikacji na platformę Azure, użyj
 > [!NOTE]
 > Możliwość wysyłania rozszerzonych metryk natywnych została dodana w wersji 1.4.0
 
-Aby włączyć wysyłanie rozszerzonych metryk natywnych z aplikacji na platformę Azure, zainstaluj oddzielny pakiet metryk macierzystych. Zestaw SDK zostanie automatycznie załadowany po zainstalowaniu i rozpocznie zbieranie natywnych metryk języka Node. js.
+Aby włączyć wysyłanie rozszerzonych metryk natywnych z aplikacji na platformę Azure, zainstaluj oddzielny pakiet metryk macierzystych. Zestaw SDK zostanie automatycznie załadowany podczas instalacji i rozpocznie zbieranie Node.js natywnych metryk.
 
 ```bash
 npm install applicationinsights-native-metrics
@@ -373,7 +372,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Można utworzyć wiele zasobów Application Insights i wysyłać do nich różne dane przy użyciu odpowiednich kluczy Instrumentacji ("iKey").
 
- Na przykład:
+ Przykład:
 
 ```javascript
 let appInsights = require("applicationinsights");

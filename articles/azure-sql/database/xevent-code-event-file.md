@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
 ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485465"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w Azure SQL Database
@@ -46,8 +45,8 @@ Ten temat przedstawia dwufazowy przykład kodu:
   
   - Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](single-database-create-quickstart.md) w ciągu kilku minut.
 
-- SQL Server Management Studio (SSMS. exe), najlepiej jej najnowszej wersji aktualizacji miesięcznej.
-  Najnowszą wersję programu SSMS. exe można pobrać z:
+- SQL Server Management Studio (ssms.exe), najlepiej jej Najnowsza wersja aktualizacji miesięcznych.
+  Najnowszą ssms.exe można pobrać z:
   
   - Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
   - [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
@@ -62,7 +61,7 @@ Ten program PowerShell to faza 1 przykładu kodu dwuetapowego.
 
 Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwym wcześniejszym uruchomieniu i jest rerunnable.
 
-1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad. exe, i Zapisz skrypt jako plik z rozszerzeniem **ps1**.
+1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1**.
 2. Uruchom program PowerShell ISE jako administrator.
 3. W wierszu polecenia wpisz<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>a następnie naciśnij klawisz ENTER.
 4. W programie PowerShell ISE Otwórz plik **. ps1** . Uruchom skrypt.
@@ -250,7 +249,7 @@ Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwy
 
 Skrypt programu PowerShell drukuje kilka nazwanych wartości po zakończeniu. Aby użyć tych wartości, należy edytować skrypt Transact-SQL. Znajdź **go w skrypcie** Transact-SQL, aby zlokalizować punkty edycji.
 
-1. Otwórz SQL Server Management Studio (SSMS. exe).
+1. Otwórz SQL Server Management Studio (ssms.exe).
 2. Nawiąż połączenie z bazą danych w Azure SQL Database.
 3. Kliknij, aby otworzyć nowe okienko zapytania.
 4. Wklej następujący skrypt Transact-SQL w okienku zapytania.

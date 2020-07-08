@@ -1,7 +1,7 @@
 ---
-title: Korzystanie z MSAL. js z Azure AD B2C
+title: Użyj MSAL.js z Azure AD B2C
 titleSuffix: Microsoft identity platform
-description: Biblioteka Microsoft Authentication Library for JavaScript (MSAL. js) umożliwia aplikacjom współpracują z Azure AD B2C i pozyskiwanie tokenów w celu wywoływania zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web od innych, lub własny internetowy interfejs API.
+description: Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) umożliwia aplikacjom współpracę z Azure AD B2C i uzyskiwanie tokenów w celu wywołania zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web od innych, lub własny internetowy interfejs API.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -14,21 +14,20 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84308583"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure AD B2C
 
-[Biblioteka Microsoft Authentication Library for JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) umożliwia deweloperom języka JavaScript uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
+[Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) umożliwia deweloperom języka JavaScript uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
 Korzystając z Azure AD B2C jako usługi zarządzania tożsamościami, można dostosowywać i kontrolować sposób tworzenia konta, logowania i zarządzania swoimi profilami przy użyciu aplikacji. Azure AD B2C umożliwia również markę i dostosowanie interfejsu użytkownika, który aplikacja wyświetla podczas procesu uwierzytelniania.
 
 W poniższych sekcjach pokazano, jak:
 
-- Ochrona interfejsu API sieci Web w języku Node. js
+- Ochrona Node.js internetowego interfejsu API
 - Obsługa logowania w aplikacji jednostronicowej (SPA) i Wywołaj *ten* chroniony internetowy interfejs API
 - Włącz obsługę resetowania hasła
 
@@ -40,7 +39,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz [dzierżawę Azure AD B2C](../../activ
 
 Poniższe kroki przedstawiają sposób, w jaki **interfejs API sieci Web** może używać Azure AD B2C do ochrony samej siebie i uwidaczniania wybranych zakresów w aplikacji klienckiej.
 
-MSAL. js dla węzła jest obecnie w trakcie opracowywania. Aby uzyskać więcej informacji, zobacz [Plan](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) w witrynie GitHub. Obecnie zalecamy korzystanie z [usługi Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), biblioteki uwierzytelniania dla środowiska Node. js opracowanego i obsługiwanego przez firmę Microsoft.
+MSAL.js węzła jest obecnie w trakcie opracowywania. Aby uzyskać więcej informacji, zobacz [Plan](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) w witrynie GitHub. Obecnie zalecamy korzystanie z [usługi Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), biblioteki uwierzytelniania dla Node.js opracowanej i obsługiwanej przez firmę Microsoft.
 
 ### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 
@@ -67,7 +66,7 @@ const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can u
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się z [przykładem interfejsu API sieci Web B2C środowiska Node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Aby uzyskać więcej informacji, zapoznaj się z tym [Node.js przykładowym interfejsem API sieci Web B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ## <a name="javascript-spa"></a>JavaScript SPA
 
@@ -92,7 +91,7 @@ Aby skonfigurować aplikację, istnieją dwa kwestie:
 - Konfigurowanie punktu końcowego interfejsu API i uwidocznionych zakresów
 - Konfigurowanie parametrów uwierzytelniania i zakresów tokenów
 
-1. Otwórz plik *apiConfig. js* w przykładzie.
+1. Otwórz plik *apiConfig.js* w przykładzie.
 
 2. Skonfiguruj przykład za pomocą parametrów uzyskanych wcześniej podczas rejestrowania internetowego interfejsu API. Zmień następujące wiersze kodu, zastępując wartości adresami internetowego interfejsu API i uwidocznionych zakresów.
 
@@ -104,7 +103,7 @@ Aby skonfigurować aplikację, istnieją dwa kwestie:
     };
    ```
 
-1. Otwórz plik *authConfig. js* w przykładzie.
+1. Otwórz plik *authConfig.js* w przykładzie.
 
 1. Skonfiguruj przykład za pomocą parametrów uzyskanych wcześniej podczas rejestrowania aplikacji jednostronicowej. Zmień następujące wiersze kodu, zastępując wartości z ClientId, metadanych urzędu i zakresów żądania tokenu.
 
@@ -132,7 +131,7 @@ Aby uzyskać więcej informacji, zapoznaj się z tą [przykładową aplikacją B
 
 ## <a name="support-password-reset"></a>Obsługa resetowania hasła
 
-W tej sekcji rozszerzono aplikację jednostronicową w celu użycia przepływu użytkownika Azure AD B2C resetowania hasła. Mimo że MSAL. js nie obsługuje obecnie wielu przepływów użytkowników lub zasad niestandardowych, można użyć biblioteki do obsługi typowych przypadków użycia, takich jak resetowanie hasła.
+W tej sekcji rozszerzono aplikację jednostronicową w celu użycia przepływu użytkownika Azure AD B2C resetowania hasła. Chociaż MSAL.js nie obsługuje obecnie wielu przepływów użytkowników lub zasad niestandardowych, można użyć biblioteki do obsługi typowych przypadków użycia, takich jak resetowanie hasła.
 
 W poniższych krokach przyjęto założenie, że zostały wykonane kroki opisane w poprzedniej sekcji [Spa JavaScript](#javascript-spa) .
 

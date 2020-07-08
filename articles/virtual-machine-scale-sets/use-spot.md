@@ -10,10 +10,9 @@ ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
 ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84310567"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
@@ -159,7 +158,7 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 | Enterprise Agreement         | Tak                               |
 | Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Korzyści                     | Niedostępne                     |
+| Zalety                     | Niedostępne                     |
 | Sponsorowan                    | Tak                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 

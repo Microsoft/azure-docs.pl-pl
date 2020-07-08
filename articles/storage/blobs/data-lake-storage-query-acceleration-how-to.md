@@ -9,10 +9,9 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465868"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)
@@ -81,7 +80,7 @@ Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Sto
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Utwórz katalog w folderze głównym projektu. Katalog główny jest katalogiem, który zawiera plik **pliku pom. XML** .
+1. Utwórz katalog w folderze głównym projektu. Katalog główny jest katalogiem zawierającym plik **pom.xml** .
 
    > [!NOTE]
    > W przykładach w tym artykule przyjęto założenie, że nazwa katalogu to **lib**.
@@ -90,7 +89,7 @@ Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Sto
 
 3. Wyodrębnij pliki z pliku zip do utworzonego katalogu. W naszym przykładzie katalog nosi nazwę **lib**. 
 
-4. Otwórz plik *pliku pom. XML* w edytorze tekstów. Dodaj następujące elementy zależności do grupy zależności. 
+4. Otwórz plik *pom.xml* w edytorze tekstów. Dodaj następujące elementy zależności do grupy zależności. 
 
    ```xml
    <!-- Request static dependencies from Maven -->

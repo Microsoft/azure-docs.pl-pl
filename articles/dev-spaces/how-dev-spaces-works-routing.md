@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Zawiera opis procesów Azure Dev Spaces i sposobu działania routingu
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307422"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Jak działa Routing przy użyciu Azure Dev Spaces
@@ -55,7 +54,7 @@ Możesz również utworzyć nowe miejsce dev, które jest tworzone na podstawie 
 
 Pochodna przestrzeń dev również umożliwia inteligentne kierowanie żądań między własnymi aplikacjami i aplikacjami udostępnionymi z jego elementu nadrzędnego. Routing działa przez próbę skierowania żądania do aplikacji w pochodnym obszarze dev i powrocie do aplikacji udostępnionej z nadrzędnego obszaru dev. Routing powróci do aplikacji udostępnionej w obszarze nadrzędnym, jeśli aplikacja nie znajduje się w przestrzeni nadrzędnej.
 
-Na przykład:
+Przykład:
 * *Domyślna* przestrzeń dev ma aplikacje *Service* i *serviceB*.
 * Przestrzeń dev *azureuser* jest pochodną *domyślnego*.
 * Zaktualizowana wersja *usługi Service* . została wdrożona w *azureuser*.

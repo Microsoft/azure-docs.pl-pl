@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84339556"
 ---
 # <a name="monitor-your-azure-stack-edge"></a>Monitoruj Azure Stack krawędź

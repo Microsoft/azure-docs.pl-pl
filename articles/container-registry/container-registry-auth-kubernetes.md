@@ -7,10 +7,9 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309819"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Ściąganie obrazów z usługi Azure Container Registry do klastra Kubernetes
@@ -57,7 +56,7 @@ gdzie:
 
 ## <a name="use-the-image-pull-secret"></a>Korzystanie z klucza tajnego ściągania obrazu
 
-Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego w `imagePullSecrets` pliku wdrożenia. Na przykład:
+Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego w `imagePullSecrets` pliku wdrożenia. Przykład:
 
 ```yaml
 apiVersion: v1

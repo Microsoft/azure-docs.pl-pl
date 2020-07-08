@@ -12,10 +12,9 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557470"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Języki obsługiwane na Data Science Virtual Machine 
@@ -203,6 +202,6 @@ System **Linux**:
 
 **Java**: OpenJDK jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby użyć języka Java, wpisz `javac` `java` polecenie lub w wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux.
 
-**Node. js**: Node. js jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby uzyskać dostęp do środowiska Node. js, wpisz `node` polecenie lub w `npm` wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux. W systemie Windows jest zainstalowane rozszerzenie programu Visual Studio dla narzędzi Node. js, aby zapewnić graficzne środowisko IDE do tworzenia aplikacji node. js.
+**Node.js**: Node.js jest dostępny zarówno w wersji systemu Linux, jak i Windows DSVM i jest ustawiona na ścieżce. Aby uzyskać dostęp do Node.js, `node` wpisz `npm` polecenie lub w wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux. W systemie Windows rozszerzenie programu Visual Studio dla Node.js narzędzi jest zainstalowane, aby zapewnić graficzne środowisko IDE do tworzenia aplikacji Node.js.
 
 **F #**: dostępne w systemie Windows i dostępne za pomocą programu Visual Studio Community Edition lub w a `Developer Command Prompt for Visual Studio` , gdzie można uruchomić `fsc` polecenie.

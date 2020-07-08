@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.custom: tracking-python
 ms.openlocfilehash: b88ff6e1a58690d1781989a32607d490d791a690
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84555443"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Opracowywanie języka U-SQL przy użyciu języków Python, R i C# dla Azure Data Lake Analytics w Visual Studio Code
@@ -25,7 +24,7 @@ Przed zapisaniem niestandardowego kodu związanego z kodem należy otworzyć fol
 ## <a name="prerequisites-for-python-and-r"></a>Wymagania wstępne dotyczące języków Python i R
 Zarejestruj zestawy rozszerzeń języka Python i rozszerzenia R dla konta usługi ADL. 
 1. Otwórz swoje konto w portalu.
-   - Wybierz pozycję **Omówienie**. 
+   - Wybierz pozycję **Przegląd**. 
    - Kliknij pozycję **przykładowy skrypt**.
 2. Kliknij pozycję **Więcej**.
 3. Wybierz pozycję **Zainstaluj rozszerzenia U-SQL**. 

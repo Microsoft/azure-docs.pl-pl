@@ -4,10 +4,9 @@ description: Dowiedz się, jak tworzyć i dostosowywać plany odzyskiwania na po
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485341"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Tworzenie i dostosowywanie planów odzyskiwania
@@ -76,7 +75,7 @@ Możesz dostosować plan odzyskiwania, dodając skrypt lub akcję ręczną. Nale
     1. Wpisz nazwę akcji i wpisz instrukcje akcji. Osoba, na której działa przejście w tryb failover, zobaczy te instrukcje.
     1. Określ, czy chcesz dodać akcję ręczną dla wszystkich typów trybu failover (test, tryb failover, planowana praca w trybie failover (jeśli dotyczy)). Następnie kliknij przycisk **OK**.
 4. Jeśli chcesz dodać skrypt, wykonaj następujące czynności:
-    1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**, a w polu **ścieżka skryptu** wpisz ścieżkę względną do udziału. Na przykład, jeśli udział znajduje się w \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts, określ ścieżkę: \RPScripts\RPScript.ps1.
+    1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**, a w polu **ścieżka skryptu** wpisz ścieżkę względną do udziału. Na przykład, jeśli udział znajduje się w \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts, określ ścieżkę: \RPScripts\RPScript.PS1.
     1. Jeśli dodajesz książkę uruchamiania usługi Azure Automation, określ **konto Azure Automation** , w którym znajduje się element Runbook, a następnie wybierz odpowiedni **skrypt elementu Runbook platformy Azure**.
 5. Uruchom test pracy w trybie failover planu odzyskiwania, aby upewnić się, że skrypt działa zgodnie z oczekiwaniami.
 

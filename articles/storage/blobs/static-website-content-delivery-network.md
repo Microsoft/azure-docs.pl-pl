@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465222"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrowanie statycznej witryny sieci Web z Azure CDN
@@ -53,7 +52,7 @@ Możesz włączyć Azure CDN dla statycznej witryny sieci Web bezpośrednio z ko
 
     ![Zrzut ekranu przedstawiający przegląd punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. Po udostępnieniu punktu końcowego usługi CDN przejściu do punktu końcowego usługi CDN zostanie wyświetlona zawartość pliku index. html, który został wcześniej przekazany do statycznej witryny sieci Web.
+1. Po udostępnieniu punktu końcowego usługi CDN przejściu do punktu końcowego usługi CDN zostanie wyświetlona zawartość pliku index.html, który został wcześniej przekazany do statycznej witryny internetowej.
 
 1. Aby przejrzeć ustawienia źródła dla punktu końcowego usługi CDN, przejdź do lokalizacji **źródłowej** w sekcji **Ustawienia** dla punktu końcowego usługi CDN. Zobaczysz, że w polu **Typ źródła** jest ustawiona wartość *Źródło niestandardowe* i że w polu **Nazwa hosta źródła** jest wyświetlany statyczny punkt końcowy witryny sieci Web.
 

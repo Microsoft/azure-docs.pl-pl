@@ -11,10 +11,9 @@ ms.author: keli19
 ms.date: 03/18/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84557433"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
@@ -137,7 +136,7 @@ Po przesłaniu uruchomienia potoku i pozostawania na stronie Tworzenie można zn
 
 1. Wybierz moduł, który zakończył działanie na kanwie tworzenia.
 1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
-1. Rozwiń okienko po prawej stronie i wybierz plik **70_driver_log. txt** , aby wyświetlić go w przeglądarce. Możesz również pobrać dzienniki lokalnie.
+1. Rozwiń okienko po prawej stronie i wybierz **70_driver_log.txt** , aby wyświetlić plik w przeglądarce. Możesz również pobrać dzienniki lokalnie.
 
     ![Rozwinięte okienko danych wyjściowych w projektancie](./media/how-to-debug-pipelines/designer-logs.png)
 
@@ -151,7 +150,7 @@ Pliki dziennika dla określonych przebiegów można również znaleźć na stron
 
 1. Wybierz moduł w okienku podglądu.
 1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
-1. Rozwiń okienko po prawej stronie, aby wyświetlić plik **70_driver_log. txt** w przeglądarce, lub wybierz plik, aby pobrać dzienniki lokalnie.
+1. Rozwiń okienko po prawej stronie, aby wyświetlić plik **70_driver_log.txt** w przeglądarce, lub wybierz plik, aby pobrać dzienniki lokalnie.
 
 > [!IMPORTANT]
 > Aby zaktualizować potok na stronie szczegółów uruchomienia potoku, należy **sklonować** uruchomienie potoku do nowej wersji roboczej potoku. Uruchomienie potoku jest migawką potoku. Jest on podobny do pliku dziennika i nie można go zmienić. 
@@ -350,9 +349,9 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 
 1. Aby skonfigurować VS Code do komunikowania się z Azure Machine Learning obliczeń, w których działa debuger, Utwórz nową konfigurację debugowania:
 
-    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Zostanie otwarty plik o nazwie __Launch. JSON__ .
+    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
 
-    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim. Zmień `"host": "10.3.0.5"` wpis na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień `"localRoot": "${workspaceFolder}/code/step"` wpis na katalog lokalny, który zawiera kopię debugowanego skryptu:
+    1. W __launch.jsw__ pliku Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim. Zmień `"host": "10.3.0.5"` wpis na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień `"localRoot": "${workspaceFolder}/code/step"` wpis na katalog lokalny, który zawiera kopię debugowanego skryptu:
 
         ```json
         {
@@ -379,7 +378,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
         >
         > W przypadku debugowania wielu skryptów w różnych katalogach należy utworzyć osobną sekcję konfiguracyjną dla każdego skryptu.
 
-    1. Zapisz plik __Launch. JSON__ .
+    1. Zapisz __launch.js__ pliku.
 
 ### <a name="connect-the-debugger"></a>Podłącz debuger
 

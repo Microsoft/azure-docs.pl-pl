@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/30/2020
 ms.openlocfilehash: 84e9593884f40fce8affce628b7817c528b3c31d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343289"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w Azure SQL Database
@@ -150,7 +149,7 @@ Więcej niż 1 TB magazynu w warstwie Premium jest obecnie dostępne we wszystki
 - W przypadku aktywnych scenariuszy replikacji geograficznej:
   - Konfigurowanie relacji replikacji geograficznej: Jeśli podstawowa baza danych to P11 lub P15, muszą być one również P11 lub P15. Mniejsze rozmiary obliczeń są odrzucane jako serwery pomocnicze, ponieważ nie mogą obsługiwać więcej niż 1 TB.
   - Uaktualnianie podstawowej bazy danych w relacji replikacji geograficznej: zmiana maksymalnego rozmiaru na więcej niż 1 TB w podstawowej bazie danych wyzwala tę samą zmianę w pomocniczej bazie danych. Aby zmiana dotycząca podstawowego zaczęła obowiązywać, należy przeprowadzić obie uaktualnienia. Ograniczenia regionów dla opcji ponad 1 TB mają zastosowanie. Jeśli pomocnicza znajduje się w regionie, który nie obsługuje więcej niż 1 TB, podstawowy nie zostanie uaktualniony.
-- Korzystanie z usługi Import/Export do ładowania baz danych P11/P15 o więcej niż 1 TB nie jest obsługiwane. [Importowanie](database-import.md) i [Eksportowanie](database-export.md) danych przy użyciu programu sqlpackage. exe.
+- Korzystanie z usługi Import/Export do ładowania baz danych P11/P15 o więcej niż 1 TB nie jest obsługiwane. Użyj SqlPackage.exe, aby [importować](database-import.md) i [eksportować](database-export.md) dane.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,10 +13,9 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484035"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
@@ -25,7 +24,7 @@ Aby dostosować środowisko użytkownika końcowego dla usługi Azure Multi-Fact
 
 Następujące ustawienia usługi Azure Multi-Factor Authentication są dostępne w Azure Portal:
 
-| Cechy | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania platformy Azure Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication platformy Azure. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
@@ -244,7 +243,7 @@ Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwier
 
 | Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
 |:--- |:--- |
-| Zarządzani |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
+| Zarządzany |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
 | Federacyjni |**Wszyscy użytkownicy zafederacyjnych**: Wszyscy użytkownicy federacyjne, którzy logują się z wewnątrz organizacji, mogą ominąć weryfikację dwuetapową. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. |
 
 Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu weryfikacji dwuetapowej. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
@@ -268,7 +267,7 @@ Za pomocą reguł dostępu warunkowego można definiować nazwane lokalizacje, w
 1. Wprowadź nazwę lokalizacji.
 1. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
 1. Wprowadź zakres adresów IP w notacji CIDR dla danego środowiska, na przykład *40.77.182.32/27*.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
 

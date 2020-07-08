@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484339"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Klauzula ORDER BY w Azure Cosmos DB
@@ -223,6 +222,6 @@ Nie można kontrolować kolejności, w której różne typy pojawiają się w wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pierwsze kroki](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [Zasady indeksowania w usłudze Azure Cosmos DB](index-policy.md)
 - [Klauzula limitu przesunięcia](sql-query-offset-limit.md)

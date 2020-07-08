@@ -7,10 +7,9 @@ ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465256"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
@@ -72,7 +71,7 @@ Po utworzeniu grupy akcji można wyświetlić **grupy akcji** , wybierając pozy
 > [!NOTE]
 > Zobacz [limity usługi subskrypcji, aby monitorować](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) limity liczbowe dla każdego z poniższych elementów.  
 
-### <a name="automation-runbook"></a>Element Runbook usługi Automation
+### <a name="automation-runbook"></a>Element runbook automatyzacji
 Limity dotyczące ładunków elementów Runbook można znaleźć w [limitach usługi subskrypcji platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) .
 
 W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook. 

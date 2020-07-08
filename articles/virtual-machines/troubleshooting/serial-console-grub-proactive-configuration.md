@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
 ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84309836"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Proaktywne zagwarantowanie, że masz dostęp do GRUB i sysrq mogą zaoszczędzić znaczną część czasu
@@ -105,7 +104,7 @@ Maszyna wirtualna musi być skonfigurowana do akceptowania wartości 1 dla param
 [Włącz wideo sysrq](https://youtu.be/0doqFRrHz_Mc)
 
 
-Aby skonfigurować maszynę wirtualną do akceptowania ponownego uruchomienia za pomocą poleceń SysRq na Azure Portal, należy ustawić wartość 1 dla parametru jądra jądra. sysrq
+Aby skonfigurować maszynę wirtualną do akceptowania ponownego uruchomienia za pomocą poleceń SysRq na Azure Portal, należy ustawić wartość 1 dla parametru jądra kernel.sysRQ
 
 W przypadku tej konfiguracji w celu utrwalenia ponownego uruchomienia należy dodać wpis do pliku **sysctl. conf**
 

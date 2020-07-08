@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 608c8206227a129a320a560e752cf31a4843dca3
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84321686"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Wymagania dotyczące licencjonowania Azure Active Directory samoobsługowego resetowania hasła
@@ -30,7 +29,7 @@ SSPR jest licencjonowany na użytkownika. Aby zapewnić zgodność, organizacje 
 
 W poniższej tabeli opisano różne scenariusze SSPR dotyczące zmiany haseł, resetowania lub lokalnego zapisywania zwrotnego, a także jednostki SKU, które udostępniają funkcję.
 
-| Cechy | Usługa Azure AD — warstwa Bezpłatna | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Azure AD — wersja Premium P1 lub P2 |
+| Cecha | Usługa Azure AD — warstwa Bezpłatna | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | **Zmiana hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD wie swoje hasło i chce zmienić go na nowy. | ● | ● | ● | ● |
 | **Resetowanie hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD zapomniał hasło i musi je zresetować. | | ● | ● | ● |

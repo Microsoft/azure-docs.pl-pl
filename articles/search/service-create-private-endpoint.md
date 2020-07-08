@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84466174"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
@@ -123,7 +122,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **zachodnie stany USA** lub region, którego używasz. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -211,7 +210,7 @@ Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu
 
 1. Aby sprawdzić, czy usługa jest niedostępna w publicznym punkcie końcowym, Otwórz program Poster na lokalnej stacji roboczej i spróbuj wykonać kilka pierwszych zadań w przewodniku Szybki Start. Jeśli zostanie wyświetlony komunikat o błędzie, że serwer zdalny nie istnieje, pomyślnie skonfigurowano prywatny punkt końcowy dla usługi wyszukiwania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego, usługi wyszukiwania i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 1. Wprowadź *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów *myResourceGroup*   z wyników wyszukiwania. 
 1. Wybierz pozycję **Usuń grupę zasobów**. 

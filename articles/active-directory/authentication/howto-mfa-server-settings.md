@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69733071c5b43ee9c8e6450e3a9924bc656d5c84
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485609"
 ---
 # <a name="configure-mfa-server-settings"></a>Konfigurowanie ustawień serwera usługi MFA
@@ -27,7 +26,7 @@ Ten artykuł ułatwia zarządzanie ustawieniami serwera usługi Azure MFA w Azur
 
 Dostępne są następujące ustawienia serwera MFA:
 
-| Cechy | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | Ustawienia serwera | Pobierz serwer usługi MFA i Wygeneruj poświadczenia aktywacji w celu zainicjowania środowiska |
 | [Jednorazowe obejście](#one-time-bypass) | Zezwalaj użytkownikowi na uwierzytelnianie bez uwierzytelniania wieloskładnikowego przez ograniczony czas. |

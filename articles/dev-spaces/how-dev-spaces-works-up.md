@@ -6,10 +6,9 @@ ms.topic: conceptual
 description: Opisuje procesy uruchamiania kodu w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
 ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84307473"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Jak działa kod przy użyciu Azure Dev Spaces Works
@@ -157,7 +156,7 @@ configurations:
 
 Kontroler używa pliku dockerfile do kompilowania i uruchamiania aplikacji.
 
-Właściwość *Build. Context* zawiera listę katalogów, w których istnieje wieloetapowe dockerfile. Właściwość *Build. pliku dockerfile* definiuje nazwę pliku dockerfile do tworzenia wersji produkcyjnej aplikacji. Właściwość *Configurations. Development. Build. pliku dockerfile* konfiguruje nazwę pliku dockerfile dla deweloperskiej wersji aplikacji.
+Właściwość *Build. Context* zawiera listę katalogów, w których istnieje wieloetapowe dockerfile. Właściwość *build.dockerfile* definiuje nazwę pliku dockerfile do tworzenia wersji produkcyjnej aplikacji. Właściwość *configurations.develop.build.dockerfile* konfiguruje nazwę pliku dockerfile dla deweloperskiej wersji aplikacji.
 
 Posiadanie różnych wieloetapowe dockerfile na potrzeby programowania i produkcji pozwala na włączenie pewnych rzeczy podczas opracowywania i wyłączenie tych elementów dla wdrożeń produkcyjnych. Na przykład można włączyć debugowanie lub więcej pełnych rejestrowania podczas opracowywania i wyłączyć w środowisku produkcyjnym. Możesz również zaktualizować te właściwości, jeśli wieloetapowe dockerfile są nazwane inaczej lub znajdują się w innej lokalizacji.
 
@@ -205,7 +204,7 @@ Aby rozpocząć korzystanie z Azure Dev Spaces do uruchamiania projektu, zobacz 
 
 * [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
 * [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i środowiska Node. js][quickstart-node]
+* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
 * [Szybkie iteracje i debugowanie za pomocą programów Visual Studio i .NET Core][quickstart-vs]
 * [Korzystanie z interfejsu wiersza polecenia do tworzenia aplikacji na Kubernetes][quickstart-cli]
 
