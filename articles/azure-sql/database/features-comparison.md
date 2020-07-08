@@ -3,8 +3,8 @@ title: Porównanie funkcji aparatu bazy danych SQL Database i wystąpienia zarz�
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: W tym artykule porównano funkcje aparatu bazy danych Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: 9cefd07e02eaf80b7cfdf65cab8d4eb410da4677
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373288"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983523"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -148,7 +148,7 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 | Punkt końcowy usługi sieci wirtualnej | [Tak](vnet-service-endpoint-rule-overview.md) | Nie |
 | Globalna komunikacja równorzędna sieci wirtualnej | Tak, za pomocą [prywatnego adresu IP i punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) | Nie, [wystąpienie zarządzane SQL nie jest obsługiwane](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) ze względu na [ograniczenie modułu równoważenia obciążenia w globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 
 Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują różne narzędzia danych, które mogą ułatwić zarządzanie danymi.
 
