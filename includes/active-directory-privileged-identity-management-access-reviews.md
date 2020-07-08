@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: rolyon
 ms.service: active-directory
@@ -9,10 +9,10 @@ ms.date: 05/26/2020
 ms.author: barclayn
 ms.custom: include file
 ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83868062"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Utwórz co najmniej jedną weryfikację dostępu
