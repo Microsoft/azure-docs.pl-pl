@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 871ff0fe7fdf92e82b30b1c93867d753ce9a82b0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048525"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956903"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Raportowanie w skalowanych bazach danych w chmurze (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,45 +64,53 @@ Są one używane do nawiązywania połączenia z menedżerem map fragmentu i fra
 1. Otwórz SQL Server Management Studio lub SQL Server narzędzia danych w programie Visual Studio.
 2. Nawiąż połączenie z bazą danych ElasticDBQuery i wykonaj następujące polecenia T-SQL:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+    ```tsql
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
-        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-        WITH IDENTITY = '<username>',
-        SECRET = '<password>';
+    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+    WITH IDENTITY = '<username>',
+    SECRET = '<password>';
+    ```
 
     nazwy "username" i "Password" powinny być takie same jak informacje logowania używane w kroku 3 sekcji [pobieranie i uruchamianie przykładowej aplikacji](elastic-scale-get-started.md#download-and-run-the-sample-app) w artykule **wprowadzenie do narzędzi Elastic Database** .
 
 ### <a name="external-data-sources"></a>Zewnętrzne źródła danych
 Aby utworzyć zewnętrzne źródło danych, wykonaj następujące polecenie w bazie danych ElasticDBQuery:
 
-    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
-      (TYPE = SHARD_MAP_MANAGER,
-      LOCATION = '<server_name>.database.windows.net',
-      DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
-      CREDENTIAL = ElasticDBQueryCred,
-       SHARD_MAP_NAME = 'CustomerIDShardMap'
-    ) ;
+```tsql
+CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+    (TYPE = SHARD_MAP_MANAGER,
+    LOCATION = '<server_name>.database.windows.net',
+    DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
+    CREDENTIAL = ElasticDBQueryCred,
+    SHARD_MAP_NAME = 'CustomerIDShardMap'
+) ;
+```    
 
  "CustomerIDShardMap" jest nazwą mapy fragmentu, jeśli utworzono mapę fragmentu i fragmentu mapowanie przy użyciu przykładowych narzędzi Elastic Database. Jeśli jednak użyto konfiguracji niestandardowej dla tego przykładu, powinna to być nazwa mapy fragmentu wybrana w aplikacji.
 
 ### <a name="external-tables"></a>Tabele zewnętrzne
 Utwórz tabelę zewnętrzną zgodną z tabelą Customers w fragmentów, wykonując następujące polecenie w bazie danych ElasticDBQuery:
 
-    CREATE EXTERNAL TABLE [dbo].[Customers]
-    ( [CustomerId] [int] NOT NULL,
-      [Name] [nvarchar](256) NOT NULL,
-      [RegionId] [int] NOT NULL)
-    WITH
-    ( DATA_SOURCE = MyElasticDBQueryDataSrc,
-      DISTRIBUTION = SHARDED([CustomerId])
-    ) ;
+```tsql
+CREATE EXTERNAL TABLE [dbo].[Customers]
+( [CustomerId] [int] NOT NULL,
+    [Name] [nvarchar](256) NOT NULL,
+    [RegionId] [int] NOT NULL)
+WITH
+( DATA_SOURCE = MyElasticDBQueryDataSrc,
+    DISTRIBUTION = SHARDED([CustomerId])
+) ;
+```
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Wykonywanie przykładowego zapytania T-SQL Elastic Database
 Po zdefiniowaniu zewnętrznego źródła danych i tabel zewnętrznych można teraz używać pełnego języka T-SQL dla tabel zewnętrznych.
 
 Wykonaj to zapytanie w bazie danych ElasticDBQuery:
 
-    select count(CustomerId) from [dbo].[Customers]
+```tsql
+select count(CustomerId) from [dbo].[Customers]
+```
 
 Zobaczysz, że zapytanie agreguje wyniki ze wszystkich fragmentów i daje następujące dane wyjściowe:
 
