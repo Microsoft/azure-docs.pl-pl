@@ -6,14 +6,13 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774444"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows
-Aby zapobiec nieautoryzowanemu dostępowi do klastra Service Fabric, należy zabezpieczyć klaster. Zabezpieczenia są szczególnie ważne w przypadku uruchamiania przez klaster obciążeń produkcyjnych. W tym artykule opisano sposób konfigurowania zabezpieczeń między węzłami i klienta-do-węzła przy użyciu zabezpieczeń systemu Windows w pliku *ClusterConfig. JSON* .  Proces ten odnosi się do kroku Konfigurowanie zabezpieczeń [tworzenia klastra autonomicznego działającego w systemie Windows](service-fabric-cluster-creation-for-windows-server.md). Aby uzyskać więcej informacji o tym, jak Service Fabric korzysta z zabezpieczeń systemu Windows, zobacz [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md).
+Aby zapobiec nieautoryzowanemu dostępowi do klastra Service Fabric, należy zabezpieczyć klaster. Zabezpieczenia są szczególnie ważne w przypadku uruchamiania przez klaster obciążeń produkcyjnych. W tym artykule opisano sposób konfigurowania zabezpieczeń między węzłami i klientem-do-węzła przy użyciu zabezpieczeń systemu Windows w *ClusterConfig.JS* pliku.  Proces ten odnosi się do kroku Konfigurowanie zabezpieczeń [tworzenia klastra autonomicznego działającego w systemie Windows](service-fabric-cluster-creation-for-windows-server.md). Aby uzyskać więcej informacji o tym, jak Service Fabric korzysta z zabezpieczeń systemu Windows, zobacz [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md).
 
 > [!NOTE]
 > Należy uważnie rozważyć wybór zabezpieczeń między węzłami, ponieważ nie istnieje uaktualnienie klastra z jednego wyboru zabezpieczeń do innego. Aby zmienić wybór zabezpieczeń, należy ponownie skompilować pełny klaster.
@@ -21,7 +20,7 @@ Aby zapobiec nieautoryzowanemu dostępowi do klastra Service Fabric, należy zab
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurowanie zabezpieczeń systemu Windows przy użyciu gMSA  
-Przykładowy plik konfiguracyjny *ClusterConfig. gMSA. Windows. wielomachine. JSON* został pobrany z [Microsoft. Azure. servicefabric. WindowsServer.\< wersja>. zip](https://go.microsoft.com/fwlink/?LinkId=730690) autonomiczny pakiet klastra zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows za pomocą [konta usługi zarządzanego przez grupę (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+Przykład *ClusterConfig.gMSA.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> .. ](https://go.microsoft.com/fwlink/?LinkId=730690)pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows przy użyciu [konta usługi zarządzanego przez grupę (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -52,7 +51,7 @@ Przykładowy plik konfiguracyjny *ClusterConfig. gMSA. Windows. wielomachine. JS
 | IsAdmin |Ustaw wartość true, aby określić, że użytkownik domeny ma dostęp klienta administratora lub wartość false dla dostępu klienta. |
 
 > [!NOTE]
-> Wartość ClustergMSAIdentity musi być w formacie "mysfgmsa@mydomain".
+> Wartość ClustergMSAIdentity musi być w formacie " mysfgmsa@mydomain ".
 
 [Zabezpieczenia węzła do węzła](service-fabric-cluster-security.md#node-to-node-security) konfiguruje się za pomocą ustawienia **ClustergMSAIdentity** , gdy Usługa Service Fabric musi działać w ramach gMSA. Aby można było tworzyć relacje zaufania między węzłami, muszą one być wzajemnie świadome. Można to zrobić na dwa różne sposoby: Określ konto usługi zarządzane przez grupę, które zawiera wszystkie węzły w klastrze, lub określ grupę maszyn domeny obejmującą wszystkie węzły w klastrze. Zdecydowanie zalecamy użycie podejścia do [konta usługi zarządzanego przez grupę (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) , szczególnie w przypadku większych klastrów (więcej niż 10 węzłów) lub dla klastrów, które mogą się zwiększać lub zmniejszać.  
 Takie podejście nie wymaga tworzenia grupy domeny, dla której administratorzy klastrów mają przyznane prawa dostępu do dodawania i usuwania członków. Te konta są również przydatne do automatycznego zarządzania hasłami. Aby uzyskać więcej informacji, zobacz [wprowadzenie z kontami usług zarządzanymi przez grupę](https://technet.microsoft.com/library/jj128431.aspx).  
@@ -77,7 +76,7 @@ W poniższym przykładzie sekcja **zabezpieczeń** konfiguruje zabezpieczenia sy
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurowanie zabezpieczeń systemu Windows przy użyciu grupy maszyn  
-Ten model jest przestarzały. Zaleca się użycie gMSA zgodnie z powyższym opisem. Plik konfiguracji przykładowej *ClusterConfig. Windows. wielomachine. JSON* został pobrany z użyciem elementu [Microsoft. Azure. servicefabric.\< WindowsServer. wersja>. zip](https://go.microsoft.com/fwlink/?LinkId=730690) autonomiczny pakiet klastra zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows.  Zabezpieczenia systemu Windows są konfigurowane w sekcji **Właściwości** : 
+Ten model jest przestarzały. Zaleca się użycie gMSA zgodnie z powyższym opisem. Przykład *ClusterConfig.Windows.MultiMachine.JSw* pliku konfiguracyjnym pobrany z [Microsoft. Azure. servicefabric. WindowsServer. \<version> .. ](https://go.microsoft.com/fwlink/?LinkId=730690)pakiet autonomicznego klastra zip zawiera szablon służący do konfigurowania zabezpieczeń systemu Windows.  Zabezpieczenia systemu Windows są konfigurowane w sekcji **Właściwości** : 
 
 ```
 "security": {
@@ -129,12 +128,12 @@ W poniższym przykładzie sekcja **zabezpieczeń** konfiguruje zabezpieczenia sy
 ```
 
 > [!NOTE]
-> Service Fabric nie należy wdrażać na kontrolerze domeny. Upewnij się, że plik ClusterConfig. JSON nie zawiera adresu IP kontrolera domeny w przypadku korzystania z grupy maszyn lub konta usługi zarządzanego przez grupę (gMSA).
+> Service Fabric nie należy wdrażać na kontrolerze domeny. Upewnij się, że ClusterConfig.json nie uwzględnia adresu IP kontrolera domeny w przypadku korzystania z grupy maszyn lub konta usługi zarządzanego przez grupę (gMSA).
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Po skonfigurowaniu zabezpieczeń systemu Windows w pliku *ClusterConfig. JSON* Wznów proces tworzenia klastra w temacie [Tworzenie klastra autonomicznego działającego w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
+Po skonfigurowaniu zabezpieczeń systemu Windows w *ClusterConfig.JS* pliku należy wznowić proces tworzenia klastra w temacie [Tworzenie klastra autonomicznego działającego w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Aby uzyskać więcej informacji na temat zabezpieczeń między węzłami, zabezpieczeń klienta do węzła i kontroli dostępu opartej na rolach, zobacz [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md).
 

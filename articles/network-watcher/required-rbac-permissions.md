@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
 ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76840557"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Uprawnienia kontroli dostępu opartej na rolach wymagane do korzystania z funkcji Network Watcher
@@ -104,7 +103,7 @@ Funkcje Network Watcher wymagają również następujących działań:
 
 | Akcje:                                                           | Opis                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft. Authorization/\*/Read                                     | Służy do pobierania przypisań ról RBAC i definicji zasad          |
+| Microsoft. Authorization/ \* /Read                                     | Służy do pobierania przypisań ról RBAC i definicji zasad          |
 | Microsoft. resources/subscriptions/resourceGroups/Read               | Służy do wyliczania wszystkich grup zasobów w ramach subskrypcji    |
 | Microsoft. Storage/storageAccounts/Read                              | Służy do pobierania właściwości dla określonego konta magazynu   |
 | Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/listKeys/akcja| Służy do pobierania sygnatur dostępu współdzielonego (SAS) umożliwiających [bezpieczny dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) i zapisywanie na koncie magazynu |

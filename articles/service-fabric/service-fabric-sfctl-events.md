@@ -6,16 +6,15 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906095"
 ---
 # <a name="sfctl-events"></a>zdarzenia sfctl
 Pobierz zdarzenia ze sklepu Events (Jeśli usługa EventStore jest już zainstalowana).
 
-Usługę systemową EventStore można dodać w ramach uaktualnienia konfiguracji do dowolnego klastra SFRP z systemem >= 6,4. Sprawdź następujący adres URL\: https\://docs.Microsoft.com/Azure/Service-Fabric/Service-Fabric-Diagnostics-eventstore.
+Usługę systemową EventStore można dodać w ramach uaktualnienia konfiguracji do dowolnego klastra SFRP z systemem >= 6,4. Sprawdź następujący adres URL \: https \: //docs.Microsoft.com/Azure/Service-Fabric/Service-Fabric-Diagnostics-eventstore.
 
 ## <a name="commands"></a>Polecenia
 
@@ -42,12 +41,12 @@ Odpowiedź jest listą obiektów ApplicationEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -55,8 +54,8 @@ Odpowiedź jest listą obiektów ApplicationEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-all-nodes-list"></a>Lista zdarzeń sfctl — wszystkie węzły
@@ -68,12 +67,12 @@ Odpowiedź jest listą obiektów NodeEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -81,8 +80,8 @@ Odpowiedź jest listą obiektów NodeEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-all-partitions-list"></a>wszystkie zdarzenia sfctl — lista partycji
@@ -94,12 +93,12 @@ Odpowiedź jest listą obiektów PartitionEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -107,8 +106,8 @@ Odpowiedź jest listą obiektów PartitionEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-all-services-list"></a>wszystkie usługi — lista zdarzeń sfctl
@@ -120,12 +119,12 @@ Odpowiedź jest listą obiektów serviceevents.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -133,8 +132,8 @@ Odpowiedź jest listą obiektów serviceevents.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-application-list"></a>Lista zdarzeń sfctl
@@ -146,13 +145,13 @@ Odpowiedź jest listą obiektów ApplicationEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -160,8 +159,8 @@ Odpowiedź jest listą obiektów ApplicationEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-cluster-list"></a>Lista klastrów zdarzeń sfctl
@@ -173,12 +172,12 @@ Odpowiedź jest listą obiektów ClusterEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -186,8 +185,8 @@ Odpowiedź jest listą obiektów ClusterEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-node-list"></a>węzeł Lista zdarzeń sfctl
@@ -199,13 +198,13 @@ Odpowiedź jest listą obiektów NodeEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Node-Name [wymagane] | Nazwa węzła. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -213,8 +212,8 @@ Odpowiedź jest listą obiektów NodeEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-partition-all-replicas-list"></a>partycja zdarzeń sfctl — wszystkie repliki — lista
@@ -226,13 +225,13 @@ Odpowiedź jest listą obiektów ReplicaEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -240,8 +239,8 @@ Odpowiedź jest listą obiektów ReplicaEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-partition-list"></a>partycja zdarzeń sfctl — lista
@@ -253,13 +252,13 @@ Odpowiedź jest listą obiektów PartitionEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -267,8 +266,8 @@ Odpowiedź jest listą obiektów PartitionEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-partition-replica-list"></a>partycja zdarzeń sfctl-Replica-list
@@ -280,14 +279,14 @@ Odpowiedź jest listą obiektów ReplicaEvent.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
 | --Replica-ID [wymagane] | Identyfikator repliki. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -295,8 +294,8 @@ Odpowiedź jest listą obiektów ReplicaEvent.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-events-service-list"></a>Usługa zdarzeń sfctl — lista
@@ -308,13 +307,13 @@ Odpowiedź jest listą obiektów serviceevents.
 
 |Argument|Opis|
 | --- | --- |
-| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg\:mm\:SSS. |
+| --czas zakończenia — UTC [wymagane] | Godzina zakończenia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --Start-Time-UTC [wymagane] | Godzina rozpoczęcia zapytania wyszukiwania w formacie ISO UTC RRRR-MM-DDTgg \: mm \: SSS. |
 | --Events-Types-Filter | Jest to ciąg rozdzielony przecinkami określający typy FabricEvents, które powinny być uwzględniane tylko w odpowiedzi. |
 | --Exclude-Analysis-Events | Ten parametr param wyłącza pobieranie elementu AnalysisEvents, jeśli wartość jest równa true. |
 | --Skip-korelacja | Ten parametr param wyłącza wyszukiwanie informacji CorrelatedEvents w przypadku, gdy wartość jest równa true. w przeciwnym razie pole CorrelationEvents przetworzono i HasCorrelatedEvents w każdym FabricEvent zostanie wypełnione. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -322,7 +321,7 @@ Odpowiedź jest listą obiektów serviceevents.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841751"
 ---
 # <a name="output-batching"></a>Dzielenie na partie danych wyjściowych
@@ -79,8 +78,8 @@ Poniższe ustawienia czasu wdrożenia kontrolują maksymalną dozwoloną wartoś
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Maksymalna dozwolona wartość dla `PreferredBatchSizeInKilobytes` pokrętła. Wartość `1033`domyślna.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość `50`domyślna.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Maksymalna dozwolona wartość dla `PreferredBatchSizeInKilobytes` pokrętła. Wartość domyślna `1033` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość domyślna `50` .
 
 ## <a name="configuring-runtime-default-values"></a>Konfigurowanie wartości domyślnych środowiska uruchomieniowego
 
@@ -88,5 +87,5 @@ Następujące ustawienia czasu wdrożenia kontrolują wartość domyślną środ
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość `1_058_576`domyślna.
-| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość `10`domyślna.
+| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość domyślna `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość domyślna `10` .

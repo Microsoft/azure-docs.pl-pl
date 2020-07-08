@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76766266"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stan aranżacji niestandardowej w Durable Functions (Azure Functions)
@@ -24,7 +23,7 @@ Stan aranżacji niestandardowej pozwala ustawić niestandardową wartość stanu
 
 Klienci mogą sondować punkt końcowy stanu i wyświetlać interfejs użytkownika postępu, który wizualizuje bieżący etap wykonania. W poniższym przykładzie przedstawiono udostępnianie postępu:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -85,7 +84,7 @@ module.exports = async function(context, name) {
 
 A następnie klient otrzyma dane wyjściowe aranżacji tylko wtedy, gdy `CustomStatus` pole jest ustawione na wartość "Londyn":
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -148,7 +147,7 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> W języku JavaScript `customStatus` pole zostanie ustawione, gdy zostanie zaplanowana Następna `yield` lub `return` akcja.
+> W języku JavaScript `customStatus` pole zostanie ustawione, gdy `yield` `return` zostanie zaplanowana Następna lub akcja.
 
 ---
 
@@ -156,7 +155,7 @@ module.exports = async function(context, req) {
 
 Innym interesującym scenariuszem jest segmentacja użytkowników, zwracając dostosowane dane wyjściowe na podstawie unikatowych właściwości lub interakcji. Dzięki pomocy dotyczącej niestandardowego stanu aranżacji kod po stronie klienta pozostanie ogólny. Wszystkie podstawowe modyfikacje zostaną wykonane po stronie serwera, jak pokazano w następującym przykładzie:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -233,7 +232,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Koordynator może zapewnić klientom unikatowe instrukcje za pośrednictwem stanu niestandardowego. Niestandardowe instrukcje stanu zostaną zamapowane na kroki w kodzie aranżacji:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -294,7 +293,7 @@ module.exports = df.orchestrator(function*(context) {
 
 W poniższym przykładzie stan niestandardowy jest ustawiony jako pierwszy;
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)

@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841833"
 ---
 # <a name="rest-api"></a>Interfejs API REST
@@ -164,7 +163,7 @@ Wszystkie interfejsy API zwracają błąd z następującym ładunkiem:
 **Odpowiedź**: http 200, pusty ładunek
 
 ## <a name="manage-event-subscriptions"></a>Zarządzanie subskrypcjami zdarzeń
-Przykłady w tej sekcji są `EndpointType=Webhook;`używane. Przykłady JSON dla programu `EndpointType=EdgeHub / EndpointType=EventGrid` znajdują się w następnej sekcji. 
+Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON dla programu `EndpointType=EdgeHub / EndpointType=EventGrid` znajdują się w następnej sekcji. 
 
 ### <a name="put-event-subscription-create--update"></a>Umieść subskrypcję zdarzeń (Utwórz/zaktualizuj)
 
@@ -572,7 +571,7 @@ Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie **eventgridsc
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Konfigurowanie tematu ze schematem niestandardowym
-Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie `customschema`.
+Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie `customschema` .
 
 ```json
     {
@@ -585,7 +584,7 @@ Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie `customschema
 ```
 
 ### <a name="set-up-topic-with-cloud-event-schema"></a>Konfigurowanie tematu przy użyciu schematu zdarzeń w chmurze
-Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie `cloudeventschema`.
+Konfiguruje temat, aby wymagać opublikowania zdarzeń w programie `cloudeventschema` .
 
 ```json
     {
@@ -623,7 +622,7 @@ Ograniczenia dotyczące `endpointUrl` atrybutu:
 - Jeśli outbound__webhook__httpsOnly ma wartość true w ustawieniach EventGridModule, musi być tylko HTTPS.
 - Jeśli outbound__webhook__httpsOnly ma wartość false, może to być HTTP lub HTTPS.
 
-Ograniczenia dotyczące `eventDeliverySchema` właściwości:
+Ograniczenia dotyczące `eventDeliverySchema` Właściwości:
 - Musi być zgodna ze schematem wejściowym tematu subskrybowania.
 - Może mieć wartość null. Domyślnie jest to schemat wejściowy tematu.
 
@@ -712,7 +711,7 @@ Aby opublikować w centrum zdarzeń, ustaw polecenie `endpointType` na `eventHub
 
 ## <a name="set-up-service-bus-queues-as-a-destination"></a>Skonfiguruj kolejki Service Bus jako miejsce docelowe
 
-Aby opublikować w kolejce Service Bus, ustaw `endpointType` dla `serviceBusQueue` opcji wartość i podaj:
+Aby opublikować w kolejce Service Bus, ustaw dla opcji `endpointType` wartość `serviceBusQueue` i podaj:
 
 * connectionString: parametry połączenia dla konkretnej kolejki Service Bus są generowane przez zasady dostępu współdzielonego.
 

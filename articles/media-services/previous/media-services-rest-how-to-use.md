@@ -16,10 +16,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773657"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations 
@@ -33,7 +32,7 @@ Media Services udostępnia interfejs API REST, który akceptuje zarówno format 
 
 Uwierzytelnianie w interfejsie API REST Media Services odbywa się przy użyciu uwierzytelniania Azure Active Directory, które opisano w artykule [używanie uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu api Azure Media Services przy użyciu usługi REST](media-services-rest-connect-with-aad.md)
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 W przypadku korzystania z usługi REST obowiązują następujące zagadnienia.
 
@@ -58,7 +57,7 @@ W przypadku korzystania z usługi REST obowiązują następujące zagadnienia.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standardowe nagłówki żądań HTTP obsługiwane przez Media Services
 Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw wymaganych nagłówków, które należy uwzględnić w żądaniu, a także zestaw opcjonalnych nagłówków, które warto uwzględnić. W poniższej tabeli wymieniono wymagane nagłówki:
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
 | Autoryzacja |Bearer |Posiadacz jest jedynym zaakceptowanym mechanizmem autoryzacji. Wartość musi również zawierać token dostępu dostarczony przez Azure Active Directory. |
 | x-MS-Version |Wartość dziesiętna |2,17 (lub Najnowsza wersja)|
@@ -72,9 +71,9 @@ Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw w
 
 Poniżej znajduje się zestaw opcjonalnych nagłówków:
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
-| Date |Data 1123 |Sygnatura czasowa żądania |
+| Data |Data 1123 |Sygnatura czasowa żądania |
 | Zaakceptuj |Typ zawartości |Żądany typ zawartości dla odpowiedzi, na przykład następujące:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Odpowiedzi mogą mieć inny typ zawartości, taki jak pobieranie obiektów blob, gdzie pomyślnie odpowiedź zawiera strumień obiektów BLOB jako ładunek. |
 | Akceptuj — kodowanie |Gzip, Wklęśnięcie |Kodowanie GZIP i WKLĘŚNIĘCIE, jeśli ma zastosowanie. Uwaga: w przypadku dużych zasobów Media Services może zignorować ten nagłówek i zwrócić nieskompresowane dane. |
 | Accept-Language |"pl", "es" i tak dalej. |Określa preferowany język odpowiedzi. |
@@ -86,13 +85,13 @@ Poniżej znajduje się zestaw opcjonalnych nagłówków:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standardowe nagłówki odpowiedzi HTTP obsługiwane przez Media Services
 Poniżej znajduje się zestaw nagłówków, które mogą zostać zwrócone do użytkownika w zależności od zasobu, którego dotyczy żądanie, oraz akcji, która ma zostać wykonana.
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
 | Identyfikator żądania |String |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
 | Identyfikator żądania klienta |String |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
-| Date |Data 1123 |Data/godzina przetworzenia żądania. |
-| Content-Type |Różna |Typ zawartości treści odpowiedzi. |
-| Content-Encoding |Różna |Odpowiednio, gzip lub Wklęśnięcie. |
+| Data |Data 1123 |Data/godzina przetworzenia żądania. |
+| Content-Type |Różnie |Typ zawartości treści odpowiedzi. |
+| Content-Encoding |Różnie |Odpowiednio, gzip lub Wklęśnięcie. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standardowe zlecenia HTTP obsługiwane przez Media Services
 Poniżej znajduje się kompletna lista zleceń HTTP, które mogą być używane podczas wykonywania żądań HTTP:
@@ -126,6 +125,6 @@ Aby dowiedzieć się, jak używać uwierzytelniania usługi Azure AD za pomocą 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

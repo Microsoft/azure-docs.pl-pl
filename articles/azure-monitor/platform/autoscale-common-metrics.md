@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845564"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor typowe metryki automatycznego skalowania
@@ -22,7 +21,7 @@ Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Metryki obliczeniowe dla maszyn wirtualnych opartych na Menedżer zasobów
 Domyślnie Virtual Machines Menedżer zasobów i Virtual Machine Scale Sets emitują podstawowe (na poziomie hosta) metryki. Ponadto po skonfigurowaniu zbierania danych diagnostycznych dla maszyny wirtualnej platformy Azure i VMSS rozszerzenie diagnostyki platformy Azure emituje także liczniki wydajności gościa (nazywane "metrykami systemu operacyjnego gościa").  Wszystkie te metryki są używane w regułach skalowania automatycznego.
 
-Możesz użyć interfejsu API `Get MetricDefinitions` /PoSH/interfejsu wiersza polecenia, aby wyświetlić metryki dostępne dla zasobu VMSS.
+Możesz użyć `Get MetricDefinitions` interfejsu API/PoSH/interfejsu wiersza polecenia, aby wyświetlić metryki dostępne dla zasobu VMSS.
 
 Jeśli korzystasz z zestawów skalowania maszyn wirtualnych i nie widzisz określonej metryki na liście, prawdopodobnie jest ona *wyłączona* w rozszerzeniu diagnostyki.
 
@@ -49,22 +48,22 @@ Można utworzyć alert dla następujących metryk:
 
 | Nazwa metryki | Jednostka |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Wartość procentowa |
-| \Processor (_Total)\% uprzywilejowany czas |Wartość procentowa |
-| \Processor (_Total)\% — czas użytkownika |Wartość procentowa |
+| \Processor(_Total)\% Processor Time |Procent |
+| \Processor (_Total) \% uprzywilejowany czas |Procent |
+| \Processor (_Total) — \% czas użytkownika |Procent |
 | \Processor Information (_Total) \Processor częstotliwość |Liczba |
 | \System\Processes |Liczba |
 | \Process (_Total) \Thread liczba wystąpień |Liczba |
 | \Process (_Total) \Handle liczba wystąpień |Liczba |
-| \Memory\% zadeklarowane bajty w użyciu |Wartość procentowa |
+| \Memory \% zadeklarowane bajty w użyciu |Procent |
 | \Memory\Available Bytes |Bajty |
 | \Memory\Committed bajty |Bajty |
 | Limit \Memory\Commit |Bajty |
 | \Memory\Pool stronicowane bajty |Bajty |
 | \Memory\Pool niestronicowane bajty |Bajty |
-| \PhysicalDisk (_Total)\% czas dysku |Wartość procentowa |
-| \PhysicalDisk (_Total)\% czas odczytu dysku |Wartość procentowa |
-| \PhysicalDisk (_Total)\% godzina zapisu dysku |Wartość procentowa |
+| \PhysicalDisk (_Total) \% czas dysku |Procent |
+| \PhysicalDisk (_Total) \% czas odczytu dysku |Procent |
+| \PhysicalDisk (_Total) \% godzina zapisu dysku |Procent |
 | \PhysicalDisk (_Total) \Bajty transfery/s |CountPerSecond |
 | \PhysicalDisk (_Total) \Bajty odczyty/s |CountPerSecond |
 | \PhysicalDisk (_Total) \Bajty zapisy/s |CountPerSecond |
@@ -74,7 +73,7 @@ Można utworzyć alert dla następujących metryk:
 | \PhysicalDisk (_Total) \Avg. Długość kolejki dysku |Liczba |
 | \PhysicalDisk (_Total) \Avg. Długość kolejki odczytu dysku |Liczba |
 | \PhysicalDisk (_Total) \Avg. Długość kolejki zapisu dysku |Liczba |
-| \Dysk logiczny (_Total)\% wolne miejsce |Wartość procentowa |
+| \Dysk logiczny (_Total) \% wolne miejsce |Procent |
 | \Dysk logiczny (_Total) \Wolne megabajty |Liczba |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Pomiar systemu operacyjnego gościa maszyny wirtualne z systemem Linux
@@ -91,25 +90,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Nazwa metryki | Jednostka |
 | --- | --- |
 | \Memory\AvailableMemory |Bajty |
-| \Memory\PercentAvailableMemory |Wartość procentowa |
+| \Memory\PercentAvailableMemory |Procent |
 | \Memory\UsedMemory |Bajty |
-| \Memory\PercentUsedMemory |Wartość procentowa |
-| \Memory\PercentUsedByCache |Wartość procentowa |
+| \Memory\PercentUsedMemory |Procent |
+| \Memory\PercentUsedByCache |Procent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bajty |
-| \Memory\PercentAvailableSwap |Wartość procentowa |
+| \Memory\PercentAvailableSwap |Procent |
 | \Memory\UsedSwap |Bajty |
-| \Memory\PercentUsedSwap |Wartość procentowa |
-| \Processor\PercentIdleTime |Wartość procentowa |
-| \Processor\PercentUserTime |Wartość procentowa |
-| \Processor\PercentNiceTime |Wartość procentowa |
-| \Processor\PercentPrivilegedTime |Wartość procentowa |
-| \Processor\PercentInterruptTime |Wartość procentowa |
-| \Processor\PercentDPCTime |Wartość procentowa |
-| \Processor\PercentProcessorTime |Wartość procentowa |
-| \Processor\PercentIOWaitTime |Wartość procentowa |
+| \Memory\PercentUsedSwap |Procent |
+| \Processor\PercentIdleTime |Procent |
+| \Processor\PercentUserTime |Procent |
+| \Processor\PercentNiceTime |Procent |
+| \Processor\PercentPrivilegedTime |Procent |
+| \Processor\PercentInterruptTime |Procent |
+| \Processor\PercentDPCTime |Procent |
+| \Processor\PercentProcessorTime |Procent |
+| \Processor\PercentIOWaitTime |Procent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -143,8 +142,8 @@ Możesz otrzymywać alerty dotyczące tych metryk lub skalować je.
 
 | Nazwa metryki | Jednostka |
 | --- | --- |
-| CpuPercentage |Wartość procentowa |
-| MemoryPercentage |Wartość procentowa |
+| CpuPercentage |Procent |
+| MemoryPercentage |Procent |
 | DiskQueueLength |Liczba |
 | HttpQueueLength |Liczba |
 | BytesReceived |Bajty |

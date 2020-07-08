@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938909"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transakcje i tryby blokowania w usłudze Azure Service Fabric niezawodne Kolekcje
@@ -37,13 +36,13 @@ Istnieją dwa poziomy izolacji, które są obsługiwane w niezawodnych kolekcjac
 Niezawodne kolekcje automatycznie wybierają poziom izolacji, który ma być używany dla danej operacji odczytu, w zależności od operacji i roli repliki w momencie tworzenia transakcji.
 Poniżej znajduje się tabela, która przedstawia ustawienia domyślne na poziomie izolacji dla niezawodnych operacji słownika i kolejki.
 
-| Operacja \ rola | Podstawowy | Pomocniczy |
+| Operacja \ rola | Podstawowe | Pomocniczy |
 | --- |:--- |:--- |
 | Odczyt pojedynczej jednostki |Odczyt powtarzalny |Snapshot |
 | Wyliczenie, liczba |Snapshot |Snapshot |
 
 > [!NOTE]
-> Typowe przykłady operacji pojedynczych jednostek to `IReliableDictionary.TryGetValueAsync`,. `IReliableQueue.TryPeekAsync`
+> Typowe przykłady operacji pojedynczych jednostek to `IReliableDictionary.TryGetValueAsync` , `IReliableQueue.TryPeekAsync` .
 > 
 
 Zarówno niezawodny słownik, jak i niezawodna Kolejka obsługują *odczytywanie zapisów*.
@@ -55,8 +54,8 @@ W niezawodnych kolekcjach wszystkie transakcje implementują rygorystyczne dwie 
 
 Niezawodny słownik używa blokowania na poziomie wierszy dla wszystkich operacji pojedynczych jednostek.
 Niezawodna wymiana transakcji w ramach współbieżności dla rygorystycznej transakcyjnej właściwości FIFO.
-Niezawodna Kolejka używa blokad `TryPeekAsync` `TryDequeueAsync` `EnqueueAsync` na poziomie operacji, umożliwiając jedną transakcję z i/lub i jedną transakcję jednocześnie.
-Należy pamiętać, że w celu zachowania FIFO `TryPeekAsync` , `TryDequeueAsync` Jeśli lub kiedykolwiek obserwuje, że niezawodna kolejka jest pusta `EnqueueAsync`, również zostanie zablokowana.
+Niezawodna Kolejka używa blokad na poziomie operacji, umożliwiając jedną transakcję z `TryPeekAsync` i/lub `TryDequeueAsync` i jedną transakcję `EnqueueAsync` jednocześnie.
+Należy pamiętać, że w celu zachowania FIFO, jeśli `TryPeekAsync` lub `TryDequeueAsync` kiedykolwiek obserwuje, że niezawodna kolejka jest pusta, również zostanie zablokowana `EnqueueAsync` .
 
 Operacje zapisu zawsze pobierają blokady na wyłączność.
 W przypadku operacji odczytu blokowanie zależy od kilku czynników:
@@ -68,10 +67,10 @@ Blokada aktualizacji jest asymetryczną blokadą używaną do zapobiegania wspó
 
 Macierz zgodności blokad można znaleźć w poniższej tabeli:
 
-| Żądanie \ przyznane | Brak | Shared | Aktualizowanie | Klucz |
+| Żądanie \ przyznane | Brak | Shared | Aktualizacja | Klucz |
 | --- |:--- |:--- |:--- |:--- |
 | Shared |Brak konfliktu |Brak konfliktu |Konflikt |Konflikt |
-| Aktualizowanie |Brak konfliktu |Brak konfliktu |Konflikt |Konflikt |
+| Aktualizacja |Brak konfliktu |Brak konfliktu |Konflikt |Konflikt |
 | Klucz |Brak konfliktu |Konflikt |Konflikt |Konflikt |
 
 Argument timeout w niezawodnych kolekcjach interfejsów API jest używany do wykrywania zakleszczenia.

@@ -7,13 +7,12 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76907983"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dotyczących komunikatów B2B w Azure Logic Apps
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurowanie dzienników usługi Azure Monitor i zbieranie danych diagnostycznych dotyczących komunikatów B2B w usłudze Azure Logic Apps
 
 Po skonfigurowaniu komunikacji B2B między partnerami handlowymi na Twoim koncie integracji partnerzy mogą wymieniać komunikaty przy użyciu protokołów, takich jak AS2, X12 i EDIFACT. Aby sprawdzić, czy ta komunikacja działa w oczekiwany sposób, możesz skonfigurować [Azure monitor dzienników](../azure-monitor/platform/data-platform-logs.md) dla konta integracji. [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można rejestrować i przechowywać dane dotyczące danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). W przypadku komunikatów, rejestrowanie zbiera również informacje takie jak:
 
@@ -44,7 +43,7 @@ W tym artykule pokazano, jak włączyć rejestrowanie Azure Monitor dla konta in
 
 Zanim dzienniki Azure Monitor będą mogły śledzić wiadomości B2B dla aplikacji logiki, Dodaj rozwiązanie **Logic Apps B2B** do obszaru roboczego log Analytics.
 
-1. W polu wyszukiwania [Azure Portal](https://portal.azure.com)wprowadź `log analytics workspaces`wartość, a następnie wybierz pozycję **log Analytics obszary robocze**.
+1. W polu wyszukiwania [Azure Portal](https://portal.azure.com)wprowadź wartość `log analytics workspaces` , a następnie wybierz pozycję **log Analytics obszary robocze**.
 
    ![Wybierz pozycję "Log Analytics obszary robocze"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -52,7 +51,7 @@ Zanim dzienniki Azure Monitor będą mogły śledzić wiadomości B2B dla aplika
 
    ![Wybierz obszar roboczy Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. W okienku Przegląd w obszarze **wprowadzenie do log Analytics** > **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
+1. W okienku Przegląd w obszarze **wprowadzenie do log Analytics**  >  **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
 
    ![W okienku Przegląd wybierz pozycję "Wyświetl rozwiązania"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -60,7 +59,7 @@ Zanim dzienniki Azure Monitor będą mogły śledzić wiadomości B2B dla aplika
 
    ![W okienku Przegląd Dodaj nowe rozwiązanie](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. Po otwarciu **portalu Marketplace** w polu wyszukiwania wpisz `logic apps b2b`, a następnie wybierz pozycję **Logic Apps B2B**.
+1. Po otwarciu **portalu Marketplace** w polu wyszukiwania wpisz `logic apps b2b` , a następnie wybierz pozycję **Logic Apps B2B**.
 
    ![W witrynie Marketplace wybierz pozycję "Logic Apps Management".](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
@@ -116,7 +115,7 @@ Po uruchomieniu aplikacji logiki można wyświetlić stan i dane dotyczące tych
 
 1. W polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i Otwórz obszar roboczy log Analytics.
 
-1. W menu obszaru roboczego wybierz pozycję >  **Podsumowanie obszaru roboczego****Logic Apps B2B**.
+1. W menu obszaru roboczego wybierz pozycję **Podsumowanie obszaru roboczego**  >  **Logic Apps B2B**.
 
    ![Okienko podsumowania obszaru roboczego](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 

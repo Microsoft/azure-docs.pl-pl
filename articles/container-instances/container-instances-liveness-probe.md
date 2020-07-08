@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować sondy na żywo w celu ponownego ur
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934164"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurowanie sond żywotności
@@ -73,13 +72,13 @@ Najpierw uruchamia sesję bash i tworzy plik o nazwie `healthy` w `/tmp` katalog
 
 ### <a name="liveness-command"></a>Dynamiczność — polecenie
 
-To wdrożenie definiuje `livenessProbe` , które obsługuje polecenie `exec` na żywo, które działa jako sprawdzenie na żywo. Jeśli to polecenie kończy się wartością różną od zera, kontener zostanie zamknięty i ponownie uruchomiony, sygnalizując, że `healthy` nie można znaleźć pliku. Jeśli to polecenie zakończy się pomyślnie z kodem zakończenia 0, nie zostanie podjęta żadna akcja.
+To wdrożenie definiuje `livenessProbe` , które obsługuje `exec` polecenie na żywo, które działa jako sprawdzenie na żywo. Jeśli to polecenie kończy się wartością różną od zera, kontener zostanie zamknięty i ponownie uruchomiony, sygnalizując, że nie można `healthy` znaleźć pliku. Jeśli to polecenie zakończy się pomyślnie z kodem zakończenia 0, nie zostanie podjęta żadna akcja.
 
-`periodSeconds` Właściwość określa, że polecenie ma być wykonywane co 5 sekund.
+`periodSeconds`Właściwość określa, że polecenie ma być wykonywane co 5 sekund.
 
 ## <a name="verify-liveness-output"></a>Sprawdzanie danych wyjściowych na żywo
 
-W ciągu pierwszych 30 sekund `healthy` plik utworzony przez polecenie uruchamiania istnieje. Gdy na żywo polecenie sprawdza obecność `healthy` pliku, kod stanu zwraca wartość 0, sygnalizowanie sukcesu, dlatego nie następuje ponowne uruchomienie.
+W ciągu pierwszych 30 sekund `healthy` plik utworzony przez polecenie uruchamiania istnieje. Gdy na żywo polecenie sprawdza `healthy` obecność pliku, kod stanu zwraca wartość 0, sygnalizowanie sukcesu, dlatego nie następuje ponowne uruchomienie.
 
 Po 30 sekundach `cat /tmp/healthy` polecenie zaczyna kończyć się niepowodzeniem, powodując wystąpienie złej kondycji i kasowanie zdarzeń.
 
@@ -87,7 +86,7 @@ Te zdarzenia można wyświetlić w Azure Portal lub interfejs wiersza polecenia 
 
 ![Zdarzenie w złej kondycji portalu][portal-unhealthy]
 
-Wyświetlając zdarzenia w Azure Portal, zdarzenia typu `Unhealthy` są wywoływane z niepowodzeniem polecenia na żywo. Następne zdarzenie jest typu `Killing`, co oznacza usunięcie kontenera, aby można było rozpocząć ponowne uruchomienie. Liczba ponownych uruchomień dla kontenera jest zwiększana za każdym razem, gdy wystąpi zdarzenie.
+Wyświetlając zdarzenia w Azure Portal, zdarzenia typu `Unhealthy` są wywoływane z niepowodzeniem polecenia na żywo. Następne zdarzenie jest typu `Killing` , co oznacza usunięcie kontenera, aby można było rozpocząć ponowne uruchomienie. Liczba ponownych uruchomień dla kontenera jest zwiększana za każdym razem, gdy wystąpi zdarzenie.
 
 Ponowne uruchomienia są wykonywane w miejscu, tak aby zasoby, takie jak publiczne adresy IP i zawartość specyficzną dla węzła, były zachowywane.
 
@@ -97,7 +96,7 @@ Jeśli sonda na żywo zakończy się niepowodzeniem i wyzwala zbyt wiele ponowny
 
 ## <a name="liveness-probes-and-restart-policies"></a>Sondy na żywo i zasady ponownego uruchamiania
 
-Zasady ponownego uruchamiania zastępują zachowanie ponownego uruchamiania wyzwalane przez sondy na żywo. Na przykład jeśli ustawisz sondę `restartPolicy = Never` *na żywo, Grupa* kontenerów nie zostanie ponownie uruchomiona z powodu niepowodzenia sprawdzenia na żywo. Grupa kontenerów jest raczej zgodna z zasadami ponownego uruchamiania grupy kontenerów `Never`.
+Zasady ponownego uruchamiania zastępują zachowanie ponownego uruchamiania wyzwalane przez sondy na żywo. Na przykład jeśli ustawisz `restartPolicy = Never` *and* sondę na żywo, Grupa kontenerów nie zostanie ponownie uruchomiona z powodu niepowodzenia sprawdzenia na żywo. Grupa kontenerów jest raczej zgodna z zasadami ponownego uruchamiania grupy kontenerów `Never` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963856"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Tworzenie zasad usługi Kopia zapasowa Azure Recovery Services przy użyciu interfejsu API REST
@@ -23,7 +22,7 @@ Aby utworzyć lub zaktualizować zasady Azure Backup, użyj następującej opera
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
-`{policyName}` I `{vaultName}` są podane w identyfikatorze URI. Dodatkowe informacje znajdują się w treści żądania.
+`{policyName}`I `{vaultName}` są podane w identyfikatorze URI. Dodatkowe informacje znajdują się w treści żądania.
 
 ## <a name="create-the-request-body"></a>Tworzenie treści żądania
 
@@ -140,7 +139,7 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane) podczas tworzenia innej operacji, a 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
 |200 OK     |    [PolicyResource ochrony](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|202 zaakceptowane     |         |     Zaakceptowane    |
+|202 zaakceptowane     |         |     Zaakceptowano    |
 
 ### <a name="example-responses"></a>Przykładowe odpowiedzi
 

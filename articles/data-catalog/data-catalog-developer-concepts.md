@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68976827"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog koncepcje dla deweloperów
@@ -76,7 +75,7 @@ Na przykład w obszarze głównym elementu zawartości jest to tablica obiektów
 Zgodnie z opisem w sekcji kluczowe pojęcia **Azure Data Catalog** model obiektów zawiera elementy, które mogą być zasobami lub adnotacjami. Elementy mają właściwości, które mogą być opcjonalne lub wymagane. Niektóre właściwości są stosowane do wszystkich elementów. Niektóre właściwości mają zastosowanie do wszystkich zasobów. Niektóre właściwości mają zastosowanie tylko do określonych typów zasobów.
 
 ### <a name="system-properties"></a>Właściwości systemu
-<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>DateTime</td><td>Godzina ostatniej modyfikacji elementu. To pole jest generowane przez serwer, gdy element zostanie wstawiony i za każdym razem, gdy element zostanie zaktualizowany. Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>id</td><td>Adresu</td><td>Bezwzględny adres URL elementu (tylko do odczytu). Jest to unikatowy adres URI dla elementu.  Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>type</td><td>String</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>element ETag</td><td>String</td><td>Ciąg odpowiadający wersji elementu, który może być używany do optymistycznej kontroli współbieżności podczas wykonywania operacji, które aktualizują elementy w wykazie. znaku "*" można użyć do dopasowania dowolnej wartości.</td></tr></table>
+<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>DateTime</td><td>Godzina ostatniej modyfikacji elementu. To pole jest generowane przez serwer, gdy element zostanie wstawiony i za każdym razem, gdy element zostanie zaktualizowany. Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>identyfikator</td><td>Adresu</td><td>Bezwzględny adres URL elementu (tylko do odczytu). Jest to unikatowy adres URI dla elementu.  Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>typ</td><td>String</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>element ETag</td><td>String</td><td>Ciąg odpowiadający wersji elementu, który może być używany do optymistycznej kontroli współbieżności podczas wykonywania operacji, które aktualizują elementy w wykazie. znaku "*" można użyć do dopasowania dowolnej wartości.</td></tr></table>
 
 ### <a name="common-properties"></a>Wspólne właściwości
 Te właściwości mają zastosowanie do wszystkich typów zasobów głównych i wszystkich typów adnotacji.
@@ -140,7 +139,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>ciąg</td><td>Typ MIME zawartości.</td></tr>
-<tr><td></td><td>content</td><td>ciąg</td><td>Instrukcje dotyczące uzyskiwania dostępu do tego zasobu danych. Zawartość może być adresem URL, adresem e-mail lub zestawem instrukcji.</td></tr>
+<tr><td></td><td>zawartość</td><td>ciąg</td><td>Instrukcje dotyczące uzyskiwania dostępu do tego zasobu danych. Zawartość może być adresem URL, adresem e-mail lub zestawem instrukcji.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Liczba wierszy w zestawie danych</td></tr>
@@ -157,7 +156,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 
 <tr><td>Dokumentacja ("Dokumentacja")</td><td></td><td></td><td>Z danym zasobem może być skojarzona tylko jedna dokumentacja.</td></tr>
 <tr><td></td><td>mimeType</td><td>ciąg</td><td>Typ MIME zawartości.</td></tr>
-<tr><td></td><td>content</td><td>ciąg</td><td>Zawartość dokumentacji.</td></tr>
+<tr><td></td><td>zawartość</td><td>ciąg</td><td>Zawartość dokumentacji.</td></tr>
 
 </table>
 
@@ -172,9 +171,9 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protokol</td><td>ciąg</td><td>Wymagany. Opisuje protokół używany do komunikacji ze źródłem danych. Na przykład: "TDS" dla programu SQl Server, "Oracle" dla bazy danych Oracle itd. Zapoznaj się ze <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">specyfikacją odwołania do źródła danych — strukturą DSL</a> dla listy aktualnie obsługiwanych protokołów.</td></tr>
-<tr><td></td><td>adres</td><td>Ciąg&lt;słownika, obiekt&gt;</td><td>Wymagany. Address to zestaw danych specyficznych dla protokołu, który jest używany do identyfikowania źródła danych, do którego się odwołuje. Dane adresowe z zakresu określonego protokołu, co oznacza, że jest to bez znajomości protokołu.</td></tr>
+<tr><td></td><td>adres</td><td>&lt;Ciąg słownika, obiekt&gt;</td><td>Wymagany. Address to zestaw danych specyficznych dla protokołu, który jest używany do identyfikowania źródła danych, do którego się odwołuje. Dane adresowe z zakresu określonego protokołu, co oznacza, że jest to bez znajomości protokołu.</td></tr>
 <tr><td></td><td>uwierzytelnianie</td><td>ciąg</td><td>Opcjonalny. Schemat uwierzytelniania używany do komunikacji ze źródłem danych. Na przykład: Windows, OAuth itp.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Ciąg&lt;słownika, obiekt&gt;</td><td>Opcjonalny. Dodatkowe informacje na temat nawiązywania połączenia ze źródłem danych.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>&lt;Ciąg słownika, obiekt&gt;</td><td>Opcjonalny. Dodatkowe informacje na temat nawiązywania połączenia ze źródłem danych.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Zaplecze nie wykonuje żadnej weryfikacji podanych właściwości w usłudze AAD podczas publikowania.</td></tr>
 <tr><td></td><td>głównej</td><td>ciąg</td><td>Unikatowy adres e-mail użytkownika. Musi być określony, jeśli objectId nie został podany lub w kontekście właściwości "lastRegisteredBy", w przeciwnym razie opcjonalny.</td></tr>
@@ -184,15 +183,15 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 
 <tr><td>Kolumna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>ciąg</td><td>Nazwa kolumny lub atrybutu.</td></tr>
-<tr><td></td><td>type</td><td>ciąg</td><td>Typ danych kolumny lub atrybutu. Dozwolone typy zależą od sourceType danych elementu zawartości.  Obsługiwany jest tylko podzbiór typów.</td></tr>
+<tr><td></td><td>typ</td><td>ciąg</td><td>Typ danych kolumny lub atrybutu. Dozwolone typy zależą od sourceType danych elementu zawartości.  Obsługiwany jest tylko podzbiór typów.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>Maksymalna dozwolona długość kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 <tr><td></td><td>dokładne</td><td>byte</td><td>Precyzja dla kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Określa, czy kolumna może mieć wartość null, czy nie. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
-<tr><td></td><td>wyrażenie</td><td>ciąg</td><td>Jeśli wartość jest kolumną obliczeniową, to pole zawiera wyrażenie, które wyraża wartość. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
+<tr><td></td><td>expression</td><td>ciąg</td><td>Jeśli wartość jest kolumną obliczeniową, to pole zawiera wyrażenie, które wyraża wartość. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>ciąg</td><td>Nazwa kolumny.</td></tr>
-<tr><td></td><td>type </td><td>ciąg</td><td>Typ kolumny</td></tr>
+<tr><td></td><td>typ </td><td>ciąg</td><td>Typ kolumny</td></tr>
 <tr><td></td><td>min </td><td>ciąg</td><td>Minimalna wartość w zestawie danych</td></tr>
 <tr><td></td><td>max </td><td>ciąg</td><td>Maksymalna wartość w zestawie danych</td></tr>
 <tr><td></td><td>śr </td><td>double</td><td>Średnia wartość w zestawie danych</td></tr>
@@ -221,7 +220,7 @@ Zestaw obsługiwanych protokołów można rozszerzyć programowo (zobacz Dokumen
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>ciąg</td><td>Nazwa właściwości. Nazwa musi mieć długość od 1 do 100 znaków, rozpoczynać się od litery i może zawierać tylko litery i cyfry.</td></tr>
-<tr><td></td><td>type</td><td>ciąg</td><td>Typ właściwości. Obsługiwane wartości: "bool", Boolean "," Byte "," GUID "," int "," Integer "," Long "," String "," URL "</td></tr>
+<tr><td></td><td>typ</td><td>ciąg</td><td>Typ właściwości. Obsługiwane wartości: "bool", Boolean "," Byte "," GUID "," int "," Integer "," Long "," String "," URL "</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Wskazuje, czy przypadek ma być ignorowany podczas korzystania z wartości właściwości. Można określić tylko dla właściwości typu "String". Wartość domyślna to false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool []</td><td>Wskazuje, czy przypadek ma być ignorowany dla każdego segmentu ścieżki adresu URL. Można określić tylko dla właściwości z typem "URL". Wartość domyślna to [false].</td></tr>
 
@@ -243,7 +242,7 @@ Azure Data Catalog używa dwóch mechanizmów autoryzacji:
 ### <a name="roles"></a>Role
 Istnieją trzy role: **administrator**, **właściciel**i **współautor**.  Każda rola ma swój zakres i prawa, które zostały podsumowane w poniższej tabeli.
 
-<table><tr><td><b>Rola</b></td><td><b>Zakres</b></td><td><b>Rights</b></td></tr><tr><td>Administrator</td><td>Katalog (wszystkie elementy zawartości/adnotacje w wykazie)</td><td>Odczytaj Delete ViewRoles
+<table><tr><td><b>Role</b></td><td><b>Zakres</b></td><td><b>Rights</b></td></tr><tr><td>Administrator</td><td>Katalog (wszystkie elementy zawartości/adnotacje w wykazie)</td><td>Odczytaj Delete ViewRoles
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Właściciel</td><td>Każdy zasób (element główny)</td><td>Odczytaj Delete ViewRoles
 
@@ -271,14 +270,14 @@ Domyślnie każdy uwierzytelniony użytkownik ma prawo **odczytywać** każdy el
 > 
 > Rola **właściciela** ma zastosowanie tylko do elementu głównego.
 > 
-> Domyślnie po utworzeniu elementu w katalogu jego **współautor** jest ustawiony na aktualnie uwierzytelniony użytkownik. Jeśli element powinien być aktualizowalny przez wszystkich użytkowników, **współautor** powinien zostać &lt;ustawiony&gt; na wartość Wszyscy specjalny podmiot zabezpieczeń w właściwości **role** , gdy element jest po raz pierwszy opublikowany (zobacz Poniższy przykład). Nie można zmienić **współautora** i pozostaje taki sam podczas okresu istnienia elementu (nawet **administrator** lub **właściciel** nie ma prawa do zmiany **współautora**). Jedyną wartością obsługiwaną przez jawne ustawienie **współautor** jest &lt;wszyscy&gt;: **współautor** może być tylko użytkownikiem, który utworzył element lub &lt;wszyscy.&gt;
+> Domyślnie po utworzeniu elementu w katalogu jego **współautor** jest ustawiony na aktualnie uwierzytelniony użytkownik. Jeśli element powinien być aktualizowalny przez wszystkich użytkowników, **współautor** powinien zostać ustawiony na wartość &lt; Wszyscy &gt; specjalny podmiot zabezpieczeń w właściwości **role** , gdy element jest po raz pierwszy opublikowany (zobacz Poniższy przykład). Nie można zmienić **współautora** i pozostaje taki sam podczas okresu istnienia elementu (nawet **administrator** lub **właściciel** nie ma prawa do zmiany **współautora**). Jedyną wartością obsługiwaną przez jawne ustawienie **współautor** jest &lt; Wszyscy &gt; : **współautor** może być tylko użytkownikiem, który utworzył element lub &lt; Wszyscy &gt; .
 > 
 > 
 
 ### <a name="examples"></a>Przykłady
-**Ustaw &lt;współautora&gt; na wszystkich podczas publikowania elementu.**
-Specjalny podmiot &lt;zabezpieczeń każdy&gt; ma identyfikator objectid "00000000-0000-0000-0000-000000000201".
-  **Publikuj** https:\//API.azuredatacatalog.com/Catalogs/default/views/Tables/?API-Version=2016-03-30
+**Ustaw współautora na &lt; wszystkich &gt; podczas publikowania elementu.**
+Specjalny podmiot zabezpieczeń &lt; każdy &gt; ma identyfikator objectId "00000000-0000-0000-0000-000000000201".
+  **Publikuj** https: \/ /API.azuredatacatalog.com/Catalogs/default/views/Tables/?API-Version=2016-03-30
 
 > [!NOTE]
 > Niektóre implementacje klienta HTTP mogą automatycznie ponownie wydać żądania w odpowiedzi na 302 z serwera, ale zazwyczaj nagłówki autoryzacji paska z żądania. Ponieważ nagłówek autoryzacji jest wymagany do żądania Azure Data Catalog, należy upewnić się, że nagłówek autoryzacji jest nadal podany podczas ponownego wydawania żądania do lokalizacji przekierowania określonej przez Azure Data Catalog. Następujący przykładowy kod demonstruje przy użyciu obiektu .NET HttpWebRequest.
@@ -301,7 +300,7 @@ Specjalny podmiot &lt;zabezpieczeń każdy&gt; ma identyfikator objectid "000000
     }
 ```
 
-  **Przypisywanie właścicieli i ograniczanie widoczności dla istniejącego elementu głównego**: **Put** https:\//API.azuredatacatalog.com/Catalogs/default/views/Tables/042297b0...1be45ecd462a?API-Version=2016-03-30
+  **Przypisywanie właścicieli i ograniczanie widoczności dla istniejącego elementu głównego**: **Put** https: \/ /API.azuredatacatalog.com/Catalogs/default/views/Tables/042297b0...1be45ecd462a?API-Version=2016-03-30
 
 ```json
     {

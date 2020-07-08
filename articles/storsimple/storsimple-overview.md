@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965115"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
@@ -39,7 +38,7 @@ Oprócz zarządzania magazynem funkcje ochrony danych StorSimple umożliwiają t
 ## <a name="why-use-storsimple"></a>Dlaczego warto używać StorSimple?
 W poniższej tabeli opisano niektóre z najważniejszych korzyści zapewnianych przez Microsoft Azure StorSimple.
 
-| Funkcja | Korzyść |
+| Cecha | Korzyść |
 | --- | --- |
 | Integracja przezroczysta |Używa protokołu iSCSI do niewidocznego łączenia obiektów magazynu danych. Dzięki temu dane przechowywane w chmurze, w centrum danych lub na serwerach zdalnych, są przechowywane w jednej lokalizacji. |
 | Zmniejszone koszty magazynowania |Przydziela wystarczającą ilość miejsca w magazynie lokalnym lub w chmurze w celu spełnienia bieżących wymagań i rozszerza magazyn w chmurze tylko w razie potrzeby. Znacznie zmniejsza wymagania dotyczące magazynu i wydatków, eliminując nadmiarowe wersje tych samych danych (deduplikacji) i przy użyciu kompresji. |
@@ -210,10 +209,10 @@ Podsumowanie obsługiwanych obciążeń StorSimple znajduje się poniżej.
 
 | Scenariusz | Obciążenie | Obsługiwane | Ograniczenia | Wersja |
 | --- | --- | --- | --- | --- |
-| Współpraca |Udostępnianie plików |Yes | |Wszystkie wersje |
-| Współpraca |Rozproszone udostępnianie plików |Yes | |Wszystkie wersje |
+| Współpraca |Udostępnianie plików |Tak | |Wszystkie wersje |
+| Współpraca |Rozproszone udostępnianie plików |Tak | |Wszystkie wersje |
 | Współpraca |SharePoint |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
-| Archiwizacji |Proste archiwizowanie plików |Yes | |Wszystkie wersje |
+| Archiwizacji |Proste archiwizowanie plików |Tak | |Wszystkie wersje |
 | Wirtualizacja |Maszyny wirtualne |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | baza danych |SQL |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | Monitorowanie wideo |Monitorowanie wideo |Tak* |Obsługiwane, gdy urządzenie StorSimple jest dedykowane tylko dla tego obciążenia |Aktualizacja 2 lub nowsza |
@@ -237,7 +236,7 @@ Poniżej znajduje się lista obsługiwanych składników infrastruktury StorSimp
 
 | Scenariusz | Obciążenie | Obsługiwane | Ograniczenia | Wersja |
 | --- | --- | --- | --- | --- |
-| Ogólne |ExpressRoute |Yes | |Wszystkie wersje |
+| Ogólne |Express Route |Tak | |Wszystkie wersje |
 | Ogólne |Podstawowe funkcje FC |Tak* |Obsługiwane w programie DataCore SANsymphony |Wszystkie wersje |
 | Ogólne |DFSR |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Wszystkie wersje |
 | Ogólne |Indeksowanie |Tak* |W przypadku woluminów warstwowych obsługiwane jest tylko indeksowanie metadanych (Brak danych).<br>Dla woluminów przypiętych lokalnie jest obsługiwane pełne indeksowanie. |Wszystkie wersje |

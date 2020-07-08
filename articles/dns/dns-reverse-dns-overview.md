@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76932296"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure
@@ -42,9 +41,9 @@ Gdy organizacja ma przypisany blok adresów IP, uzyska również prawo do zarzą
 
 ### <a name="ipv4"></a>Protokół IPv4
 
-Nazwa strefy wyszukiwania wstecznego IPv4 powinna mieć następujący format: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+Nazwa strefy wyszukiwania wstecznego IPv4 powinna mieć następujący format: `<IPv4 network prefix in reverse order>.in-addr.arpa` .
 
-Na przykład podczas tworzenia strefy odwrotnej w celu hostowania rekordów hostów z adresami IP, które znajdują się w prefiksie 192.0.2.0/24, nazwa strefy zostanie utworzona przez wyodrębnienie prefiksu sieci (192.0.2), a następnie odwrócenie kolejności (2.0.192) i dodanie sufiksu `.in-addr.arpa`.
+Na przykład podczas tworzenia strefy odwrotnej w celu hostowania rekordów hostów z adresami IP, które znajdują się w prefiksie 192.0.2.0/24, nazwa strefy zostanie utworzona przez wyodrębnienie prefiksu sieci (192.0.2), a następnie odwrócenie kolejności (2.0.192) i dodanie sufiksu `.in-addr.arpa` .
 
 |Klasa podsieci|Prefiks sieci  |Odwrócony prefiks sieci  |Sufiks standardowy  |Odwróć nazwę strefy |
 |-------|----------------|------------|-----------------|---------------------------|
@@ -54,7 +53,7 @@ Na przykład podczas tworzenia strefy odwrotnej w celu hostowania rekordów host
 
 ### <a name="classless-ipv4-delegation"></a>Delegowanie bezklasowe IPv4
 
-W niektórych przypadkach zakres adresów IP przypisywany do organizacji jest mniejszy niż zakres klasy C (/24). W takim przypadku zakres adresów IP nie należy do granicy strefy w hierarchii `.in-addr.arpa` strefy, dlatego nie może być delegowany jako strefa podrzędna.
+W niektórych przypadkach zakres adresów IP przypisywany do organizacji jest mniejszy niż zakres klasy C (/24). W takim przypadku zakres adresów IP nie należy do granicy strefy w `.in-addr.arpa` hierarchii strefy, dlatego nie może być delegowany jako strefa podrzędna.
 
 Zamiast tego inny mechanizm służy do transferu kontroli pojedynczych rekordów wyszukiwania wstecznego (PTR) do dedykowanej strefy DNS. Ten mechanizm deleguje strefę podrzędną dla każdego zakresu adresów IP, a następnie mapuje każdy adres IP z zakresu indywidualnie do tej strefy podrzędnej przy użyciu rekordów CNAME.
 
@@ -89,7 +88,7 @@ Wyszukiwanie wsteczne dla zapytań adresu IP "192.0.2.129" dla rekordu PTR o naz
 
 Nazwa strefy wyszukiwania wstecznego IPv6 powinna mieć następującą postać:`<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Na przykład. W przypadku tworzenia strefy odwrotnej w celu hostowania rekordów o adresach IP, które znajdują się w prefiksie 2001: db8:1000: ABDC::/64, nazwa strefy zostanie utworzona przez wyodrębnienie prefiksu sieci adresu (2001: db8: ABDC::). Następnie rozwiń prefiks sieci IPv6 w celu usunięcia [kompresji zerowej](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), jeśli został on użyty do skrócenia prefiksu adresu IPv6 (2001:0db8: ABDC: 0000::). Odwróć kolejność, używając okresu jako ogranicznika między każdą liczbą szesnastkową w prefiksie, aby skompilować odwrócony prefiks sieci (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) i dodać sufiks. `.ip6.arpa`
+Na przykład. W przypadku tworzenia strefy odwrotnej w celu hostowania rekordów o adresach IP, które znajdują się w prefiksie 2001: db8:1000: ABDC::/64, nazwa strefy zostanie utworzona przez wyodrębnienie prefiksu sieci adresu (2001: db8: ABDC::). Następnie rozwiń prefiks sieci IPv6 w celu usunięcia [kompresji zerowej](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), jeśli został on użyty do skrócenia prefiksu adresu IPv6 (2001:0db8: ABDC: 0000::). Odwróć kolejność, używając okresu jako ogranicznika między każdą liczbą szesnastkową w prefiksie, aby skompilować odwrócony prefiks sieci ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) i dodać sufiks `.ip6.arpa` .
 
 
 |Prefiks sieci  |Rozwinięty i odwrócony prefiks sieci |Sufiks standardowy |Odwróć nazwę strefy  |

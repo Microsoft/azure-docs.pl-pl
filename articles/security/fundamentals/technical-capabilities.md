@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845345"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
@@ -51,7 +50,7 @@ Microsoft Azure udostępnia usługi, które pomagają sprostać wymaganiom zwią
 
 Platforma Azure pomaga w ochronie danych firmowych i osobistych, umożliwiając Zarządzanie tożsamościami i poświadczeniami użytkowników oraz kontrolę dostępu.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowanie podejrzanej aktywności przy użyciu zaawansowanych raportów zabezpieczeń, inspekcji i alertów umożliwia rozwiązywanie potencjalnych problemów z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/active-directory-whatis.md) zapewnia Logowanie jednokrotne do tysięcy aplikacji w chmurze i dostęp do aplikacji sieci Web uruchamianych lokalnie.
 
@@ -67,11 +66,11 @@ Zalety zabezpieczeń Azure Active Directory (Azure AD) obejmują:
 
 [Portal Azure Active Directory](https://aad.portal.azure.com/) jest dostępny w ramach Azure Portal. Z tego pulpitu nawigacyjnego można zapoznać się z omówieniem stanu organizacji oraz łatwo zarządzać dostępem do katalogu, użytkowników lub aplikacji.
 
-![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Usługa Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management:
 
-- Rejestracja jednokrotna
+- Logowanie jednokrotne
 
 - Uwierzytelnianie wieloskładnikowe
 
@@ -83,9 +82,9 @@ Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management
 
 - Privileged Identity Management
 
-- Ochrona tożsamości
+- Identity Protection
 
-#### <a name="single-sign-on"></a>Rejestracja jednokrotna
+#### <a name="single-sign-on"></a>Logowanie jednokrotne
 
 Logowanie jednokrotne [(SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) oznacza możliwość uzyskania dostępu do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji, których potrzebujesz, bez konieczności uwierzytelniania (na przykład wpisz hasło) drugi raz.
 
@@ -145,7 +144,7 @@ Azure AD Privileged Identity Management pozwala:
 
 - Uzyskiwanie alertów dotyczących dostępu do roli uprzywilejowanej
 
-#### <a name="identity-protection"></a>Ochrona tożsamości
+#### <a name="identity-protection"></a>Identity Protection
 
 [Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji. Usługa Identity Protection używa istniejących funkcji wykrywania anomalii w Azure Active Directory (dostępnych za pośrednictwem raportów o nietypowych działaniach w usłudze Azure AD) i wprowadza nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
 
@@ -410,7 +409,7 @@ Usługa [Azure Security Center](../../security-center/security-center-intro.md) 
 
 Centrum zabezpieczeń analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących.
 
-Przykłady:
+Przykłady obejmują:
 
 - Inicjowanie ochrony przed złośliwym oprogramowaniem w celu identyfikacji i usuwania złośliwego oprogramowania
 
@@ -438,7 +437,7 @@ Centrum zabezpieczeń automatycznie gromadzi, analizuje i integruje dane dzienni
 
 Aplikacje w chmurze są złożone z wieloma ruchomymi częściami. Monitorowanie zapewnia dane, aby upewnić się, że aplikacja będzie działać w dobrej kondycji. Pomaga również w staveniu potencjalnych problemów lub rozwiązywaniu problemów z poprzednimi.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Ponadto możesz użyć monitorowania danych, aby uzyskać szczegółowe informacje o aplikacji. Ta wiedza może pomóc w zwiększeniu wydajności aplikacji lub utrzymaniu lub zautomatyzowaniu działań, które w przeciwnym razie wymagają ręcznej interwencji.
+![Azure Monitor ](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Ponadto możesz użyć monitorowania danych, aby uzyskać szczegółowe informacje o aplikacji. Ta wiedza może pomóc w zwiększeniu wydajności aplikacji lub utrzymaniu lub zautomatyzowaniu działań, które w przeciwnym razie wymagają ręcznej interwencji.
 
 Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniach sieci i zapewnienia zgodności z modelem nadzoru obowiązującym w zakresie bezpieczeństwa i zarządzania. Widok grupy zabezpieczeń umożliwia pobranie skonfigurowanych sieciowych grup zabezpieczeń i reguł zabezpieczeń oraz obowiązujących reguł zabezpieczeń. Korzystając z listy zastosowanych reguł, można określić, które porty są otwarte i które podlegają usterce.
 
@@ -452,7 +451,7 @@ Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniac
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Zawiera ona zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkowników korzysta z Twojej aplikacji. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node. js i Java EE, hostowanych lokalnie lub w chmurze. Integruje się z procesem devOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Zawiera ona zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkowników korzysta z Twojej aplikacji. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i Java EE, hostowanych lokalnie lub w chmurze. Integruje się z procesem devOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
 
 Monitoruje ona:
 
@@ -515,6 +514,6 @@ Dowiedz się więcej o zabezpieczeniach, odczytując niektóre szczegółowe tem
 
 - [Zarządzanie tożsamościami i dostępem](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Bezpieczeństwo sieci](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Zabezpieczenia sieci](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Zarządzanie zagrożeniami](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

@@ -11,10 +11,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76722105"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Opracowywanie projektów analizy danych
@@ -39,10 +38,10 @@ W środowisku planowania przetwarzania TDSP przebiegu są cztery często używan
 
 Poniżej przedstawiono definicje typów elementów roboczych:
 
-- **Funkcja**: funkcja odpowiada zakontraktowaniu projektu. Różne zaangażowanie z klientem to różne funkcje i najlepiej wziąć pod uwagę różne etapy projektu jako różne funkcje. W przypadku wybrania schematu, takiego jak * \<ClientName>\<-engagementname>* do nazywania funkcji, można łatwo rozpoznać kontekst projektu i zaangażowania z samych nazw.
+- **Funkcja**: funkcja odpowiada zakontraktowaniu projektu. Różne zaangażowanie z klientem to różne funkcje i najlepiej wziąć pod uwagę różne etapy projektu jako różne funkcje. W przypadku wybrania schematu, takiego jak *\<ClientName>-\<EngagementName>* nazwa funkcji, można łatwo rozpoznać kontekst projektu i zaangażowania z samych nazw.
   
 - **Scenariusz**użycia: historie użytkownika są elementami roboczymi, które są konieczne do zakończenia funkcji. Przykładami scenariuszy użycia są:
-  - Pobieranie danych 
+  - Pobierz dane 
   - Eksplorowanie danych 
   - Generuj funkcje
   - Tworzenie modeli
@@ -72,7 +71,7 @@ Aby uzyskać więcej informacji o planowaniu przebiegu w Azure Boards, zobacz [p
 
 Po utworzeniu projektu i repozytorium kodu projektu można dodać funkcję do zaległości, aby reprezentować prace dla projektu.
 
-1. Na stronie projektu wybierz pozycję **płyty** > **zaległości** na lewym pasku nawigacyjnym. 
+1. Na stronie projektu wybierz pozycję **płyty**  >  **zaległości** na lewym pasku nawigacyjnym. 
    
 1. Na karcie **zaległości** , jeśli typ elementu pracy na górnym pasku to **historie**, lista rozwijana i wybierz pozycję **funkcje**. Następnie wybierz pozycję **nowy element roboczy.**
    
@@ -183,7 +182,7 @@ Za pomocą szablonu procesu analizy danych można tworzyć projekty przetwarzani
    
    ![Tworzenie projektu przetwarzania TDSP](./media/agile-development/15-newproject.png)
    
-1. W nowo utworzonym projekcie wybierz pozycję **płyty** > **zaległości** na lewym pasku nawigacyjnym.
+1. W nowo utworzonym projekcie wybierz pozycję **płyty**  >  **zaległości** na lewym pasku nawigacyjnym.
    
 1. Aby wyświetlić przetwarzania TDSP projekty, wybierz ikonę **Konfiguruj ustawienia zespołu** . Na ekranie **Ustawienia** zaznacz pole wyboru **projekty przetwarzania TDSP** , a następnie wybierz pozycję **Zapisz i Zamknij**.
    

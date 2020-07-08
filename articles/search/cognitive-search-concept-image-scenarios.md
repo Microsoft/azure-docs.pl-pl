@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76838262"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Jak przetwarzać i wyodrębniać informacje z obrazów w scenariuszach wzbogacania AI
@@ -91,7 +90,7 @@ Gdy *imageAction* jest ustawiona na wartość inną niż "none", nowe pole *norm
 
 Istnieją dwie wbudowane umiejętności poznawcze, które pobierają obrazy jako dane wejściowe: [OCR](cognitive-search-skill-ocr.md) i [Analiza obrazu](cognitive-search-skill-image-analysis.md). 
 
-Obecnie te umiejętności działają tylko z obrazami wygenerowanymi przez krok krakinging dokumentu. W związku z tym jedynymi obsługiwanymi `"/document/normalized_images"`danymi wejściowymi są.
+Obecnie te umiejętności działają tylko z obrazami wygenerowanymi przez krok krakinging dokumentu. W związku z tym jedynymi obsługiwanymi danymi wejściowymi są `"/document/normalized_images"` .
 
 ### <a name="image-analysis-skill"></a>Umiejętność analizy obrazów
 
@@ -106,7 +105,7 @@ Obecnie te umiejętności działają tylko z obrazami wygenerowanymi przez krok 
 Typowy scenariusz polega na utworzeniu pojedynczego ciągu zawierającego całą zawartość pliku, zarówno tekstowej, jak i tekstu pierwotnego, wykonując następujące czynności:  
 
 1. [Wyodrębnij normalized_images](#get-normalized-images)
-1. Uruchamiaj umiejętność OCR `"/document/normalized_images"` przy użyciu jako danych wejściowych
+1. Uruchamiaj umiejętność OCR przy użyciu `"/document/normalized_images"` jako danych wejściowych
 1. Scal tekstową reprezentację tych obrazów z nieprzetworzonym tekstem wyodrębnionym z pliku. Możesz użyć umiejętności [scalania tekstu](cognitive-search-skill-textmerger.md) , aby skonsolidować oba fragmenty tekstu w jeden duży ciąg.
 
 Poniższy przykład zestawu umiejętności tworzy pole *merged_text* zawierające tekstową zawartość dokumentu. Zawiera również tekst OCRed z każdego osadzonego obrazu. 

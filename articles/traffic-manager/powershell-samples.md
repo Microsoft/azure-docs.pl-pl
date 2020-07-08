@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: rohink
 ms.openlocfilehash: 25864e3b419d86cbe1ec816bea4438958ca33124
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934548"
 ---
 # <a name="azure-powershell-samples-for-traffic-manager"></a>Przykłady Azure PowerShell dla Traffic Manager

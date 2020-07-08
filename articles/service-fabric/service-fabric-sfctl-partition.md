@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905838"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -52,8 +51,8 @@ Wywołanie interfejsu API OnDataLossAsync partycji zostanie wyzwolone.  Ten inte
 | --tryb utraty danych [wymagane] | Ten element Enum jest przesyłany do interfejsu API StartDataLoss w celu wskazania typu utraty danych, który ma zostać wywołany. |
 | --Operation-ID [wymagane] | Identyfikator GUID, który identyfikuje wywołanie tego interfejsu API.  Ta wartość jest przenoszona do odpowiedniego interfejsu API getprogress. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -61,8 +60,8 @@ Wywołanie interfejsu API OnDataLossAsync partycji zostanie wyzwolone.  Ten inte
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-data-loss-status"></a>dane partycji sfctl — utrata stanu
@@ -76,8 +75,8 @@ Pobiera postęp operacji utraty danych rozpoczętej z StartDataLoss przy użyciu
 | --- | --- |
 | --Operation-ID [wymagane] | Identyfikator GUID, który identyfikuje wywołanie tego interfejsu API.  Ta wartość jest przenoszona do odpowiedniego interfejsu API getprogress. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -85,8 +84,8 @@ Pobiera postęp operacji utraty danych rozpoczętej z StartDataLoss przy użyciu
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-health"></a>Kondycja partycji sfctl
@@ -102,7 +101,7 @@ Użyj EventsHealthStateFilter, aby odfiltrować kolekcję zdarzeń kondycji zgł
 | --Events-kondycja-filtr | Umożliwia filtrowanie kolekcji obiektów HealthEvent zwracanych na podstawie stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia zgodne z filtrem. Wszystkie zdarzenia są używane do oszacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład jeśli podana wartość to 6, zwracane są wszystkie zdarzenia z wartością HealthState równą OK (2) i ostrzeżenie (4).  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
 | --Exclude-Health-Statistics | Wskazuje, czy statystyki kondycji mają być zwracane jako część wyniku zapytania. Domyślnie wartość false. Statystyki przedstawiają liczbę jednostek podrzędnych w stanie kondycji prawidłowy, ostrzegawczy i błąd. |
 | --Replicas-Health-State-Filter | Umożliwia filtrowanie kolekcji obiektów ReplicaHealthState na partycji. Wartość można uzyskać od członków lub operacji bitowych na elementach członkowskich HealthStateFilter. Zwracane są tylko repliki zgodne z filtrem. Wszystkie repliki zostaną użyte do oszacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zostaną zwrócone wszystkie wpisy. Wartości stanu są wyliczaniem opartym na flagach, więc wartość może być kombinacją wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład, jeśli podana wartość to 6, zostaną zwrócone wszystkie zdarzenia z wartością HealthState równą OK (2) i ostrzeżeniem (4). Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji.  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -110,8 +109,8 @@ Użyj EventsHealthStateFilter, aby odfiltrować kolekcję zdarzeń kondycji zgł
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-info"></a>Informacje o partycji sfctl
@@ -124,7 +123,7 @@ Pobiera informacje o określonej partycji. Odpowiedź obejmuje identyfikator par
 |Argument|Opis|
 | --- | --- |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -132,8 +131,8 @@ Pobiera informacje o określonej partycji. Odpowiedź obejmuje identyfikator par
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-list"></a>Lista partycji sfctl
@@ -145,9 +144,9 @@ Odpowiedź obejmuje identyfikator partycji, informacje o schemacie partycjonowan
 
 |Argument|Opis|
 | --- | --- |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
 | --Kontynuacja — token | Parametr tokenu kontynuacji służy do uzyskiwania następnego zestawu wyników. Token kontynuacji z niepustą wartością jest dołączany do odpowiedzi interfejsu API, gdy wyniki z systemu nie mieszczą się w pojedynczej odpowiedzi. Gdy ta wartość jest przenoszona do następnego wywołania interfejsu API, interfejs API zwraca następny zestaw wyników. Jeśli nie ma żadnych dalszych wyników, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinna być zakodowana w adresie URL. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -155,8 +154,8 @@ Odpowiedź obejmuje identyfikator partycji, informacje o schemacie partycjonowan
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-load"></a>Ładowanie partycji sfctl
@@ -169,7 +168,7 @@ Zwraca informacje o ładowaniu określonej partycji. Odpowiedź zawiera listę r
 |Argument|Opis|
 | --- | --- |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -177,8 +176,8 @@ Zwraca informacje o ładowaniu określonej partycji. Odpowiedź zawiera listę r
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-load-reset"></a>Ładowanie partycji sfctl — Resetowanie
@@ -191,7 +190,7 @@ Resetuje bieżące obciążenie partycji Service Fabric do domyślnego obciąże
 |Argument|Opis|
 | --- | --- |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -199,8 +198,8 @@ Resetuje bieżące obciążenie partycji Service Fabric do domyślnego obciąże
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-quorum-loss"></a>kworum partycji sfctl — utrata
@@ -216,8 +215,8 @@ Ten interfejs API jest przydatny do tymczasowej utraty kworum w usłudze. Wywoł
 | --Partition-ID [wymagane] | Tożsamość partycji. |
 | --kworum-utrata wartości [wymagane] | Czas przechowywania partycji w utracie kworum.  Ten ciąg musi być określony w sekundach. |
 | --kworum-tryb utraty [wymagane] | To wyliczenie jest przesyłane do interfejsu API StartQuorumLoss w celu wskazania typu utraty kworum do wywołania. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -225,8 +224,8 @@ Ten interfejs API jest przydatny do tymczasowej utraty kworum w usłudze. Wywoł
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-quorum-loss-status"></a>kworum sfctl — utrata stanu
@@ -240,8 +239,8 @@ Pobiera postęp operacji utraty kworum rozpoczętej z StartQuorumLoss przy użyc
 | --- | --- |
 | --Operation-ID [wymagane] | Identyfikator GUID, który identyfikuje wywołanie tego interfejsu API.  Ta wartość jest przenoszona do odpowiedniego interfejsu API getprogress. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -249,8 +248,8 @@ Pobiera postęp operacji utraty kworum rozpoczętej z StartQuorumLoss przy użyc
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-recover"></a>odzyskiwanie partycji sfctl
@@ -263,7 +262,7 @@ Tę operację należy wykonać tylko wtedy, gdy wiadomo, że repliki nie mogą z
 |Argument|Opis|
 | --- | --- |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -271,8 +270,8 @@ Tę operację należy wykonać tylko wtedy, gdy wiadomo, że repliki nie mogą z
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-recover-all"></a>odzyskiwanie partycji sfctl — wszystkie
@@ -284,7 +283,7 @@ Tę operację należy wykonać tylko wtedy, gdy wiadomo, że repliki nie mogą z
 
 |Argument|Opis|
 | --- | --- |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -292,8 +291,8 @@ Tę operację należy wykonać tylko wtedy, gdy wiadomo, że repliki nie mogą z
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-report-health"></a>Raport partycji sfctl — kondycja
@@ -306,14 +305,14 @@ Zgłasza stan kondycji określonej partycji Service Fabric. Raport musi zawiera�
 |Argument|Opis|
 | --- | --- |
 | --Health-Property [wymagane] | Właściwość informacji o kondycji. <br><br> Jednostka może mieć raporty kondycji dla różnych właściwości. Właściwość jest ciągiem i nie jest stałym wyliczeniem, aby umożliwić elastyczność programu Reporter na kategoryzowanie warunku stanu, który wyzwala raport. Na przykład, Raport z identyfikatorem SourceId "LocalWatchdog" może monitorować stan dostępnego dysku w węźle, dzięki czemu może raportować Właściwość "AvailableDisk" w tym węźle. Ten sam raport może monitorować łączność z węzłami, dzięki czemu może zgłosić Właściwość "łączność" w tym samym węźle. W magazynie kondycji te raporty są traktowane jako oddzielne zdarzenia dotyczące kondycji dla określonego węzła. Wraz z identyfikatorem SourceId Właściwość jednoznacznie identyfikuje informacje o kondycji. |
-| --kondycja — stan [wymagane] | Możliwe wartości to\: "nieprawidłowe", "OK", "ostrzeżenie", "błąd", "nieznany". |
+| --kondycja — stan [wymagane] | Możliwe wartości to \: "nieprawidłowe", "OK", "ostrzeżenie", "błąd", "nieznany". |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
 | --source-ID [wymagane] | Nazwa źródłowa, która identyfikuje składnik klienta/alarm/składnika systemu, który wygenerował informacje o kondycji. |
 | --Description | Opis informacji o kondycji. <br><br> Reprezentuje on bezpłatny tekst używany do dodawania informacji ludzkich o raporcie. Maksymalna długość ciągu dla opisu to 4096 znaków. Jeśli podany ciąg jest dłuższy, zostanie automatycznie obcięty. Po obcięciu ostatnie znaki opisu zawierają znacznik "[obcięty]", a całkowity rozmiar ciągu to 4096 znaków. Obecność znacznika wskazuje użytkownikom, że wystąpiło obcinanie. Należy pamiętać, że w przypadku obcinania opis ma mniej niż 4096 znaków od oryginalnego ciągu. |
 | --natychmiastowe | Flaga wskazująca, czy raport ma być wysyłany od razu. <br><br> Raport o kondycji jest wysyłany do aplikacji bramy Service Fabric, która przekazuje do magazynu kondycji. Jeśli jest ustawiona wartość true, raport jest wysyłany natychmiast z bramy HTTP do magazynu kondycji, niezależnie od ustawień klienta sieci szkieletowej używanej przez aplikację bramy HTTP. Jest to przydatne w przypadku raportów o kluczowym znaczeniu, które powinny być wysyłane najszybciej, jak to możliwe. W zależności od chronometrażu i innych warunków wysyłanie raportu może nadal zakończyć się niepowodzeniem, na przykład jeśli Brama HTTP jest ZAMKNIĘTA lub komunikat nie dociera do bramy. Jeśli wartość jest ustawiona na wartość FAŁSZ, raport jest wysyłany na podstawie ustawień klienta kondycji z bramy HTTP. W związku z tym będzie on przetwarzany wsadowo zgodnie z konfiguracją HealthReportSendInterval. Jest to zalecane ustawienie, ponieważ pozwala klientowi kondycji zoptymalizować komunikaty raportowania kondycji do magazynu kondycji, a także przetwarzania raportów kondycji. Domyślnie raporty nie są wysyłane od razu. |
 | --Usuń po wygaśnięciu | Wartość wskazująca, czy raport został usunięty z magazynu kondycji po jego wygaśnięciu. <br><br> W przypadku ustawienia wartości true raport zostanie usunięty z magazynu kondycji po jego wygaśnięciu. Jeśli zostanie ustawiona na wartość false, raport jest traktowany jako błąd po wygaśnięciu. Wartość tej właściwości jest domyślnie fałszywa. Gdy klienci raportują okresowo, powinni ustawić RemoveWhenExpired false (domyślnie). W ten sposób, to program reporter ma problemy (np. zakleszczenie) i nie może zgłosić, gdy Raport kondycji wygaśnie. Oznacza to, że jednostka jest w stanie błędu kondycji. |
 | --Sequence-Number | Numer sekwencyjny dla tego raportu kondycji jako ciąg liczbowy. <br><br> Numer sekwencyjny raportu jest używany przez magazyn kondycji do wykrywania starych raportów. Jeśli nie zostanie określony, numer sekwencyjny jest generowany automatycznie przez klienta kondycji, gdy raport zostanie dodany. |
-| --timeout-t | Wartość\: domyślna 60. |
+| --timeout-t | Wartość domyślna \: 60. |
 | --TTL | Czas trwania okresu ważności tego raportu kondycji. To pole używa formatu ISO8601 do określenia czasu trwania. <br><br> Gdy klienci raportują okresowo, powinni wysyłać raporty o wyższej częstotliwości niż czas wygaśnięcia. Jeśli klienci raportują przejście, mogą ustawić czas wygaśnięcia na wartość nieskończoną. Po wygaśnięciu wygaśnięcia zdarzenia dotyczącego kondycji, które zawiera informacje o kondycji, zostaną usunięte z magazynu kondycji, jeśli RemoveWhenExpired ma wartość true lub jest oceniane w przypadku błędu, jeśli RemoveWhenExpired false. Jeśli nie zostanie określony, wartość czasu wygaśnięcia będzie równa wartości nieskończonej. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -322,8 +321,8 @@ Zgłasza stan kondycji określonej partycji Service Fabric. Raport musi zawiera�
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-restart"></a>ponowne uruchamianie partycji sfctl
@@ -338,8 +337,8 @@ Ten interfejs API jest przydatny do testowania pracy w trybie failover. Jeśli j
 | --Operation-ID [wymagane] | Identyfikator GUID, który identyfikuje wywołanie tego interfejsu API.  Ta wartość jest przenoszona do odpowiedniego interfejsu API getprogress. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
 | --restart-Partition-Mode [wymagane] | Opisz partycje, które mają zostać ponownie uruchomione. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -347,8 +346,8 @@ Ten interfejs API jest przydatny do testowania pracy w trybie failover. Jeśli j
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-restart-status"></a>ponowne uruchamianie partycji sfctl — stan
@@ -362,8 +361,8 @@ Pobiera postęp PartitionRestart rozpoczęty z StartPartitionRestart przy użyci
 | --- | --- |
 | --Operation-ID [wymagane] | Identyfikator GUID, który identyfikuje wywołanie tego interfejsu API.  Ta wartość jest przenoszona do odpowiedniego interfejsu API getprogress. |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa usługi to "Fabric\:/MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl\~APP1\~svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID usługi [wymagane] | Tożsamość usługi. Ten identyfikator jest zazwyczaj pełną nazwą usługi bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa usługi to "Fabric \: /MyApp/APP1/svc1", tożsamość usługi powinna mieć wartość "MojaApl \~ APP1 \~ svc1" w wersji 6.0 + i "MojaApl/APP1/svc1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -371,8 +370,8 @@ Pobiera postęp PartitionRestart rozpoczęty z StartPartitionRestart przy użyci
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-partition-svc-name"></a>sfctl — nazwa
@@ -385,7 +384,7 @@ Pobiera nazwę usługi dla określonej partycji. Błąd 404 jest zwracany, jeśl
 |Argument|Opis|
 | --- | --- |
 | --Partition-ID [wymagane] | Tożsamość partycji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -393,8 +392,8 @@ Pobiera nazwę usługi dla określonej partycji. Błąd 404 jest zwracany, jeśl
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 

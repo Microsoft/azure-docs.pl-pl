@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773597"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu 
@@ -38,7 +37,7 @@ Ten artykuł zawiera omówienie szyfrowania magazynu usługi AMS i pokazuje, jak
 * Połącz klucz zawartości z zasobem.  
 * Ustaw parametry związane z szyfrowaniem w jednostkach AssetFile.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia 
+## <a name="considerations"></a>Istotne zagadnienia 
 
 Jeśli chcesz dostarczyć zasób zaszyfrowanego magazynu, musisz skonfigurować zasady dostarczania zasobów. Zanim będzie można przesłać strumieniowo zasób, serwer przesyłania strumieniowego usunie szyfrowanie magazynu i strumieniuje zawartość przy użyciu określonych zasad dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -115,7 +114,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
 
     Właściwość treści żądania    | Opis
     ---|---
-    Identyfikator | Identyfikator ContentKey jest generowany przy użyciu następującego formatu: "NB: dzieciak: UUID:\<NEW GUID>".
+    Identyfikator | Identyfikator ContentKey jest generowany w następującym formacie: "NB: dzieciak: UUID: \<NEW GUID> ".
     ContentKeyType | Typ klucza zawartości jest liczbą całkowitą, która definiuje klucz. W przypadku formatu szyfrowania magazynu wartość jest równa 1.
     EncryptedContentKey | Tworzymy nową wartość klucza zawartości, która jest 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu X. 509 szyfrowania magazynu pobranego z Microsoft Azure Media Services przez wykonanie żądania HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład, zobacz następujący kod platformy .NET: Metoda **EncryptSymmetricKeyData** zdefiniowana [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Jest to identyfikator klucza ochrony dla certyfikatu X. 509 szyfrowania magazynu, który został użyty do zaszyfrowania naszego klucza zawartości.
@@ -195,7 +194,7 @@ Jedną z wartości, które należy ustawić podczas tworzenia klucza zawartości
 
 Poniższy przykład pokazuje, jak utworzyć **ContentKey** z zestawem **ContentKeyType** dla szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną na "0", aby wskazać, że identyfikator klucza ochrony jest odciskiem palca certyfikatu X. 509.  
 
-Request
+Żądanie
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json
@@ -242,7 +241,7 @@ Odpowiedź:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="create-an-asset"></a>Utwórz element zawartości
+## <a name="create-an-asset"></a>Tworzenie zasobu
 Poniższy przykład pokazuje, jak utworzyć element zawartości.
 
 **Żądanie HTTP**

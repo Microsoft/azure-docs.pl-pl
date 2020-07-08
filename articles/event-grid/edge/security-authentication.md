@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844517"
 ---
 # <a name="security-and-authentication"></a>Zabezpieczenia i uwierzytelnianie
@@ -54,7 +53,7 @@ Moduł Event Grid obsługuje dwa typy uwierzytelniania klientów:
 * Oparty na kluczu sygnatury dostępu współdzielonego (SAS)
 * oparte na certyfikatach
 
-Domyślnie moduł Event Grid jest skonfigurowany do akceptowania tylko uwierzytelniania opartego na certyfikatach. Podczas uruchamiania Moduł Event Grid pobiera "TrustBundle" z demona zabezpieczeń IoT Edge i używa go do weryfikacji dowolnego certyfikatu klienta. Certyfikaty klienta, które nie są rozpoznawane w tym łańcuchu, `UnAuthorized`będą odrzucane za pomocą.
+Domyślnie moduł Event Grid jest skonfigurowany do akceptowania tylko uwierzytelniania opartego na certyfikatach. Podczas uruchamiania Moduł Event Grid pobiera "TrustBundle" z demona zabezpieczeń IoT Edge i używa go do weryfikacji dowolnego certyfikatu klienta. Certyfikaty klienta, które nie są rozpoznawane w tym łańcuchu, będą odrzucane za pomocą `UnAuthorized` .
 
 ### <a name="certificate-based-client-authentication"></a>Uwierzytelnianie klienta oparte na certyfikatach
 
@@ -83,7 +82,7 @@ Jeśli klient przedstawia z podpisem własnym, domyślnie moduł Event Grid będ
 
 ### <a name="sas-key-based-client-authentication"></a>Uwierzytelnianie klienta oparte na kluczach SAS
 
-Oprócz uwierzytelniania opartego na certyfikatach moduł Event Grid może również wykonywać uwierzytelnianie oparte na kluczach SAS. Klucz sygnatury dostępu współdzielonego jest taki sam jak wpis tajny skonfigurowany w module Event Grid, który powinien być używany do weryfikacji wszystkich wywołań przychodzących. Klienci muszą określić klucz tajny w nagłówku HTTP "AEG-SAS-Key". Żądanie zostanie odrzucone, `UnAuthorized` Jeśli nie jest zgodne.
+Oprócz uwierzytelniania opartego na certyfikatach moduł Event Grid może również wykonywać uwierzytelnianie oparte na kluczach SAS. Klucz sygnatury dostępu współdzielonego jest taki sam jak wpis tajny skonfigurowany w module Event Grid, który powinien być używany do weryfikacji wszystkich wywołań przychodzących. Klienci muszą określić klucz tajny w nagłówku HTTP "AEG-SAS-Key". Żądanie zostanie odrzucone `UnAuthorized` , jeśli nie jest zgodne.
 
 Konfiguracja umożliwiająca kontrolę uwierzytelniania opartego na kluczach SAS jest **inbound__clientAuth__sasKeys__enabled**.
 

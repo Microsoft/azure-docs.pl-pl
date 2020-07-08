@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906197"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -31,7 +30,7 @@ Twórz i usuwaj aplikacje i typy aplikacji oraz zarządzaj nimi.
 | manifest | Pobiera manifest opisujący typ aplikacji. |
 | przepis | Inicjuje lub rejestruje typ aplikacji Service Fabric z klastrem przy użyciu pakietu ". sfpkg" w magazynie zewnętrznym lub przy użyciu pakietu aplikacji w magazynie obrazów. |
 | Raport — kondycja | Wysyła raport o kondycji na Service Fabric aplikacji. |
-| type | Pobiera listę typów aplikacji w klastrze Service Fabric pasujące dokładnie do określonej nazwy. |
+| typ | Pobiera listę typów aplikacji w klastrze Service Fabric pasujące dokładnie do określonej nazwy. |
 | Lista typów | Pobiera listę typów aplikacji w klastrze Service Fabric. |
 | Wstrzymaj obsługę administracyjną | Usuwa lub wyrejestrowuje typ aplikacji Service Fabric z klastra. |
 | uaktualnienie | Uruchamia Uaktualnianie aplikacji w klastrze Service Fabric. |
@@ -47,14 +46,14 @@ Tworzy aplikację Service Fabric przy użyciu podanego opisu.
 
 |Argument|Opis|
 | --- | --- |
-| --App-Name [wymagane] | Nazwa aplikacji, w tym schemat identyfikatora URI "Sieć\:szkieletowa". |
+| --App-Name [wymagane] | Nazwa aplikacji, w tym schemat identyfikatora URI "Sieć szkieletowa \: ". |
 | --Typ aplikacji [wymagane] | Nazwa typu aplikacji znaleziona w manifeście aplikacji. |
 | --App-Version [wymagane] | Wersja typu aplikacji zgodnie z definicją w manifeście aplikacji. |
 | --Max-Node-Count | Maksymalna liczba węzłów, w których Service Fabric będzie zarezerwować pojemności dla tej aplikacji. Należy zauważyć, że nie oznacza to, że usługi tej aplikacji będą umieszczane na wszystkich tych węzłach. |
 | --metryki | Zakodowana w formacie JSON Lista opisów metryk pojemności aplikacji. Metryka jest definiowana jako nazwa skojarzona z zestawem pojemności dla każdego węzła, w którym znajduje się aplikacja. |
 | --min-liczba węzłów | Minimalna liczba węzłów, w których Service Fabric będzie zarezerwować pojemności dla tej aplikacji. Należy zauważyć, że nie oznacza to, że usługi tej aplikacji będą umieszczane na wszystkich tych węzłach. |
 | --parametry | Zakodowana w formacie JSON lista przesłonięć parametrów aplikacji do zastosowania podczas tworzenia aplikacji. |
-| --timeout-t | Wartość\: domyślna 60. |
+| --timeout-t | Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -62,8 +61,8 @@ Tworzy aplikację Service Fabric przy użyciu podanego opisu.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-delete"></a>Usuwanie aplikacji sfctl
@@ -75,9 +74,9 @@ Aby można było usunąć aplikację, należy ją utworzyć. Usunięcie aplikacj
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Wymuś usunięcie | Usuń wymuszanie Service Fabric aplikacji lub usługi bez przechodzenia przez łagodną sekwencję zamykania. Tego parametru można użyć, aby wymusić usunięcie aplikacji lub usługi, dla której limit czasu usuwania jest spowodowany przez problemy w kodzie usługi, które uniemożliwiają płynne zamknięcie replik. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -85,8 +84,8 @@ Aby można było usunąć aplikację, należy ją utworzyć. Usunięcie aplikacj
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-deployed"></a>wdrożono aplikację sfctl
@@ -98,10 +97,10 @@ To zapytanie zwraca informacje o aplikacji systemowej, jeśli podany identyfikat
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Node-Name [wymagane] | Nazwa węzła. |
 | --include-Health-State | Uwzględnij stan kondycji jednostki. Jeśli ten parametr ma wartość false lub nie został określony, zwracany jest stan kondycji "nieznany". Po ustawieniu na wartość true zapytanie przechodzi równolegle do węzła i usługi systemowej kondycji przed scaleniem wyników. W efekcie zapytanie jest droższe i może trwać dłużej. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -109,8 +108,8 @@ To zapytanie zwraca informacje o aplikacji systemowej, jeśli podany identyfikat
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-deployed-health"></a>wdrożone aplikacje sfctl — kondycja
@@ -122,12 +121,12 @@ Pobiera informacje o kondycji aplikacji wdrożonej w węźle Service Fabric. Uż
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Node-Name [wymagane] | Nazwa węzła. |
 | --wdrożone-Service-Packages-Health-State-Filter | Umożliwia filtrowanie wdrożonych obiektów stanu kondycji pakietów usługi w wyniku wdrożenia zapytania o kondycję aplikacji na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zwracane są tylko wdrożone pakiety usług zgodne z filtrem. Wszystkie wdrożone pakiety usługi są używane do szacowania zagregowanego stanu kondycji wdrożonej aplikacji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład, jeśli podana wartość to 6, stan kondycji pakietów usługi z wartością HealthState równą OK (2) i ostrzeżenie (4) są zwracane.  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
 | --Events-kondycja-filtr | Umożliwia filtrowanie kolekcji obiektów HealthEvent zwracanych na podstawie stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia zgodne z filtrem. Wszystkie zdarzenia są używane do oszacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład jeśli podana wartość to 6, zwracane są wszystkie zdarzenia z wartością HealthState równą OK (2) i ostrzeżenie (4).  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
 | --Exclude-Health-Statistics | Wskazuje, czy statystyki kondycji mają być zwracane jako część wyniku zapytania. Domyślnie wartość false. Statystyki przedstawiają liczbę jednostek podrzędnych w stanie kondycji prawidłowy, ostrzegawczy i błąd. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -135,8 +134,8 @@ Pobiera informacje o kondycji aplikacji wdrożonej w węźle Service Fabric. Uż
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-deployed-list"></a>wdrożono aplikację sfctl — lista
@@ -152,7 +151,7 @@ Pobiera listę aplikacji wdrożonych w węźle Service Fabric. Wyniki nie zawier
 | --Kontynuacja — token | Parametr tokenu kontynuacji służy do uzyskiwania następnego zestawu wyników. Token kontynuacji z niepustą wartością jest dołączany do odpowiedzi interfejsu API, gdy wyniki z systemu nie mieszczą się w pojedynczej odpowiedzi. Gdy ta wartość jest przenoszona do następnego wywołania interfejsu API, interfejs API zwraca następny zestaw wyników. Jeśli nie ma żadnych dalszych wyników, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinna być zakodowana w adresie URL. |
 | --include-Health-State | Uwzględnij stan kondycji jednostki. Jeśli ten parametr ma wartość false lub nie został określony, zwracany jest stan kondycji "nieznany". Po ustawieniu na wartość true zapytanie przechodzi równolegle do węzła i usługi systemowej kondycji przed scaleniem wyników. W efekcie zapytanie jest droższe i może trwać dłużej. |
 | --Max-Results | Maksymalna liczba wyników do zwrócenia w ramach zapytań stronicowanych. Ten parametr definiuje górną granicę wartości zwracanych wyników. Zwracane wyniki mogą być mniejsze niż określone maksymalne wyniki, jeśli nie mieszczą się w komunikacie zgodnie z maksymalnymi ograniczeniami rozmiaru komunikatów zdefiniowanymi w konfiguracji. Jeśli ten parametr ma wartość zero lub nie zostanie określony, zapytanie stronicowane zawiera tyle wyników, ile to możliwe, które mieszczą się w komunikacie zwrotnym. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -160,8 +159,8 @@ Pobiera listę aplikacji wdrożonych w węźle Service Fabric. Wyniki nie zawier
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-health"></a>Kondycja aplikacji sfctl
@@ -173,12 +172,12 @@ Zwraca stan kondycji aplikacji usługi Service Fabric. Odpowiedź raportuje, czy
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --wdrożone-Applications-State-Filter | Umożliwia filtrowanie wdrożonych obiektów stanu kondycji aplikacji zwracanych w wyniku zapytania o kondycję aplikacji na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zostaną zwrócone tylko wdrożone aplikacje zgodne z filtrem. Wszystkie wdrożone aplikacje są używane do szacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład jeśli podana wartość to 6, stan kondycji wdrożonych aplikacji z wartością HealthState równą OK (2) i ostrzeżeniem (4) są zwracane.  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
 | --Events-kondycja-filtr | Umożliwia filtrowanie kolekcji obiektów HealthEvent zwracanych na podstawie stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia zgodne z filtrem. Wszystkie zdarzenia są używane do oszacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład jeśli podana wartość to 6, zwracane są wszystkie zdarzenia z wartością HealthState równą OK (2) i ostrzeżenie (4).  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
 | --Exclude-Health-Statistics | Wskazuje, czy statystyki kondycji mają być zwracane jako część wyniku zapytania. Domyślnie wartość false. Statystyki przedstawiają liczbę jednostek podrzędnych w stanie kondycji prawidłowy, ostrzegawczy i błąd. |
 | --Services-Health-State-Filter | Umożliwia filtrowanie obiektów stanu kondycji usług zwracanych w wyniku zapytania o kondycję usług w zależności od jego stanu kondycji. Możliwe wartości tego parametru obejmują wartość całkowitą jednego z następujących stanów kondycji. Zwracane są tylko usługi zgodne z filtrem. Wszystkie usługi są używane do szacowania zagregowanego stanu kondycji. Jeśli nie zostanie określony, zwracane są wszystkie wpisy. Wartości stanu są wyliczeniem opartym na flagach, więc wartość może być kombinacją tych wartości uzyskanych za pomocą bitowego operatora "OR". Na przykład jeśli podana wartość to 6, stan kondycji usług z wartością HealthState równą OK (2) i ostrzeżenie (4) zostaną zwrócone.  <br> -Default — wartość domyślna. Dopasowuje dowolny HealthState. Wartość jest równa zero.  <br> -None-Filter, który nie pasuje do żadnej wartości HealthState. Używane w celu zwracania wyników w danej kolekcji Stanów. Wartość jest równa 1.  <br> -OK-Filter, który dopasowuje dane wejściowe z wartością HealthState równą OK. Wartość jest równa 2.  <br> -Warning-Filter, który dopasowuje dane wejściowe z ostrzeżeniem o wartości HealthState. Wartość to 4.  <br> -Error-Filter, który dopasowuje dane wejściowe z błędem wartości HealthState. Wartość to 8.  <br> -All-Filter, który dopasowuje dane wejściowe z dowolną wartością HealthState. Wartość to 65535. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -186,8 +185,8 @@ Zwraca stan kondycji aplikacji usługi Service Fabric. Odpowiedź raportuje, czy
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-info"></a>Informacje o aplikacji sfctl
@@ -199,9 +198,9 @@ Zwraca informacje o aplikacji, która została utworzona lub w procesie tworzeni
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Exclude-Application-Parameters | Flaga określająca, czy parametry aplikacji będą wykluczone z wyniku. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -209,8 +208,8 @@ Zwraca informacje o aplikacji, która została utworzona lub w procesie tworzeni
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-list"></a>Lista aplikacji sfctl
@@ -227,7 +226,7 @@ Pobiera informacje o utworzonych przez siebie aplikacjach lub w procesie tworzen
 | --Kontynuacja — token | Parametr tokenu kontynuacji służy do uzyskiwania następnego zestawu wyników. Token kontynuacji z niepustą wartością jest dołączany do odpowiedzi interfejsu API, gdy wyniki z systemu nie mieszczą się w pojedynczej odpowiedzi. Gdy ta wartość jest przenoszona do następnego wywołania interfejsu API, interfejs API zwraca następny zestaw wyników. Jeśli nie ma żadnych dalszych wyników, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinna być zakodowana w adresie URL. |
 | --Exclude-Application-Parameters | Flaga określająca, czy parametry aplikacji będą wykluczone z wyniku. |
 | --Max-Results | Maksymalna liczba wyników do zwrócenia w ramach zapytań stronicowanych. Ten parametr definiuje górną granicę wartości zwracanych wyników. Zwracane wyniki mogą być mniejsze niż określone maksymalne wyniki, jeśli nie mieszczą się w komunikacie zgodnie z maksymalnymi ograniczeniami rozmiaru komunikatów zdefiniowanymi w konfiguracji. Jeśli ten parametr ma wartość zero lub nie zostanie określony, zapytanie stronicowane zawiera tyle wyników, ile to możliwe, które mieszczą się w komunikacie zwrotnym. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -235,8 +234,8 @@ Pobiera informacje o utworzonych przez siebie aplikacjach lub w procesie tworzen
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-load"></a>ładowanie aplikacji sfctl
@@ -248,8 +247,8 @@ Zwraca informacje ładowania dotyczące aplikacji, która została utworzona, lu
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -257,8 +256,8 @@ Zwraca informacje ładowania dotyczące aplikacji, która została utworzona, lu
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-manifest"></a>manifest aplikacji sfctl
@@ -272,7 +271,7 @@ Odpowiedź zawiera kod XML manifestu aplikacji jako ciąg.
 | --- | --- |
 | --Typ aplikacji-nazwa [wymagane] | Nazwa typu aplikacji. |
 | --Typ aplikacji — wersja [wymagana] | Wersja typu aplikacji. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -280,8 +279,8 @@ Odpowiedź zawiera kod XML manifestu aplikacji jako ciąg.
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-provision"></a>Inicjowanie obsługi aplikacji sfctl
@@ -299,7 +298,7 @@ Inicjuje obsługę Service Fabric typu aplikacji z klastrem. Aby można było ut
 | --Typ aplikacji — wersja | Dotyczy tylko magazynu zewnętrznego. Wersja typu aplikacji reprezentuje wersję typu aplikacji znalezionego w manifeście aplikacji. |
 | --External-zastrzeganie | Lokalizacja, w której można zarejestrować lub zainicjować pakiet aplikacji. Wskazuje, że jest to pakiet aplikacji, który został wcześniej przekazany do magazynu zewnętrznego. Pakiet aplikacji zostaje zakończony z rozszerzeniem *. sfpkg. |
 | --No-wait | Wskazuje, czy inicjowanie obsługi powinno odbywać się asynchronicznie. <br><br> Po ustawieniu na wartość true operacja inicjowania obsługi zwraca wartość, gdy żądanie jest akceptowane przez system, a operacja inicjowania obsługi jest kontynuowana bez limitu czasu. Wartość domyślna to false. W przypadku dużych pakietów aplikacji zaleca się ustawienie wartości na true. |
-| --timeout-t | Wartość\: domyślna 60. |
+| --timeout-t | Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -307,8 +306,8 @@ Inicjuje obsługę Service Fabric typu aplikacji z klastrem. Aby można było ut
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-report-health"></a>Raport aplikacji sfctl — kondycja
@@ -320,15 +319,15 @@ Zgłasza stan kondycji określonego Service Fabric aplikacji. Raport musi zawier
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Health-Property [wymagane] | Właściwość informacji o kondycji. <br><br> Jednostka może mieć raporty kondycji dla różnych właściwości. Właściwość jest ciągiem i nie jest stałym wyliczeniem, aby umożliwić elastyczność programu Reporter na kategoryzowanie warunku stanu, który wyzwala raport. Na przykład, Raport z identyfikatorem SourceId "LocalWatchdog" może monitorować stan dostępnego dysku w węźle, dzięki czemu może raportować Właściwość "AvailableDisk" w tym węźle. Ten sam raport może monitorować łączność z węzłami, dzięki czemu może zgłosić Właściwość "łączność" w tym samym węźle. W magazynie kondycji te raporty są traktowane jako oddzielne zdarzenia dotyczące kondycji dla określonego węzła. Wraz z identyfikatorem SourceId Właściwość jednoznacznie identyfikuje informacje o kondycji. |
-| --kondycja — stan [wymagane] | Możliwe wartości to\: "nieprawidłowe", "OK", "ostrzeżenie", "błąd", "nieznany". |
+| --kondycja — stan [wymagane] | Możliwe wartości to \: "nieprawidłowe", "OK", "ostrzeżenie", "błąd", "nieznany". |
 | --source-ID [wymagane] | Nazwa źródłowa, która identyfikuje składnik klienta/alarm/składnika systemu, który wygenerował informacje o kondycji. |
 | --Description | Opis informacji o kondycji. <br><br> Reprezentuje on bezpłatny tekst używany do dodawania informacji ludzkich o raporcie. Maksymalna długość ciągu dla opisu to 4096 znaków. Jeśli podany ciąg jest dłuższy, zostanie automatycznie obcięty. Po obcięciu ostatnie znaki opisu zawierają znacznik "[obcięty]", a całkowity rozmiar ciągu to 4096 znaków. Obecność znacznika wskazuje użytkownikom, że wystąpiło obcinanie. Należy pamiętać, że w przypadku obcinania opis ma mniej niż 4096 znaków od oryginalnego ciągu. |
 | --natychmiastowe | Flaga wskazująca, czy raport ma być wysyłany od razu. <br><br> Raport o kondycji jest wysyłany do aplikacji bramy Service Fabric, która przekazuje do magazynu kondycji. Jeśli jest ustawiona wartość true, raport jest wysyłany natychmiast z bramy HTTP do magazynu kondycji, niezależnie od ustawień klienta sieci szkieletowej używanej przez aplikację bramy HTTP. Jest to przydatne w przypadku raportów o kluczowym znaczeniu, które powinny być wysyłane najszybciej, jak to możliwe. W zależności od chronometrażu i innych warunków wysyłanie raportu może nadal zakończyć się niepowodzeniem, na przykład jeśli Brama HTTP jest ZAMKNIĘTA lub komunikat nie dociera do bramy. Jeśli wartość jest ustawiona na wartość FAŁSZ, raport jest wysyłany na podstawie ustawień klienta kondycji z bramy HTTP. W związku z tym będzie on przetwarzany wsadowo zgodnie z konfiguracją HealthReportSendInterval. Jest to zalecane ustawienie, ponieważ pozwala klientowi kondycji zoptymalizować komunikaty raportowania kondycji do magazynu kondycji, a także przetwarzania raportów kondycji. Domyślnie raporty nie są wysyłane od razu. |
 | --Usuń po wygaśnięciu | Wartość wskazująca, czy raport został usunięty z magazynu kondycji po jego wygaśnięciu. <br><br> W przypadku ustawienia wartości true raport zostanie usunięty z magazynu kondycji po jego wygaśnięciu. Jeśli zostanie ustawiona na wartość false, raport jest traktowany jako błąd po wygaśnięciu. Wartość tej właściwości jest domyślnie fałszywa. Gdy klienci raportują okresowo, powinni ustawić RemoveWhenExpired false (domyślnie). W ten sposób, to program reporter ma problemy (np. zakleszczenie) i nie może zgłosić, gdy Raport kondycji wygaśnie. Oznacza to, że jednostka jest w stanie błędu kondycji. |
 | --Sequence-Number | Numer sekwencyjny dla tego raportu kondycji jako ciąg liczbowy. <br><br> Numer sekwencyjny raportu jest używany przez magazyn kondycji do wykrywania starych raportów. Jeśli nie zostanie określony, numer sekwencyjny jest generowany automatycznie przez klienta kondycji, gdy raport zostanie dodany. |
-| --timeout-t | Wartość\: domyślna 60. |
+| --timeout-t | Wartość domyślna \: 60. |
 | --TTL | Czas trwania okresu ważności tego raportu kondycji. To pole używa formatu ISO8601 do określenia czasu trwania. <br><br> Gdy klienci raportują okresowo, powinni wysyłać raporty o wyższej częstotliwości niż czas wygaśnięcia. Jeśli klienci raportują przejście, mogą ustawić czas wygaśnięcia na wartość nieskończoną. Po wygaśnięciu wygaśnięcia zdarzenia dotyczącego kondycji, które zawiera informacje o kondycji, zostaną usunięte z magazynu kondycji, jeśli RemoveWhenExpired ma wartość true lub jest oceniane w przypadku błędu, jeśli RemoveWhenExpired false. Jeśli nie zostanie określony, wartość czasu wygaśnięcia będzie równa wartości nieskończonej. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -337,8 +336,8 @@ Zgłasza stan kondycji określonego Service Fabric aplikacji. Raport musi zawier
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-type"></a>Typ aplikacji sfctl
@@ -355,7 +354,7 @@ Zwraca informacje o typach aplikacji, które są obsługiwane lub w procesie apr
 | --Kontynuacja — token | Parametr tokenu kontynuacji służy do uzyskiwania następnego zestawu wyników. Token kontynuacji z niepustą wartością jest dołączany do odpowiedzi interfejsu API, gdy wyniki z systemu nie mieszczą się w pojedynczej odpowiedzi. Gdy ta wartość jest przenoszona do następnego wywołania interfejsu API, interfejs API zwraca następny zestaw wyników. Jeśli nie ma żadnych dalszych wyników, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinna być zakodowana w adresie URL. |
 | --Exclude-Application-Parameters | Flaga określająca, czy parametry aplikacji będą wykluczone z wyniku. |
 | --Max-Results | Maksymalna liczba wyników do zwrócenia w ramach zapytań stronicowanych. Ten parametr definiuje górną granicę wartości zwracanych wyników. Zwracane wyniki mogą być mniejsze niż określone maksymalne wyniki, jeśli nie mieszczą się w komunikacie zgodnie z maksymalnymi ograniczeniami rozmiaru komunikatów zdefiniowanymi w konfiguracji. Jeśli ten parametr ma wartość zero lub nie zostanie określony, zapytanie stronicowane zawiera tyle wyników, ile to możliwe, które mieszczą się w komunikacie zwrotnym. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -363,8 +362,8 @@ Zwraca informacje o typach aplikacji, które są obsługiwane lub w procesie apr
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-type-list"></a>Typ aplikacji sfctl — lista
@@ -380,7 +379,7 @@ Zwraca informacje o typach aplikacji, które są obsługiwane lub w procesie apr
 | --Kontynuacja — token | Parametr tokenu kontynuacji służy do uzyskiwania następnego zestawu wyników. Token kontynuacji z niepustą wartością jest dołączany do odpowiedzi interfejsu API, gdy wyniki z systemu nie mieszczą się w pojedynczej odpowiedzi. Gdy ta wartość jest przenoszona do następnego wywołania interfejsu API, interfejs API zwraca następny zestaw wyników. Jeśli nie ma żadnych dalszych wyników, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinna być zakodowana w adresie URL. |
 | --Exclude-Application-Parameters | Flaga określająca, czy parametry aplikacji będą wykluczone z wyniku. |
 | --Max-Results | Maksymalna liczba wyników do zwrócenia w ramach zapytań stronicowanych. Ten parametr definiuje górną granicę wartości zwracanych wyników. Zwracane wyniki mogą być mniejsze niż określone maksymalne wyniki, jeśli nie mieszczą się w komunikacie zgodnie z maksymalnymi ograniczeniami rozmiaru komunikatów zdefiniowanymi w konfiguracji. Jeśli ten parametr ma wartość zero lub nie zostanie określony, zapytanie stronicowane zawiera tyle wyników, ile to możliwe, które mieszczą się w komunikacie zwrotnym. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -388,8 +387,8 @@ Zwraca informacje o typach aplikacji, które są obsługiwane lub w procesie apr
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-unprovision"></a>Inicjowanie obsługi administracyjnej aplikacji sfctl
@@ -404,7 +403,7 @@ Tę operację można wykonać tylko wtedy, gdy wszystkie wystąpienia aplikacji 
 | --Typ aplikacji-nazwa [wymagane] | Nazwa typu aplikacji. |
 | --Typ aplikacji — wersja [wymagana] | Wersja typu aplikacji zgodnie z definicją w manifeście aplikacji. |
 | --Async-parametr | Flaga oznaczająca, czy cofnięcie aprowizacji powinno odbywać się asynchronicznie. Po ustawieniu na wartość true operacja anulowania aprowizacji zwraca wartość, gdy żądanie zostanie zaakceptowane przez system, a operacja anulowania aprowizacji będzie kontynuowana bez limitu czasu. Wartość domyślna to false. Zaleca się jednak ustawienie na wartość true w przypadku dużych pakietów aplikacji, które zostały zainicjowane. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -412,8 +411,8 @@ Tę operację można wykonać tylko wtedy, gdy wszystkie wystąpienia aplikacji 
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-upgrade"></a>Uaktualnianie aplikacji sfctl
@@ -425,22 +424,22 @@ Sprawdza poprawność podanych parametrów uaktualnienia aplikacji i uruchamia U
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. <br><br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --wersja aplikacji [wymagana] | Docelowa wersja typu aplikacji (znaleziona w manifeście aplikacji) dla uaktualnienia aplikacji. |
 | --parametry [wymagane] | Zakodowana w formacie JSON lista przesłonięć parametrów aplikacji do zastosowania podczas uaktualniania aplikacji. |
 | --domyślne-Service-Health-Policy | Zakodowana w formacie JSON Specyfikacja zasad kondycji używana domyślnie do oszacowania kondycji typu usługi. |
 | --Niepowodzenie-akcja | Akcja, która ma zostać wykonana po napotkaniu przez monitorowane uaktualnienie zasad monitorowania lub naruszeń zasad dotyczących kondycji. |
 | --Wymuś ponowne uruchomienie | Wymuszone ponowne uruchamianie procesów podczas uaktualniania, nawet gdy wersja kodu nie została zmieniona. |
-| --Health-Check-retry-timeout | Czas między próbami sprawdzenia kondycji, jeśli aplikacja lub klaster nie są w dobrej kondycji.  Domyślny\: PT0H10M0S. |
-| --Kondycja-sprawdzanie stabilne — czas trwania | Ilość czasu, przez jaką aplikacja lub klaster muszą pozostawać w dobrej kondycji, zanim uaktualnienie przejdzie do następnej domeny uaktualnienia.  Domyślny\: PT0H2M0S. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
-| --Health-Check-wait-Duration | Czas oczekiwania po zakończeniu domeny uaktualnienia przed rozpoczęciem procesu kontroli kondycji.  Wartość\: domyślna to 0. |
+| --Health-Check-retry-timeout | Czas między próbami sprawdzenia kondycji, jeśli aplikacja lub klaster nie są w dobrej kondycji.  Domyślny \: PT0H10M0S. |
+| --Kondycja-sprawdzanie stabilne — czas trwania | Ilość czasu, przez jaką aplikacja lub klaster muszą pozostawać w dobrej kondycji, zanim uaktualnienie przejdzie do następnej domeny uaktualnienia.  Domyślny \: PT0H2M0S. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
+| --Health-Check-wait-Duration | Czas oczekiwania po zakończeniu domeny uaktualnienia przed rozpoczęciem procesu kontroli kondycji.  Wartość domyślna to \: 0. |
 | — maks.-zła kondycja — aplikacje | Maksymalny dozwolony procent aplikacji w złej kondycji. Reprezentowane jako liczba z zakresu od 0 do 100. |
-| --Tryb | Tryb służący do monitorowania kondycji podczas stopniowego uaktualniania.  Domyślny\: UnmonitoredAuto. |
+| --Tryb | Tryb służący do monitorowania kondycji podczas stopniowego uaktualniania.  Domyślny \: UnmonitoredAuto. |
 | --rereplica-Set-Check-timeout | Maksymalny czas blokowania przetwarzania domeny uaktualnienia i zapobiegania utracie dostępności w przypadku wystąpienia nieoczekiwanych problemów. Mierzony w sekundach. |
 | --Service-Health-Policy | Zakodowana w notacji JSON zasada kondycji typu usługi dla nazwy typu usługi. Mapa jest pusta. |
-| --timeout-t | Wartość\: domyślna 60. |
-| --Upgrade-Domain-timeout | Czas, przez jaki każda domena uaktualnienia musi zakończyć pracę przed wykonaniem FailureAction.  Domyślne\: P10675199dt02h48m 05.4775807 s. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
-| --Upgrade-timeout | Czas, przez jaki całkowite uaktualnienie musi zakończyć się przed wykonaniem FailureAction.  Domyślne\: P10675199dt02h48m 05.4775807 s. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
+| --timeout-t | Wartość domyślna \: 60. |
+| --Upgrade-Domain-timeout | Czas, przez jaki każda domena uaktualnienia musi zakończyć pracę przed wykonaniem FailureAction.  Domyślne \: p10675199dt02h48m 05.4775807 s. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
+| --Upgrade-timeout | Czas, przez jaki całkowite uaktualnienie musi zakończyć się przed wykonaniem FailureAction.  Domyślne \: p10675199dt02h48m 05.4775807 s. <br><br> Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. |
 | --Ostrzeżenie-jako błąd | Wskazuje, czy ostrzeżenia są traktowane z taką samą ważnością jak błędy. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -449,8 +448,8 @@ Sprawdza poprawność podanych parametrów uaktualnienia aplikacji i uruchamia U
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-upgrade-resume"></a>Uaktualnienie aplikacji sfctl — wznawianie
@@ -462,9 +461,9 @@ Wznawia niemonitorowane ręczne uaktualnienie aplikacji Service Fabric. Service 
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
 | --Upgrade-Domain-Name [wymagane] | Nazwa domeny uaktualnienia, w której ma zostać wznowione uaktualnienie. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -472,8 +471,8 @@ Wznawia niemonitorowane ręczne uaktualnienie aplikacji Service Fabric. Service 
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-upgrade-rollback"></a>Uaktualnienie aplikacji sfctl — wycofywanie
@@ -485,8 +484,8 @@ Zaczyna wycofywanie uaktualnienia bieżącej aplikacji do poprzedniej wersji. Te
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -494,8 +493,8 @@ Zaczyna wycofywanie uaktualnienia bieżącej aplikacji do poprzedniej wersji. Te
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-upgrade-status"></a>Uaktualnienie aplikacji sfctl — stan
@@ -507,8 +506,8 @@ Zwraca informacje o stanie najnowszej aktualizacji aplikacji wraz ze szczegóła
 
 |Argument|Opis|
 | --- | --- |
-| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa\:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład jeśli nazwa aplikacji to "Fabric\:/MyApp/APP1", tożsamość aplikacji byłaby "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --ID aplikacji [wymagane] | Tożsamość aplikacji. Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa \: ". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład jeśli nazwa aplikacji to "Fabric \: /MyApp/APP1", tożsamość aplikacji byłaby "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -516,14 +515,14 @@ Zwraca informacje o stanie najnowszej aktualizacji aplikacji wraz ze szczegóła
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-application-upload"></a>przekazywanie aplikacji sfctl
 Skopiuj pakiet aplikacji Service Fabric do magazynu obrazów.
 
-Opcjonalnie Wyświetl postęp przekazywania dla każdego pliku w pakiecie. Postęp przekazywania jest wysyłany `stderr`do.
+Opcjonalnie Wyświetl postęp przekazywania dla każdego pliku w pakiecie. Postęp przekazywania jest wysyłany do `stderr` .
 
 ### <a name="arguments"></a>Argumenty
 
@@ -531,11 +530,11 @@ Opcjonalnie Wyświetl postęp przekazywania dla każdego pliku w pakiecie. Post�
 | --- | --- |
 | --ścieżka [wymagane] | Ścieżka do pakietu aplikacji lokalnej. |
 | --Kompresuj | Dotyczy tylko Service Fabric pakietów aplikacji. Utwórz nowy folder zawierający skompresowany pakiet aplikacji do lokalizacji domyślnej lub do lokalizacji określonej przez parametr skompresowanej lokalizacji, a następnie Przekaż nowo utworzony folder. <br><br> Jeśli jest już skompresowany plik wygenerowany przez sfctl, zostanie on zastąpiony, jeśli ta flaga jest ustawiona. Jeśli katalog nie jest pakietem aplikacji, zostanie zwrócony błąd. Jeśli jest już skompresowanym pakietem aplikacji, folder zostanie skopiowany w postaci, w jakiej jest. Nowo utworzony skompresowany pakiet aplikacji zostanie domyślnie usunięty po pomyślnym przekazaniu. Jeśli przekazywanie nie powiedzie się, należy ręcznie oczyścić skompresowany pakiet w razie konieczności. Usunięcie nie powoduje usunięcia pustej katalogów, która mogła zostać utworzona, jeśli parametr lokalizacji skompresowanej odwołuje się do nieistniejących katalogów. |
-| --skompresowana lokalizacja | Lokalizacja, w której ma zostać umieszczony skompresowany pakiet aplikacji. <br><br> Jeśli nie podano lokalizacji, skompresowany pakiet zostanie umieszczony w nowo utworzonym folderze o nazwie sfctl_compressed_temp w katalogu nadrzędnym określonym w argumencie Path. Na przykład jeśli argument Path ma wartość C\:/foldera/AppPkg, skompresowany pakiet zostanie dodany do c\:/foldera/sfctl_compressed_temp/apppkg. |
-| --magazynu ImageStore-String | Docelowy magazyn obrazów, do którego ma zostać przekazany pakiet aplikacji.  Domyślna\: magazynu ImageStore\:sieci szkieletowej. <br><br> Aby przekazać do lokalizacji pliku, Uruchom ten parametr z plikiem\:. W przeciwnym razie wartość powinna być ciągiem połączenia magazynu obrazu, na przykład wartością domyślną. |
+| --skompresowana lokalizacja | Lokalizacja, w której ma zostać umieszczony skompresowany pakiet aplikacji. <br><br> Jeśli nie podano lokalizacji, skompresowany pakiet zostanie umieszczony w nowo utworzonym folderze o nazwie sfctl_compressed_temp w katalogu nadrzędnym określonym w argumencie Path. Na przykład jeśli argument Path ma wartość C \: /foldera/AppPkg, skompresowany pakiet zostanie dodany do c \: /foldera/sfctl_compressed_temp/apppkg. |
+| --magazynu ImageStore-String | Docelowy magazyn obrazów, do którego ma zostać przekazany pakiet aplikacji.  Domyślna \: magazynu ImageStore sieci szkieletowej \: . <br><br> Aby przekazać do lokalizacji pliku, Uruchom ten parametr z plikiem \: . W przeciwnym razie wartość powinna być ciągiem połączenia magazynu obrazu, na przykład wartością domyślną. |
 | --Zachowaj skompresowane | Określa, czy ma być zachowywany wygenerowany skompresowany pakiet po pomyślnym ukończeniu przekazywania. <br><br> Jeśli nie zostanie ustawiona, po pomyślnym zakończeniu zostaną usunięte skompresowane pakiety aplikacji. Jeśli przekazywanie nie powiodło się, pakiet aplikacji będzie zawsze przechowywany w katalogu wyjściowym do ponownego przekazania. |
 | --Pokaż-postęp | Pokaż postęp przekazywania plików dla dużych pakietów. |
-| --timeout-t | Łączny limit czasu w sekundach. Przekazywanie zakończy się niepowodzeniem i zwróci błąd po upływie okresu przekazywania. Ten limit czasu ma zastosowanie do całego pakietu aplikacji, a limity czasu poszczególnych plików będą równe pozostałemu czasowi limitu czasu. Limit czasu nie obejmuje czasu wymaganego do skompresowania pakietu aplikacji.  Wartość\: domyślna 300. |
+| --timeout-t | Łączny limit czasu w sekundach. Przekazywanie zakończy się niepowodzeniem i zwróci błąd po upływie okresu przekazywania. Ten limit czasu ma zastosowanie do całego pakietu aplikacji, a limity czasu poszczególnych plików będą równe pozostałemu czasowi limitu czasu. Limit czasu nie obejmuje czasu wymaganego do skompresowania pakietu aplikacji.  Wartość domyślna \: 300. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -543,8 +542,8 @@ Opcjonalnie Wyświetl postęp przekazywania dla każdego pliku w pakiecie. Post�
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 

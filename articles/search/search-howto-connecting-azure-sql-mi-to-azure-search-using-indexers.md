@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76964893"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Skonfiguruj połączenie z usługą Azure Wyszukiwanie poznawcze indeksator do wystąpienia zarządzanego SQL
@@ -25,7 +24,7 @@ Utwórz wystąpienie zarządzane SQL z wybraną opcją **Włącz publiczny punkt
    ![Włącz publiczny punkt końcowy](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Włącz publiczny punkt końcowy")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Włącz publiczny punkt końcowy wystąpienia zarządzanego usługi Azure SQL
-Możesz również włączyć publiczny punkt końcowy na istniejącym wystąpieniu zarządzanym SQL w obszarze **Security** > **Network** > Virtual**Endpoint** > **enable**.
+Możesz również włączyć publiczny punkt końcowy na istniejącym wystąpieniu zarządzanym SQL w obszarze **Security**  >  **Network Virtual**  >  **Endpoint**  >  **enable**.
 
    ![Włącz publiczny punkt końcowy](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Włącz publiczny punkt końcowy")
 
@@ -36,13 +35,13 @@ Sprawdź, czy sieciowa Grupa zabezpieczeń ma poprawne **reguły zabezpieczeń r
 
 > [!NOTE]
 > Indeksatory nadal wymagają skonfigurowania wystąpienia zarządzanego SQL z publicznym punktem końcowym w celu odczytu danych.
-> Można jednak ograniczyć dostęp przychodzący do tego publicznego punktu końcowego, zastępując bieżącą regułę (`public_endpoint_inbound`) następującymi 2 regułami:
+> Można jednak ograniczyć dostęp przychodzący do tego publicznego punktu końcowego, zastępując bieżącą regułę ( `public_endpoint_inbound` ) następującymi 2 regułami:
 >
-> * Zezwalanie na dostęp przychodzący z `AzureCognitiveSearch` [tagu usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) (" `AzureCognitiveSearch`source" =, " `cognitive_search_inbound`Name" =)
+> * Zezwalanie na dostęp przychodzący z `AzureCognitiveSearch` [tagu usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("source" = `AzureCognitiveSearch` , "name" = `cognitive_search_inbound` )
 >
-> * Zezwalanie na dostęp przychodzący z adresu IP usługi wyszukiwania, który można uzyskać przez polecenie ping do jego w pełni kwalifikowanej nazwy domeny ( `<your-search-service-name>.search.windows.net`np.). ("Źródło" = `IP address`, "nazwa" = `search_service_inbound`)
+> * Zezwalanie na dostęp przychodzący z adresu IP usługi wyszukiwania, który można uzyskać przez polecenie ping do jego w pełni kwalifikowanej nazwy domeny (np. `<your-search-service-name>.search.windows.net` ). ("Źródło" = `IP address` , "nazwa" = `search_service_inbound` )
 >
-> Dla każdej z tych 2 reguł ustaw wartość "PORT" = `3342`, "Protocol" = `TCP`, "Destination" = `Any`, "Action" =`Allow`
+> Dla każdej z tych 2 reguł ustaw wartość "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" =`Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Pobierz parametry połączenia publicznego punktu końcowego
 Upewnij się, że używasz parametrów połączenia dla **publicznego punktu końcowego** (port 3342, nie port 1433).

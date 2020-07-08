@@ -7,10 +7,9 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908074"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Wyświetlaj i twórz zapytania dotyczące monitorowania i śledzenia w Azure Monitor dziennikach dla Azure Logic Apps
@@ -53,7 +52,7 @@ Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub
 
 1. Zacznij od pustego zapytania lub wszelkich dostępnych istniejących zapytań.
 
-   * Aby sprawdzić, czy istniejące zapytania są dostępne, na pasku narzędzi zapytania wybierz pozycję **przykłady** > **historia**zapytań, która pokazuje zapytania z poprzedniego przebiegu zapytania lub wybierz **Eksploratora zapytań**, w którym są wyświetlane wstępnie skompilowane zapytania.
+   * Aby sprawdzić, czy istniejące zapytania są dostępne, na pasku narzędzi zapytania wybierz pozycję **przykłady**  >  **historia**zapytań, która pokazuje zapytania z poprzedniego przebiegu zapytania lub wybierz **Eksploratora zapytań**, w którym są wyświetlane wstępnie skompilowane zapytania.
 
      Na przykład rozwiązanie Logic Apps B2B zapewnia te prekompilowane zapytania:
 

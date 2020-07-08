@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905439"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migruj swoje aplikacje i rozwiązania z BizTalk Services do Azure Logic Apps
@@ -99,7 +98,7 @@ Logic Apps zapewnia zaawansowane możliwości logiki oraz zaawansowany przepływ
 
 ### <a name="enrich"></a>Wzbogacanie
 
-W trakcie przetwarzania BizTalk Services na etapie wzbogacania są dodawane właściwości do kontekstu komunikatu skojarzonego z otrzymanymi danymi. Na przykład promowanie właściwości do użycia na potrzeby routingu z wyszukiwania bazy danych lub przez wyodrębnienie wartości przy użyciu wyrażenia XPath. Logic Apps zapewnia dostęp do wszystkich danych kontekstowych przed poprzednimi akcjami, co ułatwia replikację tego samego zachowania. Na przykład za pomocą akcji `Get Row` połączenia SQL zwracane są dane z bazy danych SQL Server i używane są dane w akcji decyzji dotyczącej routingu. Podobnie właściwości przychodzących Service Bus komunikatów umieszczonych w kolejce przez wyzwalacz są adresowane, a także XPath przy użyciu wyrażenia języka definicji przepływu pracy XPath.
+W trakcie przetwarzania BizTalk Services na etapie wzbogacania są dodawane właściwości do kontekstu komunikatu skojarzonego z otrzymanymi danymi. Na przykład promowanie właściwości do użycia na potrzeby routingu z wyszukiwania bazy danych lub przez wyodrębnienie wartości przy użyciu wyrażenia XPath. Logic Apps zapewnia dostęp do wszystkich danych kontekstowych przed poprzednimi akcjami, co ułatwia replikację tego samego zachowania. Na przykład za pomocą `Get Row` akcji połączenia SQL zwracane są dane z bazy danych SQL Server i używane są dane w akcji decyzji dotyczącej routingu. Podobnie właściwości przychodzących Service Bus komunikatów umieszczonych w kolejce przez wyzwalacz są adresowane, a także XPath przy użyciu wyrażenia języka definicji przepływu pracy XPath.
 
 ### <a name="run-custom-code"></a>Uruchamianie kodu niestandardowego
 

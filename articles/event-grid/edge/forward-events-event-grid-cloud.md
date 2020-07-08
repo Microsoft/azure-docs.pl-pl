@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844721"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Samouczek: Przekazywanie zdarzeń do Event Grid chmury
@@ -34,7 +33,7 @@ Aby można było ukończyć ten samouczek, potrzebne są:
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Utwórz temat i subskrypcję usługi Event Grid w chmurze
 
-Utwórz temat i subskrypcję usługi Event Grid w chmurze, wykonując czynności opisane w [tym samouczku](../custom-event-quickstart-portal.md). Zwróć uwagę `topicURL`, `sasKey`i `topicName` nowo utworzonego tematu, który będzie używany w dalszej części tego samouczka.
+Utwórz temat i subskrypcję usługi Event Grid w chmurze, wykonując czynności opisane w [tym samouczku](../custom-event-quickstart-portal.md). Zwróć uwagę `topicURL` , `sasKey` i `topicName` nowo utworzonego tematu, który będzie używany w dalszej części tego samouczka.
 
 Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w regionie zachodnie stany USA, wartości będą wyglądać następująco:
 
@@ -44,7 +43,7 @@ Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w region
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Tworzenie tematu siatki zdarzeń na krawędzi
 
-1. Utwórz plik topic3. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz topic3.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         {
@@ -85,7 +84,7 @@ Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w region
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik subscription3. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz subscription3.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
    ```json
         {
@@ -105,7 +104,7 @@ Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w region
    >[!NOTE]
    > **EndpointUrl** określa, że adres URL tematu Event Grid w chmurze. **SasKey** odwołuje się do klucza tematu Event Grid w chmurze. Wartość w **temaciename** zostanie użyta do sygnatury wszystkich zdarzeń wychodzących do Event Grid. Może to być przydatne podczas ogłaszania w temacie domeny Event Grid. Aby uzyskać więcej informacji na temat domeny Event Grid, zobacz [domeny zdarzeń](../event-domains.md)
 
-    Na przykład:
+    Na przykład
   
     ```json
         {
@@ -157,7 +156,7 @@ Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w region
 
 ## <a name="publish-an-event-at-the-edge"></a>Publikowanie zdarzenia na brzegu
 
-1. Utwórz plik event3. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz event3.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         [
