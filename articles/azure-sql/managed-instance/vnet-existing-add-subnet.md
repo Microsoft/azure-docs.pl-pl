@@ -13,13 +13,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: 5d91fc0d5dd51ea5ef766f23519f38202b24a337
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711310"
 ---
-# <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurowanie istniejącej sieci wirtualnej dla wystąpienia zarządzanego Azure SQL
+# <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurowanie istniejącej sieci wirtualnej dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Wystąpienie zarządzane Azure SQL musi być wdrożone w ramach [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) platformy Azure i podsieć dedykowana tylko dla wystąpień zarządzanych. Możesz użyć istniejącej sieci wirtualnej i podsieci, jeśli są skonfigurowane zgodnie z [wymaganiami sieci wirtualnej wystąpienia zarządzanego SQL](connectivity-architecture-overview.md#network-requirements).

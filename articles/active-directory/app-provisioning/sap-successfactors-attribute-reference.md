@@ -12,10 +12,9 @@ ms.date: 12/06/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781552"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
@@ -128,7 +127,7 @@ Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi
 | 5  | PerPersonal                            | lastName                 | sn                                      | Nie dotyczy                                                                                           |
 | 6  | Użytkownik                                   | addressLine1             | streetAddress                           | Nie dotyczy                                                                                           |
 | 7  | Użytkownik                                   | city                     | l                                       | Nie dotyczy                                                                                           |
-| 8  | Użytkownik                                   | country                  | współzarządzania                                      | Nie dotyczy                                                                                           |
+| 8  | Użytkownik                                   | country                  | co                                      | Nie dotyczy                                                                                           |
 | 9  | Użytkownik                                   | state                    | st                                      | Nie dotyczy                                                                                           |
 | 10 | Użytkownik                                   | nazwa użytkownika                 | samAccountName                          | Nie dotyczy                                                                                           |
 | 11 | Użytkownik                                   | Kod pocztowy                  | Pocztowy                              | Nie dotyczy                                                                                           |

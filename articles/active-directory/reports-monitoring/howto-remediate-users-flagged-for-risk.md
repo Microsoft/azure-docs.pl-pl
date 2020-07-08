@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -15,12 +15,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100791"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608929"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Rozwiązywanie problemów dotyczących użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
@@ -32,7 +31,7 @@ W przypadku wykrycia nietypowych działań, które mogą wskazywać na nieautory
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Uzyskiwanie dostępu do raportu dotyczącego użytkowników oflagowanych w związku z ryzykiem
 
-Można sprawdzić, czy użytkownicy oflagowani w ramach tego ryzyka przez raport narażonych [użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) w Azure Portal. Jeśli nie masz usługi Azure AD, możesz utworzyć bezpłatne konto w [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)usłudze. 
+Można sprawdzić, czy użytkownicy oflagowani w ramach tego ryzyka przez raport narażonych [użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) w Azure Portal. Jeśli nie masz usługi Azure AD, możesz utworzyć bezpłatne konto w usłudze [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) . 
 
 Raport dotyczący użytkowników oflagowanych w ramach ryzyka można wykonać następujące czynności dla każdego użytkownika:
 
@@ -75,7 +74,7 @@ Wykonaj następujące akcje, aby pomóc usunąć zagrożenie z kont i zabezpiecz
 
     f. Ustawić złożoność hasła dla konta tak, aby była wysoka.
 
-    g. Włączyć inspekcję skrzynki pocztowej.
+    przykład Włączyć inspekcję skrzynki pocztowej.
 
     h. Utworzenie dziennika inspekcji do przejrzenia przez administratora.
 

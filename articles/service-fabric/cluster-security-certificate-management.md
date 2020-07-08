@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
 ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84324746"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric

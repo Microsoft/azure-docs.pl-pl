@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78197168"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954625"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services 
 > [!div class="op_single_selector"]
@@ -54,16 +53,18 @@ Dynamiczną ochronę CENC można skonfigurować przy użyciu technologii wielow�
 
 Zobacz sekcję [generowanie tokenów JWT](media-services-axinom-integration.md#jwt-token-generation) , dla której Azure Active Directory nie może być używany jako serwer licencji usługi STS dla Axinom Widevine.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 1. Aby wygenerować klucz zawartości służący do konfigurowania usługi dostarczania kluczy, należy użyć Axinom określonego inicjatora kluczy (8888000000000000000000000000000000000000) oraz wygenerowanego lub wybranego identyfikatora klucza. Serwer licencji Axinom wystawia wszystkie licencje zawierające klucze zawartości na podstawie tego samego inicjatora kluczy, który jest prawidłowy dla testowania i produkcji.
-2. Adres URL pozyskiwania licencji Widevine do testowania [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense):. Dozwolone są zarówno HTTP, jak i HTTS.
+2. Adres URL pozyskiwania licencji Widevine do testowania: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense) . Dozwolone są zarówno HTTP, jak i HTTS.
 
 ## <a name="azure-media-player-preparation"></a>Przygotowanie Azure Media Player
 AMP v 1.4.0 obsługuje odtwarzanie zawartości AMS, która jest dynamicznie pakowana przy użyciu oprogramowania PlayReady i Widevine DRM.
 Jeśli serwer licencji Widevine nie wymaga uwierzytelniania tokenów, nie ma żadnych dodatkowych czynności, które należy wykonać, aby przetestować zawartość KRESKOWAną chronioną przez Widevine. Na przykład zespół AMP udostępnia prosty [przykład](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), w którym można zobaczyć, że działa on w przeglądarkach Microsoft Edge i IE11 za pomocą technologii PlayReady i Chrome z Widevine.
 Serwer licencji Widevine dostarczany przez Axinom wymaga uwierzytelniania tokenu JWT. Token JWT należy przesłać z żądaniem licencji za pośrednictwem nagłówka HTTP "X-AxDRM-Message". W tym celu należy dodać następujący kod JavaScript na stronie sieci Web Hosting AMP przed ustawieniem źródła:
 
-    <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+```html
+<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+```
 
 Pozostała część kodu AMP jest standardowym interfejsem API AMP, jak w dokumencie AMP [tutaj](https://amp.azure.net/libs/amp/latest/docs/).
 
@@ -78,65 +79,69 @@ Niestety usługa Azure AD może wystawiać tylko tokeny JWT z typami pierwotnymi
 
 Poniżej znajduje się kod generujący token JWT z wymaganymi oświadczeniami wymaganymi przez Axinom Widevine License Server for test:
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.IdentityModel.Tokens;
-    using System.IdentityModel.Protocols.WSTrust;
-    using System.Security.Claims;
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.IdentityModel.Tokens;
+using System.IdentityModel.Protocols.WSTrust;
+using System.Security.Claims;
 
-    namespace OpenIdConnectWeb.Utils
+namespace OpenIdConnectWeb.Utils
+{
+    public class JwtUtils
     {
-        public class JwtUtils
+        //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
+        public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
         {
-            //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
-            public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
+            byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+
+            var payload = new Dictionary<string, object>()
             {
-                byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+                { "version", 1 },
+                { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
+                { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
+            };
 
-                var payload = new Dictionary<string, object>()
-                             {
-                                 { "version", 1 },
-                                 { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
-                                 { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
-                             };
+            string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
 
-                string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
+            return token;
+        }
 
-                return token;
+        //convert hex string to byte[]
+        public static byte[] ConvertHexStringToByteArray(string hexString)
+        {
+            if (hexString.Length % 2 != 0)
+            {
+                throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
             }
 
-            //convert hex string to byte[]
-            public static byte[] ConvertHexStringToByteArray(string hexString)
+            byte[] HexAsBytes = new byte[hexString.Length / 2];
+            for (int index = 0; index < HexAsBytes.Length; index++)
             {
-                if (hexString.Length % 2 != 0)
-                {
-                    throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
-                }
-
-                byte[] HexAsBytes = new byte[hexString.Length / 2];
-                for (int index = 0; index < HexAsBytes.Length; index++)
-                {
-                    string byteValue = hexString.Substring(index * 2, 2);
-                    HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
-                }
-
-                return HexAsBytes;
+                string byteValue = hexString.Substring(index * 2, 2);
+                HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-        }  
+            return HexAsBytes;
+        }
 
     }  
 
+}  
+```
+
 Serwer licencji Axinom Widevine
 
-    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
-    <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
-    <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
-    <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+```xml
+<add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
+<add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
+<add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
+<add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+```
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 1. Mimo że usługa dostarczania licencji usługi AMS PlayReady wymaga "Bearer =" poprzedzającego token uwierzytelniania, serwer licencji Axinom Widevine nie używa tego elementu.
 2. Klucz komunikacji Axinom jest używany jako klucz podpisywania. Klucz jest ciągiem szesnastkowym, ale musi być traktowany jako seria bajtów, a nie ciąg znaków podczas kodowania. Jest to osiągane przez metodę ConvertHexStringToByteArray.
 
@@ -145,36 +150,38 @@ Być może zauważono, że w kodzie do generowania tokenu JWT wymagany jest iden
 
 Oczywiście istnieje wiele sposobów na uzyskanie identyfikatora klucza. Na przykład jeden może przechowywać identyfikator klucza razem z metadanymi zawartości w bazie danych. Można też pobrać identyfikator klucza z ŁĄCZNIKa MPD (Media Presentation Description). Poniższy kod jest przeznaczony dla tego ostatniego.
 
-    //get key_id from DASH MPD
-    public static string GetKeyID(string dashUrl)
+```csharp
+//get key_id from DASH MPD
+public static string GetKeyID(string dashUrl)
+{
+    if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
     {
-        if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
-        {
-            dashUrl += "(format=mpd-time-csf)";
-        }
-
-        XPathDocument objXPathDocument = new XPathDocument(dashUrl);
-        XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
-        XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
-        objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
-        objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
-        objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
-        objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
-        objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
-        objXmlNamespaceManager.PushScope();
-
-        XPathNodeIterator objXPathNodeIterator;
-        objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
-
-        string key_id = string.Empty;
-        if (objXPathNodeIterator.MoveNext())
-        {
-            key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
-        }
-
-        return key_id;
+        dashUrl += "(format=mpd-time-csf)";
     }
+
+    XPathDocument objXPathDocument = new XPathDocument(dashUrl);
+    XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
+    XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
+    objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
+    objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
+    objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
+    objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
+    objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
+    objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
+    objXmlNamespaceManager.PushScope();
+
+    XPathNodeIterator objXPathNodeIterator;
+    objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
+
+    string key_id = string.Empty;
+    if (objXPathNodeIterator.MoveNext())
+    {
+        key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
+    }
+
+    return key_id;
+}
+```
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -202,7 +209,7 @@ W przypadku korzystania z serwera licencji Axinom Widevine wymagane są następu
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Podziękowania

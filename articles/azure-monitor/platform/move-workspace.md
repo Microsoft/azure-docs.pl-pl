@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
 ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84770802"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów

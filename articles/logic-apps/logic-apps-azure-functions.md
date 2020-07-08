@@ -7,17 +7,16 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83714580"
 ---
-# <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie usługi Azure Functions z Azure Logic Apps
+# <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie funkcji platformy Azure z poziomu usługi Azure Logic Apps
 
-Gdy chcesz uruchomić kod, który wykonuje określone zadanie w usłudze Logic Apps, możesz utworzyć własną funkcję przy użyciu [Azure Functions](../azure-functions/functions-overview.md). Ta usługa ułatwia tworzenie funkcji środowiska Node. js, C# i F #, dzięki czemu nie trzeba kompilować kompletnej aplikacji ani infrastruktury do uruchamiania kodu. Możesz również [wywoływać aplikacje logiki z wewnątrz usługi Azure Functions](#call-logic-app). Azure Functions zapewnia obsługę obliczeń bezserwerowych w chmurze i jest przydatna do wykonywania zadań, takich jak następujące przykłady:
+Gdy chcesz uruchomić kod, który wykonuje określone zadanie w usłudze Logic Apps, możesz utworzyć własną funkcję przy użyciu [Azure Functions](../azure-functions/functions-overview.md). Ułatwia to utworzenie funkcji w środowiskach Node.js, C# i F# bez konieczności tworzenia pełnej aplikacji lub infrastruktury w celu uruchomienia kodu. Możesz również [wywoływać aplikacje logiki z wewnątrz usługi Azure Functions](#call-logic-app). Azure Functions zapewnia obsługę obliczeń bezserwerowych w chmurze i jest przydatna do wykonywania zadań, takich jak następujące przykłady:
 
-* Zwiększ zachowanie aplikacji logiki przy użyciu funkcji w języku Node. js lub C#.
+* Zwiększ zachowanie aplikacji logiki przy użyciu funkcji w Node.js lub C#.
 * Wykonaj obliczenia w przepływie pracy aplikacji logiki.
 * Stosuj Zaawansowane formatowanie lub pola obliczeniowe w usłudze Logic Apps.
 
@@ -125,9 +124,9 @@ Jednak zanim będzie można utworzyć dowolną funkcję platformy Azure, musisz 
 
    1. W polu **nazwa funkcji** Podaj nazwę funkcji.
 
-   1. W polu **kod** Dodaj kod do szablonu funkcji, łącznie z odpowiedzią i ładunkiem, która ma zostać zwrócona do aplikacji logiki po zakończeniu działania funkcji. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+   1. W polu **kod** Dodaj kod do szablonu funkcji, łącznie z odpowiedzią i ładunkiem, która ma zostać zwrócona do aplikacji logiki po zakończeniu działania funkcji. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
-   Na przykład:
+   Przykład:
 
    ![Zdefiniuj funkcję](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -200,7 +199,7 @@ Gdy chcesz wyzwolić aplikację logiki z wewnątrz funkcji platformy Azure, apli
 
 ## <a name="enable-authentication-for-azure-functions"></a>Włączanie uwierzytelniania dla usługi Azure Functions
 
-Aby w prosty sposób uwierzytelniać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) bez konieczności logowania się i dostarczania poświadczeń lub wpisów tajnych, aplikacja logiki może korzystać z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) (znanej wcześniej jako tożsamość usługi ZARZĄDZANEJ lub MSI). Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Aby w prosty sposób uwierzytelniać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) bez konieczności logowania się i dostarczania poświadczeń lub wpisów tajnych, aplikacja logiki może korzystać z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) (znanej wcześniej jako tożsamość usługi ZARZĄDZANEJ lub MSI). Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć poświadczenia, ponieważ dzięki temu nie musisz dostarczać ani rotować wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 W przypadku skonfigurowania aplikacji logiki do korzystania z tożsamości przypisanej do systemu lub ręcznie utworzonej tożsamości przypisanej do użytkownika usługi Azure Functions w aplikacji logiki mogą również używać tej samej tożsamości do uwierzytelniania. Aby uzyskać więcej informacji na temat obsługi uwierzytelniania dla usługi Azure Functions w usłudze Logic Apps, zobacz [Dodawanie uwierzytelniania do połączeń wychodzących](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -235,7 +234,7 @@ Aby użyć zarządzanej tożsamości aplikacji logiki w funkcji platformy Azure,
 
 1. Otwórz `function.json` plik do edycji.
 
-   ![Kliknij pozycję Edytuj dla pliku "Function. JSON"](./media/logic-apps-azure-functions/edit-function-json-file.png)
+   ![Kliknij pozycję Edytuj dla pliku "function.json"](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
 1. `bindings`Sprawdź, czy właściwość istnieje w obiekcie `authLevel` . Jeśli właściwość istnieje, ustaw wartość właściwości na `anonymous` . W przeciwnym razie Dodaj tę właściwość i ustaw wartość.
 

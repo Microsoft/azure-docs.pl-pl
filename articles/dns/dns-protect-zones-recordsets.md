@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: 81a58657a4ab8f7403006ce02fb8f585feea86b0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711276"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Jak chronić strefy i rekordy DNS

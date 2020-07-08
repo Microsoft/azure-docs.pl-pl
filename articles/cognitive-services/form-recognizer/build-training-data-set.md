@@ -9,12 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: ffa09293ad2ff02e104ce285b6b0aaca7d4744a2
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.openlocfilehash: c6780d952b9ce6ea58fc6c8a2509a4526add7149
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212670"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86028268"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego
 
@@ -26,7 +25,7 @@ Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, musisz zacz
 
 ## <a name="training-data-tips"></a>Wskazówki dotyczące danych szkoleniowych
 
-Ważne jest, aby użyć zestawu danych, który jest zoptymalizowany do szkoleń. Skorzystaj z poniższych wskazówek, aby uzyskać najlepsze wyniki operacji dotyczącej [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) :
+Ważne jest, aby użyć zestawu danych, który jest zoptymalizowany do szkoleń. Skorzystaj z poniższych wskazówek, aby uzyskać najlepsze wyniki operacji dotyczącej [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) :
 
 * Jeśli to możliwe, użyj tekstowych dokumentów PDF zamiast dokumentów opartych na obrazie. Skanowane pliki PDF są obsługiwane jako obrazy.
 * W przypadku formularzy wypełnionych Użyj przykładów, w których wypełniono wszystkie pola.
@@ -48,7 +47,7 @@ Jeśli chcesz używać ręcznie oznaczonych danych, musisz również przekazać 
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizuj dane w podfolderach (opcjonalnie)
 
-Domyślnie interfejs API sieci [uczenia niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) będzie używać tylko dokumentów formularzy znajdujących się w katalogu głównym kontenera magazynu. Można jednak nauczyć się z danymi w podfolderach, jeśli określisz ją w wywołaniu interfejsu API. Zwykle treść wywołania [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync) ma następujący format, gdzie `<SAS URL>` jest adresem URL sygnatury dostępu współdzielonego kontenera:
+Domyślnie interfejs API sieci [uczenia niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) będzie używać tylko dokumentów formularzy znajdujących się w katalogu głównym kontenera magazynu. Można jednak nauczyć się z danymi w podfolderach, jeśli określisz ją w wywołaniu interfejsu API. Zwykle treść wywołania [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) ma następujący format, gdzie `<SAS URL>` jest adresem URL sygnatury dostępu współdzielonego kontenera:
 
 ```json
 {

@@ -5,10 +5,9 @@ ms.date: 05/09/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212738"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Zarządzanie użytkownikami w usłudze Azure łańcucha bloków Workbench
@@ -32,7 +31,7 @@ Aby można było przypisywać aplikacje i role, użytkownicy programu łańcucha
 
     ![Nowy użytkownik](./media/manage-users/add-ad-user.png)
 
-5.  Wypełnij pola wymagane dla nowego użytkownika. Wybierz przycisk **Utwórz**.
+5.  Wypełnij pola wymagane dla nowego użytkownika. Wybierz pozycję **Utwórz**.
 
 Więcej informacji na temat zarządzania użytkownikami w usłudze Azure AD można znaleźć w dokumentacji usługi [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) .
 

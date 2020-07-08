@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp
 ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759785"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Rozpoczynanie pracy z tożsamością modułu i bliźniaczą reprezentacją modułu usługi IoT Hub przy użyciu portalu i urządzenia platformy .NET
@@ -83,7 +82,7 @@ Aby utworzyć aplikację, która aktualizuje raportowane właściwości w module
 
 Tożsamość modułu i sznurki modułu są w publicznej wersji zapoznawczej. Jest on dostępny tylko w zestawach SDK urządzeń IoT Hub w wersji wstępnej. Aby go zainstalować, wykonaj następujące kroki:
 
-1. W programie Visual Studio Otwórz pozycję **Narzędzia** > **Menedżer** > pakietów NuGet**Zarządzanie pakietami NuGet dla rozwiązania**.
+1. W programie Visual Studio Otwórz pozycję **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **Zarządzanie pakietami NuGet dla rozwiązania**.
 
 1. Wybierz pozycję **Przeglądaj**, a następnie wybierz pozycję **Uwzględnij wersję wstępną**. Wyszukaj ciąg *Microsoft. Azure. Devices. Client*. Wybierz najnowszą wersję i zainstaluj.
 

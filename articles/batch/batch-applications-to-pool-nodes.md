@@ -3,12 +3,11 @@ title: Kopiuj aplikacje i dane do węzłów puli
 description: Dowiedz się, jak kopiować aplikacje i dane do węzłów puli.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726829"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954897"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Kopiuj aplikacje i dane do węzłów puli
 
@@ -19,13 +18,13 @@ Azure Batch obsługuje kilka sposobów pobierania danych i aplikacji do węzłó
 Przykłady: 
 - Użyj wiersza polecenia Uruchom zadanie, aby przenieść lub zainstalować aplikacje
 
-- Określ listę określonych plików lub kontenerów na koncie usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Dodawanie # resourcefile w dokumentacji REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#resourcefile)
+- Określ listę określonych plików lub kontenerów na koncie usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Dodawanie # resourcefile w dokumentacji REST](/rest/api/batchservice/pool/add#resourcefile)
 
-- Każde zadanie uruchamiane w puli uruchamia aplikację. exe, która musi być najpierw zainstalowana z aplikacją. msi. W przypadku korzystania z tego mechanizmu należy ustawić **wartość true** **dla** właściwości Uruchom zadanie uruchamiania. Aby uzyskać więcej informacji, zobacz [Dodawanie # startTask w dokumentacji REST](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask).
+- Każde zadanie uruchamiane w puli działa MyApplication.exe, które należy najpierw zainstalować przy użyciu MyApplication.msi. W przypadku korzystania z tego mechanizmu należy ustawić **wartość true** **dla** właściwości Uruchom zadanie uruchamiania. Aby uzyskać więcej informacji, zobacz [Dodawanie # startTask w dokumentacji REST](/rest/api/batchservice/pool/add#starttask).
 
-- **Odwołania do pakietu aplikacji** w puli: dla aplikacji lub danych, które muszą być zainstalowane na każdym węźle w puli. Nie istnieje polecenie instalacji skojarzone z pakietem aplikacji, ale można użyć zadania uruchamiania do uruchomienia dowolnego polecenia instalacji. Jeśli aplikacja nie wymaga instalacji lub składa się z dużej liczby plików, można użyć tej metody. Pakiety aplikacji są dobrze dopasowane dla dużej liczby plików, ponieważ łączą wiele odwołań do plików w małym ładunku. Jeśli spróbujesz dołączyć więcej niż 100 oddzielnych plików zasobów w jednym zadaniu, usługa Batch może zostać przydzielona do ograniczeń systemu wewnętrznego dla jednego zadania. Ponadto Użyj pakietów aplikacji, jeśli masz rygorystyczne wymagania dotyczące wersji, w przypadku których może istnieć wiele różnych wersji tej samej aplikacji i musisz wybrać między nimi. Aby uzyskać więcej informacji, przeczytaj artykuł [wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch](https://docs.microsoft.com/azure/batch/batch-application-packages).
+- **Odwołania do pakietu aplikacji** w puli: dla aplikacji lub danych, które muszą być zainstalowane na każdym węźle w puli. Nie istnieje polecenie instalacji skojarzone z pakietem aplikacji, ale można użyć zadania uruchamiania do uruchomienia dowolnego polecenia instalacji. Jeśli aplikacja nie wymaga instalacji lub składa się z dużej liczby plików, można użyć tej metody. Pakiety aplikacji są dobrze dopasowane dla dużej liczby plików, ponieważ łączą wiele odwołań do plików w małym ładunku. Jeśli spróbujesz dołączyć więcej niż 100 oddzielnych plików zasobów w jednym zadaniu, usługa Batch może zostać przydzielona do ograniczeń systemu wewnętrznego dla jednego zadania. Ponadto Użyj pakietów aplikacji, jeśli masz rygorystyczne wymagania dotyczące wersji, w przypadku których może istnieć wiele różnych wersji tej samej aplikacji i musisz wybrać między nimi. Aby uzyskać więcej informacji, przeczytaj artykuł [wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch](./batch-application-packages.md).
 
-- **Pliki zasobów zadania przygotowania zadania**: dla aplikacji lub danych, które muszą być zainstalowane, aby zadanie zostało uruchomione, ale nie trzeba go instalować w całej puli. Na przykład: Jeśli pula ma wiele różnych typów zadań, a tylko jeden typ zadania wymaga uruchomienia aplikacji. msi, warto wprowadzić krok instalacji do zadania przygotowania zadania. Aby uzyskać więcej informacji o zadaniach przygotowania zadania [, zobacz Uruchamianie zadań przygotowania i zwolnienia zadań w węzłach obliczeniowych usługi Batch](https://azure.microsoft.com/documentation/articles/batch-job-prep-release/).
+- **Pliki zasobów zadania przygotowania zadania**: dla aplikacji lub danych, które muszą być zainstalowane, aby zadanie zostało uruchomione, ale nie trzeba go instalować w całej puli. Na przykład: Jeśli pula ma wiele różnych typów zadań, a tylko jeden typ zadania wymaga MyApplication.msi, warto wprowadzić krok instalacji do zadania przygotowania zadania. Aby uzyskać więcej informacji o zadaniach przygotowania zadania [, zobacz Uruchamianie zadań przygotowania i zwolnienia zadań w węzłach obliczeniowych usługi Batch](./batch-job-prep-release.md).
 
 - **Pliki zasobów zadania**: w przypadku, gdy aplikacja lub dane mają zastosowanie tylko do pojedynczego zadania. Na przykład: masz pięć zadań, każdy przetwarza inny plik, a następnie zapisuje dane wyjściowe do magazynu obiektów BLOB.  W takim przypadku plik wejściowy powinien zostać określony w kolekcji **plików zasobów zadań** , ponieważ każde zadanie ma własny plik wejściowy.
 

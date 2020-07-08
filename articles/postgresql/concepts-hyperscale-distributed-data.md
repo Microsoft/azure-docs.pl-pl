@@ -8,10 +8,9 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710358"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dane rozproszone w Azure Database for PostgreSQL — skalowanie (Citus)

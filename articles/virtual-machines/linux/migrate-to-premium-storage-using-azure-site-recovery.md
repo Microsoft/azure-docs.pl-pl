@@ -8,10 +8,9 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 734d4f9e3c9832d08b61d98c9f9c8fe860998135
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660201"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery

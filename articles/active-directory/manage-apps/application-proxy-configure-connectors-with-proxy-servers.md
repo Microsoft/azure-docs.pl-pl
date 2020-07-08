@@ -13,10 +13,9 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764931"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy

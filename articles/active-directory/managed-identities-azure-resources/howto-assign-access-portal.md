@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5930511fb5329e1a919a0e631c26c617fc3f5b52
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: e2af718c3555176167eb154b0a718218c42e93dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608300"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Przypisywanie zarządzanej tożsamości dostępu do zasobu za pomocą Azure Portal
 

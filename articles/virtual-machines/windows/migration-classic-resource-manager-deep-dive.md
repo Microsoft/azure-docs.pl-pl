@@ -1,6 +1,6 @@
 ---
-title: Głębokie głębokie nurkowanie techniczne związane z migracją klasyczną do usługi Azure Resource Manager
-description: Głębokie głębokie zagłębienie techniczne w zakresie migracji zasobów obsługiwanych przez platformę z klasycznego modelu wdrażania do usługi Azure Resource Manager.
+title: Klasyczny do Azure Resource Manager migracji Technical szczegółowe
+description: Szczegółowee techniczne głębokiej migracji zasobów z klasycznego modelu wdrażania do Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-windows
@@ -9,29 +9,28 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: ebd67bdf34bce1d90057ca402b4e3be243b7ec6c
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81866202"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 
 > [!IMPORTANT]
-> Obecnie około 90% maszyn wirtualnych IaaS korzysta z [usługi Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) Od 28 lutego 2020 r. klasyczne maszyny wirtualne zostały przestarzałe i zostaną całkowicie wycofane 1 marca 2023 r. [Dowiedz się więcej]( https://aka.ms/classicvmretirement) o tym uszczukaniu i [o tym, jak wpływa na Ciebie](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Dzisiaj około 90% maszyn wirtualnych IaaS korzysta z [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Od 28 lutego 2020, klasyczne maszyny wirtualne są przestarzałe i zostaną w pełni wycofane z 1 marca 2023. [Dowiedz się więcej]( https://aka.ms/classicvmretirement) o tym zaniechaniu i [sposobach jego działania](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
-Przejdźmy do głębokiego zagłębienia w migrację z klasycznego modelu wdrażania platformy Azure do modelu wdrażania usługi Azure Resource Manager. Przyjrzyjmy się zasobom na poziomie zasobów i funkcji, aby ułatwić zrozumienie, jak platforma Azure migruje zasoby między dwoma modelami wdrażania. Aby uzyskać więcej informacji, przeczytaj artykuł anonsu usługi: [Migracja zasobów IaaS obsługiwana przez platformę z klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Przechodźmy głębokie szczegółowe na Migrowanie z klasycznego modelu wdrażania platformy Azure do modelu wdrażania Azure Resource Manager. Zapoznaj się z zasobami na poziomie zasobów i funkcji, aby ułatwić zrozumienie, w jaki sposób platforma Azure migruje zasoby między dwoma modelami wdrażania. Aby uzyskać więcej informacji, przeczytaj artykuł dotyczący anonsu dotyczącego usługi: [obsługiwana przez platform migrację zasobów IaaS z klasycznej do Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-migration-deep-dive](../../../includes/virtual-machines-common-classic-resource-manager-migration-deep-dive.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie migracji zasobów usługi IaaS obsługiwanej przez platformę z klasycznej do usługi Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Przegląd obsługiwanej przez platformę migracji zasobów IaaS z wersji klasycznej do Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planowanie migracji zasobów rozwiązania IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Migrowanie zasobów usługi IaaS z klasycznego do usługi Azure Resource Manager za pomocą programu PowerShell](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Migrowanie zasobów usługi IaaS z klasycznego do usługi Azure Resource Manager za pomocą interfejsu wiersza polecenia](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Migracja klasycznej bramy sieci VPN do Menedżera zasobów](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
-* [Migrowanie obwodów usługi ExpressRoute i skojarzonych sieci wirtualnych z klasycznego do modelu wdrażania Menedżera zasobów](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
-* [Narzędzia społecznościowe pomagające w migracji zasobów IaaS z klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Migrowanie zasobów IaaS z klasycznego do Azure Resource Manager za pomocą programu PowerShell](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Użyj interfejsu wiersza polecenia do migrowania zasobów IaaS z klasycznego do Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [VPN Gateway klasyczny do Menedżer zasobów migracji](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
+* [Migruj obwody usługi ExpressRoute i skojarzone sieci wirtualne z klasycznego modelu wdrażania Menedżer zasobów](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
+* [Narzędzia społecznościowe ułatwiające migrację zasobów IaaS z klasycznej do Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Przegląd najbardziej typowych błędów migracji](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Przejrzyj najczęściej zadawane pytania dotyczące migracji zasobów usługi IaaS z klasycznego do usługi Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Zapoznaj się z najczęściej zadawanymi pytaniami dotyczącymi migrowania zasobów IaaS z wersji klasycznej do Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

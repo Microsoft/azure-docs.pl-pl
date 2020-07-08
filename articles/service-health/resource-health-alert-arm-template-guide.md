@@ -4,13 +4,12 @@ description: Programowe tworzenie alertów powiadamiających o stanie niedostęp
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759020"
 ---
-# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów Menedżer zasobów
+# <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów usługi Resource Manager
 
 W tym artykule opisano sposób tworzenia alertów dziennika aktywności Resource Health programowo przy użyciu szablonów Azure Resource Manager i Azure PowerShell.
 
@@ -34,7 +33,7 @@ Aby postępować zgodnie z instrukcjami na tej stronie, musisz skonfigurować ki
         Login-AzAccount
         Select-AzSubscription -Subscription <subscriptionId>
 
-    > Możesz użyć `Get-AzSubscription` , aby wyświetlić listę subskrypcji, do których masz dostęp.
+    > Możesz użyć, `Get-AzSubscription` Aby wyświetlić listę subskrypcji, do których masz dostęp.
 
 2. Znajdź i Zapisz pełny identyfikator Azure Resource Manager dla grupy akcji
 
@@ -195,9 +194,9 @@ Alerty na poziomie subskrypcji lub grupy zasobów mogą mieć różne rodzaje za
 W tym miejscu użyto `anyOf` otoki, aby umożliwić Alertowi kondycji zasobu dopasowanie do dowolnego z określonych przez nas warunków, co pozwala na alerty dotyczące określonych typów zasobów.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Dostosowywanie zdarzeń Resource Health, które wysyłają alert
-Gdy zasoby podlegają zdarzeniom dotyczącym kondycji, mogą przejść przez serię etapów, która reprezentuje stan zdarzenia kondycji `In Progress`: `Updated` `Active`,, `Resolved`i.
+Gdy zasoby podlegają zdarzeniom dotyczącym kondycji, mogą przejść przez serię etapów, która reprezentuje stan zdarzenia kondycji: `Active` , `In Progress` , `Updated` i `Resolved` .
 
-Możesz otrzymywać powiadomienia tylko wtedy, gdy zasób ulegnie złej kondycji, w tym przypadku chcesz skonfigurować alert tak, aby był powiadamiany tylko wtedy, gdy `status` jest `Active`to. Jeśli jednak chcesz również otrzymywać powiadomienia o innych etapach, możesz dodać te szczegóły, takie jak:
+Możesz otrzymywać powiadomienia tylko wtedy, gdy zasób ulegnie złej kondycji, w tym przypadku chcesz skonfigurować alert tak, aby był powiadamiany tylko wtedy, gdy `status` jest to `Active` . Jeśli jednak chcesz również otrzymywać powiadomienia o innych etapach, możesz dodać te szczegóły, takie jak:
 
 ```json
 "condition": {

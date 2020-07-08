@@ -9,10 +9,9 @@ ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: 41157f26e4f87e59d5a0276ff72012ae20b70fbe
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986008"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modyfikowanie ustawień lokalnej bramy sieci przy użyciu programu PowerShell
@@ -21,7 +20,7 @@ Czasami ustawienia AddressPrefix lub GatewayIPAddress bramy sieci lokalnej. W ty
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
-> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+> * [Program PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >

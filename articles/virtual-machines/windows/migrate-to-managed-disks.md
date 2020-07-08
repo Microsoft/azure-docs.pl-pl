@@ -8,10 +8,9 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660822"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do Managed Disks na platformie Azure

@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513730"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
@@ -139,7 +138,7 @@ Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urz�
 | 9 |Ostrzeżenie: nie można aktywować urządzenia. Hasła administratora urządzenia i StorSimple Snapshot Manager nie zostały zmienione. |Jeśli rejestracja nie powiedzie się, hasła administratora i StorSimple Snapshot Manager nie są zmieniane. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Narzędzia do rozwiązywania problemów z wdrożeniami usługi StorSimple
-StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Należą do nich następujące elementy:
+StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Są to moduły:
 
 * Obsługa pakietów i dzienników urządzeń.
 * Polecenia cmdlet przeznaczone specjalnie do rozwiązywania problemów.

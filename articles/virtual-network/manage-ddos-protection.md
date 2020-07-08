@@ -17,10 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711514"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal
@@ -39,7 +38,7 @@ Tworzenie więcej niż jednego planu nie jest wymagane w przypadku większości 
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 2. Wyszukaj *DDoS*. Po pojawieniu się **planu ochrony DDoS** w wynikach wyszukiwania zaznacz je.
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Wprowadź lub wybierz własne wartości albo wprowadź lub wybierz poniższe przykładowe wartości, a następnie wybierz pozycję **Utwórz**:
 
     |Ustawienie        |Wartość                                              |

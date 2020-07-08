@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81757886"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Wdrażanie OpenShift kontenera platform 3,11 na platformie Azure
@@ -25,7 +24,7 @@ Do wdrożenia OpenShift kontenerów platformy 3,11 na platformie Azure można u�
 - Innym rozwiązaniem jest użycie [oferty portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 W przypadku wszystkich opcji wymagana jest subskrypcja Red Hat. Podczas wdrażania wystąpienie Red Hat Enterprise Linux jest zarejestrowane w ramach subskrypcji Red Hat i dołączone do identyfikatora puli zawierającego uprawnienia dla platformy kontenera OpenShift.
-Upewnij się, że masz prawidłową nazwę użytkownika, hasło i Identyfikator puli usługi Red Hat Subscription Manager (RHSM). Możesz użyć klucza aktywacji, identyfikatora organizacji i identyfikatora puli. Możesz sprawdzić te informacje, logując się do https://access.redhat.com.
+Upewnij się, że masz prawidłową nazwę użytkownika, hasło i Identyfikator puli usługi Red Hat Subscription Manager (RHSM). Możesz użyć klucza aktywacji, identyfikatora organizacji i identyfikatora puli. Możesz sprawdzić te informacje, logując się do https://access.redhat.com .
 
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-311-template"></a>Wdrażanie przy użyciu szablonu OpenShift Container platform Menedżer zasobów 3,11
@@ -46,8 +45,8 @@ Aby wdrożyć przy użyciu szablonu Menedżer zasobów, należy użyć pliku par
 
 Niektóre typowe opcje dostosowania obejmują, ale nie są ograniczone do:
 
-- Rozmiar maszyny wirtualnej bastionu (zmienna w pliku azuredeploy. JSON)
-- Konwencje nazewnictwa (zmienne w azuredeploy. JSON)
+- Rozmiar maszyny wirtualnej bastionu (zmienna w azuredeploy.jsna)
+- Konwencje nazewnictwa (zmienne w azuredeploy.json)
 - OpenShift specyficzne dla klastra, zmodyfikowane za pomocą pliku hosts (deployOpenShift.sh)
 
 ### <a name="configure-the-parameters-file"></a>Konfiguruj plik parametrów
@@ -56,7 +55,7 @@ Niektóre typowe opcje dostosowania obejmują, ale nie są ograniczone do:
 
 Użyj `appId` wartości z jednostki usługi utworzonej wcześniej dla `aadClientId` parametru.
 
-W poniższym przykładzie przedstawiono plik parametrów o nazwie azuredeploy. Parameters. JSON ze wszystkimi wymaganymi danymi wejściowymi.
+W poniższym przykładzie przedstawiono plik parametrów o nazwie azuredeploy.parameters.jsna wszystkich wymaganych danych wejściowych.
 
 ```json
 {
@@ -241,16 +240,16 @@ Zastąp parametry określonymi informacjami.
 
 Różne wersje mogą mieć inne parametry, aby zweryfikować wymagane parametry używanej gałęzi.
 
-### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Wyjaśniono plik Parameters. JSON
+### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.Parameters.jsna wyjaśnionym pliku
 
 | Właściwość | Opis | Prawidłowe opcje | Wartość domyślna |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | Adres URL artefaktów (JSON, skrypty itp.) |  |  https:\//RAW.githubusercontent.com/Microsoft/OpenShift-Container-platform/Master  |
+| `_artifactsLocation`  | Adres URL artefaktów (JSON, skrypty itp.) |  |  https: \/ /RAW.githubusercontent.com/Microsoft/OpenShift-Container-platform/Master  |
 | `location` | Region platformy Azure, do którego mają zostać wdrożone zasoby |  |  |
-| `masterVmSize` | Rozmiar głównej maszyny wirtualnej. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w pliku azuredeploy. JSON |  | Standardowa_E2s_v3 |
-| `infraVmSize` | Rozmiar infrastruktury maszyny wirtualnej. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w pliku azuredeploy. JSON |  | Standardowa_D4s_v3 |
-| `nodeVmSize` | Rozmiar maszyny wirtualnej węzła aplikacji. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w pliku azuredeploy. JSON |  | Standardowa_D4s_v3 |
-| `cnsVmSize` | Rozmiar maszyny wirtualnej węzła magazynu natywnego (CN) kontenera. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w pliku azuredeploy. JSON |  | Standardowa_E4s_v3 |
+| `masterVmSize` | Rozmiar głównej maszyny wirtualnej. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w azuredeploy.jsw pliku |  | Standardowa_E2s_v3 |
+| `infraVmSize` | Rozmiar infrastruktury maszyny wirtualnej. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w azuredeploy.jsw pliku |  | Standardowa_D4s_v3 |
+| `nodeVmSize` | Rozmiar maszyny wirtualnej węzła aplikacji. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w azuredeploy.jsw pliku |  | Standardowa_D4s_v3 |
+| `cnsVmSize` | Rozmiar maszyny wirtualnej węzła magazynu natywnego (CN) kontenera. Wybierz jeden z dozwolonych rozmiarów maszyn wirtualnych wymienionych w azuredeploy.jsw pliku |  | Standardowa_E4s_v3 |
 | `osImageType` | Obraz RHEL do użycia. defaultgallery: na żądanie; Marketplace: obraz innej firmy | defaultgallery <br> Marketplace | defaultgallery |
 | `marketplaceOsImage` | Jeśli `osImageType` jest Marketplace, wprowadź odpowiednie wartości w polu Wydawca, "Oferta", "SKU", "wersja" oferty portalu Marketplace. Ten parametr jest typem obiektu |  |  |
 | `storageKind` | Typ magazynu do użycia  | zarządzanych<br> niepodlegającą | zarządzanych |
@@ -277,9 +276,9 @@ Różne wersje mogą mieć inne parametry, aby zweryfikować wymagane parametry 
 | `enableAzure` | Włącz dostawcę chmury platformy Azure | true <br> fałsz | true |
 | `aadClientId` | Identyfikator klienta Azure Active Directory znany również jako identyfikator aplikacji dla jednostki usługi |  |  |
 | `domainName` | Nazwa niestandardowej nazwy domeny do użycia (jeśli dotyczy). Ustaw na wartość "none", jeśli nie jest wdrażany w pełni prywatny klaster |  | brak |
-| `masterClusterDnsType` | Typ domeny dla konsoli sieci Web OpenShift. wartość "default" spowoduje użycie etykiety DNS publicznego adresu IP infrastruktury Master. element "Custom" umożliwia zdefiniowanie własnej nazwy | default <br> niestandardowy | default |
+| `masterClusterDnsType` | Typ domeny dla konsoli sieci Web OpenShift. wartość "default" spowoduje użycie etykiety DNS publicznego adresu IP infrastruktury Master. element "Custom" umożliwia zdefiniowanie własnej nazwy | default <br> niestandardowe | default |
 | `masterClusterDns` | Niestandardowa nazwa DNS, która ma być używana do uzyskiwania dostępu do konsoli sieci Web OpenShift w przypadku wybrania elementu "Custom" dla`masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Jeśli zostanie ustawiona na wartość "nipio `routingSubDomain` ", użyje NIP.IO.  Użyj elementu "Custom", jeśli masz własną domenę, która ma być używana do routingu | nipio <br> niestandardowy | nipio |
+| `routingSubDomainType` | Jeśli zostanie ustawiona na wartość "nipio", `routingSubDomain` użyje NIP.IO.  Użyj elementu "Custom", jeśli masz własną domenę, która ma być używana do routingu | nipio <br> niestandardowe | nipio |
 | `routingSubDomain` | Symbol wieloznaczny DNS, który ma być używany na potrzeby routingu w przypadku wybrania elementu "Custom" dla`routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Wybierz, czy chcesz użyć istniejącego Virtual Network, czy utworzyć nowy Virtual Network | istniejącego <br> new | new |
 | `virtualNetworkResourceGroupName` | Nazwa grupy zasobów dla nowego Virtual Network w przypadku wybrania elementu "New" dla`virtualNetworkNewOrExisting` |  | resourceName (). Name |
@@ -299,17 +298,17 @@ Różne wersje mogą mieć inne parametry, aby zweryfikować wymagane parametry 
 | `masterPrivateClusterIp` | W przypadku wybrania prywatnych węzłów głównych należy określić prywatny adres IP do użycia przez wewnętrzny moduł równoważenia obciążenia dla węzłów głównych. Ten statyczny adres IP musi znajdować się w bloku CIDR dla podsieci głównej i nie jest już używany. Jeśli wybrane są publiczne węzły główne, ta wartość nie zostanie użyta, ale nadal musi być określona |  | 10.1.0.200 |
 | `routerClusterType` | Określ, czy klaster ma używać prywatnych, czy publicznych węzłów infrastruktury. W przypadku wybrania opcji prywatne węzły infrastruktury nie będą ujawniane w Internecie za pośrednictwem publicznego adresu IP. Zamiast tego będzie używany prywatny adres IP określony w`routerPrivateClusterIp` | public <br> private | public |
 | `routerPrivateClusterIp` | W przypadku wybrania prywatnych węzłów infrastruktury należy określić prywatny adres IP do użycia przez wewnętrzny moduł równoważenia obciążenia dla węzłów infrastruktury. Ten statyczny adres IP musi znajdować się w bloku CIDR dla podsieci infrastruktury i nie jest już używany. Jeśli są wybrane węzły infrastruktury publicznej, ta wartość nie zostanie użyta, ale nadal musi być określona |  | 10.2.0.200 |
-| `routingCertType` | Użyj certyfikatu niestandardowego dla domeny routingu lub domyślnego certyfikatu z podpisem własnym — postępuj zgodnie z instrukcjami w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowy | selfsigned |
-| `masterCertType` | Użyj certyfikatu niestandardowego dla domeny głównej lub domyślnego certyfikatu z podpisem własnym — wykonaj instrukcje w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowy | selfsigned |
+| `routingCertType` | Użyj certyfikatu niestandardowego dla domeny routingu lub domyślnego certyfikatu z podpisem własnym — postępuj zgodnie z instrukcjami w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowe | selfsigned |
+| `masterCertType` | Użyj certyfikatu niestandardowego dla domeny głównej lub domyślnego certyfikatu z podpisem własnym — wykonaj instrukcje w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowe | selfsigned |
 
 <br>
 
 ### <a name="deploy-using-azure-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!NOTE] 
-> Następujące polecenie wymaga interfejsu wiersza polecenia platformy Azure 2.0.8 lub nowszego. Możesz sprawdzić wersję interfejsu wiersza `az --version` polecenia za pomocą poleceń. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Następujące polecenie wymaga interfejsu wiersza polecenia platformy Azure 2.0.8 lub nowszego. Możesz sprawdzić wersję interfejsu wiersza polecenia za pomocą `az --version` poleceń. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-W poniższym przykładzie wdrożono klaster OpenShift i wszystkie powiązane zasoby w grupie zasobów o nazwie openshiftrg z nazwą wdrożenia myOpenShiftCluster. Szablon jest przywoływany bezpośrednio z repozytorium GitHub, a plik parametrów lokalnych o nazwie azuredeploy. Parameters. JSON jest używany.
+W poniższym przykładzie wdrożono klaster OpenShift i wszystkie powiązane zasoby w grupie zasobów o nazwie openshiftrg z nazwą wdrożenia myOpenShiftCluster. Do szablonu odwołuje się bezpośrednio z repozytorium GitHub, a plik parametrów lokalnych o nazwie azuredeploy.parameters.jsw pliku jest używany.
 
 ```azurecli 
 az group deployment create -g openshiftrg --name myOpenShiftCluster \
@@ -336,7 +335,7 @@ Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Na
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 

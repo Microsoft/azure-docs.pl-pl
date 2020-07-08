@@ -1,15 +1,14 @@
 ---
 title: Co nowego? Informacje o wersji — usługa Azure łańcucha bloków
 description: Dowiedz się, co nowego w usłudze Azure łańcucha bloków Service, takich jak Najnowsze informacje o wersji, wersje, znane problemy i nadchodzące zmiany.
-ms.date: 06/03/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c5316aa387de28fe1a78b336eb2e9e010c624b02
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435429"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921883"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Co nowego w usłudze Azure łańcucha bloków Service?
 
@@ -23,6 +22,25 @@ Usługa Azure łańcucha bloków Service odbiera usprawnienia w sposób ciągły
 
 ---
 
+## <a name="june-2020"></a>Czerwiec 2020 r.
+
+### <a name="version-upgrades"></a>Uaktualnienia wersji
+
+- Uaktualnianie wersji kworum do 2.6.0. W wersji 2.6.0 można wysyłać podpisane transakcje prywatne. Aby uzyskać więcej informacji na temat wysyłania transakcji prywatnych, zobacz [dokumentację interfejsu API kworum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Uaktualnij wersję Tessera do 0.10.5.
+
+### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Rozmiar kontraktu i rozmiar transakcji został zwiększony do 128 KB
+
+Typ: zmiana konfiguracji
+
+Rozmiar kontraktu (MaxCodeSize) został zwiększony do 128 KB, dzięki czemu można wdrożyć inteligentne kontrakty o większym rozmiarze. Ponadto rozmiar transakcji (txnSizeLimit) został zwiększony do 128 KB. Zmiany konfiguracji dotyczą nowych konsorcjów utworzonych w usłudze Azure łańcucha bloków po Czerwiec 19 2020.
+
+### <a name="trietimeout-value-reduced"></a>TrieTimeout wartość zredukowana
+
+Typ: zmiana konfiguracji
+
+Wartość TrieTimeout została zmniejszona, dzięki czemu stan pamięci jest częściej zapisywana na dysku. Niższa wartość zapewnia szybsze odzyskiwanie węzła w rzadkich przypadkach awarii węzła.
+
 ## <a name="may-2020"></a>Maj 2020 r.
 
 ### <a name="version-upgrades"></a>Uaktualnienia wersji
@@ -33,17 +51,24 @@ Usługa Azure łańcucha bloków Service odbiera usprawnienia w sposób ciągły
 
 ### <a name="azure-blockchain-service-supports-sending-rawprivate-transactions"></a>Usługa Azure łańcucha bloków obsługuje wysyłanie transakcji rawPrivate
 
-**Typ:** Ona
+Typ: funkcja
 
 Klienci mogą podpisywać transakcje prywatne poza kontem w węźle.
 
 ### <a name="two-phase-member-provisioning"></a>Dwufazowe Inicjowanie obsługi członków
 
-**Typ:** Udoskonal
+Typ: ulepszenie
 
 Dwie fazy pomagają zoptymalizować scenariusze, w których element członkowski jest tworzony w długim istniejącym konsorcjum. Infrastruktura członkowska jest obsługiwana w pierwszej fazie. W drugiej fazie element członkowski jest synchronizowany z łańcucha bloków. Inicjowanie obsługi dwuetapowej pomaga uniknąć niepowodzenia tworzenia elementu członkowskiego z powodu przekroczeń limitu czasu.
 
 ## <a name="known-issues"></a>Znane problemy
+
+### <a name="ethestimategas-function-throws-exception-in-quorum-v260"></a>Funkcja ETH. estimateGas zgłasza wyjątek w kworum v 2.6.0
+
+W 2.6.0 kworum v, wywołania funkcji *ETH. estimateGas* bez podawania dodatkowego parametru *wartości* powodują *awarię wyjątku procedury obsługi metody* . Zespół kworum został powiadomiony, a jego poprawka jest oczekiwana na koniec lipca 2020. Następujące obejścia można zastosować do momentu udostępnienia poprawki:
+
+- Należy unikać używania *ETH. estimateGas* , ponieważ może to mieć wpływ na wydajność. Aby uzyskać więcej informacji na temat problemów z wydajnością ETH. estimateGas, zobacz [wywoływanie funkcji ETH. estimateGas zmniejsza wydajność](#calling-ethestimategas-function-reduces-performance). Uwzględnij wartość gazu dla każdej transakcji. Większość bibliotek wywoła ETH. estimateGas, jeśli nie zostanie podana wartość gazu, która powoduje awarię kworum w 2.6.0.
+- Jeśli konieczne jest wywołanie *ETH. estimateGas*, zespół kworum sugeruje przekazanie dodatkowej *wartości* parametru jako " *0* " jako obejście.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Wyszukiwanie jest zatrzymywane w przypadku mniej niż czterech węzłów modułu sprawdzania poprawności
 
@@ -89,11 +114,11 @@ Usługa Azure łańcucha bloków powoduje ponowne uruchomienie usługi Tessera w
 
 W przypadku wysyłania dużej liczby transakcji prywatnych należy użyć warstwy *standardowa* . Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
 
-### <a name="calling-ethestimate-gas-function-reduces-performance"></a>Wywołanie funkcji ETH. oszacowanie gazu zmniejsza wydajność
+### <a name="calling-ethestimategas-function-reduces-performance"></a>Wywołanie funkcji ETH. estimateGas zmniejsza wydajność
 
-Wywołanie funkcji *ETH. oszacowanie* wielokrotnie zmniejsza liczbę transakcji na sekundę. Nie należy używać funkcji *ETH. oszacowanie* gazów dla każdego przesłania transakcji. Funkcja *ETH. oszacowanie* ma duże ilości pamięci.
+Wielokrotne wywoływanie funkcji *ETH. estimateGas* zmniejsza liczbę transakcji na sekundę. Nie należy używać funkcji *ETH. estimateGas* dla każdego przesłania transakcji. Funkcja *ETH. estimateGas* ma duże ilości pamięci.
 
-Jeśli to możliwe, należy użyć wartości zachowawczej gazu do przesyłania transakcji i zminimalizować użycie *ETH. oszacowanie*.
+Jeśli to możliwe, należy użyć wartości zachowawczej gazu do przesyłania transakcji i zminimalizować użycie *ETH. estimateGas*.
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Nieograniczone pętle w przypadku kontraktów inteligentnych zmniejszają wydajność
 

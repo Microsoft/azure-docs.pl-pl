@@ -9,10 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 1ccb32996cd8f15805a810dd5b5985aeb5f87c26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770455"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalowanie i używanie rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure
@@ -57,9 +56,9 @@ az login
 
 Aby korzystać z rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure, potrzebne są:
 
-- Usługa Azure IoT Hub. Istnieje wiele sposobów dodawania Centrum IoT Hub do subskrypcji platformy Azure, np. [Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-hub/iot-hub-create-using-cli.md). Do uruchamiania poleceń rozszerzenia usługi Azure IoT wymagane są parametry połączenia Centrum IoT Hub. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Usługa Azure IoT Hub. Istnieje wiele sposobów dodawania Centrum IoT Hub do subskrypcji platformy Azure, np. [Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-hub/iot-hub-create-using-cli.md). Do uruchamiania poleceń rozszerzenia usługi Azure IoT wymagane są parametry połączenia Centrum IoT Hub. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Urządzenie zarejestrowane w usłudze IoT Hub. Aby zarejestrować urządzenie, można użyć poniższego polecenia interfejsu CLI platformy Azure. Pamiętaj, aby zastąpić `{YourIoTHubName}` symbole `{YourDeviceID}` zastępcze i wartościami:
+- Urządzenie zarejestrowane w usłudze IoT Hub. Aby zarejestrować urządzenie, można użyć poniższego polecenia interfejsu CLI platformy Azure. Pamiętaj, aby zastąpić `{YourIoTHubName}` `{YourDeviceID}` symbole zastępcze i wartościami:
 
     ```azurecli
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
 ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84325137"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
@@ -74,7 +73,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Yes | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
+   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Tak | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
    | **Schemat JSON treści żądania** | `schema` | Nie | Schemat JSON, który opisuje właściwości i wartości w treści żądania przychodzącego |
    |||||
 
@@ -275,7 +274,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **Kod stanu** | `statusCode` | Yes | Kod stanu do zwrócenia w odpowiedzi |
+   | **Kod stanu** | `statusCode` | Tak | Kod stanu do zwrócenia w odpowiedzi |
    | **Nagłówki** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
    | **Treść** | `body` | Nie | Treść odpowiedzi |
    |||||

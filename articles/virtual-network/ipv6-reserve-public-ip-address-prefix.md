@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711497"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Zastrzeganie publicznego prefiksu adresu IPv6

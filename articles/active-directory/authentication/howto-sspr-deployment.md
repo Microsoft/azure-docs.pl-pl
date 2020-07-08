@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84338570"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
@@ -149,19 +148,19 @@ Aby utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure A
 
 Następujące ustawienia są wymagane do włączenia SSPR oraz zalecanych wartości.
 
-| Warstwowy | Ustawienie | Wartość |
+| Obszar | Ustawienie | Wartość |
 | --- | --- | --- |
 | **Właściwości SSPR** | Włączono Samoobsługowe resetowanie hasła | **Wybrana** Grupa dla pilotażu/ **wszystko** dla środowiska produkcyjnego |
 | **Metody uwierzytelniania** | Metody uwierzytelniania wymagane do zarejestrowania | Zawsze 1 więcej niż wymagane do zresetowania |
 |   | Metody uwierzytelniania wymagane do zresetowania | Jeden lub dwa |
-| **Rejestracja** | Czy wymagać od użytkowników rejestrowania się podczas logowania? | Yes |
+| **Rejestracja** | Czy wymagać od użytkowników rejestrowania się podczas logowania? | Tak |
 |   | Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania | 90 – 180 dni |
-| **Powiadomienia** | Czy powiadamiać użytkowników o resetowaniu hasła? | Yes |
-|   | Czy powiadamiać wszystkich administratorów, gdy inni administratorzy zresetują swoje hasło? | Yes |
-| **Dostosowywanie** | Dostosuj link do pomocy technicznej | Yes |
+| **Powiadomienia** | Czy powiadamiać użytkowników o resetowaniu hasła? | Tak |
+|   | Czy powiadamiać wszystkich administratorów, gdy inni administratorzy zresetują swoje hasło? | Tak |
+| **Dostosowywanie** | Dostosuj link do pomocy technicznej | Tak |
 |   | Niestandardowa wiadomość e-mail lub adres URL pomocy technicznej | Witryna lub adres e-mail pomocy technicznej |
-| **Integracja lokalna** | Zapisuj hasła do lokalnej usługi AD | Yes |
-|   | Zezwalaj użytkownikom na Odblokowywanie konta bez resetowania hasła | Yes |
+| **Integracja lokalna** | Zapisuj hasła do lokalnej usługi AD | Tak |
+|   | Zezwalaj użytkownikom na Odblokowywanie konta bez resetowania hasła | Tak |
 
 ### <a name="sspr-properties"></a>Właściwości SSPR
 
@@ -323,7 +322,7 @@ Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne p
 
 [Użycie i szczegółowe informacje](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak Azure MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 * Zobacz [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
 

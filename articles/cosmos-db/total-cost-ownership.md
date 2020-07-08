@@ -7,22 +7,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ac9e3fd4fec8ab2fe9f0c93d46489e67feebe88d
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85116268"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954659"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Łączny koszt posiadania (TCO) z Azure Cosmos DB
 
 Usługa Azure Cosmos DB została zaprojektowana z myślą o precyzyjnej obsłudze wielu dzierżawców i zarządzania zasobami. Dzięki takiej konstrukcji korzystanie z usługi Azure Cosmos DB jest znacznie tańsze, a użytkownicy mogą zaoszczędzić pieniądze. Obecnie usługa Azure Cosmos DB obsługuje ponad 280 obciążeń klientów na pojedynczej maszynie z ciągle rosnącą gęstością oraz tysiące obciążeń klientów w ramach klastra. Równoważy ona repliki obciążeń klientów na różnych maszynach w klastrze oraz na wielu klastrach w centrum danych. Aby dowiedzieć się więcej, zobacz [Azure Cosmos DB: wypychanie granicy dystrybuowanych globalnie baz danych](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Ze względu na współdziałanie z usługą Resource-ładu, Wielodostępność i natywną integrację z resztą infrastruktury platformy Azure, Azure Cosmos DB jest średnio od 4 do 6 razy tańsze niż MongoDB, Cassandra lub inne NoSQL OSS uruchomione w IaaS i nawet 10 razy tańsze niż aparaty bazy danych działające lokalnie. Zobacz dokument dotyczący [łącznego kosztu (nie) własności usługi NoSQL Database w chmurze](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
-W przypadku rozwiązań baz danych OSS NoSQL, takich jak Apache Cassandra, MongoDB, HBase, aparaty zostały zaprojektowane do użytku lokalnego. Oferowana jako usługa zarządzana jest równoważna z szablonem Menedżer zasobów z bazą danych dzierżawy do zarządzania klastrami i obsługą monitorowania. Architektury OSS NoSQL wymagają znaczących obciążeń operacyjnych, a wiedza może być trudna i kosztowna do znalezienia. Z drugiej strony Azure Cosmos DB to w pełni zarządzana usługa w chmurze, która umożliwia deweloperom skoncentrowanie się na innowacyjności biznesowej, a nie na zarządzaniu infrastrukturą bazy danych i jej utrzymywaniu. 
+W przypadku rozwiązań baz danych OSS NoSQL, takich jak Apache Cassandra, MongoDB, HBase, aparaty zostały zaprojektowane do użytku lokalnego. Oferowana jako usługa zarządzana jest równoważna z szablonem Menedżer zasobów z bazą danych dzierżawy do zarządzania klastrami i obsługą monitorowania. Architektury OSS NoSQL wymagają znaczących obciążeń operacyjnych, a wiedza może być trudna i kosztowna do znalezienia. Z drugiej strony Azure Cosmos DB to w pełni zarządzana usługa w chmurze, która umożliwia deweloperom skoncentrowanie się na innowacyjności biznesowej, a nie na zarządzaniu infrastrukturą bazy danych i jej utrzymywaniu.
 
 W przeciwieństwie do natywnej Azure Cosmos DB usługi bazy danych w chmurze, aparaty bazy danych OSS NoSQL nie zostały zaprojektowane i skompilowane przy użyciu zarządzania zasobami lub z szczegółowym użyciem wielu dzierżawców jako podstawowych zasad architektury. Aparaty bazy danych OSS NoSQL, takie jak Cassandra i MongoDB, stanowią podstawowe założenie, że wszystkie zasoby maszyny wirtualnej, na których są uruchomione, są dostępne do użycia. Wiele z tych aparatów baz danych nie może działać, jeśli ilość zasobów spadnie poniżej określonego progu. Na przykład w przypadku małych wystąpień maszyn wirtualnych i są one dostępne z konfiguracjami zalecanymi przez dostawcę, które sugerują zwykle maszyny wirtualne o dużej skali z wyższym kosztem. W związku z tym nie można hostować usługi OSS NoSQL ani innego lokalnego aparatu bazy danych i udostępnić go przy użyciu modelu ładowania opartego na zużyciu, takiego jak żądania na sekundę lub zużyty magazyn.
 
-## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Łączny koszt posiadania Azure Cosmos DB 
+## <a name="total-cost-of-ownership-of-azure-cosmos-db"></a>Łączny koszt posiadania Azure Cosmos DB
 
 Model aprowizacji bezserwerowej Azure Cosmos DB eliminuje konieczność przekroczenia obsługi administracyjnej infrastruktury baz danych. Zasoby Azure Cosmos DB są udostępniane bez potrzeby wyspecjalizowanych konfiguracji ani licencjonowania. W efekcie aplikacje z obsługą kopii zapasowej Azure Cosmos DB mogą działać z użyciem nawet 70% całkowitego kosztu oszczędności dla własności w porównaniu z bazami danych OSS NoSQL. Aby zapoznać się z niektórymi przykładami w czasie rzeczywistym, zobacz [przypadki użycia klientów](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc). Inne korzyści wynikające z modelu cen Azure Cosmos DB obejmują:
 

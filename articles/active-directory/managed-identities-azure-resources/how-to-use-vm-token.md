@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f5688a42a240fa2690eed48ab32d483f96a5b7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84694131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608385"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -47,7 +46,7 @@ Jeśli planujesz użyć przykładów Azure PowerShell w tym artykule, pamiętaj,
 
 Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dostępu tylko do aplikacji](../develop/developer-glossary.md#access-token) platformy Azure w celu uzyskania dostępu do danego zasobu. Token jest [oparty na tożsamościach zarządzanych dla jednostki usługi Azure Resources](overview.md#managed-identity-types). W związku z tym klient nie musi rejestrować się w celu uzyskania tokenu dostępu w ramach własnej nazwy głównej usługi. Token jest odpowiedni do użycia jako token okaziciela w [wywołaniach między usługami wymagającymi poświadczeń klienta](../develop/v2-oauth2-client-creds-grant-flow.md).
 
-|  |  |
+| Link | Opis |
 | -------------- | -------------------- |
 | [Uzyskiwanie tokenu przy użyciu protokołu HTTP](#get-a-token-using-http) | Szczegóły protokołu dla tożsamości zarządzanych dla punktu końcowego tokenu zasobów platformy Azure |
 | [Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Przykład korzystania z biblioteki Microsoft. Azure. Services. AppAuthentication z klienta platformy .NET
@@ -364,7 +363,7 @@ Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON 
 
 | Element | Opis |
 | ------- | ----------- |
-| error   | Identyfikator błędu. |
+| Błąd   | Identyfikator błędu. |
 | error_description | Pełny opis błędu. **Opis błędów można zmienić w dowolnym momencie. Nie należy pisać kodu, który oddziałuje na podstawie wartości w opisie błędu.**|
 
 ### <a name="http-response-reference"></a>Odwołanie do odpowiedzi HTTP

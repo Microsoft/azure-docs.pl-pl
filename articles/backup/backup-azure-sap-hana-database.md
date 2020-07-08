@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy da
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84667322"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
@@ -41,7 +40,7 @@ W przypadku wszystkich operacji baza danych SAP HANA uruchomiona na maszynie wir
 
 W poniższej tabeli wymieniono różne alternatywy, których można użyć do ustanowienia łączności:
 
-| **Zaznaczyć**                        | **Zalety**                                               | **Wady**                                            |
+| **Opcja**                        | **Zalety**                                               | **Wady**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Prywatne punkty końcowe                 | Zezwalaj na wykonywanie kopii zapasowych za pośrednictwem prywatnych adresów IP w sieci wirtualnej  <br><br>   Zapewnianie szczegółowej kontroli po stronie sieci i magazynu | Odnosi się do standardowych [kosztów](https://azure.microsoft.com/pricing/details/private-link/) prywatnych punktów końcowych |
 | Tagi usługi sieciowej grupy zabezpieczeń                  | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane   <br><br>   Brak dodatkowych kosztów | Może być używany tylko z sieciowych grup zabezpieczeń  <br><br>    Zapewnia dostęp do całej usługi |

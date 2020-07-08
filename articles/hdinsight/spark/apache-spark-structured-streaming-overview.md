@@ -8,12 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9e29d91aa3b146a8aacdccec01b67506d5e45bb3
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75548840"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037923"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Przegląd Apache Spark strukturalnych przesyłania strumieniowego
 
@@ -62,11 +61,13 @@ Nie wszystkie zapytania korzystające z trybu Complete spowodują, że tabela zo
 
 Proste przykładowe zapytanie może podsumowywać odczyty temperatury według długiej godziny systemu Windows. W takim przypadku dane są przechowywane w plikach JSON w usłudze Azure Storage (dołączone jako magazyn domyślny dla klastra usługi HDInsight):
 
-    {"time":1469501107,"temp":"95"}
-    {"time":1469501147,"temp":"95"}
-    {"time":1469501202,"temp":"95"}
-    {"time":1469501219,"temp":"95"}
-    {"time":1469501225,"temp":"95"}
+```json
+{"time":1469501107,"temp":"95"}
+{"time":1469501147,"temp":"95"}
+{"time":1469501202,"temp":"95"}
+{"time":1469501219,"temp":"95"}
+{"time":1469501225,"temp":"95"}
+```
 
 Te pliki JSON są przechowywane w `temps` podfolderze kontenera klastra usługi HDInsight.
 
@@ -74,41 +75,51 @@ Te pliki JSON są przechowywane w `temps` podfolderze kontenera klastra usługi 
 
 Najpierw należy skonfigurować ramkę danych opisującą źródło i wszystkie ustawienia wymagane przez to źródło. Ten przykład jest pobierany z plików JSON w usłudze Azure Storage i stosuje do nich schemat w czasie odczytywania.
 
-    import org.apache.spark.sql.types._
-    import org.apache.spark.sql.functions._
+```sql
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._
 
-    //Cluster-local path to the folder containing the JSON files
-    val inputPath = "/temps/" 
+//Cluster-local path to the folder containing the JSON files
+val inputPath = "/temps/" 
 
-    //Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
-    val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
+//Define the schema of the JSON files as having the "time" of type TimeStamp and the "temp" field of type String
+val jsonSchema = new StructType().add("time", TimestampType).add("temp", StringType)
 
-    //Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
-    val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath) 
+//Create a Streaming DataFrame by calling readStream and configuring it with the schema and path
+val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
+``` 
 
 #### <a name="apply-the-query"></a>Zastosuj zapytanie
 
 Następnie Zastosuj zapytanie, które zawiera żądane operacje dla ramki danych przesyłania strumieniowego. W takim przypadku agregacja grupuje wszystkie wiersze w 1-godzinnym systemie Windows, a następnie oblicza minimalną, średnią i maksymalną temperaturę w tym oknie 1-godzinnym.
 
-    val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```sql
+val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
+```
 
 ### <a name="define-the-output-sink"></a>Definiowanie ujścia danych wyjściowych
 
-Następnie zdefiniuj miejsce docelowe dla wierszy, które są dodawane do tabeli wyników w ramach każdego interwału wyzwalacza. Ten przykład po prostu wyprowadza wszystkie wiersze do tabeli `temps` znajdującej się w pamięci, którą można później wykonać przy użyciu SparkSQL. Pełny tryb wyjściowy zapewnia, że wszystkie wiersze dla wszystkich okien są wyprowadzane za każdym razem.
+Następnie zdefiniuj miejsce docelowe dla wierszy, które są dodawane do tabeli wyników w ramach każdego interwału wyzwalacza. Ten przykład po prostu wyprowadza wszystkie wiersze do tabeli znajdującej się w pamięci `temps` , którą można później wykonać przy użyciu SparkSQL. Pełny tryb wyjściowy zapewnia, że wszystkie wiersze dla wszystkich okien są wyprowadzane za każdym razem.
 
-    val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete") 
+```sql
+val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
+``` 
 
 ### <a name="start-the-query"></a>Uruchom zapytanie
 
 Uruchom kwerendę przesyłania strumieniowego i uruchom do momentu otrzymania sygnału zakończenia.
 
-    val query = streamingOutDF.start()  
+```sql
+val query = streamingOutDF.start() 
+``` 
 
 ### <a name="view-the-results"></a>Wyświetlanie wyników
 
-Gdy zapytanie jest uruchomione, w tym samym SparkSession można uruchomić zapytanie SparkSQL względem `temps` tabeli, w której są przechowywane wyniki zapytania.
+Gdy zapytanie jest uruchomione, w tym samym SparkSession można uruchomić zapytanie SparkSQL względem tabeli, w `temps` której są przechowywane wyniki zapytania.
 
-    select * from temps
+```sql
+select * from temps
+```
 
 To zapytanie daje wyniki podobne do następujących:
 

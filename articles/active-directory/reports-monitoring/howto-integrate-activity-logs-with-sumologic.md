@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdfc4e393ca7bf4bcbd523b4fad72690d5f2744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 91c3b1216d5ced766a77bb1fb63e41eaedb8220d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608980"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrowanie dzienników Azure Active Directory z usługą SumoLogic przy użyciu Azure Monitor
 

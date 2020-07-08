@@ -5,14 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: c03b9fbd06b0a9bc4a70b0fb3a78bc9ce136b704
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835584"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037413"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -109,7 +108,7 @@ Poniżej znajduje się tabela przepływności zadania Stream Analytics dla róż
 | **1 SU** |2500 |5000 |20 000 |30 000 |50 000 |
 | **3 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
 | **6 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
-| **12 usług SUs** |5000 |10 000 |40 000 |60 000 |100 000 |
+| **12 usług SUs** |5000 |10 000 |40 000 |60 000 |100 000 |
 | **18 usług SUs** |7500 |15 000 |60 000 |90 000 |150 000 |
 | **24 usługi SUs** |10 000 |20 000 |80 000 |120 000 |200,000 |
 | **…** |… |… |… |… |… |

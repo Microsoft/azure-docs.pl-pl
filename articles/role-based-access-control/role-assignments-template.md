@@ -14,10 +14,9 @@ ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392458"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager

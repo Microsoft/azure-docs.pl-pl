@@ -5,10 +5,9 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212568"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
@@ -40,7 +39,7 @@ Aby dodać węzeł transakcji:
     | Nazwa | Nazwa węzła transakcji. Nazwa służy do tworzenia adresu DNS dla punktu końcowego węzła transakcji. Na przykład `newnode-myblockchainmember.blockchain.azure.com`. Nazwy węzła nie można zmienić po jego utworzeniu. |
     | Hasło | Ustaw silne hasło. Użyj hasła, aby uzyskać dostęp do punktu końcowego węzła transakcji z uwierzytelnianiem podstawowym.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     Inicjowanie obsługi nowego węzła transakcji trwa około 10 minut. Dodatkowe węzły transakcji wiążą się z kosztami. Aby uzyskać więcej informacji o kosztach, zobacz [Cennik platformy Azure](https://aka.ms/ABSPricing).
 

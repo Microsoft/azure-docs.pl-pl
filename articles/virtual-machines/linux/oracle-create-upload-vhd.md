@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
 ms.openlocfilehash: fd6d17709cc3e5e9f6bb89ed7480fcd9ee80fd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759389"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Przygotuj Oracle Linux maszynę wirtualną dla platformy Azure
@@ -27,7 +26,7 @@ W tym artykule założono, że zainstalowano już Oracle Linux system operacyjny
 * Wersje jądra systemu Linux starsze niż 2.6.37 nie obsługują architektury NUMA w funkcji Hyper-V o większych rozmiarach maszyn wirtualnych. Ten problem ma głównie wpływ na starsze dystrybucje przy użyciu wbudowanego jądra Red Hat 2.6.32 i został ustalony w Oracle Linux 6,6 i nowszych
 * Nie należy konfigurować partycji wymiany na dysku systemu operacyjnego. Agenta systemu Linux można skonfigurować tak, aby utworzył plik wymiany na tymczasowym dysku zasobów.  Więcej informacji na ten temat można znaleźć w poniższych krokach.
 * Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją. Aby uzyskać więcej informacji, zobacz [uwagi dotyczące instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) .
-* Upewnij się, że `Addons` repozytorium jest włączone. Edytuj `/etc/yum.repos.d/public-yum-ol6.repo`plik (Oracle Linux 6) lub `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) i zmień wiersz `enabled=0` na `enabled=1` **[ol6_addons]** lub **[ol7_addons]** w tym pliku.
+* Upewnij się, że `Addons` repozytorium jest włączone. Edytuj plik `/etc/yum.repos.d/public-yum-ol6.repo` (Oracle Linux 6) lub `/etc/yum.repos.d/public-yum-ol7.repo` (Oracle Linux 7) i Zmień wiersz `enabled=0` na `enabled=1` **[ol6_addons]** lub **[ol7_addons]** w tym pliku.
 
 ## <a name="oracle-linux-64-and-later"></a>Oracle Linux 6,4 i nowsze
 Należy wykonać określone czynności konfiguracyjne w systemie operacyjnym, aby maszyna wirtualna mogła działać na platformie Azure.
@@ -74,7 +73,7 @@ Należy wykonać określone czynności konfiguracyjne w systemie operacyjnym, ab
    
    Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego.
    
-   `crashkernel` Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
+   `crashkernel`Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
 10. Upewnij się, że serwer SSH został zainstalowany i skonfigurowany do uruchamiania w czasie rozruchu.  Zwykle jest to ustawienie domyślne.
 11. Zainstaluj agenta systemu Linux platformy Azure, uruchamiając następujące polecenie. Najnowsza wersja to 2.0.15.
     
@@ -148,7 +147,7 @@ Przygotowywanie maszyny wirtualnej Oracle Linux 7 na platformie Azure jest bardz
    
    Rozruch graficzny i cichy nie są przydatne w środowisku chmury, w którym wszystkie dzienniki mają być wysyłane do portu szeregowego.
    
-   `crashkernel` Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
+   `crashkernel`Opcja może pozostać skonfigurowana w razie potrzeby, ale należy pamiętać, że ten parametr zmniejsza ilość dostępnej pamięci na maszynie wirtualnej o 128 MB/większej, co może powodować problemy w mniejszych rozmiarach maszyn wirtualnych.
 10. Po zakończeniu edycji "/etc/default/grub" powyżej, uruchom następujące polecenie, aby ponownie skompilować konfigurację grub:
     
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg

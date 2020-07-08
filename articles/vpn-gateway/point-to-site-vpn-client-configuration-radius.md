@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84986564"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN na potrzeby uwierzytelniania P2S RADIUS

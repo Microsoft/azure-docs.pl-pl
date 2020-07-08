@@ -8,10 +8,9 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710715"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planowanie pojemności i skalowanie na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure

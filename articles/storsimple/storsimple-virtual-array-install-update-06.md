@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513588"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,6 w macierzy wirtualnej StorSimple

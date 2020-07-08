@@ -3,23 +3,22 @@ title: Instalowanie wirtualnego systemu plików w puli
 description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsadowej.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816033"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954676"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
 Azure Batch teraz obsługuje instalowanie magazynu w chmurze lub zewnętrznego systemu plików w węzłach obliczeniowych systemu Windows lub Linux w pulach usługi Batch. Gdy węzeł obliczeniowy jest przyłączany do puli, wirtualny system plików jest instalowany i traktowany jako dysk lokalny w tym węźle. Można instalować systemy plików, takie jak Azure Files, Azure Blob Storage, Network File System (NFS), w tym [pamięci podręcznej VFXT avere](../avere-vfxt/avere-vfxt-overview.md)lub Common Internet File System (CIFS).
 
-W tym artykule dowiesz się, jak zainstalować wirtualny system plików w puli węzłów obliczeniowych przy użyciu [biblioteki zarządzania usługą Batch dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+W tym artykule dowiesz się, jak zainstalować wirtualny system plików w puli węzłów obliczeniowych przy użyciu [biblioteki zarządzania usługą Batch dla platformy .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > Instalowanie wirtualnego systemu plików jest obsługiwane w pulach wsadowym utworzonym w dniu lub po 2019-08-19. Pule wsadowe utworzone przed 2019-08-19 nie obsługują tej funkcji.
 > 
-> Interfejsy API służące do instalowania systemów plików w węźle obliczeniowym są częścią biblioteki usługi [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet) .
+> Interfejsy API służące do instalowania systemów plików w węźle obliczeniowym są częścią biblioteki usługi [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet) .
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Zalety instalowania w puli
 
@@ -128,7 +127,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Wspólny internetowy system plików
 
-W celu łatwego dostępu do węzłów puli można także zainstalować systemy plików CIFS (Common Internet File System), które umożliwiają korzystanie z tych samych węzłów Azure Batch. CIFS to protokół udostępniania plików, który zapewnia otwarty i Międzyplatformowy mechanizm do żądania plików i usług serwera sieciowego. Protokół CIFS jest oparty na rozszerzonej wersji protokołu SMB (Server Message Block) firmy Microsoft do udostępniania plików internetowych i intranetowych oraz służy do instalowania zewnętrznych systemów plików w węzłach systemu Windows. Aby dowiedzieć się więcej o protokole SMB, zobacz [serwer plików i protokół SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+W celu łatwego dostępu do węzłów puli można także zainstalować systemy plików CIFS (Common Internet File System), które umożliwiają korzystanie z tych samych węzłów Azure Batch. CIFS to protokół udostępniania plików, który zapewnia otwarty i Międzyplatformowy mechanizm do żądania plików i usług serwera sieciowego. Protokół CIFS jest oparty na rozszerzonej wersji protokołu SMB (Server Message Block) firmy Microsoft do udostępniania plików internetowych i intranetowych oraz służy do instalowania zewnętrznych systemów plików w węzłach systemu Windows. Aby dowiedzieć się więcej o protokole SMB, zobacz [serwer plików i protokół SMB](/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -153,7 +152,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnozuj błędy instalacji
 
-Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła stanie się bezużyteczny. Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) Właściwość w celu uzyskania szczegółowych informacji o błędzie.
+Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła stanie się bezużyteczny. Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) Właściwość w celu uzyskania szczegółowych informacji o błędzie.
 
 Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-output-files.md) do przekazania `*.log` plików. `*.log`Pliki zawierają informacje o instalacji systemu plików w `AZ_BATCH_NODE_MOUNTS_DIR` lokalizacji. Pliki dziennika instalacji mają format: `<type>-<mountDirOrDrive>.log` dla każdej instalacji. Na przykład `cifs` Instalacja w katalogu instalacji o nazwie `test` będzie miała plik dziennika instalacji o nazwie: `cifs-test.log` .
 
@@ -179,5 +178,5 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 
 - Więcej informacji na temat instalowania udziału Azure Files w [systemie Windows](../storage/files/storage-how-to-use-files-windows.md) lub [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Dowiedz się więcej o używaniu i instalowaniu wirtualnych systemów plików [blobfuse](https://github.com/Azure/azure-storage-fuse) .
-- Zapoznaj się z tematem [system plików sieciowych](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) , aby uzyskać informacje na temat systemu plików NFS i jego aplikacji.
-- Więcej informacji na temat protokołu CIFS można znaleźć w temacie [Omówienie protokołów SMB i protokołu CIFS firmy Microsoft](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) .
+- Zapoznaj się z tematem [system plików sieciowych](/windows-server/storage/nfs/nfs-overview) , aby uzyskać informacje na temat systemu plików NFS i jego aplikacji.
+- Więcej informacji na temat protokołu CIFS można znaleźć w temacie [Omówienie protokołów SMB i protokołu CIFS firmy Microsoft](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) .
