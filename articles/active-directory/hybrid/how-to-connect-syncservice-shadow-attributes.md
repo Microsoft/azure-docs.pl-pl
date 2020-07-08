@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356665"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atrybuty cienia usługi synchronizacji Azure AD Connect
@@ -74,6 +74,6 @@ Przetwarzanie zmiany przez ProxyCalc może zająć trochę czasu i nie jest ona 
 ### <a name="quarantined-attribute-values"></a>Wartości atrybutów poddane kwarantannie
 Atrybuty cienia są również używane, gdy istnieją zduplikowane wartości atrybutów. Aby uzyskać więcej informacji, zobacz [odporność na zduplikowane atrybuty](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md).

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357413"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów pakietu Office 365
@@ -62,7 +62,7 @@ Georegiony w pakiecie Office 365 dostępne dla wielogeograficzne:
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Obsługa Azure AD Connect synchronizacji
 
-Azure AD Connect obsługuje synchronizację atrybutu **preferredDataLocation** dla obiektów **użytkownika** w wersji 1.1.524.0 i nowszych. Są to:
+Azure AD Connect obsługuje synchronizację atrybutu **preferredDataLocation** dla obiektów **użytkownika** w wersji 1.1.524.0 i nowszych. W szczególności:
 
 * Schemat typu obiektu **użytkownika** w łączniku usługi Azure AD został rozszerzony w celu uwzględnienia atrybutu **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
 * Schemat **typu obiektu** w obiekcie Metaverse został rozszerzony tak, aby obejmował atrybut **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
@@ -155,7 +155,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizowanie |
+    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizacja |
 
 7. Aby utworzyć regułę ruchu przychodzącego, wybierz pozycję **Dodaj**.
 
@@ -184,7 +184,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
     | sourceObjectType | WIĘKSZY | Użytkownik |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Prawda |
 
     Filtr określania zakresu określa, do których obiektów usługi Azure AD jest stosowana ta reguła synchronizacji danych wychodzących. W tym przykładzie używamy tego samego filtru określania zakresu od "out do Azure AD — tożsamość użytkownika" OOB (out-of-Box) reguły synchronizacji. Uniemożliwia stosowanie reguły synchronizacji do obiektów **użytkownika** , które nie są zsynchronizowane z Active Directory lokalnego. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -192,7 +192,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Unchecked | Aktualizowanie |
+    | Direct | preferredDataLocation | preferredDataLocation | Unchecked | Aktualizacja |
 
 7. Zamknij **Dodaj** , aby utworzyć regułę wychodzącą.
 

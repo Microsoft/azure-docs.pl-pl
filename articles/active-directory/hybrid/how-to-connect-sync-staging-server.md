@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356954"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: przemieszczanie serwera i odzyskiwania po awarii
@@ -60,7 +60,7 @@ Aby zastosować tę metodę, wykonaj następujące kroki:
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Wyloguj się/Zaloguj się i z menu Start wybierz pozycję **usługa synchronizacji**.
 
-#### <a name="configuration"></a>Konfiguracja
+#### <a name="configuration"></a>Konfigurowanie
 Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przemieszczania, użyj [Azure AD Connect documention Configuration](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importowanie i synchronizacja

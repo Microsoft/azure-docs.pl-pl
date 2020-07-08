@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85357872"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
@@ -284,13 +284,13 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Unchecked | Aktualizowanie |
+    | Direct | UserType | extensionAttribute1 | Unchecked | Aktualizacja |
 
     W innym przykładzie, chcesz utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako gościa, jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią domeny <em>@partners.fabrikam123.org</em> . Można zaimplementować wyrażenie podobne do tego:
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), " @partners.fabrikam123.org ") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Aktualizowanie |
+    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), " @partners.fabrikam123.org ") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Aktualizacja |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę ruchu przychodzącego.
 
@@ -319,7 +319,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
     | sourceObjectType | WIĘKSZY | Użytkownik |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Prawda |
 
     Filtr określania zakresu określa, do których obiektów usługi Azure AD jest stosowana ta reguła synchronizacji danych wychodzących. W tym przykładzie używamy tego samego filtru określania zakresu z reguły synchronizacji Out to on-of-Box z *tożsamością użytkownika* . Uniemożliwia stosowanie reguły synchronizacji do obiektów użytkownika, które nie są zsynchronizowane z Active Directory lokalnych. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -327,7 +327,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Unchecked | Aktualizowanie |
+    | Direct | UserType | UserType | Unchecked | Aktualizacja |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę wychodzącą.
 
