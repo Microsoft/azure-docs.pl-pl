@@ -3,12 +3,11 @@ title: Przegląd Azure Resource Health
 description: Omówienie Azure Resource Health
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80159255"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041578"
 ---
 # <a name="resource-health-overview"></a>Przegląd Resource Health
  
@@ -18,7 +17,7 @@ Raporty o [stanie platformy Azure](https://status.azure.com) dotyczące problem�
 
 ## <a name="resource-definition-and-health-assessment"></a>Definicja zasobu i Ocena kondycji
 
-*Zasób* to określone wystąpienie usługi platformy Azure, takie jak maszyna wirtualna, aplikacja sieci Web lub baza danych SQL. Resource Health opiera się na sygnałach z różnych usług platformy Azure w celu oceny, czy zasób jest w dobrej kondycji. Jeśli zasób jest w złej kondycji, Resource Health analizuje dodatkowe informacje w celu ustalenia źródła problemu. Raport zawiera również informacje o działaniach podejmowanych przez firmę Microsoft w celu rozwiązania problemu i identyfikacji rzeczy, które można zrobić, aby rozwiązać ten problem.
+*Zasób* to określone wystąpienie usługi platformy Azure, takie jak maszyna wirtualna, aplikacja sieci web lub SQL Database. Resource Health opiera się na sygnałach z różnych usług platformy Azure w celu oceny, czy zasób jest w dobrej kondycji. Jeśli zasób jest w złej kondycji, Resource Health analizuje dodatkowe informacje w celu ustalenia źródła problemu. Raport zawiera również informacje o działaniach podejmowanych przez firmę Microsoft w celu rozwiązania problemu i identyfikacji rzeczy, które można zrobić, aby rozwiązać ten problem.
 
 Aby uzyskać więcej informacji na temat oceny kondycji, zobacz listę typów zasobów i kontroli kondycji w [Azure Resource Health](resource-health-checks-resource-types.md).
 
@@ -80,7 +79,7 @@ Możesz uzyskać dostęp do 30-dniowej historii w sekcji **historia kondycji** R
 
 ![Lista zdarzeń Resource Health w ciągu ostatnich dwóch tygodni](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby otworzyć Resource Health dla jednego zasobu:
 

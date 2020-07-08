@@ -9,10 +9,9 @@ ms.date: 04/21/2020
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84792046"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów
@@ -350,7 +349,7 @@ W tym miejscu `durationMs` nie jest obliczany, ponieważ zegar IoT Hub może nie
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Liczba całkowita | Rozmiar komunikatu z urządzenia do chmury w bajtach |
+| **messageSize** | Integer | Rozmiar komunikatu z urządzenia do chmury w bajtach |
 | **deviceId** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
 | **callerLocalTimeUtc** | Sygnatura czasowa UTC | Godzina utworzenia komunikatu zgłoszonego przez zegar lokalny urządzenia |
 | **calleeLocalTimeUtc** | Sygnatura czasowa UTC | Godzina przybycia wiadomości w bramie IoT Hubej zgłoszonej przez IoT Hub zegar po stronie usługi |
@@ -384,8 +383,8 @@ W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przycho
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Ciąg | Wartość true lub false wskazuje, czy w IoT Hub jest włączona funkcja routingu komunikatów |
-| **parentSpanId** | Ciąg | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie w tym przypadku D2C śledzenia komunikatów |
+| **isRoutingEnabled** | String | Wartość true lub false wskazuje, czy w IoT Hub jest włączona funkcja routingu komunikatów |
+| **parentSpanId** | String | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie w tym przypadku D2C śledzenia komunikatów |
 
 ##### <a name="iot-hub-egress-logs"></a>Dzienniki wychodzące IoT Hub
 
@@ -416,9 +415,9 @@ W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przycho
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **Nazwapunktukoncowego** | Ciąg | Nazwa punktu końcowego routingu |
-| **punkt końcowy** | Ciąg | Typ punktu końcowego routingu |
-| **parentSpanId** | Ciąg | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie IoT Hub śledzenia komunikatów przychodzących w tym przypadku |
+| **Nazwapunktukoncowego** | String | Nazwa punktu końcowego routingu |
+| **punkt końcowy** | String | Typ punktu końcowego routingu |
+| **parentSpanId** | String | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie IoT Hub śledzenia komunikatów przychodzących w tym przypadku |
 
 #### <a name="configurations"></a>Konfiguracje
 

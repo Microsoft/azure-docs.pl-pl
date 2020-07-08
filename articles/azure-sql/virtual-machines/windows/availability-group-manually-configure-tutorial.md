@@ -14,12 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
-ms.translationtype: MT
+ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391047"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960745"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Samouczek: ręcznie skonfiguruj grupę dostępności SQL Server na platformie Azure Virtual Machines
 
@@ -39,15 +38,15 @@ W samouczku założono, że masz podstawową wiedzę na temat SQL Server zawsze 
 
 W poniższej tabeli wymieniono wymagania wstępne, które należy wykonać przed rozpoczęciem pracy z tym samouczkiem:
 
-|  |Wymaganie |Opis |
+| Wymaganie |Opis |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png) | Dwa wystąpienia SQL Server | — W zestawie dostępności platformy Azure <br/> — W pojedynczej domenie <br/> — Z zainstalowaną funkcją klaster trybu failover |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)| Windows Server | Udział plików dla monitora klastra |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Konto usługi SQL Server | Konto domeny |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Konto usługi SQL Server Agent | Konto domeny |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Otwarte porty zapory | -SQL Server: **1433** dla domyślnego wystąpienia <br/> -Punkt końcowy dublowania bazy danych: **5022** lub dowolny dostępny port <br/> -Sonda kondycji adresu IP modułu równoważenia obciążenia grupy dostępności: **59999** lub dowolny dostępny port <br/> — Sonda kondycji adresu IP podstawowego modułu równoważenia obciążenia klastra: **58888** lub dowolny dostępny port |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Dodawanie funkcji klaster trybu failover | Oba wystąpienia SQL Server wymagają tej funkcji |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)|Konto domeny instalacji | -Administrator lokalny na każdym SQL Server <br/> -Składowa SQL Server stałej roli serwera sysadmin dla każdego wystąpienia SQL Server  |
+|![Kwadratowe ](./media/availability-group-manually-configure-tutorial/square.png) **dwa wystąpienia SQL Server**    | — W zestawie dostępności platformy Azure <br/> — W pojedynczej domenie <br/> — Z zainstalowaną funkcją klaster trybu failover |
+|![Kwadratowy ](./media/availability-group-manually-configure-tutorial/square.png) **serwer systemu Windows**    | Udział plików dla monitora klastra |  
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto usługi SQL Server** kwadratowej    | Konto domeny |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto usługi agenta SQL Server** kwadratowego    | Konto domeny |  
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Otwarte porty zapory** kwadratowej    | -SQL Server: **1433** dla domyślnego wystąpienia <br/> -Punkt końcowy dublowania bazy danych: **5022** lub dowolny dostępny port <br/> -Sonda kondycji adresu IP modułu równoważenia obciążenia grupy dostępności: **59999** lub dowolny dostępny port <br/> — Sonda kondycji adresu IP podstawowego modułu równoważenia obciążenia klastra: **58888** lub dowolny dostępny port |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Dodaj funkcję Klaster trybu failover** do kwadratu    | Oba wystąpienia SQL Server wymagają tej funkcji |
+|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto domeny instalacji** kwadratowej    | -Administrator lokalny na każdym SQL Server <br/> -Składowa SQL Server stałej roli serwera sysadmin dla każdego wystąpienia SQL Server  |
 
 
 Przed rozpoczęciem tego samouczka należy [spełnić wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na platformie Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Jeśli te wymagania wstępne zostały już wykonane, możesz przejść do [tworzenia klastra](#CreateCluster).
@@ -87,7 +86,7 @@ Po zakończeniu wymagań wstępnych pierwszym krokiem jest utworzenie klastra tr
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Ustaw adres IP klastra trybu failover systemu Windows Server
 
   > [!NOTE]
-  > W systemie Windows Server 2019 klaster tworzy **rozproszoną nazwę serwera** zamiast **nazwy sieciowej klastra**. Jeśli używasz systemu Windows Server 2019, Pomiń wszystkie kroki odnoszące się do nazwy podstawowe klastra w tym samouczku. Nazwę sieci klastra można utworzyć przy użyciu [programu PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#windows-server-2019). Aby uzyskać więcej informacji, przejrzyj [klaster trybu failover w blogu: cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) . 
+  > W systemie Windows Server 2019 klaster tworzy **rozproszoną nazwę serwera** zamiast **nazwy sieciowej klastra**. Jeśli używasz systemu Windows Server 2019, Pomiń wszystkie kroki odnoszące się do nazwy podstawowe klastra w tym samouczku. Nazwę sieci klastra można utworzyć przy użyciu [programu PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). Aby uzyskać więcej informacji, przejrzyj [klaster trybu failover w blogu: cluster network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) . 
 
 1. W **Menedżer klastra trybu failover**przewiń w dół do **zasobów podstawowe klastra** i rozwiń Szczegóły klastra. Powinna zostać wyświetlona **Nazwa** i zasoby **adresów IP** w stanie **Niepowodzenie** . Nie można przełączyć zasobu adresu IP do trybu online, ponieważ klaster ma przypisany ten sam adres IP co komputer, w związku z czym jest to zduplikowany adres.
 
@@ -367,7 +366,7 @@ Moduł równoważenia obciążenia na platformie Azure może być usługa Load B
 
    ![Grupa dostępności w Menedżer klastra trybu failover](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Skonfiguruj następujące parametry dla modułu równoważenia obciążenia.
 
    | Ustawienie | Pole |

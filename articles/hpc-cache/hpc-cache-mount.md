@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
 ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515531"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej usługi Azure HPC Cache

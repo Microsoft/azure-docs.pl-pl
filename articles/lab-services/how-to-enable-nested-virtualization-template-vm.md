@@ -4,10 +4,9 @@ description: Dowiedz się, jak utworzyć maszynę wirtualną szablonu z wieloma 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a2f045cbf7c107e7f5dbeff0d78bf5e8d9d8fba6
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445240"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services
@@ -25,7 +24,7 @@ Aby uzyskać więcej informacji na temat wirtualizacji zagnieżdżonej, zobacz n
 - [Wirtualizacja zagnieżdżona na platformie Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
 - [Jak włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej platformy Azure](../virtual-machines/windows/nested-virtualization.md)
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Przed skonfigurowaniem laboratorium z wirtualizacją zagnieżdżoną poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę.
 

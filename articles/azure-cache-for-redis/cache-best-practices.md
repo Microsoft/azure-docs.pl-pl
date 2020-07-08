@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457307"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
@@ -69,7 +68,7 @@ Niestety, nie ma żadnej prostej odpowiedzi.  Każda aplikacja musi zdecydować,
 Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użycie [funkcji ponownego uruchamiania](cache-administration.md#reboot). Ponowny rozruch pozwala zobaczyć, jak Blips połączeń wpływa na aplikację.
 
 ## <a name="performance-testing"></a>Testowanie wydajności
- * **Zacznij od użycia `redis-benchmark.exe` ** w celu uzyskania potencjalnej przepływności/opóźnienia przed napisaniem własnych testów wydajności.  Dokumentację Redis-testową można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy pamiętać, że Redis-testowe nie obsługuje protokołu TLS, dlatego należy [włączyć port bez protokołu TLS w portalu](cache-configure.md#access-ports) przed uruchomieniem testu.  [Zgodną z systemem Windows wersją programu Redis-Benchmark. exe można znaleźć tutaj](https://github.com/MSOpenTech/redis/releases)
+ * **Zacznij od użycia `redis-benchmark.exe` ** w celu uzyskania potencjalnej przepływności/opóźnienia przed napisaniem własnych testów wydajności.  Dokumentację Redis-testową można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy pamiętać, że Redis-testowe nie obsługuje protokołu TLS, dlatego należy [włączyć port bez protokołu TLS w portalu](cache-configure.md#access-ports) przed uruchomieniem testu.  [Zgodną z systemem Windows wersję redis-benchmark.exe można znaleźć tutaj](https://github.com/MSOpenTech/redis/releases)
  * Maszyna wirtualna klienta użyta do testowania powinna znajdować się **w tym samym regionie** co wystąpienie pamięci podręcznej Redis.
  * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
  * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
@@ -83,10 +82,10 @@ Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użyc
  
 ### <a name="redis-benchmark-examples"></a>Redis — przykłady testów porównawczych
 **Konfiguracja przed testami**: Przygotuj wystąpienie pamięci podręcznej z danymi wymaganymi dla poleceń testowania opóźnienia i przepływności wymienionych poniżej.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 
 **W celu przetestowania opóźnienia**: Przetestuj żądania GET przy użyciu ładunku 1K.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Aby przetestować przepływność:** Potok żądania GET z ładunkiem.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

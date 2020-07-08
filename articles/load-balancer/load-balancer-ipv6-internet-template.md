@@ -15,16 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84803736"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Wdrażanie rozwiązania równoważenia obciążenia dostępnego z Internetu za pomocą protokołu IPv6 przy użyciu szablonu
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
+> * [Program PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](load-balancer-ipv6-internet-cli.md)
 > * [Szablon](load-balancer-ipv6-internet-template.md)
 

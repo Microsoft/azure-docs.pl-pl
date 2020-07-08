@@ -6,14 +6,13 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/16/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b49682b2ece20266b3a051091d3784cc3e8bcca
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
-ms.translationtype: MT
+ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976425"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807676"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Omówienie usługi Azure ARC dla agenta serwerów
 
@@ -26,6 +25,12 @@ Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników lo
 * Usługa metadanych wystąpienia hybrydowego (HIMDS) zarządza połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.
 
 * Agent konfiguracji gościa udostępnia funkcje zasad gościa i konfiguracji gościa, takie jak ocenianie, czy maszyna jest zgodna z wymaganymi zasadami.
+
+    Zwróć uwagę na następujące zachowanie Azure Policy [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) dla rozłączonej maszyny:
+
+    * Nie ma to żadnego oddziaływania na przypisanie zasad konfiguracji gościa przeznaczone dla odłączonych maszyn.
+    * Przypisanie gościa jest przechowywane lokalnie przez 14 dni. W ciągu 14 dni, jeśli Agent połączonej maszyny ponownie nawiąże połączenie z usługą, przydziały zasad są nakładane.
+    * Przypisania są usuwane po 14 dniach i nie są ponownie przypisywane do komputera po upływie 14 dni.
 
 * Agent rozszerzeń zarządza rozszerzeniami maszyn wirtualnych, w tym Instalowanie, Odinstalowywanie i uaktualnianie. Rozszerzenia są pobierane z platformy Azure i kopiowane do `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folderu w systemie Windows oraz dla systemu Linux do programu `/opt/GC_Ext/downloads` . W systemie Windows rozszerzenie jest instalowane w następującej ścieżce `%SystemDrive%\Packages\Plugins\<extension>` , a w systemie Linux rozszerzenie jest zainstalowane do `/var/lib/waagent/<extension>` .
 

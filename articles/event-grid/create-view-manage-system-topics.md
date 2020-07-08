@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
 ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457239"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Twórz, Wyświetlaj i Zarządzaj Event Grid tematy systemowe w Azure Portal

@@ -4,12 +4,11 @@ description: Rejestruj i Analizuj zdarzenia dziennika diagnostycznego dla zasob�
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd8265d18f618980af466e193b41cfcc03999c47
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: MT
+ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220344"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960728"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
  
@@ -70,7 +69,7 @@ Aby skonfigurować alert dotyczący metryki w Azure Portal:
 
 Aby uzyskać więcej informacji na temat tworzenia alertów metryk, zobacz informacje o tym, [jak alerty metryk działają w Azure monitor](../azure-monitor/platform/alerts-metric-overview.md) i [tworzyć, wyświetlać i zarządzać alertami metryk przy użyciu Azure monitor](../azure-monitor/platform/alerts-metric.md).
 
-Możesz również skonfigurować alert niemal w czasie rzeczywistym za pomocą [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/)Azure monitor. Aby uzyskać więcej informacji, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Aby uwzględnić w alertach informacje dotyczące zadania, zadania lub puli, zobacz informacje na temat wyszukiwania zapytań w odpowiedzi na [zdarzenia z alertami Azure monitor](../azure-monitor/learn/tutorial-response.md).
+Możesz również skonfigurować alert niemal w czasie rzeczywistym za pomocą [interfejsu API REST](/rest/api/monitor/)Azure monitor. Aby uzyskać więcej informacji, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Aby uwzględnić w alertach informacje dotyczące zadania, zadania lub puli, zobacz informacje na temat wyszukiwania zapytań w odpowiedzi na [zdarzenia z alertami Azure monitor](../azure-monitor/learn/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnostyka usługi Batch
 

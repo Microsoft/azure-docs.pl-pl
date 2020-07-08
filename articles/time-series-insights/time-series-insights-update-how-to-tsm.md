@@ -10,19 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fa56217c54ac662a62a5ce835d75e3d85f05bfa
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77470755"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041476"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelowanie danych w wersji zapoznawczej Azure Time Series Insights
 
 W tym artykule opisano sposób pracy z modelem szeregów czasowych w wersji zapoznawczej Azure Time Series Insights. Zawiera szczegółowe informacje o kilku typowych scenariuszach dotyczących danych.
 
 > [!TIP]
-> * Przeczytaj o [modelu szeregów czasowych](time-series-insights-update-tsm.md)w wersji zapoznawczej.
+> * Przeczytaj o [modelu szeregów czasowych](concepts-model-overview.md)w wersji zapoznawczej.
 > * Dowiedz się więcej na temat nawigowania po interfejsie użytkownika w wersji zapoznawczej w [eksploratorze Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Wystąpienia
@@ -53,7 +52,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Time Series Insig
 
     [![Zbiorczo Przekaż wystąpienia za poorednictwem JSON.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-instances.png#lightbox)
 
-1. Wybierz pozycję **Przekaż**.
+1. Wybierz przycisk **Przekaż**.
 
 ### <a name="edit-a-single-instance"></a>Edytuj pojedyncze wystąpienie
 
@@ -104,7 +103,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Time Series Insig
 
 1. Wybierz pozycję **Przekaż plik JSON**.
 1. Wybierz plik, który zawiera ładunek hierarchii.
-1. Wybierz pozycję **Przekaż**.
+1. Wybierz przycisk **Przekaż**.
 
     [![Zaznaczenia dotyczące zbiorczego przekazywania hierarchii.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-hierarchies.png#lightbox)
 
@@ -123,7 +122,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Time Series Insig
 
 1. Potwierdź usunięcie, wybierając pozycję **Usuń**.
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
 Eksplorator Azure Time Series Insights obsługuje operacje **tworzenia**, **odczytu**, **aktualizacji**i **usuwania** w przeglądarce. 
 
@@ -147,7 +146,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Time Series Insig
 
 1. Wybierz pozycję **Przekaż plik JSON**.
 1. Wybierz plik, który zawiera ładunek typu.
-1. Wybierz pozycję **Przekaż**.
+1. Wybierz przycisk **Przekaż**.
 
     [![Typy zbiorcze przekazywania opcji.](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png)](media/v2-update-how-to-tsm/how-to-tsm-bulk-upload-types-json.png#lightbox)
 
@@ -168,7 +167,7 @@ Aby rozpocząć, wybierz widok **modelu** w widoku **analizy** Time Series Insig
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat modelu szeregów czasowych, przeczytaj artykuł [Modelowanie danych](./time-series-insights-update-tsm.md).
+- Aby uzyskać więcej informacji na temat modelu szeregów czasowych, przeczytaj artykuł [Modelowanie danych](./concepts-model-overview.md).
 
 - Aby dowiedzieć się więcej na temat wersji zapoznawczej, przeczytaj artykuł [Wizualizacja danych w eksploratorze Azure Time Series Insights Preview](./time-series-insights-update-explorer.md).
 

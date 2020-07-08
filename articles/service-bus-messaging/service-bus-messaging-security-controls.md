@@ -4,10 +4,9 @@ description: Lista kontrolna kontroli zabezpieczeń służąca do oceniania Azur
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341638"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Kontrolki zabezpieczeń dla Azure Service Bus Messaging

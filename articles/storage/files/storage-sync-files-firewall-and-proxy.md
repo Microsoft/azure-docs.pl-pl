@@ -8,10 +8,9 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515289"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
@@ -53,7 +52,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 ```
 **Ustawienia serwera proxy dla maszyn** są niewidoczne dla agenta Azure File Sync, ponieważ cały ruch serwera jest kierowany przez serwer proxy.
 
-Aby skonfigurować ustawienia serwera proxy dla całej maszyny, wykonaj następujące czynności: 
+Aby skonfigurować ustawienia serwera proxy dla maszyny, wykonaj następujące czynności: 
 
 1. Konfigurowanie ustawień serwera proxy dla aplikacji platformy .NET 
 

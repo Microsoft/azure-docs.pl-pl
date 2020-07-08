@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: 2cc03462fd72db1a50434d3d6de0851660414cd9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195851"
 ---
 # <a name="contoso-migration-series"></a>Seria dotycząca migracji w firmie Contoso

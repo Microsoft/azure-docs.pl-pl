@@ -4,10 +4,9 @@ description: Ten artykuł zawiera szczegółowe informacje na temat gramatyki xm
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341588"
 ---
 # <a name="sqlfilter-syntax"></a>Składnia elementu SQLFilter
@@ -196,7 +195,7 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 `property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
   
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
   
 Rozważ użycie następujących semantyki [sqlfilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) :  
   

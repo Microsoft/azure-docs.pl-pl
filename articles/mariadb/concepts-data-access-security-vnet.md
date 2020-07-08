@@ -7,10 +7,9 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85099817"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MariaDB

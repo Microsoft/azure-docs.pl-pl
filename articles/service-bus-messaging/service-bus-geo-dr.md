@@ -4,10 +4,9 @@ description: Jak używać regionów geograficznych do przełączania do trybu fa
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341475"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
@@ -117,7 +116,7 @@ Jeśli masz scenariusz, w którym nie można zmienić połączeń producentów i
 - Kroki umożliwiające Alternatywnie umożliwienie odzyskiwania po awarii geograficznej za pomocą programu PowerShell lub interfejsu wiersza polecenia.
 - [Wyślij i Odbierz](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) z bieżącej podstawowej lub pomocniczej przestrzeni nazw przy użyciu aliasu.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Należy zwrócić uwagę na następujące kwestie, które należy wziąć pod uwagę w tej wersji:
 

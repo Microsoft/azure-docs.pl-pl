@@ -16,12 +16,11 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69eb19686598de103b1c2f3e97ad35be2c427beb
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85356376"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807608"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 
@@ -288,12 +287,15 @@ Jeśli użyto instalacji niestandardowej, Ustaw uprawnienia ręcznie, wykonując
 6. Czy kontrolery domeny są osiągalne dla Azure AD Connect? Jeśli serwer Connect nie może połączyć się ze wszystkimi kontrolerami domeny, należy skonfigurować **tylko preferowany kontroler domeny**.  
     
     ![Kontroler domeny używany przez łącznik Active Directory](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
-    
+
 7. Wróć do **Synchronization Service Manager** i **Skonfiguruj partycję katalogu**. 
  
 8. W obszarze **Wybierz partycje katalogu**zaznacz domenę, zaznacz pole wyboru **Użyj tylko preferowanych kontrolerów domeny** , a następnie kliknij przycisk **Konfiguruj**. 
 
 9. Na liście wprowadź kontrolery domeny, które mają być używane do synchronizacji haseł. Ta sama lista jest również używana do importowania i eksportowania. Wykonaj te kroki dla wszystkich domen.
+
+> [!NOTE]
+> Aby zastosować te zmiany, uruchom ponownie usługę **Microsoft Azure AD Sync** (ADSync).
 
 10. Jeśli skrypt pokazuje, że nie ma pulsu, uruchom skrypt w [Wyzwól pełną synchronizację wszystkich haseł](#trigger-a-full-sync-of-all-passwords).
 
@@ -323,7 +325,7 @@ Możesz łatwo rozwiązywać problemy z synchronizacją skrótów haseł, przegl
 
     f. Znajdź użytkownika, którego szukasz, a następnie kliknij pozycję **Właściwości** , aby wyświetlić wszystkie atrybuty. Jeśli użytkownik nie znajduje się w wynikach wyszukiwania, zweryfikuj [reguły filtrowania](how-to-connect-sync-configure-filtering.md) i upewnij się, że zostały uruchomione polecenie [Zastosuj i Zweryfikuj zmiany](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) dla użytkownika, które mają być wyświetlane w obszarze Połącz.
 
-    g. Aby wyświetlić szczegóły synchronizacji haseł dla obiektu w ubiegłym tygodniu, kliknij przycisk **Dziennik**.  
+    przykład Aby wyświetlić szczegóły synchronizacji haseł dla obiektu w ubiegłym tygodniu, kliknij przycisk **Dziennik**.  
 
     ![Szczegóły dziennika obiektów](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 

@@ -3,12 +3,11 @@ title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 ms.date: 09/19/2019
 ms.topic: how-to
-ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726489"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960490"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania obrazów maszyn wirtualnych
 
@@ -60,7 +59,7 @@ Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.8 i
 * AZ 10
 
 > [!IMPORTANT]
-> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses. exe poza szablonami, można użyć poniższego polecenia `%MAYA_2017%\vray\bin\vrayses.exe"` .
+> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses.exe poza szablonami, można użyć poniższego polecenia `%MAYA_2017%\vray\bin\vrayses.exe"` .
 >
 > Aby zapoznać się z przykładem, zobacz Uruchamianie zadania [szablonu Maya i V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) w serwisie GitHub.
 
@@ -87,4 +86,4 @@ Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.7 i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby można było użyć renderowania obrazów maszyn wirtualnych, muszą one być określone w konfiguracji puli podczas tworzenia puli; Zapoznaj się z [możliwościami renderowania puli usługi Batch](https://docs.microsoft.com/azure/batch/batch-rendering-functionality#batch-pools).
+Aby można było użyć renderowania obrazów maszyn wirtualnych, muszą one być określone w konfiguracji puli podczas tworzenia puli; Zapoznaj się z [możliwościami renderowania puli usługi Batch](./batch-rendering-functionality.md#batch-pools).

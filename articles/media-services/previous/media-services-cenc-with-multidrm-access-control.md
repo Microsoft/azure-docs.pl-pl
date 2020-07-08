@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162994"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960473"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services 
 
@@ -206,7 +205,7 @@ Implementacja obejmuje następujące kroki:
    * Install-package Microsoft. Azure. ActiveDirectory. GraphClient
    * Install-package Microsoft. Owin. Security. OpenIdConnect
    * Install-package Microsoft. Owin. Security. cookies
-   * Install-package Microsoft. Owin. host. SystemWeb
+   * Install-package Microsoft.Owin.Host.SystemWeb
    * Install-package Microsoft. IdentityModel. clients. ActiveDirectory
 
 8. Utwórz odtwarzacz przy użyciu [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Użyj [interfejsu API Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) , aby określić technologię DRM, która ma być używana na różnych platformach DRM.
@@ -234,8 +233,10 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Adres URL wystawcy musi kończyć się znakiem "/". Odbiorcy muszą być IDENTYFIKATORem klienta aplikacji odtwarzacza. Należy również dodać znak "/" na końcu adresu URL wystawcy.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     W [dekoderze JWT](http://jwt.calebb.net/)zobaczysz **AUD** i **ISS**, jak pokazano w tokenie JWT:
 
@@ -247,11 +248,15 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Podczas konfigurowania dynamicznej ochrony CENC należy użyć właściwego wystawcy.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     Następujące elementy nie działają:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     Ten identyfikator GUID jest IDENTYFIKATORem dzierżawy usługi Azure AD. Identyfikator GUID można znaleźć w menu podręcznym **punkty końcowe** w Azure Portal.
 
@@ -261,7 +266,9 @@ Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniżs
 
 * Ustaw odpowiedni TokenType podczas tworzenia wymagań dotyczących ograniczeń.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     Ponieważ oprócz usługi SWT (ACS) dodano obsługę tokenu JWT (Azure AD), domyślnym ustawieniem TokenType jest TokenType. JWT. W przypadku korzystania z usługi SWT/ACS należy ustawić token na wartość TokenType. SWT.
 
@@ -398,7 +405,7 @@ Mimo że na platformie Azure zezwolono na dostęp tylko do konto Microsoft użyt
 
 Ponieważ usługa Azure AD ufa domenie konto Microsoft, można dodać dowolne konta z dowolnej z następujących domen do niestandardowej dzierżawy usługi Azure AD i użyć konta do logowania:
 
-| **Nazwa domeny** | **Domain** |
+| **Nazwa domeny** | **Domeny** |
 | --- | --- |
 | **Niestandardowa domena dzierżawy usługi Azure AD** |somename.onmicrosoft.com |
 | **Domena firmowa** |microsoft.com |
@@ -477,6 +484,6 @@ Ten dokument omawiający CENC z wielonatywną obsługą technologii DRM i kontro
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

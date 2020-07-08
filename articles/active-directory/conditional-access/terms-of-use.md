@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253328"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
@@ -94,8 +93,8 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    | Wygasanie od | Częstotliwość | Wynik |
    | --- | --- | --- |
-   | Dzisiejsza data  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
-   | Data w przyszłości  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
+   | Dzisiejsza data  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
+   | Data w przyszłości  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
 
    Na przykład jeśli ustawisz wygaśnięcie, rozpoczynając od **1 stycznia** , a częstotliwość na **co miesiąc**, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
 

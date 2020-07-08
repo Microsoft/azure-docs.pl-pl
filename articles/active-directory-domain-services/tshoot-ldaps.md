@@ -12,10 +12,9 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84733793"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z łącznością za pośrednictwem protokołu LDAP w Azure Active Directory Domain Services domeny zarządzanej

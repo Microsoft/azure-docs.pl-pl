@@ -10,10 +10,9 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445444"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)

@@ -13,10 +13,9 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84686328"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL

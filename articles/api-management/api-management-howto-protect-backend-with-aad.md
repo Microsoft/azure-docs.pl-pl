@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
 ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445512"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Ochrona interfejsu API przy użyciu protokołu OAuth 2.0 za pomocą usługi Azure Active Directory i usługi API Management
@@ -156,7 +155,7 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Bezpośrednio po kluczu tajnym klienta jest **redirect_url** dla typu przydzielenia kodu autoryzacji. Zanotuj ten adres URL.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Wróć do rejestracji aplikacji klienta w Azure Active Directory i wybierz pozycję **uwierzytelnianie**.
 

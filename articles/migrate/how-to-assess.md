@@ -4,10 +4,9 @@ description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
 ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195630"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny

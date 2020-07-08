@@ -8,12 +8,11 @@ ms.date: 06/19/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c7f8b0679f9d5e0cacfdcdb3b30f9d92d7fa8e27
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
-ms.translationtype: MT
+ms.openlocfilehash: 097826a24cb2de17b603ff5fe3113d715e079697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807404"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -90,12 +89,15 @@ Systemy wymienione w poniższej tabeli są uważane za zgodne z Azure IoT Edge, 
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Rzeka wiatr 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 20,04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20,04 + ARM64](./media/tutorial-c-module/green-check.png) |
 
 <sup>1</sup> Debian 10 systemów, w tym Raspian Buster, użyj wersji OpenSSL, która nie jest obsługiwana przez IoT Edge. Przed zainstalowaniem IoT Edge Użyj następującego polecenia:
 
 ```bash
 sudo apt-get install libssl1.0.2
 ```
+
+<sup>2</sup> Debian 9 pakietów z [repozytorium Azure IoT Edge wydań](https://github.com/Azure/azure-iotedge/releases) powinien wymusić wyjście z pudełka Ubuntu 20,04.
 
 ## <a name="releases"></a>Wydania
 

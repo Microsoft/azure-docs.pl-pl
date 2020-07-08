@@ -7,10 +7,9 @@ ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84687008"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
@@ -21,7 +20,7 @@ Podczas tworzenia [środowiska usługi integracji (ISE)](../logic-apps/connect-v
 
 W tym temacie przedstawiono sposób konfigurowania i określania własnego klucza szyfrowania, który ma być używany podczas tworzenia ISE przy użyciu interfejsu API REST Logic Apps. Aby zapoznać się z ogólnymi krokami tworzenia ISE za pośrednictwem interfejsu API REST Logic Apps, zobacz [Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API rest Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 * W tej chwili obsługa klucza zarządzanego przez klienta dla ISE jest dostępna tylko w następujących regionach świadczenia usługi Azure: zachodnie stany USA 2, Wschodnie stany USA i Południowo-środkowe stany USA
 

@@ -10,10 +10,9 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84462927"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2

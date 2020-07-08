@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 321d5c3944f3c4340da593f977919ebc6a47752e
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
-ms.translationtype: MT
+ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807489"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą sieci Web Machine Learning w usłudze Azure Kubernetes Service
 
@@ -105,7 +104,7 @@ spec:
   template:
     metadata:
       labels:
-      - aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
+       aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
       ...
 ```
 

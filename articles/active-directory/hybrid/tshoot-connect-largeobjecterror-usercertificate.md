@@ -18,10 +18,9 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356172"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: obsługa błędów Dużegoobject spowodowanych przez atrybut userCertificate
@@ -108,7 +107,7 @@ Powinna istnieć istniejąca reguła synchronizacji, która jest włączona i sk
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
     | sourceObjectType | WIĘKSZY | Użytkownik |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Prawda |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Krok 3. Utwórz wymaganą regułę synchronizacji danych wychodzących
 Nowa reguła synchronizacji musi mieć ten sam **Filtr określania zakresu** i **wyższy priorytet** niż istniejąca reguła synchronizacji. Dzięki temu Nowa reguła synchronizacji ma zastosowanie do tego samego zestawu obiektów co istniejąca reguła synchronizacji i zastępuje istniejącą regułę synchronizacji atrybutu userCertificate. Aby utworzyć regułę synchronizacji:
@@ -131,7 +130,7 @@ Nowa reguła synchronizacji musi mieć ten sam **Filtr określania zakresu** i *
 
     | Atrybut | Wartość |
     | --- | --- |
-    | Typ przepływu |**Wyrażenia** |
+    | Typ przepływu |**Wyrażenie** |
     | Atrybut docelowy |**userCertificate** |
     | Atrybut źródłowy |*Użyj następującego wyrażenia*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
