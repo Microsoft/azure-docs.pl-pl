@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: a0cfbc39bbbd54e225879bd479bf0ba47186aee8
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987137"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalowanie certyfikatów klienta dla połączeń uwierzytelniania certyfikatu P2S

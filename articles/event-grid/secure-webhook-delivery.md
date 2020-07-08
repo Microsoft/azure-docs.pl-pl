@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: femila
 ms.openlocfilehash: 7caa5a99f2d4ebdbe858c78c6e36be17aeb003ba
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85126080"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikuj zdarzenia w celu Azure Active Directory chronionych punktów końcowych

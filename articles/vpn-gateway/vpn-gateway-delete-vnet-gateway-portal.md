@@ -8,17 +8,17 @@ ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: how-to
 ms.openlocfilehash: 68856a4c5218232943ac657bbd67759d5ab4b804
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983159"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Usuwanie bramy sieci wirtualnej przy użyciu portalu
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [Program PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
 Ten artykuł zawiera instrukcje dotyczące usuwania bram sieci VPN platformy Azure wdrożonych przy użyciu modelu wdrażania Menedżer zasobów. Istnieje kilka różnych metod, które można wykonać, aby usunąć bramę sieci wirtualnej dla konfiguracji bramy sieci VPN.

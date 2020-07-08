@@ -4,10 +4,10 @@ description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85106566"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
@@ -424,7 +424,7 @@ Oto dane wydajności systemu Windows Server, które urządzenie zbiera i wysyła
 
 **Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
 --- | --- | ---
-Użycie procesora CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Użycie procesora | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
 Użycie pamięci | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Liczba kart sieciowych | Win32_PerfFormattedData_Tcpip_NetworkInterface | Pobierz liczbę urządzeń sieciowych.
 Odebrane dane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
@@ -438,7 +438,7 @@ Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządz
 
 **Dane** | **Linux** 
 --- | --- 
-Użycie procesora CPU | /proc/stat/Cat| /proc/stat procesora grep
+Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
 Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
 Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1
 Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes

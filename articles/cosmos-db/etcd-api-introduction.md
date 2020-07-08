@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85118172"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Wprowadzenie do interfejsu API Azure Cosmos DB etcd (wersja zapoznawcza)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
 ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130776"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
@@ -37,7 +37,7 @@ ADF obsługuje następujące scenariusze odporności na uszkodzenia podczas kopi
 2. Niektóre konkretne foldery lub pliki nie zezwalają na dostęp do usługi ADF, ponieważ listy ACL tych plików lub folderów wymagają wyższego poziomu uprawnień niż informacje o połączeniu skonfigurowane w podajniku ADF.
 3. Co najmniej jeden plik nie jest weryfikowany pod kątem spójności między magazynem źródłowym i docelowym w przypadku włączenia ustawienia weryfikacji spójności danych w ADF.
 
-### <a name="configuration"></a>Konfiguracja 
+### <a name="configuration"></a>Konfigurowanie 
 Podczas kopiowania plików binarnych między magazynami magazynów można włączyć odporność na uszkodzenia w następujący sposób: 
 
 ```json
@@ -74,8 +74,8 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | Grupa właściwości, aby określić typy błędów, które mają zostać pominięte podczas przenoszenia danych. | | Nie
 fileMissing | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć pliki, które są usuwane przez inne aplikacje, gdy w tym czasie jest kopiowany ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki usuwane przez inne aplikacje. <br/> -False: chcesz przerwać działanie kopiowania po usunięciu plików ze sklepu źródłowego w trakcie przenoszenia danych. <br/>Należy pamiętać, że właściwość jest ustawiona na wartość true jako domyślną. | True (domyślnie) <br/>Fałsz | Nie
-fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy listy kontroli dostępu do tych plików lub folderów wymagają wyższego poziomu uprawnień niż połączenie skonfigurowane w podajniku ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki. <br/> -False: chcesz przerwać działanie kopiowania po pobraniu problemu z uprawnieniami do folderów lub plików. | True <br/>False (domyślnie) | Nie
-dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | True <br/>False (domyślnie) | Nie
+fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy listy kontroli dostępu do tych plików lub folderów wymagają wyższego poziomu uprawnień niż połączenie skonfigurowane w podajniku ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki. <br/> -False: chcesz przerwać działanie kopiowania po pobraniu problemu z uprawnieniami do folderów lub plików. | Prawda <br/>False (domyślnie) | Nie
+dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | Prawda <br/>False (domyślnie) | Nie
 logStorageSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 ścieżka | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
@@ -163,7 +163,7 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania usługi [Amazon RedShift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json
@@ -187,7 +187,7 @@ Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgo
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | True<br/>False (domyślnie) | Nie
+enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | Prawda<br/>False (domyślnie) | Nie
 logStorageSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania dziennika zawierającego pominięte wiersze. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 ścieżka | Ścieżka do plików dziennika, która zawiera pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
@@ -237,7 +237,7 @@ Z przykładowego pliku dziennika można zobaczyć jeden wiersz "dane1, Dane2, DA
 
 Poniżej znajduje się starszy sposób włączania odporności na uszkodzenia tylko do kopiowania danych tabelarycznych. W przypadku tworzenia nowego potoku lub działania zaleca się rozpoczęcie od tego [miejsca](#copying-tabular-data) .
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json
@@ -261,7 +261,7 @@ Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgo
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | True<br/>False (domyślnie) | Nie
+enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | Prawda<br/>False (domyślnie) | Nie
 redirectIncompatibleRowSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [magazynu Azure](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) do przechowywania dziennika zawierającego pominięte wiersze. | Nazwy `AzureStorage` `AzureDataLakeStore` połączonej usługi lub typu, która odwołuje się do wystąpienia, które ma być używane do przechowywania pliku dziennika. | Nie
 ścieżka | Ścieżka pliku dziennika zawierającego pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie

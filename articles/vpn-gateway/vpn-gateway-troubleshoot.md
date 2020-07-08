@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: 0718a1b211fe6365af30a330fe6a3742cff2ff63
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984426"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Rozwiązywanie problemów VPN Gateway

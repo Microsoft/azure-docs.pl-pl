@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 9544d0298a7aa62d5fd935e8670d02e470ac15e5
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987560"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Skopiuj dane z chmury SAP dla klienta (C4C) przy użyciu Azure Data Factory
@@ -227,7 +227,7 @@ Podczas kopiowania danych z chmury SAP dla klienta następujące mapowania są u
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | EDM. | Int16 |
-| Edm.String | Ciąg |
+| Edm.String | String |
 | EDM. Time | przedział_czasu |
 | Edm.DateTimeOffset | DateTimeOffset |
 

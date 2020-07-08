@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
 ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976816"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
@@ -37,7 +37,7 @@ Próby połączenia z Internetu i platformy Azure muszą przejść przez zaporę
 
 ### <a name="server-level-ip-firewall-rules"></a>Reguły zapory bazujące na adresach IP na poziomie serwera
 
-Te reguły umożliwiają klientom dostęp do całego serwera, czyli wszystkich baz danych zarządzanych przez serwer. Reguły są przechowywane w bazie danych *Master* . Dla serwera można mieć maksymalnie 128 reguł zapory adresów IP na poziomie serwera. Jeśli jest włączone ustawienie **Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure** , jest to jedyna reguła zapory dla serwera.
+Te reguły umożliwiają klientom uzyskiwanie dostępu do całego serwera, czyli wszystkich baz danych zarządzanych przez serwer. Reguły są przechowywane w bazie danych *Master* . Dla serwera można określić maksymalnie 128 reguł zapory bazującej na adresach IP na poziomie serwera. Jeśli jest włączone ustawienie **Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure** , jest to jedyna reguła zapory dla serwera.
   
 Reguły zapory adresów IP na poziomie serwera można skonfigurować przy użyciu instrukcji Azure Portal, PowerShell lub Transact-SQL.
 
@@ -54,7 +54,7 @@ Reguły zapory adresów IP na poziomie bazy danych umożliwiają klientom dostę
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>Zalecenia dotyczące sposobu ustawiania reguł zapory
 
-Zalecamy używanie reguł zapory adresów IP na poziomie bazy danych zawsze wtedy, gdy jest to możliwe. To rozwiązanie zwiększa bezpieczeństwo i sprawia, że baza danych jest bardziej przenośna. Użyj reguł zapory adresów IP na poziomie serwera dla administratorów. Należy ich również używać, gdy istnieje wiele baz danych, które mają te same wymagania dotyczące dostępu, i nie chcesz konfigurować każdej bazy danych indywidualnie.
+Zalecamy używanie reguł zapory adresów IP na poziomie bazy danych zawsze wtedy, gdy jest to możliwe. Taka praktyka zwiększa bezpieczeństwo i sprawia, że baza danych jest bardziej przenośna. Użyj reguł zapory adresów IP na poziomie serwera dla administratorów. Należy ich również używać, gdy istnieje wiele baz danych, które mają te same wymagania dotyczące dostępu, i nie chcesz konfigurować każdej bazy danych indywidualnie.
 
 > [!NOTE]
 > Aby uzyskać informacje o przenośnych bazach danych w kontekście ciągłości działalności biznesowej, zobacz [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](active-geo-replication-security-configure.md).
@@ -105,7 +105,7 @@ Aby umożliwić aplikacjom hostowanym na platformie Azure Łączenie się z prog
 
 ## <a name="permissions"></a>Uprawnienia
 
-Aby móc tworzyć reguły zapory IP dla usługi Azure SQL Server i zarządzać nimi, musisz być:
+Aby móc tworzyć reguły zapory bazującej na adresach IP dla serwera Azure SQL i zarządzać nimi, musisz spełniać jedno z następujących wymagań:
 
 - w roli [współautor SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 - w roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
@@ -118,7 +118,7 @@ Pierwsze ustawienie zapory na poziomie serwera można utworzyć przy użyciu [Az
 > [!IMPORTANT]
 > Reguły zapory adresów IP na poziomie bazy danych mogą być tworzone i zarządzane tylko przy użyciu języka Transact-SQL.
 
-Aby zwiększyć wydajność, reguły zapory adresów IP na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+Aby poprawić wydajność, reguły zapory bazującej na adresach IP na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
 > [Inspekcja bazy danych](../../azure-sql/database/auditing-overview.md) umożliwia inspekcję zmian zapory na poziomie serwera i na poziomie bazy danych.

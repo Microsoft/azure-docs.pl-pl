@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85130810"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Typy i kompozycje zapytań w usłudze Azure Wyszukiwanie poznawcze
@@ -165,7 +165,7 @@ Jeśli chcesz, aby usługa Azure Wyszukiwanie poznawcze zwracała wyniki uporzą
 ### <a name="hit-highlighting"></a>Wyróżnianie trafień
 Na platformie Azure Wyszukiwanie poznawcze naciskanie dokładnej części wyników wyszukiwania, które pasują do zapytania wyszukiwania, jest łatwe przy użyciu **`highlight`** **`highlightPreTag`** parametrów, i **`highlightPostTag`** . Możesz określić, które pola z *możliwością wyszukiwania* mają być wyróżnione dopasowanym tekstem, a także określić dokładne znaczniki ciągu do dołączenia do początku i końca dopasowanego tekstu zwracanego przez usługę Azure wyszukiwanie poznawcze.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)

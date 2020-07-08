@@ -4,10 +4,10 @@ description: Utwórz plik parametrów do przekazywania wartości podczas wdraża
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117509"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów

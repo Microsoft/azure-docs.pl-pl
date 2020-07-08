@@ -8,10 +8,10 @@ ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84976527"
 ---
 # <a name="azure-file-shares-storage-reference"></a>Dokumentacja magazynu udziałów plików platformy Azure
@@ -106,8 +106,8 @@ Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 
 | Wersja | Platforma |
 | ------- | -------- |
-|  wersji  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  wersji  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
+|  2.x  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

@@ -12,10 +12,10 @@ ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85117322"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
@@ -55,7 +55,7 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 |loginName|userName|userPrincipalName|
 |firstName|Nazwa. imię|givenName|
 |lastName|Nazwa. lastName|lastName|
-|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Poczta|
+|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
 |manager|manager|manager|
 |tag|urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtension: tag|extensionAttribute1|
 |status|aktywne|isSoftDeleted (obliczona wartość nie jest przechowywana na użytkowniku)|

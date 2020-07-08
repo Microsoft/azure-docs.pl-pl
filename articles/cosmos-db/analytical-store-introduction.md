@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
 ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85116030"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
@@ -142,7 +142,7 @@ Aby uzyskać szacunkowy koszt wysokiego poziomu, aby umożliwić magazyn anality
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Czas trwania analizy (TTL)
 
-Analityczny czas TTL wskazuje, jak długo dane mają być przechowywane w magazynie analitycznym dla kontenera. 
+Analityczny czas wygaśnięcia wskazuje, jak długo dane mają być przechowywane w magazynie analitycznym dla kontenera. 
 
 Operacje wstawiania, aktualizacji, usuwania do danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego, niezależnie od transakcyjnej konfiguracji czasu wygaśnięcia (TTL). Przechowywanie danych operacyjnych w magazynie analitycznym może być kontrolowane przez analityczną wartość czasu wygaśnięcia na poziomie kontenera, jak określono poniżej:
 
@@ -170,6 +170,6 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
 
-* [Często zadawane pytania dotyczące linku Synapse dla Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Często zadawane pytania dotyczące usługi Synapse Link dla usługi Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
 * [Przypadki użycia usługi Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link-use-cases.md)

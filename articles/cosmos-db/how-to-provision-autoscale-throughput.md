@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
 ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85118733"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Zastrzegaj przepływność skalowania automatycznego dla bazy danych lub kontenera w Azure Cosmos DB
@@ -127,7 +127,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.create
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
 ```
 
-#### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+#### <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
 ```java
 // Create instance of CosmosClient
@@ -164,7 +164,7 @@ CosmosAsyncContainer container = database.createContainer(autoscaleContainerProp
                                 .getContainer();
 ```
 
-#### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+#### <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
 ```java
 // Get reference to database that container will be created in
@@ -199,7 +199,7 @@ int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThrough
 int currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-#### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+#### <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
 ```java
 // Get a reference to the resource
@@ -226,7 +226,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+#### <a name="sync"></a>[Synchronizacja](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)
