@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337513"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus

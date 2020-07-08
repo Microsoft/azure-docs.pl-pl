@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono techniki ochrony aplikacji przed poten
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339652"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Najlepsze rozwiązania dotyczące izolowania aplikacji od wyłączeń i awarii usługi Service Bus

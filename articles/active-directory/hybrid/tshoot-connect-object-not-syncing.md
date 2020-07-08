@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85356478"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z Azure Active Directory

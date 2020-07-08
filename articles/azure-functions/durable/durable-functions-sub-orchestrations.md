@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 5625bc2ddfa4b6f527ca16f19f33d257a1834d4b
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340814"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Organizowanie podrzędne w Durable Functions (Azure Functions)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341363"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute

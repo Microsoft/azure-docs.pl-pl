@@ -4,10 +4,10 @@ description: W tym artykule opisano Azure Monitor kontenerów monitorujących ro
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337926"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów

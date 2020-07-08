@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85322118"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołaj pakiet SSIS za pomocą działania procedury składowanej w Azure Data Factory

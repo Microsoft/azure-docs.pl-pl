@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339990"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)

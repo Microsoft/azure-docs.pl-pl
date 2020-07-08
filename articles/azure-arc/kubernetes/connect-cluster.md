@@ -10,10 +10,10 @@ description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy u�
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
 ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341398"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)

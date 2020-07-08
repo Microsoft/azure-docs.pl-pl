@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorow
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340282"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
@@ -57,7 +57,7 @@ Zlicza żądania operacji na danych i zarządzania.
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
 | Żądania przychodzące| Liczba żądań wysyłanych do usługi Service Bus w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Żądania zakończone powodzeniem|Liczba pomyślnych żądań do usługi Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Żądania pomyślne|Liczba pomyślnych żądań do usługi Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Błędy serwera|Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Błędy użytkowników (zobacz następującą podsekcję)|Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Ograniczone żądania|Liczba żądań, które zostały ograniczone, ponieważ przekroczono użycie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
@@ -92,7 +92,7 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Połączeń ActiveConnections|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Aktywne połączenia|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 |Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
 

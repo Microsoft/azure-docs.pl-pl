@@ -4,10 +4,10 @@ description: Uwierzytelniaj aplikacje w celu Service Bus z uwierzytelnianiem syg
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337715"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja w usłudze Service Bus

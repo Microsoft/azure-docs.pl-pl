@@ -5,10 +5,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85341709"
 ---
 # <a name="service-bus-management-libraries"></a>Biblioteki zarządzania usługi Service Bus

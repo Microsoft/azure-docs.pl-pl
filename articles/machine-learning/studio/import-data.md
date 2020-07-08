@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: fa031e6e23c218ff2ca8e2ef3e778768fabb1ebb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321479"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne) z różnych źródeł danych
@@ -64,8 +64,8 @@ Można jawnie określić lub zmienić nagłówki i typy danych dla kolumn za pom
 
 Następujące typy danych są rozpoznawane przez program Studio (klasyczny):
 
-* Ciąg
-* Liczba całkowita
+* String
+* Integer
 * Double
 * Boolean (wartość logiczna)
 * Data/godzina

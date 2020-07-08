@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321409"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
@@ -190,7 +190,7 @@ Metoda zawiera kilka najważniejszych składników, które należy zrozumieć:
 
    f. Wybierz pozycję **C: \\ ADF** dla **lokalizacji**. Utwórz plik **ADF** folderu, jeśli nie istnieje.
 
-   g. Wybierz przycisk **OK**, aby utworzyć projekt.
+   przykład Wybierz przycisk **OK**, aby utworzyć projekt.
 
 1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 
@@ -964,7 +964,7 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
 * [Odśwież dane w Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure i Power BI: omówienie podstawowe](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)

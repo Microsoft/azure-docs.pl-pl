@@ -4,10 +4,10 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: bd8476c89fea94a9d1b4a101841c11137d4dd5be
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85320792"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu platformy .NET Core (Microsoft. Azure. EventHubs)

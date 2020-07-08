@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85339577"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Tworzenie wykazu zasobów i zarządzanie nim w usłudze Azure AD uprawnienia zarządzania

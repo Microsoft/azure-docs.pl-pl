@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
 ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337940"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)

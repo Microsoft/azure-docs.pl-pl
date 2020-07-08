@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "85321310"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
