@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086691"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,8 +36,8 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie w polu wyszukiwania wpisz **SQL Azure** .
-1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje na temat wystąpienia zarządzanego Azure SQL, wybierz pozycję **Pokaż szczegóły** na kafelku **wystąpienia zarządzanego SQL** .
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje na temat wystąpienia zarządzanego Azure SQL, wybierz pozycję **Pokaż szczegóły** na kafelku **wystąpienia zarządzane SQL** .
+1. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie wystąpienia zarządzanego](./media/instance-create-quickstart/create-managed-instance.png)
 
@@ -56,7 +56,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
    | **Subskrypcja** | Twoja subskrypcja. | Subskrypcja, która zapewnia uprawnienia do tworzenia nowych zasobów. |
    | **Grupa zasobów** | nowa lub istniejąca grupa zasobów.|Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa).|
    | **Nazwa wystąpienia zarządzanego** | Dowolna prawidłowa nazwa.|Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming).|
-   | **Region** |Region, w którym chcesz utworzyć wystąpienie zarządzane.|Aby uzyskać informacje na temat regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/).|
+   | **Okolicy** |Region, w którym chcesz utworzyć wystąpienie zarządzane.|Aby uzyskać informacje na temat regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/).|
    | **Identyfikator logowania administratora wystąpienia zarządzanego** | Dowolna prawidłowa nazwa użytkownika. | Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming). Nie należy używać elementu "serveradmin", ponieważ jest to zastrzeżona rola na poziomie serwera.|
    | **Hasło** | Dowolne prawidłowe hasło.| Hasło musi mieć co najmniej 16 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 

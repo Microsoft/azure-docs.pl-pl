@@ -1,14 +1,14 @@
 ---
-title: Omówienie
+title: Omówienie usługi Azure Resource Manager
 description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostępu do tych zasobów oraz zarządzania nimi za pomocą usługi Azure Resource Manager.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087031"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
 
@@ -68,7 +68,7 @@ Szablony można wdrażać dla dzierżawców, grup zarządzania, subskrypcji lub 
 
 Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
-* Wszystkie zasoby w grupie powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jakiś zasób, na przykład serwer bazy danych, ma mieć inny cykl wdrażania, powinien zostać umieszczony w innej grupie zasobów.
+* Wszystkie zasoby w grupie powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jeden zasób, taki jak serwer, musi istnieć w innym cyklu wdrażania, powinien znajdować się w innej grupie zasobów.
 
 * Każdy zasób może znajdować się tylko w jednej grupie zasobów.
 

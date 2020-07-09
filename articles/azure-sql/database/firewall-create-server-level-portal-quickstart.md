@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 8b340bdbd4bea4fcd865d6c27d688e5dbed86bb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6a449c078b18b5bc9e005a873c51d92ad29417f6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054299"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084991"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Szybki Start: Tworzenie reguły zapory na poziomie serwera przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,12 +33,12 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Tworzenie reguły zapory bazującej na adresach IP na poziomie serwera
 
- SQL Database tworzy zaporę na poziomie serwera dla jednej i puli baz danych. Ta zapora uniemożliwia aplikacjom klienckim nawiązywanie połączeń z serwerem i wszelkimi pojedynczymi bazami danych lub bazami danych w puli, chyba że utworzona zostanie reguła zapory bazująca na adresach IP otwierająca zaporę. Na potrzeby połączenia z adresu IP spoza platformy Azure utwórz regułę zapory dla określonego adresu lub zakresu adresów IP, z którymi połączenie ma być możliwe. Aby uzyskać więcej informacji na temat reguł zapory adresów IP na poziomie serwera i na poziomie bazy danych, zobacz [reguły zapory adresów IP na poziomie serwera i na poziomie bazy danych](firewall-configure.md).
+ SQL Database tworzy zaporę na poziomie serwera dla jednej i puli baz danych. Ta zapora uniemożliwia aplikacjom klienckim łączenie się z serwerem lub dowolnymi z jego baz danych, chyba że zostanie utworzona reguła zapory IP w celu otworzenia zapory. Na potrzeby połączenia z adresu IP spoza platformy Azure utwórz regułę zapory dla określonego adresu lub zakresu adresów IP, z którymi połączenie ma być możliwe. Aby uzyskać więcej informacji na temat reguł zapory adresów IP na poziomie serwera i na poziomie bazy danych, zobacz [reguły zapory adresów IP na poziomie serwera i na poziomie bazy danych](firewall-configure.md).
 
 > [!NOTE]
 > Azure SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
 > [!IMPORTANT]
-> Reguła zapory 0.0.0.0 zapewnia wszystkim usługom platformy Azure zgodność z regułami zapory na poziomie serwera i podejmowanie próby nawiązania połączenia z pojedynczą bazą danych lub bazą danych w puli za pośrednictwem serwera.
+> Reguła zapory o wartości 0.0.0.0 umożliwia wszystkim usługom platformy Azure przekazywanie reguły zapory na poziomie serwera i próbę nawiązania połączenia z bazą danych za pomocą serwera programu.
 
 Wykonaj następujące kroki, aby utworzyć regułę zapory adresów IP na poziomie serwera dla adresu IP klienta i włączyć zewnętrzną łączność za pośrednictwem zapory Azure SQL Database tylko dla adresu IP.
 

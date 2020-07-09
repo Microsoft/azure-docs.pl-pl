@@ -4,15 +4,16 @@ description: Dowiedz się więcej na temat konfigurowania Azure Active Directory
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
-ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636686"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101430"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
 W tym artykule opisano kroki konfigurowania Azure Active Directory dostępu za pomocą Azure Database for MySQL i sposobu nawiązywania połączenia przy użyciu tokenu usługi Azure AD.
 
@@ -204,7 +205,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
 * Języku
   * DBD:: MySQL: obsługiwane
   * NET:: MySQL: nieobsługiwane
-* Przejdź
+* Go
   * go-SQL-Driver: obsługiwane, Dodaj `?tls=true&allowCleartextPasswords=true` do parametrów połączenia
 
 ## <a name="next-steps"></a>Następne kroki

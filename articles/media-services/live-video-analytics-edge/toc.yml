@@ -1,7 +1,5 @@
 - name: Dokumentacja platformy Live Video Analytics w usłudze IoT Edge (wersja zapoznawcza)
   href: index.yml
-- name: Dokumentacja przełączania do usługi Azure Media Services w wersji 3
-  href: ../latest/index.yml
 - name: Omówienie
   items:
     - name: Informacje o platformie Live Video Analytics w usłudze IoT Edge
@@ -34,7 +32,7 @@
       href: playback-multi-day-recordings-tutorial.md
 - name: Samples
   items:
-    - name: 'Platforma Live Video Analytics w usłudze IoT Edge — próbki kodu C#'
+    - name: Platforma Live Video Analytics w usłudze IoT Edge — próbki kodu C#
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
 - name: Pojęcia
   items:

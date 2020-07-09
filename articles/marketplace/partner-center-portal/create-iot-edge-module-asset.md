@@ -1,23 +1,24 @@
 ---
 title: Przygotowywanie zasobów technicznych modułu IoT Edge — Azure Marketplace
 description: Dowiedz się więcej o wymaganiach technicznych i konfiguracyjnych, jakie muszą spełnić zasoby techniczne modułu Internet rzeczy (IoT), zanim będzie można je opublikować w witrynie Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/03/2020
-ms.openlocfilehash: 36b56cdf5a2aaa57cc452db9054380528fa8c68b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958586"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101175"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
 
 W tym artykule opisano wymagania, które muszą spełniać zasoby techniczne modułu brzegowego Internet rzeczy (IoT) przed opublikowaniem w witrynie Azure Marketplace.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Moduł IoT Edge jest kontenerem zgodnym z platformą Docker, który działa na urządzeniu IoT Edge.
 
@@ -63,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 

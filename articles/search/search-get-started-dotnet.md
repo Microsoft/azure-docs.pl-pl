@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 7172fe1f7eb81bbd00e7efa611111e04cc96abd3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079392"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083580"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Szybki Start: Tworzenie indeksu wyszukiwania w programie .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [Program PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 >*
@@ -567,3 +567,8 @@ Przykładowy kod i indeks są rozwiniętymi wersjami tego elementu. Następny pr
 
 > [!div class="nextstepaction"]
 > [Jak opracowywać w programie .NET](search-howto-dotnet-sdk.md)
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
