@@ -1,17 +1,18 @@
 ---
 title: Usuwanie dostępu do delegacji
-description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały delegowane do dostawcy usług w celu zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 04/24/2020
+description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały delegowane do dostawcy usług dla usługi Azure Lighthouse.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636499"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111732"
 ---
 # <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegacji
 
-Po oddelegowaniu subskrypcji lub grupy zasobów klienta do dostawcy usług w celu [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md)delegowanie można usunąć w razie potrzeby. Po usunięciu delegowania dostęp uzyskany wcześniej do użytkowników w dzierżawie dostawcy usług nie będzie już stosowany.
+Po oddelegowaniu subskrypcji lub grupy zasobów klienta do dostawcy usług w [usłudze Azure Lighthouse](../overview.md)delegowanie można usunąć w razie potrzeby. Po usunięciu delegowania dostęp do [zarządzania zasobami delegowanych przez platformę Azure](../concepts/azure-delegated-resource-management.md) , który został wcześniej udzielony użytkownikom w dzierżawie dostawcy usług, nie będzie już stosowany.
 
 Usunięcie delegowania może odbywać się przez użytkownika w dzierżawie klienta lub w dzierżawie dostawcy usług, o ile użytkownik ma odpowiednie uprawnienia.
 

@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74ac991eb40864aeb4ac42d4774d9ab61fb14c36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807676"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111256"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Omówienie usługi Azure ARC dla agenta serwerów
 
@@ -184,7 +185,7 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowa
 |Platforma/język | Pomoc techniczna | Więcej informacji |
 | --- | --- | --- |
 |Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2. | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
-| System Windows Server 2012 R2 lub nowszy | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
+| System Windows Server 2012 R2 lub nowszy | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Konfiguracja sieci
 
@@ -202,13 +203,13 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
-|login.windows.net|Usługa Azure Active Directory|
+|login.windows.net|Azure Active Directory|
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Konfiguracja gościa|
 |*-agentservice-prod-1.azure-automation.net|Konfiguracja gościa|
 |*. his.arc.azure.com|Hybrydowa usługa tożsamości|
 
-Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Firma Microsoft publikuje cotygodniowe aktualizacje zawierające poszczególne usługi platformy Azure i zakresy adresów IP, z których korzystają. Aby uzyskać więcej informacji, przejrzyj [Tagi usług](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Firma Microsoft publikuje cotygodniowe aktualizacje zawierające poszczególne usługi platformy Azure i zakresy adresów IP, z których korzystają. Aby uzyskać więcej informacji, przejrzyj [Tagi usług](../../virtual-network/security-overview.md#service-tags).
 
 Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adresów IP znacznika usługi, ponieważ większość usług nie ma obecnie rejestracji tagu usługi. W związku z tym adresy IP mogą ulec zmianie. Jeśli dla konfiguracji zapory wymagane są zakresy adresów IP, należy użyć znacznika usługi **AzureCloud** , aby zezwolić na dostęp do wszystkich usług platformy Azure. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, tak jak w przypadku innego ruchu internetowego.
 

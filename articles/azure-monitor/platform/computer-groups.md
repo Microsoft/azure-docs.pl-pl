@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689014"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112116"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupy komputerów w zapytaniach dziennika Azure Monitor
 Grupy komputerów w Azure Monitor umożliwiają określanie zakresu [zapytań dziennika](../log-query/log-query-overview.md) do określonego zestawu komputerów.  Każda grupa jest wypełniana komputerami przy użyciu kwerendy zdefiniowanej lub przez zaimportowanie grup z różnych źródeł.  Gdy grupa zostanie uwzględniona w zapytaniu dziennika, wyniki są ograniczone do rekordów, które pasują do komputerów w grupie.
@@ -33,7 +34,9 @@ Grupy komputerów utworzone na podstawie zapytania dziennika zawierają wszystki
 
 Można użyć dowolnego zapytania dla grupy komputerów, ale musi on zwrócić unikatowy zestaw komputerów za pomocą programu `distinct Computer` .  Poniżej przedstawiono typowe przykładowe zapytanie, którego można użyć jako grupy komputerów.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Aby utworzyć grupę komputerów na podstawie przeszukiwania dzienników w Azure Portal, należy wykonać czynności opisane w poniższej procedurze.
 
@@ -93,26 +96,28 @@ Kliknij **znak x** w kolumnie **Usuń** , aby usunąć grupę komputerów.  Klik
 ## <a name="using-a-computer-group-in-a-log-query"></a>Używanie grupy komputerów w zapytaniu dziennika
 Należy użyć grupy komputerów utworzonej na podstawie zapytania dziennika w zapytaniu, traktując swój alias jako funkcję, zazwyczaj z następującą składnią:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Można na przykład użyć poniższego, aby zwrócić UpdateSummary rekordy tylko dla komputerów w grupie komputerów o nazwie Moja komputery.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Zaimportowane grupy komputerów i ich dołączone komputery są przechowywane w tabeli **komputerów** .  Na przykład następujące zapytanie zwróci listę komputerów w grupie Komputery domeny z Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 Następujące zapytanie zwróci rekordy UpdateSummary tylko dla komputerów znajdujących się na komputerach w domenie.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Rekordy grup komputerów
 Rekord zostanie utworzony w obszarze roboczym Log Analytics dla każdego członkostwa w grupie komputerów utworzonego na podstawie Active Directory lub usług WSUS.  Te rekordy mają typ Grupa **komputerów** i mają właściwości w poniższej tabeli.  Rekordy nie są tworzone dla grup komputerów opartych na zapytaniach dziennika.

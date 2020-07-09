@@ -1,18 +1,14 @@
 ---
 title: Tworzenie i wyświetlanie tematów systemu Azure Event Grid oraz zarządzanie nimi za pomocą interfejsu wiersza polecenia
 description: W tym artykule pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure tworzyć, wyświetlać i usuwać tematy systemowe.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: d9ba83d12e73b3ebceaee3167cdcf7f27922b686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115047"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Tworzenie i wyświetlanie Event Grid tematów systemowych przy użyciu interfejsu wiersza polecenia platformy Azure oraz zarządzanie nimi
 W tym artykule pokazano, jak tworzyć tematy systemowe i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure. Aby zapoznać się z omówieniem tematów systemowych, zobacz [Tematy systemowe](system-topics.md).

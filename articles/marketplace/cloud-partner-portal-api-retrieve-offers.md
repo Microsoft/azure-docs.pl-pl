@@ -1,18 +1,16 @@
 ---
 title: Pobieranie ofert API — Azure Marketplace
 description: Interfejs API służący do pobierania podsumowującej listy ofert w przestrzeni nazw wydawcy.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: ee8d0c773a5ec4d362eae66e289838b9646247e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516240"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113483"
 ---
 <a name="retrieve-offers"></a>Pobieranie oferty
 ===============

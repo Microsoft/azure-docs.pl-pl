@@ -1,18 +1,16 @@
 ---
 title: Dokumentacja interfejsu API portal Cloud Partner — Microsoft Commercial Marketplace
 description: Opis, wymagania wstępne do użycia oraz lista operacji interfejsu API portalu Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 2f79dea4baaa2589333af4e15aece06c1d86b9c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516256"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113585"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Dokumentacja interfejsu API portalu Cloud Partner
 

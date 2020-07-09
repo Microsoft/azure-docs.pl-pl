@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114384"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -35,7 +35,7 @@ Podczas projektowania mapowania przepływów danych można testować poszczegól
 
 ![Monitorowanie przepływu danych](media/data-flow/mon003.png "Monitor przepływu danych 3")
 
- W przypadku uruchomienia debugowania potoku około jednej minuty czasu konfiguracji klastra jest wymagana w przypadku klastra ciepłego. W przypadku inicjowania domyślnego Azure Integration Runtime czas pracy może potrwać około 5 minut.
+ W przypadku uruchomienia debugowania potoku około jednej minuty czasu konfiguracji klastra jest wymagana w przypadku klastra ciepłego. W przypadku inicjowania domyślnego Azure Integration Runtime czas pracy może trwać około 4 minut.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Zwiększanie rozmiaru obliczeń w Azure Integration Runtime
 
@@ -55,7 +55,7 @@ Domyślnie włączenie debugowania będzie używać domyślnego środowiska Azur
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Zmniejsz czas uruchamiania obliczeń klastra przy użyciu czasu wygaśnięcia
 
-W Azure IR w obszarze właściwości przepływu danych istnieje właściwość, która umożliwi rozłożenia puli zasobów obliczeniowych klastra dla fabryki. Za pomocą tej puli można sekwencyjnie przesyłać działania przepływu danych do wykonania. Po ustanowieniu puli każde kolejne zadanie zajmie 1-2 minut, aby klaster Spark na żądanie wykonywał zadanie. Początkowa konfiguracja puli zasobów zajmie około 6 minut. Określ ilość czasu, przez jaki chcesz zachować pulę zasobów w ustawieniu czasu wygaśnięcia (TTL).
+W Azure IR w obszarze właściwości przepływu danych istnieje właściwość, która umożliwi rozłożenia puli zasobów obliczeniowych klastra dla fabryki. Za pomocą tej puli można sekwencyjnie przesyłać działania przepływu danych do wykonania. Po ustanowieniu puli każde kolejne zadanie zajmie 1-2 minut, aby klaster Spark na żądanie wykonywał zadanie. Początkowa konfiguracja puli zasobów zajmie około 4 minut. Określ ilość czasu, przez jaki chcesz zachować pulę zasobów w ustawieniu czasu wygaśnięcia (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optymalizacja pod kątem Azure SQL Database i Azure SQL Data Warehouse Synapse
 
@@ -145,7 +145,7 @@ Używając symboli wieloznacznych, potok będzie zawierać tylko jedno działani
 
 Potok dla każdego w trybie równoległym spowoduje duplikowanie wielu klastrów przez odwirowanie klastrów zadań dla każdego wykonanego działania przepływu danych. Może to spowodować ograniczenie usługi platformy Azure o dużą liczbę współbieżnych wykonań. Jednak użycie przepływu danych Execute wewnątrz dla każdego z sekwencyjnym zestawem w potoku spowoduje uniknięcie ograniczenia przepustowości i wyczerpania zasobów. Spowoduje to wymuszenie Data Factory wykonywania każdego z plików względem przepływu danych sekwencyjnie.
 
-Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie miał pełny 5-minutowy czas uruchomienia klastra w iteratoru.
+Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie ponosić pełny czas uruchamiania klastra o wartości 4 minuty w iteratoru.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optymalizacja pod kątem CosmosDB
 

@@ -10,11 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196521"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113109"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Rozwiązywanie problemów z opóźnieniami przy użyciu dzienników Analityki magazynu
 
@@ -92,7 +93,7 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 
    * Opóźnienie klienta = zakończenie do końca — serwer — opóźnienie
 
-          * Example: 8453 – 391 = 8062ms
+        Przykład: 8453 – 391 = 8062ms
 
    Poniższa tabela zawiera informacje o dużym czasie opóźnienia i stanem żądania wyniki:
 

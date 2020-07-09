@@ -1,89 +1,162 @@
 ---
 title: Zarządzanie pulą zaplecza
-description: Przewodnik konfigurowania puli zaplecza Load Balancer
+titleSuffix: Azure Load Balancer
+description: Wprowadzenie do konfigurowania puli zaplecza Azure Load Balancer i zarządzania nią
 services: load-balancer
-author: erichrt
+author: asudbring
 ms.service: load-balancer
 ms.topic: overview
-ms.date: 07/06/2020
-ms.author: errobin
-ms.openlocfilehash: 6d9700e134a9e3d6c53524d15c8b3503cf5773c7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.author: allensu
+ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050187"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113976"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
-Pula zaplecza jest podstawowym składnikiem Load Balancer, który definiuje grupę zasobów obliczeniowych, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia. W celu poprawnego skonfigurowania puli zaplecza należy zdefiniować grupę uprawnionych maszyn do obsługi ruchu. Istnieją dwa sposoby konfigurowania puli zaplecza, karty interfejsu sieciowego (NIC) i połączonego adresu IP i identyfikatora zasobu Virtual Network (VNET). 
+Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
 
-W większości scenariuszy obejmujących Virtual Machines i Virtual Machine Scale Sets zaleca się skonfigurowanie puli zaplecza za pomocą karty sieciowej, ponieważ ta metoda kompiluje najbardziej bezpośredni link między zasobem a pulą zaplecza. W scenariuszach obejmujących kontenery i Kubernetesy, które nie mają karty sieciowej lub wstępnego przydzielania zakresu adresów IP zasobów zaplecza, można skonfigurować pulę zaplecza według adresu IP i kombinacji identyfikatorów sieci wirtualnej.
+Istnieją dwa sposoby konfigurowania puli zaplecza:
+* Karta interfejsu sieciowego (NIC)
+* Kombinacja adresu IP i identyfikatora zasobu Virtual Network (VNET)
 
-W przypadku konfigurowania przez kartę sieciową lub adres IP i identyfikator sieci wirtualnej za pomocą portalu interfejs użytkownika przeprowadzi Cię przez poszczególne kroki, a wszystkie aktualizacje konfiguracji będą obsługiwane w zapleczu. Sekcje konfiguracji tego artykułu koncentrują się na Azure PowerShell, interfejsie wiersza polecenia interfejsu API REST i szablonach ARM w celu uzyskania wglądu w sposób, w jaki pule zaplecza są strukturalne dla każdej opcji konfiguracji.
+Skonfiguruj pulę zaplecza przez kartę sieciową, korzystając z maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Ta metoda kompiluje najbardziej bezpośredni link między zasobem a pulą zaplecza. 
+
+W scenariuszach, w których karta sieciowa jest niedostępna, taka jak Containers lub Kubernetes, skonfiguruj pulę zaplecza przy użyciu adresu IP i kombinacji identyfikatorów sieci wirtualnej.
+
+Sekcje konfiguracji tego artykułu dotyczą:
+
+* Azure PowerShell
+* Interfejs wiersza polecenia platformy Azure
+* Interfejs API REST
+* Szablony usługi Azure Resource Manager 
+
+Te sekcje zawierają szczegółowe informacje o tym, jak pule zaplecza są strukturalne dla każdej opcji konfiguracji.
 
 ## <a name="configuring-backend-pool-by-nic"></a>Konfigurowanie puli zaplecza za pomocą karty sieciowej
-Podczas konfigurowania puli zaplecza za pomocą karty sieciowej należy pamiętać, że Pula zaplecza jest tworzona jako część operacji Load Balancer i elementy członkowskie są dodawane do puli zaplecza w ramach właściwości konfiguracja IP interfejsu sieciowego podczas operacji interfejsu sieciowego. Poniższe przykłady koncentrują się na operacjach tworzenia i wypełniania dla puli zaplecza w celu wyróżnienia tego przepływu pracy i relacji.
+Pula zaplecza jest tworzona w ramach operacji modułu równoważenia obciążenia. Właściwość Konfiguracja protokołu IP karty sieciowej służy do dodawania elementów członkowskich puli zaplecza.
+
+Poniższe przykłady koncentrują się na operacjach tworzenia i wypełniania dla puli zaplecza w celu wyróżnienia tego przepływu pracy i relacji.
 
   >[!NOTE] 
   >Należy pamiętać, że pule zaplecza skonfigurowane za pośrednictwem interfejsu sieciowego nie mogą zostać zaktualizowane w ramach operacji w puli zaplecza. Dodawanie lub usuwanie zasobów zaplecza musi odbywać się w interfejsie sieciowym zasobu.
 
 ### <a name="powershell"></a>PowerShell
-Utwórz nową pulę zaplecza: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+Utwórz nową pulę zaplecza:
+ 
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
 Utwórz nowy interfejs sieciowy i dodaj go do puli zaplecza:
-```powershell
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -LoadBalancerBackendAddressPool $bepool -Subnet $vnet.Subnets[0]
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$nicname = "myNic"
+$location = "eastus"
+$vnetname = <your-vnet-name>
+
+$vnet = 
+Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
+
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
-Pobierz informacje o puli zaplecza dla Load Balancer, aby upewnić się, że ten interfejs sieciowy został dodany do puli zaplecza:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $bePool  
+Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że ten interfejs sieciowy został dodany do puli zaplecza:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+
+$lb =
+Get-AzLoadBalancer -ResourceGroupName $res
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName 
 ```
 
 Utwórz nową maszynę wirtualną i Dołącz interfejs sieciowy, aby umieścić go w puli zaplecza:
-```powershell
+
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nicVM1.Id
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
  
 # Create a virtual machine using the configuration
-$vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
-
-  
 ### <a name="cli"></a>Interfejs wiersza polecenia
 Utwórz pulę zaplecza:
-```bash
-az network lb address-pool create --resourceGroup myResourceGroup --lb-name myLB --name myBackendPool 
+
+```azurecli-interactive
+az network lb address-pool create \
+--resourceGroup myResourceGroup \
+--lb-name myLB \
+--name myBackendPool 
 ```
 
 Utwórz nowy interfejs sieciowy i dodaj go do puli zaplecza:
-```bash
-az network nic create --resource-group myResourceGroup --name myNic --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup --lb-name myLB --lb-address-pools myBackEndPool
+
+```azurecli-interactive
+az network nic create \
+--resource-group myResourceGroup \
+--name myNic \
+--vnet-name myVnet \
+--subnet mySubnet \
+--network-security-group myNetworkSecurityGroup \
+--lb-name myLB \
+--lb-address-pools myBackEndPool
 ```
 
 Pobierz pulę zaplecza, aby potwierdzić, że adres IP został poprawnie dodany:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name myLb \
+--name myBackendPool
 ```
 
 Utwórz nową maszynę wirtualną i Dołącz interfejs sieciowy, aby umieścić go w puli zaplecza:
-```bash
-az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+
+```azurecli-interactive
+az vm create \
+--resource-group myResourceGroup \
+--name myVM \
+--nics myNic \
+--image UbuntuLTS \
+--admin-username azureuser \
+--generate-ssh-keys
 ```
 
 ### <a name="rest-api"></a>Interfejs API REST
 Utwórz pulę zaplecza:
+
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
@@ -117,7 +190,7 @@ Treść żądania JSON:
 }
 ```
 
-Pobierz informacje o puli zaplecza dla Load Balancer, aby upewnić się, że ten interfejs sieciowy został dodany do puli zaplecza:
+Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że ten interfejs sieciowy został dodany do puli zaplecza:
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
@@ -172,72 +245,111 @@ Treść żądania JSON:
 }
 ```
 
-### <a name="arm-template"></a>Szablon ARM
-Postępuj zgodnie z tym [szablonem szybki start ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) , aby wdrożyć Load Balancer i Virtual Machines i dodać Virtual Machines do puli zaplecza za pośrednictwem interfejsu sieciowego.
+### <a name="resource-manager-template"></a>Szablon usługi Resource Manager
+Postępuj zgodnie z tym [szablonem Menedżer zasobów szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) , aby wdrożyć moduł równoważenia obciążenia i maszyny wirtualne oraz dodać maszyny wirtualne do puli zaplecza za pośrednictwem interfejsu sieciowego.
 
-## <a name="configuring-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurowanie puli zaplecza przy użyciu adresu IP i Virtual Network
-W przypadku równoważenia obciążenia zasobów kontenera lub wstępnego wypełniania puli zaplecza z zakresem adresów IP można użyć adresu IP i Virtual Network do skierowania do dowolnego prawidłowego zasobu niezależnie od tego, czy ma on interfejs sieciowy. Podczas konfigurowania przy użyciu adresu IP i sieci wirtualnej wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli zaplecza, jak wyróżniono w poniższych przykładach.
+## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurowanie puli zaplecza według adresu IP i sieci wirtualnej
+W scenariuszach z kontenerami lub wstępnie wypełnioną pulą zaplecza z adresami IP używaj protokołu IP i sieci wirtualnej.
+
+Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli zaplecza, jak wyróżniono w poniższych przykładach.
 
   >[!IMPORTANT] 
   >Ta funkcja jest obecnie dostępna w wersji zapoznawczej i ma następujące ograniczenia:
   >* Limit liczby dodawanych adresów IP 100
-  >* Zasoby zaplecza muszą znajdować się w tym samym Virtual Network co Load Balancer
-  >* Ta funkcja nie jest obecnie obsługiwana w interfejsie użytkownika portalu
-  >* Ta usługa jest dostępna tylko dla usługi równoważenia obciążenia w warstwie Standardowa
+  >* Zasoby zaplecza muszą znajdować się w tej samej sieci wirtualnej co moduł równoważenia obciążenia
+  >* Ta funkcja nie jest obecnie obsługiwana w Azure Portal
+  >* Tylko Standardowa usługa równoważenia obciążenia
   
 ### <a name="powershell"></a>PowerShell
-Utwórz nową pulę zaplecza: 
-```powershell
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup   -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPooName  
+Utwórz nową pulę zaplecza:
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$loadBalancerName = "myLoadBalancer"
+$backendPoolName = "myBackendPool"
+$vnetName = "myVnet"
+$location = "eastus"
+$nicName = "myNic"
+
+$backendPool = 
+New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
-Zaktualizuj tę pulę zaplecza przy użyciu nowego adresu IP z istniejącej sieci wirtualnej:  
-```powershell
-$virtualNetwork = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+Zaktualizuj pulę zaplecza przy użyciu nowego adresu IP z istniejącej sieci wirtualnej:
  
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+```azurepowershell-interactive
+$virtualNetwork = 
+Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
+ 
+$ip1 = 
+New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
 
-Pobierz informacje o puli zaplecza dla Load Balancer, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
-```powershell
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool  $backendPool  
+Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
+
+```azurepowershell-interactive
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
 ```
-Utwórz interfejs sieciowy i dodaj go do puli zaplecza, ustawiając adres IP na jeden z adresów zaplecza:
-```
-$nic = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
-  -Name 'MyNic' -PrivateIpAddress 10.0.0.4 -Subnet $vnet.Subnets[0]
+Utwórz interfejs sieciowy i dodaj go do puli zaplecza. Ustaw adres IP na jeden z adresów zaplecza:
+
+```azurepowershell-interactive
+$nic = 
+New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
 Utwórz maszynę wirtualną i Dołącz kartę sieciową przy użyciu adresu IP w puli zaplecza:
-```powershell
+```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM' -VMSize Standard_DS1_v2 `
- | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM' -Credential $cred `
- | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
- | Add-AzVMNetworkInterface -Id $nic.Id
- 
+$vmname = "myVM1"
+$vmsize = "Standard_DS1_v2"
+$pubname = "MicrosoftWindowsServer"
+$nicname = "myNic"
+$off = "WindowsServer"
+$sku = "2019-Datacenter"
+$resourceGroup = "myResourceGroup"
+$location = "eastus"
+
+$nic =
+Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+
+$vmConfig = 
+New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
+
 # Create a virtual machine using the configuration
-$vm = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
+$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
 
 ### <a name="cli"></a>Interfejs wiersza polecenia
 Za pomocą interfejsu wiersza polecenia można wypełnić pulę zaplecza za pomocą parametrów wiersza poleceń lub pliku konfiguracji JSON. 
 
 Utwórz i wypełnij pulę zaplecza za pomocą parametrów wiersza polecenia:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address name=addr1 ip-address=10.0.0.4 --backend-address name=addr2 ip-address=10.0.0.5
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address name=addr1 ip-address=10.0.0.4 \
+--backend-address name=addr2 ip-address=10.0.0.5
 ```
 
 Utwórz i wypełnij pulę zaplecza za pomocą pliku konfiguracji JSON:
-```bash
-az network lb address-pool create --lb-name myLB --name myBackendPool --vnet {VNET resource ID} --backend-address-config-file @config_file.json
+
+```azurecli-interactive
+az network lb address-pool create \
+--resource-group myResourceGroup \
+--lb-name myLB \
+--name myBackendPool \
+--vnet {VNET resource ID} \
+--backend-address-config-file @config_file.json
 ```
 
 Plik konfiguracji JSON:
@@ -256,13 +368,18 @@ Plik konfiguracji JSON:
         ]
 ```
 
-Pobierz informacje o puli zaplecza dla Load Balancer, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
-```bash
-az network lb address-pool show -g MyResourceGroup --lb-name MyLb -n MyBackendPool
+Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
+
+```azurecli-interactive
+az network lb address-pool show \
+--resource-group myResourceGroup \
+--lb-name MyLb \
+--name MyBackendPool
 ```
 
-Utwórz interfejs sieciowy i dodaj go do puli zaplecza, ustawiając adres IP na jeden z adresów zaplecza:
-```bash
+Utwórz interfejs sieciowy i dodaj go do puli zaplecza. Ustaw adres IP na jeden z adresów zaplecza:
+
+```azurecli-interactive
 az network nic create \
   --resource-group myResourceGroup \
   --name myNic \
@@ -274,7 +391,8 @@ az network nic create \
 ```
 
 Utwórz maszynę wirtualną i Dołącz kartę sieciową przy użyciu adresu IP w puli zaplecza:
-```bash
+
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
@@ -286,8 +404,11 @@ az vm create \
 
 ### <a name="rest-api"></a>Interfejs API REST
 
+Utwórz pulę zaplecza i zdefiniuj adresy zaplecza za pomocą żądania PUT puli zaplecza. Skonfiguruj adresy zaplecza w treści JSON żądania PUT przez:
 
-Utwórz pulę zaplecza i zdefiniuj adresy zaplecza za pomocą żądania PUT puli zaplecza. Skonfiguruj adresy zaplecza, które chcesz dodać za pomocą nazwy adresu, adresu IP i identyfikatora Virtual Network w treści JSON żądania PUT:
+* Nazwa adresu
+* Adres IP
+* Identyfikator sieci wirtualnej 
 
 ```
 PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
@@ -321,12 +442,12 @@ Treść żądania JSON:
 }
 ```
 
-Pobierz informacje o puli zaplecza dla Load Balancer, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
+Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
 ```
 GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
 ```
 
-Utwórz interfejs sieciowy i dodaj go do puli zaplecza, ustawiając adres IP na jeden z adresów zaplecza:
+Utwórz interfejs sieciowy i dodaj go do puli zaplecza. Ustaw adres IP na jeden z adresów zaplecza:
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
 ```
@@ -401,8 +522,8 @@ Treść żądania JSON:
 }
 ```
 
-### <a name="arm-template"></a>Szablon ARM
-Utwórz Load Balancer, pulę zaplecza i wypełnij pulę zaplecza przy użyciu adresów zaplecza:
+### <a name="resource-manager-template"></a>Szablon usługi Resource Manager
+Utwórz moduł równoważenia obciążenia, pulę zaplecza i wypełnij pulę zaplecza adresami zaplecza:
 ```
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -719,3 +840,7 @@ Utwórz maszynę wirtualną i podłączony interfejs sieciowy. Ustaw adres IP in
   ]
 }
 ```
+## <a name="next-steps"></a>Następne kroki
+W tym artykule przedstawiono informacje dotyczące zarządzania pulą zaplecza Azure Load Balancer oraz konfigurowania puli zaplecza przy użyciu adresu IP i sieci wirtualnej.
+
+Dowiedz się więcej o [Azure Load Balancer](load-balancer-overview.md).

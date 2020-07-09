@@ -3,11 +3,12 @@ title: Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 description: Znajdź, twórz, Zarządzaj i usuwaj projekty w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/19/2020
-ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676388"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113432"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 
@@ -82,7 +83,7 @@ Należy pamiętać, że:
        
     - Jeśli projekt Azure Migrate został już usunięty, wybierz pozycję **grupy zasobów** w lewym okienku Azure Portal i Znajdź obszar roboczy.
        
-2. [Postępuj zgodnie z instrukcjami,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) aby usunąć obszar roboczy.
+2. [Postępuj zgodnie z instrukcjami,](../azure-monitor/platform/delete-workspace.md) aby usunąć obszar roboczy.
 
 ## <a name="next-steps"></a>Następne kroki
 

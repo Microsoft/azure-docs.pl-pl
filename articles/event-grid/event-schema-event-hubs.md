@@ -1,18 +1,14 @@
 ---
 title: Event Hubs platformy Azure jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń centrów zdarzeń z Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113687"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Event Hubs platformy Azure jako źródło Event Grid
 

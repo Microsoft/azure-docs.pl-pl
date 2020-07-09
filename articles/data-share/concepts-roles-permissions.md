@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322058"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111001"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -30,9 +30,8 @@ Aby udostępnić lub odebrać dane z magazynu danych platformy Azure, użytkowni
 
 Poniżej znajduje się Podsumowanie ról przypisanych do zarządzanej tożsamości zasobu udział danych:
 
-| |  |  |
-|---|---|---|
 |**Typ magazynu danych**|**Źródłowy magazyn danych Dostawca danych**|**Docelowy magazyn danych odbiorcy danych**|
+|---|---|---|
 |Azure Blob Storage| Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
 |Azure Data Lake Gen1 | Właściciel | Nieobsługiwane
 |Azure Data Lake Gen2 | Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
@@ -42,9 +41,8 @@ Poniżej znajduje się Podsumowanie ról przypisanych do zarządzanej tożsamoś
 
 W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w Azure SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Poniżej znajduje się Podsumowanie uprawnień wymaganych przez użytkownika programu SQL.
 
-| |  |  |
-|---|---|---|
 |**Typ SQL Database**|**Dostawca danych uprawnienie użytkownika SQL**|**Uprawnienie użytkownika SQL dla danych klienta**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (dawniej SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Aby wyświetlić zaproszenie do udziału danych platformy Azure po raz pierwszy 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o rolach na platformie Azure — [Omówienie definicji ról](../role-based-access-control/role-definitions.md)
-

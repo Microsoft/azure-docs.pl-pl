@@ -4,14 +4,14 @@ description: Opisuje sposób wyodrębniania bazy danych PostgreSQL do pliku zrzu
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
-ms.openlocfilehash: 90a014e44c728c1881c1fd3d9e189554ed8f44da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7ecdd110458c64be9890762d515ecebe3d67acd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146326"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112361"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrowanie bazy danych PostgreSQL metodą zrzutu i przywracania
 [Pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) można użyć do wyodrębnienia bazy danych PostgreSQL do pliku zrzutu i [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) do przywrócenia bazy danych PostgreSQL z pliku archiwum utworzonego przez pg_dump.
@@ -61,7 +61,7 @@ Jednym ze sposobów migrowania istniejącej bazy danych PostgreSQL do usługi Az
 >
 
 ### <a name="for-the-backup"></a>Dla kopii zapasowej
-- Utwórz kopię zapasową za pomocą przełącznika-FC, aby można było wykonać przywracanie równolegle w celu przyspieszenia jego działania. Na przykład:
+- Utwórz kopię zapasową za pomocą przełącznika-FC, aby można było wykonać przywracanie równolegle w celu przyspieszenia jego działania. Przykład:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Jednym ze sposobów migrowania istniejącej bazy danych PostgreSQL do usługi Az
 
 - Powinno to być już wykonywane domyślnie, ale otworzyć plik zrzutu, aby sprawdzić, czy instrukcje CREATE INDEX są po wstawieniu danych. Jeśli tak nie jest, Przenieś instrukcje tworzenia indeksu po wstawieniu danych.
 
-- Przywróć przy użyciu przełączników-FC i-j, *#* Aby zrównoleglanie przywracanie. *#* jest liczbą rdzeni na serwerze docelowym. Możesz również spróbować z *#* ustawionym dwukrotnie liczbą rdzeni serwera docelowego, aby zobaczyć wpływ. Na przykład:
+- Przywróć przy użyciu przełączników-FC i-j, *#* Aby zrównoleglanie przywracanie. *#* jest liczbą rdzeni na serwerze docelowym. Możesz również spróbować z *#* ustawionym dwukrotnie liczbą rdzeni serwera docelowego, aby zobaczyć wpływ. Przykład:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

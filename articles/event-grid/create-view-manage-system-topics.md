@@ -1,17 +1,14 @@
 ---
 title: Twórz, Wyświetlaj i Zarządzaj tematami systemowymi w Azure Event Grid (Portal)
 description: W tym artykule przedstawiono sposób wyświetlania istniejącego tematu systemu, tworzenia Azure Event Grid tematów systemu przy użyciu Azure Portal.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457239"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115115"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Twórz, Wyświetlaj i Zarządzaj Event Grid tematy systemowe w Azure Portal
 W tym artykule opisano sposób tworzenia tematów systemowych i zarządzania nimi przy użyciu Azure Portal. Aby zapoznać się z omówieniem tematów systemowych, zobacz [Tematy systemowe](system-topics.md).

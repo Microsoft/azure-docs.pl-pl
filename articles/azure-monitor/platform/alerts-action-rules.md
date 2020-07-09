@@ -4,12 +4,12 @@ description: Informacje o regułach akcji w Azure Monitor są i sposobami ich ko
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80618988"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112344"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -196,23 +196,26 @@ Pomijanie zawsze ma pierwszeństwo w tym samym zakresie.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób, który jest monitorowany w dwóch oddzielnych regułach akcji? Czy otrzymuję jedną lub dwie powiadomienia? Na przykład **VM2** w następującym scenariuszu:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
 Dla każdego alertu w systemach VM1 i VM3 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Dla każdego alertu w witrynie **VM2**grupa akcji AG1 zostanie wyzwolona dwa razy, ponieważ reguły akcji nie spowodują deduplikowania akcji. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Co się stanie, jeśli mam zasób monitorowany w dwóch osobnych regułach akcji i jedno wywołanie dla akcji, a drugie dla pomijania? Na przykład **VM2** w następującym scenariuszu:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with suppression`
 
 Dla każdego alertu w witrynie VM1 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Akcje i powiadomienia dla każdego alertu w VM2 i VM3 zostaną pominięte. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Co się stanie, jeśli mam regułę alertu i regułę akcji zdefiniowaną dla tego samego zasobu wywołującego różne grupy akcji? Na przykład **VM1** w następującym scenariuszu:
 
-      alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1 
- 
+   `alert rule rule1 on VM1 with action group AG2`
+
+   `action rule AR1 defined for VM1 with action group AG1`
+
 Dla każdego alertu w witrynie VM1 grupa akcji AG1 zostanie wyzwolona jednokrotnie. Zawsze, gdy zostanie wyzwolona reguła alertu "RULE1", zostanie ona również wyzwolona AG2. Grupy akcji zdefiniowane w regułach akcji i regułach alertów działają niezależnie, bez deduplikacji. 
 
 ## <a name="next-steps"></a>Następne kroki

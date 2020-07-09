@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c4e9668459856af52ae1a905de8ba76dc36758fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086306"
+ms.locfileid: "86112990"
 ---
 # <a name="release-notes"></a>Uwagi do wersji
 
@@ -24,7 +24,7 @@ ms.locfileid: "86086306"
 
 ### <a name="new-features"></a>Nowe funkcje
 
-* **Neuronowych TTS, 15 nowych neuronowych głosów**: nowe głosy dodawane do portfolio neuronowych TTS to Salma in arabski (Egipt), Zariyah in arabski (Arabia Saudyjska), Alba in kataloński (Hiszpania), Christel in duński (Dania), Neerja w języku angielskim (Indie), swara w języku hindi (Indie), Colette w języku holenderskim (Holandia), Zofia w polskiej (Polsce), Fernanda in portugalski (Portugalia), dariya in rosyjski (Rosja), Hillevi w szwedzki (Szwecja), Achara in Tajlandzki (Tajlandia), Iselin norweski (bokmål) in (Norwegia), HiuGaai in chiński (Hongkong) i HsiaoYu w języku chińskim (Tajwan). Sprawdź wszystkie [obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **Neuronowych TTS, 15 nowych neuronowych głosów**: nowe głosy dodawane do portfolio neuronowych TTS to Salma in `ar-EG` arabski (Egipt), Zariyah in `ar-SA` arabski (Arabia Saudyjska), Alba in `ca-ES` kataloński (Hiszpania), Christel in duński ( `da-DK` Dania), Neerja w `es-IN` języku angielskim (Indie), Noora w języku `fi-FI` fińskim (Finlandia), swara w `hi-IN` języku hindi (Indie), Colette in `nl-NL` holenderski (Netherland), Zofia in `pl-PL` Polski (Polska), Fernanda in `pt-PT` portugalski (Portugalia), dariya in `ru-RU` rosyjski (Rosja), Hillevi w języku `sv-SE` szwedzkim (Szwecja), Achara in `th-TH` Tajlandzki (Tajlandia), HiuGaai w `zh-HK` języku chińskim (kantoński, tradycyjny) i HsiaoYu `zh-TW` (tajwański mandarynki). Sprawdź wszystkie [obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Niestandardowy głos, usprawnione testowanie głosu przy użyciu przepływu szkoleniowego, aby uprościć środowisko użytkownika**: dzięki nowej funkcji testowania każdy głos zostanie automatycznie przetestowany przy użyciu wstępnie zdefiniowanego zestawu testów zoptymalizowanego dla każdego języka, który będzie obejmować scenariusze ogólne i asystenta głosowego. Te zestawy testów są starannie wybierane i przetestowane w taki sposób, aby obejmowały typowe przypadki użycia i fonemów w języku. Oprócz tego użytkownicy nadal mogą wybrać opcję przekazania własnych skryptów testowych podczas uczenia modelu.
 
@@ -46,23 +46,23 @@ ms.locfileid: "86086306"
 
 * Ulepszona vocoder TTS w programie w celu uzyskania większej wierności i małych opóźnień.
 
-    * Zaktualizowano Elsa w języku włoskim do nowej vocoder, która osiągnęła ponad 0,464y CMOS (wynik porównawczy), osiągaj jakość głosu, 40% szybciej w syntezie i 30% obniżki w przypadku pierwszego bajtu opóźnienia. 
-    * Zaktualizowano Xiaoxiao w języku chińskim do nowego vocoderu i wzmocnienia CMOS 0148 dla domeny ogólnej, + 0,348 dla stylu Newscast oraz + 0,195 dla stylu Lyrical. 
+    * Zaktualizowano Elsa w `it-IT` nowym vocoder, który osiągnął wartość "CMOS" + 0,464 (wynik porównawczy) w jakości głosu, 40% szybciej w syntezie i o 30% obniżki przy opóźnieniu pierwszego bajtu. 
+    * Zaktualizowano Xiaoxiao w `zh-CN` systemie do nowego vocoderu i wzmocnienia CMOS 0148 dla domeny ogólnej, + 0,348 dla stylu Newscast oraz + 0,195 dla stylu Lyrical. 
 
 * Zaktualizowaliśmy `de-DE` i `ja-JP` modele głosu, aby dane wyjściowe TTS były bardziej naturalne.
     
-    * Zaktualizowano Katja w języku niemieckim przy użyciu najnowszej metody modelowania Prosody, zysk MOS (średnia opinia) to + 0,13. 
-    * Zaktualizowano Nanami w języku japońskim przy użyciu nowego modelu Prosody akcentu o nowej wysokości, a MOS (średnia ocena opinii) to + 0,19;  
+    * Zaktualizowano Katja w programie `de-DE` przy użyciu najnowszej metody modelowania Prosody, korzyści z MOS (średnia ocena opinii) to + 0,13. 
+    * Zaktualizowano Nanami w programie `ja-JP` przy użyciu nowego modelu Prosody akcentu, a MOS (średnia ocena opinii) to + 0,19;  
 
 * Ulepszona dokładność wymowy na poziomie wyrazów w 5 językach.
 
     | Język | Zmniejszenie błędów wymowy |
     |---|---|
-    | en-GB | 51% |
-    | ko-KR | 7 |
-    | pt-BR | 39% |
-    | pt-PT | 77% |
-    | id-ID | 46% |
+    | `en-GB` | 51% |
+    | `ko-KR` | 7 |
+    | `pt-BR` | 39% |
+    | `pt-PT` | 77% |
+    | `id-ID` | 46% |
 
 ### <a name="bug-fixes"></a>Poprawki błędów
 
@@ -71,8 +71,8 @@ ms.locfileid: "86086306"
      
     | Język | Dane wejściowe | Odczyt po ulepszeniu |
     |---|---|---|
-    | es — MX | $1,58 | niepeso cincuenta y Ocho centavos |
-    | es-ES | $1,58 | dólar cincuenta y Ocho centavos |
+    | `es-MX` | $1,58 | niepeso cincuenta y Ocho centavos |
+    | `es-ES` | $1,58 | dólar cincuenta y Ocho centavos |
 
     * Obsługa ujemnej waluty (na przykład "-€325") w następujących ustawieniach regionalnych:,,,, `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` .
 
