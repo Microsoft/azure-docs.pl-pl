@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75941590"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133812"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji Dynamics AX   
 
@@ -68,7 +69,7 @@ Klient ma dużą liczbę aplikacji i jest uruchomiony Las Active Directory i pla
 Aby uzyskać wskazówki techniczne dotyczące zalecanej opcji ochrony warstwy SQL, zobacz [replikowanie aplikacji przy użyciu SQL Server i Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Włącz ochronę dla maszyn wirtualnych klienta i serwera obiektów aplikacji programu Dynamics AX
-Wykonaj odpowiednie Site Recovery konfiguracji w zależności od tego, czy maszyny wirtualne są wdrażane w [funkcji Hyper-V](site-recovery-hyper-v-site-to-azure.md) , czy w [oprogramowaniu VMware](site-recovery-vmware-to-azure.md).
+Wykonaj odpowiednie Site Recovery konfiguracji w zależności od tego, czy maszyny wirtualne są wdrażane w [funkcji Hyper-V](./hyper-v-azure-tutorial.md) , czy w [oprogramowaniu VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > Zalecamy skonfigurowanie częstotliwości bezawarii na 15 minut.
@@ -175,7 +176,7 @@ Aby uzyskać informacje specyficzne dla SQL Server podczas powrotu po awarii, zo
 6. Wybierz pozycję **✓** , aby rozpocząć proces powrotu po awarii.
 
 
-Aby uzyskać więcej informacji na temat powrotu po awarii, zobacz [maszyny wirtualne VMware powrotu po awarii z platformy Azure do lokacji lokalnej](site-recovery-failback-azure-to-vmware.md).
+Aby uzyskać więcej informacji na temat powrotu po awarii, zobacz [maszyny wirtualne VMware powrotu po awarii z platformy Azure do lokacji lokalnej](./vmware-azure-failback.md).
 
 ## <a name="summary"></a>Podsumowanie
 Za pomocą Site Recovery można utworzyć kompletny zautomatyzowany plan odzyskiwania po awarii dla aplikacji Dynamics AX. W przypadku przerwy w działaniu, w ciągu kilku sekund można zainicjować pracę w trybie failover z dowolnego miejsca i rozpocząć pracę aplikacji w ciągu kilku minut.

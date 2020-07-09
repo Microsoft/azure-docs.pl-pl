@@ -3,11 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135170"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -121,7 +122,7 @@ Replikacja nowych maszyn wirtualnych do konta magazynu jest dostępna tylko przy
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Czy można zmienić typ dysku zarządzanego po włączeniu ochrony komputera?
 
-Tak. możesz łatwo [zmienić typ dysku zarządzanego](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) na potrzeby bieżących replikacji. Przed zmianą typu upewnij się, że na dysku zarządzanym nie zostanie wygenerowany adres URL sygnatury dostępu współdzielonego:
+Tak. możesz łatwo [zmienić typ dysku zarządzanego](../virtual-machines/windows/convert-disk-storage.md) na potrzeby bieżących replikacji. Przed zmianą typu upewnij się, że na dysku zarządzanym nie zostanie wygenerowany adres URL sygnatury dostępu współdzielonego:
 
 1. Przejdź do zasobu **dysk zarządzany** na Azure Portal i sprawdź, czy masz transparent adresu URL sygnatury dostępu współdzielonego w bloku **Przegląd** .
 1. Jeśli transparent jest obecny, wybierz go, aby anulować trwający eksport.

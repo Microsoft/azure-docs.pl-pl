@@ -1,5 +1,5 @@
 ---
-title: Zdarzenia wyzwalania w przepływach pracy w ML
+title: Zdarzenia wyzwalania w przepływach pracy w ML (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Konfigurowanie aplikacji opartych na zdarzeniach, procesów lub przepływów pracy uczenia maszynowego/ciągłego w Azure Machine Learning.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135961"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 

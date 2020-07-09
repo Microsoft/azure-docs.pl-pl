@@ -9,11 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc8a7e6478ed874caf925e10ef43c04343d254
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133235"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalowanie i Konfigurowanie PostgreSQL na platformie Azure
 PostgreSQL to zaawansowana baza danych open source podobna do Oracle i DB2. Obejmuje ona funkcje gotowe dla przedsiębiorstwa, takie jak Pełna zgodność ze standardami KWASowymi, niezawodne przetwarzanie transakcyjne i wielostronicowa kontrola współbieżności. Obsługuje ona również standardy, takie jak ANSI SQL i SQL/MED (w tym obce otoki danych dla systemów Oracle, MySQL, MongoDB i wielu innych). Jest wysoce rozszerzalny z obsługą ponad 12 języków proceduralnych, indeksów ĄTEK i dzienników, obsługi danych przestrzennych i wielu funkcji podobnej do NoSQL dla aplikacji opartych na kluczach JSON lub wartościowych.
@@ -32,90 +33,135 @@ W takim przypadku należy użyć portu 1999 jako portu PostgreSQL.
 Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomocą wykorzystanych funkcji. Jeśli korzystasz z maszyny wirtualnej z systemem Linux na platformie Azure po raz pierwszy, zobacz [jak używać protokołu SSH z systemem Linux na platformie Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby dowiedzieć się, jak korzystać z funkcji tworzenia połączenia z maszyną wirtualną z systemem Linux.
 
 1. Uruchom następujące polecenie, aby przełączyć się do katalogu głównego (administratora):
-   
-        # sudo su -
+
+    ```console
+    # sudo su -
+    ```
+
 2. Niektóre dystrybucje mają zależności, które należy zainstalować przed zainstalowaniem PostgreSQL. Sprawdź dystrybucji na tej liście i uruchom odpowiednie polecenie:
    
    * Red Hat Base Linux:
-     
-           # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+
+        ```console
+        # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        ```
+
    * Debian podstawowy system Linux:
-     
-            # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
+
+        ```console
+        # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y
+        ```
+
    * SUSE Linux:
-     
-           # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+
+        ```console
+        # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y
+        ```
+
 3. Pobierz PostgreSQL do katalogu głównego, a następnie Rozpakuj pakiet:
-   
-        # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
-   
-        # tar jxvf  postgresql-9.3.5.tar.bz2
-   
+
+    ```console
+    # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
+
+    # tar jxvf  postgresql-9.3.5.tar.bz2
+    ```
+
     Powyższy kod jest przykładem. Bardziej szczegółowy adres do pobrania można znaleźć w [indeksie/pub/Source/](https://ftp.postgresql.org/pub/source/).
+
 4. Aby rozpocząć kompilację, uruchom następujące polecenia:
-   
-        # cd postgresql-9.3.5
-   
-        # ./configure --prefix=/opt/postgresql-9.3.5
+
+    ```console
+    # cd postgresql-9.3.5
+
+    # ./configure --prefix=/opt/postgresql-9.3.5
+    ```
+
 5. Jeśli chcesz skompilować wszystko, co można skompilować, łącznie z dokumentacją (strony HTML i Man) i dodatkowymi modułami ( `contrib` ), zamiast tego Uruchom następujące polecenie:
-   
-        # gmake install-world
-   
+
+    ```console
+    # gmake install-world
+    ```
+
     Powinien zostać wyświetlony następujący komunikat potwierdzający:
-   
-        PostgreSQL, contrib, and documentation successfully made. Ready to install.
+
+    ```output
+    PostgreSQL, contrib, and documentation successfully made. Ready to install.
+    ```
 
 ## <a name="configure-postgresql"></a>Konfigurowanie PostgreSQL
 1. Obowiązkowe Utwórz link symboliczny, aby skrócić odwołanie PostgreSQL do nieuwzględnienia numeru wersji:
-   
-        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
+
+    ```console
+    # ln -s /opt/postgresql-9.3.5 /opt/pgsql
+    ```
+
 2. Utwórz katalog dla bazy danych:
-   
-        # mkdir -p /opt/pgsql_data
+
+    ```console
+    # mkdir -p /opt/pgsql_data
+    ```
+
 3. Utwórz użytkownika innego niż root i zmodyfikuj profil tego użytkownika. Następnie przejdź do nowego użytkownika (o nazwie *Postgres* w naszym przykładzie):
+
+    ```console
+    # useradd postgres
    
-        # useradd postgres
+    # chown -R postgres.postgres /opt/pgsql_data
    
-        # chown -R postgres.postgres /opt/pgsql_data
-   
-        # su - postgres
+    # su - postgres
+    ```
    
    > [!NOTE]
    > Ze względów bezpieczeństwa PostgreSQL używa użytkownika niebędącego elementem głównym do inicjowania, uruchamiania lub wyłączania bazy danych.
    > 
    > 
 4. Edytuj plik *bash_profile* , wprowadzając poniższe polecenia. Te wiersze zostaną dodane na końcu pliku *bash_profile* :
-   
-        cat >> ~/.bash_profile <<EOF
-        export PGPORT=1999
-        export PGDATA=/opt/pgsql_data
-        export LANG=en_US.utf8
-        export PGHOME=/opt/pgsql
-        export PATH=\$PATH:\$PGHOME/bin
-        export MANPATH=\$MANPATH:\$PGHOME/share/man
-        export DATA=`date +"%Y%m%d%H%M"`
-        export PGUSER=postgres
-        alias rm='rm -i'
-        alias ll='ls -lh'
-        EOF
+
+    ```config
+    cat >> ~/.bash_profile <<EOF
+    export PGPORT=1999
+    export PGDATA=/opt/pgsql_data
+    export LANG=en_US.utf8
+    export PGHOME=/opt/pgsql
+    export PATH=\$PATH:\$PGHOME/bin
+    export MANPATH=\$MANPATH:\$PGHOME/share/man
+    export DATA=`date +"%Y%m%d%H%M"`
+    export PGUSER=postgres
+    alias rm='rm -i'
+    alias ll='ls -lh'
+    EOF
+    ```
+
 5. Wykonaj plik *bash_profile* :
-   
-        $ source .bash_profile
+
+    ```console
+    $ source .bash_profile
+    ```
+
 6. Sprawdź poprawność instalacji przy użyciu następującego polecenia:
-   
-        $ which psql
-   
+
+    ```console
+    $ which psql
+    ```
+
     Jeśli instalacja zakończy się pomyślnie, zostanie wyświetlona następująca odpowiedź:
-   
-        /opt/pgsql/bin/psql
+
+    ```output
+    /opt/pgsql/bin/psql
+    ```
+
 7. Możesz również sprawdzić wersję PostgreSQL:
-   
-        $ psql -V
+
+    ```sql
+    $ psql -V
+    ```
 
 8. Zainicjuj bazę danych:
-   
-        $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
-   
+
+    ```console
+    $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
+    ```
+
     Powinny pojawić się następujące dane wyjściowe:
 
 ![image (obraz)](./media/postgresql-install/no1.png)
@@ -125,29 +171,39 @@ Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomoc
 
 Uruchom następujące polecenia:
 
-    # cd /root/postgresql-9.3.5/contrib/start-scripts
+```console
+# cd /root/postgresql-9.3.5/contrib/start-scripts
 
-    # cp linux /etc/init.d/postgresql
+# cp linux /etc/init.d/postgresql
+```
 
 Zmodyfikuj dwie zmienne w pliku/etc/init.d/PostgreSQL. Prefiks jest ustawiany na ścieżkę instalacji PostgreSQL: **/opt/pgsql**. PGDATA jest ustawiona na ścieżkę magazynu danych PostgreSQL: **/opt/pgsql_data**.
 
-    # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
+```config
+# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
-    # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+```
 
 ![image (obraz)](./media/postgresql-install/no2.png)
 
 Zmień plik w taki sposób, aby był on wykonywalny:
 
-    # chmod +x /etc/init.d/postgresql
+```console
+# chmod +x /etc/init.d/postgresql
+```
 
 Rozpocznij PostgreSQL:
 
-    # /etc/init.d/postgresql start
+```console
+# /etc/init.d/postgresql start
+```
 
 Sprawdź, czy punkt końcowy elementu PostgreSQL jest włączony:
 
-    # netstat -tunlp|grep 1999
+```console
+# netstat -tunlp|grep 1999
+```
 
 Powinny zostać wyświetlone następujące dane wyjściowe:
 
@@ -156,22 +212,30 @@ Powinny zostać wyświetlone następujące dane wyjściowe:
 ## <a name="connect-to-the-postgres-database"></a>Łączenie z bazą danych Postgres
 Ponownie Przełącz do Postgres użytkownika:
 
-    # su - postgres
+```console
+# su - postgres
+```
 
 Utwórz bazę danych Postgres:
 
-    $ createdb events
+```console
+$ createdb events
+```
 
 Połącz się z utworzoną bazą danych zdarzeń:
 
-    $ psql -d events
+```console
+$ psql -d events
+```
 
 ## <a name="create-and-delete-a-postgres-table"></a>Tworzenie i usuwanie tabeli Postgres
 Teraz, gdy masz połączenie z bazą danych, możesz utworzyć w niej tabele.
 
 Na przykład utwórz nową przykładową tabelę Postgres za pomocą następującego polecenia:
 
-    CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
+```sql
+CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
+```
 
 Teraz można skonfigurować tabelę z czterema kolumnami z następującymi nazwami kolumn i ograniczeniami:
 
@@ -191,7 +255,9 @@ Możesz również sprawdzić strukturę tabeli przy użyciu następującego pole
 ### <a name="add-data-to-a-table"></a>Dodawanie danych do tabeli
 Najpierw Wstaw informacje do wiersza:
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
+```sql
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
+```
 
 Powinny być widoczne następujące dane wyjściowe:
 
@@ -199,16 +265,20 @@ Powinny być widoczne następujące dane wyjściowe:
 
 Możesz również dodać kilka więcej osób do tabeli. Poniżej przedstawiono niektóre opcje lub można utworzyć własne:
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
+```sql
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
+INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
+```
 
 ### <a name="show-tables"></a>Pokaż tabele
 Użyj następującego polecenia, aby wyświetlić tabelę:
 
-    select * from potluck;
+```sql
+select * from potluck;
+```
 
 Dane wyjściowe wyglądają następująco:
 
@@ -217,7 +287,9 @@ Dane wyjściowe wyglądają następująco:
 ### <a name="delete-data-in-a-table"></a>Usuwanie danych w tabeli
 Użyj następującego polecenia, aby usunąć dane w tabeli:
 
-    delete from potluck where name=’John’;
+```sql
+delete from potluck where name=’John’;
+```
 
 Spowoduje to usunięcie wszystkich informacji w wierszu "Jan". Dane wyjściowe wyglądają następująco:
 
@@ -226,9 +298,9 @@ Spowoduje to usunięcie wszystkich informacji w wierszu "Jan". Dane wyjściowe w
 ### <a name="update-data-in-a-table"></a>Aktualizowanie danych w tabeli
 Użyj następującego polecenia, aby zaktualizować dane w tabeli. W takim przypadku Piaskowobrązowy potwierdził, że uczestniczą, więc zmienimy wartość RSVP z "N" na "Y":
 
-     UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
-
+```sql
+UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
+```
 
 ## <a name="get-more-information-about-postgresql"></a>Uzyskaj więcej informacji na temat PostgreSQL
 Po zakończeniu instalacji programu PostgreSQL na maszynie wirtualnej z systemem Linux na platformie Azure możesz korzystać z niego na platformie Azure. Aby dowiedzieć się więcej na temat PostgreSQL, odwiedź [witrynę sieci Web PostgreSQL](https://www.postgresql.org/).
-

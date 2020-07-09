@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: site-recovery
 ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417858"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133808"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historia wersji Planista wdrażania usługi Azure Site Recovery
 
@@ -168,7 +169,7 @@ Dowiedz się więcej na temat [obsługi dużych dysków w usłudze Azure Site Re
 
 **Znane ograniczenia:**
 
-- Obsługuje tylko scenariusze odzyskiwania po awarii programu VMware do platformy Azure. W przypadku scenariuszy odzyskiwania po awarii funkcji Hyper-V na platformie Azure Użyj [Narzędzia planisty wydajności funkcji Hyper-v](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Obsługuje tylko scenariusze odzyskiwania po awarii programu VMware do platformy Azure. W przypadku scenariuszy odzyskiwania po awarii funkcji Hyper-V na platformie Azure Użyj [Narzędzia planisty wydajności funkcji Hyper-v](./hyper-v-deployment-planner-overview.md).
 - Nie obsługuje operacji getprzepływności dla rządów USA i Chin Microsoft Azure regionów.
 - Narzędzie cann't profiluje maszyny wirtualne, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi.
 W tej wersji narzędzie pomija profilowanie w przypadku zduplikowanych nazw lub adresów IP w parametrze VMListFile. Obejście polega na profilowaniu maszyn wirtualnych przy użyciu hosta ESXi zamiast serwera vCenter. Upewnij się, że uruchomiono jedno wystąpienie dla każdego hosta ESXi.

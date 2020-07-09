@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135782"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikowanie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -50,7 +50,7 @@ Włącz replikację. W tej procedurze przyjęto założenie, że podstawowy regi
        - Jeśli grupa zasobów utworzona przez Site Recovery już istnieje, zostanie ponownie użyta.
        - Można dostosować ustawienia grupy zasobów.
        - Lokalizacją docelowej grupy zasobów może być dowolny region świadczenia usługi Azure, z wyjątkiem regionu, w którym są hostowane źródłowe maszyny wirtualne.
-   - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym z sufiksem "ASR" w nazwie. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](site-recovery-network-mapping-azure-to-azure.md) na temat mapowania sieci.
+   - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym z sufiksem "ASR" w nazwie. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](./azure-to-azure-network-mapping.md) na temat mapowania sieci.
    - **Docelowe konta magazynu (źródłowa maszyna wirtualna nie używa dysków zarządzanych)**: domyślnie Site Recovery tworzy nowe docelowe konto magazynu naśladując konfigurację magazynu ŹRÓDŁOWEJ maszyny wirtualnej. W przypadku, gdy konto magazynu już istnieje, jest ponownie używane.
    - **Dyski zarządzane przez replikę (źródłowa maszyna wirtualna korzysta z dysków zarządzanych)**: Site Recovery tworzy nowe dyski zarządzane przez repliki w regionie docelowym, aby dublować dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej z tym samym typem magazynu (Standard lub Premium) co dysk zarządzany ŹRÓDŁOWEJ maszyny wirtualnej.
    - **Konta magazynu pamięci podręcznej**: Site Recovery wymaga dodatkowego konta magazynu o nazwie Magazyn pamięci podręcznej w regionie źródłowym. Wszystkie zmiany wykonywane na źródłowych maszynach wirtualnych są śledzone i wysyłane do konta magazynu pamięci podręcznej przed replikowaniem ich do lokalizacji docelowej. To konto magazynu powinno być standardowe.

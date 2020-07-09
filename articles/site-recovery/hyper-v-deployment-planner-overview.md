@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368727"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134357"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informacje o Planista wdrażania usługi Azure Site Recovery odzyskiwania po awarii funkcji Hyper-V na platformie Azure
 
@@ -139,4 +140,4 @@ Informacje na temat poprawek, które są dodawane do poszczególnych aktualizacj
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Uruchom planistę wdrażania](site-recovery-hyper-v-deployment-planner-run.md).
+* [Uruchom planistę wdrażania](./hyper-v-deployment-planner-run.md).

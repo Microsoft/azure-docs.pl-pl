@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134040"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -88,7 +89,7 @@ Site Recovery nie obsługuje "gorąca usuwanie" dysku z zreplikowanej maszyny wi
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Jak często mogę przeprowadzić replikację do platformy Azure?
 
-Replikacja jest ciągła w przypadku replikowania maszyn wirtualnych platformy Azure do innego regionu platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura replikacji z platformy Azure do platformy Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
+Replikacja jest ciągła w przypadku replikowania maszyn wirtualnych platformy Azure do innego regionu platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura replikacji z platformy Azure do platformy Azure](./azure-to-azure-architecture.md#replication-process).
 
 ### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>Czy można replikować maszyny wirtualne w obrębie regionu? Potrzebuję tej funkcji do migrowania maszyn wirtualnych.
 
@@ -96,17 +97,17 @@ Nie można użyć rozwiązania odzyskiwania dysku z platformy Azure na platform�
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>Czy można replikować wystąpienia maszyn wirtualnych do dowolnego regionu platformy Azure?
 
-Za pomocą Site Recovery można replikować i odzyskiwać maszyny wirtualne między dowolnymi dwoma regionami w tym samym klastrze geograficznym. Klastry geograficzne są definiowane z uwzględnieniem opóźnień danych i suwerenności. Aby uzyskać więcej informacji, zobacz [Macierz obsługi Site Recovery regionie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
+Za pomocą Site Recovery można replikować i odzyskiwać maszyny wirtualne między dowolnymi dwoma regionami w tym samym klastrze geograficznym. Klastry geograficzne są definiowane z uwzględnieniem opóźnień danych i suwerenności. Aby uzyskać więcej informacji, zobacz [Macierz obsługi Site Recovery regionie](./azure-to-azure-support-matrix.md#region-support).
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>Czy Site Recovery wymaga połączenia z Internetem?
 
-Nie, Site Recovery nie wymaga łączności z Internetem. Jednak wymaga dostępu do Site Recovery adresów URL i zakresów adresów IP, jak wspomniano w temacie [Obsługa sieci w przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
+Nie, Site Recovery nie wymaga łączności z Internetem. Jednak wymaga dostępu do Site Recovery adresów URL i zakresów adresów IP, jak wspomniano w temacie [Obsługa sieci w przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>Czy można replikować aplikację, która ma osobną grupę zasobów dla różnych warstw?
 
 Tak, można replikować aplikację i zachować konfigurację odzyskiwania po awarii w osobnej grupie zasobów.
 
-Jeśli na przykład aplikacja ma aplikację, bazę danych i sieć Web każdej warstwy, należy wybrać [Kreatora replikacji](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) trzy razy, aby chronić wszystkie warstwy. Site Recovery będą replikować te trzy warstwy do trzech różnych grup zasobów.
+Jeśli na przykład aplikacja ma aplikację, bazę danych i sieć Web każdej warstwy, należy wybrać [Kreatora replikacji](./azure-to-azure-how-to-enable-replication.md#enable-replication) trzy razy, aby chronić wszystkie warstwy. Site Recovery będą replikować te trzy warstwy do trzech różnych grup zasobów.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Czy mogę przenieść konta magazynu między grupami zasobów?
 
@@ -121,7 +122,7 @@ Zasady replikacji określają ustawienia dla historii przechowywania punktów od
 - 24 godziny dla historii przechowywania punktów odzyskiwania.
 - 60 minut dla częstotliwości migawek spójnych z aplikacjami.
 
-[Dowiedz się więcej o ustawieniach replikacji](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Dowiedz się więcej o ustawieniach replikacji](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Co to jest punkt odzyskiwania spójny na poziomie awarii?
 
@@ -182,7 +183,7 @@ Tak, jeśli okres przechowywania zostanie zwiększony z 24 godzin do 72 godzin, 
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Czy mogę włączyć replikację z spójnością aplikacji na serwerach z systemem Linux?
 
-Tak. Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery podczas spójności aplikacji. [Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Tak. Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery podczas spójności aplikacji. [Dowiedz się więcej](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Spójność między MASZYNami wirtualnymi
 
@@ -194,7 +195,7 @@ Site Recovery zapewnia opcję **spójności obejmującą wiele maszyn wirtualnyc
 
 Gdy maszyny wirtualne zostaną przełączone w tryb failover, będą mieć udostępnione punkty odzyskiwania spójne pod kątem awarii i aplikacje.
 
-Zapoznaj się z samouczkiem, aby [włączyć spójność między maszynami](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)wirtualnymi.
+Zapoznaj się z samouczkiem, aby [włączyć spójność między maszynami](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm)wirtualnymi.
 
 ### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Czy można przełączyć pojedynczą maszynę wirtualną do trybu failover w grupie replikacji spójnej z wielomaszynową kontrolą?
 
@@ -290,11 +291,11 @@ Tak, możesz zintegrować Azure Automation elementów Runbook z planem odzyskiwa
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Po przełączeniu w tryb failover z regionu podstawowego do regionu odzyskiwania po awarii. Czy maszyny wirtualne w regionie DR są chronione automatycznie?
 
-Nie. Po przełączeniu maszyn wirtualnych platformy Azure w [tryb failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) z jednego regionu do innego, maszyny wirtualne są uruchamiane w regionie odzyskiwania w stanie niechronionym. Aby zakończyć przywracanie maszyn wirtualnych do regionu podstawowego, należy ponownie [włączyć ochronę](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) maszyn wirtualnych w regionie pomocniczym.
+Nie. Po przełączeniu maszyn wirtualnych platformy Azure w [tryb failover](./azure-to-azure-tutorial-failover-failback.md) z jednego regionu do innego, maszyny wirtualne są uruchamiane w regionie odzyskiwania w stanie niechronionym. Aby zakończyć przywracanie maszyn wirtualnych do regionu podstawowego, należy ponownie [włączyć ochronę](./azure-to-azure-how-to-reprotect.md) maszyn wirtualnych w regionie pomocniczym.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>Czy w czasie ponownej ochrony program Site Recovery replikowania pełnych danych z regionu pomocniczego do regionu podstawowego?
 
-Zależy to od sytuacji. Jeśli istnieje maszyna wirtualna regionu źródłowego, zostaną zsynchronizowane tylko zmiany między dyskiem źródłowym a dyskiem docelowym. Site Recovery oblicza różnic, porównując dyski, a następnie przesyła dane. Ten proces zazwyczaj trwa kilka godzin. Aby uzyskać więcej informacji na temat tego, co się dzieje podczas ponownej ochrony, zobacz Ponowne [Włączanie ochrony wystąpień maszyn wirtualnych platformy Azure w trybie failover w regionie podstawowym](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+Zależy to od sytuacji. Jeśli istnieje maszyna wirtualna regionu źródłowego, zostaną zsynchronizowane tylko zmiany między dyskiem źródłowym a dyskiem docelowym. Site Recovery oblicza różnic, porównując dyski, a następnie przesyła dane. Ten proces zazwyczaj trwa kilka godzin. Aby uzyskać więcej informacji na temat tego, co się dzieje podczas ponownej ochrony, zobacz Ponowne [Włączanie ochrony wystąpień maszyn wirtualnych platformy Azure w trybie failover w regionie podstawowym](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Ile czasu zajmuje powrót po awarii?
 
@@ -320,10 +321,10 @@ Site Recovery to ISO 27001:2013, 27018, HIPAA i DPA certyfikowane. Usługa jest 
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Czy usługa Site Recovery szyfruje replikację?
 
-Tak, obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowanie na platformie Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
+Tak, obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowanie na platformie Azure](../storage/common/storage-service-encryption.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przejrzyj wymagania dotyczące pomocy technicznej platformy Azure na platformie Azure](azure-to-azure-support-matrix.md).
 - [Skonfiguruj replikację z platformy Azure na platformę Azure](azure-to-azure-tutorial-enable-replication.md).
-- Jeśli masz pytania po zapoznaniu się z tym artykułem, Opublikuj je na [stronie pytań firmy Microsoft dotyczącym usługi Azure Recovery Services&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+- Jeśli masz pytania po zapoznaniu się z tym artykułem, Opublikuj je na [stronie pytań firmy Microsoft dotyczącym usługi Azure Recovery Services&](/answers/topics/azure-site-recovery.html).

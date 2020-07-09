@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207213"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135116"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
 
@@ -53,7 +53,7 @@ Aby skonfigurować właściwości RDP w Azure Portal:
 4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
 5. Wybierz **nazwę puli hostów** , którą chcesz zaktualizować.
 6. Wybierz pozycję **Właściwości** w menu po lewej stronie ekranu.
-7. Na karcie **Właściwości** przejdź do pozycji **Ustawienia RDP** , aby rozpocząć edytowanie właściwości protokołu RDP. Właściwości powinny znajdować się w formacie rozdzielonym przecinkami, takim jak przykłady programu PowerShell.
+7. Na karcie **Właściwości** przejdź do pozycji **Ustawienia RDP** , aby rozpocząć edytowanie właściwości protokołu RDP. Właściwości powinny znajdować się w formacie rozdzielonym średnikami, jak przykłady programu PowerShell.
 8. Gdy skończysz, wybierz pozycję **Zapisz** , aby zapisać zmiany.
 
 W następnych sekcjach opisano, jak ręcznie edytować niestandardowe właściwości protokołu RDP w programie PowerShell.

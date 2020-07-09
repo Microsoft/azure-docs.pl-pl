@@ -138,7 +138,7 @@
       items:
         - name: Integrowanie usługi Key Vault z usługą Azure Policy
           displayName: 'key vault, certificate, key'
-          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Integracja z usługą Azure Lighthouse
       items:
         - name: Wdrażanie zasad w dużej skali

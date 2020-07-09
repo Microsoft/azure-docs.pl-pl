@@ -7,22 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725804"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135874"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji za pomocą AutoRest
+# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
 Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
 
-## <a name="set-up-the-sdk"></a>Konfigurowanie zestawu SDK
+## <a name="set-up-your-machine"></a>Konfigurowanie maszyny
 
 Aby wygenerować zestaw SDK, potrzebne są:
 * [AutoRest](https://github.com/Azure/autorest), wersja 2.0.4413 (wersja 3 nie jest obecnie obsługiwana)
 * [Node.js](https://nodejs.org) jako warunek wstępny do AutoRest
-* [Plik usługi Azure Digital bliźniaczych reprezentacji openapi (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
+* [Plik usługi Azure Digital bliźniaczych reprezentacji Swagger (openapi)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) zatytułowany *digitaltwins.json*i dołączony do niego folder przykładów. Pobierz plik Swagger i jego folder przykładów na komputer lokalny.
+
+Gdy Twoja maszyna jest wyposażona w wszystko z powyższej listy, możesz użyć AutoRest do utworzenia zestawu SDK.
+
+## <a name="create-the-sdk-with-autorest"></a>Tworzenie zestawu SDK przy użyciu AutoRest 
 
 Jeśli zainstalowano Node.js, możesz uruchomić to polecenie, aby upewnić się, że masz zainstalowaną odpowiednią wersję narzędzia AutoRest:
 ```cmd/sh
@@ -30,31 +35,33 @@ npm install -g autorest@2.0.4413
 ```
 
 Aby uruchomić polecenie AutoRest dla pliku programu Azure Digital bliźniaczych reprezentacji Swagger, wykonaj następujące kroki:
-1. Skopiuj plik programu Azure Digital bliźniaczych reprezentacji Swagger do katalogu roboczego.
-2. W wierszu polecenia przejdź do katalogu roboczego.
-3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia.
+1. Skopiuj plik programu Azure Digital bliźniaczych reprezentacji Swagger i dołączony do niego folder przykładów do katalogu roboczego.
+2. Użyj okna wiersza polecenia, aby przełączyć się do tego katalogu roboczego.
+3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `--python` , `--java` ,, `--go` itd., możesz znaleźć pełną listę opcji w [pliku Readme AutoRest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw, które będą nadal używane w pozostałej części przykładów.
+W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw, które będą nadal używane w pozostałej części przykładów użycia w tym artykule.
 
 AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Dodawanie zestawu SDK do projektu programu Visual Studio
 
-Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Ponieważ jednak prawdopodobnie potrzebujesz zestawu SDK usługi Azure Digital bliźniaczych reprezentacji w kilku oddzielnych projektach (aplikacje klienckie, aplikacje Azure Functions itd.), zalecamy utworzenie osobnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do innych rozwiązań jako odwołanie do projektu.
+Pliki generowane przez program AutoRest można uwzględnić bezpośrednio w rozwiązaniu platformy .NET. Ponieważ jednak prawdopodobnie potrzebujesz zestawu SDK usługi Azure Digital bliźniaczych reprezentacji w kilku oddzielnych projektach (aplikacje klienckie, Azure Functions aplikacje itd.), może być przydatne skompilowanie osobnego projektu (biblioteki klas .NET) z wygenerowanych plików. Następnie można dołączyć ten projekt biblioteki klas do kilku rozwiązań jako odwołanie do projektu.
 
-Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Oto odpowiednie kroki:
+Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako biblioteki klas, która jest własnym projektem i może być uwzględniona w innych projektach. Te kroki są zależne od **programu Visual Studio** (można zainstalować najnowszą wersję z tego [miejsca](https://visualstudio.microsoft.com/downloads/)).
+
+Oto odpowiednie kroki:
 
 1. Tworzenie nowego rozwiązania programu Visual Studio dla biblioteki klas
-2. Użyj nazwy "ADTApi" jako nazwy projektu
+2. Użyj *ADTApi* jako nazwy projektu
 3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt *ADTApi* wygenerowanego rozwiązania i wybierz polecenie *Dodaj > istniejący element...*
 4. Znajdź folder, w którym został wygenerowany zestaw SDK, a następnie wybierz pliki na poziomie głównym
 5. Naciśnij przycisk "OK"
 6. Dodaj folder do projektu (Zaznacz projekt prawym przyciskiem myszy w Eksplorator rozwiązań i wybierz polecenie *dodaj > nowy folder*)
-7. Nadaj nazwę folderowi "models"
+7. Nazwij *modele* folderów
 8. Kliknij prawym przyciskiem myszy folder *modele* w Eksploratorze rozwiązań i wybierz polecenie *Dodaj > istniejący element...*
 9. Wybierz pliki w folderze *modele* wygenerowanego zestawu SDK i naciśnij przycisk "OK"
 

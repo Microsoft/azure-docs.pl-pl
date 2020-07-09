@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
-ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75897964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135735"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z włączonymi dyskami zarządzanymi przez klienta (CMK)
 
@@ -39,7 +40,7 @@ W tym przykładzie głównym regionem świadczenia usługi Azure jest Azja Wscho
     - **Lokalizacja docelowa**: lokalizacja, w której będą replikowane dane źródłowej maszyny wirtualnej. Site Recovery zawiera listę odpowiednich regionów docelowych na podstawie lokalizacji wybranej maszyny. Zalecamy używanie tej samej lokalizacji co lokalizacja magazynu Recovery Services.
     - **Subskrypcja docelowa**: subskrypcja docelowa używana na potrzeby odzyskiwania po awarii. Domyślnie subskrypcja docelowa jest taka sama jak w przypadku subskrypcji źródłowej.
     - **Docelowa Grupa zasobów**: Grupa zasobów, do której należą wszystkie zreplikowane maszyny wirtualne. Domyślnie Site Recovery tworzy nową grupę zasobów w regionie docelowym. Nazwa pobiera `asr` sufiks. Jeśli grupa zasobów już istnieje, która została utworzona przez Azure Site Recovery, zostanie ponownie użyta. Możesz również wybrać opcję dostosowywania, jak pokazano w poniższej sekcji. Lokalizacją docelowej grupy zasobów może być dowolny region świadczenia usługi Azure, z wyjątkiem regionu, w którym są hostowane źródłowe maszyny wirtualne.
-    - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym. Nazwa pobiera `asr` sufiks. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](site-recovery-network-mapping-azure-to-azure.md) na temat mapowania sieci.
+    - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym. Nazwa pobiera `asr` sufiks. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](./azure-to-azure-network-mapping.md) na temat mapowania sieci.
     - **Docelowe konta magazynu (jeśli źródłowa maszyna wirtualna nie używa dysków zarządzanych)**: domyślnie Site Recovery tworzy nowe docelowe konto magazynu, naśladując konfigurację magazynu ŹRÓDŁOWEJ maszyny wirtualnej. Jeśli konto magazynu już istnieje, jest ponownie używane.
     - **Dyski zarządzane repliki (jeśli źródłowa maszyna wirtualna korzysta z dysków zarządzanych)**: Site Recovery tworzy nowe dyski zarządzane repliki w regionie docelowym, aby dublować dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej tego samego typu magazynu (w warstwie Standardowa lub Premium) jako dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej.
     - **Konta magazynu pamięci podręcznej**: Site Recovery potrzebuje dodatkowego konta magazynu o nazwie *Magazyn pamięci podręcznej* w regionie źródłowym. Wszystkie zmiany na źródłowych maszynach wirtualnych są śledzone i wysyłane do konta magazynu pamięci podręcznej. Są one następnie replikowane do lokalizacji docelowej.
@@ -80,4 +81,3 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 * Dodano nowy dysk z włączonym CMK do zreplikowanego elementu. Jak można replikować ten dysk z Azure Site Recovery?
 
     Dodanie nowego dysku z obsługą CMK do istniejącego zreplikowanego elementu nie jest obsługiwane. Wyłącz replikację i ponownie Włącz replikację dla maszyny wirtualnej.
-

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263317"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135082"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -391,7 +391,8 @@ Pliki w obszarze dostosowywania plików można pobrać z usługi Azure Storage p
 
 ### <a name="windows-update-customizer"></a>Windows Update konfiguratora
 Ten element dostosowujący jest oparty na [społeczności Windows Update aprowizacji](https://packer.io/docs/provisioners/community-supported.html) dla programu Packer, czyli projektu Open Source obsługiwanego przez społeczność programu Packer. Firma Microsoft testuje i sprawdza poprawność aprowizacji za pomocą usługi Image Builder i będzie obsługiwać problemy związane z badaniem oraz pozwala na rozwiązywanie problemów, ale projekt open source nie jest oficjalnie obsługiwany przez firmę Microsoft. Aby zapoznać się ze szczegółową dokumentacją i uzyskać pomoc dotyczącą Windows Update aprowizacji, zobacz repozytorium projektu.
- 
+
+```json
      "customize": [
             {
                 "type": "WindowsUpdate",
@@ -403,7 +404,8 @@ Ten element dostosowujący jest oparty na [społeczności Windows Update aprowiz
                 "updateLimit": 20
             }
                ], 
-Obsługa systemu operacyjnego: Windows
+OS support: Windows
+```
 
 Dostosuj właściwości:
 - **Typ** — windowsupdate.

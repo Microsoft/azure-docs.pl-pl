@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134003"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do dodatkowej lokacji lokalnej
 
@@ -48,10 +48,10 @@ Aby ukończyć ten scenariusz:
 
 Przygotuj program VMM w następujący sposób:
 
-1. Upewnij się, że masz [sieci logiczne programu VMM](https://docs.microsoft.com/system-center/vmm/network-logical) na źródłowych i docelowych serwerach VMM.
+1. Upewnij się, że masz [sieci logiczne programu VMM](/system-center/vmm/network-logical) na źródłowych i docelowych serwerach VMM.
     - Sieć logiczna na serwerze źródłowym powinna być skojarzona z chmurą źródłową, w której znajdują się hosty funkcji Hyper-V.
     - Sieć logiczna na serwerze docelowym powinna być skojarzona z chmurą docelową.
-1. Upewnij się, że masz [sieci maszyn wirtualnych](https://docs.microsoft.com/system-center/vmm/network-virtual) na źródłowych i docelowych serwerach VMM. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
+1. Upewnij się, że masz [sieci maszyn wirtualnych](/system-center/vmm/network-virtual) na źródłowych i docelowych serwerach VMM. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
 2. Połącz maszyny wirtualne na źródłowych hostach funkcji Hyper-V ze źródłową siecią maszyny wirtualnej. 
 
 

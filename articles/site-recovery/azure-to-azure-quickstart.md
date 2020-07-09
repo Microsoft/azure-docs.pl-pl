@@ -4,12 +4,12 @@ description: Szybko Skonfiguruj odzyskiwanie po awarii w innym regionie platform
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371858"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135700"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Szybki Start: Konfigurowanie odzyskiwania po awarii w regionie pomocniczym platformy Azure dla maszyny wirtualnej platformy Azure
 
@@ -22,7 +22,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania odzyskiwania po aw
 Do ukończenia tego samouczka potrzebna jest subskrypcja platformy Azure i maszyna wirtualna.
 
 - Jeśli nie masz konta platformy Azure z aktywną subskrypcją, możesz [utworzyć konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Zalecana jest maszyna wirtualna z co najmniej 1 GB pamięci RAM. [Dowiedz się więcej](/azure/virtual-machines/windows/quick-create-portal) na temat sposobu tworzenia maszyny wirtualnej.
+- Zalecana jest maszyna wirtualna z co najmniej 1 GB pamięci RAM. [Dowiedz się więcej](../virtual-machines/windows/quick-create-portal.md) na temat sposobu tworzenia maszyny wirtualnej.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -32,9 +32,9 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 Poniższe kroki umożliwiają replikację maszyny wirtualnej w lokacji dodatkowej.
 
-1. Na Azure Portal z menu **Narzędzia główne** > **maszyny wirtualne** wybierz maszynę wirtualną do replikacji.
+1. Na Azure Portal z menu **Narzędzia główne**  >  **maszyny wirtualne** wybierz maszynę wirtualną do replikacji.
 1. W obszarze **operacje** wybierz pozycję **odzyskiwanie po awarii**.
-1. Z **Basics** > **regionu docelowego**podstawy wybierz region docelowy.
+1. Z **Basics**  >  **regionu docelowego**podstawy wybierz region docelowy.
 1. Aby wyświetlić ustawienia replikacji, wybierz pozycję **Przegląd + Rozpocznij replikację**. Jeśli musisz zmienić ustawienia domyślne, wybierz pozycję **Ustawienia zaawansowane**.
 1. Aby uruchomić zadanie umożliwiające replikację maszyny wirtualnej, wybierz pozycję **Rozpocznij replikację**.
 
@@ -50,7 +50,7 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 
    :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Stan replikacji.":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby zatrzymać replikację maszyny wirtualnej w regionie podstawowym, należy wyłączyć replikację:
 
@@ -63,7 +63,7 @@ Aby wyłączyć replikację, wykonaj następujące czynności:
 1. W menu Azure Portal wybierz pozycję **maszyny wirtualne** , a następnie wybierz zreplikowaną maszynę wirtualną.
 1. W obszarze **operacje** wybierz pozycję **odzyskiwanie po awarii**.
 1. Na stronie **Przegląd**wybierz pozycję **Wyłącz replikację**.
-1. Aby odinstalować rozszerzenie Site Recovery, przejdź do**rozszerzeń** **ustawień** > maszyny wirtualnej.
+1. Aby odinstalować rozszerzenie Site Recovery, przejdź do rozszerzeń **ustawień**maszyny wirtualnej  >  **Extensions**.
 
    :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Wyłącz replikację.":::
 

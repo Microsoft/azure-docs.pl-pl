@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74133009"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133900"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architektura — replikacja funkcji Hyper-V do lokacji dodatkowej
 
@@ -35,7 +36,7 @@ Poniższa tabela i ilustracja przedstawiają ogólny widok składników służą
 
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Gdy replikacja początkowa jest wyzwalana, wykonywana jest migawka [migawki maszyny wirtualnej funkcji Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
+1. Gdy replikacja początkowa jest wyzwalana, wykonywana jest migawka [migawki maszyny wirtualnej funkcji Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) .
 2. Wirtualne dyski twarde w maszynie wirtualnej są replikowane jednokrotnie do lokalizacji dodatkowej.
 3. Jeśli podczas początkowej replikacji wystąpią zmiany dysku, śledzenie replikacji funkcji Hyper-V Replica śledzi zmiany w postaci dzienników replikacji funkcji Hyper-V (. HRL). Te pliki dzienników znajdują się w tym samym folderze co dyski. Każdy dysk ma skojarzony plik. HRL, który jest wysyłany do lokalizacji pomocniczej. Pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej.
 4. Po zakończeniu replikacji początkowej migawka maszyny wirtualnej zostanie usunięta i rozpocznie się replikacja różnicowa.

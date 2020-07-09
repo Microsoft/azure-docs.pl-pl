@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: 5e74466891a5926d8ae8feb3c1c48348ecf3cfe6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74134998"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133198"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Przestarzałe funkcje szyfrowania danych Site Recovery
 
@@ -21,7 +22,7 @@ W tym dokumencie opisano szczegóły dotyczące wycofania i akcji korygowania, k
 ## <a name="deprecation-information"></a>Informacje o zaniechaniu
 
 
-Funkcja szyfrowanie danych Site Recovery była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V w celu zapewnienia ochrony replikowanych danych przed zagrożeniami bezpieczeństwa. Ta funkcja zostanie zaniechana **30 grudnia 2019**. Jest ona zastępowana przez bardziej zaawansowane [szyfrowanie w funkcji REST](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , która używa [szyfrowanie usługi Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE). W przypadku używania instrukcji SSE dane są szyfrowane przed utrwalaniem magazynu i odszyfrowywane podczas pobierania, a po przejściu do trybu failover na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanego konta magazynu, co pozwala na udoskonalony cel czasu odzyskiwania (RTO).
+Funkcja szyfrowanie danych Site Recovery była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V w celu zapewnienia ochrony replikowanych danych przed zagrożeniami bezpieczeństwa. Ta funkcja zostanie zaniechana **30 grudnia 2019**. Jest ona zastępowana przez bardziej zaawansowane [szyfrowanie w funkcji REST](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , która używa [szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md) (SSE). W przypadku używania instrukcji SSE dane są szyfrowane przed utrwalaniem magazynu i odszyfrowywane podczas pobierania, a po przejściu do trybu failover na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanego konta magazynu, co pozwala na udoskonalony cel czasu odzyskiwania (RTO).
 
 Zwróć uwagę na to, że jeśli jesteś istniejącym klientem korzystającym z tej funkcji, otrzymasz komunikat z informacjami o wycofaniu i procedurami naprawczymi. 
 
@@ -34,9 +35,9 @@ Po **30 grudnia 2019**wszystkie maszyny wirtualne, które nadal korzystają z wy
 Aby kontynuować pomyślne operacje przełączania do trybu failover, wykonaj czynności opisane poniżej:
 
 Wykonaj następujące kroki dla każdej maszyny wirtualnej: 
-1.  [Wyłącz replikację](https://docs.microsoft.com/azure/site-recovery/site-recovery-manage-registration-and-protection#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
-2.  [Utwórz nowe zasady replikacji](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-tutorial#set-up-a-replication-policy).
-3.  [Włącz replikację](https://docs.microsoft.com/azure/site-recovery/hyper-v-vmm-azure-tutorial#enable-replication) i wybierz konto magazynu z WŁĄCZONĄ funkcją SSE.
+1.  [Wyłącz replikację](./site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+2.  [Utwórz nowe zasady replikacji](./hyper-v-azure-tutorial.md#set-up-a-replication-policy).
+3.  [Włącz replikację](./hyper-v-vmm-azure-tutorial.md#enable-replication) i wybierz konto magazynu z WŁĄCZONĄ funkcją SSE.
 
 Po zakończeniu replikacji początkowej na konta magazynu z włączoną obsługą funkcji SSE maszyny wirtualne będą używać szyfrowania przechowywanego w Azure Site Recovery.
 

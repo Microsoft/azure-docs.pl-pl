@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969606"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134612"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -42,7 +42,7 @@ Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonyc
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
@@ -461,26 +461,27 @@ Obrót CMK wymaga jawnej aktualizacji zasobu *klastra* przy użyciu nowej wersji
 
 Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane zawsze są szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania kluczy (KEK) w Key Vault.
 
-## <a name="saving-queries-protected-with-cmk"></a>Zapisywanie zapytań chronionych przez CMK
+## <a name="cmk-for-queries"></a>CMK dla zapytań
 
-Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad CMKymi, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor pozwala przechowywać *zapisane wyszukiwania* i zapytania dotyczące *alertów dziennika* na koncie magazynu, które można połączyć z obszarem roboczym. 
+Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad CMKymi, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor umożliwia przechowywanie *zapisywanych* i *zarejestrowań zapytań dotyczących alertów* w postaci zaszyfrowanej przy użyciu klucza na własnym koncie magazynu po nawiązaniu połączenia z obszarem roboczym. 
 
-> Uwaga CMK dla zapytań używanych w skoroszytach i pulpitach nawigacyjnych platformy Azure nie jest jeszcze obsługiwana. Te zapytania pozostają zaszyfrowane za pomocą klucza firmy Microsoft.  
+> [!NOTE]
+> CMK dla zapytań używanych w skoroszytach i pulpitach nawigacyjnych platformy Azure nie są jeszcze obsługiwane. Te zapytania pozostają zaszyfrowane za pomocą klucza firmy Microsoft.  
 
-Korzystając z usługi Storage (BYOS), usługa przekazuje zapytania do konta magazynu, które kontrolujesz. Oznacza to, że można kontrolować [zasady szyfrowania w trybie REST](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innym kluczem. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
+Gdy [przeniesiesz własny magazyn](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) i skojarzesz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
 
 **Uwagi przed ustawieniem CMK dla zapytań**
 * Musisz mieć uprawnienia do zapisu zarówno w obszarze roboczym, jak i koncie magazynu
 * Upewnij się, że utworzono konto magazynu w tym samym regionie, w którym znajduje się obszar roboczy Log Analytics.
 * *Zapisywanie wyszukiwań* w magazynie jest traktowane jako artefakty usługi i ich format może ulec zmianie
-* Istniejące *wyszukiwania zapisu* zostaną usunięte z obszaru roboczego. Skopiuj i *Zapisz wymagane wyszukiwania* przed konfiguracją. *Zapisane wyszukiwania* można wyświetlić przy użyciu tego [programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* Istniejące *wyszukiwania zapisu* zostaną usunięte z obszaru roboczego. Skopiuj i *Zapisz wymagane wyszukiwania* przed konfiguracją. *Zapisane wyniki wyszukiwania* można wyświetlić przy użyciu [programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch) .
 * Historia zapytania nie jest obsługiwana i nie będzie można zobaczyć uruchomionych zapytań
-* Można skojarzyć jedno konto magazynu z obszarem roboczym na potrzeby zapisywania zapytań, ale można go użyć z *zapisywanymi wyszukiwaniami* i kwerendami *alertów dzienników* .
+* Można skojarzyć jedno konto magazynu z obszarem roboczym na potrzeby zapisywania zapytań, ale można go użyć z zapytaniami *zapisanymi podczas wyszukiwania* i *alertów dziennika* .
 * Przypinanie do pulpitu nawigacyjnego nie jest obsługiwane
 
-**Konfiguracja BYOS dla zapytań**
+**Konfigurowanie BYOS na potrzeby zapytań zapisanych wyszukiwań**
 
-Skojarz konto magazynu z obiektem DataSourceType *z Twoim* obszarem roboczym. 
+Skojarz konto magazynu z *zapytaniem* do obszaru roboczego — *zapisane zapytania wyszukiwania* są zapisywane na koncie magazynu. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zostaną zapisane w magazynie.
 
-**Konfiguracja BYOS dla alertów dziennika**
+**Konfigurowanie BYOS na potrzeby zapytań dotyczących alertów dziennika**
 
-Skojarz konto magazynu z *alertami* DataSourceType z Twoim obszarem roboczym. 
+Kojarzenie konta magazynu na potrzeby *alertów* w obszarze roboczym — zapytania dotyczące *alertów dziennika* są zapisywane na koncie magazynu. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

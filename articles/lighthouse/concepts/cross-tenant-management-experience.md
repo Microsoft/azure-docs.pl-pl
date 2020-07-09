@@ -3,15 +3,16 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135493"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
-Jako dostawca usług możesz użyć [delegowanego zarządzania zasobami platformy Azure](../concepts/azure-delegated-resource-management.md) do zarządzania zasobami platformy Azure dla wielu klientów z poziomu dzierżawy w [Azure Portal](https://portal.azure.com). Większość zadań i usług można wykonywać na delegowanych zasobach platformy Azure między zarządzanymi dzierżawcami. W tym artykule opisano niektóre z ulepszonych scenariuszy, w których zarządzanie zasobami delegowanymi przez platformę Azure może być skuteczne.
+Jako dostawca usług możesz użyć [usługi Azure Lighthouse](../overview.md) do zarządzania zasobami dla wielu klientów z poziomu dzierżawy w [Azure Portal](https://portal.azure.com). Wiele zadań i usług można wykonywać na delegowanych zasobach platformy Azure między zarządzanymi dzierżawcami przy użyciu funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > Zarządzanie zasobami delegowanymi przez platformę Azure może być również używane [w przedsiębiorstwie, które ma wiele dzierżawców usługi Azure AD](enterprise.md) , aby uprościć administrację między dzierżawcami.
@@ -22,9 +23,9 @@ Dzierżawa usługi Azure Active Directory (Azure AD) jest reprezentacją organiz
 
 Zazwyczaj w celu zarządzania zasobami platformy Azure dla klienta dostawcy usług będą musieli zalogować się do Azure Portal przy użyciu konta skojarzonego z dzierżawcą tego klienta, co wymaga od administratora dzierżawy klienta tworzenia kont użytkowników dla dostawcy usług i zarządzania nimi.
 
-W przypadku zarządzania zasobami delegowanymi przez platformę Azure proces dołączania określa użytkowników w dzierżawie dostawcy usług, którzy będą mogli uzyskiwać dostęp do subskrypcji, grup zasobów i zasobów w dzierżawie klienta oraz zarządzać nimi. Ci użytkownicy mogą następnie zalogować się do Azure Portal przy użyciu własnych poświadczeń. W ramach Azure Portal mogą zarządzać zasobami należącymi do wszystkich klientów, do których mają dostęp. Można to zrobić, odwiedzając stronę [moi klienci](../how-to/view-manage-customers.md) w Azure Portal lub pracując bezpośrednio w kontekście subskrypcji tego klienta w Azure Portal lub za pośrednictwem interfejsów API.
+W przypadku usługi Azure Lighthouse proces dołączania określa użytkowników w dzierżawie dostawcy usług, którzy będą mogli uzyskiwać dostęp do subskrypcji, grup zasobów i zasobów w dzierżawie klienta oraz zarządzać nimi. Ci użytkownicy mogą następnie zalogować się do Azure Portal przy użyciu własnych poświadczeń. W ramach Azure Portal mogą zarządzać zasobami należącymi do wszystkich klientów, do których mają dostęp. Można to zrobić, odwiedzając stronę [moi klienci](../how-to/view-manage-customers.md) w Azure Portal lub pracując bezpośrednio w kontekście subskrypcji tego klienta w Azure Portal lub za pośrednictwem interfejsów API.
 
-Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć dwóch klientów z różnymi zakresami obowiązków i poziomów dostępu. Korzystając z funkcji zarządzania zasobami delegowanymi przez platformę Azure, autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów.
+Usługa Azure Lighthouse zapewnia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć dwóch klientów z różnymi zakresami obowiązków i poziomów dostępu. Korzystając z usługi Azure Lighthouse, autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów.
 
 ![Zasoby klienta zarządzane za poorednictwem jednej dzierżawy dostawcy usług](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ A
 > [!TIP]
 > Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
 
-Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań zarządzania zasobami delegowanymi przez platformę Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
+Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań Lighthouse platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Ulepszone usługi i scenariusze
 
-Większość zadań i usług można wykonać w odniesieniu do zasobów delegowanych między zarządzanymi dzierżawcami. Poniżej przedstawiono niektóre kluczowe scenariusze, w których zarządzanie wieloma dzierżawcami może być skuteczne.
+Większość zadań i usług można wykonać w odniesieniu do zasobów delegowanych między zarządzanymi dzierżawcami. Poniżej przedstawiono niektóre kluczowe scenariusze, w których zarządzanie między dzierżawcami może być szczególnie skuteczne.
 
 [Usługa Azure ARC dla serwerów (wersja zapoznawcza)](../../azure-arc/servers/overview.md):
 
-- [Łączenie maszyn z systemem Windows Server lub Linux poza platformą Azure](../../azure-arc/servers/quickstart-onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
+- [Łączenie maszyn z systemem Windows Server lub Linux poza platformą Azure](../../azure-arc/servers/onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
 - Zarządzanie połączonymi maszynami przy użyciu konstrukcji platformy Azure, takich jak Azure Policy i tagowanie
 
 [Azure Automation](../../automation/index.yml):

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74706359"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135394"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji SharePoint na potrzeby odzyskiwania po awarii przy użyciu Azure Site Recovery
 
@@ -37,8 +38,8 @@ Możesz obejrzeć poniższy film wideo dotyczący odzyskiwania aplikacji wielowa
 
 Przed rozpoczęciem upewnij się, że rozumiesz następujące kwestie:
 
-1. [Replikowanie maszyny wirtualnej na platformę Azure](site-recovery-vmware-to-azure.md)
-2. [Projektowanie sieci odzyskiwania](site-recovery-network-design.md)
+1. [Replikowanie maszyny wirtualnej na platformę Azure](./vmware-azure-tutorial.md)
+2. [Projektowanie sieci odzyskiwania](./concepts-on-premises-to-azure-networking.md)
 3. [Testowanie pracy w trybie failover na platformie Azure](site-recovery-test-failover-to-azure.md)
 4. [Przełączenie w tryb failover na platformie Azure](site-recovery-failover.md)
 5. Jak [replikować kontroler domeny](site-recovery-active-directory.md)
@@ -46,7 +47,7 @@ Przed rozpoczęciem upewnij się, że rozumiesz następujące kwestie:
 
 ## <a name="sharepoint-architecture"></a>Architektura programu SharePoint
 
-Program SharePoint można wdrożyć na jednym lub większej liczbie serwerów przy użyciu topologii warstwowej i ról serwera, aby zaimplementować projekt farmy, który spełnia określone cele i cele. Typowa farma serwerów programu SharePoint o dużej pojemności, która obsługuje dużą liczbę równoczesnych użytkowników i dużą liczbę elementów zawartości używa grupowania usług w ramach strategii skalowalności. Takie podejście obejmuje uruchamianie usług na dedykowanych serwerach, grupowanie tych usług, a następnie skalowanie serwerów jako grupy. Poniższa topologia ilustruje grupowanie usługi i serwera dla trzech warstw farmy serwerów programu SharePoint. Aby uzyskać szczegółowe wskazówki dotyczące różnych topologii programu SharePoint, zapoznaj się z dokumentacją programu SharePoint i architekturami linii produktów. Więcej szczegółów na temat wdrożenia programu SharePoint 2013 można znaleźć w [tym dokumencie](https://technet.microsoft.com/library/cc303422.aspx).
+Program SharePoint można wdrożyć na jednym lub większej liczbie serwerów przy użyciu topologii warstwowej i ról serwera, aby zaimplementować projekt farmy, który spełnia określone cele i cele. Typowa farma serwerów programu SharePoint o dużej pojemności, która obsługuje dużą liczbę równoczesnych użytkowników i dużą liczbę elementów zawartości używa grupowania usług w ramach strategii skalowalności. Takie podejście obejmuje uruchamianie usług na dedykowanych serwerach, grupowanie tych usług, a następnie skalowanie serwerów jako grupy. Poniższa topologia ilustruje grupowanie usługi i serwera dla trzech warstw farmy serwerów programu SharePoint. Aby uzyskać szczegółowe wskazówki dotyczące różnych topologii programu SharePoint, zapoznaj się z dokumentacją programu SharePoint i architekturami linii produktów. Więcej szczegółów na temat wdrożenia programu SharePoint 2013 można znaleźć w [tym dokumencie](/SharePoint/sharepoint-server).
 
 
 
@@ -73,7 +74,7 @@ Jeśli w aplikacji jest używany udostępniony klaster oparty na dyskach, nie b�
 
 ## <a name="replicating-virtual-machines"></a>Replikowanie maszyn wirtualnych
 
-Postępuj zgodnie z [poniższymi wskazówkami](site-recovery-vmware-to-azure.md) , aby rozpocząć replikację maszyny wirtualnej na platformie Azure.
+Postępuj zgodnie z [poniższymi wskazówkami](./vmware-azure-tutorial.md) , aby rozpocząć replikację maszyny wirtualnej na platformie Azure.
 
 * Po zakończeniu replikacji upewnij się, że przejdziesz do każdej maszyny wirtualnej każdej warstwy i wybierz ten sam zestaw dostępności w obszarze "zreplikowane elementy > ustawienia > właściwości > obliczenia i sieć". Jeśli na przykład warstwa sieci Web ma 3 maszyny wirtualne, upewnij się, że wszystkie 3 maszyny wirtualne są skonfigurowane jako należące do tego samego zestawu dostępności na platformie Azure.
 
@@ -98,7 +99,7 @@ Postępuj zgodnie z [poniższymi wskazówkami](site-recovery-vmware-to-azure.md)
 
 ### <a name="dns-and-traffic-routing"></a>Routing DNS i ruch sieciowy
 
-W przypadku witryn mających dostęp do Internetu [Utwórz profil Traffic Manager typu "Priority"](../traffic-manager/traffic-manager-create-profile.md) w subskrypcji platformy Azure. A następnie skonfiguruj profil DNS i Traffic Manager w następujący sposób.
+W przypadku witryn mających dostęp do Internetu [Utwórz profil Traffic Manager typu "Priority"](../traffic-manager/quickstart-create-traffic-manager-profile.md) w subskrypcji platformy Azure. A następnie skonfiguruj profil DNS i Traffic Manager w następujący sposób.
 
 
 | **Miejscu** | **Element źródłowy** | **Obiektów**|
@@ -162,7 +163,7 @@ Najczęściej używane skrypty Azure Site Recovery można wdrożyć na koncie us
     * W tej metodzie przyjęto założenie, że kopia zapasowa aplikacji Search Service była wykonywana przed katastrofalnym zdarzeniem i że kopia zapasowa jest dostępna w lokacji DR.
     * Można to łatwo osiągnąć przez zaplanowanie kopii zapasowej (na przykład raz dziennie) i użycie procedury kopiowania w celu umieszczenia kopii zapasowej w lokacji odzyskiwania po awarii. Procedury kopiowania mogą obejmować programy skryptów, takie jak AzCopy (kopia platformy Azure) lub Konfigurowanie usługi DFSR (replikacja usług plików rozproszonych).
     * Teraz, gdy farma programu SharePoint jest uruchomiona, przejdź do witryny Administracja centralna, "kopia zapasowa i przywracanie" i wybierz pozycję Przywróć. Przywracanie interrogates określoną lokalizację kopii zapasowej (może być konieczne zaktualizowanie wartości). Wybierz kopię zapasową aplikacji Search Service, którą chcesz przywrócić.
-    * Wyszukiwanie zostało przywrócone. Należy pamiętać, że przywracanie oczekuje na znalezienie tej samej topologii (tej samej liczby serwerów) i tych samych liter dysków twardych przypisanych do tych serwerów. Aby uzyskać więcej informacji, zobacz sekcję ["Przywracanie aplikacji usługi Search w programie SharePoint 2013"](https://technet.microsoft.com/library/ee748654.aspx) .
+    * Wyszukiwanie zostało przywrócone. Należy pamiętać, że przywracanie oczekuje na znalezienie tej samej topologii (tej samej liczby serwerów) i tych samych liter dysków twardych przypisanych do tych serwerów. Aby uzyskać więcej informacji, zobacz sekcję ["Przywracanie aplikacji usługi Search w programie SharePoint 2013"](/SharePoint/administration/restore-a-search-service-application) .
 
 
 6. Aby rozpocząć pracę z nową aplikacją usługi wyszukiwania, wykonaj poniższe czynności.

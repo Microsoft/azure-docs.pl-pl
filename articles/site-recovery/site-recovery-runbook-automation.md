@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345142"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134809"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodawanie elementów Runbook usługi Azure Automation do planów odzyskiwania
 
@@ -128,7 +129,7 @@ Blog Aman Sharma w usłudze w [chmurze zbierających](http://harvestingclouds.co
 
 Możesz użyć pojedynczego skryptu elementu Runbook w wielu planach odzyskiwania, używając zmiennych zewnętrznych. 
 
-- [Zmienne Azure Automation](../automation/automation-variables.md) są używane do przechowywania parametrów do uruchamiania planu odzyskiwania.
+- [Zmienne Azure Automation](../automation/shared-resources/variables.md) są używane do przechowywania parametrów do uruchamiania planu odzyskiwania.
 - Dodając nazwę planu odzyskiwania jako prefiks do zmiennej, można utworzyć poszczególne zmienne dla każdego planu odzyskiwania. Następnie użyj zmiennych jako parametrów.
 - Można zmienić parametr bez zmiany skryptu, ale nadal zmienia sposób działania skryptu.
 
@@ -198,7 +199,7 @@ W niektórych scenariuszach może nie być możliwe utworzenie oddzielnych zmien
 - Na przykład odzyskiwanie programu SharePoint ma dwa Frontony. Podstawowa aplikacja biznesowa (LOB) ma tylko jeden fronton.
 - W tym scenariuszu nie można utworzyć oddzielnych zmiennych dla każdego planu odzyskiwania.
 
-W poniższym przykładzie utworzysz [zmienną złożoną](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) na koncie Azure Automation.
+W poniższym przykładzie utworzysz [zmienną złożoną](/powershell/module/servicemanagement/azure/set-azureautomationvariable) na koncie Azure Automation.
 
 W tym celu należy określić wiele wartości przy użyciu Azure PowerShell.
 
@@ -263,9 +264,6 @@ Ten film wideo zapewnia inny przykład. Przedstawiono w nim sposób odzyskiwania
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [Azure Automation konta Uruchom jako](../automation/automation-create-runas-account.md)
+- Dowiedz się więcej na temat [Azure Automation konta Uruchom jako](../automation/manage-runas-account.md)
 - Przejrzyj [Azure Automation przykładowe skrypty](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Dowiedz się więcej](site-recovery-failover.md) o uruchamianiu trybu failover.
-
-
-

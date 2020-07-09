@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661674"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135215"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Wycofanie odzyskiwania po awarii między lokacjami zarządzanymi przez klienta (z programem VMM) przy użyciu Azure Site Recovery
 
@@ -38,7 +39,7 @@ Poniżej znajdują się alternatywy, które klient może wybrać, aby upewnić s
 - Opcja 1 (zalecana): Wybierz, aby [rozpocząć korzystanie z platformy Azure jako elementu docelowego odzyskiwania po](hyper-v-vmm-azure-tutorial.md)awarii.
 
 
-- Opcja 2: Wybierz, aby kontynuować replikację między lokacjami przy użyciu podstawowego [rozwiązania funkcji Hyper-V Replica](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), ale nie będziesz w stanie zarządzać konfiguracjami Dr przy użyciu Azure Site Recovery w Azure Portal. 
+- Opcja 2: Wybierz, aby kontynuować replikację między lokacjami przy użyciu podstawowego [rozwiązania funkcji Hyper-V Replica](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), ale nie będziesz w stanie zarządzać konfiguracjami Dr przy użyciu Azure Site Recovery w Azure Portal. 
 
 
 ## <a name="remediation-steps"></a>Instrukcje rozwiązania problemu

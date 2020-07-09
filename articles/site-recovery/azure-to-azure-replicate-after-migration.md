@@ -8,16 +8,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74159111"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135668"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure 
 
 
-Postępuj zgodnie z tym artykułem, jeśli [maszyny lokalne zostały zmigrowane do maszyn wirtualnych platformy Azure](tutorial-migrate-on-premises-to-azure.md) przy użyciu usługi [Site Recovery](site-recovery-overview.md) i chcesz teraz skonfigurować maszyny wirtualne do odzyskiwania po awarii w regionie pomocniczym platformy Azure. W tym artykule opisano, jak upewnić się, że Agent maszyny wirtualnej platformy Azure jest zainstalowany na zmigrowanych maszynach wirtualnych oraz jak usunąć usługę mobilności Site Recovery, która nie jest już wymagana po migracji.
+Postępuj zgodnie z tym artykułem, jeśli [maszyny lokalne zostały zmigrowane do maszyn wirtualnych platformy Azure](./migrate-tutorial-on-premises-azure.md) przy użyciu usługi [Site Recovery](site-recovery-overview.md) i chcesz teraz skonfigurować maszyny wirtualne do odzyskiwania po awarii w regionie pomocniczym platformy Azure. W tym artykule opisano, jak upewnić się, że Agent maszyny wirtualnej platformy Azure jest zainstalowany na zmigrowanych maszynach wirtualnych oraz jak usunąć usługę mobilności Site Recovery, która nie jest już wymagana po migracji.
 
 
 
@@ -48,14 +49,14 @@ Aby sprawdzić, czy Agent jest zainstalowany:
 2. Kliknij prawym przyciskiem myszy plik, a następnie w oknie **Właściwości**wybierz kartę **szczegóły** .
 3. Sprawdź, czy w polu **Wersja produktu** jest wyświetlana wartość 2.6.1198.718 lub wyższa.
 
-[Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o instalacji agenta dla systemu Windows.
+[Dowiedz się więcej](../virtual-machines/extensions/agent-windows.md) o instalacji agenta dla systemu Windows.
 
 ### <a name="install-the-agent-on-linux-vms"></a>Instalowanie agenta na maszynach wirtualnych z systemem Linux
 
 Zainstaluj agenta [maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/extensions/agent-linux.md) ręcznie w następujący sposób:
 
 1. Upewnij się, że masz uprawnienia administratora na tym komputerze.
-2. Zdecydowanie zalecamy zainstalowanie agenta maszyny wirtualnej z systemem Linux przy użyciu programu RPM lub pakietu DEB z repozytorium pakietu dystrybucji. Wszyscy [pozatwierdzeni dostawcy dystrybucji](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami.
+2. Zdecydowanie zalecamy zainstalowanie agenta maszyny wirtualnej z systemem Linux przy użyciu programu RPM lub pakietu DEB z repozytorium pakietu dystrybucji. Wszyscy [pozatwierdzeni dostawcy dystrybucji](../virtual-machines/linux/endorsed-distros.md) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami.
     - Zdecydowanie zalecamy, aby zaktualizować agenta tylko za pomocą repozytorium dystrybucji.
     - Nie zalecamy instalowania agenta maszyny wirtualnej systemu Linux bezpośrednio z usługi GitHub i aktualizowania go.
     -  Jeśli najnowszy Agent dystrybucji nie jest dostępny, skontaktuj się z pomocą techniczną, aby uzyskać instrukcje dotyczące sposobu jej instalacji. 

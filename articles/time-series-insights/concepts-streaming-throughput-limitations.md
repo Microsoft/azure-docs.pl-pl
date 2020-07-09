@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a82aa3aca55622308cae5816c95df9766048da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: baa132589f5242ab480c9caa55ca793e0652ad6e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050075"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135011"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limity przepływności pozyskiwania strumieniowego
 
 Poniżej opisano następujące ograniczenia dotyczące transferu danych przychodzących Azure Time Series Insights przesyłania strumieniowego.
 
 > [!TIP]
-> Przeczytaj artykuł [Planowanie środowiska w wersji zapoznawczej](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) , aby uzyskać pełną listę wszystkich limitów wersji zapoznawczych. Należy **usunąć słowo** "wersja zapoznawcza" tutaj, gdy tytuł artykułu został zaktualizowany.
+> Przeczytaj artykuł [Planowanie środowiska w wersji zapoznawczej](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) , aby uzyskać pełną listę wszystkich limitów wersji zapoznawczych.
 
 ## <a name="per-environment-limitations"></a>Ograniczenia dotyczące środowiska
 

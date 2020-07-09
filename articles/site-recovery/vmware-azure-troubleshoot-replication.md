@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 1db32d506cc455b020fc6c0f2bba10361e961324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135371"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją dla maszyn wirtualnych VMware i serwerów fizycznych
 
@@ -94,16 +95,16 @@ Aby rozwiązać ten problem, wykonaj następujące kroki, aby zweryfikować poł
    - InMage Scout Application Service
 4. Na maszynie źródłowej Przejrzyj dzienniki w lokalizacji, aby uzyskać szczegółowe informacje o błędzie:
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Serwer przetwarzania bez pulsu [błąd 806]
 W przypadku braku pulsu z serwera przetwarzania (PS), sprawdź, czy:
 1. Maszyna wirtualna PS jest uruchomiona
 2. Sprawdź następujące dzienniki na stronie PS, aby uzyskać szczegółowe informacje o błędzie:
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager \* . log*\
+    lub
+    *C:\ProgramData\ASR\home\svsystems\ monitor_protection \* . log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Główny serwer docelowy bez pulsu [Error 78022]
 
@@ -116,7 +117,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki w celu sprawdzenia stan
     - Sprawdź, czy usługa svagents jest uruchomiona. Jeśli jest uruchomiona, należy ponownie uruchomić usługę.
     - Sprawdź dzienniki w lokalizacji, aby uzyskać szczegółowe informacje o błędzie:
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 3. Aby zarejestrować główny cel z serwerem konfiguracji, przejdź do folderu **%ProgramData%\ASR\Agent**, a następnie uruchom następujące polecenie w wierszu polecenia:
    ```
    cmd
@@ -146,25 +147,25 @@ Poniżej wymieniono niektóre z najczęstszych problemów
 **Jak naprawić** : [artykuł](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) z bazy wiedzy
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Przyczyna 4: spójność aplikacji nie jest włączona na serwerach z systemem Linux
-**Jak naprawić** : Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery w celu zapewnienia spójności aplikacji. [Poniżej](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) przedstawiono kroki, które należy włączyć.
+**Jak naprawić** : Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery w celu zapewnienia spójności aplikacji. [Poniżej](./site-recovery-faq.md#replication) przedstawiono kroki, które należy włączyć.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Więcej przyczyn spowodowanych problemami związanymi z usługą VSS:
 
 Aby przeprowadzić dalsze Rozwiązywanie problemów, sprawdź pliki na maszynie źródłowej, aby uzyskać dokładny kod błędu dla niepowodzenia:
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 Jak znaleźć błędy w pliku?
 Wyszukaj ciąg "vacpError", otwierając plik vacp. log w edytorze
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 W powyższym przykładzie **2147754994** jest kod błędu informujący o niepowodzeniu, jak pokazano poniżej
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>Składnik zapisywania usługi VSS nie jest zainstalowany — błąd 2147221164
 
 *Jak naprawić*: aby wygenerować tag spójności aplikacji, Azure Site Recovery używa usługi kopiowania woluminów w tle (VSS) firmy Microsoft. Powoduje zainstalowanie dostawcy usługi VSS w celu wykonania migawek spójności aplikacji. Ten dostawca usługi VSS jest instalowany jako usługa. Jeśli nie zainstalowano usługi dostawcy VSS, tworzenie migawki spójności aplikacji kończy się niepowodzeniem z IDENTYFIKATORem błędu 0x80040154 "Klasa nie jest zarejestrowana". </br>
-Zobacz [artykuł dotyczący rozwiązywania problemów z instalacją składnika zapisywania usługi VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
+Zobacz [artykuł dotyczący rozwiązywania problemów z instalacją składnika zapisywania usługi VSS](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>Składnik zapisywania usługi VSS jest wyłączony — błąd 2147943458
 
@@ -194,4 +195,4 @@ Sprawdź, czy typ uruchamiania usługi dostawcy VSS jest ustawiony na wartość 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.

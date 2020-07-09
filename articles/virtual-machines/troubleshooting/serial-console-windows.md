@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309785"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135247"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -101,15 +102,15 @@ Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy mo
 
     ![Nawiązywanie połączenia z konsolą SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Wprowadź, `cmd` Aby utworzyć kanał, który ma wystąpienie cmd.
+1. Wprowadź, `cmd` Aby utworzyć kanał, który ma wystąpienie cmd.
 
-1.    Wprowadź `ch -si 1` lub naciśnij `<esc>+<tab>` klawisze skrótów, aby przełączyć się na kanał, na którym działa wystąpienie cmd.
+1. Wprowadź `ch -si 1` lub naciśnij `<esc>+<tab>` klawisze skrótów, aby przełączyć się na kanał, na którym działa wystąpienie cmd.
 
-1.    Naciśnij klawisz **Enter**, a następnie wprowadź poświadczenia logowania z uprawnieniami administracyjnymi.
+1. Naciśnij klawisz **Enter**, a następnie wprowadź poświadczenia logowania z uprawnieniami administracyjnymi.
 
-1.    Po wprowadzeniu prawidłowych poświadczeń zostanie otwarte wystąpienie CMD.
+1. Po wprowadzeniu prawidłowych poświadczeń zostanie otwarte wystąpienie CMD.
 
-1.    Aby uruchomić wystąpienie programu PowerShell, wpisz `PowerShell` w wystąpieniu cmd, a następnie naciśnij klawisz **Enter**.
+1. Aby uruchomić wystąpienie programu PowerShell, wpisz `PowerShell` w wystąpieniu cmd, a następnie naciśnij klawisz **Enter**.
 
     ![Otwórz wystąpienie programu PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

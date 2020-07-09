@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629679"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135864"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
 
@@ -166,11 +167,11 @@ Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpow
 
 #### <a name="control-access-with-nsg-rules"></a>Kontrola dostępu przy użyciu reguł sieciowej grupy zabezpieczeń
 
-W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview)należy zwrócić uwagę na następujące wymagania:
+W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md)należy zwrócić uwagę na następujące wymagania:
 
 - Reguły sieciowej grupy zabezpieczeń dla źródłowego regionu platformy Azure powinny zezwalać na dostęp wychodzący dla ruchu związanego z replikacją.
 - Zalecamy utworzenie reguł w środowisku testowym przed wprowadzeniem ich do środowiska produkcyjnego.
-- Używaj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) zamiast zezwalać na poszczególne adresy IP.
+- Używaj [tagów usługi](../virtual-network/security-overview.md#service-tags) zamiast zezwalać na poszczególne adresy IP.
     - Tagi usług reprezentują grupę prefiksów adresów IP zebranych razem, aby zminimalizować złożoność podczas tworzenia reguł zabezpieczeń.
     - Firma Microsoft automatycznie aktualizuje Tagi usług w czasie. 
  

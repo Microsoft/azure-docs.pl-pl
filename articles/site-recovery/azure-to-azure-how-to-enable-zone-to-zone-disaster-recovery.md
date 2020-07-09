@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488940"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135718"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Włącz odzyskiwanie strefy do strefy odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
@@ -97,7 +98,7 @@ Zaloguj się do Azure Portal.
 
 5. Jeśli chcesz wprowadzić zmiany w ustawieniach replikacji, kliknij przycisk Dalej: Ustawienia zaawansowane.
 
-6. Zmień ustawienia w zależności od ustawień domyślnych wszędzie tam, gdzie jest to konieczne. W przypadku użytkowników platformy Azure do odzyskiwania po awarii na platformie Azure ta strona może wydawać się znana. Więcej informacji o opcjach przedstawionych w tym bloku można znaleźć [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Zmień ustawienia w zależności od ustawień domyślnych wszędzie tam, gdzie jest to konieczne. W przypadku użytkowników platformy Azure do odzyskiwania po awarii na platformie Azure ta strona może wydawać się znana. Więcej informacji o opcjach przedstawionych w tym bloku można znaleźć [tutaj](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Strona ustawień zaawansowanych](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ Umowa SLA RTO jest taka sama jak w przypadku Site Recovery ogólnej. Firma Micro
 Plan zespołu Site Recovery i zarządzanie pojemnością platformy Azure w celu zapewnienia wystarczającej pojemności infrastruktury. Po uruchomieniu trybu failover zespoły mogą także zapewnić, że wystąpienia maszyn wirtualnych chronione przez program Site Recovery zostaną wdrożone w strefie docelowej.
 
 **4. które systemy operacyjne są obsługiwane?**
-Odzyskiwanie po awarii strefy do strefy obsługuje te same systemy operacyjne co platforma Azure do odzyskiwania po awarii platformy Azure. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+Odzyskiwanie po awarii strefy do strefy obsługuje te same systemy operacyjne co platforma Azure do odzyskiwania po awarii platformy Azure. Zapoznaj się z macierzą pomocy technicznej [tutaj](./azure-to-azure-support-matrix.md).
 
 **5. czy źródłowa i docelowa Grupa zasobów jest taka sama?**
 Nie, musisz przełączyć się w tryb failover do innej grupy zasobów.
@@ -124,8 +125,8 @@ Nie, musisz przełączyć się w tryb failover do innej grupy zasobów.
 
 Kroki, które należy wykonać w celu przeprowadzenia przechodzenia do szczegółów odzyskiwania po awarii, przełączenia w tryb failover, ponownego włączenia ochrony i powrotu po awarii, są takie same jak w przypadku scenariusza odzyskiwania po awarii platformy Azure.
 
-Aby przeprowadzić drążenie odzyskiwania po awarii, wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Aby przeprowadzić drążenie odzyskiwania po awarii, wykonaj kroki opisane [tutaj](./azure-to-azure-tutorial-dr-drill.md).
 
-Aby przeprowadzić tryb failover i ponownie włączyć ochronę maszyn wirtualnych w strefie pomocniczej, wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Aby przeprowadzić tryb failover i ponownie włączyć ochronę maszyn wirtualnych w strefie pomocniczej, wykonaj kroki opisane [tutaj](./azure-to-azure-tutorial-failover-failback.md).
 
-Aby przeprowadzić powrót po awarii do strefy podstawowej, wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+Aby przeprowadzić powrót po awarii do strefy podstawowej, wykonaj kroki opisane [tutaj](./azure-to-azure-tutorial-failback.md).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133763"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformę Azure
 
@@ -90,7 +90,7 @@ Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platfor
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Nie można nawiązać połączenia/RDP/SSH — przycisk połączenia z maszyną wirtualną
 
-Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest dostępny (nie jest wyszarzony), sprawdź **diagnostykę rozruchu** na maszynie wirtualnej i Sprawdź błędy wymienione w [tym artykule](../virtual-machines/windows/boot-diagnostics.md).
+Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest dostępny (nie jest wyszarzony), sprawdź **diagnostykę rozruchu** na maszynie wirtualnej i Sprawdź błędy wymienione w [tym artykule](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Jeśli maszyna wirtualna nie została uruchomiona, spróbuj przejść w tryb failover do starszego punktu odzyskiwania.
 2. Jeśli aplikacja wewnątrz maszyny wirtualnej nie działa, spróbuj przejść w tryb failover do punktu odzyskiwania spójnego na poziomie aplikacji.
@@ -174,7 +174,7 @@ W celu rozwiązania tego problemu:
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Rozwiązywanie problemów z [połączeniem RDP z maszyną wirtualną z systemem Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Rozwiązywanie problemów z [połączeniem SSH z maszyną wirtualną z systemem Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Rozwiązywanie problemów z [połączeniem RDP z maszyną wirtualną z systemem Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Rozwiązywanie problemów z [połączeniem SSH z maszyną wirtualną z systemem Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj zapytanie na [stronie pytania firmy&Microsoft w celu Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) lub pozostaw komentarz na końcu tego dokumentu. Mamy aktywną społeczność, która powinna być w stanie pomóc.
+Jeśli potrzebujesz więcej pomocy, Opublikuj zapytanie na [stronie pytania firmy&Microsoft w celu Site Recovery](/answers/topics/azure-site-recovery.html) lub pozostaw komentarz na końcu tego dokumentu. Mamy aktywną społeczność, która powinna być w stanie pomóc.

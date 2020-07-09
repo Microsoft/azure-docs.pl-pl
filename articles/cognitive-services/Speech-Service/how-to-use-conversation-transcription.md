@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: b8b874888d3a46a855c3d76d520d390725c40898
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735406"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134935"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transkrypcja konwersacji w czasie rzeczywistym (wersja zapoznawcza)
 
-Interfejs API **ConversationTranscriber** zestawu mowy SDK umożliwia transkrypcja spotkań i innych konwersacji z możliwością dodawania, usuwania i identyfikowania wielu uczestników przez przesyłanie strumieniowe plików audio do usługi mowy przy użyciu `PullStream` lub `PushStream`. Ten temat wymaga, aby dowiedzieć się, jak używać zamiany mowy na tekst za pomocą zestawu Speech SDK (wersja 1.8.0 lub nowsza). Aby uzyskać więcej informacji, zobacz [co to jest usługa Speech Services](overview.md).
+Interfejs API **ConversationTranscriber** zestawu mowy SDK umożliwia transkrypcja spotkań i innych konwersacji z możliwością dodawania, usuwania i identyfikowania wielu uczestników przez przesyłanie strumieniowe plików audio do usługi mowy przy użyciu `PullStream` lub `PushStream` . Ten temat wymaga, aby dowiedzieć się, jak używać zamiany mowy na tekst za pomocą zestawu Speech SDK (wersja 1.8.0 lub nowsza). Aby uzyskać więcej informacji, zobacz [co to jest usługa Speech Services](overview.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -109,11 +109,11 @@ Poniższy przykładowy kod demonstruje, jak transkrypcja konwersacje w czasie rz
 Przykładowe przykłady kodu obejmują:
 
 - Tworzenie `Conversation` obiektu z `SpeechConfig` obiektu przy użyciu identyfikatora spotkania wygenerowanego przy użyciu`Guid.NewGuid()`
-- Tworzenie `ConversationTranscriber` obiektu i sprzęganie się z `JoinConversationAsync()` konwersacją w celu rozpoczęcia transkrypcji
+- Tworzenie `ConversationTranscriber` obiektu i sprzęganie się z konwersacją w `JoinConversationAsync()` celu rozpoczęcia transkrypcji
 - Rejestrowanie interesujących Cię zdarzeń
 - Dodawanie lub usuwanie uczestników konwersacji przy użyciu obiektu konwersacja
 - Przesyłanie strumieniowe audio
-- W przypadku zestawu Speech SDK wersja 1.9.0 i w polu `int` wersja `string` podpisu głosowego są obsługiwane typy i.
+- W przypadku zestawu Speech SDK wersja 1.9.0 i `int` `string` w polu wersja podpisu głosowego są obsługiwane typy i.
 
 Identyfikator transkrypcji i prelegenta wracają do zarejestrowanych zdarzeń.
 
@@ -140,7 +140,7 @@ public class MyConversationTranscriber
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 

@@ -1,18 +1,18 @@
 ---
 title: Usługi na rynku — Twoje komercyjne korzyści z witryny Marketplace, Azure Marketplace
 description: Usługi na rynku — w tej sekcji opisano zasoby firmy Microsoft, których mogą używać wydawcy.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 7de2e36edbcd0b55facae89be477ac0d334dae49
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: keferna
+ms.author: keferna
+ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085688"
+ms.locfileid: "86135527"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -34,15 +34,15 @@ W przypadku partnerów Transact, w miarę rozwoju rozliczanej sprzedaży za pomo
 
 Minimalnym wymaganiem do opublikowania w sklepie w sklepie jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner jest uprawniony do rozwoju swojej firmy za pomocą portalu Marketplace jako platformy.
 
-Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można również [przejrzeć samodzielnie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można także [samodzielnie przejrzeć](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Szczegółowe opisy wszystkich korzyści z programu można znaleźć na [talii programu w portalu Marketplace](https://aka.ms/marketplacerewards).
+Szczegółowe opisy wszystkich korzyści z programu można znaleźć w tej [prezentacji programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 
-Kroki umożliwiające rozpoczęcie pracy są proste:
+Wprowadzenie jest proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
-2. Przejdź do [pulpitu nawigacyjnego](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)Centrum partnerskiego, Otwórz **komercyjną witrynę Marketplace** w menu po lewej stronie, wybierz pozycję **nagrody w witrynie Marketplace**, a następnie wybierz kartę **korzyści sprzedaży i marketingu** , aby wyświetlić listę korzyści.
-3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, musisz najpierw przypisać kontakt z firmą marketingową firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
+2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
+3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, przypisz kontakt z firmą marketingową firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
 4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
 
     1. Wybierz użytkownika z listy. Jeśli użytkownik, którego chcesz przypisać, nie znajduje się na liście, możesz dodać nowych użytkowników w **ustawieniach konta**.
@@ -56,7 +56,7 @@ Kroki umożliwiające rozpoczęcie pracy są proste:
 2. Korzystanie z korzyści sponsorowanych przez platformę Azure będzie udostępniane za pośrednictwem poczty e-mail podczas odblokowywania tych korzyści.
 
 >[!NOTE]
->Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki. <br> <br> Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
+>Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.<br><br>Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu Marketplace. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: 758e79109d6cf0d41e5e5981168b0eed9f9928d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133162"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -211,6 +211,7 @@ ms.locfileid: "85361391"
 [planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Kopiowanie dysków między kontami usługi Azure Storage)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Struktura maszyny wirtualnej/wirtualnego dysku twardego dla wdrożeń SAP)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Ustawianie instalacji automatycznej dla dołączonych dysków)
+[planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Rozwiązanie do monitorowania platformy Azure dla oprogramowania SAP)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -860,7 +861,7 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
 1. Wybierz przycisk **Zaawansowane** .
-1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz przycisk **OK**.
+1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Kliknij przycisk **OK**.
 
 #### <a name="linux"></a>Linux
 
@@ -913,7 +914,7 @@ Aby uzyskać więcej informacji o trasach zdefiniowanych przez użytkownika, zob
 > Ogólne zestawienie pomocy technicznej: zawsze otwieraj zdarzenie przy użyciu SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR, jeśli potrzebujesz wsparcia dla rozszerzenia platformy Azure dla oprogramowania SAP.
 > Inżynierowie pomocy technicznej firmy Microsoft pracują w systemie pomocy technicznej SAP, aby pomóc naszym klientom.
 
-Po przygotowaniu maszyny wirtualnej zgodnie z opisem w [scenariuszach wdrażania maszyn wirtualnych dla oprogramowania SAP na platformie Azure][deployment-guide-3], Agent maszyny wirtualnej platformy Azure jest zainstalowany na tej maszynie. Następnym krokiem jest wdrożenie rozszerzenia platformy Azure dla oprogramowania SAP, które jest dostępne w repozytorium rozszerzeń platformy Azure w globalnych centrach danych platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Virtual Machines Planning and implementation for SAP NetWeaver] [Planning-Guide-9,1].
+Po przygotowaniu maszyny wirtualnej zgodnie z opisem w [scenariuszach wdrażania maszyn wirtualnych dla oprogramowania SAP na platformie Azure][deployment-guide-3], Agent maszyny wirtualnej platformy Azure jest zainstalowany na tej maszynie. Następnym krokiem jest wdrożenie rozszerzenia platformy Azure dla oprogramowania SAP, które jest dostępne w repozytorium rozszerzeń platformy Azure w globalnych centrach danych platformy Azure. Aby uzyskać więcej informacji, zobacz temat [Azure Virtual Machines Planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
 Jesteśmy w trakcie zwalniania nowej wersji rozszerzenia platformy Azure dla oprogramowania SAP. Nowe rozszerzenie używa przypisanej do systemu tożsamości maszyny wirtualnej w celu uzyskania informacji o podłączonych dyskach, interfejsach sieciowych i maszynie wirtualnej. Aby można było uzyskać dostęp do tych zasobów, tożsamość systemowa maszyny wirtualnej musi mieć uprawnienie czytelnik dla maszyny wirtualnej, dysku systemu operacyjnego, dysków danych i interfejsów sieciowych. Obecnie zalecamy zainstalowanie nowego rozszerzenia w następujących scenariuszach:
 

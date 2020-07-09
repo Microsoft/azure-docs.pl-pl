@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0637716b5f9970ff8c6d550f138fb7d21a26b81a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79470898"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134469"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal
 
@@ -43,14 +43,6 @@ Aby ukończyć ten przewodnik Szybki start:
 3. [Zainstaluj Maven 3,0 lub nowszy](https://maven.apache.org/download.cgi)
 4. [Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Zarejestruj się w celu uzyskania subskrypcji platformy Azure](https://azure.microsoft.com/free/)
-
-## <a name="install-the-azure-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia platformy Azure
-
-Zainstaluj rozszerzenie chmury wiosennej platformy Azure dla interfejsu wiersza polecenia platformy Azure przy użyciu następującego polecenia
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Inicjowanie obsługi administracyjnej wystąpienia usługi na Azure Portal
 
@@ -101,7 +93,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
 
 1. Przejdź do strony **Przegląd** usługi i wybierz pozycję **serwer konfiguracji**.
 
-2. W sekcji **repozytorium domyślne** Ustaw **Identyfikator URI** na "https://github.com/Azure-Samples/piggymetrics-config".
+2. W sekcji **repozytorium domyślne** Ustaw **Identyfikator URI** na " https://github.com/Azure-Samples/piggymetrics-config ".
 
 3. Wybierz pozycję **Zastosuj**, aby zapisać zmiany.
 
@@ -112,7 +104,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
 
 ## <a name="build-and-deploy-microservice-applications"></a>Kompilowanie i wdrażanie aplikacji mikrousług
 
-1. Otwórz [Azure Cloud Shell](https://shell.azure.com) i Sklonuj repozytorium przykładowej aplikacji na komputerze lokalnym.  W tym miejscu najpierw tworzymy tymczasowy katalog o nazwie `source-code` przed klonem aplikacji.
+1. Otwórz [Azure Cloud Shell](https://shell.azure.com) lub lokalną powłokę z zainstalowanym interfejsem wiersza polecenia platformy Azure. W tym miejscu najpierw tworzymy tymczasowy katalog o nazwie `source-code` przed sklonowaniem przykładowej aplikacji.
 
     ```console
     mkdir source-code
@@ -127,21 +119,33 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
     mvn clean package -DskipTests
     ```
 
-3. Przypisywanie nazw do grupy zasobów i usługi. Pamiętaj, aby zastąpić symbole zastępcze poniżej nazwą grupy zasobów i nazwą usługi, która została zainicjowana wcześniej w tym samouczku.
+3. Zainstaluj rozszerzenie chmury wiosennej platformy Azure dla interfejsu wiersza polecenia platformy Azure przy użyciu następującego polecenia
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+4. Przypisywanie nazw do grupy zasobów i usługi. Pamiętaj, aby zastąpić symbole zastępcze poniżej nazwą grupy zasobów i nazwą usługi, która została zainicjowana wcześniej w tym samouczku.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Utwórz `gateway` aplikację i Wdróż plik JAR.
+5. Utwórz `gateway` aplikację i Wdróż plik JAR.  Poniższe kroki wymagają rozszerzenia chmury wiosennej. Jeśli nie został on zainstalowany z wymaganiami wstępnymi, uruchom następujące polecenie:
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+    Utwórz aplikację przy użyciu rozszerzenia chmury Wiosnowej:
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. Wykonując te same wzorce, Utwórz aplikacje `account-service` i `auth-service` Wdróż ich pliki jar.
+6. Wykonując te same wzorce, Utwórz `account-service` aplikacje i `auth-service` Wdróż ich pliki jar.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -150,7 +154,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-6. Wdrożenie aplikacji może zająć kilka minut. Aby upewnić się, że zostały wdrożone, przejdź do bloku **aplikacje** w Azure Portal. Powinna zostać wyświetlona linia każdej z trzech aplikacji.
+7. Wdrożenie aplikacji może zająć kilka minut. Aby upewnić się, że zostały wdrożone, przejdź do bloku **aplikacje** w Azure Portal. Powinna zostać wyświetlona linia każdej z trzech aplikacji.
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)

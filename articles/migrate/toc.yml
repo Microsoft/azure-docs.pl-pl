@@ -131,7 +131,7 @@
     - name: Tworzenie oceny w usłudze AVS
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Ocena bazy danych programu SQL Server
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
+      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: Dostosowywanie oceny
       href: how-to-modify-assessment.md
     - name: Dodawanie narzędzi migracji
@@ -171,9 +171,9 @@
 - name: Zasoby
   items:
     - name: Migracja w podręczniku Cloud Adoption Framework
-      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
+      href: /azure/cloud-adoption-framework/migrate/
     - name: Interfejs API REST
-      href: 'https://docs.microsoft.com/rest/api/migrate/'
+      href: /rest/api/migrate/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.migrate/allversions
     - name: Cennik
@@ -181,7 +181,7 @@
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-migrate.html'
+      href: /answers/topics/azure-migrate.html
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
     - name: Azure Migrate

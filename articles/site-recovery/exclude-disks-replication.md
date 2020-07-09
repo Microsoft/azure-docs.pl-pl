@@ -3,11 +3,12 @@ title: Wyklucz dyski z replikacji za pomocą Azure Site Recovery
 description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135687"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
 
@@ -259,7 +260,6 @@ Nasze ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure są 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat wytycznych dotyczących tymczasowego dysku magazynu:
-    - [Dowiedz się więcej o](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) korzystaniu z dysków SSD na maszynach wirtualnych platformy Azure do przechowywania SQL Server tempdb i rozszerzeń puli buforów
-    - [Przejrzyj](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
+    - [Dowiedz się więcej o](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) korzystaniu z dysków SSD na maszynach wirtualnych platformy Azure do przechowywania SQL Server tempdb i rozszerzeń puli buforów
+    - [Przejrzyj](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
 - Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](failover-failback-overview.md) o różnych typach trybu failover.
-

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985605"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135850"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatyczna aktualizacja usługi mobilności w replikacji na platformie Azure na platformę Azure
 
@@ -90,7 +90,7 @@ Jeśli nie możesz włączyć funkcji Aktualizacje automatyczne, zobacz następu
 
 - **Błąd**: nie masz uprawnień do utworzenia konta Uruchom jako platformy Azure (nazwy głównej usługi) i Udziel roli współautor do jednostki usługi.
 
-  **Zalecana akcja**: Upewnij się, że konto zalogowane jest przypisane jako współautor, i spróbuj ponownie. Więcej informacji o przypisywaniu uprawnień znajduje się w sekcji wymagane uprawnienia w temacie [How to: Use the Portal Service, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+  **Zalecana akcja**: Upewnij się, że konto zalogowane jest przypisane jako współautor, i spróbuj ponownie. Więcej informacji o przypisywaniu uprawnień znajduje się w sekcji wymagane uprawnienia w temacie [How to: Use the Portal Service, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   Aby rozwiązać większość problemów po włączeniu funkcji Aktualizacje automatyczne, wybierz pozycję **napraw**. Jeśli przycisk Napraw nie jest dostępny, Sprawdź komunikat o błędzie wyświetlany w okienku Ustawienia aktualizacji rozszerzenia.
 
@@ -98,11 +98,11 @@ Jeśli nie możesz włączyć funkcji Aktualizacje automatyczne, zobacz następu
 
 - **Błąd**: konto Uruchom jako nie ma uprawnień dostępu do zasobu usługi Recovery Services.
 
-  **Zalecana akcja**: Usuń, a następnie [Utwórz ponownie konto Uruchom jako](/azure/automation/automation-create-runas-account). Lub upewnij się, że aplikacja Azure Active Directory konta Uruchom jako usługi Automation ma dostęp do zasobu usługi Recovery Services.
+  **Zalecana akcja**: Usuń, a następnie [Utwórz ponownie konto Uruchom jako](../automation/manage-runas-account.md). Lub upewnij się, że aplikacja Azure Active Directory konta Uruchom jako usługi Automation ma dostęp do zasobu usługi Recovery Services.
 
 - **Błąd**: nie można odnaleźć konta Uruchom jako. Jeden z tych elementów został usunięty lub nie został utworzony — aplikacja Azure Active Directory, nazwa główna usługi, rola, zasób certyfikatu usługi Automation, zasób połączenia usługi Automation lub odcisk palca nie są identyczne między certyfikatem a połączeniem.
 
-  **Zalecana akcja**: Usuń, a następnie [Utwórz ponownie konto Uruchom jako](/azure/automation/automation-create-runas-account).
+  **Zalecana akcja**: Usuń, a następnie [Utwórz ponownie konto Uruchom jako](../automation/manage-runas-account.md).
 
 - **Błąd**: certyfikat Uruchom jako platformy Azure używany przez konto usługi Automation wkrótce wygaśnie.
 
