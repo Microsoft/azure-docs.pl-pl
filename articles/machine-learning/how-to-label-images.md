@@ -2,19 +2,20 @@
 title: Obrazy tagów w projekcie etykietowania
 title.suffix: Azure Machine Learning
 description: Dowiedz się, jak używać narzędzi do tagowania danych w Azure Machine Learningym projekcie etykietowania.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025135"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147014"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Obrazy tagów w projekcie etykietowania (wersja zapoznawcza)
+# <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
 Gdy administrator projektu [tworzy projekt etykietowania](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania (publiczna wersja zapoznawcza), aby szybko przygotować dane dla Machine Learning projektu. W tym artykule opisano:
 
@@ -63,7 +64,7 @@ System Azure włącza przycisk **Prześlij** , gdy Otagowano wszystkie obrazy na
 
 Po przesłaniu tagów dla danych, platforma Azure Odświeża stronę nowym zestawem obrazów z kolejki roboczej.
 
-### <a name="assisted-machine-learning"></a>Uczenie maszynowe z asystą 
+### <a name="assisted-machine-learning-preview"></a>Asystowana Uczenie maszynowe (wersja zapoznawcza) 
 
 Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są włączone w projekcie, mogą pojawić się następujące elementy:
 
@@ -124,7 +125,7 @@ Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie
 
 Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 
-## <a name="finish-up"></a>Zakończenie
+## <a name="finish-up"></a>Kończenie
 
 Gdy przesyłasz stronę oznakowanych danych, platforma Azure przypisze Ci nowe dane bez etykiet do użytkownika z kolejki służbowej. Jeśli nie ma więcej dostępnych danych bez etykiet, zostanie wyświetlony komunikat z linkiem do strony głównej portalu.
 

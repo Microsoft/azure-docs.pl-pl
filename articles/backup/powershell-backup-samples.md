@@ -4,18 +4,18 @@ description: Ten artykuł zawiera linki do przykładów skryptów programu Power
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3709ad6bcb70d4054b13458188a0638c58d59f3c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 29af774c857f20b0ed4d5392f4933e8056f0d246
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118215"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170687"
 ---
 # <a name="azure-backup-powershell-samples"></a>Przykłady programu PowerShell dla usługi Azure Backup
 
 W poniższych tabeli znajdują się linki do przykładowych skryptów programu PowerShell, w ramach których usługa Azure Backup jest używana do tworzenia kopii zapasowej danych i ich przywracania.
 
-| |                                                              |
+| Skrypt | Opis |
 |---|---|
 | [Tworzenie kopii zapasowych zaszyfrowanej maszyny wirtualnej na platformie Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Tworzenie kopii zapasowej wszystkich danych na zaszyfrowanej maszynie wirtualnej.|
 | [Znajdowanie zarejestrowanego konta magazynu](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Znajdź magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu |

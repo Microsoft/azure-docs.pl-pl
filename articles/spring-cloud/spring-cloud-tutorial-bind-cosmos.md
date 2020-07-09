@@ -1,17 +1,17 @@
 ---
-title: Samouczek — Powiązywanie Azure Cosmos DB ze swoją aplikacją w chmurze platformy Azure
-description: W tym samouczku dowiesz się, jak powiązać Azure Cosmos DB ze swoją aplikacją w chmurze platformy Azure
+title: Powiązywanie usługi Azure Cosmos DB z aplikacją usługi Azure Spring Cloud
+description: Dowiedz się, jak powiązać Azure Cosmos DB ze swoją aplikacją w chmurze platformy Azure
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 1566b6ab59e858217adcf6818e1d62f851f37eb1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083c67184c6b039303b29119261a6967306a1447
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277564"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142215"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Powiązywanie bazy danych Azure Cosmos DB z aplikacją w chmurze platformy Azure
 
@@ -30,7 +30,7 @@ Azure Cosmos DB ma pięć różnych typów interfejsów API, które obsługują 
 
 1. Zapisz nazwę bazy danych. W przypadku tej procedury Nazwa bazy danych to **TestDB**.
 
-1. Dodaj jedną z następujących zależności do pliku pliku pom. XML aplikacji chmurowej ze sprężyną Azure. Wybierz zależność, która jest odpowiednia dla typu interfejsu API.
+1. Dodaj jedną z następujących zależności do pliku pom.xml aplikacji w chmurze ze sprężyną na platformie Azure. Wybierz zależność, która jest odpowiednia dla typu interfejsu API.
 
     * Typ interfejsu API: rdzeń (SQL)
 
@@ -95,7 +95,7 @@ Azure Cosmos DB ma pięć różnych typów interfejsów API, które obsługują 
 
 1. Uruchom ponownie aplikację, wybierając pozycję **Uruchom ponownie** na stronie aplikacji.
 
-1. Aby upewnić się, że usługa jest powiązana prawidłowo, wybierz nazwę powiązania i sprawdź jej szczegóły. `property` Pole powinno wyglądać podobnie do tego przykładu:
+1. Aby upewnić się, że usługa jest powiązana prawidłowo, wybierz nazwę powiązania i sprawdź jej szczegóły. `property`Pole powinno wyglądać podobnie do tego przykładu:
 
     ```
     azure.cosmosdb.uri=https://<some account>.documents.azure.com:443
@@ -105,7 +105,4 @@ Azure Cosmos DB ma pięć różnych typów interfejsów API, które obsługują 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób powiązania aplikacji w chmurze platformy Azure z bazą danych Azure Cosmos DB. Aby dowiedzieć się, jak powiązać aplikację z pamięcią podręczną platformy Azure dla pamięci podręcznej Redis, przejdź do następnego samouczka.
-
-> [!div class="nextstepaction"]
-> [Dowiedz się, jak utworzyć powiązanie z pamięcią podręczną Azure dla pamięci podręcznej Redis](spring-cloud-tutorial-bind-redis.md)
+W tym artykule przedstawiono sposób powiązania aplikacji w chmurze platformy Azure z bazą danych Azure Cosmos DB. Aby dowiedzieć się więcej na temat powiązań usług dla aplikacji, zobacz [bind to cache cache for Redis](spring-cloud-tutorial-bind-redis.md).

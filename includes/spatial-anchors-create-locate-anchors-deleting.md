@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec78ffd1fbc1f77a7b1e1467df1c2303e7d5daf1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67182948"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156658"
 ---
 ## <a name="delete-anchors"></a>Usuń kotwice
 
-Aby usunąć kotwicę przestrzenną w chmurze, należy `DeleteAnchor()` użyć metody. Usuwanie kotwic, gdy nie jest już używane, jest dobrym sposobem na wczesne uwzględnienie procesu i praktyk programistycznych. Dzięki temu zasoby są czyszczone. Ponadto, mimo że można korzystać z kotwic przestrzennych platformy Azure bezpłatnie, ceny mogą ulec zmianie w przyszłości. Szczegółowe informacje o cenach podczas okresu zapoznawczego można znaleźć na naszej [stronie z cennikiem](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+Aby usunąć kotwicę przestrzenną w chmurze, należy użyć `DeleteAnchor()` metody. Usuwanie kotwic, gdy nie są już używane, jest dobrym sposobem na wcześniejsze uwzględnienie w procesie i rozwiązaniach programistycznych, aby zapewnić wyczyszczenie zasobów platformy Azure. 

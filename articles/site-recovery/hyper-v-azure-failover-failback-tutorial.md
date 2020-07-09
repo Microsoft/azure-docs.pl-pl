@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498161"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132454"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Przełączanie maszyn wirtualnych funkcji Hyper-V do trybu failover na platformie Azure
 
@@ -27,8 +27,8 @@ W tym samouczku opisano sposób awaryjnego przełączania maszyn wirtualnych fun
 Jest to piąty samouczek z tej serii. Założono w nim, że zostały już wykonane zadania z poprzednich samouczków.    
 
 1. [Przygotowywanie platformy Azure](tutorial-prepare-azure.md)
-2. [Przygotowywanie lokalnej funkcji Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
-3. Konfigurowanie odzyskiwania po awarii dla [maszyn wirtualnych funkcji Hyper-V](tutorial-hyper-v-to-azure.md) lub dla [maszyn wirtualnych funkcji Hyper-V zarządzanych w chmurach programu System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
+2. [Przygotowywanie lokalnej funkcji Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
+3. Konfigurowanie odzyskiwania po awarii dla [maszyn wirtualnych funkcji Hyper-V](./hyper-v-azure-tutorial.md) lub dla [maszyn wirtualnych funkcji Hyper-V zarządzanych w chmurach programu System Center VMM](./hyper-v-vmm-azure-tutorial.md)
 4. [Uruchamianie próbnego odzyskiwania](tutorial-dr-drill-azure.md)
 
 [Dowiedz się więcej o](failover-failback-overview.md#types-of-failover) różnych typach trybu failover. Jeśli chcesz przejść do trybu failover wielu maszyn wirtualnych w planie odzyskiwania, zapoznaj się z [tym artykułem](site-recovery-failover.md).
@@ -58,7 +58,7 @@ W obszarze **Chronione elementy** kliknij kolejno pozycje **Zreplikowane element
 
 ## <a name="fail-over-to-azure"></a>Przełączenie do trybu failover na platformie Azure
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy**kliknij maszynę wirtualną > **tryb failover**.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy**kliknij maszynę wirtualną > **tryb failover**.
 2. W obszarze **Tryb failover** wybierz **Najnowszy** punkt odzyskiwania. 
 3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłowe maszyny wirtualne przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 4. Po weryfikacji przełączenia do trybu failover kliknij przycisk **Zatwierdź**. To działanie usuwa wszystkie dostępne punkty odzyskiwania.

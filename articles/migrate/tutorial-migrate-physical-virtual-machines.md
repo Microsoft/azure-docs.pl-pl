@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn fizycznych na plat
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: dbb7737d59f48cadc645be990634bb5cb0cda251
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116101"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165400"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -69,9 +69,9 @@ Przygotuj platformę Azure do migracji przy użyciu migracji serwera.
 
 Przypisz rolę współautora maszyny wirtualnej do konta platformy Azure. Zapewnia to następujące uprawnienia:
 
-    - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
-    - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
-    - Zapisz na dysku zarządzanym platformy Azure. 
+- Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
+- Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
+- Zapisz na dysku zarządzanym platformy Azure. 
 
 ### <a name="create-an-azure-network"></a>Tworzenie sieci platformy Azure
 

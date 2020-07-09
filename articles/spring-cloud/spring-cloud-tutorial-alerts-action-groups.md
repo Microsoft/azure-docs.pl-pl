@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77920080"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142457"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: monitorowanie źródeł wiosennych w chmurze przy użyciu alertów i grup akcji
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Jak monitorować zasoby w chmurze wiosny przy użyciu alertów i grup akcji
 
 Alerty chmurowe platformy Azure obsługują monitorowanie zasobów na podstawie takich warunków, jak dostępne magazyny, częstotliwość żądań lub użycie danych. Alert wysyła powiadomienie, gdy stawki lub warunki spełniają zdefiniowane specyfikacje.
 
@@ -22,12 +22,9 @@ Aby skonfigurować potok alertów, należy wykonać dwie czynności:
 2. Skonfiguruj reguły alertów. Reguły wiążą wzorce metryk z grupami akcji w oparciu o zasób docelowy, metrykę, warunek, agregację czasu itp.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Oprócz wymagań wiosennych platformy Azure ten samouczek zależy od następujących zasobów.
 
-* Wdrożone wystąpienie chmury Azure wiosennej.  Skorzystaj z naszego [przewodnika Szybki Start](spring-cloud-quickstart-launch-app-cli.md) , aby rozpocząć pracę.
+Procedury przedstawione w tym samouczku współpracują ze wdrożonym wystąpieniem chmury Azure wiosną.  Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](spring-cloud-quickstart-launch-app-cli.md) .
 
-* Zasób platformy Azure do monitorowania. Ten przykład służy do monitorowania wystąpienia chmury Wiosnowej.
- 
 Poniższe procedury inicjują **grupę akcji** i **alert** , rozpoczynając od opcji **alertów** w okienku nawigacji po lewej stronie wystąpienia chmury wiosnowej. (Procedurę można również uruchomić na stronie **Przegląd monitora** w Azure Portal). 
 
 Przejdź do grupy zasobów do wystąpienia chmury wiosennej. W lewym okienku wybierz pozycję **alerty** , a następnie wybierz pozycję **Zarządzaj akcjami**:
@@ -109,7 +106,11 @@ Regułę można również utworzyć za pomocą strony **metryki** :
    ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Zachowanie alertów SMS w grupach akcji](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Samouczek: używanie rozproszonego śledzenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+W tym samouczku przedstawiono sposób konfigurowania alertów i grup akcji dla aplikacji w chmurze ze sprężyną na platformie Azure. Aby dowiedzieć się więcej na temat grup akcji, zobacz:
+
+> [!div class="nextstepaction"]
+> [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [Zachowanie alertów SMS w grupach akcji](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

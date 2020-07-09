@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74091343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134446"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Powrót po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -28,7 +28,7 @@ W tym samouczku opisano sposób powrotu po awarii pojedynczej maszyny wirtualnej
 > 
 > [!NOTE]
 > 
-> Ten samouczek ułatwia przechodzenie w tryb failover kilku maszyn wirtualnych do regionu docelowego i powrót do regionu źródłowego z minimalnymi dostosowaniami. Aby uzyskać bardziej szczegółowe instrukcje, zapoznaj się z [przewodnikami z instrukcjami na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/).
+> Ten samouczek ułatwia przechodzenie w tryb failover kilku maszyn wirtualnych do regionu docelowego i powrót do regionu źródłowego z minimalnymi dostosowaniami. Aby uzyskać bardziej szczegółowe instrukcje, zapoznaj się z [przewodnikami z instrukcjami na maszynach wirtualnych platformy Azure](../virtual-machines/windows/index.yml).
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

@@ -1,22 +1,15 @@
 ---
 title: Interfejs wiersza polecenia platformy Azure — subskrybowanie do grupy zasobów & filtrowania według zasobów
 description: Ten artykuł zawiera przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który pokazuje, jak subskrybować zdarzenia Event Grid dla zasobu i filtru dla zasobu.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 3dfe31a38d1bc1ba8662246a5dec3f10d0d1c948
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 11935866f37dfaae15f25dac6deeace4e89547fc
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76720830"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171299"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Subskrybowanie zdarzeń dla grupy zasobów i filtrowanie według zasobu przy użyciu interfejsu wiersza polecenia platformy Azure
 

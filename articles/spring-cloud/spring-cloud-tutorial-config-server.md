@@ -1,19 +1,19 @@
 ---
-title: Samouczek — Konfigurowanie wystąpienia serwera konfiguracji w chmurze Azure wiosennej
-description: W tym samouczku dowiesz się, jak skonfigurować wystąpienie serwera konfiguracji chmury sprężynowej dla chmury wiosennej platformy Azure na Azure Portal
+title: Konfigurowanie wystąpienia serwera konfiguracji w chmurze Azure wiosennej
+description: Dowiedz się, jak skonfigurować wystąpienie serwera konfiguracji w chmurze wiosny dla chmury wiosennej platformy Azure na Azure Portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142195"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Samouczek: Konfigurowanie dla usługi wystąpienia serwera konfiguracji w chmurze wiosny
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
 
 W tym artykule opisano sposób nawiązywania połączenia ze sprężynowym wystąpieniem serwera konfiguracji chmury z usługą Azure wiosną w chmurze.
 
@@ -190,7 +190,4 @@ Po zapisaniu pliku konfiguracji na karcie **Konfiguracja** zostanie wyświetlony
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób włączania i konfigurowania wystąpienia serwera konfiguracji chmury wiosennej. Aby dowiedzieć się więcej na temat zarządzania aplikacją, przejdź do samouczka dotyczącego ręcznego skalowania aplikacji.
-
-> [!div class="nextstepaction"]
-> [Samouczek: skalowanie aplikacji w chmurze Azure wiosennej](spring-cloud-tutorial-scale-manual.md)
+W tym artykule przedstawiono sposób włączania i konfigurowania wystąpienia serwera konfiguracji chmury wiosennej. Aby dowiedzieć się więcej o zarządzaniu aplikacją, zobacz [skalowanie aplikacji w chmurze Azure wiosennej](spring-cloud-tutorial-scale-manual.md).

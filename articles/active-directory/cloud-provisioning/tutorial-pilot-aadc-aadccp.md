@@ -11,18 +11,18 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360762"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146809"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
 Ten samouczek przeprowadzi Cię przez pilotażowe Inicjowanie obsługi administracyjnej chmury dla Active Directory lasu testowego, która jest już synchronizowana przy użyciu usługi Azure Active Directory (Azure AD) Connect Sync.
 
-![Utwórz](media/tutorial-migrate-aadc-aadccp/diagram.png)
+![Tworzenie](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed podjęciem próby wykonania tego samouczka należy wziąć pod uwagę następujące elementy:
@@ -47,7 +47,7 @@ Poniżej przedstawiono wymagania wstępne niezbędne do wykonania kroków tego s
 Musisz mieć co najmniej [usługę Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. Aby zaktualizować synchronizację Azure AD Connect, wykonaj czynności opisane w [Azure AD Connect: Uaktualnij do najnowszej wersji](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## <a name="stop-the-scheduler"></a>Zatrzymaj harmonogram
-Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lokalnym przy użyciu harmonogramu. W celu zmodyfikowania i dodania reguł niestandardowych należy wyłączyć harmonogram, aby synchronizacje nie były uruchamiane podczas pracy nad tym.  Wykonaj następujące czynności:
+Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lokalnym przy użyciu harmonogramu. W celu zmodyfikowania i dodania reguł niestandardowych należy wyłączyć harmonogram, aby synchronizacje nie były uruchamiane podczas pracy nad tym.  Wykonaj następujące kroki:
 
 1.  Na serwerze z uruchomioną Azure AD Connect zsynchronizuj Otwórz program PowerShell z uprawnieniami administracyjnymi.
 2.  Uruchom polecenie `Stop-ADSyncSyncCycle`.  Naciśnij klawisz ENTER.
@@ -141,7 +141,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -164,19 +164,19 @@ Wykonaj następujące kroki, aby skonfigurować Inicjowanie obsługi:
  1. Zaloguj się do portalu usługi Azure AD.
  2. Kliknij **Azure Active Directory**
  3. Kliknij **Azure AD Connect**
- 4. Wybierz pozycję **Zarządzaj aprowizacjim (wersja zapoznawcza)**
- ![](media/how-to-configure/manage1.png)</br>
- 5.  Kliknij pozycję **Nowa konfiguracja** .
- ![](media/tutorial-single-forest/configure1.png)</br>
+ 4. Wybierz zrzut ekranu **zarządzania aprowizacji (wersja zapoznawcza)** z 
+  ![ linkiem "Zarządzaj Provisioning (wersja zapoznawcza)".](media/how-to-configure/manage1.png)</br>
+ 5.  Kliknij pozycję Nowy zrzut ekranu **konfiguracji** 
+  ![ ekranu usługi Azure AD Provisioning (wersja zapoznawcza) z wyróżnionym linkiem "Nowa konfiguracja".](media/tutorial-single-forest/configure1.png)</br>
  6.  Na ekranie Konfiguracja wprowadź **wiadomość e-mail z powiadomieniem**, Przenieś selektor, aby go **włączyć** , a następnie kliknij przycisk **Zapisz**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Zrzut ekranu przedstawiający ekran Konfigurowanie i wypełnianie wiadomości e-mail z powiadomieniem.](media/tutorial-single-forest/configure2.png)</br>
  7. W obszarze **Konfiguracja**wybierz pozycję **Wszyscy użytkownicy** , aby zmienić zakres reguły konfiguracji.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Zrzut ekranu przedstawiający Konfigurowanie ekranu z wyróżnioną opcją "Wszyscy użytkownicy" obok pozycji "Użytkownicy zakresu".](media/how-to-configure/scope2.png)</br>
  8. Po prawej stronie Zmień zakres tak, aby obejmował konkretną jednostkę organizacyjną, która została właśnie utworzona "OU = procesory CPU, DC = contoso, DC = com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Zrzut ekranu przedstawiający ekran Użytkownicy zakresu z wyróżnionym zakresem zmieniony na utworzoną jednostkę organizacyjną.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Kliknij przycisk **gotowe** i **Zapisz**.
  10. Zakres powinien teraz być ustawiony na jedną jednostkę organizacyjną. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Zrzut ekranu przedstawiający Konfigurowanie ekranu z "1 jednostką organizacyjną" wyróżnioną obok pozycji "Użytkownicy zakresu".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Weryfikowanie, czy użytkownicy są obsługiwani przez aprowizacji w chmurze
@@ -192,7 +192,7 @@ Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu loka
 Ponadto możesz sprawdzić, czy użytkownik i Grupa istnieją w usłudze Azure AD.
 
 ## <a name="start-the-scheduler"></a>Uruchom Harmonogram
-Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lokalnym przy użyciu harmonogramu. Teraz, po zmodyfikowaniu reguł, można ponownie uruchomić harmonogram.  Wykonaj następujące czynności:
+Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lokalnym przy użyciu harmonogramu. Teraz, po zmodyfikowaniu reguł, można ponownie uruchomić harmonogram.  Wykonaj następujące kroki:
 
 1.  Na serwerze z uruchomioną Azure AD Connect synchronizacji Otwórz program PowerShell z uprawnieniami administracyjnymi
 2.  Uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $true`.

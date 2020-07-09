@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2972af3c94768cc21b53bbf5376826940aee639a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160075"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Samouczek: integracja Azure Active Directory z platformą SAP w chmurze
 
@@ -33,7 +33,7 @@ Zintegrowanie platformy SAP Cloud Platform z usługą Azure AD daje następując
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -114,35 +114,29 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL używany przez użytkowników do logowania się do aplikacji **SAP Cloud Platform**. To jest adres URL chronionego zasobu w aplikacji SAP Cloud Platform specyficzny dla konta. Adres URL jest zgodny z następującym wzorcem: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
-     >[!NOTE]
-     >To jest adres URL w aplikacji SAP Cloud Platform, która wymaga uwierzytelnienia użytkownika.
-     > 
+    >[!NOTE]
+    >To jest adres URL w aplikacji SAP Cloud Platform, która wymaga uwierzytelnienia użytkownika.
+    > 
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
 
     b. W polu tekstowym **Identyfikator** podaj adres URL platformy SAP Cloud Platform, korzystając z jednego z następujących wzorców: 
 
-    | |
-    |--|
-    | `https://hanatrial.ondemand.com/<instancename>` |
-    | `https://hana.ondemand.com/<instancename>` |
-    | `https://us1.hana.ondemand.com/<instancename>` |
-    | `https://ap1.hana.ondemand.com/<instancename>` |
+    - `https://hanatrial.ondemand.com/<instancename>`
+    - `https://hana.ondemand.com/<instancename>`
+    - `https://us1.hana.ondemand.com/<instancename>`
+    - `https://ap1.hana.ondemand.com/<instancename>`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
-    | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
 
     > [!NOTE] 
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej klienta platformy SAP Cloud Platform](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html), aby pobrać adres URL logowania i identyfikator. Adres URL odpowiedzi można uzyskać w sekcji zarządzania relacjami zaufania, co zostało wyjaśnione w dalszej części tego samouczka.
@@ -175,7 +169,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
 
     f. Ustaw pole **Force Authentication** (Wymuś uwierzytelnianie) na wartość **Disabled** (Wyłączone).
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 4. Po zapisaniu ustawień w sekcji **Local Service Provider** (Lokalny dostawca usług) wykonaj następujące kroki, aby uzyskać adres URL odpowiedzi:
    
@@ -216,7 +210,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |firstname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |poczta e-mail |
    
      >[!NOTE]
      >Konfiguracja atrybutów zależy od sposobu tworzenia aplikacji w ramach punktu połączenia usługi, to znaczy od tego, które atrybuty są oczekiwane w odpowiedzi SAML i pod jaką nazwą (atrybut jednostki) uzyskiwany jest dostęp do tego atrybutu w kodzie.
@@ -254,12 +248,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -307,7 +301,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do platformy SAP C
 
     d. Kliknij pozycję **Assign** (Przypisz), aby przypisać użytkownika do roli.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -321,5 +315,5 @@ Po kliknięciu kafelka SAP Cloud Platform w panelu dostępu powinno nastąpić a
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

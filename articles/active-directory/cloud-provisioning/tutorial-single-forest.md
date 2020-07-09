@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4fbfe9222971ccd1d28ceaddc91b137c6106e12
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360609"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146744"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Samouczek: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia hybrydowego środowiska tożsamości przy użyciu usługi Azure Active Directory (Azure AD) łączenie się z obsługą chmury.
 
-![Utwórz](media/tutorial-single-forest/diagram1.png)
+![Tworzenie](media/tutorial-single-forest/diagram1.png)
 
 Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu poznania się z obsługą chmury.
 
@@ -107,14 +107,14 @@ Aby sprawdzić, czy agent działa, wykonaj następujące kroki:
 1.  Zaloguj się do portalu usługi Azure AD.
 2.  Kliknij **Azure Active Directory**
 3.  Kliknij **Azure AD Connect**
-4.  Wybierz pozycję **Zarządzaj aprowizacjim (wersja zapoznawcza)**
-![](media/how-to-configure/manage1.png)
-5.  Kliknij pozycję **Nowa konfiguracja** .
-![](media/tutorial-single-forest/configure1.png)
+4.  Wybierz zrzut ekranu **zarządzania aprowizacji (wersja zapoznawcza)** z 
+ ![ linkiem "Zarządzaj Provisioning (wersja zapoznawcza)".](media/how-to-configure/manage1.png)
+5.  Kliknij pozycję Nowy zrzut ekranu **konfiguracji** 
+ ![ ekranu usługi Azure AD Provisioning (wersja zapoznawcza) z wyróżnionym linkiem "Nowa konfiguracja".](media/tutorial-single-forest/configure1.png)
 7.  Na ekranie Konfiguracja wprowadź **wiadomość e-mail z powiadomieniem**, Przenieś selektor, aby go **włączyć** , a następnie kliknij przycisk **Zapisz**.
-![](media/tutorial-single-forest/configure2.png)
+![Zrzut ekranu przedstawiający ekran Konfigurowanie i wypełnianie wiadomości e-mail z powiadomieniem.](media/tutorial-single-forest/configure2.png)
 1.  Stan konfiguracji powinien być teraz w **dobrej kondycji**.
-![](media/how-to-configure/manage4.png)
+![Zrzut ekranu przedstawiający ekran aprowizacji (wersja zapoznawcza) usługi Azure AD ze stanem kondycji.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Weryfikowanie utworzenia użytkowników i przeprowadzania synchronizacji
 Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu lokalnego, zostali zsynchronizowani i teraz istnieją w naszej dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.

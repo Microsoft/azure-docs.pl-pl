@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
-ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 9d85e59e003cffdbe6fe6abe7bb053ae4c574b78
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143440"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurowanie rozszerzenia Visual Studio Code Azure Machine Learning
 
 Dowiedz się, jak instalować i uruchamiać skrypty przy użyciu rozszerzenia Azure Machine Learning Visual Studio Code.
 
-W tym samouczku nauczysz się wykonywać następujące zadania:
+W tym samouczku zapoznasz się z następującymi zadaniami:
 
 > [!div class="checklist"]
 > * Instalowanie rozszerzenia Azure Machine Learning Visual Studio Code
@@ -69,6 +69,9 @@ Po zalogowaniu się do platformy Azure przy użyciu poświadczeń konta wykonaj 
 
 1. Gdy zostanie rozwinięta paleta poleceń, postępuj zgodnie z monitami.
 
+    > [!NOTE]
+    > Jeśli masz już istniejące zasoby Azure Machine Learning, zapoznaj się z tematem [jak uruchamiać eksperymenty w vs Code przewodniku](./how-to-manage-resources-vscode.md#run-experiment).
+
     1. Wybierz swoją subskrypcję platformy Azure.
     1. Z listy środowiska wybierz pozycję **plik zależności Conda**.
     1. Naciśnij klawisz **Enter** , aby przeglądać plik zależności Conda. Ten plik zawiera zależności wymagane do uruchomienia skryptu. W takim przypadku plik zależności jest `env.yml` plikiem znajdującym się w `mnist-vscode-docs-sample` katalogu.
@@ -78,18 +81,18 @@ Po zalogowaniu się do platformy Azure przy użyciu poświadczeń konta wykonaj 
 
     ```json
     {
-        "workspace": "WS04131142",
-        "resourceGroup": "WS04131142-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS04131142-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS04131142-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS04131142-com1-rc1",
+            "filename": "WS06271500-com1-rc1",
             "environment": {
-                "name": "WS04131142-env1",
+                "name": "WS06271500-env1",
                 "conda_dependencies": [
                     "python=3.6.2",
                     "tensorflow=1.15.0",
@@ -118,7 +121,7 @@ Uruchamianie skryptu może potrwać kilka minut. Aby śledzić postęp:
 
 1. Na pasku działania wybierz ikonę **platformy Azure** .
 1. Rozwiń węzeł subskrypcji.
-1. Rozwiń węzeł aktualnie działającego eksperymentu. Znajduje się on w `{workspace}/Experiments/{experiment}` węźle, w którym wartości obszaru roboczego i eksperymentu są takie same jak właściwości zdefiniowane w pliku konfiguracji.
+1. Rozwiń węzeł aktualnie działającego eksperymentu. Znajduje się on w węźle, w `{workspace}/Experiments/{experiment}` którym wartości obszaru roboczego i eksperymentu są takie same jak właściwości zdefiniowane w pliku konfiguracji.
 1. Wszystkie uruchomienia eksperymentu są wymienione na liście, a także ich stan. Aby uzyskać najnowszy stan, kliknij ikonę odświeżania w górnej części widoku Azure Machine Learning.
 
     > [!div class="mx-imgBorder"]

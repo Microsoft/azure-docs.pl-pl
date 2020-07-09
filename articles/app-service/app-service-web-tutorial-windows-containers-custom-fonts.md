@@ -4,18 +4,18 @@ description: Dowiedz się, jak przeprowadzić migrację niestandardowego kontene
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8f2f4f707300e3ebe31f059c65492247befe324a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205626"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169956"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrowanie aplikacji ASP.NET do usługi Azure App Service za pomocą kontenera Windows (wersja zapoznawcza)
 
 [Usługa Azure App Service](overview.md) udostępnia wstępnie zdefiniowane stosy aplikacji w systemie Windows, takie jak ASP.NET lub Node.js, działające w usługach IIS. Wstępnie skonfigurowane środowisko systemu Windows blokuje możliwość dostępu administracyjnego, instalacji oprogramowania, zmian w globalnej pamięci podręcznej zestawów itd. w systemie operacyjnym. Zobacz [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funkcjonalność systemu operacyjnego w usłudze Azure App Service). Korzystając jednak z niestandardowego kontenera systemu Windows w usłudze App Service, można dokonać wymaganych przez aplikację zmian w systemie operacyjnym. Ułatwia to przeprowadzenie migracji lokalnych aplikacji, które wymagają niestandardowych konfiguracji systemu operacyjnego i oprogramowania. W tym samouczku pokazano, jak przeprowadzić migrację do usługi App Service aplikacji ASP.NET, która korzysta z niestandardowych czcionek zainstalowanych w bibliotece czcionek systemu Windows. Polega to na wdrożeniu skonfigurowanego w sposób niestandardowy obrazu systemu Windows z programu Visual Studio do [usługi Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), a następnie uruchomieniu go w usłudze App Service.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Pokazuje aplikację sieci Web działającą w kontenerze systemu Windows.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -115,8 +115,8 @@ Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z po
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
 |**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**SKU**| Podstawowa | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
-|**Lokalizacja rejestru**| Europa Zachodnia | |
+|**SKU**| Podstawowy | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**Lokalizacja rejestru**| West Europe | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
@@ -141,12 +141,12 @@ Na karcie **podstawy** Skonfiguruj ustawienia zgodnie z poniższą tabelą, a na
 |**Nazwa**| Wpisz unikatową nazwę. | Adres URL aplikacji internetowej to `http://<app-name>.azurewebsites.net`, gdzie `<app-name>` to nazwa aplikacji. |
 |**Publikowanie**| Kontener platformy Docker | |
 |**System operacyjny**| Windows | |
-|**Region**| Europa Zachodnia | |
+|**Region (Region)**| West Europe | |
 |**Plan systemu Windows**| Wybierz pozycję **Utwórz nowy**, wpisz **myAppServicePlan**, a następnie kliknij przycisk **OK**. | |
 
 Twoja karta **podstawy** powinna wyglądać następująco:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![Pokazuje kartę podstawowe służącą do konfigurowania aplikacji sieci Web.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Konfigurowanie kontenera systemu Windows
 
@@ -156,7 +156,7 @@ Na karcie **Docker** Skonfiguruj niestandardowy kontener systemu Windows, jak po
 | ----------------- | ------------ |
 |**Źródło obrazu**| Rejestr kontenerów platformy Azure |
 |**Secret**| Wybierz [utworzony wcześniej rejestr](#publish-to-azure-container-registry). |
-|**Image (Obraz)**| customfontsample |
+|**Obraz**| customfontsample |
 |**Tag**| najnowsza |
 
 ### <a name="complete-app-creation"></a>Kończenie tworzenia aplikacji
@@ -167,7 +167,7 @@ Kliknij przycisk **Utwórz** i poczekaj na utworzenie wymaganych zasobów przez 
 
 Po zakończeniu operacji platformy Azure zostanie wyświetlone okno powiadomienia.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Pokazuje, że operacja na platformie Azure została ukończona.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. Kliknij pozycję **Przejdź do zasobu**.
 
@@ -175,11 +175,11 @@ Po zakończeniu operacji platformy Azure zostanie wyświetlone okno powiadomieni
 
 W przeglądarce zostanie otwarta następująca strona:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![Pokazuje nową stronę przeglądarki dla aplikacji sieci Web.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 Poczekaj kilka minut i spróbuj ponownie. Powinna zostać wyświetlona strona główna z oczekiwaną piękną czcionką:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Pokazuje stronę główną z skonfigurowaną czcionką.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **Gratulacje!** Przeprowadzono migrację aplikacji ASP.NET do usługi Azure App Service w kontenerze systemu Windows.
 

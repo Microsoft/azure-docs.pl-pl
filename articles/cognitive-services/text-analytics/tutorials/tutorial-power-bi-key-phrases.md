@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 067a0383c90ce42120269ff40f910805dacfd11a
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378538"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143868"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu
 
@@ -34,7 +34,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 <a name="Prerequisites"></a>
 
 - Program Microsoft Power BI Desktop. [Pobierz bezpłatnie](https://powerbi.microsoft.com/get-started/).
-- Konto platformy Microsoft Azure. [Zacznij korzystać z bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub [zaloguj się](https://portal.azure.com/).
+- Konto platformy Microsoft Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/) lub [Zaloguj się](https://portal.azure.com/).
 - Konto interfejsu API usług Cognitive Services z interfejsem API analizy tekstu. Jeśli go nie masz, możesz [utworzyć konto](../../cognitive-services-apis-create-account.md) i skorzystać z bezpłatnej warstwy 5000 transakcji miesięcznie (zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)), aby ukończyć ten samouczek.
 - [Klucz dostępu do analizy tekstu](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) wygenerowany dla Ciebie podczas tworzenia konta.
 - Komentarze klientów. Możesz użyć [naszych danych przykładowych](https://aka.ms/cogsvc/ta) lub własnych danych. W tym samouczku przyjęto założenie, że używasz naszych danych przykładowych.
@@ -114,7 +114,7 @@ Na liście Zapytania zostanie wyświetlone nowe zapytanie, początkowo noszące 
 Teraz na wstążce **Narzędzia główne** w grupie **Zapytanie** kliknij pozycję **Edytor zaawansowany**, aby otworzyć okno Edytora zaawansowanego. Usuń kod, który znajduje się już w tym oknie, a następnie wklej poniższy kod. 
 
 > [!NOTE]
-> Zastąp przykładowy punkt końcowy poniżej ( `<your-custom-subdomain>`zawierający) punkt końcowy wygenerowany dla zasobu analiza tekstu. Ten punkt końcowy można znaleźć, logując się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/), wybierając subskrypcję analiza tekstu i wybierając `Quick start`opcję.
+> Zastąp przykładowy punkt końcowy poniżej (zawierający `<your-custom-subdomain>` ) punkt końcowy wygenerowany dla zasobu analiza tekstu. Ten punkt końcowy można znaleźć, logując się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/), wybierając subskrypcję analiza tekstu i wybierając opcję `Quick start` .
 
 
 ```fsharp
@@ -145,7 +145,7 @@ W oknie Edytora zapytań aplikacji Power BI Desktop przejdź z powrotem do zapyt
 
 Zostanie wyświetlone okno dialogowe Wywołaj funkcję niestandardową. W polu **Nazwa nowej kolumny** wprowadź `keyphrases`. W polu **Zapytanie funkcji** wybierz utworzoną funkcję niestandardową `KeyPhrases`.
 
-W oknie dialogowym zostanie wyświetlone nowe pole **tekst (opcjonalnie)**. To pole jest pytaniem, której kolumny chcemy użyć, aby dostarczyć wartości dla parametru `text` interfejsu API fraz kluczowych. (Należy pamiętać, że zostały już zakodowane wartości parametrów `language` i `id` .) Wybierz `Merged` (kolumnę utworzoną [wcześniej](#PreparingData) przez scalenie pól temat i wiadomość) z menu rozwijanego.
+W oknie dialogowym zostanie wyświetlone nowe pole **tekst (opcjonalnie)**. To pole jest pytaniem, której kolumny chcemy użyć, aby dostarczyć wartości dla parametru `text` interfejsu API fraz kluczowych. (Należy pamiętać, że zostały już zakodowane wartości `language` `id` parametrów i.) Wybierz `Merged` (kolumnę utworzoną [wcześniej](#PreparingData) przez scalenie pól temat i wiadomość) z menu rozwijanego.
 
 ![[Wywoływanie funkcji niestandardowej]](../media/tutorials/power-bi/invoke-custom-function.png)
 

@@ -1,33 +1,33 @@
 ---
-title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą BullseyeTDP | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i BullseyeTDP.
+title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Skedda | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Skedda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 42ee742a-4d19-4aca-9338-316afdcccab2
+ms.assetid: 1ec37b35-2f60-410c-b7ec-bd32bcdff04f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 06/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b7ac1538c02ab41a905f208f9485260423bc125
+ms.openlocfilehash: cde3719afd72cf4e5731497d325a1808b4890db8
 ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169072"
+ms.locfileid: "86172809"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bullseyetdp"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą BullseyeTDP
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skedda"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Skedda
 
-W tym samouczku dowiesz się, jak zintegrować usługę BullseyeTDP z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi BullseyeTDP z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować usługę Skedda z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi Skedda z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do BullseyeTDP.
-* Zezwól użytkownikom na automatyczne logowanie się do usługi BullseyeTDP przy użyciu kont w usłudze Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do Skedda.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi Skedda przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -37,74 +37,69 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) BullseyeTDP.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Skedda.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa BullseyeTDP obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
+* Skedda obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 
-* Po skonfigurowaniu BullseyeTDP można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu Skedda można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-bullseyetdp-from-the-gallery"></a>Dodawanie BullseyeTDP z galerii
+## <a name="adding-skedda-from-the-gallery"></a>Dodawanie Skedda z galerii
 
-Aby skonfigurować integrację programu BullseyeTDP z usługą Azure AD, musisz dodać BullseyeTDP z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Skedda z usługą Azure AD, musisz dodać Skedda z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **BullseyeTDP** w polu wyszukiwania.
-1. Wybierz pozycję **BullseyeTDP** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **Skedda** w polu wyszukiwania.
+1. Wybierz pozycję **Skedda** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-bullseyetdp"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla BullseyeTDP
+## <a name="configure-and-test-azure-ad-sso-for-skedda"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Skedda
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą BullseyeTDP przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w BullseyeTDP.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Skedda przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Skedda.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą BullseyeTDP, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Skedda, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Logowanie jednokrotne](#configure-bullseyetdp-sso)** w usłudze BullseyeTDP, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego BullseyeTDP](#create-bullseyetdp-test-user)** , aby dysponować odpowiednikiem B. Simon w BullseyeTDP, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-skedda-sso)** w usłudze Skedda, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego Skedda](#create-skedda-test-user)** , aby dysponować odpowiednikiem B. Simon w Skedda, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **BullseyeTDP** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Skedda** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja języka SAML** aplikacja została wstępnie skonfigurowana i wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz** .
+1. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-1. Aplikacja BullseyeTDP oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://www.skedda.com/account/externallogin?returnUrl=<CUSTOM_URL>`
 
-    ![image (obraz)](common/default-attributes.png)
+    > [!NOTE]
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta Skedda](mailto:info@skedda.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Oprócz powyższych, aplikacja BullseyeTDP oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
-    
-    | Nazwa | Atrybut źródłowy|
-    | ---- | --------------- |
-    | AccessToken | < AccessTokenValue > |
-    | ApplicationKey | < ApplicationKeyValue >|
-    | EmployeeID (Identyfikator pracownika) | user.employeeid |
+1. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie BullseyeTDP** skopiuj odpowiednie adresy URL na podstawie wymagania.
+1. W sekcji **Konfigurowanie Skedda** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
-
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
@@ -119,10 +114,10 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi BullseyeTDP.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Skedda.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **BullseyeTDP**.
+1. Na liście Aplikacje wybierz pozycję **Skedda**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
@@ -135,19 +130,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-bullseyetdp-sso"></a>Konfigurowanie logowania jednokrotnego BullseyeTDP
+## <a name="configure-skedda-sso"></a>Konfigurowanie logowania jednokrotnego Skedda
 
-Aby skonfigurować Logowanie jednokrotne na stronie **BullseyeTDP** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej BullseyeTDP](mailto:hello@bullseyetdp.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Skedda** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Skedda](mailto:info@skedda.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-bullseyetdp-test-user"></a>Utwórz użytkownika testowego BullseyeTDP
+### <a name="create-skedda-test-user"></a>Utwórz użytkownika testowego Skedda
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w BullseyeTDP. Aby dodać użytkowników na platformie BullseyeTDP, Pracuj z [zespołem pomocy technicznej BullseyeTDP](mailto:hello@bullseyetdp.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Skedda. Aby dodać użytkowników na platformie Skedda, Pracuj z [zespołem pomocy technicznej Skedda](mailto:info@skedda.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka BullseyeTDP w panelu dostępu należy automatycznie zalogować się do BullseyeTDP, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Skedda w panelu dostępu należy automatycznie zalogować się do Skedda, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
@@ -157,9 +152,8 @@ Po kliknięciu kafelka BullseyeTDP w panelu dostępu należy automatycznie zalog
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj BullseyeTDP z usługą Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj Skedda z usługą Azure AD](https://aad.portal.azure.com/)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić BullseyeTDP z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Jak chronić Skedda z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

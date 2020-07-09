@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067562"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130915"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Przygotowywanie platformy Azure do lokalnego odzyskiwania po awarii na platformie Azure
 
@@ -37,7 +37,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - Zapoznaj się z architekturą dla programu [VMware](vmware-azure-architecture.md), [funkcji Hyper-V](hyper-v-azure-architecture.md)i odzyskiwania po awarii [serwera fizycznego](physical-azure-architecture.md) .
 - Przeczytaj często zadawane pytania dotyczące oprogramowania [VMware](vmware-azure-common-questions.md) i [funkcji Hyper-V](hyper-v-azure-common-questions.md)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) . Następnie zaloguj się do [Azure Portal](https://portal.azure.com).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/). Następnie zaloguj się do [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="verify-account-permissions"></a>Sprawdzanie uprawnień konta
@@ -60,11 +60,11 @@ Aby można było wykonać te zadania, do konta musi być przypisana wbudowana ro
 4. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Na potrzeby tego samouczka używamy grupy **contosoRG**.
 5. W polu **Nazwa magazynu**wprowadź przyjazną nazwę identyfikującą magazyn. Na potrzeby tej serii samouczków należy użyć nazwy **ContosoVMVault**.
 6. W **obszarze region**wybierz region, w którym powinien się znajdować magazyn. Użyj wartości **Europa Zachodnia**.
-7. Wybierz pozycję **Przegląd + utwórz**.
+7. Wybierz pozycję **Przeglądanie + tworzenie**.
 
    ![Tworzenie nowego magazynu](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Nowy magazyn będzie teraz widoczny w obszarze **pulpit nawigacyjny** > **wszystkie zasoby**oraz na stronie głównych **magazynów Recovery Services** .
+   Nowy magazyn będzie teraz widoczny w obszarze **pulpit nawigacyjny**  >  **wszystkie zasoby**oraz na stronie głównych **magazynów Recovery Services** .
 
 ## <a name="set-up-an-azure-network"></a>Konfiguracja sieci platformy Azure
 
@@ -79,7 +79,7 @@ Maszyny lokalne są replikowane do usługi Azure Managed Disks. W przypadku prze
 7. W obszarze **Lokalizacja**wybierz ten sam region, w którym został utworzony magazyn Recovery Services. W naszym samouczku jest **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn.
 8. W obszarze **zakres adresów**Wprowadź zakres sieci. Korzystamy z **10.1.0.0/24**, a nie do korzystania z podsieci.
 9. Opuszczamy domyślne opcje podstawowej ochrony DDoS, bez punktu końcowego usługi ani zapory w sieci.
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie sieci wirtualnej](media/tutorial-prepare-azure/create-network.png)
 
@@ -90,8 +90,8 @@ Utworzenie sieci wirtualnej zajmuje kilka sekund. Po jego utworzeniu zobaczysz g
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W przypadku odzyskiwania po awarii programu VMware [Przygotuj lokalną infrastrukturę VMware](tutorial-prepare-on-premises-vmware.md).
+- W przypadku odzyskiwania po awarii programu VMware [Przygotuj lokalną infrastrukturę VMware](./vmware-azure-tutorial-prepare-on-premises.md).
 - W przypadku odzyskiwania po awarii funkcji Hyper-V [Przygotuj lokalne serwery funkcji Hyper-v](hyper-v-prepare-on-premises-tutorial.md).
 - W przypadku odzyskiwania po awarii serwera fizycznego [Skonfiguruj serwer konfiguracji i środowisko źródłowe](physical-azure-disaster-recovery.md)
-- [Dowiedz się więcej na temat](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sieci platformy Azure.
-- Informacje [o](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) dyskach zarządzanych.
+- [Dowiedz się więcej na temat](../virtual-network/virtual-networks-overview.md) sieci platformy Azure.
+- Informacje [o](../virtual-machines/windows/managed-disks-overview.md) dyskach zarządzanych.

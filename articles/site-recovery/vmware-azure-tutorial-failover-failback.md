@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
-ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498078"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132000"
 ---
 # <a name="fail-over--vmware-vms"></a>Praca awaryjna maszyn wirtualnych VMware
 
@@ -64,8 +64,8 @@ Sprawdź właściwości w następujący sposób:
 
 ## <a name="run-a-failover-to-azure"></a>Przełączanie do trybu failover na platformie Azure
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy**wybierz maszynę wirtualną, która ma zostać przełączona w tryb failover, a następnie wybierz pozycję **Praca awaryjna**.
-2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, do którego przełączenie w tryb failover ma zostać wykonane. Możesz użyć jednej z następujących opcji:
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy**wybierz maszynę wirtualną, która ma zostać przełączona w tryb failover, a następnie wybierz pozycję **Praca awaryjna**.
+2. W obszarze **tryb failover**wybierz **punkt odzyskiwania** , na który ma zostać przełączona praca awaryjna. Możesz użyć jednej z następujących opcji:
    * **Najnowszy**: ta opcja najpierw przetwarza wszystkie dane wysyłane do usługi Site Recovery. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ maszyna wirtualna platformy Azure utworzona po przejściu w tryb failover ma wszystkie dane, które zostały zreplikowane do Site Recovery podczas wyzwolenia trybu failover.
    * **Najnowsza przetworzony**: Ta opcja powoduje, że maszyna wirtualna nie jest w trybie failover do najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Ta opcja zapewnia niski RTO (cel czasu odzyskiwania), ponieważ nie trwa przetwarzanie nieprzetworzonych danych.
    * **Najnowsza spójna dla aplikacji**: Ta opcja nie powoduje przełączenia maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego na poziomie aplikacji przetworzonego przez Site Recovery.
@@ -87,7 +87,7 @@ W niektórych scenariuszach tryb failover wymaga dodatkowego przetwarzania, któ
 
 ## <a name="connect-to-failed-over-vm"></a>Nawiązywanie połączenia z maszyną wirtualną w trybie failover
 
-1. Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure po przejściu w tryb failover przy użyciu usług Remote Desktop Protocol (RDP) i Secure Shell (SSH), [Sprawdź, czy wymagania zostały spełnione] ((ailover-powrót po awarii — przegląd. MD # Connect-to-Azure-After-failover).
+1. Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure po przejściu w tryb failover przy użyciu usług Remote Desktop Protocol (RDP) i Secure Shell (SSH), [Sprawdź, czy zostały spełnione wymagania](failover-failback-overview.md#connect-to-azure-after-failover).
 2. Po przejściu w tryb failover przejdź do maszyny wirtualnej i sprawdź poprawność, [łącząc](../virtual-machines/windows/connect-logon.md) się z nią.
 3. Jeśli po przejściu w tryb failover ma zostać użyty inny punkt odzyskiwania, użyj **Zmień punkt odzyskiwania** . Po zatwierdzeniu przejścia w tryb failover w następnym kroku ta opcja nie będzie już dostępna.
 4. Po sprawdzeniu poprawności wybierz pozycję **Zatwierdź** , aby zakończyć punkt odzyskiwania maszyny wirtualnej po przejściu do trybu failover.
@@ -101,5 +101,5 @@ W niektórych scenariuszach tryb failover wymaga dodatkowego przetwarzania, któ
 Po przejściu w tryb failover ponownie Włącz ochronę maszyn wirtualnych platformy Azure w środowisku lokalnym. Następnie po ponownym włączeniu ochrony maszyn wirtualnych i przeprowadzeniu replikacji do lokacji lokalnej powrót po awarii z platformy Azure zakończy się niepowodzeniem.
 
 > [!div class="nextstepaction"]
-> [Ponowne włączanie ochrony maszyn wirtualnych](vmware-azure-reprotect.md)
-> platformy Azure[powrót po awarii z platformy Azure](vmware-azure-failback.md)
+> Ponowne [Włączanie ochrony maszyn wirtualnych](vmware-azure-reprotect.md) 
+>  platformy Azure [Powrót po awarii z platformy Azure](vmware-azure-failback.md)

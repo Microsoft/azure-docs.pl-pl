@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e41f2a5124603c8233bf515e07a95d0ee9ff4272
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: a0b418b15aaebe298b8e7c6507c96de2843d51e9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256140"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą IntelligenceBank
 
@@ -88,12 +88,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** Użyj dowolnej z następujących elementów:
 
-    | |
-    |--|
-    | `IB`| 
-    | `IntelligenceBank`|
-    | `https://<SUBDOMAIN>.intelligencebank.com`|
-    | |
+    - `IB`
+    - `IntelligenceBank`
+    - `https://<SUBDOMAIN>.intelligencebank.com`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.intelligencebank.com/auth`
 
@@ -162,7 +159,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **CertData**
 
-    g. W polu tekstowym **SingleLogoutService** wklej wartość pola **adres URL wylogowania** , która została skopiowana z Azure Portal.
+    przykład W polu tekstowym **SingleLogoutService** wklej wartość pola **adres URL wylogowania** , która została skopiowana z Azure Portal.
 
     h. Kliknij przycisk **Zapisz** .
 

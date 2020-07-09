@@ -6,17 +6,18 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054546"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169446"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service
 
 Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfejsu wiersza polecenia platformy Azure.
 
-| | |
+| Skrypt | Opis |
 |-|-|
 |**Tworzenie aplikacji**||
 | [Tworzenie aplikacji i wdrażanie plików za pomocą protokołu FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i wdraża w niej plik przy użyciu protokołu FTP. |

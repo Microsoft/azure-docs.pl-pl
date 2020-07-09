@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 663d6659acf5c1e5abc8be56156af84167c51797
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984015"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146941"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie REST i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -451,7 +451,7 @@ Odwołaj się do zawartości obiektu BLOB, gdzie cały dokument jest spakowany w
 1. Użyj instrukcji **Get** i następującego adresu URL, ZASTĘPUJĄC nazwę usługi nazwą rzeczywistą nazwą usługi, aby wyszukać wystąpienia terminu lub frazy, zwracając wartość `content` pola i liczbę pasujących dokumentów.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    Wyniki tej kwerendy zwracają zawartość dokumentu, która jest taka sama, jak w przypadku użycia indeksatora BLOB bez potoku wyszukiwania poznawczego. To pole jest możliwe do przeszukiwania, ale nie do pracy, jeśli chcesz użyć aspektów, filtrów lub autouzupełniania.
@@ -461,7 +461,7 @@ Odwołaj się do zawartości obiektu BLOB, gdzie cały dokument jest spakowany w
 1. W przypadku drugiego zapytania Zwróć kilka nowych pól utworzonych przez potok (osoby, organizacje, lokalizacje, languageCode). Pomijamy frazy kluczowe dla zwięzłości, ale należy je uwzględnić, jeśli chcesz zobaczyć te wartości.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Pola w instrukcji $select zawierają nowe informacje utworzone na podstawie możliwości przetwarzania języka naturalnego Cognitive Services. W zależności od tego, czy istnieją pewne zakłócenia w wynikach i zmianach w różnych dokumentach, ale w wielu przypadkach modele analityczne tworzą dokładne wyniki.
 
@@ -483,7 +483,7 @@ Odwołaj się do zawartości obiektu BLOB, gdzie cały dokument jest spakowany w
 1. W tym ostatnim przykładzie Zastosuj filtr w kolekcji organizacje, zwracając dwa dopasowania dla kryteriów filtrowania opartych na NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Te zapytania ilustrują kilka sposobów pracy z składnią zapytania i filtrami w nowych polach utworzonych przez wyszukiwanie poznawcze. Aby uzyskać więcej przykładów dotyczących zapytań, zobacz [przykłady w temacie Search Documents API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [proste zapytania składniowe](search-query-simple-examples.md)i [pełne przykłady zapytań](search-query-lucene-examples.md).
@@ -516,7 +516,7 @@ Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrz
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

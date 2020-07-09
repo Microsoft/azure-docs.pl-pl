@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202676"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym SAML dla JIRA przez rozwiązanie GmbH
 
@@ -33,7 +33,7 @@ Zintegrowanie usługi logowania jednokrotnego SAML dla aplikacji Jira firmy reso
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -117,7 +117,7 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-    > Aby uzyskać identyfikator, adres URL odpowiedzi i adres URL logowania, zastępczy ** \<adres URL serwera>** przy użyciu podstawowego adresu URL wystąpienia usługi JIRA. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. Jeśli wystąpił problem, skontaktuj się z nami przy [użyciu protokołu SAML SSO dla usługi JIRA przez rozwiązanie GmbH Client Support Team](https://www.resolution.de/go/support).
+    > Aby uzyskać identyfikator, adres URL odpowiedzi i adres URL logowania, należy zastąpić **\<server-base-url>** podstawowy adres URL wystąpienia JIRA. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. Jeśli wystąpił problem, skontaktuj się z nami przy [użyciu protokołu SAML SSO dla usługi JIRA przez rozwiązanie GmbH Client Support Team](https://www.resolution.de/go/support).
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Pobierz **plik XML metadanych Federacji** i Zapisz go na komputerze.
 
@@ -219,11 +219,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **Britta Simon**.
   
-    b. W polu **Nazwa użytkownika** wprowadź <b>BrittaSimon@contoso.com</b>wartość.
+    b. W polu **Nazwa użytkownika** wprowadź wartość <b>BrittaSimon@contoso.com</b> .
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -275,11 +275,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do logowania jedno
 
     ![Dodawanie pracownika](./media/samlssojira-tutorial/user4-new.png) 
 
-    a. W polu tekstowym **adres e-mail** wpisz adres e-mail użytkownika: <b>BrittaSimon@contoso.com</b>.
+    a. W polu tekstowym **adres e-mail** wpisz adres e-mail użytkownika: <b>BrittaSimon@contoso.com</b> .
 
     b. W polu tekstowym **pełna nazwa** wpisz pełną nazwę użytkownika: **Britta Simon**.
 
-    c. W polu tekstowym **Nazwa użytkownika** wpisz adres e-mail użytkownika: <b>BrittaSimon@contoso.com</b>. 
+    c. W polu tekstowym **Nazwa użytkownika** wpisz adres e-mail użytkownika: <b>BrittaSimon@contoso.com</b> . 
 
     d. W polu tekstowym **hasło** wprowadź hasło użytkownika.
 
@@ -291,7 +291,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka usługi logowania jednokrotnego SAML dla aplikacji Jira firmy resolution GmbH w panelu dostępu powinno nastąpić automatyczne zalogowanie się do usługi logowania jednokrotnego SAML dla aplikacji Jira firmy resolution GmbH, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Możesz również przetestować Logowanie jednokrotne, jeśli przejdziesz do `https://<server-base-url>/plugins/servlet/samlsso`. Zastępczy ** \<adres URL serwera>** przy użyciu podstawowego adresu URL wystąpienia JIRA.
+Możesz również przetestować Logowanie jednokrotne, jeśli przejdziesz do `https://<server-base-url>/plugins/servlet/samlsso` . Zamień na **\<server-base-url>** podstawowy adres URL wystąpienia JIRA.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Włącz przekierowanie logowania jednokrotnego dla JIRA
@@ -304,21 +304,23 @@ Aby uaktywnić przekierowywać Logowanie jednokrotne, wykonaj następujące czyn
 
 1. Dostęp do strony konfiguracji wtyczki rejestracji jednokrotnej protokołu SAML w JIRA.
 1. Kliknij pozycję **przekierowanie** w lewym panelu.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Zrzut ekranu przedstawiający stronę konfiguracji wtyczki JIRA SAML SingleSignOn wyróżnienie linku przekierowania w lewym okienku nawigacji.](./media/samlssojira-tutorial/ssore1.png)
 
 1. **Włączenie przekierowania rejestracji JEDNOkrotnej**.
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Zrzut ekranu przedstawiający stronę konfiguracyjną wtyczki SAML SingleSignOn JIRA, zaznaczając pole wyboru Włącz przekierowanie rejestracji jednokrotnej.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Naciśnij przycisk **Zapisz ustawienia** w prawym górnym rogu.
 
-Po aktywowaniu opcji można nadal uzyskać dostęp do monitu o podanie nazwy użytkownika/hasła, jeśli opcja **Włącz Nosso** jest pokryta przez `https://\<server-base-url>/login.jsp?nosso`przechodzenie do. Jako zawsze należy zastąpić ** \<adres URL serwera>** przy użyciu podstawowego adresu URL.
+Po aktywowaniu opcji można nadal uzyskać dostęp do monitu o podanie nazwy użytkownika/hasła, jeśli opcja **Włącz Nosso** jest pokryta przez przechodzenie do `https://\<server-base-url>/login.jsp?nosso` . Jak zawsze, należy zastąpić **\<server-base-url>** podstawowym adresem URL.
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

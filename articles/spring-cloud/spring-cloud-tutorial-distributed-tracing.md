@@ -1,17 +1,17 @@
 ---
-title: Samouczek — używanie rozproszonego śledzenia z chmurą Azure wiosennej
-description: W tym samouczku pokazano, jak używać śledzenia rozproszonego chmury wiosennej za pomocą usługi Azure Application Insights
+title: Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej
+description: Dowiedz się, jak używać śledzenia rozproszonego chmury wiosennej za pomocą usługi Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273209"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142113"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej
 
@@ -27,7 +27,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ [Przewodnik Szybki Start dotyczący wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
+Aby wykonać te procedury, potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ [Przewodnik Szybki Start dotyczący wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
     
 ## <a name="add-dependencies"></a>Dodaj zależności
 
@@ -39,7 +39,7 @@ Do ukończenia tego samouczka potrzebna jest usługa w chmurze Azure wiosny, kt�
 
    Po tej zmianie nadawca Zipkin może wysłać do sieci Web.
 
-1. Pomiń ten krok, jeśli korzystasz [z naszego przewodnika przygotowującego aplikację w chmurze platformy Azure](spring-cloud-tutorial-prepare-app-deployment.md). W przeciwnym razie przejdź do lokalnego środowiska deweloperskiego i edytuj plik pliku pom. XML w celu uwzględnienia następującej zależności Sleuth w chmurze:
+1. Pomiń ten krok, jeśli korzystasz [z naszego przewodnika przygotowującego aplikację w chmurze platformy Azure](spring-cloud-tutorial-prepare-app-deployment.md). W przeciwnym razie przejdź do lokalnego środowiska deweloperskiego i edytuj plik pom.xml, aby uwzględnić następującą zależność Sleuth chmury Wiosnowej:
 
     ```xml
     <dependencyManagement>
@@ -102,7 +102,4 @@ Application Insights udostępnia funkcje monitorowania oprócz mapy aplikacji i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób włączania i zrozumienia śledzenia rozproszonego w chmurze Azure wiosennej. Aby dowiedzieć się, jak powiązać aplikację z bazą danych Azure Cosmos DB, przejdź do następnego samouczka.
-
-> [!div class="nextstepaction"]
-> [Dowiedz się, jak powiązać z bazą danych Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)
+W tym artykule przedstawiono sposób włączania i zrozumienia śledzenia rozproszonego w chmurze Azure wiosennej. Aby dowiedzieć się więcej na temat usługi Binding Services dla aplikacji, zobacz [BIND a Azure Cosmos DB Database w aplikacji w chmurze ze sprężyną na platformie Azure](spring-cloud-tutorial-bind-cosmos.md).

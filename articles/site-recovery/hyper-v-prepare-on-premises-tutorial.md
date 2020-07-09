@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135650"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów funkcji Hyper-V do odzyskiwania po awarii do platformy Azure
 
@@ -56,12 +56,12 @@ Jeśli hosty funkcji Hyper-V są zarządzane przez program VMM, należy przygoto
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Przygotowanie programu VMM do mapowania sieci
 
-Jeśli używasz programu VMM, [mapowanie sieci](site-recovery-network-mapping.md) jest mapowane między lokalnymi sieciami maszyn wirtualnych programu VMM i sieciami wirtualnymi platformy Azure. Mapowanie zapewnia, że maszyny wirtualne platformy Azure są podłączone do odpowiedniej sieci, gdy są tworzone po przejściu w tryb failover.
+Jeśli używasz programu VMM, [mapowanie sieci](./hyper-v-vmm-network-mapping.md) jest mapowane między lokalnymi sieciami maszyn wirtualnych programu VMM i sieciami wirtualnymi platformy Azure. Mapowanie zapewnia, że maszyny wirtualne platformy Azure są podłączone do odpowiedniej sieci, gdy są tworzone po przejściu w tryb failover.
 
 Przygotuj program VMM do mapowania sieci w następujący sposób:
 
-1. Upewnij się, że masz [sieć logiczną programu VMM](https://docs.microsoft.com/system-center/vmm/network-logical) skojarzoną z chmurą, w której znajdują się hosty funkcji Hyper-V.
-2. Upewnij się, że [sieć maszyny wirtualnej](https://docs.microsoft.com/system-center/vmm/network-virtual) jest połączona z siecią logiczną.
+1. Upewnij się, że masz [sieć logiczną programu VMM](/system-center/vmm/network-logical) skojarzoną z chmurą, w której znajdują się hosty funkcji Hyper-V.
+2. Upewnij się, że [sieć maszyny wirtualnej](/system-center/vmm/network-virtual) jest połączona z siecią logiczną.
 3. W programie VMM Podłącz maszyny wirtualne do sieci maszyn wirtualnych.
 
 ## <a name="verify-internet-access"></a>Weryfikowanie dostępu do Internetu
@@ -94,5 +94,5 @@ Po przejściu w tryb failover możesz uzyskiwać dostęp do maszyn wirtualnych p
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych](tutorial-hyper-v-to-azure.md) 
->  funkcji Hyper-V [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM](tutorial-hyper-v-vmm-to-azure.md)
+> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych](./hyper-v-azure-tutorial.md) 
+>  funkcji Hyper-V [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM](./hyper-v-vmm-azure-tutorial.md)
