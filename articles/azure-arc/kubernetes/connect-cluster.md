@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: ec77609e5ee30cd3451c52635e530eb7153bc9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104285"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 * Musisz mieć plik kubeconfig, aby uzyskać dostęp do roli klastra i klastra w klastrze w celu wdrożenia agentów Kubernetes z włączonym łukiem.
 * Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters". Rola "Azure Arc for Kubernetes dołączania" z tymi uprawnieniami może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi używanej z interfejsem wiersza polecenia platformy Azure do dołączania.
 * Do dołączania klastra przy użyciu rozszerzenia connectedk8s jest wymagany Helm 3. [Zainstaluj najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install) , aby spełnić to wymaganie.
-* Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
+* Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
 * Zainstaluj rozszerzenia Kubernetes CLI z włączonym łukiem:
   
   Zainstaluj `connectedk8s` rozszerzenie, które ułatwia łączenie klastrów Kubernetes z platformą Azure:

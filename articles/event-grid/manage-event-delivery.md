@@ -1,18 +1,14 @@
 ---
 title: Utracony komunikat i zasady ponawiania — Azure Event Grid
 description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Event Grid. Ustaw miejsce docelowe utraconych wiadomości, a następnie określ, jak długo ma być ponawiane dostarczanie.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
-ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72794036"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105510"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Utracony i ponawianie zasad
 
@@ -49,7 +45,7 @@ Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić po
 > [!NOTE]
 > Jeśli używasz interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, powinien on być w wersji co najmniej 2.0.56. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $containername = "testcontainer"
@@ -101,7 +97,7 @@ az eventgrid event-subscription create \
 
 Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Aby ustawić czas wygaśnięcia zdarzenia na żywo na wartość inną niż 1440 minut, użyj:
 

@@ -1,18 +1,18 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919139"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105170"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
-Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
+Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [usługi Azure Lighthouse](../overview.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
 
 W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak dołączyć klientów do [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md).
+- Dowiedz się, jak dołączyć klientów do [usługi Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Dowiedz się więcej o [Azure monitor](../../azure-monitor/index.yml) i [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).

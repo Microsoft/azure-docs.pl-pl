@@ -1,18 +1,18 @@
 ---
 title: Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 description: Zapoznaj się z omówieniem śledzenia użycia klientów na potrzeby rozwiązań w portalu Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103028"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 

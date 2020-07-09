@@ -4,14 +4,14 @@ description: Informacje o konfigurowaniu prywatnego linku do Azure Database for 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b4ac25d6fca78962e9da4f7dd79476b8e8b9c2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5547c78007d38788d71e84f8fbf3ca8b60dc1576
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101753"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu portalu i zarządzanie nim
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz serwer Azure Database for MySQL na platformie Azure.
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
  
-7. Wybierz przycisk **OK**. 
+7. Kliknij przycisk **OK**. 
 8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
@@ -203,7 +203,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 

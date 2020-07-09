@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f5de8da90ac3356480fd809af68ab2c8b30540aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e4030583ac902093c30374c24b877e3f089eb02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465953"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106224"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
@@ -56,7 +57,7 @@ Rozmiar pamięci dla zadań mapowania i zmniejszania zależy od konkretnego zada
 
 Aby dostroić MapReduce. job. Maps/MapReduce. job. maleje, należy wziąć pod uwagę łączną ilość dostępnej pamięci PRZĘDZy do użycia.  Te informacje są dostępne w Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  Należy pomnożyć pamięć PRZĘDZy z liczbą węzłów w klastrze, aby uzyskać łączną ilość pamięci PRZĘDZy.
 
-    Total YARN memory = nodes * YARN memory per node
+Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
 
 Jeśli używasz pustego klastra, pamięć może być całkowitą ilością pamięci PRZĘDZy dla klastra.  Jeśli inne aplikacje używają pamięci, można użyć tylko części pamięci klastra, zmniejszając liczbę odwzorów lub mniejszą liczbę kontenerów, które mają być używane.  
 
@@ -64,7 +65,7 @@ Jeśli używasz pustego klastra, pamięć może być całkowitą ilością pami�
 
 Kontenery PRZĘDZy określają ilość współbieżności dostępnej dla zadania.  Weź łączną ilość pamięci PRZĘDZy i Podziel ją przez MapReduce. map. Memory.  
 
-    # of YARN containers = total YARN memory / mapreduce.map.memory
+\#kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/MapReduce. map. Memory
 
 **Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 
@@ -84,18 +85,19 @@ W tym przykładzie Załóżmy, że nasze zadanie jest jedynym uruchomionym zadan
 
 W tym przykładzie uruchomiono zadanie intensywnie korzystające z operacji we/wy i podjęto decyzję o tym, że WŁĄCZONĄ pamięci na potrzeby zadań związanych z mapowaniem będą wystarczające.
 
-    mapreduce.map.memory = 3GB
+MapReduce. map. Memory = WŁĄCZONĄ
 
 **Krok 3. Określanie całkowitej ilości pamięci PRZĘDZy**
 
-    Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+Łączna ilość pamięci z klastra to 8 węzłów * 96GB pamięci PRZĘDZy dla D14 = 768GB
+
 **Krok 4. Obliczanie liczby kontenerów PRZĘDZy**
 
-    # of YARN containers = 768GB of available memory / 3 GB of memory =   256
+\#kontenerów PRZĘDZy = 768GB dostępnej pamięci/3 GB pamięci = 256
 
 **Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 
-    mapreduce.map.jobs = 256
+mapreduce.map.jobs = 256
 
 ## <a name="examples-to-run"></a>Przykłady do uruchomienia
 
@@ -108,12 +110,18 @@ Oto kilka przykładowych poleceń do uruchomienia MapReduce Teragen, Terasort i 
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
+```
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
+```
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```cmd
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate
+```

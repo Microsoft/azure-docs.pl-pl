@@ -1,17 +1,18 @@
 ---
 title: Opcja co do Sprzedaj w centrum partnerskim | Portal Azure Marketplace
 description: Informacje wprowadzone na karcie współsprzedanie oferty będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o Twoim rozwiązaniu podczas oceny jego dopasowania do potrzeb klientów.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201447"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104235"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
 

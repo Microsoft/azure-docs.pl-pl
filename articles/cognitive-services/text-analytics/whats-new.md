@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462802"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103402"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
+
+## <a name="july-2020"></a>Lipiec 2020 r.
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>analiza tekstu na potrzeby publicznej wersji zapoznawczej kontenera kondycji
+
+Analiza tekstu dla kontenera kondycji jest teraz w publicznej wersji zapoznawczej, która umożliwia wyodrębnienie informacji z tekstu języka angielskiego bez struktury w dokumentach klinicznych, takich jak: formularze przyjmowania pacjentów, notatki lekarza, dokumenty badawcze i podsumowania zrzutów. Obecnie nie są naliczane opłaty za użycie kontenera kondycji analiza tekstu. 
+
+Kontener oferuje następujące funkcje:
+
+* Rozpoznawanie jednostek nazwanych
+* Wyodrębnianie relacji
+* Łączenie jednostek
+* Negacja
+
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat analiza tekstu dla kontenera kondycji](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maj 2020 r.
 
@@ -61,9 +78,6 @@ Nazwy następujących właściwości w odpowiedzi JSON zostały zmienione, o ile
 ### <a name="text-analytics-api-v31-public-preview"></a>Interfejs API analizy tekstu v 3.1 — publiczna wersja zapoznawcza
    * Nowa funkcja analiza tonacji — [Wyszukiwanie opinii](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Nowy [osobisty `PII` Filtr domeny](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) dla chronionych informacji o zdrowiu ( `PHI` ).
-   * Nowe kategorie osobiste ( `PII` ):
-      * Międzynarodowa Klasyfikacja Chorób (ICD-9-CM)
-      * Międzynarodowa Klasyfikacja Chorób (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o wersji zapoznawczej interfejs API analizy tekstu v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -75,7 +89,7 @@ Nazwy następujących właściwości w odpowiedzi JSON zostały zmienione, o ile
 W ramach [ujednoliconej wersji zestawu Azure SDK](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)zestaw interfejs API analizy tekstu v3 SDK jest teraz dostępny jako publiczna wersja zapoznawcza następujących języków programowania:
    * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (Node. js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
+   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
    
    > [!div class="nextstepaction"]
@@ -88,7 +102,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
     * Produkt
-    * Wydarzenie
+    * Zdarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 
@@ -97,7 +111,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
     * Organizacja
     * Wiek jako podtyp w ramach ilości
     * Data jako podtyp w obszarze DateTime
-    * Poczta e-mail 
+    * E-mail 
     * Numer telefonu (tylko Stany Zjednoczone)
     * Adres URL
     * Adres IP
@@ -105,7 +119,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej na temat nazwanego rozpoznawania jednostek v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
-### <a name="october-2019"></a>Październik 2019 r.
+### <a name="october-2019"></a>Październik 2019 r.
 
 #### <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 

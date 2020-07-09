@@ -1,13 +1,14 @@
 ---
 title: Wdrażanie zasad, które można skorygować
-description: Dowiedz się, jak dołączyć klienta do zarządzania zasobami delegowanymi przez platformę Azure, umożliwiając dostęp do zasobów i zarządzanie nimi za pomocą własnej dzierżawy.
-ms.date: 10/11/2019
+description: Aby wdrożyć zasady korzystające z zadania korygowania za pośrednictwem usługi Azure Lighthouse, należy utworzyć tożsamość zarządzaną w dzierżawie klienta.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: a953db44d8b4fc035d947d3534185062d0ec884b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc13b6209826d4a59d82bca5db63d4ca5c39f9fb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105340"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Wdróż zasady, które można skorygować w ramach delegowanej subskrypcji
 
@@ -15,7 +16,7 @@ Usługa [Azure Lighthouse](../overview.md) umożliwia dostawcom usług tworzenie
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Tworzenie użytkownika, który może przypisywać role do tożsamości zarządzanej w dzierżawie klienta
 
-Po dołączeniu klienta do zarządzania zasobami delegowanymi przez platformę Azure można użyć [szablonu Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów, który definiuje użytkowników, grupy użytkowników i jednostki usługi w dzierżawie zarządzającej, które będą mogły uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta. W pliku parametrów każdy z tych użytkowników (**principalId**) ma przypisaną [wbudowaną rolę](../../role-based-access-control/built-in-roles.md) (**zduplikowanych**), która definiuje poziom dostępu.
+Po dołączeniu klienta do usługi Azure Lighthouse należy użyć [szablonu Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) wraz z plikiem parametrów, który definiuje użytkowników, grupy użytkowników i jednostki usługi w dzierżawie zarządzającej, które będą mogły uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta. W pliku parametrów każdy z tych użytkowników (**principalId**) ma przypisaną [wbudowaną rolę](../../role-based-access-control/built-in-roles.md) (**zduplikowanych**), która definiuje poziom dostępu.
 
 Aby umożliwić usłudze **principalId** utworzenie tożsamości zarządzanej w dzierżawie klienta, należy ustawić jej **zduplikowanych** na **administratora dostępu użytkowników**. Chociaż ta rola nie jest ogólnie obsługiwana, może być używana w tym konkretnym scenariuszu, co umożliwia użytkownikom z uprawnieniami do przypisywania do tożsamości zarządzanych co najmniej jednej konkretnej wbudowanej roli. Role te są zdefiniowane we właściwości **delegatedRoleDefinitionIds** . W tym miejscu możesz dołączyć dowolną wbudowaną rolę z wyjątkiem administratora dostępu użytkownika lub właściciela.
 
@@ -37,11 +38,11 @@ W poniższym przykładzie przedstawiono **principalId** , którzy będą mieć r
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>Wdrażanie zasad, które można skorygować
 
-Po utworzeniu użytkownika z wymaganymi uprawnieniami, zgodnie z powyższym opisem, ten użytkownik będzie mógł wdrażać zasady w dzierżawie klienta korzystającej z zadań korygowania.
+Po utworzeniu użytkownika z wymaganymi uprawnieniami, jak opisano powyżej, użytkownik może wdrożyć zasady korzystające z zadań korygowania w ramach dzierżawy klienta.
 
 Załóżmy na przykład, że chcesz włączyć diagnostykę zasobów Azure Key Vault w dzierżawie klienta, jak pokazano w tym [przykładzie](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Użytkownik w dzierżawie zarządzającej z odpowiednimi uprawnieniami (zgodnie z powyższym opisem) wdroży [szablon Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) , aby włączyć ten scenariusz.
 
-Należy pamiętać, że tworzenie przypisania zasad, które ma być używane z delegowaną subskrypcją, musi być obecnie wykonywane za pomocą interfejsów API, a nie w Azure Portal. W takim przypadku **apiVersion** musi mieć ustawioną wartość **2019-04-01-Preview**, która obejmuje nową właściwość **delegatedManagedIdentityResourceId** . Ta właściwość umożliwia dołączenie tożsamości zarządzanej, która znajduje się w dzierżawie klienta (w ramach subskrypcji lub grupy zasobów, która została dołączona do zarządzania zasobami delegowanymi przez platformę Azure).
+Należy pamiętać, że tworzenie przypisania zasad, które ma być używane z delegowaną subskrypcją, musi być obecnie wykonywane za pomocą interfejsów API, a nie w Azure Portal. W takim przypadku **apiVersion** musi mieć ustawioną wartość **2019-04-01-Preview**, która obejmuje nową właściwość **delegatedManagedIdentityResourceId** . Ta właściwość umożliwia dołączenie tożsamości zarządzanej, która znajduje się w dzierżawie klienta (w ramach subskrypcji lub grupy zasobów, która została dołączona do usługi Azure Lighthouse).
 
 Poniższy przykład przedstawia przypisanie roli z **delegatedManagedIdentityResourceId**.
 

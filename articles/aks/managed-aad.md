@@ -7,19 +7,25 @@ author: mlearned
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: mlearned
-ms.openlocfilehash: bf635d37559d09e887a67be27c412bff7899127b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105952"
 ---
-# <a name="integrate-aks-managed-azure-ad-preview"></a>Integrowanie usługi Azure AD zarządzanej przez usługę AKS (wersja zapoznawcza)
+# <a name="aks-managed-azure-active-directory-integration-preview"></a>Integracja Azure Active Directory zarządzanej przez AKS (wersja zapoznawcza)
 
-> [!Note]
+> [!NOTE]
 > Nowe środowisko usługi Azure AD zarządzane przez usługę AKS nie ma wpływ na istniejące klastry AKS (Azure Kubernetes Service) z integracją z usługą Azure Active Directory (Azure AD).
 
-Integracja usługi Azure AD z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona do uproszczenia środowiska integracji z usługą Azure AD, w której użytkownicy musieli wcześniej utworzyć aplikację kliencką, aplikację serwera i wymagane przez dzierżawcę usługi Azure AD udzielić uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów AKS zarządza aplikacjami klienta i serwera.
+Integracja z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona do uproszczenia środowiska integracji z usługą Azure AD, w przypadku których użytkownicy wcześniej musieli utworzyć aplikację kliencką, aplikację serwera i wymaganą dzierżawą usługi Azure AD w celu udzielenia uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów AKS zarządza aplikacjami klienta i serwera.
+
+## <a name="azure-ad-authentication-overview"></a>Omówienie uwierzytelniania usługi Azure AD
+
+Administratorzy klastra mogą konfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
+
+Więcej informacji o przepływie integracji usługi AAD znajduje się w [dokumentacji dotyczącej pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -80,30 +86,6 @@ Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsof
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-## <a name="azure-ad-authentication-overview"></a>Omówienie uwierzytelniania usługi Azure AD
-
-Administratorzy klastra mogą konfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
-
-W ramach klastra Kubernetes uwierzytelnianie tokenu elementu webhook służy do weryfikowania tokenów uwierzytelniania. Uwierzytelnianie za pomocą tokenu elementu webhook jest konfigurowane i zarządzane w ramach klastra AKS.
-
-## <a name="webhook-and-api-server"></a>Element webhook i serwer interfejsu API
-
-:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="Przepływ uwierzytelniania elementu webhook i serwera interfejsu API":::
-
-Jak pokazano na powyższej ilustracji, serwer interfejsu API wywołuje serwer webhook AKS i wykonuje następujące czynności:
-
-1. Aplikacja kliencka usługi Azure AD jest używana przez polecenia kubectl do logowania użytkowników przy użyciu [przepływu przydzielenia autoryzacji urządzeń](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)z uwierzytelnianiem OAuth 2,0.
-2. Usługa Azure AD udostępnia access_token, id_token i refresh_token.
-3. Użytkownik wysyła żądanie polecenia kubectl z access_token z kubeconfig.
-4. Polecenia kubectl wysyła access_token do APIServer.
-5. Serwer interfejsu API jest skonfigurowany z serwerem elementu webhook uwierzytelniania w celu przeprowadzenia walidacji.
-6. Serwer elementu webhook uwierzytelniania potwierdza, że podpis tokenu sieci Web JSON jest prawidłowy, sprawdzając publiczny klucz podpisywania usługi Azure AD.
-7. Aplikacja serwera używa poświadczeń dostarczonych przez użytkownika do wykonywania zapytań dotyczących członkostwa w grupach zalogowanego użytkownika z usługi MS interfejs API programu Graph.
-8. Odpowiedź jest wysyłana do APIServer z informacjami o użytkowniku, takimi jak oświadczenie głównej nazwy użytkownika (UPN) tokenu dostępu i członkostwem w grupie użytkownika na podstawie identyfikatora obiektu.
-9. Interfejs API wykonuje decyzję autoryzacji na podstawie roli Kubernetes/Rolebinding.
-10. Po autoryzowaniu serwer interfejsu API zwróci odpowiedź do polecenia kubectl.
-11. Polecenia kubectl dostarcza użytkownikowi informacje zwrotne.
-
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Tworzenie klastra AKS z włączoną usługą Azure AD
 
@@ -123,7 +105,7 @@ Możesz użyć istniejącej grupy usługi Azure AD lub utworzyć nową. Potrzebu
 az ad group list
 ```
 
-Aby uzyskać nową grupę usługi Azure AD dla administratorów klastra, użyj następującego polecenia:
+Aby utworzyć nową grupę usługi Azure AD dla administratorów klastra, użyj następującego polecenia:
 
 ```azurecli-interactive
 # Create an Azure AD group
@@ -139,7 +121,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-g
 
 Pomyślne utworzenie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
 ```
-"Azure ADProfile": {
+"AADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "managed": true,
@@ -153,7 +135,7 @@ Klaster jest tworzony w ciągu kilku minut.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Dostęp do klastra z obsługą usługi Azure AD
 
-Aby wykonać następujące kroki, potrzebna jest wbudowana rola [użytkownika klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
+Aby wykonać poniższe kroki, potrzebna jest wbudowana rola [użytkownika klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
 
 Uzyskaj poświadczenia użytkownika w celu uzyskania dostępu do klastra:
  
@@ -181,20 +163,22 @@ Skonfiguruj [Access Control oparte na rolach (RBAC)](https://docs.microsoft.com/
 
 Jeśli użytkownik jest trwale zablokowany przez brak dostępu do prawidłowej grupy usługi Azure AD z dostępem do klastra, można nadal uzyskać poświadczenia administratora, aby uzyskać bezpośredni dostęp do klastra.
 
-Aby wykonać te kroki, musisz mieć dostęp do wbudowanej roli [administratora klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) .
+Aby wykonać te czynności, musisz mieć dostęp do wbudowanej roli [administratora klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) .
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
 
-## <a name="non-interactive-login-with-kubelogin"></a>Nieinterakcyjne Logowanie przy użyciu kubelogin
+## <a name="non-interactive-sign-in-with-kubelogin"></a>Logowanie nieinterakcyjne za pomocą kubelogin
 
-Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do klastra za pomocą nazwy logowania jednostki usługi nieinteraktywnej.
+Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć, [`kubelogin`](https://github.com/Azure/kubelogin) Aby uzyskać dostęp do klastra przy użyciu logowania jednokrotnego podmiotu zabezpieczeń usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Access Control opartych na rolach w usłudze Azure AD][azure-ad-rbac].
+* Dowiedz się więcej o [integracji z usługą Azure RBAC na potrzeby autoryzacji Kubernetes][azure-rbac-integration]
+* Poznaj [integrację usługi Azure AD z usługą KUBERNETES RBAC][azure-ad-rbac].
 * Użyj [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do funkcji uwierzytelniania platformy Azure, które nie są dostępne w polecenia kubectl.
+* Dowiedz się więcej o [pojęciach dotyczących tożsamości AKS i Kubernetes][aks-concepts-identity].
 * Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] do tworzenia klastrów z obsługą usługi Azure AD, które są zarządzane przez AKS.
 
 <!-- LINKS - external -->
@@ -203,6 +187,8 @@ Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, kt
 [aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[azure-rbac-integration]: manage-azure-rbac.md
+[aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

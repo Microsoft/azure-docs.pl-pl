@@ -3,16 +3,16 @@ title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą s
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bca5b6fdc84fa5a7a5553fe64c0218c5f0b44aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105272"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
-Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do zarządzania zasobami delegowanymi przez platformę Azure. Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawach Azure Active Directory (Azure AD) jednocześnie, co sprawia, że zadania zarządzania są bardziej wydajne.
+Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../overview.md). Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawach Azure Active Directory (Azure AD) jednocześnie, co sprawia, że zadania zarządzania są bardziej wydajne.
 
 System Azure Wskaźnikowanie zapewnia obsługę analizy zabezpieczeń i analizy zagrożeń, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia. Usługa Azure Lighthouse umożliwia zarządzanie wieloma obszarami roboczymi wskaźników platformy Azure w różnych dzierżawach. Pozwala to na takie scenariusze jak uruchamianie zapytań w wielu obszarach roboczych lub tworzenie skoroszytów w celu wizualizowania i monitorowania danych z połączonych źródeł danych w celu uzyskania szczegółowych informacji. Adresy IP, takie jak zapytania i elementy PlayBook pozostają w dzierżawie zarządzającej, ale mogą być używane do zarządzania zabezpieczeniami w dzierżawach klientów.
 
@@ -35,7 +35,7 @@ Ten scentralizowany model wdrożenia ma następujące zalety:
 
 ## <a name="granular-role-based-access-control-rbac"></a>Szczegółowa kontrola dostępu oparta na rolach (RBAC)
 
-Każdą subskrypcję klienta, którą będzie zarządzać MSSP, należy [dołączyć do zarządzania zasobami delegowanymi na platformie Azure](onboard-customer.md). Umożliwia to Wyznaczeni użytkownikom w dzierżawie zarządzającej dostęp i wykonywanie operacji zarządzania w obszarach roboczych usługi Azure wskaźnikowych wdrożonych w dzierżawach klientów.
+Każdą subskrypcję klienta, którą będzie zarządzać MSSP, należy [dołączyć do usługi Azure Lighthouse](onboard-customer.md). Umożliwia to Wyznaczeni użytkownikom w dzierżawie zarządzającej dostęp i wykonywanie operacji zarządzania w obszarach roboczych usługi Azure wskaźnikowych wdrożonych w dzierżawach klientów.
 
 Podczas tworzenia autoryzacji można przypisać wbudowane role kontrolki Azure — do użytkowników, grup lub jednostek usługi w dzierżawie zarządzającej:
 

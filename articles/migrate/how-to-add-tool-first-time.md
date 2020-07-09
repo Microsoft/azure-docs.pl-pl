@@ -3,15 +3,16 @@ title: Dodaj narzędzie do oceny/migracji w Azure Migrate
 description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzędzia do oceny/migracji.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82901189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102535"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Dodawanie narzędzia oceny/migracji po raz pierwszy
 
-W tym artykule opisano sposób dodawania narzędzia do oceny lub migracji do projektu [Azure Migrate](migrate-overview.md) po raz pierwszy.  
+W tym artykule opisano sposób dodawania narzędzia do oceny lub migracji do projektu [Azure Migrate](./migrate-services-overview.md) po raz pierwszy.  
 Azure Migrate udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń oraz maszyn wirtualnych chmur prywatnych/publicznych na platformie Azure. Centrum udostępnia Azure Migrate narzędzia do oceny i migracji, a także inne narzędzia i [oferty](migrate-services-overview.md#isv-integration) niezależnych dostawców oprogramowania (ISV). 
 
 ## <a name="check-permissions-to-create-project"></a>Sprawdź uprawnienia do tworzenia projektu

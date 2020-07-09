@@ -3,11 +3,12 @@ title: Przygotuj Azure Migrate do pracy z narzędziami niezależnego dostawcy op
 description: W tym artykule opisano sposób przygotowania Azure Migrate do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia, a następnie rozpoczęcia korzystania z narzędzia.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103929"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Przygotowanie do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia
 
@@ -35,7 +36,7 @@ W ramach subskrypcji platformy Azure Twoje konto musi mieć dostęp do **program
 1. W witrynie Azure Portal otwórz pozycję **Subskrypcje**.
 2. Wybierz odpowiednią subskrypcję. Jeśli go nie widzisz, wybierz **Filtr subskrypcje globalne**. 
 3. Wybierz pozycję **Moje uprawnienia**. Następnie wybierz **pozycję kliknij tutaj, aby wyświetlić pełne szczegóły dostępu dla tej subskrypcji**.
-4. W **widoku przypisania ról**  >  **View**Sprawdź uprawnienia. Jeśli Twoje konto nie ma uprawnień, poprosimy administratora subskrypcji o dodanie do roli [administratora dostępu użytkownika](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub roli [właściciela](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) .
+4. W **widoku przypisania ról**  >  **View**Sprawdź uprawnienia. Jeśli Twoje konto nie ma uprawnień, poprosimy administratora subskrypcji o dodanie do roli [administratora dostępu użytkownika](../role-based-access-control/built-in-roles.md#user-access-administrator) lub roli [właściciela](../role-based-access-control/built-in-roles.md#owner) .
 
 ## <a name="allow-access-to-urls"></a>Zezwalanie na dostęp do adresów URL
 

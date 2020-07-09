@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357396"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103555"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
 W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
@@ -39,6 +39,10 @@ Harmonogram jest odpowiedzialny za dwa zadania:
 * **Zadania konserwacji**. Odnawianie kluczy i certyfikatów do resetowania haseł i usługi rejestracji urządzeń (DRS). Przeczyść stare wpisy w dzienniku operacji.
 
 Sam harmonogram jest zawsze uruchomiony, ale można go skonfigurować tak, aby uruchamiał tylko jedno lub żadne z tych zadań. Na przykład jeśli musisz mieć własny proces cyklu synchronizacji, możesz wyłączyć to zadanie w harmonogramie, ale nadal uruchomić zadanie obsługi.
+
+>[!IMPORTANT]
+>Musisz się upewnić, że cykl synchronizacji jest uruchamiany co najmniej raz w ciągu 7 dni. Niewykonanie tej czynności może spowodować problemy z synchronizacją, co spowoduje konieczność uruchomienia pełnej synchronizacji w celu rozwiązania problemu.
+
 
 ## <a name="scheduler-configuration"></a>Konfiguracja harmonogramu
 Aby wyświetlić bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom polecenie `Get-ADSyncScheduler` . Przedstawiono tutaj następujący obraz:

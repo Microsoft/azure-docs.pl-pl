@@ -1,18 +1,16 @@
 ---
 title: Kontrola współbieżności — Azure Marketplace
 description: Strategie kontroli współbieżności dla interfejsów API publikowania portal Cloud Partner.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: dec18daea2f4f257e3bb21ee0477e3629b2e630b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b66d266500745d08bef98a42e51cc8a7bab63958
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516371"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102739"
 ---
 # <a name="concurrency-control"></a>Kontrola współbieżności
 

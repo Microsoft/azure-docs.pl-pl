@@ -4,14 +4,15 @@ description: Ten dokument zawiera listę obecnie obsługiwanych parametrów poł
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3afa43f4db04b8289dea8e3d2d6511efb27b3d28
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558300"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104643"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Jak połączyć aplikacje z usługą Azure Database for MariaDB
 W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane przez Azure Database for MariaDB wraz z szablonami i przykładami. W parametrach połączenia mogą istnieć inne parametry i ustawienia.

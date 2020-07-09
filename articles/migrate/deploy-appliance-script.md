@@ -3,15 +3,16 @@ title: Skonfiguruj urządzenie Azure Migrate za pomocą skryptu
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate za pomocą skryptu
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102450"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurowanie urządzenia za pomocą skryptu
 
-Postępuj zgodnie z tym artykułem, aby utworzyć [urządzenie Azure Migrate](deploy-appliance.md) do oceny/migracji maszyn wirtualnych VMware oraz maszyn wirtualnych funkcji Hyper-V. Uruchom skrypt, aby utworzyć urządzenie, i sprawdź, czy może nawiązać połączenie z platformą Azure. 
+Postępuj zgodnie z tym artykułem, aby utworzyć [urządzenie Azure Migrate](./migrate-appliance-architecture.md) do oceny/migracji maszyn wirtualnych VMware oraz maszyn wirtualnych funkcji Hyper-V. Uruchom skrypt, aby utworzyć urządzenie, i sprawdź, czy może nawiązać połączenie z platformą Azure. 
 
 Możesz wdrożyć urządzenie dla maszyn wirtualnych VMware i funkcji Hyper-V za pomocą skryptu lub przy użyciu szablonu pobranego z Azure Portal. Użycie skryptu jest przydatne, jeśli nie można utworzyć maszyny wirtualnej przy użyciu pobranego szablonu.
 

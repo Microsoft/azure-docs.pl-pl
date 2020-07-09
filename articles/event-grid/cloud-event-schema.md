@@ -1,19 +1,16 @@
 ---
-title: Używanie Azure Event Grid ze zdarzeniami w schemacie CloudEvents
+title: Schemat CloudEvents v 1.0 z Azure Event Grid
 description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure Event Grid. Usługa obsługuje zdarzenia w implementacji JSON zdarzeń w chmurze.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: femila
-ms.openlocfilehash: 57827b1c5a43a3408d374e8bddb7b91113b2929a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1c6085c0397f23d44cf11d43a3e1da71f0e728bb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560692"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103079"
 ---
-# <a name="cloudevents-v10-schema-with-event-grid"></a>Schemat CloudEvents v 1.0 z Event Grid
+# <a name="cloudevents-v10-schema-with-azure-event-grid"></a>Schemat CloudEvents v 1.0 z Azure Event Grid
 
 Poza [domyślnym schematem zdarzeń](event-schema.md), Azure Event Grid natywnie obsługuje zdarzenia w [implementacji JSON CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) i [powiązania protokołu HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) to [otwarta Specyfikacja](https://github.com/cloudevents/spec/blob/v1.0/spec.md) dla opisywania danych zdarzenia.
 

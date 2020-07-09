@@ -1,17 +1,14 @@
 ---
 title: Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 description: Opisuje, w jaki sposób można używać kolejek Service Bus i tematów jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: c9e1c9aa664065371595ed34a3af28330bd7e0db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798877"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105697"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Service Bus** jest jednym z nich. 

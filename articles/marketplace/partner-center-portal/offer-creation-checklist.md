@@ -1,18 +1,16 @@
 ---
 title: Lista kontrolna tworzenia oferty SaaS w portalu komercyjnym firmy Microsoft
 description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS w centrum partnerskim.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101712"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 

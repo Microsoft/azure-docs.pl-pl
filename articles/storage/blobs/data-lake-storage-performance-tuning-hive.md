@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522f9215a0b66c5e6bec5abf41e45489efec19ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465970"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106315"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: Hive, & usługi HDInsight Azure Data Lake Storage Gen2
 
@@ -56,17 +57,18 @@ Obciążenia intensywnie korzystające z operacji we/wy mogą korzystać z więk
 
 Liczba współbieżnych zadań uruchomionych lub równoległych zostanie ograniczona przez łączną ilość pamięci PRZĘDZy.  Liczba kontenerów PRZĘDZy będzie określać liczbę współbieżnych zadań, które można uruchomić.  Aby znaleźć pamięć PRZĘDZy na węzeł, możesz przejść do Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+- Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
+- \#kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/rozmiar kontenera tez
+
 Kluczem do poprawienia wydajności przy użyciu Data Lake Storage Gen2 jest zwiększenie współbieżności tak, jak to możliwe.  Tez automatycznie oblicza liczbę zadań, które należy utworzyć, aby nie trzeba było ich ustawiać.   
 
 ## <a name="example-calculation"></a>Przykładowe obliczenie
 
 Załóżmy, że masz klaster D14 z 8 węzłami.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+- Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
+- Łączna ilość pamięci PRZĘDZy = 8 węzłów * 96GB = 768GB
+- \#kontenerów PRZĘDZy = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Więcej informacji na temat dostrajania programu Hive
 

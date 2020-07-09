@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: fc2013a3875c74a1371196cacb0096356cf3ffdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf21b8714554dcdc52ab6e34041c738ec2653f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466123"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105068"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu .NET do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -200,6 +201,8 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 ```
 
+Możesz również uzyskać i ustawić listę kontroli dostępu dla katalogu głównego systemu plików. Aby uzyskać katalog główny, należy przekazać pusty ciąg ( `""` ) do metody [DataLakeFileSystemClient. GetDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient) .
+
 ## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu
 
 Najpierw Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) . Przekaż plik, wywołując metodę [DataLakeFileClient. AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) . Upewnij się, że ukończono przekazywanie, wywołując metodę [DataLakeFileClient. FlushAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) .
@@ -353,11 +356,11 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja referencyjna interfejsu API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)
-* [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
+* [Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 * [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Przekaż opinię](https://github.com/Azure/azure-sdk-for-net/issues)

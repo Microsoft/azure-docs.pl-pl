@@ -1,18 +1,18 @@
 ---
 title: Kody krajów i regionów współsprzedawcy | Portal Azure Marketplace
 description: Korzystając z tych dwuliterowych kodów kraju/regionu podczas udostępniania informacji kontaktowych na stronie współpracownika oferty.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80277060"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105136"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Kody krajów i regionów współpracujących
 

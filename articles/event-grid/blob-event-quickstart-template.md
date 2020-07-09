@@ -1,20 +1,14 @@
 ---
 title: Wysyłanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web — szablon
 description: Użyj Azure Event Grid i szablonu Azure Resource Manager do tworzenia konta usługi BLOB Storage i subskrybowania jego zdarzeń. Wyślij zdarzenia do elementu webhook ".
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: subject-armqs
-ms.openlocfilehash: 2d7991a00bedf49147b7a6015b5a5e0ce8892ac3
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479865"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103317"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Kierowanie zdarzeń usługi BLOB Storage do punktu końcowego sieci Web przy użyciu szablonu ARM
 
@@ -83,7 +77,7 @@ Podczas przekazywania pliku do magazynu obiektów blob platformy Azure program E
 
 ![Wyświetlanie wyników](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
 ).
@@ -94,5 +88,5 @@ Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zoba
 
 * [Dokumentacja Azure Resource Manager](/azure/azure-resource-manager)
 * [Definiowanie zasobów w szablonach Azure Resource Manager](/azure/templates/)
-* [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
+* [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)
 * [Szablony Azure Event Grid](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

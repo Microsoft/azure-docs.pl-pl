@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: 53ef9f66034d40e221a9ae4c8647cecdfe709107
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ee0e5bd0d9d1fa941af245ecc6182ba1608eef0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104966"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Konfigurowanie parametrów serwera w Azure Database for MariaDB przy użyciu programu PowerShell
 

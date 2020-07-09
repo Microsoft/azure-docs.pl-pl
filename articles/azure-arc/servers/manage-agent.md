@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103912"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -45,7 +46,7 @@ Agenta można uaktualnić, wykonując różne metody obsługi procesu zarządzan
 > * Aby uaktualnić agenta, musisz mieć uprawnienia *administratora* .
 > * Aby uaktualnić ręcznie, należy najpierw pobrać i skopiować pakiet Instalatora do folderu na serwerze docelowym lub z udostępnionego folderu sieciowego. 
 
-Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](/windows/win32/msi/command-line-options).
 
 #### <a name="to-upgrade-using-the-setup-wizard"></a>Aby przeprowadzić uaktualnienie przy użyciu Kreatora instalacji
 

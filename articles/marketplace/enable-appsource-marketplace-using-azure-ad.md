@@ -1,17 +1,18 @@
 ---
 title: Integruj swoją ofertę komercyjnej witryny Microsoft Marketplace z Azure Active Directory
 description: Użyj Azure Active Directory do uwierzytelniania Microsoft AppSource i ofert w portalu Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: e2fff55fd9161aa41411dcb1abbf8ae0c1bae49c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957838"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103627"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory
 
@@ -36,7 +37,7 @@ Różne [Opcje i typy ofert](determine-your-listing-type.md) dostępne w komercy
 | Aplikacje platformy Azure (szablon rozwiązania)  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 | Aplikacje zarządzane  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
 | SaaS  | Nie | Yes | Tak | Tak |
-| Containers  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
+| Kontenery  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
 | Usługi konsultingowe  | Nie | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 
 Więcej informacji o wymaganiach technicznych SaaS można znaleźć w temacie [SaaS Applications oferują Podręcznik publikowania](marketplace-saas-applications-technical-publishing-guide.md).

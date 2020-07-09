@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf22ce87ed3d535a7c1bd03a8d7f747bee3ab13a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106394"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
@@ -44,9 +45,9 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie               | Ustawienia     | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Pomocą distcp            | -m (mapowanie)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Pomocą distcp            | -m (mapowanie)   | [Łącze](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Łącze](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Łącze](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -64,13 +65,13 @@ W przypadku obciążeń platformy Hive oczyszczanie partycji danych szeregów cz
 
 Te potoki, które pobierają dane szeregów czasowych, często umieszczają pliki z bardzo strukturalną nazewnictwem plików i folderów. Poniżej znajduje się bardzo typowy przykład dla danych, które są uporządkowane według daty:
 
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\ datafile_YYYY_MM_DD. tsv*
 
 Zwróć uwagę, że informacje o dacie i godzinie są wyświetlane zarówno jako foldery, jak i w nazwie pliku.
 
 W przypadku daty i godziny następujący wzorzec jest typowym wzorcem
 
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*
 
 Po ponownym wyborze z folderu i organizacji plików należy zoptymalizować dla większych rozmiarów plików i rozsądnej liczby plików w poszczególnych folderach.
 
@@ -137,5 +138,5 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 | [MapReduce w usłudze HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

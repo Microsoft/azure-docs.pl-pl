@@ -105,12 +105,8 @@
       items:
         - name: Dodawanie aplikacji w chmurze
           items:
-            - name: Dodawanie aplikacji z galerii
-              href: add-gallery-app.md
             - name: Dodawanie aplikacji spoza galerii
               href: add-non-gallery-app.md
-            - name: Zmienianie nazwy lub logo aplikacji
-              href: change-name-or-logo-portal.md
         - name: Konfigurowanie logowania jednokrotnego
           items:
             - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML

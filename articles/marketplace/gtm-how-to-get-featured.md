@@ -1,17 +1,18 @@
 ---
 title: Usługi na rynku — jak uzyskać proponowane informacje w witrynie Marketplace | Portal Azure Marketplace
 description: Usługi "przejdź do rynku" — w tej sekcji opisano, jak uzyskać listę proponowaną w portalu Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: aac3f87c642559b0dfa13c38da448e425df3ffa2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957804"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103572"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Jak uzyskać promowanie w AppSource i witrynie Azure Marketplace
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Wdrażanie obciążeń Azure IoT Edge
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103980"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Usługa Azure Arc i Azure IoT Edge uzupełniają wszystkie możliwości. Usługa
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
-* [Zarejestruj urządzenie IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) i [Wdróż moduł symulowanej czujnika temperatury](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Pamiętaj, aby zanotować parametry połączenia urządzenia.
+* [Zarejestruj urządzenie IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) i [Wdróż moduł symulowanej czujnika temperatury](../../iot-edge/quickstart-linux.md#deploy-a-module). Pamiętaj, aby zanotować parametry połączenia urządzenia.
 
 * Użyj [obsługi IoT Edge](https://aka.ms/edgek8sdoc) , aby wdrożyć ją za pośrednictwem operatora strumienia usługi Azure Arc.
 

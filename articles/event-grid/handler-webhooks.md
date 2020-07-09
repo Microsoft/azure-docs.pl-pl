@@ -1,17 +1,14 @@
 ---
 title: Elementy webhook jako programy obsługi zdarzeń dla zdarzeń Azure Event Grid
 description: Opisuje, w jaki sposób można używać elementów webhook jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid. Elementy Runbook Azure Automation i Aplikacje logiki są obsługiwane jako programy obsługi zdarzeń za pośrednictwem elementów webhook.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: d29cf1819d844a8ba5446feeeb725307523fce1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83800537"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105612"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhook, elementy Runbook usługi Automation, Logic Apps jako programy obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń. Możesz również użyć dowolnego elementu webhook do obsługi zdarzeń. Elementy webhook nie muszą być hostowane na platformie Azure, aby obsługiwać zdarzenia. Event Grid obsługuje tylko punkty końcowe elementu webhook protokołu HTTPS.

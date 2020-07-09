@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować link prywatny dla Azure Database f
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102467"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
 
@@ -121,7 +121,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
  
-7. Wybierz przycisk **OK**. 
+7. Kliknij przycisk **OK**. 
 8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
@@ -201,7 +201,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 

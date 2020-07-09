@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cbff2cbed37a4cff91116596f1c20dc3d170cae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513493"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105187"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Use Azure Import/Export service to import data to Azure Files (Używanie usługi Azure Import/Export do importowania danych do usługi Azure Files)
 
@@ -94,15 +95,15 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 
 5. Użyj `PrepImport` opcji, aby skopiować i przygotować dane na dysku. W pierwszej sesji kopiowania do kopiowania katalogów i/lub plików z nową sesją kopiowania Uruchom następujące polecenie:
 
-       ```
-       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-       ```
+    ```cmd
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+    ```
 
    Poniższy przykład importowania jest przedstawiony poniżej.
 
-       ```
-       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-       ```
+    ```cmd
+    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+    ```
 
 6. Plik dziennika o nazwie podanej z `/j:` parametrem jest tworzony dla każdego przebiegu wiersza polecenia. Każdy przygotowany dysk ma plik dziennika, który należy przekazać podczas tworzenia zadania importu. Dyski bez plików dziennika nie są przetwarzane.
 
@@ -179,30 +180,30 @@ Aby **dodać więcej dysków**, Utwórz nowy plik driveset i uruchom polecenie w
 
 W przypadku kolejnych sesji kopiowania na różne stacje dysków, które nie są określone w pliku *InitialDriveset. csv* , określ nowy plik driveset *. csv* i podaj go jako wartość parametru `AdditionalDriveSet` . Użyj tej **samej nazwy pliku dziennika** i podaj **nowy identyfikator sesji**. Format pliku CSV AdditionalDriveset jest taki sam jak format InitialDriveSet.
 
-    ```
-    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
-    ```
+```cmd
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
+```
 
 Poniższy przykład importowania jest przedstawiony poniżej.
 
-    ```
-    WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
-    ```
+```cmd
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
+```
 
 
 Aby dodać dodatkowe dane do tego samego driveset, użyj polecenia PrepImport w celu kopiowania dodatkowych plików/katalogów do kolejnych sesji kopiowania.
 
 W przypadku kolejnych sesji kopiowania na te same stacje dysków twardych określonych w *InitialDriveset.csv* pliku należy określić tę **samą nazwę pliku dziennika** i podać **nowy identyfikator sesji**; nie ma potrzeby podania klucza konta magazynu.
 
-    ```
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
-    ```
+```cmd
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
+```
 
 Poniższy przykład importowania jest przedstawiony poniżej.
 
-    ```
-    WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
-    ```
+```cmd
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

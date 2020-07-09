@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: c1801c1b26742661987ea822a3cb1479f40ec059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103997"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -67,7 +67,7 @@ Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając *Azure
 
 Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie opisane w dalszej części artykułu. Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` .
 
-Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](/windows/win32/msi/command-line-options).
 
 Na przykład Uruchom program instalacyjny z `/?` parametrem, aby przejrzeć opcję Pomoc i krótka dokumentacja. 
 
