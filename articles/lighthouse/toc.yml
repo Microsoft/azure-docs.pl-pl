@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Dołączanie klienta do zarządzania zasobami delegowanymi na platformie Azure
+    - name: Dołączanie klienta do usługi Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publikowanie ofert usługi zarządzanej w witrynie Azure Marketplace

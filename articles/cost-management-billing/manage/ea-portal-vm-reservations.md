@@ -3,16 +3,16 @@ title: Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azur
 description: W tym artykule przedstawiono podsumowanie sposobu, w jaki rezerwacje platformy Azure dla wystąpień zarezerwowanych maszyn wirtualnych mogą pomóc w zaoszczędzeniu pieniędzy dzięki rejestracji w przedsiębiorstwie.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735425"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044859"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure
 
@@ -83,9 +83,9 @@ Jeśli nie użyto korzyści z użycia hybrydowego platformy Azure do zakupu wyst
 
 ### <a name="reserved-instance-billing"></a>Rozliczenia wystąpień zarezerwowanych
 
-Klienci korporacyjni kupują wystąpienia zarezerwowane maszyn wirtualnych platformy Azure, korzystając ze zobowiązania pieniężnego platformy Azure. Jeśli rejestracja ma wystarczająco duże saldo zobowiązania pieniężnego na pokrycie zakupu wystąpienia zarezerwowanego, kwota zostanie odjęta od salda zobowiązania pieniężnego i nie otrzymasz faktury za zakup.
+Klienci korporacyjni kupują wystąpienia zarezerwowane maszyn wirtualnych platformy Azure, korzystając z przedpłaty za platformę Azure. Jeśli rejestracja ma wystarczająco duże saldo przedpłaty za platformę Azure na pokrycie zakupu wystąpienia zarezerwowanego, kwota zostanie odjęta od salda przedpłaty za platformę Azure i nie otrzymasz faktury za zakup.
 
-Jeśli klient z umową Azure EA wykorzystał już całe zobowiązanie pieniężne, nadal może kupić wystąpienie zarezerwowane, przy czym ten zakup zostanie umieszczony na następnej fakturze z rozliczeniem nadwyżki. Nadwyżka za wystąpienie zarezerwowane, jeśli istnieje, będzie częścią zwykłej faktury z rozliczeniem nadwyżki.
+Jeśli klient z umową Azure EA wykorzystał już całą przedpłatę za platformę Azure, nadal może kupić wystąpienie zarezerwowane, przy czym ten zakup zostanie umieszczony na następnej fakturze z rozliczeniem nadwyżki. Nadwyżka za wystąpienie zarezerwowane, jeśli istnieje, będzie częścią zwykłej faktury z rozliczeniem nadwyżki.
 
 ### <a name="reserved-instance-expiration"></a>Wygaśnięcie wystąpienia zarezerwowanego
 

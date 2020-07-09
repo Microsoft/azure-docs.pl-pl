@@ -228,6 +228,8 @@
           href: control-kubeconfig-access.md
         - name: Zabezpieczanie ruchu związanego z zasobnikiem za pomocą zasad sieciowych
           href: use-network-policies.md
+        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy (wersja zapoznawcza)
+          href: use-pod-security-on-azure-policy.md
         - name: Używanie zasad zabezpieczeń zasobnika (wersja zapoznawcza)
           href: use-pod-security-policies.md
         - name: Definiowanie zakresów autoryzowanych adresów IP dla serwera interfejsu API
@@ -244,6 +246,8 @@
               href: managed-aad.md
             - name: Używanie interfejsu wiersza polecenia platformy Azure
               href: azure-ad-integration-cli.md
+        - name: Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
+          href: manage-azure-rbac.md
         - name: Używanie kontroli dostępu opartej na rolach w usłudze Kubernetes w integracji z usługą Azure AD
           href: azure-ad-rbac.md
           maintainContext: true

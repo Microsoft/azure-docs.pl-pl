@@ -116,6 +116,12 @@
           href: how-to-virtual-hub-routing.md
         - name: Jak wyświetlić efektywne trasy na koncentratorze wirtualnym
           href: effective-routes-virtual-hub.md
+        - name: Kierowanie ruchem z koncentratora wirtualnego do wirtualnego urządzenia sieciowego (starsza wersja)
+          items:
+            - name: Azure Portal
+              href: virtual-wan-route-table-nva-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table-nva.md
     - name: Zabezpieczenia
       items:
         - name: Instalowanie usługi Azure Firewall w centrum

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077162"
 ---
 # <a name="understand-and-work-with-scopes"></a>Opis zakresów i praca z nimi
 
@@ -67,7 +67,7 @@ Usługa Cost Management obsługuje następujące wbudowane role dla poszczególn
 
 Cost Management — współautor jest zalecaną rolą o najniższych uprawnieniach. Umożliwia ona użytkownikom dostęp niezbędny do tworzenia budżetów i eksportów oraz zarządzania nimi w celu skuteczniejszego monitorowania i tworzenia raportów dotyczących kosztów. Użytkownicy mający rolę Cost Management — współautor mogą również wymagać dodatkowych ról w celu obsługi kompleksowych scenariuszy zarządzania kosztami. Poniżej przedstawiono przykładowe scenariusze:
 
-- **Raportowanie użycia zasobów** — koszty z usługi Azure Cost Management można znaleźć w witrynie Azure Portal, a dane dotyczące użycia związanego z kosztami można uzyskać i pobrać za pomocą interfejsu API użycia i opłat, ale dobrym rozwiązaniem może być też wyświetlenie szczegółowych metryk użycia w usłudze Azure Monitor, co pozwoli dokładniej poznać dane. Rozważ przyznanie roli [Czytelnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) w przypadku każdego zakresu, w którym potrzebujesz także raportów dotyczących szczegółowych metryk użycia.
+- **Raportowanie użycia zasobów** — koszty z usługi Azure Cost Management można znaleźć w witrynie Azure Portal, która obejmuje dane dotyczące użycia związanego z kosztami we wzorcach pełnego użycia. Ten raport może też obejmować opłaty za interfejs API i pobieranie, ale dobrym rozwiązaniem może być też wyświetlenie szczegółowych metryk użycia w usłudze Azure Monitor, co pozwoli dokładniej poznać dane. Rozważ przyznanie roli [Czytelnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) w przypadku każdego zakresu, w którym potrzebujesz także raportów dotyczących szczegółowych metryk użycia.
 - **Działanie w przypadku przekroczenia budżetów** — użytkownicy mający rolę Cost Management — współautor potrzebują również dostępu do tworzenia grup akcji i/lub zarządzania nimi w celu automatycznego reagowania na nadwyżki. Rozważ przyznanie roli [Współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) do grupy zasobów zawierającej grupę akcji, która ma być używana w przypadku przekroczenia progów budżetu. Automatyzacja określonych akcji wymaga dodatkowych ról dla określonych usług, które są używane, takich jak Automation i Azure Functions.
 - **Planowanie eksportu danych dotyczących kosztów** — użytkownicy mający rolę Cost Management — współautor potrzebują także dostępu do zarządzania kontami magazynu, aby zaplanować eksport w celu skopiowania danych na konto magazynu. Rozważ przyznanie roli [Współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor) do grupy zasobów zawierającej konto magazynu, do którego są eksportowane dane dotyczące kosztów.
 - **Wyświetlanie rekomendacji dotyczących obniżenia kosztów** — użytkownicy mający rolę Cost Management — czytelnik i Cost Management — współautor domyślnie mają dostęp do *wyświetlania* rekomendacji dotyczących kosztów. Jednak dostęp do działania zgodnie z rekomendacjami dotyczącymi kosztów wymaga dostępu do poszczególnych zasobów. Jeśli chcesz skorzystać z rekomendacji dotyczącej kosztów, rozważ przyznanie [roli specyficznej dla usługi](../../role-based-access-control/built-in-roles.md#all).

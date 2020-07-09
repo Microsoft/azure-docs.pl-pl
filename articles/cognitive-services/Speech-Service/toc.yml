@@ -520,6 +520,8 @@
         - name: Konfigurowanie kontenerów usługi Mowa
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
+        - name: Przetwarzanie wsadowe przy użyciu kontenerów mowy
+          href: speech-container-batch-processing.md
         - name: Kontenery usługi Mowa z usługami Kubernetes i Helm
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md

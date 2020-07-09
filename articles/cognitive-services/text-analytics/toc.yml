@@ -68,6 +68,8 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: Rozpoznawanie jednostek nazwanych
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Analiza tekstu dla opieki zdrowotnej
+      href: How-tos/text-analytics-for-health.md
     - name: Korzystanie z kontenerów
       items:
         - name: Instalowanie i uruchamianie kontenerów

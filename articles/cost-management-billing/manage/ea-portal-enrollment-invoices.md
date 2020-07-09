@@ -3,16 +3,16 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807793"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044876"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -46,14 +46,14 @@ W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer
 
 ## <a name="azure-enterprise-billing-frequency"></a>Częstotliwość fakturowania w usłudze Azure Enterprise
 
-Firma Microsoft corocznie w dniu wejścia rejestracji w życie dokonuje rozliczeń dotyczących zakupów usług platformy Microsoft Azure w ramach zobowiązań. W przypadku użycia przekraczającego kwoty wynikające ze zobowiązań firma Microsoft rozlicza zaległości.
+Firma Microsoft corocznie w dniu wejścia rejestracji w życie dokonuje rozliczeń dotyczących zakupów usług platformy Microsoft Azure w ramach przedpłaty. W przypadku użycia przekraczającego kwoty przedpłat firma Microsoft rozlicza zaległości.
 
-- Opłaty dla zobowiązania są określane na podstawie stawki miesięcznej i rozliczane rocznie z góry.
+- Opłaty dla przedpłat są określane na podstawie stawki miesięcznej i rozliczane rocznie z góry.
 - Opłaty nadwyżkowe są obliczane w każdym miesiącu i rozliczane jako zaległości na końcu okresu rozliczeniowego.
 
 ### <a name="billing-intervals"></a>Interwał rozliczeń
 
-Interwał rozliczeń zależy od wybranego sposobu dokonywania zakupów w ramach zobowiązania. Termin zobowiązania rocznego jest identyczny z jednym z następujących:
+Interwał rozliczeń zależy od wybranego sposobu dokonywania zakupów w ramach przedpłat. Termin przedpłaty rocznej jest identyczny z jednym z następujących:
 
 - Data rocznicy rejestracji
 - Data rozpoczęcia obowiązywania jednorocznego aneksu subskrypcji.
@@ -62,12 +62,12 @@ Data otrzymania faktury nadwyżkowej zależy od daty rozpoczęcia rejestracji i 
 
 - **Rejestracje bezpośrednie z datą początkową przed 1 maja 2018 r.** :
   - Klienci z bezpośrednią umową Enterprise Azure (EA) są rozliczani w rocznym okresie rozliczeniowym za usługi platformy Azure (bez usług Azure Marketplace). Okres rozliczeniowy zależy od daty rocznicy, czyli daty wejścia w życie umowy.
-  - W przypadku przekroczenia wartości 150% progu zobowiązania pieniężnego, nastąpi automatyczna konwersja na kwartalny okres rozliczeniowy zgodnie z datą rocznicy. Otrzymasz również fakturę za nadwyżkowe korzystanie z usług platformy Azure.
-  - Jeśli nie przekroczysz 150% progu zobowiązania pieniężnego, rejestracja pozostanie objęta rocznym okresem rozliczeniowym. Faktura nadwyżkowa zostanie wystawiona na koniec roku zobowiązania.
+  - W przypadku przekroczenia wartości 150% progu przedpłaty EA za platformę Azure nastąpi automatyczna konwersja na kwartalny okres rozliczeniowy zgodnie z datą rocznicy. Otrzymasz również fakturę za nadwyżkowe korzystanie z usług platformy Azure.
+  - Jeśli nie przekroczysz 150% progu przedpłaty za platformę Azure, rejestracja pozostanie objęta rocznym okresem rozliczeniowym. Faktura nadwyżkowa zostanie wystawiona na koniec roku przedpłaty.
 
 - **Rejestracje bezpośrednie z datą początkową po 1 maja 2018 r.** :
   - Faktury za użycie platformy Azure i opłaty rozliczane oddzielnie są objęte miesięcznym okresem rozliczeniowym.
-  - Opłaty, które nie są objęte zobowiązaniem pieniężnym, są należne jako płatności nadwyżkowe.  
+  - Opłaty, które nie są objęte przedpłatą za platformę Azure, są należne jako płatności nadwyżkowe.  
 
 - **Rejestracje pośrednie z datą początkową przed 1 maja 2018 r.** :
 
@@ -77,21 +77,21 @@ Data otrzymania faktury nadwyżkowej zależy od daty rozpoczęcia rejestracji i 
 
   Korzystasz z miesięcznego okresu rozliczeniowego.  
 
-### <a name="increase-your-monetary-commitment"></a>Zwiększanie zobowiązania pieniężnego
+### <a name="increase-your-azure-prepayment"></a>Zwiększanie przedpłaty za platformę Azure
 
-Zobowiązanie można zwiększyć w dowolnym momencie. Opłaty zostaną naliczone za liczbę miesięcy pozostałą dla okresu zobowiązania w danym roku. Jeśli na przykład zarejestrujesz się w ramach jednorocznego aneksu subskrypcji i zwiększysz swoje zobowiązanie w ciągu szóstego miesiąca, faktura zostanie wystawiona za pozostałe sześć miesięcy tego okresu. Ilości dla Twojego zobowiązania zostaną wtedy zaktualizowane na ostatnie sześć miesięcy okresu zobowiązania. Te nowe ilości posłużą do ustalenia wszelkich opłat za użycie nadwyżkowe.
+Przedpłatę można zwiększyć w dowolnym momencie. Opłaty zostaną naliczone za liczbę miesięcy pozostałą dla okresu przedpłaty w danym roku. Jeśli na przykład zarejestrujesz się w ramach jednorocznego aneksu subskrypcji i zwiększysz przedpłatę w ciągu szóstego miesiąca, faktura zostanie wystawiona za pozostałe sześć miesięcy tego okresu. Ilości dla Twojej przedpłaty zostaną wtedy zaktualizowane na ostatnie sześć miesięcy okresu przedpłaty. Te nowe ilości posłużą do ustalenia wszelkich opłat za użycie nadwyżkowe.
 
 ### <a name="overage"></a>Nadwyżka
 
-W przypadku nadwyżki opłaty są naliczane za użycie lub rezerwacje, które przekroczyły zobowiązanie w okresie rozliczeniowym. Aby wyświetlić szczegółowe informacje o sposobie obliczenia ilości nadwyżkowych dla poszczególnych pozycji, zapoznaj się z raportem podsumowania użycia lub skontaktuj się z partnerem handlowym.
+W przypadku nadwyżki opłaty są naliczane za użycie lub rezerwacje, które przekroczyły przedpłatę w okresie rozliczeniowym. Aby wyświetlić szczegółowe informacje o sposobie obliczenia ilości nadwyżkowych dla poszczególnych pozycji, zapoznaj się z raportem podsumowania użycia lub skontaktuj się z partnerem handlowym.
 
 Dla każdej pozycji na fakturze zobaczysz:
 
 - **Wartość**: łączna opłata
-- **Użycie zobowiązania**: kwota zobowiązania użyta do pokrycia opłat
-- **Wartość netto**: kwota opłat przekraczających zobowiązanie
+- **Użycie przedpłaty**: kwota przedpłaty użyta do pokrycia opłat
+- **Wartość netto**: kwota opłat przekraczających przedpłatę
 
-Odpowiednie podatki są obliczane tylko od kwoty netto przekroczenia zobowiązania.
+Odpowiednie podatki są obliczane tylko od kwoty netto przekroczenia przedpłaty.
 
 Wystawianie faktur nadwyżkowych jest zautomatyzowane. Czas wysyłania powiadomień i faktur zależy od daty zakończenia okresu rozliczeniowego.
 
@@ -130,18 +130,18 @@ Aby wyświetlić środki:
 1. W witrynie [Azure Enterprise Portal](https://ea.azure.com) wybierz sekcję **Raporty**.
 1. Wybierz pozycję **Podsumowanie użycia**.
 1. W prawym górnym rogu zmień widok **M** na **C**.
-1. Rozwiń pole korekty w tabeli zobowiązań usług platformy Azure.
+1. Rozwiń pole korekty w tabeli przedpłaty za usługi platformy Azure.
 1. Są tu podane środki zastosowane do rejestracji i krótkie wyjaśnienie. Przykład: Środki dla umowy dotyczącej poziomu usług.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Płatność za nadwyżkę z wykorzystaniem zobowiązania pieniężnego
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Płatność nadwyżki przy użyciu przedpłaty za platformę Azure
 
-Aby zastosować zobowiązanie pieniężne do nadwyżek, należy spełnić następujące kryteria:
+Aby zastosować przedpłatę za platformę Azure do nadwyżek, należy spełnić następujące kryteria:
 
 - Klient ma naliczone, ale nieuregulowane opłaty za nadwyżki, a od daty zakończenia rozliczanej usługi nie minął jeszcze jeden rok.
-- Dostępna kwota zobowiązania pieniężnego pokrywa w całości naliczone opłaty, w tym wszystkie poprzednie nieuregulowane faktury za platformę Azure.
+- Dostępna kwota przedpłaty za platformę Azure pokrywa w całości naliczone opłaty, w tym wszystkie poprzednie nieuregulowane faktury za platformę Azure.
 - Rozliczeniowy przedział czasu wybrany do uzupełnienia jest całkowicie zamknięty. Rozliczenia są całkowicie zamykane po 5. dniu każdego miesiąca.
 - Okres rozliczeniowy wybrany do przesunięcia jest całkowicie zamknięty.
-- Rabaty za zobowiązanie dotyczące platformy Azure (ACD) opierają się na rzeczywistej wysokości nowego zobowiązania pieniężnego, od której odejmuje się wszelkie środki przeznaczone na opłacenie poprzedniego użycia. To wymaganie dotyczy tylko naliczonych opłat za użycie nadwyżkowe. To rozwiązanie można zastosować tylko do usług rozliczanych ze zobowiązania pieniężnego — nie dotyczy ono opłat związanych z witryną Azure Marketplace. Opłaty związane z witryną Azure Marketplace są rozliczane osobno.
+- Rabaty za przedpłaty za platformę Azure opierają się na rzeczywistej wysokości nowej przedpłaty, od której odejmuje się wszelkie środki przeznaczone na opłacenie poprzedniego użycia. To wymaganie dotyczy tylko naliczonych opłat za użycie nadwyżkowe. To rozwiązanie można zastosować tylko do usług rozliczanych z przedpłaty za platformę Azure — nie dotyczy ono opłat związanych z witryną Azure Marketplace. Opłaty związane z witryną Azure Marketplace są rozliczane osobno.
 
 Aby sfinalizować przesunięcie opłat za użycie nadwyżkowe, klient lub zespół opiekujący się kontem może utworzyć wniosek o pomoc techniczną. Wymagane jest wysłane pocztą e-mail zatwierdzenie od administratora przedsiębiorstwa lub osoby wskazanej jako „Kontakt odbiorcy faktury”.
 
@@ -178,13 +178,13 @@ W poniższej tabeli przedstawiono formuły programu Excel, których można uży�
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Konwersja między raportem Szczegóły użycia a stroną Podsumowanie użycia
 
-W pobranym raporcie danych użycia można sprawdzić nieprzetworzone użycie zasobów podawane z dokładnością do sześciu miejsc dziesiętnych. Jednak dane użycia przedstawiane w witrynie Azure Enterprise Portal są zaokrąglane do czterech miejsc dziesiętnych dla jednostek zobowiązania i do wartości całkowitych dla jednostek nadwyżki. Nieprzetworzone dane użycia są najpierw zaokrąglane do czterech cyfr przed konwersją na jednostki używane w witrynie Azure Enterprise Portal. Następnie przekonwertowane jednostki Enterprise są ponownie zaokrąglane do czterech cyfr. Rzeczywista liczba użytych godzin przed konwersją jest podana tylko w pobranym raporcie danych użycia, a nie w samej witrynie Azure Enterprise Portal.
+W pobranym raporcie danych użycia można sprawdzić nieprzetworzone użycie zasobów podawane z dokładnością do sześciu miejsc dziesiętnych. Jednak dane użycia przedstawiane w witrynie Azure Enterprise Portal są zaokrąglane do czterech miejsc dziesiętnych dla jednostek przedpłaty i do wartości całkowitych dla jednostek nadwyżki. Nieprzetworzone dane użycia są najpierw zaokrąglane do czterech cyfr przed konwersją na jednostki używane w witrynie Azure Enterprise Portal. Następnie przekonwertowane jednostki Enterprise są ponownie zaokrąglane do czterech cyfr. Rzeczywista liczba użytych godzin przed konwersją jest podana tylko w pobranym raporcie danych użycia, a nie w samej witrynie Azure Enterprise Portal.
 
 Przykład: w raporcie Szczegóły użycia zgłoszono 694,533404 godziny rzeczywistego użycia programu SQL Server. Te jednostki są następnie konwertowane na 6,94533404 ze 100 godzin obliczeniowych, które są następnie zaokrąglane do wartości 6,9453 i wyświetlane w witrynie Azure Enterprise Portal.
 
-- W celu określenia rozszerzonej kwoty rozliczenia te wyświetlane jednostki są następnie mnożone przez cenę jednostkową zobowiązania, a wynik jest obcinany do dwóch miejsc dziesiętnych. W przypadku jena japońskiego (JPY) i wona koreańskiego (KRW) rozszerzona kwota jest zaokrąglana do jedności.
+- W celu określenia rozszerzonej kwoty rozliczenia te wyświetlane jednostki są następnie mnożone przez cenę jednostkową przedpłaty, a wynik jest obcinany do dwóch miejsc dziesiętnych. W przypadku jena japońskiego (JPY) i wona koreańskiego (KRW) rozszerzona kwota jest zaokrąglana do jedności.
 - W przypadku nadwyżki rozliczane jednostki są obcinane do sześciu cyfr, a następnie mnożone przez cenę jednostki nadwyżki w celu określenia rozszerzonej kwoty rozliczenia.
-- W przypadku rozliczeń dla dostawcy usług zarządzanych (MSP, Managed Service Provider) całe użycie skojarzone z działem oznaczonym jako dostawca usług zarządzanych jest zaokrąglane do jednostek po konwersji na jednostkę miary umowy EA. W wyniku suma tego użycia może być niższa niż łączna suma całego użycia zgłoszonego w witrynie Azure Enterprise Portal. Jest to zależne od tego, czy dostawca usług zarządzanych nadal mieści się w swoim saldzie zobowiązania pieniężnego, czy też jest już objęty nadwyżką.
+- W przypadku rozliczeń dla dostawcy usług zarządzanych (MSP, Managed Service Provider) całe użycie skojarzone z działem oznaczonym jako dostawca usług zarządzanych jest zaokrąglane do jednostek po konwersji na jednostkę miary umowy EA. W wyniku suma tego użycia może być niższa niż łączna suma całego użycia zgłoszonego w witrynie Azure Enterprise Portal. Jest to zależne od tego, czy dostawca usług zarządzanych nadal mieści się w swoim saldzie przedpłaty za platformę Azure, czy też jest już objęty nadwyżką.
 
 ### <a name="graduated-pricing"></a>Ceny stopniowane
 
@@ -226,13 +226,13 @@ Dla usług, w przypadku których strefa i region mają wpływ na ceny, poniższa
 
 Nie ma opłat za ruch wychodzący między usługami hostowanymi w tym samym centrum danych. Na przykład Microsoft 365 i Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Zobowiązanie pieniężne i nierozliczone opłaty za użycie
+### <a name="azure-prepayment-and-unbilled-usage"></a>Przedpłata za platformę Azure i nierozliczone opłaty za użycie
 
-Zobowiązanie pieniężne platformy Azure to uiszczana z góry opłata za usługi platformy Azure. Zobowiązanie pieniężne jest wykorzystywane w miarę używania usług. Usługi platformy Azure dostarczane przez firmę Microsoft są rozliczane przy użyciu zobowiązania pieniężnego. Jednak niektóre opłaty są rozliczane oddzielnie, a usługi witryny Azure Marketplace nie zużywają zobowiązania pieniężnego.
+Przedpłata za platformę Azure to uiszczana z góry opłata za usługi platformy Azure. Przedpłata za platformę Azure jest wykorzystywana w miarę używania usług. Usługi platformy Azure dostarczane przez firmę Microsoft są rozliczane przy użyciu przedpłaty za platformę Azure. Jednak niektóre opłaty są rozliczane oddzielnie, a usługi witryny Azure Marketplace nie zużywają przedpłaty za platformę Azure.
 
 ### <a name="charges-billed-separately"></a>Opłaty rozliczane oddzielnie
 
-Niektóre produkty i usługi udostępniane ze źródeł innych firm nie używają zobowiązania pieniężnego platformy Azure. Zamiast tego te pozycje są rozliczane osobno w ramach faktury nadwyżkowej dla standardowego okresu rozliczeniowego.
+Niektóre produkty i usługi udostępniane ze źródeł innych firm nie używają przedpłaty za platformę Azure. Zamiast tego te pozycje są rozliczane osobno w ramach faktury nadwyżkowej dla standardowego okresu rozliczeniowego.
 
 Połączyliśmy wszystkie opłaty za platformę Azure i witrynę Azure Marketplace w pojedynczą fakturę, której okres odpowiada okresowi rozliczeniowemu rejestracji. Połączone faktury nie mają zastosowania do klientów w Australii, Japonii ani Singapurze.
 
@@ -265,7 +265,7 @@ Faktury zostaną wystawione po miesiącu, w którym kończy się okres rozliczen
 
    | Tytuł | Opis | Nazwa pliku |
    | --- | --- | --- |
-   | [Przyjazne nazwy usług](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista wszystkich aktywnych usług. Obejmuje następujące informacje: <br>  <ul><li>Kategoria usługi</li>   <li>Przyjazna nazwa usługi</li>   <li>Nazwa zobowiązania i numer części</li> <li>Nazwa użycia i numer części</li>   <li>Jednostki miary</li>   <li>Współczynniki konwersji między raportowanym użyciem a prezentowanym użyciem witryny Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
+   | [Przyjazne nazwy usług](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista wszystkich aktywnych usług. Obejmuje następujące informacje: <br>  <ul><li>Kategoria usługi</li>   <li>Przyjazna nazwa usługi</li>   <li>Nazwa przedpłaty i numer części</li> <li>Nazwa użycia i numer części</li>   <li>Jednostki miary</li>   <li>Współczynniki konwersji między raportowanym użyciem a prezentowanym użyciem witryny Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
    | [Pola pobierania usługi](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Ten arkusz kalkulacyjny zawiera listę wszystkich możliwych kombinacji pól dotyczących usługi w pobieranym raporcie użycia. | Service\_Download\_Fields.xlsx |
 
 - Aby uzyskać informacje na temat faktur i opłat, zobacz [Omówienie rachunku za umowę Azure Enterprise Agreement](../understand/review-enterprise-agreement-bill.md).

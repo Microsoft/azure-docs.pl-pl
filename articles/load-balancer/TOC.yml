@@ -12,18 +12,21 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Tworzenie modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Tworzenie modułu równoważenia obciążenia — PowerShell
+    - name: Tworzenie modułu równoważenia obciążenia — program Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Tworzenie modułu równoważenia obciążenia — szablon usługi ARM
-      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — program Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Samouczki
   items:
-    - name: Równoważenie obciążenia ruchem internetowym przez skierowanie go do maszyn wirtualnych
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: Równoważenie obciążenia ruchem wewnętrznym przez skierowanie go do maszyn wirtualnych
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Równoważenie obciążenia maszyny wirtualnej w określonej strefie dostępności
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: Używanie z istniejącym modułem Azure Load Balancer — interfejs wiersza polecenia
           href: configure-vm-scale-set-cli.md
-    - name: Uaktualnianie modułu równoważenia obciążenia w warstwie Podstawowa do modułu równoważenia obciążenia w warstwie Standardowa
+    - name: Uaktualnianie usługi Load Balancer z wersji Podstawowa do wersji Standardowa
       items:
         - name: Uaktualnianie publicznego modułu równoważenia obciążenia w warstwie Podstawowa
           href: upgrade-basic-standard.md
-        - name: Uaktualnianie wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa — nie jest wymagane żadne połączenie wychodzące
+        - name: Uaktualnianie wewnętrznego modułu równoważenia obciążenia — nie jest wymagane połączenie wychodzące
           href: upgrade-basicInternal-standard.md
-        - name: Uaktualnianie wewnętrznego modułu równoważenia obciążenia w warstwie Podstawowa — połączenie wychodzące jest wymagane
+        - name: Uaktualnianie wewnętrznego modułu równoważenia obciążenia — wymagane jest połączenie wychodzące
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Konfigurowanie reguł dla ruchu wychodzącego
       items:
-        - name: Azure Portal
+        - name: Portal
           href: configure-load-balancer-outbound-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: Szablon usługi Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Konfigurowanie wewnętrznego modułu równoważenia obciążenia
-      items:
-        - name: Azure Portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Szablon usługi Azure Resource Manager
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: Konfigurowanie limitu czasu bezczynności protokołu TCP dla usługi równoważenia obciążenia
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurowanie trybu dystrybucji dla usługi Load Balancer
       href: load-balancer-distribution-mode.md
     - name: Używanie wielu konfiguracji adresu IP
-      href: load-balancer-multiple-ip.md
       items:
+        - name: Portal
+          href: load-balancer-multiple-ip.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: Przechodzenie między regionami
       items:
-        - name: Zewnętrzne równoważenie obciążenia — portal
+        - name: Publiczny moduł równoważenia obciążenia — portal
           href: move-across-regions-external-load-balancer-portal.md
-        - name: Zewnętrzne równoważenie obciążenia — program PowerShell
+        - name: Publiczny moduł równoważenia obciążenia — program PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: Wewnętrzne równoważenie obciążenia — portal
+        - name: Publiczny moduł równoważenia obciążenia — portal
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Wewnętrzne równoważenie obciążenia — program PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
