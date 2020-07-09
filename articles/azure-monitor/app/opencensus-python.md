@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: bef2f1c48241a3f0215481aeb0da3fcc237ddb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076630"
+ms.locfileid: "86107448"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -72,7 +72,7 @@ Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy d
 
 1. Kod ciągle pyta o wartość, która ma zostać wprowadzona. Wpis dziennika jest emitowany dla każdej wprowadzonej wartości.
 
-    ```
+    ```output
     Enter a value: 24
     24
     Enter a value: 55
@@ -88,22 +88,22 @@ Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy d
     ```python
     import logging
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    
+
     def valuePrompt():
         line = input("Enter a value: ")
         logger.warning(line)
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     if __name__ == "__main__":
         main()
     ```
@@ -122,9 +122,9 @@ Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy d
 
     ```python
     import logging
-    
+
     from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
+
     logger = logging.getLogger(__name__)
     # TODO: replace the all-zero GUID with your instrumentation key.
     logger.addHandler(AzureLogHandler(
@@ -141,33 +141,33 @@ Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy d
 
 Rejestrowanie można jawnie skonfigurować w kodzie aplikacji, tak jak powyżej, w przypadku aplikacji Django. można też określić je w konfiguracji rejestrowania Django. Ten kod może przejść do dowolnego pliku używanego do konfiguracji ustawień Django. Aby uzyskać informacje na temat konfigurowania ustawień Django, zobacz [Ustawienia Django](https://docs.djangoproject.com/en/3.0/topics/settings/). Aby uzyskać więcej informacji na temat konfigurowania rejestrowania, zobacz [Rejestrowanie Django](https://docs.djangoproject.com/en/3.0/topics/logging/).
 
-```python
- LOGGING = {
-     "handlers": {
-         "azure": {
-             "level": "DEBUG",
-          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-             "instrumentation_key": "<your-ikey-here>",
-          },
-         "console": {
-             "level": "DEBUG",
-             "class": "logging.StreamHandler",
-             "stream": sys.stdout,
-          },
-       },
-     "loggers": {
-         "logger_name": {"handlers": ["azure", "console"]},
-     },
- }
+```json
+LOGGING = {
+    "handlers": {
+        "azure": {
+            "level": "DEBUG",
+        "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+            "instrumentation_key": "<your-ikey-here>",
+         },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+         },
+      },
+    "loggers": {
+        "logger_name": {"handlers": ["azure", "console"]},
+    },
+}
 ```
 
 Upewnij się, że używasz rejestratora o takiej samej nazwie jak nazwa określona w konfiguracji.
 
 ```python
- import logging
-        
- logger = logging.getLogger("logger_name")
- logger.warning("this will be tracked")
+import logging
+
+logger = logging.getLogger("logger_name")
+logger.warning("this will be tracked")
 ```
 
 #### <a name="send-exceptions"></a>Wyślij wyjątki
@@ -238,7 +238,7 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -267,7 +267,7 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
     ```
 1. Uruchamianie kodu wielokrotnie monituje o wybranie **klawisza ENTER**. Zostanie utworzona Metryka służąca do śledzenia liczby **wprowadzonych** godzin. W przypadku każdego wpisu wartość jest zwiększana, a informacje o metrykach są wyświetlane w konsoli programu. Informacje obejmują bieżącą wartość i bieżącą sygnaturę czasową, gdy Metryka została zaktualizowana.
 
-    ```
+    ```output
     Press enter.
     Point(value=ValueLong(5), timestamp=2019-10-09 20:58:04.930426)
     Press enter.
@@ -290,7 +290,7 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
     stats = stats_module.stats
     view_manager = stats.view_manager
     stats_recorder = stats.stats_recorder
-    
+
     prompt_measure = measure_module.MeasureInt("prompts",
                                                "number of prompts",
                                                "prompts")
@@ -381,7 +381,7 @@ Aby uzyskać informacje na temat modyfikowania śledzonych danych telemetrycznyc
 
 1. Uruchamianie kodu wielokrotnie monituje o wprowadzenie wartości. W przypadku każdego wpisu wartość jest drukowana w powłoce. Moduł OpenCensus języka Python generuje odpowiadający element `SpanData` . Projekt OpenCensus definiuje [śledzenie jako drzewo zakresów](https://opencensus.io/core-concepts/tracing/).
     
-    ```
+    ```output
     Enter a value: 4
     4
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
@@ -399,7 +399,7 @@ Aby uzyskać informacje na temat modyfikowania śledzonych danych telemetrycznyc
     from opencensus.ext.azure.trace_exporter import AzureExporter
     from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-    
+
     # TODO: replace the all-zero GUID with your instrumentation key.
     tracer = Tracer(
         exporter=AzureExporter(

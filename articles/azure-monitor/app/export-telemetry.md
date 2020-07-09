@@ -3,11 +3,12 @@ title: Ciągły eksport danych telemetrycznych z Application Insights | Microsof
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147974"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110219"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
@@ -60,7 +61,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](../../azure-monitor/app/asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.
@@ -107,7 +108,9 @@ Data i godzina są UTC i są, gdy dane telemetryczne zostały zdeponowane w skle
 
 Oto postać ścieżki:
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Lokalizacja
 
@@ -117,37 +120,41 @@ Lokalizacja
 ## <a name="data-format"></a><a name="format"></a>Format danych
 * Każdy obiekt BLOB jest plikiem tekstowym zawierającym wiele wierszy "\n", które są oddzielone. Zawiera dane telemetryczne przetwarzane w przedziale czasu wynoszącym około pół minuty.
 * Każdy wiersz reprezentuje punkt danych telemetrii, taki jak żądanie lub widok strony.
-* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz tam umieścić i stare, otwórz go w programie Visual Studio i wybierz pozycję Edytuj, zaawansowany, plik formatu:
+* Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz wyświetlić wiersze, Otwórz obiekt BLOB w programie Visual Studio i wybierz polecenie **Edytuj**  >  **Advanced**  >  **plik formatu**zaawansowanego:
 
-![Wyświetlanie telemetrii za pomocą odpowiedniego narzędzia](./media/export-telemetry/06-json.png)
+   ![Wyświetlanie telemetrii za pomocą odpowiedniego narzędzia](./media/export-telemetry/06-json.png)
 
 Czas trwania jest w taktach, gdzie 10 000 Takty = 1 ms. Na przykład te wartości przedstawiają czas 1 ms, aby wysłać żądanie z przeglądarki, 3 MS w celu otrzymania go i 1,8 s do przetworzenia strony w przeglądarce:
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Przetwarzanie danych
 Na małą skalę można napisać kod, aby ściągnąć dane, odczytać je w arkuszu kalkulacyjnym itd. Przykład:
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 Aby uzyskać większy przykład kodu, zobacz [Używanie roli proces roboczy][exportasa].
 

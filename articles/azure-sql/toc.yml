@@ -57,7 +57,11 @@
             - name: Dynamiczne maskowanie danych
               href: database/dynamic-data-masking-overview.md
             - name: Ocena luk w zabezpieczeniach SQL
-              href: database/sql-vulnerability-assessment.md
+              items:
+                - name: Ocena luk w zabezpieczeniach SQL
+                  href: database/sql-vulnerability-assessment.md
+                - name: Reguły oceny luk w zabezpieczeniach
+                  href: database/sql-database-vulnerability-assessment-rules.md
             - name: 'Identyfikatory logowania, konta użytkowników, role i uprawnienia'
               href: database/logins-create-manage.md
             - name: Uwierzytelnianie w usłudze Azure AD
@@ -606,6 +610,9 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=single-database
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Przykłady kodu
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Wystąpienie zarządzane SQL (SQL MI)
@@ -833,6 +840,9 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=managed-instance
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Przykłady kodu
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Program SQL Server na maszynie wirtualnej platformy Azure
@@ -974,8 +984,6 @@
                       items:
                         - name: Tworzenie nazwy sieci rozproszonej (DNN) dla klastra trybu failover (FCI)
                           href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: Współdziałanie funkcji z nazwą sieci rozproszonej (DNN)
-                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                         - name: 'Funkcje klastra trybu failover (FCI), nazwy sieci rozproszonej (DNN) i programu SQL Server'
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                 - name: Konfigurowanie łączności

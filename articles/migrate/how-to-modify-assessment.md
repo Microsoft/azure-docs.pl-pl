@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: de526da255d0ffb2d4c8f13d87d9b9e230c8bbd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561827"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109726"
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 
@@ -28,7 +28,7 @@ Oceny tworzone za pomocą oceny serwera to migawka danych w danym momencie. Istn
 **Typ oceny** | **Szczegóły**
 --- | --- 
 **Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. (concepts-assessment-calculation.md)
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Ocena maszyn wirtualnych platformy Azure w ramach oceny serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
 
@@ -40,7 +40,7 @@ Ocena maszyn wirtualnych platformy Azure w ramach oceny serwera oferuje dwie opc
 
 ## <a name="how-is-an-assessment-done"></a>Jak odbywa się Ocena?
 
-Ocena dokonana w ocenie serwera Azure Migrate ma trzy etapy. Ocena rozpoczyna się od analizy gotowości, a następnie ustalania rozmiarów, a wreszcie szacowania kosztów miesięcznych. Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprzednią. Na przykład jeśli komputer nie może sprawdzić przydatności do platformy Azure, zostanie oznaczony jako nieodpowiedni dla platformy Azure, a zmiany rozmiarów i kosztów nie będą wykonywane. [Dowiedz się więcej.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
+Ocena dokonana w ocenie serwera Azure Migrate ma trzy etapy. Ocena rozpoczyna się od analizy gotowości, a następnie ustalania rozmiarów, a wreszcie szacowania kosztów miesięcznych. Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprzednią. Na przykład jeśli komputer nie może sprawdzić przydatności do platformy Azure, zostanie oznaczony jako nieodpowiedni dla platformy Azure, a zmiany rozmiarów i kosztów nie będą wykonywane. [Dowiedz się więcej.](./concepts-assessment-calculation.md)
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>Co to jest ocena maszyny wirtualnej platformy Azure?
 
@@ -70,7 +70,7 @@ Tutaj nowości zamieszczono w ocenie automatycznej synchronizacji w ocenie serwe
 | **Lokalizacja docelowa** | Określa lokalizację chmury prywatnej automatycznej synchronizacji, do której chcesz przeprowadzić migrację.<br/><br/> Ocena automatycznej synchronizacji w ocenie serwera obsługuje obecnie następujące regiony docelowe: Wschodnie stany USA, Europa Zachodnia, zachodnie stany USA. |
 | **Typ magazynu** | Określa aparat magazynu, który ma być używany w ramach automatycznej synchronizacji.<br/><br/> Należy zauważyć, że oceny automatycznej synchronizacji obsługują tylko sieci vSAN jako domyślny typ magazynu. |
 **Wystąpienia zarezerwowane (RIs)** | Ta właściwość pomaga określić zarezerwowane wystąpienia w automatycznej synchronizacji. Usługi RIs nie są obecnie obsługiwane w przypadku węzłów automatycznej synchronizacji. |
-**Typ węzła** | Określa [Typ węzła automatycznej synchronizacji](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) , używany do mapowania lokalnych maszyn wirtualnych. Należy pamiętać, że domyślnym typem węzła jest AV36. <br/><br/> Azure Migrate będzie wymagała wymaganej liczby węzłów do migracji maszyn wirtualnych do automatycznej synchronizacji. |
+**Typ węzła** | Określa [Typ węzła automatycznej synchronizacji](../azure-vmware/concepts-private-clouds-clusters.md) , używany do mapowania lokalnych maszyn wirtualnych. Należy pamiętać, że domyślnym typem węzła jest AV36. <br/><br/> Azure Migrate będzie wymagała wymaganej liczby węzłów do migracji maszyn wirtualnych do automatycznej synchronizacji. |
 **Ustawienie FTT, poziom RAID** | Określa, że ma to zastosowanie do niedopuszczalnych połączeń i kombinacji RAID. Wybrana opcja FTT z wymaganiami dotyczącymi lokalnego dysku maszyny wirtualnej określi łączny magazyn sieci vSAN wymagany w ramach automatycznej synchronizacji. |
 **Kryterium ustalania wielkości** | Ustawia kryteria do użycia dla maszyn wirtualnych o _odpowiednim rozmiarze_ na potrzeby automatycznej synchronizacji. Możesz wybrać opcję ustalania rozmiarów na _podstawie wydajności_ lub _jako lokalne_ , bez uwzględniania historii wydajności. |
 **Historia wydajności** | Określa czas, jaki należy wziąć pod uwagę podczas oceniania danych wydajności maszyn. Ta właściwość ma zastosowanie tylko wtedy, gdy kryterium ustalania wielkości jest _oparte na wydajności_. |

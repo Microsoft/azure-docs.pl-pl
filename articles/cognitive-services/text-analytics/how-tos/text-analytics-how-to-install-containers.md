@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702137"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108994"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalowanie i uruchamianie kontenerów analizy tekstu
 
 > [!NOTE]
 > * Kontener dla analiza tonacji V3 jest teraz ogólnie dostępny. Kontenery wyodrębniania i wykrywania języka są dostępne jako niezależna publiczna wersja zapoznawcza.
 > * Łączenie jednostek i NER nie są obecnie dostępne jako kontener.
+> * Obecnie nie są naliczane opłaty za użycie kontenera kondycji analiza tekstu.
 
 Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i są doskonałe dla konkretnych wymagań dotyczących zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. 
 
@@ -59,6 +60,8 @@ W poniższej tabeli opisano minimalne i zalecane specyfikacje kontenerów analiz
 |---|---------|-------------|--|--|
 | **Wykrywanie języka, wyodrębnianie kluczowych fraz**   | 1 rdzeń, 2 GB pamięci | 1 rdzeń, 4 GB pamięci |15 | 30|
 | **analiza tonacji v3**   | 1 rdzeń, 2 GB pamięci | 4 rdzenie, 8 GB pamięci |15 | 30|
+| **Analiza tekstu w celu uzyskania kondycji 1 dokumentu/żądania**   |  4 rdzeń, 10 GB pamięci | 6 rdzeń, pamięć 12GB |15 | 30|
+| **Analiza tekstu dla dokumentów/żądań o kondycji 10**   |  6 rdzeń, pamięć 16GB | 8 rdzeni, pamięć 20 GB |15 | 30|
 
 Rdzeń procesora CPU i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
@@ -80,6 +83,10 @@ Obrazy kontenerów dla analiza tekstu są dostępne w programie Microsoft Contai
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# <a name="text-analytics-for-health-preview"></a>[Analiza tekstu dla kondycji (wersja zapoznawcza)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## <a name="how-to-use-the-container"></a>Jak używać kontenera
@@ -92,13 +99,6 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 ## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontenery. Kontener będzie nadal działać do momentu jego zatrzymania.
-
-Zastąp Poniższe symbole zastępcze własnymi wartościami:
-
-| Symbol zastępczy | Wartość | Format lub przykład |
-|-------------|-------|---|
-| **{API_KEY}** | Klucz dla zasobu analiza tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Punkt końcowy do uzyskiwania dostępu do interfejs API analizy tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * Polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
@@ -116,6 +116,10 @@ Zastąp Poniższe symbole zastępcze własnymi wartościami:
 # <a name="language-detection-preview"></a>[Wykrywanie języka (wersja zapoznawcza)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# <a name="text-analytics-for-health-preview"></a>[Analiza tekstu dla kondycji (wersja zapoznawcza)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -161,8 +165,8 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierani
    * *Analiza tonacji*
    * *Wyodrębnianie kluczowych fraz (wersja zapoznawcza)* 
    * *Wykrywanie języka (wersja zapoznawcza)*
-   
-* Obrazy kontenerów są pobierane z Container Registry firmy Microsoft (MCR) na platformie Azure.
+   * *Analiza tekstu dla kondycji (wersja zapoznawcza)*
+* Obrazy kontenerów są pobierane z programu Microsoft Container Registry (MCR) lub w wersji zapoznawczej repozytorium kontenerów.
 * Obrazy kontenerów są uruchamiane w platformie Docker.
 * Można użyć interfejsu API REST lub zestawu SDK do wywoływania operacji w kontenerach analiza tekstu, określając identyfikator URI hosta kontenera.
 * Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.

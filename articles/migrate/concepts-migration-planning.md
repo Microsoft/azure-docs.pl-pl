@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043244"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107703"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera krótki przewodnik ułatwiający Kompilowanie planu migracj
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Definiowanie celów migracji do chmury
 
-Przed rozpoczęciem opracowywania planu migracji należy zrozumieć i oszacować [motywację](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/motivations) do przejścia do chmury, która może pomóc w tworzeniu bardziej pomyślnych wyników firmy. Zgodnie z opisem [struktury wdrażania chmury dla systemu Azure](https://docs.microsoft.com/azure/cloud-adoption-framework) , mogą istnieć różne wyzwalacze i podejścia do migracji odpowiednie dla Twojej firmy:  
+Przed rozpoczęciem opracowywania planu migracji należy zrozumieć i oszacować [motywację](/azure/cloud-adoption-framework/strategy/motivations) do przejścia do chmury, która może pomóc w tworzeniu bardziej pomyślnych wyników firmy. Zgodnie z opisem [struktury wdrażania chmury dla systemu Azure](/azure/cloud-adoption-framework) , mogą istnieć różne wyzwalacze i podejścia do migracji odpowiednie dla Twojej firmy:  
 
 **Krytyczne zdarzenia biznesowe** | **Wynik migracji**
 --- | ---
@@ -147,7 +147,7 @@ Przed zakończeniem planu migracji upewnij się, że te zagadnienia dotyczące m
 
 - Zapoznaj się z zalecanymi uprawnieniami platformy Azure oraz modelem dostępu do serwera/bazy danych i modelu uprawnień potrzebnych do migracji.
 
-- Przygotuj swoją organizację i zadbaj o to, aby pracownicy dostosowali transformację cyfrową. Solidna Platforma szkoleniowa jest ważna w przypadku pomyślnej zmiany organizacyjnej. Zapoznaj się z bezpłatnymi szkoleniami dostępnymi na [Microsoft Learn](https://docs.microsoft.com/learn/azure/?ocid=CM_Discovery_Checklist_PDF), w tym kursami dotyczącymi podstawowych rozwiązań dotyczących platformy Azure, architektury rozwiązania i zabezpieczeń. Zachęcaj zespół do eksplorowania [certyfikacji platformy Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   .  
+- Przygotuj swoją organizację i zadbaj o to, aby pracownicy dostosowali transformację cyfrową. Solidna Platforma szkoleniowa jest ważna w przypadku pomyślnej zmiany organizacyjnej. Zapoznaj się z bezpłatnymi szkoleniami dostępnymi na [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), w tym kursami dotyczącymi podstawowych rozwiązań dotyczących platformy Azure, architektury rozwiązania i zabezpieczeń. Zachęcaj zespół do eksplorowania [certyfikacji platformy Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   .  
 
 - Uzyskaj pomoc techniczną dotyczącą Twojej implementacji, jeśli jest to wymagane. W wielu organizacjach jest wybierana pomoc na zewnątrz na potrzeby obsługi migracji do chmury. Aby szybko i bezpiecznie przenieść się na platformę Azure za pomocą spersonalizowanej pomocy, weź pod uwagę [dostawcę usług zarządzanych przez eksperta platformy Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   lub [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
@@ -164,6 +164,6 @@ Gdy wszystko będzie gotowe do migracji, użyj *Narzędzia migracji serwera* Azu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zbadaj [podróż migracji w chmurze](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)   w strukturze wdrażania w chmurze platformy Azure.
+- Zbadaj [podróż migracji w chmurze](/azure/architecture/cloud-adoption/getting-started/migrate)   w strukturze wdrażania w chmurze platformy Azure.
 - [Rozpocznij pracę](https://youtu.be/wFfq3YPxYHE) z Azure Migrate.
 - Utwórz ocenę dla [maszyn wirtualnych VMware](tutorial-assess-vmware.md) lub [maszyn wirtualnych funkcji Hyper-V](tutorial-assess-hyper-v.md).

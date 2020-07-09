@@ -1,18 +1,18 @@
 ---
 title: Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 description: Dowiedz się, jak tworzyć i konfigurować zasoby techniczne dla oferty maszyny wirtualnej (VM) dla witryny Azure Marketplace.
-author: dannyevers
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: dannyevers
+ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: d43015c86976594e8d5077a11cbdad27668b343c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957703"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107159"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 

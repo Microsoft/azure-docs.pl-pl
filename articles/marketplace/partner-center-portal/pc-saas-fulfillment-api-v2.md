@@ -1,18 +1,16 @@
 ---
 title: Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
 description: Dowiedz się, jak utworzyć i zarządzać ofertą SaaS na Microsoft AppSource i witrynie Azure Marketplace przy użyciu interfejsów API realizacji w wersji 2.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: dsindona
-ms.openlocfilehash: 1a833f86a0d8de3f5b8c83e899a58fa83f3153c4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f501e84e988d340ba710e49d30caddbe56006c8a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109420"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
 
@@ -151,7 +149,7 @@ Po odebraniu wywołania elementu webhook anulowania Wydawca powinien zachować d
 
 Subskrypcję usługi SaaS można anulować w dowolnym momencie jej cyklu życia. Po anulowaniu subskrypcji nie można ponownie aktywować.
 
-## <a name="api-reference"></a>Dokumentacja interfejsu API
+## <a name="api-reference"></a>Odwołanie API
 
 Ta sekcja dokumentuje interfejsy API subskrypcji i operacji SaaS.
 

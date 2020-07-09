@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 602053f7a52b9a46fa797bd1146cf63c02bb60d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465358"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109505"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Użyj pomocą distcp do kopiowania danych między obiektami BLOB usługi Azure Storage a Azure Data Lake Storage Gen2
 
@@ -36,25 +37,33 @@ Klaster HDInsight An jest dostarczany z narzędziem pomocą distcp, które może
 
 2. Sprawdź, czy możesz uzyskać dostęp do istniejącego konta ogólnego przeznaczenia w wersji 2 (bez włączonej hierarchicznej przestrzeni nazw).
 
-        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```bash
+    hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
+    ```
 
    Dane wyjściowe powinny dostarczyć listę zawartości w kontenerze.
 
 3. Podobnie Sprawdź, czy możesz uzyskać dostęp do konta magazynu z włączoną hierarchiczną przestrzenią nazw z poziomu klastra. Uruchom następujące polecenie:
 
-        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```bash
+    hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
+    ```
 
     Dane wyjściowe powinny dostarczyć listę plików/folderów na koncie magazynu Data Lake.
 
 4. Użyj pomocą distcp, aby skopiować dane z WASB do konta Data Lake Storage.
 
-        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```bash
+    hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+    ```
 
     Polecenie kopiuje zawartość folderu **/example/Data/Gutenberg/** w usłudze BLOB Storage do **/myfolder** na koncie Data Lake Storage.
 
 5. Podobnie należy używać pomocą distcp do kopiowania danych z konta Data Lake Storage do Blob Storage (WASB).
 
-        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```bash
+    hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
+    ```
 
     Polecenie kopiuje zawartość **/MyFolder** na koncie Data Lake Store do folderu **/example/Data/Gutenberg/** w WASB.
 
@@ -64,7 +73,9 @@ Ponieważ najniższy stopień szczegółowości pomocą distcp jest pojedynczym 
 
 **Przykład**
 
-    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```bash
+hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
+```
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Jak mogę określić liczbę odwzorowań do użycia?
 
@@ -74,7 +85,7 @@ Oto kilka użytecznych wskazówek.
 
 * **Krok 2. Obliczanie liczby odwzorowań** — wartość **m** jest równa ilorazowi ŁĄCZnej ilości pamięci przędzy podzielonej przez rozmiar kontenera przędzy. Informacje o rozmiarze kontenera PRZĘDZy są również dostępne w portalu Ambari. Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje. Rozmiar kontenera PRZĘDZy jest wyświetlany w tym oknie. Równanie, które ma dotrzeć do liczby odwzorowań (**m**) to
 
-        m = (number of nodes * YARN memory for each node) / YARN container size
+    m = (liczba węzłów * pamięć PRZĘDZy dla każdego węzła)/rozmiar kontenera PRZĘDZy
 
 **Przykład**
 
@@ -82,11 +93,11 @@ Załóżmy, że masz klaster 4x D14v2s i próbujesz przenieść 10 TB danych z 1
 
 * **Łączna ilość pamięci przędzy**: w portalu Ambari należy określić, że pamięć przędzy jest 96 GB dla węzła D14. W związku z tym Łączna ilość pamięci PRZĘDZy dla czterech węzłów klastra to: 
 
-        YARN memory = 4 * 96GB = 384GB
+    Pamięć PRZĘDZy = 4 * 96GB = 384GB
 
 * **Liczba odwzorowań**: w portalu Ambari należy określić, że rozmiar kontenera przędzy wynosi 3 072 MB dla węzła klastra D14. Dlatego liczba mapera jest:
 
-        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+    m = (4 węzły * 96GB)/3072MB = 128 mapowania
 
 Jeśli inne aplikacje używają pamięci, można wybrać opcję użycia części pamięci PRZĘDZy klastra dla pomocą distcp.
 

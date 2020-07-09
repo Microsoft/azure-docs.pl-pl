@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110304"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Wybierz odpowiednią opcję serwera MariaDB na platformie Azure
 
@@ -31,7 +31,7 @@ Podczas podejmowania decyzji należy wziąć pod uwagę następujące dwie opcje
 
 Główne różnice między tymi opcjami są wymienione w poniższej tabeli:
 
-|            | Azure Database for MariaDB | MariaDB na maszynach wirtualnych platformy Azure    |
+| Atrybut          | Azure Database for MariaDB | MariaDB na maszynach wirtualnych platformy Azure    |
 |:-------------------|:-----------------------------|:--------------------|
 | Umowa dotycząca poziomu usług (SLA)                | Oferuje umowę SLA na 99,99% dostępności| Do 99,95% dostępności z co najmniej dwoma wystąpieniami w tym samym zestawie dostępności.<br/><br/>dostępność na 99,9% z maszyną wirtualną o pojedynczym wystąpieniu przy użyciu usługi Premium Storage.<br/><br/>99,99% przy użyciu Strefy dostępności z wieloma wystąpieniami w wielu zestawach dostępności.<br/><br/>Zobacz umowę [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)dotyczącą Virtual Machines. |
 | Stosowanie poprawek systemu operacyjnego        | Automatyczny  | Zarządzane przez klientów |

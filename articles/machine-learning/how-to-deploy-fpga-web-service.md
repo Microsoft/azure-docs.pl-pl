@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557360"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107329"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 
@@ -25,7 +26,7 @@ Ten artykuł zawiera wprowadzenie do wielopolowych tablic bram (FPGA) oraz spos�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure.  Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
+- Subskrypcja platformy Azure. Jeśli nie masz takiego konta, musisz utworzyć konto z [płatnością zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) użyciem (bezpłatne konta platformy Azure nie kwalifikują się do przydziału FPGA).
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Limit przydziału FPGA. Użyj interfejsu wiersza polecenia platformy Azure, aby sprawdzić, czy masz limit przydziału:
 

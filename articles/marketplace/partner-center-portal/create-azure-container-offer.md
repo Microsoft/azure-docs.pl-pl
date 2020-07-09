@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty kontenera platformy Azure — Azure Marketplace
 description: Dowiedz się, jak utworzyć i opublikować ofertę kontenera w witrynie Azure Marketplace.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: c3cd5ed952ddb40157ee16246d4d1669d47ed6b9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984507"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109677"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w portalu Azure Marketplace
 

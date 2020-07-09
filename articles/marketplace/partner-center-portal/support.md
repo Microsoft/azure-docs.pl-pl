@@ -1,17 +1,18 @@
 ---
 title: Uzyskaj pomoc techniczną dla portalu komercyjnej witryny Marketplace w centrum partnerskim
 description: Dowiedz się więcej o opcjach pomocy technicznej w centrum partnerskim, w tym o sposobach tworzenia plików żądania pomocy technicznej.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: a007fe80c7c95305d65819eaa7081a8ff69e1cfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463692"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109097"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 

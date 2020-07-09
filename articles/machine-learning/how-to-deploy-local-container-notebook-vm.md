@@ -1,5 +1,5 @@
 ---
-title: HDeploy modele do wystąpień obliczeniowych
+title: Wdrażanie modeli w wystąpieniach obliczeniowych
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak wdrażać modele Azure Machine Learning jako usługę sieci Web przy użyciu wystąpień obliczeniowych.
 services: machine-learning
@@ -10,11 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 07afeba8ab481da6a23862dee187c8c72df19f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429586"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106972"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 

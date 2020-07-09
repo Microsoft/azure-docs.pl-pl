@@ -6,14 +6,14 @@ ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 481b17651afbd2c0e0cf7a683ae0838a7f3fd88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555584"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110474"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Uruchamianie i testowanie U-SQL przy użyciu zestawu SDK U-SQL Azure Data Lake
 

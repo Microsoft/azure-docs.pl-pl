@@ -3,12 +3,12 @@ title: Oceny maszyn wirtualnych platformy Azure w ramach oceny Azure Migrate Ser
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 33051fbcfb792d3fa9734a818d293775486de647
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549957"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108005"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Oceny maszyn wirtualnych platformy Azure w Azure Migrate: Ocena serwera
 
@@ -28,7 +28,7 @@ Istnieją dwa typy ocen, które można utworzyć przy użyciu Azure Migrate: Oce
 **Typ oceny** | **Szczegóły**
 --- | --- 
 **Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny.
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Oceny tworzone za pomocą oceny serwera to migawka danych w danym momencie. Ocena maszyn wirtualnych platformy Azure w ramach oceny serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
 
@@ -152,7 +152,7 @@ Właściwość | Szczegóły | Stan gotowości platformy Azure
 --- | --- | ---
 **Typ rozruchu** | Platforma Azure obsługuje maszyny wirtualne z typem rozruchowym systemu BIOS, a nie z interfejsem UEFI. | Warunkowo gotowe, jeśli typ rozruchu to UEFI
 **Rdzenie** | Każda maszyna nie może mieć więcej niż 128 rdzeni, co jest maksymalną liczbą obsługiwaną przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie do porównania. Jeśli ustawienia oceny określają współczynnik komfortu, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni bez zastosowania współczynnika komfortu. | Gotowe, jeśli liczba rdzeni przekracza limit
-**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z serii M Standard_M128m &nbsp; <sup>2</sup> . [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM jest używana bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
+**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z serii M Standard_M128m &nbsp; <sup>2</sup> . [Dowiedz się więcej](../virtual-machines/windows/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM jest używana bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
 **Dysk magazynu** | Przydzielony rozmiar dysku nie może być większy niż 32 TB. Mimo że platforma Azure obsługuje dyski 64 TB z dyskami SSD w warstwie Ultra platformy Azure, Azure Migrate: Ocena serwera obecnie sprawdza, czy rozmiar dysku wynosi 32 TB, ponieważ nie obsługuje jeszcze SSD w warstwie Ultra. <br/><br/> Liczba dysków dołączonych do maszyny, łącznie z dyskiem systemu operacyjnego, nie może być większa niż 65. | Gotowe, jeśli rozmiar i liczba dysków przekraczają limity
 **Sieć** | Komputer nie może mieć więcej niż 32 interfejsów sieciowych (nic). | Gotowe, jeśli liczba kart sieciowych mieści się w limicie
 
@@ -161,7 +161,7 @@ Właściwość | Szczegóły | Stan gotowości platformy Azure
 W przypadku oceny maszyny wirtualnej na platformie Azure wraz z przeglądaniem właściwości maszyny wirtualnej Ocena serwera jest sprawdzana w systemie operacyjnym gościa maszyny, aby określić, czy można uruchamiać ją na platformie Azure.
 
 > [!NOTE]
-> Aby obsłużyć analizę gościa maszyn wirtualnych VMware, Ocena serwera używa systemu operacyjnego określonego dla maszyny wirtualnej w vCenter Server. Jednak vCenter Server nie zapewnia wersji jądra dla systemów operacyjnych maszyn wirtualnych z systemem Linux. Aby odnaleźć wersję, należy skonfigurować [odnajdywanie aplikacji](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Następnie urządzenie odnajduje informacje o wersji przy użyciu poświadczeń gościa określonych podczas konfigurowania funkcji odnajdywania aplikacji.
+> Aby obsłużyć analizę gościa maszyn wirtualnych VMware, Ocena serwera używa systemu operacyjnego określonego dla maszyny wirtualnej w vCenter Server. Jednak vCenter Server nie zapewnia wersji jądra dla systemów operacyjnych maszyn wirtualnych z systemem Linux. Aby odnaleźć wersję, należy skonfigurować [odnajdywanie aplikacji](./how-to-discover-applications.md). Następnie urządzenie odnajduje informacje o wersji przy użyciu poświadczeń gościa określonych podczas konfigurowania funkcji odnajdywania aplikacji.
 
 
 W celu identyfikacji gotowości platformy Azure opartej na systemie operacyjnym Ocena serwera korzysta z następującej logiki:
@@ -175,8 +175,8 @@ Windows Server 2008 R2 ze wszystkimi usługami SPs | Platforma Azure oferuje pe�
 Windows Server 2008 (32-bitowe i 64-bit) | Platforma Azure oferuje pełną pomoc techniczną. | Gotowe na platformę Azure.
 Windows Server 2003 i Windows Server 2003 R2 | Te systemy operacyjne przekazały swoje daty końca obsługi i potrzebują [niestandardowej umowy pomocy technicznej (CSA)](https://aka.ms/WSosstatement) w celu uzyskania pomocy technicznej na platformie Azure. | Warunkowo gotowy na platformę Azure. Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie systemu operacyjnego.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 i MS-DOS | Te systemy operacyjne przekazały swoje daty końca wsparcia. Maszyna może zaczynać się na platformie Azure, ale nie obsługuje systemu operacyjnego. | Warunkowo gotowy na platformę Azure. Zalecamy uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
-Windows 7, Windows 8 i Windows 10 | Platforma Azure zapewnia pomoc techniczną tylko w przypadku [subskrypcji programu Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Warunkowo gotowy na platformę Azure.
-Windows 10 Pro | Platforma Azure zapewnia pomoc techniczną z [wielodostępnymi prawami hostingu.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Warunkowo gotowy na platformę Azure.
+Windows 7, Windows 8 i Windows 10 | Platforma Azure zapewnia pomoc techniczną tylko w przypadku [subskrypcji programu Visual Studio.](../virtual-machines/windows/client-images.md) | Warunkowo gotowy na platformę Azure.
+Windows 10 Pro | Platforma Azure zapewnia pomoc techniczną z [wielodostępnymi prawami hostingu.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Warunkowo gotowy na platformę Azure.
 Windows Vista i Windows XP Professional | Te systemy operacyjne przekazały swoje daty końca wsparcia. Maszyna może zaczynać się na platformie Azure, ale nie obsługuje systemu operacyjnego. | Warunkowo gotowy na platformę Azure. Zalecamy uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 Linux | Zapoznaj się z [systemami operacyjnymi Linux](../virtual-machines/linux/endorsed-distros.md) , które są zatwierdzone przez platformę Azure. Inne systemy operacyjne Linux mogą zacząć działać na platformie Azure. Jednak przed przeprowadzeniem migracji na platformę Azure zalecamy uaktualnienie systemu operacyjnego do wersji zatwierdzonej. | Gotowe na platformę Azure, jeśli wersja jest zatwierdzona.<br/><br/>Warunkowo gotowe, jeśli wersja nie jest zatwierdzona.
 Inne systemy operacyjne, takie jak Oracle Solaris, Apple macOS i FreeBSD | Na platformie Azure nie są zatwierdzona te systemy operacyjne. Maszyna może zaczynać się na platformie Azure, ale nie obsługuje systemu operacyjnego. | Warunkowo gotowy na platformę Azure. Zalecamy zainstalowanie obsługiwanego systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.  

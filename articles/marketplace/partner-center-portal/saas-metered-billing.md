@@ -1,18 +1,16 @@
 ---
 title: Naliczanie opłat za pomocą usługi pomiaru Marketplace | Portal Azure Marketplace
 description: Ta dokumentacja zawiera Przewodnik po opublikowaniu ofert SaaS z elastycznymi modelami rozliczeń.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 19854f0c91ea7c7548a01e930748757ce041f0c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09d9ed5e008acd5354cc673e39365f59ab7f64e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887946"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109182"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Naliczanie opłat za pomocą usługi pomiaru Marketplace
 

@@ -3,15 +3,16 @@ title: Skonfiguruj urządzenie Azure Migrate w Azure Government
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate w Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109981"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
 
-Postępuj zgodnie z tym artykułem, aby wdrożyć [urządzenie Azure Migrate](deploy-appliance.md) dla maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V i serwerów fizycznych w chmurze Azure Government. Uruchom skrypt, aby utworzyć urządzenie, i sprawdź, czy może nawiązać połączenie z platformą Azure. Jeśli chcesz skonfigurować urządzenie w chmurze publicznej, postępuj zgodnie z [tym artykułem](deploy-appliance-script.md).
+Postępuj zgodnie z tym artykułem, aby wdrożyć [urządzenie Azure Migrate](./migrate-appliance-architecture.md) dla maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V i serwerów fizycznych w chmurze Azure Government. Uruchom skrypt, aby utworzyć urządzenie, i sprawdź, czy może nawiązać połączenie z platformą Azure. Jeśli chcesz skonfigurować urządzenie w chmurze publicznej, postępuj zgodnie z [tym artykułem](deploy-appliance-script.md).
 
 
 > [!NOTE]

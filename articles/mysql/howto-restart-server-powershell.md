@@ -4,14 +4,14 @@ description: W tym artykule opisano, jak można ponownie uruchomić serwer Azure
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 935459a398c07d3b4f61c76dec75b083a2354720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faefdfb93257521c9c687045c1467c5d2d0f84ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82609059"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107941"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Ponowne uruchamianie Azure Database for MySQL serwera przy użyciu programu PowerShell
 

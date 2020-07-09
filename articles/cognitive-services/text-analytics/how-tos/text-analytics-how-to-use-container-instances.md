@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876449"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108717"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Wdróż kontener analiza tekstu do Azure Container Instances
 
@@ -23,7 +23,7 @@ Dowiedz się, jak wdrożyć kontener [analiza tekstu][install-and-run-containers
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -37,9 +37,13 @@ Dowiedz się, jak wdrożyć kontener [analiza tekstu][install-and-run-containers
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+
+#### <a name="text-analytics-for-health"></a>[analiza tekstu dla kondycji](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
 ***
 

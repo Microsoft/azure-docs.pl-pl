@@ -6,17 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196362"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109845"
 ---
 # <a name="scale-migration-of-vms"></a>Skalowanie migracji maszyn wirtualnych 
 
 Ten artykuł pomaga zrozumieć, jak używać skryptów do migrowania dużej liczby maszyn wirtualnych. Do skalowania migracji służy [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-Skrypty Site Recovery są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware, AWS, GCP i serwerów fizycznych do dysków zarządzanych na platformie Azure. Można również użyć tych skryptów do migrowania maszyn wirtualnych funkcji Hyper-V w przypadku migrowania maszyn wirtualnych jako serwerów fizycznych. Skrypty wykorzystujące Azure Site Recovery PowerShell są udokumentowane w [tym miejscu](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Skrypty Site Recovery są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware, AWS, GCP i serwerów fizycznych do dysków zarządzanych na platformie Azure. Można również użyć tych skryptów do migrowania maszyn wirtualnych funkcji Hyper-V w przypadku migrowania maszyn wirtualnych jako serwerów fizycznych. Skrypty wykorzystujące Azure Site Recovery PowerShell są udokumentowane w [tym miejscu](../site-recovery/vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 - Obsługa określania statycznego adresu IP tylko dla podstawowej karty sieciowej docelowej maszyny wirtualnej
@@ -68,4 +69,4 @@ Skrypt domyślnie migruje maszyny wirtualne do dysków zarządzanych na platform
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) na temat migrowania serwerów na platformę Azure przy użyciu Azure Site Recovery
+[Dowiedz się więcej](../site-recovery/migrate-tutorial-on-premises-azure.md) na temat migrowania serwerów na platformę Azure przy użyciu Azure Site Recovery

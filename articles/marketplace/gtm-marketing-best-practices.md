@@ -1,17 +1,18 @@
 ---
 title: Najlepsze rozwiązania marketingowe — Microsoft Commercial Marketplace
 description: Uzyskaj zasoby dotyczące najlepszych rozwiązań w zakresie marketingu dla partnerów publikowanych w usłudze Microsoft AppSource i witrynie Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe43bac3155290ea809b47f7c280cabc51fc73d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658025"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106891"
 ---
 # <a name="marketing-best-practices"></a>Najlepsze rozwiązania marketingowe
 
