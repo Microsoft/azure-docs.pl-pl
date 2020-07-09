@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f41e1d8843783addf601becfda87607253e0a18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135907"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
 
@@ -458,7 +459,9 @@ Proces powinien trwać tylko kilka minut. Aby upewnić się, że krok zakończy�
 
 Żądany wynik powinien wyglądać następująco:
 
-    Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```output
+Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
+```
 
 Jeśli wynik jest inny, Zatrzymaj wdrażanie SAP i sprawdź, dlaczego polecenie instalacji nie działa zgodnie z oczekiwaniami. Wdrożenie aplikacji SAP NetWeaver na wystąpienie SQL Server z różnymi SQL Server CodePage **nie** jest obsługiwane.
 
